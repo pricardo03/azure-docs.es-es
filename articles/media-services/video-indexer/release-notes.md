@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: a8f4174fca1a8703bb112c19e785d4d9686a82f5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453305"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832310"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -29,6 +29,42 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Problemas conocidos
 * Corrección de errores
 * Funciones obsoletas
+
+## <a name="december-2019"></a>Diciembre de 2019
+
+### <a name="update-transcript-with-the-new-api"></a>Actualización de transcripción con la nueva API
+
+Actualice una sección específica de la transcripción mediante la API [Update-Video-Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update).
+
+### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Corrección de la configuración de la cuenta desde el portal de Video Indexer
+
+Ahora puede actualizar la configuración de conexión de Media Services y usar la autoayuda para resolver problemas como estos: 
+
+* Recurso incorrecto de Azure Media Services
+* Cambios de contraseña
+* Los recursos de Media Services se han movido entre suscripciones  
+
+Para corregir la configuración de la cuenta, en el portal de Video Indexer, vaya a Configuración > pestaña Cuenta (como propietario).
+
+### <a name="configure-the-custom-vision-account"></a>Configuración de la cuenta de Custom Vision
+
+Configure la cuenta de Custom Vision en cuentas de pago mediante el portal de Video Indexer (anteriormente, esto solo lo admitía la API). Para ello, inicie sesión en el portal de Video Indexer, elija Personalización de modelos > Personajes animados > Configurar. 
+
+### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>Escenas, tomas y fotogramas clave: ahora en un panel de información detallada
+
+Ahora las escenas, las tomas y los fotogramas clave se combinan en un panel de información detallada para facilitar el consumo y la navegación. Al seleccionar la escena deseada, puede ver qué tomas y fotogramas clave contiene. 
+
+### <a name="notification-about-a-long-video-name"></a>Notificación sobre un nombre de vídeo largo
+
+Cuando el nombre de un vídeo tiene más de 80 caracteres, Video Indexer muestra un error descriptivo durante la carga.
+
+### <a name="streaming-endpoint-is-disabled-notification"></a>Notificación de punto de conexión de streaming deshabilitado
+
+Cuando el punto de conexión de streaming está deshabilitado, Video Indexer mostrará un error descriptivo en la página del reproductor.
+
+### <a name="error-handling-improvement"></a>Mejora en el control de errores
+
+Ahora, si un vídeo se indexa de forma activa, se devolverá el código de estado 409 desde las API [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video? https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) (Volver a indexar el vídeo) y [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) (Actualizar índice de vídeo), para evitar que se invaliden por accidente los cambios de volver a indexar.
 
 ## <a name="november-2019"></a>Noviembre de 2019
  

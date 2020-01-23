@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: feaecbf3b9a39d77f6a60593c8e5f57f14c24ad7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768986"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277976"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Hay tres versiones de Azure Functions Core Tools. La versión que use depende de
 
 + **Versión 1.x**: es compatible con la versión 1.x del entorno en tiempo de ejecución de Azure Functions. Esta versión de las herramientas solo se admite en equipos con Windows y se instala desde un [paquete npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Versión 2.x o 3.x**](#v2): es compatible con la [versión 2.x o 3.x del entorno de ejecución de Azure Functions](functions-versions.md). Estas versiones son compatibles con [Windows](#windows-npm), [macOS](#brew) y [Linux](#linux). Además, usan administradores de paquetes o específicos de la plataforma o npm para la instalación.
++ [**Versión 2.x o 3.x**](#v2): es compatible con la [versión 2.x o 3.x del entorno de ejecución de Azure Functions](functions-versions.md). Estas versiones son compatibles con [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2) y [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). Además, usan administradores de paquetes o específicos de la plataforma o npm para la instalación.
 
 A menos que se indique lo contrario, los ejemplos de este artículo son para la versión 3.x.
 
@@ -45,12 +45,12 @@ A menos que se indique lo contrario, los ejemplos de este artículo son para la 
 
 ### <a name="v2"></a>Versión 2.x y 3.x
 
-La versión 2.x o 3.x de las herramientas usa el entorno en tiempo de ejecución de Azure Functions que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core, incluidas [Windows](#windows-npm), [macOS](#brew) y [Linux](#linux). 
+La versión 2.x o 3.x de las herramientas usa el entorno en tiempo de ejecución de Azure Functions que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core, incluidas [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2) y [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > Puede omitir el requisito de instalar el SDK de .NET Core con los [conjuntos de extensión].
 
-#### <a name="windows-npm"></a>Windows
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También puede usar [Chocolatey](https://chocolatey.org/). Para más información, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
@@ -76,7 +76,7 @@ Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También 
 
 1. Si no planea usar los [conjuntos de extensión], instale el [SDK de .NET Core 2.x para Windows](https://www.microsoft.com/net/download/windows).
 
-#### <a name="brew"></a>MacOS con Homebrew
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
 
@@ -100,7 +100,7 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-#### <a name="linux"></a> Linux (Ubuntu/Debian) con APT
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core Tools en la distribución de Ubuntu/Debian Linux. Para otras distribuciones de Linux, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
@@ -122,7 +122,7 @@ Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core 
    Si desea configurar la lista de origen de APT para Debian, ejecute este comando:
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
 1. Compruebe si el archivo `/etc/apt/sources.list.d/dotnetdev.list` contiene una de las cadenas que se indican a continuación con la versión de Linux apropiada:
@@ -149,6 +149,8 @@ Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core 
     ```
 
 1. Si no planea usar los [conjuntos de extensión], instale el [SDK de .NET Core 2.x para Linux](https://www.microsoft.com/net/download/linux).
+
+---
 
 ## <a name="create-a-local-functions-project"></a>Creación de un proyecto local de Functions
 
@@ -292,9 +294,9 @@ También puede especificar estas opciones en el comando con los argumentos sigui
 | Argumento     | Descripción                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versión 2.x) Genera las mismas plantillas de script de C# (.csx) que se usan en la versión 1.x y en el portal. |
-| **`--language -l`**| Lenguaje de programación de la plantilla, como C#, F# o JavaScript. Esta opción es obligatoria en la versión 1.x. En la versión 2.x, no utilice esta opción o elija un lenguaje que coincida con el entorno de ejecución del trabajo. |
-| **`--name -n`** | Nombre de función. |
-| **`--template -t`** | Use el comando `func templates list` para ver la lista completa de plantillas disponibles para cada lenguaje compatible.   |
+| **`--language`** , **`-l`**| Lenguaje de programación de la plantilla, como C#, F# o JavaScript. Esta opción es obligatoria en la versión 1.x. En la versión 2.x, no utilice esta opción o elija un lenguaje que coincida con el entorno de ejecución del trabajo. |
+| **`--name`** , **`-n`** | Nombre de función. |
+| **`--template`** , **`-t`** | Use el comando `func templates list` para ver la lista completa de plantillas disponibles para cada lenguaje compatible.   |
 
 Por ejemplo, para crear un desencadenador HTTP de JavaScript en un único comando, ejecute:
 
@@ -351,13 +353,13 @@ func host start
 | **`--cert`** | La ruta de acceso a un archivo .pfx que contiene una clave privada. Solo se usa con `--useHttps`. Solo versión 2.x. |
 | **`--cors-credentials`** | Permitir solicitudes autenticadas de varios orígenes (es decir, cookies y el encabezado de autenticación) Solo versión 2.x. |
 | **`--cors`** | Lista separada por comas de orígenes CORS, sin espacios en blanco. |
-| **`--language-worker`** | Argumento para configurar el trabajo del lenguaje. Por ejemplo, puede habilitar la depuración para el trabajo de lenguaje proporcionando el [puerto de depuración y otros argumentos necesarios](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Solo versión 2.x. |
-| **`--nodeDebugPort -n`** | Puerto del depurador Node.js que se va a usar. Valor predeterminado: un valor de launch.json o 5858. Solo versión 1.x. |
+| **`--language-worker`** | Argumentos para configurar el trabajo del lenguaje. Por ejemplo, puede habilitar la depuración para el trabajo de lenguaje proporcionando el [puerto de depuración y otros argumentos necesarios](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Solo versión 2.x. |
+| **`--nodeDebugPort`** , **`-n`** | Puerto del depurador Node.js que se va a usar. Valor predeterminado: un valor de launch.json o 5858. Solo versión 1.x. |
 | **`--password`** | La contraseña o un archivo que contenga la contraseña de un archivo. pfx. Solo se usa con `--cert`. Solo versión 2.x. |
-| **`--port -p`** | Puerto local en el que se escucha. Valor predeterminado: 7071. |
+| **`--port`** , **`-p`** | Puerto local en el que se escucha. Valor predeterminado: 7071. |
 | **`--pause-on-error`** | Se pone en pausa en espera de entrada adicional antes de salir del proceso. Se utiliza solo cuando se inicia Core Tools desde un entorno de desarrollo integrado (IDE).|
-| **`--script-root --prefix`** | Se usa para especificar la ruta de acceso a la raíz de la aplicación de función que se va a ejecutar o implementar. Esto se usa para los proyectos compilados que generan archivos de proyecto en una subcarpeta. Por ejemplo, cuando se compila un proyecto de biblioteca de clases de C#, los archivos host.json, local.settings.json y function.json se generan en una subcarpeta *raíz* con una ruta de acceso similar a `MyProject/bin/Debug/netstandard2.0`. En este caso, establezca el prefijo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta es la raíz de la aplicación de función cuando se ejecuta en Azure. |
-| **`--timeout -t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
+| **`--script-root`** , **`--prefix`** | Se usa para especificar la ruta de acceso a la raíz de la aplicación de función que se va a ejecutar o implementar. Esto se usa para los proyectos compilados que generan archivos de proyecto en una subcarpeta. Por ejemplo, cuando se compila un proyecto de biblioteca de clases de C#, los archivos host.json, local.settings.json y function.json se generan en una subcarpeta *raíz* con una ruta de acceso similar a `MyProject/bin/Debug/netstandard2.0`. En este caso, establezca el prefijo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta es la raíz de la aplicación de función cuando se ejecuta en Azure. |
+| **`--timeout`** , **`-t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
 | **`--useHttps`** | Enlace con `https://localhost:{port}` en lugar de con `http://localhost:{port}`. De forma predeterminada, esta opción crea un certificado de confianza en el equipo.|
 
 Cuando se inicia el host de Functions, devuelve la dirección URL de las funciones desencadenadas por HTTP:
@@ -437,10 +439,10 @@ También puede invocar una función directamente con `func run <FunctionName>` y
 
 | Opción     | Descripción                            |
 | ------------ | -------------------------------------- |
-| **`--content -c`** | Contenido alineado. |
-| **`--debug -d`** | Se asocia un depurador al proceso de host antes de ejecutar la función.|
-| **`--timeout -t`** | Tiempo de espera (en segundos) hasta que el host local de Functions está listo.|
-| **`--file -f`** | Nombre del archivo que se usa como contenido.|
+| **`--content`** , **`-c`** | Contenido alineado. |
+| **`--debug`** , **`-d`** | Se asocia un depurador al proceso de host antes de ejecutar la función.|
+| **`--timeout`** , **`-t`** | Tiempo de espera (en segundos) hasta que el host local de Functions está listo.|
+| **`--file`** , **`-f`** | Nombre del archivo que se usa como contenido.|
 | **`--no-interactive`** | No pide entrada. Resulta útil en escenarios de automatización.|
 
 Por ejemplo, para llamar a una función desencadenada por HTTP y pasar cuerpo del contenido, ejecute el siguiente comando:
@@ -480,12 +482,12 @@ Las siguientes opciones de publicación solo se admiten en la versión 2.x:
 
 | Opción     | Descripción                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only -o`** |  Solo se publica la configuración y se omite el contenido. El valor predeterminado es Preguntar. |
+| **`--publish-settings-only`** , **`-o`** |  Solo se publica la configuración y se omite el contenido. El valor predeterminado es Preguntar. |
 |**`--list-ignored-files`** | Muestra una lista de archivos que se omiten durante la publicación, según el archivo .funcignore. |
 | **`--list-included-files`** | Muestra una lista de archivos que se publican, según el archivo .funcignore. |
 | **`--nozip`** | Desactiva el modo `Run-From-Package` predeterminado. |
 | **`--build-native-deps`** | Omite la generación de la carpeta .wheels al publicar aplicaciones de función de Python. |
-| **`--build`**<br/>**`-b`** | Realiza la acción de compilación cuando se implementa en una aplicación de función de Linux. Acepta `remote` y `local`. |
+| **`--build`** , **`-b`** | Realiza la acción de compilación cuando se implementa en una aplicación de función de Linux. Acepta `remote` y `local`. |
 | **`--additional-packages`** | Lista de paquetes para instalar al crear dependencias nativas. Por ejemplo: `python3-dev libevent-dev`. |
 | **`--force`** | Omite la comprobación previa a la publicación en determinados escenarios. |
 | **`--csx`** | Publica un proyecto de script de C# (.csx). |

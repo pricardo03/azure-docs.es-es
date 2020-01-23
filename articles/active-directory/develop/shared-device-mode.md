@@ -16,12 +16,12 @@ ms.author: twhitney
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: babbaf75b91dfb870ba5001d23f62c5461a28218
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 70f629af35978771d48d0a29f9ec625628c3b630
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030951"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291267"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartido para dispositivos Android
 
@@ -39,7 +39,7 @@ El modo de dispositivo compartido también proporciona la administración del di
 Para crear una aplicación en modo de dispositivo compartido, los desarrolladores y los administradores de dispositivos en la nube trabajan juntos:
 
 - Los desarrolladores escriben una aplicación de una sola cuenta (las aplicaciones de varias cuentas no se admiten en el modo de dispositivo compartido), agregan `"shared_device_mode_supported": true` a la configuración de la aplicación y escriben código para controlar aspectos como el cierre de sesión del dispositivo compartido.
-- Los administradores de dispositivos preparan el dispositivo que se va a compartir mediante la instalación de la aplicación de autenticación y el establecimiento del dispositivo en modo compartido mediante dicha aplicación. Solo los usuarios que se encuentran en el rol [administrador de dispositivos en la nube](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) pueden poner un dispositivo en modo compartido mediante la [aplicación de autenticación](https://www.microsoft.com/account/authenticator). Puede configurar la pertenencia de los roles de la organización en Azure Portal mediante: **Azure Active Directory** > **Roles y administradores**  > **Administrador de dispositivos en la nube**.
+- Los administradores de dispositivos preparan el dispositivo que se va a compartir mediante la instalación de la aplicación de autenticación y el establecimiento del dispositivo en modo compartido mediante dicha aplicación. Solo los usuarios que se encuentran en el rol [administrador de dispositivos en la nube](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) pueden poner un dispositivo en modo compartido mediante la [aplicación de autenticación](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). Puede configurar la pertenencia de los roles de la organización en Azure Portal mediante: **Azure Active Directory** > **Roles y administradores**  > **Administrador de dispositivos en la nube**.
 
  Este artículo se centra principalmente en lo que los desarrolladores deben considerar.
 

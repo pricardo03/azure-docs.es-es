@@ -3,13 +3,13 @@ title: Supervisión de Azure Blockchain Service (ABS)
 description: Supervisión de Azure Blockchain Service a través de Azure Monitor
 ms.date: 01/08/2020
 ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 8c2dc6afeaa00e4c7455940cbdf5a7acd6e17394
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.reviewer: v-umha
+ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780724"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293256"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Supervisión de Azure Blockchain Service a través de Azure Monitor  
 
@@ -133,10 +133,10 @@ En la tabla siguiente se especifica la lista de métricas de Blockchain que se r
 
 | Nombre de métrica | Unidad  |  Tipo de agregación| Descripción   |
 |---|---|---|---|
-| Transacciones pendientes   | Count  |  Average | Número de transacciones que esperan extracción.   |
-| Bloques procesados   | Count  | Sum  |  Número de bloques procesados en cada intervalo de tiempo. Actualmente, el tamaño de bloque es de 5 segundos, por lo que cada nodo procesará 12 bloques y 60 bloques en 5 minutos.   |
-|Transacciones procesadas    | Count  | Sum  | Número de transacciones procesadas en un bloque.    |
-|Transacciones en cola    |  Count | Average  | Número de transacciones que no pueden extraerse de inmediato. Puede deberse a que han llegado fuera de orden y la futura está esperando a que llegue la anterior. O bien, puede ser que dos transacciones tengan el mismo número que se usa solo una vez (nonce) y el mismo valor de gas; por lo tanto, no se puede extraer e segunda.   |
+| Pending Transactions (Transacciones pendientes)   | Count  |  Average | Número de transacciones que esperan extracción.   |
+| Processed Blocks (Bloques procesados)   | Count  | Sum  |  Número de bloques procesados en cada intervalo de tiempo. Actualmente, el tamaño de bloque es de 5 segundos, por lo que cada nodo procesará 12 bloques y 60 bloques en 5 minutos.   |
+|Processed Transactions (Transacciones procesadas)    | Count  | Sum  | Número de transacciones procesadas en un bloque.    |
+|Queued Transactions (Transacciones en cola)    |  Count | Average  | Número de transacciones que no pueden extraerse de inmediato. Puede deberse a que han llegado fuera de orden y la futura está esperando a que llegue la anterior. O bien, puede ser que dos transacciones tengan el mismo número que se usa solo una vez (nonce) y el mismo valor de gas; por lo tanto, no se puede extraer e segunda.   |
 
 ### <a name="connection-metrics"></a>Métricas de conexión  
 
@@ -145,10 +145,10 @@ En la tabla siguiente se enumeran las diferentes métricas de conexión que se r
 
 | Nombre de métrica | Unidad  |  Tipo de agregación| Descripción |
 |---|---|---|---|
-| Conexiones aceptadas   | Count  |  Sum | Número total de conexiones de cliente aceptadas.   |
+| Accepted Connections (Conexiones aceptadas)   | Count  |  Sum | Número total de conexiones de cliente aceptadas.   |
 | Conexiones activas  | Count  | Average  |  Número actual de conexiones de cliente activas, incluidas las conexiones en espera.    |
-|Conexiones controladas    | Count  | Sum  | Número total de conexiones controladas. Por lo general, el valor del parámetro es el mismo que el de las conexiones aceptadas, a menos que se hayan alcanzado algunos límites de recursos.     |
-|Solicitudes controladas     |  Count | Sum  | Número total de solicitudes de cliente.  |
+|Handled Connections (Conexiones controladas)    | Count  | Sum  | Número total de conexiones controladas. Por lo general, el valor del parámetro es el mismo que el de las conexiones aceptadas, a menos que se hayan alcanzado algunos límites de recursos.     |
+|Handled Requests (Solicitudes controladas)     |  Count | Sum  | Número total de solicitudes de cliente.  |
 
 
 ### <a name="performance-metrics"></a>Métricas de rendimiento.
@@ -159,12 +159,12 @@ En la tabla siguiente se enumeran las métricas de conexión que se recopilan pa
 | Nombre de métrica | Unidad  |  Tipo de agregación| Descripción   |
 |---|---|---|---|
 | Porcentaje de uso de CPU   | Porcentaje  |  Max | Porcentaje de uso de CPU.     |
-| Bytes de lectura de E/S   | Kilobytes   | Sum  |  Suma de bytes de lectura de E/S en todos los nodos del recurso de miembro de la cadena de bloques.      |
-|Bytes de escritura de E/S     | Kilobytes   | Sum  | Suma de bytes de escritura de E/S en todos los nodos del recurso de miembro de la cadena de bloques.     |
-|Límite de memoria       |  Gigabytes   | Average    | Memoria máxima disponible para el proceso de la cadena de bloques por nodo. |
+| IO Read Bytes (Bytes de lectura de E/S)   | Kilobytes   | Sum  |  Suma de bytes de lectura de E/S en todos los nodos del recurso de miembro de la cadena de bloques.      |
+|IO Write Bytes (Bytes de escritura de E/S)     | Kilobytes   | Sum  | Suma de bytes de escritura de E/S en todos los nodos del recurso de miembro de la cadena de bloques.     |
+|Memory Limit (Límite de memoria)       |  Gigabytes   | Average    | Memoria máxima disponible para el proceso de la cadena de bloques por nodo. |
 |Uso de la memoria     | Gigabytes  |  Average | Cantidad de memoria utilizada en promedio en todos los nodos.  |
-| Porcentaje de uso de memoria     | Porcentaje   | Average  |  Porcentaje de memoria utilizada en promedio en todos los nodos.       |
-|Uso del almacenamiento      | Gigabytes   | Average  | GB de almacenamiento utilizado en promedio en todos los nodos.       |
+| Memory Usage Percentage (Porcentaje de uso de memoria)     | Porcentaje   | Average  |  Porcentaje de memoria utilizada en promedio en todos los nodos.       |
+|Storage Usage (Uso del almacenamiento)      | Gigabytes   | Average  | GB de almacenamiento utilizado en promedio en todos los nodos.       |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

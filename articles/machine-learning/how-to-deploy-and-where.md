@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754008"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543569"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Para más información sobre los conceptos implicados en el flujo de trabajo de 
 
 - Un modelo. Si no tiene un modelo entrenado, puede usar el modelo y los archivos de dependencia que se proporcionan en [este tutorial](https://aka.ms/azml-deploy-cloud).
 
-- La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o la [extensión de Visual Studio Code para Azure Machine Learning](how-to-vscode-tools.md).
+- La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o la [extensión de Visual Studio Code para Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
 ## <a name="connect-to-your-workspace"></a>Conexión con su área de trabajo
 
@@ -59,7 +59,7 @@ En el código siguiente se muestra cómo conectarse a un área de trabajo de Azu
 
 + **Uso de Visual Studio Code**
 
-   Cuando use VS Code, seleccione el área de trabajo mediante una interfaz gráfica. Para más información, consulte [Implementación y administración de modelos](how-to-vscode-tools.md#deploy-and-manage-models) en la documentación de la extensión de VS Code.
+   Cuando use VS Code, seleccione el área de trabajo mediante una interfaz gráfica. Para más información, consulte [Implementación y administración de modelos](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) en la documentación de la extensión de VS Code.
 
 ## <a id="registermodel"></a> Registro del modelo
 
@@ -115,7 +115,7 @@ En los fragmentos de código de esta sección se muestra cómo registrar un mode
 
 + **Uso de Visual Studio Code**
 
-  Registre los modelos usando todas las carpetas o archivos de modelo mediante la extensión [VS Code](how-to-vscode-tools.md#deploy-and-manage-models).
+  Registre los modelos usando todas las carpetas o archivos de modelo mediante la extensión [VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 ### <a name="register-a-model-from-a-local-file"></a>Registrar un modelo desde un archivo local
 
@@ -185,7 +185,7 @@ Para implementar el modelo, necesita los siguientes elementos:
     >
     > * El SDK de Azure Machine Learning no proporciona una manera para que las implementaciones de servicios web o IoT Edge tengan acceso al almacén de datos o a los conjuntos de datos. Si el modelo implementado necesita acceder a los datos almacenados fuera de la implementación, como los datos de una cuenta de almacenamiento de Azure, debe desarrollar una solución de código personalizada mediante el SDK pertinente. Por ejemplo, el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python).
     >
-    >   Otra alternativa que puede funcionar para su escenario son las [predicciones por lotes](how-to-run-batch-predictions.md), que proporcionan acceso a los almacenes de datos durante la puntuación.
+    >   Otra alternativa que puede funcionar para su escenario son las [predicciones por lotes](how-to-use-parallel-run-step.md), que proporcionan acceso a los almacenes de datos durante la puntuación.
 
 * **Dependencias**, como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
 
@@ -551,7 +551,7 @@ Antes de implementar el modelo como un servicio, puede que desee generar un perf
 
 ```python
 import json
-test_sample = json.dumps({'data': [
+test_data = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10]
 ]})
 

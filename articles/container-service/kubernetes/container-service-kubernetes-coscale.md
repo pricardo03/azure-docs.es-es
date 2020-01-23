@@ -1,20 +1,18 @@
 ---
 title: (EN DESUSO) Supervisión de un clúster de Azure Kubernetes con CoScale
 description: Supervisión de un clúster de Kubernetes en Azure Container Service mediante CoScale
-services: container-service
 author: fryckbos
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713084"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271108"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(EN DESUSO) Supervisión de un clúster de Kubernetes de Azure Container Service con CoScale
 
@@ -32,7 +30,7 @@ CoScale es una plataforma de supervisión que recopila métricas y eventos de to
 Como se muestra en este artículo, se pueden instalar agentes en un clúster de Kubernetes para ejecutar CoScale como solución de SaaS. Si desea conservar los datos en un entorno local, CoScale también estará disponible para su instalación local.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En primer lugar, es preciso [crear una cuenta de CoScale](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
 

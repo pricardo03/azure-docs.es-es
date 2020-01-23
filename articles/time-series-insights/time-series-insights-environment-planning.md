@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: ab8baa810c36c794bbefd264c5588f8b28cbd62a
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 972bb2a804057037deedb448674abafcc175b21f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046191"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314817"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planificación del entorno de Azure Time Series Insights de disponibilidad general
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo planear el entorno de disponibilidad general
 
 ## <a name="video"></a>Vídeo
 
-**Vea este vídeo para obtener más información sobre la retención de datos en Azure Time Series Insights y cómo planearla**:<br />
+**Vea este vídeo para obtener más información sobre la retención de datos en Azure Time Series Insights y cómo planearla**:<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -68,7 +68,7 @@ Puede ajustar la retención y alternar entre ambos modos en la página de config
 
 1. En el cuadro **Tiempo de retención de datos (en días)** , escriba un valor entre 1 y 400.
 
-   [![Configuración de la retención](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+   [![Configuración de la retención](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
 > [!TIP]
 > Para obtener más información sobre cómo implementar una directiva de retención de datos adecuada, consulte [Cómo configurar la retención](./time-series-insights-how-to-configure-retention.md).

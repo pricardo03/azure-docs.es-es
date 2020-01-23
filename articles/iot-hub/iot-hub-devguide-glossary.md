@@ -165,7 +165,7 @@ IoT Hub es un servicio de Azure totalmente administrado que permite la comunicac
 Las [métricas de IoT Hub](iot-hub-metrics.md) ofrecen datos sobre el estado de los centros de IoT en la [suscripción de Azure](#subscription). Las métricas de IoT Hub permiten evaluar el estado general del servicio y de los dispositivos conectados a él. Las métricas de IoT Hub pueden ayudar a ver lo que está ocurriendo con el centro de IoT y a investigar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 ## <a name="iot-hub-query-language"></a>Lenguaje de consulta de IoT Hub
-El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un lenguaje de tipo SQL que permite consultar los [trabajos](#job) y sus dispositivos gemelos.
+El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un lenguaje de tipo SQL que permite consultar los [](#job) y sus dispositivos gemelos.
 
 ## <a name="iot-hub-resource-rest-api"></a>API REST de recursos de IoT Hub
 Puede usar la [API REST de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) para administrar los centros de IoT Hub en la [suscripción de Azure](#subscription); por ejemplo, puede realizar operaciones como crear, actualizar y eliminar centros.

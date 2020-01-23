@@ -9,16 +9,16 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 92bfa4f13467763fd88b9ae993554aef69355d75
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555229"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981843"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
-El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar objetos de datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). En este estado, los usuarios no pueden borrar ni modificar los datos durante el intervalo de tiempo especificado por el usuario. Durante el intervalo de retención los blobs se pueden crear y leer, pero no modificar ni eliminar. El almacenamiento inmutable está disponible para cuentas de almacenamiento de uso general v2 y de Blob Storage en todas las regiones de Azure.
+El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar objetos de datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). En este estado, los usuarios no pueden borrar ni modificar los datos durante el intervalo de tiempo especificado por el usuario. Mientras dure el intervalo de retención, se pueden crear y leer blobs, pero no modificar ni eliminar. El almacenamiento inmutable está disponible en las cuentas de uso general v1, de uso general v2, BlobStorage y BlockBlobStorage de todas las regiones de Azure.
 
 Para obtener información sobre cómo establecer y borrar las suspensiones legales o crear una directiva de retención basada en el tiempo mediante Azure Portal, PowerShell o la CLI de Azure, vea [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md).
 
@@ -44,57 +44,81 @@ El almacenamiento inmutable admite las características siguientes:
 
 - **Configuración en el nivel de contenedor**: los usuarios pueden configurar las directivas de retención con duración definida y las etiquetas de suspensión legal a nivel del contenedor. Mediante valores de configuración sencillos en el nivel de contenedor, los usuarios pueden crear y bloquear las directivas de retención con duración definida, ampliar los intervalos de retención, establecer y eliminar suspensiones legales, etc. Estas directivas se aplican a todos los blobs del contenedor, tanto a los nuevos como a los existentes.
 
-- **Compatibilidad con el registro de auditoría**: todos los contenedores incluyen un registro de auditoría de directiva. En él se muestran hasta siete comandos de retención con duración definida para las directivas de retención con duración definida bloqueadas y contiene el identificador de usuario, el tipo de comando, las marcas de tiempo y el intervalo de retención. En el caso de las suspensiones legales, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. Este registro se conserva mientras dure la directiva, de acuerdo con las directrices de regulación SEC 17a-4(f). El [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md) muestra un registro más completo de todas las actividades del plano de control, mientras que al habilitar los [registros de diagnóstico de Azure](../../azure-monitor/platform/resource-logs-overview.md) se conservan y se muestran las operaciones del plano de datos. Es responsabilidad del usuario almacenar dichos registros de forma persistente, ya que podría ser obligatorio por ley o por otros fines.
+- **Compatibilidad con el registro de auditoría**: todos los contenedores incluyen un registro de auditoría de directiva. En él se muestran hasta siete comandos de retención con duración definida para las directivas de retención con duración definida bloqueadas y contiene el identificador de usuario, el tipo de comando, las marcas de tiempo y el intervalo de retención. En el caso de las suspensiones legales, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. Este registro se conserva mientras dure la directiva, de acuerdo con las directrices de regulación SEC 17a-4(f). El [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md) muestra un registro más completo de todas las actividades del plano de control, mientras que al habilitar los [registros de diagnóstico de Azure](../../azure-monitor/platform/platform-logs-overview.md) se conservan y se muestran las operaciones del plano de datos. Es responsabilidad del usuario almacenar dichos registros de forma persistente, ya que podría ser obligatorio por ley o por otros fines.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
-Almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas inmutables o WORM: retención con duración definida y suspensiones legales. Cuando se aplica una directiva de retención con duración definida o una suspensión legal a un contenedor, todos los blobs existentes pasan al estado WORM inmutable en menos de 30 segundos. Todos los nuevos blobs que se carguen en el contenedor también pasan al estado inmutable. Una vez que todos los blobs han pasado al estado inmutable, la directiva inmutable se confirma y no se permite ninguna operación de sobrescritura o eliminación de los objetos nuevos y existentes en el contenedor inmutable.
+Almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas inmutables o WORM: retención con duración definida y suspensiones legales. Cuando se aplica una directiva de retención con duración definida o una suspensión legal a un contenedor, todos los blobs existentes pasan al estado WORM inmutable en menos de 30 segundos. Todos los nuevos blobs que se carguen en ese contenedor protegido mediante directiva también pasarán a un estado inmutable. Una vez que todos los blobs estén en un estado inmutable, la directiva inmutable se confirma y no se permite ninguna operación de sobrescritura o eliminación en el contenedor inmutable.
 
-No se permite la eliminación de la cuenta de almacenamiento y el contenedor si hay blobs en el contenedor o la cuenta de almacenamiento que están protegidos mediante una directiva inmutable. La operación de eliminación de contenedor producirá un error si hay al menos un blob con una directiva de retención de duración definida o una suspensión legal. Se producirá un error en la operación de eliminación de la cuenta de almacenamiento si hay al menos un contenedor WORM con una suspensión legal o un blob con un intervalo de retención activo.
+Tampoco se permite la eliminación de la cuenta de almacenamiento y el contenedor si hay blobs en un contenedor protegidos mediante una directiva de suspensión legal o de duración definida bloqueada. Una directiva de suspensión legal protegerá contra la eliminación del blob, el contenedor y la cuenta de almacenamiento. Las directivas de duración definida bloqueadas y desbloqueadas protegerán contra la eliminación de blobs durante el tiempo especificado. Las directivas de duración definida bloqueadas y desbloqueadas protegerán contra la eliminación del contenedor solo si existe al menos un blob en el contenedor. Solo un contenedor con una directiva de duración definida *bloqueada* protegerá contra eliminaciones de la cuenta de almacenamiento; los contenedores con directivas de duración definida desbloqueadas no ofrecen protección contra la eliminación de la cuenta de almacenamiento ni cumplimiento.
 
-### <a name="time-based-retention-policies"></a>Directivas de retención con duración definida
+Para obtener más información sobre cómo establecer y bloquear las directivas de retención con duración definida, vea [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md).
+
+## <a name="time-based-retention-policies"></a>Directivas de retención con duración definida
 
 > [!IMPORTANT]
 > Una directiva de retención con duración definida debe estar *bloqueada* para que el blob esté en estado inmutable (protegido frente a escritura y eliminación) y, por consiguiente, se cumplan SEC 17a-4(f) y otras regulaciones. Se recomienda bloquear la directiva en un período razonable, normalmente antes de 24 horas. El estado inicial de una directiva de retención con duración definida es *desbloqueada*, lo que permite probar la característica y realizar cambios en la directiva antes de bloquearla. Aunque el estado *desbloqueada* proporciona protección de inmutabilidad, no se recomienda su uso para otros fines que no sean las evaluaciones de la característica a corto plazo. 
 
-Cuando se aplica una directiva de retención con duración definida a un contenedor, todos los blobs de este permanecen en estado inmutable durante el período de retención *efectivo*. El período de retención efectivo para los blobs existentes es igual a la diferencia entre la hora de creación de blob y el intervalo de retención especificado por el usuario.
+Cuando se aplica una directiva de retención con duración definida a un contenedor, todos los blobs de este permanecen en estado inmutable durante el período de retención *efectivo*. El período de retención efectivo para los blobs es igual a la diferencia entre la **hora de creación** del blob y el intervalo de retención especificado por el usuario. Como los usuarios pueden ampliar el intervalo de retención, el almacenamiento inmutable utiliza el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
 
-Para los nuevos blobs, el período de retención efectivo es igual al intervalo de retención especificado por el usuario. Como los usuarios pueden ampliar el intervalo de retención, el almacenamiento inmutable utiliza el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
+Por ejemplo, supongamos que un usuario crea una directiva de retención de duración definida con un intervalo de retención de cinco años. Un blob existente en ese contenedor, _testblob1_, se ha creado hace un año; por tanto, el período de retención efectivo para _testblob1_ es de cuatro años. Cuando se carga un nuevo blob, _testblob2_, en el contenedor, el período de retención efectivo de _testblob2_ es de cinco años a partir de su creación.
 
-Por ejemplo, supongamos que un usuario crea una directiva de retención de duración definida con un intervalo de retención de cinco años. El blob que hay en ese contenedor, _testblob1_, se ha creado hace un año. El período de retención efectivo de _testblob1_ es de cuatro años. Cuando se carga un nuevo blob, _testblob2_, en el contenedor, el período de retención efectivo del nuevo blob es de cinco años.
-
-Se recomienda una directiva de retención con duración definida desbloqueada solo para probar la característica; no obstante, una directiva debe estar bloqueada para el cumplimiento de SEC 17a-4(f) y otras normas. Una vez que se ha bloqueado una directiva de retención con duración definida, no se puede quitar la directiva y se permite un máximo de cinco aumentos al período de retención efectivo. Para obtener más información sobre cómo establecer y bloquear las directivas de retención con duración definida, vea [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md).
+Se recomienda una directiva de retención con duración definida desbloqueada solo para probar la característica; no obstante, una directiva debe estar bloqueada para el cumplimiento de SEC 17a-4(f) y otras normas. Una vez que se ha bloqueado una directiva de retención con duración definida, no se puede quitar la directiva y se permite un máximo de cinco aumentos al período de retención efectivo.
 
 Los límites siguientes se aplican a las directivas de retención:
 
-- En el caso de una cuenta de almacenamiento, el número máximo de contenedores con directivas inmutables con duración definida bloqueadas es 1000.
+- En el caso de una cuenta de almacenamiento, el número máximo de contenedores con directivas inmutables de duración definida bloqueadas es 10 000.
 - El intervalo de retención mínimo es un día. El máximo es 146 000 días (400 años).
 - Para un contenedor, el número máximo de modificaciones para ampliar un intervalo de retención para las directivas inmutables con duración definida bloqueadas es 5.
 - En el caso de un contenedor, se retiene un máximo de siete registros de auditoría de la directiva de retención con duración definida para una directiva bloqueada.
 
-### <a name="legal-holds"></a>Retenciones legales
+### <a name="allow-protected-append-blobs-writes"></a>Permitir escrituras de blobs en anexos protegidos
 
-Si se establece una suspensión legal, tanto los blobs nuevos como los existentes permanecen en estado inmutable hasta que se elimine dicha suspensión. Para obtener más información sobre cómo establecer y borrar las suspensiones legales, vea [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md).
+Los blobs en anexos se componen de bloques de datos y se optimizan para las operaciones de anexión de datos necesarias en escenarios de auditoría y registro. Por diseño, los blobs en anexos solo permiten agregar nuevos bloques al final del blob. Con independencia de la inmutabilidad, la modificación o eliminación de los bloques existentes en un blob en anexos básicamente no se permite. Para más información sobre los blobs en anexos, vea [Acerca de los blobs en anexos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+
+Solo las directivas de retención de duración definida tienen una configuración `allowProtectedAppendWrites` que permite escribir nuevos bloques en un blob en anexos al tiempo que se mantiene la protección y el cumplimiento de inmutabilidad. Si se habilita, puede crear un blob en anexos directamente en el contenedor protegido mediante la directiva y continuar agregando nuevos bloques de datos al final de los blobs en anexos existentes mediante la API *AppendBlock*. Solo se pueden agregar nuevos bloques y los bloques existentes no se pueden modificar ni eliminar. Se sigue aplicando la protección de inmutabilidad de retención de tiempo, lo que impide la eliminación del blob en anexos hasta que haya transcurrido el período de retención vigente. La habilitación de esta configuración no afecta al comportamiento de inmutabilidad de los blobs en bloques ni los blobs en páginas.
+
+Como esta configuración forma parte de una directiva de retención de duración definida, los blobs en anexos todavía pueden permanecer en el estado inmutable durante el período de retención *efectivo*. Como se pueden anexar nuevos datos más allá de la creación inicial del blob en anexos, hay una ligera diferencia en el modo de determinar el período de retención. El período de retención efectivo es la diferencia entre la **hora de última modificación** del blob en anexos y el intervalo de retención especificado por el usuario. Como sucede al ampliar el intervalo de retención, el almacenamiento inmutable usa el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
+
+Por ejemplo, imagine que un usuario crea una directiva de retención de duración definida con `allowProtectedAppendWrites` habilitado y un intervalo de retención de 90 días. En el día de hoy, se crea un blob en anexos, _logblob1_, en el contenedor y se siguen agregando nuevos registros al blob en anexos durante los próximos 10 días; por tanto, el período de retención efectivo de _logblob1_ es de 100 días a partir de hoy (la hora de la última anexión + 90 días).
+
+Las directivas de retención de duración definida desbloqueadas permiten habilitar y deshabilitar la configuración `allowProtectedAppendWrites` en cualquier momento. Una vez que se ha bloqueado la directiva de retención de duración definida, no se puede cambiar el valor de `allowProtectedAppendWrites`.
+
+Las directivas de suspensión legal no pueden habilitar `allowProtectedAppendWrites` y no permiten que se agreguen nuevos bloques a los blobs en anexos. Si se aplica la suspensión legal a una directiva de retención de duración definida con `allowProtectedAppendWrites` habilitada, se producirá un error en la API *AppendBlock* hasta que se levante la suspensión legal.
+
+> [!IMPORTANT] 
+> La configuración para permitir escrituras de blobs en anexos protegidos en la retención de duración definida está disponible actualmente en las regiones siguientes:
+> - East US
+> - Centro-Sur de EE. UU
+> - Oeste de EE. UU. 2
+>
+> En este momento, se recomienda encarecidamente que no habilite `allowProtectedAppendWrites` en otras regiones, además de las especificadas, ya que puede producir errores intermitentes y afectar al cumplimiento de los blobs en anexos. Para más información sobre cómo establecer y bloquear las directivas de retención de duración definida, vea [Permitir escrituras de blobs en anexos protegidos](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+
+## <a name="legal-holds"></a>Retenciones legales
+
+Las suspensiones legales son suspensiones temporales que se pueden usar con fines de investigación legal o directivas de protección general. Cada directiva de suspensión legal debe estar asociada a una o varias etiquetas. Las etiquetas se usan como un identificador con nombre, como un identificador de caso o un evento, para categorizar y describir el propósito de la suspensión.
 
 Un contenedor puede tener una suspensión legal y una directiva de retención con duración definida al mismo tiempo. Todos los blobs de ese contenedor permanecen en estado inmutable hasta que se eliminen todas las suspensiones legales, aunque haya expirado el período de retención efectivo. Por el contrario, un blob permanece en estado inmutable hasta que expire el período de retención efectivo, aunque se hayan eliminado todas las suspensiones legales.
 
-La tabla siguiente muestra los tipos de operaciones de almacenamiento de blobs que se deshabilitan para los diferentes escenarios de inmutabilidad. Para obtener más información, vea la documentación de la [API REST de servicios Azure Blob](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
-
-|Escenario  |Estado del blob  |Operaciones de blob no permitidas  |
-|---------|---------|---------|
-|El intervalo de retención efectivo del blob no ha expirado todavía o se ha establecido una retención legal     |Inmutable: protegido frente a eliminación y escritura         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
-|El intervalo de retención efectivo del blob ha expirado     |Protegido contra escritura únicamente (están permitidas las operaciones de eliminación)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
-|Todas las suspensiones legales eliminadas y sin ninguna directiva de retención basada en el tiempo establecida en el contenedor     |Mutable         |None         |
-|No se crea ninguna directiva WORM (retención basada en el tiempo o suspensión legal)     |Mutable         |None         |
-
-<sup>1</sup> la aplicación permite que estas operaciones creen un blob una vez. Todas las sucesivas operaciones de sobrescritura en una ruta de acceso de blob existente en un contenedor inmutable no se permiten.
-
 Los límites siguientes se aplican a las suspensiones legales:
 
-- En el caso de una cuenta de almacenamiento, el número máximo de contenedores con un valor de suspensión legal es 1.000.
+- En el caso de una cuenta de almacenamiento, el número máximo de contenedores con un valor de suspensión legal es 10 000.
 - En un contenedor, el número máximo de etiquetas de suspensión legal es 10.
 - La longitud mínima de una etiqueta de suspensión legal es de tres caracteres alfanuméricos. La longitud máxima es de 23 caracteres alfanuméricos.
 - Para un contenedor, se conservan hasta 10 registros de auditoría de directiva de suspensión legal lo que dura la directiva.
+
+## <a name="scenarios"></a>Escenarios
+La tabla siguiente muestra los tipos de operaciones de almacenamiento de blobs que se deshabilitan para los diferentes escenarios de inmutabilidad. Para obtener más información, vea la documentación de la [API REST de servicios Azure Blob](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
+
+|Escenario  |Estado del blob  |Operaciones de blob denegadas  |Protección de contenedores y cuentas
+|---------|---------|---------|---------|
+|El intervalo de retención efectivo del blob no ha expirado todavía o se ha establecido una retención legal     |Inmutable: protegido frente a eliminación y escritura         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Eliminación de contenedor denegada; Eliminación de la cuenta de almacenamiento denegada         |
+|El intervalo de retención efectivo del blob ha expirado y no se ha establecido una suspensión legal    |Protegido contra escritura únicamente (están permitidas las operaciones de eliminación)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Eliminación de contenedor denegada si existe al menos un blob en el contenedor protegido; Eliminación de la cuenta de almacenamiento denegada solo para las directivas de duración definida *bloqueadas*         |
+|No se aplica ninguna directiva WORM (sin retención de duración definida ni etiqueta de suspensión legal)     |Mutable         |None         |None         |
+
+<sup>1</sup> El servicio de blob permite que estas operaciones creen un blob una vez. Todas las sucesivas operaciones de sobrescritura en una ruta de acceso de blob existente en un contenedor inmutable no se permiten.
+
+<sup>2</sup> Solo se permite Anexar bloque para las directivas de retención de duración definida con la propiedad `allowProtectedAppendWrites` habilitada. Para más información, vea la sección [Permitir la escritura de blobs en anexos protegidos](#allow-protected-append-blobs-writes).
 
 ## <a name="pricing"></a>Precios
 
@@ -104,15 +128,15 @@ El uso de esta característica no tiene costo adicional. El precio de los datos 
 
 **¿Se puede proporcionar documentación de cumplimiento WORM?**
 
-Sí. Para documentar el cumplimiento, Microsoft ha usado una de las principales empresas de valoración independiente especializada en la administración de registros y la gobernanza de la información, Cohasset Associates. Dicha empresa se ha encargado de evaluar el almacenamiento de blobs inmutable y el cumplimiento con los requisitos específicos del sector de servicios financieros. Cohasset ha validado que el almacenamiento de blobs inmutable, cuando se ha usado para conservar los blobs con duración definida en un estado WORM, cumplía los requisitos de almacenamiento pertinentes de las reglas CFTC 1.31(c)-(d), FINRA 4511 y SEC 17a-4. Microsoft se centró en este conjunto de reglas, ya que representan la guía más prescriptiva globalmente para la retención de registros en las instituciones financieras. El informe de Cohasset está disponible en el [Centro de confianza de servicios de Microsoft](https://aka.ms/AzureWormStorage). Para solicitar una carta de certificación de Microsoft con respecto al cumplimiento WORM, póngase en contacto con el soporte técnico de Azure.
+Sí. Para documentar el cumplimiento, Microsoft ha usado una de las principales empresas de valoración independiente especializada en la administración de registros y la gobernanza de la información, Cohasset Associates. Dicha empresa se ha encargado de evaluar el almacenamiento de blobs inmutable y el cumplimiento con los requisitos específicos del sector de servicios financieros. Cohasset ha validado que el almacenamiento de blobs inmutable, cuando se ha usado para conservar los blobs con duración definida en un estado WORM, cumplía los requisitos de almacenamiento pertinentes de las reglas CFTC 1.31(c)-(d), FINRA 4511 y SEC 17a-4. Microsoft se centró en este conjunto de reglas, ya que representan la guía más prescriptiva globalmente para la retención de registros en las instituciones financieras. El informe de Cohasset está disponible en el [Centro de confianza de servicios de Microsoft](https://aka.ms/AzureWormStorage). Para solicitar una carta de certificación de Microsoft con respecto al cumplimiento de inmutabilidad de WORM, póngase en contacto con el Soporte técnico de Azure.
 
-**¿La característica se aplica solo a los blobs en bloques o también a los blobs en páginas y a los blobs en anexos?**
+**¿La característica se aplica solo a los blobs en bloques y en anexos, o también a los blobs en páginas?**
 
-El almacenamiento inmutable se puede usar con cualquier tipo de blobs cuando se establece en el nivel de contenedor, pero se recomienda usar WORM para los contenedores que almacenan principalmente blobs en bloques. A diferencia de los blobs en bloques, los nuevos blobs en páginas y los blobs en anexos se deben crear fuera de un contenedor WORM y luego se deben copiar en él. Después de copiar estos blobs en un contenedor WORM, no se permiten más *anexos* a un blob en anexos ni cambios en un blob en páginas. No se recomienda establecer una directiva de WORM en un contenedor que almacene discos duros virtuales (blobs en páginas) para cualquier máquina virtual activa, ya que bloqueará el disco de la máquina virtual.
+El almacenamiento inmutable se puede usar con cualquier tipo de blob cuando se establece en el nivel de contenedor, pero se recomienda usar WORM para los contenedores que almacenan principalmente blobs en bloques y blobs en anexos. Los blobs existentes de un contenedor se protegerán mediante una directiva WORM recién establecida. Pero los blobs en páginas se tendrán que crear fuera del contenedor WORM y después copiarse en él. Una vez copiado en un contenedor WORM, no se permiten más cambios en un blob en páginas. No se recomienda establecer una directiva de WORM en un contenedor que almacene discos duros virtuales (blobs en páginas) para cualquier máquina virtual activa, ya que bloqueará el disco de la máquina virtual. Se recomienda revisar exhaustivamente la documentación y probar los escenarios antes de bloquear las directivas de duración definida.
 
 **¿Es necesario crear una cuenta de almacenamiento para usar esta característica?**
 
-No, puede usar el almacenamiento inmutable con cualquier cuenta de almacenamiento de uso general V2 y de blobs existente o recién creada. Esta característica está pensada para su uso con blobs en bloques en cuentas de GPv2 y Blob Storage. Las cuentas de almacenamiento de uso general v1 no se admiten, pero se pueden actualizar fácilmente a uso general v2. Para obtener información sobre la actualización de una cuenta de almacenamiento de uso general v1 existente, vea [Actualización de una cuenta de almacenamiento](../common/storage-account-upgrade.md).
+No, puede usar el almacenamiento inmutable con cualquier cuenta de uso general v1, uso general v2, BlobStorage o BlockBlobStorage existente o recién creada. Se admiten las cuentas de almacenamiento de uso general v1, pero se recomienda actualizar a las de uso general v2 para poder aprovechar otras características. Para obtener información sobre la actualización de una cuenta de almacenamiento de uso general v1 existente, vea [Actualización de una cuenta de almacenamiento](../common/storage-account-upgrade.md).
 
 **¿Se puede aplicar una suspensión legal y una directiva de retención con duración definida a la vez?**
 
@@ -126,15 +150,15 @@ No, la suspensión legal es simplemente el término general que se usa con una d
 
 Solo las directivas de retención con duración definida desbloqueadas se pueden quitar de un contenedor. Una vez que se ha bloqueado una directiva de retención con duración definida, no se puede quitar; solo se permiten extensiones del período de retención efectivo. Se pueden eliminar las etiquetas de suspensión legal. Cuando se eliminan todas las etiquetas legales, se quita la suspensión legal.
 
-**¿Qué ocurre si se intenta eliminar un contenedor con una directiva de retención basada en el tiempo o una retención legal *bloqueada*?**
+**¿Qué ocurre si intento eliminar un contenedor con una directiva de retención de duración definida o de suspensión legal?**
 
-La operación Delete Container producirá un error si hay al menos un blob con una directiva de retención de duración definida o una retención legal. La operación Delete Container solo se ejecutará correctamente si no existe ningún intervalo de retención activo y no hay retenciones legales. Para poder eliminar el contenedor, antes debe eliminar los blobs.
+La operación Eliminar contenedor producirá un error si hay al menos un blob en el contenedor con una directiva de retención de duración definida bloqueada o desbloqueada, o si el contenedor tiene suspensión legal. La operación Eliminar contenedor solo se ejecutará correctamente si no existe ningún blob en el contenedor y no hay suspensiones legales. 
 
-**¿Qué ocurre si se intenta eliminar una cuenta de almacenamiento con un contenedor WORM que tiene una directiva de retención basada en el tiempo o una retención legal*bloqueada*?**
+**¿Qué ocurre si intento eliminar una cuenta de almacenamiento con un contenedor que tiene una directiva de retención de duración definida o una suspensión legal?**
 
-Se producirá un error en la eliminación de la cuenta de almacenamiento si hay al menos un contenedor WORM con una retención legal o un blob con un intervalo de retención activo. Para poder eliminar la cuenta de almacenamiento, antes debe eliminar todos los contenedores WORM. Para obtener información acerca de la eliminación de contenedores, vea la pregunta anterior.
+Se producirá un error en la eliminación de la cuenta de almacenamiento si hay al menos un contenedor con una suspensión legal establecida o una directiva de duración definida **bloqueada**. Un contenedor con una directiva de duración definida desbloqueada no protege contra la eliminación de la cuenta de almacenamiento. Tendrá que eliminar todas las suspensiones legales y todos los contenedores **bloqueados** antes de poder eliminar la cuenta de almacenamiento. Para obtener información acerca de la eliminación de contenedores, vea la pregunta anterior. También puede aplicar más protecciones de eliminación para la cuenta de almacenamiento con [bloqueos de Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).
 
-**¿Puedo mover los datos entre distintos niveles de blob (nivel de acceso frecuente, esporádico, poco frecuente) cuando el blob está en estado inmutable?**
+**¿Puedo mover los datos entre distintos niveles de blob (de acceso frecuente, esporádico, de archivo) cuando el blob está en el estado inmutable?**
 
 Sí, puede usar el comando Set Blob Tier para mover datos entre los niveles de blob y mantenerlos al mismo tiempo en estado inmutable compatible. El almacenamiento inmutable solamente se admite en los niveles de blob de acceso frecuente, de acceso esporádico y de archivo.
 
@@ -148,12 +172,11 @@ Sí. Cuando se crea por primera vez una directiva de retención con duración de
 
 **¿Se puede usar la eliminación temporal junto con las directivas de blob inmutables?**
 
-Sí. La [eliminación temporal para Azure Blob Storage](storage-blob-soft-delete.md) se aplica a todos los contenedores dentro de una cuenta de almacenamiento, con independencia de que exista una directiva de retención con duración definida o una suspensión legal. Se recomienda habilitar la eliminación temporal para mayor protección antes de aplicar y confirmar las directivas WORM inmutables.
-
-**¿Dónde está disponible la característica?**
-
-El almacenamiento inmutable está disponible en las regiones Government, China y Azure público. Si el almacenamiento inmutable no está disponible en su región, envíe un correo al servicio de soporte técnico a la dirección azurestoragefeedback@microsoft.com.
+Sí, si los requisitos de cumplimiento permiten habilitar la eliminación temporal. La [eliminación temporal para Azure Blob Storage](storage-blob-soft-delete.md) se aplica a todos los contenedores dentro de una cuenta de almacenamiento, con independencia de que exista una directiva de retención con duración definida o una suspensión legal. Se recomienda habilitar la eliminación temporal para mayor protección antes de aplicar y confirmar las directivas WORM inmutables.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md)
+- [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md)
+- [Establecimiento de reglas para organizar y eliminar automáticamente datos de blob con administración del ciclo de vida](storage-lifecycle-management-concepts.md)
+- [Eliminación temporal de blobs de Azure Storage](../blobs/storage-blob-soft-delete.md)
+- [Protección de suscripciones, grupos de recursos y recursos con bloqueos de Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).

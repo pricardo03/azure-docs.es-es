@@ -1,6 +1,6 @@
 ---
-title: Formato de datos GeoJSON de geovalla en Azure Maps | Microsoft Docs
-description: Más información sobre el formato de datos GeoJSON de geovalla en Azure Maps
+title: Formato de datos GeoJSON para geovalla | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo preparar los datos de geovalla para que se usen en las API GET Geofence y POST Geofence de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f853962bba7302affd78d5ef267460893ea80a33
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735139"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911589"
 ---
 # <a name="geofencing-geojson-data"></a>Datos GeoJSON de geovallas
 
@@ -24,13 +24,13 @@ Los datos de la geovalla o conjunto de estas viene dado por el objeto `Feature` 
 * El tipo de objeto GeoJSON puede ser un objeto `Feature` o un objeto `FeatureCollection`.
 * El tipo de objeto Geometry puede ser `Point`, `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`, y `GeometryCollection`.
 * Todas las propiedades de la característica deben contener un identificador `geometryId`, que se usa para identificar la geovalla.
-* Las características con `Point`, `MultiPoint`, `LineString`, `MultiLineString` deben contener `radius` en las propiedades. El valor de `radius` se mide en metros y oscila entre 1 y 10 000.
+* Las características con `Point`, `MultiPoint`, `LineString`, `MultiLineString` deben contener `radius` en las propiedades. `radius`El valor de `radius` se mide en metros y oscila entre 1 y 10 000.
 * La característica con los tipos de geometría `polygon` y `multipolygon` no tiene una propiedad radius.
 * `validityTime` es una propiedad opcional que permite al usuario establecer el tiempo de expiración y el período de tiempo de validez de los datos de la geovalla. Si no se especifica, los datos nunca expirarán y serán siempre válidos.
 * `expiredTime` es la fecha y hora de expiración de los datos de la geovalla. Si el valor de `userTime` en la solicitud es posterior a este valor, los datos de la geovalla correspondiente se consideran como datos expirados y no se realizarán consultas en ellos. El identificador geometryId de estos datos de geovalla se incluirá en la matriz `expiredGeofenceGeometryId` dentro de la respuesta de la geovalla.
 * `validityPeriod` es una lista de los períodos de tiempo de validez de la geovalla. Si el valor de `userTime` en la solicitud se encuentra fuera del período de validez, los datos correspondientes de la geovalla se considerarán como no válidos y no se realizarán consultas en ellos. El identificador geometryId de estos datos de geovalla se incluye en la matriz `invalidPeriodGeofenceGeometryId` dentro de la respuesta de la geovalla. En la tabla siguiente se muestran las propiedades del elemento validityPeriod.
 
-| NOMBRE | type | Obligatorio  | DESCRIPCIÓN |
+| Nombre | Tipo | Obligatorio  | Descripción |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | Fecha y hora de inicio del período de tiempo de validez. |
 | endTime   | Datetime  | true |  Fecha y hora de finalización del período de tiempo de validez. |
