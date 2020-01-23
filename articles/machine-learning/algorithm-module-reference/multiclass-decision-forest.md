@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 85459fe586ccbb5adb1e86b153ec63252c0cce2d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6b0e9304278dc2092dfe070b76e6594ed19d5020
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466027"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546629"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo sobre el bosque de decisión multiclase
 
@@ -45,9 +45,9 @@ El clasificador del bosque de decisión en Azure Machine Learning consta de un
 
 3. Para obtener información sobre el **método de nuevo muestreo**, elija el método utilizado para crear los árboles individuales.  Puede elegir entre agregación o replicación.
 
-    + **Agregación**: La agregación también se denomina *agregación de arranque*. En este método, cada árbol crece en una muestra nueva, creada al muestrear de forma aleatoria el conjunto de datos original con el conjunto de reemplazo hasta que haya un conjunto de datos con el tamaño del original. Los resultados de los modelos se combinan mediante *votación*, que es una forma de agregación. Para obtener más información, consulte la entrada de Wikipedia sobre la agregación de arranque.
+    + **Bagging** (agregación): la agregación también se denomina *agregación de arranque*. En este método, cada árbol crece en una muestra nueva, creada al muestrear de forma aleatoria el conjunto de datos original con el conjunto de reemplazo hasta que haya un conjunto de datos con el tamaño del original. Los resultados de los modelos se combinan mediante *votación*, que es una forma de agregación. Para obtener más información, consulte la entrada de Wikipedia sobre la agregación de arranque.
 
-    + **Replicación**: En la replicación, cada árbol se entrena exactamente con los mismos datos de entrada. La determinación de qué predicado de división se utiliza para cada nodo de árbol sigue siendo aleatoria, lo que crea árboles diversos.
+    + **Replicate** (replicación): en la replicación, cada árbol se entrena exactamente con los mismos datos de entrada. La determinación de qué predicado de división se utiliza para cada nodo de árbol sigue siendo aleatoria, lo que crea árboles diversos.
 
    
 
@@ -76,12 +76,6 @@ El clasificador del bosque de decisión en Azure Machine Learning consta de un
 
 11. Ejecución de la canalización
 
-## <a name="results"></a>Results
-
-Una vez completado el entrenamiento:
-
-+ Para ver el árbol que se ha creado en cada iteración, haga clic con el botón derecho en el resultado del módulo [Modelo de entrenamiento](./train-model.md) y seleccione **Visualizar**.
-+ Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas de cada nodo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2018
+ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: ef2319f18b6df15fd7f33e9344e8506f853f47e6
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 23dcabf74284c36f0cb221db7e192859aa75f1f6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532228"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544555"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -37,10 +37,10 @@ Azure DDoS Protection, junto con los procedimientos recomendados de diseño de a
 |Mitigaciones de ataques automáticas                    |Sí                                   |Sí                                           |
 |Garantía de disponibilidad                          |Región de Azure                          |Application                                   |
 |Directivas de mitigación                             |Optimizado para el volumen de región de tráfico de Azure |Optimizado para el volumen de tráfico de la aplicación          |
-|Métricas y alertas                                |Sin                                    |Métricas de ataques y registros de diagnóstico en tiempo real a través de                                                                                            Azure Monitor                                 |
-|Informes de mitigación                              |Sin                                    |Informes sobre mitigación posteriores al ataque                |
-|Registros de flujo de mitigación                            |Sin                                    |Secuencia de registro NRT para la integración de SIEM           |
-|Personalizaciones de las directivas de migración                 |Sin                                    |Interacción con expertos en DDos                           |
+|Métricas y alertas                                |No                                    |Métricas de ataques y registros de diagnóstico en tiempo real a través de                                                                                            Azure Monitor                                 |
+|Informes de mitigación                              |No                                    |Informes sobre mitigación posteriores al ataque                |
+|Registros de flujo de mitigación                            |No                                    |Secuencia de registro NRT para la integración de SIEM           |
+|Personalizaciones de las directivas de migración                 |No                                    |Interacción con expertos en DDos                           |
 |Soporte técnico                                         |Mejor opción                           |Acceso a expertos en DDos durante un ataque activo|
 |Contrato de nivel de servicio                                             |Región de Azure                          |Garantía de aplicación y protección de costos       |
 |Precios                                         |Gratuito                                  |Mensual y basado en el uso                         |
@@ -69,7 +69,7 @@ Entre las características de Protección contra DDoS estándar se incluyen:
 - **Escala de mitigación amplia:** se pueden mitigar más de 60 tipos de ataque diferentes con capacidad global para protegerse contra los ataques DDoS más conocidos.
 - **Análisis de ataques:** ofrece informes detallados en incrementos de cinco minutos durante un ataque y un resumen completo después de que el ataque termine. Transmita los registros del flujo de mitigación a un sistema de administración de eventos e información de seguridad (SIEM) sin conexión para supervisar el sistema casi en tiempo real durante un ataque.
 - **Métricas de ataques:** con Azure Monitor se puede acceder a un resumen de métricas de cada ataque.
-- **Alertas de ataques:** las alertas se pueden configurar en el inicio y la detención de un ataque y a lo largo de la duración del ataque mediante métricas de ataque integradas. Las alertas se integran en el software operativo como registros de Microsoft Azure Monitor, Splunk, Azure Storage, correo electrónico y Azure Portal.
+- **Alertas de ataques:** las alertas se pueden configurar en el inicio y la detención de un ataque y a lo largo de la duración del ataque mediante métricas de ataque integradas. Las alertas se integran en el software operativo, como los registros de Microsoft Azure Monitor, Splunk, Azure Storage, el correo electrónico y Azure Portal.
 - **Garantía de costo:** créditos para servicio de escalado horizontal de aplicaciones y transferencia de datos para ataques de DDoS documentados.
 
 ## <a name="ddos-protection-standard-mitigation"></a>Mitigación mediante Protección contra DDoS estándar

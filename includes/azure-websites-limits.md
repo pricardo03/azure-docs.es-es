@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: a05229f22e1682d73b627e3b4644ba64e653335f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 17d6947efcbaf8a01aeca70bf7a88dcc7b65cd0a
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414454"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548238"
 ---
 | Resource | Gratuito | Compartido | Básica | Estándar | Premium (v2) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -23,15 +23,15 @@ ms.locfileid: "74414454"
 | Memoria (1 hora) |1024 MB por plan de App Service |1024 MB por aplicación |N/D |N/D |N/D |N/D |
 | Ancho de banda |165 MB |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |
 | Arquitectura de la aplicación |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
-| Web Sockets por instancia<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |Ilimitado |
-| Conexiones IP | 600 | 600 | Depende del tamaño de la instancia<sup>8</sup> | Depende del tamaño de la instancia<sup>8</sup> | Depende del tamaño de la instancia<sup>8</sup> | 64 000 |
+| Web Sockets por instancia<sup>7</sup> |5 |35 |350 |Sin límite |Sin límite |Sin límite |
+| Conexiones IP | 600 | 600 | Depende del tamaño de la instancia<sup>8</sup> | Depende del tamaño de la instancia<sup>8</sup> | Depende del tamaño de la instancia<sup>8</sup> | 16 000 |
 | Conexiones de depurador [simultáneas](../articles/app-service/troubleshoot-dotnet-visual-studio.md) por aplicación |1 |1 |1 |5 |5 |5 |
 | Instancias de App Service Certificate por suscripción<sup>9</sup>| No compatible | No compatible |10 |10 |10 |10 |
 | Dominios personalizados por aplicación</a> |0 (solo subdominio de azurewebsites.net)|500 |500 |500 |500 |500 |
 | Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/configure-ssl-certificate.md) |No admitido, certificado comodín para *.azurewebsites.net disponible de forma predeterminada.|No admitido, certificado comodín para *.azurewebsites.net disponible de forma predeterminada.|Conexiones SSL SNI ilimitadas |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP | Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP|
 | Conexiones híbridas por plan | | | 5 | 25 | 200 | 200 |
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>10</sup> |
-| [Siempre activado](../articles/app-service/configure-common.md) | | |X |X |X |X |
+| [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Copias de seguridad programadas](../articles/app-service/manage-backup.md) | | | | Copias de seguridad programadas cada 2 horas, con un máximo de 12 copias de seguridad al día (manuales y programadas). | Copias de seguridad programadas cada hora, con un máximo de 50 copias de seguridad al día (manuales y programadas). | Copias de seguridad programadas cada hora, con un máximo de 50 copias de seguridad al día (manuales y programadas). |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |

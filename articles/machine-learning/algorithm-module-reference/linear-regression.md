@@ -9,19 +9,19 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 688bf923c07d9417b002b7cab6e3c0a0c8d20dae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 14fe7fff85c7aecd3f98843794f5057cf26fc88d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497754"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548448"
 ---
 # <a name="linear-regression-module"></a>Módulo de regresión lineal
 En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para crear un modelo de regresión lineal para usarlo en una canalización.  La regresión lineal intenta establecer una relación lineal entre una o más variables independientes y un resultado numérico o la variable dependiente. 
 
-Utilice este módulo para definir un método de regresión lineal y entrenar un modelo con un conjunto de datos etiquetado. El modelo entrenado se podrá usar para realizar predicciones.
+Utilice este módulo para definir un método de regresión lineal y entrenar un modelo con un conjunto de datos etiquetado. A continuación, el modelo entrenado podrá usarse para realizar predicciones.
 
 ## <a name="about-linear-regression"></a>Acerca de la regresión lineal
 
@@ -90,7 +90,6 @@ Este módulo admite dos métodos de ajuste de un modelo de regresión con distin
 
 Una vez completado el entrenamiento:
 
-+ Para ver los parámetros del modelo, haga clic con el botón derecho en la salida del entrenador y seleccione **Visualize** (Visualizar).
 
 + Para realizar predicciones, conecte el modelo entrenado al módulo [Score Model](./score-model.md) (Modelo de puntuación) junto con un conjunto de datos de valores nuevos. 
 
@@ -105,7 +104,7 @@ Una vez completado el entrenamiento:
 
 3. En **Create trainer mode** (Crear modo de entrenador), indique si desea entrenar el modelo con un conjunto de parámetros predefinido o si desea optimizarlo con un barrido de parámetros.
 
-    + **Parámetro único**: Si sabe cómo quiere configurar la red de regresión lineal, puede proporcionar un conjunto específico de valores como argumentos.
+    + **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar la red de regresión lineal, puede proporcionar un conjunto específico de valores como argumentos.
 
    
 4. En **Learning rate** (Velocidad de aprendizaje), especifique la velocidad de aprendizaje inicial para el optimizador estocástico de gradiente descendiente.

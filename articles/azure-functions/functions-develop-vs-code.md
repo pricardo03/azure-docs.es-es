@@ -3,12 +3,12 @@ title: Desarrollo de Azure Functions con Visual Studio Code
 description: Aprenda a desarrollar y probar Azure Functions mediante la extensión de Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
-ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
+ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75667551"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547428"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -146,7 +146,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 El parámetro `msg` es de tipo `ICollector<T>`, que representa una colección de mensajes escritos en un enlace de salida cuando se completa la función. Agregue uno o varios mensajes a la colección. Estos mensajes se envían a la cola cuando se completa la función.
 
-Para más información, consulte la documentación de [Enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output---c-example).
+Para más información, consulte la documentación de [Enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output).
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -184,7 +184,7 @@ En el código de función, se obtiene acceso al enlace `msg` desde el `context`,
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-Para más información, consulte la referencia sobre [enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output---javascript-example).
+Para más información, consulte la referencia sobre [enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output).
 
 ---
 

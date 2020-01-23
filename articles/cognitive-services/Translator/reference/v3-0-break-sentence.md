@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446695"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548125"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
-<table width="100%">
-  <th width="20%">Parámetro de consulta</th>
-  <th>Descripción</th>
-  <tr>
-    <td>api-version</td>
-    <td>*parámetro de consulta obligatorio*.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
-  </tr>
-  <tr>
-    <td>language</td>
-    <td>*Parámetro de consulta opcional*.<br/>Etiqueta de idioma que identifica el idioma del texto de entrada. Si no se especifica un código, se aplicará la detección automática del idioma.</td>
-  </tr>
-  <tr>
-    <td>script</td>
-    <td>*Parámetro de consulta opcional*.<br/>Etiqueta de script que identifica el script que usa el texto de entrada. Si no se especifica un script, se asumirá el script predeterminado del idioma.</td>
-  </tr>
-</table> 
+| Parámetro de consulta | Descripción |
+| -------| ----------- |
+| api-version <img width=200/>   | **parámetro de consulta obligatorio**.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`. |
+| language | **Parámetro de consulta opcional**.<br/>Etiqueta de idioma que identifica el idioma del texto de entrada. Si no se especifica un código, se aplicará la detección automática del idioma. |
+| script    | **Parámetro de consulta opcional**.<br/>Etiqueta de script que identifica el script que usa el texto de entrada. Si no se especifica un script, se asumirá el script predeterminado del idioma.  | 
 
 Los encabezados de solicitud incluyen lo siguiente:
 
-<table width="100%">
-  <th width="20%">encabezados</th>
-  <th>Descripción</th>
-  <tr>
-    <td>Encabezados de autenticación</td>
-    <td><em>Encabezado de solicitud obligatorio</em>.<br/>Consulte las <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*Encabezado de solicitud obligatorio*.<br/>Especifica el tipo de contenido de la carga. Los valores posibles son: `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*Encabezado de solicitud obligatorio*.<br/>Longitud del cuerpo de la solicitud.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.</td>
-  </tr>
-</table> 
+| encabezados | Descripción |
+| ------- | ----------- |
+| Encabezados de autenticación <img width=200/>  | **Encabezado de solicitud obligatorio**.<br/>Consulte las <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>. |
+| Content-Type | **Encabezado de solicitud obligatorio**.<br/>Especifica el tipo de contenido de la carga. Los valores posibles son: `application/json`. |
+| Content-Length    | **Encabezado de solicitud obligatorio**.<br/>Longitud del cuerpo de la solicitud.  | 
+| X-ClientTraceId   | **Opcional**.<br/>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.  | 
 
 ## <a name="request-body"></a>Cuerpo de la solicitud
 

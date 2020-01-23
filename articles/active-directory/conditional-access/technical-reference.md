@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f148f435edee16805cc8b0ae78652a17826727
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e6baf288471ef762689dfa2175ba464ef2091ed7
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768155"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544045"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -83,7 +83,7 @@ Aplicaciones clave que se incluyen en la aplicación cliente Office 365 (versió
 - Office 365 SharePoint Online
 - Equipos de Microsoft
 - Yammer para Office 365
-- Portal de Office
+- Office.com
 - Microsoft Forms
 - Microsoft Power Automate
 - Microsoft Planner

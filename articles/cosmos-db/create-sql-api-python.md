@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 82426c0093550864b421d7acc35780c4173895a8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a794a9ed35cbbdd36c2cf136b8afc208c3ea0692
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824728"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549023"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Compilación de una aplicación de Python mediante una cuenta de SQL API de Azure Cosmos DB
 
@@ -33,13 +33,13 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta de [SQL API](s
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear y consultar documentos, claves y valores, columnas anchas y bases de datos de grafos rápidamente. Todas estas operaciones se benefician de la distribución y la escalabilidad de Azure Cosmos DB.
 
-Este inicio rápido usa la versión 4 del [SDK de Python](https://pypi.org/project/azure-cosmos/#history).
+Este inicio rápido usa la versión 4 del [SDK de Python](https://pypi.org/project/azure-cosmos/#history).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)][!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* [Python 3.6 o versiones posteriores](https://www.python.org/downloads/), con el ejecutable `python` disponible en `PATH`.
+* [Python 3.6](https://www.python.org/downloads/), con el ejecutable `python` disponible en `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Extensión de Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -49,7 +49,26 @@ Este inicio rápido usa la versión 4 del [SDK de Python](https://pypi.org/proj
 
 ## <a name="add-a-container"></a>Agregar un contenedor
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y un contenedor. 
+
+1. Seleccione **Data Explorer** > **Nuevo contenedor**. 
+    
+    El área **Agregar contenedor** se muestra en el extremo derecho, pero es posible que haya que desplazarse hacia la derecha para verlo.
+
+    ![Explorador de datos de Azure Portal, panel Agregar contenedor](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+
+2. En la página **Agregar contenedor**, especifique la configuración del nuevo contenedor.
+
+    |Configuración|Valor sugerido|Descripción
+    |---|---|---|
+    |**Identificador de base de datos**|Tareas|Escriba *ToDoList* como nombre de la nueva base de datos. Los nombres de base de datos tienen que tener entre 1 y 255 caracteres y no pueden contener `/, \\, #, ?` o espacios finales. Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de la base de datos) que le permite compartir el rendimiento aprovisionado de la base de datos entre todos los contenedores de esta. Esta opción también le ayudará a reducir los costos. |
+    |**Rendimiento**|400|Deje el rendimiento en 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.| 
+    |**ID de contenedor**|Elementos|Escriba *Elementos* como nombre del nuevo contenedor. Los identificadores de contenedor tienen los mismos requisitos de caracteres que los nombres de las bases de datos.|
+    |**Clave de partición**| /categoría| El ejemplo que se describe en este artículo usa */category* como clave de partición.|
+    
+    Además de la configuración anterior, puede agregar opcionalmente **claves únicas** para el contenedor. En este ejemplo vamos a dejar el campo en blanco. Las claves únicas proporcionan a los desarrolladores la capacidad de agregar una capa de integridad de datos a la base de datos. Mediante la creación de una directiva de clave única al crear un contenedor, se garantiza la unicidad de uno o varios valores por clave de partición. Para más información, consulte el artículo [Claves únicas en Azure Cosmos DB](unique-keys.md).
+    
+    Seleccione **Aceptar**. El Explorador de datos muestra la nueva base de datos y el contenedor.
 
 ## <a name="add-sample-data"></a>Adición de datos de ejemplo
 
@@ -112,7 +131,7 @@ Este paso es opcional. Aprenda sobre los recursos de base de datos creados en c�
 
 Los fragmentos de código siguientes se han tomado del archivo `cosmos_get_started.py`.
 
-* Se inicializa CosmosClient. Asegúrese de actualizar los valores de "endpoint" y "key", según se describe en la sección [Actualización de la cadena de conexión](#update-your-connection-string). 
+* Se inicializa CosmosClient. Asegúrese de actualizar los valores de "endpoint" y "key" según se describe en la sección [Actualización de la cadena de conexión](#update-your-connection-string). 
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
 
@@ -135,7 +154,7 @@ Los fragmentos de código siguientes se han tomado del archivo `cosmos_get_start
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
    
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 1. En el Visual Studio Code, seleccione **Ver** > **Paleta de comandos**. 
 
@@ -165,7 +184,7 @@ Los fragmentos de código siguientes se han tomado del archivo `cosmos_get_start
     python cosmos_get_started.py
     ```
 
-7. Para confirmar que los nuevos elementos se han creado y guardado, en Azure Portal, seleccione **Explorador de datos** > **AzureSampleFamilyDatabase** > **Elementos**. Vea los elementos que se han creado. Por ejemplo, este es un documento JSON de ejemplo para la familia Andersen:
+7. Para confirmar que los nuevos elementos se han creado y guardado, en Azure Portal, seleccione **Data Explorer** > **AzureSampleFamilyDatabase** > **Elementos**. Vea los elementos que se han creado. Por ejemplo, este es un documento JSON de ejemplo para la familia Andersen:
 
 ```json
 {

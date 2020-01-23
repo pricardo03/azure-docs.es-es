@@ -2,23 +2,23 @@
 title: Trabajo con máquinas virtuales y grupos de seguridad de red en Azure Bastion | Microsoft Docs
 description: En este artículo se describe cómo incorporar acceso a grupos de seguridad de red con Azure Bastion.
 services: bastion
-author: cherylmc
+author: ashjain
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.author: cherylmc
-ms.openlocfilehash: 4b64c420290bec687388690f1c901c2ae789a3c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.author: ashishj
+ms.openlocfilehash: 8fb48b3dbe0d727f92bd2e0fec91ac2dbf33338b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707563"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547632"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
 Al trabajar con Azure Bastion, puede usar grupos de seguridad de red (NSG). Para más información, consulte [Grupos de seguridad](../virtual-network/security-overview.md). 
 
-![Arquitectura](./media/bastion-nsg/nsg-architecture.png)
+![Architecture](./media/bastion-nsg/nsg-architecture.png)
 
 En este diagrama:
 

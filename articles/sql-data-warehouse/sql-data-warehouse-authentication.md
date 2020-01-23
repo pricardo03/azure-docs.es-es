@@ -11,21 +11,21 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fda29e432fbd952261893f3c32a4df7b9990ae66
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 706c68cb7a139a5c4f6def5aed7ad67e49090ede
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692939"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545150"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Autenticación en Azure SQL Data Warehouse
 Aprenda sobre la autenticación en Azure SQL Data Warehouse mediante Azure Active Directory (AAD) o SQL Server.
 
 Para conectarse a SQL Data Warehouse, debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.  
 
-Para obtener más información sobre la seguridad y cómo habilitar las conexiones a su almacenamiento de datos, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse].
+Para obtener más información sobre la seguridad y cómo habilitar las conexiones a su almacenamiento de datos, consulte [Proteger una base de datos en SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md).
 
-## <a name="sql-authentication"></a>Autenticación de SQL
+## <a name="sql-authentication"></a>Autenticación SQL
 Para conectarse a SQL Data Warehouse, debe proporcionar la información siguiente:
 
 * Nombre de servidor completo
@@ -40,12 +40,12 @@ De forma predeterminada, su conexión se realiza a la base de datos *maestra* y 
 * Resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
 > [!NOTE]
-> La instrucción **USE MyDatabase;** de Transact-SQL no se admite para cambiar la base de datos de una conexión. Para instrucciones sobre cómo conectarse a SQL Data Warehouse con SSDT, consulte el artículo [Query with Visual Studio][Query with Visual Studio] (Realización de consultas con Visual Studio).
+> La instrucción **USE MyDatabase;** de Transact-SQL no se admite para cambiar la base de datos de una conexión. Para instrucciones sobre cómo conectarse a SQL Data Warehouse con SSDT, consulte el artículo [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md) (Realización de consultas con Visual Studio).
 > 
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>Autenticación de Azure Active Directory (AAD)
-La autenticación de [Azure Active Directory][What is Azure Active Directory] es un mecanismo de conexión a Microsoft Azure SQL Data Warehouse mediante identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure Active Directory puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece un lugar único para administrar usuarios de SQL Data Warehouse y simplifica la administración de permisos. 
+La autenticación de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) es un mecanismo de conexión a Microsoft Azure SQL Data Warehouse mediante identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure Active Directory puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece un lugar único para administrar usuarios de SQL Data Warehouse y simplifica la administración de permisos. 
 
 ### <a name="benefits"></a>Ventajas
 Entre las ventajas de Azure Active Directory, se incluyen:
@@ -60,7 +60,7 @@ Entre las ventajas de Azure Active Directory, se incluyen:
 * Admite Multi-Factor Authentication mediante autenticación universal de Active Directory para varias herramientas, incluidas [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) y [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json).
 
 > [!NOTE]
-> Azure Active Directory todavía es relativamente nuevo y tiene algunas limitaciones. Para asegurarse de que Azure Active Directory sea una buena elección para su entorno, consulte [Características y limitaciones de Azure AD][Azure AD features and limitations], específicamente las consideraciones adicionales.
+> Azure Active Directory todavía es relativamente nuevo y tiene algunas limitaciones. Para asegurarse de que Azure Active Directory sea una buena elección para su entorno, consulte [Características y limitaciones de Azure AD](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), específicamente las consideraciones adicionales.
 > 
 > 
 
@@ -81,10 +81,4 @@ Actualmente los usuarios de Azure Active Directory no se muestran en el Explorad
 * Cree roles de base de datos personalizados y agrégueles usuarios. A continuación, conceda permisos específicos a los roles. Para obtener más información, consulte [Introducción a los permisos de los motores de bases de datos](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][Query with Visual Studio](Realización de consultas con Visual Studio).
-
-<!-- Article references -->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]:../active-directory/fundamentals/active-directory-whatis.md
-[Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md)(Realización de consultas con Visual Studio).

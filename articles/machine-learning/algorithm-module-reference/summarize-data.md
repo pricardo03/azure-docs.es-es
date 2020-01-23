@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8051126fc4a895c6e72e90942fac65d777afd8e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428452"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546493"
 ---
 # <a name="summarize-data"></a>Resumen de datos
 
@@ -40,7 +40,7 @@ El módulo calcula las puntuaciones importantes de cada columna y devuelve una f
 
 1. No hay ningún otro parámetro obligatorio. De forma predeterminada, el módulo analiza todas las columnas que se proporcionan como entrada y, en función del tipo de valores de las columnas, genera un conjunto de estadísticas pertinente, tal como se describe en la sección [Resultados](#results).
 
-1. Ejecute la canalización o haga clic con el botón derecho en el módulo y seleccione **Run selected** (Ejecutar selección).
+1. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 

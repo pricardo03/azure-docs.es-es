@@ -4,16 +4,16 @@ description: En este artículo se explican las tareas comunes que un administrad
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 469bd66a6074db34d1efb6f82fda229400239058
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985756"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547581"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -124,17 +124,12 @@ Tenga en cuenta los puntos siguientes cuando transfiera una cuenta de empresa a 
 - Solo se transfieren las cuentas especificadas en la solicitud. Si se eligen todas las cuentas, se transfieren todas.
 - La inscripción de origen conserva su estado como activo o extendido. Puede seguir usando la inscripción hasta que expire.
 
-### <a name="effective-transfer-date"></a>Fecha de transferencia efectiva
-
-Puede atrasar la transferencia de una cuenta a la fecha de inicio de la inscripción de destino, o a la fecha de inicio de la cuenta, la que sea posterior. Después de la transferencia de la cuenta, toda la información de uso de la cuenta antes de la fecha de transferencia efectiva permanece en la inscripción desde la que se está realizando la transferencia. La información de uso después de la fecha de transferencia se trasladará a la inscripción de destino.
-
 ### <a name="prerequisites"></a>Prerequisites
 
 Al solicitar una transferencia de cuentas, proporcione la siguiente información:
 
 - El número de la inscripción de destino, el nombre de cuenta y el correo electrónico del propietario de la cuenta que se va a transferir.
 - Para la inscripción de origen, el número de inscripción y la cuenta que se va a transferir
-- Para la fecha de vigencia de la transferencia de cuenta, se puede retrasar hasta la fecha de inicio de la inscripción de destino o hasta la fecha de inicio de la cuenta, la que sea posterior.
 
 Otros puntos que hay que tener en cuenta antes de transferir una cuenta:
 
@@ -162,15 +157,12 @@ Cuando se solicita la transferencia de una inscripción empresarial completa a u
 - Se pierde cualquier saldo de compromiso monetario restante del contrato, incluidos los términos futuros.
 -   Si la inscripción que va a transferir tiene compras de RI, el precio de compra de RI permanecerá en la inscripción de origen; sin embargo, todas las ventajas de RI se transferirán para su uso en la nueva inscripción.
 -   La cuota de compra única de Marketplace y las tarifas fijas mensuales que ya se hayan realizado en la inscripción antigua no se transferirán a la nueva inscripción. Se transferirán los cargos de Marketplace basados en el consumo.
--   Después de una transferencia de inscripción retroactiva, las tarifas de compra única de las compras permanecerán en la inscripción de origen.
 
 ### <a name="effective-transfer-date"></a>Fecha de transferencia efectiva
 
 La fecha de transferencia efectiva puede ser la fecha de inicio de la suscripción de destino o una fecha posterior.
 
 El uso de la inscripción de origen se cobra en el compromiso monetario o como uso por encima del límite. El uso que se produce después de la fecha de transferencia efectiva se transfiere a la nueva inscripción y se cobra en consecuencia.
-
-Se admite una transferencia atrasada a la fecha de inicio de la inscripción de destino. Proporcionar la fecha de transferencia elegida no afecta al uso de una factura por encima del límite que ya se ha emitido.
 
 ### <a name="prerequisites"></a>Prerequisites
 

@@ -14,12 +14,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a4e847bc0d297f3aa41551fbf56242ae1a566f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c75162cc66e9277d111def92842f5a67a132f59
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424324"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548159"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer y Microsoft Edge (MSAL.js)
 
@@ -38,10 +38,6 @@ La causa de la mayoría de estos problemas es la siguiente. El almacenamiento de
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
 - **La ventana emergente no se cierra o se bloquea cuando se usa el inicio de sesión a través de la ventana emergente para realizar la autenticación**. Cuando se realiza la autenticación mediante la ventana emergente de Microsoft Edge o IE (InPrivate), después de escribir las credenciales y realizar el inicio de sesión, si intervienen varios dominios de las zonas de seguridad en la navegación, la ventana emergente no se cierra porque MSAL.js pierde el identificador de la ventana emergente.  
-
-    Aquí tiene unos vínculos a estos problemas en el rastreador de problemas de Microsoft Edge:  
-    - [Error 13861050](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861050/)
-    - [Error 13861663](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861663/)
 
 ### <a name="update-fix-available-in-msaljs-023"></a>Actualización: Corrección disponible en MSAL.js 0.2.3
 Las correcciones para los problemas del bucle de redireccionamiento de la autenticación se han publicado en [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Habilite la marca `storeAuthStateInCookie` en la configuración de MSAL.js para usar esta solución. De manera predeterminada, esta marca se establece en "false".

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 9d6e6c11f0e2a8fb7e08385f7abf26fb4a8d21c8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aba33730d235cc50742cdc86007933e12f763053
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465972"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548465"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo Multiclass Logistic Regression
 
@@ -60,9 +60,6 @@ En la regresión logística multiclase, el clasificador puede usarse para predec
 
 9. Ejecución de la canalización
 
-## <a name="results"></a>Results
-
-Después de completar el entrenamiento, puede ver un resumen de los parámetros del modelo, junto con las ponderaciones de característica aprendidas en el entrenamiento, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo) y seleccione **Visualizar**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

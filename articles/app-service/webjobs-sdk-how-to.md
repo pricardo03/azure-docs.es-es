@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421962"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549094"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -681,8 +681,8 @@ Para obtener más información, consulte [Enlace en tiempo de ejecución](../azu
 En la documentación de Azure Functions se proporciona información de referencia sobre cada tipo de enlace. Encontrará la información siguiente en cada artículo de referencia de enlace. (Este ejemplo se basa en la cola de almacenamiento).
 
 * [Paquetes](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). El paquete que es necesario instalar con el fin de incluir compatibilidad con el enlace de un proyecto de SDK de WebJobs.
-* [Ejemplos](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Ejemplos de código. La biblioteca de clases de C# se aplica al SDK de WebJobs. Omita simplemente el atributo `FunctionName`.
-* [Atributos](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). Los atributos que se usarán para el tipo de enlace.
+* [Ejemplos](../azure-functions/functions-bindings-storage-queue.md#trigger). Ejemplos de código. La biblioteca de clases de C# se aplica al SDK de WebJobs. Omita simplemente el atributo `FunctionName`.
+* [Atributos](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). Los atributos que se usarán para el tipo de enlace.
 * [Configuración](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Explicaciones de las propiedades de atributo y de los parámetros del constructor.
 * [Uso](../azure-functions/functions-bindings-storage-queue.md#trigger---usage) Los tipos con los que puede enlazar e información sobre cómo funciona el enlace. Por ejemplo: sondear algoritmos o procesar colas dudosas.
   

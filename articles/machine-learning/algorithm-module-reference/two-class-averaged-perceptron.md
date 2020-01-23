@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 379cddd9654cc897b49fd085d8df55fcd77a7ce8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62e2168c674693ded31bd94206e2e13c82c67b68
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490353"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546391"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Módulo Perceptrón promedio de dos clases
 
@@ -52,11 +52,7 @@ Los modelos de perceptrón más sencillos son adecuados para aprender patrones s
   
     -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).
 
-## <a name="results"></a>Results
 
-Una vez completado el entrenamiento:
-
-+ Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

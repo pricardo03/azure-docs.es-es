@@ -12,6 +12,9 @@
       items:
         - name: Portal de Azure
           href: create-cosmosdb-resources-portal.md
+        - name: Plantilla del Administrador de recursos de Azure
+          displayName: ARM
+          href: quick-create-template.md
         - name: App .NET - SDK V4
           href: create-sql-api-dotnet-v4.md
         - name: App .NET - SDK V3

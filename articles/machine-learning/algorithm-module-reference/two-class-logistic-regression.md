@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f64352906da5d6e3a314b3af68e37f4dc5bb80bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c2618f7703ba1a9803952efabcfbd800149ada4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485941"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548346"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo Regresión logística de dos clases
 
@@ -30,7 +30,7 @@ La regresión logística es un método conocido en estadística que se usa para 
   
 En este módulo, el algoritmo de clasificación se optimiza para las variables dicotómicas o binarias. Si necesita clasificar varios resultados, use el módulo [Multiclass Logistic Regression](./multiclass-logistic-regression.md) (Regresión logística multiclase).
 
-##  <a name="how-to-configure"></a>Configuración  
+##  <a name="how-to-configure"></a>Cómo se configura  
 
 Para entrenar este modelo, debe proporcionar un conjunto de datos que contenga una columna de etiqueta o clase. Dado que este módulo está pensado para problemas de dos clases, la columna de etiqueta o clase debe contener exactamente dos valores. 
 
@@ -40,12 +40,11 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
   
 2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Parámetro único**: si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.  
+    -   **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.  
   
 3.  Para **Optimization tolerance** (Tolerancia de optimización), especifique un valor de umbral que se usará al optimizar el modelo. Si la mejora entre iteraciones cae por debajo del umbral especificado, se considera que el algoritmo ha convergido en una solución y el entrenamiento se detiene.  
   
 4.  Para **L1 regularization weight** (Peso de regularización L1) y **L2 regularization weight** (Peso de regularización L2), escriba un valor que se usará para los parámetros de regularización L1 y L2. Se recomienda un valor distinto de cero para ambos.  
-  
      La *regularización* es un método para evitar el sobreajuste mediante la penalización de modelos con valores de coeficiente extremos. La regularización funciona agregando la penalización asociada a los valores de coeficiente al error de la hipótesis. Por lo tanto, un modelo preciso con valores de coeficiente extremos se penalizaría más y un modelo menos preciso con valores más conservadores se penalizaría menos.  
   
      Las regularizaciones L1 y L2 tienen efectos y usos diferentes.  
@@ -57,7 +56,7 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
      Este algoritmo es compatible con una combinación lineal de los valores de regularización L1 y L2: es decir, si <code>x = L1</code> y <code>y = L2</code>, <code>ax + by = c</code> define el intervalo lineal de los términos de regularización.  
   
     > [!NOTE]
-    >  ¿Desea obtener más información sobre las regularizaciones L1 y L2? En el siguiente artículo se proporciona una explicación de las diferencias entre las regularizaciones L1 y L2 y cómo afectan al ajuste del modelo, con códigos de ejemplo para los modelos de red neuronal y regresión logística:  [Regularizaciones L1 y L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  ¿Desea obtener más información sobre las regularizaciones L1 y L2? En el siguiente artículo se proporciona una explicación de las diferencias entre las regularizaciones L1 y L2 y cómo afectan al ajuste del modelo, con códigos de ejemplo para los modelos de red neuronal y regresión logística:  [Regularización L1 y L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
     > Se han diseñado diferentes combinaciones lineales de los términos de L1 y L2 para los modelos de regresión logística: por ejemplo, [regularización elástica neta](https://wikipedia.org/wiki/Elastic_net_regularization). Se recomienda hacer referencia a estas combinaciones para definir una combinación lineal que sea efectiva en el modelo.
       
@@ -79,8 +78,7 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
 ## <a name="results"></a>Results
 
 Una vez completado el entrenamiento:
-
-+ Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo) y seleccione **Visualizar**.   
+ 
   
 + Para realizar predicciones sobre nuevos datos, use el modelo entrenado y los nuevos datos como entrada para el módulo [Puntuar modelo](./score-model.md). 
 

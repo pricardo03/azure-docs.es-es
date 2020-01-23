@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 151e7b2ab091959c8b6c08d366318a49987aefd9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6ddd7160a56a4529ee31c111f0e202ca235c71af
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848534"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544028"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -117,9 +117,9 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
 
 Después de que un usuario envíe un restablecimiento de contraseña, la solicitud de restablecimiento pasa por varias fases de cifrado antes de que llegue al entorno local. Estos pasos de cifrado garantizan una seguridad y confiabilidad máximas del servicio. A continuación se detalla la descripción de estos pasos:
 
-* **Paso 1: Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
-* **Paso 2: cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de Service Bus subyacente vea o manipule el contenido.
-* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
+* **Paso 1: Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
+* **Paso 2: cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de Service Bus subyacente vea o manipule el contenido.
+* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
 * **Sustitución de clave automática cada seis meses**: todas las claves se sustituyen cada seis meses, o cada vez que la escritura diferida de contraseñas se deshabilita y luego se vuelve a habilitar en Azure AD Connect, para garantizar la máxima seguridad y protección del servicio.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de ancho de banda de la escritura diferida de contraseñas
@@ -164,7 +164,7 @@ Las contraseñas *no* se escriben en diferido en ninguna de las situaciones sigu
    * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 
 > [!WARNING]
-> El uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory se admite como característica en versión preliminar de Azure AD Connect. Para obtener más información, consulte el artículo [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
+> El uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory se admite como característica en versión preliminar de Azure AD Connect. Para obtener más información, consulte el artículo [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

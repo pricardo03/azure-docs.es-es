@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822417"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545031"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database
 
@@ -91,7 +91,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada llamada individual es una transacción implícita. En el segundo ejemplo, una transacción explícita encapsula todas las llamadas. Según la documentación del [registro de transacciones de escritura previa](https://msdn.microsoft.com/library/ms186259.aspx), las entradas del registro se vacían en el disco cuando se confirma la transacción. Por lo tanto, al incluir más llamadas en una transacción, la escritura en el registro de transacciones se puede retrasar hasta que se confirma la transacción. En efecto, está habilitando el procesamiento por lotes para las escrituras en el registro de transacciones del servidor.
+Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada llamada individual es una transacción implícita. En el segundo ejemplo, una transacción explícita encapsula todas las llamadas. Según la documentación del [registro de transacciones de escritura previa](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), las entradas del registro se vacían en el disco cuando se confirma la transacción. Por lo tanto, al incluir más llamadas en una transacción, la escritura en el registro de transacciones se puede retrasar hasta que se confirma la transacción. En efecto, está habilitando el procesamiento por lotes para las escrituras en el registro de transacciones del servidor.
 
 En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó desde un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
 
@@ -343,7 +343,7 @@ Otro factor que se debe considerar es que, si el lote total es demasiado grande,
 
 Por último, sopese el tamaño del lote y los riesgos asociados con el procesamiento por lotes. Si se producen errores transitorios o de rol, considere las consecuencias de reintentar la operación o de perder los datos en el lote.
 
-### <a name="parallel-processing"></a>Procesamiento en paralelo
+### <a name="parallel-processing"></a>Procesamiento paralelo
 
 ¿Qué pasa si adopta el enfoque de reducir el tamaño del lote pero usa varios subprocesos para ejecutar el trabajo? Una vez más, nuestras pruebas mostraron que varios lotes multiproceso más pequeños presentaban normalmente un rendimiento peor que un único lote más grande. La siguiente prueba intenta insertar 1000 filas en uno o varios lotes paralelos. Esta prueba muestra cómo el uso de más lotes simultáneos realmente reduce el rendimiento.
 
@@ -382,7 +382,7 @@ Si los parámetros con valores de tabla usan un procedimiento almacenado, puede 
 
 En las secciones siguientes, se describe cómo usar parámetros con valores de tabla en tres escenarios de aplicaciones. El primer escenario muestra cómo el almacenamiento en búfer y el procesamiento por lotes funcionan juntos. El segundo escenario mejora el rendimiento al realizar operaciones maestro/detalle en una sola llamada a procedimiento almacenado. El último escenario muestra cómo usar parámetros con valores de tabla en una operación "UPSERT".
 
-### <a name="buffering"></a>Almacenamiento en búfer
+### <a name="buffering"></a>de respuesta
 
 Aunque hay algunos escenarios que son candidatos obvios para el procesamiento por lotes, muchos otros podrían beneficiarse del procesamiento por lotes difiriendo el procesamiento. Sin embargo, el procesamiento diferido también plantea un mayor riesgo de que los datos se pierdan si se produce un error inesperado. Es importante comprender este riesgo y tener en cuenta las consecuencias.
 
