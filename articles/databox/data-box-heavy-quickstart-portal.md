@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241372"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514415"
 ---
 ::: zone target = "docs"
 
@@ -24,7 +24,7 @@ En este inicio rápido se describe cómo implementar Azure Data Box Heavy median
 
 Para obtener instrucciones detalladas para realizar una implementación y el seguimiento del proceso, vaya a [Tutorial: Pedir Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de implementar el dispositivo, complete los siguientes requisitos previos de configuración del sitio de instalación, del servicio Data Box y del dispositivo.
 
@@ -32,7 +32,7 @@ Antes de implementar el dispositivo, complete los siguientes requisitos previos 
 
 Antes de comenzar, asegúrese de que:
 
-- El dispositivo puede pasar por todas las entradas. Las dimensiones del dispositivo son: 66,04 cm largo: 121,92 cm alto: alto: 71,12 cm
+- El dispositivo puede pasar por todas las entradas. Las dimensiones del dispositivo son: ancho: 66,04 cm largo: 121,92 cm alto: 71,12 cm.
 - Tiene acceso al dispositivo mediante un ascensor o una rampa si no tiene pensado instalarlo en una planta baja.
 - Cuenta con dos personas para administrar el dispositivo. El dispositivo pesa aproximadamente 226 kg. y viene con ruedas.
 - Tiene un sitio llano en el centro de datos que se encuentra próximo a una conexión de red disponible con espacio para un dispositivo con esta superficie.
@@ -51,7 +51,7 @@ Antes de comenzar, asegúrese de que:
 
 - Ha revisado la [directrices de seguridad de su unidad Data Box Heavy](data-box-safety.md).
 - Tiene un equipo host conectado a la red del centro de datos. Data Box Heavy copiará los datos desde dicho equipo. El equipo host debe ejecutar un [sistema operativo compatible](data-box-heavy-system-requirements.md).
-- Tiene un equipo portátil con un cable RJ-45 para conectarse a la interfaz de usuario local y configurar el dispositivo. Use el equipo portátil para configurar cada nodo del dispositivo una vez.
+- Tiene un equipo portátil con un cable RJ-45 para conectarse a la interfaz de usuario local y configurar el dispositivo. Use el portátil para configurar cada nodo del dispositivo una vez.
 - El centro de datos tiene red de alta velocidad y dispone de al menos una conexión de 10 GbE.
 - Necesita un cable de 40 Gbps o un cable de 10 Gbps por nodo de dispositivo. Elija cables que sean compatibles con la interfaz de red MCX314A-BCCT de Mellanox:
     - Para el cable de 40 Gbps, el extremo del cable del dispositivo debe ser QSFP+.
@@ -63,7 +63,7 @@ Antes de comenzar, asegúrese de que:
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="order"></a>Orden
+## <a name="order"></a>Pedido de
 
 Este paso tarda aproximadamente 5 minutos.
 
@@ -95,7 +95,7 @@ Cuando reciba la unidad de Data Box Heavy, haga lo siguiente para conectar el ca
 3. Conecte los cuatro cables de alimentación a las fuentes de alimentación de la parte posterior del dispositivo.
 4. Use los botones de encendido del plano frontal para encender los nodos del dispositivo.
 
-## <a name="cable-first-node-for-network"></a>Conecte el cable de red del primer nodo
+## <a name="cable-first-node-for-network"></a>Conecte por cable el primer nodo de la red
 
 Este paso tarda entre 10 y 15 minutos en completarse.
 

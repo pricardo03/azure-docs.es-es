@@ -1,20 +1,18 @@
 ---
 title: '(EN DESUSO) Tutorial de Azure Container Service: Preparación de ACR'
 description: 'Tutorial de Azure Container Service tutorial: preparación de ACR'
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d0107e09bf8706ba7d4c813814103ca109262d8d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fbd718b62246e820bfa01353080815b62912bd00
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657406"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274130"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(EN DESUSO) Implementación y uso de Azure Container Registry
 
@@ -42,7 +40,7 @@ Para realizar este tutorial es necesario que ejecute la versión 2.0.4 o superio
 
 Para implementar Azure Container Registry, necesita tener antes un grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). En este ejemplo, se crea un grupo de recursos denominado `myResourceGroup` en la región `westeurope`.
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). En este ejemplo, se crea un grupo de recursos denominado `myResourceGroup` en la región `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope

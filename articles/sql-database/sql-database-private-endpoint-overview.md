@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045628"
+ms.locfileid: "76121087"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Private Link para Azure SQL Database y Data Warehouse (versión preliminar)
 
@@ -43,8 +43,6 @@ Con Private Link, los clientes pueden configurar controles de acceso a la red co
 Cuando los clientes se conectan al punto de conexión público desde equipos locales, es necesario agregar su dirección IP al firewall basado en IP mediante una [regla de firewall de nivel de servidor](sql-database-server-level-firewall-rule.md). Aunque este modelo funciona bien para permitir el acceso a equipos individuales para las cargas de trabajo de desarrollo o de prueba, es difícil de administrar en los entornos de producción.
 
 Con Private Link, los clientes pueden habilitar el acceso entre locales al punto de conexión privado mediante [ExpressRoute](../expressroute/expressroute-introduction.md), el emparejamiento privado o la tunelización de VPN. Luego, los clientes pueden deshabilitar todo el acceso a través del punto de conexión público y no usar el firewall basado en IP para permitir direcciones IP.
-
-Con Private Link, los clientes pueden habilitar el acceso entre locales al punto de conexión privado mediante ExpressRoute (ER), el emparejamiento privado o la tunelización de VPN. Posteriormente, pueden deshabilitar todo el acceso a través de puntos de conexión privados y no usar el firewall basado en IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Configuración de Private Link para Azure SQL Database 
 

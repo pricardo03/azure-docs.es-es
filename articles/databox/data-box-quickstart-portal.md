@@ -9,24 +9,14 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772745"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313780"
 ---
-::: zone target="docs"
-
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Inicio rápido: Implementación de Azure Data Box mediante Azure Portal
-
-::: zone-end
-
-::: zone target="chromeless"
-
 # <a name="get-started-with-azure-data-box"></a>Introducción a Azure Data Box 
-
-::: zone-end
 
 ::: zone target="docs"
 
@@ -44,7 +34,7 @@ En esta guía se describe cómo implementar Azure Data Box mediante Azure Portal
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar:
 
@@ -68,7 +58,7 @@ Antes de empezar:
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de que:
 
@@ -89,7 +79,7 @@ Antes de comenzar, asegúrese de que:
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="order"></a>Orden
+## <a name="order"></a>Pedido de
 
 Este paso tarda aproximadamente 5 minutos.
 
@@ -112,9 +102,9 @@ Cuando reciba su Data Box, siga los pasos a continuación para cablear, conectar
 2. Antes de cablear el dispositivo, asegúrese de tener los cables siguientes:
     
     - Cable de alimentación con tierra (incluido) con calificación de 10 A o más, con un conector IEC60320 C-13 en un extremo para conectar al dispositivo.
-    - Un cable de red RJ-45 cat. 6 (se usa con la interfaz de red MGMT)
+    - Un cable de red RJ-45 CAT 6 (se usa con la interfaz de red MGMT)
     - Dos cables de cobre 10 GbE SFP+ Twinax (uso con las interfaces de red DATA 1, DATA 2 de 10 Gbps)
-    - Un cable de red RJ-45 cat. 6A o RJ-45 cat. 6 (uso con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
+    - Un cable de red RJ-45 CAT 6A o RJ-45 CAT 6 (se usa con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
 
 3. Retire el dispositivo y colóquelo en una superficie plana. 
     

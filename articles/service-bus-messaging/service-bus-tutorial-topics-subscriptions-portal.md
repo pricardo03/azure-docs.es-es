@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Actualización del surtido del inventario comercial mediante canales de publicación y suscripción, y filtros de tema con Azure Portal | Microsoft Docs'
+title: Actualización del inventario mediante Azure Portal y temas y suscripciones
 description: En este tutorial, aprenderá a enviar y recibir mensajes desde un tema y una suscripción, y a agregar y usar las reglas de filtro mediante .NET
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 01/21/2020
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5424a07f8ecd7eab962a4f865fac91741810e4b1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: b6a3f38e0b83dc927a225c630b8178be1dc539ce
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991933"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310125"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones
 
@@ -34,7 +34,7 @@ Un ejemplo de este escenario es una actualización del surtido de inventario de 
 
 Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 

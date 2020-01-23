@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Uso del seguimiento distribuido con Azure Spring Cloud'
 description: En este tutorial se muestra cómo usar el seguimiento distribuido de Spring Cloud mediante Azure Application Insights.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 7241287e0438d6da5efb517a89b984bff72848c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: brendm
+ms.openlocfilehash: e4d3a7fbdb938071b754a16179bcd021985383cc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461483"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277500"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Uso del seguimiento distribuido con Azure Spring Cloud
 

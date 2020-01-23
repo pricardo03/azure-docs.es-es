@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3e1adc9220dd9b49c49ff3fe5e798dfcc9d5c928
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825298"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122685"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Inicio rápido: Versión 2.1 de la biblioteca cliente de Azure Blob Storage para Python
 
@@ -21,7 +21,7 @@ En este artículo se usa Python para cargar, descargar y enumerar blobs en bloqu
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -67,7 +67,7 @@ El programa de ejemplo crea un archivo de prueba en la carpeta *Documentos*, car
 1. Instale las dependencias:
 
     ```console
-    pip install azure-storage-blob
+    pip install azure-storage-blob==2.1.0
     ```
 
 1. Vaya a la aplicación de ejemplo:

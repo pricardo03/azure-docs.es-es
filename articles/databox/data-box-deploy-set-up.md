@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338476"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514143"
 ---
 ::: zone target="docs"
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 > * Cableado del dispositivo Data Box
 > * Conexión al dispositivo Data Box
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de que:
 
@@ -89,9 +89,9 @@ Una vez que haya recibido el dispositivo, tiene que realizar el cableado y conex
 2. Antes de cablear el dispositivo, asegúrese de tener los cables siguientes:
     
     - Cable de alimentación con tierra (incluido) con calificación de 10 A o más, con un conector IEC60320 C-13 en un extremo para conectar al dispositivo.
-    - Un cable de red RJ-45 cat. 6 (se usa con la interfaz de red MGMT)
+    - Un cable de red RJ-45 CAT 6 (se usa con la interfaz de red MGMT)
     - Dos cables de cobre 10 GbE SFP+ Twinax (uso con las interfaces de red DATA 1, DATA 2 de 10 Gbps)
-    - Un cable de red RJ-45 cat. 6A o RJ-45 cat. 6 (uso con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
+    - Un cable de red RJ-45 CAT 6A o RJ-45 CAT 6 (se usa con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
 
 3. Retire el dispositivo y colóquelo en una superficie plana. 
     
