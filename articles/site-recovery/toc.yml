@@ -309,7 +309,7 @@
                   href: vmware-physical-mobility-service-overview.md
                 - name: Preparación para la instalación de inserción del servicio Mobility
                   href: vmware-azure-install-mobility-service.md
-                - name: Implementación de Mobility Service con System Center Configuration Manager
+                - name: Implementación del servicio Mobility con Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación
           href: physical-to-azure-failover-failback.md

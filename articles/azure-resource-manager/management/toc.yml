@@ -16,6 +16,8 @@
       href: azure-resource-manager-security-controls.md
     - name: Proveedores de recursos por servicio
       href: azure-services-resource-providers.md
+    - name: Tipos de recursos de extensión
+      href: extension-resource-types.md
     - name: Límite de instancias de recursos
       href: resources-without-resource-group-limit.md
 - name: Procedimientos
@@ -68,44 +70,44 @@
           href: tag-resources.md
         - name: Compatibilidad de etiqueta
           href: tag-support.md
-    - name: Administrar
+    - name: Administración de grupos de recursos
       items:
-        - name: Administración de grupos de recursos
-          items:
-            - name: Uso de Azure Portal
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-portal.md
-            - name: Uso de la CLI de Azure
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-cli.md
-            - name: Uso de Azure PowerShell
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-powershell.md
-        - name: Administrar recursos
-          items:
-            - name: Uso de Azure Portal
-              displayName: 'open,delete,deploy,move,lock,tag,monitor'
-              href: manage-resources-portal.md
-            - name: Uso de la CLI de Azure
-              displayName: 'open,delete,deploy,move,lock,tag'
-              href: manage-resources-cli.md
-            - name: Uso de Azure PowerShell
-              displayName: 'open,delete,deploy,move,lock,tag'
-              href: manage-resources-powershell.md
-        - name: Eliminación de recursos y grupos de recursos
-          href: delete-resource-group.md
-        - name: Bloqueo de recursos
-          href: lock-resources.md
-        - name: Creación de suscripciones de EA
+        - name: Portal de Azure
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-portal.md
+        - name: Azure CLI
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-cli.md
+        - name: Azure PowerShell
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-powershell.md
+    - name: Administrar recursos
+      items:
+        - name: Portal de Azure
+          displayName: 'open,delete,deploy,move,lock,tag,monitor'
+          href: manage-resources-portal.md
+        - name: Azure CLI
+          displayName: 'open,delete,deploy,move,lock,tag'
+          href: manage-resources-cli.md
+        - name: Azure PowerShell
+          displayName: 'open,delete,deploy,move,lock,tag'
+          href: manage-resources-powershell.md
+    - name: Suscripciones de EA
+      items:
+        - name: Crear
           href: programmatically-create-subscription.md
-        - name: Concesión de acceso para crear suscripciones de EA
+        - name: Concesión de acceso para la creación
           href: grant-access-to-create-subscription.md
-        - name: Autenticación entre inquilinos
-          href: authenticate-multi-tenant.md
-    - name: Visualización de registros de actividad
-      href: view-activity-logs.md
     - name: Tipos y proveedores de recursos
       href: resource-providers-and-types.md
+    - name: Eliminación de recursos y grupos de recursos
+      href: delete-resource-group.md
+    - name: Bloqueo de recursos
+      href: lock-resources.md
+    - name: Autenticación entre inquilinos
+      href: authenticate-multi-tenant.md
+    - name: Visualización de registros de actividad
+      href: view-activity-logs.md
     - name: Solicitudes de limitación
       href: request-limits-and-throttling.md
     - name: Seguimiento de operaciones asincrónicas

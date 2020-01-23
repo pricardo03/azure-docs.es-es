@@ -40,7 +40,7 @@
       href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Inicio de una nueva aplicación Android
       href: tutorials/tutorial-new-android-app.md
-- name: Procedimiento
+- name: Instrucciones
   items:
     - name: Creación y búsqueda de delimitadores
       href: create-locate-anchors-overview.md
@@ -57,7 +57,7 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: En C++/WinRT
           href: how-tos/create-locate-anchors-cpp-winrt.md
-    - name: Uso de sensores del dispositivo para detectar delimitadores cercanos
+    - name: Uso de la relocalización general para detectar delimitadores cercanos
       items:
         - name: 'En C#/Unity'
           href: how-tos/set-up-coarse-reloc-unity.md
