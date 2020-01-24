@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a52977a46c1222a1626fa5a4dcb4de7dd84f8dd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638211"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291488"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
 
@@ -294,7 +294,7 @@ Azure lanzará próximamente [Azure Availability Zones](https://docs.microsoft.c
 Hay algunas cosas a tener en cuenta a la hora de usar Availability Zones. Cosas como:
 
 - No se pueden implementar conjuntos de disponibilidad de Azure en una zona de disponibilidad. Debe elegir una zona de disponibilidad o un conjunto de disponibilidad como marco de implementación para una máquina virtual.
-- No puede usar [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para crear soluciones de clúster de conmutación por error basadas en los servicios de clúster de conmutación por error de Windows o en Linux Pacemaker. En su lugar, deberá usar el [SKU Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- No puede usar [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) para crear soluciones de clúster de conmutación por error basadas en los servicios de clúster de conmutación por error de Windows o en Linux Pacemaker. En su lugar, deberá usar el [SKU Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 - Azure Availability Zones no proporciona ninguna garantía de una determinada distancia entre las diferentes zonas de una región.
 - La latencia de red entre diferentes instancias de Azure Availability Zones en distintas regiones de Azure puede variar de una región a otra. Habrá casos en los que puede, como cliente, ejecutar de manera razonable el nivel de aplicación de SAP implementado en diferentes zonas ya que la latencia de red de una zona a la máquina virtual de DBMS activa es aceptable desde el punto de vista del impacto del proceso empresarial. Sin embargo, también habrá escenarios de cliente en los que la latencia entre la máquina virtual del DBMS de una zona y una instancia de la aplicación de SAP en una máquina virtual de otra zona sea demasiado intrusiva o no aceptable para los procesos empresariales de SAP. Como resultado, las arquitecturas de implementación deben ser diferentes con una arquitectura en modo activo/activo para la aplicación o activo/pasivo si la latencia es demasiado alta.
 - El uso de [discos administrados de Azure](https://azure.microsoft.com/services/managed-disks/) es obligatorio para la implementación en Azure Availability Zones 

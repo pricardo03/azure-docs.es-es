@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a315b012cf103840eae6b141fe5177dfa709896d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463940"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771622"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -24,7 +24,7 @@ ms.locfileid: "75463940"
 
 ![Estructura de archivos](./media/storage-files-introduction/files-concepts.png)
 
-* **Storage Account** (Cuenta de almacenamiento): Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Consulte el artículo sobre los [objetivos de escalado y rendimiento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para información sobre la capacidad de la cuenta de almacenamiento.
+* **Storage Account** (Cuenta de almacenamiento): Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Vea [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener más información sobre la capacidad de la cuenta de almacenamiento.
 
 * **Recurso compartido**: un recurso compartido de File Storage es un recurso compartido de archivos de SMB en Azure. Todos los directorios y archivos se deben crear en un recurso compartido principal. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta una capacidad total del recurso compartido de archivos. La capacidad total de los recursos compartidos de archivos prémium y estándar es 100 TiB.
 
@@ -205,29 +205,40 @@ Los recursos compartidos de archivos estándar están disponibles en todas las r
 
 |Region |Redundancia admitida |
 |-------|---------|
+|Centro de Australia    |LRS     |
+|Centro de Australia 2    |LRS     |
 |Este de Australia |LRS     |
 |Sudeste de Australia|LRS |
+|Sur de Brasil    |LRS     |
 |Centro de Canadá  |LRS     |
 |Este de Canadá     |LRS     |
 |India Central  |LRS     |
-|Centro de EE. UU.*   |LRS     |
+|Centro de EE. UU.*   |LRS, ZRS    |
 |Asia oriental      |LRS     |
 |Este de EE. UU.*        |LRS, ZRS|
-|Este de EE. UU. 2*      |LRS     |
+|Este de EE. UU. 2*      |LRS, ZRS     |
 |Centro de Francia |LRS, ZRS|
 |Sur de Francia   |LRS     |
 |Este de Japón     |LRS     |
+|Oeste de Japón     |LRS     |
+|Corea Central  |LRS     |
+|Corea del Sur    |LRS     |
 |Centro-Norte de EE. UU |LRS   |
 |Europa del Norte   |LRS     |
 |Sur de la India    |LRS     |
 |Centro-Sur de EE. UU |LRS     |
 |Sudeste asiático |LRS, ZRS|
+|Norte de Suiza    |LRS     |
+|Oeste de Suiza    |LRS     |
 |Centro de Emiratos Árabes Unidos    |LRS     |
-|Sur de Reino Unido 2   |LRS     |
+|Norte de Emiratos Árabes Unidos    |LRS     |
+|Norte del Reino Unido   |LRS, ZRS    |
+|Sur de Reino Unido 2    |LRS     |
 |Oeste de Reino Unido    |LRS     |
 |Centro occidental de EE.UU.|LRS     |
 |Oeste de Europa*    |LRS, ZRS|
-|Oeste de EE. UU.*        |LRS     |
+|Oeste de la India   |LRS     |
+|Oeste de EE. UU.        |LRS     |
 |Oeste de EE. UU. 2      |LRS, ZRS|
 
 \* Compatible con cuentas nuevas, no todas las cuentas existentes han completado el proceso de actualización. Puede comprobar si las cuentas de almacenamiento existentes han completado el proceso de actualización si intenta [habilitar los recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
@@ -248,7 +259,7 @@ Es posible sincronizar varios recursos compartidos de archivos de Azure en un ú
 
 Existen muchas opciones sencillas para la transferencia masiva de datos desde un recurso de archivos existente, como un recurso compartido de archivos local, a Azure Files. Algunas populares incluyen (lista no exhaustiva):
 
-* **Azure File Sync**: como parte de una primera sincronización entre un recurso compartido de archivos de Azure (un "punto de conexión de nube") y un espacio de nombres de directorio de Windows (un "punto de conexión de servidor"), Azure File Sync replica todos los datos del recurso compartido de archivos existente en Azure Files.
+* **[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)** : como parte de una primera sincronización entre un recurso compartido de archivos de Azure (un "punto de conexión de nube") y un espacio de nombres de directorio de Windows (un "punto de conexión de servidor"), Azure File Sync replica todos los datos del recurso compartido de archivos existente en Azure Files.
 * **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : El servicio Azure Import/Export permite transferir de forma segura grandes cantidades de datos a un recurso compartido de archivos de Azure mediante el envío de unidades de disco duro a un centro de datos de Azure. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo.

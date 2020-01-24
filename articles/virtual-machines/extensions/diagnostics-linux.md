@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: mimckitt
-ms.openlocfilehash: 8b69da027878edddb3b553c097865a86985357f5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5b4ddc177359a08aad404c78b5cc0793f8d80e93
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970109"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156529"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -90,6 +90,85 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 ```
 
 La URL de la configuración de muestreo y su contenido están sujetos a cambios. Descargue una copia del archivo JSON de configuración del portal y personalícelo en función de sus necesidades. Cualquier plantilla o automatización que genere deberían usar su propia copia en lugar de descargar dicha URL cada vez.
+
+#### <a name="powershell-sample"></a>Ejemplo de PowerShell
+
+```Powershell
+// Set your Azure VM diagnostics variables correctly below - don't forget to replace the VMResourceID
+
+$SASKey = '<SASKeyForDiagStorageAccount>'
+
+$ladCfg = "{
+'diagnosticMonitorConfiguration': {
+'performanceCounters': {
+'sinks': 'WADMetricEventHub,WADMetricJsonBlob',
+'performanceCounterConfiguration': [
+{
+'unit': 'Percent',
+'type': 'builtin',
+'counter': 'PercentProcessorTime',
+'counterSpecifier': '/builtin/Processor/PercentProcessorTime',
+'annotation': [
+{
+'locale': 'en-us',
+'displayName': 'Aggregate CPU %utilization'
+}
+],
+'condition': 'IsAggregate=TRUE',
+'class': 'Processor'
+},
+{
+'unit': 'Bytes',
+'type': 'builtin',
+'counter': 'UsedSpace',
+'counterSpecifier': '/builtin/FileSystem/UsedSpace',
+'annotation': [
+{
+'locale': 'en-us',
+'displayName': 'Used disk space on /'
+}
+],
+'condition': 'Name='/'',
+'class': 'Filesystem'
+}
+]
+},
+'metrics': {
+'metricAggregation': [
+{
+'scheduledTransferPeriod': 'PT1H'
+},
+{
+'scheduledTransferPeriod': 'PT1M'
+}
+],
+'resourceId': '<VMResourceID>'
+},
+'eventVolume': 'Large',
+'syslogEvents': {
+'sinks': 'SyslogJsonBlob,LoggingEventHub',
+'syslogEventConfiguration': {
+'LOG_USER': 'LOG_INFO'
+}
+}
+}
+}"
+$ladCfg = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($ladCfg))
+$perfCfg = "[
+{
+'query': 'SELECT PercentProcessorTime, PercentIdleTime FROM SCX_ProcessorStatisticalInformation WHERE Name='_TOTAL'',
+'table': 'LinuxCpu',
+'frequency': 60,
+'sinks': 'LinuxCpuJsonBlob'
+}
+]"
+
+// Get the VM Resource
+Get-AzureRmVM -ResourceGroupName <RGName> -VMName <VMName>
+
+// Finally tell Azure to install and enable the extension
+Set-AzureRmVMExtension -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -ResourceGroupName <RGName> -VMName <VMName> -Location <Location> -Name LinuxDiagnostic -Settings @{'StorageAccount'='<DiagStorageAccount>'; 'sampleRateInSeconds' = '15' ; 'ladCfg'=$ladCfg; 'perfCfg' = $perfCfg} -ProtectedSettings @{'storageAccountName' = '<DiagStorageAccount>'; 'storageAccountSasToken' = $SASKey } -TypeHandlerVersion 3.0
+```
 
 ### <a name="updating-the-extension-settings"></a>Actualización de la configuración de la extensión
 

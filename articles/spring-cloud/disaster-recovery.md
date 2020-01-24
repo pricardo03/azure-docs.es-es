@@ -1,17 +1,17 @@
 ---
 title: Recuperación ante desastres geográfica de Azure Spring Cloud | Microsoft Docs
 description: Más información sobre cómo proteger su aplicación de Spring Cloud ante interrupciones regionales
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 54289e808461e6374dee57763ef7ba0d0429c54c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: brendm
+ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607843"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279153"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperación ante desastres de Azure Spring Cloud
 

@@ -1,17 +1,17 @@
 ---
 title: az spring cloud
 description: Administración de Spring Cloud con la CLI de Azure
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
-ms.author: jeconnoc
-ms.openlocfilehash: a1f82d4efa7756b44ca5ed9859aa872c1f55b565
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: brendm
+ms.openlocfilehash: 869a47469f8e0429d3726651c28f5a58acfcb856
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607820"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279040"
 ---
 # <a name="az-spring-cloud"></a>az spring-cloud
 
@@ -500,9 +500,9 @@ az spring-cloud app update --name -n
 | Parámetros opcionales | |
 | --- | ---: |
 | --deployment -d | Nombre de una implementación existente de la aplicación.  El valor predeterminado es el entorno de producción. |
-| --enable-persistent-storage | Booleano.  Si es true, monta un disco de 50 GB con la ruta de acceso predeterminada. |
+| --enable-persistent-storage | booleano.  Si es true, monta un disco de 50 GB con la ruta de acceso predeterminada. |
 | --env | Variables de entorno separadas por espacios en formato "clave[=valor]". |
-| --is-public | Booleano.  Si es true, asigna un dominio público a la aplicación. |
+| --is-public | booleano.  Si es true, asigna un dominio público a la aplicación. |
 | --jvm-options | Cadena que contiene las opciones de máquina virtual Java.  Usa "=" en lugar de " " para evitar errores de análisis de Shell. Por ejemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
 | --no-wait | No espere hasta que finalice la operación de ejecución prolongada. |
 | --runtime-version | Versión del entorno de ejecución del lenguaje usado en la aplicación.  Valores permitidos: `Java_11`, `Java_8`. |

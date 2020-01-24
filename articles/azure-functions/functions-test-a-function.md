@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: c60cd631e703f929eaae56138a2acd3687121924
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a37fd886e1bc70226b2e54750540dfcb79ee5973
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226572"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768884"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
 En este artículo se muestra cómo crear pruebas automatizadas para Azure Functions. 
 
-Se recomienda probar todo el código, sin embargo, es posible que obtenga los mejores resultados encapsulando una lógica de función y creando pruebas fuera de la función. La abstracción lógica siempre limita las líneas de código de una función y permite esta sea el único responsable de llamar a otras clases o módulos. En este artículo, sin embargo, se muestra cómo crear pruebas automatizadas mediante una función HTTP o desencadenada por temporizador.
+Se recomienda probar todo el código, sin embargo, es posible que obtenga los mejores resultados encapsulando una lógica de función y creando pruebas fuera de la función. La abstracción lógica siempre limita las líneas de código de una función y permite esta sea el único responsable de llamar a otras clases o módulos. Pero en este artículo, se muestra cómo crear pruebas automatizadas mediante funciones HTTP o desencadenadas por temporizador.
 
 El contenido siguiente se divide en dos secciones distintas diseñadas para diferentes lenguajes y entornos de destino. Puede aprender a compilar pruebas en:
 
@@ -30,7 +30,7 @@ El ejemplo siguiente describe cómo crear una aplicación de función C# en Visu
 
 ![Prueba de Azure Functions con C# en Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Configuración
+### <a name="setup"></a>Configurar
 
 Para configurar el entorno, cree una función y pruebe la aplicación. Los pasos siguientes le ayudarán a crear las aplicaciones y funciones necesarias para admitir las pruebas:
 
@@ -38,7 +38,7 @@ Para configurar el entorno, cree una función y pruebe la aplicación. Los pasos
 2. [Cree una función HTTP a partir de la plantilla](./functions-create-first-azure-function.md) y asígnele el nombre *HttpTrigger*.
 3. [Cree una función de temporizador a partir de la plantilla](./functions-create-scheduled-function.md) y asígnele el nombre *TimerTrigger*.
 4. [Cree la aplicación de prueba de xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) en Visual Studio, para lo que debe hacer clic en **Archivo > Nuevo > Proyecto > Visual C# > .NET Core > Proyecto de prueba de xUnit**  y asígnele el nombre *Functions.Test*. 
-5. Use Nuget para agregar referencias desde la aplicación de prueba [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/).
+5. Use NuGet para agregar referencias desde la aplicación de prueba a [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Haga referencia a la aplicación *Functions*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Crear clases de prueba
@@ -47,7 +47,7 @@ Ahora que se han creado las aplicaciones, puede crear las clases utilizadas para
 
 Cada función toma una instancia de [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) para controlar el registro de mensajes. Algunas pruebas no registran los mensajes o no tiene que preocuparse por cómo se implementa el registro. Otras pruebas deben evaluar los mensajes registrados para determinar si están pasando una prueba.
 
-La clase `ListLogger` pretende implementar la interfaz `ILogger` y mantener una lista interna de mensajes para su evaluación durante una prueba.
+La clase `ListLogger` implementa la interfaz `ILogger` y mantiene una lista interna de mensajes para su evaluación durante una prueba.
 
 **Haga clic con el botón derecho** en la aplicación *Functions.Test* y seleccione **Agregar > Clase**, asígnele el nombre **NullScope.cs** y escriba el código siguiente:
 
@@ -265,7 +265,7 @@ El ejemplo siguiente describe cómo crear una aplicación de función de JavaScr
 
 ![Prueba de Azure Functions con JavaScript en VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Configuración
+### <a name="setup"></a>Configurar
 
 Para configurar el entorno, inicialice una nueva aplicación de Node.js en una carpeta vacía mediante la ejecución de `npm init`.
 

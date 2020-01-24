@@ -3,17 +3,16 @@ title: Uso de las GPU en Azure Kubernetes Service (AKS)
 description: Obtenga información acerca de cómo usar GPU para cargas de trabajo de cálculo de alto rendimiento o de uso intensivo de gráficos en Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: e805ca87a34a6b50e9f799909efe8fcbe859883c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a68bd124f323225062a86a3e1fc178d2fc089c5d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899463"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276012"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Uso de GPU para cargas de trabajo de cálculo intensivo en Azure Kubernetes Service (AKS)
 
