@@ -95,6 +95,10 @@
           href: concepts-data-access-security-private-link.md
         - name: Cifrado de datos
           href: concepts-data-encryption-mysql.md
+        - name: Cifrado de datos
+          href: concepts-data-encryption-mysql.md
+        - name: Autenticación de Azure AD
+          href: concepts-azure-ad-authentication.md
     - name: Continuidad empresarial
       items:
         - name: Introducción a la continuidad empresarial
@@ -238,6 +242,10 @@
       items:
         - name: Portal de Azure
           href: howto-data-encryption-portal.md
+    - name: "Integración de Azure\_AD"
+      items:
+        - name: "Configuración de la integración de Azure\_AD"
+          href: howto-configure-sign-in-azure-ad-authentication.md
     - name: Reinicio del servidor
       items:
         - name: Portal de Azure

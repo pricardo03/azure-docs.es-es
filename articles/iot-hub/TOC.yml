@@ -84,9 +84,9 @@
 - name: Conceptos
   items:
     - name: Soporte técnico de TLS
-      href: iot-hub-tls.md
+      href: iot-hub-tls-support.md
     - name: Desuso de TLS 1.0 y 1.1
-      href: tls-1.2-everywhere.md
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Introducción sobre los enriquecimientos de mensajes
       href: iot-hub-message-enrichments-overview.md
     - name: Introducción a la administración de dispositivos

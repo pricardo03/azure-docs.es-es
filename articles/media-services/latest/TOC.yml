@@ -90,7 +90,7 @@
     - name: Empaquetado y entrega
       items:
         - name: Empaquetado dinámico
-          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest'
+          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming'
           href: dynamic-packaging-overview.md
         - name: Manifiestos dinámicos
           href: filters-dynamic-manifest-overview.md
