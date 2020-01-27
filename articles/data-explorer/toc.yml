@@ -27,9 +27,11 @@
       href: visualize-power-bi.md
 - name: Conceptos
   items:
-    - name: Información general de ingesta de datos
-      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
-      href: ingest-data-overview.md
+    - name: Ingesta de datos
+      items:
+        - name: Información general de ingesta de datos
+          displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+          href: ingest-data-overview.md
     - name: Introducción a la visualización de datos
       href: viz-overview.md
     - name: Introducción a la seguridad
@@ -84,18 +86,20 @@
           href: ingest-data-one-click.md
         - name: Ingesta de streaming
           href: ingest-data-streaming.md
+        - name: Uso de SDK
+          items:
+            - name: Python
+              href: python-ingest-data.md
+            - name: SDK de Node
+              href: node-ingest-data.md
+            - name: SDK de .NET Standard
+              href: net-standard-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
-        - name: Python
-          href: python-ingest-data.md
-        - name: SDK de Node
-          href: node-ingest-data.md
-        - name: SDK de .NET Standard
-          href: net-standard-ingest-data.md
         - name: Logstash
           href: ingest-data-logstash.md
-        - name: Copia de datos mediante Azure Data Factory
-          href: data-factory-load-data.md
+        - name: datos con formato json
+          href: ingest-json-formats.md
     - name: Consultar datos
       items:
         - name: Escritura de consultas
@@ -204,6 +208,8 @@
           items:
             - name: "Integración con Data\_Factory"
               href: data-factory-integration.md
+            - name: Copia de datos mediante Azure Data Factory
+              href: data-factory-load-data.md
             - name: Copia de datos en masa mediante una plantilla de Azure Data Factory
               href: data-factory-template.md
             - name: Ejecución de comandos de control mediante Azure Data Factory

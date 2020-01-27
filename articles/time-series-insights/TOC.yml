@@ -37,7 +37,7 @@
           href: time-series-insights-explorer.md
         - name: Descripción de la retención de los datos
           href: time-series-insights-concepts-retention.md
-        - name: Desarrollo
+        - name: Desarrollar
           items:
             - name: Autenticación y autorización
               href: time-series-insights-authentication-and-authorization.md
@@ -61,7 +61,7 @@
           href: time-series-insights-update-tsq.md
         - name: Visualización de datos en la versión preliminar del explorador
           href: time-series-insights-update-explorer.md
-        - name: Desarrollo
+        - name: Desarrollar
           items:
             - name: Autenticación y autorización
               href: time-series-insights-authentication-and-authorization.md
@@ -69,7 +69,7 @@
               href: time-series-insights-update-query-data-csharp.md
             - name: "Integración con Power\_BI"
               href: concepts-power-bi.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Concesión de acceso a datos
       href: time-series-insights-data-access.md
@@ -91,7 +91,7 @@
           href: time-series-insights-send-events.md
         - name: Escalado del entorno
           href: time-series-insights-how-to-scale-your-environment.md
-        - name: Dar formato JSON para consultas
+        - name: Dar forma JSON para entradas y consultas
           href: how-to-shape-query-json.md
         - name: Mitigación de la limitación
           href: time-series-insights-environment-mitigate-latency.md
@@ -107,7 +107,7 @@
           href: time-series-insights-update-how-to-troubleshoot.md
         - name: Modelado de datos
           href: time-series-insights-update-how-to-tsm.md
-        - name: Dar formato JSON para consultas
+        - name: Dar forma JSON para entradas y consultas
           href: time-series-insights-update-how-to-shape-events.md
         - name: Conexión a Power BI
           href: how-to-connect-power-bi.md
