@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc721f4521c9ac9b8ed8fed2d6b41f6a1b8bd72
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 68474738aabde1b14752aa33789d7e40c3831908
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846409"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154846"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Habilitación de un entorno piloto de Azure Multi-Factor Authentication
 
@@ -26,7 +26,7 @@ En este tutorial, realizará los pasos para configurar una directiva de acceso c
 > * Habilitación de Azure Multi-Factor Authentication
 > * Prueba de Azure Multi-Factor Authentication
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un inquilino de Azure AD activo con al menos una licencia de prueba habilitada.
 * Una cuenta con privilegios de administrador global.
@@ -36,10 +36,10 @@ En este tutorial, realizará los pasos para configurar una directiva de acceso c
 ## <a name="enable-azure-multi-factor-authentication"></a>Habilitación de Azure Multi-Factor Authentication
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global.
-1. Vaya a **Azure Active Directory** , **Acceso condicional**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**
 1. Denomine a la directiva **Piloto de MFA**
-1. En **Usuarios y grupos**, seleccione el botón de opción **Seleccionar usuarios y grupos**
+1. En **Usuarios y grupos**, seleccione el botón de radio **Seleccionar usuarios y grupos**.
     * Seleccione el grupo piloto creado como parte de la sección de requisitos previos de este artículo
     * Haga clic en **Listo**.
 1. En **Aplicaciones en la nube**, seleccione el botón de opción **Seleccionar aplicaciones**
@@ -47,7 +47,7 @@ En este tutorial, realizará los pasos para configurar una directiva de acceso c
     * Haga clic en **Seleccionar**
     * Haga clic en **Listo**.
 1. Omita la sección **Condiciones**
-1. En **Conceder**, asegúrese de que el botón de opción **Conceder acceso** está seleccionado
+1. En **Conceder**, asegúrese de que el botón de radio **Conceder acceso** está seleccionado.
     * Active la casilla **Requerir autenticación multifactor**.
     * Haga clic en **Seleccionar**
 1. Omita la sección **Sesión**.
@@ -69,10 +69,10 @@ Para demostrar que la directiva de acceso condicional funciona, pruebe a iniciar
 
 Si decide que ya no desea utilizar la funcionalidad que se ha configurado como parte de este tutorial, realice el siguiente cambio.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Vaya a **Azure Active Directory** , **Acceso condicional**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
 1. Seleccione la directiva de acceso condicional que ha creado.
-1. Hacer clic en **Eliminar**.
+1. Haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

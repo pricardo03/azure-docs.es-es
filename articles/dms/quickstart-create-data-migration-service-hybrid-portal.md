@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.date: 01/21/2019
+ms.openlocfilehash: 81039aa4aa37f9587db887beadcdb6d263ec6a74
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708298"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274811"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Inicio rápido: Creación de una instancia en modo híbrido con Azure Portal y Azure Database Migration Service
 
@@ -73,7 +73,7 @@ Registre el proveedor de recursos Microsoft.DataMigration antes de crear su prim
     - Elija la **ubicación** más cercana a su servidor de origen o de destino.
     - Para el **Modo de servicio**, seleccione **Hybrid (versión preliminar)** .
 
-           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![Creación del servicio de migración: aspectos básicos](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Seleccione **Revisar + crear**.
 
@@ -186,7 +186,7 @@ Este script está diseñado para crear un prototipo de forma rápida cuando el u
 > [!IMPORTANT]
 > En este script se supone que hay una instancia existente de Azure Database Migration Service en modo híbrido y que la cuenta de Azure usada tiene permisos para crear AdApps en el inquilino y para modificar RBAC en la suscripción.
 
-No tiene más que rellenar los parámetros del principio del script y, después, ejecute el script desde una instancia de Administrator PowerShell.
+Rellene los parámetros del principio del script y, después, ejecute el script desde una instancia de Administrator PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

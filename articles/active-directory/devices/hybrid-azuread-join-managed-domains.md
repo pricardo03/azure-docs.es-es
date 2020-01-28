@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 787900918035dc8b14d3a173496ab1a23b0f93bb
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 17bfbc29f38230dc2533c9ccc63cdee4fc776717
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813093"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512115"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 > * Comprobación dispositivos unidos
 > * Solución de problemas
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este tutorial se da por supuesto que está familiarizado con estos artículos:
 
@@ -64,7 +64,7 @@ La unión a Azure AD híbrido requiere que los dispositivos tengan acceso a los
 - `https://enterpriseregistration.windows.net`
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
-- `https://autologon.microsoftazuread-sso.com` (Si usa o planea usar SSO de conexión directa)
+- `https://autologon.microsoftazuread-sso.com` (si usa o planea usar SSO de conexión directa)
 
 Si su organización necesita acceso a Internet mediante un proxy de salida, Microsoft recomienda [implementar la detección automática de proxy web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir que los equipos con Windows 10 realicen el registro de dispositivos con Azure AD. Si tiene problemas de configuración y administración de WPAD, consulte [Troubleshoot automatic detection](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)) (Solución de problemas de detección automática). 
 
@@ -134,6 +134,9 @@ Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows d
 - Configurar SSO de conexión directa
 - Instalar Microsoft Workplace Join for Windows en equipos de nivel inferior
 
+> [!NOTE]
+> La compatibilidad con Windows 7 finalizó el 14 de enero de 2020. Para más información, consulte el artículo sobre el [fin de la compatibilidad con Windows 7](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
+
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurar los valores de la intranet local para el registro de dispositivos
 
 Para completar con éxito la unión de Azure AD híbrido de los dispositivos de Windows de nivel inferior y para evitar las peticiones de certificados cuando los dispositivos se autentican en Azure AD, puede insertar una directiva en los dispositivos unidos a un dominio para agregar las siguientes direcciones URL a la zona de intranet local en Internet Explorer:
@@ -151,7 +154,7 @@ Para completar correctamente la unión a Azure AD híbrido de los dispositivos 
 
 Para registrar dispositivos de nivel inferior de Windows, las organizaciones deben instalar [Microsoft Workplace Join para equipos sin Windows 10](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join para equipos sin Windows 10 está disponible en el Centro de descarga de Microsoft.
 
-El paquete se puede implementar mediante un sistema de distribución de software como  [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). El paquete admite las opciones de instalación silenciosa estándar mediante el parámetro `quiet`. La rama actual de Configuration Manager ofrece ventajas adicionales sobre las versiones anteriores, como la posibilidad de realizar el seguimiento de los registros completados.
+El paquete se puede implementar mediante un sistema de distribución de software como  [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). El paquete admite las opciones de instalación silenciosa estándar mediante el parámetro `quiet`. La rama actual de Configuration Manager ofrece ventajas adicionales sobre las versiones anteriores, como la posibilidad de realizar el seguimiento de los registros completados.
 
 El instalador crea una tarea programada en el sistema que se ejecuta en el contexto del usuario. La tarea se desencadena cuando el usuario inicia sesión en Windows. La tarea une de forma silenciosa el dispositivo con Azure AD mediante las credenciales de usuario después de que se autentique con Azure AD.
 

@@ -8,68 +8,97 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707948"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514313"
 ---
 # <a name="what-is-personalizer"></a>¿Qué es Personalizer?
 
-Azure Personalizer es un servicio de API basado en la nube que permite a una aplicación elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento colectivo en tiempo real.
+Azure Personalizer es un servicio de API basado en la nube que ayuda a la aplicación cliente a elegir el mejor elemento de _contenido_ que se mostrará a cada usuario. El servicio selecciona el mejor, de entre todos los elementos de contenido, en función de la información en tiempo real colectiva que se proporciona sobre el contenido y el contexto.
 
-* Proporcione información acerca de los usuarios y del contenido, y reciba la principal acción que va a mostrar a los usuarios. 
-* Para utilizar Personalizer no es preciso limpiar y etiquetar los datos.
-* Proporcione los comentarios a Personalizer cuando le resulte más cómodo. 
-* Vea análisis en tiempo real. 
+Después de presentar el elemento de contenido al usuario, el sistema supervisa el comportamiento del usuario y devuelve una puntuación de recompensa a Personalizer con el fin de mejorar su capacidad para seleccionar el mejor contenido en función de la información contextual que recibe.
 
-Vea una demostración de [cómo funciona Personalizer](https://personalizercontentdemo.azurewebsites.net/).
+El **contenido** puede ser cualquier unidad de información, como texto, imágenes, direcciones URL o correos electrónicos que quiera seleccionar para que se muestren al usuario.
 
-## <a name="how-does-personalizer-work"></a>Funcionamiento de Personalizer
+<!--
+![What is personalizer animation](./media/what-is-personalizer.gif)
+-->
 
-Personalizer utiliza modelos de aprendizaje automático para detectar qué acción se debe colocar la primera en un contexto. La aplicación cliente proporciona una lista de posibles acciones, con información sobre ellas, así como información acerca del contexto, que puede incluir información sobre el usuario, dispositivo, etc. Personalizer determina la acción que se va a realizar. Una vez que la aplicación cliente use la acción elegida, proporciona comentarios a Personalizer en forma de puntuación de recompensa. Tras recibir los comentarios, Personalizer actualiza automáticamente el modelo propio que ha utilizado para usarlo en el futuro. Con el tiempo, Personalizer entrenará un modelo que puede sugerir la acción más apropiada para cada contexto en función de sus características.
+## <a name="how-does-personalizer-select-the-best-content-item"></a>¿Cómo selecciona Personalizer el mejor elemento de contenido?
 
-## <a name="how-do-i-use-the-personalizer"></a>¿Cómo se usa Personalizer?
+Personalizer usa el **aprendizaje de refuerzo** para seleccionar el mejor elemento (_acción_) en función del comportamiento colectivo y las puntuaciones de recompensa de todos los usuarios. Las acciones son los elementos de contenido, como artículos de noticias, películas específicas o productos que se eligen.
 
-![Uso de Personalizer para elegir el vídeo que se va a mostrar a un usuario](media/what-is-personalizer/personalizer-example-highlevel.png)
+La llamada **Rank** toma el elemento de acción, junto con las características de la acción, y las características de contexto para seleccionar el elemento de acción superior:
 
-1. Elija en su aplicación lo que desea personalizar.
-1. Cree y configure una instancia del servicio Personalization en Azure Portal. Cada instancia es un bucle de Personalizer.
-1. Use [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) para llamar a Personalizer con información (_características_) sobre los usuarios y el contenido (_acciones_). Para usar Personalizer no es preciso proporcionar datos limpios y con etiqueta. Se puede llamar a las API directamente o usar los SDK disponibles para los diferentes lenguajes de programación.
-1. En la aplicación cliente, muestre al usuario la acción que ha seleccionado Personalizer.
-1. Use [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) para proporcionar comentarios a Personalizer para indicar si el usuario seleccionó la acción de Personalizer. Esta es una _[puntuación de recompensa](concept-rewards.md)_ .
-1. Vea el análisis en Azure Portal y evalúe el funcionamiento del sistema y cómo ayudan los datos a la personalización.
+* **Acciones con características**: elementos de contenido con características específicas de cada elemento
+* **Características de contexto**: características de los usuarios, su contexto o su entorno cuando se usa la aplicación
 
-## <a name="where-can-i-use-personalizer"></a>¿Dónde se puede utilizar Personalizer?
+La llamada Rank devuelve el identificador del elemento de contenido, __acción__, que se mostrará al usuario, en el campo **Reward Action ID** (Id. de acción de recompensa).
+La __acción__ mostrada al usuario se elige con modelos de aprendizaje automático, y se intenta maximizar la cantidad total de recompensas a lo largo del tiempo.
 
-Por ejemplo, una aplicación cliente puede agregar Personalizer para:
+Algunos escenarios de ejemplo son:
 
-* Personalizar qué artículo se resalta en un sitio web de noticias.    
-* Optimizar la colocación de anuncios en un sitio web.
-* Mostrar un "elemento recomendado" personalizado en un sitio web de compras.
-* Sugerir elementos de la interfaz de usuario, como filtros, para aplicarlos a una foto concreta.
-* Elegir la respuesta de un bot de chat para clarificar la intención del usuario o sugerir una acción.
-* Dar prioridad a las sugerencias relativas a lo debe hacer un usuario en el siguiente paso de un proceso empresarial.
+|Tipo de contenido|**Acciones (con características)**|**Características de contexto**|Identificador de acción de recompensa que se devuelve<br>(se muestra este contenido)|
+|--|--|--|--|
+|Lista de noticias|a. `The president...` (nacional, política, [texto])<br>b. `Premier League ...` (global, deportes, [texto, imagen, vídeo])<br> c. `Hurricane in the ...` (regional, información meteorológica, [texto, imagen]|Las noticias del dispositivo se leen desde<br>Mes o temporada<br>|a `The president...`|
+|Lista de películas|1. `Star Wars` (1977, [acción, aventura, fantasía], George Lucas)<br>2. `Hoop Dreams` (1994, [documental, deportes], Steve James<br>3. `Casablanca` (1942, [romance, drama, guerra], Michael Curtiz)|La película del dispositivo se visiona desde<br>tamaño de pantalla<br>Tipo de usuario<br>|3. `Casablanca`|
+|Lista de productos|i. `Product A` (3 kg, $$$$, entrega en 24 horas)<br>ii. `Product B` (20 kg, $$, envío en 2 semanas con tasas de aduanas)<br>iii. `Product C` (3 kg, $$$, entrega en 48 horas)|El envío del dispositivo se lee desde<br>Nivel de gastos del usuario<br>Mes o temporada|ii. `Product B`|
 
-Personalizer no es un servicio para conservar y administrar la información de los perfiles de los usuarios, ni para registrar las preferencias o el historial de cada usuario. Personalizer aprende de las características de cada interacción de la acción de un contexto en un modelo único que puede obtener las máximas recompensas cuando aparecen características similares. 
+Personalizer usó el aprendizaje de refuerzo para seleccionar la mejor acción, lo que se conoce como _identificador de acción de recompensa_, según una combinación de:
+* Modelo entrenado: información pasada que recibió el servicio Personalizer
+* Datos actuales: acciones específicas con características y características de contexto
 
-## <a name="personalization-for-developers"></a>Personalization para desarrolladores
+## <a name="when-to-call-personalizer"></a>Cuándo llamar a Personalizer
 
-El servicio Personalizer tiene dos API:
+Se llama a **API** [Rank](https://go.microsoft.com/fwlink/?linkid=2092082) de Personalizer _cada vez_ que se presenta contenido, en tiempo real. Esto se conoce como un **evento**, anotado con un _identificador de evento_.
 
-* *Rank*: use la API Rank para determinar qué _acción_ se mostrará, en el _contexto_ actual. Las acciones se envían como una matriz de objetos JSON, con un identificador e información (_características_) sobre cada una de ellas. El contexto se envía como otro objeto JSON. La API devuelve el valor de actionId que la aplicación debe mostrar al usuario.
-* *Recompensa*: Después de que el usuario interactúe con la aplicación, se mide cómo ha funcionado la personalización con un número entre 0 y 1, y se envía como una [puntuación de recompensa](concept-rewards.md). 
+Se puede llamar a **API** [Reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) de Personalizer en tiempo real o con retardo para que se adapte mejor a su infraestructura. La puntuación de recompensa se determinará según sus necesidades empresariales. Esta puntuación debe ser un solo valor, por ejemplo, 1 para bueno y 0 para malo, o un número generado por un algoritmo que cree teniendo en cuenta las métricas y los objetivos empresariales.
 
-![Secuencia básica de eventos para Personalization](media/what-is-personalizer/personalization-intro.png)
+## <a name="personalizer-content-requirements"></a>Requisitos de contenido de Personalizer
+
+Use Personalizer cuando el contenido:
+
+* Tenga un conjunto limitado de elementos (50 como máximo) para seleccionar. Si tiene una lista más grande, [use un motor de recomendaciones](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) para reducir la lista a 50 elementos.
+* Contenga información que describa el contenido que quiere clasificar: _acciones con características_ y _características de contexto_.
+* Tenga un número mínimo de eventos relacionados con contenido de 1 KB/día para que Personalizer funcione de forma efectiva. Si Personalizer no recibe el tráfico mínimo necesario, el servicio tarda más en determinar el mejor elemento de contenido.
+
+Dado que Personalizer usa información colectiva casi en tiempo real para devolver el mejor elemento de contenido, el servicio no:
+* Conserva ni administra la información de perfil de usuario
+* Registra las preferencias ni el historial de usuarios individuales
+* Necesita contenido limpio ni etiquetado
+
+## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Cómo diseñar e implementar Personalizer para la aplicación cliente
+
+1. [Diseñe](concepts-features.md) y planee contenido, **_acciones_** y **_contexto_** . Determine el algoritmo de recompensa para la puntuación de **_recompensa_** .
+1. Cada [recurso de Personalizer](how-to-settings.md) que cree se considera un bucle de aprendizaje. El bucle recibirá las llamadas Rank y Reward para ese contenido o experiencia de usuario.
+1. Agregue Personalizer a su sitio web o sistema de contenido:
+    1. Agregue una llamada **Rank** a Personalizer en su aplicación, sitio web o sistema para determinar el mejor elemento de _contenido_ antes de que se muestre el contenido al usuario.
+    1. Muestre al usuario el mejor elemento de _contenido_, que es el _identificador de acción de recompensa_ devuelto.
+    1. Aplique el _algoritmo_ a la información recopilada sobre cómo se comportará el usuario, para determinar la puntuación de **recompensa**, por ejemplo:
+
+        |Comportamiento|Puntuación de recompensa calculada|
+        |--|--|
+        |El usuario seleccionó el mejor elemento de _contenido_ (identificador de acción de recompensa)|**1**|
+        |El usuario seleccionó otro contenido|**0**|
+        |El usuario hizo una pausa, se desplazó sin decidirse, antes de seleccionar el mejor elemento de _contenido_ (identificador de acción de recompensa)|**0,5**|
+
+    1. Agregue una llamada **Reward** para enviar una puntuación de recompensa entre 0 y 1
+        * Inmediatamente después de mostrar el contenido
+        * O, en algún momento posterior en un sistema sin conexión
+    1. [Evalúe el bucle](concepts-offline-evaluation.md) con una evaluación sin conexión después de un período de uso. La evaluación sin conexión permite probar y evaluar la eficacia del servicio Personalizer sin cambiar el código o sin que se vea afectada la experiencia del usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Novedades de Personalizer](whats-new.md)
+
 * [Funcionamiento de Personalizer](how-personalizer-works.md)
 * [¿Qué es el aprendizaje de refuerzo?](concepts-reinforcement-learning.md)
 * [Más información sobre las características y acciones de la solicitud de Rank](concepts-features.md)
 * [Más información sobre cómo determinar la puntuación de la solicitud de Reward](concept-rewards.md)
+* [Guías de inicio rápido]()
+* [Tutorial]()
 * [Uso de la demostración interactiva](https://personalizationdemo.azurewebsites.net/)

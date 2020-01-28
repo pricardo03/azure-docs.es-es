@@ -4,14 +4,14 @@ description: En este artículo se proporciona una introducción al uso de Azure 
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: mvc
-ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3922f8a2478f00c632b6daf294f23c7b5ad8c261
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420655"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310142"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
@@ -141,7 +141,7 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
 * **Máquinas para actualizar**: Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
-* **Actualizar clasificación**: seleccione los tipos de software que la implementación de actualizaciones incluyó en la implementación. Para este tutorial, seleccione todos los tipos.
+* **Actualizar clasificación**: Seleccione las clasificaciones de actualización admitidas disponibles para cada producto que es posible incluir en la implementación de actualizaciones. Para este tutorial, seleccione todos los tipos.
 
   Los tipos de clasificación son:
 
@@ -156,6 +156,10 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
 > [!NOTE]
 > Es importante saber que las exclusiones invalidan las inclusiones. Por ejemplo, si define una regla de exclusión de `*`, no se instalan revisiones ni paquetes, ya que se excluyen todas. Las revisiones excluidas aparecen todavía como que faltan en la máquina. Para las máquinas Linux, si se incluye un paquete, pero tiene un paquete dependiente que se ha excluido, el paquete no se instala.
+
+> [!NOTE]
+> No puede especificar actualizaciones que se hayan sustituido para incluirlas en la implementación de actualizaciones.
+>
 
 * **Configuración de la programación**: se abre el panel de **configuración de la programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 

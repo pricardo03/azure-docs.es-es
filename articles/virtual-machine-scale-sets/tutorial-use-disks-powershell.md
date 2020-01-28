@@ -1,27 +1,19 @@
 ---
-title: 'Tutorial: Creación y uso de discos para conjuntos de escalado con Azure PowerShell | Microsoft Docs'
+title: 'Tutorial: Creación y uso de discos para conjuntos de escalado con Azure PowerShell'
 description: Obtenga información sobre cómo usar Azure PowerShell para crear y usar discos administrados con conjuntos de escalado de máquinas virtuales, incluido cómo agregar, preparar, enumerar y desconectar discos.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: ba2d216b9827eeb499df40ceffca16780bdf5a02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728578"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278257"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -49,7 +41,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 **Disco temporal**: los discos temporales usan una unidad de estado sólido que se encuentra en el mismo host de Azure que la instancia de máquina virtual. Son discos de gran rendimiento y se pueden usar para operaciones tales como el procesamiento temporal de los datos. Sin embargo, si la instancia de máquina virtual se mueve a un nuevo host, los datos almacenados en un disco temporal se eliminarán. El tamaño del disco temporal se determina por el tamaño de la instancia de máquina virtual. Los discos temporales llevan la etiqueta */dev/sdb* y tienen un punto de montaje de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
-| Type | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
+| Tipo | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
 |----|----|----|
 | [Uso general](../virtual-machines/windows/sizes-general.md) | Series A, B y D | 1600 |
 | [Proceso optimizado](../virtual-machines/windows/sizes-compute.md) | Serie F | 576 |
@@ -63,7 +55,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 Se pueden agregar discos de datos adicionales si necesita instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 4 TB. El tamaño de la instancia de máquina virtual determina cuántos discos de datos se pueden conectar. Para cada vCPU de la máquina virtual, se pueden asociar dos discos de datos.
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
-| Type | Tamaños comunes | Discos de datos máximos por máquina virtual |
+| Tipo | Tamaños comunes | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](../virtual-machines/windows/sizes-general.md) | Series A, B y D | 64 |
 | [Proceso optimizado](../virtual-machines/windows/sizes-compute.md) | Serie F | 64 |

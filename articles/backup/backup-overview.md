@@ -4,12 +4,12 @@ description: Proporciona información general del servicio Azure Backup, y cómo
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 8a902736a8df703b33afbcb108e9e970e200a4dd
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668031"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294310"
 ---
 # <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
@@ -21,7 +21,7 @@ El servicio Azure Backup proporciona soluciones sencillas, seguras y rentables t
 
 - **Entorno local**: realice una copia de seguridad tanto de los archivos, como de las carpetas y del estado del sistema mediante el [agente de Microsoft Azure Recovery Services (MARS)](backup-support-matrix-mars-agent.md). O bien, use el agente de DPM o de Azure Backup Server (MABS) para proteger las máquinas virtuales locales ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) y [VMWare](backup-azure-backup-server-vmware.md)) y otras [cargas de trabajo locales](backup-mabs-protection-matrix.md)
 - **Máquinas virtuales de Azure** - [realice copias de seguridad de máquinas virtuales Windows o Linux completas](backup-azure-vms-introduction.md) (mediante extensiones de copia de seguridad), o bien realice copias de seguridad de archivos, carpetas y estados del sistema mediante el [agente de MARS](backup-azure-manage-mars.md).
-- **Recursos compartidos de Azure Files** - [realice copias de seguridad y restaure recursos compartidos de Azure Files para almacenar la cuenta](backup-azure-files.md)
+- **Recursos compartidos Azure Files** - [Copia de seguridad de recursos compartidos de archivos de Azure en una cuenta de almacenamiento](backup-afs.md)
 - **SQL Server en máquinas virtuales de Azure** -  [haga copias de seguridad de las bases de datos de SQL Server que se ejecutan en las máquinas virtuales de Azure](backup-azure-sql-database.md)
 - **Bases de datos de SAP HANA en máquinas virtuales de Azure** - [ haga copias de seguridad de las bases de datos de SAP HANA que se ejecutan en las máquinas virtuales de Azure](backup-azure-sap-hana-database.md)
 

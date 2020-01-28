@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790318"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122209"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Elija entre los servicios de mensajería de Azure: Event Grid, Event Hubs y Service Bus
 
@@ -44,7 +44,7 @@ Un mensaje son datos sin procesar producidos por un servicio que se consumen o a
 
 ## <a name="comparison-of-services"></a>Comparación de servicios
 
-| Servicio | Propósito | type | Cuándo se deben usar |
+| Servicio | Propósito | Tipo | Cuándo se usa |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programación reactiva | Distribución de eventos (discretos) | Reacción ante los cambios de estado |
 | Event Hubs | Canalización de macrodatos | Streaming de eventos (serie) | Streaming de datos distribuidos y telemetría |
@@ -97,7 +97,7 @@ En otros casos, puede vincular estas soluciones para formar una canalización de
 ![Información general sobre streaming de datos](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes: 
+Vea los artículos siguientes: 
 - [Opciones de mensajería asincrónica en Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Eventos, puntos de datos y mensajes - Elección del servicio de mensajería de Azure adecuado para los datos).
 - [Colas de Storage y de Service Bus: comparación y diferencias](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

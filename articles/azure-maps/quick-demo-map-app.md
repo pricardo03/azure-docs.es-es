@@ -3,18 +3,18 @@ title: 'Inicio rápido: Búsqueda interactiva de mapas con Azure Maps | Microsof
 description: Aprenda a crear una aplicación web de demostración para la búsqueda interactiva de mapas mediante el SDK web de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/08/2019
+ms.date: 1/14/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4081dd383fc0e7378bc8c8438781c13e6a34e075
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910694"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156444"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Inicio rápido: Creación de una búsqueda interactiva de mapas mediante Azure Maps
 
@@ -61,7 +61,7 @@ Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave qu
 
 ## <a name="download-the-application"></a>Descarga de la aplicación
 
-1. Descargue o copie el contenido del archivo [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
+1. Vaya a [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) y haga clic en él para ver el contenido de la interfaz de usuario de GitHub. Haga clic con el botón derecho en el botón **Sin formato** y copie el contenido del archivo o seleccione "Guardar como" para descargar el archivo.
 2. Guarde el contenido de este archivo localmente como **AzureMapDemo.html**. Ábralo en un editor de texto.
 3. Busque la cadena `<Your Azure Maps Key>`. Reemplácela por el valor de **Clave principal** de la sección anterior.
 

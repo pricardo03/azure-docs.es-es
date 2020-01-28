@@ -1,6 +1,6 @@
 ---
 title: Relocalización general en C++ y NDK
-description: Explicación detallada de cómo crear y localizar anclajes mediante los sensores de dispositivos en C++/NDK.
+description: Explicación detallada de cómo crear y localizar anclajes mediante la relocalización general en C++/NDK.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e505e6a8a3c9f28905c1b1fc3d90dbeee959a793
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: db7480b8aa2a78e40cf52d22cbaa7a15422602e8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277243"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545422"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-cndk"></a>Creación y localización de anclajes mediante sensores de dispositivos en C++/NDK
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cndk"></a>Creación y localización de anclajes mediante relocalización general en C++/NDK
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74277243"
 
 Azure Spatial Anchors puede asociar los datos del sensor de posicionamiento del dispositivo con los anclajes que cree. Estos datos también se pueden usar para determinar rápidamente si hay algún anclaje cerca del dispositivo. Para más información, consulte [Relocalización general](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía, asegúrese de que cumple los siguientes requisitos previos:
 

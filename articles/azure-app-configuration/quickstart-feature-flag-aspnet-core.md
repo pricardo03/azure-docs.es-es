@@ -1,33 +1,25 @@
 ---
-title: Inicio rápido para agregar marcas de características a ASP.NET Core | Microsoft Docs
-description: Un inicio rápido para agregar marcas de características a aplicaciones de ASP.NET Core y administrarlas en Azure App Configuration
-services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
+title: Inicio rápido para agregar marcas de características a ASP.NET Core
+description: Adición de marcas de características a aplicaciones de ASP.NET Core y su administración en Azure App Configuration
+author: jpconnock
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET Core
-ms.workload: tbd
-ms.date: 04/19/2019
-ms.author: yegu
-ms.openlocfilehash: 1b36bc1b1f28c687450acad4cc61fa5442cff082
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 01/14/2020
+ms.author: jeconnoc
+ms.openlocfilehash: 6858648bc07546f30d4ebb92150c52f8c7729acd
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184981"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260297"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
-En este inicio rápido se incorpora Azure App Configuration en una aplicación web de ASP.NET Core para crear una implementación de un extremo a otro de administración de características. Puede usar el servicio App Configuration para almacenar en una ubicación central todas las marcas de características y controlar sus estados. 
+En este inicio rápido, va a crear una implementación de un extremo a otro de administración de características en una aplicación de ASP.NET Core mediante Azure App Configuration. Podrá usar el servicio App Configuration para almacenar en una ubicación central todas las marcas de características y controlar sus estados. 
 
 Las bibliotecas de administración de características de .NET Core amplían la plataforma con una compatibilidad completa con las marcas de características. Estas bibliotecas se compilan sobre el sistema de configuración de .NET Core. Se integran sin problemas con App Configuration a través de su proveedor de configuración de .NET Core.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [SDK de .NET Core](https://dotnet.microsoft.com/download).
@@ -36,15 +28,16 @@ Las bibliotecas de administración de características de .NET Core amplían la 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seleccione **Administrador de características** >  **+ Agregar** para agregar las siguientes marcas de características:
+6. Seleccione **Administrador de características** >  **+Agregar** para agregar una marca de características denominada `Beta`.
 
-    | Clave | State |
-    |---|---|
-    | Versión beta | Off |
+    > [!div class="mx-imgBorder"]
+    > ![Habilitación de la marca de característica denominada Beta](media/add-beta-feature-flag.png)
+
+    Deje `label` sin definir por ahora.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Cree una aplicación web ASP.NET Core
 
-Va a utilizar la [interfaz de la línea de comandos (CLI) de .NET Core](https://docs.microsoft.com/dotnet/core/tools/) para crear un proyecto de aplicación web de ASP.NET Core MVC. La ventaja de usar la CLI de .NET Core frente a Visual Studio es que está disponible en las plataformas Windows, macOS y Linux.
+Utilice la [interfaz de la línea de comandos (CLI) de .NET Core](https://docs.microsoft.com/dotnet/core/tools/) para crear un proyecto de aplicación web de ASP.NET Core MVC. La ventaja de usar la CLI de .NET Core frente a Visual Studio es que está disponible en las plataformas Windows, macOS y Linux.
 
 1. Cree una carpeta nueva para su proyecto. En este inicio rápido, lo llamaremos *TestFeatureFlags*.
 
@@ -58,9 +51,13 @@ Va a utilizar la [interfaz de la línea de comandos (CLI) de .NET Core](https://
 
 Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) al proyecto. La herramienta Secret Manager almacena información confidencial para el trabajo de desarrollo fuera de su árbol de proyecto. Este enfoque ayuda a evitar el uso compartido accidental de secretos de la aplicación en el código fuente.
 
+> [!IMPORTANT]
+> Existen diferencias significativas entre .NET Core 2.x y 3.x.  Seleccione la sintaxis correcta en función de su entorno.
+
 1. Abra el archivo *.csproj*.
 1. Agregue un elemento `UserSecretsId` como se muestra en el ejemplo siguiente y reemplace su valor por el suyo propio, que suele ser un GUID:
 
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -76,16 +73,25 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
     </Project>
     ```
-
-1. Guarde el archivo.
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+        <PropertyGroup>
+            <TargetFramework>netcoreapp3.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    </Project>
+    ```
+    ---
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
 1. Agregue una referencia a los paquetes NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` y `Microsoft.FeatureManagement.AspNetCore`, para lo que debe ejecutar los siguientes comandos:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
     ```
 
 1. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:
@@ -108,19 +114,13 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
     Puede acceder a este secreto con la API de App Configuration. Un signo de dos puntos (:) funciona en el nombre de configuración con la API de App Configuration en todas las plataformas compatibles. Consulte [Configuración en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Abra *Program.cs* y agregue una referencia al proveedor de App Configuration de .NET Core:
-
-    ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-    ```
-
 1. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration()`.
     
     > [!IMPORTANT]
     > `CreateHostBuilder` reemplaza a `CreateWebHostBuilder` en .NET Core 3.0.  Seleccione la sintaxis correcta en función de su entorno.
 
-    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Actualización `CreateWebHostBuilder` para .NET Core 2.x
-
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -135,8 +135,8 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
             .UseStartup<Startup>();
     ```
 
-    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Actualización `CreateHostBuilder` para .NET Core 3.x
-
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -151,7 +151,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
         })
         .UseStartup<Startup>());
     ```
-
+    ---
 
 1. Abra *Startup.cs* y agregue referencias al administrador de características de .NET Core.
 
@@ -161,22 +161,75 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 1. Actualice el método `ConfigureServices` para agregar compatibilidad con la marca de características mediante una llamada al método `services.AddFeatureManagement()`. También tiene la opción de incluir cualquier filtro para usar con las marcas de características mediante la llamada a `services.AddFeatureFilter<FilterType>()`:
 
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);        
         services.AddFeatureManagement();
     }
     ```
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```csharp    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        services.AddFeatureManagement();
+    }
+    ```
+    ---
 
 1. Actualice el método `Configure` para agregar un middleware que permita actualizar los valores de marca de la característica en un intervalo periódico mientras la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
-
+    
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        app.UseAzureAppConfiguration();
-        app.UseMvc();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+            app.UseAzureAppConfiguration();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
     }
     ```
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            app.UseStaticFiles();
+            app.UseRouting();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+            app.UseAzureAppConfiguration();
+    }
+    ```
+    ---
 
 1. Agregue un archivo *MyFeatureFlags.cs*:
 
@@ -278,19 +331,19 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
     dotnet run
     ```
 
-1. Inicie una ventana del explorador y vaya a `https://localhost:5001`, que es la dirección URL predeterminada de la aplicación web hospedada localmente.
+1. Inicie una ventana del explorador y vaya a `https://localhost:5000`, que es la dirección URL predeterminada de la aplicación web hospedada localmente.
+    Si trabajando en Azure Cloud Shell, seleccione el botón *Vista previa web* y después *Configurar*.  Cuando se le pida, seleccione el puerto 5000.
 
-    ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
+    ![Busque el botón Vista previa web](./media/quickstarts/cloud-shell-web-preview.png)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+    El explorador debe mostrar una página similar a la imagen siguiente.
+    ![Inicio rápido sobre el inicio local de la aplicación](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Seleccione **Feature Manager** (Administrador de características) y cambie el estado de la clave **Beta** a **On** (Activado):
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
-    | Clave | State |
-    |---|---|
-    | Versión beta | Por |
+1. Seleccione **Feature Manager** (Administrador de características) y cambie el estado de la clave **Beta** a **On** (Activado).
 
-1. Reinicie la aplicación. Para ello, vuelva al símbolo del sistema y presione `Ctrl-C` para cancelar el proceso `dotnet` en ejecución y vuelva a ejecutar `dotnet run`.
+1. Vuelva al símbolo del sistema y cancele el proceso de ejecución de `dotnet`; para ello, presione `Ctrl-C`.  Reinicie la aplicación mediante `dotnet run`.
 
 1. Actualice la página del explorador para ver los nuevos valores de configuración.
 

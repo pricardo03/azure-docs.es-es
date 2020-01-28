@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Búsqueda de ubicaciones cercanas en un mapa | Microsoft Azure Maps'
-description: En este tutorial aprenderá a buscar ubicaciones cercanas (puntos de interés) en un mapa mediante Microsoft Azure Maps.
+description: En este tutorial aprenderá a buscar puntos de interés en un mapa mediante Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 974a60bafb3e9be56618824d6205d21c364d6601
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910823"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153027"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Búsqueda de puntos cercanos de interés mediante Azure Maps
 
@@ -69,7 +69,7 @@ Para más información sobre la autenticación en Azure Maps, consulte [Administ
 
 ## <a name="create-a-new-map"></a>Creación de un nuevo mapa
 
-Map Control API es una práctica biblioteca cliente que le permite integrar fácilmente Maps en su aplicación web. Oculta la complejidad de las llamadas sin servicio de REST e impulsa la productividad con componentes que se pueden diseñar y personalizar. En los pasos siguientes se muestra cómo crear una página HTML estática insertada con Map Control API.
+La API de Control de mapa es una práctica biblioteca cliente. Esta API permite integrar fácilmente Azure Maps en la aplicación web. Oculta la complejidad de las llamadas sin servicio de REST e impulsa la productividad con componentes que se pueden personalizar. En los pasos siguientes se muestra cómo crear una página HTML estática insertada con Map Control API.
 
 1. En el equipo local, cree un nuevo archivo y asígnele el nombre **MapSearch.html**.
 2. Agregue los siguientes componentes HTML al archivo:
@@ -133,7 +133,7 @@ Map Control API es una práctica biblioteca cliente que le permite integrar fác
 
    Este segmento inicializa Map Control API para la clave de cuenta de Azure Maps. `atlas` es el espacio de nombres que contiene la API y los componentes visuales relacionados. `atlas.Map` proporciona el control para un mapa web visual e interactivo.
 
-4. Guarde los cambios en el archivo y abra la página HTML en un explorador. Este es el mapa más básico que puede crear con una llamada a `atlas.Map` mediante la clave de cuenta.
+4. Guarde los cambios en el archivo y abra la página HTML en un explorador. El mapa mostrado es el más básico que puede crear con una llamada a `atlas.Map` mediante la clave de cuenta.
 
    ![Visualización del mapa](./media/tutorial-search-location/basic-map.png)
 
@@ -163,7 +163,7 @@ Map Control API es una práctica biblioteca cliente que le permite integrar fác
     });
     ```
 
-   En este segmento de código se agrega un evento `ready` al mapa que se activará cuando los recursos del mapa se hayan cargado y se pueda acceder al mapa. En el controlador de eventos `ready` del mapa, se crea un origen de datos para almacenar datos de resultados. Se crea una capa de símbolos y se asocia al origen de datos. Esta capa especifica cómo se deben representar los datos de resultados en el origen de datos, en este caso con un icono de chincheta redonda azul oscura centrada sobre la coordenada de resultados y que permite que otros iconos se superpongan. La capa resultante se agrega a las capas de mapa.
+   En este segmento de código se agrega un evento `ready` al mapa que se activará cuando los recursos del mapa se hayan cargado y se pueda acceder al mapa. En el controlador de eventos `ready` del mapa, se crea un origen de datos para almacenar datos de resultados. Se crea una capa de símbolos y se asocia al origen de datos. Esta capa especifica cómo se deben representar los datos de los resultados en el origen de datos. En este caso, el resultado se representa con un icono de chincheta redonda de color azul oscuro, centrado sobre la coordenada de resultados y que permite que otros iconos se superpongan. La capa resultante se agrega a las capas de mapa.
 
 <a id="usesearch"></a>
 
@@ -215,7 +215,7 @@ En esta sección se muestra cómo usar [Search API](https://docs.microsoft.com/r
     });
     ```
 
-3. Guarde el archivo **MapSearch.html** y actualice el explorador. Ahora verá que el mapa se centra en Seattle y que aparecen marcadas con chinchetas azules redondas las ubicaciones de las gasolineras de la zona.
+3. Guarde el archivo **MapSearch.html** y actualice el explorador. El mapa se centrará en Seattle y aparecerán marcadas con chinchetas azules redondas las ubicaciones de las gasolineras de la zona.
 
    ![Visualización del mapa con los resultados de la búsqueda](./media/tutorial-search-location/pins-map.png)
 
@@ -229,9 +229,9 @@ En este momento, la página MapSearch puede mostrar las ubicaciones de los punto
 
 ## <a name="add-interactive-data"></a>Adición de datos interactivos
 
-La asignación que hemos hecho hasta ahora solo examina los datos de latitud o longitud de los resultados de búsqueda. Sin embargo, si examina el archivo JSON sin formato que devuelve el servicio Search de Azure Maps, verá que contiene información adicional sobre cada gasolinera, incluidos el nombre y la dirección postal. Puede incorporar esos datos al mapa con cuadros emergentes interactivos.
+La asignación que hemos hecho hasta ahora solo examina los datos de latitud o longitud de los resultados de búsqueda. No obstante, el JSON sin formato que devuelve el servicio de búsqueda de Azure Maps contiene información adicional sobre cada gasolinera, como el nombre y la dirección. Puede incorporar esos datos al mapa con cuadros emergentes interactivos.
 
-1. Agregue las siguientes líneas de código en el controlador de eventos `ready` del mapa después del código para consultar el servicio de búsquedas aproximadas. Esto creará una instancia de un elemento emergente y agregará un evento mouseover a la capa de símbolos.
+1. Agregue las siguientes líneas de código en el controlador de eventos `ready` del mapa después del código para consultar el servicio de búsquedas aproximadas. Este código creará una instancia de un elemento emergente y agregará un evento mouseover a la capa de símbolos.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.

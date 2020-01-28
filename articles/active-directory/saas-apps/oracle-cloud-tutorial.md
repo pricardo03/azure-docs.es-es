@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 579a553f151cf34215af3188cfddada6da42e691
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 64cae5812a380725d612d27190042797542ee255
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68943627"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289108"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integración de Oracle Cloud Infrastructure Console con Azure Active Directory
 
@@ -33,7 +32,7 @@ En este tutorial, aprenderá a integrar Oracle Cloud Infrastructure Console con 
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -42,7 +41,10 @@ Para empezar, necesita los siguientes elementos:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. Oracle Cloud Infrastructure Console admite inicio de sesión único iniciado por **SP**.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Oracle Cloud Infrastructure Console admite inicio de sesión único iniciado por **SP**.
+* Una vez configurado Oracle Cloud Infrastructure Console, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-oracle-cloud-infrastructure-console-from-the-gallery"></a>Adición de Oracle Cloud Infrastructure Console desde la galería
 
@@ -62,10 +64,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con Oracle Cloud Inf
 Para configurar y probar el inicio de sesión único de Azure AD con Oracle Cloud Infrastructure Console, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración de Oracle Cloud Infrastructure Console](#configure-oracle-cloud-infrastructure-console)** , para configurar los valores de inicio de sesión único en el lado de la aplicación.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
-1. **[Creación de un usuario de prueba de Oracle Cloud Infrastructure Console](#create-oracle-cloud-infrastructure-console-test-user)** , para tener un homólogo de B. Simon en Oracle Cloud Infrastructure Console que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de Oracle Cloud Infrastructure Console](#create-oracle-cloud-infrastructure-console-test-user)** , para tener un homólogo de B. Simon en Oracle Cloud Infrastructure Console que esté vinculado a la representación del usuario en Azure AD.
 1. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -137,7 +139,39 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-### <a name="configure-oracle-cloud-infrastructure-console"></a>Configuración de Oracle Cloud Infrastructure Console
+
+
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
+En esta sección, va a crear un usuario de prueba llamado B. Simon en Azure Portal.
+
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B. Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B. Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a permitir a B. Simon utilizar el inicio de sesión único de Azure, para lo que le concederá acceso a Oracle Cloud Infrastructure Console.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Oracle Cloud Infrastructure Console**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+
+   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+
+   ![Vínculo de Agregar usuario](common/add-assign-user.png)
+
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B. Simon** en la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-oracle-cloud-infrastructure-console"></a>Configuración de Oracle Cloud Infrastructure Console
 
 1. En otra ventana del explorador web, inicie sesión en Oracle Cloud Infrastructure Console como administrador.
 
@@ -170,37 +204,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
    1. Puede asignar varios grupos según su configuración en Azure Portal y las necesidades de su organización. Haga clic en **+ Add mapping** (+ Agregar asignación) para agregar los grupos que necesite.
 
    1. Haga clic en **Enviar**.
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-En esta sección, va a crear un usuario de prueba llamado B. Simon en Azure Portal.
-
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B. Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B. Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, va a permitir a B. Simon utilizar el inicio de sesión único de Azure, para lo que le concederá acceso a Oracle Cloud Infrastructure Console.
-
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Oracle Cloud Infrastructure Console**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-   ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B. Simon** en la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-
+   
 ### <a name="create-oracle-cloud-infrastructure-console-test-user"></a>Creación de usuario de prueba de Oracle Cloud Infrastructure Console
 
  Oracle Cloud Infrastructure Console admite el aprovisionamiento Just-In-Time, de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. No se crea un nuevo usuario durante un intento de acceso y tampoco hay necesidad de crearlo.
@@ -218,3 +222,5 @@ Cuando seleccione el icono de Oracle Cloud Infrastructure Console en el panel de
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Protección de Oracle Cloud Infrastructure Console con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

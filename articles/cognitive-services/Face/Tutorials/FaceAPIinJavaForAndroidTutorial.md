@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Detección y enmarcado de las caras de una imagen con Android SDK'
 titleSuffix: Azure Cognitive Services
-description: En este tutorial, creará una aplicación Android sencilla que usa Face API para detectar y enmarcar caras en una imagen.
+description: En este tutorial, creará una aplicación Android sencilla que usa el servicio Face para detectar y enmarcar caras en una imagen.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977801"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165976"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Creación de una aplicación Android para detectar y enmarcar caras en una imagen
 
-En este tutorial, creará una aplicación Android que usa Azure Face API, con el SDK de Java, para detectar las caras humanas de una imagen. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
+En este tutorial, creará una aplicación Android que usa el servicio Azure Face, con el SDK de Java, para detectar rostros humanos en una imagen. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
 > [!div class="checklist"]
 > - Creación de una aplicación Android
-> - Instalar la biblioteca cliente de Face API
+> - Instalación de la biblioteca cliente de Face
 > - Usar la biblioteca cliente para detectar caras en una imagen
 > - Dibujar un marco alrededor de cada cara detectada
 
@@ -35,9 +35,9 @@ El código de ejemplo completo está disponible en el repositorio [Cognitive Ser
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave. Después, [cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la cadena de punto de conexión del servicio y la clave denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
+- Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave. Después, [cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la cadena de punto de conexión del servicio y la clave denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) con el nivel de API 22, o posterior (requerido por la biblioteca cliente de Face).
 
@@ -59,7 +59,7 @@ Abra *activity_main.xml*. En el Editor de diseño, seleccione la pestaña **Text
 
 [!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?name=snippet_activitymain)]
 
-### <a name="create-the-main-class"></a>Creación de la clase main
+### <a name="create-the-main-class"></a>Creación de la clase principal
 
 Abra *MainActivity.java* y sustituya las instrucciones `import` existentes por el siguiente código.
 
@@ -115,7 +115,7 @@ Inserte el siguiente método auxiliar en la clase **MainActivity**. Este método
 
 Por último, quite la marca de comentario de la llamada al método **detectAndFrame** de **onActivityResult**.
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 Ejecute esta aplicación y busque una imagen con una cara. Espere unos segundos para permitir que el servicio Face responda. Debe ver un rectángulo rojo en cada una de las caras de la imagen.
 
@@ -123,7 +123,7 @@ Ejecute esta aplicación y busque una imagen con una cara. Espere unos segundos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido el proceso básico para usar el SDK de Java de Face API y ha creado una aplicación que detecta y enmarca las caras de una imagen. Después, obtendrá más información acerca de los detalles de la detección de caras.
+En este tutorial, ha aprendido el proceso básico para usar el SDK de Java de Face y ha creado una aplicación que detecta y enmarca las caras de una imagen. Después, obtendrá más información acerca de los detalles de la detección de caras.
 
 > [!div class="nextstepaction"]
 > [Detección de caras en una imagen](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

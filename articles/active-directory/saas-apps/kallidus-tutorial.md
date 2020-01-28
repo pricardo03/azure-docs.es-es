@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 734df138bc58deb0c96916ba5178c84a63f3c53a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e3caa48e1461552f2999aa2fd91447a41d146379
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711163"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120324"
 ---
 # <a name="tutorial-integrate-kallidus-with-azure-active-directory"></a>Tutorial: Integración de Kallidus con Azure Active Directory
 
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar Kallidus con Azure
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -64,7 +64,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Kallidus, e
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
 2. **[Configuración de Kallidus](#configure-kallidus)** , para configurar las opciones del SSO en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 5. **[Creación de un usuario de prueba en Kallidus](#create-kallidus-test-user)** , para tener un homólogo de B.Simon en Kallidus que esté vinculado a la representación del usuario en Azure AD.
 6. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
 
@@ -91,7 +91,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 ### <a name="configure-kallidus"></a>Configuración de Kallidus
 
-Para configurar el inicio de sesión único en **Kallidus**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Kallidus](https://kallidus.zendesk.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Kallidus**, debe enviar la **dirección URL de metadatos de federación de la aplicación** y una copia del **certificado de firma (público)** al [equipo de soporte técnico de Kallidus](https://kallidus.zendesk.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -103,7 +103,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

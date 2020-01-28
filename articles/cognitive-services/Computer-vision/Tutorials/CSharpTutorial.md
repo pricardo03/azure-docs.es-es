@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170038"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168876"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Sample: Exploración de una aplicación de procesamiento de imágenes con C#
 
@@ -28,7 +28,7 @@ Explore una aplicación Windows básica que utiliza Computer Vision para realiza
 > * Ejecutar la aplicación de ejemplo e interactuar con ella para desarrollar diversos escenarios
 > * Explorar los distintos escenarios incluidos con la aplicación de ejemplo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de explorar la aplicación de ejemplo, asegúrese de haber cumplido los requisitos previos siguientes:
 
@@ -89,7 +89,7 @@ Puede ejecutar la aplicación de ejemplo para ver cómo interactúa con usted y 
 
 1. En la opción **Seleccione un escenario** del panel de navegación, seleccione uno de los escenarios que actualmente se incluyen con la aplicación de ejemplo:  
 
-   | Escenario | DESCRIPCIÓN |
+   | Escenario | Descripción |
    |----------|-------------|
    |Analyze Image | Usa la operación [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para analizar una imagen local o remota. Puede elegir las características visuales y el idioma para el análisis y ver la imagen y los resultados.  |
    |Analyze Image with Domain Model | Usa la operación [List Domain Specific Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) para enumerar los modelos de dominio entre los que puede elegir, y la operación [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) para analizar una imagen local o remota mediante el modelo de dominio seleccionado. También puede elegir el idioma para el análisis. |
@@ -311,4 +311,4 @@ Cuando ya no necesite la carpeta en que ha clonado el repositorio `Microsoft/Cog
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Introducción a Face API](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Introducción al servicio Face](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

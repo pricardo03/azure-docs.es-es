@@ -1,20 +1,18 @@
 ---
-title: Introducción a Red Hat OpenShift en Azure | Microsoft Docs
+title: Introducción a Red Hat OpenShift en Azure
 description: Aprenda las características y ventajas de Red Hat OpenShift en Microsoft Azure para implementar y administrar aplicaciones basadas en contenedor.
-services: container-service
 author: jimzim
 ms.author: jzim
 ms.service: container-service
-manager: jeconnoc
 ms.topic: overview
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: f76f5d4dc84d1f8827248ab8399c1ae450a643a0
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4be388eec3851154fd0f6af37d03a468fc52197b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620162"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276074"
 ---
 # <a name="azure-red-hat-openshift"></a>Red Hat OpenShift en Azure
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/09/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e52a859c86ff451293ac6ff795c7fe427a383b9d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 459d75bec3d4b4d0cf9057e0c6de238e7f165bfb
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75843512"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548992"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado (versión preliminar)
 
@@ -267,7 +267,7 @@ El script de implementación agrega un certificado al almacén de claves. Config
     * **scriptContent**: especifica el contenido del script. Para ejecutar un script externo, use **primaryScriptURI** en su lugar. Para más información, consulte [Uso de scripts externos](./deployment-script-template.md#use-external-scripts).
         Solo es necesario declarar **$DeploymentScriptOutputs** al probar el script en una máquina local. La declaración de la variable permite que el script se ejecute en una máquina local y en un recurso deploymentScript sin tener que realizar cambios. El valor asignado a $DeploymentScriptOutputs está disponible como salidas en las implementaciones. Para más información, consulte [Trabajo con salidas de los scripts de implementación](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
     * **cleanupPreference**: especifica la preferencia sobre cuándo se deben eliminar los recursos del script de implementación.  El valor predeterminado es **Always**, lo que significa que los recursos del script de implementación se eliminan independientemente del estado terminal (Succeeded, Failed, Canceled). En este tutorial se usa **OnSuccess** para que pueda ver los resultados de la ejecución del script.
-    * **retentionInterval**: especifica el tiempo durante el cual el servicio guarda los recursos del script una vez alcanzado el estado terminal. Los recursos se eliminarán cuando expire este periodo. La duración se basa en la norma ISO 8601. En este tutorial se usa P1D, es decir, un día.  Esta propiedad se usa cuando **retentionInterval** se establece en **OnExpiration**. Esta propiedad no está habilitada actualmente.
+    * **retentionInterval**: especifica el tiempo durante el cual el servicio guarda los recursos del script una vez alcanzado el estado terminal. Los recursos se eliminarán cuando expire este periodo. La duración se basa en la norma ISO 8601. En este tutorial se usa P1D, es decir, un día.  Esta propiedad se usa cuando **cleanupPreference** se establece en **OnExpiration**. Esta propiedad no está habilitada actualmente.
 
     El script de implementación toma tres parámetros: el nombre del almacén de claves, el nombre del certificado y el nombre de la persona.  Se crea un certificado y se agrega el certificado al almacén de claves.
 

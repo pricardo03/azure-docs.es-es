@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Detección y presentación de los datos de las caras en una imagen mediante el SDK de .NET'
 titleSuffix: Azure Cognitive Services
-description: En este tutorial, creará una aplicación Windows que use Face API para detectar y enmarcar las caras en una imagen.
+description: En este tutorial, creará una aplicación Windows que usa el servicio Face para detectar y enmarcar las caras en una imagen.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977971"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165917"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Creación de una aplicación de Windows Presentation Framework (WPF) para mostrar datos de las caras de una imagen
 
-En este tutorial, aprenderá a usar la API Face de Azure a través del SDK de cliente para .NET, para detectar caras en una imagen y, después, presentar dichos datos en la interfaz de usuario. Creará una aplicación de WPF que detecta caras, dibuja un marco alrededor de cada una de ellas y muestra una descripción de la cara en la barra de estado. 
+En este tutorial, aprenderá a usar el servicio Azure Face mediante el SDK de cliente para .NET, para detectar caras en una imagen y, después, presentar dichos datos en la interfaz de usuario. Creará una aplicación de WPF que detecta caras, dibuja un marco alrededor de cada una de ellas y muestra una descripción de la cara en la barra de estado. 
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
 > [!div class="checklist"]
 > - Crear una aplicación WPF
-> - Instalar la biblioteca cliente de Face API
+> - Instalación de la biblioteca cliente de Face
 > - Usar la biblioteca cliente para detectar caras en una imagen
 > - Dibujar un marco alrededor de cada cara detectada
 > - Mostrar una descripción de la cara resaltada en la barra de estado
@@ -37,9 +37,9 @@ El código de ejemplo completo está disponible en el repositorio del [ejemplo d
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave. Después, [cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la cadena de punto de conexión del servicio y la clave denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
+- Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave. Después, [cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la cadena de punto de conexión del servicio y la clave denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Creación del proyecto de Visual Studio
@@ -61,7 +61,7 @@ Abra *MainWindow.xaml* y reemplace el contenido por el código siguiente; así s
 
 [!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?name=snippet_xaml)]
 
-### <a name="create-the-main-class"></a>Creación de la clase main
+### <a name="create-the-main-class"></a>Creación de la clase principal
 
 Abra *MainWindow.xaml.cs* y agregue los espacios de nombres de la biblioteca cliente, junto con otros espacios de nombres necesarios. 
 
@@ -117,7 +117,7 @@ Agregue el siguiente código al método **FacePhoto_MouseMove**. Este controlado
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_mid)]
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 Ejecute la aplicación y busque una imagen que contenga una cara. Espere unos segundos para permitir que el servicio Face responda. Debe ver un rectángulo rojo en cada una de las caras de la imagen. Si mueve el ratón sobre el rectángulo de una cara, su descripción debería aparecer en la barra de estado.
 

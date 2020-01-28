@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c097c1f08bd72ed5795e4274c41e4eb48dbe34ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152950"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: Integración de Azure Active Directory con &frankly
 
@@ -35,7 +35,7 @@ Integrar &frankly con Azure AD le proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con &frankly, necesita los siguientes elementos:
 
@@ -123,19 +123,15 @@ Para configurar el inicio de sesión único de Azure AD con &frankly, siga estos
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-7. En la sección **Set up &frankly** (Configurar &frankly), copie las direcciones URL adecuadas según sus necesidades.
-
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
-
-    a. URL de inicio de sesión
-
-    b. Identificador de Azure AD
-
-    c. URL de cierre de sesión
 
 ### <a name="configure-frankly-single-sign-on"></a>Configuración del inicio de sesión único de &frankly
 
-Para configurar el inicio de sesión único en **&frankly**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de &frankly](mailto:help@andfrankly.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para habilitar el inicio de sesión único en &frankly:
+
+1. Inicie sesión en &frankly. Vaya a **Account** > **User Management** (Cuenta > Administración de usuarios).
+1. Cambie el valor predeterminado del mecanismo de autenticación de a **Enterprise Sign-on (SAML)** (Inicio de sesión empresarial [SAML]).
+1. Cargue el archivo **XML de metadatos de federación** que descargó en el paso 6 de la sección anterior.
+1. Seleccione **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -160,7 +156,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

@@ -1,5 +1,5 @@
 ---
-title: 'Codificación de un archivo remoto en función de la dirección URL y transmisión con Azure Media Services: REST | Microsoft Docs'
+title: Codificación y transmisión de un archivo remoto con Azure Media Services v3
 description: Siga los pasos de este tutorial para codificar un archivo según una dirección URL y transmitir su contenido con Azure Media Services mediante REST.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685114"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514347"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: REST
 
@@ -40,7 +40,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md).
 

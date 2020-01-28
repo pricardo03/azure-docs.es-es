@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Text Analytics | Microsoft Docs'
+title: 'Inicio rápido: Biblioteca cliente v3 de Text Analytics | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, detectará el idioma con la API de Text Analytics desde Azure Cognitive Services.
 services: cognitive-services
@@ -8,54 +8,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/15/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-five
-ms.openlocfilehash: edd4c09bb8cf724e293f1f947eab81f0f9f7a7c8
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+zone_pivot_groups: programming-languages-set-six
+ms.openlocfilehash: 41e6828f03533bfd239f6408a580150e614eb5e7
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832208"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281198"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics
+# <a name="quickstart-use-the-text-analytics-client-library-v3"></a>Inicio rápido: Uso de la biblioteca cliente v3 de Text Analytics
 
 Comience a trabajar con la biblioteca cliente de Text Analytics. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
-La biblioteca cliente de Text Analytics se puede usar para realizar las siguientes operaciones:
+Use la versión de la biblioteca cliente `3.0-preview` de Text Analytics para realizar las siguientes operaciones:
 
-* análisis de opiniones
+* Análisis de sentimiento (versión preliminar pública)
 * Detección de idiomas
-* Reconocimiento de entidades
+* Reconocimiento de entidades con nombre (versión preliminar pública)
 * Extracción de la frase clave
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/csharp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/v3/csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-ruby"
-
-[!INCLUDE [Ruby quickstart](../includes/quickstarts/ruby-sdk.md)]
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
 
 ::: zone-end
 
@@ -70,7 +64,6 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 > [!div class="nextstepaction"]
 > [Exploración de una solución](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
-
 
 * [Información general de Text Analytics](../overview.md)
 * [Análisis de opiniones](../how-tos/text-analytics-how-to-sentiment-analysis.md)

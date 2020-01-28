@@ -1,18 +1,18 @@
 ---
 title: Recuperación ante desastres en temas personalizados de Azure Event Grid
-description: Sepa cómo sobrevivir a interrupciones regionales para mantener conectado Azure Event Grid.
+description: Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 87f8f79e2cf125fa5735653153d8fcaa781f5200
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790272"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511525"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creación de una recuperación ante desastres propia para temas personalizados en Event Grid
 La recuperación ante desastres se ocupa de recuperarse tras una pérdida grave de funcionalidad de la aplicación. Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región determinada.
@@ -46,7 +46,7 @@ Asegúrese de anotar esta dirección URL, ya que la necesitará más adelante.
 
 En primer lugar, cree dos temas de Event Grid. Estos temas funcionarán como el principal y el secundario. De forma predeterminada, los eventos fluirán por el tema principal. Si hay una interrupción del servicio en la región primaria, la base de datos secundaria tomará el relevo.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
 1. En la esquina superior izquierda del menú principal de Azure, elija **Todos los servicios** > busque **Event Grid** > seleccione **Temas de Event Grid**.
 

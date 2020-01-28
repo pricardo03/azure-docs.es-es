@@ -1,23 +1,19 @@
 ---
-title: Informática de alto rendimiento en máquinas virtuales de la serie H con Azure Virtual Machines | Microsoft Docs
+title: 'Informática de alto rendimiento en máquinas virtuales de la serie H: Azure Virtual Machines'
 description: Obtenga información sobre las características y funcionalidades de las máquinas virtuales de serie H optimizadas para HPC.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: jeconnoc
-editor: ''
+ms.author: amverma
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.author: amverma
-ms.openlocfilehash: d6e857a87e4c7df8ffb2be1eefb7a0290da5b10a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799010"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271015"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>Informática de alto rendimiento en máquinas virtuales de serie H
 
@@ -41,7 +37,7 @@ La configuración InfiniBand que admite las máquinas virtuales de las series HB
 
 Consulte [Habilitación de InfiniBand](enable-infiniband.md) para más información sobre la configuración de InfiniBand en las máquinas virtuales de las series HB o HC.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 En primer lugar, decida qué máquina virtual de serie H va a usar. Para más información sobre las máquinas virtuales optimizadas para HPC, consulte [Introducción a la serie HB](hb-series-overview.md) e [Introducción a la serie HC](hc-series-overview.md). Para conocer las especificaciones, consulte [Tamaños de máquina virtual de informática de alto rendimiento](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
 

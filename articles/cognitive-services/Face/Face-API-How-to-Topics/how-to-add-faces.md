@@ -1,7 +1,7 @@
 ---
-title: 'Ejemplo: Agregar caras a un objeto PersonGroup: Face API'
+title: 'Ejemplo: Agregar caras a un objeto PersonGroup: Face'
 titleSuffix: Azure Cognitive Services
-description: En esta guía se muestra cómo agregar una gran cantidad de personas y caras a un objeto PersonGroup con Face API de Azure Cognitive Services.
+description: En esta guía se muestra cómo agregar una gran cantidad de personas y caras a un objeto PersonGroup con el servicio Face de Azure Cognitive Services.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 2f8a6272b02aea5948be79ddf72d105c4f72bb33
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744248"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169825"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Agregar caras a un objeto PersonGroup
 
-En esta guía se muestra cómo agregar una gran cantidad de personas y caras a un objeto PersonGroup. La misma estrategia se aplica también a los objetos LargePersonGroup, FaceList y LargeFaceList. Este ejemplo se escribe en C# mediante el uso de la biblioteca cliente .NET de Azure Cognitive Services Face API.
+En esta guía se muestra cómo agregar una gran cantidad de personas y caras a un objeto PersonGroup. La misma estrategia se aplica también a los objetos LargePersonGroup, FaceList y LargeFaceList. Este ejemplo se escribe en C# mediante el uso de la biblioteca cliente de Face para .NET de Azure Cognitive Services.
 
 ## <a name="step-1-initialization"></a>Paso 1: Inicialización
 
@@ -87,7 +87,7 @@ await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 Las personas se crean de forma simultánea y se aplica también `await WaitCallLimitPerSecondAsync()` para evitar que se supere el límite de llamadas.
 
 ```csharp
-CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
+Person[] persons = new Person[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
     await WaitCallLimitPerSecondAsync();

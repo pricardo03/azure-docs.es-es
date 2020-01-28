@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 544ca198b846ca5032bdf400b300ac076d729d88
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 332f33bb4046a9ca9d6abf9bec75f60bb4ca9e32
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834144"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169092"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -27,7 +27,7 @@ Azure Cognitive Services son las API, SDK y servicios disponibles para ayudar a 
 |:-----------|:------------------|
 |[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")|El servicio Computer Vision proporciona acceso a algoritmos avanzados para procesar imágenes y devolver información.|
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|Custom Vision Service permite crear clasificadores personalizados de imágenes.|
-|[Face API](https://docs.microsoft.com/azure/cognitive-services/face/ "Face API")|Face API proporciona acceso a algoritmos faciales avanzados, lo que permite la detección y el reconocimiento de atributos faciales.|
+|[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Caras")| El servicio Face proporciona acceso a algoritmos faciales avanzados, lo que permite la detección y el reconocimiento de atributos faciales.|
 |[Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Form Recognizer") (versión preliminar)|Form Recognizer identifica y extrae pares clave-valor y datos de tabla de documentos de formulario; luego, genera datos estructurados, incluidas las relaciones en el archivo original.|
 |[Ink Recognizer](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Ink Recognizer") (versión preliminar)|Ink Recognizer le permite reconocer y analizar los datos del trazo de tinta digital, las formas y el contenido escrito a mano, y genera una estructura de documento con todas las entidades reconocidas.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer permite extraer información de un vídeo.|

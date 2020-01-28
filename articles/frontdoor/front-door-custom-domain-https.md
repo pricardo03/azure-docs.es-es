@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907835"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512885"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -44,9 +44,9 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para poder completar los pasos de este tutorial, primero debe crear una instancia de Front Door e incorporar al menos un dominio personalizado. Para más información, consulte [Tutorial: Incorporación de un dominio personalizado a Front Door](front-door-custom-domain.md).
+Para poder completar los pasos de este tutorial, primero debe crear una instancia de Front Door e incorporar al menos un dominio personalizado. Para más información, consulte el [Tutorial: Incorporación de un dominio personalizado a Front Door](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>Certificados SSL
 
@@ -91,7 +91,7 @@ Puede usar su propio certificado para habilitar la característica HTTPS. Este p
 Registre la entidad de servicio para Azure Front Door Service como una aplicación en Azure Active Directory mediante PowerShell.
 
 > [!NOTE]
-> Esta acción solo se debe realizar **una vez** por inquilino.
+> Esta acción requiere permisos de administrador global y solo debe realizarse **una vez** por inquilino.
 
 1. Si es necesario, instale [Azure PowerShell](/powershell/azure/install-az-ps) en PowerShell en la máquina local.
 
@@ -147,7 +147,7 @@ Si usa su propio certificado, no se requiere la validación del dominio.
 
 El registro CNAME debe tener el formato siguiente, donde *Nombre* es el nombre de dominio personalizado y *Valor* es el nombre de host .azurefd.net predeterminado de Front Door:
 
-| NOMBRE            | type  | Valor                 |
+| Nombre            | Tipo  | Value                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 

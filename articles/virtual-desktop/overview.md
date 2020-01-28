@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 01/21/2020
 ms.author: helohr
-ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348807"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514279"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -86,17 +86,27 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cum
 >[!NOTE]
 >Si necesita una suscripción a Azure, puede [registrarse para obtener una evaluación gratuita por un mes](https://azure.microsoft.com/free/). Si usa la versión de evaluación gratuita de Azure, debe utilizar Azure AD Domain Services para mantener sincronizada su instancia de Windows Server Active Directory con Azure Active Directory.
 
-Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a TCP 443 de salida a las siguientes direcciones URL:
+Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a las siguientes direcciones URL:
 
-* *.wvd.microsoft.com
-* *.blob.core.windows.net
-* *.core.windows.net
-* *.servicebus.windows.net
-* prod.warmpath.msftcloudes.com
-* catalogartifact.azureedge.net
+|Dirección|Puerto de salida|Propósito|
+|---|---|---|
+|*.wvd.microsoft.com|Puerto TCP 443|Tráfico de servicio|
+|*.blob.core.windows.net|Puerto TCP 443|Agente, actualizaciones de pila SXS y tráfico de agente|
+|*.core.windows.net|Puerto TCP 443|Tráfico de agente|
+|*.servicebus.windows.net|Puerto TCP 443|Tráfico de agente|
+|prod.warmpath.msftcloudes.com|Puerto TCP 443|Tráfico de agente|
+|catalogartifact.azureedge.net|Puerto TCP 443|Azure Marketplace|
+|kms.core.windows.net|Puerto TCP 1688|Activación de Windows 10|
+
+>[!IMPORTANT]
+>Es esencial abrir estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure AD.
 
 >[!NOTE]
->Es esencial abrir estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure AD.
+>Debe usar el carácter comodín (*) para las direcciones URL que impliquen tráfico de servicio. Si prefiere no usar el carácter comodín (*) para el tráfico relacionado con el agente, aquí se muestra cómo buscar las direcciones URL sin estos caracteres:
+>
+>1. Registre las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop.
+>2. Abra **Visor de eventos** y vaya a **Windows** > **Registros de aplicación** y busque el identificador de evento 3702.
+>3. Agregue a la lista de permitidos las direcciones URL que se encuentran en el identificador de evento 3702. Las direcciones URL del identificador de evento 3702 son específicas de la región. Deberá repetir el proceso de inclusión en la lista de permitidos con las direcciones URL pertinentes de cada región en la que desee implementar las máquinas virtuales.
 
 Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Se pueden implementar escritorios y aplicaciones en máquinas virtuales (VM) de cualquier región de Azure, y la solución de administración y los datos de estas VM residirán en Estados Unidos. Esto puede dar lugar a la transferencia de datos a Estados Unidos.
 

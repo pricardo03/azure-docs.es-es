@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: Identificación de caras en imágenes - Face API'
+title: 'Ejemplo: Identificación de caras en imágenes: Face'
 titleSuffix: Azure Cognitive Services
 description: En esta guía se muestra cómo identificar caras desconocidas con los objetos PersonGroup, que se crean a partir de personas conocidas de antemano.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: ec209eb2c60efcb1363c177aad0fe5a72ad2a239
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977189"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169913"
 ---
 # <a name="example-identify-faces-in-images"></a>Ejemplo: Identificación de caras en imágenes
 
-En esta guía se muestra cómo identificar caras desconocidas con los objetos PersonGroup, que se crean a partir de personas conocidas de antemano. Los ejemplos se escriben en C# mediante el uso de la biblioteca cliente de Azure Cognitive Services Face API.
+En esta guía se muestra cómo identificar caras desconocidas con los objetos PersonGroup, que se crean a partir de personas conocidas de antemano. Los ejemplos se escriben en C# mediante el uso de la biblioteca cliente de Face de Azure Cognitive Services.
 
 ## <a name="preparation"></a>Preparación
 
@@ -131,7 +131,7 @@ while(true)
 
 ## <a name="step-4-identify-a-face-against-a-defined-persongroup"></a>Paso 4: Identificación de una cara con un elemento PersonGroup definido
 
-Cuando Face API realiza las identificaciones, calcula la similitud de una cara de prueba entre todas las caras dentro de un grupo. Devuelve las personas más comparables con la cara de prueba. Este proceso se realiza con [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API o con el método IdentifyAsync de la biblioteca cliente.
+Cuando el servicio de Face realiza las identificaciones, calcula la similitud de una cara de prueba entre todas las caras dentro de un grupo. Devuelve las personas más comparables con la cara de prueba. Este proceso se realiza con [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API o con el método IdentifyAsync de la biblioteca cliente.
 
 La cara de prueba se debe detectar con los pasos anteriores. Luego, el identificador de cara se pasa a la API de identificación como segundo argumento. Es posible identificar varios id. de caras a la vez. El resultado contiene todos los resultados identificados. De manera predeterminada, el proceso de identificación devuelve solo una persona que coincida mejor con la cara de la prueba. Si lo prefiere, especifique el parámetro opcional maxNumOfCandidatesReturned para que el proceso de identificación devuelva más candidatos.
 
@@ -186,6 +186,6 @@ En esta guía, aprendió el proceso de creación de un elemento PersonGroup y a 
 ## <a name="related-topics"></a>Temas relacionados
 
 - [Face recognition concepts](../concepts/face-recognition.md) (Conceptos del reconocimiento facial)
-- [Detect faces in an image](HowtoDetectFacesinImage.md) (Detección de caras en una imagen)
+- [Detección de caras en una imagen](HowtoDetectFacesinImage.md)
 - [Agregar caras](how-to-add-faces.md)
-- [Use the large-scale feature](how-to-use-large-scale.md) (Uso de la característica a gran escala)
+- [Uso de la característica a gran escala](how-to-use-large-scale.md)

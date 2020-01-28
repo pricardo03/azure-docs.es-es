@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: Usar la característica a gran escala: Face API'
+title: 'Ejemplo: Usar la característica a gran escala: Face'
 titleSuffix: Azure Cognitive Services
 description: Esta guía es un artículo sobre cómo escalar verticalmente a partir de los objetos existentes PersonGroup y FaceList a los objetos LargePersonGroup y LargeFaceList.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 976baaef11251715218ecea71986f08ec5f72996
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743732"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169779"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Ejemplo: Usar la característica a gran escala
 
@@ -23,14 +23,14 @@ Esta guía es un artículo avanzado sobre cómo escalar verticalmente a partir d
 
 LargePersonGroup y LargeFaceList se conocen colectivamente como operaciones a gran escala. LargePersonGroup puede contener hasta un millón de personas, cada una de las cuales con un máximo de 248 caras. LargeFaceList puede contener hasta un millón de caras. Las operaciones a gran escala son similares a las de PersonGroup y FaceList convencionales, pero tienen algunas diferencias debido a la arquitectura nueva. 
 
-Los ejemplos se escriben en C# mediante el uso de la biblioteca cliente de Azure Cognitive Services Face API.
+Los ejemplos se escriben en C# mediante el uso de la biblioteca cliente de Face de Azure Cognitive Services.
 
 > [!NOTE]
 > Para habilitar la búsqueda de caras para Identification y FindSimilar a gran escala, incorpore una operación Train para preprocesar LargeFaceList y LargePersonGroup. El tiempo de entrenamiento varía de unos segundos a una media hora de acuerdo con la capacidad real. Durante el período de entrenamiento, es posible realizar las operaciones Identification y FindSimilar si antes se realizó correctamente un entrenamiento. El inconveniente es que las personas y caras nuevas agregadas no aparecen en el resultado hasta que se complete una nueva migración posterior al entrenamiento a gran escala.
 
 ## <a name="step-1-initialize-the-client-object"></a>Paso 1: Inicialización del objeto de cliente
 
-Cuando usa la biblioteca cliente de Face API, la clave de suscripción y el punto de conexión de la suscripción se pasan en el constructor de la clase FaceClient. Por ejemplo:
+Cuando usa la biblioteca cliente de Face, la clave de suscripción y el punto de conexión de la suscripción se pasan a través del constructor de la clase FaceClient. Por ejemplo:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -199,7 +199,7 @@ Aunque la operación Train acelera las operaciones [FindSimilar](https://westus.
 
 | Escala para caras o personas | Tiempo de entrenamiento estimado |
 |:---:|:---:|
-| 1000 | 1 a 2 segundos |
+| 1,000 | 1 a 2 segundos |
 | 10 000 | 5 a 10 segundos |
 | 100 000 | 1 a 2 minutos |
 | 1 000 000 | 10 a 30 minutos |

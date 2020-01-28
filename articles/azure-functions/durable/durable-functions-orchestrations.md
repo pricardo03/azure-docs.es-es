@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 54e1eb0be18de8e5ed420e96629d6f23473272fe
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545706"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261558"
 ---
 # <a name="durable-orchestrations"></a>Orquestaciones de Durable Functions
 
-Durable Functions es una extensión de [Azure Functions](../functions-overview.md). Puede usar una *función de orquestador* para organizar la ejecución de otras funciones de Durable Functions dentro de una aplicación de funciones. Las funciones de orquestador tienen las siguientes características:
+Durable Functions es una extensión de [Azure Functions](../functions-overview.md). Puede usar una *función de orquestador* para organizar la ejecución de otras funciones de Durable Functions dentro de una aplicación de función. Las funciones de orquestador tienen las siguientes características:
 
 * Las funciones de orquestador definen flujos de trabajo de función con código de procedimiento. No se necesitan esquemas ni diseñadores.
 * Las funciones de orquestador pueden llamar a otras funciones duraderas de forma sincrónica y asincrónica. La salida de las funciones llamadas puede guardarse de forma confiable en variables locales.
@@ -55,7 +55,9 @@ Cuando una función de orquestación recibe más trabajo para realizar (por ejem
 
 ## <a name="orchestration-history"></a>Historial de orquestación
 
-El comportamiento del origen de eventos de Durable Task Framework está estrechamente relacionado con el código de la función de orquestador que se escriba. Supongamos que tiene una función de orquestador de encadenamiento de actividad, como la siguiente función de orquestador de C#:
+El comportamiento del origen de eventos de Durable Task Framework está estrechamente relacionado con el código de la función de orquestador que se escriba. Supongamos que tiene una función de orquestador de encadenamiento de actividad, como la siguiente función de orquestador:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -73,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Si está programando en JavaScript, la función de orquestador de encadenamiento de actividad podría ser similar al código del ejemplo siguiente:
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,6 +90,8 @@ module.exports = df.orchestrator(function*(context) {
     return output;
 });
 ```
+
+---
 
 En cada instrucción `await` (C#) o `yield` (JavaScript), Durable Task Framework establece los puntos de control del estado de ejecución de la función en un back-end de almacenamiento duradero (normalmente, en Azure Table Storage). Este estado es lo que se conoce como *historial de orquestación*.
 
@@ -106,7 +110,7 @@ Una vez completado el punto de control, la función de orquestador se puede quit
 
 Tras la finalización, el historial de la función mostrada anteriormente tiene un aspecto similar a la siguiente tabla en Azure Table Storage (abreviado con fines ilustrativos):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | NOMBRE             | Resultado                                                    | Status |
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | Nombre             | Resultado                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -139,7 +143,7 @@ Notas sobre los valores de las columnas:
   * **OrchestratorCompleted**: la función de orquestador esperada.
   * **ContinueAsNew**: la función de orquestador se ha completado y se ha reiniciado con el nuevo estado. La columna `Result` contiene el valor, que se utiliza como entrada en la instancia reiniciada.
   * **ExecutionCompleted**: la función de orquestador se ejecutó hasta finalizar o que se produjera un error. Las salidas de la función o los detalles del error se almacenan en la columna `Result`.
-* **Timestamp**: marca de tiempo UTC del evento del historial.
+* **Marca de tiempo**: marca de tiempo UTC del evento del historial.
 * **Name**: nombre de la aplicación de función invocada.
 * **Entrada**: entrada de la función con formato JSON.
 * **Result**: resultado de la función; es decir, el valor devuelto.
@@ -182,7 +186,7 @@ Las funciones de orquestador también pueden agregar directivas de reintento a l
 
 Para más información y ejemplos, vea el artículo [Control de errores](durable-functions-error-handling.md).
 
-### <a name="critical-sections-durable-functions-2x"></a>Secciones críticas (Durable Functions 2.x)
+### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>Secciones críticas (Durable Functions 2.x, actualmente solo .NET)
 
 Las instancias de orquestación tienen un único subproceso, por lo que no es necesario preocuparse por las condiciones de carrera *dentro* de una orquestación. Sin embargo, se pueden producir condiciones de carrera cuando las orquestaciones interactúan con sistemas externos. Para mitigar las condiciones de carrera al interactuar con sistemas externos, las funciones de orquestador pueden definir *secciones críticas* con un método `LockAsync` de .NET.
 
@@ -212,7 +216,9 @@ La característica de sección crítica también es útil para coordinar los cam
 
 No se permite la E/S de las funciones de orquestador, según se describe en las [restricciones de código de las funciones de orquestador](durable-functions-code-constraints.md). La solución alternativa habitual para esta limitación es ajustar cualquier código que necesite realizar operaciones de E/S en una función de actividad. Las orquestaciones que interactúan con sistemas externos usan con frecuencia funciones de actividad para realizar llamadas HTTP y devolver el resultado a la orquestación.
 
-Para simplificar este patrón común, las funciones de orquestador pueden usar el método `CallHttpAsync` de .NET para invocar directamente a las API HTTP. Además de admitir patrones de solicitud/respuesta básicos, `CallHttpAsync` admite el control automático de los patrones de sondeo asincrónicos HTTP 202 y, además, admite la autenticación de servicios externos mediante [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md).
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Para simplificar este patrón común, las funciones de orquestador pueden usar el método `CallHttpAsync` de .NET para invocar directamente a las API HTTP.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -232,6 +238,8 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -244,6 +252,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
+Además de admitir patrones de solicitud y respuesta básicos, el método admite el control automático de los patrones de sondeo asincrónicos HTTP 202 y, además, admite la autenticación de servicios externos mediante [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md).
+
 Para más información y ejemplos detallados, consulte el artículo [Características de HTTP](durable-functions-http-features.md).
 
 > [!NOTE]
@@ -251,9 +263,11 @@ Para más información y ejemplos detallados, consulte el artículo [Caracterís
 
 ### <a name="passing-multiple-parameters"></a>Paso de varios parámetros
 
-No es posible pasar varios parámetros a una función de actividad directamente. Se recomienda realizar el paso en una matriz de objetos o usar objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) en .NET.
+No es posible pasar varios parámetros a una función de actividad directamente. Se recomienda pasar una matriz de objetos o de objetos compuestos.
 
-El ejemplo siguiente utiliza las nuevas características de [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) agregado con [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+En .NET también puede usar objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). El ejemplo siguiente utiliza las nuevas características de [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) agregado con [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -289,6 +303,36 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
     };
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="orchestrator"></a>Orquestador
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const location = {
+        city: "Seattle",
+        state: "WA"
+    };
+    const weather = yield context.df.callActivity("GetWeather", location);
+
+    // ...
+};
+```
+
+#### <a name="activity"></a>Actividad
+
+```javascript
+module.exports = async function (context, location) {
+    const {city, state} = location; // destructure properties into variables
+
+    // ...
+};
+```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

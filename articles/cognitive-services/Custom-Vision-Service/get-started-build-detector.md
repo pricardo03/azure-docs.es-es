@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 0d9c175db1370fe07b3278a46d910c59d81df860
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969928"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170005"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Inicio rápido: Creación de un detector de objetos con Custom Vision
 
@@ -23,7 +23,7 @@ En este inicio rápido, aprenderá a crear un detector de objetos mediante el si
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Un conjunto de imágenes con el que entrenar el modelo de detector. Puede usar el conjunto de [imágenes de ejemplo](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) en GitHub. O bien, puede elegir sus propias imágenes con las sugerencias que se indican a continuación.
 
@@ -107,6 +107,8 @@ Una vez finalizado el entrenamiento, se calcula y se muestra el rendimiento del 
 ## <a name="manage-training-iterations"></a>Administración de iteraciones de entrenamiento
 
 Cada vez que entrena al detector, se crea una _iteración_ con sus propias métricas de rendimiento actualizadas. Puede ver todas las iteraciones en el panel izquierdo de la pestaña **Performance** (Rendimiento). En el panel izquierdo encontrará también el botón **Delete** (Eliminar), que puede usar para eliminar una iteración si está obsoleta. Cuando se elimina una iteración, elimina las imágenes que están asociadas exclusivamente a ella.
+
+Consulte [Uso del modelo con Prediction API](./use-prediction-api.md) para aprender a acceder a los modelos entrenados mediante programación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

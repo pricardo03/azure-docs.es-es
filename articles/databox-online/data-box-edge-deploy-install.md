@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476955"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263955"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalación de Azure Data Box Edge
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Montaje en bastidor del dispositivo
 > * Cableado del dispositivo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Los requisitos previos para instalar un dispositivo físico son los siguientes:
 
@@ -86,7 +86,7 @@ El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas. Use el s
 > Los dispositivos de Data Box Edge deben estar montados en un bastidor para funcionar correctamente.
 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 - Antes de comenzar, lea las instrucciones de seguridad en el folleto sobre la seguridad, el entorno y las normativas. Este folleto se envió junto con el dispositivo.
 - Comience la instalación de los raíles en el espacio asignado más próximo a la parte inferior del armario del bastidor.
@@ -154,21 +154,10 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 
     ![Bloqueo y desbloqueo del pestillo de golpe](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
-### <a name="route-the-cables"></a>Orientación de los cables
-
-> [!NOTE]
->  Si no solicitó el soporte de orientación de cables (CMA) opcional, use las dos correas anchas con cierre de velcro suministradas con el kit del raíl para orientar los cables en la parte posterior del sistema.
-
-1. Ubique los soportes del CMA externos en los laterales interiores de las pestañas de los bastidores.
-2. Agrupe los cables con cuidado, bien extendidos a partir de los conectores del sistema de los laterales izquierdo y derecho.
-3. Enrosque cintas de velcro en las ranuras de los soportes del CMA externos de cada lateral del sistema para fijar los mazos de cables.
-
-
-    ![Orientación de los cables](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Cableado del dispositivo
 
-En los siguientes procedimientos se describe cómo realizar el cableado del dispositivo de Data Box Edge para la conexión a la corriente eléctrica y a la red.
+Disponga los cables y, a continuación, conéctelos al dispositivo. En los siguientes procedimientos se describe cómo realizar el cableado del dispositivo de Data Box Edge para la conexión a la corriente eléctrica y a la red.
 
 Antes de empezar el cableado del dispositivo, necesita lo siguiente:
 

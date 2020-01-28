@@ -1,6 +1,6 @@
 ---
 title: Relocalización general en Java
-description: Explicación detallada de cómo crear y localizar anclajes mediante los sensores de los dispositivos en Java.
+description: Explicación detallada de cómo crear y localizar anclajes mediante relocalización general en Java.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2aafaed67e68b5842767de32893eddd829b43164
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a13b3e838bd3083741eb903f39f3f7683f39ee4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277225"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545231"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-java"></a>Creación y localización de delimitadores mediante sensores de los dispositivos en Java
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-java"></a>Creación y localización de anclajes mediante relocalización general en Java
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74277225"
 
 Azure Spatial Anchors puede asociar los datos del sensor de posicionamiento del dispositivo con los anclajes que cree. Estos datos también se pueden usar para determinar rápidamente si hay algún anclaje cerca del dispositivo. Para más información, consulte [Relocalización general](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía, asegúrese de que cumple los siguientes requisitos previos:
 

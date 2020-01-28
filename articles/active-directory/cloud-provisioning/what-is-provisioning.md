@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 166fb9320672e63b8c53717133dc61aa93f57a62
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868650"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167624"
 ---
 # <a name="what-is-identity-provisioning"></a>Qué es el aprovisionamiento de identidades
 
@@ -50,9 +50,7 @@ El escenario más común sería el siguiente: cuando un empleado nuevo empleado 
 
 ![aprovisionamiento en la nube](media/what-is-provisioning/cloud3.png)
 
-El aprovisionamiento de aplicaciones implica el aprovisionamiento de usuarios y roles en las aplicaciones a las que el usuario necesita acceder.  
-
-El escenario más común sería cuando un usuario de Azure AD se aprovisiona en Office 365 o Salesforce.
+En Azure Active Directory (Azure AD), el término **[aprovisionamiento de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones de nube a las que los usuarios necesitan acceso. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Algunos escenarios comunes son el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) y [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), entre otras.
 
 ## <a name="directory-provisioning"></a>Aprovisionamiento de directorios
 

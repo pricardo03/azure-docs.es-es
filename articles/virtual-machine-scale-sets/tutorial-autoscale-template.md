@@ -1,27 +1,19 @@
 ---
-title: 'Tutorial: Escalado automático de un conjunto de escalado con plantillas de Azure | Microsoft Docs'
+title: 'Tutorial: Escalado automático de un conjunto de escalado con plantillas de Azure'
 description: Aprenda a usar plantillas de Azure Resource Manager para escalar automáticamente un conjunto de escalado de máquinas virtuales a medida que la demanda de la CPU aumenta y disminuye.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9d7e0a99a7ba2c00b2ebe5ea8c77d527765ead67
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749200"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271427"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Escalado automático de conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta. En este tutorial, aprenderá a:
@@ -71,15 +63,15 @@ En el ejemplo siguiente, se define una regla que aumenta el número de instancia
 
 Los siguientes parámetros se utilizan para esta regla:
 
-| Parámetro         | Explicación                                                                                                         | Valor           |
+| Parámetro         | Explicación                                                                                                         | Value           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | La métrica de rendimiento del conjunto de escalado sobre el que realizar las acciones de supervisión y aplicación.                                                   | Porcentaje de CPU  |
-| *timeGrain*       | Frecuencia de recopilación de las métricas para el análisis.                                                                   | 1 minuto        |
-| *timeAggregation* | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Media         |
+| *timeGrain*       | Frecuencia de recopilación de las métricas para el análisis.                                                                   | 1 minuto.        |
+| *timeAggregation* | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Average         |
 | *timeWindow*      | El periodo durante el que se realiza la supervisión antes de que se comparen los valores de métricas y umbrales.                                   | 5 minutos       |
 | *operator*        | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                     | Mayor que    |
 | *threshold*       | El valor que hace que la regla de escalado automático desencadene una acción.                                                      | 70%             |
-| *dirección*       | Define si el conjunto de escalado debe escalarse o reducirse horizontalmente al aplicar la regla.                                              | Aumento        |
+| *direction*       | Define si el conjunto de escalado debe escalarse o reducirse horizontalmente al aplicar la regla.                                              | Aumento        |
 | *type*            | Indica que el número de instancias de máquina virtual debe cambiarse por un valor especificado.                                    | Nº de cambios    |
 | *value*           | Número de instancias de máquina virtual que se debe escalar o reducir horizontalmente al aplicar la regla.                                             | 3               |
 | *cooldown*        | El periodo que hay que esperar hasta que la regla se vuelva a aplicar, para que las acciones de escalado automático tengan tiempo de surtir efecto. | 5 minutos       |

@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3be29dc222e0e9b98ed51d8f921fb9926b018ca
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528358"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314084"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>¿Qué es Machine Learning Studio (clásico)?
 
@@ -38,13 +38,13 @@ No se requiere programación; conecte visualmente conjuntos de datos y módulos 
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>¿En qué se diferencia Machine Learning Studio (clásico) de Azure Machine Learning?
 
-[Azure Machine Learning](../overview-what-is-azure-ml.md) proporciona los SDK **y** el diseñador de Azure Machine Learning (versión preliminar) para preparar los datos y entrenar e implementar con rapidez los modelos de aprendizaje automático. El diseñador proporciona una experiencia de arrastrar y colocar similar a Studio (clásico). Sin embargo, a diferencia de la plataforma de proceso propietaria de Studio (clásico), el diseñador utiliza sus propios recursos de proceso y está totalmente integrado en Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) proporciona los SDK **y** el diseñador de Azure Machine Learning para preparar los datos y entrenar e implementar con rapidez los modelos de aprendizaje automático. El diseñador proporciona una experiencia de arrastrar y colocar similar a Studio (clásico). Sin embargo, a diferencia de la plataforma de proceso propietaria de Studio (clásico), el diseñador utiliza sus propios recursos de proceso y está totalmente integrado en Azure Machine Learning.
 
 Esta es una comparación rápida:
 
 || Machine Learning Studio (clásico) | Azure Machine Learning |
 |---| --- | --- |
-| Interfaz que permite arrastrar y colocar | Sí | Sí: [diseñador de Azure Machine Learning (versión preliminar)](../concept-designer.md) |
+| Interfaz que permite arrastrar y colocar | Sí | Sí, [Diseñador de Azure Machine Learning](../concept-designer.md) |
 | Experimento | Escalable (límite de datos de entrenamiento, 10 GB) | Escalar con destino de proceso |
 | Módulos para la interfaz de arrastrar y colocar | Muchos | Conjunto inicial de [módulos](../algorithm-module-reference/module-reference.md) populares|
 |Entrenamiento de destinos de proceso| Destino de proceso propietario, solo admite CPU| Admite el proceso de Azure Machine Learning (GPU o CPU) y las máquinas virtuales de Notebook.<br/>([Otros procesos que admite el SDK](../concept-compute-target.md#train))|

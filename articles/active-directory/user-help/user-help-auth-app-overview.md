@@ -1,5 +1,5 @@
 ---
-title: Introducción a la aplicación Microsoft Authenticator en Azure Active Directory | Microsoft Docs
+title: ¿Qué es la aplicación Microsoft Authenticator? Azure Active Directory | Microsoft Docs
 description: Obtenga información acerca de la aplicación Microsoft Authenticator, lo que incluye qué es, cómo funciona y qué información se incluye en esta sección del contenido.
 services: active-directory
 author: eross-msft
@@ -9,22 +9,19 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3766436851cb2f31fa7bb070402191e03ad9ad1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 468005094ab8a9c42d7eacdfefa990565a3297f3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382338"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155815"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>¿Qué es la aplicación Microsoft Authenticator?
 
->[!Important]
->Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos fases. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
+La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos pasos. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
 
 Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
@@ -37,13 +34,11 @@ Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 > [!Important]
 > La aplicación Microsoft Authenticator funciona con cualquier cuenta que use la comprobación en dos fases y admita los estándares de contraseña de un solo uso y duración definida (TOTP).
 >
-> Su organización puede exigirle que use una aplicación autenticadora para iniciar sesión y acceder a sus datos y documentos. Aunque su nombre de usuario puede aparecer en la aplicación, la cuenta no estará configurada para actuar como un método de comprobación hasta que se complete el proceso de registro. Para más información, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
-> 
-> Si tiene problemas para iniciar sesión en su cuenta, puede encontrar ayuda en [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429). Obtenga más información acerca de lo que debe hacer cuando recibe el mensaje ["Esa cuenta de Microsoft no existe"](https://support.microsoft.com/help/13811) al intentar iniciar sesión en su cuenta Microsoft.
+>Este artículo está destinado a los usuarios que intentan descargar y usar la aplicación Microsoft Authenticator como método de comprobación de seguridad. Si es un administrador que desea obtener información acerca de cómo activar el inicio de sesión sin contraseña mediante la aplicación Authenticator para los empleados y otros usos, consulte la [Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
 
 ## <a name="terminology"></a>Terminología
 
-| Término|DESCRIPCIÓN|
+| Término|Descripción|
 | ----|-----------|
 | Comprobación en dos fases | Un proceso de comprobación que requiere que se usen específicamente únicamente dos factores de comprobación, como por ejemplo una contraseña y un PIN. La aplicación Microsoft Authenticator admite tanto la comprobación en dos fases estándar como el inicio de sesión sin contraseña. |
 | Multi-Factor Authentication (MFA) | Toda comprobación en dos fases es una autenticación multifactor, que requiere que use *al menos* dos factores de comprobación, según los requisitos de su organización. |
@@ -77,7 +72,7 @@ En función del tipo de cuenta, la organización puede decidir que se debe usar 
 
 ## <a name="in-this-section"></a>En esta sección
 
-| Artículo | DESCRIPCIÓN |
+| Artículo | Descripción |
 | ------ | ------------ |
 | [Descarga e instalación de la aplicación](user-help-auth-app-download-install.md) | Describe dónde y cómo obtener e instalar la aplicación Microsoft Authenticator para dispositivos con Android e iOS. |
 | [Adición de cuentas profesionales o educativas](user-help-auth-app-add-work-school-account.md) | Se describe cómo agregar varias cuentas profesionales o educativas, y personales a la aplicación Microsoft Authenticator. |

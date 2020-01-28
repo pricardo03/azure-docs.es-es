@@ -62,7 +62,7 @@
   items:
     - name: Supervisión remota
       items:
-        - name: Arquitectura
+        - name: Architecture
           href: iot-accelerators-remote-monitoring-architectural-choices.md
         - name: Esquema del modelo de dispositivo
           href: iot-accelerators-remote-monitoring-device-schema.md
@@ -74,7 +74,7 @@
           href: overview-opc-twin-architecture.md
         - name: Arquitectura de OPC Vault
           href: overview-opc-vault-architecture.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Supervisión remota
       items:
@@ -221,6 +221,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
+    - name: Opciones de ayuda y soporte técnico
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Supervisión remota
       items:
         - name: Guía de referencia para desarrolladores (.NET)

@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Detección de caras en una imagen mediante la API REST y PHP'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido se detectan caras de una imagen mediante Face API con PHP.
+description: En este inicio rápido se muestra cómo detectar caras en una imagen mediante la API REST de Face con PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: fb9539c8aa0477cbfbf11ce08635e4e9ccebb2ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0f76ec4ce1072b247be7f46610d37190cd282a22
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977937"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169735"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y PHP
 
 En esta guía de inicio rápido, usará la API de REST de Azure Face con PHP para detectar caras humanas en una imagen.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave.
 - Un editor de código como [Visual Studio Code](https://code.visualstudio.com/download).
 - Paquete PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2).
 - Un explorador web habilitado para PHP. Si no se ha configurado esto, puede hacerlo mediante la instalación y la configuración de [XAMPP](https://www.apachefriends.org/) en su máquina.
@@ -103,7 +103,7 @@ Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscri
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="run-the-script"></a>Ejecute el script
+## <a name="run-the-script"></a>Ejecute el script.
 
 Abra el archivo en un explorador web compatible con PHP. Debe obtener una cadena JSON de datos de cara, similar a la siguiente.
 
@@ -288,7 +288,7 @@ Abra el archivo en un explorador web compatible con PHP. Debe obtener una cadena
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Face API que se utilizan para detectar rostros humanos en una imagen, delimitarlos con rectángulos y devolver atributos como la edad y el sexo.
+Explore API Face, que se utiliza para detectar rostros humanos en una imagen, delimitarlos con rectángulos y devolver atributos como la edad y el sexo.
 
 > [!div class="nextstepaction"]
 > [Versiones de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: effd0593384190eb1a1cf261305dd61818c3d0b0
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768340"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integración de Azure Active Directory con HackerOne
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con HackerOne, realice l
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de HackerOne](common/sp-identifier.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba lo siguiente: `https://hackerone.com/users/saml/auth`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba lo siguiente: `https://hackerone.com/users/saml/sign_in?email=<configured domain>`
 
     b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba lo siguiente:`hackerone.com`
 
@@ -155,7 +155,13 @@ Para configurar el inicio de sesión único de Azure AD con HackerOne, realice l
 
     a. Haga clic en **Ejecutar prueba**.
 
-    b. Si el valor del campo **Status** (Estado) es igual a **Last test status: created** (Último estado de la prueba: creado), contacte con el [equipo de soporte técnico de HackerOne](mailto:support@hackerone.com) para pedir una revisión de la configuración.
+6. Cuando la prueba finalice correctamente y el campo **Status** (Estado) muestre **Last test status: success** (Último estado de la prueba: correcto), seleccione el botón **Request Verification** (Solicitar comprobación) para enviar a HackerOne para su aprobación.
+
+    ![Envío a HackerOne para su aprobación](./media/hackerone-tutorial/tutorial-hackerone-006.png)
+
+7. Una vez que HackerOne aprueba la configuración, puede seleccionar el botón **Migrate Users** (Migrar usuarios) para requerir la autenticación de inicio de sesión único para todos los usuarios.
+
+    ![Habilitación de SAML](./media/hackerone-tutorial/tutorial-hackerone-007.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -174,7 +180,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
+
     b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 

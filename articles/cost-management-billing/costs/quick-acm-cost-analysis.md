@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 0221930f0b9fff0c9d4e398559f8d12999a66e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f053b30d344e5372617a5bf98c087056c4fe2911
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982863"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294157"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Inicio rápido: Explore y analice los costos con Análisis de costos
 
@@ -138,24 +138,29 @@ Puede ver el conjunto de datos completo de cualquier vista. Todas las seleccione
 
 En la tabla siguiente se enumeran algunas de las opciones de agrupación y filtrado más comunes, y también se indica cuándo se deben usar.
 
-| Propiedad | Cuándo se usa |
-| --- | --- |
-| **Período de facturación** | Cuando se desglosan los costos por mes de factura. Esta opción es importante para las suscripciones de pago por uso y de desarrollo y pruebas, que no están enlazadas a los meses naturales. Las cuentas de EA/MCA pueden utilizar meses naturales en el selector de fecha o una granularidad mensual para lograr el mismo objetivo. |
-| **Tipo de cargo** | Cuando se desglosa el uso, la compra, el reembolso y los costos de la reserva. Las compras de reservas y los reembolsos solo están disponibles cuando se usan costos de acción, no cuando se usan costos amortizados. Los costos de las reservas sin usar solo están disponibles cuando se examinan los costos amortizados. |
-| **Cloud** | Cuando se desglosan los costos por AWS y Azure. Los costos de AWS solo están disponibles desde los grupos de administración, las cuentas de facturación externas y las suscripciones externas. |
-| **Departamento** / **Sección de factura** | Cuando se desglosan los costos por departamento de EA o la sección de la factura de MCA. Esta opción solo está disponible para las cuentas de facturación de EA/MCA y los perfiles de facturación de MCA. |
-| **Cuenta de inscripción** | Cuando se desglosan los costos por propietario de cuenta de EA. Esta opción solo está disponible para los departamentos y las cuentas de facturación de EA. |
-| **Frecuencia** | Cuando se desglosan los costos basados en uso, puntuales y periódficos. |
-| **Medidor** | Cuando se desglosan los costos por medidor de uso de Azure. Esta opción solo está disponible para el uso de Azure. Tanto en las compras como en el uso de Marketplace se mostrará **No especificado** o **Sin asignar**. |
-| **Tipo de anunciante** | Cuando se desglosan los costos de AWS, Azure y Marketplace. |
-| **Reserva** | Cuando se desglosan los costos por reserva. Cualquier uso que no incluya una reserva se mostrará como **No especificado**. |
-| **Recurso** | Cuando se desglosan los costos por recurso. Todas las compras se mostrarán como **No especificado**, ya que se aplican a una cuenta de facturación de EA o PAYG, o a un nivel de perfil de facturación de MCA.  |
-| **Grupos de recursos** | Cuando se desglosan los costos por grupo de recursos. Esta opción solo está disponible para usos distintos del clásico. El uso de recursos clásico mostrará **otro** y las compras mostrarán el mensaje **No especificado**. |
-| **Tipo de recurso** | Cuando se desglosan los costos por tipo de recurso. Esta opción solo está disponible para usos distintos del clásico. El uso de recursos clásico mostrará **otro** y las compras mostrarán el mensaje **No especificado**. |
-| **Nombre de servicio** o **Categoría de medidor** | Cuando se desglosa el costo por servicio de Azure. Esta opción solo está disponible para el uso de Azure. Tanto en las compras como en el uso de Marketplace se mostrará **No especificado** o **Sin asignar**. |
-| **Nivel de servicio** o **Subcategoría de medidor** | Cuando se desglosa el costo por subclasificación de medidor de uso de Azure. Esta opción solo está disponible para el uso de Azure. Tanto en las compras como en el uso de Marketplace se mostrará **No especificado** o **Sin asignar**. |
-| **Suscripción** | Cuando se desglosan los costos por suscripción. Todas las compras muestran el mensaje **No especificado**. |
-| **Tag** | Cuando se desglosan los costos por valores de etiqueta para una clave de etiqueta concreta. |
+| Propiedad | Cuándo se usa | Notas |
+| --- | --- | --- |
+| **Zonas de disponibilidad** | Cuando se desglosan los costos de AWS por zona de disponibilidad. | Solo se aplica a ámbitos de AWS y grupos de administración. Los datos de Azure no incluyen la zona de disponibilidad y se mostrarán como **no aplicable**. |
+| **Período de facturación** | Cuando se desglosan los costos de Pago por uso en el mes en que se facturaron (o se facturarán). | Utilice el **período de facturación** para obtener una representación precisa de los gastos de Pago por uso facturados. Incluya dos días adicionales antes y después del período de facturación si se filtra por un intervalo de fechas personalizado. Limitarse a las fechas exactas del período de facturación no coincidirá con la factura. Mostrará los costos de todas las facturas en el período de facturación. Utilice el **identificador de factura** para filtrar a una factura específica. Solo se aplica a las suscripciones de Pago por uso porque EA y MCA se facturan por meses naturales. Las cuentas de EA/MCA pueden utilizar meses naturales en el selector de fecha o una granularidad mensual para lograr el mismo objetivo. |
+| **Tipo de cargo** | Cuando se desglosa el uso, la compra, el reembolso y los costos de la reserva. | Las compras de reservas y los reembolsos solo están disponibles cuando se usan costos reales, no cuando se usan costos amortizados. Los costos de las reservas sin usar solo están disponibles cuando se examinan los costos amortizados. |
+| **Departamento** | Cuando se desglosan los costos por departamento de Contrato Enterprise. | Solo está disponible para los grupos de Contrato Enterprise y de administración. Las suscripciones de Pago por uso no tienen un departamento y se mostrarán como **no aplicable** o **sin asignar**. |
+| **Cuenta de inscripción** | Cuando se desglosan los costos por propietario de cuenta de EA. | Esta opción solo está disponible para los departamentos, grupos de administración y cuentas de facturación de Contrato Enterprise. Las suscripciones de Pago por uso no tienen cuentas de inscripción de Contrato Enterprise y se mostrarán como **no aplicable** o **sin asignar**. |
+| **Frecuencia** | Cuando se desglosan los costos basados en uso, puntuales y periódficos. | |
+| **Identificador de la factura** | Cuando se desglosan los costos factura facturada. | Los cargos no facturados no tienen un identificador de factura y los costos del Contrato Enterprise no incluyen los detalles de la factura y se mostrarán como **no aplicable**.  |
+| **Medidor** | Cuando se desglosan los costos por medidor de uso. | Tanto en las compras como en el uso de Marketplace se mostrará como **no aplicable**. Consulte **Tipo de cargo** para identificar las compras y **Tipo de publicador** para identificar los cargos de Marketplace. |
+| **operación** | Cuando se desglosan los costos de AWS por operación. | Solo se aplica a ámbitos de AWS y grupos de administración. Los datos de Azure no incluyen la operación y se mostrarán como **no aplicables**; en su lugar, utilice **Medidor**. |
+| **Modelo de precios** | Cuando se desglosan los costos por el uso bajo demanda, de reserva o puntual. | Las compras se muestran como **OnDemand**. Si ve **No aplicable**, agrupe por **Reserva** para determinar si el uso es de reserva o a petición y por **Tipo de carga** para identificar las compras.
+| **Proveedor** | Cuando se desglosan los costos por AWS y Azure. | Solo está disponible para los grupos de administración. |
+| **Tipo de anunciante** | Cuando se desglosan los costos de AWS, Azure y Marketplace. |  |
+| **Reserva** | Cuando se desglosan los costos por reserva. | Cualquier uso o compra que no esté asociado a una reserva se mostrará como **no aplicable**. Agrupe por **Tipo de publicador** para identificar otras compras de Azure, AWS o Marketplace. |
+| **Recurso** | Cuando se desglosan los costos por recurso. | Todas las compras se mostrarán como **No aplicable**, ya que se aplican a una cuenta de facturación de Contrato Enterprise o Pago por uso, o a un nivel de perfil de facturación de MCA. Agrupe por **Tipo de publicador** para identificar otras compras de Azure, AWS o Marketplace. |
+| **Grupos de recursos** | Cuando se desglosan los costos por grupo de recursos. | Las compras, los recursos de inquilinos no asociados a las suscripciones, los recursos de suscripción que no se implementan en un grupo de recursos y los recursos clásicos no tienen un grupo de recursos y se mostrarán como **otros**, **servicios clásicos**, **$System** o **no aplicable**. |
+| **Tipo de recurso** | Cuando se desglosan los costos por tipo de recurso. | Las compras y los servicios clásicos no tienen un tipo de recurso Azure Resource Manager y se mostrarán como **otros**, **servicios clásicos**o **no aplicable**. |
+| **Ubicación de los recursos** | Cuando se desglosan los costos por ubicación o región. | Las compras y el uso de Marketplace pueden mostrarse como **sin asignar**, **desconocido**, **desasignado** o **no aplicable**. |
+| **Nombre de servicio** o **Categoría de medidor** | Cuando se desglosa el costo por servicio de Azure. | Las compras y el uso de Marketplace se mostrarán como **no aplicable** o **sin asignar**. |
+| **Nivel de servicio** o **Subcategoría de medidor** | Cuando se desglosa el costo por subclasificación de medidor de uso de Azure. | Las compras y el uso de Marketplace se mostrarán como **no aplicable** o **sin asignar**. |
+| **Suscripción** | Cuando se desglosan los costos por suscripción de Azure y por cuenta vinculada de AWS. | Las compras y los recursos de inquilino pueden aparecer como **no aplicable**. |
+| **Tag** | Cuando se desglosan los costos por valores de etiqueta para una clave de etiqueta concreta. | Las etiquetas no están disponibles para las compras, para los recursos de inquilino no asociados a las suscripciones, para los recursos de suscripción no implementados en un grupo de recursos o para los recursos clásicos. Tenga en cuenta que algunos servicios no incluyen etiquetas en los datos de uso. Obtenga más información sobre la [compatibilidad de etiquetas para cada tipo de recurso](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
 
 Para más información acerca de los términos, consulte [Información acerca de los términos usados en el archivo de uso y de cargos de Azure](../understand/understand-usage.md).
 

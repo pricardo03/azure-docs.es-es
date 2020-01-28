@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Face API, C#'
+title: 'Tutorial: Servicio conectado Face'
 titleSuffix: Azure Cognitive Services
-description: Cree una aplicación de Windows que use la API Face de Cognitive Services para detectar características de caras en una imagen.
+description: Cree una aplicación de Windows que use el servicio Face de Cognitive Services para detectar características de caras en una imagen.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: ghogen
-ms.openlocfilehash: 4b204b9895a2afea4c78d1d92f2cca68f77ae708
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0fe92fc7f19c3c899bcccfa9f9cc18029af049c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970302"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170237"
 ---
-# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Conexión a Face API de Cognitive Services mediante Servicios conectados en Visual Studio
+# <a name="connect-to-the-face-service-by-using-connected-services-in-visual-studio"></a>Conexión al servicio Face con Servicios conectados en Visual Studio
 
-Mediante el uso de Face API de Cognitive Services, puede detectar, analizar, organizar y etiquetar caras en fotos.
+Mediante el uso de del servicio Azure Face, puede detectar, analizar, organizar y etiquetar caras en fotos.
 
-En este artículo y sus artículos complementarios se proporcionan detalles sobre el uso de la característica Servicio conectado de Visual Studio para Face API de Cognitive Services. La funcionalidad está disponible en Visual Studio 2017 15.7 o posterior, con la extensión Cognitive Services instalada.
+En este artículo y sus artículos complementarios se proporcionan detalles acerca del uso de la característica de Servicios conectados de Visual Studio para el servicio Face. La funcionalidad está disponible en Visual Studio 2017 15.7 o posterior, con la extensión Cognitive Services instalada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Suscripción a Azure. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2017, versión 15.7 o posterior, con la carga de trabajo **Desarrollo web** instalada. [Descárguelo ahora](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Creación de un proyecto y adición de compatibilidad para Face API de Cognitive Services
+## <a name="create-a-project-and-add-support-for-face"></a>Creación de un proyecto e incorporación de compatibilidad para Face
 
 1. Cree un proyecto web ASP.NET Core. Use la plantilla de proyecto Vacío. 
 
@@ -47,16 +47,16 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
 
    ![Seleccione su suscripción.](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. Seleccione la suscripción que desea utilizar y, a continuación, elija un nombre para Face API, o elija el vínculo Editar para modificar el nombre generado automáticamente, elija el grupo de recursos y el plan de tarifa.
+1. Seleccione la suscripción que desea utilizar y, a continuación, elija un nombre para el servicio Face, o elija el vínculo Editar para modificar el nombre generado automáticamente, elija el grupo de recursos y el plan de tarifa.
 
    ![Edición de detalles del servicio conectado](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
    Siga el vínculo para obtener más información sobre los planes de tarifa.
 
 1. Elija Agregar para agregar compatibilidad con el servicio conectado.
-   Visual Studio modifica su proyecto para agregar paquetes NuGet, las entradas del archivo de configuración y otros cambios para admitir una conexión con Face API.
+   Visual Studio modifica su proyecto para agregar los paquetes NuGet, las entradas del archivo de configuración y otros cambios para admitir una conexión con el servicio Face.
 
-## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Uso de Face API para detectar atributos de caras en una imagen
+## <a name="use-the-face-service-to-detect-attributes-of-faces-in-an-image"></a>Uso del servicio Face para detectar atributos de caras en una imagen
 
 1. Agregue lo siguiente usando las instrucciones de Startup.cs.
  
@@ -79,7 +79,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
       }
    ```
 
-1. En la carpeta wwwroot del proyecto, agregue una carpeta de imágenes y agregue un archivo de imagen a la carpeta wwwroot. Por ejemplo, puede usar una de las imágenes en esta [página de Face API](https://azure.microsoft.com/services/cognitive-services/face/). Haga clic con el botón derecho en una de las imágenes, guárdela en la unidad de disco duro local y, a continuación, en el Explorador de soluciones, haga clic con el botón derecho en la carpeta imágenes y seleccione **Agregar** > **Elemento existente** para agregarlo al proyecto. El proyecto debe tener un aspecto similar al siguiente en el Explorador de soluciones:
+1. En la carpeta wwwroot del proyecto, agregue una carpeta de imágenes y agregue un archivo de imagen a la carpeta wwwroot. Por ejemplo, puede usar una de las imágenes en la [página de Face](https://azure.microsoft.com/services/cognitive-services/face/) de Azure Portal. Haga clic con el botón derecho en una de las imágenes, guárdela en la unidad de disco duro local y, a continuación, en el Explorador de soluciones, haga clic con el botón derecho en la carpeta imágenes y seleccione **Agregar** > **Elemento existente** para agregarlo al proyecto. El proyecto debe tener un aspecto similar al siguiente en el Explorador de soluciones:
  
    ![carpeta de imágenes con el archivo de imagen](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
@@ -87,7 +87,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
 
    ![Copiar si es posterior](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Reemplace el método de configuración con el código siguiente para acceder a Face API y probar una imagen. Cambie la cadena imagePath a la ruta de acceso correcta y el nombre de archivo para la imagen de cara.
+1. Reemplace el método de configuración con el código siguiente para acceder al servicio de Face y probar una imagen. Cambie la cadena imagePath a la ruta de acceso correcta y el nombre de archivo para la imagen de cara.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -231,9 +231,9 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
         }
    ```
 
-1. Ejecute la aplicación web y qué encontró Face API en la imagen.
+1. Ejecute la aplicación web y compruebe qué el servicio Face encontró la imagen.
  
-   ![Imagen de Face API y resultados con formato](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Imagen del servicio Face y resultados con formato](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -245,4 +245,4 @@ Cuando ya no necesite el grupo de recursos, elimínelo. De esta forma, se elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Face API, lea la [documentación de Face API](Overview.md).
+Para más información sobre el servicio Face, lea la [documentación de Face](Overview.md).

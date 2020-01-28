@@ -1,19 +1,17 @@
 ---
-title: 'Tutorial: Eliminación de un clúster de Red Hat OpenShift en Azure | Microsoft Docs'
+title: 'Tutorial: Eliminación de un clúster de Red Hat OpenShift en Azure'
 description: En este tutorial, aprenderá a eliminar un clúster de Red Hat OpenShift en Azure mediante la CLI de Azure
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad70f4c3681705377a350fee8b02a55c526f26c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c335236a2b0b05f03bef1ebef37f1129a5d0352b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669332"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278772"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Tutorial: Eliminación de un clúster de Red Hat OpenShift en Azure
 
@@ -27,10 +25,10 @@ En la tercera parte de la serie, se aprende a:
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * [Creación de un clúster de Red Hat OpenShift en Azure](tutorial-create-cluster.md)
-> * [Escalado de un clúster de Red Hat OpenShift en Azure](tutorial-scale-cluster.md)
+> * [Escalado de un clúster de Red Hat OpenShift en Azure](tutorial-scale-cluster.md)
 > * Eliminación de un clúster de Red Hat OpenShift en Azure
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 

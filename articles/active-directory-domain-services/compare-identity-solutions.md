@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 04a1f19ddf894467a9129e8a16c951298a6af529
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2495605cccf658b15e812fd85fd65671e84d15b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474706"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544283"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparación de Active Directory Domain Services autoadministrado, Azure Active Directory y Azure Active Directory Domain Services administrado
 
@@ -28,7 +28,7 @@ Aunque las tres soluciones de identidad basadas en Active Directory comparten u
 * **Azure Active Directory (Azure AD)** : administración de identidades basadas en la nube y de dispositivos móviles que proporciona servicios de cuentas de usuario y autenticación para recursos como Office 365, Azure Portal o las aplicaciones SaaS.
     * Azure AD se puede sincronizar con un entorno de AD DS local para proporcionar una identidad única a los usuarios que funcionan de forma nativa en la nube.
 * **Azure Active Directory Domain Services (Azure AD DS)** : proporciona servicios de dominio administrados con un subconjunto de características de AD DS tradicionales totalmente compatibles como, por ejemplo, unión a un dominio, directiva de grupo, LDAP y autenticación Kerberos o NTLM.
-    * Azure AD DS se integra con Azure AD, que a su vez puede sincronizarse con un entorno de AD DS local, para ampliar los casos de uso de identidad central a las aplicaciones web tradicionales que se ejecutan en Azure como parte de una estrategia de migración mediante lift-and-shift.
+    * Azure AD DS se integra con Azure AD, que se puede sincronizar con un entorno de AD DS local. Esta capacidad amplía los casos de uso de identidad central a las aplicaciones web tradicionales que se ejecutan en Azure como parte de una estrategia de migración mediante lift-and-shift.
 
 En este artículo de introducción se compara cómo estas soluciones de identidad pueden actuar juntas o usarse de forma independiente, en función de las necesidades de su organización.
 
@@ -66,7 +66,7 @@ En la tabla siguiente se describen algunas de las características que puede nec
 | **Estructura de unidad organizativa personalizada**                           | **&#x2713;** | **&#x2713;** |
 | **Directiva de grupo**                                  | **&#x2713;** | **&#x2713;** |
 | **Extensiones de esquema**                             | **&#x2715;** | **&#x2713;** |
-| **Confianzas de bosques o dominios de AD**                     | **&#x2715;** | **&#x2713;** |
+| **Confianzas de bosques o dominios de AD**                     | **&#x2713;** (solo relaciones de confianza de bosque de salida unidireccional) | **&#x2713;** |
 | **LDAP seguro (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
 | **Lectura LDAP**                                     | **&#x2713;** | **&#x2713;** |
 | **Escritura LDAP**                                    | **&#x2713;** (dentro del dominio administrado) | **&#x2713;** |

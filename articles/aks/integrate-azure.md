@@ -1,25 +1,23 @@
 ---
 title: Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
 description: Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
-services: container-service
 author: zr-msft
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 7a887905bcb4b09c1b4ae179116b3f08c75caabd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 131e767daa920f03db5ec9a3aac711fc850c7132
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758278"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276802"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
 
-Junto con el [catálogo de servicios de Kubernetes][kubernetes-service-catalog], Open Service Broker para Azure (OSBA) permite a los desarrolladores usar servicios administrados de Azure en Kubernetes. Esta guía se centra en la implementación del catálogo de servicios de Kubernetes, Open Service Broker for Azure (OSBA) y las aplicaciones que utilizan servicios administrados de Azure mediante Kubernetes.
+Junto con [Kubernetes Service Catalog][kubernetes-service-catalog] (catálogo de servicios de Kubernetes), Open Service Broker for Azure (OSBA) permite a los desarrolladores usar servicios de Azure administrados en Kubernetes. Esta guía se centra en la implementación del catálogo de servicios de Kubernetes, Open Service Broker for Azure (OSBA) y las aplicaciones que utilizan servicios administrados de Azure mediante Kubernetes.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * Una suscripción de Azure
 
 * CLI de Azure: puede [instalarla localmente][azure-cli-install] o usarla en [Azure Cloud Shell][azure-cloud-shell].
@@ -146,7 +144,7 @@ Ahora, se enumeran los Service Brokers instalados:
 ./svcat get brokers
 ```
 
-Debería ver una salida similar a la siguiente:
+Debería ver un resultado similar al siguiente:
 
 ```
   NAME                               URL                                STATUS

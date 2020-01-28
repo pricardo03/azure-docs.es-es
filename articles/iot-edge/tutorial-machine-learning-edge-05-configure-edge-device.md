@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: a9f9c6ebd55752ea5a3400da8d42b6c6487277df
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612877"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514653"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configure un dispositivo IoT Edge
 
@@ -262,7 +262,7 @@ A continuación, actualizará los certificados y el nombre de host editando dire
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    Asegúrese de que "certificates:" no tiene ningún espacio en blanco al principio y que a cada uno de los certificados le preceden dos espacios.
+    Asegúrese de que la línea **certificates:** no tiene ningún espacio en blanco al principio y que a cada uno de los certificados anidados se le aplica una sangría de dos espacios.
 
     Al hacer clic con el botón derecho en nano, se pegará el contenido del portapapeles en la posición actual del cursor. Para reemplazar la cadena, use las flechas del teclado para desplazarse a la cadena que desea reemplazar, elimine la cadena y luego haga clic con el botón derecho para pegar desde el búfer.
 

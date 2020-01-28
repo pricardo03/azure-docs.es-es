@@ -1,7 +1,7 @@
 ---
-title: ¿Qué es Face API?
+title: ¿Qué es el servicio Face?
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Face API ofrece algoritmos que se utilizan para detectar, reconocer y analizar caras humanas en imágenes.
+description: El servicio Face de Azure Cognitive Services ofrece algoritmos que se utilizan para detectar, reconocer y analizar caras humanas en imágenes.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,25 +9,25 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961546"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170251"
 ---
-# <a name="what-is-the-azure-face-api"></a>¿Qué es Azure Face API?
+# <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
-Azure Cognitive Services Face API ofrece algoritmos que se utilizan para detectar, reconocer y analizar caras humanas en imágenes. La capacidad de procesar la información de caras humanas es importante en muchos escenarios de software diferentes. Los escenarios de ejemplo son seguridad, interfaz de usuario natural, análisis y administración de contenido de imagen, aplicaciones móviles y robótica.
+El servicio Face de Azure Cognitive Services ofrece algoritmos que se utilizan para detectar, reconocer y analizar caras humanas en imágenes. La capacidad de procesar la información de caras humanas es importante en muchos escenarios de software diferentes. Los escenarios de ejemplo son seguridad, interfaz de usuario natural, análisis y administración de contenido de imagen, aplicaciones móviles y robótica.
 
-Face API proporciona varias funciones diferentes. Cada función se describe en las secciones siguientes. Siga leyendo para obtener más información sobre ellas.
+El servicio Face proporciona varias funciones diferentes. Cada función se describe en las secciones siguientes. Siga leyendo para obtener más información sobre ellas.
 
 ## <a name="face-detection"></a>Detección de caras
 
-Face API detecta caras humanas en una imagen y devuelve las coordenadas del rectángulo de sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos relacionados con la cara. Algunos ejemplos son la posición de la cabeza, el sexo, la edad, las emociones, el vello facial y las gafas.
+El servicio Face detecta rostros humanos en una imagen y devuelve las coordenadas del rectángulo de sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos relacionados con la cara. Algunos ejemplos son la posición de la cabeza, el sexo, la edad, las emociones, el vello facial y las gafas.
 
 > [!NOTE]
-> La característica de la detección de caras también está disponible con [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Si desea realizar más operaciones con datos faciales, use Face API, que es el servicio descrito en este artículo.
+> La característica de la detección de caras también está disponible con [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Si desea realizar más operaciones con datos faciales, use el servicio Face, que es el servicio descrito en este artículo.
 
 ![Una imagen de una mujer y un hombre, con rectángulos dibujados en torno a sus caras y edad y sexo.](./Images/Face.detection.jpg)
 
@@ -73,9 +73,9 @@ Para más información sobre la identificación de personas, vea la guía de con
 
 ## <a name="sample-apps"></a>Aplicaciones de ejemplo
 
-Las aplicaciones de ejemplo siguientes muestran algunas formas de usar Face API:
+Las aplicaciones de ejemplo siguientes muestran algunas formas de usar el servicio Face:
 
-- [Microsoft Face API: biblioteca de cliente Windows y ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows) es una aplicación de WPF que demuestra varios escenarios de detección, análisis e identificación de caras.
+- [API Face: biblioteca de cliente Windows y ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows) es una aplicación de WPF que demuestra varios escenarios de detección, análisis e identificación de caras.
 - [Aplicación FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes) es una aplicación de la Plataforma universal de Windows (UWP) que usa la identificación facial junto con la voz, Cortana, la escritura manuscrita y la cámara en un escenario de uso compartido de notas en familia.
 
 ## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos

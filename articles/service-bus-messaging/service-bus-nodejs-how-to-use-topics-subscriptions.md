@@ -1,6 +1,6 @@
 ---
-title: Uso de temas y suscripciones de Service Bus con el paquete azure/services-bus de Node.js
-description: 'Inicio rápido: Aprenda a usar los temas y las suscripciones de Service Bus en Azure desde una aplicación Node.js.'
+title: Uso de temas de Azure Service Bus con el paquete azure/service-bus de Node.js
+description: Aprenda a usar los temas y suscripciones de Service Bus en Azure desde una aplicación Node.js con el paquete azure/service-bus.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: 3955b67bd0fd40eb903543a240795ed8bc36b3b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e6ac3c74a0a8346ad8a6820c676224bfcba0e8b4
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462118"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264448"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y el paquete azure-sb
 > [!div class="op_multi_selector" title1="Lenguaje de programación" title2="Paquete Node.js"]

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 793bb46e14725b14c766569e8b0fc2aa0246858e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3889378f34d66f54ea408da4aa43b12f86e7c586
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979060"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262690"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central (características en versión preliminar)
 
@@ -25,21 +25,22 @@ Puede usar Azure IoT Central para supervisar de forma remota los dispositivos co
 
 Los dispositivos usan la telemetría para enviar datos numéricos. Cuando los datos de telemetría del dispositivo seleccionado superan un umbral especificado, se desencadena una regla.
 
-En este tutorial se crea una regla que envía un mensaje de correo electrónico cuando la temperatura de un dispositivo de sensor ambiental supera los 80 &deg; F.
+En este tutorial se crea una regla que envía un mensaje de correo electrónico cuando la temperatura de un dispositivo de sensor ambiental supera los 70 &deg;F.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear una regla
 > * Adición de una acción de correo electrónico
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, debe completar los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) e [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md) para crear la plantilla de dispositivo **Environment Sensor** con la que va a trabajar.
 
 ## <a name="create-a-rule"></a>Crear una regla
 
-Para crear una regla de telemetría, la plantilla de dispositivos debe tener definida al menos una medida de telemetría. En este tutorial se usa un dispositivo de sensor ambiental que envía datos de telemetría de temperatura y humedad. Ha agregado esta plantilla de dispositivo y creado un dispositivo simulado en el inicio rápido [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md). La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 80 grados.
+Para crear una regla de telemetría, la plantilla de dispositivos debe tener definida al menos una medida de telemetría. En este tutorial se usa un dispositivo de sensor ambiental que envía datos de telemetría de temperatura y humedad. Ha agregado esta plantilla de dispositivo y creado un dispositivo simulado en el inicio rápido [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md). La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 70 grados.
 
 1. En el panel izquierdo, seleccione **Rules** (Reglas).
 
@@ -57,18 +58,18 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
 ### <a name="configure-the-rule-conditions"></a>Configuración de las condiciones de la regla
 
-Las condiciones definen los criterios que la regla supervisa. En este tutorial, configurará la regla para que se active cuando la temperatura supere los 80 &deg; F.
+Las condiciones definen los criterios que la regla supervisa. En este tutorial, configurará la regla para que se active cuando la temperatura supere los 70 &deg;F.
 
 1. Seleccione **Temperature** (Temperatura) en la lista desplegable **Telemetry** (Telemetría).
 
-1. A continuación, elija **Is greater than** (Es mayor que) que **Operator** (Operador) y escriba _80_ en **Value** (Valor).
+1. A continuación, elija **Is greater than** (Es mayor que) como **Operator** (Operador) y escriba _70_ en **Value** (Valor).
 
     ![Condición](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
 
 1. Opcionalmente, puede establecer un valor de **Time aggregation** (Agregación de tiempo). Al seleccionar una agregación de tiempo, también debe seleccionar un tipo de agregación, como la media o la suma, en la lista desplegable de agregación.
 
-    * Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura está por encima de 80, la regla se desencadena casi al instante cuando el dispositivo informe una temperatura >80.
-    * Con la agregación, la regla se desencadena si el valor agregado de los puntos de datos de telemetría de la ventana de tiempo cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura sea superior a 80, la agregación de tiempo se establece en 10 minutos y el tipo de agregación es la media, la regla se desencadena cuando el dispositivo informa de una temperatura media por encima de 80, calculada a lo largo de un intervalo de 10 minutos.
+    * Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura está por encima de 70, la regla se desencadena casi al instante cuando el dispositivo informe de una temperatura > 70.
+    * Con la agregación, la regla se desencadena si el valor agregado de los puntos de datos de telemetría de la ventana de tiempo cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura sea superior a 70, la agregación de tiempo se establece en 10 minutos y el tipo de agregación es la media, la regla se desencadena cuando el dispositivo informa de una temperatura media por encima de 70, calculada a lo largo de un intervalo de 10 minutos.
 
      ![Condición agregada](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
@@ -109,7 +110,7 @@ Elija la regla que quiere habilitar o deshabilitar. Agregue un filtro en la secc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 * Crear una regla basada en la telemetría
 * Agregar una acción

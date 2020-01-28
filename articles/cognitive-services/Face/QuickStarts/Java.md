@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 7097f399b2bf5a3b0f9adb990fbd66785adc09aa
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d6d0a5cdf4b33ba290042627f0ceaf4cf73a375c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978005"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169324"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Java
 
@@ -23,9 +23,9 @@ En este tutorial, usará la API REST de Azure Face con Java para detectar caras 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave.
 - Cualquier entorno de desarrollo integrado de Java de su elección.
 
 ## <a name="create-the-java-project"></a>Creación del proyecto de Java
@@ -152,7 +152,7 @@ Agregue el siguiente bloque directamente debajo del código anterior, que convie
 }
 ```
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 Compile el código y ejecútelo. Una respuesta correcta mostrará datos de las caras en formato JSON fácilmente legible en la ventana de consola. Por ejemplo:
 
@@ -248,7 +248,7 @@ Compile el código y ejecútelo. Una respuesta correcta mostrará datos de las c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado una sencilla aplicación de consola de Java que usa llamadas REST a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, obtenga información sobre cómo hacer más cosas con esta funcionalidad en una aplicación Android.
+En este inicio rápido, ha creado una sencilla aplicación de consola de Java que usa llamadas REST a Azure API Face para detectar caras en una imagen y devolver sus atributos. A continuación, obtenga información sobre cómo hacer más cosas con esta funcionalidad en una aplicación Android.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Creación de una aplicación Android para detectar y enmarcar caras](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

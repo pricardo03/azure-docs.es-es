@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Detección de caras en una imagen mediante la API REST y Go'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido se detectan caras de una imagen mediante Face API con Go.
+description: En este inicio rápido se detectan caras de una imagen mediante el servicio Face con Go.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 3ebcd7dfb7b1138f52663d7c919d4ce4d8bd088a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 246b9c81e3cb726236143b9749486ba362128756
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890538"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165833"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Go
 
@@ -23,7 +23,7 @@ En este inicio rápido, usará la API REST de Azure Face con Go para detectar ca
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave.
 - Un editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Escritura del script
@@ -311,7 +311,7 @@ Debería ver una cadena JSON de los datos de la cara detectada impresos en la co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha escrito una aplicación de consola de Go que llama a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
+En este inicio rápido, ha escrito una aplicación de consola de Go que llama al servicio Azure Face para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

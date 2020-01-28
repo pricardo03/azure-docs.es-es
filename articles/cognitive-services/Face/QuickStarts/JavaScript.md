@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 3946f6d034baee528f9cd5abd6467b8c393e73de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1941cca7c13cb3d84b623222e11c13e793cee0f9
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977988"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169300"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y JavaScript
 
 En este inicio rápido, usará la API REST Azure Face con JavaScript para detectar caras humanas en una imagen.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave.
 - Un editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="initialize-the-html-file"></a>Inicialización del archivo HTML
@@ -128,7 +128,7 @@ Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscri
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="run-the-script"></a>Ejecute el script
+## <a name="run-the-script"></a>Ejecute el script.
 
 Abra *detectFaces.html* en el explorador. Al hacer clic en el botón **Analizar cara**, la aplicación debe mostrar la imagen de la dirección URL dada e imprimir una cadena JSON de los datos de cara.
 
@@ -230,7 +230,7 @@ El siguiente texto es un ejemplo de una respuesta JSON correcta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha escrito un script de JavaScript que llama a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
+En este inicio rápido, ha escrito un script de JavaScript que llama al servicio Azure Face para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

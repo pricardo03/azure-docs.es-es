@@ -1,36 +1,28 @@
 ---
-title: 'Tutorial: Creación y uso de discos para conjuntos de escalado con la CLI de Azure | Microsoft Docs'
+title: 'Tutorial: Creación y uso de discos para conjuntos de escalado con la CLI de Azure'
 description: Aprenda a usar la CLI de Azure para crear y usar discos administrados con conjuntos de escalado de máquinas virtuales, incluido cómo agregar, preparar, enumerar y desconectar discos.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751164"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278248"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Los conjuntos de escalado de máquinas virtuales usan discos para almacenar el sistema operativo, las aplicaciones y los datos de las máquinas virtuales. Al crear y administrar un conjunto de escalado, es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial explica cómo crear y administrar discos de máquina virtual. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Discos del SO y temporales
-> * Discos de datos
-> * Discos Estándar y Premium
-> * Rendimiento de disco
+> * Discos del SO y temporales.
+> * Discos de datos.
+> * Discos Estándar y Premium.
+> * Rendimiento de disco.
 > * Conexión y preparación de los discos de datos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -48,7 +40,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 **Disco temporal**: los discos temporales usan una unidad de estado sólido que se encuentra en el mismo host de Azure que la instancia de máquina virtual. Son discos de gran rendimiento y se pueden usar para operaciones tales como el procesamiento temporal de los datos. Sin embargo, si la instancia de máquina virtual se mueve a un nuevo host, los datos almacenados en un disco temporal se eliminarán. El tamaño del disco temporal se determina por el tamaño de la instancia de máquina virtual. Los discos temporales llevan la etiqueta */dev/sdb* y tienen un punto de montaje de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
-| Type | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
+| Tipo | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
 |----|----|----|
 | [Uso general](../virtual-machines/linux/sizes-general.md) | Series A, B y D | 1600 |
 | [Proceso optimizado](../virtual-machines/linux/sizes-compute.md) | Serie F | 576 |
@@ -62,7 +54,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 Se pueden agregar discos de datos adicionales si necesita instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 4 TB. El tamaño de la instancia de máquina virtual determina cuántos discos de datos se pueden conectar. Para cada vCPU de la máquina virtual, se pueden asociar dos discos de datos.
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
-| Type | Tamaños comunes | Discos de datos máximos por máquina virtual |
+| Tipo | Tamaños comunes | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](../virtual-machines/linux/sizes-general.md) | Series A, B y D | 64 |
 | [Proceso optimizado](../virtual-machines/linux/sizes-compute.md) | Serie F | 64 |
@@ -85,8 +77,8 @@ Los discos Premium están respaldados por un disco de latencia reducida y alto r
 |Tipo de disco de Premium Storage | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Tamaño del disco (redondeo hacia arriba) | 32 GB | 64 GB | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) |
-| Máximo de IOPS por disco | 120 | 240 | 500 | 2,300 | 5.000 | 7500 | 7500 |
-Rendimiento de disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
+| Máximo de IOPS por disco | 120 | 240 | 500 | 2,300 | 5\.000 | 7500 | 7500 |
+Rendimiento de disco. | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Aunque la tabla anterior identifica las IOPS máximas por disco, se puede obtener un mayor nivel de rendimiento dividiendo varios discos de datos. Por ejemplo, una máquina virtual Standard_GS5 puede conseguir 80 000 IOPS como máximo. Para más información sobre el número máximo de IOPS por máquina virtual, consulte los [tamaños de máquinas virtuales Linux](../virtual-machines/linux/sizes.md).
 
@@ -301,10 +293,10 @@ az group delete --name myResourceGroup --no-wait --yes
 En este tutorial, aprendió a crear y utilizar discos con conjuntos de escalado con la CLI de Azure:
 
 > [!div class="checklist"]
-> * Discos del SO y temporales
-> * Discos de datos
-> * Discos Estándar y Premium
-> * Rendimiento de disco
+> * Discos del SO y temporales.
+> * Discos de datos.
+> * Discos Estándar y Premium.
+> * Rendimiento de disco.
 > * Conexión y preparación de los discos de datos
 
 Vaya al siguiente tutorial para aprender a usar una imagen personalizada para las instancias de máquina virtual de su conjunto de escalado.

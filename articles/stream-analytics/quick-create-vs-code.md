@@ -4,15 +4,15 @@ description: En este inicio rápido se muestra cómo empezar a crear un trabajo 
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 09/16/2019
+ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 236d29d2c50a792bc4dc11916964db47ca092807
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659600"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313882"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code (versión preliminar)
 
@@ -151,7 +151,7 @@ Siga las instrucciones de [Prueba local de consultas con datos de ejemplo](visua
 
 ## <a name="define-a-live-input"></a>Definición de una entrada activa
 
-1. Haga clic con el botón derecho en la carpeta **Entradas** del proyecto de Stream Analytics. Después, seleccione **ASA: Add Input** (Agregar entrada) en el menú contextual.
+1. Haga clic con el botón derecho en la carpeta **Entradas** del proyecto de Stream Analytics. Después, seleccione **ASA: Agregar entrada** en el menú contextual.
 
     ![Adición de una entrada desde la carpeta de entradas](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
 
@@ -163,7 +163,7 @@ Siga las instrucciones de [Prueba local de consultas con datos de ejemplo](visua
 
    ![Selección de un centro de IoT como opción de entrada](./media/quick-create-vs-code/iot-hub.png)
 
-3. Si agregó la entrada desde la paleta de comandos, elija el script de consulta de Stream Analytics que va a utilizar la entrada. Debe rellenarse automáticamente con la ruta de acceso a **myASAproj.asaql**.
+3. Si agregó la entrada desde la paleta de comandos, elija el script de consulta de Stream Analytics que va a utilizar la entrada. Debe rellenarse automáticamente con la ruta de acceso del archivo a **myASAproj.asaql**.
 
    ![Selección de un script de Stream Analytics en Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
@@ -179,9 +179,11 @@ Siga las instrucciones de [Prueba local de consultas con datos de ejemplo](visua
    |IotHubNamespace|MyASAIoTHub|Elija o escriba el nombre del centro de IoT. Los nombres del centro de IoT se detectan automáticamente si se crean en la misma suscripción.|
    |SharedAccessPolicyName|iothubowner| |
 
-   Puede usar la característica CodeLens para ayudarle a escribir una cadena, seleccionar en una lista desplegable o cambiar el texto directamente en el archivo. En la captura de pantalla siguiente se muestra **Select from your Subscriptions** (Seleccionar entre las suscripciones) como ejemplo.
+   Puede usar la característica CodeLens para ayudarle a escribir una cadena, seleccionar en una lista desplegable o cambiar el texto directamente en el archivo. En la captura de pantalla siguiente se muestra **Select from your Subscriptions** (Seleccionar entre las suscripciones) como ejemplo. Las credenciales se muestran automáticamente y se guardan en el administrador de credenciales local.
 
    ![Configuración de una entrada en Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+   ![Configuración de un valor de entrada en Visual Studio Code](./media/quick-create-vs-code/configure-input-value.png)
 
 ## <a name="preview-input"></a>Vista previa de la entrada
 

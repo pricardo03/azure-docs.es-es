@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2019
 ms.author: allensu
-ms.openlocfilehash: dc986d40d50b93720c87ba36d265ed3044b0abc9
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 9f824c1348420393f8fbf67bf96932e40b67bc32
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045377"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264923"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
 El *equilibrio de carga* hace referencia a la distribución uniforme de la carga (el tráfico de red entrante) en un grupo de recursos o servidores de back-end. Azure ofrece [varias opciones de equilibrio de carga](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) para que pueda elegir la que mejor se ajuste a sus necesidades. En este documento se analiza Azure Load Balancer.
 
-Azure Load Balancer opera en la capa cuatro del modelo de interconexión de sistema abierto (OSI). Es el único punto de contacto de los clientes. Load Balancer distribuye nuevos flujos entrantes que llegan al front-end del equilibrador de carga a las instancias del grupo de servidores back-end. Estos flujos están de acuerdo con las reglas de equilibrio de carga y los sondeos de estado configurados. Las instancias del grupo de back-end pueden ser instancias de Azure Virtual Machines o de un conjunto de escalado de máquinas virtuales.
-
+Azure Load Balancer opera en la capa cuatro del modelo de interconexión de sistema abierto (OSI). Es el único punto de contacto de los clientes. Load Balancer distribuye flujos de entrada que llegan al front-end del equilibrador de carga a las instancias del grupo de servidores back-end. Estos flujos están de acuerdo con las reglas de equilibrio de carga y los sondeos de estado configurados. Las instancias del grupo de back-end pueden ser instancias de Azure Virtual Machines o de un conjunto de escalado de máquinas virtuales.
 
 Un **[equilibrador de carga público](./concepts-limitations.md#publicloadbalancer)** puede proporcionar conexiones de salida para máquinas virtuales dentro de la red virtual. Estas conexiones se realizan mediante la traducción de sus direcciones IP privadas a direcciones IP públicas. Las instancias públicas de Load Balancer se usan para equilibrar la carga del tráfico de Internet en las máquinas virtuales.
 
@@ -40,14 +39,10 @@ Un **[equilibrador de carga interno (o privado)](./concepts-limitations.md#inter
 
 Para más información sobre los componentes individuales del equilibrador de carga, consulte [Componentes y limitaciones de Azure Load Balancer](./concepts-limitations.md).
 
->[!NOTE]
-> Microsoft recomienda [Standard Load Balancer](./load-balancer-standard-overview.md).
-Las máquinas virtuales independientes, los conjuntos de disponibilidad y los conjuntos de escalado de máquinas virtuales solo se pueden conectar a una SKU, nunca a ambas. Load Balancer y la SKU de la dirección IP pública deben coincidir cuando se usan con direcciones IP públicas. Load Balancer y las SKU de IP públicas no son mutables.
-
 ## <a name="why-use-azure-load-balancer"></a>Uso de Azure Load Balancer
-Con Azure Load Balancer puede escalar las aplicaciones y crear servicios con alta disponibilidad. Load Balancer admite escenarios de entrada y salida. Una instancia de Load Balancer proporciona baja latencia y alto rendimiento, y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP.
+Con Standard Load Balancer, puede escalar las aplicaciones y crear servicios con alta disponibilidad. Load Balancer admite escenarios de entrada y salida. Una instancia de Load Balancer proporciona baja latencia y alto rendimiento, y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP.
 
-Entre los escenarios clave que puede realizar con Azure Load Balancer se incluyen:
+Entre los escenarios clave que puede realizar con Standard Load Balancer se incluyen:
 
 - Equilibrio de carga del tráfico **[interno](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** y **[externo](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** a las máquinas virtuales de Azure.
 
@@ -61,7 +56,7 @@ Entre los escenarios clave que puede realizar con Azure Load Balancer se incluye
 
 - Habilitación de la compatibilidad con el **[equilibrio de carga](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** de **[IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)** .
 
-- Aprovechamiento de las ventajas de **[métricas y diagnósticos](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)** para Azure Load Balancer con **[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)** .
+- Standard Load Balancer proporciona métricas multidimensionales mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).  Estas métricas se pueden filtrar, agrupar y desglosar para una dimensión determinada.  Proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio.  También se admite Resource Health. Consulte **[Diagnósticos de Standard Load Balancer](load-balancer-standard-diagnostics.md)** para más información.
 
 - Servicios de equilibrio de carga en **[varios puertos, varias direcciones IP, o en ambos](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview)** .
 
@@ -69,20 +64,17 @@ Entre los escenarios clave que puede realizar con Azure Load Balancer se incluye
 
 - Equilibrio de carga del flujo de TCP y UDP en todos los puertos simultáneamente mediante los **[puertos de alta disponibilidad](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)** .
 
-## <a name="pricing"></a>Precios
+### <a name="securebydefault"></a>Seguro de forma predeterminada
 
-Se cobra el uso de Standard Load Balancer.
+Standard Load Balancer se basa en el modelo de seguridad de red de confianza cero en su núcleo. Standard Load Balancer es seguro de forma predeterminada y forma parte de la red virtual. La red virtual es una red privada y aislada.  Esto significa que las instancias de Standard Load Balancer y las direcciones IP públicas estándar se cierran en los flujos de entrada a menos que los abran los grupos de seguridad de red. Los grupos de seguridad de red se usan para permitir explícitamente el tráfico e incluirlo en una lista de permitidos.  Si no tiene ningún grupo de seguridad de red en una subred o NIC del recurso de máquina virtual, no se permitirá que el tráfico llegue a este recurso. Para aprender más sobre los NSG y cómo aplicarlos en su caso, vea [Grupos de seguridad de red](../virtual-network/security-overview.md).
+Load Balancer Básico está abierto a Internet de forma predeterminada.
 
-* Número de reglas de equilibrio de carga y de salida configuradas. Las reglas NAT de entrada no cuentan en el número total de reglas.
-* Cantidad de datos procesados de entrada y salida independientes de las reglas.
+
+## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 
 Para más información sobre los precios de Standard Load Balancer, consulte [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
-
 Load Balancer Básico se ofrece sin cargo.
-
-## <a name="sla"></a>Contrato de nivel de servicio
-
-Para más información sobre el contrato de nivel de servicio de Standard Load Balancer, consulte [Contrato de nivel de servicio para Load Balancer](https://aka.ms/lbsla).
+Consulte [Acuerdo de Nivel de Servicio para Load Balancer](https://aka.ms/lbsla). Load Balancer Básico no tiene Acuerdo de Nivel de Servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

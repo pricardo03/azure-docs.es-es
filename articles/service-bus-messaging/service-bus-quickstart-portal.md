@@ -1,30 +1,30 @@
 ---
-title: 'Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus | Microsoft Docs'
+title: Uso de Azure Portal para crear una cola de Service Bus
 description: En este inicio rápido, aprenderá a crear una cola de Service Bus con Azure Portal. Después, usará una aplicación cliente de ejemplo para enviar mensajes a la cola y recibirlos desde ella.
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242381"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260844"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus
 En este inicio rápido se describe cómo enviar y recibir mensajes en una cola de Service Bus, cómo usar [Azure Portal][Azure portal] para crear un espacio de nombres de mensajería y una cola dentro de este, y cómo obtener las credenciales de autorización en ese espacio de nombres. El procedimiento muestra después cómo enviar y recibir mensajes de esta cola mediante la [biblioteca de .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
+- Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
 - [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior. Use Visual Studio para compilar un ejemplo que envíe mensajes a una cola y los reciba. El ejemplo es para probar la cola que creó mediante PowerShell. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 

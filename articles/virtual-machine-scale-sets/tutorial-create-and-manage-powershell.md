@@ -1,27 +1,19 @@
 ---
-title: 'Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales de Azure | Microsoft Docs'
+title: 'Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales de Azure'
 description: Aprenda a usar Azure PowerShell para crear un conjunto de escalado de máquinas virtuales, junto con algunas tareas de administración comunes, por ejemplo, cómo iniciar y detener una instancia o cambiar la capacidad del conjunto de escalado.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 14616fcc9fd63731c50c5977c88b5030f60664ff
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728691"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271409"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 
@@ -156,7 +148,7 @@ Azure Marketplace incluye muchas imágenes que pueden usarse para crear instanci
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Para ver una lista de imágenes de un publicador determinado, utilice el comando [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). También puede filtrar la lista de imágenes por `-PublisherName` u `–Offer`. En el siguiente ejemplo, la lista se filtra por todas las imágenes con el nombre del editor de *MicrosoftWindowsServer* y una oferta que coincida con *WindowsServer*:
+Para ver una lista de imágenes de un publicador determinado, utilice el comando [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). También puede filtrar la lista de imágenes por `-PublisherName` u `-Offer`. En el siguiente ejemplo, la lista se filtra por todas las imágenes con el nombre del editor de *MicrosoftWindowsServer* y una oferta que coincida con *WindowsServer*:
 
 ```azurepowershell-interactive
 Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -205,13 +197,13 @@ El tamaño de instancia de la máquina virtual, o *SKU*, determina la cantidad d
 ### <a name="vm-instance-sizes"></a>Tamaños de instancia de máquina virtual
 En la tabla siguiente se clasifican los tamaños de máquina virtual comunes en casos de uso.
 
-| type                     | Tamaños comunes           |    DESCRIPCIÓN       |
+| Tipo                     | Tamaños comunes           |    Descripción       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Uso general](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
 | [Proceso optimizado](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
 | [Memoria optimizada](../virtual-machines/windows/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
 | [Almacenamiento optimizado](../virtual-machines/windows/sizes-storage.md)      | LS                | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
-| [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | Máquinas virtuales especializadas específicas para actividades intensas de representación de gráficos y edición de vídeo.       |
+| [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | Máquinas virtuales especializadas para actividades intensas de representación de gráficos y edición de vídeo.       |
 | [Alto rendimiento](../virtual-machines/windows/sizes-hpc.md) | H, A8-11          | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. 
 
 ### <a name="find-available-vm-instance-sizes"></a>Búsqueda de tamaños de instancia de máquina virtual disponibles
@@ -290,7 +282,7 @@ Sku        :
 Ahora puede crear un conjunto de escalado, mostrar información de conexión y conectarse a instancias de máquina virtual. Ha aprendido cómo podría usar otra imagen de sistema operativo para sus instancias de máquina virtual, cómo seleccionar otro tamaño de máquina virtual o cómo escalar manualmente el número de instancias. Como parte de la administración diaria, puede que deba detener, iniciar o reiniciar las instancias de máquina virtual del conjunto de escalado.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Detención y desasignación de instancias de máquina virtual de un conjunto de escalado
-Para detener una o varias máquinas virtuales en un conjunto de escalado, use [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se detengan. Si no especifica un identificador de instancia, se detienen todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente se detiene la instancia *1*:
+Para detener una o varias VM en un conjunto de escalado, use [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se detengan. Si no especifica un identificador de instancia, se detienen todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente se detiene la instancia *1*:
 
 ```azurepowershell-interactive
 Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
@@ -299,14 +291,14 @@ Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -I
 De forma predeterminada, se cancela la asignación de las máquinas virtuales para no acumular cargos de proceso. Si quiere que la máquina virtual permanezca en un estado de aprovisionamiento cuando se detenga, agregue el parámetro `-StayProvisioned` al comando anterior. Las máquinas virtuales detenidas que se mantienen aprovisionadas acumulan cargos regulares de proceso.
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Inicio de las instancias de máquina virtual de un conjunto de escalado
-Para iniciar una o varias máquinas virtuales en un conjunto de escalado, use [Start-AzVmss](/powershell/module/az.compute/start-azvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se inicien. Si no especifica un identificador de instancia, se inician todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente se inicia la instancia *1*:
+Para iniciar una o varias VM en un conjunto de escalado, use [Start-AzVmss](/powershell/module/az.compute/start-azvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se inicien. Si no especifica un identificador de instancia, se inician todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente se inicia la instancia *1*:
 
 ```azurepowershell-interactive
 Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Reinicio de las instancias de máquina virtual de un conjunto de escalado
-Para iniciar una o varias máquinas virtuales en un conjunto de escalado, use [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se reinicien. Si no especifica un identificador de instancia, se reinician todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente, se reinicia la instancia *1*:
+Para reiniciar una o varias VM en un conjunto de escalado, use [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se reinicien. Si no especifica un identificador de instancia, se reinician todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente, se reinicia la instancia *1*:
 
 ```azurepowershell-interactive
 Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"

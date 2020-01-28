@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2020
+ms.date: 01/17/2020
 ms.author: banders
-ms.openlocfilehash: 2beb1d3e4468ff96f629dd6ec7015376a7f3a904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 75b6dd1b2d76d12087270e155551402d1bcd4965
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984010"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274023"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Descripción de la factura de Azure Enterprise
 
@@ -127,7 +127,7 @@ Inicie sesión en el [portal de Enterprise](https://ea.azure.com) y seleccione *
 
 ![Captura de pantalla que muestra la opción M + C en Resumen de uso.](./media/review-enterprise-agreement-bill/ea-portal-usage-sumary-cm-option.png)  
 
-El importe total de **Azure Marketplace** debe coincidir con el importe **Total venta** en su factura de Marketplace. Para más información sobre los gastos basados en el uso, vaya a **Descargar uso**. En **Gastos de Marketplace**, seleccione **Descargar**. Este informe no incluye los impuestos ni las compras únicas.  
+El importe total de **Azure Marketplace** debe coincidir con el importe **Total venta** en su factura de Marketplace. Para más información sobre los gastos basados en el uso, vaya a **Descargar uso**. En **Gastos de Marketplace**, seleccione **Descargar**. El precio de Marketplace incluye un impuesto determinado por el editor. Los clientes no recibirán ninguna factura independiente del editor para el cobro de impuestos por la transacción.
 
 ![Captura de pantalla que muestra la opción Descargar en Gastos de Marketplace.](./media/review-enterprise-agreement-bill/ea-portal-download-usage-marketplace.png)
 

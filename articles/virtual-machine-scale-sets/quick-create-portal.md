@@ -1,9 +1,7 @@
 ---
 title: 'Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal'
 description: Para empezar a trabajar con sus implementaciones, aprenda a crear rápidamente una escala de máquina virtual Azure Portal.
-services: virtual-machine-scale-sets.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -12,12 +10,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2acde4efa1dc118498f3c7da29c75e48c0478ac0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351139"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543144"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 
@@ -33,7 +31,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 El [equilibrador de carga](../load-balancer/load-balancer-overview.md) de Azure distribuye el tráfico entrante entre las instancias de máquina virtual en estado correcto. 
 
-En primer lugar, cree un equilibrador de carga básico público desde el portal. El nombre y la dirección IP que crea se configuran automáticamente como el front-end del equilibrador de carga.
+En primer lugar, cree una instancia de Standard Load Balancer mediante el portal. El nombre y la dirección IP que crea se configuran automáticamente como el front-end del equilibrador de carga.
 
 1. En el cuadro de búsqueda, escriba **equilibrador de carga**. En **Marketplace**, en los resultados de la búsqueda, seleccione **Equilibradores de carga**.
 1. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información:

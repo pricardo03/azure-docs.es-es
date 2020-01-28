@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 52fe4af87d1f5ed6684896aebf404926691ccb07
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d3dc951c8cb2948a4cd0b9d9f5c2a9b213c6e7e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186535"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514993"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabajar con la versión anterior de Azure Migrate
 
@@ -21,7 +21,7 @@ En este artículo se proporciona información sobre cómo trabajar con la versi�
 
 Existen dos versiones del servicio Azure Migrate:
 
-- **Versión actual**: Use esta versión para crear proyectos de Azure Migrate, detectar máquinas locales y organizar valoraciones y migraciones. [Obtenga más información](whats-new.md) sobre las novedades de esta versión.
+- **Versión actual**: use esta versión para crear proyectos de Azure Migrate, detectar máquinas locales y organizar valoraciones y migraciones. [Obtenga más información](whats-new.md) sobre las novedades de esta versión.
 - **Versión anterior**: Si usaba la versión anterior de Azure Migrate (solo se admitía la valoración de máquinas virtuales de VMware locales), ahora debería usar la versión actual. Si todavía necesita usar proyectos de Azure Migrate creados en la versión anterior, esto es lo que puede y lo que no puede hacer:
     - Ya no puede crear proyectos de migración.
     - Recomendamos no realizar nuevas detecciones.
@@ -61,7 +61,7 @@ Para crear una valoración, siga estos pasos:
 
 Si desea actualizar una evaluación existente con los datos de rendimiento más recientes, puede usar el comando **Recalcular** en la evaluación para actualizarla.
 
-## <a name="review-an-assessment"></a>Revisar una valoración 
+## <a name="review-an-assessment"></a>Revisión de una evaluación 
 
 Una valoración tiene tres etapas:
 
@@ -72,7 +72,7 @@ Una valoración tiene tres etapas:
 Una máquina solo se mueve a una fase posterior si aprueba la anterior. Por ejemplo, si no supera la comprobación de idoneidad, se marca como no adecuada para Azure, y el ajuste de tamaño y los costos no se calculan.
 
 
-### <a name="review-azure-readiness"></a>Revisar la preparación para Azure
+### <a name="review-azure-readiness"></a>Revisión de la preparación para Azure
 
 La vista de preparación para Azure en la valoración muestra el estado de preparación de cada máquina virtual.
 
@@ -216,7 +216,7 @@ Después de configurar un área de trabajo, descargue e instale agentes en cada 
 4. Copie la clave y el identificador de área de trabajo. Las necesitará cuando se instala MMA en la máquina local.
 
 > [!NOTE]
-> Para automatizar la instalación de agentes, puede usar cualquier herramienta de implementación, como System Center Configuration Manager, o bien la herramienta de alguno de nuestros asociados, como [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que proporciona una solución de implementación de agentes para Azure Migrate.
+> Para automatizar la instalación de agentes, puede usar cualquier herramienta de implementación, como Configuration Manager, o bien la herramienta de alguno de nuestros asociados, como [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que proporciona una solución de implementación de agentes para Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Instalar el agente MMA en una máquina Windows
@@ -229,7 +229,7 @@ Para instalar al agente en una máquina Windows, siga estos pasos:
 4. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**.
 5. Haga clic en **Agregar** para agregar un área de trabajo de Log Analytics nueva. Pegue la clave y el identificador de área de trabajo que ha copiado desde el portal. Haga clic en **Next**.
 
-Puede instalar al agente desde la línea de comandos o mediante un método automatizado, como System Center Configuration Manager. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre el uso de estos métodos para instalar el agente MMA.
+Puede instalar al agente desde la línea de comandos o mediante un método automatizado, como Configuration Manager. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre el uso de estos métodos para instalar el agente MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Instalar el agente MMA en una máquina Linux
 

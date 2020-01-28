@@ -1,27 +1,19 @@
 ---
-title: 'Tutorial: escalado automático de un conjunto de escalado con Azure PowerShell | Microsoft Docs'
+title: 'Tutorial: Escalado automático de un conjunto de escalado con Azure PowerShell'
 description: Aprenda a escalar automáticamente un conjunto de escalado de máquinas virtuales con Azure PowerShell a medida que la demanda de la CPU aumenta y disminuye
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677592"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278405"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -41,7 +33,7 @@ Existe un problema conocido que afecta a la versión 6.8.1 o posterior del módu
 
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Para facilitar la creación de las reglas de escalado automático, defina algunas de las variables para el conjunto de escalado. En el siguiente ejemplo se definen variables para el conjunto de escalado denominado *myScaleSet* del grupo de recursos *myResourceGroup* en la región *Este de EE. UU.* El identificador de la suscripción se obtiene con [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Si tiene varias suscripciones asociadas a su cuenta, solo se devolverá la primera suscripción. Ajuste los nombres y los identificadores de la suscripción como se indica a continuación:
+Para facilitar la creación de las reglas de escalado automático, defina algunas de las variables para el conjunto de escalado. En el siguiente ejemplo se definen variables para el conjunto de escalado denominado *myScaleSet* del grupo de recursos *myResourceGroup* en la región *Este de EE. UU.* El identificador de la suscripción se obtiene con [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Si tiene varias suscripciones asociadas a su cuenta, solo se devolverá la primera de ellas. Ajuste los nombres y los identificadores de la suscripción como se indica a continuación:
 
 ```azurepowershell-interactive
 $mySubscriptionId = (Get-AzureRmSubscription)[0].Id
@@ -72,16 +64,16 @@ Vamos a crear una regla con [New-AzureRmAutoscaleRule](/powershell/module/AzureR
 
 Los siguientes parámetros se utilizan para esta regla:
 
-| Parámetro               | Explicación                                                                                                         | Valor          |
+| Parámetro               | Explicación                                                                                                         | Value          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | La métrica de rendimiento del conjunto de escalado sobre el que realizar las acciones de supervisión y aplicación.                                                   | Porcentaje de CPU |
-| *-TimeGrain*            | Frecuencia de recopilación de las métricas para el análisis.                                                                   | 1 minuto       |
-| *-MetricStatistic*      | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Media        |
+| *-TimeGrain*            | Frecuencia de recopilación de las métricas para el análisis.                                                                   | 1 minuto.       |
+| *-MetricStatistic*      | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Average        |
 | *-TimeWindow*           | El periodo durante el que se realiza la supervisión antes de que se comparen los valores de métricas y umbrales.                                   | 5 minutos      |
 | *-Operator*             | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                     | Mayor que   |
 | *-Threshold*            | El valor que hace que la regla de escalado automático desencadene una acción.                                                      | 70%            |
 | *-ScaleActionDirection* | Define si el conjunto de escalado debe escalarse o reducirse verticalmente.                                             | Aumento       |
-| *–ScaleActionScaleType* | Indica que el número de instancias de máquina virtual debe cambiarse por un valor especificado.                                    | Nº de cambios   |
+| *-ScaleActionScaleType* | Indica que el número de instancias de máquina virtual debe cambiarse por un valor especificado.                                    | Nº de cambios   |
 | *-ScaleActionValue*     | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 3              |
 | *-ScaleActionCooldown*  | El periodo que hay que esperar hasta que la regla se vuelva a aplicar, para que las acciones de escalado automático tengan tiempo de surtir efecto. | 5 minutos      |
 
@@ -97,7 +89,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
@@ -119,7 +111,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 ```
 

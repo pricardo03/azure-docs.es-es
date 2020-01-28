@@ -11,28 +11,28 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: a99dbc594b53d00ae02b2581d149fe7b4573ab7d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495225"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165742"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Inicio rápido: Obtención de la intención con un explorador
 
 Para entender lo que devuelve un punto de conexión de predicción de LUIS, vea un resultado de predicción en un explorador web. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para consultar una aplicación pública, necesita:
 
-* Su propia clave de Language Understanding (LUIS). Si aún no tiene una suscripción para crear una clave, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). La clave de creación de LUIS no funcionará. 
+* Su propia clave de creación o predicción de Language Understanding (LUIS) que puede obtener en [el portal de LUIS (versión preliminar)](https://preview.luis.ai/). Si aún no tiene una suscripción para crear una clave, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
 * El identificador de la aplicación pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## <a name="use-the-browser-to-see-predictions"></a>Uso del explorador para ver las predicciones
 
 1. Abra un explorador web. 
-1. Use las direcciones URL completas que se indican a continuación y reemplace `YOUR-KEY` por su propia clave LUIS. Las solicitudes son solicitudes GET e incluyen la autorización, con la clave LUIS, como parámetro de la cadena de consulta.
+1. Use las direcciones URL completas que se indican a continuación y reemplace `YOUR-KEY` por su propia clave de creación o de predicción de LUIS. Las solicitudes son solicitudes GET e incluyen la autorización, con la clave de creación o predicción de LUIS, como parámetro de la cadena de consulta.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[Solicitud de predicción de V3](#tab/V3-1-1)
     

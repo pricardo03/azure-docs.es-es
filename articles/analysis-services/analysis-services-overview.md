@@ -4,15 +4,15 @@ description: Obtenga información sobre Azure Analysis Services, una plataforma 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f72da87ae53039e825f2102bebb12e59821706f8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749691"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274785"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -34,7 +34,7 @@ Azure Analysis Services se integra con muchos servicios de Azure lo que le permi
 
 ## <a name="the-right-tier-when-you-need-it"></a>El nivel correcto cuando lo necesite
 
-Azure Analysis Services está disponible en los niveles **Developer**, **Basic** y **Standard**. Dentro de cada nivel, los costos del plan varían según la potencia de procesamiento, las QPU y el tamaño de la memoria. Cuando cree un servidor, seleccione un plan dentro de un nivel. Puede subir o bajar de plan dentro del mismo nivel o realizar la actualización a un nivel superior, pero no se puede cambiar de un nivel superior a uno inferior.
+Azure Analysis Services está disponible en los niveles **Developer**, **Basic** y **Standard**. Dentro de cada nivel, los costos del plan varían según la potencia de procesamiento, las unidades de procesamiento de consultas (QPU) y el tamaño de la memoria. Cuando cree un servidor, seleccione un plan dentro de un nivel. Puede subir o bajar de plan dentro del mismo nivel o realizar la actualización a un nivel superior, pero no se puede cambiar de un nivel superior a uno inferior.
 
 ### <a name="developer-tier"></a>Nivel Developer
 
@@ -232,7 +232,7 @@ Azure Analysis Services también admite el uso de [vistas de administración din
 
 Aquí se incluye documentación específica de Azure Analysis Services. Utilice la tabla de contenido del lado izquierdo de la pantalla del explorador para buscar artículos. 
 
-Dado que los modelos tabulares de Azure Analysis Services son muy parecidos a los de SQL Server Analysis Services, hay una amplia biblioteca de artículos compartidos de referencia sobre desarrollo, conceptos y procedimientos en la [documentación de SQL Server Analysis Services](https://docs.microsoft.com/analysis-services/analysis-services-overview). Los artículos de la documentación de SQL Server Analysis Services muestran si también se aplican a Azure Analysis Services con un banner APPLIES TO debajo del título.
+Dado que los modelos tabulares de Azure Analysis Services son muy parecidos a los de SQL Server Analysis Services, hay una amplia biblioteca de tutoriales de modelado de datos compartidos, artículos de referencia sobre desarrollo, conceptos y procedimientos en la [documentación de SQL Server Analysis Services](https://docs.microsoft.com/analysis-services/analysis-services-overview). Los artículos de la documentación de SQL Server Analysis Services muestran si también se aplican a Azure Analysis Services con un banner APPLIES TO debajo del título.
 
 ![Documentación compartida](./media/analysis-services-overview/aas-overview-applies-to.png)
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: f5e36095c506918298404758523642073dfd19c7
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865227"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156733"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -99,7 +99,7 @@ Para activar la depuración, haga clic en el control deslizante **Data flow debu
 
 ![Portal](media/lab-data-flow-data-share/configure10.png)
 
-## <a name="ingest-data-from-azure-sql-db-into-adls-gen2-using-the-copy-activity"></a>Ingesta de datos de Azure SQL Database en ADLS Gen2 mediante la actividad de copia
+## <a name="ingest-data-using-the-copy-activity"></a>Ingesta de datos mediante la actividad de copia
 
 En esta sección, creará una canalización con una actividad de copia que ingiere una tabla de una instancia de Azure SQL Database en una cuenta de almacenamiento de ADLS Gen2. Aprenderá a agregar una canalización, a configurar un conjunto de datos y a depurar una canalización a través de la experiencia del usuario de ADF. El patrón de configuración que se usa en esta sección se puede aplicar a la copia desde un almacén de datos relacional a un almacén de datos basado en archivos.
 

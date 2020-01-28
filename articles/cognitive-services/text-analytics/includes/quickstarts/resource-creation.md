@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: b6b0b7b857e109997afb441aa60972c6da61f54b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9623398e51260d88df3d8fd88e3affaf7f906a64
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446300"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159078"
 ---
 Empiece a usar la API Text Analytics con una de las opciones siguientes.
 
@@ -20,10 +20,10 @@ Empiece a usar la API Text Analytics con una de las opciones siguientes.
     * Esta opción es magnífica si se desea probar la API Text Analytics, pero no se dispone de una suscripción de Azure.
     
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Creación de un recurso de Text Analytics"  target="_blank">Create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    * Disponible en Azure Portal hasta que lo elimine.
+    * Disponible hasta que se elimine el recurso.
     * Use el plan de tarifa gratuito para probar el servicio y actualícelo más adelante a un nivel de pago para producción.
      
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Creación de un recurso para varios servicios" target="_blank">Crear un recurso multiservicio <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    * Disponible en Azure Portal hasta que lo elimine.  
-    * Use la misma clave y el mismo punto de conexión para las aplicaciones en varios servicios de Cognitive Services.
+    * Disponible hasta que se elimine el recurso.  
+    * Use la misma clave y el mismo punto de conexión para acceder a varios servicios de Cognitive Services.
     

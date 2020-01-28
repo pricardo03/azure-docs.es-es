@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab407ffbc0e22a2f65436741ce5c7019ac7fc540
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532468"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261371"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,7 +105,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-or-attach-an-existing-compute-target"></a>Creación o asociación de un destino de proceso existente
 
-Al usar Proceso de Azure Machine Learning, un servicio administrado, los científicos de datos pueden entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure, entre las que se incluyen las que tienen compatibilidad con GPU. En este tutorial, va a crear una instancia de Proceso de Azure Machine Learning como entorno de aprendizaje. El código siguiente crea los clústeres de proceso automáticamente si no existen aún en el área de trabajo.
+Al usar Proceso de Azure Machine Learning, un servicio administrado, los científicos de datos pueden entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure, entre las que se incluyen las que tienen compatibilidad con GPU. En este tutorial, va a crear una instancia de Proceso de Azure Machine Learning como entorno de aprendizaje. Posteriormente en el tutorial enviará el código de Python que se ejecutará en esta máquina virtual. 
+
+El código siguiente crea los clústeres de proceso automáticamente si no existen aún en el área de trabajo.
 
  **La creación del destino de proceso tarda aproximadamente 5 minutos.** Si el recurso de proceso ya está en el área de trabajo, el código lo usa y omite el proceso de creación.
 
@@ -146,7 +148,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-Ahora tiene los paquetes y los recursos de proceso necesarios para entrenar un modelo en la nube.
+Ahora tiene los paquetes y los recursos de proceso necesarios para entrenar un modelo en la nube. 
 
 ## <a name="explore-data"></a>Exploración de datos
 
@@ -215,7 +217,7 @@ Ahora tiene una idea del aspecto de estas imágenes y el resultado de predicció
 
 ## <a name="train-on-a-remote-cluster"></a>Entrenamiento en un clúster remoto
 
-Para esta tarea, envíe el trabajo al clúster de entrenamiento remoto que configuró anteriormente.  Para enviar un trabajo, deberá:
+Para esta tarea, envíe el trabajo que se va a ejecutar al clúster de entrenamiento remoto que configuró anteriormente.  Para enviar un trabajo, deberá:
 * Creación de un directorio
 * Crear un script de entrenamiento
 * Crear un objeto de estimador

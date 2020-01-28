@@ -4,12 +4,12 @@ description: Aprenda a migrar máquinas virtuales de Hyper-V locales a Azure con
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: b9c0de866a61ee2646d987c4fb98cb24a218417b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a321c3e731a6649f0831f7d515f1c464b311c9ac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028971"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545915"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migración de máquinas virtuales de Hyper-V a Azure 
 
@@ -181,7 +181,7 @@ Si se trata de la primera máquina virtual que va a replicar en el proyecto de A
 - **Service Bus**: Azure Migrate: Server Migration usa Service Bus para enviar mensajes de orquestación de replicación al dispositivo.
 - **Cuenta de almacenamiento de puerta de enlace**: Azure Migrate: Server Migration usa la cuenta de almacenamiento de puerta de enlace para almacenar información del estado de las máquinas virtuales que se replican.
 - **Cuenta de almacenamiento de registros**: el dispositivo con Azure Migrate carga los registros de replicación de las máquinas virtuales en una cuenta de almacenamiento de registros. Azure Migrate aplica la información de replicación a los discos administrados de réplica.
-- **Almacén de claves**: el dispositivo con Azure Migrate usa el almacén de claves para administrar las cadenas de conexión de Service Bus y las claves de acceso de las cuentas de almacenamiento utilizadas en la replicación. Debe haber configurado los permisos que necesita el almacén de claves para acceder a la cuenta de almacenamiento cuando esté preparado. Consulte [Preparación de Azure](tutorial-prepare-hyper-v.md#prepare-azure) para realizar la valoración y migración de la máquina virtual de Hyper-V. 
+- **Almacén de claves**: el dispositivo con Azure Migrate usa el almacén de claves para administrar las cadenas de conexión de Service Bus y las claves de acceso de las cuentas de almacenamiento utilizadas en la replicación. Debe haber configurado los permisos que necesita el almacén de claves para acceder a la cuenta de almacenamiento al [preparar Azure](tutorial-prepare-hyper-v.md#prepare-azure) para la evaluación y migración de la máquina virtual de Hyper-V. 
 
 
 ## <a name="track-and-monitor"></a>Seguimiento y supervisión

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/29/2019
 ms.author: pafarley
-ms.openlocfilehash: 168b4fce873206e39a32a83da3dc5509b431d6a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 534846044770d66ec5171ad4f61de921d2d5d194
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058576"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169802"
 ---
 # <a name="use-the-headpose-attribute"></a>Uso del atributo HeadPose
 
@@ -129,8 +129,8 @@ La detección de vida es la tarea mediante la cual se determina si un sujeto es 
 > [!CAUTION]
 > Para detectar gestos de la cabeza en tiempo real, deberá llamar a la API Face a una velocidad alta (más de una vez por segundo). Si tiene una suscripción de nivel gratuito (f0), no podrá hacerlo. Si tiene una suscripción de nivel de pago, asegúrese de que ha calculado los costos de realizar llamadas rápidas a la API para la detección de gestos de cara.
 
-Consulte un ejemplo práctico de detección de gestos de cabeza en la aplicación [Face API HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample), en GitHub.
+Consulte un ejemplo práctico de detección de gestos de cabeza en el [ejemplo de HeadPose para Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample), en GitHub.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la aplicación [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) en GitHub para ver un ejemplo práctico de rectángulos de cara girados. O bien, consulte la aplicación [Face API HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples), que realiza el seguimiento del atributo HeadPose en tiempo real para detectar movimientos de cabeza.
+Consulte la aplicación [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) en GitHub para ver un ejemplo práctico de rectángulos de cara girados. O bien, consulte la aplicación del [ejemplo de HeadPose para Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples), que realiza el seguimiento del atributo HeadPose en tiempo real para detectar movimientos de cabeza.
