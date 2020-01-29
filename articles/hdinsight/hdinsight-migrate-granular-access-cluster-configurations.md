@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: ea8e1565a5ebe4e5cb40049fbfcb329feb83bdda
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498206"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310839"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migración a acceso basado en rol detallado para configuraciones de clúster
 
@@ -112,7 +112,7 @@ Actualice a la [versión 2.1.0](https://www.nuget.org/packages/Microsoft.Azure.M
 
 Actualice a la [versión 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) o posterior del SDK de HDInsight para .NET. Es posible que sea necesario realizar modificaciones mínimas en el código si está utilizando un método afectado por estos cambios:
 
-- [`ConfigurationOperationsExtensions.Get`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet) **ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
+- [`ConfigurationOperationsExtensions.Get`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet)**ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
     - Para recuperar todas las configuraciones, incluidos los parámetros confidenciales, utilice [`ConfigurationOperationsExtensions.List`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet) a partir de ahora.  Tenga en cuenta que los usuarios con el rol "Lector" no podrán usar este método. Esto permite un control granular sobre el cual los usuarios pueden acceder a información confidencial para un clúster. 
     - Para recuperar solo las credenciales de la puerta de enlace HTTP, utilice [`ClusterOperationsExtensions.GetGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet). 
 - [`ConfigurationsOperationsExtensions.Update`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet) ahora está en desuso y se ha reemplazado por [`ClusterOperationsExtensions.UpdateGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet). 
@@ -122,7 +122,7 @@ Actualice a la [versión 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.M
 
 Actualice a la [versión 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) o posterior del SDK de HDInsight para Python. Es posible que sea necesario realizar modificaciones mínimas en el código si está utilizando un método afectado por estos cambios:
 
-- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) **ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
+- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-)**ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
     - Para recuperar todas las configuraciones, incluidos los parámetros confidenciales, utilice [`ConfigurationsOperations.list`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) a partir de ahora.  Tenga en cuenta que los usuarios con el rol "Lector" no podrán usar este método. Esto permite un control granular sobre el cual los usuarios pueden acceder a información confidencial para un clúster. 
     - Para recuperar solo las credenciales de la puerta de enlace HTTP, utilice [`ClusterOperations.get_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-).
 - [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) ahora está en desuso y se ha reemplazado por [`ClusterOperations.update_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
@@ -131,16 +131,14 @@ Actualice a la [versión 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.
 
 Actualice a la [versión 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) o posterior del SDK de HDInsight para Java. Es posible que sea necesario realizar modificaciones mínimas en el código si está utilizando un método afectado por estos cambios:
 
-- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) **ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
-    - Para recuperar todas las configuraciones, incluidos los parámetros confidenciales, utilice [`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) a partir de ahora.  Tenga en cuenta que los usuarios con el rol "Lector" no podrán usar este método. Esto permite un control granular sobre el cual los usuarios pueden acceder a información confidencial para un clúster. 
-    - Para recuperar solo las credenciales de la puerta de enlace HTTP, utilice [`ClustersInner.getGatewaySettings`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) ahora está en desuso y se ha reemplazado por [`ClustersInner.updateGatewaySettings`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable).
+- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)**ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
+- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) está ahora en desuso.
 
 ### <a name="sdk-for-go"></a>SDK para Go
 
 Actualice a la [versión 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight) o posterior del SDK de HDInsight para Go. Es posible que sea necesario realizar modificaciones mínimas en el código si está utilizando un método afectado por estos cambios:
 
-- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Get) **ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
+- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Get)**ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
     - Para recuperar todas las configuraciones, incluidos los parámetros confidenciales, utilice [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) a partir de ahora.  Tenga en cuenta que los usuarios con el rol "Lector" no podrán usar este método. Esto permite un control granular sobre el cual los usuarios pueden acceder a información confidencial para un clúster. 
     - Para recuperar solo las credenciales de la puerta de enlace HTTP, utilice [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings).
 - [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) ahora está en desuso y se ha reemplazado por [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings).

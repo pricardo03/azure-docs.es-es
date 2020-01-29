@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401033"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168893"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Azure Monitor
 
@@ -196,6 +196,19 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Azu
 3. Si posteriormente decide que desea ver las recomendaciones omitidas, quite todos los archivos IgnoreRecommendations.txt. También puede quitar RecommendationID de ellos.
 
 ## <a name="sql-health-check-solution-faq"></a>Preguntas más frecuentes sobre la solución de SQL Health Check
+
+*¿Qué comprobaciones lleva a cabo la solución SQL Assessment?*
+
+* La consulta siguiente muestra una descripción de todas las comprobaciones que se llevan a cabo actualmente:
+
+```Kusto
+SQLAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+Los resultados pueden exportarse a Excel para su revisión.
+
+
 *¿Con qué frecuencia se ejecuta una comprobación de estado?*
 
 * La comprobación se ejecuta cada siete días.

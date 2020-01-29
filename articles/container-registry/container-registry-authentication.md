@@ -4,12 +4,12 @@ description: Opciones de autenticación para una instancia de Azure Container Re
 ms.topic: article
 ms.date: 12/21/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29e23f6a983ccc2197e609511aee2ce13726ed0f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: fbe77dee4104e3c654aad58db82765733b2c3e1d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455390"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264516"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticación con un registro de contenedor privado de Docker
 
@@ -27,9 +27,9 @@ az acr login --name <acrName>
 
 Cuando inicie sesión con `az acr login`, la CLI utiliza el token creado cuando ejecuta [az login](/cli/azure/reference-index#az-login) para autenticar sin problemas la sesión con su Registro. Una vez que haya iniciado sesión de este modo, las credenciales se almacenan en caché y los comandos `docker` posteriores de la sesión no requieren un nombre de usuario o una contraseña. 
 
-Para acceder al registro, el token utilizado por `az acr login` es válido durante 1 hora, por lo que se recomienda que siempre inicie sesión en el registro antes de ejecutar el comando `docker`. Si el token expira, puede actualizarlo con el comando `az acr login` de nuevo para volver a autenticar. 
+Para acceder al registro, el token utilizado por `az acr login` es válido durante **3 horas**, por lo que se recomienda que inicie siempre la sesión en el registro antes de ejecutar un comando `docker`. Si el token expira, puede actualizarlo con el comando `az acr login` de nuevo para volver a autenticar. 
 
-El uso de `az acr login` con identidades de Azure proporciona [acceso basado en roles](../role-based-access-control/role-assignments-portal.md). Para algunos escenarios, puede que quiera iniciar sesión en un registro con su propia identidad individual de Azure AD. También puede iniciar sesión con una [instancia de Managed Identities for Azure Resources](container-registry-authentication-managed-identity.md) en los escenarios entre servicios o para satisfacer las necesidades de un grupo de trabajo donde no quiere administrar el acceso individual.
+El uso de `az acr login` con identidades de Azure proporciona [acceso basado en roles](../role-based-access-control/role-assignments-portal.md). En algunos escenarios, puede que quiera iniciar sesión en un registro con su propia identidad individual de Azure AD. También puede iniciar sesión con una [instancia de Managed Identities for Azure Resources](container-registry-authentication-managed-identity.md) en los escenarios entre servicios o para satisfacer las necesidades de un grupo de trabajo donde no quiere administrar el acceso individual.
 
 ## <a name="service-principal"></a>Entidad de servicio
 

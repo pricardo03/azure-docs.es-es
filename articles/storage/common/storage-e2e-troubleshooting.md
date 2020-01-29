@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7a0cf3c41929eb6a020a9d4761b08a2a4f2f6caa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460388"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314766"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 
@@ -143,10 +143,10 @@ Para obtener más información sobre cómo agregar y personalizar gráficos de m
 
 Azure Storage escribe datos de registro del servidor en blobs, mientras que las métricas se escriben en tablas. Los blobs de registro se encuentran disponibles en el conocido contenedor `$logs` de su cuenta de almacenamiento. Estos blobs de registro se pueden identificar de forma jerárquica por año, mes, día y hora, lo que hace que se pueda localizar fácilmente el intervalo de tiempo que quiera examinar. Por ejemplo, en la cuenta `storagesample`, el contenedor para los blobs de registro del 01/02/2015 de 8:00 a 9:00 de la mañana es `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Los blobs individuales en este contenedor poseen nombres secuenciales y comienzan por `000000.log`.
 
-Puede usar la herramienta de línea de comandos AzCopy para descargar estos archivos de registro del lado servidor en una ubicación de su elección en el equipo local. Por ejemplo, puede usar el siguiente comando para descargar en la carpeta `C:\Temp\Logs\Server` los archivos de registro de las operaciones de blob que tuvieron lugar el 2 de enero de 2015; reemplace `<storageaccountname>` por el nombre de su cuenta de almacenamiento y `<storageaccountkey>`, por su clave de acceso de cuenta:
+Puede usar la herramienta de línea de comandos AzCopy para descargar estos archivos de registro del lado servidor en una ubicación de su elección en el equipo local. Por ejemplo, puede usar el siguiente comando para descargar en la carpeta `C:\Temp\Logs\Server` los archivos de registro de las operaciones de blob que tuvieron lugar el 2 de enero de 2015; reemplace `<storageaccountname>` por el nombre de la cuenta de almacenamiento:
 
 ```azcopy
-AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
 ```
 
 AzCopy está disponible para su descarga en la página de [descargas de Azure](https://azure.microsoft.com/downloads/) . Para obtener más información sobre cómo usar AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).

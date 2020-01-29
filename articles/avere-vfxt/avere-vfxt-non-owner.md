@@ -4,14 +4,14 @@ description: Solución alternativa para permitir que los usuarios sin permiso de
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: d50c07d78c15d26a191b982d24da8a4808a31ecd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415053"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153282"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autorizar a no propietarios a implementar Avere vFXT
 
@@ -72,7 +72,7 @@ Asimismo, el propietario de una suscripción debe [aceptar los términos de uso]
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Después de realizar este procedimiento, cualquier usuario que se haya asignado a este rol cuenta con los siguientes permisos para la suscripción:
+Después de completar este proceso, el rol da a todo usuario asignado los siguientes permisos para la suscripción:
 
 * Crear y configurar la infraestructura de red.
 * Cree el controlador del clúster

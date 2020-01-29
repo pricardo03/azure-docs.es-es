@@ -7,16 +7,16 @@ ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 09dceb84a20ef49b3e9d5264b94bb5e74180cd2b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 08441a98d9104109b4cfc130ab6adb31dc4fce45
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976135"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260521"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Vista previa: Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas 
 
-En este artículo se muestra cómo puede usar Azure Image Builder para crear una versión de imagen en una [galería de imágenes compartidas](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) y después distribuirla globalmente.
+En este artículo se muestra cómo puede usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) y después distribuirla globalmente. También puede hacerlo mediante [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -24,7 +24,7 @@ Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .
 Para distribuir la imagen en una galería de imágenes compartidas, en la plantilla se usa [sharedImage](image-builder-json.md#distribute-sharedimage) como valor de la sección `distribute` de la plantilla.
 
 > [!IMPORTANT]
-> Azure Image Builder se encuentra actualmente en versión preliminar pública.
+> Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registro de las características
@@ -58,7 +58,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="set-variables-and-permissions"></a>Establecimiento de variables y permisos 
 
-Se usarán algunos fragmentos de información de forma repetida, por lo que se crearán diversas variables para almacenar esa información.
+Usaremos algunos datos de forma repetida, por lo que crearemos diversas variables para almacenar esa información.
 
 Para la versión preliminar, el generador de imágenes solo admitirá la creación de imágenes personalizadas en el mismo grupo de recursos que la imagen administrada de origen. Actualice el nombre del grupo de recursos de este ejemplo para que coincida con el de la imagen administrada de origen.
 
@@ -77,7 +77,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Cree una variable para el identificador de la suscripción. Puede obtenerlo mediante `az account show | grep id`.
+Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Conceda a Azure Image Builder permiso para crear recursos en ese grupo de recursos. El valor `--assignee` es el identificador de registro de aplicación para el servicio Image Builder. 
+Conceda a Azure Image Builder permiso para crear recursos en ese grupo de recursos. El valor `--assignee` es el identificador de registro de aplicación para el servicio del generador de imágenes. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -148,7 +148,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
 
 En la sección siguiente se creará la versión de la imagen en la galería. 
 
-Envíe la configuración de la imagen al servicio Azure Image Builder.
+Envíe la configuración de la imagen al servicio del generador de imágenes de Azure.
 
 ```azurecli-interactive
 az resource create \

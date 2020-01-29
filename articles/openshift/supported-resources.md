@@ -1,19 +1,17 @@
 ---
-title: Recursos admitidos para Red Hat OpenShift en Azure | Microsoft Docs
+title: Recursos admitidos para Red Hat OpenShift en Azure
 description: Descripción de las regiones de Azure y los tamaños de máquina virtual admitidos por Red Hat OpenShift en Microsoft Azure.
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: c226227797802ab58d1bcbaadb7e97e780b30560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b794852390141d31a3218a1a434c21133db914c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306213"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274917"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Recursos de Red Hat OpenShift en Azure
 
@@ -36,7 +34,7 @@ Estos son los tamaños de máquina virtual admitidos que puede especificar para 
 
 Los siguientes tamaños de nodo de ejecución son compatibles con la API REST de Red Hat OpenShift en Azure:
 
-|Tamaño|vCPU|RAM|
+|Size|vCPU|RAM|
 |-|-|-|
 |D4s v3 Estándar|4|16 GB|
 |D8s v3 Estándar|8|32 GB|
@@ -56,7 +54,7 @@ Los siguientes tamaños de nodo de ejecución son compatibles con la API REST de
 
 Los siguientes tamaños de nodo maestro o de infraestructura son compatibles con la API REST de Red Hat OpenShift en Azure:
 
-|Tamaño|vCPU|RAM|
+|Size|vCPU|RAM|
 |-|-|-|
 |D4s v3 Estándar|4|16 GB|
 |D8s v3 Estándar|8|32 GB|

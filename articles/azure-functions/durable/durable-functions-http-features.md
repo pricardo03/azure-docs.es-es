@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433284"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262867"
 ---
 # <a name="http-features"></a>Características de HTTP
 
@@ -41,21 +41,21 @@ Consulte el [artículo API HTTP](durable-functions-http-api.md) para obtener una
 
 El [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) expone las API que pueden generar las cargas de respuesta HTTP útiles. Por ejemplo, puede crear una respuesta que contenga vínculos a las API de administración de una instancia de orquestación específica. Los siguientes ejemplos muestran una función de desencadenador HTTP que muestra cómo utilizar esta API para una nueva instancia de orquestación:
 
-#### <a name="precompiled-c"></a>C# precompilado
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-#### <a name="c-script"></a>Script de C#
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
-
-#### <a name="javascript-with-functions-20-or-later-only"></a>JavaScript con funciones 2.0 o posterior
+**index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### <a name="functionjson"></a>Function.json
+**function.json**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+
+---
 
 El inicio de una función de orquestador mediante las funciones de desencadenador HTTP mostradas anteriormente se puede hacer con cualquier cliente HTTP. El siguiente comando de cURL inicia una función de orquestador denominada `DoWork`:
 
@@ -112,10 +112,9 @@ Como se describe en las [restricciones de código de las funciones de orquestado
 
 A partir de Durable Functions 2.0, las orquestaciones pueden consumir de forma nativa las API de HTTP mediante el [enlace desencadenador de orquestación](durable-functions-bindings.md#orchestration-trigger).
 
-> [!NOTE]
-> La funcionalidad para llamar a los puntos de conexión HTTP directamente desde las funciones de orquestador no está disponible todavía en JavaScript.
+En el ejemplo de código siguiente se muestra una función de orquestador que realiza una solicitud HTTP saliente:
 
-El siguiente ejemplo de código muestra una función de orquestador de C# que realiza una solicitud HTTP saliente mediante la API .NET **CallHttpAsyn** :
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,6 +133,23 @@ public static async Task CheckSiteAvailable(
     }
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const url = context.df.getInput();
+    const response = context.df.callHttp("GET", url)
+
+    if (response.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+---
 
 Mediante la acción "llamar a HTTP", puede realizar las siguientes acciones en las funciones de orquestador:
 
@@ -156,6 +172,8 @@ Durable Functions admite de forma nativa llamadas a las API que aceptan tokens d
 
 El código siguiente es un ejemplo de una función de orquestadoror de .NET. La función realiza llamadas autenticadas para reiniciar una máquina virtual mediante la API de REST de [máquinas virtuales de Azure Resource Manager](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 [FunctionName("RestartVm")]
 public static async Task RunOrchestrator(
@@ -164,6 +182,7 @@ public static async Task RunOrchestrator(
     string subscriptionId = "mySubId";
     string resourceGroup = "myRG";
     string vmName = "myVM";
+    string apiVersion = "2019-03-01";
     
     // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
     // and attaches it to the outgoing Azure Resource Manager API call.
@@ -178,6 +197,32 @@ public static async Task RunOrchestrator(
     }
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const subscriptionId = "mySubId";
+    const resourceGroup = "myRG";
+    const vmName = "myVM";
+    const apiVersion = "2019-03-01";
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+
+    // get a list of the Azure subscriptions that I have access to
+    const restartResponse = yield context.df.callHttp(
+        "POST",
+        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        undefined, // no request content
+        undefined, // no request headers (besides auth which is handled by the token source)
+        tokenSource);
+
+    return restartResponse;
+});
+```
+
+---
 
 En el ejemplo anterior, el parámetro `tokenSource` se configura para adquirir tokens de Azure AD para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Los tokens se identifican mediante el URI de recurso `https://management.core.windows.net`. En el ejemplo se da por supuesto que la aplicación de funciones actual se está ejecutando localmente o se ha implementado como una aplicación de función con una identidad administrada. Se supone que la identidad local o la identidad administrada tienen permiso para administrar las máquinas virtuales en el grupo de recursos especificado `myRG`.
 

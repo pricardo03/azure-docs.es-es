@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 46c2cd49258b8eb6813caaf50e9895990ce67287
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 67cafbb7934381cd4c2936d6e6dfe7fb19d70735
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529544"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314698"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Apache Hadoop en HDInsight
 
@@ -34,7 +34,7 @@ Para unir equipos adicionales a la red virtual, debe crear primero la red virtua
 
 Todos los nodos de un clúster de HDInsight se encuentran en una instancia de Azure Virtual Network y no son accesibles directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
 
-| Servicio | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Port | Protocolo | Descripción |
 | --- | --- | --- | --- |
 | sshd |22 |SSH |Conecta los clientes a sshd en el nodo primario principal. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Conecta los clientes a sshd en el nodo perimetral. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
@@ -47,12 +47,13 @@ Todos los nodos de un clúster de HDInsight se encuentran en una instancia de Az
 
 Las siguientes opciones están disponibles para determinados tipos de clúster:
 
-| Servicio | Port | Protocolo | Tipo de clúster | DESCRIPCIÓN |
+| Servicio | Port | Protocolo | Tipo de clúster | Descripción |
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [Introducción a Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md). |
 | Livy |443 |HTTPS |Spark |API de REST de Spark. Consulte [Envío de trabajos remotos de Apache Spark mediante Apache Livy](spark/apache-spark-livy-rest-interface.md). |
 | Servidor Thrift de Spark |443 |HTTPS |Spark |El servidor Thrift de Spark que se usa para enviar consultas de Hive. Consulte [Beeline con Apache Hive en HDInsight](hadoop/apache-hadoop-use-hive-beeline.md). |
 | Storm |443 |HTTPS |Storm |La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md). |
+| Proxy de REST de Kafka |443 |HTTPS |Kafka |API REST de Kafka. Consulte [Interacción con clústeres de Apache Kafka en Azure HDInsight mediante un proxy de REST](kafka/rest-proxy.md). |
 
 ### <a name="authentication"></a>Authentication
 
@@ -84,7 +85,7 @@ Ejemplos:
 
 ### <a name="hdfs-ports"></a>Puertos HDFS
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | Interfaz de usuario web de NameNode |Nodos principales |30070 |HTTPS |Interfaz de usuario web para ver el estado |
 | Servicio de metadatos de NameNode |Nodos principales |8020 |IPC |Metadatos del sistema de archivos |
@@ -95,7 +96,7 @@ Ejemplos:
 
 ### <a name="yarn-ports"></a>Puertos de YARN
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | Interfaz de usuario web de Resource Manager |Nodos principales |8088 |HTTP |Interfaz de usuario web para Resource Manager |
 | Interfaz de usuario web de Resource Manager |Nodos principales |8090 |HTTPS |Interfaz de usuario web para Resource Manager |
@@ -109,20 +110,20 @@ Ejemplos:
 
 ### <a name="hive-ports"></a>Puertos de Hive
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nodos principales |10001 |Thrift |Servicio para conectarse a Hive (Thrift/JDBC) |
 | Tienda de metadatos Hive |Nodos principales |9083 |Thrift |Servicio para conectarse a metadatos de Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Puertos de WebHCat
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | Servidor de WebHCat |Nodos principales |30111 |HTTP |Web API encima de HCatalog y otros servicios de Hadoop |
 
 ### <a name="mapreduce-ports"></a>Puertos de MapReduce
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | Historial de trabajos |Nodos principales |19888 |HTTP |Interfaz de usuario web del historial de trabajos de MapReduce |
 | Historial de trabajos |Nodos principales |10020 |&nbsp; |Servidor de historial de trabajos de MapReduce |
@@ -130,21 +131,21 @@ Ejemplos:
 
 ### <a name="oozie"></a>Oozie
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | Servidor de Oozie |Nodos principales |11000 |HTTP |Dirección URL del servicio de Oozie |
 | Servidor de Oozie |Nodos principales |11001 |HTTP |Puerto de administración de Oozie |
 
 ### <a name="ambari-metrics"></a>Métricas de Ambari
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | Escala de tiempo (historial de aplicaciones) |Nodos principales |6188 |HTTP |La interfaz de usuario web del servicio de escala de tiempo |
 | Escala de tiempo (historial de aplicaciones) |Nodos principales |30200 |RPC |La interfaz de usuario web del servicio de escala de tiempo |
 
 ### <a name="hbase-ports"></a>Puertos de HBase
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | HMaster |Nodos principales |16000 |&nbsp; |&nbsp; |
 | Interfaz de usuario web de información de HMaster |Nodos principales |16010 |HTTP |El puerto de la interfaz de usuario web de HBase Master |
@@ -153,14 +154,15 @@ Ejemplos:
 
 ### <a name="kafka-ports"></a>Puertos Kafka
 
-| Servicio | Nodos | Port | Protocolo | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
 | Agente |Nodos de trabajo |9092 |[Protocolo de conexión de Kafka](https://kafka.apache.org/protocol.html) |Se utiliza para la comunicación del cliente |
 | &nbsp; |Nodos Zookeeper |2181 |&nbsp; |El puerto que los clientes utilizan para conectarse a ZooKeeper |
+| Proxy de REST | Nodos de administración de Kafka |9400 |HTTPS |[Especificación REST de Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Puertos de Spark
 
-| Servicio | Nodos | Port | Protocolo | Ruta de acceso URL | DESCRIPCIÓN |
+| Servicio | Nodos | Port | Protocolo | Ruta de acceso URL | Descripción |
 | --- | --- | --- | --- | --- | --- |
 | Servidores Thrift de Spark |Nodos principales |10002 |Thrift | &nbsp; | Servicio para conectarse a Spark SQL (Thrift/JDBC) |
 | Servidor Livy | Nodos principales | 8998 | HTTP | &nbsp; | Servicio para ejecutar instrucciones, trabajos y aplicaciones |

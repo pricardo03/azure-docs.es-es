@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 93fad58e971d761f626b79dc68f9576ccc2e1892
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986276"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290145"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -90,11 +90,11 @@ PublisherType | All | Tipo de publicador (valores: **Azure**, **AWS**, **Marketp
 Cantidad | All | Número de unidades compradas o consumidas.
 ReservationId | EA, MCA | Identificador único de la instancia de la reserva comprada.
 ReservationName | EA, MCA | Nombre de la instancia de la reserva comprada.
-ResourceGroup | All | Nombre del [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) en el que se encuentra el recurso.
+ResourceGroup | All | Nombre del [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) en el que se encuentra el recurso. No todos los cargos provienen de los recursos implementados en grupos de recursos. Los cargos que no tienen un grupo de recursos se muestran como nulos o vacíos, **Otros** o **No aplicable**.
 ResourceId<sup>1</sup> | All | Identificador único del recurso de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
 ResourceLocation | All | Ubicación del centro de datos donde se ejecuta el recurso. Véase Ubicación.
-nombreDelRecurso | EA, pago por uso | Nombre del recurso.
-ResourceType | MCA | Tipo de instancia del recurso.
+nombreDelRecurso | EA, pago por uso | Nombre del recurso. No todos los cargos provienen de recursos implementados. Los cargos que no tienen un tipo de recursos se muestran como nulos o vacíos, **Otros** o **No aplicable**.
+ResourceType | MCA | Tipo de instancia del recurso. No todos los cargos provienen de recursos implementados. Los cargos que no tienen un tipo de recursos se muestran como nulos o vacíos, **Otros** o **No aplicable**.
 ServiceFamily | MCA | Familia de servicios a la que pertenece el servicio.
 ServiceInfo1 | All | Metadatos específicos del servicio.
 ServiceInfo2 | All | Campo heredado con metadatos específicos del servicio opcional.

@@ -1,5 +1,5 @@
 ---
-title: Supervisar eventos de Azure Media Services con Event Grid mediante el portal | Microsoft Docs
+title: Supervisión de eventos de Azure Media Services con Event Grid mediante el portal
 description: En este artículo se muestra cómo puede suscribirse a Event Grid para supervisar eventos de Azure Media Services.
 services: media-services
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/15/2018
+ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60326536"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509230"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Crear y supervisar eventos de Media Services con Event Grid mediante Azure Portal
 
@@ -30,7 +30,7 @@ En este artículo usará Azure Portal para suscribirse a eventos para su cuenta 
 
 Cuando haya terminado, verá que los datos del evento se han enviado a la aplicación web.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 * Tener una suscripción de Azure activa.
 * Cree una cuenta de Azure Media Services tal como se describe en [este inicio rápido](create-account-cli-quickstart.md).

@@ -95,39 +95,39 @@ Puede agregar o quitar regiones de Azure de cualquier parte del mundo en la cuen
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Ejemplo de facturación: cuenta de Azure Cosmos de varias regiones, escrituras en una sola región
 
-Supongamos que tiene un contenedor de Azure Cosmos en Oeste de EE. UU. El contenedor se crea con un rendimiento de 10 000 RU/s y almacena 1 TB de datos este mes. Supongamos que agrega tres regiones (Este de EE. UU., Europa del Norte y Asia Oriental) a su cuenta de Azure Cosmos, cada una con la misma cantidad de rendimiento y almacenamiento. Su factura total mensual (suponiendo que un mes tiene 30 días) sería como sigue: 
+Supongamos que tiene un contenedor de Azure Cosmos en Oeste de EE. UU. El contenedor se crea con un rendimiento de 10 000 RU/s y almacena 1 TB de datos este mes. Supongamos que agrega tres regiones (Este de EE. UU., Norte de Europa y Asia Oriental) a su cuenta de Azure Cosmos, cada una con la misma cantidad de rendimiento y almacenamiento. Su factura total mensual (suponiendo que un mes tiene 30 días) sería como sigue: 
 
 |**Elemento** |**Uso (mes)** |**Tarifa** |**Costo mensual** |
 |---------|---------|---------|-------|
 |Factura de rendimiento por el contenedor en Oeste de EE. UU.      | 10 000  RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora   |576 USD|
-|Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental       | 3 * 10 000 RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora  |1728 USD|
+|Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Asia Oriental       | 3 * 10 000 RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora  |1728 USD|
 |Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
-|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
+|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
 |**Total**     |     |  |**2554 USD**|
 
-*Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Europa del Norte y Asia Oriental. Se le facturará la salida según las tarifas de transferencia de datos.*
+*Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Norte de Europa y Asia Oriental. Se le facturará la salida según las tarifas de transferencia de datos.*
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>Ejemplo de facturación: cuenta de Azure Cosmos de varias regiones, escrituras en varias regiones
 
-Supongamos que crea un contenedor de Azure Cosmos en Oeste de EE. UU. El contenedor se crea con un rendimiento de 10 000 RU/s y almacena 1 TB de datos este mes. Suponga que agrega tres regiones (Este de EE. UU., Europa del Norte y Asia Oriental), cada una con el mismo almacenamiento y rendimiento, y quiere ser capaz de escribir en los contenedores de todas las regiones asociadas con su cuenta de Azure Cosmos. Su factura total mensual (suponiendo que un mes tiene 30 días) será:
+Supongamos que crea un contenedor de Azure Cosmos en Oeste de EE. UU. El contenedor se crea con un rendimiento de 10 000 RU/s y almacena 1 TB de datos este mes. Suponga que agrega tres regiones (Este de EE. UU., Norte de Europa y Asia Oriental), cada una con el mismo almacenamiento y rendimiento, y quiere ser capaz de escribir en los contenedores de todas las regiones asociadas con su cuenta de Azure Cosmos. Su factura total mensual (suponiendo que un mes tiene 30 días) será:
 
 |**Elemento** |**Uso (mes)**|**Tarifa** |**Costo mensual** |
 |---------|---------|---------|-------|
 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)       | 10 000  RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora    |1152 USD |
-|Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental (se puede escribir en todas las regiones)        | (3 + 1) * 10 000 RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora   |4608 USD |
+|Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Asia Oriental (se puede escribir en todas las regiones)        | (3 + 1) * 10 000 RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora   |4608 USD |
 |Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
-|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
+|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
 |**Total**     |     |  |**6010 USD**|
 
-*Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Europa del Norte y Asia Oriental. Se le facturará la salida según las tarifas de transferencia de datos.*
+*Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Norte de Europa y Asia Oriental. Se le facturará la salida según las tarifas de transferencia de datos.*
 
 ### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Ejemplo de facturación: Cuenta de Azure Cosmos con rendimiento en el nivel de la base de datos, arquitectura multimaestro, incluido el modo de rendimiento dedicado para algunos contenedores
 
-Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de varias regiones donde se puede escribir en todas las regiones (configuración de arquitectura multimaestro). Para simplificar, supondremos que el tamaño de almacenamiento permanece constante y no cambia, y lo omitiremos aquí para que el ejemplo sea más sencillo. El rendimiento aprovisionado durante el mes varió como sigue (suponiendo 30 días o 720 horas): 
+Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de varias regiones donde se puede escribir en todas las regiones (configuración de arquitectura multimaestro). Para simplificar, supondremos que el tamaño de almacenamiento permanece constante y no cambia, y lo omitiremos aquí para que el ejemplo sea más sencillo. El rendimiento aprovisionado durante el mes varió como sigue (suponiendo 30 días o 720 horas)\: 
 
-[0-100 horas]:  
+[0-100 horas]\:  
 
-* Creamos una cuenta de Azure Cosmos de tres regiones (Oeste de EE. UU., Este de EE. UU., Europa del Norte), donde se puede escribir en todas las regiones 
+* Creamos una cuenta de Azure Cosmos de tres regiones (Oeste de EE. UU., Este de EE. UU., Norte de Europa), donde se puede escribir en todas las regiones 
 
 * Creamos una base de datos (D1) con un rendimiento compartido de 10 000 RU/s 
 
@@ -135,7 +135,7 @@ Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de 
 
 * Creamos un contenedor (C1) con un rendimiento dedicado de 20 000 RU/s 
 
-[101-200 horas]:  
+[101-200 horas]\:  
 
 * Escalamos verticalmente la base de datos (D1) a 50 000 RU/s 
 
@@ -143,11 +143,11 @@ Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de 
 
 * Eliminamos el contenedor (C1)  
 
-[201-300 horas]:  
+[201-300 horas]\:  
 
 * Creamos el contenedor (C1) nuevamente con un rendimiento dedicado de 20 000 RU/s 
 
-[301-400 horas]:  
+[301-400 horas]\:  
 
 * Quitamos una de las regiones de la cuenta de Azure Cosmos (el número de regiones de escritura ahora es 2) 
 
@@ -157,13 +157,13 @@ Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de 
 
 * Eliminamos el contenedor (C1) nuevamente 
 
-[401-500 horas]:  
+[401-500 horas]\:  
 
 * Redujimos verticalmente la base de datos (D2) a 10 000 RU/s  
 
 * Creamos el contenedor (C1) nuevamente con un rendimiento dedicado de 20 000 RU/s 
 
-[501-700 horas]:  
+[501-700 horas]\:  
 
 * Escalamos verticalmente la base de datos (D1) a 20 000 RU/s  
 
@@ -171,7 +171,7 @@ Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de 
 
 * Eliminamos el contenedor (C1) nuevamente  
 
-[701-720 horas]:  
+[701-720 horas]\:  
 
 * Redujimos verticalmente la base de datos (D2) a 50 000 RU/s  
 
@@ -184,19 +184,19 @@ La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calcular
 |**Horas**  |**RU/s** |**Elemento** |**Uso (por hora)** |**Costee** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10 000 <br/>D2:30 000 <br/>C1:20 000 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |960 USD  |
-| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2880 USD  |
+| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2880 USD  |
 |[101-200] |D1:50 000 <br/>D2:70 000 <br/>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |1920 USD  |
-| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |5760 USD  |
+| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |5760 USD  |
 |[201-300]  |D1:50 000 <br/>D2:70 000 <br/>C1:20 000 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |USD 2240  |
-| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |6720 USD |
+| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |6720 USD |
 |[301-400] |D1:10 000 <br/>D2:80 000 <br/>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |1440 USD   |
-| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2880 USD  |
+| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2880 USD  |
 |[401-500] |D1:10 000 <br>D2:10 000 <br>C1:20 000 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |640 USD  |
-| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |1280 USD  |
+| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |1280 USD  |
 |[501-700] |D1:20 000 <br>D2:100 000 <br>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |3840 USD  |
-| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |7680 USD  |
+| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |7680 USD  |
 |[701-720] |D1:20 000 <br/>D2:50 000 <br/>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |224 USD  |
-| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |224 USD  |
+| | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |224 USD  |
 || |**Costo mensual total**  | |**38 688 USD**   |
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Cálculo proactivo de la factura mensual  
@@ -229,18 +229,18 @@ Costo mensual total = Costo mensual de almacenamiento + Costo mensual de rendimi
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Facturación con capacidad reservada de Azure Cosmos DB
 
-La capacidad reservada de Azure Cosmos DB permite comprar rendimiento aprovisionado de antemano (una capacidad reservada o una reserva) que se puede aplicar a todas las bases de datos y contenedores de Azure Cosmos (para cualquier modelo de datos o API) en todas las regiones de Azure. Puesto que el precio del rendimiento aprovisionado varía por región, resulta útil pensar que la capacidad reservada es como un crédito monetario que adquiere con un descuento y que puede usarse para pagar el rendimiento aprovisionado al precio correspondiente en cada región. Por ejemplo, supongamos que tiene una cuenta de Azure Cosmos con un único contenedor aprovisionado con 50 000 RU/s y replicación global en dos regiones: Este de EE. UU. y Este de Japón. Si elige la opción de pago por uso, pagaría:  
+La capacidad reservada de Azure Cosmos DB permite comprar rendimiento aprovisionado de antemano (una capacidad reservada o una reserva) que se puede aplicar a todas las bases de datos y contenedores de Azure Cosmos (para cualquier modelo de datos o API) en todas las regiones de Azure. Puesto que el precio del rendimiento aprovisionado varía por región, resulta útil pensar que la capacidad reservada es como un crédito monetario que adquiere con un descuento y que puede usarse para pagar el rendimiento aprovisionado al precio correspondiente en cada región. Por ejemplo, supongamos que tiene una cuenta de Azure Cosmos con un único contenedor aprovisionado con 50 000 RU/s y replicación global en dos regiones: Este de EE. UU. y Japón Oriental. Si elige la opción de pago por uso, pagaría:  
 
 * en Este de EE. UU.: para 50 000 RU/s a la tarifa de 0,008 USD por 100 RU/s en dicha región 
 
-* en Este de Japón: para 50 000 RU/s a la tarifa de 0,009 USD por 100 RU/s en dicha región
+* en Japón Oriental: para 50 000 RU/s a la tarifa de 0,009 USD por 100 RU/s en dicha región
 
 La factura total (sin capacidad reservada) sería (suponiendo 30 días o 720 horas): 
 
 |**Región**| **Precio por hora por 100 RU/s**|**Unidades (RU/s)**|**Importe facturado (por hora)**| **Importe facturado (mensual)**|
 |----|----|----|----|----|
-|East US|0,008 USD |50 000|4 USD|2880 USD |
-|Este de Japón|0,009 USD |50 000| 4,50 USD |3240 USD |
+|Este de EE. UU.|0,008 USD |50 000|4 USD|2880 USD |
+|Japón Oriental|0,009 USD |50 000| 4,50 USD |3240 USD |
 |Total|||8,50 USD|6120 USD |
 
 Vamos a suponer que, en su lugar, ha comprado capacidad reservada. Puede comprar capacidad reservada para 100 000 RU/s al precio de 56 064 USD durante un año (con un 20 % de descuento) o 6,40 USD por hora. Consulte los precios de capacidad reservada en la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/).  
@@ -249,12 +249,12 @@ Vamos a suponer que, en su lugar, ha comprado capacidad reservada. Puede comprar
 
 * Costo de rendimiento (con capacidad reservada) 70 080 USD con un 20 % de descuento = 56 064 USD 
 
-Lo que realmente ha comprado es un crédito de 8 USD por hora, para 100 000 RU/s al precio de venta en Este de EE. UU., al precio de 6,40 USD por hora. Después, puede disponer de esta reserva de rendimiento de prepago por hora para cubrir la capacidad de rendimiento aprovisionado en cualquier región global de Azure a los precios establecidos para su suscripción en cada región. En este ejemplo, donde aprovisiona 50 000 RU/s en el Este de EE. UU. y Este de Japón, podrá hacer uso de un rendimiento aprovisionado por valor de 8,00 USD por hora, y se le cobrará el uso por encima del límite a 0,50 USD por hora (o 360 USD/mes). 
+Lo que realmente ha comprado es un crédito de 8 USD por hora, para 100 000 RU/s al precio de venta en Este de EE. UU., al precio de 6,40 USD por hora. Después, puede disponer de esta reserva de rendimiento de prepago por hora para cubrir la capacidad de rendimiento aprovisionado en cualquier región global de Azure a los precios establecidos para su suscripción en cada región. En este ejemplo, donde aprovisiona 50 000 RU/s en el Este de EE. UU. y Japón Oriental, podrá hacer uso de un rendimiento aprovisionado por valor de 8,00 USD por hora, y se le cobrará el uso por encima del límite a 0,50 USD por hora (o 360 USD/mes). 
 
 |**Región**| **Precio por hora por 100 RU/s**|**Unidades (RU/s)**| **Importe facturado (por hora)**| **Importe facturado (mensual)**|
 |----|----|----|----|----|
-|East US|0,008 USD |50 000|4 USD|2880 USD |
-|Este de Japón|0,009 USD |50 000| 4,50 USD |3240 USD |
+|Este de EE. UU.|0,008 USD |50 000|4 USD|2880 USD |
+|Japón Oriental|0,009 USD |50 000| 4,50 USD |3240 USD |
 |||Pago por uso|8,50 USD|6120 USD|
 |Capacidad reservada adquirida|0,0064 USD (20 % de descuento) |100 RU/s o 8 USD de capacidad comprada previamente |-8 USD|-5760 USD |
 |Importe neto|||0,50 USD |360 USD |

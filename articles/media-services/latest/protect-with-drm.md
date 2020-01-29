@@ -1,5 +1,5 @@
 ---
-title: Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
+title: Cifrado de DRM de Azure Media Services y servicio de entrega de licencias
 titleSuffix: Azure Media Services
 description: Aprenda a usar el cifrado dinámico de DRM y el servicio de entrega de licencias para entregar flujos cifrados con licencias de Microsoft PlayReady, Google Widevine o Apple FairPlay.
 services: media-services
@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bd5c026da27c68e249532b70629ba01afea655fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974077"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513072"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
 
 > [!NOTE]
-> Aunque en este tutorial se usan los ejemplos del [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API de REST](https://docs.microsoft.com/rest/api/media/liveevents), la [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
+> Aunque en este tutorial se usan los ejemplos del [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API REST](https://docs.microsoft.com/rest/api/media/liveevents), la [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
 
 Puede usar Azure Media Services para entregar sus transmisiones cifradas con licencias de Microsoft PlayReady, Google Widevine o Apple FairPlay. Para obtener una explicación detallada, consulte [Protección de contenido con cifrado dinámico](content-protection-overview.md).
 
@@ -46,7 +46,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > * Cree un objeto StreamingLocator con la directiva de streaming especificada.
 > * Cree una dirección URL que se use para la reproducción del archivo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Los siguientes elementos son necesarios para completar el tutorial:
 
@@ -150,7 +150,7 @@ El objeto ContentKeyIdentifierClaim se usa en la directiva ContentKeyPolicy, lo 
 
 ## <a name="build-a-streaming-url"></a>Creación de una dirección URL de streaming
 
-Ahora que se ha creado el elemento [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming. Para crear una dirección URL, debe concatenar el nombre de host de [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del **Localizador de streaming**. En este ejemplo, se utiliza el **punto de conexión de streaming** *predeterminado*. Cuando cree su primera cuenta de Media Services, el **punto de conexión de streaming** *predeterminado* estará en estado detenido, por lo que deberá llamar a **Start**.
+Ahora que se ha creado el elemento [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming. Para crear una dirección URL, debe concatenar el nombre de host de [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del **Localizador de streaming**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este *punto de conexión de streaming* **predeterminado** estará en un estado detenido, por lo que deberá llamar a **Iniciar**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -178,7 +178,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 

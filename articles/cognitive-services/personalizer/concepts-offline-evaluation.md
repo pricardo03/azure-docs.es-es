@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953090"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513616"
 ---
 # <a name="offline-evaluation"></a>Evaluación sin conexión
 
-La evaluación sin conexión es un método que permite probar y evaluar la eficacia del servicio Personalizer sin cambiar el código ni afectar a la experiencia del usuario. La evaluación sin conexión usa datos anteriores, que se envían desde la aplicación a la API Rank, para comparar el funcionamiento de las diferentes clasificaciones.
+La evaluación sin conexión es un método que permite probar y evaluar la eficacia del servicio Personalizer sin cambiar el código ni afectar a la experiencia del usuario. La evaluación sin conexión usa datos anteriores, que se envían desde la aplicación a las API Rank y Reward, para comparar el funcionamiento de las diferentes clasificaciones.
 
 La evaluación sin conexión se realiza en un rango de fechas. El rango puede finalizar, como muy tarde, en la hora actual. El principio del rango no puede superar el número de días especificado para la [retención de datos](how-to-settings.md).
 
@@ -56,9 +56,9 @@ Al ejecutar una evaluación sin conexión, es muy importante analizar los _lími
 
 ## <a name="how-offline-evaluations-are-done"></a>Cómo se realizan las evaluaciones sin conexión
 
-Las evaluaciones sin conexión se realizan mediante un método denominado **evaluación contrafactual**. 
+Las evaluaciones sin conexión se realizan mediante un método denominado **evaluación contrafactual**.
 
-Personalizer se basa en la suposición de que el comportamiento (y por consiguiente las recompensas) de los usuarios es imposible de predecir retrospectivamente (Personalizer no puede saber lo que habría ocurrido si el usuario hubiera mostrado algo diferente de lo que vio) y solo para aprender de las recompensas medidas. 
+Personalizer se basa en la suposición de que el comportamiento (y por consiguiente las recompensas) de los usuarios es imposible de predecir retrospectivamente (Personalizer no puede saber lo que habría ocurrido si el usuario hubiera mostrado algo diferente de lo que vio) y solo para aprender de las recompensas medidas.
 
 Este es el proceso conceptual que se usa para las evaluaciones:
 
@@ -70,11 +70,11 @@ Este es el proceso conceptual que se usa para las evaluaciones:
     [For every chronological event in the logs]
     {
         - Perform a Rank call
-    
+
         - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
-        
+
     }
 
     Add up the rewards and statistics that were predicted, do some aggregation to aid visualizations, and save the results.

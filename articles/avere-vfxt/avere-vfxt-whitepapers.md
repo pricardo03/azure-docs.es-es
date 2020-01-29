@@ -5,17 +5,17 @@ ms.service: avere-vfxt
 author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
-ms.date: 02/13/2019
-ms.openlocfilehash: a85b939eb222fa459d33ba4eb79b4937baf9056f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/06/2020
+ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414275"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152976"
 ---
-# <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Notas del producto y otros recursos de Avere vFXT for Azure
+# <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Notas del producto y otros recursos de Avere vFXT for Azure
 
-Los recursos de esta tabla incluyen casos prácticos, notas del producto de tecnología, infografías y otros artículos que pueden ayudarle a entender cómo Avere vFXT para Azure se integra en el flujo de trabajo.
+En este artículo se incluyen casos prácticos, notas del producto de tecnología, infografías y otros recursos que pueden ayudarle a entender cómo Avere vFXT for Azure se integra en el flujo de trabajo.
 
 ## <a name="deploy-agisoft-photoscan-on-azure"></a>Implementación de Agisoft PhotoScan en Azure
 
@@ -34,12 +34,6 @@ Este breve resumen de dos páginas contiene información básica y diagramas que
 **Vínculo:** [Infografía: Creación de una nube híbrida para cargas de trabajo basadas en archivos](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/)
 
 Este gráfico muestra los componentes y diseños para usar Avere vFXT for Azure para agregar la infraestructura en la nube en el sistema existente. Utilice Avere vFXT for Azure para aumentar la capacidad de computación con su infraestructura local existente, o traslade los datos y la informática a la nube de forma temporal o permanente.
-
-## <a name="cloud-bursting"></a>Ampliación en la nube
-
-**Vínculo:** [Ampliación en la nube para un almacenamiento conectado a la red escalable y de alto rendimiento](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf)
-
- Esta breve solución de ampliación en la nube le muestra cómo puede hacer que los datos estén disponibles rápidamente para los recursos de proceso en la nube sin interrupciones mediante el uso de Avere vFXT for Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746054"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512426"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -129,7 +129,7 @@ Revise las directivas compatibles y no compatibles para determinar si puede usar
 
 Si la solución MDM no está disponible a través de la galería de aplicaciones de Azure AD, puede agregarla siguiendo el proceso descrito en [Azure Active Directory integration with MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) (Integración de Azure Active Directory con MDM). 
 
-A través de la administración conjunta, puede usar SCCM para administrar determinados aspectos de los dispositivos, mientras que las directivas se entregan a través de la plataforma MDM. Microsoft Intune permite la administración conjunta con SCCM. Para obtener más información, consulte [Administración conjunta para dispositivos de Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Si usa un producto MDM distinto de Intune, consulte a su proveedor de MDM sobre los escenarios de administración conjunta aplicables.
+A través de la administración conjunta, puede usar SCCM para administrar determinados aspectos de los dispositivos, mientras que las directivas se entregan a través de la plataforma MDM. Microsoft Intune permite la administración conjunta con SCCM. Para más información sobre la administración conjunta de dispositivos con Windows 10, consulte [¿Qué es la administración conjunta?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Si usa un producto MDM distinto de Intune, consulte a su proveedor de MDM sobre los escenarios de administración conjunta aplicables.
 
 **Recomendación:** Considere la posibilidad de usar la administración solo con MDM para los dispositivos unidos a Azure AD.
 

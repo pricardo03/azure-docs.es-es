@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03dbb679c25ea692d2c52f80b9493889e367823d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c2f774401f32ff02ced690173c418dafc4c789b5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112153"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278804"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versiones de API en Azure Cognitive Search
 
@@ -49,6 +49,9 @@ Para las API de REST, es necesario incluir `api-version` en cada llamada. Usando
 > Las versiones de la API de REST de servicio y de la API de REST de administración son independientes entre sí. Cualquier semejanza entre los números de versión es mera coincidencia.
 
 Las API de disponibilidad general (o GA) puede usarse en entornos de producción y están sujetas a contratos de nivel de servicio de Azure. Las versiones preliminares tienen características experimentales que no siempre se migran a una versión de disponibilidad general. **Le recomendamos encarecidamente que no use una versión preliminar de API en aplicaciones de producción.**
+
+## <a name="update-to-the-latest-version-of-the-rest-api-by-october-15-2020"></a>Actualice la API REST a la última versión antes del 15 de octubre de 2020
+Las siguientes versiones de la API REST de Azure Cognitive Search se retirarán y ya no se admitirán a partir del 15 de octubre de 2020: **2014-07-31-Preview**, **2014-10-20-Preview**, **2015-02-28-Preview** y **2015-02-28**. Además, las versiones del SDK para .Net de Azure Cognitive Search anteriores a **3.0.0-rc** también se retirarán, ya que se dirigen a una de estas versiones de la API REST. Después de esta fecha, las aplicaciones que usen cualquiera de las versiones en desuso de la API REST o del SDK dejarán de funcionar y deben actualizarse. Con todos los cambios de este tipo, se dará una notificación de 12 meses, por lo que tiene tiempo suficiente para hacer el ajuste.  Para seguir usando Azure Cognitive Search, migre el código existente que tenga como destino la [API REST](search-api-migration.md) a la [versión 2019-05-06 de la API REST](https://docs.microsoft.com/rest/api/searchservice/) o posterior, o bien el SDK de .Net a la [versión 3.0](search-dotnet-sdk-migration.md) o posterior antes del 15 de octubre de 2020.  Si tiene alguna pregunta sobre la actualización a la versión más reciente, envíe un correo electrónico a azuresearch_contact@microsoft.com antes del 15 de mayo de 2020 para asegurarse de que dispone de tiempo suficiente para actualizar el código.
 
 ## <a name="about-preview-and-generally-available-versions"></a>Acerca de las versiones preliminar y de disponibilidad general
 Azure Cognitive Search siempre publica previamente características experimentales primero a través de la API REST y, después, a través de las versiones preliminares del SDK de .NET.

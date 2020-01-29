@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 83d5b7ffb49a08d02d5dd34ad561ce725ead7e0e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936203"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289142"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -58,7 +58,7 @@ Para poder crear una conexión, debe agregar la solución del conector de ITSM.
 3. En la sección **Área de trabajo de OMS**, seleccione el área de trabajo de Azure Log Analytics donde quiera instalar la solución.
    >[!NOTE]
    > * Como parte de la transición continuada de Microsoft Operations Management Suite (OMS) a Azure Monitor, las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
-   > * Solo se puede instalar el conector ITSM en áreas de trabajo de Log Analytics en las siguientes regiones: Este de EE. UU., Oeste de Europa, Sudeste Asiático, Sudeste de Australia, Centro-oeste de EE. UU., Este de Japón, Sur de Reino Unido, Centro de la India y Centro de Canadá.
+   > * Solo se puede instalar el conector ITSM en áreas de trabajo de Log Analytics en las siguientes regiones: Este de EE. UU., Oeste de EE. UU.2, Centro Sur de EE. UU., Centro-oeste de EE. UU., Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Sudeste Asiático, Este de Japón, Centro de la India y Sudeste de Australia.
 
 4. En la sección **Configuración del área de trabajo de OMS**, seleccione el grupo de recursos donde quiera crear el recurso de la solución.
 
@@ -66,7 +66,7 @@ Para poder crear una conexión, debe agregar la solución del conector de ITSM.
    >[!NOTE]
    >Como parte de la transición continuada de Microsoft Operations Management Suite (OMS) a Azure Monitor, las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
 
-5. Haga clic en **Create**(Crear).
+5. Haga clic en **Crear**.
 
 Cuando se implemente el recurso de la solución, aparecerá una notificación en la parte superior derecha de la ventana.
 
@@ -191,7 +191,7 @@ ServiceDeskWorkItemType_s="Incidente"
 - Asignado a
 - Category
 - Título
-- DESCRIPCIÓN
+- Descripción
 - Fecha de creación
 - Fecha de cierre
 - Fecha de resolución
@@ -211,9 +211,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Source
 - Asignado a
 - Título
-- type
+- Tipo
 - Category
-- Estado
+- State
 - Escalado
 - Estado del conflicto
 - Urgencia
@@ -229,7 +229,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Fecha de finalización planeada
 - Fecha de inicio del trabajo
 - Fecha de finalización del trabajo
-- DESCRIPCIÓN
+- Descripción
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Datos de salida para un incidente de ServiceNow
@@ -263,7 +263,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Cerrado por |
 | AssignedTo_s | Asignado a  |
 | Title_s|  Descripción breve |
-| Type_s|  type |
+| Type_s|  Tipo |
 | Category_s|  Category |
 | CRState_s|  State|
 | Urgency_s|  Urgencia |
@@ -276,7 +276,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Fecha de finalización planeada |
 | WorkStartDate_t  | Fecha de inicio real |
 | WorkEndDate_t | Fecha de finalización real|
-| Description_s | DESCRIPCIÓN |
+| Description_s | Descripción |
 | Computer  | Elemento de configuración |
 
 

@@ -1,25 +1,18 @@
 ---
-title: Instalación del dispositivo Microsoft Azure StorSimple 8100 | Microsoft Docs
+title: Instalación del dispositivo Microsoft Azure StorSimple 8100
 description: Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100 antes de implementar y configurar el software.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963579"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277083"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
 
@@ -34,7 +27,7 @@ En los pasos siguientes se proporcionan instrucciones claras y detalladas sobre 
 ### <a name="prepare-to-unpack-your-device"></a>Preparación para desempaquetar el dispositivo
 Antes de desempaquetar el dispositivo, revise la información siguiente.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **¡ADVERTENCIA!**
+![Icono de advertencia](./media/storsimple-safety/IC740879.png)![icono de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **ADVERTENCIA**
 
 1. Asegúrese de que haya dos personas disponibles para administrar el peso del revestimiento de hardware si lo está manejando de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 2. Coloque la caja en una superficie plana y nivelada.
@@ -49,7 +42,7 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
    
     **Vista del dispositivo de almacenamiento desempaquetado**
    
-   | Etiqueta | DESCRIPCIÓN |
+   | Etiqueta | Descripción |
    | --- | --- |
    |   1 |Caja de embalaje |
    |   2 |Espuma inferior |
@@ -90,7 +83,7 @@ El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas con poste
 2. Compruebe que la ubicación en la que desea efectuar la instalación dispone de alimentación de CA estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con una fuente de alimentación ininterrumpida (UPS).
 3. Asegúrese de que haya disponible una ranura 2U en el bastidor en el que desea montar el dispositivo.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**ADVERTENCIA**
+![Icono de advertencia](./media/storsimple-safety/IC740879.png)![icono de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **ADVERTENCIA**
 
 Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si está instalando el dispositivo de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 
@@ -111,7 +104,7 @@ Se proporciona un conjunto de guías de montaje para utilizar con el armario de 
 
     **Fijación de guías internas a los laterales del receptáculo**
    
-    Etiqueta | DESCRIPCIÓN
+    Etiqueta | Descripción
     ----- | -----------
     1     | Tornillos de cabeza de botón M 3 x 4
     2     | Guías de chasis
@@ -125,7 +118,7 @@ Se proporciona un conjunto de guías de montaje para utilizar con el armario de 
    
     **Fijación de soportes de guía exteriores en el bastidor**
    
-   | Etiqueta | DESCRIPCIÓN |
+   | Etiqueta | Descripción |
    | --- | --- |
    |   1 |Tornillo de fijación |
    |   2 |Tornillo del poste del bastidor delantero de orificio cuadrado |
@@ -151,7 +144,7 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
    
     **Instalación de los topes de las bridas**
    
-   | Etiqueta | DESCRIPCIÓN |
+   | Etiqueta | Descripción |
    | --- | --- |
    |   1 |Tornillo de fijación del receptáculo |
 
@@ -160,7 +153,7 @@ El siguiente paso es la colocación de los cables de alimentación, red y acceso
 ## <a name="cable-your-storsimple-8100-device"></a>Instalación de cables del dispositivo StorSimple 8100
 En los siguientes procedimientos se explica cómo pasar los cables del dispositivo StorSimple 8100 de alimentación, red y conexiones en serie.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Antes de comenzar a pasar los cables del dispositivo, necesitará:
 
 * Desempaquetar por completo el dispositivo de almacenamiento y montar en bastidor.
@@ -191,7 +184,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
    
     **Parte posterior del dispositivo en la que se muestran los puertos de datos**
    
-   | Etiqueta | DESCRIPCIÓN |
+   | Etiqueta | Descripción |
    | --- | --- |
    |   0,1,4,5 |Interfaces de red de 1 GbE |
    |   2,3 |Interfaces de red de 10 GbE |
@@ -202,9 +195,9 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
     **Cables de red del dispositivo**
 
-   |Etiqueta | DESCRIPCIÓN |
+   |Etiqueta | Descripción |
    |----- | ----------- |
-   | Una    | LAN con acceso a Internet |
+   | Un    | LAN con acceso a Internet |
    | B    | Controlador 0 |
    | C    | PCM 0 |
    | D    | Controlador 1 |

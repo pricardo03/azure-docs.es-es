@@ -9,22 +9,22 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b707971f0b150bce63b4dd0ffa4e55dc3b3d6bac
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492646"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313967"
 ---
 # <a name="split-data-module"></a>Módulo Split Data
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use este módulo para dividir un conjunto de datos en dos conjuntos distintos.
 
 Este módulo es especialmente útil cuando necesita separar los datos en conjuntos de entrenamiento y de prueba. Además, puede personalizar la forma en que los datos se dividen. Algunas opciones admiten la selección aleatoria de datos; otras están adaptadas a un determinado tipo de datos o tipo de modelo.
 
-## <a name="how-to-configure"></a>Configuración
+## <a name="how-to-configure"></a>Cómo se configura
 
 > [!TIP]
 > Antes de elegir el modo de división, lea todas las opciones para determinar el tipo de división que necesita.

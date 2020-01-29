@@ -1,5 +1,5 @@
 ---
-title: 'Notificación del uso de Azure DevTest Labs en varios laboratorios y suscripciones: Azure | Microsoft Docs'
+title: Uso de Azure DevTest Labs en varios laboratorios y suscripciones
 description: Aprenda a notificar el uso de Azure DevTest Labs en varios laboratorios y suscripciones.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 01/16/2020
 ms.author: takamath
-ms.openlocfilehash: 0d930263233056d8fa74ffe6ccb176ee39429121
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 912f510f6380c0ba1eb92b7c485091801123558e
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828888"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169181"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Notificación del uso de Azure DevTest Labs en varios laboratorios y suscripciones
 

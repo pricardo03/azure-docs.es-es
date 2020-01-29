@@ -16,22 +16,15 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295133"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512970"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: siguientes pasos
 Ahora que ha terminado de definir sus requisitos y de examinar todas las opciones para su solución de administración de dispositivos móviles, está listo para realizar los siguientes pasos e implementar la infraestructura de apoyo que es adecuada para usted y su organización.
-
-## <a name="hybrid-identity-solutions"></a>Soluciones de identidad híbrida
--Una excelente manera de revisar y planear los detalles de la implementación de una infraestructura de administración de dispositivos móviles es aprovechar los escenarios de soluciones específicas que se adaptan a sus necesidades. Las siguientes soluciones describen algunos de los escenarios más comunes de administración de dispositivos móviles:
-
-* La [solución de administración de dispositivos móviles y equipos en los entornos empresariales](https://technet.microsoft.com/library/dn582037.aspx) le ayuda a administrar los dispositivos móviles al extender su infraestructura local de System Center 2012 Configuration Manager a la nube con Microsoft Intune. Esta infraestructura híbrida ayuda a los profesionales de TI de los entornos de tamaño medio y grande a habilitar BYOD y el acceso remoto, y a reducir al mismo tiempo la complejidad administrativa.
-* La [solución de administración de dispositivos móviles para Configuration Manager 2007](https://technet.microsoft.com/library/dn508400.aspx) le ayuda a administrar los dispositivos móviles cuando la infraestructura se basa en System Center Configuration Manager 2007. Esta solución muestra cómo configurar un único servidor que ejecuta System Center 2012 Configuration Manager para que luego pueda ejecutar Microsoft Intune y aprovechar su capacidad MDM.
-* La [solución de administración de dispositivos móviles en entornos pequeños](https://technet.microsoft.com/library/dn715906.aspx) está pensada para pequeñas empresas que necesitan admitir MDM. Explica cómo usar Microsoft Intune para ampliar su infraestructura actual y admitir la administración de dispositivos móviles y BYOD. Esta solución describe el escenario más sencillo admitido para el uso de Microsoft Intune en una configuración independiente solo en la nube sin servidores locales.
 
 ## <a name="hybrid-identity-documentation"></a>Documentación de identidad híbrida
 El contenido relacionado con los conceptos y procedimientos para la planeación, la implementación y la administración resulta útil al implementar la solución de administración de dispositivos móviles:
@@ -46,9 +39,8 @@ La consulta de los siguientes recursos con frecuencia proporciona las noticias y
 * [Blog de Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Blog de Microsoft en la nube](https://blogs.technet.com/b/in_the_cloud/)
 * [Blog de Microsoft Intune](https://blogs.technet.com/b/microsoftintune/)
-* [Blog de Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configurationmgr/)
-* [Blog del equipo de Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configmgrteam/)
+* [Blog de Microsoft Endpoint Configuration Manager](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

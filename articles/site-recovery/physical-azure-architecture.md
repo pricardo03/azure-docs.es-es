@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f61d4beac5b5285b80fb05521cffc961f7f702c2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 72f21babd4d12e69cd346d8693e5ed4fe9117134
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356508"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513956"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de un servidor físico en Azure
 
@@ -29,7 +29,7 @@ En la tabla y el gráfico siguientes se proporciona una visión general de los c
 **Servidor de configuración** | Se implementa una sola máquina física local o una máquina virtual de VMware para que ejecute todos los componentes locales de Site Recovery. La máquina virtual ejecuta el servidor de configuración, el servidor de procesos y el servidor de destino maestro. | El servidor de configuración coordina la comunicación entre el entorno local y Azure, además de administrar la replicación de datos.
  **Servidor de proceso**:  | Se instala de forma predeterminada junto con el servidor de configuración. | Actúa como puerta de enlace de replicación. Recibe datos de replicación, los optimiza con almacenamiento en caché, compresión y cifrado y los envía al almacenamiento de Azure.<br/><br/> El servidor de procesos también instala Mobility Service en los servidores que desee replicar.<br/><br/> A medida que crece la implementación, puede agregar más servidores de procesos independientes para controlar mayores volúmenes de tráfico de replicación.
  **Servidor de destino principal** | Se instala de forma predeterminada junto con el servidor de configuración. | Controla los datos de replicación durante la conmutación por recuperación desde Azure.<br/><br/> En el caso de las implementaciones de gran tamaño, puede agregar un servidor de destino maestro independiente adicional para la conmutación por recuperación.
-**Servidores replicados** | Mobility Service se instala en cada servidor que se replique. | Se recomienda permitir la instalación automática desde el servidor de procesos. Además, puede instalar manualmente el servicio o usar un método de implementación automatizada, como System Center Configuration Manager.
+**Servidores replicados** | Mobility Service se instala en cada servidor que se replique. | Se recomienda permitir la instalación automática desde el servidor de procesos. Si lo desea, también puede instalar manualmente el servicio o usar un método de implementación automatizada, como Configuration Manager.
 
 **Arquitectura de dispositivo físico a Azure**
 

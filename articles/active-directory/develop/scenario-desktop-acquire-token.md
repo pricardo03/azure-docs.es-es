@@ -1,7 +1,7 @@
 ---
-title: Adquisición de un token para llamar a la API web (aplicación de escritorio) | Azure
+title: Adquisición de un token para llamar a una API web (aplicación de escritorio) | Azure
 titleSuffix: Microsoft identity platform
-description: Obtener información sobre cómo compilar una aplicación de escritorio que llama a otras API web (para adquirir un token para la aplicación)
+description: Aprenda a compilar una aplicación de escritorio que llame a API web para adquirir un token para la aplicación.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,23 +16,23 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89a9426b1ed0ccd3c5f9eec576e5d78bf3d3dfc2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da8d9a43ac5db4cedc8b27910bb838b911f3ebc6
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423887"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293154"
 ---
-# <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de escritorio que llama a las API web: adquisición de un token
+# <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
-Una vez que haya compilado una instancia de la aplicación cliente pública, la usará para adquirir un token que luego usará para llamar a las API web.
+Una vez que se ha compilado una instancia de la aplicación cliente pública, se usará para adquirir un token que, a su vez, se emplea para llamar a una API web.
 
 ## <a name="recommended-pattern"></a>Patrón recomendado
 
-La API web se define mediante sus `scopes`. Sea cual sea la experiencia que proporciona en la aplicación, el patrón que querría usar es el siguiente:
+La API web se define mediante sus `scopes`. Sea cual sea la experiencia que proporcione en la aplicación, el patrón que debe usar es:
 
-- Intentar sistemáticamente obtener un token de la caché de tokens mediante una llamada a `AcquireTokenSilent`
-- Si se produce un error en esta llamada, use el flujo `AcquireToken` que quiera utilizar (representado aquí por `AcquireTokenXX`).
+- Intente obtener de forma sistemática un token de la caché de tokens mediante una llamada a `AcquireTokenSilent`.
+- Si se produce un error en esta llamada, use el flujo `AcquireToken` que quiera emplear, que aquí está representado por `AcquireTokenXX`.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -146,9 +146,9 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 ```
 ---
 
-A continuación se exponen los detalles de las distintas formas de adquirir tokens en una aplicación de escritorio.
+Estas son las distintas formas de adquirir tokens en una aplicación de escritorio.
 
-## <a name="acquiring-a-token-interactively"></a>Adquisición de un token de forma interactiva
+## <a name="acquire-a-token-interactively"></a>Adquisición de un token de forma interactiva
 
 El ejemplo siguiente muestra un código mínimo para obtener un token de forma interactiva para leer el perfil del usuario con Microsoft Graph.
 
@@ -174,15 +174,15 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parámetros obligatorios
 
-`AcquireTokenInteractive` solo tiene un parámetro obligatorio ``scopes``, que contiene una enumeración de cadenas que definen los ámbitos para los que se requiere un token. Si el token es para Microsoft Graph, los ámbitos necesarios se pueden encontrar en la sección denominada "Permisos" en la referencia de API de cada API de Microsoft Graph. Por ejemplo, para [enumerar los contactos del usuario](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), necesitará usar el ámbito "User.Read", "Contacts.Read". Vea también [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` solo tiene un parámetro obligatorio, ``scopes``, que contiene una enumeración de cadenas que definen los ámbitos en los que se necesita un token. Si el token es para Microsoft Graph, los ámbitos necesarios se pueden encontrar en la sección denominada "Permisos" de la referencia de API de cada instancia de Microsoft Graph API. Por ejemplo, para [enumerar los contactos del usuario](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
-En Android, también deberá especificar la actividad primaria (mediante `.WithParentActivityOrWindow`, vea más abajo) para que el token vuelva a esa actividad principal tras la interacción. Si no se especifica, se producirá una excepción al llamar a `.ExecuteAsync()`.
+En Android, también debe especificar la actividad principal mediante `.WithParentActivityOrWindow`, como se muestra, para que el token vuelva a esa actividad principal tras la interacción. Si no se especifica, se produce una excepción al llamar a `.ExecuteAsync()`.
 
 ### <a name="specific-optional-parameters-in-msalnet"></a>Parámetros opcionales específicos de MSAL.NET
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-Al ser interactiva, la interfaz de usuario es importante. `AcquireTokenInteractive` tiene un parámetro opcional específico que permite especificar, para las plataformas que lo admiten, el elemento primario de la interfaz de usuario. Cuando se utiliza en una aplicación de escritorio, `.WithParentActivityOrWindow` tiene un tipo diferente en función de la plataforma:
+La interfaz de usuario es importante porque es interactiva. `AcquireTokenInteractive` tiene un parámetro opcional específico que permite determinar, en las plataformas que lo admiten, la interfaz de usuario principal. Cuando se usa en una aplicación de escritorio, `.WithParentActivityOrWindow` tiene un tipo diferente que depende de la plataforma.
 
 ```csharp
 // net45
@@ -198,9 +198,9 @@ WithParentActivityOrWindow(object parent).
 
 Comentarios:
 
-- En .NET Standard, el valor `object` esperado es `Activity` en Android, `UIViewController` en iOS, `NSWindow` en MAC y `IWin32Window` o `IntPr` en Windows.
-- En Windows, debe llamar a `AcquireTokenInteractive` desde el subproceso de interfaz de usuario para que el explorador integrado obtenga el contexto de sincronización de la interfaz de usuario adecuado.  No llamar desde el subproceso de interfaz de usuario podría provocar que los mensajes no se suministren correctamente o escenarios de interbloqueo con la interfaz de usuario. Una manera de llamar a MSAL desde el subproceso de interfaz de usuario si ya no está en el subproceso de interfaz de usuario es utilizar `Dispatcher` en WPF.
-- Si usa WPF, para obtener una ventana de un control WPF puede usar la clase `WindowInteropHelper.Handle`. La llamada entonces procede de un control WPF (`this`):
+- En .NET Standard, el elemento `object` esperado es `Activity` en Android, `UIViewController` en iOS, `NSWindow` en MAC y `IWin32Window` o `IntPr` en Windows.
+- En Windows, debe llamar a `AcquireTokenInteractive` desde el subproceso de interfaz de usuario para que el explorador integrado obtenga el contexto de sincronización de la interfaz de usuario adecuado. Si no se llama desde el subproceso de interfaz de usuario, es posible que los mensajes no se suministren correctamente o que se produzcan escenarios de interbloqueo con la interfaz de usuario. Una manera de llamar a bibliotecas de autenticación de Microsoft (MSAL) desde el subproceso de interfaz de usuario (si aún no está en él) es usar `Dispatcher` en WPF.
+- Si usa WPF, para obtener una ventana de un control WPF puede usar la clase `WindowInteropHelper.Handle`. Así, la llamada procede de un control WPF (`this`):
 
   ```csharp
   result = await app.AcquireTokenInteractive(scopes)
@@ -210,21 +210,21 @@ Comentarios:
 
 #### <a name="withprompt"></a>WithPrompt
 
-`WithPrompt()` se usa para controlar la interactividad con el usuario especificando un símbolo del sistema.
+`WithPrompt()` se usa para controlar la interactividad con el usuario mediante la especificación de un símbolo del sistema.
 
 <img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
 
 La clase define las constantes siguientes:
 
-- ``SelectAccount``: forzará el STS para que presente el cuadro de diálogo de selección de cuenta que contiene las cuentas para las que el usuario tiene una sesión. Esta opción es útil cuando los desarrolladores de aplicaciones quieren permitir que el usuario elija entre diferentes identidades. Esta opción dirige a MSAL para que envíe ``prompt=select_account`` al proveedor de identidades. Esta opción es el valor predeterminado y funciona bien para proporcionar la mejor experiencia posible en función de la información disponible (cuenta, presencia de una sesión para el usuario, etc. ). No la cambie a menos que tenga buena razón para hacerlo.
-- ``Consent``: permite que el desarrollador de la aplicación obligue al usuario a que se le pida consentimiento incluso si ya lo otorgó anteriormente. En este caso, MSAL envía `prompt=consent` al proveedor de identidades. Esta opción se puede usar en algunas aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que se presente al usuario el cuadro de diálogo de consentimiento cada vez que se utiliza la aplicación.
-- ``ForceLogin``: permite que el desarrollador de la aplicación haga que el servicio solicite al usuario las credenciales incluso si esta petición al usuario no es necesaria. Esta opción puede ser útil si se produce un error al adquirir un token, para permitir que el usuario vuelva a iniciar sesión. En este caso, MSAL envía `prompt=login` al proveedor de identidades. De nuevo, se ha utilizado en algunas aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que el usuario vuelva a iniciar sesión cada vez que accede a determinadas partes de una aplicación.
-- ``Never`` (solo para .NET 4.5 y WinRT) no preguntará al usuario, pero intentará usar en su lugar la cookie almacenada en la vista web incrustada oculta (vea a continuación: Vistas web en MSAL.NET). Esta opción puede producir un error, en cuyo caso `AcquireTokenInteractive` generará una excepción para notificar que es necesaria una interacción de la interfaz de usuario y deberá utilizar otro parámetro `Prompt`.
-- ``NoPrompt``: No enviará ninguna solicitud al proveedor de identidades. Esta opción solo es útil para las directivas de perfil de edición de Azure AD B2C (consulte las [características específicas de B2C](https://aka.ms/msal-net-b2c-specificities)).
+- ``SelectAccount`` obliga a STS a presentar el cuadro de diálogo de selección de cuenta que contiene las cuentas para las que el usuario tiene una sesión. Esta opción es útil cuando los desarrolladores de aplicaciones quieren permitir a los usuarios elegir entre diferentes identidades. Esta opción dirige a MSAL para que envíe ``prompt=select_account`` al proveedor de identidades. Es la opción predeterminada. Funciona bien para proporcionar la mejor experiencia posible en función de la información disponible, como cuenta y presencia de una sesión para el usuario. No la cambie a menos que tenga buena razón para hacerlo.
+- ``Consent`` permite que el desarrollador de la aplicación obligue al usuario a pedir consentimiento, aunque ya lo haya otorgado antes. En este caso, MSAL envía `prompt=consent` al proveedor de identidades. Esta opción se puede usar en algunas aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que se presente al usuario el cuadro de diálogo de consentimiento cada vez que se usa la aplicación.
+- ``ForceLogin`` permite que el desarrollador de la aplicación obligue al servicio a solicitar las credenciales al usuario, incluso si este mensaje de usuario no es necesario. Esta opción puede ser útil para permitir que el usuario vuelva a iniciar sesión si se produce un error al adquirir un token. En este caso, MSAL envía `prompt=login` al proveedor de identidades. A veces se usa en aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que el usuario vuelva a iniciar sesión cada vez que accede a determinadas partes de una aplicación.
+- ``Never`` (solo para .NET 4.5 y WinRT) no pregunta al usuario, sino que, en su lugar, intenta usar la cookie almacenada en la vista web insertada oculta. Para más información, consulte las vistas web de MSAL.NET. Se puede producir un error al usar esta opción. En ese caso, `AcquireTokenInteractive` produce una excepción para notificar que se necesita una interacción de la interfaz de usuario. Debe usar otro parámetro `Prompt`.
+- ``NoPrompt`` no envía ningún símbolo del sistema al proveedor de identidades. Esta opción solo es útil para directivas de perfil de edición de Azure Active Directory (Azure AD) B2C. Para más información, consulte [Información específica sobre Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Este modificador se usa en un escenario avanzado donde quiere que el usuario dé previamente su consentimiento a varios recursos por adelantado (y no quiere utilizar el consentimiento incremental, que normalmente se utiliza con MSAL.NET / la plataforma de identidad de Microsoft). Para obtener más detalles, vea [Cómo tener el consentimiento del usuario por adelantado para varios recursos](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+Este modificador se usa en un escenario avanzado en el que se quiere que el usuario otorgue su consentimiento por adelantado a varios recursos y no se quiere emplear el consentimiento incremental, que normalmente se usa con MSAL.NET o la plataforma de identidad de Microsoft. Para más información, consulte [Cómo tener el consentimiento del usuario por adelantado para varios recursos](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -235,34 +235,35 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 #### <a name="withcustomwebui"></a>WithCustomWebUi
 
 Una interfaz de usuario web es un mecanismo para invocar un explorador. Este mecanismo puede ser un control WebBrowser de interfaz de usuario dedicado o una forma de delegar la apertura del explorador.
-MSAL proporciona implementaciones de interfaz de usuario web para la mayoría de las plataformas, aunque todavía hay casos en los que puede que quiera hospedar el explorador por su cuenta:
+MSAL proporciona implementaciones de la interfaz de usuario web para la mayoría de las plataformas, aunque hay casos en los que es posible que quiera hospedar el explorador por su cuenta:
 
-- plataformas no admitidas explícitamente por MSAL; por ejemplo, Blazor, Unity o Mono en ordenadores.
-- quiere probar la aplicación en la interfaz de usuario y quiere usar un explorador automatizado que se pueda usar con Selenium.
-- el explorador y la aplicación que ejecutan MSAL están en procesos independientes.
+- Plataformas no admitidas explícitamente por MSAL, por ejemplo, Blazor, Unity o Mono en equipos de escritorio.
+- Quiere probar la aplicación en la interfaz de usuario y usar un explorador automatizado que se pueda emplear con Selenium.
+- El explorador y la aplicación que ejecutan MSAL están en procesos independientes.
 
 ##### <a name="at-a-glance"></a>En un vistazo
 
-Para ello, debe proporcionar a MSAL una `start Url`, que debe mostrarse en el explorador seleccionado para que el usuario final pueda escribir su nombre de usuario, etc. Una vez completada la autenticación, la aplicación deberá pasar a MSAL la `end Url`, que contiene un código proporcionado por Azure AD.
-El host de la dirección `end Url` siempre es el `redirectUri`. Para interceptar la `end Url`, puede hacer lo siguiente:
+Para ello, debe proporcionar a MSAL el elemento `start Url`, que debe mostrarse en el explorador seleccionado para que el usuario final pueda escribir elementos como su nombre de usuario.
+Una vez terminada la autenticación, la aplicación debe pasar a MSAL el elemento `end Url`, que contiene un código proporcionado por Azure AD.
+El host de `end Url` siempre es `redirectUri`. Para interceptar `end Url`, realice una de las siguientes acciones:
 
-- supervisar el redireccionamiento del explorador hasta que se obtenga la `redirect Url`; o bien
-- hacer que el explorador redirija a una dirección URL que va a supervisar.
+- Supervise los redireccionamientos del explorador hasta que se alcance `redirect Url`.
+- Haga que el explorador redirija a una dirección URL que supervise.
 
 ##### <a name="withcustomwebui-is-an-extensibility-point"></a>WithCustomWebUi es un punto de extensibilidad.
 
-`WithCustomWebUi` es un punto de extensibilidad que le permite proporcionar su propia interfaz de usuario en aplicaciones cliente públicas, y permitir que el usuario vaya a través del punto de conexión /Authorize del proveedor de identidades y que inicie sesión y dé su consentimiento. Después, MSAL.NET puede canjear el código de autenticación y obtener un token. Por ejemplo, se usa en Visual Studio para hacer que las aplicaciones de Electron (por ejemplo los comentarios de VS) proporcionen interacción web, pero dejar que MSAL.NET realice la mayoría del trabajo. También puede usarlo si quiere proporcionar automatización de la interfaz de usuario. En las aplicaciones cliente públicas, MSAL.NET utiliza la norma PKCE ([7636 RFC: clave de prueba para el intercambio de código por clientes públicos de OAuth](https://tools.ietf.org/html/rfc7636)) para asegurarse de que se respeta la seguridad: Solo MSAL.NET puede canjear el código.
+`WithCustomWebUi` es un punto de extensibilidad que se puede usar para proporcionar una interfaz de usuario propia en aplicaciones cliente públicas. También puede permitir que el usuario pase por el punto de conexión /Authorize del proveedor de identidades y dejarle iniciar sesión y dar su consentimiento. Después, MSAL.NET puede canjear el código de autenticación y obtener un token. Por ejemplo, se usa en Visual Studio para que las aplicaciones de Electron (por ejemplo, Visual Studio Feedback) proporcionen la interacción web, pero se deja que MSAL.NET realice la mayor parte del trabajo. También puede usarlo si quiere proporcionar automatización de la interfaz de usuario. En las aplicaciones cliente públicas, MSAL.NET usa la norma Proof Key for Code Exchange (PKCE) para garantizar que se respeta la seguridad. Solo MSAL.NET puede canjear el código. Para más información, consulte [RFC 7636 - Proof Key for Code Exchange por parte de clientes públicos de OAuth](https://tools.ietf.org/html/rfc7636).
 
   ```csharp
   using Microsoft.Identity.Client.Extensions;
   ```
 
-##### <a name="how-to-use-withcustomwebui"></a>Cómo usar WithCustomWebUi
+##### <a name="use-withcustomwebui"></a>Uso de WithCustomWebUi
 
-Para poder usar `.WithCustomWebUI`, deberá:
+Para usar `.WithCustomWebUI`, siga estos pasos.
 
-  1. Implementar la interfaz `ICustomWebUi` (vea [este artículo](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)). Básicamente, deberá implementar un método `AcquireAuthorizationCodeAsync` que acepte la dirección URL del código de autorización (que se calcula mediante MSAL.NET), lo que permite que el usuario vaya a través de la interacción con el proveedor de identidades y, después, devuelva la dirección URL por la que el proveedor de identidades habría vuelvo a llamar a la implementación (incluido el código de autorización). Si tiene problemas, la implementación debería lanzar una excepción `MsalExtensionException` para cooperar bien con MSAL.
-  2. En su llamada a `AcquireTokenInteractive`, puede usar el modificador `.WithCustomUI()` pasando la instancia de su interfaz de usuario web personalizada.
+  1. Implemente la interfaz `ICustomWebUi`. Para más información, consulte [este sitio web](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). Implemente un método `AcquireAuthorizationCodeAsync` y acepte la dirección URL de código de autorización procesada por MSAL.NET. Luego, permita que el usuario lleve a cabo la interacción con el proveedor de identidades y devuelva la dirección URL con la que este hubiera llamado a la implementación junto con el código de autorización. Si tiene problemas, la implementación debería lanzar una excepción `MsalExtensionException` para cooperar bien con MSAL.
+  2. En la llamada a `AcquireTokenInteractive`, use el modificador `.WithCustomUI()` que pasa la instancia de la interfaz de usuario web personalizada.
 
      ```csharp
      result = await app.AcquireTokenInteractive(scopes)
@@ -270,19 +271,19 @@ Para poder usar `.WithCustomWebUI`, deberá:
                        .ExecuteAsync();
      ```
 
-##### <a name="examples-of-implementation-of-icustomwebui-in-test-automation---seleniumwebui"></a>Ejemplos de implementación de ICustomWebUi en automatización de prueba: SeleniumWebUI
+##### <a name="examples-of-implementation-of-icustomwebui-in-test-automation-seleniumwebui"></a>Ejemplos de implementación de ICustomWebUi en automatización de prueba: SeleniumWebUI
 
-El equipo de MSAL.NET ha vuelto a escribir nuestras pruebas de interfaz de usuario para aprovechar este mecanismo de extensibilidad. Si le interesa, puede echar un vistazo a la clase [SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160) en el código fuente MSAL.NET
+El equipo de MSAL.NET ha vuelto a escribir las pruebas de interfaz de usuario para usar este mecanismo de extensibilidad. Si le interesa, vea la clase [SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160) en el código fuente de MSAL.NET.
 
-##### <a name="providing-a-great-experience-with-systemwebviewoptions"></a>Una gran experiencia con SystemWebViewOptions
+##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Una gran experiencia con SystemWebViewOptions
 
-Desde MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) le permite especificar la siguiente información:
+En [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) de MSAL.NET 4.1, puede especificar:
 
-- el identificador URI al que se va a navegar (`BrowserRedirectError`) o el fragmento HTML que se va a mostrar (`HtmlMessageError`) en el caso de errores de inicio de sesión/consentimiento en el explorador web del sistema.
-- el identificador URI al que se va a navegar (`BrowserRedirectSuccess`) o el fragmento HTML que se va a mostrar (`HtmlMessageSuccess`) en el caso de que el inicio de sesión o el consentimiento se realicen correctamente.
-- la acción que se va a ejecutar para iniciar el explorador del sistema. Para ello, puede proporcionar su propia implementación al establecer el delegado `OpenBrowserAsync`. La clase también proporciona una implementación predeterminada para dos exploradores: `OpenWithEdgeBrowserAsync` y `OpenWithChromeEdgeBrowserAsync`, respectivamente para Microsoft Edge y [Microsoft Edge en Chromium](https://www.windowscentral.com/faq-edge-chromium).
+- El URI al que se va a ir (`BrowserRedirectError`) o el fragmento HTML que se va a mostrar (`HtmlMessageError`) en caso de errores de inicio de sesión o consentimiento en el explorador web del sistema.
+- El URI al que se va a ir (`BrowserRedirectSuccess`) o el fragmento HTML que se va a mostrar (`HtmlMessageSuccess`) en caso de inicio de sesión o consentimiento correctos.
+- La acción que se va a ejecutar para iniciar el explorador del sistema. Puede proporcionar una implementación propia si establece el delegado `OpenBrowserAsync`. La clase también proporciona una implementación predeterminada para dos exploradores: `OpenWithEdgeBrowserAsync` y `OpenWithChromeEdgeBrowserAsync` para Microsoft Edge y [Microsoft Edge en Chromium](https://www.windowscentral.com/faq-edge-chromium), respectivamente.
 
-Para usar esta estructura, puede escribir un código parecido al siguiente:
+Para usar esta estructura, escriba algo como esto:
 
 ```csharp
 IPublicClientApplication app;
@@ -302,11 +303,11 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### <a name="other-optional-parameters"></a>Otros parámetros opcionales
 
-Obtenga más información sobre los demás parámetros opcionales para `AcquireTokenInteractive` en la documentación de referencia para [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Para más información sobre los demás parámetros opcionales de `AcquireTokenInteractive`, consulte [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Java de MSAL no proporciona un método de adquisición de token interactivo directamente. En su lugar, requiere que la aplicación envíe una solicitud de autorización en su implementación del flujo de interacción del usuario para obtener un código de autorización que se pueda pasar a continuación al método `acquireToken` para obtener el token.
+Java de MSAL no proporciona ningún método de adquisición de tokens interactivo directamente, sino que exige que la aplicación envíe una solicitud de autorización en su implementación del flujo de interacción del usuario a fin de obtener un código de autorización. Luego, este código se puede pasar al método `acquireToken` a fin de obtener el token.
 
 ```java
 AuthorizationCodeParameters parameters =  AuthorizationCodeParameters.builder(
@@ -345,7 +346,7 @@ future.handle((res, ex) -> {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Python de MSAL no proporciona un método de adquisición de token interactivo directamente. En su lugar, requiere que la aplicación envíe una solicitud de autorización en su implementación del flujo de interacción del usuario para obtener un código de autorización que se pueda pasar a continuación al método `acquire_token_by_authorization_code` para obtener el token.
+Python de MSAL no proporciona ningún método de adquisición de tokens interactivo directamente, sino que exige que la aplicación envíe una solicitud de autorización en su implementación del flujo de interacción del usuario a fin de obtener un código de autorización. Luego, este código se puede pasar al método `acquire_token_by_authorization_code` a fin de obtener el token.
 
 ```Python
 result = None
@@ -401,47 +402,47 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 ## <a name="integrated-windows-authentication"></a>Autenticación integrada de Windows
 
-Si quiere iniciar la sesión de un usuario de dominio en una máquina unida a un dominio o a Azure AD, deberá usar la autenticación integrada de Windows.
+Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio o a Azure AD, use la autenticación integrada de Windows (IWA).
 
 ### <a name="constraints"></a>Restricciones
 
-- La autenticación integrada de Windows (IWA) solo es útil para usuarios **federados**, es decir, los usuarios creados en Active Directory y respaldados por Azure Active Directory. Los usuarios creados directamente en AAD, sin el respaldo de AD (**usuarios administrados**) no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de usuario y contraseña.
-- IWA es para las aplicaciones escritas para las plataformas .NET Framework, .NET Core y UWP.
-- IWA no omite la MFA (autenticación multifactor). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
+- La autenticación integrada de Windows solo es útil para usuarios *federados*, es decir, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory, conocidos como usuarios *administrados*, no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de nombre de usuario y contraseña.
+- IWA es para aplicaciones escritas para las plataformas .NET Framework, .NET Core y Plataforma universal de Windows (UPW).
+- IWA no omite la autenticación multifactor (MFA). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
   > [!NOTE]
-  > Esto es complicado. IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no controla cuándo el proveedor de identidades solicita que se realice MFA, el administrador de inquilinos sí. Por lo que se ha observado, MFA se requiere al iniciar sesión desde un país o región diferente, cuando no está conectado a través de una VPN a una red corporativa y, a veces, incluso cuando se conecta a través de una VPN. No espere un conjunto de reglas determinista, Azure Active Directory usa la inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, debería recurrir a una solicitud de usuario (autenticación interactiva o flujo de código de dispositivo).
+  > Esto es complicado. IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no es quien controla si el proveedor de identidades solicita que se realice MFA, sino el administrador de inquilinos. Por lo que se ha observado, MFA se requiere al iniciar sesión desde otro país, cuando no se está conectado a través de VPN a una red corporativa y, a veces, incluso cuando se está. No espere un conjunto determinista de reglas. Azure AD usa inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, recurra a un mensaje de usuario como la autenticación interactiva o el flujo de código de dispositivo.
 
-- La autoridad que se pasa en `PublicClientApplicationBuilder` debe ser:
-  - Con inquilino (del tipo `https://login.microsoftonline.com/{tenant}/` donde `tenant` es el GUID que representa el identificador del inquilino o un dominio asociado con el inquilino).
-  - Para las cuentas profesionales y educativas (`https://login.microsoftonline.com/organizations/`).
-  - No se admiten las cuentas de Microsoft personales (no se pueden usar los inquilinos /common ni /consumers).
+- La autoridad pasada en `PublicClientApplicationBuilder` debe ser:
+  - Con inquilino con formato `https://login.microsoftonline.com/{tenant}/`, donde `tenant` es el GUID que representa el identificador de inquilino o un dominio asociado al inquilino.
+  - Para cualquier [cuenta profesional y educativa](`https://login.microsoftonline.com/organizations/`).
+  - No se admiten cuentas personales de Microsoft. No se pueden usar inquilinos /common ni /consumers.
 
 - Debido a que la autenticación integrada de Windows es un flujo silencioso:
-  - el usuario de la aplicación debe haber consentido anteriormente para usar la aplicación,
-  - o bien el administrador de inquilinos debe haber consentido anteriormente a todos los usuarios en el inquilino para que usen la aplicación.
+  - El usuario de la aplicación debe haber consentido anteriormente para usar la aplicación.
+  - O bien, el administrador de inquilinos debe haber consentido anteriormente que todos los usuarios del inquilino usen la aplicación.
   - En otras palabras:
-    - ya sea que, como desarrollador, ha hecho clic el botón **Conceder** en Azure Portal usted mismo;
-    - o que un administrador de inquilinos hizo clic en el botón **Conceder o revocar consentimiento del administrador para {dominio del inquilino}** en la pestaña **Permisos de API** del registro para la aplicación. (Vea [Adición de credenciales a la aplicación web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis));
-    - o se ha proporcionado una manera para que los usuarios den su consentimiento a la aplicación. (Vea [Solicitud de consentimiento de usuario individual](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent));
-    - o bien se ha proporcionado una forma para que el administrador de inquilinos dé su consentimiento para la aplicación. (Vea [Consentimiento de administrador](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant)).
+    - Usted como desarrollador ha hecho clic en el botón **Conceder** de Azure Portal.
+    - O bien, un administrador de inquilinos ha hecho clic en el botón **Conceder o revocar consentimiento del administrador para {dominio del inquilino}** de la pestaña **Permisos de API** del registro de la aplicación. Para más información, consulte [Adición de permisos para acceder a las API web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
+    - O bien, ha proporcionado una manera para que los usuarios den su consentimiento a la aplicación. Para más información, consulte [Solicitud de consentimiento de usuario individual](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
+    - O bien, ha proporcionado una forma para que el administrador de inquilinos otorgue su consentimiento a la aplicación. Para más información, consulte [Consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
 
-- Este flujo está habilitado para el escritorio. NET, .NET Core y aplicaciones de la Plataforma universal de Windows (UWP).
+- Este flujo está habilitado para aplicaciones de escritorio de .NET, .NET Core y UWP.
 
-Para más información sobre el consentimiento, consulte [Permisos y consentimientos de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Para más información sobre el consentimiento, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
 
-### <a name="how-to-use-it"></a>Cómo usarlo
+### <a name="learn-how-to-use-it"></a>Aprenda a usarlo
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-En MSAL.NET, debe usar
+En MSAL.NET, debe usar:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-Normalmente solo necesita un parámetro (`scopes`). Pero dependiendo de cómo haya configurado las directivas el administrador de Windows, es posible que no se permita que las aplicaciones en el equipo de Windows busquen el usuario que ha iniciado sesión. En ese caso, utilice un segundo método `.WithUsername()` y pase el nombre de usuario del usuario que ha iniciado sesión como un formato UPN: `joe@contoso.com`. En .NET Core solo está disponible la sobrecarga al tomar el nombre de usuario, ya que la plataforma .NET Core no puede pedir el nombre de usuario al sistema operativo.
+Normalmente solo necesita un parámetro (`scopes`). Según la forma en que el administrador de Windows configure las directivas, es posible que no se permita que las aplicaciones de la máquina Windows busquen al usuario que ha iniciado sesión. En ese caso, use un segundo método, `.WithUsername()`, y pase el nombre de usuario del usuario que ha iniciado sesión con un formato UPN, por ejemplo, `joe@contoso.com`. En .NET Core, solo está disponible la sobrecarga que toma el nombre de usuario, ya que la plataforma .NET Core no puede pedir el nombre de usuario al sistema operativo.
 
-El ejemplo siguiente presenta el caso más reciente, con explicaciones de la clase de excepciones que se pueden obtener y sus mitigaciones:
+El ejemplo siguiente presenta el caso más reciente, con explicaciones de la clase de excepciones que se pueden obtener y sus mitigaciones.
 
 ```csharp
 static async Task GetATokenForGraph()
@@ -520,11 +521,11 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Para obtener la lista de posibles modificadores en AcquireTokenByIntegratedWindowsAuthentication, vea [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods).
+Para obtener la lista de posibles modificadores en AcquireTokenByIntegratedWindowsAuthentication, consulte [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods).
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Se trata de un extracto de los [ejemplos de desarrollo de Java de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/). Esta es la clase que se usa en los ejemplos de desarrollo de Java de MSAL para configurar los ejemplos: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Este extracto procede de los [ejemplos de desarrollo de Java de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/). Esta es la clase que se usa en los ejemplos de desarrollo de Java de MSAL para configurar los ejemplos: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
 PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
@@ -554,41 +555,40 @@ Este flujo no se aplica a MacOS.
 
 ---
 
-## <a name="username--password"></a>Nombre de usuario y contraseña
+## <a name="username-and-password"></a>Nombre de usuario y contraseña
 
 También puede adquirir un token proporcionando el nombre de usuario y la contraseña. Este flujo es limitado y no se recomienda, pero hay casos de uso donde es necesario.
 
 ### <a name="this-flow-isnt-recommended"></a>Este flujo no es recomendable.
 
-**No se recomienda** este flujo porque no es seguro que la aplicación le pida al usuario la contraseña. Para más información sobre este problema, consulte [este artículo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). El flujo preferido para adquirir un token de forma silenciosa en equipos unidos a un dominio de Windows es la [autenticación integrada de Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). En caso contrario, también puede usar el [flujo de código de dispositivo](https://aka.ms/msal-net-device-code-flow).
+*No se recomienda* este flujo porque no es seguro que la aplicación le pida a un usuario la contraseña. Para más información, consulte [What's the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) (¿Cuál es la solución al creciente problema de las contraseñas?). El flujo preferido para adquirir un token de forma silenciosa en equipos unidos a un dominio de Windows es la [autenticación integrada de Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). También puede usar [flujo de código de dispositivo](https://aka.ms/msal-net-device-code-flow).
 
 > [!NOTE]
-> Aunque esto es útil en algunos casos (escenarios de DevOps), si quiere usar el nombre de usuario y contraseña en escenarios interactivos donde proporciona su propia interfaz de usuario, debería pensar cómo evitarlo. A usar el nombre de usuario y contraseña se están descuidando varias cosas:
+> El empleo de un nombre de usuario y una contraseña resulta útil en algunos casos, como los escenarios de DevOps. Pero si quiere usar un nombre de usuario y una contraseña en escenarios interactivos en los que proporciona su propia interfaz de usuario, piense en cómo dejar de hacerlo. Al usar un nombre de usuario y una contraseña, está renunciando a una serie de cosas:
 >
-> - Inquilinos principales de identidad moderna: la contraseña se busca y se reproduce. Dado que tenemos este concepto de secreto compartido que se puede interceptar,
-> es incompatible con el inicio de sesión sin contraseña.
-> - Los usuarios que necesitan realizar MFA no podrán iniciar sesión (ya que no hay ninguna interacción).
-> - Los usuarios no podrán realizar el inicio de sesión único.
+> - Principios básicos de identidad moderna. Una contraseña puede ser objeto de suplantación de identidad (phishing) y reproducción porque un secreto compartido se puede interceptar. No es compatible con el inicio de sesión sin contraseña.
+> - Los usuarios que necesitan realizar MFA no pueden iniciar sesión porque no hay interacción.
+> - Los usuarios no pueden realizar inicio de sesión único (SSO).
 
 ### <a name="constraints"></a>Restricciones
 
 También se aplican las restricciones siguientes:
 
-- El flujo de usuario y contraseña no es compatible con el acceso condicional ni la autenticación multifactor. Como consecuencia, si la aplicación se ejecuta en un inquilino de Azure AD donde el administrador de inquilinos requiere la autenticación multifactor, no se puede usar este flujo. Muchas organizaciones hacen eso.
-- Funciona únicamente para las cuentas profesionales y educativas (no las MSA).
+- El flujo de nombre de usuario y contraseña no es compatible con el acceso condicional ni la autenticación multifactor. Por eso, si la aplicación se ejecuta en un inquilino de Azure AD donde el administrador de inquilinos exige autenticación multifactor, no se puede usar este flujo. Muchas organizaciones hacen eso.
+- Solo funciona para las cuentas profesionales y educativas (no MSA).
 - El flujo está disponible en el escritorio de .NET y .NET Core, pero no en UWP.
 
 ### <a name="b2c-specifics"></a>Características específicas de B2C
 
-[Más información sobre el uso de ROPC con B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c).
+Para más información, consulte [Credenciales de contraseña del propietario del recurso (ROPC) con B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c).
 
-### <a name="how-to-use-it"></a>Cómo usarlo
+### <a name="use-it"></a>Uso
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 `IPublicClientApplication` contiene el método `AcquireTokenByUsernamePassword`.
 
-El ejemplo siguiente presenta un caso simplificado:
+El ejemplo siguiente presenta un caso simplificado.
 
 ```csharp
 static async Task GetATokenForGraph()
@@ -629,7 +629,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-El ejemplo siguiente presenta el caso más reciente, con explicaciones de la clase de excepciones que se pueden obtener y sus mitigaciones:
+El ejemplo siguiente presenta el caso más reciente, con explicaciones de la clase de excepciones que se pueden obtener y sus mitigaciones.
 
 ```csharp
 static async Task GetATokenForGraph()
@@ -791,11 +791,11 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Para obtener más información sobre todos los modificadores que se pueden aplicar a `AcquireTokenByUsernamePassword`, vea [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods).
+Para más información sobre todos los modificadores que se pueden aplicar a `AcquireTokenByUsernamePassword`, consulte [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods).
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Se trata de un extracto de los [ejemplos de desarrollo de Java de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/). Esta es la clase que se usa en los ejemplos de desarrollo de Java de MSAL para configurar los ejemplos: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+El siguiente extracto procede de los [ejemplos de desarrollo de Java de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/). Esta es la clase que se usa en los ejemplos de desarrollo de Java de MSAL para configurar los ejemplos: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
 PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
@@ -842,7 +842,7 @@ future.handle((res, ex) -> {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Se trata de un extracto de los [ejemplos de desarrollo de Python de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
+Este extracto procede de los [ejemplos de desarrollo de Python de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
 
 ```Python
 # Create a preferably long-lived app instance which maintains a token cache.
@@ -876,19 +876,19 @@ Este flujo no se admite en MSAL para macOS.
 
 ---
 
-## <a name="command-line-tool-without-web-browser"></a>Herramienta de línea de comandos (sin un explorador web)
+## <a name="command-line-tool-without-a-web-browser"></a>Herramienta de línea de comandos sin un explorador web
 
 ### <a name="device-code-flow"></a>Flujo de código de dispositivo
 
-Si va a escribir una herramienta de línea de comandos (que no tiene controles web) y no puede o no quiere usar los flujos anteriores, deberá usar el flujo de código de dispositivo.
+Si va a escribir una herramienta de línea de comandos que no tenga controles web y no puede o no quiere usar los flujos anteriores, debe usar el flujo de código de dispositivo.
 
-La autenticación interactiva con Azure AD requiere un explorador web (para obtener más detalles, vea [Uso de exploradores web](https://aka.ms/msal-net-uses-web-browser)). Pero para autenticar a usuarios en dispositivos o sistemas operativos que no proporcionan un explorador web, el flujo de código de dispositivo permite al usuario usar otro dispositivo (por ejemplo, otro equipo o un teléfono móvil) para iniciar sesión de forma interactiva. Al usar flujo de código de dispositivo, la aplicación obtiene los tokens a través de un proceso de dos pasos diseñado especialmente para estos dispositivos o sistemas operativos. Entre algunos ejemplos de estas aplicaciones se incluyen aquellas que se ejecutan en IoT o herramientas de línea de comandos (CLI). La idea es la siguiente:
+La autenticación interactiva con Azure AD requiere un explorador web. Para más información, consulte [Uso de exploradores web](https://aka.ms/msal-net-uses-web-browser). Para autenticar a los usuarios en dispositivos o sistemas operativos que no proporcionan un explorador web, el flujo de código de dispositivo permite al usuario usar otro dispositivo, como un equipo o un teléfono móvil, para iniciar sesión de forma interactiva. Con el flujo de código de dispositivo, la aplicación obtiene tokens mediante un proceso de dos pasos diseñado para estos dispositivos o sistemas operativos. Ejemplos de estas aplicaciones son aquellas que se ejecutan en iOT o herramientas de línea de comandos (CLI). La idea es la siguiente:
 
-1. Cada vez que se requiera autenticación del usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a Internet) para ir a una dirección URL (por ejemplo, `https://microsoft.com/devicelogin`), donde se le pedirá al usuario que escriba el código. Una vez hecho eso, la página web llevará al usuario por una experiencia de autenticación normal, como peticiones de consentimiento y autenticación multifactor, si es necesario.
+1. Cada vez que se necesita autenticación de usuario, la aplicación proporciona un código para el usuario. Se pide al usuario que use otro dispositivo, como un smartphone conectado a Internet, para ir a una dirección URL, por ejemplo, `https://microsoft.com/devicelogin`. Luego se pide al usuario que escriba el código. Una vez hecho eso, la página web lleva al usuario a una experiencia de autenticación normal, que incluye peticiones de consentimiento y autenticación multifactor, en caso necesario.
 
-2. Tras una autenticación correcta, la aplicación de línea de comandos recibirá los tokens necesarios a través de un canal posterior y los usará para realizar las llamadas a la API web que necesita.
+2. Tras una autenticación correcta, la aplicación de línea de comandos recibe los tokens necesarios a través de un canal posterior y los usa para realizar las llamadas a la API web que necesita.
 
-### <a name="how-to-use"></a>Modo de uso
+### <a name="use-it"></a>Uso
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -901,12 +901,12 @@ La autenticación interactiva con Azure AD requiere un explorador web (para obte
 
 Este método toma como parámetros:
 
-- Los `scopes` para los que solicitar un token de acceso
-- Una devolución de llamada que recibirá el `DeviceCodeResult`
+- Los elementos `scopes` para los que solicitar un token de acceso.
+- Una devolución de llamada que recibe `DeviceCodeResult`.
 
-  ![imagen](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
+  ![Propiedades de DeviceCodeResult](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
-El código de ejemplo siguiente presenta el caso más reciente, con explicaciones de la clase de excepciones que se pueden obtener y sus mitigaciones:
+El código de ejemplo siguiente presenta el caso más reciente, con explicaciones de la clase de excepciones que se pueden obtener y su mitigación.
 
 ```csharp
 private const string ClientId = "<client_guid>";
@@ -997,7 +997,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
 ```
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Se trata de un extracto de los [ejemplos de desarrollo de Java de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/). Esta es la clase que se usa en los ejemplos de desarrollo de Java de MSAL para configurar los ejemplos: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Este extracto procede de los [ejemplos de desarrollo de Java de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/). Esta es la clase que se usa en los ejemplos de desarrollo de Java de MSAL para configurar los ejemplos: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```java
 PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
@@ -1030,7 +1030,7 @@ future.join();
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Se trata de un extracto de los [ejemplos de desarrollo de Python de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
+Este extracto procede de los [ejemplos de desarrollo de Python de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
 
 ```Python
 # Create a preferably long-lived app instance which maintains a token cache.
@@ -1089,35 +1089,35 @@ Este flujo no se aplica a MacOS.
 
 En MSAL.NET, se proporciona una caché de tokens en memoria de forma predeterminada.
 
-### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-appsweb-apis"></a>La serialización de las aplicaciones de escritorio de Windows y las aplicaciones web o API web es personalizable.
+### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-apps-or-web-apis"></a>La serialización de las aplicaciones de escritorio de Windows y las aplicaciones web o API web es personalizable.
 
-En el caso de .NET Framework y .NET Core, si no hace nada más, la caché de tokens en memoria permanece durante la duración de la aplicación. Para entender por qué no se proporciona la serialización de fábrica, recuerde que las aplicaciones de escritorio/principales de MSAL .NET pueden ser aplicaciones de consola o de Windows (que tendrían acceso al sistema de archivos), **pero también** aplicaciones web o API web. Estas aplicaciones web y API web pueden usar algunos mecanismos de caché específicos, como bases de datos, memorias caché distribuidas, cachés de Redis Cache, etc. Para que haya una aplicación de la caché de tokens de forma constante en el escritorio de .NET o en .NET Core, es preciso personalizar la serialización.
+En el caso de .NET Framework y .NET Core, si no hace nada más, la caché de tokens en memoria permanece mientras dura la aplicación. Para entender por qué no se proporciona serialización de serie, recuerde que las aplicaciones de escritorio de MSAL.NET o .NET Core pueden ser aplicaciones de consola o Windows (que tendrían acceso al sistema de archivos), *pero también* aplicaciones web o API web. Estas aplicaciones web y API web pueden usar algunos mecanismos de caché específicos, como bases de datos, cachés distribuidas y cachés en Redis. Para que haya una aplicación de caché de tokens persistente en el escritorio de .NET o .NET Core, es preciso personalizar la serialización.
 
 Las clases e interfaces implicadas en la serialización de la caché de tokens son de los tipos siguientes:
 
-- ``ITokenCache``, que define eventos para suscribirse a las solicitudes de serialización de la caché de tokens, así como métodos para serializar o deserializar la memoria caché en diversos formatos (ADAL v3.0, MSAL 2.x y MSAL 3.x = ADAL v5.0).
+- ``ITokenCache``, que define eventos para suscribirse a las solicitudes de serialización de la caché de tokens, así como métodos para serializar o deserializar la caché en diversos formatos (ADAL v3.0, MSAL 2.x y MSAL 3.x = ADAL v5.0).
 - ``TokenCacheCallback`` es una devolución de llamada que se pasa a los eventos para que pueda controlar la serialización. Se les llamará con argumentos del tipo ``TokenCacheNotificationArgs``.
-- ``TokenCacheNotificationArgs`` sólo proporciona el ``ClientId`` de la aplicación y una referencia al usuario para el que está disponible el token.
+- ``TokenCacheNotificationArgs`` solo proporciona el elemento ``ClientId`` de la aplicación y una referencia al usuario para el que está disponible el token.
 
-  ![imagen](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
+  ![Diagrama de serialización de la caché de tokens](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
 > MSAL.NET crea automáticamente las cachés de tokens y le ofrece la caché de `IToken` cuando se llama a las propiedades `UserTokenCache` y `AppTokenCache` de una aplicación. Se supone que no va a implementar la interfaz usted mismo. Su responsabilidad al implementar una serialización de caché de tokens personalizada es:
 >
-> - Reaccione ante "eventos" `BeforeAccess` y `AfterAccess` (o sus homólogos *asincrónicos*). El delegado de `BeforeAccess` es el responsable de deserializar la memoria caché, mientras que `AfterAccess` es el de serializarla.
-> - Una parte de estos eventos almacena o carga blobs, que se pasan a través del argumento del evento al almacenamiento que se desee.
+> - Reaccionar a los eventos `BeforeAccess` y `AfterAccess`, o sus homólogos *asincrónicos*. El delegado `BeforeAccess` es responsable de deserializar la caché. El delegado `AfterAccess` es responsable de serializar la caché.
+> - Entender que parte de estos eventos almacenan o cargan blobs que se pasan a través del argumento del evento al almacenamiento que se quiera.
 
-Las estrategias son diferentes en función de si se escribe una serialización de la caché de tokens para un aplicación cliente pública (escritorio) o un aplicación cliente confidencial (aplicación web/API web o aplicación de demonio).
+Las estrategias varían en función de si se escribe una serialización de la caché de tokens para una aplicación cliente pública, como un equipo de escritorio, o una aplicación cliente confidencial, como una aplicación web, API web o aplicación de demonio.
 
-A partir de MSAL V2.x tiene varias opciones, dependiendo de si quiere serializar la memoria caché solo para el formato de MSAL.NET (caché de formato unificado común a MSAL, pero también a todas las plataformas), o si también quiere admitir la serialización de caché de tokens [heredada](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) de ADAL V3.
+A partir de MSAL v2.x, tiene varias opciones. La elección depende de si quiere serializar la caché solo al formato de MSAL.NET, que es una caché de formato unificado común con MSAL pero también el resto de plataformas. O bien, es posible que además quiera admitir la serialización de la caché de tokens [heredada](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) de ADAL v3.
 
-La personalización de la serialización de la caché de tokens para compartir el estado de SSO entre ADAL.NET 3.x, ADAL.NET 5.x y MSAL.NET se explica en una parte del ejemplo siguiente: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2).
+La personalización de la serialización de la caché de tokens para compartir el estado de SSO entre ADAL.NET 3.x, ADAL.NET 5.x y MSAL.NET se explica en parte del ejemplo [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2).
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>Serialización de la caché de tokens simple (solo MSAL)
 
-A continuación encontrará un ejemplo de una implementación sencilla de serialización personalizada de una caché de tokens para aplicaciones de escritorio. En este caso, la caché de tokens de usuario es un archivo que está en la misma carpeta que la aplicación.
+El siguiente ejemplo es una implementación sencilla de serialización personalizada de una caché de tokens para aplicaciones de escritorio. En él, la caché de tokens de usuario está en un archivo de la misma carpeta que la aplicación.
 
-Después de compilar la aplicación, para habilitar la serialización llame a ``TokenCacheHelper.EnableSerialization()`` y use la aplicación `UserTokenCache`.
+Después de compilar la aplicación, se llama a ``TokenCacheHelper.EnableSerialization()`` y se pasa la aplicación `UserTokenCache` para habilitar la serialización.
 
 ```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
@@ -1175,14 +1175,14 @@ static class TokenCacheHelper
  }
 ```
 
-Hay una versión preliminar de un serializador basado en archivos de la caché de tokens con calidad de producto para aplicaciones cliente públicas (para aplicaciones de escritorio que se ejecutan en Windows, Mac y Linux) disponible en la biblioteca de código abierto [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal). La puede incluir en sus aplicaciones desde el siguiente paquete NuGet: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Hay una versión preliminar de un serializador basado en archivos de la caché de tokens con calidad de producto para aplicaciones cliente públicas para aplicaciones de escritorio que se ejecutan en Windows, Mac y Linux disponible en la biblioteca de código abierto [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal). La puede incluir en las aplicaciones desde el siguiente paquete NuGet: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 > [!NOTE]
-> Declinación de responsabilidades. La biblioteca Microsoft.Identity.Client.Extensions.Msal es una extensión sobre MSAL.NET. Las clases de estas bibliotecas podrían llegar a MSAL.NET en el futuro, tal como están o con cambios importantes.
+> Declinación de responsabilidades: La biblioteca Microsoft.Identity.Client.Extensions.Msal es una extensión de MSAL.NET. Las clases de estas bibliotecas podrían llegar a MSAL.NET en el futuro, tal como están o con cambios importantes.
 
-### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Serialización de la caché de tokens dual (caché unificada de MSAL y ADAL V3)
+### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Serialización de la caché de tokens dual (caché unificada de MSAL y ADAL v3)
 
-Si quiere implementar la serialización de la caché de tokens tanto con el formato de caché unificado (común a ADAL.NET 4.x y MSAL.NET 2.x, y a otras MSAL de la misma generación, o anteriores, que se encuentran en la misma plataforma), puede que el código siguiente le ayude:
+Es posible que quiera implementar la serialización de la caché de tokens con el formato de caché unificada. Este formato es común a ADAL.NET 4.x y MSAL.NET 2.x, además de otras MSAL de la misma generación o anterior, de la misma plataforma. Inspírese con el siguiente código:
 
 ```csharp
 string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;

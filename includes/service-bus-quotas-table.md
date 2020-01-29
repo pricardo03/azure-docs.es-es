@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ab17d86251be6a0ef2452b258acf8d055b4605db
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: c8412a01f4a5056b352b1d985f36e5a51a25a649
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561515"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76158934"
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Azure Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, vea [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Nombre de cuota | Ámbito | Notas | Valor |
+| Nombre de cuota | Ámbito | Notas | Value |
 | --- | --- | --- | --- |
 | Número máximo de espacios de nombres Básico o Estándar por suscripción de Azure |Espacio de nombres |Azure Portal rechaza las solicitudes posteriores de espacios de nombres Básico o Estándar adicionales. |100|
 | Número máximo de espacios de nombres Premium por suscripción de Azure |Espacio de nombres |El portal rechaza las solicitudes posteriores de espacios de nombres Premium adicionales. |100 |
@@ -32,8 +32,8 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 | Tamaño máximo de un [identificador de sesión](/dotnet/api/microsoft.azure.servicebus.message.sessionid) de mensaje | Entidad |- | 128 |
 | Tamaño de mensaje de una cola, un tema o una entidad de suscripción |Entidad |Los mensajes entrantes que superan estas cuotas se rechazan y el código que llama recibe una excepción. |Tamaño de mensaje máximo: 256 KB para el [nivel Estándar](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB para el [nivel Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Debido a la sobrecarga del sistema, este límite es menor que estos valores.<br /><br />Tamaño de encabezado máximo: 64 KB.<br /><br />Número máximo de propiedades de encabezado en el contenedor de propiedades: **byte/int.MaxValue**.<br /><br />Tamaño máximo de la propiedad en el contenedor de propiedades: sin límite explícito. Limitado por tamaño de encabezado máximo. |
 | Tamaño de propiedad de mensaje para una cola, un tema o una entidad de suscripción |Entidad | Se genera la excepción **SerializationException**. |El tamaño máximo de propiedad de mensaje para cada propiedad es 32 000. El tamaño acumulado de todas las propiedades no puede superar 64 000. Este límite se aplica a todo el encabezado de [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), que contiene tanto las propiedades de usuario como las propiedades del sistema, como [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label) y [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
-| Número de suscripciones por tema |Entidad |Se rechazan las posteriores solicitudes de creación de suscripciones adicionales para el tema. Como resultado, si se configura a través del portal, se muestra un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |2000 por tema para el nivel Básico o Estándar. |
-| Número de filtros SQL por tema |Entidad |Se rechazan las posteriores solicitudes de creación de filtros adicionales en el tema y el código que llama recibe una excepción. |2\.000 |
+| Número de suscripciones por tema |Entidad |Se rechazan las posteriores solicitudes de creación de suscripciones adicionales para el tema. Como resultado, si se configura a través del portal, se muestra un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |2000 por tema para el nivel Estándar. |
+| Número de filtros SQL por tema |Entidad |Se rechazan las posteriores solicitudes de creación de filtros adicionales en el tema y el código que realiza la llamada recibe una excepción. |2\.000 |
 | Número de filtros de correlación por tema |Entidad |Se rechazan las posteriores solicitudes de creación de filtros adicionales en el tema y el código que realiza la llamada recibe una excepción. |100 000 |
 | Tamaño de filtros o acciones SQL |Espacio de nombres |Se rechazan las posteriores solicitudes de creación de filtros adicionales y el código que realiza la llamada recibe una excepción. |Longitud máxima de la cadena de condición de filtro: 1024 (1 K).<br /><br />Longitud máxima de la cadena de acción de regla: 1024 (1 K).<br /><br />Número máximo de expresiones por acción de regla: 32. |
 | Número de reglas [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) por espacio de nombres, cola o tema |Entidad, espacio de nombres |Se rechazan las posteriores solicitudes de creación de reglas adicionales en el tema y el código que llama recibe una excepción. |Número máximo de reglas: 12. <br /><br /> Las reglas que se configuran en un espacio de nombres de Service Bus se aplican a todas las colas y temas de dicho espacio de nombres. |

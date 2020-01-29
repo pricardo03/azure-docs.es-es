@@ -1,26 +1,18 @@
 ---
-title: Protección de instancias para las instancias del conjunto de escalado de máquinas virtuales| Microsoft Docs
+title: Protección de las instancias del conjunto de escalado de máquinas virtuales de Azure
 description: Obtenga información sobre cómo proteger instancias del conjunto de escalado de máquinas virtuales de Azure contra operaciones de reducción horizontal y conjunto de escalado.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 071ea79f4d288e86cc5b9347f8607b4ff7190bc1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416552"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275803"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protección de instancias para las instancias del conjunto de escalado de máquinas virtuales (versión preliminar)
 Los conjuntos de escalado de máquinas virtuales de Azure permiten una mejor elasticidad para las cargas de trabajo mediante [Escalabilidad automática](virtual-machine-scale-sets-autoscale-overview.md), de manera que puede realizar configuraciones cuando la infraestructura se escala horizontalmente y cuando se reduce horizontalmente. Los conjuntos de escalado permiten administrar, configurar y actualizar de manera central una gran cantidad de máquinas virtuales mediante distintas configuraciones de [directiva de actualización](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model). Puede configurar una actualización en el modelo del conjunto de escalado y la nueva configuración se aplica automáticamente a cada instancia del conjunto de escalado si se ha configurado la directiva de actualización en Automática o Revirtiendo.

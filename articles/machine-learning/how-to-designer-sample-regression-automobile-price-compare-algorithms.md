@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: f8cf20743ee5420312ed751a26796a0859956ae7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b2511feefbe419223f355509ecb435518ce8382e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771451"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311060"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Entrenamiento y comparación de varios modelos de regresión para predecir los precios de automóviles con el diseñador de Azure Machine Learning
 
-**Ejemplo 2 del diseñador (versión preliminar)**
+**Ejemplo de diseñador 2**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Obtenga más información sobre compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar). En este ejemplo se entrenan y se comparan varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas. Le mostraremos la justificación de las opciones elegidas en esta canalización de manera que pueda superar los problemas de aprendizaje automático que se le presenten.
+Aprenda a compilar una canalización de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador. En este ejemplo se entrenan y se comparan varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas. Le mostraremos la justificación de las opciones elegidas en esta canalización de manera que pueda superar los problemas de aprendizaje automático que se le presenten.
 
 Si acaba de empezar a trabajar con el aprendizaje automático, eche un vistazo a la [versión básica](how-to-designer-sample-regression-automobile-price-basic.md) de esta canalización.
 

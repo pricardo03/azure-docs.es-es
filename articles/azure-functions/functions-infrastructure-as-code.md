@@ -4,12 +4,13 @@ description: Obtenga información sobre cómo crear una plantilla de Azure Resou
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8a3d8c8769ff5026ec1dde98f3c4167aac302bf8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978804"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292950"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -128,6 +129,7 @@ El recurso de aplicación de funciones se define mediante un recurso de tipo **M
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
     ]
+}
 ```
 
 > [!IMPORTANT]
@@ -137,9 +139,9 @@ Una aplicación de funciones debe incluir esta configuración de la aplicación:
 
 | Nombre del valor                 | Descripción                                                                               | Valores de ejemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | Cadena de conexión a una cuenta de almacenamiento que el tiempo de ejecución de Functions usará para la cola interna. | Consulte [Cuenta de almacenamiento](#storage).       |
+| AzureWebJobsStorage          | Cadena de conexión a una cuenta de almacenamiento que Functions Runtime usará para la cola interna | Consulte [Cuenta de almacenamiento](#storage).       |
 | FUNCTIONS_EXTENSION_VERSION  | Versión del entorno de ejecución de Azure Functions.                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | Pila de lenguaje que se usará para las funciones de esta aplicación.                                   | `dotnet`, `node`, `java` o `python` |
+| FUNCTIONS_WORKER_RUNTIME     | Pila de lenguaje que se usará para las funciones de esta aplicación.                                   | `dotnet`, `node`, `java`, `python` o `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Solo es necesario si usa la pila de lenguaje `node` y especifica la versión que se usará.              | `10.14.1`                             |
 
 Estas propiedades se especifican en la colección `appSettings` de la propiedad `siteConfig`:
@@ -173,7 +175,7 @@ Estas propiedades se especifican en la colección `appSettings` de la propiedad 
 
 ## <a name="deploy-on-consumption-plan"></a>Implementación en el plan de consumo
 
-El plan de consumo asigna automáticamente capacidad de proceso cuando se ejecuta el código, se amplía horizontalmente cuando es necesario para gestionar la carga y se reduce horizontalmente cuando no se ejecuta código. No tiene que pagar por VM inactivas y no tiene que reservar capacidad de antemano. Para más información, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md#consumption-plan).
+El plan de consumo asigna automáticamente potencia de proceso cuando se ejecuta código, se escala horizontalmente cuando es necesario para gestionar la carga y se reduce horizontalmente cuando no se ejecuta código. No tiene que pagar por VM inactivas y no tiene que reservar capacidad de antemano. Para más información, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md#consumption-plan).
 
 Para obtener una plantilla de Azure Resource Manager de ejemplo, vea [Aplicación de función en el plan de consumo].
 

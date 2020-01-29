@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 591233154ab79b9493d77030727462bae68ea7d5
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497664"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152364"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelado de datos en la versión preliminar de Azure Time Series Insights
 
@@ -64,9 +64,9 @@ Para comenzar, seleccione la vista **Modelo** en la vista **Analizar** del explo
 
 ### <a name="delete-an-instance"></a>Eliminar una instancia
 
-1. Seleccione la instancia y después el icono **Eliminar**  o **de papelera**.
+1. Seleccione la instancia y después el icono de **eliminación** o el **icono de papelera**.
 
-   [![Elimine un tipo al seleccionar la opción Eliminar.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+   [![Seleccione Eliminar para eliminar una instancia.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
 
 1. Para confirmar la eliminación, seleccione **Eliminar**.
 

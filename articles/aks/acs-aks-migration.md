@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c4ed78dc9fd277fc61a923364519e338a9f720c2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889519"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290400"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar a Azure Kubernetes Service (AKS)
 
@@ -111,7 +111,7 @@ Para completar la migración, querrá dirigir los clientes a los nuevos servicio
 
 La migración de aplicaciones sin estado es el caso más sencillo. Aplique las definiciones de recurso (YAML o Helm) al nuevo clúster, asegúrese de que todo funciona según lo previsto y redirija el tráfico para activar el nuevo clúster.
 
-### <a name="considers-for-stateful-applications"></a>Consideraciones para las aplicaciones con estado
+### <a name="considerations-for-stateful-applications"></a>Consideraciones sobre las aplicaciones con estado
 
 Planee meticulosamente la migración de aplicaciones con estado para evitar la pérdida de datos o tiempos de inactividad inesperados.
 
@@ -161,7 +161,7 @@ Algunas herramientas de código abierto pueden ayudarle a crear discos administr
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Implementación de la configuración del clúster
 
-Se recomienda usar la canalización existente de integración continua (CI) y entrega continua (CD) para implementar una configuración válida conocida en AKS. Puede usar Azure Pipelines para [compilar e implementar las aplicaciones en AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops), clonar las tareas de implementación existentes y asegurarse de que `kubeconfig` apunte al nuevo clúster de AKS.
+Se recomienda usar la canalización existente de integración continua (CI) y entrega continua (CD) para implementar una configuración válida conocida en AKS. Puede usar Azure Pipelines para [compilar e implementar las aplicaciones en AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone las tareas de implementación existentes y asegúrese de que `kubeconfig` apunta al nuevo clúster de AKS.
 
 Si no es posible, exporte las definiciones de recursos desde el clúster de Kubernetes existente y luego aplíquelas a AKS. Puede usar `kubectl` para exportar objetos.
 
