@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186238"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159194"
 ---
 ## <a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
 
@@ -52,7 +52,69 @@ ping -S 10.0.0.5 hotmail.com
 >Para las configuraciones de IP secundarias, solo se puede hacer ping a Internet si la configuración tiene una dirección IP pública asociada. Para configuraciones de IP principales, no se requiere una dirección IP pública para hacer ping a Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
+
 Se recomienda revisar la documentación más reciente de la distribución de Linux. 
+
+1. Abra una ventana del terminal.
+2. Asegúrese de ser el usuario raíz. Si no lo es, escriba el siguiente comando:
+
+   ```bash
+   sudo -i
+   ```
+
+3. Actualice el archivo de configuración de la interfaz de red (suponiendo que sea "eth0").
+
+   * Mantenga el elemento de línea existente para dhcp. La dirección IP principal permanece configurada que estaba.
+   * Agregue una configuración para una dirección IP estática adicional con los siguientes comandos:
+
+     ```bash
+     cd /etc/network/interfaces.d/
+     ls
+     ```
+
+     Debería ver un archivo .cfg.
+4. Abra el archivo. Debería ver las siguientes líneas al final del archivo:
+
+   ```bash
+   auto eth0
+   iface eth0 inet dhcp
+   ```
+
+5. Agregue las líneas siguientes después de las que existen en este archivo:
+
+   ```bash
+   iface eth0 inet static
+   address <your private IP address here>
+   netmask <your subnet mask>
+   ```
+
+6. Guarde el archivo mediante el comando siguiente:
+
+   ```bash
+   :wq
+   ```
+
+7. Restablezca la interfaz de red con el comando siguiente:
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   > [!IMPORTANT]
+   > Si usa una conexión remota, ejecute ifdown e ifup en la misma línea.
+   >
+
+8. Compruebe que la dirección IP se agregue a la interfaz de red con el comando siguiente:
+
+   ```bash
+   ip addr list eth0
+   ```
+
+   Debería ver la dirección IP que agregó en la lista.
+
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04+)
+
+Ubuntu 18.04 y versiones posteriores han cambiado a `netplan` para la administración de red del sistema operativo. Se recomienda revisar la documentación más reciente de la distribución de Linux. 
 
 1. Abra una ventana del terminal.
 2. Asegúrese de ser el usuario raíz. Si no lo es, escriba el siguiente comando:
@@ -61,47 +123,43 @@ Se recomienda revisar la documentación más reciente de la distribución de Lin
     sudo -i
     ```
 
-3. Actualice el archivo de configuración de la interfaz de red (suponiendo que sea "eth0").
-
-   * Mantenga el elemento de línea existente para dhcp. La dirección IP principal permanece configurada que estaba.
-   * Agregue una configuración para una dirección IP estática adicional con los siguientes comandos:
-
-       ```bash
-       cd /etc/network/interfaces.d/
-       ls
-       ```
-
-     Debería ver un archivo .cfg.
-4. Abra el archivo. Debería ver las siguientes líneas al final del archivo:
+3. Cree un archivo para la segunda interfaz y ábralo en un editor de texto:
 
     ```bash
-    auto eth0
-    iface eth0 inet dhcp
+    vi /etc/netplan/60-static.yaml
     ```
 
-5. Agregue las líneas siguientes después de las que existen en este archivo:
+4. Agregue las líneas siguientes al archivo, reemplazando `10.0.0.6/24` por la dirección IP o máscara de red:
 
     ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    netmask <your subnet mask>
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.0.0.6/24
     ```
 
-6. Guarde el archivo mediante el comando siguiente:
+5. Guarde el archivo mediante el comando siguiente:
 
     ```bash
     :wq
     ```
 
-7. Restablezca la interfaz de red con el comando siguiente:
+6. Pruebe los cambios mediante [netplan try](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) para confirmar la sintaxis:
 
     ```bash
-    sudo ifdown eth0 && sudo ifup eth0
+    netplan try
     ```
 
-    > [!IMPORTANT]
-    > Si usa una conexión remota, ejecute ifdown e ifup en la misma línea.
-    >
+> [!NOTE]
+> `netplan try` aplicará los cambios de forma temporal y los revertirá después de 120 segundos. Si se produce una pérdida de conectividad, espere 120 segundos y vuelva a conectarse. En ese momento, los cambios se habrán revertido.
+
+7. Si no hay ningún problema con `netplan try`, aplique los cambios de configuración:
+
+    ```bash
+    netplan apply
+    ```
 
 8. Compruebe que la dirección IP se agregue a la interfaz de red con el comando siguiente:
 
@@ -109,8 +167,25 @@ Se recomienda revisar la documentación más reciente de la distribución de Lin
     ip addr list eth0
     ```
 
-    Debería ver la dirección IP que agregó en la lista.
+    Debería ver la dirección IP que agregó en la lista. Ejemplo:
 
+    ```bash
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
+        valid_lft forever preferred_lft forever
+        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
+        valid_lft forever preferred_lft forever
+    ```
+    
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS y otros)
 
 1. Abra una ventana del terminal.

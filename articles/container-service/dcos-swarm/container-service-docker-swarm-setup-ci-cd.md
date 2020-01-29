@@ -1,20 +1,18 @@
 ---
 title: (EN DESUSO) CI/CD con Azure Container Service y Swarm
 description: Uso de Azure Container Service con Docker Swarm, Azure Container Registry y Azure DevOps para proporcionar de forma continua una aplicación .NET Core de varios contenedores
-services: container-service
 author: jcorioland
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 11a6debe735459b617f6f93c3f67a32350dd4623
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598541"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549060"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(EN DESUSO) Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con Docker Swarm mediante Azure DevOps Services
 
@@ -22,7 +20,6 @@ ms.locfileid: "68598541"
 
 Uno de los mayores desafíos al desarrollar aplicaciones modernas para la nube es la posibilidad de proporcionar estas aplicaciones de forma continua. En este artículo, aprenderá a implementar una canalización completa de integración e implementación (CI/CD) continuas mediante Azure Container Service con la administración de Docker Swarm, Azure Container Registry y Azure Pipelines.
 
-Este artículo se basa en una aplicación sencilla, disponible en [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs), desarrollada con ASP.NET Core. La aplicación se compone de cuatro servicios diferentes: tres API web y un front-end web:
 
 ![Aplicación de ejemplo MyShop](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
 
@@ -41,7 +38,7 @@ Esta es una breve explicación de los pasos:
 1. Docker Swarm en el clúster extrae la última versión de las imágenes. 
 1. La nueva versión de la aplicación se implementa con Docker Compose. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, debe realizar las siguientes tareas:
 
@@ -53,7 +50,7 @@ Antes de comenzar este tutorial, debe realizar las siguientes tareas:
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
 
-También se necesita una máquina Ubuntu (14.04 o 16.04) que tenga instalado Docker. Azure DevOps Services utiliza esta máquina durante los procesos de Azure Pipelines. Una manera de crear esta máquina es usar la imagen disponible en [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
+También se necesita una máquina Ubuntu (14.04 o 16.04) que tenga instalado Docker. Azure DevOps Services utiliza esta máquina durante los procesos de Azure Pipelines. Una manera de crear esta máquina es usar la imagen disponible en Azure Marketplace. 
 
 ## <a name="step-1-configure-your-azure-devops-services-organization"></a>Paso 1: Configuración de la organización de Azure DevOps Services 
 
@@ -219,7 +216,7 @@ El flujo de trabajo de versión se compone de dos tareas que agrega.
 >Esta implementación incluye algún tiempo de inactividad porque se detendrán los servicios antiguos y se ejecutará el nuevo. Para evitar esto, realice una implementación Blue-Green.
 >
 
-## <a name="step-4-test-the-cicd-pipeline"></a>Paso 4 Prueba de la canalización de CI/CD
+## <a name="step-4-test-the-cicd-pipeline"></a>Paso 4. Prueba de la canalización de CI/CD
 
 Ahora que ha terminado con la configuración, es hora de probar esta nueva canalización de CI/CD. La manera más fácil de hacerlo es actualizar el código fuente y confirmar los cambios en el repositorio de GitHub. Unos pocos segundos después de insertar el código, verá una nueva compilación que se ejecuta en Azure DevOps Services. Una vez completada correctamente, se desencadenará una nueva versión y se implementará la nueva versión de la aplicación en el clúster de Azure Container Service.
 

@@ -1,25 +1,17 @@
 ---
-title: Administrar volúmenes de StorSimple (Update 3) | Microsoft Docs
+title: Administrar volúmenes de StorSimple (Update 3)
 description: Explica cómo agregar, modificar, supervisar y eliminar volúmenes de StorSimple y cómo desconectarlos en caso necesario.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634905"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278847"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar el servicio Administrador de dispositivos de StorSimple para administrar volúmenes (Update 3 o posterior)
 
@@ -120,7 +112,7 @@ Ya [creó un volumen](storsimple-8000-deployment-walkthrough-u2.md#step-6-create
       
        Si se aprovisiona un volumen anclado localmente de 8,5 TB (tamaño máximo permitido) en el dispositivo 8100, habrá agotado todo el espacio local disponible en él. No puede crear ningún volumen en capas desde ese punto en adelante, porque no hay ningún espacio local en el dispositivo para hospedar el espacio de trabajo del volumen en capas. Los volúmenes existentes en capas también afectan al espacio disponible. Por ejemplo, si tiene un dispositivo 8100 que ya cuenta con volúmenes en capas de aproximadamente 106 TB, solo 4 TB de espacio estarán disponibles para volúmenes anclados localmente.
 
-    6. En el campo **Hosts conectados**, haga clic en la flecha. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un ACR nuevo. Si elige un nuevo ACR, proporcione después un **Nombre** para el ACR y proporcione el **Nombre calificado iSCSI** (IQN) del host de Windows. Si no tiene el IQN, vaya a Obtener el IQN de un host de Windows Server. Haga clic en **Create**(Crear). Se creará un volumen con la configuración especificada.
+    6. En el campo **Hosts conectados**, haga clic en la flecha. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un ACR nuevo. Si elige un nuevo ACR, proporcione después un **Nombre** para el ACR y proporcione el **Nombre calificado iSCSI** (IQN) del host de Windows. Si no tiene el IQN, vaya a Obtener el IQN de un host de Windows Server. Haga clic en **Crear**. Se creará un volumen con la configuración especificada.
 
         ![Haga clic en Crear.](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
@@ -294,7 +286,7 @@ Siga estos pasos para eliminar un volumen.
 
 5. En la hoja **Eliminar**, revise y active la casilla del impacto de la eliminación de un volumen. Al eliminar un volumen, se pierden todos los datos que residen en él. 
 
-    ![Guardar y confirmar los cambios](./media/storsimple-8000-manage-volumes-u2/deletevol2.png)
+    ![Guardado y confirmación de los cambios](./media/storsimple-8000-manage-volumes-u2/deletevol2.png)
 
 6. Después de eliminar el volumen, la lista tabular de volúmenes se actualiza para indicar la eliminación.
 

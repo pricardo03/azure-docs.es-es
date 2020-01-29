@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7a3280e11d40a361c5a3305d71e58661b37b8bd1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563435"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510539"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementación de módulos de Azure IoT Edge desde Azure Portal
 
@@ -43,9 +43,9 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 1. En la sección **Módulos de IoT Edge** de la página, haga clic en **Agregar**.
 1. Fíjese en los tipos de módulos en el menú desplegable:
 
-   * **Módulo de IoT Edge**: proporcione el nombre del módulo y el identificador URI de la imagen de contenedor. Por ejemplo, el identificador URI de la imagen para el módulo SimulatedTemperatureSensor de ejemplo es `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Si la imagen del módulo está almacenada en un registro de contenedor privado, agregue las credenciales en esta página para tener acceso a la imagen. 
+   * **Módulo de IoT Edge**: proporcione el nombre del módulo y el identificador URI de la imagen de contenedor. Por ejemplo, el identificador URI de la imagen para el módulo SimulatedTemperatureSensor de ejemplo es `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Si la imagen del módulo está almacenada en un registro de contenedor privado, agregue las credenciales en esta página para tener acceso a la imagen.
    * **Módulo de Marketplace**: módulos hospedados en Azure Marketplace. Algunos módulos de Marketplace requieren una configuración adicional, por lo que debe revisar los detalles del módulo en la lista de [módulos de IoT Edge de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
-   * **Módulo de Azure Stream Analytics**: solo módulos generados a partir de una carga de trabajo de Azure Stream Analytics. 
+   * **Módulo de Azure Stream Analytics**: solo módulos generados a partir de una carga de trabajo de Azure Stream Analytics.
 
 1. Después de agregar un módulo, seleccione el nombre del módulo en la lista para abrir la configuración del módulo. Rellene los campos opcionales si es necesario. Para más información sobre las opciones de creación del contenedor, la directiva de reinicio y el estado deseado, consulte [Propiedades deseadas de EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Para más información sobre el módulo gemelo, consulte [Definición o actualización de las propiedades deseadas](module-composition.md#define-or-update-desired-properties).
 1. Si es necesario, repita los pasos del 5 al 8 para agregar módulos adicionales a la implementación.
@@ -53,7 +53,7 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 
 ### <a name="specify-routes"></a>Especificación de rutas
 
-En la pestaña **Rutas**, se define cómo se pasan los mensajes entre los módulos e IoT Hub. Los mensajes se construyen mediante pares de nombre-valor. De forma predeterminada, se proporciona una ruta llamada **route** y definida como **FROM /messages/* INTO $upstream**, que significa que cualquier mensaje de salida de cualquier módulo se envía a IoT Hub.  
+En la pestaña **Rutas**, se define cómo se pasan los mensajes entre los módulos e IoT Hub. Los mensajes se construyen mediante pares de nombre-valor. De forma predeterminada, se proporciona una ruta llamada **route** y se define como ***FROM /messages/\* INTO $upstream**, lo que significa que cualquier mensaje de salida de cualquier módulo se envía a IoT Hub.  
 
 Agregue o actualice las rutas con la información de [Declaración de rutas](module-composition.md#declare-routes) y, después, seleccione **Siguiente: Revisar y crear** para continuar al próximo paso del asistente.
 

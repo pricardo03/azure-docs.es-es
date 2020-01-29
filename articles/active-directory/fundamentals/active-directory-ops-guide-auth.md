@@ -11,19 +11,19 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919348"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511899"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
 En esta sección de la [guía de referencia de operaciones de Azure AD](active-directory-ops-guide-intro.md) se describen las comprobaciones y las acciones que debe realizar para proteger y administrar las credenciales, definir la experiencia de autenticación, delegar la asignación, medir el uso y definir directivas de acceso basadas en la posición de seguridad de la empresa.
 
 > [!NOTE]
-> Estas recomendaciones están actualizadas según la fecha de publicación, pero pueden cambiar con el tiempo. Las organizaciones deben evaluar continuamente sus prácticas de identidad a medida que los productos y servicios de Microsoft evolucionen.
+> Estas recomendaciones están actualizadas hasta la fecha de publicación, pero pueden cambiar con el tiempo. Las organizaciones deben evaluar continuamente sus prácticas de identidad a medida que los productos y servicios de Microsoft evolucionen.
 
 ## <a name="key-operational-processes"></a>Procesos operativos clave
 
@@ -127,8 +127,8 @@ Al igual que un usuario de su organización, un dispositivo es una identidad pri
 
 Puede llevar a cabo este objetivo mediante la incorporación de identidades de dispositivo, y administrarlas en Azure AD mediante uno de los métodos siguientes:
 
-- Las organizaciones pueden usar [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) para administrar el dispositivo y aplicar las directivas de cumplimiento, atestar el estado del dispositivo y establecer directivas de acceso condicional en función de si el dispositivo es compatible. Microsoft Intune puede administrar dispositivos iOS, dispositivos de escritorio Mac (a través de la integración JAMF), dispositivos de escritorio de Windows (mediante la administración de dispositivos móviles para Windows 10 y la administración conjunta con Microsoft Endpoint Manager o System Center Configuration Manager) y dispositivos móviles Android.
-- [La combinación de Azure AD híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) proporciona la opción de administrar contenido con directivas de grupo, System Center Configuration Manager o Microsoft Endpoint Manager en un entorno con equipos unidos a un dominio de Active Directory. Las organizaciones pueden implementar un entorno administrado a través de PHS o PTA con un SSO de conexión directa. Si lleva sus dispositivos a Azure AD, podrá maximizar la productividad de los usuarios a través de SSO en los recursos locales y en la nube, a la vez que protegerá el acceso a los recursos en la nube y locales con la opción de  [acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) al mismo tiempo.
+- Las organizaciones pueden usar [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) para administrar el dispositivo y aplicar las directivas de cumplimiento, atestar el estado del dispositivo y establecer directivas de acceso condicional en función de si el dispositivo es compatible. Microsoft Intune puede administrar dispositivos iOS, dispositivos de escritorio Mac (a través de la integración JAMF), dispositivos de escritorio de Windows (de modo nativo mediante la administración de dispositivos móviles para Windows 10 y la administración conjunta con Microsoft Endpoint Configuration Manager) y dispositivos móviles Android.
+- La [combinación de Azure AD híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) proporciona la opción de administrar contenido con directivas de grupo o Microsoft Endpoint Configuration Manager en un entorno con equipos unidos a un dominio de Active Directory. Las organizaciones pueden implementar un entorno administrado a través de PHS o PTA con un SSO de conexión directa. Si lleva sus dispositivos a Azure AD, podrá maximizar la productividad de los usuarios a través de SSO en los recursos locales y en la nube, a la vez que protegerá el acceso a los recursos en la nube y locales con la opción de  [acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) al mismo tiempo.
 
 Si tiene dispositivos Windows unidos a un dominio que no estén registrados en la nube, o dispositivos Windows unidos a un dominio que sí estén registrados en la nube pero sin directivas de acceso condicional, debe registrar los dispositivos no registrados y, en cualquier caso, [usar la combinación de Azure AD híbrido como control](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) de las directivas de acceso condicional.
 
@@ -140,7 +140,7 @@ Si está administrando dispositivos con MDM o Microsoft Intune, pero no usa con
 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Lectura recomendada de directivas de acceso de confianza al dispositivo
 
-- [How To: Planificar la implementación de la combinación a Azure Active Directory híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+- [Cómo: Planificar la implementación de la combinación a Azure Active Directory híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 - [Configuraciones de acceso de dispositivos e identidades](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello para empresas
@@ -223,8 +223,8 @@ Si ya posee licencias de Azure AD Premium P2 que admiten el uso del riesgo en l
 
 #### <a name="risk-based-access-policies-recommended-reading"></a>Lectura recomendada de directivas de acceso basadas en riesgos
 
-- [How To: configurar la directiva de riesgo de inicio de sesión](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)
-- [How To: configurar la directiva de riesgo de usuario](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)
+- [Cómo: configurar la directiva de riesgo de inicio de sesión](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)
+- [Cómo: configurar la directiva de riesgo de usuario](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)
 
 ### <a name="client-application-access-policies"></a>Directivas de acceso de aplicaciones cliente
 

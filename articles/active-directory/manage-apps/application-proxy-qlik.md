@@ -14,17 +14,17 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45bf71274d8eb1039254cafe48a34587199be724
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859533"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263513"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicación y Qlik Sense 
 Azure Active Directory Application Proxy y Qlik Sense se han asociado para garantizar que pueda usar fácilmente el proxy de aplicación para proporcionar acceso remoto para la implementación de Qlik Sense.  
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 Para el resto de este escenario, se da por sentado que ha hecho lo siguiente:
  
 - Configurar [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
@@ -52,7 +52,7 @@ Siga estos pasos para publicar la aplicación. Para obtener un tutorial más det
 ### <a name="application-2"></a>Aplicación n.º 2: 
 Siga los mismos pasos que para la aplicación n.º 1, con las siguientes excepciones: 
 
-**Paso 5**: la dirección URL interna ahora debe ser la dirección URL de QlikSense con el puerto de autenticación que usa la aplicación. El valor predeterminado es **4244** para HTTPS y 4248 para HTTP. Por ejemplo, **https&#58;//demo.qlik.com:4244**</br></br> 
+**Paso 5**: la dirección URL interna ahora debe ser la dirección URL de QlikSense con el puerto de autenticación que usa la aplicación. En las versiones de QlikSense anteriores a abril de 2018, el valor predeterminado es **4244** para HTTPS y **4248** para HTTP. En las versiones de QlikSense posteriores a abril de 2018, el valor predeterminado es **443** para HTTPS y **80** para HTTP.  Por ejemplo, **https&#58;//demo.qlik.com:4244**</br></br> 
 **Paso 10:** no configure SSO y deje el **Inicio de sesión único deshabilitado**
  
  

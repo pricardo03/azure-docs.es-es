@@ -15,27 +15,27 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1724c25ef2d85aa8f838811864104b49576a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 473f0895ca53fb78b48c828eac807feb25364378
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423891"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293137"
 ---
-# <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicación de escritorio que llama a las API web: configuración de código
+# <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicación de escritorio que llama a las API web: Configuración del código
 
 Ahora que ha creado la aplicación, aprenderá a configurar el código con las coordenadas de la aplicación.
 
-## <a name="msal-libraries"></a>Bibliotecas MSAL
+## <a name="microsoft-authentication-libraries"></a>Bibliotecas de autenticación de Microsoft
 
-Las bibliotecas de Microsoft que admiten aplicaciones de escritorio son:
+Las siguientes bibliotecas de autenticación de Microsoft (MSAL) admiten aplicaciones de escritorio.
 
-  Biblioteca MSAL | Descripción
+  Biblioteca de autenticación de Microsoft | Descripción
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Admite la creación de una aplicación de escritorio en varias plataformas: Linux, Windows y MacOS
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Admite la creación de una aplicación de escritorio en varias plataformas, como Linux, Windows y macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> Python de MSAL | Admite la creación de una aplicación de escritorio en varias plataformas.
   ![Java](media/sample-v2-code/logo_java.png) <br/> Java de MSAL | Admite la creación de una aplicación de escritorio en varias plataformas.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Admite aplicaciones de escritorio que se ejecutan solo en macOS
+  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Admite aplicaciones de escritorio que solo se ejecutan en macOS.
 
 ## <a name="public-client-application"></a>Aplicación cliente pública
 
@@ -49,14 +49,14 @@ Deberá compilar y manipular MSAL.NET`IPublicClientApplication`.
 
 ### <a name="exclusively-by-code"></a>Exclusivamente mediante código
 
-El código siguiente crea una instancia de una aplicación cliente pública e inicia la sesión de los usuarios en la nube pública de Microsoft Azure con una cuenta profesional o educativa o bien con una cuenta Microsoft personal.
+El siguiente código crea una instancia de una aplicación cliente pública e inicia la sesión de los usuarios en la nube pública de Microsoft Azure con una cuenta profesional o educativa o bien con una cuenta Microsoft personal.
 
 ```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Si piensa utilizar la autenticación interactiva o el flujo de código de dispositivo, tal como se muestra anteriormente, querrá utilizar el modificador `.WithRedirectUri`:
+Si piensa utilizar la autenticación interactiva o el flujo de código del dispositivo, tal como se vio anteriormente, utilice el modificador `.WithRedirectUri`.
 
 ```csharp
 IPublicClientApplication app;
@@ -65,9 +65,9 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="using-configuration-files"></a>Uso de archivos de configuración
+### <a name="use-configuration-files"></a>Uso de archivos de configuración
 
-El código siguiente crea una instancia de una aplicación cliente pública a partir de un objeto de configuración, que podría rellenarse mediante programación o leerse desde un archivo de configuración:
+El siguiente código crea una instancia de una aplicación cliente pública a partir de un objeto de configuración, que podría rellenarse mediante programación o leerse desde un archivo de configuración.
 
 ```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
@@ -78,7 +78,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### <a name="more-elaborated-configuration"></a>Configuración más elaborada
 
-Puede elaborar la compilación de la aplicación agregando una serie de modificadores. Por ejemplo, si quiere que la aplicación sea una aplicación de varios inquilinos en una nube nacional (en la Administración Pública de Estados Unidos), podría escribir lo siguiente:
+Puede elaborar la compilación de la aplicación agregando una serie de modificadores. Por ejemplo, si quiere que la aplicación sea una aplicación de varios inquilinos en una nube nacional, como en la Administración Pública de Estados Unidos que se muestra aquí, podría escribir lo siguiente:
 
 ```csharp
 IPublicClientApplication app;
@@ -89,7 +89,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-MSAL.NET también contiene un modificador de ADFS 2019:
+MSAL.NET también contiene un modificador para Servicios de federación de Active Directory 2019:
 
 ```csharp
 IPublicClientApplication app;
@@ -98,7 +98,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Por último, si quiere adquirir tokens para un inquilino de Azure AD B2C, puede especificar el inquilino tal como se muestra en el siguiente fragmento de código:
+Por último, si quiere adquirir tokens para un inquilino de Azure Active Directory (Azure AD) B2C, especifique el inquilino tal como se muestra en el siguiente fragmento de código:
 
 ```csharp
 IPublicClientApplication app;
@@ -111,8 +111,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Para más información sobre cómo configurar una aplicación de escritorio de MSAL.NET:
 
-- Para obtener la lista de todos los modificadores disponibles en `PublicClientApplicationBuilder`, consulte la documentación de referencia [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- Para obtener la descripción de todas las opciones que se muestran en `PublicClientApplicationOptions`, vea [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) en la documentación de referencia.
+- Para obtener una lista de todos los modificadores disponibles en `PublicClientApplicationBuilder`, consulte la documentación de referencia de [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Para obtener la descripción de todas las opciones que se muestran en `PublicClientApplicationOptions`, consulte [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) en la documentación de referencia.
 
 ### <a name="complete-example-with-configuration-options"></a>Ejemplo completo con opciones de configuración
 
@@ -132,7 +132,7 @@ Imagine una aplicación de consola .NET Core que tiene el siguiente archivo de c
 }
 ```
 
-Tiene poco código para leer este archivo mediante el marco de configuración de .NET proporcionado;
+Tiene algún código que leer en este archivo mediante el marco de configuración de .NET proporcionado:
 
 ```csharp
 public class SampleConfiguration
@@ -143,13 +143,13 @@ public class SampleConfiguration
  public PublicClientApplicationOptions PublicClientApplicationOptions { get; set; }
 
  /// <summary>
- /// Base URL for Microsoft Graph (it varies depending on whether the application is ran
- /// in Microsoft Azure public clouds or national / sovereign clouds
+ /// Base URL for Microsoft Graph (it varies depending on whether the application runs
+ /// in Microsoft Azure public clouds or national or sovereign clouds)
  /// </summary>
  public string MicrosoftGraphBaseEndpoint { get; set; }
 
  /// <summary>
- /// Reads the configuration from a json file
+ /// Reads the configuration from a JSON file
  /// </summary>
  /// <param name="path">Path to the configuration json file</param>
  /// <returns>SampleConfiguration as read from the json file</returns>
@@ -162,7 +162,7 @@ public class SampleConfiguration
                     .AddJsonFile(path);
   Configuration = builder.Build();
 
-  // Read the auth and graph endpoint config
+  // Read the auth and graph endpoint configuration
   SampleConfiguration config = new SampleConfiguration()
   {
    PublicClientApplicationOptions = new PublicClientApplicationOptions()
@@ -175,7 +175,7 @@ public class SampleConfiguration
 }
 ```
 
-Ahora, para crear la aplicación, basta con que escriba el código siguiente:
+Ahora, para crear la aplicación, escriba el siguiente código:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
@@ -184,7 +184,7 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-y antes de llamar al método `.Build()`, puede invalidar la configuración con llamadas a los métodos `.WithXXX`, tal como se mostró anteriormente.
+Antes de llamar al método `.Build()` puede invalidar la configuración con llamadas a los métodos `.WithXXX`, tal como se mostró anteriormente.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
@@ -211,7 +211,7 @@ app = msal.PublicClientApplication(
 
 # <a name="macostabmacos"></a>[macOS](#tab/macOS)
 
-El código siguiente crea una instancia de una aplicación cliente pública e inicia la sesión de los usuarios en la nube pública de Microsoft Azure con una cuenta profesional o educativa o bien con una cuenta Microsoft personal.
+El siguiente código crea una instancia de una aplicación cliente pública e inicia la sesión de los usuarios en la nube pública de Microsoft Azure con una cuenta profesional o educativa o bien con una cuenta Microsoft personal.
 
 ### <a name="quick-configuration"></a>Configuración rápida
 
@@ -232,7 +232,7 @@ if let application = try? MSALPublicClientApplication(configuration: config){ /*
 
 ### <a name="more-elaborated-configuration"></a>Configuración más elaborada
 
-Puede elaborar la compilación de la aplicación agregando una serie de modificadores. Por ejemplo, si quiere que la aplicación sea una aplicación de varios inquilinos en una nube nacional (en la Administración Pública de Estados Unidos), podría escribir lo siguiente:
+Puede elaborar la compilación de la aplicación agregando una serie de modificadores. Por ejemplo, si quiere que la aplicación sea una aplicación de varios inquilinos en una nube nacional, como en la Administración Pública de Estados Unidos que se muestra aquí, podría escribir lo siguiente:
 
 Objective-C:
 
@@ -266,4 +266,4 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Adquisición de un token para una aplicación de escritorio](scenario-desktop-acquire-token.md)
+> [Aplicación de escritorio que llama a las API web: adquisición de un token](scenario-desktop-acquire-token.md)

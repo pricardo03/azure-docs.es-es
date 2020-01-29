@@ -4,29 +4,33 @@ description: Necesitará una puerta de enlace local si el servidor de Analysis S
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768561"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310159"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
 
-La puerta de enlace de datos local proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Power Automate. Puede asociar varios servicios de la misma suscripción y región con una sola puerta de enlace. Si bien la puerta de enlace que instala es la misma en todos estos servicios, Azure Analysis Services y Logic Apps tienen algunos pasos adicionales.
+La puerta de enlace de datos local proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Power Automate. Si bien la puerta de enlace que instala es la misma en todos estos servicios, Azure Analysis Services y Logic Apps tienen algunos pasos adicionales.
+
+La información que se proporciona aquí se refiere específicamente al funcionamiento de Azure Analysis Services con la puerta de enlace de datos local. Para más información sobre la puerta de enlace en general y cómo funciona con otros servicios, consulte [¿Qué es una puerta de enlace de datos local?](/data-integration/gateway/service-gateway-onprem).
 
 Para Azure Analysis Services, el proceso de instalación de la puerta de enlace consta de cuatro partes:
 
 - **Descargar y ejecutar el programa de instalación**: en este paso se instala un servicio de puerta de enlace en un equipo de la organización. También se inicia sesión en Azure con la cuenta de Azure AD del [inquilino](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant). No se pueden usar cuentas B2B (invitadas) de Azure.
 
-- **Registrar la puerta de enlace**: en este paso se especifica el nombre y la clave de recuperación de la puerta de enlace y se selecciona la región, de modo que la puerta de enlace se registra en el servicio en la nube de la puerta de enlace. El recurso de puerta de enlace se puede registrar en cualquier región, pero se recomienda que esté en la misma región que los servidores de Analysis Services. 
+- **Registrar la puerta de enlace**: en este paso se especifica el nombre y la clave de recuperación de la puerta de enlace y se selecciona la región, de modo que la puerta de enlace se registra en el servicio en la nube de la puerta de enlace. El recurso de puerta de enlace se puede registrar en cualquier región, pero es recomendable que esté en la misma que los servidores de Analysis Services. 
 
-- **Crear un recurso de puerta de enlace en Azure**: en este paso se crea un recurso de puerta de enlace en una suscripción de Azure.
+- **Creación de un recurso de puerta de enlace en Azure**: en este paso, creará un recurso de puerta de enlace en Azure.
 
-- **Conectar los servidores a los recursos de puerta de enlace**: una vez que tiene un recurso de puerta de enlace en la suscripción, puede empezar a conectar los servidores a él. Puede conectar varios servidores y otros recursos, siempre que se encuentren en la misma suscripción y región.
+- **Conexión de los servidores con los recursos de puerta de enlace**: una vez que tenga un recurso de puerta de enlace, podrá empezar a conectar los servidores a él. Puede conectar varios servidores y otros recursos, siempre que se encuentren en la misma región.
+
+
 
 ## <a name="how-it-works"> </a>Funcionamiento
 La puerta de enlace que se instala en un equipo de la organización funciona como un servicio de Windows, **Puerta de enlace de datos local**. Este servicio local se registra en el servicio en la nube de puerta de enlace a través de Azure Service Bus. Luego crea un recurso de puerta de enlace de datos local para la suscripción a Azure. Posteriormente, los servidores de Azure Analysis Services se conectan al recurso de puerta de enlace de Azure. Cuando los modelos del servidor necesitan conectarse a los orígenes de datos locales para realizar consultas o procesamiento, un flujo de datos y consultas atraviesa el recurso de puerta de enlace, Azure Service Bus, el servicio de puerta de enlace de datos local y los orígenes de datos. 
@@ -50,7 +54,7 @@ En una instalación para un entorno de Azure Analysis Services, es importante qu
 
 La puerta de enlace crea una conexión de salida con Azure Service Bus. Se comunica en los puertos de salida siguientes: TCP 443 (predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
 
-Es posible que tenga que incluir direcciones IP de la región de datos en el firewall. Puede descargar la [lista de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). La lista se actualiza semanalmente. Las direcciones IP mostradas en la lista de direcciones IP del centro de datos de Azure están en notación CIDR. Para obtener más información, consulte [Enrutamiento de interdominios sin clases](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Es posible que tenga que incluir direcciones IP de la región de datos en el firewall. Puede descargar la [lista de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=56519). La lista se actualiza semanalmente. Las direcciones IP mostradas en la lista de direcciones IP del centro de datos de Azure están en notación CIDR. Para obtener más información, consulte [Enrutamiento de interdominios sin clases](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Estos son los nombres de dominio completos usados por la puerta de enlace.
 

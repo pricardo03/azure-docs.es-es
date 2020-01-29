@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429478"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294106"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -96,6 +96,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50072|El usuario debe inscribirse para la autenticación en dos fases (interactivo).|
 |50074|El usuario no superó el desafío MFA.|
 |50076|El usuario no superó el desafío MFA (no interactivo).|
+|50078|La autenticación multifactor presentada ha expirado, debe actualizar la autenticación multifactor para acceder.|
 |50079|El usuario debe inscribirse para la autenticación en dos fases (inicios de sesión no interactivos).|
 |50085|El token de actualización necesita un inicio de sesión de IDP social. Indique al usuario que intente iniciar sesión de nuevo con su nombre de usuario y contraseña.|
 |50089|El token de flujo ha expirado: error de autenticación. Indique al usuario que intente iniciar sesión de nuevo con su nombre de usuario y contraseña.|
@@ -184,7 +185,8 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |90014| Falta un campo obligatorio para un mensaje de protocolo, póngase en contacto con el propietario de la aplicación. Si es usted el propietario de la aplicación, asegúrese de que tiene todos los parámetros necesarios para la solicitud de inicio de sesión. |
 |90051| Token de delegación no válido. Se especifica un identificador de nube nacional ({cloudId}) no válido.|
 |90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|
-|90094| La concesión requiere permisos de administrador. Pida al administrador de inquilino que dé su consentimiento para esta aplicación.|
+|90094| La aplicación ha solicitado permisos a los que el usuario con sesión iniciada no puede dar consentimiento y se bloqueó al usuario. |
+|90095| La aplicación ha solicitado permisos a los que el usuario con sesión iniciada no puede dar consentimiento y se mostró al usuario el formulario de [solicitud de consentimiento del administrador](../manage-apps/configure-admin-consent-workflow.md). |
 |500011| No se encontró la entidad de seguridad de recurso denominada <site address> en el inquilino denominado <tenant ID>. Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.|
 |500021| El inquilino está restringido por el proxy de la empresa. Se deniega el acceso del recurso.|
 |500121| Error de autenticación durante la solicitud de autenticación sólida.|
@@ -193,6 +195,8 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |530032|Bloqueado por una directiva de seguridad.| 
 |700016|La aplicación con identificador "{appIdentifier}" no se encontró en el directorio "{tenantName}". Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.|
 |900432|El cliente confidencial no se admite en una solicitud entre nubes.|
+|5000811|No se puede comprobar la firma del token SAML. El identificador de la clave de firma no coincide con ninguna clave registrada válida.|
+|7000215|Se ha proporcionado un secreto de cliente no válido.|
 |7000218|El cuerpo de la solicitud debe contener el siguiente parámetro: "client_assertion" o "client_secret".|
 
 

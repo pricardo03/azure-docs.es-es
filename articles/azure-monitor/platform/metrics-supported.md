@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75750395"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310788"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -86,13 +86,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|TotalRequests|Solicitudes de puerta de enlace en total (en desuso)|Count|Total|Número de solicitudes de puerta de enlace: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
-|SuccessfulRequests|Solicitudes de puerta de enlace correctas (en desuso)|Count|Total|Número de solicitudes de puerta de enlace correctas: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
-|UnauthorizedRequests|Solicitudes de puerta de enlace no autorizadas (en desuso)|Count|Total|Número de solicitudes de puerta de enlace no autorizadas: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
-|FailedRequests|Solicitudes de puerta de enlace erróneas (en desuso)|Count|Total|Número de errores en las solicitudes de puerta de enlace: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
-|OtherRequests|Otras solicitudes de puerta de enlace (en desuso)|Count|Total|Número de solicitudes de puerta de enlace de otro tipo: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
+|TotalRequests|Total Gateway Requests (Deprecated) [Solicitudes de puerta de enlace en total (en desuso)]|Count|Total|Número de solicitudes de puerta de enlace: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
+|SuccessfulRequests|Successful Gateway Requests (Deprecated) [Solicitudes de puerta de enlace correctas (en desuso)]|Count|Total|Número de solicitudes de puerta de enlace correctas: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
+|UnauthorizedRequests|Unauthorized Gateway Requests (Deprecated) [Solicitudes de puerta de enlace no autorizadas (en desuso)]|Count|Total|Número de solicitudes de puerta de enlace no autorizadas: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
+|FailedRequests|Failed Gateway Requests (Deprecated) [Solicitudes de puerta de enlace erróneas (en desuso)]|Count|Total|Número de errores en las solicitudes de puerta de enlace: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
+|OtherRequests|Other Gateway Requests (Deprecated) [Otras solicitudes de puerta de enlace (en desuso)]|Count|Total|Número de solicitudes de puerta de enlace de otro tipo: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Location,Hostname|
 |Duration|Duración total de las solicitudes de puerta de enlace|Milisegundos|Average|Duración total de las solicitudes de puerta de enlace en milisegundos|Location,Hostname|
-|BackendDuration|Duración de las solicitudes de back-end|Milisegundos|Average|Duración de las solicitudes de back-end en milisegundos|Location,Hostname|
+|BackendDuration|Duration of Backend Requests (Duración de las solicitudes de back-end)|Milisegundos|Average|Duración de las solicitudes de back-end en milisegundos|Location,Hostname|
 |Capacity|Capacity|Percent|Average|Métrica de uso para el servicio ApiManagement|Location|
 |EventHubTotalEvents|Eventos totales de EventHub|Count|Total|Número de eventos enviados a EventHub|Location|
 |EventHubSuccessfulEvents|Eventos EventHub correctos|Count|Total|Número de eventos EventHub correctos|Location|
@@ -118,30 +118,30 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|SystemCpuUsagePercentage|Porcentaje de uso de CPU del sistema|Percent|Average|Uso de CPU reciente de todo el sistema|AppName,Pod|
-|AppCpuUsagePercentage|Porcentaje de uso de CPU de aplicaciones|Percent|Average|Porcentaje de uso de CPU de la JVM de aplicaciones|AppName,Pod|
-|AppMemoryCommitted|Memoria de la aplicación asignada|Bytes|Average|Memoria asignada a la JVM en bytes|AppName,Pod|
-|AppMemoryUsed|Memoria de la aplicación utilizada|Bytes|Average|Memoria de la aplicación utilizada en bytes|AppName,Pod|
-|AppMemoryMax|Memoria máxima de la aplicación|Bytes|Máxima|Cantidad máxima de memoria en bytes que se puede usar para la administración de memoria.|AppName,Pod|
-|MaxOldGenMemoryPoolBytes|Tamaño máximo de datos de generación anterior disponible|Bytes|Average|Tamaño máximo del grupo de memoria de generación anterior|AppName,Pod|
-|OldGenMemoryPoolBytes|Tamaño de datos de generación anterior|Bytes|Average|Tamaño máximo del grupo de memoria de generación anterior después de una GC|AppName,Pod|
-|OldGenPromotedBytes|Promoción al tamaño de datos de generación anterior|Bytes|Máxima|Recuento de aumentos positivos en el tamaño del grupo de memoria de generación anterior entre antes y después de una GC|AppName,Pod|
-|YoungGenPromotedBytes|Promoción al tamaño de datos de generación nueva|Bytes|Máxima|Se incrementa por un aumento del tamaño del grupo de memoria de generación nueva después de una GC y antes de la siguiente.|AppName,Pod|
-|GCPauseTotalCount|Recuento de pausas de la GC|Count|Total|Recuento de pausas de la GC|AppName,Pod|
-|GCPauseTotalTime|Tiempo total de pausas de la GC|Milisegundos|Total|Tiempo total de pausas de la GC|AppName,Pod|
-|TomcatSentBytes|Total de bytes enviados de Tomcat|Bytes|Total|Total de bytes enviados de Tomcat|AppName,Pod|
-|TomcatReceivedBytes|Total de bytes recibidos de Tomcat|Bytes|Total|Total de bytes recibidos de Tomcat|AppName,Pod|
-|TomcatRequestTotalTime|Tiempo total de la solicitud de Tomcat|Milisegundos|Total|Tiempo total de las solicitudes de Tomcat|AppName,Pod|
-|TomcatRequestTotalCount|Recuento total de las solicitudes de Tomcat|Count|Total|Recuento total de las solicitudes de Tomcat|AppName,Pod|
-|TomcatResponseAvgTime|Tiempo medio de las solicitudes de Tomcat|Milisegundos|Average|Tiempo medio de las solicitudes de Tomcat|AppName,Pod|
-|TomcatRequestMaxTime|Tiempo máximo de las solicitudes de Tomcat|Milisegundos|Máxima|Tiempo máximo de las solicitudes de Tomcat|AppName,Pod|
-|TomcatErrorCount|Error global de Tomcat|Count|Total|Error global de Tomcat|AppName,Pod|
-|TomcatSessionActiveMaxCount|Recuento activo máximo de las sesiones de Tomcat|Count|Total|Recuento activo máximo de las sesiones de Tomcat|AppName,Pod|
-|TomcatSessionAliveMaxTime|Tempo activo máximo de las sesiones de Tomcat|Milisegundos|Máxima|Tempo activo máximo de las sesiones de Tomcat|AppName,Pod|
-|TomcatSessionActiveCurrentCount|Recuento activo de las sesiones de Tomcat|Count|Total|Recuento activo de las sesiones de Tomcat|AppName,Pod|
-|TomcatSessionCreatedCount|Recuento de sesiones creadas de Tomcat|Count|Total|Recuento de sesiones creadas de Tomcat|AppName,Pod|
-|TomcatSessionExpiredCount|Recuento de sesiones expiradas de Tomcat|Count|Total|Recuento de sesiones expiradas de Tomcat|AppName,Pod|
-|TomcatSessionRejectedCount|Recuento de sesiones rechazadas de Tomcat|Count|Total|Recuento de sesiones rechazadas de Tomcat|AppName,Pod|
+|SystemCpuUsagePercentage|System CPU Usage Percentage (Porcentaje de uso de CPU del sistema)|Percent|Average|Uso de CPU reciente de todo el sistema|AppName,Pod|
+|AppCpuUsagePercentage|App CPU Usage Percentage (Porcentaje de uso de CPU de aplicaciones)|Percent|Average|Porcentaje de uso de CPU de la JVM de aplicaciones|AppName,Pod|
+|AppMemoryCommitted|App Memory Assigned (Memoria de la aplicación asignada)|Bytes|Average|Memoria asignada a la JVM en bytes|AppName,Pod|
+|AppMemoryUsed|App Memory Used (Memoria de la aplicación utilizada)|Bytes|Average|Memoria de la aplicación utilizada en bytes|AppName,Pod|
+|AppMemoryMax|App Memory Max (Memoria máxima de la aplicación)|Bytes|Máxima|Cantidad máxima de memoria en bytes que se puede usar para la administración de memoria.|AppName,Pod|
+|MaxOldGenMemoryPoolBytes|Max Available Old Generation Data Size (Tamaño máximo de datos de generación anterior disponible)|Bytes|Average|Tamaño máximo del grupo de memoria de generación anterior|AppName,Pod|
+|OldGenMemoryPoolBytes|Old Generation Data Size (Tamaño de datos de generación anterior)|Bytes|Average|Tamaño máximo del grupo de memoria de generación anterior después de una GC|AppName,Pod|
+|OldGenPromotedBytes|Promote to Old Generation Data Size (Promoción al tamaño de datos de generación anterior)|Bytes|Máxima|Recuento de aumentos positivos en el tamaño del grupo de memoria de generación anterior entre antes y después de una GC|AppName,Pod|
+|YoungGenPromotedBytes|Promote to Young Generation Data Size (Promoción al tamaño de datos de nueva generación)|Bytes|Máxima|Se incrementa por un aumento del tamaño del grupo de memoria de generación nueva después de una GC y antes de la siguiente.|AppName,Pod|
+|GCPauseTotalCount|GC Pause Count (Recuento de pausas de la GC)|Count|Total|Recuento de pausas de la GC|AppName,Pod|
+|GCPauseTotalTime|GC Pause Total Time (Tiempo total de pausas de la GC)|Milisegundos|Total|Tiempo total de pausas de la GC|AppName,Pod|
+|TomcatSentBytes|Tomcat Total Sent Bytes (Total de bytes enviados de Tomcat)|Bytes|Total|Total de bytes enviados de Tomcat|AppName,Pod|
+|TomcatReceivedBytes|Tomcat Total Received Bytes (Total de bytes recibidos de Tomcat)|Bytes|Total|Total de bytes recibidos de Tomcat|AppName,Pod|
+|TomcatRequestTotalTime|Tomcat Request Total Times (Tiempo total de la solicitud de Tomcat)|Milisegundos|Total|Tiempo total de las solicitudes de Tomcat|AppName,Pod|
+|TomcatRequestTotalCount|Tomcat Request Total Count (Recuento total de las solicitudes de Tomcat)|Count|Total|Recuento total de las solicitudes de Tomcat|AppName,Pod|
+|TomcatResponseAvgTime|Tomcat Request Average Time (Tiempo medio de las solicitudes de Tomcat)|Milisegundos|Average|Tiempo medio de las solicitudes de Tomcat|AppName,Pod|
+|TomcatRequestMaxTime|Tomcat Request Max Time (Tiempo máximo de las solicitudes de Tomcat)|Milisegundos|Máxima|Tiempo máximo de las solicitudes de Tomcat|AppName,Pod|
+|TomcatErrorCount|Tomcat Global Error (Error global de Tomcat)|Count|Total|Error global de Tomcat|AppName,Pod|
+|TomcatSessionActiveMaxCount|Tomcat Session Max Active Count (Recuento activo máximo de las sesiones de Tomcat)|Count|Total|Recuento activo máximo de las sesiones de Tomcat|AppName,Pod|
+|TomcatSessionAliveMaxTime|Tomcat Session Max Alive Time (Tempo activo máximo de las sesiones de Tomcat)|Milisegundos|Máxima|Tempo activo máximo de las sesiones de Tomcat|AppName,Pod|
+|TomcatSessionActiveCurrentCount|Tomcat Session Alive Count (Recuento activo de las sesiones de Tomcat)|Count|Total|Recuento activo de las sesiones de Tomcat|AppName,Pod|
+|TomcatSessionCreatedCount|Tomcat Session Created Count (Recuento de sesiones creadas de Tomcat)|Count|Total|Recuento de sesiones creadas de Tomcat|AppName,Pod|
+|TomcatSessionExpiredCount|Tomcat Session Expired Count (Recuento de sesiones expiradas de Tomcat)|Count|Total|Recuento de sesiones expiradas de Tomcat|AppName,Pod|
+|TomcatSessionRejectedCount|Tomcat Session Rejected Count (Recuento de sesiones rechazadas de Tomcat)|Count|Total|Recuento de sesiones rechazadas de Tomcat|AppName,Pod|
 
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
@@ -194,41 +194,41 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|Job Submitted|Trabajo enviado|Count|Total|Número de trabajos enviados|Scenario,ClusterName|
-|Job Completed|Job Completed|Count|Total|Trabajo completado|Scenario,ClusterName,ResultType|
-|Total Nodes|Nodos totales|Count|Average|Número de nodos totales|Scenario,ClusterName|
-|Active Nodes|Nodos activos|Count|Average|Número de nodos en ejecución|Scenario,ClusterName|
-|Idle Nodes|Nodos inactivos|Count|Average|Número de nodos inactivos|Scenario,ClusterName|
+|Job Submitted|Job Submitted (Trabajo enviado)|Count|Total|Número de trabajos enviados|Scenario,ClusterName|
+|Job Completed|Job Completed (Trabajo completado)|Count|Total|Trabajo completado|Scenario,ClusterName,ResultType|
+|Total Nodes|Total Nodes (Nodos totales)|Count|Average|Número de nodos totales|Scenario,ClusterName|
+|Active Nodes|Active Nodes (Nodos activos)|Count|Average|Número de nodos en ejecución|Scenario,ClusterName|
+|Idle Nodes|Idle Nodes (Nodos inactivos)|Count|Average|Número de nodos inactivos|Scenario,ClusterName|
 |Nodos no utilizables|Nodos no utilizables|Count|Average|Número de nodos inutilizables|Scenario,ClusterName|
-|Nodos con prioridad|Nodos con prioridad|Count|Average|Número de nodos con prioridad|Scenario,ClusterName|
-|Leaving Nodes|Nodos de salida|Count|Average|Número de nodos de salida|Scenario,ClusterName|
-|Núcleos totales|Núcleos totales|Count|Average|Número de núcleos totales|Scenario,ClusterName|
-|Núcleos activos|Núcleos activos|Count|Average|Número de núcleos activos|Scenario,ClusterName|
-|Núcleos inactivos|Núcleos inactivos|Count|Average|Número de núcleos inactivos|Scenario,ClusterName|
-|Núcleos no utilizables|Núcleos no utilizables|Count|Average|Número de núcleos no utilizables|Scenario,ClusterName|
-|Núcleos con prioridad|Núcleos con prioridad|Count|Average|Número de núcleos con prioridad|Scenario,ClusterName|
-|Núcleos de salida|Núcleos de salida|Count|Average|Número de núcleos de salida|Scenario,ClusterName|
+|Nodos con prioridad|Preempted Nodes (Nodos con prioridad)|Count|Average|Número de nodos con prioridad|Scenario,ClusterName|
+|Leaving Nodes|Leaving Nodes (Nodos de salida)|Count|Average|Número de nodos de salida|Scenario,ClusterName|
+|Núcleos totales|Total Cores (Núcleos totales)|Count|Average|Número de núcleos totales|Scenario,ClusterName|
+|Núcleos activos|Active Cores (Núcleos activos)|Count|Average|Número de núcleos activos|Scenario,ClusterName|
+|Núcleos inactivos|Idle Cores (Núcleos inactivos)|Count|Average|Número de núcleos inactivos|Scenario,ClusterName|
+|Núcleos no utilizables|Unusable Cores (Núcleos no utilizables)|Count|Average|Número de núcleos no utilizables|Scenario,ClusterName|
+|Núcleos con prioridad|Preempted Cores (Núcleos con prioridad)|Count|Average|Número de núcleos con prioridad|Scenario,ClusterName|
+|Núcleos de salida|Leaving Cores (Núcleos de salida)|Count|Average|Número de núcleos de salida|Scenario,ClusterName|
 |Porcentaje de uso de la cuota|Porcentaje de uso de la cuota|Count|Average|Porcentaje de cuota utilizada|Scenario,ClusterName,VmFamilyName,VmPriority|
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|CpuUsagePercentageInDouble|Porcentaje de uso de CPU|Percent|Máxima|Porcentaje de uso de CPU|Nodo|
+|CpuUsagePercentageInDouble|CPU Usage Percentage (Porcentaje de uso de CPU)|Percent|Máxima|Porcentaje de uso de CPU|Nodo|
 |MemoryUsage|Uso de la memoria|Bytes|Average|Uso de la memoria|Nodo|
-|MemoryLimit|Límite de memoria|Bytes|Average|Límite de memoria|Nodo|
-|MemoryUsagePercentageInDouble|Porcentaje de uso de memoria|Percent|Average|Porcentaje de uso de memoria|Nodo|
-|StorageUsage|Uso del almacenamiento|Bytes|Average|Uso del almacenamiento|Nodo|
-|IOReadBytes|Bytes de lectura de E/S|Bytes|Total|Bytes de lectura de E/S|Nodo|
-|IOWriteBytes|Bytes de escritura de E/S|Bytes|Total|Bytes de escritura de E/S|Nodo|
-|ConnectionAccepted|Conexiones aceptadas|Count|Total|Conexiones aceptadas|Nodo|
-|ConnectionHandled|Conexiones controladas|Count|Total|Conexiones controladas|Nodo|
+|MemoryLimit|Memory Limit (Límite de memoria)|Bytes|Average|Límite de memoria|Nodo|
+|MemoryUsagePercentageInDouble|Memory Usage Percentage (Porcentaje de uso de memoria)|Percent|Average|Porcentaje de uso de memoria|Nodo|
+|StorageUsage|Storage Usage (Uso del almacenamiento)|Bytes|Average|Uso del almacenamiento|Nodo|
+|IOReadBytes|IO Read Bytes (Bytes de lectura de E/S)|Bytes|Total|Bytes de lectura de E/S|Nodo|
+|IOWriteBytes|IO Write Bytes (Bytes de escritura de E/S)|Bytes|Total|Bytes de escritura de E/S|Nodo|
+|ConnectionAccepted|Accepted Connections (Conexiones aceptadas)|Count|Total|Conexiones aceptadas|Nodo|
+|ConnectionHandled|Handled Connections (Conexiones controladas)|Count|Total|Conexiones controladas|Nodo|
 |ConnectionActive|Conexiones activas|Count|Average|Conexiones activas|Nodo|
-|RequestHandled|Solicitudes controladas|Count|Total|Solicitudes controladas|Nodo|
-|ProcessedBlocks|Bloques procesados|Count|Total|Bloques procesados|Nodo|
-|ProcessedTransactions|Transacciones procesadas|Count|Total|Transacciones procesadas|Nodo|
-|PendingTransactions|Transacciones pendientes|Count|Average|Transacciones pendientes|Nodo|
-|QueuedTransactions|Transacciones en cola|Count|Average|Transacciones en cola|Nodo|
+|RequestHandled|Handled Requests (Solicitudes controladas)|Count|Total|Solicitudes controladas|Nodo|
+|ProcessedBlocks|Processed Blocks (Bloques procesados)|Count|Total|Bloques procesados|Nodo|
+|ProcessedTransactions|Processed Transactions (Transacciones procesadas)|Count|Total|Transacciones procesadas|Nodo|
+|PendingTransactions|Pending Transactions (Transacciones pendientes)|Count|Average|Transacciones pendientes|Nodo|
+|QueuedTransactions|Queued Transactions (Transacciones en cola)|Count|Average|Transacciones en cola|Nodo|
 
 
 
@@ -501,9 +501,9 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |FileCapacity|Capacidad de File|Bytes|Average|La cantidad de almacenamiento que ha utilizado el servicio File de la cuenta de almacenamiento, en bytes.|FileShare|
 |FileCount|Recuento de archivos|Count|Average|El número de archivos en el servicio File de la cuenta de almacenamiento.|FileShare|
 |FileShareCount|Recuento de recursos compartidos de archivos|Count|Average|El número de recursos compartidos de archivos en el servicio File de la cuenta de almacenamiento.|None|
-|FileShareSnapshotCount|Recuento de instantáneas del recurso compartido de archivos|Count|Average|Número de instantáneas presentes en el recurso compartido en el servicio Files de la cuenta de almacenamiento.|FileShare|
-|FileShareSnapshotSize|Tamaño de instantánea del recurso compartido de archivos|Bytes|Average|Cantidad de almacenamiento que usan las instantáneas del servicio Files de la cuenta de almacenamiento en bytes.|FileShare|
-|FileShareQuota|Tamaño de cuota del recurso compartido de archivos|Bytes|Average|Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes.|FileShare|
+|FileShareSnapshotCount|File Share Snapshot Count (Recuento de instantáneas del recurso compartido de archivos)|Count|Average|Número de instantáneas presentes en el recurso compartido en el servicio Files de la cuenta de almacenamiento.|FileShare|
+|FileShareSnapshotSize|File Share Snapshot Size (Tamaño de instantánea del recurso compartido de archivos)|Bytes|Average|Cantidad de almacenamiento que usan las instantáneas del servicio Files de la cuenta de almacenamiento en bytes.|FileShare|
+|FileShareQuota|File share quota size (Tamaño de cuota del recurso compartido de archivos)|Bytes|Average|Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes.|FileShare|
 |Transacciones|Transacciones|Count|Total|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. Use la dimensión ResponseType para el número de diferentes tipos de respuesta.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Entrada|Entrada|Bytes|Total|La cantidad de datos de entrada, en bytes. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure.|GeoType,ApiName,Authentication,FileShare|
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType,ApiName,Authentication,FileShare|
@@ -550,8 +550,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
 |Porcentaje de CPU|Porcentaje de CPU|Percent|Average|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|None|
-|Red interna|Entrada de red facturable (en desuso)|Bytes|Total|Número de bytes facturables que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante) (en desuso).|None|
-|Red interna|Salida de red facturable (en desuso)|Bytes|Total|Número de bytes facturables que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente) (en desuso)|None|
+|Red interna|Network In Billable (Deprecated) [Entrada de red facturable (en desuso)]|Bytes|Total|Número de bytes facturables que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante) (en desuso).|None|
+|Red interna|Network Out Billable (Deprecated) [Salida de red facturable (en desuso)]|Bytes|Total|Número de bytes facturables que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente) (en desuso)|None|
 |Bytes de lectura de disco|Bytes de lectura de disco|Bytes|Total|Bytes que se leen desde el disco durante el período de supervisión|None|
 |Bytes de escritura de disco|Bytes de escritura de disco|Bytes|Total|Bytes que se escriben en el disco durante el período de supervisión|None|
 |Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Average|E/S por segundo de lectura de disco|None|
@@ -595,8 +595,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
 |Porcentaje de CPU|Porcentaje de CPU|Percent|Average|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|VMName|
-|Red interna|Entrada de red facturable (en desuso)|Bytes|Total|Número de bytes facturables que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante) (en desuso).|VMName|
-|Red interna|Salida de red facturable (en desuso)|Bytes|Total|Número de bytes facturables que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente) (en desuso)|VMName|
+|Red interna|Network In Billable (Deprecated) [Entrada de red facturable (en desuso)]|Bytes|Total|Número de bytes facturables que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante) (en desuso).|VMName|
+|Red interna|Network Out Billable (Deprecated) [Salida de red facturable (en desuso)]|Bytes|Total|Número de bytes facturables que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente) (en desuso)|VMName|
 |Bytes de lectura de disco|Bytes de lectura de disco|Bytes|Total|Bytes que se leen desde el disco durante el período de supervisión|VMName|
 |Bytes de escritura de disco|Bytes de escritura de disco|Bytes|Total|Bytes que se escriben en el disco durante el período de supervisión|VMName|
 |Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Average|E/S por segundo de lectura de disco|VMName|
@@ -640,8 +640,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
 |Porcentaje de CPU|Porcentaje de CPU|Percent|Average|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|None|
-|Red interna|Entrada de red facturable (en desuso)|Bytes|Total|Número de bytes facturables que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante) (en desuso).|None|
-|Red interna|Salida de red facturable (en desuso)|Bytes|Total|Número de bytes facturables que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente) (en desuso)|None|
+|Red interna|Network In Billable (Deprecated) [Entrada de red facturable (en desuso)]|Bytes|Total|Número de bytes facturables que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante) (en desuso).|None|
+|Red interna|Network Out Billable (Deprecated) [Salida de red facturable (en desuso)]|Bytes|Total|Número de bytes facturables que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente) (en desuso)|None|
 |Bytes de lectura de disco|Bytes de lectura de disco|Bytes|Total|Bytes que se leen desde el disco durante el período de supervisión|None|
 |Bytes de escritura de disco|Bytes de escritura de disco|Bytes|Total|Bytes que se escriben en el disco durante el período de supervisión|None|
 |Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Average|E/S por segundo de lectura de disco|None|
@@ -750,17 +750,17 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |PipelineFailedRuns|Métricas de ejecuciones de canalización erróneas|Count|Total||FailureType,Name|
 |PipelineSucceededRuns|Las métricas de ejecuciones de canalización se realizaron correctamente|Count|Total||FailureType,Name|
-|PipelineCancelledRuns|Métricas de ejecuciones de canalización canceladas|Count|Total||FailureType,Name|
+|PipelineCancelledRuns|Cancelled pipeline runs metrics (Métricas de ejecuciones de canalización canceladas)|Count|Total||FailureType,Name|
 |ActivityFailedRuns|Métricas de ejecuciones de actividad erróneas|Count|Total||ActivityType,PipelineName,FailureType,Name|
 |ActivitySucceededRuns|Métricas de ejecución de actividad realizadas correctamente|Count|Total||ActivityType,PipelineName,FailureType,Name|
-|ActivityCancelledRuns|Métricas de ejecuciones de actividad canceladas|Count|Total||ActivityType,PipelineName,FailureType,Name|
+|ActivityCancelledRuns|Cancelled activity runs metrics (Métricas de ejecuciones de actividad canceladas)|Count|Total||ActivityType,PipelineName,FailureType,Name|
 |TriggerFailedRuns|Métricas de ejecuciones de desencadenador erróneas|Count|Total||Name,FailureType|
 |TriggerSucceededRuns|Métricas de ejecuciones de desencadenador realizadas correctamente|Count|Total||Name,FailureType|
-|TriggerCancelledRuns|Métricas de ejecuciones de desencadenador canceladas|Count|Total||Name,FailureType|
+|TriggerCancelledRuns|Cancelled trigger runs metrics (Métricas de ejecuciones de desencadenador canceladas)|Count|Total||Name,FailureType|
 |IntegrationRuntimeCpuPercentage|Uso de la CPU de entorno de ejecución de integración|Percent|Average||IntegrationRuntimeName,NodeName|
 |IntegrationRuntimeAvailableMemory|Memoria disponible de entorno de ejecución de integración|Bytes|Average||IntegrationRuntimeName,NodeName|
-|IntegrationRuntimeAverageTaskPickupDelay|Duración de la cola de Integration Runtime|Segundos|Average||IntegrationRuntimeName|
-|IntegrationRuntimeQueueLength|Longitud de cola de Integration Runtime|Count|Average||IntegrationRuntimeName|
+|IntegrationRuntimeAverageTaskPickupDelay|Integration runtime queue duration (Duración de cola de entorno de ejecución de integración)|Segundos|Average||IntegrationRuntimeName|
+|IntegrationRuntimeQueueLength|Integration runtime queue length (Longitud de cola de entorno de ejecución de integración)|Count|Average||IntegrationRuntimeName|
 |IntegrationRuntimeAvailableNodeNumber|Recuento de nodos disponibles de Integration Runtime|Count|Average||IntegrationRuntimeName|
 |MaxAllowedResourceCount|Recuento del máximo de entidades permitidas|Count|Máxima||None|
 |MaxAllowedFactorySizeInGbUnits|Tamaño de fábrica máximo permitido (unidad de GB)|Count|Máxima||None|
@@ -877,10 +877,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Intentos de envío de mensajes de telemetría|Count|Total|Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub|None|
 |d2c.telemetry.ingress.success|Mensajes de telemetría enviados|Count|Total|Número de mensajes de telemetría de dispositivo a la nube enviados correctamente a IoT Hub|None|
-|c2d.commands.egress.complete.success|Entregas de mensajes de C2D completadas|Count|Total|Número de entregas de mensajes de la nube al dispositivo que el dispositivo ha completado correctamente.|None|
-|c2d.commands.egress.abandon.success|Mensajes de C2D abandonados|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha abandonado.|None|
-|c2d.commands.egress.reject.success|Mensajes de C2D rechazados|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha rechazado.|None|
-|C2DMessagesExpired|Mensajes de C2D expirados (versión preliminar)|Count|Total|Número de mensajes de la nube al dispositivo expirados|None|
+|c2d.commands.egress.complete.success|C2D message deliveries completed (Entregas de mensajes de C2D completadas)|Count|Total|Número de entregas de mensajes de la nube al dispositivo que el dispositivo ha completado correctamente.|None|
+|c2d.commands.egress.abandon.success|C2D messages abandoned (Mensajes de C2D abandonados)|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha abandonado.|None|
+|c2d.commands.egress.reject.success|C2D messages rejected (Mensajes de C2D rechazados)|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha rechazado.|None|
+|C2DMessagesExpired|C2D Messages Expired (preview) [Mensajes de C2D expirados (versión preliminar)]|Count|Total|Número de mensajes de la nube al dispositivo expirados|None|
 |devices.totalDevices|Total de dispositivos (en desuso)|Count|Total|Número de dispositivos registrados en IoT Hub|None|
 |devices.connectedDevices.allProtocol|Dispositivos conectados (en desuso) |Count|Total|Número de dispositivos conectados a IoT Hub|None|
 |d2c.telemetry.egress.success|Enrutamiento: mensajes de telemetría entregados|Count|Total|Número de veces que los mensajes se han entregado correctamente a todos los puntos de conexión mediante el enrutamiento de IoT Hub. Si un mensaje se enruta a varios puntos de conexión, este valor aumenta en uno por cada entrega correcta. Si un mensaje se enruta al mismo punto de conexión varias veces, este valor aumenta en uno por cada entrega correcta.|None|
@@ -900,7 +900,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |d2c.endpoints.latency.storage|Enrutamiento: latencia de mensajes para almacenamiento|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría a un punto de conexión de almacenamiento.|None|
 |d2c.endpoints.egress.storage.bytes|Enrutamiento: datos entregados al almacenamiento|Bytes|Total|Cantidad de datos (bytes) que el enrutamiento de IoT Hub ha entregado a los punto de conexión de almacenamiento.|None|
 |d2c.endpoints.egress.storage.blobs|Enrutamiento: blobs entregados al almacenamiento|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado blobs a los puntos de conexión de almacenamiento.|None|
-|EventGridDeliveries|Entregas de Event Grid (versión preliminar)|Count|Total|El número de eventos de IoT Hub publicados en Event Grid. Use la dimensión de resultado para ver el número de solicitudes correctas e incorrectas. La dimensión EventType muestra el tipo de evento (https://aka.ms/ioteventgrid).|ResourceId,Result,EventType|
+|EventGridDeliveries|Event Grid deliveries(preview) [Entregas de Event Grid (versión preliminar)]|Count|Total|El número de eventos de IoT Hub publicados en Event Grid. Use la dimensión de resultado para ver el número de solicitudes correctas e incorrectas. La dimensión EventType muestra el tipo de evento (https://aka.ms/ioteventgrid).|ResourceId,Result,EventType|
 |EventGridLatency|Latencia de Event Grid (versión preliminar)|Milisegundos|Average|La latencia media (milisegundos) desde el momento en que se generó el evento de IoT Hub hasta el momento en que se publicó el evento en Event Grid. Este número es un promedio entre todos los tipos de evento. Use la dimensión EventType para ver la latencia de un tipo específico de evento.|ResourceId,EventType|
 |d2c.twin.read.success|Lecturas gemelas correctas de los dispositivos|Count|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el dispositivo.|None|
 |d2c.twin.read.failure|Lecturas gemelas con error de los dispositivos|Count|Total|El recuento de todas las lecturas gemelas con error iniciadas por el dispositivo.|None|
@@ -969,11 +969,11 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MetadataRequests|Solicitudes de metadatos|Count|Count|Recuento de las solicitudes de metadatos. Cosmos DB mantiene la colección de metadatos del sistema para cada cuenta, lo que le permite enumerar las colecciones, las bases de datos y sus configuraciones de forma gratuita.|DatabaseName,CollectionName,Region,StatusCode,Role|
 |MongoRequestCharge|Cargo de la solicitud de Mongo|Count|Total|Unidades de la solicitud de Mongo consumidas|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |MongoRequests|Solicitudes de Mongo|Count|Count|Número de solicitudes de Mongo realizadas|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
-|MongoRequestsCount|Tasa de solicitudes de Mongo|CountPerSecond|Average|Recuento de solicitudes de Mongo por segundo|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
+|MongoRequestsCount|Mongo Request Rate (Velocidad de solicitudes de Mongo)|CountPerSecond|Average|Recuento de solicitudes de Mongo por segundo|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |MongoRequestsDelete|Velocidad de la solicitud de eliminación de Mongo|CountPerSecond|Average|Solicitudes de eliminación de Mongo por segundo|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |MongoRequestsInsert|Velocidad de la solicitud de inserción de Mongo|CountPerSecond|Average|Recuento de inserciones de Mongo por segundo|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |MongoRequestsQuery|Velocidad de la solicitud de consulta de Mongo|CountPerSecond|Average|Recuento de consultas de Mongo por segundo|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
-|MongoRequestsUpdate|Tasa de solicitudes de actualización de Mongo|CountPerSecond|Average|Solicitudes de actualización de Mongo por segundo|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
+|MongoRequestsUpdate|Mongo Update Request Rate (Velocidad de solicitudes de actualización de Mongo)|CountPerSecond|Average|Solicitudes de actualización de Mongo por segundo|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |ProvisionedThroughput|Rendimiento aprovisionado|Count|Máxima|Rendimiento aprovisionado|DatabaseName,CollectionName|
 |RegionFailover|Región conmutada por error|Count|Count|Región conmutada por error|None|
 |RemoveRegion|Región quitada|Count|Count|Región quitada|Region|
@@ -991,10 +991,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|TransactionCount|Recuento de transacciones|Count|Count|Recuento total de transacciones|TransactionCount|
-|SuccessCount|Recuento de transacciones correctas|Count|Count|Recuento de transacciones correctas|SuccessCount|
-|FailureCount|Recuento de errores|Count|Count|Recuento de transacciones con errores|FailureCount|
-|SuccessLatency|Latencia de transacciones correctas|MilliSeconds|Average|Latencia de transacciones correctas|SuccessCount|
+|TransactionCount|Transaction Count (Recuento de transacciones)|Count|Count|Recuento total de transacciones|TransactionCount|
+|SuccessCount|Success Count (Recuento de transacciones correctas)|Count|Count|Recuento de transacciones correctas|SuccessCount|
+|FailureCount|Failure Count (Recuento de errores)|Count|Count|Recuento de transacciones con errores|FailureCount|
+|SuccessLatency|Success Latency (Latencia de transacciones correctas)|MilliSeconds|Average|Latencia de transacciones correctas|SuccessCount|
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
 
@@ -1074,13 +1074,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |SVRBSY|Errores de servidor ocupado (en desuso)|Count|Total|Errores totales de servidor ocupado para un espacio de nombres (en desuso)|None|
 |INTERR|Errores internos del servidor (en desuso)|Count|Total|Errores totales de servidor interno para un espacio de nombres (en desuso)|None|
 |MISCERR|Otros errores (en desuso)|Count|Total|Total de solicitudes con error para un espacio de nombres (en desuso)|None|
-|INMSGS|Mensajes entrantes (obsoletos) (en desuso)|Count|Total|Total de mensajes entrantes para un espacio de nombres. Esta métrica está en desuso. En su lugar, use la métrica Mensajes entrantes (en desuso)|None|
+|INMSGS|Incoming Messages (obsolete) (Deprecated) [Mensajes entrantes (obsoletos) (en desuso)]|Count|Total|Total de mensajes entrantes para un espacio de nombres. Esta métrica está en desuso. En su lugar, use la métrica Mensajes entrantes (en desuso)|None|
 |EHINMSGS|Mensajes entrantes (en desuso)|Count|Total|Total de mensajes entrantes para un espacio de nombres (en desuso)|None|
-|OUTMSGS|Mensajes salientes (obsoletos) (en desuso)|Count|Total|Total de mensajes salientes para un espacio de nombres. Esta métrica está en desuso. En su lugar, use la métrica Mensajes salientes (en desuso)|None|
+|OUTMSGS|Outgoing Messages (obsolete) (Deprecated) [Mensajes salientes (obsoletos) (en desuso)]|Count|Total|Total de mensajes salientes para un espacio de nombres. Esta métrica está en desuso. En su lugar, use la métrica Mensajes salientes (en desuso)|None|
 |EHOUTMSGS|Mensajes salientes (en desuso)|Count|Total|Total de mensajes salientes para un espacio de nombres (en desuso)|None|
-|EHINMBS|Bytes entrantes (obsoletos) (en desuso)|Bytes|Total|Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres. Esta métrica está en desuso. En su lugar, use la métrica Bytes de entrada (en desuso)|None|
+|EHINMBS|Incoming bytes (obsolete) (Deprecated) [Bytes entrantes (obsoletos) (en desuso)]|Bytes|Total|Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres. Esta métrica está en desuso. En su lugar, use la métrica Bytes de entrada (en desuso)|None|
 |EHINBYTES|Bytes de entrada (en desuso)|Bytes|Total|Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres (en desuso)|None|
-|EHOUTMBS|Bytes salientes (obsoletos) (en desuso)|Bytes|Total|Rendimiento de mensajes salientes del centro de eventos para un espacio de nombres. Esta métrica está en desuso. En su lugar, use la métrica Bytes de salida (en desuso)|None|
+|EHOUTMBS|Outgoing bytes (obsolete) (Deprecated) [Bytes salientes (obsoletos) (en desuso)]|Bytes|Total|Rendimiento de mensajes salientes del centro de eventos para un espacio de nombres. Esta métrica está en desuso. En su lugar, use la métrica Bytes de salida (en desuso)|None|
 |EHOUTBYTES|Bytes de salida (en desuso)|Bytes|Total|Rendimiento de mensajes salientes del centro de eventos para un espacio de nombres (en desuso)|None|
 |EHABL|Mensajes de trabajo pendiente de archivado (en desuso)|Count|Total|Mensajes de archivado del centro de eventos en el trabajo pendiente para un espacio de nombres (en desuso)|None|
 |EHAMSGS|Mensajes de archivado (en desuso)|Count|Total|Mensajes de archivado del centro de eventos en un espacio de nombres (en desuso)|None|
@@ -1187,19 +1187,19 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |IngestionUtilization|Uso de la ingesta|Percent|Average|Proporción de ranuras de ingesta usadas en el clúster|None|
 |KeepAlive|Mantener conexión|Count|Average|La comprobación de integridad indica las respuestas del clúster a las consultas|None|
 |IngestionVolumeInMB|Volumen de ingesta (en MB)|Count|Total|Volumen global de la ingesta de datos del clúster (en MB)|Base de datos|
-|IngestionLatencyInSeconds|Latencia de la ingesta (en segundos)|Segundos|Average|Tiempo de ingesta del origen (p. ej., el mensaje está en el centro de eventos) al clúster en segundos|None|
-|EventsProcessedForEventHubs|Eventos procesados (para centros de eventos o IoT Hub)|Count|Total|Número de eventos que ha procesado el clúster en la ingesta desde el centro de eventos o Iot Hub.|EventStatus|
+|IngestionLatencyInSeconds|Ingestion latency (in seconds) [Latencia de la ingesta (en segundos)]|Segundos|Average|Tiempo de ingesta del origen (p. ej., el mensaje está en el centro de eventos) al clúster en segundos|None|
+|EventsProcessedForEventHubs|Events processed (for Event/IoT Hubs) [Eventos procesados (para instancias de Event Hubs o IoT Hub)]|Count|Total|Número de eventos que ha procesado el clúster en la ingesta desde el centro de eventos o Iot Hub.|EventStatus|
 |IngestionResult|Resultado de la ingesta|Count|Count|Número de operaciones de ingesta|IngestionResultDetails|
 |CPU|CPU|Percent|Average|Nivel de uso de CPU|None|
 |ContinuousExportNumOfRecordsExported|Exportación continua: número de registros exportados|Count|Total|Número de registros exportados que se han activado para cada artefacto de almacenamiento escrito durante la operación de exportación.|None|
 |ExportUtilization|Utilización de la exportación|Percent|Máxima|Utilización de la exportación|None|
 |ContinuousExportPendingCount|Recuento pendiente de exportación continua|Count|Máxima|El número de trabajos de exportación continua pendientes listos para su ejecución|None|
 |ContinuousExportMaxLatenessMinutes|Minutos de retraso máximos de exportación continua|Count|Máxima|Demora máxima en minutos de todas las exportaciones continuas pendientes y listas para su ejecución|None|
-|ContinuousExportResult|Resultado de la exportación continua|Count|Count|Indica si la exportación continua se realizó correctamente o no.|ContinuousExportName,Result,Database|
-|StreamingIngestDuration|Duración de la ingesta de streaming|Milisegundos|Average|Duración de la ingesta de streaming en milisegundos|None|
-|StreamingIngestDataRate|Velocidad de datos de la ingesta de streaming|Count|Average|Velocidad de datos de la ingesta de streaming (MB por segundo)|None|
-|SteamingIngestRequestRate|Tasa de solicitudes de la ingesta de streaming|Count|RateRequestsPerSecond|Tasa de solicitudes de la ingesta de streaming (solicitudes por segundo)|None|
-|StreamingIngestResults|Resultado de la ingesta de streaming|Count|Average|Resultado de la ingesta de streaming|Resultado|
+|ContinuousExportResult|Continuous Export Result (Resultado de la exportación continua)|Count|Count|Indica si la exportación continua se realizó correctamente o no.|ContinuousExportName,Result,Database|
+|StreamingIngestDuration|Streaming Ingest Duration (Duración de la ingesta de streaming)|Milisegundos|Average|Duración de la ingesta de streaming en milisegundos|None|
+|StreamingIngestDataRate|Streaming Ingest Data Rate (Velocidad de datos de la ingesta de streaming)|Count|Average|Velocidad de datos de la ingesta de streaming (MB por segundo)|None|
+|SteamingIngestRequestRate|Streaming Ingest Request Rate [Velocidad de solicitudes de ingesta de streaming]|Count|RateRequestsPerSecond|Tasa de solicitudes de la ingesta de streaming (solicitudes por segundo)|None|
+|StreamingIngestResults|Streaming Ingest Result (Resultado de la ingesta de streaming)|Count|Average|Resultado de la ingesta de streaming|Resultado|
 |TotalNumberOfConcurrentQueries|Número total de consultas simultáneas|Count|Total|Número total de consultas simultáneas|None|
 |TotalNumberOfThrottledQueries|Número total de consultas limitadas|Count|Total|Número total de consultas limitadas|None|
 |TotalNumberOfThrottledCommands|Número total de comandos limitados|Count|Total|Número total de comandos limitados|CommandType|
@@ -1294,23 +1294,23 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Ejecuciones finalizadas|Ejecuciones finalizadas|Count|Total|Número de ejecuciones finalizadas correctamente para esta área de trabajo|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Ejecuciones iniciadas|Ejecuciones iniciadas|Count|Total|Número de ejecuciones iniciadas para esta área de trabajo|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Ejecuciones con error|Ejecuciones con error|Count|Total|Número de ejecuciones con error para esta área de trabajo|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Model Register Succeeded|Registro de modelo realizado correctamente|Count|Total|Número de registros de modelo que se realizaron correctamente en este espacio de trabajo.|Escenario|
-|Model Register Failed|Registro de modelo erróneo|Count|Total|Número de registros de modelo erróneos de este espacio de trabajo.|Scenario,StatusCode|
-|Model Deploy Started|Implementación de modelo iniciada|Count|Total|Número de implementaciones de modelos que se iniciaron en este espacio de trabajo.|Escenario|
-|Model Deploy Succeeded|Implementación de modelo correcta|Count|Total|Número de implementaciones de modelos que se realizaron correctamente en este espacio de trabajo.|Escenario|
+|Model Register Succeeded|Model Register Succeeded (Registro de modelo realizado correctamente)|Count|Total|Número de registros de modelo que se realizaron correctamente en este espacio de trabajo.|Escenario|
+|Model Register Failed|Model Register Failed (Error en el registro de modelo)|Count|Total|Número de registros de modelo erróneos de este espacio de trabajo.|Scenario,StatusCode|
+|Model Deploy Started|Model Deploy Started (Implementación de modelo iniciada)|Count|Total|Número de implementaciones de modelos que se iniciaron en este espacio de trabajo.|Escenario|
+|Model Deploy Succeeded|Model Deploy Succeeded (Implementación de modelo correcta)|Count|Total|Número de implementaciones de modelos que se realizaron correctamente en este espacio de trabajo.|Escenario|
 |Error al realizar la implementación de modelo|Error al realizar la implementación de modelo|Count|Total|Número de implementaciones de modelo erróneas de este espacio de trabajo.|Scenario,StatusCode|
-|Total Nodes|Nodos totales|Count|Average|Número de nodos totales. Este total incluye algunos de los nodos activos, nodos inactivos, nodos inutilizables, nodos con prioridad, nodos de salida.|Scenario,ClusterName|
-|Active Nodes|Nodos activos|Count|Average|Número de nodos activos. Son los nodos que ejecutan activamente un trabajo.|Scenario,ClusterName|
-|Idle Nodes|Nodos inactivos|Count|Average|Número de nodos inactivos. Los nodos inactivos son los nodos que no ejecutan ningún trabajo, pero que pueden aceptar un nuevo trabajo si está disponible.|Scenario,ClusterName|
+|Total Nodes|Total Nodes (Nodos totales)|Count|Average|Número de nodos totales. Este total incluye algunos de los nodos activos, nodos inactivos, nodos inutilizables, nodos con prioridad, nodos salientes.|Scenario,ClusterName|
+|Active Nodes|Active Nodes (Nodos activos)|Count|Average|Número de nodos activos. Son los nodos que ejecutan activamente un trabajo.|Scenario,ClusterName|
+|Idle Nodes|Idle Nodes (Nodos inactivos)|Count|Average|Número de nodos inactivos. Los nodos inactivos son los nodos que no ejecutan ningún trabajo, pero que pueden aceptar un nuevo trabajo si está disponible.|Scenario,ClusterName|
 |Nodos no utilizables|Nodos no utilizables|Count|Average|Número de nodos inutilizables. Los nodos inutilizables no funcionan debido a algún problema que no se puede resolver. Azure reciclará estos nodos.|Scenario,ClusterName|
-|Nodos con prioridad|Nodos con prioridad|Count|Average|Número de nodos con prioridad. Estos nodos son los nodos de prioridad baja que se quitan del grupo de nodos disponible.|Scenario,ClusterName|
-|Leaving Nodes|Nodos de salida|Count|Average|Número de nodos de salida. Los nodos de salida son los nodos que acaban de procesar un trabajo y pasan al estado inactivo.|Scenario,ClusterName|
-|Núcleos totales|Núcleos totales|Count|Average|Número de núcleos totales|Scenario,ClusterName|
-|Núcleos activos|Núcleos activos|Count|Average|Número de núcleos activos|Scenario,ClusterName|
-|Núcleos inactivos|Núcleos inactivos|Count|Average|Número de núcleos inactivos|Scenario,ClusterName|
-|Núcleos no utilizables|Núcleos no utilizables|Count|Average|Número de núcleos no utilizables|Scenario,ClusterName|
-|Núcleos con prioridad|Núcleos con prioridad|Count|Average|Número de núcleos con prioridad|Scenario,ClusterName|
-|Núcleos de salida|Núcleos de salida|Count|Average|Número de núcleos de salida|Scenario,ClusterName|
+|Nodos con prioridad|Preempted Nodes (Nodos con prioridad)|Count|Average|Número de nodos con prioridad. Estos nodos son los nodos de prioridad baja que se quitan del grupo de nodos disponible.|Scenario,ClusterName|
+|Leaving Nodes|Leaving Nodes (Nodos de salida)|Count|Average|Número de nodos de salida. Los nodos de salida son los nodos que acaban de procesar un trabajo y pasan al estado inactivo.|Scenario,ClusterName|
+|Núcleos totales|Total Cores (Núcleos totales)|Count|Average|Número de núcleos totales|Scenario,ClusterName|
+|Núcleos activos|Active Cores (Núcleos activos)|Count|Average|Número de núcleos activos|Scenario,ClusterName|
+|Núcleos inactivos|Idle Cores (Núcleos inactivos)|Count|Average|Número de núcleos inactivos|Scenario,ClusterName|
+|Núcleos no utilizables|Unusable Cores (Núcleos no utilizables)|Count|Average|Número de núcleos no utilizables|Scenario,ClusterName|
+|Núcleos con prioridad|Preempted Cores (Núcleos con prioridad)|Count|Average|Número de núcleos con prioridad|Scenario,ClusterName|
+|Núcleos de salida|Leaving Cores (Núcleos de salida)|Count|Average|Número de núcleos de salida|Scenario,ClusterName|
 |Porcentaje de uso de la cuota|Porcentaje de uso de la cuota|Count|Average|Porcentaje de cuota utilizada|Scenario,ClusterName,VmFamilyName,VmPriority|
 |CpuUtilization|CpuUtilization|Count|Average|CPU (versión preliminar)|Scenario,runId,NodeId,CreatedTime|
 |GpuUtilization|GpuUtilization|Count|Average|GPU (versión preliminar)|Scenario,runId,NodeId,CreatedTime,DeviceId|
@@ -1433,8 +1433,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|PingMeshAverageRoundtripMs|Tiempo de recorrido de ida y vuelta de los pings a una VM|MilliSeconds|Average|Tiempo de ida y vuelta de los pings enviados a una VM de destino|SourceCustomerAddress,DestinationCustomerAddress|
-|PingMeshProbesFailedPercent|Pings a una VM erróneos|Percent|Average|Porcentaje de pings erróneos del total de pings enviados de una VM de destino|SourceCustomerAddress,DestinationCustomerAddress|
+|PingMeshAverageRoundtripMs|Round trip time for Pings to a VM [Tiempo de recorrido de ida y vuelta de los pings a una VM]|MilliSeconds|Average|Tiempo de ida y vuelta de los pings enviados a una VM de destino|SourceCustomerAddress,DestinationCustomerAddress|
+|PingMeshProbesFailedPercent|Failed Pings to a VM (Pings a una VM erróneos)|Percent|Average|Porcentaje de pings erróneos del total de pings enviados de una VM de destino|SourceCustomerAddress,DestinationCustomerAddress|
 
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
@@ -1443,9 +1443,9 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |ApplicationRuleHit|Recuento de llamadas de las reglas de aplicación|Count|Total|Número de veces que se llamó a las reglas de aplicación|Status,Reason,Protocol|
 |NetworkRuleHit|Número de llamadas de reglas de red|Count|Total|Número de veces que se llamó a las reglas de red|Status,Reason,Protocol|
-|FirewallHealth|Estado de mantenimiento del firewall|Percent|Average|Estado de mantenimiento del firewall|Status,Reason|
+|FirewallHealth|Firewall health state (Estado de mantenimiento del firewall)|Percent|Average|Estado de mantenimiento del firewall|Status,Reason|
 |DataProcessed|Datos procesados|Bytes|Total|Cantidad total de datos procesados por el firewall|None|
-|SNATPortUtilization|Uso de puertos SNAT|Percent|Average|Uso de puertos SNAT|None|
+|SNATPortUtilization|SNAT port utilization (Uso de puertos SNAT)|Percent|Average|Uso de puertos SNAT|None|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
@@ -1456,25 +1456,25 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |UnhealthyHostCount|Recuento de hosts con estado incorrecto|Count|Average|Número de hosts de back-end con estado incorrecto|BackendSettingsPool|
 |HealthyHostCount|Recuento de hosts con estado correcto|Count|Average|Número de hosts de back-end con estado correcto|BackendSettingsPool|
 |TotalRequests|Total de solicitudes|Count|Total|Recuento de solicitudes correctas que ha servido Application Gateway|BackendSettingsPool|
-|AvgRequestCountPerHealthyHost|Solicitudes por minuto por host con estado correcto|Count|Average|Recuento medio de solicitudes por minuto por host de back-end con estado correcto de un grupo|BackendSettingsPool|
+|AvgRequestCountPerHealthyHost|Requests per minute per Healthy Host (Solicitudes por minuto y host con estado correcto)|Count|Average|Recuento medio de solicitudes por minuto por host de back-end con estado correcto de un grupo|BackendSettingsPool|
 |FailedRequests|Solicitudes con error|Count|Total|Recuento de solicitudes con error que ha servido Application Gateway|BackendSettingsPool|
 |ResponseStatus|Estado de respuesta|Count|Total|Estado de respuesta HTTP devuelto por Application Gateway|HttpStatusGroup|
 |CurrentConnections|Conexiones actuales|Count|Total|Recuento de conexiones actuales establecidas con Application Gateway|None|
 |CpuUtilization|Uso de CPU|Percent|Average|Uso actual de la CPU de Application Gateway|None|
 |CapacityUnits|Unidades de capacidad actuales|Count|Average|Unidades de capacidad consumidas|None|
-|ComputeUnits|Unidades de proceso actuales|Count|Average|Unidades de proceso consumidas|None|
-|BackendResponseStatus|Estado de respuesta de back-end|Count|Total|Número de códigos de respuesta HTTP generados por los miembros de back-end No se incluyen los códigos de respuesta generados por Application Gateway.|BackendServer,BackendPool,BackendHttpSetting,HttpStatusGroup|
-|TlsProtocol|Protocolo TLS de cliente|Count|Total|Número de solicitudes TLS y no TLS iniciadas por el cliente que establecieron la conexión con Application Gateway. Para ver la distribución del protocolo TLS, filtre por el protocolo TLS de la dimensión.|Listener,TlsProtocol|
+|ComputeUnits|Current Compute Units (Unidades de proceso actuales)|Count|Average|Unidades de proceso consumidas|None|
+|BackendResponseStatus|Backend Response Status (Estado de respuesta de back-end)|Count|Total|Número de códigos de respuesta HTTP generados por los miembros de back-end No se incluyen los códigos de respuesta generados por Application Gateway.|BackendServer,BackendPool,BackendHttpSetting,HttpStatusGroup|
+|TlsProtocol|Client TLS Protocol (Protocolo TLS de cliente)|Count|Total|Número de solicitudes TLS y no TLS iniciadas por el cliente que establecieron la conexión con Application Gateway. Para ver la distribución del protocolo TLS, filtre por el protocolo TLS de la dimensión.|Listener,TlsProtocol|
 |BytesSent|Bytes enviados|Bytes|Total|Número total de bytes enviados por Application Gateway a los clientes|Agente de escucha|
 |BytesReceived|Bytes recibidos|Bytes|Total|Número total de bytes recibidos por Application Gateway de los clientes|Agente de escucha|
-|ClientRtt|Cliente RTT|MilliSeconds|Average|Tiempo medio de ida y vuelta entre clientes y Application Gateway. Esta métrica indica cuánto tiempo se tarda en establecer conexiones y devolver confirmaciones.|Agente de escucha|
-|ApplicationGatewayTotalTime|Tiempo total de Application Gateway|MilliSeconds|Average|Promedio de tiempo que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como promedio del intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que esto normalmente incluye el tiempo de procesamiento de Application Gateway, el tiempo que los paquetes de solicitud y respuesta viajan por la red y el tiempo que el servidor back-end tardó en responder.|Agente de escucha|
-|BackendConnectTime|Tiempo de conexión de back-end|MilliSeconds|Average|Tiempo empleado en establecer una conexión con un servidor back-end.|Listener,BackendServer,BackendPool,BackendHttpSetting|
-|BackendFirstByteResponseTime|Tiempo de respuesta del primer byte de back-end|MilliSeconds|Average|Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del primer byte del encabezado de respuesta, el tiempo de procesamiento aproximado del servidor back-end|Listener,BackendServer,BackendPool,BackendHttpSetting|
-|BackendLastByteResponseTime|Tiempo de respuesta del último byte de back-end|MilliSeconds|Average|Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del último byte del cuerpo de la respuesta|Listener,BackendServer,BackendPool,BackendHttpSetting|
-|MatchedCount|Distribución de reglas totales del firewall de aplicaciones web|Count|Total|Distribución de reglas totales del firewall de aplicaciones web para el tráfico entrante|RuleGroup,RuleId|
-|BlockedCount|Distribución de reglas de solicitudes bloqueadas del firewall de aplicaciones web|Count|Total|Distribución de reglas de solicitudes bloqueadas del firewall de aplicaciones web|RuleGroup,RuleId|
-|BlockedReqCount|Recuento de solicitudes bloqueadas del firewall de aplicaciones web|Count|Total|Recuento de solicitudes bloqueadas del firewall de aplicaciones web|None|
+|ClientRtt|Client RTT (RTT del cliente)|MilliSeconds|Average|Tiempo medio de ida y vuelta entre clientes y Application Gateway. Esta métrica indica cuánto tiempo se tarda en establecer conexiones y devolver confirmaciones.|Agente de escucha|
+|ApplicationGatewayTotalTime|Application Gateway Total Time (Tiempo total de Application Gateway)|MilliSeconds|Average|Promedio de tiempo que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como promedio del intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que esto normalmente incluye el tiempo de procesamiento de Application Gateway, el tiempo que los paquetes de solicitud y respuesta viajan por la red y el tiempo que el servidor back-end tardó en responder.|Agente de escucha|
+|BackendConnectTime|Backend Connect Time (Tiempo de conexión de back-end)|MilliSeconds|Average|Tiempo empleado en establecer una conexión con un servidor back-end.|Listener,BackendServer,BackendPool,BackendHttpSetting|
+|BackendFirstByteResponseTime|Backend First Byte Response Time (Tiempo de respuesta del primer byte de back-end)|MilliSeconds|Average|Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del primer byte del encabezado de respuesta, el tiempo de procesamiento aproximado del servidor back-end|Listener,BackendServer,BackendPool,BackendHttpSetting|
+|BackendLastByteResponseTime|Backend Last Byte Response Time (Tiempo de respuesta del último byte de back-end)|MilliSeconds|Average|Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del último byte del cuerpo de la respuesta|Listener,BackendServer,BackendPool,BackendHttpSetting|
+|MatchedCount|Web Application Firewall Total Rule Distribution (Distribución de reglas totales del firewall de aplicaciones web)|Count|Total|Distribución de reglas totales del firewall de aplicaciones web para el tráfico entrante|RuleGroup,RuleId|
+|BlockedCount|Web Application Firewall Blocked Requests Rule Distribution (Distribución de reglas de solicitudes bloqueadas del firewall de aplicaciones web)|Count|Total|Distribución de reglas de solicitudes bloqueadas del firewall de aplicaciones web|RuleGroup,RuleId|
+|BlockedReqCount|Web Application Firewall Blocked Requests Count (Recuento de solicitudes bloqueadas del firewall de aplicaciones web)|Count|Total|Recuento de solicitudes bloqueadas del firewall de aplicaciones web|None|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
@@ -1552,8 +1552,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |ProbesFailedPercent|% de sondeos con error|Percent|Average|% de sondeos de supervisión de conectividad con error|None|
 |AverageRoundtripMs|Prom. Tiempo de ida y vuelta (ms)|MilliSeconds|Average|Promedio de tiempo de ida y vuelta de red (ms) para los sondeos de supervisión de conectividad que se envían entre el origen y el destino|None|
-|ChecksFailedPercent|Porcentaje de comprobaciones erróneas (versión preliminar)|Percent|Average|% de comprobaciones de supervisión de conectividad con error|SourceAddress,SourceName,SourceResourceId,SourceType,Protocol,DestinationAddress,DestinationName,DestinationResourceId,DestinationType,DestinationPort,TestGroupName,TestConfigurationName|
-|RoundTripTimeMs|Tiempo de ida y vuelta (ms) (versión preliminar)|MilliSeconds|Average|Tiempo de ida y vuelta en milisegundos para las comprobaciones de supervisión de conectividad|SourceAddress,SourceName,SourceResourceId,SourceType,Protocol,DestinationAddress,DestinationName,DestinationResourceId,DestinationType,DestinationPort,TestGroupName,TestConfigurationName|
+|ChecksFailedPercent|Checks Failed Percent (Preview) [Porcentaje de comprobaciones erróneas (versión preliminar)]|Percent|Average|% de comprobaciones de supervisión de conectividad con error|SourceAddress,SourceName,SourceResourceId,SourceType,Protocol,DestinationAddress,DestinationName,DestinationResourceId,DestinationType,DestinationPort,TestGroupName,TestConfigurationName|
+|RoundTripTimeMs|Round-Trip Time (ms) (Preview) [Tiempo de ida y vuelta (ms) (versión preliminar)]|MilliSeconds|Average|Tiempo de ida y vuelta en milisegundos para las comprobaciones de supervisión de conectividad|SourceAddress,SourceName,SourceResourceId,SourceType,Protocol,DestinationAddress,DestinationName,DestinationResourceId,DestinationType,DestinationPort,TestGroupName,TestConfigurationName|
 
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
@@ -1563,7 +1563,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |RequestCount|Recuento de solicitudes|Count|Total|Número de solicitudes de cliente que atiende el proxy HTTP/S|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
 |RequestSize|Tamaño de la solicitud|Bytes|Total|Número de bytes enviados como solicitudes de clientes al proxy HTTP/S|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
 |ResponseSize|Tamaño de la respuesta|Bytes|Total|Número de bytes enviados como respuestas del proxy HTTP/S a los clientes|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
-|BillableResponseSize|Tamaño de respuesta facturable|Bytes|Total|Número de bytes facturables (mínimo de 2 KB por solicitud) enviados como respuestas del proxy HTTP/S a los clientes.|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
+|BillableResponseSize|Billable Response Size (Tamaño de respuesta facturable)|Bytes|Total|Número de bytes facturables (mínimo de 2 KB por solicitud) enviados como respuestas del proxy HTTP/S a los clientes.|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
 |BackendRequestCount|Recuento de solicitudes de back-end|Count|Total|Número de solicitudes enviadas del proxy HTTP/S a los back-end|HttpStatus,HttpStatusGroup,Backend|
 |BackendRequestLatency|Latencia de las solicitudes de back-end|MilliSeconds|Average|Tiempo calculado desde que el proxy HTTP/S ha enviado la solicitud al back-end hasta que el proxy HTTP/S ha recibido el último byte de respuesta del back-end|Back-end|
 |TotalLatency|Latencia total|MilliSeconds|Average|Tiempo calculado desde que el proxy HTTP/S ha recibido la solicitud de cliente hasta que el cliente ha reconocido el último byte de respuesta del proxy HTTP/S|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
@@ -1790,8 +1790,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |ScheduledMessages|Recuento de mensajes programados de una cola/tema.|Count|Average|Recuento de mensajes programados de una cola/tema.|EntityName|
 |NamespaceCpuUsage|CPU|Percent|Máxima|Métrica de uso de CPU de espacio de nombres prémium de Service Bus.|Réplica|
 |NamespaceMemoryUsage|Uso de la memoria|Percent|Máxima|Métrica de uso de memoria de espacio de nombres prémium de Service Bus.|Réplica|
-|CPUXNS|CPU (en desuso)|Percent|Máxima|Métrica de uso de CPU de espacio de nombres prémium de Service Bus. Esta métrica está en desuso. Use la métrica de CPU (NamespaceCpuUsage) en su lugar.|Réplica|
-|WSXNS|Uso de memoria (en desuso)|Percent|Máxima|Métrica de uso de memoria de espacio de nombres prémium de Service Bus. Esta métrica está en desuso. Utilice la métrica de uso de memoria (NamespaceMemoryUsage) en su lugar.|Réplica|
+|CPUXNS|CPU (Deprecated) [CPU (en desuso)]|Percent|Máxima|Métrica de uso de CPU de espacio de nombres prémium de Service Bus. Esta métrica está en desuso. Use la métrica de CPU (NamespaceCpuUsage) en su lugar.|Réplica|
+|WSXNS|Memory Usage (Deprecated) [Uso de memoria (en desuso)]|Percent|Máxima|Métrica de uso de memoria de espacio de nombres prémium de Service Bus. Esta métrica está en desuso. Utilice la métrica de uso de memoria (NamespaceMemoryUsage) en su lugar.|Réplica|
 
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
@@ -1859,7 +1859,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |local_tempdb_usage_percent|Porcentaje de tempdb local|Percent|Average|Porcentaje de tempdb local. Solo se aplica a los almacenes de datos.|None|
 |app_cpu_billed|CPU de aplicación facturada|Count|Total|CPU de aplicación facturada. Se aplica a las bases de datos sin servidor.|None|
 |app_cpu_percent|Porcentaje de CPU de la aplicación|Percent|Average|Porcentaje de CPU de la aplicación. Se aplica a las bases de datos sin servidor.|None|
-|app_memory_percent|Porcentaje de memoria de la aplicación|Percent|Average|Porcentaje de memoria de la aplicación. Se aplica a las bases de datos sin servidor.|None|
+|app_memory_percent|App memory percentage (Porcentaje de memoria de la aplicación)|Percent|Average|Porcentaje de memoria de la aplicación. Se aplica a las bases de datos sin servidor.|None|
 |allocated_data_storage|Espacio de datos asignado|Bytes|Average|Almacenamiento de datos asignado. No es aplicable a los almacenes de datos.|None|
 |memory_usage_percent|Porcentaje de memoria|Percent|Máxima|Porcentaje de memoria. Solo se aplica a los almacenes de datos.|None|
 |full_backup_size_bytes|Tamaño de almacenamiento de copia de seguridad completa|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad completa acumulativa. Se aplica a las bases de datos basadas en núcleo virtual. No aplicable a bases de datos de hiperescala.|None|
@@ -1976,9 +1976,9 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |FileCapacity|Capacidad de File|Bytes|Average|La cantidad de almacenamiento que ha utilizado el servicio File de la cuenta de almacenamiento, en bytes.|FileShare|
 |FileCount|Recuento de archivos|Count|Average|El número de archivos en el servicio File de la cuenta de almacenamiento.|FileShare|
 |FileShareCount|Recuento de recursos compartidos de archivos|Count|Average|El número de recursos compartidos de archivos en el servicio File de la cuenta de almacenamiento.|None|
-|FileShareSnapshotCount|Recuento de instantáneas del recurso compartido de archivos|Count|Average|Número de instantáneas presentes en el recurso compartido en el servicio Files de la cuenta de almacenamiento.|FileShare|
-|FileShareSnapshotSize|Tamaño de instantánea del recurso compartido de archivos|Bytes|Average|Cantidad de almacenamiento que usan las instantáneas del servicio Files de la cuenta de almacenamiento en bytes.|FileShare|
-|FileShareQuota|Tamaño de cuota del recurso compartido de archivos|Bytes|Average|Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes.|FileShare|
+|FileShareSnapshotCount|File share snapshot count (Recuento de instantáneas del recurso compartido de archivos)|Count|Average|Número de instantáneas presentes en el recurso compartido en el servicio Files de la cuenta de almacenamiento.|FileShare|
+|FileShareSnapshotSize|File share snapshot size (Tamaño de instantánea del recurso compartido de archivos)|Bytes|Average|Cantidad de almacenamiento que usan las instantáneas del servicio Files de la cuenta de almacenamiento en bytes.|FileShare|
+|FileShareQuota|File share quota size (Tamaño de cuota del recurso compartido de archivos)|Bytes|Average|Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes.|FileShare|
 |Transacciones|Transacciones|Count|Total|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. Use la dimensión ResponseType para el número de diferentes tipos de respuesta.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Entrada|Entrada|Bytes|Total|La cantidad de datos de entrada, en bytes. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure.|GeoType,ApiName,Authentication,FileShare|
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType,ApiName,Authentication,FileShare|
@@ -2008,29 +2008,29 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|
-|ClientIOPS|IOPS total de cliente|Count|Average|Tasa de operaciones de archivos de cliente que procesa la caché.|None|
-|ClientLatency|Latencia de cliente media|Milisegundos|Average|Latencia media de las operaciones de archivos de cliente en la caché de almacenamiento.|None|
-|ClientReadIOPS|IOPS de lectura de cliente|CountPerSecond|Average|Operaciones de lectura de cliente por segundo.|None|
-|ClientReadThroughput|Rendimiento medio de la lectura de caché|BytesPerSecond|Average|Velocidad de transferencia de los datos de lectura del cliente.|None|
-|ClientWriteIOPS|IOPS de escritura de cliente|CountPerSecond|Average|Operaciones de escritura de cliente por segundo.|None|
-|ClientWriteThroughput|Rendimiento medio de la escritura de caché|BytesPerSecond|Average|Velocidad de transferencia de los datos de escritura del cliente.|None|
-|ClientMetadataReadIOPS|IOPS de lectura de metadatos de cliente|CountPerSecond|Average|Tasa de operaciones de archivos de cliente enviadas a la memoria caché, sin incluir las lecturas de datos, que no modifican el estado persistente.|None|
-|ClientMetadataWriteIOPS|IOPS de escritura de metadatos de cliente|CountPerSecond|Average|Tasa de operaciones de archivos de cliente enviadas a la caché, sin incluir las escrituras de datos, que modifican el estado persistente.|None|
-|ClientLockIOPS|IOPS de bloqueo de cliente|CountPerSecond|Average|Operaciones de bloqueo de archivos de cliente por segundo.|None|
-|StorageTargetHealth|Estado del destino de almacenamiento|Count|Average|Resultados booleanos de la prueba de conectividad entre la caché y los destinos de almacenamiento.|None|
+|ClientIOPS|Total Client IOPS (Total de IOPS de cliente)|Count|Average|Tasa de operaciones de archivos de cliente que procesa la caché.|None|
+|ClientLatency|Average Client Latency (Latencia media de cliente)|Milisegundos|Average|Latencia media de las operaciones de archivos de cliente en la caché de almacenamiento.|None|
+|ClientReadIOPS|Client Read IOPS (IOPS de lectura de cliente)|CountPerSecond|Average|Operaciones de lectura de cliente por segundo.|None|
+|ClientReadThroughput|Average Cache Read Throughput (Rendimiento medio de lectura de caché)|BytesPerSecond|Average|Velocidad de transferencia de los datos de lectura del cliente.|None|
+|ClientWriteIOPS|Client Write IOPS (IOPS de escritura de cliente)|CountPerSecond|Average|Operaciones de escritura de cliente por segundo.|None|
+|ClientWriteThroughput|Average Cache Write Throughput (Rendimiento medio de escritura de caché)|BytesPerSecond|Average|Velocidad de transferencia de los datos de escritura del cliente.|None|
+|ClientMetadataReadIOPS|Client Metadata Read IOPS (IOPS de lectura de metadatos de cliente)|CountPerSecond|Average|Tasa de operaciones de archivos de cliente enviadas a la memoria caché, sin incluir las lecturas de datos, que no modifican el estado persistente.|None|
+|ClientMetadataWriteIOPS|Client Metadata Write IOPS (IOPS de escritura de metadatos de cliente)|CountPerSecond|Average|Tasa de operaciones de archivos de cliente enviadas a la caché, sin incluir las escrituras de datos, que modifican el estado persistente.|None|
+|ClientLockIOPS|Client Lock IOPS (IOPS de bloqueo de cliente)|CountPerSecond|Average|Operaciones de bloqueo de archivos de cliente por segundo.|None|
+|StorageTargetHealth|Storage Target Health (Estado del destino de almacenamiento)|Count|Average|Resultados booleanos de la prueba de conectividad entre la caché y los destinos de almacenamiento.|None|
 |Tiempo de actividad|Tiempo de actividad|Count|Average|Resultados booleanos de la prueba de conectividad entre la caché y el sistema de supervisión.|None|
-|StorageTargetIOPS|IOPS total de StorageTarget|Count|Average|Tasa de todas las operaciones de archivos que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
-|StorageTargetWriteIOPS|IOPS de escritura de StorageTarget|Count|Average|Tasa de operaciones de escritura de archivos que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
-|StorageTargetAsyncWriteThroughput|Rendimiento de escritura asincrónica de StorageTarget|BytesPerSecond|Average|Velocidad con la que la caché escribe datos de forma asincrónica en un elemento StorageTarget determinado. Se trata de escrituras oportunistas que no hacen que los clientes se bloqueen.|StorageTarget|
-|StorageTargetSyncWriteThroughput|Rendimiento de escritura sincrónica de StorageTarget|BytesPerSecond|Average|Velocidad con la que la caché escribe datos de forma sincrónica en un elemento StorageTarget determinado. Se trata de escrituras que hacen que los clientes se bloqueen.|StorageTarget|
-|StorageTargetTotalWriteThroughput|Rendimiento de escritura total de StorageTarget|BytesPerSecond|Average|Velocidad total con la que la caché escribe datos en un elemento StorageTarget determinado.|StorageTarget|
-|StorageTargetLatency|Latencia de StorageTarget|Milisegundos|Average|Latencia de ida y vuelta media de todas las operaciones de archivos que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
-|StorageTargetMetadataReadIOPS|IOPS de lectura de metadatos de StorageTarget|CountPerSecond|Average|Tasa de operaciones de archivos que no modifican el estado persistente y excluyen la operación de lectura, y que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
-|StorageTargetMetadataWriteIOPS|IOPS de escritura de metadatos de StorageTarget|CountPerSecond|Average|Tasa de operaciones de archivos que modifican el estado persistente y excluyen la operación de escritura, y que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
-|StorageTargetReadIOPS|IOPS de lectura de StorageTarget|CountPerSecond|Average|Tasa de operaciones de lectura de archivos que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
-|StorageTargetReadAheadThroughput|Rendimiento de lectura anticipada de StorageTarget|BytesPerSecond|Average|Velocidad con la que la caché lee datos de forma oportunista desde el elemento StorageTarget.|StorageTarget|
-|StorageTargetFillThroughput|Rendimiento de relleno de StorageTarget|BytesPerSecond|Average|Velocidad con la que la caché lee datos de StorageTarget para controlar un error de caché.|StorageTarget|
-|StorageTargetTotalReadThroughput|Rendimiento de lectura total de StorageTarget|BytesPerSecond|Average|Velocidad total con la que la caché lee datos de un elemento StorageTarget determinado.|StorageTarget|
+|StorageTargetIOPS|Total StorageTarget IOPS (IOPS total de StorageTarget)|Count|Average|Tasa de todas las operaciones de archivos que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
+|StorageTargetWriteIOPS|StorageTarget Write IOPS (IOPS de escritura de StorageTarget)|Count|Average|Tasa de operaciones de escritura de archivos que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
+|StorageTargetAsyncWriteThroughput|StorageTarget Asynchronous Write Throughput (Rendimiento de escritura asincrónica de StorageTarget)|BytesPerSecond|Average|Velocidad con la que la caché escribe datos de forma asincrónica en un elemento StorageTarget determinado. Se trata de escrituras oportunistas que no hacen que los clientes se bloqueen.|StorageTarget|
+|StorageTargetSyncWriteThroughput|StorageTarget Synchronous Write Throughput (Rendimiento de escritura sincrónica de StorageTarget)|BytesPerSecond|Average|Velocidad con la que la caché escribe datos de forma sincrónica en un elemento StorageTarget determinado. Se trata de escrituras que hacen que los clientes se bloqueen.|StorageTarget|
+|StorageTargetTotalWriteThroughput|StorageTarget Total Write Throughput (Rendimiento de escritura total de StorageTarget)|BytesPerSecond|Average|Velocidad total con la que la caché escribe datos en un elemento StorageTarget determinado.|StorageTarget|
+|StorageTargetLatency|StorageTarget Latency (Latencia de StorageTarget)|Milisegundos|Average|Latencia de ida y vuelta media de todas las operaciones de archivos que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
+|StorageTargetMetadataReadIOPS|StorageTarget Metadata Read IOPS (IOPS de lectura de metadatos de StorageTarget)|CountPerSecond|Average|Tasa de operaciones de archivos que no modifican el estado persistente y excluyen la operación de lectura, y que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
+|StorageTargetMetadataWriteIOPS|StorageTarget Metadata Write IOPS (IOPS de escritura de metadatos de StorageTarget)|CountPerSecond|Average|Tasa de operaciones de archivos que modifican el estado persistente y excluyen la operación de escritura, y que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
+|StorageTargetReadIOPS|StorageTarget Read IOPS (IOPS de lectura de StorageTarget)|CountPerSecond|Average|Tasa de operaciones de lectura de archivos que la caché envía a un elemento StorageTarget determinado.|StorageTarget|
+|StorageTargetReadAheadThroughput|StorageTarget Read Ahead Throughput (Rendimiento de lectura anticipada de StorageTarget)|BytesPerSecond|Average|Velocidad con la que la caché lee datos de forma oportunista desde el elemento StorageTarget.|StorageTarget|
+|StorageTargetFillThroughput|StorageTarget Fill Throughput (Rendimiento de relleno de StorageTarget)|BytesPerSecond|Average|Velocidad con la que la caché lee datos de StorageTarget para controlar un error de caché.|StorageTarget|
+|StorageTargetTotalReadThroughput|StorageTarget Total Read Throughput (Rendimiento de lectura total de StorageTarget)|BytesPerSecond|Average|Velocidad total con la que la caché lee datos de un elemento StorageTarget determinado.|StorageTarget|
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
 
@@ -2168,7 +2168,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |TcpEstablished|TCP Established|Count|Average|TCP Established|Instancia|
 |TcpFinWait1|TCP Fin Wait 1|Count|Average|TCP Fin Wait 1|Instancia|
 |TcpFinWait2|TCP Fin Wait 2|Count|Average|TCP Fin Wait 2|Instancia|
-|TcpClosing|TCP Closing|Count|Average|TCP Closing|Instancia|
+|TcpClosing|TCP Closing (Cierre de TCP)|Count|Average|TCP Closing|Instancia|
 |TcpCloseWait|TCP Close Wait|Count|Average|TCP Close Wait|Instancia|
 |TcpLastAck|TCP Last Ack|Count|Average|TCP Last Ack|Instancia|
 |TcpTimeWait|TCP Time Wait|Count|Average|TCP Time Wait|Instancia|

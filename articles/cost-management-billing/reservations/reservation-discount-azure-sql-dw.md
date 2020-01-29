@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 01/21/2020
 ms.author: banders
-ms.openlocfilehash: 0671843b09cd90123b856b94db2618bac617dd5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24a673dc7949d5ce05aa1a701cc8b939a766fd99
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986824"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313933"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Cómo se aplican descuentos de reserva a Azure SQL Data Warehouse
 
@@ -31,9 +31,9 @@ Para los almacenes que no se ejecuten durante una hora completa, la reserva se a
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento sobre la capacidad reservada de SQL Data Warehouse en función de las implementaciones.
 
-- **Ejemplo 1**: compra 5 unidades de capacidad de reserva de 100 cDWU. Ejecuta una instancia de SQL Data Warehouse de DW1500c durante una hora. En este caso, se emite el uso de 15 unidades de uso de 100 cDWU. El descuento de reserva se aplica a las 5 unidades que se han usado. Se le cargará con tarifas de pago por uso para las restantes 10 unidades de uso de 100 cDWU que se han usado.
+- **Ejemplo 1**: compra 5 unidades de capacidad de reserva de 100 cDWU. Ejecuta una instancia de SQL Data Warehouse de DW1500c durante una hora. En este caso, se emite el uso de 15 unidades de uso de 100 cDWU. El descuento de reserva se aplica a las 5 unidades que se han usado. Se le cargará con tarifas de pago por uso para las restantes 10 unidades de uso de 100 cDWU que se han usado. En otras palabras, la cobertura parcial es posible para varias reservas.
 
-- **Ejemplo 2**: compra 5 unidades de capacidad de reserva de 100 cDWU. Ejecuta dos instancias de SQL Data Warehouse de DW100c durante una hora. En este caso, se emiten dos eventos de uso para 1 unidad de utilización de 100 cDWU. Ambos eventos de uso obtienen descuentos de capacidad reservada. Las 3 unidades de capacidad de reserva de 100 cDWU restantes se pierden y no se transfieren para un uso futuro.
+- **Ejemplo 2**: compra 5 unidades de capacidad de reserva de 100 cDWU. Ejecuta dos instancias de SQL Data Warehouse de DW100c durante una hora. En este caso, se emiten dos eventos de uso para 1 unidad de utilización de 100 cDWU. Ambos eventos de uso obtienen descuentos de capacidad reservada. Las 3 unidades de capacidad de reserva de 100 cDWU restantes se pierden y no se transfieren para un uso futuro. En otras palabras, una reserva única puede coincidir con varias instancias de SQL Data Warehouse.
 
 - **Ejemplo 3**: compra 1 unidad de capacidad de reserva de 100 cDWU. Ejecuta dos instancias de SQL Data Warehouse de DW100c. Cada una de ellas se ejecuta durante 30 minutos. En este caso, ambos eventos de uso obtienen descuentos de capacidad reservada. No se carga ninguna utilización con tarifas de pago por uso.
 

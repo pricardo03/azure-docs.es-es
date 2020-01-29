@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 85e421d4d4e53d275613ff8848abd405fdf175c2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/20/2020
+ms.openlocfilehash: 1b860876b0d8967a6a3f90c7bb68f20d6c442109
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979443"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513871"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -32,7 +32,7 @@ Para obtener valores de parámetro, variables o la implementación actual, consu
 extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Devuelve el identificador de recurso de un [recurso de extensión](extension-resource-types.md), que es un tipo de recurso que se aplica a otro recurso para agregarlo a sus capacidades.
+Devuelve el identificador de recurso de un [recurso de extensión](../management/extension-resource-types.md), que es un tipo de recurso que se aplica a otro recurso para agregarlo a sus capacidades.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -533,6 +533,16 @@ Al construir una referencia completa a un recurso, el orden para combinar los se
 Por ejemplo:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` es correcto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` no es correcto
+
+### <a name="get-managed-identity"></a>Obtención de una identidad administrada
+
+[Las identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md) son [tipos de recursos de extensión](../management/extension-resource-types.md) que se crean implícitamente para algunos recursos. Dado que la identidad administrada no se define explícitamente en la plantilla, debe hacer referencia al recurso al que se aplica la identidad. Utilice `Full` para obtener todas las propiedades, incluida la identidad creada implícitamente.
+
+Por ejemplo, para obtener el identificador de inquilino de una identidad administrada que se aplica a un conjunto de escalado de máquinas virtuales, use:
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+```
 
 ### <a name="reference-example"></a>Ejemplo de referencia
 

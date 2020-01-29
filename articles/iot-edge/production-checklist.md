@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1213ab4c623cb1d475dff1d71e65439b1d08f5c1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58959310a0daec3835585f64c53f2b8853eb553e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429449"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548601"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -23,23 +23,23 @@ La información proporcionada en este artículo no es la misma para todo. Para a
 
 ## <a name="device-configuration"></a>Configuración del dispositivo
 
-Los dispositivos IoT Edge pueden ser cualquier cosa, desde un dispositivo Raspberry Pi a un portátil o una máquina virtual que se ejecuta en un servidor. Es posible que tenga acceso al dispositivo ya sea físicamente o mediante una conexión virtual, o que esté aislado durante períodos prolongados de tiempo. En cualquier caso, debe asegurarse de que está configurado para funcionar correctamente. 
+Los dispositivos IoT Edge pueden ser cualquier cosa, desde un dispositivo Raspberry Pi a un portátil o una máquina virtual que se ejecuta en un servidor. Es posible que tenga acceso al dispositivo ya sea físicamente o mediante una conexión virtual, o que esté aislado durante períodos prolongados de tiempo. En cualquier caso, debe asegurarse de que está configurado para funcionar correctamente.
 
 * **Importante**
-    * Instalar certificados de producción
-    * Disponer de un plan de administración de dispositivos
-    * Utilizar Moby como motor de contenedor
+  * Instalar certificados de producción
+  * Disponer de un plan de administración de dispositivos
+  * Utilizar Moby como motor de contenedor
 
 * **Útil**
-    * Elegir el protocolo ascendente
+  * Elegir el protocolo ascendente
 
 ### <a name="install-production-certificates"></a>Instalar certificados de producción
 
-Cada dispositivo IoT Edge en producción necesita un certificado de la entidad de certificación (CA) instalado en él. Este certificado de entidad de certificación se declara en el entorno de ejecución de Azure IoT Edge en el archivo config.yaml. Para facilitar el desarrollo y las pruebas, el entorno de ejecución de Azure IoT Edge crea certificados temporales si no se declara ningún certificado en el archivo config.yaml. Sin embargo, estos certificados temporales expiran después de tres meses y no son seguros para escenarios de producción. 
+Cada dispositivo IoT Edge en producción necesita un certificado de la entidad de certificación (CA) instalado en él. Este certificado de entidad de certificación se declara en el entorno de ejecución de Azure IoT Edge en el archivo config.yaml. En escenarios de desarrollo y prueba, el entorno de ejecución de IoT Edge crea certificados temporales si no se declara ningún certificado en el archivo config.yaml. Sin embargo, estos certificados temporales expiran después de tres meses y no son seguros para escenarios de producción.
 
 Para comprender el rol del certificado de entidad de certificación del dispositivo, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 
-Para obtener más información sobre cómo instalar certificados en un dispositivo IoT Edge y hacer referencia a ellos desde el archivo config.yaml, consulte el artículo sobre [instalación de certificados de producción en un dispositivo IoT Edge](how-to-create-transparent-gateway.md). 
+Para obtener más información sobre cómo instalar certificados en un dispositivo IoT Edge y hacer referencia a ellos desde el archivo config.yaml, consulte el artículo sobre [instalación de certificados de producción en un dispositivo IoT Edge](how-to-create-transparent-gateway.md).
 
 ### <a name="have-a-device-management-plan"></a>Disponer de un plan de administración de dispositivos
 
@@ -59,32 +59,32 @@ Tener un motor de contenedor es un requisito previo para cualquier dispositivo I
 
 ### <a name="choose-upstream-protocol"></a>Elegir el protocolo ascendente
 
-El protocolo (y, por lo tanto, el puerto utilizado) para la comunicación ascendente a IoT Hub puede configurarse tanto para el agente de IoT Edge para el centro de IoT Edge. El protocolo predeterminado es AMQP, pero es posible que desee cambiarlo en función de la configuración de la red. 
+Puede configurar el protocolo (que determina el puerto usado) para la comunicación ascendente con IoT Hub tanto para el agente de IoT Edge como para el centro de IoT Edge. El protocolo predeterminado es AMQP, pero es posible que desee cambiarlo en función de la configuración de la red.
 
-Los dos módulos del entorno de ejecución tienen la variable de entorno **UpstreamProtocol**. Los valores válidos para la variable son: 
+Los dos módulos del entorno de ejecución tienen la variable de entorno **UpstreamProtocol**. Los valores válidos para la variable son:
 
 * MQTT
 * AMQP
 * MQTTWS
 * AMQPWS
 
-Configure la variable UpstreamProtocol para el agente de IoT Edge en el archivo config.yaml del propio dispositivo. Por ejemplo, si el dispositivo IoT Edge está detrás de un servidor proxy que bloquea los puertos AMQP, puede que necesite configurar el agente de IoT Edge para que utilice AMQP sobre WebSocket (AMQPWS) para establecer la conexión inicial con IoT Hub. 
+Configure la variable UpstreamProtocol para el agente de IoT Edge en el archivo config.yaml del propio dispositivo. Por ejemplo, si el dispositivo IoT Edge está detrás de un servidor proxy que bloquea los puertos AMQP, puede que necesite configurar el agente de IoT Edge para que utilice AMQP sobre WebSocket (AMQPWS) para establecer la conexión inicial con IoT Hub.
 
 Una vez que el dispositivo IoT Edge se conecte, asegúrese de continuar con la configuración de la variable UpstreamProtocol para ambos módulos del entorno de ejecución en futuras implementaciones. Un ejemplo de este proceso se muestra en [Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy](how-to-configure-proxy-support.md).
 
 ## <a name="deployment"></a>Implementación
 
 * **Útil**
-    * Ser coherente con el protocolo ascendente
-    * Configuración de almacenamiento de host para módulos del sistema
-    * Reducir el espacio de memoria utilizado por el centro de IoT Edge
-    * No utilizar versiones de depuración de las imágenes de módulo
+  * Ser coherente con el protocolo ascendente
+  * Configuración de almacenamiento de host para módulos del sistema
+  * Reducir el espacio de memoria utilizado por el centro de IoT Edge
+  * No utilizar versiones de depuración de las imágenes de módulo
 
 ### <a name="be-consistent-with-upstream-protocol"></a>Ser coherente con el protocolo ascendente
 
-Si ha configurado el agente de IoT Edge en su dispositivo IoT Edge para utilizar un protocolo diferente al AMQP predeterminado, debe declarar el mismo protocolo en todas las futuras implementaciones. Por ejemplo, si el dispositivo IoT Edge está detrás de un servidor proxy que bloquea los puertos AMQP, probablemente ha configurado el dispositivo para que se conecte a través de AMQP sobre WebSocket (AMQPWS). Cuando implemente módulos en el dispositivo, configure el mismo protocolo AMQPWS para el agente de IoT Edge y el centro de IoT Edge, ya que, de lo contrario, el AMQPP predeterminado invalidará la configuración e impedirá que se vuelva a conectar. 
+Si ha configurado el agente de IoT Edge en su dispositivo IoT Edge para utilizar un protocolo diferente al AMQP predeterminado, debe declarar el mismo protocolo en todas las futuras implementaciones. Por ejemplo, si el dispositivo IoT Edge está detrás de un servidor proxy que bloquea los puertos AMQP, probablemente ha configurado el dispositivo para que se conecte a través de AMQP sobre WebSocket (AMQPWS). Cuando implemente módulos en el dispositivo, configure el mismo protocolo AMQPWS para el agente de IoT Edge y el centro de IoT Edge, ya que, de lo contrario, el AMQPP predeterminado invalidará la configuración e impedirá que se vuelva a conectar.
 
-Solo tiene que configurar la variable de entorno UpstreamProtocol para el agente de IoT Edge y el centro de IoT Edge. Cualquier módulo adicional adopta cualquier protocolo que se establezca en los módulos del entorno de ejecución. 
+Solo tiene que configurar la variable de entorno UpstreamProtocol para el agente de IoT Edge y el centro de IoT Edge. Cualquier módulo adicional adopta cualquier protocolo que se establezca en los módulos del entorno de ejecución.
 
 Un ejemplo de este proceso se muestra en [Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy](how-to-configure-proxy-support.md).
 
@@ -96,19 +96,19 @@ Para obtener más información, vea [Almacenamiento de host para módulos del si
 
 ### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>Reducir el espacio de memoria utilizado por el centro de IoT Edge
 
-Si va a implementar dispositivos restringidos con memoria disponible limitada, puede configurar el centro de IoT Edge para que se ejecute con una capacidad más optimizada y utilice menos espacio en disco. Sin embargo, estas configuraciones limitan el rendimiento del centro de IoT Edge, por lo que debe encontrar el equilibrio adecuado para su solución. 
+Si va a implementar dispositivos restringidos con memoria disponible limitada, puede configurar el centro de IoT Edge para que se ejecute con una capacidad más optimizada y utilice menos espacio en disco. Sin embargo, estas configuraciones limitan el rendimiento del centro de IoT Edge, por lo que debe encontrar el equilibrio adecuado para su solución.
 
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>No optimizar el rendimiento en dispositivos restringidos
 
-El centro de IoT Edge está optimizado para el rendimiento de manera predeterminada e intenta asignar grandes fragmentos de memoria. Esta configuración puede causar problemas de estabilidad en dispositivos más pequeños como el Raspberry Pi. Si va a implementar dispositivos con recursos limitados, es posible que quiera establecer la variable de entorno **OptimizeForPerformance** en **false** en el centro de IoT Edge. 
+El centro de IoT Edge está optimizado para el rendimiento de manera predeterminada e intenta asignar grandes fragmentos de memoria. Esta configuración puede causar problemas de estabilidad en dispositivos más pequeños como el Raspberry Pi. Si va a implementar dispositivos con recursos limitados, es posible que quiera establecer la variable de entorno **OptimizeForPerformance** en **false** en el centro de IoT Edge.
 
-Cuando **OptimizeForPerformance** se establece en **true**, el encabezado del protocolo MQTT usa PooledByteBufferAllocator, que tiene un mejor rendimiento, pero asigna más memoria. El asignador no funciona bien en sistemas operativos de 32 bits o en dispositivos con poca memoria. Además, cuando se optimiza para el rendimiento, RocksDb asigna más memoria para su rol como proveedor de almacenamiento local. 
+Cuando **OptimizeForPerformance** se establece en **true**, el encabezado del protocolo MQTT usa PooledByteBufferAllocator, que tiene un mejor rendimiento, pero asigna más memoria. El asignador no funciona bien en sistemas operativos de 32 bits o en dispositivos con poca memoria. Además, cuando se optimiza para el rendimiento, RocksDb asigna más memoria para su rol como proveedor de almacenamiento local.
 
 Para más información, consulte [Problemas de estabilidad en dispositivos con recursos limitados](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
 #### <a name="disable-unused-protocols"></a>Deshabilitar los protocolos no utilizados
 
-Otra forma de optimizar el rendimiento del centro de IoT Edge y reducir su uso de memoria es desactivar los encabezados del protocolo de cualquier protocolo que no utilicen su solución. 
+Otra forma de optimizar el rendimiento del centro de IoT Edge y reducir su uso de memoria es desactivar los encabezados del protocolo de cualquier protocolo que no utilicen su solución.
 
 Los encabezados del protocolo se configuran mediante el establecimiento de variables de entorno booleanas para el módulo del centro de IoT Edge en los manifiestos de implementación. Las tres variables son:
 
@@ -116,44 +116,44 @@ Los encabezados del protocolo se configuran mediante el establecimiento de varia
 * **mqttSettings__enabled**
 * **httpSettings__enabled**
 
-Las tres variables tienen *dos caracteres de subrayado* y se pueden establecer como verdadero o falso. 
+Las tres variables tienen *dos caracteres de subrayado* y se pueden establecer como verdadero o falso.
 
 #### <a name="reduce-storage-time-for-messages"></a>Reducir el tiempo de almacenamiento para los mensajes
 
-El módulo del centro de IoT Edge almacena mensajes temporalmente si no se pueden entregar a IoT Hub por cualquier razón. Puede configurar el tiempo que el centro de IoT Edge conserva los mensajes no entregados antes de dejarlos expirar. Si tiene problemas de memoria en el dispositivo, puede reducir el valor **timeToLiveSecs** en el módulo gemelo del centro de IoT Edge. 
+El módulo del centro de IoT Edge almacena mensajes temporalmente si no se pueden entregar a IoT Hub por cualquier razón. Puede configurar el tiempo que el centro de IoT Edge conserva los mensajes no entregados antes de dejarlos expirar. Si tiene problemas de memoria en el dispositivo, puede reducir el valor **timeToLiveSecs** en el módulo gemelo del centro de IoT Edge.
 
-El valor predeterminado del parámetro timeToLiveSecs es de 7200 segundos, es decir, dos horas. 
+El valor predeterminado del parámetro timeToLiveSecs es de 7200 segundos, es decir, dos horas.
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>No utilizar versiones de depuración de las imágenes de módulo
 
-Al pasar de escenarios de prueba a escenarios de producción, recuerde quitar las configuraciones de depuración de los manifiestos de implementación. Compruebe que ninguna de las imágenes de módulo en los manifiestos de implementación tiene el sufijo **\.debug**. Si agregó opciones de creación para exponer puertos en los módulos de depuración, quite también estas opciones. 
+Al pasar de escenarios de prueba a escenarios de producción, recuerde quitar las configuraciones de depuración de los manifiestos de implementación. Compruebe que ninguna de las imágenes de módulo en los manifiestos de implementación tiene el sufijo **\.debug**. Si agregó opciones de creación para exponer puertos en los módulos de depuración, quite también estas opciones.
 
 ## <a name="container-management"></a>Administración de contenedores
 
 * **Importante**
-    * Administrar el acceso al registro de contenedor
-    * Usar etiquetas para administrar versiones
+  * Administrar el acceso al registro de contenedor
+  * Usar etiquetas para administrar versiones
 
 ### <a name="manage-access-to-your-container-registry"></a>Administrar el acceso al registro de contenedor
 
-Antes de implementar módulos en dispositivos de producción IoT Edge, asegúrese de controlar el acceso al registro de contenedor para que las personas ajenas no puedan acceder a las imágenes de contenedor o realizar cambios en ellas. Utilice un registro de contenedores privado, no público, para administrar las imágenes de contenedor. 
+Antes de implementar módulos en dispositivos de producción IoT Edge, asegúrese de controlar el acceso al registro de contenedor para que las personas ajenas no puedan acceder a las imágenes de contenedor o realizar cambios en ellas. Utilice un registro de contenedores privado, no público, para administrar las imágenes de contenedor.
 
 En los tutoriales y otra documentación, le indicamos que utilice las mismas credenciales de registro de contenedor en el dispositivo IoT Edge que en la máquina de desarrollo. Estas instrucciones solo pretenden ayudarle a configurar entornos de pruebas y desarrollo con mayor facilidad, y no deben seguirse en un escenario de producción. Azure Container Registry recomienda [autenticar con los entidades de servicio](../container-registry/container-registry-auth-service-principal.md) cuando las aplicaciones o servicios extraen imágenes de contenedor de forma automatizada o desatendida, como lo hacen los dispositivos IoT Edge. Cree una entidad de servicio con acceso de solo lectura al registro de contenedor y proporcione ese nombre de usuario y contraseña en el manifiesto de implementación.
 
 ### <a name="use-tags-to-manage-versions"></a>Usar etiquetas para administrar versiones
 
-Una etiqueta es un concepto de Docker que puede utilizar para distinguir entre versiones de contenedores Docker. Las etiquetas son sufijos como **1.0** que van al final de un repositorio de contenedores. Por ejemplo, **mcr.microsoft.com/azureiotedge-agent:1.0**. Las etiquetas son mutables y pueden cambiarse para que apunten a otro contenedor en cualquier momento, por lo que su equipo debe acordar una convención a seguir a medida que actualice las imágenes de sus módulos. 
+Una etiqueta es un concepto de Docker que puede utilizar para distinguir entre versiones de contenedores Docker. Las etiquetas son sufijos como **1.0** que van al final de un repositorio de contenedores. Por ejemplo, **mcr.microsoft.com/azureiotedge-agent:1.0**. Las etiquetas son mutables y pueden cambiarse para que apunten a otro contenedor en cualquier momento, por lo que su equipo debe acordar una convención a seguir a medida que actualice las imágenes de sus módulos.
 
-Las etiquetas también le ayudan a aplicar las actualizaciones en sus dispositivos IoT Edge. Cuando inserte una versión actualizada de un módulo en el registro de contenedor, aumente la etiqueta. A continuación, inserte una nueva implementación a sus dispositivos con la etiqueta incrementada. El motor de contenedor reconocerá la etiqueta de incremento como una nueva versión y extraerá la versión más reciente del módulo en el dispositivo. 
+Las etiquetas también le ayudan a aplicar las actualizaciones en sus dispositivos IoT Edge. Cuando inserte una versión actualizada de un módulo en el registro de contenedor, aumente la etiqueta. A continuación, inserte una nueva implementación a sus dispositivos con la etiqueta incrementada. El motor de contenedor reconocerá la etiqueta de incremento como una nueva versión y extraerá la versión más reciente del módulo en el dispositivo.
 
-Para ver un ejemplo de una convención de etiquetas, consulte [Actualización del entorno de ejecución de Azure IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags) para aprender cómo IoT Edge utiliza etiquetas rodantes y etiquetas específicas para realizar el seguimiento de las versiones. 
+Para ver un ejemplo de una convención de etiquetas, consulte [Actualización del entorno de ejecución de Azure IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags) para aprender cómo IoT Edge utiliza etiquetas rodantes y etiquetas específicas para realizar el seguimiento de las versiones.
 
 ## <a name="networking"></a>Redes
 
 * **Útil**
-    * Revisar configuración de entrada y salida
-    * Permitir conexiones desde dispositivos IoT Edge
-    * Configurar la comunicación a través un servidor proxy
+  * Revisar configuración de entrada y salida
+  * Permitir conexiones desde dispositivos IoT Edge
+  * Configurar la comunicación a través un servidor proxy
 
 ### <a name="review-outboundinbound-configuration"></a>Revisar configuración de entrada y salida
 
@@ -163,13 +163,13 @@ Los canales de comunicación entre Azure IoT Hub e IoT Edge siempre están confi
 
 Si la configuración de red requiere agregar en la lista de permitidos las conexiones hechas desde dispositivos IoT Edge, revise la siguiente lista de componentes de IoT Edge:
 
-* El **agente de IoT Edge** abre una conexión AMQP/MQTT persistente con IoT Hub, posiblemente a través de WebSockets. 
-* El **centro de IoT Edge** abre una única conexión AMQP persistente o varias conexiones MQTT con IoT Hub, posiblemente a través de WebSockets. 
-* El **demonio de IoT Edge** realiza las llamadas HTTPS intermitentes a IoT Hub. 
+* El **agente de IoT Edge** abre una conexión AMQP/MQTT persistente con IoT Hub, posiblemente a través de WebSockets.
+* El **centro de IoT Edge** abre una única conexión AMQP persistente o varias conexiones MQTT con IoT Hub, posiblemente a través de WebSockets.
+* El **demonio de IoT Edge** realiza las llamadas HTTPS intermitentes a IoT Hub.
 
-En los tres casos, el nombre DNS coincidiría con el patrón \*.azure-devices.net. 
+En los tres casos, el nombre DNS coincidiría con el patrón \*.azure-devices.net.
 
-Además, el **motor de contenedor** realiza llamadas a los registros de contenedor mediante HTTPS. Para recuperar las imágenes de contenedor del entorno de ejecución de Azure IoT Edge, el nombre DNS es mcr.microsoft.com. El motor de contenedor se conecta a otros registros tal y como se ha configurado en la implementación. 
+Además, el **motor de contenedor** realiza llamadas a los registros de contenedor mediante HTTPS. Para recuperar las imágenes de contenedor del entorno de ejecución de Azure IoT Edge, el nombre DNS es mcr.microsoft.com. El motor de contenedor se conecta a otros registros tal y como se ha configurado en la implementación.
 
 Esta lista de comprobación es un punto de partida para las reglas de firewall:
 
@@ -178,7 +178,7 @@ Esta lista de comprobación es un punto de partida para las reglas de firewall:
    | mcr.microsoft.com  | 443 | Registro de contenedor de Microsoft |
    | global.azure-devices-provisioning.net  | 443 | Acceso a DPS (opcional) |
    | \*.azurecr.io | 443 | Registros de contenedores personales y de terceros |
-   | \*blob.core.windows.net | 443 | Descargar deltas de imágenes de Azure Container Registry desde Blob Storage  | 
+   | \*blob.core.windows.net | 443 | Descargar deltas de imágenes de Azure Container Registry desde Blob Storage |
    | \*.azure-devices.net | 5671, 8883, 443 | Acceso de IoT Hub |
    | \*.docker.io  | 443 | Acceso a Docker Hub (opcional) |
 
@@ -191,8 +191,8 @@ Si sus dispositivos se van a implementar en una red que utiliza un servidor prox
 ## <a name="solution-management"></a>Administración de soluciones
 
 * **Útil**
-    * Configurar los registros y diagnósticos
-    * Considerar la posibilidad de pruebas y canalizaciones de CI/CD
+  * Configurar los registros y diagnósticos
+  * Considerar la posibilidad de pruebas y canalizaciones de CI/CD
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurar los registros y diagnósticos
 
@@ -202,13 +202,13 @@ En Linux, el demonio de IoT Edge utiliza journals como controlador de registro p
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Cuando está probando una implementación de IoT Edge, normalmente puede acceder a sus dispositivos para recuperar registros y solucionar problemas. En un escenario de implementación, es posible que no tenga esa opción. Considere cómo va a recopilar información sobre los dispositivos en producción. Una opción es usar un módulo de registro que recoge información de los otros módulos y la envía a la nube. Un ejemplo de un módulo de registro es [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics) o puede diseñar el suyo propio. 
+Cuando está probando una implementación de IoT Edge, normalmente puede acceder a sus dispositivos para recuperar registros y solucionar problemas. En un escenario de implementación, es posible que no tenga esa opción. Considere cómo va a recopilar información sobre los dispositivos en producción. Una opción es usar un módulo de registro que recoge información de los otros módulos y la envía a la nube. Un ejemplo de un módulo de registro es [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics) o puede diseñar el suyo propio.
 
 ### <a name="place-limits-on-log-size"></a>Colocar límites en el tamaño de registro
 
 De forma predeterminada el motor del contenedor Moby no establece límites de tamaño de registro de contenedor. Con el tiempo, puede que el dispositivo se llene con registros y se quede sin espacio en disco. Considere las opciones siguientes para evitarlo:
 
-**Opción: establecer límites globales que se aplican a todos los módulos del contenedor**
+#### <a name="option-set-global-limits-that-apply-to-all-container-modules"></a>Opción: establecer límites globales que se aplican a todos los módulos del contenedor
 
 Puede limitar el tamaño de todos los archivos de registro del contenedor en las opciones de registro del motor del contenedor. En el ejemplo siguiente se establece el controlador de registro en `json-file` (recomendado) con límites de tamaño y número de archivos:
 
@@ -231,7 +231,7 @@ Agregue (o anexe) esta información a un archivo denominado `daemon.json` y col�
 
 El motor del contenedor debe reiniciarse para que los cambios surtan efecto.
 
-**Opción: ajustar la configuración de registro para cada módulo del contenedor**
+#### <a name="option-adjust-log-settings-for-each-container-module"></a>Opción: ajustar la configuración de registro de cada módulo del contenedor
 
 Puede hacerlo en el elemento **createOptions** de cada módulo. Por ejemplo:
 
@@ -249,13 +249,13 @@ Puede hacerlo en el elemento **createOptions** de cada módulo. Por ejemplo:
 }
 ```
 
-**Opciones adicionales en los sistemas Linux**
+#### <a name="additional-options-on-linux-systems"></a>Opciones adicionales en sistemas Linux
 
-* Configure el motor del contenedor para enviar registros al [diario](https://docs.docker.com/config/containers/logging/journald/) de `systemd` estableciendo `journald` como controlador de registro predeterminado. 
+* Configure el motor del contenedor para enviar registros al [diario](https://docs.docker.com/config/containers/logging/journald/) de `systemd` estableciendo `journald` como controlador de registro predeterminado.
 
-* Quite periódicamente los registros antiguos del dispositivo mediante la instalación de una herramienta de logrotate. Utilice la siguiente especificación de archivo: 
+* Quite periódicamente los registros antiguos del dispositivo mediante la instalación de una herramienta de logrotate. Utilice la siguiente especificación de archivo:
 
-   ```
+   ```txt
    /var/lib/docker/containers/*/*-json.log{
        copytruncate
        daily

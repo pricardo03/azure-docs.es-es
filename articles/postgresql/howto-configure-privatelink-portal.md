@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: dca271e745976f7797d3e911c2f1f6232fe5400d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f7a796408267fda08d765425a3c529895a251782
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898996"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281111"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único (versión preliminar) con Portal
 
@@ -129,7 +129,7 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
 1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Redes** > **Private Link Center (versión preliminar)** .
 2. En **Centro de vínculos privados: Información general**, en la opción**Build a private connection to a service** (Crear una conexión privada a un servicio), seleccione **Start** (Iniciar).
 
-    ![Introducción a Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
+    ![Información general de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
 1. En **Create a private endpoint (Preview) - Basics** (Crear un punto de conexión privado [versión preliminar]: Conceptos básicos), escriba o seleccione esta información:
 
@@ -163,7 +163,7 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     | Subnet | Seleccione  *mySubnet*. |
     |**INTEGRACIÓN DE DNS PRIVADO**||
     |Integración con una zona DNS privada |Seleccione **Sí**. |
-    |Zona DNS privada |Seleccione *(New)privatelink.database.azure.com* |
+    |Zona DNS privada |Seleccione *(New)privatelink.postgres.database.azure.com* |
     |||
 
 1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
@@ -201,14 +201,14 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 1. En el Escritorio remoto de  *myVm*, abra PowerShell.
 
-2. Escriba  `nslookup mydemopostgresserver.database.azure.com`. 
+2. Escriba  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
     Recibirá un mensaje similar a este:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemopostgresserver.postgres.privatelink.database.azure.com
+    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
@@ -218,7 +218,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.postgres.privatelink.database.azure.com* |
+    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
     |Password |Enter a password provided during the PostgreSQL server creation. |
     |SSL|Select **Required**.|

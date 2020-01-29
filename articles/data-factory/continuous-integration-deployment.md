@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2e14b1bcc991a009ed9b3267477933706e1ec474
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977519"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289958"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -82,7 +82,7 @@ Aquí se ofrece una guía para configurar una versión de Azure Pipelines, que a
 
 ### <a name="requirements"></a>Requisitos
 
--   Una suscripción a Azure vinculada a Visual Studio Team Foundation Server o Azure Repos que use el  [punto de conexión de servicio de Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Una suscripción a Azure vinculada a Visual Studio Team Foundation Server o Azure Repos que use el  [punto de conexión de servicio de Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   Una factoría de datos configurada con la integración de GIT de Azure Repos.
 
@@ -330,7 +330,7 @@ Si está en modo GIT, puede reemplazar las propiedades predeterminadas en la pla
 * Se usa CI/CD automatizada y se quieren cambiar algunas propiedades durante la implementación de Resource Manager, pero las propiedades no están parametrizadas de forma predeterminada.
 * La fábrica es tan grande que la plantilla de Resource Manager predeterminada no es válida porque contiene más parámetros que el número máximo permitido (256).
 
-En estas condiciones, para reemplazar la plantilla de parametrización predeterminada, cree un archivo denominado arm-template-parameters-definition.json en la carpeta raíz del repositorio. Debe usar ese nombre de archivo exacto. Data Factory lee el archivo de la rama en la que está actualmente en el portal de Azure Data Factory, no solo de la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios si selecciona **Export ARM Template** (Exportar plantilla de ARM) en la interfaz de usuario. Después, puede combinar el archivo en la rama de colaboración. Si no se encuentra ningún archivo, se usa la plantilla predeterminada.
+En estas condiciones, para reemplazar la plantilla de parametrización predeterminada, cree un archivo denominado arm-template-parameters-definition.json en la carpeta especificada como carpeta raíz para la integración de Git de los datos de la factoría de datos. Debe usar ese nombre de archivo exacto. Data Factory lee el archivo de la rama en la que está actualmente en el portal de Azure Data Factory, no solo de la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios si selecciona **Export ARM Template** (Exportar plantilla de ARM) en la interfaz de usuario. Después, puede combinar el archivo en la rama de colaboración. Si no se encuentra ningún archivo, se usa la plantilla predeterminada.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxis de un archivo de parámetros personalizados
 

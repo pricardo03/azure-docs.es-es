@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894619"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294259"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -49,6 +49,10 @@ En las secciones siguientes se enumeran los sistemas operativos de servidor admi
 |Windows Server 2008 R2|✔|✔|
 
 Para obtener más información acerca de las características admitidas para los sistemas operativos Windows, enumerados anteriormente, consulte [Características compatibles con máquinas virtuales y servidores](security-center-services.md#vm-server-features).
+
+### Sistemas operativos Windows <a name="os-windows (non-server)"></a>
+
+Azure Security Center se integra con servicios de Azure para supervisar y proteger las máquinas virtuales Windows.
 
 ### Sistemas operativos Linux <a name="os-linux"></a>
 

@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ede1e56384c75c64765962b7db196973a30c605b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928443"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121801"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -155,17 +155,19 @@ Puede recuperar la identidad administrada desde Azure Portal o mediante programa
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperar identidad administrada mediante Azure Portal
 
-Puede encontrar la información de la identidad administrada en Azure Portal -> su factoría de datos -> Propiedades:
+Puede encontrar la información de la identidad administrada en Azure Portal -> su factoría de datos -> Propiedades.
 
 - Id. del objeto de identidad administrada
 - Inquilino de identidad administrada
-- **Id. de aplicación de identidad administrada** > copie este valor
+- Id. de aplicación de identidad administrada
 
-![Recuperar identidad administrada](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+La información de la identidad administrada también se mostrará al crear un servicio vinculado que admita la autenticación con identidad administrada, como Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
+
+Al conceder el permiso, use el identificador de objeto o el nombre de la factoría de datos como nombre de la identidad administrada para buscarla.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Recuperar identidad administrada mediante PowerShell
 
-Se devuelven el Id. de entidad de seguridad y el Id. de inquilino de la identidad administrada cuando se obtiene una factoría de datos específica del modo siguiente:
+Al obtener una factoría de datos específicas, se devuelven el identificador de identidad de seguridad y el de inquilino de la identidad administrada del modo siguiente. Use el valor de **PrincipalId** para conceder acceso:
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -175,7 +177,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Copie el identificador de entidad de seguridad y, luego, ejecute el comando de Azure Active Directory siguiente con el Id. de entidad de seguridad como parámetro para obtener el valor de **ApplicationId** que se usará para conceder acceso:
+Para obtener el identificador de aplicación, copie el identificador de entidad de seguridad y ejecute el comando de Azure Active Directory siguiente con el identificador de entidad de seguridad como parámetro.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

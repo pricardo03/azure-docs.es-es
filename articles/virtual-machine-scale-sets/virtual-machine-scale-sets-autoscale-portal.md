@@ -1,26 +1,19 @@
 ---
-title: Escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal | Microsoft Docs
+title: Escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
 description: Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618885"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278198"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
@@ -28,7 +21,7 @@ Al crear un conjunto de escalado, puede definir el número de instancias de máq
 Este artículo muestra cómo crear reglas de escalado automático en Azure Portal que supervisan el rendimiento de las instancias de máquina virtual del conjunto de escalado. Estas reglas de escalado automático permiten aumentar o reducir el número de instancias de máquina virtual en respuesta a estas métricas de rendimiento. También puede seguir estos pasos con [Azure PowerShell](tutorial-autoscale-powershell.md) o la [CLI de Azure](tutorial-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para crear reglas de escalado automático, necesita un conjunto de escalado de máquinas virtuales ya existente. Puede crear un conjunto de escalado con [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) o la [CLI de Azure](quick-create-cli.md).
 
 
@@ -47,11 +40,11 @@ Si aumenta la demanda de la aplicación, la carga de las instancias de máquina 
 
     Especifique la configuración siguiente para la regla:
     
-    | Parámetro              | Explicación                                                                                                         | Valor          |
+    | Parámetro              | Explicación                                                                                                         | Value          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Agregación de tiempo*     | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Media        |
+    | *Agregación de tiempo*     | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Average        |
     | *Nombre de métrica*          | La métrica de rendimiento del conjunto de escalado sobre el que realizar las acciones de supervisión y aplicación.                                                   | Porcentaje de CPU |
-    | *Estadísticas de intervalo de agregación* | Define cómo se deben agregar las métricas recopiladas en cada intervalo de agregación para el análisis.                             | Media        |
+    | *Estadísticas de intervalo de agregación* | Define cómo se deben agregar las métricas recopiladas en cada intervalo de agregación para el análisis.                             | Average        |
     | *Operador*             | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                     | Mayor que   |
     | *Umbral*            | El porcentaje que hace que la regla de escalado automático desencadene una acción.                                                 | 70             |
     | *Duration*             | El periodo durante el que se realiza la supervisión antes de que se comparen los valores de métricas y umbrales.                                   | 10 minutos     |
@@ -74,7 +67,7 @@ La demanda de la aplicación puede reducirse por las tardes o durante los fines 
 
     Use el mismo enfoque que con la regla anterior. Ajuste la configuración siguiente para la regla:
     
-    | Parámetro              | Explicación                                                                                                          | Valor          |
+    | Parámetro              | Explicación                                                                                                          | Value          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operador*             | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                      | Menor que   |
     | *Umbral*            | El porcentaje que hace que la regla de escalado automático desencadene una acción.                                                 | 30             |

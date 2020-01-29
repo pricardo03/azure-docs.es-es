@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805712"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277591"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP
 Las aplicaciones SAP basadas en la arquitectura SAP NetWeaver o SAP S/4HANA son sensibles a la latencia de red entre la capa de aplicación de SAP y el nivel de base de datos de SAP. Esta sensibilidad es el resultado de la mayor parte de la lógica de negocios que se ejecuta en el nivel de aplicación. Dado que el nivel de aplicación de SAP ejecuta la lógica de negocios, emite consultas al nivel de base de datos con una elevada frecuencia a una velocidad de miles o decenas de miles de consultas por segundo. En la mayoría de los casos, la naturaleza de estas consultas es sencilla. A menudo, se pueden ejecutar en el nivel de base de datos en 500 microsegundos o menos.
@@ -156,14 +156,14 @@ El resultado de esta implementación es:
 > Dado que implementa una VM de DBMS en una zona y una segunda VM de DBMS en otra zona para crear una configuración de alta disponibilidad, será necesario disponer de grupos de selección de ubicación de proximidad diferentes para cada una de las zonas. Lo mismo se aplica a cualquier conjunto de disponibilidad que use.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Traslado de un sistema existente en grupos de selección de ubicación de proximidad
-Si ya tiene sistemas SAP implementados, es posible que quiera optimizar la latencia de red de algunos de los sistemas críticos y colocar el nivel de aplicación y la capa de DBMS en el mismo centro de datos. Durante la versión preliminar pública de los grupos de selección de ubicación de proximidad, debe eliminar las VM y crear otras nuevas para trasladar el sistema a grupos de selección de ubicación de proximidad. Actualmente no se pueden apagar las VM y asignarlas a grupos de selección de ubicación de proximidad.
+Si ya tiene sistemas SAP implementados, es posible que quiera optimizar la latencia de red de algunos de los sistemas críticos y colocar el nivel de aplicación y la capa de DBMS en el mismo centro de datos. Para mover las máquinas virtuales de un conjunto de disponibilidad completo de Azure a un grupo de selección de ubicación de proximidad existente que ya está restringido, tiene que cerrar todas las máquinas virtuales del conjunto de disponibilidad y asignarlo al grupo de selección de ubicación de proximidad existente mediante Azure Portal, PowerShell o la CLI. Si desea trasladar una máquina virtual que no forma parte de un conjunto de disponibilidad a un grupo de selección de ubicación de proximidad existente, solo tiene que cerrarla y asignarla a ese grupo. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte la documentación:
 
 - [Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
-- [Versión preliminar: Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
-- [Versión preliminar: Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
+- [Vista previa: Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
+- [Vista previa: Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
 - [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 71c1afd294b880f68849b283ea1a4b058d744801
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f64ac9b276c71a037f96766b38a2574b89441c8
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497856"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312233"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Referencia del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto)
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar). Use el módulo Extract N-Gram Features from Text (Extracción de características de n-gramas a partir de texto) para *caracterizar* datos de texto no estructurados. 
+En este artículo se describe un módulo del diseñador de Azure Machine Learning. Use el módulo Extract N-Gram Features from Text (Extracción de características de n-gramas a partir de texto) para *caracterizar* datos de texto no estructurados. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuración del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas a partir de texto)
 
@@ -120,7 +120,7 @@ El módulo Extract N-Gram Features from Text (Extracción de características de
 
 El vocabulario contiene el diccionario de n-gramas junto con las puntuaciones de frecuencia de los términos que se generan como parte del análisis. Las puntuaciones DF e IDF se generan independientemente de otras opciones.
 
-+ **ID**: un identificador generado para cada n-grama único.
++ **Identificador**: un identificador generado para cada n-grama único.
 + **NGram**: el n-grama. Los espacios u otros separadores de palabras se reemplazan por el carácter de subrayado.
 + **DF**: la puntuación de frecuencia de términos del n-grama en el corpus original.
 + **IDF**: la puntuación de la frecuencia inversa de documento del n-grama en el corpus original.

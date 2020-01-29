@@ -1,5 +1,5 @@
 ---
-title: Filtrado, ordenación y paginación de entidades de Media Services
+title: Filtrado, ordenación y paginación de entidades de Media Services v3
 titleSuffix: Azure Media Services
 description: Aprenda sobre el filtrado, la ordenación y la paginación de entidades de Azure Media Services.
 services: media-services
@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c5ae9839b7bbb86e28c9f8adab0aa0ec5e885087
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186246"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311706"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
 
@@ -156,27 +156,27 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 En la tabla siguiente se muestra cómo pueden aplicarse las opciones de filtrado y ordenación a diferentes entidades:
 
-|Nombre de entidad|Nombre de propiedad|Filter|Orden|
+|Nombre de entidad|Nombre de propiedad|Filter|Pedido de|
 |---|---|---|---|
-|[Recursos](https://docs.microsoft.com/rest/api/media/assets/)|Nombre|`eq`, `gt`, `lt`, `ge`, `le`|`asc` y `desc`|
+|[Recursos](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` y `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` y `desc`|
-|[Directivas de claves de contenido](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|Nombre|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
+|[Directivas de claves de contenido](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[Trabajos](https://docs.microsoft.com/rest/api/media/jobs)| Nombre  | `eq`            | `asc` y `desc`|
+|[Trabajos](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` y `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` y `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` y `desc`| 
-|[Localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|Nombre|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
+|[Localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
-|[Directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|Nombre|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
+|[Directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
-|[Transformaciones](https://docs.microsoft.com/rest/api/media/transforms)| Nombre | `eq`            | `asc` y `desc`|
+|[Transformaciones](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` y `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` y `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` y `desc`|
 

@@ -1,14 +1,14 @@
 ---
 title: Ver y administrar clientes y recursos delegados
 description: Como proveedor de servicios con la administración de recursos delegados de Azure, puede ver todos los recursos y suscripciones de clientes delegados desde la sección Mis clientes de Azure Portal.
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456821"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543433"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Ver y administrar clientes y recursos delegados
 
@@ -40,13 +40,20 @@ Puede ver la siguiente información desde esta página:
 - Para ver más detalles sobre una oferta y sus delegaciones, seleccione el nombre de la oferta.
 - Para ver más detalles acerca de las asignaciones de roles en las suscripciones o grupos de recursos delegados, seleccione la entrada de la columna **Delegaciones**.
 
-## <a name="view-delegations"></a>Ver delegaciones
+## <a name="view-and-manage-delegations"></a>Visualización y administración de delegaciones
 
 Las delegaciones muestran el grupo de recursos o la suscripción que se ha delegado, junto con los usuarios y permisos que tienen acceso a ella. Para ver esta información, seleccione **Delegaciones** en el lado izquierdo de la página **Mis clientes**.
 
 Los filtros de la parte superior de la página le permiten ordenar y agrupar la información de asignación de acceso o filtrar por clientes, ofertas o palabras clave específicos.
 
+### <a name="view-role-assignments"></a>Visualización de asignaciones de roles
+
 Los usuarios y los permisos asociados con cada delegación aparecen en la columna **Asignaciones de roles**. Puede seleccionar cada entrada para ver la lista completa de usuarios, grupos y entidades de servicio a los que se ha concedido acceso a la suscripción o al grupo de recursos. Desde allí, puede seleccionar un usuario, grupo o nombre de entidad de seguridad de servicio determinado para obtener más detalles.
+
+### <a name="remove-delegations"></a>Eliminación de delegaciones
+
+Si ha incluido usuarios con el [rol para eliminar la asignación de registros de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al incorporar el cliente para la administración de recursos delegados de Azure, esos usuarios pueden eliminar una delegación mediante la selección del icono de la papelera que aparece en la fila de dicha delegación. Al hacerlo, ningún usuario en el inquilino del proveedor de servicios podrá tener acceso a los recursos que se habían delegado previamente.
+
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Trabajar en el contexto de una suscripción delegada
 

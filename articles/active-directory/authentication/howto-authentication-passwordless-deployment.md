@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8323333f378f95f0a640313524f198bdd00dc340
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848500"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512579"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Completar una implementación de autenticación sin contraseña
 
@@ -67,7 +67,7 @@ Los métodos de autenticación sin contraseña de Microsoft habilitan distintos 
 
 **Registro de dispositivos**: para usar la aplicación Authenticator para la autenticación sin contraseña, el dispositivo debe estar registrado en el inquilino de Azure AD y no puede ser un dispositivo compartido. Un dispositivo solo se puede registrar en un único inquilino. Este límite significa que solo se admite una cuenta profesional o educativa para el inicio de sesión con teléfono con la aplicación Authenticator.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Las organizaciones deben cumplir los siguientes requisitos previos antes de comenzar una implementación sin contraseña.
 
@@ -108,7 +108,7 @@ Para habilitar el inicio de sesión de Windows 10 con llaves de seguridad FIDO2
    - La implementación de Intune es la opción recomendada.
 - [Habilitar un proveedor de credenciales con un paquete de aprovisionamiento](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Si no es posible la implementación de Intune, los administradores deben implementar un paquete en cada equipo para habilitar la funcionalidad del proveedor de credenciales. La instalación del paquete se puede llevar a cabo con una de las siguientes opciones:
-      - Directiva de grupo o System Center Configuration Manager (SCCM)
+      - Directiva de grupo o Configuration Manager
       - Instalación local en una máquina Windows 10
 
 ### <a name="register-security-keys"></a>Registro de las llaves de seguridad
@@ -129,7 +129,7 @@ Tenga en cuenta sus necesidades empresariales y los casos de uso de cada método
 
 En la tabla siguiente se describen los casos de uso que se van a implementar durante este proyecto.
 
-| Ámbito | DESCRIPCIÓN |
+| Área | Descripción |
 | --- | --- |
 | **Acceder** | El inicio de sesión sin contraseña está disponible desde un dispositivo personal o corporativo, dentro o fuera de la red corporativa. |
 | **Auditoría** | Los datos de uso están disponibles para que los administradores auditen casi en tiempo real. <br> Los datos de uso se descargan en sistemas corporativos al menos cada 29 días o se usa la herramienta SIEM. |
@@ -245,7 +245,7 @@ Siga los pasos que se indican a continuación para el método elegido.
 
 ### <a name="required-administrative-roles"></a>Roles administrativos requeridos
 
-| Rol de Azure AD | DESCRIPCIÓN |
+| Rol de Azure AD | Descripción |
 | --- | --- |
 | Administrador de autenticación | Rol con menos privilegios capaz de implementar y administrar métodos de autenticación. |
 | Usuario | Rol con menos privilegios para configurar la aplicación Authenticator en el dispositivo o para inscribir el dispositivo de llave de seguridad para el inicio de sesión web o Windows 10. |

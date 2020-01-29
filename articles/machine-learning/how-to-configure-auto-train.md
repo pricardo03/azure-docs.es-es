@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5be8668f9a2761bf1aa9809749fa44f21d622dde
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045803"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277984"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -415,7 +415,7 @@ Entre las personalizaciones admitidas se incluyen:
 |Personalización|Definición|
 |--|--|
 |Actualización del propósito de la columna|Reemplazar el tipo de característica para la columna especificada.|
-|Actualización de parámetros del transformador |Actualizar los parámetros para el transformador especificado. Actualmente admite Imputer y HashOneHotEncoder.|
+|Actualización de parámetros del transformador |Actualizar los parámetros para el transformador especificado. Actualmente admite Imputer (media, más frecuente y mediana) y HashOneHotEncoder.|
 |Quitar columnas |Las columnas que se van a quitar de la caracterización.|
 |Transformadores de bloque| Los transformadores de bloque que se van a usar en el proceso de características.|
 

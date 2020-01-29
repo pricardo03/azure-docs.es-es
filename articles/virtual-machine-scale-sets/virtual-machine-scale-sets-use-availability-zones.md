@@ -1,26 +1,20 @@
 ---
-title: Creación de un conjunto de escalado de Azure que usa Zonas de disponibilidad | Microsoft Docs
+title: Creación de un conjunto de escalado de Azure que usa Zonas de disponibilidad
 description: Obtenga información sobre cómo crear conjuntos de escalado de máquinas virtuales de Azure que usan Zonas de disponibilidad para aumentar la redundancia contra las interrupciones
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a31ed174c7a5986594f7c07b7ce00b1649413c8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 11695eb889a10dc689b00399a37382a3b9772eae
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907977"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274421"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -65,7 +59,7 @@ Cuando crea un conjunto de escalado en una sola zona, controla en qué zona se e
 Para usar las Zonas de disponibilidad, el conjunto de escalado se debe crear en una [región de Azure compatible](../availability-zones/az-overview.md#services-support-by-region). Puede crear un conjunto de escalado que use las Zonas de disponibilidad con uno de los métodos siguientes:
 
 - [Azure Portal](#use-the-azure-portal)
-- CLI de Azure
+- Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Plantillas del Administrador de recursos de Azure](#use-azure-resource-manager-templates)
 

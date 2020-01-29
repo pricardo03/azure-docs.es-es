@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 30d1ba89f6a18ed3400868e6d9a5d17ceef5de04
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493847"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546816"
 ---
 # <a name="convert-to-csv-module"></a>Módulo Convertir a CSV
 
@@ -30,14 +30,14 @@ Incluso si realiza la mayoría del trabajo en Azure Machine Learning, hay veces 
 
 + Descargue el archivo CSV para abrirlo con Excel o importarlo a una base de datos relacional.  
 + Guarde el archivo CSV en el almacenamiento en la nube y conéctese desde Power BI para crear visualizaciones.  
-+ Use el formato CSV para preparar los datos para su uso en R y Python. Simplemente haga clic con el botón derecho en la salida del módulo a fin de generar el código necesario para tener acceso a los datos directamente desde Python o un cuaderno de Jupyter. 
++ Use el formato CSV para preparar los datos para su uso en R y Python. 
 
-Al convertir un conjunto de datos a CSV, el archivo se guarda en el área de trabajo de Azure ML. Puede usar una utilidad de Azure Storage para abrir y usar el archivo directamente o puede hacer clic con el botón derecho en la salida del módulo y descargar el archivo CSV en el equipo o utilizarlo en código R o Python.  
+Al convertir un conjunto de datos a formato CSV, el archivo se guarda en el área de trabajo de Azure Machine Learning. Puede usar una utilidad de almacenamiento de Azure para abrir y usar el archivo directamente. También puede acceder al CSV en el diseñador. Para ello, debe seleccionar el módulo **Convert to CSV** (Convertir a CSV) y, después, seleccionar el icono del histograma en la pestaña **Resultados** del panel derecho para ver el resultado. Puede descargar el CSV de la carpeta Results a un directorio local.  
 
 ## <a name="how-to-configure-convert-to-csv"></a>Procedimiento para configurar Convertir a CSV
 
 
-1.  Agregue el módulo [Convertir a CSV](./convert-to-csv.md) a la canalización. Puede encontrar este módulo en el grupo **Conversiones de formato de datos** del diseñador. 
+1.  Agregue el módulo Convert to CSV (Convertir a CSV) a una canalización. Este módulo se puede encontrar en la categoría **Transformación de datos** del diseñador. 
 
 2. Conéctelo a cualquier módulo que genere un conjunto de datos.   
   
@@ -46,14 +46,11 @@ Al convertir un conjunto de datos a CSV, el archivo se guarda en el área de tra
 ### <a name="results"></a>Results
   
 
-Haga doble clic en la salida de [Convertir a CSV](./convert-to-csv.md) y seleccione una de estas opciones.  
+Seleccione la pestaña **Salidas** en el panel derecho de **Convert to CSV** (Convertir a CSV) y seleccione uno de estos iconos en **Port outputs** (Salidas de puerto).  
 
- + **Result Dataset (Conjuntos de datos del resultado) -> Descargar**: se abre inmediatamente una copia de los datos en formato CSV que se puede guardar en una carpeta local. Si no especifica una carpeta, se aplica un nombre de archivo predeterminado y el archivo CSV se guarda en la biblioteca local **Descargas**.
++ **Registrar conjunto de datos**: seleccione el icono y vuelva a guardar el archivo CSV en el área de trabajo de Azure ML como un conjunto de datos independiente. EL conjunto de datos lo encontrará en forma de módulo en el árbol de módulos de la sección **My Datasets** (Mis conjuntos de datos).
 
-
- + **Result Dataset (Conjuntos de datos del resultado) -> Guardar como conjunto de datos**: guarda el archivo CSV de nuevo en el área de trabajo de Azure ML como un conjunto de datos independiente.
-
- + **Generate Data Access Code** (Generar código de acceso a datos): Azure ML genera dos conjuntos de código para tener acceso a los datos, ya sea mediante el uso de Python o de R. Para obtener acceso a los datos, copie el fragmento de código en la aplicación. (*Generar código de acceso a datos estará pronto disponible*).
+ + **Ver salida**: Seleccione el icono del ojo y siga las instrucciones para explorar la carpeta **Results_dataset** y descargar el archivo data.csv.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

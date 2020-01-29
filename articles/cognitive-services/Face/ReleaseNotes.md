@@ -1,7 +1,7 @@
 ---
-title: 'Notas de la versión: servicio Face API'
+title: 'Notas de la versión: servicio Face'
 titleSuffix: Azure Cognitive Services
-description: Las notas de la versión del servicio Face API incluyen un historial de cambios de versión para varias versiones.
+description: Las notas de la versión del servicio Face incluyen un historial de cambios de versión para varias versiones.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: yluiu
-ms.openlocfilehash: a7667f94d3f4dea2901c4b4b0e2b2c893b9f535e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 767c9dec373a2bda806d75d602b194edde98c6b5
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074088"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165871"
 ---
-# <a name="face-api-release-notes"></a>Notas de versión de Face API
+# <a name="face-release-notes"></a>Notas de la versión de Face
 
-Este artículo pertenece a la versión 1.0 del servicio Face API.
+Este artículo pertenece a la versión 1.0 del servicio Face.
 
 ### <a name="release-changes-in-june-2019"></a>Cambios de la versión de junio de 2019
 
@@ -53,7 +53,7 @@ Este artículo pertenece a la versión 1.0 del servicio Face API.
 
 * Se ha agregado el contenedor con escala de millón: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) y [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Puede obtener más detalles en [How to use the large-scale feature](Face-API-How-to-Topics/how-to-use-large-scale.md) (Cómo usar la característica a gran escala).
 
-* Se aumentó el parámetro `maxNumOfCandidatesReturned` de [Face: identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) de [1, 5] to [1, 100], y el valor predeterminado a 10.
+* Se aumentó el parámetro `maxNumOfCandidatesReturned` de [Face: identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) de [1, 5] a [1, 100], y el valor predeterminado a 10.
 
 ### <a name="release-changes-in-may-2017"></a>Cambios de la versión de mayo de 2017
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: ed7b12b24e6129d6cf609f4345203abc783e9f62
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 8ed32ccedcd6cc4ffd159069399c0417842325d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864067"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514925"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
@@ -341,7 +341,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-Si no hay ninguna directiva de IPsec o IKE configurada, el comando (PS> $connection6.policy) obtiene un valor devuelto vacío. Esto no significa que IPsec o IKE no esté configurado en la conexión, sino que no hay ninguna directiva de IPsec o IKE personalizada. La conexión real usa la directiva predeterminada que se negocia entre el dispositivo VPN local y Azure VPN Gateway.
+Si no hay ninguna directiva de IPsec o IKE configurada, el comando (PS> $connection6.IpsecPolicies) obtiene un valor devuelto vacío. Esto no significa que IPsec o IKE no esté configurado en la conexión, sino que no hay ninguna directiva de IPsec o IKE personalizada. La conexión real usa la directiva predeterminada que se negocia entre el dispositivo VPN local y Azure VPN Gateway.
 
 #### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Agregar o actualizar una directiva de IPsec o IKE para una conexión
 

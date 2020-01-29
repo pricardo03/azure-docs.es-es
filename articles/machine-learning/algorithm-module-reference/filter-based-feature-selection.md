@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428524"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548482"
 ---
 # <a name="filter-based-feature-selection"></a>Selección de características basada en filtro
 
@@ -97,9 +97,9 @@ Elija una métrica estadística estándar. El módulo calcula la correlación en
 
 Una vez completado el procesamiento:
 
-+ Para ver una lista completa de las columnas de características que se han analizado y sus puntuaciones, haga clic con el botón derecho en el módulo. Seleccione **Features** (Características) y **Visualize** (Visualizar).  
++ Para ver una lista completa de las columnas de características que se han analizado y sus puntuaciones, haga clic con el botón derecho en el módulo y seleccione **Visualize** (Visualizar).  
 
-+ Para ver el conjunto de datos que se genera en función de los criterios de selección de características, haga clic con el botón derecho en el módulo. Seleccione **Dataset** (Conjunto de datos) y **Visualize** (Visualizar). 
++ Para ver el conjunto de datos en función de los criterios de selección de características, haga clic con el botón derecho en el módulo y seleccione **Visualize** (Visualizar). 
 
 Si el conjunto de datos contiene menos columnas de las esperadas, compruebe la configuración del módulo y los tipos de datos de las columnas proporcionadas como entrada. Por ejemplo, si establece **Número de características deseadas** en 1, el conjunto de datos de salida solo contiene dos columnas: la columna de etiqueta y la columna de características con mayor grado de clasificación.
 

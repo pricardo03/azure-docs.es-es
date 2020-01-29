@@ -1,14 +1,14 @@
 ---
 title: Administración de recursos delegados de Azure
 description: Los servicios administrados permiten a los proveedores de servicios vender ofertas de administración de recursos a los clientes de Azure Marketplace.
-ms.date: 07/11/2019
+ms.date: 01/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3d95b1becccc014afeb4621d17770a03e38a4
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453640"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263921"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
 
@@ -38,6 +38,9 @@ En un nivel alto, este es el funcionamiento de la administración de recursos de
    - [Publicar una oferta de servicios administrados de Azure Marketplace](../how-to/publish-managed-services-offers.md) (privada o pública) que el cliente aceptará
    - [Implementar una plantilla de Azure Resource Manager en el inquilino del cliente](../how-to/onboard-customer.md) para una o varias suscripciones o grupos de recursos específicos
 3. Una vez incorporado el cliente, los usuarios autorizados pueden iniciar sesión en el inquilino del proveedor de servicios y realizar tareas de administración en el ámbito del cliente determinado, en función del acceso que haya definido.
+
+> [!NOTE]
+> No se admite la delegación de una suscripción entre dos inquilinos que se encuentren en nubes independientes.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Soporte técnico para la administración de recursos delegados de Azure
 

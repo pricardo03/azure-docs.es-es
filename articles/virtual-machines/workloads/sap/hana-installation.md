@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 516f61775060b3e4073ed9d623545d4f227563ed
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c08036f16cd30a1c10963accd8d486d77c9683ee
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750356"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264176"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Instalación y configuración de SAP HANA (instancias grandes) en Azure
 
@@ -29,10 +29,7 @@ La instalación de SAP HANA es su responsabilidad. Puede empezar a instalar un s
 > [!Note]
 > Según la directiva de SAP, la instalación de SAP HANA la debe realizar una persona que haya aprobado el examen de certificación de Certified SAP Technology Associate, el examen de certificación de instalación de SAP HANA o que sea integrador de sistemas (SI) certificado por SAP.
 
-Cuando tenga pensado instalar HANA 2.0, consulte la [nota de compatibilidad de SAP n.º 2235581 sobre los sistemas operativos compatibles con SAP HANA](https://launchpad.support.sap.com/#/notes/2235581/E) para asegurarse de que el sistema operativo sea compatible con la versión de SAP HANA que va a instalar. El sistema operativo compatible con HANA 2.0 es más restrictivo que el SO compatible con HANA 1.0. 
-
-> [!IMPORTANT] 
-> Para las unidades de tipo II, actualmente solo se admite la versión del sistema operativo SLES 12 SP2. 
+Cuando tenga pensado instalar HANA 2.0, consulte la [nota de compatibilidad de SAP n.º 2235581 sobre los sistemas operativos compatibles con SAP HANA](https://launchpad.support.sap.com/#/notes/2235581/E) para asegurarse de que el sistema operativo sea compatible con la versión de SAP HANA que va a instalar. El sistema operativo compatible con HANA 2.0 es más restrictivo que el SO compatible con HANA 1.0. También debe comprobar si la versión del sistema operativo que le interesa aparece como admitida para esa unidad de HLI concreta en esta [lista](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) publicada. Haga clic en la unidad para obtener los detalles completos con la lista de sistemas operativos admitidos de esa unidad. 
 
 Antes de comenzar la instalación de HANA valide lo siguiente:
 - [Unidades HLI](#validate-the-hana-large-instance-units)
@@ -84,9 +81,6 @@ El **sexto paso** consiste en comprobar etc/hosts. A medida que se van entregand
 
 ## <a name="operating-system"></a>Sistema operativo
 
-> [!IMPORTANT] 
-> Para las unidades de tipo II, en este momento solo se admite la versión del sistema operativo SLES 12 SP2. 
-
 El espacio de intercambio de la imagen del sistema operativo proporcionada está establecido en 2 GB de acuerdo con la [nota de compatibilidad de SAP n.º 1999997 con las preguntas frecuentes sobre la memoria de SAP HANA](https://launchpad.support.sap.com/#/notes/1999997/E). Como cliente, si desea una configuración diferente, debe establecerla por sí mismo.
 
 [SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/download/) es la distribución de Linux instalada para SAP HANA en Azure (instancias grandes). Esta distribución particular proporciona funcionalidades específicas de SAP "listas para usar" (incluidos los parámetros predefinidos para ejecutar SAP en SLES de forma eficaz).
@@ -107,7 +101,7 @@ Estas son las notas de compatibilidad de SAP aplicables a la implementación de 
 - [SAP support note #171356 – SAP software on Linux:  General Information](https://launchpad.support.sap.com/#/notes/1984787) (Nota de compatibilidad de SAP nº 171356 - Software SAP en Linux: información general)
 - [SAP support note #1391070 – Linux UUID solutions](https://launchpad.support.sap.com/#/notes/1391070) (Nota de compatibilidad de SAP n.º 1391070: Soluciones UUID de Linux)
 
-[Red Hat Enterprise Linux para SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) es otra oferta para ejecutar SAP HANA en instancias grandes de HANA. Ya están disponibles las versiones de RHEL 6.7 y 7.2. Tenga en cuenta que en máquinas virtuales de Azure no nativas en las que solo se admite RHEL 7.2 y versiones posteriores, las instancias grandes de HANA también admiten RHEL 6.7. Sin embargo, se recomienda utilizar una versión RHEL 7.x.
+[Red Hat Enterprise Linux para SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) es otra oferta para ejecutar SAP HANA en instancias grandes de HANA. Ya están disponibles y se admiten las versiones de RHEL 7.2 y 7.3. 
 
 A continuación, se muestran vínculos adicionales útiles relacionados con SAP en Red Hat:
 - [Sitio de SAP HANA en Red Hat Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -116,11 +110,9 @@ Estas son las notas de compatibilidad de SAP aplicables a la implementación de 
 
 - [SAP support note #2009879 - SAP HANA guidelines for Red Hat Enterprise Linux (RHEL) operating system](https://launchpad.support.sap.com/#/notes/2009879/E) (Nota de compatibilidad de SAP n.º 2009879: Directrices de SAP HANA para el sistema operativo Red Hat Enterprise Linux [RHEL])
 - [SAP support note #2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690) (2292690 - SAP HANA DB: configuraciones de sistema operativo recomendadas para RHEL 7)
-- [SAP Support Note #2247020 - SAP HANA DB: Recommended OS settings for RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020) (Nota de compatibilidad de SAP n.º 2247020 - SAP HANA DB: configuraciones de sistema operativo recomendadas para RHEL 6.7)
 - [SAP support note #1391070 – Linux UUID solutions](https://launchpad.support.sap.com/#/notes/1391070) (Nota de compatibilidad de SAP n.º 1391070: Soluciones UUID de Linux)
 - [SAP support note #2228351 - Linux: SAP HANA Database SPS 11 revision 110 (or higher) on RHEL 6 or SLES 11](https://launchpad.support.sap.com/#/notes/2228351) (Nota de compatibilidad de SAP n.º 2228351 - Linux: Revisión 110 (o superior) de SAP HANA Database SPS 11 en RHEL 6 o SLES 11)
 - [SAP support note #2397039 - FAQ: SAP on RHEL](https://launchpad.support.sap.com/#/notes/2397039) (Nota de compatibilidad de SAP n.º 2397039 sobre preguntas frecuentes de SAP en RHEL)
-- [SAP support note #1496410 - Red Hat Enterprise Linux 6.x: Installation and upgrade](https://launchpad.support.sap.com/#/notes/1496410) (Nota de compatibilidad de SAP n.º 1496410: Instalación y actualización de Red Hat Enterprise Linux 6.x)
 - [SAP support note #2002167 - Red Hat Enterprise Linux 7.x: Installation and upgrade](https://launchpad.support.sap.com/#/notes/2002167) (Nota de compatibilidad de SAP n.º 2002167: Instalación y actualización de Red Hat Enterprise Linux 7.x)
 
 ### <a name="time-synchronization"></a>Sincronización de la hora
@@ -203,15 +195,15 @@ En las versiones de SAP HANA 1.0 hasta SPS12, estos parámetros se pueden establ
 
 También puede configurar los parámetros después de la instalación de la base de datos de SAP HANA mediante el marco de hdbparam. 
 
-El almacenamiento usado en instancias grandes de HANA tiene una limitación de tamaño de archivo. La [limitación de tamaño es de 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por archivo. A diferencia de las limitaciones de tamaño de archivo de los sistemas de archivos EXT3, HANA no es consciente implícitamente de la limitación de almacenamiento exigida por el almacenamiento de instancias grandes de HANA. Por consiguiente, HANA no creará automáticamente un nuevo archivo de datos cuando se alcance el límite de tamaño de archivo de 16 TB. Cuando HANA intente hacer crecer el archivo más allá de 16 TB, informará de errores y el servidor de índice terminará bloqueándose.
+El almacenamiento usado en instancias grandes de HANA tiene una limitación de tamaño de archivo. La [limitación de tamaño es de 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por archivo. A diferencia de las limitaciones de tamaño de archivo de los sistemas de archivos EXT3, HANA no es consciente implícitamente de la limitación de almacenamiento exigida por el almacenamiento de instancias grandes de HANA. Por consiguiente, HANA no creará automáticamente un nuevo archivo de datos cuando se alcance el límite de tamaño de archivo de 16 TB. Cuando HANA intente aumentar el archivo más allá de 16 TB, informará de errores y el servidor de índice terminará bloqueándose.
 
 > [!IMPORTANT]
 > Con el fin de impedir que HANA intente aumentar los archivos de datos más allá del límite de tamaño de archivo de 16 TB del almacenamiento de instancias grandes de HANA, tiene que establecer los parámetros siguientes en el archivo de configuración global.ini de SAP HANA:
 > 
-> - datavolume_striping = true
+> - datavolume_striping=true
 > - datavolume_striping_size_gb = 15000
 > - Vea también la nota de SAP [2400005](https://launchpad.support.sap.com/#/notes/2400005)
-> - Tenga en cuenta la nota de SAP [2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - Tenga en cuenta la nota de SAP [2631285](https://launchpad.support.sap.com/#/notes/2631285).
 
 
 Con SAP HANA 2.0, el marco de hdbparam está en desuso. Como resultado, los parámetros deben establecerse mediante comandos SQL. Para más información, consulte [SAP note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079) (Nota de SAP n.º 2399079: eliminación de hdbparam en HANA 2).

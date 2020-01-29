@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: a64f680adbfca08e334f51697a305c93a408e1e4
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 424d797410c091dc53687284c2b32e2f1f0358e1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922374"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549077"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -40,16 +40,7 @@ Utilice el desencadenador de Service Bus para responder a mensajes de una cola o
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
-Vea el ejemplo específico del lenguaje:
-
-* [C#](#trigger---c-example)
-* [Script de C# (.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que lee [metadatos de mensaje](#trigger---message-metadata) y registra un mensaje de cola de Service Bus:
 
@@ -70,7 +61,7 @@ public static void Run(
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Desencadenador: ejemplo de script de C#
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función lee [metadatos de mensaje](#trigger---message-metadata) y registra un mensaje de cola de Service Bus.
 
@@ -110,68 +101,7 @@ public static void Run(string myQueueItem,
 }
 ```
 
-### <a name="trigger---f-example"></a>Desencadenador: ejemplo de F#
-
-En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de F#](functions-reference-fsharp.md) que usa el enlace. La función registra un mensaje de cola de Service Bus. 
-
-Estos son los datos de enlace del archivo *function.json*:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Este es el código del script de F#:
-
-```fsharp
-let Run(myQueueItem: string, log: ILogger) =
-    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
-```
-
-### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
-
-La siguiente función de Java usa la anotación `@ServiceBusQueueTrigger` de la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime) para describir la configuración de un desencadenador de cola de Service Bus. La función toma el mensaje colocado en la cola y lo agrega a los registros.
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
-```
-
-Las funciones de Java también pueden desencadenarse cuando se agrega un mensaje a un tema de Service Bus. En el ejemplo siguiente se usa la anotación `@ServiceBusTopicTrigger` para describir la configuración del desencadenador.
-
-```java
-@FunctionName("sbtopicprocessor")
-    public void run(
-        @ServiceBusTopicTrigger(
-            name = "message",
-            topicName = "mytopicname",
-            subscriptionName = "mysubscription",
-            connection = "ServiceBusConnection"
-        ) String message,
-        final ExecutionContext context
-    ) {
-        context.getLogger().info(message);
-    }
-```
-
-### <a name="trigger---javascript-example"></a>Desencadenador: ejemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función lee [metadatos de mensaje](#trigger---message-metadata) y registra un mensaje de cola de Service Bus. 
 
@@ -204,11 +134,11 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-### <a name="trigger---python-example"></a>Ejemplo de desencadenador de Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-En el ejemplo siguiente se muestra cómo leer un mensaje de cola de ServiceBus a través de un desencadenador.
+En el ejemplo siguiente se muestra cómo leer un mensaje de la cola de Service Bus mediante un desencadenador.
 
-Un enlace de ServiceBus se define en *function.json*, donde *type* se establece en `serviceBusTrigger`.
+Un enlace de Service Bus se define en *function.json*, donde *type* se establece en `serviceBusTrigger`.
 
 ```json
 {
@@ -255,7 +185,44 @@ def main(msg: func.ServiceBusMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>Desencadenador: atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+La siguiente función de Java usa la anotación `@ServiceBusQueueTrigger` de la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime) para describir la configuración de un desencadenador de cola de Service Bus. La función toma el mensaje colocado en la cola y lo agrega a los registros.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+```
+
+Las funciones de Java también pueden desencadenarse cuando se agrega un mensaje a un tema de Service Bus. En el ejemplo siguiente se usa la anotación `@ServiceBusTopicTrigger` para describir la configuración del desencadenador.
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+```
+
+---
+
+## <a name="trigger---attributes-and-annotations"></a>Desencadenador: atributos y anotaciones
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice los siguientes atributos para configurar un desencadenador de Service Bus:
 
@@ -274,7 +241,7 @@ Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utili
   }
   ```
 
-  Puede establecer la propiedad `Connection` para especificar la cuenta de Service Bus que se usará, tal como se muestra en el ejemplo siguiente:
+  Puede establecer la propiedad `Connection` para especificar el nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se va a usar, tal como se muestra en el ejemplo siguiente:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -286,7 +253,7 @@ Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utili
   }
   ```
 
-  Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
+  Para obtener un ejemplo completo, consulte el [Desencadenador: ejemplo](#trigger---example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
 
@@ -314,6 +281,28 @@ La cuenta de Service Bus que se debe usar se determina en el orden siguiente:
 * El atributo `ServiceBusAccount` aplicado a la clase.
 * La configuración de aplicación "AzureWebJobsServiceBus".
 
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+El script de C# no admite atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python no admite atributos.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+La anotación `ServiceBusQueueTrigger` permite crear una función que se ejecuta cuando se crea un mensaje de la cola de Service Bus. Las opciones de configuración disponibles incluyen el nombre de la cola y el nombre de la cadena de conexión.
+
+La anotación `ServiceBusTopicTrigger` permite designar un tema y una suscripción para establecer qué datos desencadenan la función.
+
+Consulte el [ejemplo](#trigger---example) de desencadenador para más detalles.
+
+---
+
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `ServiceBusTrigger`.
@@ -322,18 +311,32 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "serviceBusTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**direction** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
-|**name** | N/D | Nombre de la variable que representa el mensaje de cola o tema en el código de la función. Se establece en "$return" para hacer referencia al valor devuelto de la función. |
+|**name** | N/D | Nombre de la variable que representa el mensaje de cola o tema en el código de la función. |
 |**queueName**|**QueueName**|Nombre de la cola que se debe supervisar.  Se establece únicamente si se supervisa una cola, no un tema.
 |**topicName**|**TopicName**|Nombre del tema que se debe supervisar. Se establece únicamente si se supervisa un tema, no una cola.|
 |**subscriptionName**|**SubscriptionName**|Nombre de la suscripción que se debe supervisar. Se establece únicamente si se supervisa un tema, no una cola.|
 |**connection**|**Connection**|Nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre. Por ejemplo, si establece `connection` en "MyServiceBus", el entorno de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyServiceBus". Si deja el valor de `connection` vacío, el entorno de ejecución de Functions usa la cadena de conexión de Service Bus predeterminada en la configuración de aplicación que se denomina "AzureWebJobsServiceBus".<br><br>Para obtener la cadena de conexión, siga los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos. |
-|**accessRights**|**Acceder**|Derechos de acceso para la cadena de conexión. Los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en "listen". De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo. En la versión 2.x y posteriores de Azure Functions, esta propiedad no está disponible porque la versión más reciente del SDK de Storage no admite las operaciones de administración.|
+|**accessRights**|**Acceder**|Derechos de acceso para la cadena de conexión. Los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en "listen". De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo. En la versión 2.x y posteriores de Azure Functions, esta propiedad no está disponible porque la versión más reciente del SDK de Service Bus no admite operaciones de administración.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true` si se conecta a una cola o suscripción [compatible con sesiones](../service-bus-messaging/message-sessions.md). En caso contrario, `false`, que es el valor predeterminado.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Desencadenador: uso
 
-En C# y el script de C#, puede usar los tipos de parámetros siguientes para el mensaje de cola o tema:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Los siguientes tipos de parámetro están disponibles para el mensaje de cola o tema:
+
+* `string`: si el mensaje es texto.
+* `byte[]`: útil para datos binarios.
+* Un tipo personalizado: si el mensaje contiene el archivo JSON, Azure Functions intenta deserializar los datos JSON.
+* `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
+
+Estos tipos de parámetro son para la versión 1.x de Azure Functions; para la versión 2.x y versiones posteriores, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) en lugar de `BrokeredMessage`.
+
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+Los siguientes tipos de parámetro están disponibles para el mensaje de cola o tema:
 
 * `string`: si el mensaje es texto.
 * `byte[]`: útil para datos binarios.
@@ -342,7 +345,21 @@ En C# y el script de C#, puede usar los tipos de parámetros siguientes para el 
 
 Estos parámetros son para la versión de Azure Functions 1.x; para 2.x y versiones posteriores, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) en lugar de `BrokeredMessage`.
 
-En JavaScript, puede obtener acceso al mensaje de cola o tema mediante el uso de `context.bindings.<name from function.json>`. El mensaje de Service Bus se pasa a la función como una cadena o como un objeto JSON.
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Puede acceder al mensaje de cola o tema mediante el uso de `context.bindings.<name from function.json>`. El mensaje de Service Bus se pasa a la función como una cadena o como un objeto JSON.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+El mensaje de cola está disponible para la función mediante un parámetro de tipo `func.ServiceBusMessage`. El mensaje de Service Bus se pasa a la función como una cadena o como un objeto JSON.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+El mensaje de Service Bus entrante está disponible mediante un parámetro `ServiceBusQueueMessage` o `ServiceBusTopicMessage`.
+
+[Consulte el ejemplo para más información](#trigger).
+
+---
 
 ## <a name="trigger---poison-messages"></a>Desencadenador: mensajes dudosos
 
@@ -373,7 +390,7 @@ El desencadenador de Service Bus proporciona varias [propiedades de metadatos](.
 |`CorrelationId`|`string`|Identificador de correlación.|
 
 > [!NOTE]
-> Actualmente, el desencadenador de Service Bus que funciona con las suscripciones y las colas habilitadas para la sesión está en versión preliminar. Realice un seguimiento de [este elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para comprobar si hay actualizaciones relacionadas con él. 
+> Actualmente, el desencadenador de Service Bus que funciona con las suscripciones y las colas habilitadas para la sesión está en versión preliminar. Realice un seguimiento de [este elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para comprobar si hay actualizaciones relacionadas con él. 
 
 Consulte los [ejemplos de código](#trigger---example) que utilizan estas propiedades más arriba en este artículo.
 
@@ -381,18 +398,9 @@ Consulte los [ejemplos de código](#trigger---example) que utilizan estas propie
 
 Use el enlace de salida de Azure Service Bus para enviar mensajes de cola o tema.
 
-## <a name="output---example"></a>Salida: ejemplo
+### <a name="output---example"></a>Salida: ejemplo
 
-Vea el ejemplo específico del lenguaje:
-
-* [C#](#output---c-example)
-* [Script de C# (.csx)](#output---c-script-example)
-* [F#](#output---f-example)
-* [Java](#output---java-example)
-* [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>Salida: ejemplo de C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que envía un mensaje de cola de Service Bus:
 
@@ -406,7 +414,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-### <a name="output---c-script-example"></a>Salida: ejemplo de script de C#
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de salida de Service Bus en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función usa un desencadenador de temporizador para enviar un mensaje de cola cada 15 segundos.
 
@@ -457,79 +465,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
-### <a name="output---f-example"></a>Salida: ejemplo de F#
-
-En el ejemplo siguiente se muestra un enlace de salida de Service Bus en un archivo *function.json* y una [función de script de F#](functions-reference-fsharp.md) que usa el enlace. La función usa un desencadenador de temporizador para enviar un mensaje de cola cada 15 segundos.
-
-Estos son los datos de enlace del archivo *function.json*:
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-Este es el código de script de F# que crea un único mensaje:
-
-```fsharp
-let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
-    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.LogInformation(message)
-    outputSbQueue = message
-```
-
-### <a name="output---java-example"></a>Salida: ejemplo de Java
-
-En el ejemplo siguiente se muestra una función de Java que envía un mensaje a una cola de Service Bus `myqueue` cuando una solicitud HTTP la desencadena.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros de función cuyo valor se escribiría en una cola de Service Bus.  El parámetro type debe ser `OutputBinding<T>`, donde T es cualquier tipo nativo de Java de un POJO.
-
-Las funciones de Java también pueden escribir en un tema de Service Bus. En el ejemplo siguiente se usa la anotación `@ServiceBusTopicOutput` para describir la configuración del enlace de salida. 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
-            final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
-```
-
-### <a name="output---javascript-example"></a>Salida: ejemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de salida de Service Bus en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función usa un desencadenador de temporizador para enviar un mensaje de cola cada 15 segundos.
 
@@ -581,11 +517,11 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="output---python-example"></a>Salida: ejemplo de Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-En el ejemplo siguiente se muestra cómo escribir en una cola de ServiceBus en Python.
+En el ejemplo siguiente se muestra cómo escribir en una cola de Service Bus en Python.
 
-Una definición de enlace de ServiceBue se define en *function.json*, donde *type* se establece en `serviceBus`.
+Una definición de enlace de Service Bus se define en *function.json*, donde *type* se establece en `serviceBus`.
 
 ```json
 {
@@ -631,7 +567,46 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>Salida: atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+En el ejemplo siguiente se muestra una función de Java que envía un mensaje a una cola de Service Bus `myqueue` cuando una solicitud HTTP la desencadena.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+```
+
+ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros de función cuyo valor se escribiría en una cola de Service Bus.  El parámetro type debe ser `OutputBinding<T>`, donde T es cualquier tipo nativo de Java de un POJO.
+
+Las funciones de Java también pueden escribir en un tema de Service Bus. En el ejemplo siguiente se usa la anotación `@ServiceBusTopicOutput` para describir la configuración del enlace de salida. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Salida: atributos y anotaciones
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -646,7 +621,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-Puede establecer la propiedad `Connection` para especificar la cuenta de Service Bus que se usará, tal como se muestra en el ejemplo siguiente:
+Puede establecer la propiedad `Connection` para especificar el nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se va a usar, tal como se muestra en el ejemplo siguiente:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -657,9 +632,27 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
+Para obtener un ejemplo completo, consulte [Salida: ejemplo](#output---example).
 
-Puede usar el atributo `ServiceBusAccount` para especificar la cuenta de Service Bus en el nivel de clase, método o parámetro.  Para obtener más información, consulte [Desencadenador: atributos](#trigger---attributes).
+Puede usar el atributo `ServiceBusAccount` para especificar la cuenta de Service Bus en el nivel de clase, método o parámetro.  Para obtener más información, consulte [Desencadenador: atributos](#trigger---attributes-and-annotations).
+
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+El script de C# no admite atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python no admite atributos.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Las anotaciones `ServiceBusQueueOutput` y `ServiceBusTopicOutput` están disponibles para escribir un mensaje como salida de la función. El parámetro decorado con estas anotaciones se debe declarar como `OutputBinding<T>`, donde `T` es el tipo correspondiente al tipo del mensaje.
+
+---
 
 ## <a name="output---configuration"></a>Salida: configuración
 
@@ -669,11 +662,11 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "serviceBus". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**direction** | N/D | Debe establecerse en "out". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
-|**name** | N/D | Nombre de la variable que representa la cola o el tema en el código de la función. Se establece en "$return" para hacer referencia al valor devuelto de la función. |
+|**name** | N/D | Nombre de la variable que representa el mensaje de cola o tema en el código de la función. Se establece en "$return" para hacer referencia al valor devuelto de la función. |
 |**queueName**|**QueueName**|Nombre de la cola.  Se establece únicamente si se envían mensajes de cola, no de tema.
-|**topicName**|**TopicName**|Nombre del tema que se debe supervisar. Se establece únicamente si se envían mensajes de tema, no de cola.|
+|**topicName**|**TopicName**|Nombre del tema. Se establece únicamente si se envían mensajes de tema, no de cola.|
 |**connection**|**Connection**|Nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre. Por ejemplo, si establece `connection` en "MyServiceBus", el entorno de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyServiceBus". Si deja el valor de `connection` vacío, el entorno de ejecución de Functions usa la cadena de conexión de Service Bus predeterminada en la configuración de aplicación que se denomina "AzureWebJobsServiceBus".<br><br>Para obtener la cadena de conexión, siga los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos.|
-|**accessRights**|**Acceder**|Derechos de acceso para la cadena de conexión. Los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en "listen". De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo. En la versión 2.x y posteriores de Azure Functions, esta propiedad no está disponible porque la versión más reciente del SDK de Storage no admite las operaciones de administración.|
+|**accessRights**|**Acceder**|Derechos de acceso para la cadena de conexión. Los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en "listen". De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo. En la versión 2.x y posteriores de Azure Functions, esta propiedad no está disponible porque la versión más reciente del SDK de Service Bus no admite operaciones de administración.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -681,7 +674,9 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 En Azure Functions 1.x, el entorno de ejecución crea la cola si no existe y se estableció `accessRights` en `manage`. En la versión 2.x y posteriores de Functions, ya debe existir la cola o el tema. Si especifica una cola o un tema que no existe, la función generará un error. 
 
-En C# y el script de C#, puede usar los tipos de parámetros siguientes para el enlace de salida:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Puede usar los siguientes tipos de parámetro para el enlace de salida:
 
 * `out T paramName` - `T` puede ser cualquier tipo que se pueda serializar con JSON. Si el valor del parámetro es null cuando finaliza la función, Functions crea el mensaje con un objeto null.
 * `out string`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje.
@@ -696,9 +691,36 @@ Cuando trabaje con funciones de C#:
 
 * Para tener acceso al identificador de sesión, enlace a un tipo [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) y use la propiedad `sessionId`.
 
-En JavaScript, puede obtener acceso a la cola o al tema mediante el uso de `context.bindings.<name from function.json>`. Puede asignar una cadena, una matriz de bytes o un objeto de JavaScript (deserializado en JSON) a `context.binding.<name>`.
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
-Para enviar un mensaje a una cola habilitada para sesión en lenguajes distintos de C#, use el [SDK de Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging), en lugar del enlace de salida integrado.
+Puede usar los siguientes tipos de parámetro para el enlace de salida:
+
+* `out T paramName` - `T` puede ser cualquier tipo que se pueda serializar con JSON. Si el valor del parámetro es null cuando finaliza la función, Functions crea el mensaje con un objeto null.
+* `out string`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje.
+* `out byte[]`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje.
+* `out BrokeredMessage`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje (en el caso de Functions 1.x)
+* `out Message`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje (en el caso de Functions 2.x y versiones posteriores)
+* `ICollector<T>` o `IAsyncCollector<T>`: para crear varios mensajes. Se crea un mensaje al llamar al método `Add` .
+
+Cuando trabaje con funciones de C#:
+
+* Las funciones asincrónicas necesitan un valor devuelto o `IAsyncCollector`, en lugar de un parámetro `out`.
+
+* Para tener acceso al identificador de sesión, enlace a un tipo [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) y use la propiedad `sessionId`.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Puede acceder a la cola o al tema mediante el uso de `context.bindings.<name from function.json>`. Puede asignar una cadena, una matriz de bytes o un objeto de JavaScript (deserializado en JSON) a `context.binding.<name>`.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Use el [SDK de Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging) en lugar del enlace de salida integrado.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Use el [SDK de Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging) en lugar del enlace de salida integrado.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>Excepciones y códigos de retorno
 
@@ -726,6 +748,12 @@ En esta sección se describen las opciones de configuración globales disponible
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
             }
         }
     }
@@ -735,10 +763,8 @@ En esta sección se describen las opciones de configuración globales disponible
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
-|autoComplete|true|Si el desencadenador debe marcar inmediatamente como completado (autocompletar) o esperar a que se complete el procesamiento de la llamada.|
+|autoComplete|true|Si el desencadenador debe marcar inmediatamente el mensaje como completado (autocompletar) o esperar a que la función se cierre correctamente para la finalización.|
 |maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes. Para indicar al entorno de ejecución que procese solo los mensajes de una única cola o tema, establezca `maxConcurrentCalls` en 1. |
-|prefetchCount|N/D|Valor predeterminado de PrefetchCount que utilizará el receptor de mensajes subyacente.|
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

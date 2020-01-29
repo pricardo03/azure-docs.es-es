@@ -1,5 +1,5 @@
 ---
-title: 'Script de PowerShell: Creación de una imagen personalizada a partir de un archivo VHD en Azure Lab Services | Microsoft Docs'
+title: 'PowerShell: Creación de una imagen personalizada a partir de un archivo VHD en Azure Lab Services'
 description: Este script de PowerShell crea una imagen personalizada a partir de un archivo VHD en Azure Lab Services.
 services: lab-services
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2d0cc4012adf2c17b2f7a2e769f2d666b158a8c8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38383462a665ced1ccb6c6a2f062fab0492eee9a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160558"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169982"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Uso de PowerShell para crear una imagen personalizada a partir de un archivo VHD en Azure Lab Services
 
@@ -27,7 +27,7 @@ Este script de PowerShell de ejemplo crea una imagen personalizada a partir de u
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Un laboratorio**. Este script requiere que disponga de un laboratorio existente. 
 
 ## <a name="sample-script"></a>Script de ejemplo

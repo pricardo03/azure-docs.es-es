@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 227bf490d1ac264bb54ff3d1ecf0ccc2b3ef2e0e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: bfae0d8eed80a88475c447a141097022fed9adff
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763562"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311145"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Creación de un clasificador y uso de la selección de características para predecir los ingresos con el diseñador de Azure Machine Learning
 
-**Ejemplo 3 del diseñador (versión preliminar)**
+**Ejemplo de diseñador 3**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Obtenga información sobre cómo compilar un clasificador de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar). Esta ejemplo entrena un **árbol de decisión de dos clases** para predecir los ingresos del censo de adultos (>=50K o <=50K).
+Obtenga información sobre cómo compilar un clasificador de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador. Esta ejemplo entrena un **árbol de decisión de dos clases** para predecir los ingresos del censo de adultos (>=50K o <=50K).
 
 Porque la pregunta es responder "¿Cuál?" esto se conoce como un problema de clasificación. Sin embargo, puede aplicar el mismo proceso fundamental para abordar cualquier tipo de problema de aprendizaje automático: una regresión, una clasificación, una agrupación en clústeres, etc.
 

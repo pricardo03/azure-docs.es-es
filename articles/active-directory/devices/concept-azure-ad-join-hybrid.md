@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c57180ba10322cb790c05b3f8f48043ca08b545
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 15cdaba7d63d72aab25757e7ba6f5eadc48e026a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462528"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512256"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos unidos a Azure AD
 
@@ -25,7 +25,7 @@ Durante más de una década, muchas organizaciones han usado la unión a un domi
 - A los departamentos de TI administrar los dispositivos de empresa desde una ubicación central.
 - A los usuarios iniciar sesión en sus dispositivos con sus cuentas profesionales o educativas de Active Directory.
 
-Normalmente, las organizaciones con un uso local confían en los métodos de creación de imágenes para aprovisionar los dispositivos y suelen usar **System Center Configuration Manager (SCCM)** o la **directiva de grupo** para administrarlos.
+Normalmente, las organizaciones con un uso local confían en los métodos de creación de imágenes para aprovisionar los dispositivos y suelen usar **Configuration Manager** o la **directiva de grupo** para administrarlos.
 
 Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Estos dispositivos se han unido al entorno local de Active Directory y se han registrado en Azure Active Directory.
 
@@ -45,7 +45,7 @@ Si su entorno tiene un uso local de AD y también desea aprovechar las funcional
 |   | Contraseña |
 |   | Windows Hello para empresas para Win10 |
 | **Administración de dispositivos** | Directiva de grupo |
-|   | Administración independiente o conjunta de System Center Configuration Manager con Microsoft Intune |
+|   | Administración independiente o conjunta de Configuration Manager con Microsoft Intune |
 | **Principales funcionalidades** | SSO tanto a los recursos en la nube como a los recursos locales |
 |   | Acceso condicional a través de la unión a un dominio o mediante Intune, si se trata de una coadministración |
 |   | Autoservicio de restablecimiento de contraseña y restablecimiento de PIN de Windows Hello |

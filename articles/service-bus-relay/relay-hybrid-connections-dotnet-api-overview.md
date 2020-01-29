@@ -1,6 +1,6 @@
 ---
 title: Introducción a las API de .NET Standard para Azure Relay | Microsoft Docs
-description: Introducción a las API de .NET Standard para Azure Relay
+description: En este artículo se proporciona una introducción a la API de .NET Standard de conexiones híbridas de Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 78ad3ab49db162af060b4273deea717cd3472668
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18eaf2d2daae817107be6cdb0da9359bb5f9b4e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749026"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514542"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Introducción a la API de estándar de .NET de las conexiones híbridas de Retransmisión de Azure
 
@@ -80,7 +80,7 @@ await listener.OpenAsync();
 var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
-#### <a name="client"></a>Cliente
+#### <a name="client"></a>Remoto
 
 Mediante un objeto [HybridConnectionClient][HCClient], puede obtener un objeto `HybridConnectionStream` como se indica a continuación:
 
@@ -137,7 +137,7 @@ await textWriter.WriteLineAsync("hello");
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender más sobre Retransmisión de Azure, visite estos vínculos:
+Para obtener más información sobre Azure Relay, visite estos vínculos:
 
 * [Referencia de Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)

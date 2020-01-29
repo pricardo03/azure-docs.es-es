@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705405"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509145"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Comprobación del estado de un dominio administrado de Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) ejecuta algunas tareas en segundo plano para mantener el dominio administrado en buen estado y actualizado. Estas tareas incluyen la realización de copias de seguridad, la aplicación de actualizaciones de seguridad y la sincronización de datos de Azure AD. Si hay problemas con el dominio administrado de Azure AD DS, es posible que estas tareas no se ejecuten correctamente. Para revisar y resolver los problemas, puede comprobar el estado de mantenimiento de un dominio administrado de Azure AD DS mediante Azure Portal.
+Azure Active Directory Domain Services (Azure AD DS) ejecuta algunas tareas en segundo plano para mantener el dominio administrado en buen estado y actualizado. Estas tareas incluyen la realización de copias de seguridad, la aplicación de actualizaciones de seguridad y la sincronización de datos de Azure AD. Si hay problemas con el dominio administrado de Azure AD DS, es posible que estas tareas no se ejecuten por completo. Para revisar y resolver los problemas, puede comprobar el estado de mantenimiento de un dominio administrado de Azure AD DS mediante Azure Portal.
 
-En este artículo se muestra cómo ver el estado de mantenimiento de Azure AD DS y comprender la información o las alertas que se muestran.
+En este artículo se muestra cómo ver el estado de mantenimiento de Azure AD DS y comprender la información o las alertas que se muestran.
 
 ## <a name="view-the-health-status"></a>Visualización del estado de mantenimiento
 
@@ -47,11 +47,11 @@ El estado de la parte superior derecha indica el estado general del dominio admi
 
 ## <a name="understand-monitors-and-alerts"></a>Descripción de los monitores y las alertas
 
-El estado de mantenimiento de un dominio administrado de Azure AD DS muestra dos tipos de información: monitores y alertas. Los monitores muestran la hora a la que se completaron las tareas en segundo plano básicas. Las alertas proporcionan información o sugerencias para mejorar la estabilidad del dominio administrado.
+El estado de mantenimiento de un dominio administrado de Azure AD DS muestra dos tipos de información: *monitores* y *alertas*. Los monitores muestran la hora a la que se completaron las tareas en segundo plano básicas. Las alertas proporcionan información o sugerencias para mejorar la estabilidad del dominio administrado.
 
 ### <a name="monitors"></a>Monitores
 
-Los monitores son áreas de un dominio administrado de Azure AD DS que se comprueban periódicamente. Si hay alguna alerta activa para el dominio administrado de Azure AD DS, puede provocar que uno de los monitores informe de un problema. Actualmente, Azure AD Domain Services supervisa las siguientes áreas:
+Los monitores son áreas de un dominio administrado de Azure AD DS que se comprueban periódicamente. Si hay alguna alerta activa para el dominio administrado de Azure AD DS, puede provocar que uno de los monitores informe de un problema. Actualmente, Azure AD Domain Services tiene monitores para las siguientes áreas:
 
 * Copia de seguridad
 * Sincronización con Azure AD
@@ -68,7 +68,7 @@ El monitor de copia de seguridad comprueba que las copias de seguridad periódic
 
 #### <a name="synchronization-with-azure-ad-monitor"></a>Sincronización con el monitor de Azure AD
 
-Un dominio administrado de Azure AD DS se sincroniza periódicamente con Azure Active Directory. El número de usuarios y objetos de grupo, así como el número de cambios realizados en el directorio de Azure AD desde la última sincronización, afecta al tiempo que tarda en sincronizarse. Si el dominio administrado de Azure AD DS se sincronizó por última vez hace tres días, busque y resuelva las alertas activas. Si el monitor de sincronización no actualiza después el estado para mostrar una sincronización reciente, [abra una solicitud de soporte técnico de Azure][azure-support].
+Un dominio administrado de Azure AD DS se sincroniza periódicamente con Azure Active Directory. El número de usuarios y objetos de grupo, así como el número de cambios realizados en el directorio de Azure AD desde la última sincronización, afecta al tiempo que tarda en sincronizarse. Si el dominio administrado de Azure AD DS se sincronizó por última vez hace tres días, busque y resuelva las alertas activas. Si el monitor de sincronización no actualiza el estado para mostrar una sincronización reciente después de tratar cualquier alerta activa, [abra una solicitud de soporte técnico de Azure][azure-support].
 
 ### <a name="alerts"></a>Alertas
 

@@ -1,25 +1,17 @@
 ---
-title: Reemplazo de la batería del dispositivo Microsoft Azure StorSimple de la serie 8000 | Microsoft Docs
+title: Reemplazo de la batería del dispositivo Microsoft Azure StorSimple de la serie 8000
 description: Describe cómo quitar, reemplazar y mantener el módulo de baterías de reserva en el dispositivo StorSimple.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693750"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276902"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
 
@@ -47,7 +39,7 @@ El módulo de baterías de reserva para el dispositivo StorSimple es una unidad 
    
     **Figura 1** Vista posterior del dispositivo primario que muestra los módulos PCM y del controlador
    
-   | Etiqueta | DESCRIPCIÓN |
+   | Etiqueta | Descripción |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -60,7 +52,7 @@ El módulo de baterías de reserva para el dispositivo StorSimple es una unidad 
    
     **Figura 2** Parte posterior del PCM que muestra los LED indicadores de supervisión
    
-   | Etiqueta | DESCRIPCIÓN |
+   | Etiqueta | Descripción |
    |:--- |:--- |
    | 1 |Error de corriente alterna |
    | 2 |Error del ventilador |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b4b597ae70642fee8726555ea71b5164c13cca
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889378"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120816"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -207,6 +207,8 @@ La directiva de [validación de JWT](api-management-access-restriction-policies.
     </required-claims>
 </validate-jwt>
 ```
+> [!NOTE]
+> Esta dirección URL de `openid-config` corresponde al punto de conexión v1. Para el punto de conexión v2 `openid-config`, utilice `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.
 
 ## <a name="build-an-application-to-call-the-api"></a>Compilación de una aplicación para llamar a la API
 

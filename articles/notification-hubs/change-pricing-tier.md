@@ -1,6 +1,6 @@
 ---
 title: Cambio del plan de tarifa del espacio de nombres de Notification Hubs | Microsoft Docs
-description: Obtenga información sobre cómo cambiar el plan de tarifa de un espacio de nombres de Azure Notification Hubs.
+description: Aprenda a cambiar el plan de tarifa de un espacio de nombres de Azure Notification Hubs.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -13,12 +13,12 @@ ms.date: 01/28/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 679e8b58e5876d5460b426e694df85ded992a36d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212569"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261082"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Cambio del plan de tarifa de un espacio de nombres de Azure Notification Hubs
 Notification Hubs se ofrece en tres niveles: **gratis**, **básico** y **estándar**. En este artículo se muestra cómo cambiar el plan de tarifa para un espacio de nombres de Azure Notification Hubs. 
@@ -36,7 +36,7 @@ Al usar Azure Portal, puede cambiar el plan de tarifa de un espacio de nombres e
 ### <a name="change-tier-on-the-namespace-page"></a>Cambio del nivel en la página del espacio de nombres
 El procedimiento siguiente le da los pasos para cambiar el plan de tarifa de un espacio de nombres en la página del espacio de nombres. Al cambiar el nivel de un espacio de nombres, se aplica a todos los centros del espacio de nombres.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú de la izquierda. 
 3. Seleccione **Espacios de nombres del centro de notificaciones** en la sección **Internet de las cosas**. Si selecciona la estrella (`*`) que aparece junto al texto, se agrega en la barra de navegación de la izquierda bajo **FAVORITOS**. Ayuda a acceder a la página de espacios de nombres más rápido desde la próxima vez. Una vez que lo agregue a FAVORITOS, seleccione **Espacios de nombre del centro de notificaciones**. 
 
@@ -56,7 +56,7 @@ El procedimiento siguiente le da los pasos para cambiar el plan de tarifa de un 
 ### <a name="change-tier-on-the-hub-page"></a>Cambio del nivel en la página del centro
 El procedimiento siguiente le da los pasos para cambiar el plan de tarifa de un espacio de nombres en la página del centro. Aunque lleve a cabo estos pasos desde la página del centro, en realidad cambia el plan de tarifa del espacio de nombres y todos los centros en el espacio de nombres. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú de la izquierda.
 3. Seleccione **Notification Hubs** en la sección **Internet de las cosas**. 
 4. Seleccione su **centro** de notificaciones. 

@@ -1,19 +1,19 @@
 ---
-title: Usar los comandos y las características de los cuadernos integrados en Azure Cosmos DB
+title: Uso de los comandos y las características de cuadernos integrados en Azure Cosmos DB (versión preliminar)
 description: Aprenda a usar los comandos y las características integradas para realizar operaciones comunes con los cuadernos integrados de Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: dech
-ms.openlocfilehash: f5ab1491c8561c90b06374a0a58f160cbcdd1cad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61d46bbf0ccdeb5cd2e95e36e19f1aa81cfeeb48
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444653"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513406"
 ---
-# <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Usar los comandos y las características de los cuadernos integrados en Azure Cosmos DB
+# <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-preview"></a>Uso de los comandos y las características de cuadernos integrados en Azure Cosmos DB (versión preliminar)
 
 Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visualizar los datos desde Azure Portal. En este artículo se describe cómo usar los comandos y características integrados del cuaderno para realizar operaciones comunes.
 

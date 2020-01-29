@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03855b7596f45fcdde0bebe018d2157ad33a617b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278946"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156087"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configuración de una clave de seguridad como su método de comprobación
 
@@ -25,8 +25,21 @@ Puede usar las claves de seguridad como un método de inicio de sesión sin cont
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
->[!Important]
->Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>[!Note]
+> Si no ve la opción de clave de seguridad, es posible que su organización no le permita usar esta opción para la comprobación. En este caso, tendrá que elegir otro método o ponerse en contacto con el departamento de soporte técnico de su organización para que le proporcione más ayuda.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Autenticación mediante comprobación de seguridad frente a autenticación mediante restablecimiento de contraseña
+
+Los métodos de la información de seguridad se usan tanto para la comprobación de seguridad de dos factores como para al restablecimiento de la contraseña. Sin embargo, no todos los métodos pueden usarse para ambos.
+
+| Método | Se usa para |
+| ------ | -------- |
+| Aplicación de autenticación | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Mensajes de texto | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Llamadas de teléfono | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Clave de seguridad | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Cuenta de correo electrónico | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
+| Preguntas de seguridad | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
 
 ## <a name="what-is-a-security-key"></a>¿Qué es una clave de seguridad?
 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: d55dc2a1311d66eae01ae12a3dae798fbab20677
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b9060823c997391d02eae61911f8aa748f191657
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045620"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260861"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -49,7 +49,7 @@ Para crear y trabajar con conjuntos de datos, necesita:
 
 Hay dos tipos de conjuntos de datos en función de la forma en que los usuarios los consumen en el entrenamiento:
 
-* [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Esto le proporciona la capacidad de materializar los datos en un DataFrame de Pandas o Spark. Puede crear un objeto `TabularDataset` a partir de archivos. csv, .tsv y parquet, y de los resultados de una consulta SQL. Para obtener una lista completa, vea la [clase TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
+* [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Esto le proporciona la capacidad de materializar los datos en un DataFrame de Pandas o Spark. Puede crear un objeto `TabularDataset` a partir de archivos. csv, .tsv, .parquet y .jsonl, así como de los resultados de una consulta SQL. Para obtener una lista completa, vea la [clase TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 * La clase [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) hace referencia a uno o varios archivos de sus almacenes de datos o direcciones URL públicas. Con este método, puede descargar o montar los archivos en el proceso como un objeto FileDataset. Los archivos pueden estar en cualquier formato, lo que permite una gama mayor de escenarios de aprendizaje automático, lo que incluye el aprendizaje profundo.
 
@@ -74,7 +74,7 @@ Para crear conjuntos de datos desde un [almacén de datos de Azure](how-to-acces
 
 #### <a name="create-a-tabulardataset"></a>Creación de un objeto TabularDataset
 
-Los objetos TabularDataset se pueden crear a través del SDK o mediante Azure Machine Learning Studio. Puede especificar una marca de tiempo desde una columna de los datos o desde el patrón de ruta de acceso en el que están almacenados los datos para habilitar un rasgo de la serie temporal. Esta especificación permite filtrar de forma fácil y eficaz por hora.
+Los objetos TabularDataset se pueden crear a través del SDK o mediante Azure Machine Learning Studio. 
 
 Use el método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) en la clase `TabularDatasetFactory` para leer archivos en los formatos .csv o .tsv, y crear una clase TabularDataset sin registrar. Si se lee de varios archivos, los resultados se agregarán en una representación tabular.
 
@@ -244,7 +244,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'new titanic training data',
                                  create_new_version = True)
 ```
-
 
 ## <a name="access-datasets-in-your-script"></a>Obtener acceso a los conjuntos de datos del script
 

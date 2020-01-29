@@ -1,25 +1,17 @@
 ---
-title: Uso de Azure Automation para iniciar un trabajo en StorSimple Data Manager | Microsoft Docs
+title: Uso de Azure Automation para iniciar un trabajo en StorSimple Data Manager
 description: Aprenda a usar Azure Automation para desencadenar trabajos de StorSimple Data Manager
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634257"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273992"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Uso de Azure Automation para desencadenar un trabajo
 
@@ -30,7 +22,7 @@ En este artículo se explica cómo se usa la característica de transformación 
  
 En este artículo se detalla cómo crear un runbook de Azure Automation y, a continuación, usarlo para iniciar un trabajo de transformación de datos. Para más información sobre cómo iniciar la transformación de datos mediante el SDK de .NET, vaya a [Uso del SDK de .NET para desencadenar trabajos de transformación de datos](storsimple-data-manager-dotnet-jobs.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de que dispone de:
 
@@ -58,7 +50,7 @@ Antes de comenzar, asegúrese de que dispone de:
    3. Cree un nuevo grupo de recursos o seleccione uno del grupo de recursos existente.
    4. Seleccione una **ubicación**.
    5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
-   6. Para obtener un vínculo para acceso rápido al panel, consulte **Anclar al panel**. Haga clic en **Create**(Crear).
+   6. Para obtener un vínculo para acceso rápido al panel, consulte **Anclar al panel**. Haga clic en **Crear**.
 
       ![Creación de una cuenta de ejecución de Automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
@@ -94,7 +86,7 @@ Realice los pasos siguientes para importar, publicar y ejecutar el runbook para 
 
 2. En **Agregar runbook**, haga clic en **Importar un runbook existente**.
 
-3. Seleccione el archivo de script de Azure PowerShell `Trigger-DataTransformation-Job.ps1` para **Archivo de runbook**. El tipo de runbook se selecciona automáticamente. Proporcione un nombre y una descripción opcional del runbook. Haga clic en **Create**(Crear).
+3. Seleccione el archivo de script de Azure PowerShell `Trigger-DataTransformation-Job.ps1` para **Archivo de runbook**. El tipo de runbook se selecciona automáticamente. Proporcione un nombre y una descripción opcional del runbook. Haga clic en **Crear**.
 
     ![Incorporación del runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 

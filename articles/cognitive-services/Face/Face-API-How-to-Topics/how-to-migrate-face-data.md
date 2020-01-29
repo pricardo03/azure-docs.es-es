@@ -1,7 +1,7 @@
 ---
-title: 'Migración de los datos de caras entre distintas suscripciones: Face API'
+title: 'Migración de datos de caras entre distintas suscripciones: Face'
 titleSuffix: Azure Cognitive Services
-description: En esta guía se muestra cómo migrar los datos de caras almacenados de una suscripción de Face API a otra.
+description: En esta guía se muestra cómo migrar los datos de caras almacenados de una suscripción de Face a otra.
 services: cognitive-services
 author: lewlu
 manager: nitinme
@@ -10,30 +10,30 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859167"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169813"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migración de los datos de caras a una suscripción de Face distinta
 
-En esta guía se muestra cómo mover datos de caras, como un objeto PersonGroup guardado con caras, a una suscripción de Azure Cognitive Services Face API distinta. Para mover los datos, use la característica Instantánea. Esto le evita tener que crear y entrenar repetidamente un objeto PersonGroup o FaceList cuando mueva o expanda las operaciones. Por ejemplo, quizás haya creado un objeto PersonGroup mediante una suscripción de evaluación gratuita y ahora desea migrarlo a su suscripción de pago. O bien, puede que deba sincronizar datos de caras entre regiones para una operación empresarial a gran escala.
+En esta guía se muestra cómo mover datos de caras, como un objeto PersonGroup guardado con caras, a una suscripción de Face de Azure Cognitive Services distinta. Para mover los datos, use la característica Instantánea. Esto le evita tener que crear y entrenar repetidamente un objeto PersonGroup o FaceList cuando mueva o expanda las operaciones. Por ejemplo, quizás haya creado un objeto PersonGroup mediante una suscripción de evaluación gratuita y ahora desea migrarlo a su suscripción de pago. O bien, puede que deba sincronizar datos de caras entre regiones para una operación empresarial a gran escala.
 
-Esta misma estrategia de migración también se aplica a los objetos LargePersonGroup y LargeFaceList. Si no está familiarizado con los conceptos que aparecen en esta guía, consulte sus definiciones en la guía [Conceptos del reconocimiento facial](../concepts/face-recognition.md). Esta guía usa la biblioteca cliente .NET de Face API con C#.
+Esta misma estrategia de migración también se aplica a los objetos LargePersonGroup y LargeFaceList. Si no está familiarizado con los conceptos que aparecen en esta guía, consulte sus definiciones en la guía [Conceptos del reconocimiento facial](../concepts/face-recognition.md). Esta guía usa la biblioteca cliente .NET de Face con C#.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Necesita los siguientes elementos:
 
-- Dos claves de suscripción de Face API (una con los datos existentes y otra a la cual migrar). Para suscribirse al servicio Face API y obtener la clave, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-- Cadena de identificador de suscripción de Face API que se corresponde con la suscripción de destino. Para encontrarla, seleccione **Información general** en Azure Portal. 
+- Dos claves de suscripción de Face (una con los datos existentes y otra a la cual migrar). Para suscribirse al servicio Face y obtener la clave, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- Cadena de identificador de suscripción de Face que se corresponde con la suscripción de destino. Para encontrarla, seleccione **Información general** en Azure Portal. 
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Creación del proyecto de Visual Studio
 
-Esta guía utiliza una aplicación de consola sencilla para ejecutar la migración de datos de caras. Para realizar una implementación completa, consulte el [ejemplo de instantánea de Face API](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) en GitHub.
+Esta guía utiliza una aplicación de consola sencilla para ejecutar la migración de datos de caras. Para realizar una implementación completa, consulte el [ejemplo de instantánea de Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) en GitHub.
 
 1. En Visual Studio, cree un nuevo proyecto de Aplicación de consola (.NET Framework). Asígnele el nombre **FaceApiSnapshotSample**.
 1. Obtenga los paquetes NuGet requeridos. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet**. Seleccione la pestaña **Examinar** y, luego, **Incluir versión previa**. Busque e instale el paquete siguiente:
@@ -233,7 +233,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 A continuación, consulte la documentación de referencia de la API relevante, explore una aplicación de ejemplo que utilice la característica Instantánea o siga una guía de procedimientos para comenzar a utilizar las otras operaciones de API mencionadas aquí:
 
 - [Documentación de referencia de Instantánea (SDK de .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
-- [Ejemplo de instantánea de Face API](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
+- [Ejemplo de instantánea de Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Agregar caras](how-to-add-faces.md)
 - [Detección de caras en una imagen](HowtoDetectFacesinImage.md)
 - [Identificación de caras en imágenes](HowtoIdentifyFacesinImage.md)

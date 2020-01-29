@@ -1,110 +1,146 @@
 ---
-title: Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning (versión preliminar)
+title: Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar un modelo y a configurar una canalización de predicción por lotes mediante el diseñador. Implemente la canalización como servicio web con parámetros que se pueda desencadenar desde cualquier biblioteca HTTP.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
-ms.reviewer: trbye
-ms.author: trbye
-author: trevorbye
-ms.date: 11/19/2019
+ms.topic: how-to
+ms.author: peterlu
+author: peterclu
+ms.date: 01/13/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 8d80282044adfa723940aa6f68efc1e719e713c0
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d2653699a69cb468e8490c2cba579b73e526d1ed
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532058"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311893"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En esta guía paso a paso aprenderá a usar el diseñador para entrenar un modelo y configurar una canalización de predicción por lotes y un servicio web. La predicción por lotes permite la puntuación continua y a petición de modelos entrenados en grandes conjuntos de datos, configurados opcionalmente como servicio web que se puede desencadenar desde cualquier biblioteca HTTP. 
-
-Para configurar los servicios de puntuación por lotes con el SDK, consulte la [guía paso a paso](how-to-run-batch-predictions.md) adjunta.
+En este artículo, aprenderá a usar el diseñador para crear una canalización de predicción por lotes. La predicción por lotes permite puntuar continuamente grandes conjuntos de valores a petición mediante un servicio web que se puede desencadenar desde cualquier biblioteca HTTP.
 
 En esta guía paso a paso aprenderá a realizar las tareas siguientes:
 
 > [!div class="checklist"]
-> * Creación de un experimento de Machine Learning básico en una canalización
-> * Creación de una canalización de inferencias por lotes con parámetros
-> * Administración y ejecución de canalizaciones manualmente o desde un punto de conexión de REST
+> * Crear y publicar una canalización de inferencias por lotes
+> * Consumir un punto de conexión de canalización
+> * Administrar las versiones del punto de conexión
+
+Para aprender a configurar los servicios de puntuación por lotes mediante el SDK, consulte las [instrucciones](how-to-run-batch-predictions.md) adjuntas.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-1. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
-
-1. Cree un [área de trabajo](tutorial-1st-experiment-sdk-setup.md).
-
-1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
-
-En esta guía paso a paso se asume el conocimiento básico sobre la compilación de una canalización sencilla en el diseñador. Para una introducción guiada al diseñador, complete el [tutorial](tutorial-designer-automobile-price-train-score.md). 
-
-## <a name="create-a-pipeline"></a>Crear una canalización
-
-Para crear una canalización de inferencias por lotes, primero necesita un experimento de aprendizaje automático. Para crear uno, vaya a la pestaña **Designer** (Diseñador) en el área de trabajo y cree una canalización; para ello, seleccione la opción **Easy-to-use prebuilt modules** (Módulos precompilados fáciles de usar).
-
-![Página principal del diseñador](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-1.png)
-
-A continuación se facilita un modelo de aprendizaje automático sencillo para fines de demostración. Los datos son un conjunto de datos registrado creado a partir de los datos sobre diabetes de Azure Open Datasets. Consulte la [sección de guía paso a paso](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) para registrar conjuntos de datos de Azure Open Datasets. Los datos se dividen en conjuntos de entrenamiento y validación, y se entrena y se puntúa un árbol de decisión impulsado. La canalización debe ejecutarse al menos una vez para poder crear una canalización de inferencia. Haga clic en el botón **Run** (Ejecutar) para ejecutar la canalización.
-
-![Creación de un experimente sencillo](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-2.png)
+En estas instrucciones se da por hecho que ya tiene una canalización de entrenamiento. Para ver una introducción guiada sobre el diseñador, complete la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ## <a name="create-a-batch-inference-pipeline"></a>Creación de una canalización de inferencias por lotes
 
-Ahora que se ha ejecutado la canalización, hay una nueva opción disponible junto a **Run** (Ejecutar) y **Publish** (Publicar) denominada **Create inference pipeline** (Crear canalización de inferencia). Haga clic en la lista desplegable y seleccione **Batch inference pipeline** (Canalización de inferencias por lotes).
+Las canalizaciones de entrenamiento deben ejecutarse al menos una vez para poder crear una canalización de inferencias.
 
-![Creación de una canalización de inferencias por lotes](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-5.png)
+1. Vaya a la pestaña **Diseñador** del área de trabajo.
 
-El resultado es una canalización de inferencias por lotes predeterminada. Esto incluye un nodo para la configuración del experimento de canalización original, un nodo para los datos sin procesar para la puntuación y un nodo para puntuar los datos sin procesar en la canalización original.
+1. Seleccione la canalización de entrenamiento que entrene el modelo que desea usar para crear la predicción.
 
-![Canalización de inferencias por lotes predeterminada](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-6.png)
+1. **Ejecute** la canalización.
 
-Puede agregar otros nodos para cambiar el comportamiento del proceso de inferencia por lotes. En este ejemplo se agrega un nodo para el muestreo aleatorio de los datos de entrada antes de la puntuación. Cree un nodo **Partition and Sample** (Partición y muestra) y colóquelo entre los nodos datos sin procesar y puntuación. A continuación, haga clic en el nodo **Partition and Sample** (Partición y muestra) para obtener acceso a los parámetros y la configuración.
+    ![Ejecución de la canalización](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
-![Nuevo nodo](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-7.png)
+Ahora que se ha ejecutado la canalización de entrenamiento, puede crear una canalización de inferencias por lotes.
 
-El parámetro *Rate of sampling* (Frecuencia de muestreo) controla el porcentaje del conjunto de datos original del que se tomará una muestra aleatoria. Se trata de un parámetro que será útil para ajustar con frecuencia, por lo que se habilita como parámetro de canalización. Los parámetros de canalización se pueden cambiar en tiempo de ejecución y se pueden especificar en un objeto de carga al volver a ejecutar la canalización desde un punto de conexión REST. 
+1. Al lado de **Ejecutar**, seleccione la nueva lista desplegable **Create inference pipeline** (Crear canalización de inferencia).
 
-Para habilitar este campo como parámetro de canalización, haga clic en los puntos suspensivos situados sobre el campo y luego en **Add to pipeline parameter** (Agregar al parámetro de canalización). 
+1. Seleccione **Canalización de inferencias por lotes predeterminada**.
 
-![Configuración de la muestra](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-8.png)
+    ![Creación de una canalización de inferencias por lotes](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
+    
+El resultado es una canalización de inferencias por lotes predeterminada. 
 
-A continuación, asígnele un nombre y un valor predeterminado al parámetro. El nombre se utilizará para identificar el parámetro y lo especificará en una llamada a REST.
+### <a name="add-a-pipeline-parameter"></a>Incorporación de un parámetro de canalización
 
-![Parámetro Pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-9.png)
+Para crear predicciones en los nuevos datos, puede conectarse manualmente a otro conjunto de datos de esta vista de borrador de la canalización, o bien crear un parámetro para el conjunto de datos. Con los parámetros puede cambiar el comportamiento del proceso de inferencia por lotes en el runtime.
 
-## <a name="deploy-batch-inferencing-pipeline"></a>Implementación de la canalización de inferencias por lotes
+En esta sección, se crea un parámetro de conjunto de datos para especificar otro conjunto de datos en el que realizar predicciones.
 
-Ahora está listo para implementar la canalización. Haga clic en el botón **Deploy** (Implementar) que abre la interfaz para configurar un punto de conexión. Haga clic en la lista desplegable y seleccione **New PipelineEndpoint** (Nuevo punto de conexión de canalización).
+1. Seleccione el módulo del conjunto de datos.
 
-![Implementación de la canalización](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-10.png)
+1. Aparecerá un panel a la derecha del lienzo, en cuya parte inferior debe seleccionar **Set as pipeline parameter** (Establecer como parámetro de canalización).
+   
+    Escriba el nombre del parámetro o acepte el valor predeterminado.
 
-Dele un nombre y una descripción opcional al punto de conexión. Cerca de la parte inferior, verá el parámetro `sample-rate` configurado con un valor predeterminado de 0,8. Cuando esté listo, haga clic en **Deploy** (Implementar).
+## <a name="publish-your-batch-inferencing-pipeline"></a>Publicación de una canalización de inferencias por lotes
 
-![Configuración del punto de conexión](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-11.png)
+Ya está listo para implementar la canalización de inferencias. Así se implementará la canalización y se pondrá a disposición de otros usuarios.
 
-## <a name="manage-endpoints"></a>Administrar puntos de conexión 
+1. Seleccione el botón **Publicar**.
 
-Una vez finalizada la implementación, vaya a la pestaña **Endpoints** (Puntos de conexión) y haga clic en el nombre del punto de conexión que acaba de crear.
+1. En el cuadro de diálogo que aparece, expanda la lista desplegable de **PipelineEndpoint** y seleccione **New PipelineEndpoint** (PipelineEndpoint nuevo).
 
-![Vínculo al punto de conexión](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-12.png)
+1. Especifique el nombre del punto de conexión y, si lo desea, una descripción del mismo.
 
-En esta pantalla se muestran todas las canalizaciones publicadas en el punto de conexión específico. Haga clic en la canalización de inferencia.
+    Cerca de la parte inferior del cuadro de diálogo, puede ver el parámetro cuyo valor predeterminado es el identificador del conjunto de datos que usó durante el entrenamiento.
 
-![Canalización de inferencia](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-13.png)
+1. Seleccione **Publicar**.
 
-En la página de detalles de la canalización se muestran el historial de ejecuciones detallado y la información de la cadena de conexión de la canalización. Haga clic en el botón **Run** (Ejecutar) para crear una ejecución manual de la canalización.
+![Publicar una canalización](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
-![Detalles de la canalización](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-14.png)
 
-En la configuración de ejecución puede proporcionar una descripción para la ejecución y cambiar el valor de los parámetros de canalización. Esta vez, vuelva a ejecutar la canalización de inferencia con una frecuencia de muestreo de 0,9. Haga clic en **Run** (Ejecutar) para ejecutar la canalización.
+## <a name="consume-an-endpoint"></a>Consumo de un punto de conexión
 
-![Ejecución de la canalización](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-15.png)
+Ya tiene una canalización publicada con un parámetro de conjunto de datos. La canalización usará el modelo entrenado creado en la canalización de entrenamiento para puntuar el conjunto de datos que especifique como parámetro.
 
-La pestaña **Consume** (Consumir) contiene el punto de conexión REST para volver a ejecutar la canalización. Para hacer una llamada a REST, necesitará un encabezado de autenticación de tipo portador de OAuth 2.0. Consulte la siguiente [sección de tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para más información sobre la configuración de la autenticación en el área de trabajo y la realización de una llamada a REST con parámetros.
+### <a name="submit-a-pipeline-run"></a>Ejecución de una canalización 
+
+En esta sección, configurará la ejecución manual de una canalización y modificará el parámetro de canalización para puntuar nuevos datos. 
+
+1. Una vez finalizada la implementación, vaya a la sección **Endpoints** (Puntos de conexión).
+
+1. Seleccione **Pipeline endpoints** (Puntos de conexión de canalización).
+
+1. Seleccione el nombre del punto de conexión que ha creado.
+
+![Vínculo al punto de conexión](./media/how-to-run-batch-predictions-designer/manage-endpoints.png)
+
+1. Seleccione **Published pipelines** (Canalizaciones publicadas).
+
+    En esta pantalla se muestran todas las canalizaciones publicadas en este punto de conexión.
+
+1. Seleccione la canalización que ha publicado.
+
+    En la página de detalles de la canalización se muestra el historial de ejecuciones detallado y la información de la cadena de conexión de la canalización. 
+    
+1. Seleccione **Run** (Ejecutar) para crear una ejecución manual de la canalización.
+
+    ![Detalles de la canalización](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
+    
+1. Cambie el parámetro para usar otro conjunto de datos.
+    
+1. Seleccione **Run** (Ejecutar) para ejecutar la canalización.
+
+### <a name="use-the-rest-endpoint"></a>Uso del punto de conexión de REST
+
+Puede encontrar información sobre cómo consumir puntos de conexión de canalización y la canalización publicada en la sección **Puntos de conexión**.
+
+El punto de conexión de REST de un punto de conexión de canalización en el panel de información general de la ejecución. Al llamar al punto de conexión, consume su canalización publicada predeterminada.
+
+También puede consumir una canalización publicada en la página **Published pipelines** (Canalizaciones publicadas). Seleccione una canalización publicada y busque su punto de conexión de REST. 
+
+![Detalles de punto de conexión de REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+
+Para hacer una llamada a REST, necesitará un encabezado de autenticación de tipo portador de OAuth 2.0. Consulte la siguiente [sección de tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para más información sobre la configuración de la autenticación en el área de trabajo y la realización de una llamada a REST con parámetros.
+
+## <a name="versioning-endpoints"></a>Puntos de conexión de control de versiones
+
+El diseñador asigna una versión a cada una de las canalizaciones posteriores que publique en un punto de conexión. Puede especificar la versión de la canalización que desea ejecutar como parámetro en su llamada a REST. Si no especifica ningún número de versión, el diseñador usará la canalización predeterminada.
+
+Si publica una canalización, puede elegir que sea la nueva canalización predeterminada para el punto de conexión.
+
+![Establecimiento de la canalización predeterminada](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
+
+También puede establecer una canalización predeterminada nueva en la pestaña **Published pipelines** (Canalizaciones publicadas) del punto de conexión.
+
+![Establecimiento de la canalización predeterminada](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

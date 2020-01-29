@@ -1,5 +1,5 @@
 ---
-title: Iniciar máquinas mediante runbooks de Automation en Azure DevTest Labs | Microsoft Docs
+title: Inicio de máquinas mediante runbooks de Automation en Azure DevTest Labs
 description: Aprenda a iniciar máquinas virtuales en un laboratorio en Azure DevTest Labs mediante runbooks de Azure Automation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d3885ba25e479316f97ecbb0681a1680650fc09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083628"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166306"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Iniciar máquinas virtuales en un laboratorio en orden mediante runbooks de Azure Automation
 La característica de [inicio automático](devtest-lab-set-lab-policy.md#set-autostart) de DevTest Labs le permite configurar las VM para que se inicien automáticamente a una hora determinada. Sin embargo, esta característica no es compatible con máquinas que se inician en un orden específico. Existen varios escenarios donde sería útil este tipo de automatización.  Un escenario es donde una VM de Jumpbox en un laboratorio debe iniciarse en primer lugar, antes que las otras VM, ya que Jumpbox se utiliza como punto de acceso a las otras VM.  En este artículo se muestra cómo configurar una cuenta de Azure Automation con un runbook de PowerShell que ejecuta un script. El script utiliza etiquetas en las VM del laboratorio para permitirle controlar el orden de inicio sin tener que cambiar el script.
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 En este ejemplo, las VM del laboratorio deben tener la etiqueta **StartupOrder** agregada con el valor apropiado (0, 1, 2, etcetera.). Designe cualquier máquina que no tenga que iniciarse como -1.
 
 ## <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation

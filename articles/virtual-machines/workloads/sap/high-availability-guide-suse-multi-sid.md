@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/20/2019
+ms.date: 01/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 493056037637ffb2afa9570e1287620869ee8fc7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7471fc6d7f10c849ba79fedf88961d6c3c99913f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474778"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314205"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID
 
@@ -52,7 +52,7 @@ ms.locfileid: "75474778"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-En este artículo se describe cómo implementar varios sistemas de alta disponibilidad de SAP NetWeaver (es decir, varios SID) en un clúster de dos nodos en máquinas virtuales de Azure con SUSE Linux Enterprise Server para SAP Applications.  
+En este artículo se describe cómo implementar varios sistemas de alta disponibilidad de SAP NetWeaver o S4HANA (es decir, varios SID) en un clúster de dos nodos en máquinas virtuales de Azure con SUSE Linux Enterprise Server para SAP Applications.  
 
 En las configuraciones de ejemplo, los comandos de instalación, etc., se implementan tres sistemas SAP NetWeaver 7.50 en un único clúster de alta disponibilidad de dos nodos. Los SID de los sistemas SAP son los siguientes:
 * **NW1**: Número de instancia de ASCS **00** y nombre de host virtual **msnw1ascs**; número de instancia de ERS **02** y nombre de host virtual **msnw1ers**.  
@@ -129,8 +129,8 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
 
 * Configuración de front-end
   * Dirección IP de NW1: 10.3.1.15
-  * Dirección IP de NW1: 10.3.1.17
-  * Dirección IP de NW1: 10.3.1.19
+  * Dirección IP de NW2: 10.3.1.17
+  * Dirección IP de NW3: 10.3.1.19
 * Configuración de back-end
   * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
@@ -426,7 +426,7 @@ En esta documentación se supone que:
 
 8. **[1]** Cree los recursos de clúster de SAP para el sistema SAP recién instalado. 
 
-   El ejemplo que se muestra aquí corresponde a los sistemas SAP **NW2** y **NW3**, suponiendo que se use la arquitectura de puesta en cola del servidor 1 (ENSA1):
+   Si usa la arquitectura de servidor 1 de puesta en cola (ENSA1), defina los recursos para los sistemas SAP **NW2** y **NW3** tal como se indica:
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -472,6 +472,52 @@ En esta documentación se supone que:
      sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
      sudo crm configure property maintenance-mode="false"
     ```
+
+   SAP introdujo una opción de compatibilidad con el servidor 2 de puesta en cola, incluida la replicación, a partir de la versión de SAP NW 7.52. A partir de la plataforma ABAP (versión 1809), el servidor 2 de puesta en cola está instalado de forma predeterminada. Consulte la nota de SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) para consultar la compatibilidad con el servidor 2 de puesta en cola.
+   Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), defina los recursos para los sistemas SAP **NW2** y **NW3** tal como se indica:
+
+    ```
+     sudo crm configure property maintenance-mode="true"
+    
+     sudo crm configure primitive rsc_sap_NW2_ASCS10 SAPInstance \
+      operations \$id=rsc_sap_NW2_ASCS10-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
+      AUTOMATIC_RECOVER=false \
+      meta resource-stickiness=5000 
+    
+     sudo crm configure primitive rsc_sap_NW2_ERS12 SAPInstance \
+      operations \$id=rsc_sap_NW2_ERS12-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true 
+    
+     sudo crm configure modgroup g-NW2_ASCS add rsc_sap_NW2_ASCS10
+     sudo crm configure modgroup g-NW2_ERS add rsc_sap_NW2_ERS12
+    
+     sudo crm configure colocation col_sap_NW2_no_both -5000: g-NW2_ERS g-NW2_ASCS
+     sudo crm configure order ord_sap_NW2_first_start_ascs Optional: rsc_sap_NW2_ASCS10:start rsc_sap_NW2_ERS12:stop symmetrical=false
+   
+     sudo crm configure primitive rsc_sap_NW3_ASCS20 SAPInstance \
+      operations \$id=rsc_sap_NW3_ASCS20-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW3_ASCS10_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
+      AUTOMATIC_RECOVER=false \
+      meta resource-stickiness=5000
+    
+     sudo crm configure primitive rsc_sap_NW3_ERS22 SAPInstance \
+      operations \$id=rsc_sap_NW3_ERS22-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW3_ERS22_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true
+    
+     sudo crm configure modgroup g-NW3_ASCS add rsc_sap_NW3_ASCS20
+     sudo crm configure modgroup g-NW3_ERS add rsc_sap_NW3_ERS22
+    
+     sudo crm configure colocation col_sap_NW3_no_both -5000: g-NW3_ERS g-NW3_ASCS
+     sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
+     sudo crm configure property maintenance-mode="false"
+    ```
+
+   Si está actualizando desde una versión anterior y va a cambiar al servidor 2 de puesta en cola, consulte la nota de SAP [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
    En el ejemplo siguiente se muestra el estado de los recursos de clúster después de haber agregado los sistemas SAP **NW2** y **NW3** al clúster. 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750942"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120152"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servicios, esquemas y categorías admitidos en los registros de recursos de Azure
 
@@ -86,6 +86,9 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Puertas de enlace de red virtual | Esquema no disponible. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
+
+Es posible que algunas categorías solo se admitan para tipos específicos de recursos. Esta es una lista de todos los que están disponibles de algún modo.  Por ejemplo, las categorías Microsoft.Sql/servers/databases no están disponibles para todos los tipos de bases de datos. Para más información, consulte la [información sobre el registro de diagnóstico de SQL Database](../../sql-database/sql-database-metrics-diag-logging.md). 
+
 |Tipo de recurso|Category|Nombre para mostrar de categoría|
 |---|---|---|
 |Microsoft.AAD/domainServices|SystemSecurity|SystemSecurity|

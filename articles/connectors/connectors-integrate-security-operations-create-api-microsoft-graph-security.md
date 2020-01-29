@@ -7,49 +7,52 @@ author: preetikr
 ms.author: preetikr
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 12/12/2019
 tags: connectors
-ms.openlocfilehash: 7e9cc2d8d38af7e5e6cf26ccc3659ee58ef17e59
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f9aa88934d67d98fce43763c6c8fac7c384d765d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789059"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313799"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Mejore la protección frente a amenazas mediante la integración de las operaciones de seguridad con Microsoft Graph Security y Azure Logic Apps.
 
 Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector [Microsoft Graph Security](https://docs.microsoft.com/graph/security-concept-overview), puede mejorar cómo la aplicación detecta, protege y responde frente a las amenazas mediante la creación de flujos de trabajo automatizados para la integración de productos, servicios y asociados de seguridad de Microsoft. Por ejemplo, puede crear [cuadernos de estrategias de Azure Security Center](../security-center/security-center-playbooks.md) que supervisen y administren las entidades de seguridad de Microsoft Graph, como las alertas. Estos son algunos de los escenarios admitidos por el conector Microsoft Graph Security:
 
 * Obtención de alertas basadas en consultas o por identificador de alerta. Por ejemplo, puede obtener una lista que incluya alertas de gravedad alta.
+
 * Actualización de alertas. Por ejemplo, puede actualizar asignaciones de alertas, agregar comentarios a alertas o etiquetar alertas.
+
 * Supervisión de cuándo se crean las alertas o se cambian mediante la creación de [suscripciones de alertas (webhooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
+
 * Administración de las suscripciones de alertas. Por ejemplo, puede obtener las suscripciones activas, ampliar el tiempo de expiración de una suscripción o eliminar suscripciones.
 
 El flujo de trabajo de la aplicación lógica puede usar acciones que obtengan respuestas del conector Microsoft Graph Security y permitir que esa salida esté disponible para otras acciones del flujo de trabajo. También puede tener otras acciones en el flujo de trabajo mediante la salida de las acciones del conector Microsoft Graph Security. Por ejemplo, si recibe alertas de gravedad alta a través del conector Microsoft Graph Security, puede enviar esas alertas en un mensaje de correo electrónico mediante el conector de Outlook. 
 
 Para más información sobre Microsoft Graph Security, consulte la [introducción a Microsoft Graph Security API](https://aka.ms/graphsecuritydocs). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Si busca Microsoft Flow o PowerApps, consulte [¿Qué es Flow?](https://flow.microsoft.com/) o [¿Qué es PowerApps?](https://powerapps.microsoft.com/)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * Para usar el conector Microsoft Graph Security, debe haber *otorgado explícitamente* consentimiento al administrador de inquilinos de Azure Active Directory (AD), que es parte de los [requisitos de autenticación de Microsoft Graph Security](https://aka.ms/graphsecurityauth). Este consentimiento requiere el identificador y el nombre de la aplicación del conector Microsoft Graph Security, que también se puede encontrar en [Azure Portal](https://portal.azure.com):
 
-   | Propiedad | Valor |
-   |----------|-------|
-   | **Nombre de la aplicación** | `MicrosoftGraphSecurityConnector` |
-   | **Identificador de la aplicación** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
-   |||
+  | Propiedad | Value |
+  |----------|-------|
+  | **Nombre de la aplicación** | `MicrosoftGraphSecurityConnector` |
+  | **Identificador de la aplicación** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
+  |||
 
-   Para conceder consentimiento para el conector, el administrador de inquilinos de Azure AD puede seguir cualquiera de estos pasos:
+  Para consentir el conector, el administrador de inquilinos de Azure AD puede seguir cualquiera de estos pasos:
 
-   * [Conceda al administrador el consentimiento para aplicaciones de Azure AD](../active-directory/develop/v2-permissions-and-consent.md).
+  * [Conceda al administrador el consentimiento para aplicaciones de Azure AD](../active-directory/develop/v2-permissions-and-consent.md).
 
-   * Durante la primera ejecución de la aplicación lógica, la aplicación puede solicitar el consentimiento del administrador de inquilinos de Azure AD mediante la [experiencia de consentimiento de aplicación](../active-directory/develop/application-consent-experience.md).
+  * Durante la primera ejecución de la aplicación lógica, la aplicación puede solicitar el consentimiento del administrador de inquilinos de Azure AD mediante la [experiencia de consentimiento de aplicación](../active-directory/develop/application-consent-experience.md).
    
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* La aplicación lógica a la que quieren acceder las entidades de Microsoft Graph Security, como las alertas. Actualmente, este conector no tiene desencadenadores. Por consiguiente, para usar una acción de Microsoft Graph Security, inicie la aplicación lógica con un desencadenador, por ejemplo, el desencadenador **Recurrence**.
+* La aplicación lógica a la que quieren acceder las entidades de Microsoft Graph Security, como las alertas. Para usar un desencadenador de seguridad de Microsoft Graph, necesita una aplicación lógica en blanco. Para usar una acción de seguridad de Microsoft Graph, necesita una aplicación lógica que comience por el desencadenador adecuado para su escenario.
 
 ## <a name="connect-to-microsoft-graph-security"></a>Conexión con Microsoft Graph Security 
 
@@ -57,22 +60,48 @@ Para más información sobre Microsoft Graph Security, consulte la [introducció
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
-1. En el caso de aplicaciones lógicas en blanco, agregue el desencadenador y todas las demás acciones que desee antes de agregar una acción de Microsoft Graph Security.
+1. Para las aplicaciones lógicas en blanco, agregue el desencadenador y todas las demás acciones que desee antes de agregar una acción de seguridad de Microsoft Graph.
 
    O bien
 
-   Con aplicaciones lógicas existentes, en el último paso donde quiera agregar una acción de Microsoft Graph Security, elija **New step** (Nuevo paso).
+   Para aplicaciones lógicas existentes, en el último paso donde quiera agregar una acción de seguridad de Microsoft Graph, seleccione **New step** (Nuevo paso).
 
    O bien
 
-   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
-   Elija el signo más (+) que aparece y seleccione **Add an action** (Agregar una acción).
+   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Seleccione el signo más (+) que aparece y seleccione **Add an action** (Agregar una acción).
 
 1. En el cuadro de búsqueda, escriba "microsoft graph security" como filtro. En la lista de acciones, seleccione la acción que desee.
 
 1. Inicie sesión con sus credenciales de Microsoft Graph Security.
 
 1. Proporcione los detalles necesarios para la acción seleccionada y continúe con la creación del flujo de trabajo de la aplicación lógica.
+
+## <a name="add-triggers"></a>Incorporación de desencadenadores
+
+En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts), que se activa cuando sucede un evento específico o cuando se cumple una condición determinada. Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica y empieza a ejecutar el flujo de trabajo de la aplicación.
+
+> [!NOTE] 
+> Cuando se activa un desencadenador, este procesa todas las nuevas alertas. Si no se reciben alertas, se omite la ejecución del desencadenador. El siguiente sondeo del desencadenador ocurre en función del intervalo de periodicidad especificado en las propiedades del desencadenador.
+
+En este ejemplo se muestra cómo iniciar un flujo de trabajo de aplicaciones lógicas cuando se envían nuevas alertas a la aplicación.
+
+1.  En Azure Portal o Visual Studio, cree una aplicación lógica en blanco que abra el Diseñador de aplicaciones lógicas. En este ejemplo se usa Azure Portal.
+
+1.  En el cuadro de búsqueda del diseñador, escriba "microsoft graph security" como filtro. En la lista de desencadenadores, seleccione este desencadenador: **On all new alerts**
+
+1.  En el desencadenador, proporcione información sobre las alertas que quiera supervisar. Para más propiedades, abra la lista **Agregar nuevo parámetro** y seleccione un parámetro para agregar esa propiedad al desencadenador.
+
+   | Propiedad | Propiedad (JSON) | Obligatorio | Tipo | Descripción |
+   |----------|-----------------|----------|------|-------------|
+   | **Intervalo** | `interval` | Sí | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p><p>- Mes: 1-16 meses <br>- Día: 1-500 días <br>- Hora: 1-12 000 horas <br>- Minuto: 1-72 000 minutos <br>- Segundo: 1-9 999 999 segundos <p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
+   | **Frecuencia** | `frequency` | Sí | String | Unidad de tiempo que se usa para la periodicidad: **Segundo**, **Minuto**, **Hora**, **Día**, **Semana** o **Mes** |
+   | **Zona horaria** | `timeZone` | No | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. |
+   | **Hora de inicio** | `startTime` | No | String | Proporcione una fecha y hora de inicio en este formato: <p><p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 14:00, especifique "2017-09-18T14:00:00" y seleccione una zona horaria, como la hora estándar del Pacífico. O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [ *¿De qué formas puedo usar la fecha y hora de inicio?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   ||||||
+
+1.  Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
+
+1.  Ahora, agregue a la aplicación lógica una o varias acciones, en función de las tareas que desea realizar con los resultados del desencadenador.
 
 ## <a name="add-actions"></a>Incorporación de una acción
 
@@ -86,7 +115,7 @@ Para filtrar, ordenar, u obtener los resultados más recientes, *solo* proporcio
 
 Para más información sobre las consultas que puede usar con este conector, consulte la [documentación de referencia de alertas de Microsoft Graph Security](https://docs.microsoft.com/graph/api/alert-list). Para crear experiencias mejoradas con este conector, aprenda más sobre las [alertas de propiedades de esquema](https://docs.microsoft.com/graph/api/resources/alert) que admite el conector.
 
-| . | DESCRIPCIÓN |
+| Acción | Descripción |
 |--------|-------------|
 | **Obtener alertas** | Obtenga alertas filtrada por una o varias [propiedades de alerta](https://docs.microsoft.com/graph/api/resources/alert), por ejemplo: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
 | **Obtener alerta por identificador** | Obtenga una alerta específica según el identificador de alerta. | 
@@ -95,12 +124,11 @@ Para más información sobre las consultas que puede usar con este conector, con
 
 ### <a name="manage-alert-subscriptions"></a>Administración de suscripciones de alertas
 
-Microsoft Graph admite [*suscripciones*](https://docs.microsoft.com/graph/api/resources/subscription) o [*webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Para obtener, actualizar, o eliminar suscripciones, proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) a la construcción de entidad de Microsoft Graph e incluya `security/alerts` seguido de la consulta de ODATA. 
-*No incluya* la URL base, por ejemplo, `https://graph.microsoft.com/v1.0`. En cambio, use el formato de este ejemplo:
+Microsoft Graph admite [*suscripciones*](https://docs.microsoft.com/graph/api/resources/subscription) o [*webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Para obtener, actualizar, o eliminar suscripciones, proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) a la construcción de entidad de Microsoft Graph e incluya `security/alerts` seguido de la consulta de ODATA. *No incluya* la URL base, por ejemplo, `https://graph.microsoft.com/v1.0`. En cambio, use el formato de este ejemplo:
 
 `security/alerts?$filter=status eq 'New'`
 
-| . | DESCRIPCIÓN |
+| Acción | Descripción |
 |--------|-------------|
 | **Creación de suscripciones** | [Crea una suscripción](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) que le informe sobre cualquier cambio. Puede filtrar esta suscripción por los tipos de alerta específicos que desee. Por ejemplo, puede crear una suscripción que le informe sobre las alertas de gravedad alta. |
 | **Obtener suscripciones activas** | [Obtiene las suscripciones no expiradas](https://docs.microsoft.com/graph/api/subscription-list). | 
@@ -111,11 +139,6 @@ Microsoft Graph admite [*suscripciones*](https://docs.microsoft.com/graph/api/re
 ## <a name="connector-reference"></a>Referencia de conectores
 
 Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](https://aka.ms/graphsecurityconnectorreference) del conector.
-
-## <a name="get-support"></a>Obtención de soporte técnico
-
-Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

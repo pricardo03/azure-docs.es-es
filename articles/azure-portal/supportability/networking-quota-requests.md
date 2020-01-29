@@ -3,85 +3,90 @@ title: Aumento del límite de redes | Microsoft Docs
 description: Aumento del límite de redes
 author: anavinahar
 ms.author: anavin
-ms.date: 06/19/2019
+ms.date: 01/23/2020
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 04a22d987e27f054648637890fbd61c56533c2ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 9b5c7043b06172c2d4931ca1c3fd3ac5d0e80883
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898712"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547812"
 ---
 # <a name="networking-limit-increase"></a>Aumento del límite de redes
 
-Para ver el uso de las redes y la cuota actuales, puede visitar la hoja **Usages + Quota** (Usos y cuota) en Azure Portal. También puede utilizar la [CLI](https://docs.microsoft.com//cli/azure/network?view=azure-cli-latest#az-network-list-usages), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.13.0) o la [API de uso de red](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/listusage) para ver los límites y el uso de la red.
+Use [Azure Portal](https://portal.azure.com) para aumentar la cuota de redes.
 
-Puede solicitar un aumento a través de la hoja **Ayuda y soporte técnico** o la hoja **Usages + Quota** (Usos y cuota) en el portal.
+Para ver el uso de redes y la cuota actuales en Azure Portal, abra la suscripción y, a continuación, seleccione **Usos y cuotas**. También puede usar las siguientes opciones para ver los límites y el uso de la red.
+
+* [CLI de uso](/cli/azure/network#az-network-list-usages)
+* [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
+* [API de uso de red](/rest/api/virtualnetwork/virtualnetworks/listusage)
+
+Puede solicitar un aumento mediante **Ayuda y soporte técnico** o bien en **Usos y cuotas** en el portal.
 
 > [!Note]
-> Para cambiar el tamaño predeterminado de Prefijo de IP pública, seleccione "Longitud mínima de prefijo de red IP pública" en la lista desplegable.
+> Para cambiar el tamaño predeterminado de **Prefijos de IP pública**, seleccione **Longitud mínima de prefijo de red IP pública** en la lista desplegable.
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitud de un aumento de cuota de red en el nivel de suscripción mediante la hoja **Ayuda y soporte técnico**
+## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>Solicitud de un aumento de cuota de redes en el nivel de suscripción mediante Ayuda y soporte técnico
 
-Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja Ayuda y soporte técnico de Azure disponible en Azure Portal. 
+Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante **Ayuda y soporte técnico** en Azure Portal.
 
-1. En https://portal.azure.com, seleccione **Ayuda y soporte técnico**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, a continuación, seleccione **Ayuda y soporte técnico** en el menú de Azure Portal o busque y seleccione **Ayuda y soporte técnico**.
 
-    ![Ayuda y soporte técnico](./media/resource-manager-core-quotas-request/helpsupport.png)
- 
-2.  Seleccione **Nueva solicitud de soporte técnico**. 
+    ![Ayuda y soporte técnico](./media/networking-quota-request/help-plus-support.png)
 
-    ![Nueva solicitud de soporte](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+1. Seleccione **Nueva solicitud de soporte técnico**.
 
-3. En el menú desplegable Tipo de incidencia, seleccione **Límites de servicio y suscripción (cuotas)** .
+    ![Nueva solicitud de soporte](./media/networking-quota-request/new-support-request.png)
 
-    ![Menú desplegable Tipo de incidencia](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+1. En **Tipo de problema**, elija **Límites de servicio y suscripción (cuotas)** .
 
-4. Seleccione la suscripción que necesita una cuota mayor.
+    ![Selección de los límites de suscripción en la lista desplegable de tipo de problema](./media/networking-quota-request/select-quota-issue-type.png)
 
-    ![Selección de la suscripción en la nueva solicitud de soporte técnico](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
-   
-5. Seleccione **Redes** en la lista desplegable **Tipo de cuota**. 
+1. Seleccione la suscripción que necesita una cuota mayor.
+
+    ![Selección de la suscripción en la nueva solicitud de soporte técnico](./media/networking-quota-request/select-subscription-support-request.png)
+
+1. En **Tipo de cuota**, seleccione **Redes**. Seleccione **Siguiente: Soluciones**.
 
     ![Selección del tipo de cuota](./media/networking-quota-request/select-quota-type-network.png)
 
-6. En **Detalles del problema**, haga clic en **Proporcionar detalles** para aportar información adicional que ayude a procesar la solicitud.
+1. En **Detalles del problema**, haga clic en **Proporcionar detalles** para aportar información adicional que ayude a procesar la solicitud.
 
-    ![Proporcionar detalles](./media/resource-manager-core-quotas-request/provide-details.png)
+    ![Proporcionar detalles](./media/networking-quota-request/provide-details-link.png)
 
-7. En el panel **Detalles de la cuota**, seleccione Modelo de implementación, una ubicación y los recursos para los que desea solicitar un aumento.
+1. En el panel **Detalles de la cuota**, seleccione un modelo de implementación, una ubicación y los recursos que se van a incluir en la solicitud.
 
     ![Modelo de implementación en Detalles de la cuota](./media/networking-quota-request/quota-details-network.png)
 
-8.  Escriba los nuevos límites que quiere en la suscripción. Para quitar una línea, desactive el recurso de la lista desplegable Recurso o haga clic en el icono de descarte "x". Después de escribir la cuota deseada para cada recurso, haga clic en **Guardar y continuar** en el panel Detalles de la cuota para continuar con la creación de la solicitud de soporte técnico.
+1. Escriba los nuevos límites que quiere en la suscripción. Para eliminar una línea, anule la selección del recurso en el menú **Recursos** o seleccione el icono de descarte "x". Después de escribir la cuota para cada recurso, seleccione **Guardar y continuar** para continuar con la creación de la solicitud de soporte técnico.
 
     ![Nuevos límites](./media/networking-quota-request/network-new-limits.png)
 
+## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quotas"></a>Solicitud de un aumento de la cuota de redes en el nivel de suscripción mediante Usos y cuotas
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Solicitud de un aumento de cuota de red en el nivel de suscripción mediante la hoja **Usages + Quota** (Usos y cuota)
+Siga estas instrucciones para crear una solicitud de soporte técnico mediante **Uso y cuota** en Azure Portal.
 
-Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja "Usos y cuota" de Azure disponible en Azure Portal. 
+1. En https://portal.azure.com, busque y seleccione **Suscripciones**.
 
-1. En https://portal.azure.com, seleccione **Suscripciones**.
+    ![Suscripciones](./media/networking-quota-request/search-for-suscriptions.png)
 
-    ![Suscripciones](./media/resource-manager-core-quotas-request/subscriptions.png)
+1. Seleccione la suscripción que necesita una cuota mayor.
 
-2. Seleccione la suscripción que necesita una cuota mayor.
+    ![Seleccionar suscripción](./media/networking-quota-request/select-subscription-change-quota.png)
 
-    ![Seleccionar suscripción](./media/resource-manager-core-quotas-request/select-subscription.png)
+1. Seleccione **Uso y cuotas**.
 
-3. Seleccione **Uso y cuotas**.
+    ![Selección de uso y cuotas](./media/networking-quota-request/select-usage-plus-quotas.png)
 
-    ![Selección de uso y cuotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+1. En la esquina superior derecha, seleccione **Solicitar aumento**.
 
-4. En la esquina superior derecha, seleccione **Solicitar aumento**.
+    ![Solicitud de aumento](./media/networking-quota-request/request-increase-from-subscription.png)
 
-    ![Solicitud de aumento](./media/resource-manager-core-quotas-request/request-increase.png)
-
-5. Siga los pasos comenzando con el paso 3 de la sección *Solicitud de un aumento de cuota de red en el nivel de suscripción* mediante la sección de la hoja **Ayuda y soporte técnico**
+1. Siga los pasos a partir del paso 3 en [Solicitud de aumento de la cuota de redes en el nivel de suscripción](#request-networking-quota-increase-at-subscription-level-using-help--support).
 
 ## <a name="about-networking-limits"></a>Acerca de los límites de red
 
-Para más información sobre los límites de red, consulte la [sección de redes](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) de la página de límites o nuestras preguntas más frecuentes sobre los límites de red
+Para más información sobre los límites de redes, consulte la [sección de redes](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) de la página de límites o las Preguntas más frecuentes sobre los límites de red.

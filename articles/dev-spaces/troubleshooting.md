@@ -2,15 +2,15 @@
 title: Solución de problemas
 services: azure-dev-spaces
 ms.date: 09/25/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: a52d27733168c55f9e34d15f6675dd7bce0f8aad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a2eb98af2c73b5a920f3e3bcedb7ab18e9f0430
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438109"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548856"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -252,7 +252,7 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-Este error se debe a que los nodos de AKS ejecutan una versión anterior de Docker que no es compatible con las compilaciones de varias fases. Para evitar compilaciones de varias fases, vuelva a escribir el Dockerfile.
+Este error se produce porque Azure Dev Spaces no admite actualmente compilaciones en varias fases. Para evitar compilaciones de varias fases, vuelva a escribir el Dockerfile.
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>El tráfico no se reenvía al clúster de AKS cuando se conecta la máquina de desarrollo.
 
@@ -475,3 +475,12 @@ Para habilitar Azure Dev Spaces en un clúster de AKS con el fin de que el tr�
 | gcr.io | HTTP:443 | Extraer las imágenes de Helm o Tiller|
 | storage.googleapis.com | HTTP:443 | Extraer las imágenes de Helm o Tiller|
 | azds-<guid>.<location>.azds.io | HTTPS:443 | Comunicarse con los servicios de back-end de Azure Dev Spaces para el controlador. El FQDN exacto se puede encontrar en "dataplaneFqdn" en %USERPROFILE%\.azds\settings.json|
+
+### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Error "Could not find the cluster \<cluster\> in subscription \<subscriptionId\>" ("No se encontró el clúster <clúster> en la suscripción <ID de suscripción>")
+
+Es posible que vea este error si el archivo kubeconfig tiene como destino un clúster o una suscripción diferente de la que está intentando usar con las herramientas del lado cliente de Azure Dev Spaces. Las herramientas del lado cliente de Azure Dev Spaces replican el comportamiento de *kubectl*, que usa [uno o varios archivos kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) para seleccionar y comunicarse con el clúster.
+
+Para corregir este problema:
+
+* Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` para actualizar el contexto actual. Este comando también habilita Azure Dev Spaces en el clúster de AKS si aún no está habilitado. También puede usar `kubectl config use-context <cluster name>` como alternativa para actualizar el contexto actual.
+* Use `az account show` para mostrar la suscripción de Azure actual que quiere emplear como destino y compruebe que es la correcta. Puede cambiar la suscripción que desea emplear mediante `az account set`.

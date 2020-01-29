@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 17f281aeb2ef3f1f32f3e13fe66fe8b74b1d9116
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65073967"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547683"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la seguridad de pods en Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Este artículo de procedimientos recomendados se centra en cómo proteger los po
 > * Autenticarse con otros recursos de Azure mediante identidades administradas del pod
 > * Solicitar y recuperar credenciales de un almacén digital, como Azure Key Vault
 
-También puede consultar los procedimientos recomendados para la [seguridad del clúster][best-practices-cluster-security] y para la [administración de imágenes de contenedor][best-practices-container-image-management].
+También puede consultar los procedimientos recomendados sobre la [seguridad del clúster][best-practices-cluster-security] y la [administración de imágenes de contenedor][best-practices-container-image-management].
 
 ## <a name="secure-pod-access-to-resources"></a>Protección del acceso del pod a los recursos
 
@@ -38,8 +38,8 @@ Cuando se ejecuta como un usuario que no es root, los contenedores no se pueden 
 Un contexto de seguridad del pod también puede definir funcionalidades o permisos adicionales para el acceso a los procesos y servicios. Se pueden establecer las siguientes definiciones de contexto de seguridad comunes:
 
 * **allowPrivilegeEscalation** define si el pod puede asumir privilegios de usuario *root*. Diseñe las aplicaciones de modo que este valor siempre esté establecido en *false*.
-* **Funcionalidades de Linux**: permite el acceso del pod a los procesos de nodo subyacente. Tenga cuidado con la asignación de estas funcionalidades. Asigne el menor número de privilegios necesarios. Para más información, consulte [Funcionalidades de Linux][linux-capabilities].
-* **Etiquetas SELinux** es un módulo de seguridad del kernel de Linux que le permite definir directivas para el acceso a los servicios, los procesos y el sistema de archivos. De nuevo, asigne el menor número de privilegios necesarios. Para más información, consulte [opciones SELinux en Kubernetes][selinux-labels]
+* **Funcionalidades de Linux**: permite el acceso del pod a los procesos de nodo subyacente. Tenga cuidado con la asignación de estas funcionalidades. Asigne el menor número de privilegios necesarios. Para más información, consulte las [funcionalidades de Linux][linux-capabilities].
+* **Etiquetas SELinux** es un módulo de seguridad del kernel de Linux que le permite definir directivas para el acceso a los servicios, los procesos y el sistema de archivos. De nuevo, asigne el menor número de privilegios necesarios. Para más información, consulte las [opciones de SELinux disponibles en Kubernetes][selinux-labels].
 
 El siguiente ejemplo de manifiesto YAML de pod establece la configuración del contexto de seguridad para definir:
 
@@ -72,7 +72,7 @@ Colabore con el operador del clúster para determinar la configuración de conte
 
 Para limitar el riesgo de exposición de las credenciales en el código de la aplicación, evite el uso de credenciales compartidas o fijas. Las credenciales y las claves no se deberían incluir directamente en el código. Si se exponen estas credenciales, la aplicación se debe actualizar y volver a implementar. Un enfoque mejor es dar a los pods sus propias identidades y formas para autenticarse a sí mismos o recuperar automáticamente las credenciales de un almacén digital.
 
-Los siguientes [proyectos de código abierto de AKS asociados][aks-associated-projects] le permiten autenticar automáticamente los pods o credenciales de la solicitud y las claves desde un almacén digital:
+Los siguientes [proyectos de código abierto de AKS asociados][aks-associated-projects] le permiten autenticar automáticamente los pods o las credenciales de la solicitud y las claves desde un almacén digital:
 
 * identidades administradas para los recursos de Azure y
 * el controlador FlexVol de Azure Key Vault
@@ -81,7 +81,7 @@ El soporte técnico de Azure no admite los proyectos de código abierto de AKS a
 
 ### <a name="use-pod-managed-identities"></a>Uso de identidades administradas del pod
 
-Una identidad administrada para los recursos de Azure permite a un pod autenticarse a sí mismo en cualquier servicio de Azure que la admita, como Storage o SQL. Se asigna al pod una identidad de Azure que le permite autenticarse en Azure Active Directory y recibir un token digital. Este token digital se puede presentar a otros servicios de Azure que comprueban si el pod está autorizado para acceder al servicio y realizar las acciones necesarias. Este enfoque significa que no es necesario ningún secreto para las cadenas de conexión de base de datos, por ejemplo. El flujo de trabajo simplificado de la identidad administrada del pod se muestra en el diagrama siguiente:
+Las identidades administradas de los recursos de Azure permiten a un pod autenticarse a sí mismo en cualquier servicio de Azure que lo permita, como Storage o SQL. Se asigna al pod una identidad de Azure que le permite autenticarse en Azure Active Directory y recibir un token digital. Este token digital se puede presentar a otros servicios de Azure que comprueban si el pod está autorizado para acceder al servicio y realizar las acciones necesarias. Este enfoque significa que no es necesario ningún secreto para las cadenas de conexión de base de datos, por ejemplo. El flujo de trabajo simplificado de la identidad administrada del pod se muestra en el diagrama siguiente:
 
 ![Flujo de trabajo simplificado de la identidad administrada del pod en Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
 

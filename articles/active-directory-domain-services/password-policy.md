@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704524"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512766"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 
@@ -65,7 +65,7 @@ Con esta configuración predeterminada, las cuentas de usuario se bloquean duran
 
 Los bloqueos de cuenta solo se producen en el dominio administrado. Las cuentas de usuario solo se bloquean en Azure AD DS y solo debido a intentos de inicio de sesión con error contra el dominio administrado. Las cuentas de usuario que se sincronizaron desde Azure AD o el entorno local no se bloquean en sus directorios de origen, solo en Azure AD DS.
 
-Si tiene una directiva de contraseñas de Azure AD que especifica una antigüedad de contraseña máxima mayor que 90 días, dicha antigüedad de contraseña se aplica a la directiva predeterminada en Azure AD DS. Puede configurar una directiva de contraseñas personalizada para definir una antigüedad de contraseña máxima diferente en Azure AD DS. Tenga cuidado si tiene una menor antigüedad de contraseña máxima configurada en una directiva de contraseñas de Azure AD DS que en Azure AD o un entorno de AD DS local. En ese escenario, la contraseña de un usuario puede expirar en Azure AD DS antes de que se le pida que la cambie en Azure AD en un entorno de AD DS local.
+Si tiene una directiva de contraseñas de Azure AD que especifica una antigüedad de contraseña máxima mayor que 90 días, dicha antigüedad de contraseña se aplica a la directiva predeterminada en Azure AD DS. Puede configurar una directiva de contraseñas personalizada para definir una antigüedad de contraseña máxima diferente en Azure AD DS. Tenga cuidado si tiene una menor antigüedad de contraseña máxima configurada en una directiva de contraseñas de Azure AD DS que en Azure AD o un entorno de AD DS local. En ese escenario, la contraseña de un usuario puede expirar en Azure AD DS antes de que se le pida que la cambie en Azure AD o en un entorno de AD DS local.
 
 Para las cuentas de usuario creadas manualmente en un dominio administrado de Azure AD DS, también se aplica la siguiente configuración de contraseña adicional. Estas opciones de configuración no se aplican a cuentas de usuario sincronizadas desde Azure AD, ya que un usuario no puede actualizar su contraseña directamente en Azure AD DS.
 
@@ -103,12 +103,12 @@ Para crear una directiva de contraseñas personalizada, use las herramientas adm
 1. Edite otras opciones de configuración de directiva de contraseña como desee. Recuerde los siguientes puntos clave:
 
     * Opciones de configuración como la fecha de expiración, la antigüedad o la complejidad de la contraseña solo para usuarios creados manualmente en un dominio administrado de Azure AD DS.
-    * La configuración de bloqueo de cuenta se aplica a todos los usuarios, pero solo surte efecto en el dominio administrado.
+    * La configuración de bloqueo de cuenta se aplica a todos los usuarios, pero solo surte efecto en el dominio administrado y no en el mismo Azure AD.
 
     ![Creación de una directiva de contraseñas específica personalizada](./media/how-to/custom-fgpp.png)
 
 1. Desactive **Proteger contra eliminación accidental**. Si esta opción está seleccionada, la directiva FGPP no se podrá guardar.
-1. En la sección **Se aplica directamente a**, seleccione el botón **Agregar**. En el cuadro de diálogo **Select Users or Groups** (Seleccionar usuarios y grupos) haga clic en el botón **Locations** (Ubicaciones).
+1. En la sección **Se aplica directamente a**, seleccione el botón **Agregar**. En el cuadro de diálogo **Seleccionar usuarios o grupos**, seleccione el botón **Ubicaciones**.
 
     ![Seleccionar los usuarios y grupos a los que se va a aplicar la directiva de contraseñas](./media/how-to/fgpp-applies-to.png)
 

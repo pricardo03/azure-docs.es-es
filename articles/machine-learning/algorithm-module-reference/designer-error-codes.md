@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 12/03/2019
-ms.openlocfilehash: d491a67a44a2cb01e4968c4d31d20dee4b75a60a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979993"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311672"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Excepciones y códigos de error para el diseñador (versión preliminar)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Excepciones y códigos de error para el diseñador
 
-En este artículo se describen los mensajes de error y los códigos de excepción en el diseñador de Azure Machine Learning (versión preliminar) para ayudarle a solucionar problemas de las canalizaciones de aprendizaje automático.
+En este artículo se describen los mensajes de error y los códigos de excepción del diseñador de Azure Machine Learning para ayudarle a solucionar problemas de las canalizaciones de aprendizaje automático.
 
 Hay dos maneras de obtener el texto completo de un mensaje de error en el diseñador:  
 
@@ -704,7 +704,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 
 |Mensajes de excepción|
 |------------------------|
-|Error en la operación|
+|No se pudo realizar la operación.|
 |Error al completar la operación: "{failed_operation}".|
 |Error al completar la operación: "{failed_operation}". Motivo: "{reason}".|
 

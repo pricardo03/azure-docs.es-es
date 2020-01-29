@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 303f255057b414bc06cd7ae803fe368c2acc1a1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 87550e7ee3008418fde84596a811d44d02191cee
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399443"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513531"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creación de un área de trabajo de Log Analytics con Azure PowerShell
 
@@ -20,7 +20,7 @@ El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure
 
 * Recursos de Azure de la suscripción  
 * Equipos locales supervisados por System Center Operations Manager  
-* Colecciones de dispositivos de System Center Configuration Manager  
+* Colecciones de dispositivos de Configuration Manager  
 * Datos de diagnóstico o registro de Azure Storage  
  
 Para otros orígenes, como las máquinas virtuales de Azure y la máquinas virtuales Windows o Linux del entorno, consulte los temas siguientes:

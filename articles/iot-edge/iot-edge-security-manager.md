@@ -9,16 +9,16 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666076"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548703"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 
-El Administrador de seguridad de Azure IoT Edge es un núcleo de seguridad bien delimitado para proteger el dispositivo IoT Edge y todos sus componentes mediante la abstracción de hardware de silicio seguro. Es crucial para fortalecer la seguridad y proporciona el punto de integración de la tecnología para los fabricantes de equipos originales (OEM).
+El Administrador de seguridad de Azure IoT Edge es un núcleo de seguridad bien delimitado para proteger el dispositivo IoT Edge y todos sus componentes mediante la abstracción de hardware de silicio seguro. El responsable de seguridad es el punto focal para fortalecer la seguridad y proporciona a los fabricantes de equipos originales (OEM) el punto de integración de la tecnología.
 
 ![Administrador de seguridad de IoT Edge](media/edge-security-manager/iot-edge-security-manager.png)
 
@@ -41,7 +41,7 @@ El administrador de seguridad de IoT Edge consta de tres componentes:
 
 ## <a name="the-iot-edge-security-daemon"></a>El demonio de seguridad de IoT Edge
 
-El demonio de seguridad de IoT Edge es el responsable de las operaciones lógicas del administrador de seguridad de IoT Edge. Representa una porción importante de la base informática de confianza del dispositivo IoT Edge. 
+El demonio de seguridad de IoT Edge es el responsable de las operaciones lógicas del administrador de seguridad de IoT Edge. Representa una porción importante de la base informática de confianza del dispositivo IoT Edge.
 
 ### <a name="design-principles"></a>Principios de diseño
 
@@ -79,11 +79,11 @@ La interfaz de la nube permite que el demonio de seguridad de IoT Edge tenga acc
 
 #### <a name="management-api"></a>API de administración
 
-El demonio de seguridad de IoT Edge ofrece una API de administración, que el agente de IoT Edge llama en el momento de crear, iniciar, detener o eliminar un módulo de IoT Edge. El demonio de seguridad almacena "registros" para todos los módulos activos. Estos registros asignan la identidad de un módulo a alguna propiedades del módulo. Algunos ejemplos de estas propiedades son el identificador de proceso (pid) del proceso que se ejecuta en el contenedor o el hash de contenido del contenedor de Docker.
+El demonio de seguridad de IoT Edge ofrece una API de administración, que el agente de IoT Edge llama en el momento de crear, iniciar, detener o eliminar un módulo de IoT Edge. El demonio de seguridad almacena "registros" para todos los módulos activos. Estos registros asignan la identidad de un módulo a alguna propiedades del módulo. Por ejemplo, estas propiedades del módulo incluyen el identificador de proceso (pid) del proceso que se ejecuta en el contenedor y el hash del contenido del contenedor de Docker.
 
-La API de carga de trabajo (que se describe a continuación) usa estas propiedades para verificar que el autor de llamada está autorizado para hacer una acción.
+La API de carga de trabajo (que se describe a continuación) usa estas propiedades para comprobar que el autor de llamada está autorizado para hacer una acción.
 
-La API de administración es una API con privilegios, a la que solo se puede llamar desde el agente de IoT Edge.  Como el demonio de seguridad de IoT Edge arranca e inicia al agente de IoT Edge, puede crear un registro implícito del agente de IoT Edge, una vez que se ha atestado que el agente de IoT Edge que no se ha manipulado. El mismo proceso de atestación que usa la API de carga de trabajo restringe también el acceso a la API de administración solo para el agente de IoT Edge.
+La API de administración es una API con privilegios, a la que solo se puede llamar desde el agente de IoT Edge.  Como el demonio de seguridad de IoT Edge arranca e inicia al agente de IoT Edge, comprueba que el agente de IoT Edge no se ha alterado y entonces puede crear un registro implícito para él. El mismo proceso de atestación que usa la API de carga de trabajo restringe también el acceso a la API de administración solo para el agente de IoT Edge.
 
 #### <a name="container-api"></a>API de contenedor
 
@@ -93,7 +93,7 @@ La API de contenedor interactúa con el sistema de contenedor en uso para la adm
 
 La API de carga de trabajo es accesible para todos los módulos. Proporciona una prueba de identidad, en forma de un certificado X509 o token firmado liberado de HSM, y la agrupación de confianza correspondiente a un módulo. La agrupación de confianza contiene certificados de entidad de certificación para todos los demás servidores en que deben confiar los módulos.
 
-El demonio de seguridad de IoT Edge usa un proceso de atestación para proteger esta API. Cuando un módulo llama a esta API, el demonio de seguridad intenta encontrar un registro para la identidad. Si eso se completa correctamente, usa las propiedades del registro para medir el módulo. Si el resultado del proceso de medición coincide con el registro, se genera una nueva prueba de identidad. Los certificados de entidad de certificación correspondientes (agrupación de confianza) se devuelven al módulo.  El módulo usa este certificado para conectarse a IoT Hub, otros módulos, o iniciar un servidor. Cuando el certificado o un token firmado se acerca a la expiración, es responsabilidad del módulo solicitar un certificado nuevo. 
+El demonio de seguridad de IoT Edge usa un proceso de atestación para proteger esta API. Cuando un módulo llama a esta API, el demonio de seguridad intenta encontrar un registro para la identidad. Si eso se completa correctamente, usa las propiedades del registro para medir el módulo. Si el resultado del proceso de medición coincide con el registro, se genera una nueva prueba de identidad. Los certificados de entidad de certificación correspondientes (agrupación de confianza) se devuelven al módulo.  El módulo usa este certificado para conectarse a IoT Hub, otros módulos, o iniciar un servidor. Cuando el certificado o un token firmado se acerca a la expiración, es responsabilidad del módulo solicitar un certificado nuevo.
 
 ### <a name="integration-and-maintenance"></a>Integración y mantenimiento
 

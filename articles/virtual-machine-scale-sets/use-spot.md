@@ -1,21 +1,19 @@
 ---
 title: Creación de un conjunto de escalado que use máquinas virtuales de Azure Spot (versión preliminar)
 description: Aprenda a crear conjuntos de escalado de Azure que usen máquinas virtuales de Spot para ahorrar costos.
-services: virtual-machine-scale-sets
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: b57c13d4a5c671595a3e82ac7858c027456107f2
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894074"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544793"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Vista previa: Máquinas virtuales de Azure Spot para los conjuntos de escalado 
 
@@ -93,50 +91,20 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 
-El proceso para crear un conjunto de escalado que use máquinas virtuales de Spot es igual que el que se detalla en el artículo de introducción para [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Agregue la propiedad "priority" al tipo de recurso *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* en la plantilla y especifique el valor *Spot*. Asegúrese de usar la versión de API *2019-03-01* o superior. 
+El proceso para crear un conjunto de escalado que use máquinas virtuales de Spot es igual que el que se detalla en el artículo de introducción para [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). 
 
-Para establecer la directiva de expulsión en eliminación, agregue el parámetro "evictionPolicy" y establézcalo en *Eliminar*.
-
-En el ejemplo siguiente se crea un conjunto de escalado de Linux de Spot llamado *myScaleSet* en *Centro de EE. UU.* , que *elimina* las máquinas virtuales del conjunto de escalado tras su expulsión:
+Para las implementaciones con plantilla de Spot, use `"apiVersion": "2019-03-01"` o una versión posterior. Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la sección `"virtualMachineProfile":` de la plantilla: 
 
 ```json
-{
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "name": "myScaleSet",
-  "location": "East US 2",
-  "apiVersion": "2019-03-01",
-  "sku": {
-    "name": "Standard_DS2_v2",
-    "capacity": "2"
-  },
-  "properties": {
-    "upgradePolicy": {
-      "mode": "Automatic"
-    },
-    "virtualMachineProfile": {
-       "priority": "Spot",
-       "evictionPolicy": "delete",
-       "storageProfile": {
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        },
-        "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        }
-      },
-      "osProfile": {
-        "computerNamePrefix": "myvmss",
-        "adminUsername": "azureuser",
-        "adminPassword": "P@ssw0rd!"
-      }
-    }
-  }
-}
+                "priority": "Spot",
+                "evictionPolicy": "Deallocate",
+                "billingProfile": {
+                    "maxPrice": -1
+                }
 ```
+
+Para eliminar la instancia después de que se haya expulsado, cambie el parámetro `evictionPolicy` a `Delete`.
+
 ## <a name="faq"></a>Preguntas más frecuentes
 
 **P:** Una vez creada, ¿es la instancia de Spot la misma que la estándar?

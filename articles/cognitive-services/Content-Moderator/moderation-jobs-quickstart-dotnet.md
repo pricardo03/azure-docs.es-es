@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bdc9e8cbea77b504cfdc2c3b1c83c74ea4ab8ed1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935974"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294344"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definición y uso de trabajos de moderación (. NET)
 
@@ -26,7 +26,7 @@ Un trabajo de moderación actúa como un tipo de contenedor para la funcionalida
 - Realizar un seguimiento de la revisión y obtener su estado final
 - Enviar los resultados de revisión a la dirección URL de devolución de llamada
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
@@ -45,7 +45,7 @@ Si bien la herramienta de revisión contiene un flujo de trabajo predeterminado,
 
 Usará el nombre del flujo de trabajo en el código que inicia el trabajo de moderación.
 
-## <a name="create-your-visual-studio-project"></a>Creación del proyecto de Visual Studio
+## <a name="create-your-visual-studio-project"></a>Crear un proyecto de Visual Studio
 
 1. Agregue un nuevo proyecto de **Aplicación de consola (.NET Framework)** a la solución.
 
@@ -124,7 +124,7 @@ public static class Clients
 Agregue las siguientes constantes y campos estáticos a la clase **Program** en Program.cs.
 
 > [!NOTE]
-> Establecerá la constante TeamName en el nombre que usó al crear la suscripción a Content Moderator. Recuperará TeamName del [sitio web de Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Establecerá la constante TeamName en el nombre que usó al crear la suscripción a Content Moderator. Recuperará TeamName del sitio web de Content Moderator.
 > Una vez que ha iniciado sesión, seleccione **Credentials** (Credenciales) en el menú **Settings** (Configuración) (engranaje).
 >
 > El nombre de equipo es el valor del campo **Id** de la sección **API**.
@@ -237,7 +237,7 @@ using (TextWriter writer = new StreamWriter(OutputFile, false))
 >
 > Una clave de un plan gratuito tiene un límite de una solicitud por segundo.
 
-## <a name="run-the-program-and-review-the-output"></a>Ejecución del programa y revisión de la salida
+## <a name="run-the-program-and-review-the-output"></a>Ejecutar el programa y revisar la salida
 
 Verá la siguiente salida de ejemplo en la consola:
 

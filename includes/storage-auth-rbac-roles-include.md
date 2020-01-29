@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/25/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c2b409f0eefe5efa389432cbb007cc08e0c6ae1e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4b10955a1d3b85acbcae109836bebc03ec04c72c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71078281"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279304"
 ---
 Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso a datos de blob y cola con Azure AD y OAuth:
 
@@ -29,3 +29,5 @@ Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso 
 > Las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse.
 >
 > Solo los roles definidos explícitamente para el acceso a datos permiten a una entidad de seguridad acceder a los datos de blobs o colas. Los roles como **Propietario**, **Colaborador** y **Colaborador de la cuenta de almacenamiento** permiten que una entidad de seguridad administre una cuenta de almacenamiento, pero no proporcionan acceso a los datos de blobs o colas dentro de esa cuenta.
+>
+> El acceso a datos de blob o de cola en Azure Portal se puede autorizar mediante la cuenta de Azure AD o la clave de acceso a la cuenta de almacenamiento. Para más información, consulte [Usar Azure Portal para tener acceso a datos de blob o de cola](../articles/storage/common/storage-access-blobs-queues-portal.md).

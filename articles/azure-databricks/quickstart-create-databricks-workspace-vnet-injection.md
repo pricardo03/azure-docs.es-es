@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889011"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263178"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Inicio rápido: Creación de un área de trabajo de Azure Databricks en su red virtual propia
 
@@ -41,17 +41,24 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
     |Configuración|Valor sugerido|Descripción|
     |-------|---------------|-----------|
-    |Nombre|databricks-quickstart|Seleccione un nombre para la red virtual.|
-    |Espacio de direcciones|10.1.0.0/16|El intervalo de direcciones de la red virtual en notación CIDR. El intervalo de CIDR debe estar comprendido entre /16 y /24.|
     |Subscription|\<Su suscripción\>|Seleccione la suscripción de Azure que quiera usar.|
     |Resource group|databricks-quickstart|Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta.|
-    |Location|\<Seleccione la región más cercana a los usuarios\>|Seleccione la ubicación geográfica donde puede hospedar la red virtual. Use la ubicación más cercana a los usuarios.|
+    |Nombre|databricks-quickstart|Seleccione un nombre para la red virtual.|
+    |Region|\<Seleccione la región más cercana a los usuarios\>|Seleccione la ubicación geográfica donde puede hospedar la red virtual. Use la ubicación más cercana a los usuarios.|
+
+    ![Fundamentos de una red virtual en Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+
+3. Seleccione **Siguiente: Direcciones IP >** y aplique la configuración siguiente. Después, seleccione **Revisar y crear**.
+    
+    |Configuración|Valor sugerido|Descripción|
+    |-------|---------------|-----------|
+    |Espacio de direcciones IPv4|10.2.0.0/16|El intervalo de direcciones de la red virtual en notación CIDR. El intervalo de CIDR debe estar comprendido entre /16 y /24.|
     |Nombre de subred|default|Seleccione un nombre para la subred predeterminada en la máquina virtual.|
-    |Intervalo de direcciones de subred|10.1.0.0/24|El intervalo de direcciones de la subred en notación CIDR. Debe incluirse en el espacio de direcciones de la red virtual. El intervalo de direcciones de una subred que está en uso no se puede modificar.|
+    |Intervalo de direcciones de subred|10.2.0.0/24|El intervalo de direcciones de la subred en notación CIDR. Debe incluirse en el espacio de direcciones de la red virtual. El intervalo de direcciones de una subred que está en uso no se puede modificar.|
 
-    ![Creación de una red virtual en Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+    ![Establecimiento de configuraciones de direcciones IP para una red virtual en Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-ip-config.png)
 
-3. Una vez completada la implementación, vaya a la red virtual y seleccione **Espacio de direcciones** bajo **Configuración**. En el cuadro que dice *Agregar otro intervalo de direcciones*, inserte `10.179.0.0/16` y seleccione **Guardar**.
+4. En la pestaña **Revisar y crear**, seleccione **Crear** para implementar la red virtual. Una vez completada la implementación, vaya a la red virtual y seleccione **Espacio de direcciones** bajo **Configuración**. En el cuadro que dice *Agregar otro intervalo de direcciones*, inserte `10.179.0.0/16` y seleccione **Guardar**.
 
     ![Espacios de direcciones de red virtual de Azure](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
@@ -70,6 +77,13 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
     |Resource group|databricks-quickstart|Seleccione el mismo grupo de recursos que usó para la red virtual.|
     |Location|\<Seleccione la región más cercana a los usuarios\>|Seleccione la misma ubicación que la de la red virtual.|
     |Nivel de precios|Elija entre Standard o Premium.|Para más información sobre estos planes de tarifa, consulte la [página de precios de Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
+
+    ![Creación de un área de trabajo de Azure Databricks básica](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+
+3. Una vez que haya terminado de especificar la configuración en la página **Basics** (Datos básicos), seleccione **Siguiente: Redes >** y aplique la configuración siguiente:
+
+    |Configuración|Valor sugerido|Descripción|
+    |-------|---------------|-----------|
     |Implementar área de trabajo de Azure Databricks en una red virtual (Vnet) propia|Sí|Este parámetro le permite implementar un área de trabajo de Azure Databricks en la red virtual.|
     |Virtual Network|databricks-quickstart|Seleccione la red virtual que creó en el paso anterior.|
     |Nombre de la subred pública|public-subnet|Use el nombre de la subred pública predeterminado.|
@@ -77,7 +91,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
     |Nombre de la subred privada|private-subnet|Use el nombre de la subred privada predeterminado.|
     |Intervalo de CIDR de la subred privada|10.179.0.0/18|Use un intervalo de CIDR hasta /26, inclusive.|
 
-    ![Creación de un área de trabajo de Azure Databricks en Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+    ![Incorporación de información de red de área virtual a un área de trabajo de Azure Databricks en Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-vnet-config.png)
 
 3. Una vez completada la implementación, navegue hasta el recurso de Azure Databricks. Observe que el emparejamiento de redes virtuales está deshabilitado. Observe también el grupo de recursos y el grupo de recursos administrados en la página de información general. 
 

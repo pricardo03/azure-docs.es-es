@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848398"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155153"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication basada en la nube
 
@@ -24,7 +24,7 @@ Las personas se conectan con recursos de la organización en escenarios cada vez
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) ayuda a proteger el acceso a los datos y las aplicaciones. Proporciona una capa adicional de seguridad mediante una segunda forma de autenticación. Las organizaciones pueden usar el [acceso condicional](../conditional-access/overview.md) para que la solución se ajuste a sus necesidades específicas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar una implementación de Azure Multi-Factor Authentication, existen requisitos previos que deben tenerse en cuenta.
 
@@ -85,18 +85,18 @@ Se recomienda que las organizaciones usen acceso condicional para definir su red
 ### <a name="configuring-a-named-location"></a>Configuración de una ubicación con nombre
 
 1. Vaya a **Azure Active Directory** en Azure Portal.
-2. Haga clic en **Acceso condicional**.
-3. Haga clic en **Ubicaciones con nombre**.
-4. Haga clic en **Nueva ubicación**.
+2. seleccione **Seguridad**.
+3. En **Administrar**, elija **Ubicaciones con nombre**.
+4. Seleccione **Nueva ubicación**.
 5. En el campo **Nombre** escriba un nombre descriptivo.
-6. Seleccione si va a definir la ubicación mediante intervalos de IP o países/regiones.
-   1. Si usa intervalos de direcciones IP
-      1. Decida si quiere marcar la ubicación como de confianza. Iniciar sesión desde una ubicación de confianza reduce el riesgo de inicio de sesión del usuario. Solo marque esta ubicación como de confianza si sabe que los intervalos de direcciones IP especificados están establecidos y son confiables en su organización.
+6. Seleccione si va a definir la ubicación mediante *Intervalos IP* o bien *Países o regiones*.
+   1. Si usa *Intervalos IP*
+      1. Decida si quiere utilizar la opción *Marcar como ubicación de confianza*. Iniciar sesión desde una ubicación de confianza reduce el riesgo de inicio de sesión del usuario. Solo marque esta ubicación como de confianza si sabe que los intervalos de direcciones IP especificados están establecidos y son confiables en su organización.
       2. Especifique los intervalos de direcciones IP
-   2. Si usa países o regiones
+   2. Si usa *Países o regiones*
       1. Expanda el menú desplegable y seleccione los países o regiones que quiere definir para esta ubicación con nombre.
-      2. Decida si quiere incluir áreas desconocidas. Las áreas desconocidas son direcciones IP que no pueden asignarse a un país o región.
-7. Haga clic en **Crear**
+      2. Decida si quiere utiliza la opción *Incluir áreas desconocidas*. Las áreas desconocidas son direcciones IP que no pueden asignarse a un país o región.
+7. Seleccione **Crear**
 
 ## <a name="plan-authentication-methods"></a>Planificación de métodos de autenticación
 
@@ -107,7 +107,7 @@ Los administradores pueden elegir los [métodos de autenticación](../authentica
 Se envía una notificación push a la aplicación Microsoft Authenticator del dispositivo móvil. El usuario ve la notificación y selecciona **Aprobar** para completar la comprobación. Las notificaciones push a través de una aplicación móvil proporcionan la opción menos intrusiva para los usuarios. También son la opción más confiable y segura porque usan una conexión de datos en lugar de una de telefonía.
 
 > [!NOTE]
-> Si su organización tiene personal que trabaja o que viaje a China, el método **Notificación a través de aplicación móvil** en **dispositivos Android** no funciona en ese país. Para esos usuarios tiene que haber métodos alternativos disponibles.
+> Si su organización tiene personal que trabaja en China o que va a viajar allí, el método **notificación a través de aplicación móvil** en **dispositivos Android** no funciona en ese país. Para esos usuarios tiene que haber métodos alternativos disponibles.
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificación desde aplicación móvil
 
@@ -169,7 +169,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Ob
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
 ```
 
-### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Conversión de los usuarios de MFA por usuario a MFA basado en acceso condicional
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Convertir a los usuarios de MFA por usuario a MFA basado en el acceso condicional
 
 Si los usuarios se habilitaron con Azure Multi-Factor Authentication habilitado y aplicado por usuario, el siguiente comando de PowerShell pueden ayudarle a realizar la conversión a Azure Multi-Factor Authentication basado en acceso condicional.
 
@@ -221,7 +221,7 @@ Es importante que evite bloquearse accidentalmente del inquilino de Azure AD. Pu
 ### <a name="create-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global.
-1. Vaya a **Azure Active Directory** , **Acceso condicional**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**.
    ![Creación de una directiva de acceso condicional que habilite MFA para los usuarios de Azure Portal en el grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Escriba un nombre descriptivo para la directiva.
@@ -240,7 +240,7 @@ Es importante que evite bloquearse accidentalmente del inquilino de Azure AD. Pu
     * Haga clic en **Seleccionar**.
 1. Omita la sección **Sesión**.
 1. Establezca la opción **Habilitar directiva** en **Activada**.
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planificación de la integración con sistemas locales
 
@@ -277,7 +277,7 @@ Si tiene una instancia de NPS implementada y está en uso, consulte [Integració
 
 Elija qué sucede cuando los usuarios que no están inscritos en MFA intentan autenticarse. Use la configuración del registro `REQUIRE_USER_MATCH` en la ruta de acceso del registro `HKLM\Software\Microsoft\AzureMFA` para controlar el comportamiento de la característica. Esta opción tiene una única opción de configuración.
 
-| Clave | Valor | Valor predeterminado |
+| Clave | Value | Valor predeterminado |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | No establecido (equivalente a TRUE) |
 
@@ -347,7 +347,7 @@ Informes para Azure MFA
 
 Azure Multi-Factor Authentication proporciona informes a través de Azure Portal:
 
-| Informe | Location | DESCRIPCIÓN |
+| Informe | Location | Descripción |
 | --- | --- | --- |
 | Alertas de fraude y de uso | Azure AD > Inicios de sesión | Proporciona información sobre el uso general, el resumen del usuario, detalles del usuario; así como un historial de alertas de fraude enviadas durante el intervalo de fechas especificado. |
 

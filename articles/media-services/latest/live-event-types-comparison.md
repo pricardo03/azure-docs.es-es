@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888400"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543059"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
@@ -28,19 +28,19 @@ En Azure Media Services, los objetos [LiveEvent](https://docs.microsoft.com/rest
 
 En la tabla siguiente se comparan las características de los tipos de LiveEvent. Los tipos se establecen durante la creación mediante [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. Las secuencias ingeridas pasan por el evento en directo sin más procesamiento. 
+* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. Las secuencias ingeridas pasan por el evento en directo sin más procesamiento. También se conoce como evento en directo de paso a través.
 * **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor predeterminado **Default720p** codificará un conjunto de 6 pares de velocidad de bits-resolución (los detalles se muestran más adelante en el artículo).
 * **LiveEventEncodingType.Premium1080p**: un codificador en directo local envía una única secuencia de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. El valor predeterminado Default1080p especifica el conjunto de salida de pares de resolución-velocidad de bits (los detalles se muestran más adelante en el artículo). 
 
 | Característica | LiveEvent de paso a través | Evento en directo Standard o Premium1080p |
 | --- | --- | --- |
-| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin |Sí |
+| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |No |Sí |
 | Resolución de vídeo máxima para la fuente de contribución |4 K (4096 x 2160 en 60 fotogramas por segundo) |1080 p (1920 x 1088 en 30 fotogramas por segundo)|
 | Niveles máximos recomendados en la fuente de contribución|Hasta 12|Un audio|
 | Número máximo de niveles en la salida| Igual que la entrada|Hasta 6 (vea debajo los valores predeterminados del sistema)|
 | Ancho de banda agregado máximo de la fuente de contribución|60 Mbps|N/D|
 | Velocidad de bits máxima para una sola capa de la contribución |20 Mbps|20 Mbps|
-| Compatibilidad con pistas de audio de varios idiomas|Sí|Sin|
+| Compatibilidad con pistas de audio de varios idiomas|Sí|No|
 | Códecs compatibles de vídeo de entrada |H.264/AVC y H.265/HEVC|H.264/AVC|
 | Códecs compatibles de vídeo de salida|Igual que la entrada|H.264/AVC|
 | Profundidad de bits, entrada y salida de vídeo compatibles|Hasta 10 bits incluido HDR 10/HLG|8 bits|
@@ -49,16 +49,17 @@ En la tabla siguiente se comparan las características de los tipos de LiveEvent
 | Resolución máxima de vídeo para el vídeo de salida|Igual que la entrada|Standard: 720p, Premium1080p: 1080p|
 | Velocidad de fotogramas máxima de vídeo de entrada|60 fotogramas por segundo|Standard o Premium1080p: 30 fotogramas por segundo|
 | Protocolos de entrada|RTMP, MP4 fragmentado (Smooth Streaming)|RTMP, MP4 fragmentado (Smooth Streaming)|
-| Precio|Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|
+| Price|Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|
 | Tiempo de ejecución máximo| 24 horas x 365 días, lineal en directo | 24 horas x 365 días, lineal en directo (vista previa)|
 | Posibilidad de pasar a través de los subtítulos CEA 608/708 insertados|Sí|Sí|
-| Compatibilidad con inserción de tabletas táctiles|Sin|Sin|
-| Compatibilidad con señalización de anuncios mediante API| Sin|Sin|
+| Capacidad de activar Transcripción en directo|Sí|Sí|
+| Compatibilidad con inserción de tabletas táctiles|No|No|
+| Compatibilidad con señalización de anuncios mediante API| No|No|
 | Compatibilidad con los mensajes de señalización de anuncios mediante SCTE-35 en banda|Sí|Sí|
 | Capacidad para la recuperación de breves pausas en la fuente de contribución|Sí|Parcial|
 | Compatibilidad con GOP de entrada no uniformes|Sí|No: la entrada debe tener una duración fija del grupo de imágenes|
 | Compatibilidad con la entrada de la velocidad de fotogramas variable|Sí|No: la entrada debe ser una velocidad de fotogramas fija. Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Pero la fuente de contribución no puede reducir la velocidad de fotogramas (por ejemplo, a 15 fotogramas por segundo).|
-| Apagado automático de LiveEvent cuando se pierde la fuente de entrada|Sin|Después de 12 horas, si no hay ningún objeto LiveEvent en ejecución|
+| Apagado automático de LiveEvent cuando se pierde la fuente de entrada|No|Después de 12 horas, si no hay ningún objeto LiveEvent en ejecución|
 
 ## <a name="system-presets"></a>Valores predeterminados del sistema
 

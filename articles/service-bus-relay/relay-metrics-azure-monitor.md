@@ -1,6 +1,6 @@
 ---
 title: Métricas de Azure Relay en Azure Monitor (versión preliminar) | Microsoft Docs
-description: Use Azure Monitor para supervisar Azure Relay.
+description: En este artículo se proporciona información sobre cómo puede usar Azure Monitor para supervisar el estado de Azure Relay.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 9933b7857580f29cbb6a54ebc82d4e7207456ad4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5c548186ec51cf86f34942cb15d8f984afa60268
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261783"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514942"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas de Azure Relay en Azure Monitor (versión preliminar)
 Las métricas de Azure Relay le permiten conocer el estado de los recursos de su suscripción de Azure. Con un amplio conjunto de datos de métricas, puede evaluar el estado general de los recursos de Relay, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Estas estadísticas pueden ser importantes, ya que le ayudan a supervisar el estado de Azure Relay. Las métricas también pueden ayudarle a solucionar problemas de causa principal sin necesidad de ponerse en contacto con el soporte técnico de Azure.
@@ -54,11 +54,11 @@ Las siguientes métricas ofrecen una visión general del estado de su servicio.
 > [!NOTE]
 > Se están dejando de usar algunas métricas a medida que se mueven a otro nombre. Esto podría requerir que actualice las referencias. Las métricas que se marquen con la palabra clave "en desuso" no se admitirán en el futuro.
 
-Los valores de las métricas se envían a Azure Monitor cada minuto. La granularidad de tiempo define el intervalo de tiempo en el que se presentan los valores de las métricas. El intervalo de tiempo compatible para todas las métricas de Azure Relay es 1 minuto.
+Los valores de las métricas se envían a Azure Monitor cada minuto. La granularidad de tiempo define el intervalo de tiempo para el que se presentan los valores de las métricas. El intervalo de tiempo compatible para todas las métricas de Azure Relay es 1 minuto.
 
 ## <a name="connection-metrics"></a>Métricas de conexión
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 | ListenerConnections-Success (versión preliminar) | Número de conexiones correctas del agente de escucha a Azure Relay durante un determinado periodo. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 |ListenerConnections-ClientError (versión preliminar)|Número de errores de cliente en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
@@ -75,15 +75,15 @@ Los valores de las métricas se envían a Azure Monitor cada minuto. La granular
 
 ## <a name="memory-usage-metrics"></a>Métricas de uso de memoria
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 |BytesTransferred (versión preliminar)|Número de bytes transferidos durante un determinado periodo.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensiones de métricas
 
-Azure Relay admite las siguientes dimensiones para las métricas de Azure Monitor. Agregar dimensiones a las métricas es opcional. Si no agrega dimensiones, las métricas se especifican en el nivel de espacio de nombres. 
+Azure Relay admite las siguientes dimensiones para las métricas de Azure Monitor. La adición de dimensiones a las métricas es opcional. Si no agrega dimensiones, las métricas se especifican en el nivel de espacio de nombres. 
 
-|Nombre de dimensión|DESCRIPCIÓN|
+|Nombre de dimensión|Descripción|
 | ------------------- | ----------------- |
 |EntityName| Azure Relay admite entidades de mensajería en el espacio de nombres.|
 

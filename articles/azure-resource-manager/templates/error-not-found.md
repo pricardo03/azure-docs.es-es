@@ -2,13 +2,13 @@
 title: Errores de recurso no encontrado
 description: Describe cómo resolver errores cuando un recurso no se puede encontrar al implementarse con una plantilla de Resource Manager.
 ms.topic: troubleshooting
-ms.date: 06/06/2018
-ms.openlocfilehash: 832dc15f81c0fd815072b9e95920a4388a94cb0b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/21/2020
+ms.openlocfilehash: c3e19af24fa7fb850eadf3deb346180476943241
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474302"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310669"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Resolver errores de recursos de Azure no encontrados
 
@@ -41,8 +41,8 @@ Si está tratando de implementar el recurso que falta en la plantilla, compruebe
 
 ```json
 {
-  "apiVersion": "2015-08-01",
   "type": "Microsoft.Web/sites",
+  "apiVersion": "2015-08-01",
   "dependsOn": [
     "[variables('hostingPlanName')]"
   ],
@@ -76,8 +76,8 @@ Si el recurso existe en un grupo de recursos diferente al que se va a implementa
 
 ```json
 "properties": {
-    "name": "[parameters('siteName')]",
-    "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+  "name": "[parameters('siteName')]",
+  "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
 }
 ```
 
@@ -87,4 +87,16 @@ Busque una expresión que incluya la función [reference](template-functions-res
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
+```
+
+## <a name="solution-4---get-managed-identity-from-resource"></a>Solución 4: Obtención de una identidad administrada del recurso
+
+Si va a implementar un recurso que crea implícitamente una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md), debe esperar hasta que ese recurso se implemente antes de recuperar los valores de la identidad administrada. Si pasa el nombre de la identidad administrada a la función [reference](template-functions-resource.md#reference), Resource Manager intenta resolver la referencia antes de implementar el recurso y la identidad. En su lugar, pase el nombre del recurso al que se aplica la identidad. Este enfoque garantiza que el recurso y la identidad administrada se implementan antes de que Resource Manager resuelva la función reference.
+
+En la función reference, use `Full` para obtener todas las propiedades, incluida la identidad administrada.
+
+Por ejemplo, para obtener el identificador de inquilino de una identidad administrada que se aplica a un conjunto de escalado de máquinas virtuales, use:
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
 ```

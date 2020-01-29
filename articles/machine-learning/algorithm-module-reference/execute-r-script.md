@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: dce4fee57a6d712534ba265cc932e10e66fc9899
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0be7e1ac0f505f227c46e63a80a954a5dd176d66
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232632"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312284"
 ---
 # <a name="execute-r-script"></a>Ejecución script de R
 
-En este artículo se describe cómo usar el módulo **Ejecutar script R** para ejecutar código R en la canalización del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe cómo usar el módulo **Execute R Script** (Ejecutar script R) para ejecutar código R en la canalización del diseñador de Azure Machine Learning.
 
 Con R, puede realizar tareas que no son compatibles actualmente con los módulos existentes, como: 
 - Crear transformaciones de datos personalizadas
@@ -131,7 +131,7 @@ Los módulos **Ejecutar script R** pueden devolver varias salidas, pero se deben
 
 Los mensajes estándar y los errores de R se devuelven al registro del módulo.
 
-## <a name="sample-scripts"></a>Scripts de ejemplo
+## <a name="sample-scripts"></a>Muestras de scripts
 
 Hay muchas formas de ampliar la canalización mediante el script de R personalizado.  En esta sección se proporciona el código de ejemplo para las tareas comunes.
 

@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 951c81b2d65fe17f6e79dbdd699051ba43b86c49
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a057eac8d2a0114cb58f738277e3e9a8fed90672
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867388"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548669"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
@@ -38,7 +38,7 @@ En el ejemplo siguiente, se muestra cómo funciona un escenario de IoT Edge en m
 
 4. **Nueva conexión y nueva sincronización con IoT Hub**
 
-   Una vez que se restaura la conexión con IoT Hub, el dispositivo de IoT Edge vuelve a sincronizarse. Los mensajes almacenados localmente se entregan a la instancia de IoT Hub directamente, pero dependen de la velocidad de la conexión, la latencia de IoT Hub y otros factores relacionados. Los mensajes se entregan en el mismo orden en el que se almacenaron.
+   Una vez que se restaura la conexión con IoT Hub, el dispositivo de IoT Edge vuelve a sincronizarse. Los mensajes almacenados de manera local se entregan a la instancia de IoT Hub directamente, pero dependen de la velocidad de la conexión, la latencia de IoT Hub y otros factores relacionados. Los mensajes se entregan en el mismo orden en el que se almacenaron.
 
    Las diferencias entre las propiedades deseadas y notificadas de los módulos y los dispositivos se concilian. El dispositivo de IoT Edge actualiza los cambios en el grupo de dispositivos IoT secundarios que tiene asignados.
 
@@ -52,24 +52,23 @@ Los dispositivos de IoT Edge y sus dispositivos secundarios asignados pueden fun
 
 ## <a name="set-up-parent-and-child-devices"></a>Configuración de dispositivos principales y secundarios
 
-Para que un dispositivo IoT Edge amplíe sus funcionalidades sin conexión ampliadas a los dispositivos IoT secundarios, es necesario realizar dos pasos. En primer lugar, declare las relaciones principal-secundario en Azure Portal. En segundo lugar, cree una relación de confianza entre el dispositivo principal y todos los dispositivos secundarios y, luego, configure las comunicaciones de dispositivo a nube para pasar por el principal como una puerta de enlace. 
+Para que un dispositivo IoT Edge amplíe sus funcionalidades sin conexión ampliadas a los dispositivos IoT secundarios, es necesario realizar dos pasos. En primer lugar, declare las relaciones principal-secundario en Azure Portal. En segundo lugar, cree una relación de confianza entre el dispositivo principal y todos los dispositivos secundarios y, luego, configure las comunicaciones de dispositivo a nube para pasar por el principal como una puerta de enlace.
 
 ### <a name="assign-child-devices"></a>Asignación de dispositivos secundarios
 
-Los dispositivos secundarios pueden ser cualquier dispositivo que no sea IoT Edge que esté registrado en la misma instancia de IoT Hub. Los dispositivos principales pueden tener varios dispositivos secundarios, pero un dispositivo secundario solo puede tener un dispositivo principal. Existen tres opciones para configurar dispositivos secundarios en un dispositivo perimetral: mediante Azure Portal, con la CLI de Azure o por medio del SDK de servicio de IoT Hub. 
+Los dispositivos secundarios pueden ser cualquier dispositivo que no sea IoT Edge que esté registrado en la misma instancia de IoT Hub. Los dispositivos principales pueden tener varios dispositivos secundarios, pero un dispositivo secundario solo puede tener un dispositivo principal. Existen tres opciones para configurar dispositivos secundarios en un dispositivo perimetral: mediante Azure Portal, con la CLI de Azure o por medio del SDK de servicio de IoT Hub.
 
 En las secciones siguientes se proporcionan ejemplos de cómo puede declarar la relación principal-secundario en IoT Hub para dispositivos IoT existentes. Si va a crear identidades de dispositivo para los dispositivos secundarios, consulte [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md) para más información.
 
 #### <a name="option-1-iot-hub-portal"></a>Opción 1: Portal de IoT Hub
 
-Puede declarar la relación principal-secundario cuando se crea un dispositivo. O bien, en el caso de dispositivos existentes, puede declarar la relación en la página de detalles de cualquier dispositivo IoT Edge principal o secundario. 
+Puede declarar la relación principal-secundario cuando se crea un dispositivo. O bien, en el caso de dispositivos existentes, puede declarar la relación en la página de detalles de cualquier dispositivo IoT Edge principal o secundario.
 
    ![Administración de dispositivos secundarios desde la página de detalles del dispositivo de IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
-
 #### <a name="option-2-use-the-az-command-line-tool"></a>Opción 2: Uso de la herramienta de línea de comandos `az`
 
-Mediante la [interfaz de línea de comandos de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) con la [extensión de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o posterior), puede administrar relaciones principal-secundario con los subcomandos [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest). En el ejemplo siguiente se usa una consulta para asignar todos los dispositivos que no son IoT Edge del centro como dispositivos secundarios de un dispositivo IoT Edge. 
+Mediante la [interfaz de línea de comandos de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) con la [extensión de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o posterior), puede administrar relaciones principal-secundario con los subcomandos [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest). En el ejemplo siguiente se usa una consulta para asignar todos los dispositivos que no son IoT Edge del centro como dispositivos secundarios de un dispositivo IoT Edge.
 
 ```shell
 # Set IoT Edge parent device
@@ -89,39 +88,39 @@ az iot hub device-identity add-children \
   --child-list $device_list \
   --hub-name replace-with-hub-name \
   --resource-group replace-with-rg-name \
-  --subscription replace-with-sub-name 
+  --subscription replace-with-sub-name
 ```
 
 Puede modificar la [consulta](../iot-hub/iot-hub-devguide-query-language.md) para seleccionar un subconjunto diferente de dispositivos. El comando puede tardar varios segundos si especifica un conjunto grande de dispositivos.
 
-#### <a name="option-3-use-iot-hub-service-sdk"></a>Opción 3: Uso del SDK de servicio de IoT Hub 
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Opción 3: Uso del SDK de servicio de IoT Hub
 
 Por último, puede administrar las relaciones principal-secundario mediante programación con el SDK de servicio de IoT Hub para C#, Java o Node.js. Este es un [ejemplo de asignación de un dispositivo secundario](https://aka.ms/set-child-iot-device-c-sharp) mediante el SDK de C#.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Configuración del dispositivo principal como puerta de enlace
 
-Se puede considerar una relación principal-secundario como una puerta de enlace transparente, donde el dispositivo secundario tiene su propia identidad en IoT Hub, pero se comunica a través de la nube por medio de su dispositivo principal. Para una comunicación segura, el dispositivo secundario debe ser capaz de comprobar que el dispositivo principal proviene de un origen de confianza. En caso contrario, terceros podrían configurar dispositivos malintencionados para suplantar a los principales e interceptar las comunicaciones. 
+Se puede considerar una relación principal-secundario como una puerta de enlace transparente, donde el dispositivo secundario tiene su propia identidad en IoT Hub, pero se comunica a través de la nube por medio de su dispositivo principal. Para una comunicación segura, el dispositivo secundario debe ser capaz de comprobar que el dispositivo principal proviene de un origen de confianza. En caso contrario, terceros podrían configurar dispositivos malintencionados para suplantar a los principales e interceptar las comunicaciones.
 
 En los siguientes artículos se describe de forma detallada una manera de crear esta relación de confianza:
 
 * [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md)
 * [Conexión de un dispositivo de bajada (secundario) a una puerta de enlace de Azure IoT Edge](how-to-connect-downstream-device.md)
 
-## <a name="specify-dns-servers"></a>Especificación de los servidores DNS 
+## <a name="specify-dns-servers"></a>Especificación de los servidores DNS
 
 Para mejorar la solidez, se recomienda especificar las direcciones del servidor DNS usadas en su entorno. Para configurar su servidor DNS para IoT Edge, consulte la resolución que encontrará en el apartado [El módulo Agente de Edge continuamente notifica "archivo de configuración vacío" y no se inicia ningún módulo en el dispositivo](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) del artículo de solución de problemas.
 
 ## <a name="optional-offline-settings"></a>Ajustes opcionales del modo sin conexión
 
-Si los dispositivos se desconectan, el dispositivo principal IoT Edge almacena todos los mensajes de dispositivo a nube hasta que se restablece la conexión. El módulo del centro de IoT Edge administra el almacenamiento y el reenvío de los mensajes sin conexión. En el caso de dispositivos que pueden desconectarse durante largos períodos, configure dos valores del centro de IoT Edge para optimizar el rendimiento. 
+Si los dispositivos se desconectan, el dispositivo principal IoT Edge almacena todos los mensajes de dispositivo a nube hasta que se restablece la conexión. El módulo del centro de IoT Edge administra el almacenamiento y el reenvío de los mensajes sin conexión. En el caso de dispositivos que pueden desconectarse durante largos períodos, configure dos valores del centro de IoT Edge para optimizar el rendimiento.
 
-En primer lugar, aumente el valor del período de vida para que el centro de IoT Edge mantenga los mensajes el tiempo suficiente para que el dispositivo se vuelva a conectar. A continuación, agregue espacio en disco adicional para el almacenamiento de mensajes. 
+En primer lugar, aumente el valor del período de vida para que el centro de IoT Edge mantenga los mensajes el tiempo suficiente para que el dispositivo se vuelva a conectar. A continuación, agregue espacio en disco adicional para el almacenamiento de mensajes.
 
 ### <a name="time-to-live"></a>Período de vida
 
-La configuración del período de vida es la cantidad de tiempo (en segundos) que puede esperar un mensaje para entregarse antes de que expire. El valor predeterminado es 7200 segundos (dos horas). El valor máximo solo está limitado por el valor máximo de una variable de entero, que equivale aproximadamente a dos mil millones. 
+La configuración del período de vida es la cantidad de tiempo (en segundos) que puede esperar un mensaje para entregarse antes de que expire. El valor predeterminado es 7200 segundos (dos horas). El valor máximo solo está limitado por el valor máximo de una variable de entero, que equivale aproximadamente a dos mil millones.
 
-Esta configuración es una propiedad deseada del centro de IoT Edge, que se almacena en el módulo gemelo. Puede configurarla en Azure Portal o directamente en el manifiesto de implementación. 
+Esta configuración es una propiedad deseada del centro de IoT Edge, que se almacena en el módulo gemelo. Puede configurarla en Azure Portal o directamente en el manifiesto de implementación.
 
 ```json
 "$edgeHub": {
@@ -141,7 +140,7 @@ Los mensajes y la información de estado de los módulos se almacenan de manera 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre cómo configurar una puerta de enlace transparente para las conexiones de dispositivos principales y secundarios: 
+Más información sobre cómo configurar una puerta de enlace transparente para las conexiones de dispositivos principales y secundarios:
 
 * [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md)
 * [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md)

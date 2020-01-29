@@ -1,7 +1,7 @@
 ---
-title: Eventos en directo y salidas activas en Media Services
+title: Conceptos de Eventos en directo y Salidas en directo en Azure Media Services v3
 titleSuffix: Azure Media Services
-description: Introducción a los eventos en directo y las salidas activas en Azure Media Services v3.
+description: En este tema se proporciona una introducción a los eventos en directo y las salidas en directo en Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: d2f0689dd1f1b5fbe349478ad885b76eb79d91a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c1b72f2a84f8cafa1767639cae64fb420b0a997c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569671"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546051"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas activas en Media Services
 
@@ -36,7 +36,7 @@ Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) s
 
 Un [evento en directo](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: paso a través o codificación en directo. Los tipos se establecen durante la creación mediante [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. El flujo de datos ingerido pasa por el evento en directo sin más procesamiento. 
+* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. El flujo de datos ingerido pasa por el evento en directo sin más procesamiento. También se denomina modo de paso a través.
 * **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor preestablecido **Default720p** codificará un conjunto de seis pares de velocidad de bits-resolución.
 * **LiveEventEncodingType.Premium1080p**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. El valor preestablecido Default1080p especifica el conjunto de salida de pares de resolución-velocidad de bits.
 
@@ -81,6 +81,8 @@ Al crear un objeto LiveEvent, puede especificar las siguientes opciones:
 * Restricciones de IP en la ingesta y vista previa. Puede definir las direcciones IP a las que se permite ingerir un vídeo en este objeto LiveEvent. Las direcciones IP permitidas se pueden especificar como una dirección IP única (por ejemplo, 10.0.0.1), un intervalo IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, 10.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, 10.0.0.1(255.255.252.0).<br/>Si no se especifica ninguna dirección IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.<br/>Las direcciones IP deben estar en uno de los siguientes formatos: dirección IpV4 con cuatro números o intervalo de direcciones CIDR.
 
     Si quiere habilitar determinadas direcciones IP en sus propios firewalls o quiere restringir las entradas en sus eventos en directo a las direcciones IP de Azure, descargue un archivo JSON de los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Para obtener detalles sobre este archivo, seleccione la sección **Detalles** de la página.
+    
+* Al crear el evento, puede elegir activar Transcripciones en directo. <br/> De forma predeterminada, la transcripción en directo está deshabilitada. Esta propiedad no se puede cambiar mientras estén en ejecución el evento en directo o sus salidas en directo asociadas. 
 
 ### <a name="naming-rules"></a>Reglas de nomenclatura
 

@@ -1,5 +1,5 @@
 ---
-title: Creación de un entorno con un clúster de Service Fabric en Azure DevTest Labs | Microsoft Docs
+title: Creación de un entorno de clúster de Service Fabric en Azure DevTest Labs
 description: Aprenda a crear un entorno con un clúster de Service Fabric independiente e inicie y detenga el clúster mediante programaciones.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 01/16/2020
 ms.author: enewman
-ms.openlocfilehash: 1e192a2b27c9d617e43a56766431a0f40e87a752
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 71793b81d8735c80881fc25a9b7ec31bc4fc6762
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325251"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170334"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Creación de un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs
 En este artículo se proporciona información sobre cómo crear un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs. 

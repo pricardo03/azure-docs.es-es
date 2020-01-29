@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 31a6c53ec269c512ad641fcdc10469ccf16a1fe9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 514f98d95090f978395dd3f7decdcc0743a1628a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979744"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289159"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propiedades estándar de los registros de Azure Monitor
 Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../log-query/logs-structure.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de propiedades. Muchos tipos de datos tendrán propiedades estándar que son comunes en varios tipos. En este artículo se describen estas propiedades y se proporcionan ejemplos de cómo puede usarlas en las consultas.
 
 > [!NOTE]
-> Algunas de las propiedades estándar no se mostrarán en la vista de esquema ni en IntelliSense en Log Analytics y no aparecerán en los resultados de la consulta, a menos que especifique explícitamente la propiedad de la salida.
+> Algunas de las propiedades estándar no se mostrarán en la vista de esquema ni en IntelliSense en Log Analytics, y no aparecerán en los resultados de la consulta, a menos que especifique explícitamente la propiedad en la salida.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated y timestamp
 La propiedades **TimeGenerated** (área de trabajo de Log Analytics) y **timestamp** (aplicación de Application Insights) contienen la fecha y hora en que el origen de datos creó el registro. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](data-ingestion-time.md) para más detalles.

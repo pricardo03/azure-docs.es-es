@@ -1,7 +1,7 @@
 ---
-title: 'Especificación de un modelo de detección: Face API'
+title: 'Especificación de un modelo de detección: Face'
 titleSuffix: Azure Cognitive Services
-description: En este artículo se le mostrará cómo elegir el modelo de detección de caras que usará con la aplicación de Face API de Azure.
+description: En este artículo se le mostrará cómo elegir el modelo de detección de caras que usará con la aplicación Face de Azure.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 4306a918d56240bfe038100124b3c2b94964cebc
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f5b524ca6156dab7c0d1e38ad320b721f40a49ef
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306679"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169753"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificación de un modelo de detección de caras
 
-En esta guía se indica cómo especificar un modelo de detección de caras para Face API de Azure.
+En esta guía se indica cómo especificar un modelo de detección de caras para el servicio Face de Azure.
 
-Face API emplea modelos de aprendizaje automático para realizar operaciones en caras humanas de imágenes. Seguimos mejorando la precisión de nuestros modelos gracias a los comentarios de los clientes y los avances en la investigación, y estas mejoras se ofrecen como actualizaciones del modelo. Los desarrolladores tienen la opción de especificar qué versión del modelo de detección de caras les gustaría usar; pueden elegir el modelo que mejor se adapte a sus casos de uso.
+El servicio Face emplea modelos de aprendizaje automático para realizar operaciones en caras humanas de imágenes. Seguimos mejorando la precisión de nuestros modelos gracias a los comentarios de los clientes y los avances en la investigación, y estas mejoras se ofrecen como actualizaciones del modelo. Los desarrolladores tienen la opción de especificar qué versión del modelo de detección de caras les gustaría usar; pueden elegir el modelo que mejor se adapte a sus casos de uso.
 
-Siga leyendo para obtener información sobre cómo especificar el modelo de detección de caras en ciertas operaciones de caras. Face API usa la detección de caras cada vez que convierte la imagen de una cara en otro tipo de datos.
+Siga leyendo para obtener información sobre cómo especificar el modelo de detección de caras en ciertas operaciones de caras. El servicio Face usa la detección de caras cada vez que convierte la imagen de una cara en otro tipo de datos.
 
 Si no está seguro de si debe usar el modelo más reciente, vaya a la sección [Evaluación de modelos diferentes](#evaluate-different-models) para evaluar el nuevo modelo y comparar los resultados con el conjunto de datos actual.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Debe estar familiarizado con el concepto de detección de caras de inteligencia artificial. Si no lo está, consulte la guía conceptual de detección de caras o la guía paso a paso:
 
@@ -56,7 +56,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, rec
 
 ## <a name="add-face-to-person-with-specified-model"></a>Adición de una cara a un objeto Person con el modelo especificado
 
-Face API puede extraer datos de los rostros de una imagen y asociarlos a un objeto **Person** con la API [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b). En esta llamada API, puede especificar el modelo de detección igual que en [Face - Detect].
+El servicio Face puede extraer datos de los rostros de una imagen y asociarlos a un objeto **Person** con la API [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b). En esta llamada API, puede especificar el modelo de detección igual que en [Face - Detect].
 
 Consulte el siguiente ejemplo de código de la biblioteca cliente .NET.
 

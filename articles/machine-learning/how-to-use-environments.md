@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 93a70bf0d9189368135b8007e95627fc64064c51
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: de1e01e56079753a1a9ee8debc2f2172e1dc8375
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932180"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548312"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Reutilice entornos para entrenamiento e implementación con Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -248,6 +248,10 @@ Además, el servicio usa automáticamente una de las [imágenes base](https://gi
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
+# Alternatively, you can specify the contents of dockerfile of your base image
+with open("docker_file_of_your_base_image", "r") as f:
+    dockerfile_contents_of_your_base_image=f.read()
+myenv.docker.base_dockerfile=dockerfile_contents_of_your_base_image 
 ```
 
 > [!NOTE]
@@ -344,6 +348,10 @@ service = Model.deploy(
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
 
 Este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) amplía los conceptos y métodos que se muestran en este artículo.
+
+En [Implementación de un modelo mediante una imagen base personalizada de Docker](how-to-deploy-custom-docker-image.md), se muestra cómo implementar un modelo mediante una imagen base personalizada de Docker.
+
+En este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) se muestra cómo implementar un modelo de Spark como un servicio web.
 
 ## <a name="create-and-manage-environments-with-the-cli"></a>Creación y administración de entornos con la CLI
 

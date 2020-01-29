@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690796"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122447"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL
 
@@ -419,11 +419,11 @@ No. El registro en un proveedor de recursos de máquina virtual con SQL no está
 
 **¿Puedo registrar una máquina virtual con el proveedor de recursos de máquina virtual con SQL antes de instalar SQL Server?**
 
-No. Una máquina virtual debe tener al menos una instancia de SQL Server para registrarse correctamente con el proveedor de recursos de máquina virtual con SQL. Si no hay ninguna instancia de SQL Server en la máquina virtual, el nuevo recurso Microsoft.SqlVirtualMachine tendrá un estado de error.
+No. Una máquina virtual debe tener al menos una instancia de SQL Server (Motor de base de datos) para registrarse correctamente con el proveedor de recursos de máquina virtual con SQL. Si no hay ninguna instancia de SQL Server en la máquina virtual, el nuevo recurso Microsoft.SqlVirtualMachine tendrá un estado de error.
 
 **¿Puedo registrar una máquina virtual en un proveedor de recursos de máquina virtual con SQL si hay varias instancias de SQL Server?**
 
-Sí. El proveedor de recursos de máquina virtual con SQL solo registrará una instancia de SQL Server. El proveedor de recursos de máquina virtual con SQL registrará la instancia de SQL Server predeterminada en caso de varias instancias. Si no hay ninguna instancia predeterminada, solo se admite el registro en modo ligero. Para actualizar del modo ligero al modo de administración completa, debe existir la instancia de SQL Server predeterminada o la máquina virtual debe tener solo una instancia de SQL Server con nombre.
+Sí. El proveedor de recursos de máquina virtual con SQL solo registrará una instancia de SQL Server (Motor de base de datos). El proveedor de recursos de máquina virtual con SQL registrará la instancia de SQL Server predeterminada en caso de varias instancias. Si no hay ninguna instancia predeterminada, solo se admite el registro en modo ligero. Para actualizar del modo ligero al modo de administración completa, debe existir la instancia de SQL Server predeterminada o la máquina virtual debe tener solo una instancia de SQL Server con nombre.
 
 **¿Se puede registrar una instancia de clúster de conmutación por error de SQL Server con el proveedor de recursos de máquina virtual con SQL?**
 

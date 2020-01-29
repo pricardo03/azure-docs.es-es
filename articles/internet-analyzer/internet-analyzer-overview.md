@@ -37,17 +37,17 @@ Durante la versión preliminar están disponibles los siguientes puntos de conex
 
 * **Regiones de Azure**
     * Sur de Brasil
-    * India Central
+    * Centro de la India
     * Centro de EE. UU.
     * Asia oriental
-    * East US
-    * Oeste de Japón
-    * Europa del Norte
+    * Este de EE. UU.
+    * Japón Occidental
+    * Norte de Europa
     * Norte de Sudáfrica
     * Sudeste asiático 
     * Norte de Emiratos Árabes Unidos
     * Oeste de Reino Unido  
-    * Europa occidental
+    * Oeste de Europa
     * Oeste de EE. UU. 
     * Oeste de EE. UU. 2
 * **Varias combinaciones de regiones de Azure** 
@@ -55,13 +55,13 @@ Durante la versión preliminar están disponibles los siguientes puntos de conex
     * Este de EE. UU., Asia Oriental 
     * Oeste de Europa, Sur de Brasil
     * Oeste de Europa, Sudeste Asiático
-    * Oeste de Europa, Norte de Emiratos Árabes
+    * Oeste de Europa, Norte de Emiratos Árabes Unidos
     * Oeste de EE. UU., Este de EE. UU. 
     * Oeste de EE. UU., Oeste de Europa
-    * Oeste de EE. UU., Norte de Emiratos Árabes
-    * Oeste de Europa, Norte de Emiratos Árabes, Sudeste Asiático
+    * Oeste de EE. UU., Norte de Emiratos Árabes Unidos
+    * Oeste de Europa, Norte de Emiratos Árabes Unidos, Sudeste Asiático
     * Oeste de EE. UU., Oeste de Europa, Asia Oriental
-    * Oeste de EE. UU., Norte de Europa, Sudeste Asiático, Norte de Emiratos Árabes, Norte de Sudáfrica 
+    * Oeste de EE. UU., Norte de Europa, Sudeste Asiático, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica 
 * **Azure + Azure Front Door**: implementados en una o varias de las combinaciones de regiones de Azure de la lista anterior.
 * **Azure + Azure CDN de Microsoft**: implementados en una o varias de las combinaciones de regiones de Azure de la lista anterior.
 * **Azure + Azure Traffic Manager**: implementados en cualquier combinación de varias de las regiones de Azure de la lista anterior.
@@ -88,7 +88,7 @@ Aunque Internet Analyzer puede responder a muchas preguntas, algunas de las más
 
 Para usar Internet Analyzer, configure un recurso de Internet Analyzer en Microsoft Azure Portal e instale el pequeño cliente de JavaScript en la aplicación. El cliente mide la latencia entre los usuarios finales y los puntos de conexión seleccionados, para lo cual descarga una imagen de un píxel a través de HTTPS. Después de recopilar las medidas de latencia, el cliente envía los datos a Internet Analyzer.
 
-Cuando un usuario visita la aplicación web, el cliente de JavaScript selecciona dos puntos de conexión para realizar la medición en todas las pruebas configuradas. En cada uno de ellos, el cliente realiza una medición _en frío_ y otra _en caliente_. La primera de ellas tiene una latencia adicional, además de la latencia pura de la red entre el usuario y el punto de conexión, como la resolución DNS, el protocolo de enlace de la conexión TCP y la negociación SSL/TLS. La segunda se realiza inmediatamente después de que finaliza la primera y aprovecha la administración de conexiones TCP persistente de los exploradores modernos para obtener una medida precisa de la latencia de un extremo a otro. Si el explorador del usuario lo admite, se utiliza la API de control de tiempo de recursos de W3C para realizar un control preciso del tiempo de las mediciones. Actualmente, para los análisis solo se usan las medidas de latencia en caliente.
+Cuando un usuario visita la aplicación web, el cliente de JavaScript selecciona dos puntos de conexión para realizar la medición en todas las pruebas configuradas. En cada uno de ellos, el cliente realiza una medición _en frío_ y otra _en caliente_. La primera de ellas tiene una latencia adicional, además de la latencia _pura_ de la red entre el usuario y el punto de conexión, como la resolución DNS, el protocolo de enlace de la conexión TCP y la negociación SSL/TLS. La segunda se realiza inmediatamente después de que finaliza la primera y aprovecha la administración de conexiones TCP persistente de los exploradores modernos para obtener una medida precisa de la latencia de un extremo a otro. Si el explorador del usuario lo admite, se utiliza la API de control de tiempo de recursos de W3C para realizar un control preciso del tiempo de las mediciones. Actualmente, para los análisis solo se usan las medidas de latencia en caliente.
 
 ![arquitectura](./media/ia-overview/architecture.png)
 

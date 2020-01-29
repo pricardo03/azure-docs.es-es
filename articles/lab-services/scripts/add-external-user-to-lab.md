@@ -1,5 +1,5 @@
 ---
-title: 'Script de PowerShell: adición de un usuario externo a un laboratorio de Azure DevTest Labs | Microsoft Docs'
+title: 'PowerShell: Incorporación de un usuario externo a un laboratorio de Azure DevTest Labs'
 description: Este script de PowerShell agrega un usuario externo a un laboratorio de Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da5cc4a3809b1867e8aa2c3b21e88c2f30ae3d4d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160617"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169680"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Usar PowerShell para agregar un usuario externo a un laboratorio de Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Este script de PowerShell de ejemplo agrega un usuario externo a un laboratorio 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Un laboratorio**. Este script requiere que disponga de un laboratorio existente. 
 
 ## <a name="sample-script"></a>Script de ejemplo

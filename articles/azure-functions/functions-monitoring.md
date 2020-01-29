@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo usar Azure Application Insight
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978090"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292933"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -31,7 +31,7 @@ Para que una aplicación de función envíe datos a Application Insights tiene q
 
 ### <a name="new-function-app-in-the-portal"></a>Nueva aplicación de función en el portal
 
-Cuando [crea la aplicación de función en Azure Portal](functions-create-first-azure-function.md), la integración de Application Insights está habilitada de forma predeterminada. El recurso de Application Insights tiene el mismo nombre que la aplicación de función, y se crea en la misma región o en la región más cercana.
+Cuando [crea la aplicación de función en Azure Portal](functions-create-first-azure-function.md), la integración de Application Insights está habilitada de forma predeterminada. El recurso de Application Insights tiene el mismo nombre que la aplicación de función y se crea en la misma región o en la región más cercana.
 
 Para revisar el recurso de Application Insights que se está creando, selecciónelo para expandir la ventana **Application Insights**. Puede cambiar el valor de **Nuevo nombre de recurso**  o elegir otro valor en **Ubicación** en la [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) donde quiera almacenar los datos.
 
@@ -74,7 +74,7 @@ Puede ver que ambas páginas tienen un vínculo **Ejecutar en Application Insigh
 
 ![Ejecución en Application Insights](media/functions-monitoring/run-in-ai.png)
 
-Se muestra la siguiente consulta. Puede ver que la lista de invocación se limita a los últimos 30 días. La lista no muestra más de 20 filas (`where timestamp > ago(30d) | take 20`). La lista de detalles de invocación es para los últimos 30 días sin límite.
+Se muestra la siguiente consulta. Puede ver que los resultados de la consulta se limitan a los últimos 30 días (`where timestamp > ago(30d)`). Además, los resultados no muestran más de 20 filas (`take 20`). Por el contrario, la lista de detalles de invocación de la función es para los últimos 30 días sin límite.
 
 ![Lista de invocación del análisis de Application Insights](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -92,13 +92,13 @@ Para obtener más información acerca de Application Insights, consulte [Documen
 
 Las siguientes áreas de Application Insights pueden ser útiles al evaluar el comportamiento, el rendimiento y los errores de las funciones:
 
-| Tabulador | DESCRIPCIÓN |
+| Pestaña | Descripción |
 | ---- | ----------- |
 | **[Errores](../azure-monitor/app/asp-net-exceptions.md)** |  Cree alertas y gráficos basados en errores de funciones y excepciones del servidor. **Nombre de la operación** es el nombre de la función. Los errores en las dependencias no se muestran, a no ser que se implemente telemetría personalizada para las dependencias. |
 | **[Rendimiento](../azure-monitor/app/performance-counters.md)** | Analice los problemas de rendimiento. |
 | **Servidores** | Consulte la utilización de recursos y el rendimiento por servidor. Estos datos pueden ser útiles para la depuración de escenarios en los que las funciones están dificultando los recursos subyacentes. Los servidores se conocen como **Instancias de rol en la nube**. |
 | **[Métricas](../azure-monitor/app/metrics-explorer.md)** | Cree gráficos y alertas basados en métricas. Las métricas incluyen el número de invocaciones de función, el tiempo de ejecución y las tasas de éxito. |
-| **[Secuencia de métricas en directo](../azure-monitor/app/live-stream.md)** | Vea los datos de métricas a medida que se crean en tiempo real. |
+| **[Secuencia de métricas en directo](../azure-monitor/app/live-stream.md)** | Vea los datos de métricas a medida que se crean casi en tiempo real. |
 
 ## <a name="query-telemetry-data"></a>Consultar datos de telemetría
 
@@ -119,7 +119,7 @@ requests
 
 Las tablas que están disponibles se muestran en la pestaña **Esquema** de la izquierda. Encontrará los datos generados por las invocaciones de función en las tablas siguientes:
 
-| Tabla | DESCRIPCIÓN |
+| Tabla | Descripción |
 | ----- | ----------- |
 | **traces** | Registros creados por el tiempo de ejecución y por el código de la función. |
 | **requests** | Una solicitud por cada invocación de función. |
@@ -337,7 +337,7 @@ Puede escribir registros en el código de función que aparecen como seguimiento
 
 Use un parámetro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) en las funciones en lugar de un parámetro `TraceWriter`. Los registros creados con `TraceWriter` se dirigen a Application Insights, pero `ILogger` le permite hacer un [registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Con un objeto `ILogger`, llamará al `Log<level>` [métodos de extensión en ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para crear registros. El código siguiente escribe registros `Information` con la categoría "Function".
+Con un objeto `ILogger`, llamará a los [métodos de extensión en ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) `Log<level>` para crear registros. El código siguiente escribe registros `Information` con la categoría "Function.<SU_NOMBRE_DE_FUNCIÓN>.User".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -561,7 +561,7 @@ namespace functionapp0915
 
 No llame a `TrackRequest` ni a `StartOperation<RequestTelemetry>`, ya que verá solicitudes duplicadas de invocaciones de función.  El tiempo de ejecución de Functions realiza un seguimiento automático de las solicitudes.
 
-No establezca `telemetryClient.Context.Operation.Id`. Esta configuración global provoca una correlación incorrecta cuando muchas funciones se ejecuten de manera simultánea. En su lugar, cree una instancia de telemetría nueva (`DependencyTelemetry`, `EventTelemetry`) y modifique su propiedad `Context`. Luego, pase la instancia de telemetría al método `Track` correspondiente en `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Este método garantiza que la telemetría tenga los detalles de correlación correctos para la invocación actual de la función.
+No establezca `telemetryClient.Context.Operation.Id`. Esta configuración global provoca una correlación incorrecta cuando muchas funciones se ejecuten de manera simultánea. En su lugar, cree una instancia de telemetría nueva (`DependencyTelemetry`, `EventTelemetry`) y modifique su propiedad `Context`. Luego, pase la instancia de telemetría al método `Track` correspondiente en `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). Este método garantiza que la telemetría tenga los detalles de correlación correctos para la invocación actual de la función.
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Registrar telemetría personalizada en funciones de JavaScript
 
@@ -590,7 +590,7 @@ El parámetro `tagOverrides` establece `operation_Id` en el identificador de inv
 
 ## <a name="dependencies"></a>Dependencias
 
-Functions v2 recopila automáticamente las dependencias de solicitudes HTTP, ServiceBus y SQL.
+Functions v2 recopila automáticamente las dependencias de solicitudes HTTP, ServiceBus, EventHub y SQL.
 
 Puede escribir código personalizado para mostrar las dependencias. Para ver ejemplos, consulte el código de ejemplo en la [sección de telemetría personalizada de C#](#log-custom-telemetry-in-c-functions). El código de ejemplo da como resultado un *mapa de aplicación* de Application Insights, que tiene un aspecto como el de la siguiente imagen:
 
@@ -608,7 +608,7 @@ Hay dos maneras de ver una secuencia de los archivos de registro que generan las
 
 * **Streaming integrado de registros**: la plataforma de App Service le permite ver una secuencia de los archivos de registro de aplicaciones. Esto equivale a la salida que se ve al depurar las funciones durante el [desarrollo local](functions-develop-local.md) y cuando se usa la pestaña **Prueba** del portal. Se muestra toda la información basada en el registro. Para más información, consulte [Registros de Stream](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Este método de streaming solo admite una instancia y no se puede usar con una aplicación que se ejecuta en Linux en un plan de consumo.
 
-* **Live Metrics Stream**: cuando la aplicación de funciones está [conectada a Application Insights](#enable-application-insights-integration), puede ver los datos de registro y otras métricas casi en tiempo real en Azure Portal mediante [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use este método cuando supervise las funciones que se ejecutan en varias instancias o en Linux en un plan de consumo. En este método se usan [datos muestreados](#configure-sampling).
+* **Live Metrics Stream**: cuando la aplicación de función está [conectada a Application Insights](#enable-application-insights-integration), puede ver los datos de registro y otras métricas casi en tiempo real en Azure Portal mediante [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use este método cuando supervise las funciones que se ejecutan en varias instancias o en Linux en un plan de consumo. En este método se usan [datos muestreados](#configure-sampling).
 
 Las secuencias de registro se pueden ver tanto en el portal como en la mayoría de los entornos de desarrollo locales. 
 
@@ -642,7 +642,7 @@ En Application Insights, seleccione **Live Metrics Stream**. Las [entradas de lo
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Puede habilitar los registros de secuencias con la [CLI de Azure](/cli/azure/install-azure-cli). Use los siguientes comandos para iniciar sesión, elija su suscripción y transmita los archivos de registro:
 

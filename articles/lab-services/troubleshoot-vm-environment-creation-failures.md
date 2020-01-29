@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de errores de creación de máquinas virtuales y entornos en Azure DevTest Labs | Microsoft Docs
+title: Solución de problemas de errores de máquinas virtuales y entornos en Azure DevTest Labs
 description: Obtenga información sobre cómo solucionar problemas de errores de creación de máquinas virtuales (VM) y entornos en Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 155a359608cf6d846578306545f5ce0b4003949c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129036"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166343"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Solucionar problemas de errores de creación de máquinas virtuales (VM) y entornos en Azure DevTest Labs
 DevTest Labs le proporciona advertencias si un nombre de máquina no es válido o si va a infringir una directiva de laboratorio. En ocasiones, verá una `X` roja junto al estado del entorno o la máquina virtual de su laboratorio que le informará de que algo ha ido mal.  En este artículo se proporcionan algunos trucos que puede usar para buscar el problema subyacente y, con suerte, evitar el problema en el futuro.

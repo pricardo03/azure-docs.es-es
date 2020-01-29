@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 82bf59dddeecab0addf00a935f55be8d1d7952d3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 06d15d66df0b2ec0049d4b2fffae6a9909b05dca
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614777"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549145"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)
 
 A medida que implementa y mantiene clústeres en Azure Kubernetes Service (AKS), deberá implementar maneras de administrar el acceso a los recursos y servicios. Sin estos controles, las cuentas pueden tener acceso a recursos y servicios que no necesitan. También puede ser difícil realizar un seguimiento del conjunto de credenciales que se usaron para realizar cambios.
 
-Este artículo de procedimientos recomendados se centra en cómo un operador de clústeres puede administrar el acceso y la identidad de los clústeres de AKS. En este artículo, aprenderá a:
+Este artículo de procedimientos recomendados se centra en cómo un operador de clústeres puede administrar el acceso y la identidad de los clústeres de AKS. En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Autenticar a los usuarios de clústeres de AKS con Azure Active Directory.
@@ -48,7 +48,7 @@ Para crear un clúster de AKS que use Azure AD, consulte [Integración de Azure 
 
 **Guía de procedimientos recomendados**: uso de RBAC de Kubernetes para definir los permisos que los usuarios o grupos tienen en relación con los recursos del clúster. Cree roles y enlaces que asignen la mínima cantidad de permisos necesarios. Realice la integración con Azure AD, para que cualquier cambio en el estado del usuario o la pertenencia al grupo se actualice automáticamente y que el acceso a los recursos del clúster sea como el actual.
 
-En Kubernetes, puede proporcionar un control granular del acceso a los recursos del clúster. Los permisos pueden definirse en el nivel de clúster, así como en espacios de nombres específicos. Puede definir qué recursos se pueden administrar y con qué permisos. Estos roles se aplican a los usuarios o grupos con un enlace. Para obtener más información sobre los *roles*, *ClusterRoles* y *enlaces*, consulte [Opciones de acceso e identidad en Azure Kubernetes Service (AKS)][aks-concepts-identity].
+En Kubernetes, puede proporcionar un control granular del acceso a los recursos del clúster. Los permisos pueden definirse en el nivel de clúster, así como en espacios de nombres específicos. Puede definir qué recursos se pueden administrar y con qué permisos. Estos roles se aplican a usuarios o grupos con un enlace. Para obtener más información sobre los *roles*, *ClusterRoles* y *enlaces*, consulte [Opciones de acceso e identidad en Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 Por ejemplo, puede crear un rol que conceda acceso completo a los recursos en el espacio de nombres denominado *finance-app*, tal y como se muestra en el siguiente ejemplo de manifiesto de YAML:
 

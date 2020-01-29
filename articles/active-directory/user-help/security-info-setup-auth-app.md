@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e3c237f47e889b6af1b49254af9039dc8789006
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 223dc6c340beb1b584ffbf90adc12667ed2feb23
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279062"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156189"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configuración de la aplicación Microsoft Authenticator como método de comprobación
 
@@ -28,7 +28,20 @@ Si se le pide que configure esto justo después de haber iniciado sesión en su 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Si no ve la opción de la aplicación autenticadora, es posible que su organización no le permita usar una aplicación autenticadora para la verificación. En este caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
+> Si no ve la opción de la aplicación autenticadora, es posible que su organización no le permita usar esta opción para la comprobación. En este caso, tendrá que elegir otro método o ponerse en contacto con el departamento de soporte técnico de su organización para que le proporcione más ayuda.
+
+## <a name="security-vs-password-reset-verification"></a>Comprobación de seguridad frente a comprobación de restablecimiento de contraseña
+
+Los métodos de la información de seguridad se usan tanto para la comprobación de seguridad de dos factores como para al restablecimiento de la contraseña. Sin embargo, no todos los métodos pueden usarse para ambos.
+
+| Método | Se usa para |
+| ------ | -------- |
+| Aplicación de autenticación | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Mensajes de texto | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Llamadas de teléfono | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Clave de seguridad | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Cuenta de correo electrónico | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
+| Preguntas de seguridad | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configuración de la aplicación Microsoft Authenticator desde la página Información de seguridad
 
@@ -76,7 +89,7 @@ Dependiendo de la configuración de su organización, es posible que pueda usar 
 
 8. Lea el código que se proporciona, para lo que debe usar el lector de códigos QR de la aplicación Microsoft Authenticator, que apareció en el dispositivo móvil tras crear la cuenta profesional o educativa en el paso 6.
 
-    La aplicación de autenticación debería agregar correctamente la cuenta profesional o educativa sin solicitarle más información. No obstante, si el lector de códigos QR no lee este, puede seleccionar el vínculo **Can't scan the QR code** (No se puede leer el código QR) y especificar manualmente la dirección URL y el código en la aplicación Microsoft Authenticator. Para más información acerca de cómo agregar manualmente un código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
+    La aplicación de autenticación debería agregar correctamente la cuenta profesional o educativa sin solicitarle más información. No obstante, si el lector de códigos QR no lee este, puede seleccionar el vínculo **Can't scan the QR code** (No se puede leer el código QR) y especificar manualmente la dirección URL y el código en la aplicación Microsoft Authenticator. Para obtener más información sobre cómo agregar manualmente un código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
 
 9. Seleccione **Siguiente** en la página **Digitalización del código QR** del equipo.
 
@@ -113,7 +126,7 @@ Si no desea usar la aplicación autenticadora como método de información de se
 
 Si desea que las llamadas de teléfono sean el método predeterminado usado al iniciar sesión en su cuenta profesional o educativa mediante la verificación en dos pasos o para las solicitudes de restablecimiento de contraseña, puede establecerlo en la página **Información de seguridad**.
 
-### <a name="to-change-your-default-security-info-method"></a>Para cambiar su método de información de seguridad predeterminado
+### <a name="to-change-your-default-security-info-method"></a>Para cambiar el método de información de seguridad predeterminado
 
 1. En la página **Información de seguridad**, seleccione el vínculo **Cambiar** situado junto a la información **Método de inicio de sesión predeterminado**.
 

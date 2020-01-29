@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: dea31e350ddf4b9dbebfa6a9f802edd256adf2ce
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b837da4d68ea83d502e66373b9b7f029ff7fe07e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706413"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515146"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indización de archivos multimedia con el Indizador multimedia de Azure
 
 > [!NOTE]
-> El procesador multimedia [Azure Media Indexer](media-services-index-content.md) se retirará el 1 de octubre de 2020. [Video Indexer de Azure Media Services ](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplaza a su procesador multimedia heredado. Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md).
+> El procesador de multimedia [Azure Media Indexer](media-services-index-content.md) se va a retirar. Para ver las fechas de retirada, consulte el tema [componentes heredados](legacy-components.md). [Video Indexer de Azure Media Services ](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplaza a su procesador multimedia heredado. Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md).
 
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.  
 
@@ -147,7 +147,7 @@ De forma predeterminada, el trabajo de indización genera los siguientes archivo
 
 Cuando hay más de un archivo multimedia de entrada, Indexer genera un archivo de manifiesto para las salidas del trabajo denominado "JobResult.txt". Para cada archivo de elementos multimedia de entrada, los archivos de palabras clave, TTML y WebVTT resultantes se numeran secuencialmente y se les asigna un nombre usando el "Alias".
 
-| Nombre de archivo | DESCRIPCIÓN |
+| Nombre de archivo | Descripción |
 | --- | --- |
 | **InputFileName.ttml**<br/>**InputFileName.vtt** |Archivos de subtítulos en los formatos TTML y WebVTT.<br/><br/>Se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas.<br/><br/>Entre los archivos de subtítulos, se incluye una etiqueta denominada <b>Recognizability</b> que puntúa un trabajo de indexación en función de lo reconocible que resulta la voz en el vídeo de origen.  Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio. |
 | **InputFileName.kw.xml<br/>InputFileName.info** |Archivos de información y palabras clave. <br/><br/>El archivo de palabras clave es un archivo XML que contiene las palabras clave que se extraen del contenido de voz, con información de frecuencia y desplazamiento. <br/><br/>El archivo de información es un archivo de texto sin formato que contiene información detallada acerca de cada término reconocido. La primera línea es especial y contiene la puntuación de reconocimiento. Cada línea siguiente es una lista separada por tabulaciones de los datos siguientes: hora de inicio, hora de finalización, palabra o frase y confianza. Las horas se proporcionan en segundos y la confianza se expresa como un número entre 0-1. <br/><br/>Línea de ejemplo: "1.20    1.45    word    0.67" <br/><br/>Estos archivos se pueden usar para varios propósitos, por ejemplo, para realizar análisis de voz, o para exponerse a motores de búsqueda como Bing, Google o Microsoft SharePoint para hacer que los archivos multimedia sean más reconocibles, o incluso para proporcionar anuncios más pertinentes. |
@@ -243,16 +243,16 @@ Se generan las mismas salidas (como trabajos realizados correctamente). Puede co
 ### <a id="preset"></a> Valores predefinidos de tarea para Azure Media Indexer
 Para personalizar el procesamiento de Azure Media Indexer, puede proporcionar valores predefinidos de tarea junto con la tarea.  A continuación se describe el formato de este xml de configuración.
 
-| NOMBRE | Necesario | DESCRIPCIÓN |
+| Nombre | Necesario | Descripción |
 | --- | --- | --- |
 | **input** |false |Archivos de recursos que desea indexar.</p><p>Azure Media Indexer es compatible con los siguientes formatos de archivo multimedia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Puede especificar el nombre del archivo o archivos en el atributo **name** o **list** del elemento **input** (como se muestra a continuación). Si no especifica qué archivo de recurso desea indexar, se selecciona el principal. Si no hay ningún archivo de recurso principal establecido, se indexa el primer recurso de entrada.</p><p>Para especificar explícitamente el nombre de archivo de recurso, haga:<br/>`<input name="TestFile.wmv">`<br/><br/>También puede indexar varios archivos de recursos al mismo tiempo (hasta 10). Para ello, siga estos pasos:<br/><br/><ol class="ordered"><li><p>Cree un archivo de texto (archivo de manifiesto) y asígnele una extensión .lst. </p></li><li><p>Agregue una lista de todos los nombres de archivos de recursos en el recurso de entrada a este archivo de manifiesto. </p></li><li><p>Agregue (cargue) el archivo de manifiesto al recurso.  </p></li><li><p>Especifique el nombre del archivo de manifiesto en el atributo list de la entrada.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: Si agrega más de 10 archivos al archivo de manifiesto, el trabajo de indexación producirá un error con el código 2006. |
 | **metadata** |false |Metadatos de los archivos de recurso especificados usados para la adaptación de vocabulario.  Resulta útil para preparar el indexador para reconocer palabras de vocabulario no estándar tales como nombres propios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Puede proporcionar **valores** para **claves** predefinidas. Actualmente se admiten las siguientes claves:<br/><br/>"title" y "description", que se usan para que la adaptación de vocabulario ajuste el modelo de lenguaje a su trabajo y mejorar así la precisión del reconocimiento de voz.  Los valores se incluyen en las búsquedas de Internet para encontrar documentos de texto relevantes para el contexto, y el contenido se usa para aumentar el diccionario interno durante el tiempo que dura la tarea de indexación.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **features** <br/><br/> Agregado en la versión 1.2. Actualmente solo se admite la característica de reconocimiento de voz ("ASR"). |false |La característica de reconocimiento de voz tiene las siguientes claves de configuración:<table><tr><th><p>Clave</p></th>        <th><p>DESCRIPCIÓN</p></th><th><p>Valor de ejemplo</p></th></tr><tr><td><p>Idioma</p></td><td><p>El lenguaje natural que se reconocerá en el archivo multimedia.</p></td><td><p>Inglés, español</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Una lista separada con punto y coma de los formatos de subtítulo de salida que desee (si existen)</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Una marca booleana que especifica si se requiere un archivo XML de palabras clave o no.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Una marca booleana que especifica si se debe o no forzar leyendas completas (independientemente del nivel de confianza).  </p><p>El valor predeterminado es false, en cuyo caso las palabras y frases que tienen un nivel de confianza de un 50% menos se omite en las salidas de la leyenda final y se reemplazan por puntos suspensivos ("...").  Los puntos suspensivos son útiles para el control de calidad de las leyendas y la auditoría.</p></td><td><p>True; False. </p></td></tr></table> |
+| **features** <br/><br/> Agregado en la versión 1.2. Actualmente solo se admite la característica de reconocimiento de voz ("ASR"). |false |La característica de reconocimiento de voz tiene las siguientes claves de configuración:<table><tr><th><p>Clave</p></th>        <th><p>Descripción</p></th><th><p>Valor de ejemplo</p></th></tr><tr><td><p>Idioma</p></td><td><p>El lenguaje natural que se reconocerá en el archivo multimedia.</p></td><td><p>Inglés, español</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Una lista separada con punto y coma de los formatos de subtítulo de salida que desee (si existen)</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Una marca booleana que especifica si se requiere un archivo XML de palabras clave o no.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Una marca booleana que especifica si se debe o no forzar leyendas completas (independientemente del nivel de confianza).  </p><p>El valor predeterminado es false, en cuyo caso las palabras y frases que tienen un nivel de confianza de un 50% menos se omite en las salidas de la leyenda final y se reemplazan por puntos suspensivos ("...").  Los puntos suspensivos son útiles para el control de calidad de las leyendas y la auditoría.</p></td><td><p>True; False. </p></td></tr></table> |
 
 ### <a id="error_codes"></a>Códigos de error
 En caso de error, Azure Media Indexer debe notificar uno de los siguientes códigos de error:
 
-| Código | NOMBRE | Razones posibles |
+| Código | Nombre | Razones posibles |
 | --- | --- | --- |
 | 2000 |Configuración no válida |Configuración no válida |
 | 2001 |Recursos de entrada no válidos |Faltan recursos de entrada o están vacíos. |

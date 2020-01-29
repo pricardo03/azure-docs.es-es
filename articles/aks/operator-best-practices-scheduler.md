@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3661f435b5c2dd88aa8e17ca396f9af43aea5224
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614617"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293613"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)
 
 A medida que administra los clústeres en Azure Kubernetes Service (AKS), a menudo necesita aislar los equipos y las cargas de trabajo. El programador de Kubernetes proporciona características que le permiten controlar la distribución de los recursos de proceso, o limitar el impacto de los eventos de mantenimiento.
 
-Este artículo de procedimientos recomendados se centra en las características básicas de Kubernetes para operadores de clúster. En este artículo, aprenderá a:
+Este artículo de procedimientos recomendados se centra en las características básicas de Kubernetes para operadores de clúster. En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Utilizar las cuotas de recursos para proporcionar una cantidad fija de recursos para cargas de trabajo o equipos
@@ -126,7 +126,7 @@ Para obtener más información sobre el uso de los presupuestos de interrupcione
 
 La herramienta [kube-advisor][kube-advisor] es un proyecto de código abierto de AKS asociado que explora un clúster de Kubernetes e informa sobre los problemas que encuentra. Una comprobación útil consiste en identificar los pods que no tienen preparados los límites y las solicitudes de recursos.
 
-La herramienta kube-advisor puede informar sobre la solicitud de recursos y la falta de límites en PodSpecs para las aplicaciones de Windows, así como las aplicaciones de Linux, pero la propia herramienta kube-advisor debe programarse en un pod de Linux. Puede programar un pod para que se ejecute en un grupo de nodos con un sistema operativo específico mediante un [selector de nodo][k8s-node-selector] en la configuración del pod.
+La herramienta kube-advisor puede informar sobre la solicitud de recursos y la falta de límites en PodSpecs para las aplicaciones Windows, así como las aplicaciones de Linux, pero la propia herramienta kube-advisor debe programarse en un pod de Linux. Puede programar un pod para que se ejecute en un grupo de nodos con un sistema operativo específico mediante un [selector de nodo][k8s-node-selector] en la configuración del pod.
 
 En un clúster de AKS que hospeda varios equipos y aplicaciones de desarrollo, puede ser difícil realizar un seguimiento de los pods sin definir estos límites y solicitudes de recursos. Como práctica recomendada, ejecute regularmente `kube-advisor` en los clústeres de AKS, especialmente si no asigna cuotas de recursos a los espacios de nombres.
 

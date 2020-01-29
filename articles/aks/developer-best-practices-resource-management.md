@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: bfce7d77f214762a69857e74f0bb533ad1ce0f1b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e98a1f49ebf0fd8811be8efe8d001d450959369a
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107644"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549247"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
@@ -36,7 +36,7 @@ Una manera principal de administrar los recursos de proceso dentro de un clúste
     * Si no configura una solicitud de pod, el valor predeterminado será el límite definido.
     * Es muy importante supervisar el rendimiento de su aplicación para ajustar estas solicitudes. Si se realizan solicitudes insuficientes, su aplicación puede recibir un rendimiento degradado debido a la programación excesiva de un nodo. Si se sobreestiman las solicitudes, su aplicación puede tener mayores dificultades para ser programada.
 * Los **límites de CPU/memoria del pod** equivalen a la cantidad máxima de CPU y memoria que puede usar un pod. Estos límites ayudan a definir qué pods deben eliminarse en caso de inestabilidad de nodos debido a recursos insuficientes. Sin los límites adecuados, los pods establecidos se terminarán hasta que se levante la presión de los recursos.
-    * Los límites de pod ayudan a definir cuándo un pod ha perdido el control del consumo de recursos. Cuando se supera un límite, el pod tiene prioridad de terminar para mantener el estado del nodo y minimizar el impacto en los pods que comparten el nodo.
+    * Los límites de pod ayudan a definir cuándo ha perdido un pod el control del consumo de recursos. Cuando se supera un límite, el pod tiene prioridad de terminar para mantener el estado del nodo y minimizar el impacto en los pods que comparten el nodo.
     * Al no establecer un límite de pod, el valor predeterminado es el valor más alto disponible en un nodo determinado.
     * No establezca un límite de pods superior al que los nodos pueden admitir. Cada nodo de AKS reserva una cierta cantidad de CPU y memoria para los componentes básicos de Kubernetes. La aplicación puede intentar consumir demasiados recursos en el nodo para que otros pods se ejecuten correctamente.
     * Nuevamente, es muy importante supervisar el rendimiento de su aplicación en diferentes momentos durante el día o la semana. Determine cuándo se produce la máxima demanda y alinee los límites de pods para que los recursos necesarios satisfagan las necesidades máximas de la aplicación.

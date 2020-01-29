@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ad4831cfb5b09083b4ee76b6badf3936b2256138
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160786"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263496"
 ---
-# <a name="reset-your-work-or-school-password"></a>Restablecimiento de la contraseña profesional o educativa
+# <a name="reset-your-work-or-school-password-using-security-info"></a>Restablecimiento de la contraseña profesional o educativa con la información de seguridad
 
-Si olvidó su contraseña, nunca obtuvo ninguna del servicio de soporte técnico de su empresa o ha sido bloqueado en su cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña.
+Si alguna vez ha olvidado su contraseña en el trabajo o en la escuela, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa. Para poder configurar sus datos y restablecer su contraseña, es preciso que el administrador active esta característica.
 
->[!NOTE]
->Si conoce la contraseña y solo desea cambiarla, puede ir directamente a los pasos de [Modificación de la contraseña](#how-to-change-your-password) de este artículo.<br><br>
->Si quiere volver a una cuenta personal, como Xbox, hotmail.com o outlook.com, pruebe las sugerencias que se encuentran en el artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+Si conoce la contraseña pero desea cambiarla, consulte las secciones [Para cambiar la contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de este artículo.
+
+>[!Important]
+>Este artículo está destinado a los usuarios que quieren usar el restablecimiento de contraseñas de cuentas profesionales o educativas olvidadas o desconocidas. Si es un administrador que desea obtener información acerca de cómo activar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte [Implementar el autoservicio de restablecimiento de contraseña de Azure AD y otros artículos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Restablecimiento o desbloqueo de la contraseña de una cuenta profesional o educativa
 
@@ -58,7 +58,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
     1. Seleccione **Enviar un mensaje de correo electrónico a mi dirección alternativa** y después seleccione **Correo electrónico**.
 
     2. Escriba en el cuadro el código de verificación enviado en el correo electrónico y luego seleccione **Siguiente**.
-    
+
     3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
 
 - **Restablezca la contraseña con un mensaje de texto.** Envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
@@ -100,7 +100,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
   3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
 
   4. Después de obtener el mensaje que confirma que se ha restablecido su contraseña, puede iniciar sesión en su cuenta con la nueva contraseña.
-        
+
      Si todavía no puede acceder a su cuenta, debe ponerse en contacto con el administrador de la organización para obtener más ayuda.
 
 Después de restablecer la contraseña, puede que reciba un correo electrónico de confirmación que procede de una cuenta como "Microsoft en nombre de \<*su_organización*>". Si recibe un correo electrónico similar pero no ha restablecido la contraseña recientemente, póngase en contacto de inmediato con el administrador de la organización.
@@ -155,7 +155,7 @@ Si el administrador activa la funcionalidad, puede ver un vínculo a **Restablec
 
 A continuación se presentan algunos casos terror comunes y sus soluciones:
 
-|Problema|DESCRIPCIÓN|Solución|
+|Problema|Descripción|Solución|
 | --- | --- | --- |
 |Cuando intento cambiar la contraseña, me aparece un error. |La contraseña contiene una palabra, frase o patrón que permite adivinar la contraseña fácilmente.| Inténtelo de nuevo con una contraseña más segura.|
 |Después de escribir mi identificador de usuario, se me remite a una página que dice "Póngase en contacto con el administrador".|Microsoft ha determinado que la contraseña de su cuenta de usuario la administra su administrador en un entorno local. Por tanto, no puede restablecer la contraseña desde el vínculo "No se puede tener acceso a su cuenta". |Póngase en contacto con el administrador para obtener más ayuda.|
@@ -163,10 +163,7 @@ A continuación se presentan algunos casos terror comunes y sus soluciones:
 |Después de escribir mi identificador de usuario, obtengo un error que dice "No hemos podido verificar su cuenta".|El proceso de inicio de sesión no pudo verificar la información de la cuenta.|Este mensaje puede aparecer por dos motivos.<br><br>1. El administrador activó el restablecimiento de contraseña para la organización, pero no la registró para usar el servicio. Para registrarse para un restablecimiento de contraseña, consulte uno de los siguientes artículos, según su método de verificación: [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md), [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md), [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md), [Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)](security-info-setup-email.md) o [Configuración de la información de seguridad para usar preguntas de seguridad (versión preliminar)](security-info-setup-questions.md).<br><br>2. El administrador no activado el restablecimiento de contraseña para su organización. En esta situación, debe seleccionar el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico a la organización, a fin de pedirle que restablezca su contraseña.|
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Consulte los aspectos de la información de seguridad en el artículo [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).
 
-- Obtenga información sobre la verificación en dos pasos en el artículo [Introducción a la verificación en dos pasos](user-help-two-step-verification-overview.md). 
-
-- Si ha perdido u olvidado la contraseña, restablézcala en el [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/).
-
-- Obtenga soluciones de problemas, sugerencias y ayuda para los problemas de inicio de sesión en el artículo [Cuando no puedes iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+- Si quiere volver a una cuenta personal, como Xbox, hotmail.com o outlook.com, pruebe las sugerencias que se encuentran en el [artículo Cuando no consigues iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -1,18 +1,18 @@
 ---
 title: Controladores de eventos de Azure Event Grid
-description: Describe los controladores de eventos compatibles con Azure Event Grid
+description: En este artículo se describen los controladores de eventos compatibles con Azure Event Grid. El controlador realiza alguna acción adicional para procesar el evento.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: c88ef8c3996b1e7d998d3eff12c15077ec2482ff
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3cef32cd204e8bd4b21353cf66575a721315b387
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900728"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511321"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Controladores de eventos de Azure Event Grid
 
@@ -24,7 +24,7 @@ Este artículo contiene vínculos a contenido para cada controlador de eventos.
 
 Use Azure Automation para procesar los eventos con runbooks automatizados.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 |[Tutorial: Integración de Azure Automation con Event Grid y Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Cree una máquina virtual, que envía un evento. El evento desencadena un runbook de Automation que etiqueta la máquina virtual y genera un mensaje que se envía a un canal de Equipos de Microsoft. |
 
@@ -34,7 +34,7 @@ Use Azure Functions para responder sin servidor a los eventos.
 
 Cuando use Azure Functions como controlador, utilice el desencadenador de Event Grid en lugar de los desencadenadores HTTP genéricos. Event Grid valida automáticamente los desencadenadores Function de Event Grid. Con desencadenadores HTTP genéricos, debe implementar la [respuesta de validación](security-authentication.md#webhook-event-delivery).
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Inicio rápido: Control de eventos con una función](custom-event-to-function.md) | Envía un evento personalizado a una función para su procesamiento. |
 | [Desencadenador de Event Grid para Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Información general sobre el uso del desencadenador de Event Grid en Functions. |
@@ -48,7 +48,7 @@ Use Event Hubs cuando la solución obtenga eventos más rápido de lo que puede 
 
 Event Hubs puede actuar como origen de eventos o como controlador de eventos. En el siguiente artículo, se explica cómo utilizar Event Hubs como controlador.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Guía de inicio rápido: Enrutamiento de eventos personalizados a Azure Event Hubs con la CLI de Azure y Event Grid](custom-event-to-eventhub.md) | Envía un evento personalizado a un centro de eventos para que lo procese una aplicación. |
 | [Plantilla de Resource Manager: tema personalizado y punto de conexión a Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Plantilla de Resource Manager que crea una suscripción a un tema personalizado. Envía eventos a una instancia de Azure Event Hubs. |
@@ -59,7 +59,7 @@ Para obtener ejemplos de Event Hubs como origen, consulte este artículo sobre e
 
 Use las conexiones híbridas de Azure Relay para enviar eventos a las aplicaciones que están dentro de una red empresarial y no tienen un punto de conexión de acceso público.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Tutorial: Envío de eventos a una conexión híbrida](custom-event-to-hybrid-connection.md) | Envía un evento personalizado a una conexión híbrida existente para su procesamiento mediante una aplicación de escucha. |
 
@@ -67,7 +67,7 @@ Use las conexiones híbridas de Azure Relay para enviar eventos a las aplicacion
 
 Use Logic Apps para automatizar los procesos de negocios para responder a eventos.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Tutorial: supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Una aplicación lógica supervisa los cambios realizados en una máquina virtual y envía mensajes de correo electrónico sobre dichos cambios. |
 | [Tutorial: envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Una aplicación lógica envía un correo electrónico de notificación cada vez que se agrega un dispositivo al centro de IoT. |
@@ -123,7 +123,7 @@ az eventgrid event-subscription create \
 
 Use Queue Storage para recibir eventos que deben extraerse. Puede usar Queue Storage cuando tenga un proceso de ejecución prolongada que tarde demasiado tiempo en responder. Al enviar eventos a Queue Storage, la aplicación puede extraer y procesar eventos siguiendo su propia programación.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Guía de inicio rápido: Enrutamiento de eventos personalizados a Azure Queue Storage con la CLI de Azure y Event Grid](custom-event-to-queue-storage.md) | Describe cómo enviar eventos personalizados a una instancia de Queue Storage. |
 
@@ -131,7 +131,7 @@ Use Queue Storage para recibir eventos que deben extraerse. Puede usar Queue Sto
 
 Use webhooks para puntos de conexión personalizables que respondan a eventos.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | Guía de inicio rápido: Creación y enrutamiento de eventos personalizados con la [CLI de Azure](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md) y [Azure Portal](custom-event-quickstart-portal.md). | Explica cómo enviar eventos personalizados a un webhook. |
 | Guía de inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con la [CLI de Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) y [Azure Portal](blob-event-quickstart-portal.md). | Explica cómo enviar eventos de Blob Storage a un webhook. |

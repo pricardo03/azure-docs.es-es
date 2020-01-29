@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/27/2019
-ms.openlocfilehash: d5b3733947876958b4d72da4cb7bb0f10a3a9165
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.date: 01/21/2020
+ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614943"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514562"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
@@ -72,7 +72,7 @@ Las características principales de las instancias administradas se muestran en 
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
 
-El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) de las instancias administradas le ofrece flexibilidad, control, transparencia y facilidad para trasladar sus necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite cambiar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 30 % de ahorro con la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) de las instancias administradas le ofrece flexibilidad, control, transparencia y facilidad para trasladar sus necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite cambiar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 55 % de ahorro con la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 En el modelo de núcleos virtuales, puede elegir entre distintas generaciones de hardware.
 
@@ -325,7 +325,7 @@ En la tabla siguiente se muestran varias propiedades, accesibles mediante Transa
 
 |Propiedad|Value|Comentario|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor es igual que en SQL Database.|
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor es igual que en SQL Database. Esto **no** indica la versión 12 del motor de SQL (SQL Server 2014). Instancia administrada siempre ejecuta la última versión estable del motor de SQL, que es igual o mayor que la última versión de RTM disponible de SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor es igual que en SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica la instancia administrada de forma única.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nombre DNS completo de la instancia en el siguiente formato:`<instanceName>`.`<dnsPrefix>`.database.windows.net, donde `<instanceName>` es el nombre que proporciona el cliente, mientras que `<dnsPrefix>` es la parte que se genera automáticamente del nombre, lo cual permite garantizar la exclusividad del nombre DNS global (por ejemplo, "wcus17662feb9ce98").|Por ejemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|

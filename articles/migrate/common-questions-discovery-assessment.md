@@ -3,12 +3,12 @@ title: 'Preguntas comunes: detección, valoración y análisis de dependencias e
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0b7bb425bff1d26c2a0d6feeaf70be826eab2b9a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563926"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513293"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Preguntas comunes sobre detección, valoración y análisis de dependencias
 
@@ -20,7 +20,7 @@ En este artículo se responde a preguntas comunes sobre detección, valoración 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>¿Cuántas máquinas virtuales puedo detectar con un dispositivo?
 
-Puede detectar hasta 10 000 máquinas virtuales de VMware y 5000 de Hyper-V con un único dispositivo. Si tiene más máquinas en el entorno local, obtenga información sobre cómo escalar la valoración de [Hyper-V](scale-hyper-v-assessment.md) y [VMware](scale-vmware-assessment.md).
+Puede detectar hasta 10 000 máquinas virtuales de VMware, 5000 de Hyper-V y 250 servidores con un único dispositivo. Si tiene más máquinas en el entorno local, obtenga información sobre el escalado de [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) y la valoración [física](scale-physical-assessment.md).
 
 
 
@@ -99,7 +99,7 @@ No, el informe de visualización de dependencias no se puede exportar. Sin embar
 
 Use este script[ para instalar los agentes de dependencia ](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Siga estas [instrucciones para instalar MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) mediante la línea de comandos o la automatización. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
-Además de los scripts, también puede utilizar las herramientas de implementación como System Center Configuration Manager o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implementar los agentes.
+Además de los scripts, también puede usar herramientas de desarrollo como Microsoft Endpoint Configuration Manager e [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implementar los agentes.
 
 
 ## <a name="what-operating-systems-does-mma-support"></a>¿Qué sistemas operativos admite MMA?

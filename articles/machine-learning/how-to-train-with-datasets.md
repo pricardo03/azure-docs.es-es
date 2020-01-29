@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982458"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543314"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entrenamiento con conjuntos de datos en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ Este código crea un objeto estimator genérico, `est`, que especifica:
 
 * Un directorio de script para los scripts. Todos los archivos de este directorio se cargan en los nodos del clúster para su ejecución.
 * El script de entrenamiento, *train_titanic.* .
-* El conjunto de datos de entrada para el entrenamiento, `titanic`.
+* El conjunto de datos de entrada para el entrenamiento, `titanic`. `as_named_input()` es necesario para que el nombre asignado pueda hacer referencia al conjunto de datos de entrada en el script de entrenamiento. 
 * El destino de proceso del experimento.
 * La definición de entorno del experimento.
 
@@ -105,8 +105,11 @@ experiment_run.wait_for_completion(show_output=True)
 Si quiere que los archivos de datos estén disponibles en el destino de proceso para el entrenamiento, use [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) para montar o descargar los archivos a los que hace referencia.
 
 ### <a name="mount-vs-download"></a>Montaje frente a Descargar
-Al montar un conjunto de datos, se asocian a un directorio (punto de montaje) los archivos a los que hace referencia en el conjunto de datos y este se vuelve disponible en el destino de proceso. El montaje se admite en procesos basados en Linux, como Proceso de Azure Machine Learning, máquinas virtuales y HDInsight. Si el tamaño de los datos supera el tamaño del disco de proceso o solo va a cargar parte del conjunto de datos del script, se recomienda el montaje. El motivo es que la descarga de un conjunto de datos mayor que el tamaño del disco generará error, mientras que el montaje solo cargará la parte de los datos que usa el script en el momento del procesamiento. Al descargar un conjunto de datos, todos los archivos a los que se hace referencia en él se descargarán en el destino de proceso. La descarga se admite con todos los tipos de proceso. Si el script procesa todos los archivos a los que se hace referencia en el conjunto de datos y el disco de proceso puede caber en el conjunto de datos completo, se recomienda la descarga para evitar la sobrecarga de transmisión de datos desde los servicios de almacenamiento.
+Al montar un conjunto de datos, se asocian a un directorio (punto de montaje) los archivos a los que hace referencia en el conjunto de datos y este se vuelve disponible en el destino de proceso. El montaje se admite en procesos basados en Linux, como Proceso de Azure Machine Learning, máquinas virtuales y HDInsight. Si el tamaño de los datos supera el tamaño del disco de proceso o solo va a cargar parte del conjunto de datos del script, se recomienda el montaje. El motivo es que la descarga de un conjunto de datos mayor que el tamaño del disco generará error, mientras que el montaje solo cargará la parte de los datos que usa el script en el momento del procesamiento. 
 
+Al descargar un conjunto de datos, todos los archivos a los que se hace referencia en él se descargarán en el destino de proceso. La descarga se admite con todos los tipos de proceso. Si el script procesa todos los archivos a los que se hace referencia en el conjunto de datos y el disco de proceso puede caber en el conjunto de datos completo, se recomienda la descarga para evitar la sobrecarga de transmisión de datos desde los servicios de almacenamiento.
+
+Tanto el montaje como la descarga de archivos de cualquier formato se admiten en los conjuntos de datos creados desde Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database y Azure Database for PostgreSQL. 
 
 ### <a name="create-a-filedataset"></a>Creación de un objeto FileDataset
 
@@ -126,7 +129,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Configuración del estimador
 
-En lugar de pasar el conjunto de datos mediante el parámetro `inputs` en el estimador, también puede pasarlo mediante `script_params` y obtener la ruta de acceso a los datos (punto de montaje) en el script de entrenamiento por medio de argumentos. De este modo, puede tener acceso a los datos y usar un script de entrenamiento existente.
+Además de pasar el conjunto de datos mediante el parámetro `inputs` en el estimador, también puede pasarlo mediante `script_params` y obtener la ruta de acceso a los datos (punto de montaje) en el script de entrenamiento por medio de argumentos. De este modo, puede mantener el script de entrenamiento independiente de azureml-sdk. En otras palabras, podrá usar el mismo script de entrenamiento para la depuración local y el entrenamiento remoto en todas las plataformas en la nube.
 
 Un objeto estimator [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) se usa para enviar la ejecución de experimentos scikit-learn. Obtenga más información sobre el entrenamiento con el [calculador de SKlearn](how-to-train-scikit-learn.md).
 

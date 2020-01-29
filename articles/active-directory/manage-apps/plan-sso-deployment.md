@@ -12,14 +12,14 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779375"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512834"
 ---
-# <a name="plan-a-single-sign-on-deployment"></a>Planificación de una implementación de inicio de sesión único
+# <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
 El Inicio de sesión único (SSO) significa acceder a todas las aplicaciones y los recursos que necesita un usuario iniciando sesión una sola vez con una única cuenta de usuario. Con SSO, los usuarios pueden acceder a todas las aplicaciones necesarias sin tener que autenticarse una segunda vez.
 
@@ -62,7 +62,7 @@ Hay dos formas principales de permitir a los usuarios el inicio de sesión únic
 El uso de Azure AD para el inicio de sesión único basado en contraseña requiere implementar una extensión del explorador que recuperará de forma segura las credenciales y rellenará los formularios de inicio de sesión. Defina un mecanismo para implementar la extensión a escala con los [exploradores compatibles](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Las opciones incluyen:
 
 - [Directiva de grupo para Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) para Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Configuration Manager para Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Descarga y configuración de Chrome, Firefox, Microsoft Edge o IE controlada por el usuario](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Para más información, vea [Configuración del inicio de sesión único con contraseña](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
@@ -162,7 +162,7 @@ Para todas las aplicaciones SaaS preintegradas, Microsoft proporciona un tutoria
 
 ### <a name="attribute-requirements"></a>Requisitos de los atributos
 
-Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, como grupos. Planifique la asignación de atributos de usuario desde Azure AD a la aplicación y [personalice las asignaciones de atributos predeterminados](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) según las necesidades de la empresa.
+Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, como grupos. Planifique la asignación de atributos de usuario desde Azure AD a la aplicación y [personalice las asignaciones de atributos predeterminados](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) según las necesidades de la empresa.
 
 ### <a name="certificate-requirements"></a>Requisitos de certificados
 
@@ -234,10 +234,10 @@ En esta sección se describen los requisitos y las recomendaciones para administ
 
 Use siempre el rol con los permisos mínimos disponibles para realizar la tarea requerida en Azure Active Directory. Microsoft recomienda [revisar los distintos roles disponibles](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) y elegir el correcto para resolver las necesidades para cada rol de esta aplicación. Es posible que algunos roles se tengan que aplicar temporalmente y quitar una vez completada la implementación.
 
-| Rol| Roles | Rol de Azure AD (si es necesario) |
+| Persona| Roles | Rol de Azure AD (si es necesario) |
 |--------|-------|-----------------------------|
 | Administrador del departamento de soporte técnico | Soporte técnico de nivel 1 | None |
-| Administración de identidad | Configurar y depurar cuando haya problemas que afectan a Azure AD | Administrador global |
+| Administración de identidades | Configurar y depurar cuando haya problemas que afectan a Azure AD | Administrador global |
 | Administrador de aplicaciones | Atestación de usuarios en la aplicación, configuración en usuarios con permisos | None |
 | Administradores de infraestructura | Propietario de la sustitución de certificados | Administrador global |
 | Propietario de la empresa o parte interesada | Atestación de usuarios en la aplicación, configuración en usuarios con permisos | None |
@@ -264,7 +264,7 @@ La disponibilidad de métodos de autenticación dentro de la aplicación determi
 
 - **Si la aplicación no admite varios IDP** pero permite a los usuarios iniciar sesión con la autenticación basada en formularios (nombre de usuario y contraseña), asegúrese de que pueden revertir a este enfoque en caso de que se produzca un error en la nueva implementación de la configuración de inicio de sesión único.
 
-### <a name="access-management"></a>administración de acceso
+### <a name="access-management"></a>Administración de acceso
 
 Se recomienda elegir un enfoque escalado para administrar el acceso a los recursos. Los enfoques comunes incluyen el uso de grupos locales mediante la sincronización a través de Azure AD Connect, [la creación de grupos dinámicos en Azure AD en función de atributos del usuario](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal), o bien la creación de [grupos de autoservicio](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) en Azure AD administrados por un propietario del recurso.
 
@@ -272,7 +272,7 @@ Se recomienda elegir un enfoque escalado para administrar el acceso a los recurs
 
 Se recomienda configurar una cadencia periódica en la que se revisen los diferentes aspectos de seguridad de las aplicaciones SaaS y se realicen las acciones correctoras necesarias.
 
-### <a name="troubleshooting"></a>solución de problemas
+### <a name="troubleshooting"></a>Solución de problemas
 
 Los vínculos siguientes presentan escenarios de solución de problemas. Es posible que quiera crear una guía específica para el personal de soporte técnico que incorpore estos escenarios y los pasos para corregirlos.
 

@@ -4,15 +4,15 @@ description: Replique servidores de Azure Analysis Services con la escalabilidad
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572636"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310193"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -20,7 +20,7 @@ Con la escalabilidad horizontal, las consultas de cliente pueden distribuirse en
 
 La escalabilidad horizontal está disponible para los servidores en el plan de tarifa Estándar. Cada réplica de consulta se factura a la misma tarifa que el servidor. Todas las réplicas de la consulta se crean en la misma región que el servidor. El número de réplicas de consultas que puede configurar está limitado por la región en la que se encuentra el servidor. Para más información, consulte la [disponibilidad por región](analysis-services-overview.md#availability-by-region). La escalabilidad horizontal no aumenta la cantidad de memoria disponible para el servidor. Para aumentar la memoria, debe actualizar el plan. 
 
-## <a name="why-scale-out"></a>¿Por qué escalabilidad horizontal?
+## <a name="why-scale-out"></a>Motivos para escalar horizontalmente
 
 En una implementación típica de servidor, un servidor actúa como servidor de procesamiento y servidor de consulta. Si el número de consultas de cliente en los modelos en el servidor supera la unidades de procesamiento de consultas (QPU) del plan de su servidor o el procesamiento del modelo se produce al mismo tiempo que las cargas de trabajo con un número elevado de consultas, el rendimiento podría bajar. 
 
@@ -30,13 +30,13 @@ Independientemente del número de réplicas de consultas que tenga en un grupo d
 
 Durante el escalado horizontal, las nuevas réplicas de consulta pueden tardar hasta cinco minutos en agregarse de forma incremental al grupo de consulta. Cuando todas las nuevas réplicas de consulta están en funcionamiento, se equilibra la carga de las nuevas conexiones de cliente en todos los recursos del grupo de consultas. Las conexiones de cliente existentes no cambian del recurso al que están conectadas actualmente. En la reducción horizontal, se terminan las conexiones de cliente existentes a un recurso de grupo de consultas que se va a quitar del grupo de consultas. Los clientes pueden volver a conectarse a un recurso del grupo de consultas restante.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Al configurar el escalado horizontal por primera vez, las bases de datos de modelo en el servidor principal se sincronizan *automáticamente* con las nuevas réplicas de un nuevo grupo de consultas. La sincronización automática se produce solo una vez. Durante la sincronización automática, los archivos de datos del servidor principal (cifrados en reposo en Blob Storage) se copian en una segunda ubicación, también cifrados en reposo en Blob Storage. Las réplicas del grupo de consultas se *hidratan* con datos del segundo conjunto de archivos. 
 
 Aunque una sincronización automática solo se realiza cuando se escala horizontalmente un servidor por primera vez, también puede realizar una sincronización manual. La sincronización garantiza que los datos en las réplicas del grupo de consultas coinciden con los del servidor principal. Al procesar (actualizar) modelos en el servidor principal, se debe realizar una sincronización *después* de la finalización de las operaciones de procesamiento. Esta sincronización copia los datos actualizados de los archivos del servidor principal de Blob Storage en el segundo conjunto de archivos. Las réplicas del grupo de consultas se hidratan con los datos actualizados del segundo conjunto de archivos de Blob Storage. 
 
-Al realizar una operación de escalado horizontal posterior, por ejemplo, aumentar el número de réplicas del grupo de consultas de dos a cinco, las nuevas réplicas se hidratan con los datos del segundo conjunto de archivos de Blob Storage. No hay ninguna sincronización. Si tuviera que realizar una sincronización después del escalado horizontal, las nuevas réplicas del grupo de consultas se hidratarían dos veces: una hidratación redundante. Al realizar una operación de escalado horizontal posterior, es importante tener en cuenta:
+Al realizar una operación de escalado horizontal posterior, por ejemplo, aumentar el número de réplicas del grupo de consultas de dos a cinco, las nuevas réplicas se hidratan con los datos del segundo conjunto de archivos de Blob Storage. No hay ninguna sincronización. Si efectuara una sincronización después del escalado horizontal, las nuevas réplicas del grupo de consultas se hidratarían dos veces, lo que generaría una hidratación redundante. Al realizar una operación de escalado horizontal posterior, es importante tener en cuenta:
 
 * Realice una sincronización *antes de la operación de escalado horizontal* para evitar la hidratación redundante de las réplicas agregadas. No se permiten operaciones de escalado horizontal y sincronización simultáneas que se ejecuten al mismo tiempo.
 
@@ -48,6 +48,26 @@ Al realizar una operación de escalado horizontal posterior, por ejemplo, aument
 
 * Al cambiar el nombre de una base de datos en el servidor principal, hay un paso adicional necesario para garantizar que la base de datos se sincronice correctamente con las réplicas. Después de cambiar el nombre, realice una sincronización con el comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando el parámetro `-Database` con el nombre antiguo de la base de datos. Esta sincronización quita la base de datos y los archivos con el nombre antiguo de las réplicas. Luego realice otra sincronización especificando el parámetro `-Database` con el nuevo nombre de la base de datos. La segunda sincronización copia la base de datos con el nombre nuevo en el segundo conjunto de archivos e hidrata las réplicas. Estas sincronizaciones no se pueden realizar mediante el comando de modelo Sincronizar del portal.
 
+### <a name="synchronization-mode"></a>Modo de sincronización
+
+De forma predeterminada, las réplicas de consultas se rehidratan en su totalidad, no de forma incremental. La rehidratación tiene lugar en fases. Las réplicas se desasocian y se asocian de dos en dos (suponiendo que haya al menos tres réplicas) para garantizar que, en un momento dado, hay al menos una réplica que se mantiene en línea para las consultas. En algunos casos, es posible que los clientes necesiten volver a conectarse a una de las réplicas en línea mientras se está llevando a cabo este proceso. Con la opción **ReplicaSyncMode** (en versión preliminar), ahora puede especificar que la sincronización de réplicas de consulta se realice en paralelo. La sincronización paralela brinda las siguientes ventajas: 
+
+- Una reducción significativa del tiempo de sincronización. 
+- Es más fácil que los datos de las diferentes réplicas mantengan la coherencia durante el proceso de sincronización. 
+- Como las bases de datos se mantienen en línea en todas las réplicas del proceso de sincronización, los clientes no necesitan volver a establecer la conexión. 
+- La caché en memoria se actualiza de forma incremental exclusivamente con los datos modificados, lo que puede ser más rápido que rehidratar por completo el modelo. 
+
+#### <a name="setting-replicasyncmode"></a>Opción ReplicaSyncMode
+
+Utilice SSMS para configurar ReplicaSyncMode en Propiedades avanzadas. Los valores posibles son: 
+
+- `1` (predeterminado): se realiza una rehidratación completa de la base de datos de réplicas en fases (incremental). 
+- `2`: sincronización optimizada en paralelo. 
+
+![Opción RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
+
+Cuando se establece **ReplicaSyncMode=2**, en función del tiempo que la memoria caché necesite para actualizarse, las réplicas de consulta pueden consumir más memoria. Si desea mantener la base de datos en línea y disponible para las consultas, dependiendo de cuánto hayan cambiado los datos, la operación puede necesitar hasta el *doble de memoria* en la réplica, ya que se mantienen los dos segmentos (el nuevo y el antiguo) simultáneamente. Los nodos de la réplica tienen la misma asignación de memoria que el nodo principal y, por lo general, suele haber memoria extra en el nodo principal para las operaciones de actualización, por lo que es poco probable que las réplicas se queden sin memoria. Además, lo más habitual es que la base de datos se actualice incrementalmente en el nodo principal, por lo que pocas veces resulta necesario duplicar la memoria. Si la operación de sincronización registra un error por falta de memoria, esta operación se intentará de nuevo utilizando la técnica predeterminada (asociar y desasociar las réplicas de dos en dos). 
+
 ### <a name="separate-processing-from-query-pool"></a>Separar el procesamiento del grupo de consultas
 
 Para obtener un rendimiento máximo para las operaciones de procesamiento y consulta, puede elegir separar el servidor de procesamiento del grupo de consultas. Cuando están separadas, las conexiones de cliente nuevas se asignan a réplicas de consulta del grupo de consultas únicamente. Si las operaciones de procesamiento solo ocupan un breve período de tiempo, puede elegir separar el servidor de procesamiento del grupo de consultas solo durante el tiempo que se tarda en realizar las operaciones de procesamiento y sincronización y, a continuación, volver a incluirlo en el grupo de consultas. Al separar el servidor de procesamiento del grupo de consultas o al agregarlo de nuevo a este, la operación puede tardar hasta cinco minutos en realizarse.
@@ -56,7 +76,7 @@ Para obtener un rendimiento máximo para las operaciones de procesamiento y cons
 
 Para determinar si la escalabilidad horizontal del servidor es necesaria, supervise el servidor en Azure Portal con Métricas. Si se supera el nivel máximo de QPU con regularidad, significa que el número de consultas en los modelos excede el límite de QPU del plan. La métrica de longitud de la cola de trabajos del grupo de consultas también aumenta si el número de consultas de la cola del grupo de subprocesos de consulta excede el número de QPU disponibles. 
 
-Otra buena métrica para inspeccionar es QPU media por ServerResourceType. Esta métrica compara la QPU media del servidor principal con la del grupo de consultas. 
+Otra buena métrica para inspeccionar es QPU media por ServerResourceType. Esta métrica compara el promedio de la unidad de procesamiento de consultas (QPU) del servidor principal con el grupo de consultas. 
 
 ![Métricas de escalado horizontal de consultas](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
@@ -107,7 +127,7 @@ Use la operación **sync**.
 Códigos de estado devueltos:
 
 
-|Código  |DESCRIPCIÓN  |
+|Código  |Descripción  |
 |---------|---------|
 |-1     |  No válida       |
 |0     | Replicando        |

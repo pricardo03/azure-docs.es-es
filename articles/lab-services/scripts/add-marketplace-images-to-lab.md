@@ -1,5 +1,5 @@
 ---
-title: 'Script de PowerShell: Adición de una imagen de Marketplace a un laboratorio de Azure DevTest Labs | Microsoft Docs'
+title: 'PowerShell: Incorporación de una imagen de Marketplace a un laboratorio de Azure DevTest Labs'
 description: Este script de PowerShell agrega una imagen de Marketplace a un laboratorio de Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: e099a29a198d43bf8d00487ab45e2648479aedbe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d699a22ed06022c6d9df12ade7f202fb304648c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160595"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166443"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Usar PowerShell para agregar una imagen de Marketplace a un laboratorio de Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Este script de PowerShell de ejemplo agrega una imagen de Marketplace a un labor
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Un laboratorio**. Este script requiere que disponga de un laboratorio existente. 
 
 ## <a name="sample-script"></a>Script de ejemplo

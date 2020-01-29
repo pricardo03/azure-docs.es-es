@@ -1,6 +1,6 @@
 ---
-title: Expresiones de etiqueta y enrutamiento
-description: En este tema se explican las expresiones de etiqueta y enrutamiento de los Centros de notificaciones de Azure.
+title: Enrutamiento y etiquetado de expresiones en Azure Notification Hubs
+description: Aprenda a enrutar y etiquetar expresiones para Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.lastreviewed: 12/04/2019
+ms.openlocfilehash: b1162e6070deba7f645298b59ffeb1898eb030a8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972028"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545779"
 ---
 # <a name="routing-and-tag-expressions"></a>Expresiones de etiqueta y enrutamiento
 
@@ -31,7 +31,7 @@ Las expresiones de etiqueta le permiten dirigirse a conjuntos específicos de di
 
 ## <a name="targeting-specific-registrations"></a>Selección del destino de registros específicos
 
-La única forma de seleccionar el destino de registros de notificaciones específicos es asociar etiquetas con ellos y, a continuación, seleccionar el destino de esas etiquetas. Como se describe en [Administración de registros](notification-hubs-push-notification-registration-management.md), con el fin de recibir notificaciones de inserción, una aplicación tiene que registrar un identificador de dispositivo en un centro de notificaciones. Una vez que se crea un registro en un centro de notificaciones, el back-end de la aplicación puede enviar notificaciones de inserción a este. El back-end de la aplicación puede elegir a qué registros dirigirse con una notificación específica de las maneras siguientes:
+La única forma de seleccionar el destino de registros de notificaciones específicos es asociar etiquetas con ellos y, a continuación, seleccionar el destino de esas etiquetas. Como se describe en [Administración de registros](notification-hubs-push-notification-registration-management.md), para recibir notificaciones de inserción, las aplicaciones deben registrar un identificador de dispositivo en un centro de notificaciones. Una vez que la aplicación crea un registro en un centro de notificaciones, el back-end de la aplicación puede enviar notificaciones de inserción a este. El back-end de la aplicación puede elegir a qué registros dirigirse con una notificación específica de las maneras siguientes:
 
 1. **Difusión**: todos los registros del centro de notificaciones reciben la notificación.
 2. **Etiquetar**: todos los registros que contienen la etiqueta especificada reciben la notificación.
@@ -39,11 +39,11 @@ La única forma de seleccionar el destino de registros de notificaciones especí
 
 ## <a name="tags"></a>Etiquetas
 
-Una etiqueta puede ser cualquier cadena, de hasta 120 caracteres, que contenga caracteres alfanuméricos y los siguientes caracteres no alfanuméricos: "_", "@", "#", ".", ":", "-". En el ejemplo siguiente se muestra una aplicación desde la que puede recibir notificaciones del sistema sobre grupos musicales específicos. En este escenario, una manera sencilla de enrutar notificaciones es etiquetar los registros con etiquetas que representan las distintas bandas, como se muestra en la siguiente imagen:
+Una etiqueta puede ser cualquier cadena, de hasta 120 caracteres, que contenga caracteres alfanuméricos y los siguientes caracteres no alfanuméricos: "`_`", "`@`", "`#`", "`.`", "`:`", "`-`". En el ejemplo siguiente se muestra una aplicación desde la que puede recibir notificaciones del sistema sobre grupos musicales específicos. En este escenario, una manera sencilla de enrutar notificaciones es usar en los registros etiquetas que representen las distintas bandas, como se muestra en la siguiente ilustración:
 
 ![Información general de las etiquetas](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
-En esta imagen, el mensaje etiquetado **Beatles** llega solamente a la tableta registrada con la etiqueta **Beatles**.
+En la ilustración, el mensaje con la etiqueta **Beatles** llega solamente a la tableta registrada con la etiqueta **Beatles**.
 
 Para obtener más información acerca de la creación de registros de etiquetas, consulte [Administración de registros](notification-hubs-push-notification-registration-management.md).
 
@@ -63,13 +63,13 @@ toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
 outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 ```
 
-Las etiquetas no tienen que aprovisionarse previamente y pueden hacer referencia a varios conceptos específicos de la aplicación. Por ejemplo, los usuarios de esta aplicación de ejemplo pueden comentar sobre bandas y desean recibir notificaciones del sistema, no solo de los comentarios sobre sus bandas preferidas, sino también de todos los comentarios de sus amigos, independientemente de la banda sobre la que estén comentando. En la siguiente imagen se muestra un ejemplo de este escenario:
+Las etiquetas no deben aprovisionarse previamente y pueden hacer referencia a varios conceptos específicos de la aplicación. Por ejemplo, los usuarios de esta aplicación de ejemplo pueden comentar sobre bandas y desean recibir notificaciones del sistema, no solo de los comentarios sobre sus bandas preferidas, sino también de todos los comentarios de sus amigos, independientemente de la banda sobre la que estén comentando. En la siguiente ilustración se muestra un ejemplo de este escenario:
 
 ![Etiquetar amigos](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
-En esta imagen, Ana está interesada en recibir actualizaciones sobre los Beatles y Pedro está interesado en las actualizaciones sobre los Wailers. Bob también está interesado en los comentarios de Juan Carlos, y Juan Carlos está interesado en los Wailers. Cuando se envía una notificación sobre el comentario de Juan Carlos acerca de los Beatles, Ana y Pedro la reciben.
+En este ejemplo, Ana está interesada en recibir actualizaciones sobre los Beatles, mientras que Pedro está interesado en las actualizaciones sobre los Wailers. Pedro también está interesado en los comentarios de Juan Carlos, y Juan Carlos está interesado en los Wailers. Cuando se envía una notificación sobre el comentario de Juan Carlos acerca de los Beatles, Notification Hubs la envía tanto a Ana como a Pedro.
 
-Aunque se pueden codificar varios intereses en etiquetas (por ejemplo, "banda_Beatles" o "sigue_Juan Carlos"), las etiquetas son cadenas simples y no propiedades con valores. Los registros coinciden solo con la presencia o ausencia de una etiqueta específica.
+Aunque se pueden codificar varios intereses en etiquetas (por ejemplo, `band_Beatles` o `follows_Charlie`), estas son cadenas simples, no propiedades con valores. Los registros coinciden solo con la presencia o ausencia de una etiqueta concreta.
 
 Para obtener un tutorial completo detallado sobre cómo usar etiquetas para enviar a grupos de interés, consulte [Noticias de última hora](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
@@ -78,15 +78,15 @@ Para obtener un tutorial completo detallado sobre cómo usar etiquetas para envi
 
 ## <a name="using-tags-to-target-users"></a>Uso de etiquetas para los usuarios de destino
 
-Otra forma de usar etiquetas es identificar todos los dispositivos de un usuario concreto. Los registros se pueden etiquetar con una etiqueta que contenga un identificador de usuario, como se muestra en la siguiente imagen:
+Otra forma de usar etiquetas es identificar todos los dispositivos asociados a un usuario concreto. Los registros se pueden etiquetar con una etiqueta que contenga el identificador de usuario, como se muestra en la siguiente ilustración:
 
 ![Etiquetar usuarios](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-En esta imagen, el mensaje etiquetado mediante UID: Ana llega a todos los registros etiquetados como "uid:Ana"; por lo tanto, a todos los dispositivos de Ana.
+En la ilustración, el mensaje con la etiqueta `user_Alice` llega a todos los dispositivos con la etiqueta `user_Alice`.
 
 ## <a name="tag-expressions"></a>Expresiones de etiqueta
 
-Hay casos en que una notificación tiene como destino un conjunto de registros identificado no por una sola etiqueta, sino por una expresión booleana en las etiquetas.
+Hay casos en los que las notificaciones deben tener como destino un conjunto de registros identificados no por una etiqueta individual, sino por una expresión booleana que usa etiquetas.
 
 Tome una aplicación de deportes que envía un recordatorio a todas las personas de Boston sobre un partido entre los Red Sox y los Cardinals. Si la aplicación cliente registra etiquetas sobre intereses en equipos y ubicaciones, la notificación deberá dirigirse a todas las personas de Boston interesadas en los Red Sox o en los Cardinals. Esta condición se puede expresar mediante la siguiente expresión booleana:
 
@@ -96,9 +96,9 @@ Tome una aplicación de deportes que envía un recordatorio a todas las personas
 
 ![Expresiones de etiqueta](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Las expresiones de etiqueta pueden contener todos los operadores booleanos, por ejemplo, AND (& &), OR (||) y NOT (!). También pueden contener paréntesis. Las expresiones de etiqueta se limita a 20 etiquetas si contienen solamente OR; de lo contrario, se limitan a 6 etiquetas.
+Las expresiones de etiqueta admiten operadores booleanos comunes como `AND` (`&&`), `OR` (`||`) y `NOT` (`!`); también pueden contener paréntesis. Las expresiones de etiqueta que usan solo operadores `OR` pueden hacer referencia a 20 etiquetas; en caso contrario, las expresiones de etiqueta están limitadas a 6 etiquetas.
 
-A continuación se muestra un ejemplo de envío de notificaciones con expresiones de etiqueta mediante el SDK.
+A continuación se muestra un ejemplo de envío de notificaciones con expresiones de etiqueta mediante el SDK:
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;

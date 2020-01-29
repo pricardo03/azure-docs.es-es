@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b7e872f3320a2c72b6e9fb3ffba65510b205ca03
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cb23dc11a853401d8d99a750a0c79082adbe036
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425553"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547598"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -68,6 +68,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     En **Grupo de recursos**, seleccione **Crear nuevo**. Escriba un **nombre** para el grupo de recursos que contendrá el inquilino, seleccione la **ubicación del grupo de recursos** y, a continuación, seleccione **Crear**.
 
     ![Vinculación del formulario de configuración de la suscripción en Azure Portal](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+    
+    Puede vincular varios inquilinos de Azure AD B2C a una única suscripción de Azure con fines de facturación. 
 
 ## <a name="select-your-b2c-tenant-directory"></a>Selección de su directorio de inquilinos B2C
 

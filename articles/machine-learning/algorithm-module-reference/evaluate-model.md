@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a906e5f354f332cebb0656c6fc40b17c8a5016a2
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214581"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546697"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -61,14 +61,11 @@ Esta característica es útil porque permite comparar fácilmente los resultados
 
 1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](score-model.md) (Puntuar modelo) a la entrada de **Evaluate Model**. 
 2. Conecte la salida del módulo Score Model (Puntuar modelo) para el segundo modelo a la entrada derecha de **Evaluate Model**.
-3. Haga clic con el botón derecho en **Evaluate Model** y luego en **Ejecutar seleccionado** para generar las puntuaciones de la evaluación.
+3. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 
-Después de ejecutar **Evaluate Model**, haga clic con el botón derecho en el módulo y seleccione **Resultados de evaluación** para ver los resultados. Puede:
-
-+ Guardar los resultados como un conjunto de datos, para facilitar el análisis con otras herramientas.
-+ Generar una visualización en el diseñador.
+Después de ejecutar **Evaluate Model** (Evaluar modelo), haga clic con el botón derecho en el módulo y seleccione **Visualize Evaluation results** (Visualizar resultados de evaluación) para ver los resultados.
 
 Si conecta los conjuntos de datos a las dos entradas de **Evaluate Model**, los resultados contendrán las métricas para ambos conjuntos de datos, o ambos modelos.
 El modelo o los datos conectados al puerto izquierdo aparecen en primer lugar en el informe, seguido de las métricas del conjunto de datos, o el modelo conectado al puerto derecho.  

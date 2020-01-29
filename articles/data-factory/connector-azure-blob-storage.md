@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 9001a7837e6106df4e052277168388064e65e7ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/16/2020
+ms.openlocfilehash: f245254c85cbf9223ab5dda60799c6b7ce72f11c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893305"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120220"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory
 
@@ -270,7 +270,7 @@ Una factoría de datos se puede asociar con una [identidad administrada para rec
 
 Consulte [Autenticación del acceso a Azure Storage mediante Azure Active Directory](../storage/common/storage-auth-aad.md) para la autenticación de Azure Storage en general. Para usar identidades administradas para la autenticación de recursos de Azure, siga estos pasos:
 
-1. [Recuperación de la identidad administrada de la factoría de datos](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de "ID. DE LA APLICACIÓN DE IDENTIDAD DE SERVICIO" que se ha generado junto con la factoría.
+1. [Recupere la información de la identidad administrada de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de **Id. del objeto de identidad administrada** que se ha generado junto con la factoría.
 
 2. Conceda el permiso de propiedad de identidad administrada en Azure Blob Storage. Consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](../storage/common/storage-auth-aad-rbac.md) para ver más detalles sobre los roles.
 

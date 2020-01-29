@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0b24c064424b00fa9acb96b03c0a3c5ca69f67f2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930195"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264430"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de telemetría y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -27,7 +27,7 @@ Los dispositivos pueden usar la medición de telemetría para enviar datos numé
 
 ## <a name="create-a-telemetry-rule"></a>Creación de una regla de telemetría
 
-Para crear una regla de telemetría, la plantilla de dispositivos debe tener definida al menos una medida de telemetría. En este ejemplo se utiliza un dispositivo de máquina expendedora refrigerada que envía datos de telemetría de temperatura y humedad. La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 80 grados.
+Para crear una regla de telemetría, la plantilla de dispositivos debe tener definida al menos una medida de telemetría. En este ejemplo se utiliza un dispositivo de máquina expendedora refrigerada que envía datos de telemetría de temperatura y humedad. La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube por encima de 70 &deg;F.
 
 1. Desde la página **Plantillas de dispositivo**, vaya a la plantilla de dispositivo para la que va a agregar la regla.
 
@@ -43,7 +43,7 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
 1. Escriba un nombre que le ayude a identificar la regla en esta plantilla de dispositivos.
 
-1. Para habilitar inmediatamente la regla para todos los dispositivos creados a partir esta plantilla, cambie el valor de **Enable rule for all devices of this template** (Habilitar regla para todos los dispositivos de esta plantilla).
+1. Para habilitar inmediatamente la regla para todos los dispositivos creados con esta plantilla, mueva el botón de conmutación a **Enable rule for all devices of this template** (Habilitar regla para todos los dispositivos de esta plantilla).
 
    ![Detalle de la regla](media/howto-create-telemetry-rules/rule_detail1.png)
 
@@ -58,8 +58,8 @@ La condición define los criterios que la regla supervisa.
 1. Seleccione los datos de telemetría que desee supervisar en la lista desplegable **Medida**.
 
 1. A continuación, elija **Agregación**, **Operador** y proporcione un valor de **Umbral**.
-   - La agregación es opcional. Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura está por encima de 80, la regla se desencadena casi al instante cuando el dispositivo informe una temperatura >80.
-   - Si se elige una función de agregado, como Promedio, Mín., Máx., Recuento, el usuario debe proporcionar una **ventana de tiempo agregado** en la cual debe evaluarse la condición. Por ejemplo, si establece el período como "5 minutos" y la regla busca la temperatura promedio por encima de 80, la regla se desencadena cuando la temperatura promedio está por encima de 80 durante al menos 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos.
+   - La agregación es opcional. Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura esté por encima de 70 &deg;F, cuando el dispositivo informe de una temperatura >70, la regla se desencadenará casi al instante.
+   - Si se elige una función de agregado, como Promedio, Mín., Máx., Recuento, el usuario debe proporcionar una **ventana de tiempo agregado** en la cual debe evaluarse la condición. Por ejemplo, si establece el período como "5 minutos" y la regla busca la temperatura promedio por encima de 70, la regla se desencadena cuando la temperatura promedio esté por encima de 70 &deg;F durante al menos 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos.
 
      ![Condición](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
@@ -90,7 +90,7 @@ Puede agregar otras acciones a la regla, como Microsoft Flow y webhooks. Puede a
 
 ## <a name="parameterize-the-rule"></a>Parametrización de la regla
 
-Las reglas pueden derivar ciertos valores de las **propiedades del dispositivo**  como parámetros. El uso de parámetros es útil en aquellos escenarios en los que los umbrales de telemetría varían para diferentes dispositivos. Cuando cree la regla, elija una propiedad de dispositivo que especifique el umbral, como **umbral ideal máximo**, en lugar de proporcionar un valor absoluto, como 80 grados. Cuando la regla se ejecuta, hace coincidir los datos de telemetría del dispositivo con el valor establecido en la propiedad del dispositivo.
+Las reglas pueden derivar ciertos valores de las **propiedades del dispositivo**  como parámetros. El uso de parámetros es útil en aquellos escenarios en los que los umbrales de telemetría varían para diferentes dispositivos. Al crear la regla, elija una propiedad de dispositivo que especifique el umbral, por ejemplo, **umbral ideal máximo**, en lugar de proporcionar un valor absoluto, como 70 &deg;F. Cuando se ejecute la regla, hará coincidir la telemetría del dispositivo con el valor establecido en la propiedad del dispositivo.
 
 El uso de parámetros es una forma eficaz de reducir el número de reglas que va a administrar la plantilla de dispositivo.
 

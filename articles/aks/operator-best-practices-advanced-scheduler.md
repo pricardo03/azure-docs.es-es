@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ac66e46d449100fcdd004627820252473f6e2f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472601"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293664"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
-A medida que administra los clústeres en Azure Kubernetes Service (AKS), a menudo necesita aislar los equipos y las cargas de trabajo. El programador de Kubernetes proporciona características avanzadas que permiten que controlar qué pods se pueden programar en determinados nodos, o cómo se distribuyen las aplicaciones de varios pods apropiadamente en el clúster. 
+A medida que administra los clústeres en Azure Kubernetes Service (AKS), a menudo necesita aislar los equipos y las cargas de trabajo. El programador de Kubernetes proporciona características avanzadas que permiten controlar qué pods se pueden programar en determinados nodos o cómo se distribuyen las aplicaciones de varios pods apropiadamente en el clúster. 
 
-Este artículo de procedimientos recomendados se centra en las características avanzadas de Kubernetes para operadores de clúster. En este artículo, aprenderá a:
+Este artículo de procedimientos recomendados se centra en las características avanzadas de Kubernetes para operadores de clúster. En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Usar taints y tolerations para limitar los pods que pueden programarse en nodos

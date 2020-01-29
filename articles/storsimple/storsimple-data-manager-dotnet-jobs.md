@@ -1,25 +1,17 @@
 ---
-title: Uso del SDK de .NET para trabajos de Microsoft Azure StorSimple Data Manager | Microsoft Docs
+title: Uso del SDK de .NET para trabajos de Microsoft Azure StorSimple Data Manager
 description: Obtenga información sobre cómo usar el SDK de .NET para iniciar trabajos de StorSimple Data Manager
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632407"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270723"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Uso del SDK de .NET para iniciar la transformación de datos
 
@@ -34,7 +26,7 @@ Puede iniciar un trabajo de transformación de datos de dos maneras:
  
   En este artículo se detalla cómo crear una aplicación de consola .NET de ejemplo para iniciar un trabajo de transformación de datos y, después, realizar su seguimiento para asegurarse de que finaliza. Para más información sobre cómo iniciar la transformación de datos mediante Automation, vaya al artículo sobre cómo [usar un runbook de Azure Automation para desencadenar trabajos de transformación de datos](storsimple-data-manager-job-using-automation.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de que dispone de:
 *   Un equipo que ejecute:

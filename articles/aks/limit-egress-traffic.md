@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/21/2020
 ms.author: mlearned
-ms.openlocfilehash: 208ffaa4c78e00031e41b6e2b8c01edb667b54a6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: df8b4d7ea44f885ee0fed0479ba87a4bc9ba1a29
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481168"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310176"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -55,6 +55,7 @@ Un clúster de AKS requiere los siguientes puertos de salida / reglas de red:
 * TCP [IPAddrOfYourAPIServer]:443 es necesario si tiene una aplicación que deba comunicarse con el servidor de API.  Este cambio se puede establecer después de crear el clúster.
 * Puerto TCP *9000* y puerto TCP *22* para el pod de la parte delantera del túnel para comunicarse con el extremo de túnel en el servidor de la API.
     * Para obtener información más concreta, vea las direcciones * *.hcp.\<ubicación\>.azmk8s.io* y * *.tun.\<ubicación\>.azmk8s.io* en la tabla siguiente.
+* Puerto UDP *123* para la sincronización de hora del protocolo de tiempo de red (NTP) (nodos de Linux).
 * También se requiere el puerto UDP *53* para DNS si tiene pods que acceden directamente al servidor de API.
 
 Se requieren las siguientes reglas de aplicación / FQDN:
@@ -65,7 +66,7 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 | *.hcp.\<ubicación\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Esta dirección es el punto de conexión del servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
 | *.tun.\<ubicación\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Esta dirección es el punto de conexión del servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
 | aksrepos.azurecr.io        | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Azure Container Registry (ACR). Este registro contiene imágenes y gráficos de terceros (por ejemplo, servidor de métricas, DNS principal, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster.|
-| \* .blob.core.windows.net    | HTTPS:443 | Esta dirección es el almacén de back-end para las imágenes almacenadas en ACR. |
+| *.blob.core.windows.net    | HTTPS:443 | Esta dirección es el almacén de back-end para las imágenes almacenadas en ACR. |
 | mcr.microsoft.com          | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Microsoft Container Registry (MCR). Este registro contiene imágenes y gráficos de propios (por ejemplo, Moby, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster. |
 | *.cdn.mscr.io              | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por la red de entrega de contenido (CDN) de Azure. |
 | management.azure.com       | HTTPS:443 | Esta dirección es necesaria para las operaciones de Kubernetes GET o PUT. |
@@ -73,7 +74,7 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 | ntp.ubuntu.com             | UDP:123   | Esta dirección es necesaria para la sincronización de la hora NTP en nodos de Linux. |
 | packages.microsoft.com     | HTTPS:443 | Esta dirección es el repositorio de paquetes de Microsoft que se usa para las operaciones *apt-get* almacenadas en caché.  Los paquetes de ejemplo incluyen Moby, PowerShell y la CLI de Azure. |
 | acs-mirror.azureedge.net   | HTTPS:443 | Esta dirección es para el repositorio necesario para instalar los archivos binarios necesarios, como kubenet y Azure CNI. |
-- Azure China
+- Azure China 21Vianet
 
 | FQDN                       | Port      | Uso      |
 |----------------------------|-----------|----------|
@@ -81,7 +82,7 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 | *.tun.\<ubicación\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | Esta dirección es el punto de conexión del servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
 | *.azk8s.cn        | HTTPS:443 | Esta dirección es necesaria para descargar las imágenes y los archivos binarios necesarios.|
 | mcr.microsoft.com          | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Microsoft Container Registry (MCR). Este registro contiene imágenes y gráficos de propios (por ejemplo, Moby, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster. |
-| *.cdn.mscr.io              | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por la red de entrega de contenido (CDN) de Azure. |
+| *.cdn.mscr.io              | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por Azure Content Delivery Network (CDN). |
 | management.chinacloudapi.cn       | HTTPS:443 | Esta dirección es necesaria para las operaciones de Kubernetes GET o PUT. |
 | login.chinacloudapi.cn  | HTTPS:443 | Esta dirección es necesaria para la autenticación de Azure Active Directory. |
 | ntp.ubuntu.com             | UDP:123   | Esta dirección es necesaria para la sincronización de la hora NTP en nodos de Linux. |
@@ -93,9 +94,9 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 | *.hcp.\<ubicación\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | Esta dirección es el punto de conexión del servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
 | *.tun.\<ubicación\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | Esta dirección es el punto de conexión del servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
 | aksrepos.azurecr.io        | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Azure Container Registry (ACR). Este registro contiene imágenes y gráficos de terceros (por ejemplo, servidor de métricas, DNS principal, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster.|
-| \* .blob.core.windows.net    | HTTPS:443 | Esta dirección es el almacén de back-end para las imágenes almacenadas en ACR. |
+| *.blob.core.windows.net    | HTTPS:443 | Esta dirección es el almacén de back-end para las imágenes almacenadas en ACR. |
 | mcr.microsoft.com          | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Microsoft Container Registry (MCR). Este registro contiene imágenes y gráficos de propios (por ejemplo, Moby, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster. |
-| *.cdn.mscr.io              | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por la red de entrega de contenido (CDN) de Azure. |
+| *.cdn.mscr.io              | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por Azure Content Delivery Network (CDN). |
 | management.usgovcloudapi.net       | HTTPS:443 | Esta dirección es necesaria para las operaciones de Kubernetes GET o PUT. |
 | login.microsoftonline.us  | HTTPS:443 | Esta dirección es necesaria para la autenticación de Azure Active Directory. |
 | ntp.ubuntu.com             | UDP:123   | Esta dirección es necesaria para la sincronización de la hora NTP en nodos de Linux. |
@@ -128,8 +129,8 @@ Los clústeres de AKS que tienen habilitado Azure Monitor para contenedores nece
 | FQDN                                    | Port      | Uso      |
 |-----------------------------------------|-----------|----------|
 | dc.services.visualstudio.com | HTTPS:443  | Es para la telemetría de supervisión y las métricas correctas mediante Azure Monitor. |
-| \* .ods.opinsights.azure.com    | HTTPS:443 | Azure Monitor lo usa para la ingesta de los datos de análisis de registros. |
-| \* .oms.opinsights.azure.com | HTTPS:443 | Esta dirección la usa omsagent, que se usa para autenticar el servicio de análisis de registros. |
+| *.ods.opinsights.azure.com    | HTTPS:443 | Azure Monitor lo usa para la ingesta de los datos de análisis de registros. |
+| *.oms.opinsights.azure.com | HTTPS:443 | Esta dirección la usa omsagent, que se usa para autenticar el servicio de análisis de registros. |
 |*.microsoftonline.com | HTTPS:443 | Se usa para autenticar y enviar métricas a Azure Monitor. |
 |*.monitoring.azure.com | HTTPS:443 | Se usa para enviar datos de métricas a Azure Monitor. |
 
@@ -155,8 +156,8 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Esta dirección se usa para el funcionamiento correcto de Azure Policy. (Actualmente en versión preliminar en AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Esta dirección se usa para extraer las directivas integradas de GitHub para garantizar el funcionamiento correcto de Azure Policy. (Actualmente en versión preliminar en AKS) |
-| *.gk.<location>.azmk8s.io | HTTPS:443 | El complemento de Azure Policy se comunica con el punto de conexión de auditoría del equipo selector que se ejecuta en el servidor maestro para obtener los resultados de la auditoría. |
-| dc.services.visualstudio.com | HTTPS:443 | El complemento de Azure Policy envía los datos de telemetría al punto de conexión de Application Insights. |
+| *.gk.<location>.azmk8s.io | HTTPS:443 | El complemento de Azure Policy que se comunica con el punto de conexión de auditoría de Gatekeeper que se ejecuta en el servidor maestro para obtener los resultados de la auditoría. |
+| dc.services.visualstudio.com | HTTPS:443 | El complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Requerido por los nodos basados en Windows Server (en versión preliminar pública) habilitados
 

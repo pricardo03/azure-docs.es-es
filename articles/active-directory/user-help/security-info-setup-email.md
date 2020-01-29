@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 82bbdd7f209b2ce22225628416a07524c62f1484
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279018"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156172"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configuración de una dirección de correo electrónico como método de comprobación
 
-Puede seguir estos pasos para agregar su método de restablecimiento de la contraseña. Tras configurarlo por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar información de seguridad.
-
-Tras configurar el método de restablecimiento de contraseña, también debe configurar el método de comprobación mediante dos factores, para lo que se usa una [aplicación de autenticación](security-info-setup-auth-app.md), [un mensaje de texto](security-info-setup-text-msg.md) o un [llamada de teléfono](security-info-setup-phone-number.md).
+Puede seguir estos pasos para agregar su método de restablecimiento de la contraseña. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>Si no ve la opción de correo electrónico, es posible que su organización no le permita usar esta opción para el método de restablecimiento de contraseña. En este caso, tendrá que elegir otro método o ponerse en contacto con el departamento de soporte técnico de su organización para que le proporcione más ayuda.
+
+## <a name="security-vs-password-reset-verification"></a>Comprobación de seguridad frente a comprobación de restablecimiento de contraseña
+
+Los métodos de la información de seguridad se usan tanto para la comprobación de seguridad de dos factores como para al restablecimiento de la contraseña. Sin embargo, no todos los métodos pueden usarse para ambos.
+
+| Método | Se usa para |
+| ------ | -------- |
+| Aplicación de autenticación | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Mensajes de texto | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Llamadas de teléfono | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Clave de seguridad | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Cuenta de correo electrónico | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
+| Preguntas de seguridad | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configuración de una dirección de correo electrónico desde la página Información de seguridad
 
@@ -76,7 +90,7 @@ Si no desea usar la dirección de correo electrónico como método de informaci�
 
 2. Seleccione **Sí** en el cuadro de confirmación para eliminar la cuenta de **Correo electrónico**. Una vez eliminada la cuenta de correo electrónico, se quitará de su información de seguridad y desaparecerá de la página **Información de seguridad**.
 
-## <a name="additional-security-info-methods"></a>Otros métodos de información de seguridad
+## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
 
 Tiene opciones adicionales para determinar cómo su organización se pone en contacto con usted para comprobar su identidad, basándose en lo está intentando hacer. Entre estas opciones se incluyen:
 
@@ -86,7 +100,7 @@ Tiene opciones adicionales para determinar cómo su organización se pone en con
 
 - **Llamada a dispositivo móvil o al teléfono del trabajo.** Escriba el número del dispositivo móvil y recibirá una llamada telefónica para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo comprobar su identidad con un número de teléfono, consulte [Configuración de la información de seguridad para usar llamadas de teléfono](security-info-setup-phone-number.md).
 
-- **Clave de seguridad.** Registre la clave de seguridad compatible con Microsoft y úsela junto con un PIN para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo comprobar su identidad con una clave de seguridad, consulte [Configuración de la información de seguridad para usar una clave de seguridad](security-info-setup-security-key.md).
+- **Clave de seguridad.** Registre la clave de seguridad compatible con Microsoft y úsela junto con un PIN para la verificación en dos pasos o el restablecimiento de contraseña. Para instrucciones paso a paso sobre cómo comprobar su identidad con una clave de seguridad, consulte [Configuración de la información de seguridad para usar una clave de seguridad](security-info-setup-security-key.md).
 
 - **Preguntas de seguridad.** Responda a algunas preguntas de seguridad creadas por el administrador para su organización. Esta opción solo está disponible para el restablecimiento de contraseña y no para la verificación en dos pasos. Para obtener instrucciones paso a paso sobre cómo configurar las preguntas de seguridad, consulte el artículo [Configuración de la información de seguridad para usar las preguntas de seguridad](security-info-setup-questions.md).
 

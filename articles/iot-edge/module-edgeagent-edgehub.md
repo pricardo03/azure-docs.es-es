@@ -8,55 +8,55 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 731c51894126a6de75c9fc25e4e7bdb3dfa4dd03
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665804"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548618"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propiedades de los módulos gemelos del agente de IoT Edge y del centro de IoT Edge
 
-El agente de IoT Edge y el centro de IoT Edge son dos módulos que constituyen el entorno de tiempo de ejecución de IoT Edge. Para más información acerca de las tareas que realiza cada módulo, consulte [Información sobre el entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md). 
+El agente de IoT Edge y el centro de IoT Edge son dos módulos que constituyen el entorno de tiempo de ejecución de IoT Edge. Para más información sobre las responsabilidades de cada módulo en tiempo de ejecución, consulte [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md).
 
 En este artículo se proporcionan las propiedades deseadas y notificadas de los módulos gemelos de tiempo de ejecución. Para obtener más información sobre cómo implementar módulos en dispositivos IoT Edge, vea [Obtener información sobre cómo implementar módulos y establecer rutas en IoT Edge](module-composition.md).
 
-Un módulo gemelo incluye lo siguiente: 
+Un módulo gemelo incluye lo siguiente:
 
 * **Propiedades deseadas**. El back-end de solución puede establecer propiedades deseadas, y el módulo puede leerlas. El módulo también puede recibir notificaciones de cambios en las propiedades deseadas. Las propiedades deseadas se usan junto con las propiedades notificadas para sincronizar la configuración o las condiciones del módulo.
 
-* **Propiedades notificadas**. El módulo puede establecer propiedades notificadas, y el back-end de solución puede leerlas y consultarlas. Las propiedades notificadas se usan junto con las propiedades deseadas para sincronizar la configuración o las condiciones del módulo. 
+* **Propiedades notificadas**. El módulo puede establecer propiedades notificadas, y el back-end de solución puede leerlas y consultarlas. Las propiedades notificadas se usan junto con las propiedades deseadas para sincronizar la configuración o las condiciones del módulo.
 
 ## <a name="edgeagent-desired-properties"></a>Propiedades deseadas de EdgeAgent
 
-El módulo gemelo del agente de IoT Edge se denomina `$edgeAgent` y coordina las comunicaciones entre el agente de IoT Edge que se ejecuta en un dispositivo y en IoT Hub. Las propiedades deseadas se establecen al aplicar un manifiesto de implementación en un dispositivo específico como parte de la implementación de un solo dispositivo o a escala. 
+El módulo gemelo del agente de IoT Edge se denomina `$edgeAgent` y coordina las comunicaciones entre el agente de IoT Edge que se ejecuta en un dispositivo y en IoT Hub. Las propiedades deseadas se establecen al aplicar un manifiesto de implementación en un dispositivo específico como parte de la implementación de un solo dispositivo o a escala.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
 | schemaVersion | Debe ser "1.0". | Sí |
 | runtime.type | Debe ser "docker". | Sí |
 | runtime.settings.minDockerVersion | Establece la propiedad en la versión de Docker mínima que requiere este manifiesto de implementación. | Sí |
-| runtime.settings.loggingOptions | Cadenas JSON que contienen las opciones de registro del contenedor del agente de IoT Edge. [Opciones de registro de Docker](https://docs.docker.com/engine/admin/logging/overview/) | Sin |
-| runtime.settings.registryCredentials<br>.{registryId}.username | El nombre de usuario del registro de contenedor. Para Azure Container Registry, el nombre de usuario suele ser el nombre del registro.<br><br> Las credenciales del registro son necesarias para las imágenes de módulo que no son públicas. | Sin |
-| runtime.settings.registryCredentials<br>.{registryId}.password | La contraseña del registro de contenedor. | Sin |
-| runtime.settings.registryCredentials<br>.{registryId}.address | La dirección del registro de contenedor. Para Azure Container Registry, la dirección suele ser *{nombre del registro}.azurecr.io*. | Sin |  
+| runtime.settings.loggingOptions | Cadenas JSON que contienen las opciones de registro del contenedor del agente de IoT Edge. [Opciones de registro de Docker](https://docs.docker.com/engine/admin/logging/overview/) | No |
+| runtime.settings.registryCredentials<br>.{registryId}.username | El nombre de usuario del registro de contenedor. Para Azure Container Registry, el nombre de usuario suele ser el nombre del registro.<br><br> Las credenciales del Registro son necesarias para las imágenes del módulo privadas. | No |
+| runtime.settings.registryCredentials<br>.{registryId}.password | La contraseña del registro de contenedor. | No |
+| runtime.settings.registryCredentials<br>.{registryId}.address | La dirección del registro de contenedor. Para Azure Container Registry, la dirección suele ser *{nombre del registro}.azurecr.io*. | No |  
 | systemModules.edgeAgent.type | Debe ser "docker". | Sí |
 | systemModules.edgeAgent.settings.image | El URI de la imagen del agente de IoT Edge. Actualmente, el agente de IoT Edge no puede actualizarse automáticamente. | Sí |
-| systemModules.edgeAgent.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de IoT Edge. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin |
+| systemModules.edgeAgent.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de IoT Edge. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeAgent.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica el manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 | systemModules.edgeHub.type | Debe ser "docker". | Sí |
 | systemModules.edgeHub.status | Debe ser "running". | Sí |
 | systemModules.edgeHub.restartPolicy | Debe ser "always". | Sí |
 | systemModules.edgeHub.settings.image | El URI de la imagen del centro de IoT Edge. | Sí |
-| systemModules.edgeHub.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de IoT Edge. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin |
+| systemModules.edgeHub.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de IoT Edge. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeHub.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica el manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 | modules.{moduleId}.version | Una cadena definida por el usuario que representa la versión de este módulo. | Sí |
 | modules.{moduleId}.type | Debe ser "docker". | Sí |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Sí |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Sí |
-| modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | Sin |
+| modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | No |
 | modules.{moduleId}.settings.image | El URI de la imagen del módulo. | Sí |
-| modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin |
+| modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | modules.{moduleId}.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica el manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 
 ## <a name="edgeagent-reported-properties"></a>Propiedades notificadas de EdgeAgent
@@ -67,14 +67,14 @@ Las propiedades notificadas del agente de IoT Edge incluyen tres fragmentos prin
 2. El estado de los módulos que se están ejecutando actualmente en el dispositivo, tal y como ha notificado el agente de IoT Edge.
 3. Una copia de las propiedades deseadas que se están ejecutando actualmente en el dispositivo.
 
-Este último fragmento de información, una copia de las propiedades deseadas actuales, es útil para indicar si el dispositivo ha aplicado las propiedades deseadas más recientes o todavía ejecuta el manifiesto de una implementación anterior.
+La copia de las propiedades deseadas actuales es útil para indicar si el dispositivo ha aplicado la implementación más reciente o sigue ejecutando un manifiesto de implementación anterior.
 
 > [!NOTE]
 > Las propiedades notificadas del agente de IoT Edge resultan útiles porque pueden consultarse con el [lenguaje de consultas de IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) para investigar a escala el estado de las implementaciones. Para más información sobre cómo usar las propiedades del agente de IoT Edge para ver el estado, consulte [Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
 
 La tabla siguiente no incluye la información que se copia de las propiedades deseadas.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | -------- | ----------- |
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el agente de IoT Edge. |
 | lastDesiredStatus.code | Este código de estado hace referencia a las últimas propiedades que ha procesado el agente de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida), `412` (versión de esquema no válido), `417` (las propiedades deseadas están vacías) y `500` (error) |
@@ -102,9 +102,9 @@ La tabla siguiente no incluye la información que se copia de las propiedades de
 
 ## <a name="edgehub-desired-properties"></a>Propiedades deseadas de EdgeHub
 
-El módulo gemelo del centro de IoT Edge se denomina `$edgeHub` y coordina las comunicaciones entre el centro de IoT Edge que se ejecuta en un dispositivo y en IoT Hub. Las propiedades deseadas se establecen al aplicar un manifiesto de implementación en un dispositivo específico como parte de la implementación de un solo dispositivo o a escala. 
+El módulo gemelo del centro de IoT Edge se denomina `$edgeHub` y coordina las comunicaciones entre el centro de IoT Edge que se ejecuta en un dispositivo y en IoT Hub. Las propiedades deseadas se establecen al aplicar un manifiesto de implementación en un dispositivo específico como parte de la implementación de un solo dispositivo o a escala.
 
-| Propiedad | DESCRIPCIÓN | Requerida en el manifiesto de implementación |
+| Propiedad | Descripción | Requerida en el manifiesto de implementación |
 | -------- | ----------- | -------- |
 | schemaVersion | Debe ser "1.0". | Sí |
 | routes.{routeName} | Una cadena que representa una ruta del centro de IoT Edge. Para obtener más información, vea [Declaración de rutas](module-composition.md#declare-routes). | El elemento `routes` puede estar presente, pero vacío. |
@@ -112,7 +112,7 @@ El módulo gemelo del centro de IoT Edge se denomina `$edgeHub` y coordina las c
 
 ## <a name="edgehub-reported-properties"></a>Propiedades notificadas de EdgeHub
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | -------- | ----------- |
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el centro de IoT Edge. |
 | lastDesiredStatus.code | El código de estado hace referencia a las últimas propiedades que ha procesado el centro de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error) |

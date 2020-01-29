@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6e5c1a1bfc82460ad7e53cc8444a4bb42aa4ef19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497699"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548397"
 ---
 # <a name="remove-duplicate-rows-module"></a>Módulo Supresión de filas duplicadas
 
@@ -24,11 +24,11 @@ Utilice este módulo para eliminar posibles duplicados de un conjunto de datos.
 
 Por ejemplo, supongamos tiene unos datos parecidos a los siguientes y que representan varios registros de pacientes. 
 
-| PatientID | Initials| Sexo|Edad|Admitido|
+| PatientID | Initials| Sexo|Age|Admitido|
 |----|----|----|----|----|
-|1|F.M.| M| 53| Ene|
-|2| F.A.M.| M| 53| Ene|
-|3| F.A.M.| M| 24| Ene|
+|1|F.M.| M| 53| Jan|
+|2| F.A.M.| M| 53| Jan|
+|3| F.A.M.| M| 24| Jan|
 |3| F.M.| M| 24| Feb|
 |4| F.M.| M| 23| Feb|
 | | F.M.| M| 23| |
@@ -71,7 +71,7 @@ Al ejecutar el módulo, este crea un conjunto de datos candidato y devuelve un c
 
 5. Ejecución de la canalización
 
-6. Para revisar los resultados, haga clic con el botón derecho en el módulo, seleccione **Conjunto de datos de resultados** y haga clic en **Visualizar**. 
+6. Para ver los resultados, haga clic con el botón derecho en el módulo y seleccione **Visualize** (Visualizar). 
 
 > [!TIP]
 > Si los resultados son difíciles de entender, o bien si desea excluir algunas columnas de la consideración, puede quitar las columnas mediante el módulo [Seleccionar columnas en conjunto de datos](./select-columns-in-dataset.md).

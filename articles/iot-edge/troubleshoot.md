@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912287"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514262"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -105,7 +105,7 @@ En Windows:
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Comprobación del archivo de configuración de YAML si no se está ejecutando el administrador de seguridad de IoT Edge
 
 > [!WARNING]
-> Los archivos de YAML no pueden contener tabulaciones como sangría. Utilice en su lugar dos espacios.
+> Los archivos de YAML no pueden contener tabulaciones como sangría. Utilice en su lugar dos espacios. Los elementos de nivel superior no deben tener espacios iniciales.
 
 En Linux:
 
@@ -121,7 +121,7 @@ En Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Comprobación de los registros del contenedor para detectar problemas
 
-Cuando el demonio de seguridad de IoT Edge se esté ejecutando, examine los registros de los contenedores para detectar problemas. Empiece por los contenedores implementados y, luego, examine los contenedores que componen el runtime de IoT Edge: edgeAgent y edgeHub. Los registros del agente de IoT Edge normalmente proporcionan información sobre el ciclo de vida de cada contenedor. Los registros del centro de IoT Edge proporcionan información sobre mensajería y enrutamiento. 
+Cuando el demonio de seguridad de IoT Edge se esté ejecutando, examine los registros de los contenedores para detectar problemas. Empiece por los contenedores implementados y, luego, examine los contenedores que componen el runtime de IoT Edge: edgeAgent y edgeHub. Los registros del agente de IoT Edge normalmente proporcionan información sobre el ciclo de vida de cada contenedor. Los registros del centro de IoT Edge proporcionan información sobre mensajería y enrutamiento.
 
    ```cmd
    iotedge logs <container name>
@@ -163,7 +163,7 @@ Reemplace `env: {}` por:
    ```
 
    > [!WARNING]
-   > Los archivos de YAML no pueden contener tabulaciones como sangría. Utilice en su lugar dos espacios.
+   > Los archivos de YAML no pueden contener tabulaciones como sangría. Utilice en su lugar dos espacios. Los elementos de nivel superior no pueden tener espacios en blanco iniciales.
 
 Guarde el archivo y reinicie el administrador de seguridad de IoT Edge.
 
@@ -435,6 +435,6 @@ Asegúrese de establecerlo también para los módulos *edgeAgent* y *edgeHub*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-¿Cree que encontró un error en la plataforma de IoT Edge? [Envíe un problema](https://github.com/Azure/iotedge/issues) para que podamos seguir mejorando. 
+¿Cree que encontró un error en la plataforma de IoT Edge? [Envíe un problema](https://github.com/Azure/iotedge/issues) para que podamos seguir mejorando.
 
 Si tiene más preguntas, cree una [solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support) para obtener ayuda.

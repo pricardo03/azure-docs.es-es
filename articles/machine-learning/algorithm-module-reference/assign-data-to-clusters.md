@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ac99b95e3cece09c5bdeb0986a11a999603707e6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214555"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548533"
 ---
 # <a name="module-assign-data-to-clusters"></a>Módulo: Asignación de datos a clústeres
 
@@ -47,5 +47,5 @@ El módulo Asignación de datos a clústeres devuelve un conjunto de datos que c
   
 ### <a name="results"></a>Results
 
-+  Para ver los valores del conjunto de datos, haga clic con el botón derecho en el módulo, seleccione **Result datasets** (Conjuntos de datos del resultado) y, después, **Visualizar**.
++  Para ver los valores del conjunto de datos, haga clic con el botón derecho en el módulo y seleccione **Visualize** (Visualizar). O bien, seleccione el módulo y cambie a la pestaña **Outputs** (Salidas) del panel derecho, haga clic en el icono de histograma de **Port outputs** (Salidas de puerto) para visualizar el resultado.
 

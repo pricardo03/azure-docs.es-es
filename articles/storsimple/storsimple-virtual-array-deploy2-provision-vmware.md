@@ -1,26 +1,19 @@
 ---
-title: Aprovisionamiento de StorSimple Virtual Array en VMware | Microsoft Docs
+title: Aprovisionamiento de la matriz virtual de StorSimple en VMware
 description: En este segundo tutorial de la serie de implementación de matrices virtuales de StorSimple, se trata el aprovisionamiento de un dispositivo virtual en VMware.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab5ad8acc5d0769a19a4022c55e0461e7ce42762
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516825"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76272090"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -158,7 +151,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 26. En la página **Advanced Options** (Opciones avanzadas), acepte el valor predeterminado y haga clic en **Next** (Siguiente).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
-27. En la página **Listo para completarse** , revise toda la configuración asociada a la nueva máquina virtual. Marque **Editar la configuración de la máquina virtual antes de completarse**. Haga clic en **Continue**.
+27. En la página **Listo para completarse** , revise toda la configuración asociada a la nueva máquina virtual. Marque **Editar la configuración de la máquina virtual antes de completarse**. Haga clic en **Continuar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
 28. En la página **Virtual Machines Properties** (Propiedades de las máquinas virtuales), en la pestaña **Hardware**, busque el hardware del dispositivo. Seleccione **Nuevo disco duro**. Haga clic en **Agregar**.

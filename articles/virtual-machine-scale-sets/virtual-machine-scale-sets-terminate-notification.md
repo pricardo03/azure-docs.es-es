@@ -1,26 +1,18 @@
 ---
-title: Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure | Microsoft Docs
+title: Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
 description: Aprenda a habilitar la notificación de finalización para las instancias de conjunto de escalado de máquinas virtuales de Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705919"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271751"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure (versión preliminar)
 Las instancias de conjunto de escalado pueden optar por recibir notificaciones de finalización de instancias y establecer un tiempo de espera de retraso predefinido para la operación de finalización. La notificación de finalización se envía mediante Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), que proporciona notificaciones y retrasa las operaciones importantes, como reinicios o reimplementaciones. La versión preliminar de la solución agrega otro evento, Terminate, a la lista de Scheduled Events, y el retraso asociado de este evento dependerá del límite del retraso especificado por los usuarios en su configuración del modelo del conjunto de escalado.
@@ -152,7 +144,7 @@ Asegúrese de que todas las máquinas virtuales del conjunto de escalado solo ap
 
 También puede hacer referencia a los scripts de ejemplo para consultar y responder a eventos mediante [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) y [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
-## <a name="tips-and-best-practices"></a>Sugerencias y procedimientos recomendados
+## <a name="tips-and-best-practices"></a>Sugerencias y prácticas recomendadas
 -   Notificaciones de finalización solo en operaciones "de eliminación": todas las operaciones de eliminación (eliminación manual o reducción horizontal iniciada mediante escalabilidad automática) generará eventos de finalización si el conjunto de escalado tiene *scheduledEventsProfile* habilitado. Otras operaciones como reiniciar, restablecer la imagen inicial, volver a implementar y detener/desasignar no generan eventos de finalización. Las notificaciones de finalización no se pueden habilitar para máquinas virtuales de prioridad baja.
 -   No hay esperas obligatorias para el tiempo de espera: puede iniciar la operación de finalización en cualquier momento después de que se haya recibido el evento y antes de que expire el tiempo especificado en *NotBefore* en la configuración de este.
 -   Eliminación obligatoria en tiempo de espera: la versión preliminar no proporciona ninguna funcionalidad para ampliar el valor del tiempo de espera una vez que se ha generado un evento. Una vez que expire el tiempo de espera, se procesará el evento de finalización pendiente y se eliminará la máquina virtual.

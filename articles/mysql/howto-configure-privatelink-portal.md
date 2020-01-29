@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 1c721685e12c417116888ccc3cf8d25123761933
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fa8bc56376704b96f5ddee09db7b09e28f10a936
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978623"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281247"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL (versión preliminar) mediante el portal
 
@@ -165,7 +165,7 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     | Subnet | Seleccione  *mySubnet*. |
     |**INTEGRACIÓN DE DNS PRIVADO**||
     |Integración con una zona DNS privada |Seleccione **Sí**. |
-    |Zona DNS privada |Seleccione *(New)privatelink.database.azure.com*. |
+    |Zona DNS privada |Seleccione *(New)privatelink.mysql.database.azure.com* |
     |||
 
 1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
@@ -203,14 +203,14 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 1. En el Escritorio remoto de  *myVm*, abra PowerShell.
 
-2. Escriba  `nslookup  myServer.mysql.privatelink.database.azure.com`. 
+2. Escriba  `nslookup  myServer.privatelink.mysql.database.azure.com`. 
 
     Recibirá un mensaje similar a este:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    myServer.mysql.privatelink.database.azure.com
+    Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -220,7 +220,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **MySQL**.|
-    | Server name| Select *myServer.mysql.privatelink.database.azure.com* |
+    | Server name| Select *myServer.privatelink.mysql.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the MySQL server creation. |
     |Password |Enter a password provided during the MySQL server creation. |
     |SSL|Select **Required**.|

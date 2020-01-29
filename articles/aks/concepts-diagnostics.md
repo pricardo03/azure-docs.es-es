@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 69ae6766414dbe533500860b01852ee8d25c3a1e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510617"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291386"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Introducción a los diagnósticos de Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Para acceder a AKS Diagnostics:
 
 - Vaya a su clúster de Kubernetes en [Azure Portal](https://portal.azure.com).
 - En el panel izquierdo, haga clic en **Diagnosticar y solucionar problemas**, lo que abrirá AKS Diagnostics.
-- Elija la categoría que describa mejor el problema del clúster con las palabras clave del icono de la página principal O escriba una palabra clave que describa mejor su problema en la barra de búsqueda, por ejemplo _problemas del nodo de clúster_.
+- Elija la categoría que describa mejor el problema del clúster con las palabras clave del icono de la página principal o escriba una palabra clave que describa mejor su problema en la barra de búsqueda, por ejemplo, _Problemas del nodo de clúster_.
 
 ![Página principal](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 

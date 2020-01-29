@@ -1,26 +1,18 @@
 ---
-title: Administración de dominios de error en conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
+title: Administración de dominios de error en conjuntos de escalado de máquinas virtuales de Azure
 description: Obtenga información sobre cómo elegir el número correcto de dominios de error al crear un conjunto de escalado de máquinas virtuales.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: rajsqr
-manager: drewm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: drewm
-ms.openlocfilehash: d6207a1a77ff00ff36fe6b3b748c3f8f7279b62d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 297837354cea4bb5ccdcc03261810dcffd144243
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639960"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275723"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Elección del número correcto de dominios de error para el conjunto de escalado de máquinas virtuales
 Los conjuntos de escalado de máquinas virtuales se crean con cinco dominios de error de forma predeterminada en las regiones de Azure sin zonas. Para las regiones que admiten la implementación con zonas de conjuntos de escalado de máquinas virtuales y con esta opción seleccionada, el valor predeterminado del número de dominios de error es 1 para cada una de las zonas. FD=1 en este caso implica que las instancias de VM que pertenecen al conjunto de escalado se distribuirán entre varios bastidores en función del mejor esfuerzo.
@@ -30,7 +22,7 @@ También puede considerar la alineación del número de dominios de error del co
 ## <a name="rest-api"></a>API DE REST
 Puede establecer la propiedad `properties.platformFaultDomainCount` en 1, 2 o 3 (el valor predeterminado es 5 si no se especifica). Consulte la documentación de la API REST [aquí](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 Puede establecer el parámetro `--platform-fault-domain-count` en 1, 2 o 3 (el valor predeterminado es 5 si no se especifica). Consulte la documentación de la CLI de Azure [aquí](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
 
 ```azurecli-interactive

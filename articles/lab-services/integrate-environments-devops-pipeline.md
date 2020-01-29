@@ -1,5 +1,5 @@
 ---
-title: Integración de entornos en Azure Pipelines en Azure DevTest Labs | Microsoft Docs
+title: Integración de entornos en Azure Pipelines en Azure DevTest Labs
 description: Aprenda a integrar entornos de Azure DevTest Labs en las canalizaciones de integración continua (CI) y entrega continua (CD) de Azure DevOps.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3d7e481879326ac30093bd116222bddc28640398
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163917"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169420"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integración de entornos en las canalizaciones CI/CD de Azure DevOps
 Puede usar la extensión Azure DevTest Labs Tasks que se instala en Azure DevOps Services (anteriormente conocido como Visual Studio Team Services) para integrar fácilmente la canalización de compilación y versión de integración continua (CI) y entrega continua (CD) con Azure DevTest Labs. Estas extensiones permiten que sea más fácil implementar rápidamente un [entorno](devtest-lab-test-env.md) para una determinada tarea de prueba y, luego, eliminarlo cuando finalice la prueba. 
@@ -35,7 +35,7 @@ En esta sección se describe cómo crear y configurar un laboratorio donde se va
 
 1. [Cree un laboratorio](devtest-lab-create-lab.md) si aún no tiene uno. 
 2. Configure el laboratorio y cree una plantilla de entorno mediante las instrucciones de este artículo: [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
-3. En este ejemplo, use una plantilla de inicio rápido de Azure existente [ https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/ ](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
+3. En este ejemplo, use una plantilla de inicio rápido de Azure existente [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
 4. Copie la carpeta **201-web-app-redis-cache-sql-database** en la carpeta **ArmTemplate** en el repositorio configurado en el paso 2.
 
 ## <a name="create-a-release-definition"></a>Creación de una definición de versión
@@ -77,7 +77,7 @@ En la definición de versión, seleccione **Agregar tareas** y, luego, en la pes
 2. Escriba un nombre para la definición de versión y, a continuación, guárdelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes: 
+Vea los artículos siguientes: 
 - [Creación de entornos de varias máquinas virtuales con plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md)
 - Plantillas de inicio rápido de Resource Manager para la automatización de DevTest Labs desde el [repositorio de GitHub de DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
 - [Página de solución de problemas de VSTS](/azure/devops/pipelines/troubleshooting)

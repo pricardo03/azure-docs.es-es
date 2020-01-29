@@ -1,6 +1,6 @@
 ---
-title: 'Azure Notification Hubs: Preguntas más frecuentes (P+F) | Microsoft Docs'
-description: Preguntas más frecuentes sobre el diseño y la implementación de soluciones en Notification Hubs
+title: Preguntas frecuentes acerca de Azure Notification Hubs | Microsoft Docs
+description: Preguntas frecuentes sobre el diseño y la implementación de soluciones en Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066871"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263836"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
 

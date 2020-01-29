@@ -1,6 +1,6 @@
 ---
 title: Introducción a las API de Node para Azure Relay | Microsoft Docs
-description: Introducción a las API de Node para Relay
+description: En este artículo se proporciona información general sobre la API de Node.js para el servicio Azure Relay. También se muestra cómo usar el paquete de Node hyco-ws.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699395"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514517"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Introducción a las API de Node para conexiones híbridas de Relay
 
@@ -135,7 +135,7 @@ Argumentos del constructor:
 
 Las instancias de `RelayedServer` emiten tres eventos que permiten controlar las solicitudes entrantes, establecer conexiones y detectar condiciones de error. Debe suscribirse al evento `connect` para controlar los mensajes. 
 
-##### <a name="headers"></a>encabezados
+##### <a name="headers"></a>headers
 
 ```JavaScript 
 function(headers)
@@ -143,7 +143,7 @@ function(headers)
 
 El evento `headers` se genera inmediatamente antes de que se acepte una conexión entrante, lo que permite que se modifiquen los encabezados que se envían al cliente. 
 
-##### <a name="connection"></a>connection
+##### <a name="connection"></a>conexión
 
 ```JavaScript
 function(socket)

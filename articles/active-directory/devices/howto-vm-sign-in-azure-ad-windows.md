@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561157"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293460"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -49,6 +49,9 @@ La versión preliminar de esta característica actualmente admite estas distribu
 - Windows Server 2019 Datacenter
 - Windows 10 1809 y versiones posteriores
 
+> [!IMPORTANT]
+> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están unidos a Azure AD o a Azure AD en entornos híbridos al **mismo** directorio que la VM. 
+
 La versión preliminar de esta característica actualmente admite estas regiones de Azure:
 
 - Todas las regiones globales de Azure
@@ -60,10 +63,10 @@ La versión preliminar de esta característica actualmente admite estas regiones
 
 Para habilitar la autenticación de Azure AD para las VM Windows en Azure, debe asegurarse de que la configuración de red de las VM permita el acceso de salida a los siguientes puntos de conexión a través del puerto TCP 443:
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
-- https://pas.windows.net
+- https:\//enterpriseregistration.windows.net
+- https:\//login.microsoftonline.com
+- https:\//device.login.microsoftonline.com
+- https:\//pas.windows.net
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitar el inicio de sesión de Azure AD en VM Windows en Azure
 
@@ -163,7 +166,7 @@ Para configurar las asignaciones de roles para las VM de Windows Server 2019 Dat
 1. Seleccione **Control de acceso (IAM)** en las opciones de menú
 1. Seleccione **Agregar**, **Agregar asignación de rol** para abrir el panel Agregar asignación de rol.
 1. En la lista desplegable **Rol**, seleccione un rol, como **Inicio de sesión de administrador de máquina virtual** o **Inicio de sesión de usuario de máquina virtual**.
-1. En la lista **Seleccionar**, seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
+1. En la lista **Seleccionar**, seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
 1. Seleccione **Guardar** para asignar el rol.
 
 Transcurridos unos instantes, se asigna el rol a la entidad de seguridad en el ámbito seleccionado.
@@ -236,24 +239,24 @@ Para que la VM complete el proceso de unión a Azure AD, la extensión AADLoginF
 
    | Comando para ejecutar | Salida prevista |
    | --- | --- |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Información correcta sobre la VM de Azure |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | Id. de inquilino válido asociado con la suscripción a Azure |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | Token de acceso válido que emite Azure Active Directory para la identidad administrada asignada a esta VM |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Información correcta sobre la VM de Azure |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Id. de inquilino válido asociado con la suscripción a Azure |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Token de acceso válido que emite Azure Active Directory para la identidad administrada asignada a esta VM |
 
    > [!NOTE]
    > El token de acceso se puede descodificar mediante una herramienta, como [http://calebb.net/](http://calebb.net/). Compruebe que el objeto "appid" del token de acceso coincide con la identidad administrada asignada a la VM.
 
 1. Asegúrese de que los punto de conexión necesarios sean accesibles desde la VM. Para ello, use la siguiente línea de comandos:
    
-   - curl https://login.microsoftonline.com/ -D –
-   - curl https://login.microsoftonline.com/`<TenantID>` / -D –
+   - curl https:\//login.microsoftonline.com/ -D –
+   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
 
    > [!NOTE]
    > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure.
 
-   - curl https://enterpriseregistration.windows.net/ -D -
-   - curl https://device.login.microsoftonline.com/ -D -
-   - curl https://pas.windows.net/ -D -
+   - curl https:\//enterpriseregistration.windows.net/ -D -
+   - curl https:\//device.login.microsoftonline.com/ -D -
+   - curl https:\//pas.windows.net/ -D -
 
 1. El estado del dispositivo se puede ver al ejecutar `dsregcmd /status`. El objetivo es que el estado del dispositivo se muestre como `AzureAdJoined : YES`.
 
@@ -280,15 +283,15 @@ Este código de salida se convierte en DSREG_AUTOJOIN_DISC_FAILED porque la exte
 
 1. Compruebe que los punto de conexión necesarios son accesibles desde la VM. Para ello, use la siguiente línea de comandos:
 
-   - curl https://login.microsoftonline.com/ -D –
-   - curl https://login.microsoftonline.com/`<TenantID>` / -D –
+   - curl https:\//login.microsoftonline.com/ -D –
+   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
    
    > [!NOTE]
    > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure. Si necesita buscar el id. de inquilino, puede mantener el mouse sobre el nombre de la cuenta para obtener el id. de directorio o inquilino, o bien seleccionar Azure Active Directory > Propiedades > Id. de directorio en Azure Portal.
 
-   - curl https://enterpriseregistration.windows.net/ -D -
-   - curl https://device.login.microsoftonline.com/ -D -
-   - curl https://pas.windows.net/ -D -
+   - curl https:\//enterpriseregistration.windows.net/ -D -
+   - curl https:\//device.login.microsoftonline.com/ -D -
+   - curl https:\//pas.windows.net/ -D -
 
 1. Si en cualquiera de los comandos se produce el error "No se pudo resolver el host `<URL>`", intente ejecutar este comando para determinar el servidor DNS que la VM usa.
    

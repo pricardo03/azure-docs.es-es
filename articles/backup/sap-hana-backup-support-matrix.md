@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de SAP HANA
 description: En este artículo, obtendrá información sobre los escenarios admitidos y las limitaciones al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 0d847d2131a9a9c21fde14cae40a184de4195223
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a0a7c25ec718dcd6a903d2149a8b3930fb25941e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287486"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514306"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -39,7 +39,7 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **Implementaciones de HANA**       | SAP HANA en una sola máquina virtual de Azure: solo escalado vertical               | Escalado horizontal                                                    |
 | **Instancias de HANA**         | Una sola instancia de SAP HANA en una sola máquina virtual de Azure: solo escalado vertical | Varias instancias de SAP HANA en una sola máquina virtual                  |
 | **Tipos de base de datos HANA**    | Contenedor de base de datos única (SDC) en la versión 1.x, contenedor de varias bases de datos (MDC) en la versión 2.x | MDC en HANA 1.x                                              |
-| **Tamaño de base de datos de HANA**     | Copia de seguridad completa de 2 TB después de la compresión (serie M de 2 TB, 4 TB de RAM) |                                                              |
+| **Tamaño de base de datos de HANA**     | Tamaño de copia de seguridad completa de 2 TB según lo indicado por HANA |                                                              |
 | **Tipos de copia de seguridad**           | Copias de seguridad completas, diferenciales y de registros                           | Incrementales, instantáneas                                       |
 | **Tipos de restauración**          | Consulte la nota SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) para obtener información sobre los tipos de restauración admitidos |                                                              |
 | **Límites de copia de seguridad**          | Copias de seguridad completas de hasta 2 TB por instancia de SAP HANA  |                                                              |

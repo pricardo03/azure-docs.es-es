@@ -1,6 +1,6 @@
 ---
-title: Plantillas
-description: En este tema se explican las plantillas para los Centros de notificaciones de Azure.
+title: Plantillas de Azure Notification Hubs
+description: Aprenda a usar las plantillas de Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 54c53fee260062960d6bce9c1822971c935d88d1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212986"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263751"
 ---
 # <a name="templates"></a>Plantillas
 
@@ -133,14 +133,14 @@ Las plantillas se limitan a los formatos de documento XML o JSON. Además, solo 
 
 La tabla siguiente muestra el lenguaje que se permite en las plantillas:
 
-| Expresión       | DESCRIPCIÓN |
+| Expression       | Descripción |
 | ---------------- | --- |
 | $(prop)          | Referencia a una propiedad de evento con el nombre especificado. Los nombres de propiedad no distinguen mayúsculas de minúsculas. Esta expresión se resuelve en el valor de texto de la propiedad o en una cadena vacía, si la propiedad no está presente. |
 | $(prop, n)       | Igual que el caso anterior, pero el texto se recorta explícitamente en n caracteres, por ejemplo, $(title, 20) recorta el contenido de la propiedad title en 20 caracteres. |
 | .(prop, n)       | Igual que el caso anterior, pero se agregan tres puntos como sufijo al texto debido a que se recorta. El tamaño total de la cadena recortada y el sufijo no exceden los n caracteres. .(title, 20) con una propiedad de entrada de "Esta es la línea del título", con lo que queda como **Esta es la línea ...** |
 | %(prop)          | Similar a $(name), salvo en que la salida está codificada en URI. |
 | #(prop)          | Se usa en las plantillas JSON (por ejemplo, para plantillas de iOS y Android).<br><br>Esta función se comporta igual que $(prop) especificada anteriormente, salvo cuando se usa en plantillas de JSON (por ejemplo, plantillas de Apple). En este caso, si esta función no está entre “{‘,’}” (por ejemplo, ‘myJsonProperty’ : ‘#(name)’) y se evalúa en un número en formato JavaScript, por ejemplo, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, el JSON de salida es un número.<br><br>Por ejemplo, ‘badge : ‘#(name)’ se convierte en ‘badge’: 40 (y no ‘40‘). |
-| ‘texto’ o “texto” | Un literal. Los literales contienen texto arbitrario encerrado entre comillas simples o dobles. |
+| ‘texto’ o “texto” | Literal. Los literales contienen texto arbitrario encerrado entre comillas simples o dobles. |
 | expr1 + expr2    | El operador de concatenación que une dos expresiones en una sola cadena. |
 
 Las expresiones pueden estar en cualquiera de los formatos anteriores.
@@ -170,3 +170,7 @@ Como se explicó anteriormente, cuando se usa la concatenación, las expresiones
   </visual>
 </tile>
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Más información acerca de Azure Notification Hubs](notification-hubs-push-notification-overview.md)

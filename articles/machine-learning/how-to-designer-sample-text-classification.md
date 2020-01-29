@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771434"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311054"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Compile un clasificador para predecir la categoría de la empresa con el diseñador de Azure Machine Learning.
 
-**Ejemplo 7 del diseñador (versión preliminar)**
+**Ejemplo de diseñador 7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este ejemplo se muestra cómo usar los módulos de análisis de texto para compilar una canalización de clasificación de texto en el diseñador de Azure Machine Learning (versión preliminar).
+En este ejemplo se muestra cómo usar los módulos de análisis de texto para compilar una canalización de clasificación de texto en el diseñador de Azure Machine Learning.
 
 El objetivo de la clasificación de texto es asignar parte de un texto a una o varias clases o categorías predefinidas. El fragmento de texto puede ser un documento, un artículo de noticias, una consulta de búsqueda, un correo electrónico, un tweet, vales de soporte técnico, comentarios de cliente, reseñas de productos de usuario, etc. Entre las aplicaciones de clasificación de texto se incluye la categorización de artículos de periódicos y el contenido de las noticias en temas, la organización de páginas web en categorías jerárquicas, el filtrado de correo electrónico no deseado, el análisis de opiniones, la predicción de la intención del usuario a partir de las consultas de búsqueda, enrutamiento de las incidencias de soporte técnico y análisis de los comentarios de los clientes. 
 

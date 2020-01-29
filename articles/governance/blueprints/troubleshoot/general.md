@@ -1,18 +1,18 @@
 ---
 title: Solución de errores comunes
 description: Obtenga información acerca de cómo solucionar problemas al crear, asignar y eliminar planos técnicos, como infracciones de directivas y funciones de parámetros del plano técnico.
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982488"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157090"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
-Es posible que, al crear o asignar planos técnicos, se encuentre con errores. En este artículo se describen diversos errores que pueden producirse y cómo resolverlos.
+Es posible que, al crear, asignar o quitar planos técnicos, se tropiece con errores. En este artículo se describen diversos errores que pueden producirse y cómo resolverlos.
 
 ## <a name="finding-error-details"></a>Búsqueda de detalles del error
 
@@ -60,6 +60,22 @@ Pasar un parámetro de plano técnico que usa una función, como `[resourceGroup
 #### <a name="resolution"></a>Solución
 
 Para pasar una función como parámetro, escape la cadena completa con `[`, de modo que el parámetro de plano técnico sea similar a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que los planos técnicos traten el valor como una cadena al procesar el plano técnico. El plano técnico luego coloca la función en el artefacto para que pueda ser dinámico, según lo previsto. Para obtener más información, consulte [Sintaxis y expresiones de las plantillas de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+
+## <a name="delete-errors"></a>Eliminación de errores
+
+### <a name="assign-delete-timeout"></a>Escenario: Tiempo de espera de eliminación de asignaciones
+
+#### <a name="issue"></a>Problema
+
+No se ha completado la eliminación de una asignación de plano técnico.
+
+#### <a name="cause"></a>Causa
+
+Una asignación de plano técnico puede quedar atrapada en un estado no terminal cuando se elimina. Este estado se produce cuando los recursos creados por la asignación de plano técnico todavía están pendientes de eliminación o no devuelven un código de estado a Azure Blueprints.
+
+#### <a name="resolution"></a>Solución
+
+Las asignaciones de plano técnico en un estado no terminal se marcan automáticamente como **Error** después de un tiempo de espera de _6 horas_. Una vez que el tiempo de espera ha ajustado el estado de la asignación de plano técnico, se puede volver a intentar la eliminación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Implementación de Resource Manager y clásica
 description: Describe las diferencias entre el modelo de implementación del Administrador de recursos y el modelo de implementación clásica (o de administración del servicio).
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 8924861baf9890826fd0c42a043f9dcf5466180f
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 4d7f17dace81198724a62dcc665c8c31acbcf6de
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658056"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168845"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementación mediante Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos
 
@@ -19,12 +19,11 @@ En este artículo aprenderá sobre Azure Resource Manager y los modelos de imple
 
 Para simplificar la implementación y administración de recursos, Microsoft recomienda que utilice Resource Manager para los nuevos recursos. Si es posible, Microsoft recomienda que vuelva a implementar los recursos existentes a través de Resource Manager.
 
-Si no está familiarizado con Resource Manager, quizás quiera revisar primero la terminología definida en la [Información general de Azure Resource Manager](overview.md).
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Si no está familiarizado con Resource Manager, quizás quiera revisar primero la terminología definida en la [Introducción a Azure Resource Manager](overview.md).
 
 ## <a name="history-of-the-deployment-models"></a>Historia de los modelos de implementación
-Originalmente, Azure solo proporcionaba el modelo de implementación clásica. En este modelo, cada recurso existía de forma independiente; no había manera de agrupar los recursos relacionados. En su lugar, debía realizarse un seguimiento manual de los recursos que componían la solución o aplicación, y acordarse de administrarlos de manera coordinada. Para implementar una solución, había que crear cada recurso individualmente mediante el portal o crear un script que implementara todos los recursos en el orden correcto. Para eliminar una solución, tenía que eliminar cada recurso individualmente. No se podía aplicar ni actualizar fácilmente las directivas de control de acceso para los recursos relacionados. Por último, no podía aplicar etiquetas a los recursos para etiquetarlos con términos que le ayudaran a supervisar los recursos y administrar la facturación.
+
+Originalmente, Azure solo proporcionaba el modelo de implementación clásica. En este modelo, cada recurso existía de forma independiente; no había manera de agrupar los recursos relacionados. En su lugar, debía realizarse un seguimiento manual de los recursos que componían la solución o aplicación, y acordarse de administrarlos de manera coordinada. Para implementar una solución, había que crear cada recurso individualmente mediante el portal o crear un script que implementara todos los recursos en el orden correcto. Para eliminar una solución, tenía que eliminar cada recurso individualmente. No se podían aplicar ni actualizar fácilmente las directivas de control de acceso para los recursos relacionados. Por último, no podía aplicar etiquetas a los recursos para etiquetarlos con términos que le ayudaran a supervisar los recursos y administrar la facturación.
 
 En 2014, Azure presentó Resource Manager, que incorpora el concepto de un grupo de recursos. Un grupo de recursos es un contenedor para los recursos que comparten un ciclo de vida común. El modelo de implementación de Resource Manager ofrece varias ventajas:
 
@@ -35,7 +34,7 @@ En 2014, Azure presentó Resource Manager, que incorpora el concepto de un grupo
 * Puede usar la notación de objetos JavaScript (JSON) para definir la infraestructura de la solución. El archivo JSON se conoce como una plantilla de Resource Manager.
 * Puede definir las dependencias entre recursos de modo que se implementen en el orden correcto.
 
-Al agregarse el Administrador de recursos, todos los recursos se agregaron retroactivamente a los grupos de recursos predeterminados. Si ahora crea un recurso a través de la implementación clásica, el recurso se crea automáticamente dentro de un grupo de recursos predeterminado para el servicio, aunque no se especifique dicho grupo de recursos durante la implementación. Sin embargo, solo el hecho de existir dentro de un grupo de recursos no significa que el recurso se haya convertido al modelo del Administrador de recursos.
+Al agregarse el Administrador de recursos, todos los recursos se agregaron retroactivamente a los grupos de recursos predeterminados. Si ahora crea un recurso mediante la implementación clásica, el recurso se crea automáticamente dentro de un grupo de recursos predeterminado para el servicio, aunque no se especifique dicho grupo de recursos durante la implementación. Sin embargo, solo el hecho de existir dentro de un grupo de recursos no significa que el recurso se haya convertido al modelo de Resource Manager.
 
 ## <a name="understand-support-for-the-models"></a>Descripción de la compatibilidad para los modelos
 
@@ -45,7 +44,7 @@ Hay tres escenarios principales que se han de tener en cuenta:
 2. Las máquinas virtuales, las cuentas de almacenamiento y las redes virtuales son compatibles con Resource Manager y los modelos de implementación clásicos.
 3. Todos los demás servicios de Azure admiten Resource Manager.
 
-En el caso de las máquinas virtuales, las cuentas de almacenamiento y las redes virtuales, si el recurso se creó mediante la implementación clásica, debe continuar trabajando en él mediante las operaciones clásicas. Si la máquina virtual, la cuenta de almacenamiento o la red virtual se crearon con la implementación de Resource Manager, debe continuar usando operaciones de Resource Manager. Esta distinción puede resultar confusa cuando la suscripción contiene una combinación de los recursos creados mediante Resource Manager y la implementación clásica. Esta combinación de recursos puede crear resultados inesperados porque los recursos no son compatibles con las mismas operaciones.
+En el caso de las máquinas virtuales, las cuentas de almacenamiento y las redes virtuales, si el recurso se creó mediante la implementación clásica, debe continuar trabajando en él mediante las operaciones clásicas. Si la máquina virtual, la cuenta de almacenamiento o la red virtual se crearon con la implementación de Resource Manager, debe continuar usando operaciones de Resource Manager. Esta distinción puede resultar confusa cuando la suscripción contiene una combinación de los recursos creados mediante Resource Manager y la implementación clásica. Esta combinación de recursos puede crear resultados inesperados porque los recursos no admiten las mismas operaciones.
 
 En algunos casos, un comando de Resource Manager puede recuperar información sobre un recurso creado mediante la implementación clásica, o puede realizar tareas administrativas tales como mover un recurso clásico a otro grupo de recursos. Sin embargo, estos casos no deben dar la impresión de que el tipo es compatible con las operaciones de Resource Manager. Por ejemplo, supongamos que tiene un grupo de recursos que contiene una máquina virtual creada con la implementación clásica. Si ejecuta el siguiente comando de PowerShell para Resource Manager:
 
@@ -74,6 +73,7 @@ Get-AzVM -ResourceGroupName ExampleGroup
 Solo los recursos creados a través del Administrador de recursos son compatibles con las etiquetas. No puede aplicar etiquetas a los recursos clásicos.
 
 ## <a name="changes-for-compute-network-and-storage"></a>Cambios de proceso, red y almacenamiento
+
 En el siguiente diagrama se muestran los recursos de proceso, red y almacenamiento implementados a través de Resource Manager.
 
 ![Arquitectura de Resource Manager](./media/deployment-models/arm_arch3.png)
@@ -82,10 +82,10 @@ Tenga en cuenta las siguientes relaciones entre los recursos:
 
 * Todos los recursos existen dentro de un grupo de recursos.
 * La máquina virtual depende de una cuenta de almacenamiento específica definida en el proveedor de recursos de almacenamiento para almacenar sus discos en Blob Storage (obligatorio).
-* La máquina virtual hace referencia a una NIC específica definida en el proveedor de recursos de red (obligatorio) y un conjunto de disponibilidad definido en el proveedor de recursos de proceso (opcional).
-* La NIC hace referencia a la dirección IP asignada a la máquina virtual (obligatoria), la subred de la red virtual para la máquina virtual (obligatoria) y a un grupo de seguridad de red (opcional).
+* La máquina virtual hace referencia a una tarjeta de interfaz de red específica definida en el proveedor de recursos de red (obligatorio) y un conjunto de disponibilidad definido en el proveedor de recursos de proceso (opcional).
+* La tarjeta de interfaz de red hace referencia a la dirección IP asignada a la máquina virtual (obligatoria), la subred de la red virtual para la máquina virtual (obligatoria) y a un grupo de seguridad de red (opcional).
 * La subred dentro de una red virtual hace referencia a un grupo de seguridad de red (opcional).
-* La instancia de equilibrador de carga hace referencia al grupo de backend de direcciones IP que incluye la NIC de una máquina virtual (opcional) y hace referencia a una dirección IP pública o privada del equilibrador de carga (opcional).
+* La instancia de equilibrador de carga hace referencia al grupo de back-end de direcciones IP que incluye la tarjeta de interfaz de red de una máquina virtual (opcional) y hace referencia a una dirección IP pública o privada del equilibrador de carga (opcional).
 
 Aquí se encuentran los componentes y sus relaciones para la implementación clásica:
 
@@ -93,17 +93,17 @@ Aquí se encuentran los componentes y sus relaciones para la implementación cl�
 
 La solución clásica para hospedar una máquina virtual incluye:
 
-* Un servicio de nube requerido que actúa como contenedor para hospedar máquinas virtuales (cálculo). Las máquinas virtuales se proporcionan automáticamente con una tarjeta de interfaz de red (NIC) y una dirección IP asignada por Azure. Además, el servicio de nube contiene una instancia de equilibrador de carga externa, una dirección IP pública y extremos predeterminados para permitir un escritorio remoto y tráfico de PowerShell remoto para máquinas virtuales basadas en Windows y tráfico de Secure Shell (SSH) para máquinas virtuales basadas en Linux.
-* Una cuenta de almacenamiento necesaria que almacena discos duros virtuales para una máquina virtual, incluido el sistema operativo, los discos de datos temporales y adicionales (almacenamiento).
-* Una red virtual opcional que actúa como un contenedor adicional, en el que se puede crear una estructura de subredes y designar la subred en la que se encuentra la máquina virtual (red).
+* Un servicio de nube requerido que actúa como contenedor para hospedar máquinas virtuales (cálculo). Las máquinas virtuales se proporcionan automáticamente con una tarjeta de interfaz de red y una dirección IP asignada por Azure. Además, el servicio de nube contiene una instancia de equilibrador de carga externa, una dirección IP pública y extremos predeterminados para permitir un escritorio remoto y tráfico de PowerShell remoto para máquinas virtuales basadas en Windows y tráfico de Secure Shell (SSH) para máquinas virtuales basadas en Linux.
+* Una cuenta de almacenamiento necesaria que almacena los discos duros virtuales para una máquina virtual, incluido el sistema operativo y los discos de datos temporales y adicionales (almacenamiento).
+* Una red virtual opcional que actúa como un contenedor adicional, en el que se puede crear una estructura de subredes y elegir la subred en la que se encuentra la máquina virtual (red).
 
 En la siguiente tabla se describen los cambios en la interacción de los proveedores de recursos de Compute, Network y Storage:
 
 | Elemento | Clásico | Resource Manager |
 | --- | --- | --- |
 | Servicio en la nube para máquinas virtuales |El servicio en la nube es un contenedor para las máquinas virtuales que exige la disponibilidad de la plataforma y el equilibrio de carga. |El servicio en la nube ya no es un objeto necesario para crear una máquina virtual usando el nuevo modelo. |
-| Virtual Networks |Una red virtual es opcional para la máquina virtual. En caso de incluirse, la red virtual no puede implementarse con Resource Manager. |La máquina virtual requiere una red virtual que se ha implementado con Resource Manager. |
-| Cuentas de almacenamiento |La máquina virtual requiere una cuenta de almacenamiento que almacena los discos duros virtuales para los discos de datos del sistema operativo, temporales y adicionales. |La máquina virtual requiere una cuenta de almacenamiento para almacenar sus discos en Blob Storage. |
+| Virtual Networks |Una red virtual es opcional para la máquina virtual. En caso de incluirse, la red virtual no se puede implementar con Resource Manager. |La máquina virtual requiere una red virtual que se ha implementado con Resource Manager. |
+| Cuentas de almacenamiento |La máquina virtual requiere una cuenta de almacenamiento que almacena los discos duros virtuales para el sistema operativo, el almacenamiento temporal y los discos de datos adicionales. |La máquina virtual requiere una cuenta de almacenamiento para almacenar sus discos en Blob Storage. |
 | Conjuntos de disponibilidad |La disponibilidad en la plataforma se ha indicado mediante la configuración del mismo "AvailabilitySetName" en las máquinas virtuales. El número máximo de dominios con error era de 2. |Un conjunto de disponibilidad es un recurso expuesto por el proveedor de Microsoft.Compute. Las máquinas virtuales que requieren alta disponibilidad deben incluirse en el conjunto de disponibilidad. Ahora, el recuento máximo de dominios con error es de 3. |
 | Grupos de afinidad |Los grupos de afinidad eran necesarios para crear redes virtuales. Sin embargo, con la introducción de las redes virtuales regionales, ya no era necesario. |Para simplificar, no existe el concepto de grupos de afinidad en las API expuestas a través del Administrador de recursos de Azure. |
 | Equilibrio de carga |La creación de un servicio en la nube proporciona un equilibrador de carga implícito para las máquinas virtuales implementadas. |El equilibrador de carga es un recurso expuesto por el proveedor de Microsoft.Network. La interfaz de red principal de las máquinas virtuales cuya carga se debe equilibrar debe hacer referencia al equilibrador de carga. Los equilibradores de carga pueden ser internos o externos. Una instancia de equilibrador de carga hace referencia al grupo de backend de direcciones IP que incluye la NIC de una máquina virtual (opcional) y hace referencia a una dirección IP pública o privada del equilibrador de carga (opcional). |
@@ -117,6 +117,7 @@ En la siguiente tabla se describen los cambios en la interacción de los proveed
 Para obtener información sobre cómo conectar redes virtuales de diferentes modelos de implementación, consulte [Conexión a redes virtuales a partir de diferentes modelos de implementación del portal](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="migrate-from-classic-to-resource-manager"></a>Migración de implementaciones clásicas a Resource Manager
+
 Si está listo para migrar los recursos de la implementación clásica a la implementación de Resource Manager, consulte:
 
 1. [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
@@ -125,13 +126,14 @@ Si está listo para migrar los recursos de la implementación clásica a la impl
 4. [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](../../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
 **¿Puedo crear una máquina virtual mediante Resource Manager para implementar en una red virtual creada mediante la implementación clásica?**
 
-Esta configuración no es compatible. No se puede usar Resource Manager para implementar una máquina virtual en una red virtual que se creó con la implementación clásica.
+No se admite esta configuración. No se puede usar Resource Manager para implementar una máquina virtual en una red virtual que se creó con la implementación clásica.
 
 **¿Puedo crear una máquina virtual mediante Resource Manager desde una imagen de usuario que se creó utilizando el modelo de implementación clásico?**
 
-Esta configuración no es compatible. Sin embargo, puede copiar los archivos VHD de una cuenta de almacenamiento que se creó mediante el modelo de implementación clásico y agregarlos a una cuenta nueva creada mediante Resource Manager.
+No se admite esta configuración. Sin embargo, puede copiar los archivos de los discos duros virtuales de una cuenta de almacenamiento que se creó mediante el modelo de implementación clásico y agregarlos a una cuenta nueva creada mediante Resource Manager.
 
 **¿Cuál es el impacto en la cuota de mi suscripción?**
 

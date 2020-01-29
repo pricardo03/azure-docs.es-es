@@ -12,24 +12,27 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b0b22997c9b8fc95c89503f06a99e29653c8aead
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233209"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293290"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Administración de los dispositivos conectados a su cuenta profesional o educativa desde la página Dispositivos
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>Administración de los dispositivos conectados desde la página Dispositivos
 
-Desde la página **Dispositivos** del portal **Mi cuenta**, puede:
+La página **Dispositivos** del portal **Mi cuenta** le ayuda a administrar los dispositivos conectados a su cuenta profesional o educativa. En la página **Dispositivos** puede:
 
 - Vea los dispositivos conectados a la cuenta profesional o educativa.
 
 - Deshabilitar los dispositivos que ya no posea, que haya perdido o que hayan sido robados.
 
+>[!Important]
+>Este artículo está destinado a los usuarios que intentan actualizar la información del dispositivo conectada a una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de dispositivos para los empleados y otros usuarios, consulte [Documentación sobre identidades del dispositivo de Azure AD](https://docs.microsoft.com/azure/active-directory/devices/index).
+
 ## <a name="view-your-connected-devices"></a>Visualización de los dispositivos conectados
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página **Mi cuenta** (https://myprofile.microsoft.com/) ).
 
 2. Seleccione **Dispositivos** en el panel de navegación izquierdo o seleccione el vínculo **Administrar dispositivos** en el bloque **Dispositivos**.
 
@@ -73,3 +76,13 @@ Después de ver los dispositivos conectados, puede:
 - Ver la [actividad del inicio de sesión](my-account-portal-sign-ins-page.md).
 
 - Ver cómo se [usan los datos relacionados con la privacidad](my-account-portal-privacy-page.md) en la organización.
+
+## <a name="related-office-content"></a>Contenido de Office relacionado
+
+- [Iniciar sesión para administrar el producto de Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [Vaya a la página de Office **Mi cuenta**](https://portal.office.com/account/)
+
+- [Vaya a la página de Office **Mis instalaciones**](https://portal.office.com/account/#installs)
+
+- [Vaya a la página de Office **Suscripciones**](https://portal.office.com/account/#subscriptions)

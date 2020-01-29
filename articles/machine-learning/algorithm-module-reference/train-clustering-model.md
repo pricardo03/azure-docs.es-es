@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 57cf5bab2afe58ed802ef5ec03c316f1ebec6673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ea247af871b06bd21c2733272b3d938c536d16ec
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232592"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546459"
 ---
 # <a name="train-clustering-model"></a>Entrenamiento del modelo de agrupación en clústeres
 
@@ -49,10 +49,7 @@ El módulo toma un modelo de agrupación en clústeres no entrenado que ya ha co
 
 Una vez completado el entrenamiento:
 
-
-+  Para ver los valores del conjunto de datos, haga clic con el botón derecho en el módulo, seleccione **Result datasets** (Conjuntos de datos del resultado) y haga clic en **Visualizar**.
-
-+ Para guardar el modelo entrenado a fin de volver a usarlo más adelante, haga clic con el botón derecho en el módulo, seleccione **Modelo entrenado** y haga clic en **Guardar como modelo entrenado**.
++ Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho del módulo **Train model** (Entrenar modelo). Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar el modelo como un módulo reutilizable.
 
 + Para generar puntuaciones a partir del modelo, utilice [Asignación de datos a clústeres](assign-data-to-clusters.md).
 

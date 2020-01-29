@@ -12,29 +12,30 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1ab01f5427401bd129fa84f9a5dd1a4d3f8dc77d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231858"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156206"
 ---
-# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Administración de organizaciones conectadas a su cuenta profesional o educativa desde la página Organizaciones
+# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Administración de las organizaciones conectadas desde la página Organizaciones
 
-Puede administrar las organizaciones desde la página **Organizaciones** del portal **Mi cuenta**.
-
-Hay dos tipos de organizaciones que se muestran en la página **Organizaciones**:
+La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar las organizaciones (normalmente, el nombre de su organización) conectadas a su cuenta profesional o educativa. Hay dos tipos de organizaciones que se muestran en la página **Organizaciones**:
 
 - **Organización principal.** La organización principal es la organización propietaria de la cuenta profesional o educativa. No puede abandonar la organización principal.
-
-- **Otras organizaciones.** Las otras organizaciones son cualquier grupo en el que haya iniciado sesión anteriormente con la cuenta profesional o educativa. Puede salir de cualquiera de estas organizaciones en cualquier momento.
 
     >[!NOTE]
     > Si no tiene una organización principal asignada, solo verá un único título que dice Organizaciones con la lista de las organizaciones asociadas.
 
+- **Otras organizaciones.** Las otras organizaciones son cualquier grupo en el que haya iniciado sesión anteriormente con la cuenta profesional o educativa. Puede salir de cualquiera de estas organizaciones en cualquier momento.
+
+>[!Important]
+>Este artículo está destinado a los usuarios que intentan actualizar la información de la organización conectada a una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de grupos y usuarios para los empleados y otros usuarios, consulte [Documentación de la administración de usuarios empresariales (Azure AD)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+
 ## <a name="view-your-organizations"></a>Visualización de las organizaciones
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página **Mi cuenta** (https://myprofile.microsoft.com/) ).
 
 2. Seleccione **Organizaciones** en el panel de navegación izquierdo o seleccione el vínculo **Administrar organizaciones** en el bloque **Organizaciones**.
 
@@ -53,7 +54,7 @@ Puede salir de cualquier organización que no sea la organización principal.
 >[!Important]
 >Si sale de una organización por error, no hay forma de deshacerlo. Tendrá que esperar a que el administrador de la organización le vuelva a invitar.
 
-1. Seleccione **Salir de la organización** junto a la organización de la que quiera salir y, después, seleccione **Salir** para confirmar que quiere salir.
+- Seleccione **Salir de la organización** junto a la organización de la que quiera salir y, después, seleccione **Salir** para confirmar que quiere salir.
 
     ![Página Organizaciones con el vínculo Salir de la organización resaltado](media/my-account-portal/my-account-portal-organizations-leave.png)
 

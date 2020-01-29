@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 1a6fb12311fe4474f03c22c91d9b478220adf5d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c65e1f871fdab2c925f7a5e6747ad23fe8952d9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425528"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512783"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Consideraciones de diseño y opciones de configuración de redes virtuales para Azure AD Domain Services
 
-Dado que Azure Active Directory Domain Services (AD DS) proporciona servicios de autenticación y administración a otras aplicaciones y cargas de trabajo, la conectividad de red es un componente clave. Sin una configuración correcta de los recursos de red virtual, las aplicaciones y las cargas de trabajo no se pueden comunicar con Azure AD DS ni usar las características que proporciona. Si planea correctamente la red virtual, se asegurará de que Azure AD DS pueda servir a las aplicaciones y las cargas de trabajo según sea necesario.
+Dado que Azure Active Directory Domain Services (AD DS) proporciona servicios de autenticación y administración a otras aplicaciones y cargas de trabajo, la conectividad de red es un componente clave. Sin una configuración correcta de los recursos de red virtual, las aplicaciones y las cargas de trabajo no se pueden comunicar con Azure AD DS ni usar las características que proporciona. Planee los requisitos de la red virtual para asegurarse de que Azure AD DS pueda atender las aplicaciones y las cargas de trabajo según sea necesario.
 
 En este artículo se describen las consideraciones de diseño y los requisitos de las redes virtuales de Azure compatibles con Azure AD DS.
 
@@ -33,7 +33,7 @@ Al diseñar la red virtual para Azure AD DS, debe tener en cuenta las siguient
 * Azure AD DS debe implementarse en la misma región de Azure que la red virtual.
     * En este momento, solo se puede implementar un dominio administrado de Azure AD DS por inquilino de Azure AD. El dominio administrado de Azure AD DS se implementa en una sola región. Asegúrese de crear o seleccionar una red virtual en una [región que admita Azure AD DS](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all).
 * Tenga en cuenta la proximidad de otras regiones de Azure y de las redes virtuales que hospedan las cargas de trabajo de aplicaciones.
-    * Para minimizar la latencia, mantenga las aplicaciones principales cerca de la subred de la red virtual para el dominio administrado de Azure AD DS, o en la misma región que esta. Puede usar el emparejamiento de redes virtuales o conexiones de red privada virtual (VPN) entre las redes virtuales de Azure.
+    * Para minimizar la latencia, mantenga las aplicaciones principales cerca de la subred de la red virtual para el dominio administrado de Azure AD DS, o en la misma región que esta. Puede usar el emparejamiento de redes virtuales o conexiones de red privada virtual (VPN) entre las redes virtuales de Azure. Estas opciones de conexión se describen en una sección subsiguiente.
 * La red virtual no puede basarse en servicios DNS que no sean los que proporciona Azure AD DS.
     * Azure AD DS proporciona su propio servicio DNS. La red virtual debe estar configurada para usar las direcciones de este servicio DNS. La resolución de nombres para los espacios de nombres adicionales puede realizarse mediante reenviadores condicionales.
     * No se puede usar una configuración personalizada del servidor DNS para dirigir consultas de otros servidores DNS, incluidos los que se encuentran en máquinas virtuales. Los recursos de la red virtual deben usar el servicio DNS que proporciona Azure AD DS.
@@ -62,7 +62,7 @@ Puede conectar cargas de trabajo de aplicaciones hospedadas en otras redes virtu
 * Emparejamiento de redes virtuales de Azure
 * Red privada virtual (VPN)
 
-### <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales
+### <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
 el emparejamiento de red virtual es un mecanismo que conecta dos redes virtuales de la misma región mediante la red troncal de Azure. Con el emparejamiento global de redes virtuales, puede conectar redes virtuales entre regiones de Azure. Una vez emparejadas, las dos redes virtuales permiten que los recursos, como las máquinas virtuales, se comuniquen entre sí directamente mediante direcciones IP privadas. El uso del emparejamiento de redes virtuales permite implementar un dominio administrado de Azure AD DS con las cargas de trabajo de aplicaciones implementadas en otras redes virtuales.
 
@@ -70,7 +70,7 @@ el emparejamiento de red virtual es un mecanismo que conecta dos redes virtuales
 
 Para obtener más información, consulte [Emparejamiento de redes virtuales de Azure](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="virtual-private-networking"></a>Red privada virtual
+### <a name="virtual-private-networking-vpn"></a>Red privada virtual (VPN)
 
 Puede conectar una red virtual a otra (de red virtual a red virtual) de la misma manera en que se configura una red virtual en la ubicación de un sitio local. Ambas conexiones usan una puerta de enlace de VPN para crear un túnel seguro con IPsec/IKE. Este modelo de conexión permite implementar Azure AD DS en una red virtual de Azure y, después, conectar ubicaciones locales u otras nubes.
 
@@ -91,8 +91,8 @@ Durante la implementación, un dominio administrado de Azure AD DS crea alguno
 | Recurso de Azure                          | Descripción |
 |:----------------------------------------|:---|
 | Tarjeta de interfaz de red                  | Azure AD DS hospeda el dominio administrado en dos controladores de dominio que se ejecutan en Windows Server como máquinas virtuales de Azure. Cada máquina virtual tiene una interfaz de red virtual que se conecta a la subred de la red virtual. |
-| Dirección IP pública estándar dinámica         | Azure AD DS se comunica con el servicio de sincronización y administración mediante una dirección IP pública de SKU básica. Para obtener más información sobre las direcciones IP públicas, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
-| Azure Standard Load Balancer               | Azure AD DS usa un equilibrador de carga de SKU básica para la traducción de direcciones de red (NAT) y el equilibrio de carga (cuando se usa con LDAP seguro). Para obtener más información sobre los equilibradores de carga de Azure, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Dirección IP pública estándar dinámica      | Azure AD DS se comunica con el servicio de sincronización y administración mediante una dirección IP pública de SKU básica. Para obtener más información sobre las direcciones IP públicas, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Azure Standard Load Balancer            | Azure AD DS usa un equilibrador de carga de SKU básica para la traducción de direcciones de red (NAT) y el equilibrio de carga (cuando se usa con LDAP seguro). Para obtener más información sobre los equilibradores de carga de Azure, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Reglas de traducción de direcciones de red (NAT) | Azure AD DS crea y usa tres reglas NAT en el equilibrador de carga: una para el tráfico HTTP seguro y dos para proteger la comunicación remota de PowerShell. |
 | Reglas de equilibrador de carga                     | Cuando se configura un dominio administrado de Azure AD DS para LDAP seguro en el puerto TCP 636, se crean tres reglas que se usan en un equilibrador de carga para distribuir el tráfico. |
 
@@ -160,7 +160,3 @@ Para obtener más información sobre algunos de los recursos de red y las opcion
 * [Emparejamiento de Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md)
 * [Puertas de enlace de VPN de Azure](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
 * [Grupos de seguridad de red de Azure](../virtual-network/security-overview.md)
-
-<!-- INTERNAL LINKS -->
-
-<!-- EXTERNAL LINKS -->

@@ -1,5 +1,5 @@
 ---
-title: Nubes y regiones donde Azure Media Services v3 está disponible | Microsoft Docs
+title: Nubes y regiones en las que Azure Media Services v3 está disponible
 description: En este artículo se trata sobre las nubes y regiones de Azure donde Azure Media Services v3 está disponible.
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58b5b749e81aab4d8563d09cbfd139629520531c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409280"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310581"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nubes y regiones donde existe Azure Media Services v3
 
@@ -24,7 +24,7 @@ Azure Media Services v3 está disponible a través del manifiesto de Azure Resou
 
 ## <a name="feature-availability-in-azure-clouds"></a>Disponibilidad de características en las nubes de Azure
 
-| Característica|Regiones de Azure global | Azure Government|Azure Alemania|Azure China 21Vianet|
+| Característica|con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | [Azure EventGrid](reacting-to-media-services-events.md) | Disponible | No disponible | No disponible | No disponible |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponible | No disponible | No disponible | No disponible |
@@ -96,7 +96,7 @@ Es importante conocer los siguientes puntos de conexión al conectarse a cuentas
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Público del token |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/)

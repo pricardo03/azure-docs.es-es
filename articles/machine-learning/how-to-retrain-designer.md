@@ -1,7 +1,7 @@
 ---
-title: Volver a entrenar modelos mediante el diseñador de Azure Machine Learning (versión preliminar)
+title: Nuevo entrenamiento de modelos mediante el diseñador de Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo volver a entrenar modelos con canalizaciones publicadas en el diseñador de Azure Machine Learning (versión preliminar).
+description: Aprenda a volver a entrenar modelos con canalizaciones publicadas en el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 12/15/2019
-ms.openlocfilehash: 734acd712eb954e66a9c0b037d10b7b1fd626c6a
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732168"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311876"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning (versión preliminar)
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En esta guía paso a paso, aprenderá a usar el diseñador de Azure Machine Learning para volver a entrenar un modelo de aprendizaje automático. Descubra cómo usar las canalizaciones publicadas para automatizar los flujos de trabajo de aprendizaje automático para volver a entrenar.

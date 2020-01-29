@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763171"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314732"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -168,9 +168,26 @@ En todos estos casos, consulte [Tipos de datos admitidos](https://docs.microsoft
 
 <a name="could-not-process-document-within-indexer-max-run-time"/>
 
+## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Error: No se puede usar la directiva de seguimiento de cambios integrada porque la tabla tiene una clave principal compuesta.
+
+Esto se aplica a tablas SQL y suele ocurrir cuando la clave se define como una clave compuesta o cuando la tabla ha definido un índice agrupado único (como en un índice de SQL, no un índice de Azure Search). La razón principal es que el atributo clave se ha modificado para que sea una clave principal compuesta en el caso de un [índice agrupado único](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). En ese caso, asegúrese de que la tabla SQL no tenga un índice agrupado único o de que asigna el campo de clave a un campo del que se garantiza que no tiene valores duplicados.
+
+
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Error: No se pudo procesar el documento en el tiempo de ejecución máximo del indexador
 
 Este error se produce cuando el indexador no puede finalizar el procesamiento de un único documento desde el origen de datos en el tiempo de ejecución permitido. El [tiempo de ejecución máximo](search-limits-quotas-capacity.md#indexer-limits) es más corto cuando se usan conjuntos de aptitudes. Cuando se produce este error, si tiene maxFailedItems establecido en un valor distinto de 0, el indexador omite el documento en futuras ejecuciones para que la indexación pueda continuar. Si no puede permitirse omitir ningún documento, o si ve este error sistemáticamente, podría dividir los documentos en otros más pequeños para que se pueda avanzar parcialmente dentro de una única ejecución del indexador.
+
+<a name="could-not-project-document"/>
+
+## <a name="error-could-not-project-document"></a>Error: No se pudo proyectar el documento
+
+Este error se produce cuando el indexador está intentando [proyectar datos en un almacén de conocimiento](knowledge-store-projection-overview.md) y se genera un error al hacerlo.  Este error puede ser constante y necesitar corrección, o puede ser un error transitorio del receptor de salida de la proyección. En este último caso, puede que tenga que esperar y volver a intentarlo para que se resuelva.  A continuación se muestra un conjunto de estados de error conocidos y posibles soluciones.
+
+| Motivo | Detalles/ejemplo | Solución |
+| --- | --- | --- |
+| No se pudo actualizar el BLOB de proyección `'blobUri'` en el contenedor `'containerName'` |El contenedor especificado no existe. | El indexador comprobará si el contenedor especificado se ha creado previamente y lo creará si es necesario, pero solo realizará esta comprobación una vez por cada ejecución de indexador. Este error significa que algo eliminó el contenedor después de este paso.  Para resolver este error, pruebe esto: deje solo la información de la cuenta de almacenamiento, espere a que finalice el indexador y vuelva a ejecutarlo. |
+| No se pudo actualizar el BLOB de proyección `'blobUri'` en el contenedor `'containerName'` |No se pueden escribir los datos en la conexión de transporte: El host remoto forzó el cierre de la conexión existente. | Se considera que este es un error transitorio con Azure Storage y que, por tanto, para resolverlo debe volver a ejecutar el indexador. Si se produce este error de forma constante, registre una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para que se pueda investigar en profundidad.  |
+| No se pudo actualizar la fila `'projectionRow'` de la tabla `'tableName'` | El servidor está ocupado. | Se considera que este es un error transitorio con Azure Storage y que, por tanto, para resolverlo debe volver a ejecutar el indexador. Si se produce este error de forma constante, registre una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para que se pueda investigar en profundidad.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 

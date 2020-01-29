@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892582"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294004"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -36,7 +36,7 @@ Al intentar realizar una copia de seguridad, si selecciono una cuenta de almacen
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>¿Puedo cambiar el almacén en el que hago la copia de seguridad de mis recursos compartidos de archivos?
 
-Sí. Sin embargo, deberá [detener la protección](backup-azure-files.md#stop-protecting-an-azure-file-share) desde el almacén conectado, y [anular el registro](troubleshoot-azure-files.md#configuring-backup) de esta cuenta de almacenamiento y, a continuación, protegerla desde un almacén distinto.
+Sí. Sin embargo, deberá [detener la protección en un recurso compartido de archivos](manage-afs-backup.md#stop-protection-on-a-file-share) desde el almacén conectado, [anular el registro](troubleshoot-azure-files.md#configuring-backup) de esta cuenta de almacenamiento y protegerla desde un almacén distinto.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>¿En qué zonas geográficas se puede realizar una copia de seguridad de los recursos compartidos de archivos de Azure?
 

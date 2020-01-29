@@ -4,14 +4,14 @@ description: Cómo agregar un sistema de almacenamiento back-end a Avere vFXT pa
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 3f7d7b5091b6439f17455b5ea66a3a23ebf79811
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416470"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153996"
 ---
 # <a name="configure-storage"></a>Configuración del almacenamiento
 
@@ -32,7 +32,7 @@ Tenga en cuenta que en estos pasos usará el panel de control de Avere. Lea [Acc
 
 ## <a name="create-a-core-filer"></a>Crear un archivador principal
 
-Un "Archivador principal" es un término de vFXT que hace referencia a un sistema de almacenamiento de back-end. El almacenamiento puede ser un dispositivo NAS de hardware como NetApp o Isilon, o puede ser un almacén de objetos en la nube. Puede encontrar más información sobre los archivadores principales en la [guía de configuración de clústeres de Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+"Archivo principal" es un término de vFXT que hace referencia a un sistema de almacenamiento de back-end. El almacenamiento puede ser un dispositivo NAS de hardware como NetApp o Isilon, o puede ser un almacén de objetos en la nube. Puede encontrar más información sobre los archivadores principales en la [guía de configuración de clústeres de Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Para agregar un archivador principal, elija uno de los dos tipos principales que tiene disponibles:
 
@@ -69,7 +69,7 @@ A continuación, [cree una unión](#create-a-junction).
 
 ### <a name="azure-blob-storage-cloud-core-filer"></a>Archivador principal en la nube de Azure Blob Storage
 
-Para usar Azure Blob Storage como almacenamiento de back-end del clúster de vFXT, debe tener un contenedor vacío para poder agregarlo como archivador principal.
+Para poder usar Azure Blob Storage como almacenamiento de back-end en el clúster de vFXT, necesita un contenedor vacío que pueda agregar como archivo central.
 
 Para poder agregar Blob Storage al clúster debe realizar estas tareas:
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931900"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513565"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -20,7 +20,7 @@ Al configurar la recuperación ante desastres para máquinas virtuales VMware y 
 
 - [Instalación de inserción](#push-installation): Site Recovery instala el agente de movilidad en el servidor al habilitarse la protección a través de Azure Portal.
 - Instalación manual: puede instalar Mobility Service manualmente en cada máquina a través de la [interfaz de usuario](#install-mobility-agent-through-ui) o el [símbolo del sistema](#install-mobility-agent-through-command-prompt).
-- [Implementación automatizada](vmware-azure-mobility-install-configuration-mgr.md): puede automatizar la instalación con herramientas de implementación de software como System Center Configuration Manager.
+- [Implementación automatizada](vmware-azure-mobility-install-configuration-mgr.md): puede automatizar la instalación con herramientas de implementación de software como Configuration Manager.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivirus en máquinas replicadas
 
@@ -119,7 +119,7 @@ Uso | UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Plat
 Registros de configuración | En %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parámetro de instalación obligatorio. Especifica si se debe instalar Mobility Service (MS) o el destino maestro (MT).
 /InstallLocation| Parámetro opcional. Especifique la ubicación (cualquier carpeta) de la instalación de Mobility Service.
-/Platform | Obligatorio. Especifica la plataforma en la que se instala Mobility Service. **VMware** para servidores físicos o máquinas virtuales Mware; **Azure** para máquinas virtuales de Azure.<br/><br/> Si está tratando máquinas virtuales de Azure como máquinas físicas, especifique **VMware**.
+/Platform | Mandatory. Especifica la plataforma en la que se instala Mobility Service. **VMware** para servidores físicos o máquinas virtuales Mware; **Azure** para máquinas virtuales de Azure.<br/><br/> Si está tratando máquinas virtuales de Azure como máquinas físicas, especifique **VMware**.
 /Silent| Opcional. Especifica si se debe ejecutar el instalador en modo silencioso.
 
 #### <a name="registration-settings"></a>Configuración de registro
@@ -128,7 +128,7 @@ Registros de configuración | En %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInsta
 Uso | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Registros de configuración del agente | En %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parámetro obligatorio. Especifique la dirección IP del servidor de configuración. Use una dirección IP válida.
-/PassphraseFilePath |  Obligatorio. Ubicación de la frase de contraseña. Use cualquier ruta de acceso de archivo local o UNC válida.
+/PassphraseFilePath |  Mandatory. Ubicación de la frase de contraseña. Use cualquier ruta de acceso de archivo local o UNC válida.
 
 ### <a name="on-a-linux-machine"></a>En un equipo Linux
 
@@ -157,7 +157,7 @@ Registros de configuración del agente | En %ProgramData%\ASRSetupLogs\ASRUnifie
 Uso | ./install -d \<Install Location> -r \<MS/MT> -v VmWare -q
 -r | Parámetro de instalación obligatorio. Especifica si se debe instalar Mobility Service (MS) o el destino maestro (MT).
 -d | Parámetro opcional. Especifique la ubicación de instalación de Mobility Service: /usr/local/ASR.
--v | Obligatorio. Especifica la plataforma en la que se instala Mobility Service. **VMware** para servidores físicos o máquinas virtuales Mware; **Azure** para máquinas virtuales de Azure.
+-v | Mandatory. Especifica la plataforma en la que se instala Mobility Service. **VMware** para servidores físicos o máquinas virtuales Mware; **Azure** para máquinas virtuales de Azure.
 -q | Opcional. Especifica si se debe ejecutar el instalador en modo silencioso.
 
 #### <a name="registration-settings"></a>Configuración de registro
@@ -165,7 +165,7 @@ Uso | ./install -d \<Install Location> -r \<MS/MT> -v VmWare -q
 --- | ---
 Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
 -i | Parámetro obligatorio. Especifique la dirección IP del servidor de configuración. Use una dirección IP válida.
--P |  Obligatorio. Ruta de acceso completa al archivo en que se guarda la frase de contraseña. Uso de cualquier carpeta válida.
+-P |  Mandatory. Ruta de acceso completa al archivo en que se guarda la frase de contraseña. Uso de cualquier carpeta válida.
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de máquina virtual de Azure
 

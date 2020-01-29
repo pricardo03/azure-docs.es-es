@@ -3,12 +3,12 @@ title: Preguntas sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el servicio Azure Migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029130"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292339"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -83,9 +83,9 @@ Sí, en ambos.
 
 No. Hay una asignación unívoca entre un dispositivo y vCenter Server. Para detectar máquinas virtuales en varias instancias de vCenter Server, debe implementar varios dispositivos.
 
-### <a name="how-many-vms-can-i-discover-with-an-appliance"></a>¿Cuántas máquinas virtuales puedo detectar con un dispositivo?
+### <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>¿Cuántas máquinas virtuales o servidores puedo detectar con un dispositivo?
 
-Puede detectar hasta 10 000 máquinas virtuales de VMware y 5000 de Hyper-V con un único dispositivo. Si tiene más máquinas en el entorno local, obtenga información sobre cómo escalar la valoración de [Hyper-V](scale-hyper-v-assessment.md) y [VMware](scale-vmware-assessment.md).
+Puede detectar hasta 10 000 máquinas virtuales de VMware, 5000 de Hyper-V y 250 servidores con un único dispositivo. Si tiene más máquinas en el entorno local, obtenga información sobre el escalado de [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) y la valoración [física](scale-physical-assessment.md).
 
 ## <a name="can-i-delete-an-appliance"></a>¿Puedo eliminar un dispositivo?
 

@@ -1,5 +1,5 @@
 ---
-title: 'Uso del sitio web de Video Indexer para personalizar un modelo de lenguaje: Azure'
+title: Personalización de modelos de lenguaje con el sitio web de Video Indexer (Azure)
 titleSuffix: Azure Media Services
 description: En este artículo se muestra cómo personalizar un modelo de lenguaje con el sitio web de Video Indexer.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 5d92cb02a0ac52b317cf9d4b6c8e0278f9291910
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 329da39914ef957d3a5376ba59e0c7103ad6a5dd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838460"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513922"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalización de un modelo de lenguaje con el sitio web de Video Indexer
 

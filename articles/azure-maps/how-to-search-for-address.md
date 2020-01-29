@@ -3,23 +3,23 @@ title: Búsqueda de ubicaciones con el servicio de búsqueda de Azure Maps | Mi
 description: En este artículo, obtendrá información sobre cómo buscar una ubicación mediante el servicio de búsqueda de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/05/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 59d58b9ecb42a7329df6c91e0a646c557d78a415
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 53856b4157afa5976947c451952fc26eefcdd0ea
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911450"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264193"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps
 
-El servicio de búsqueda de Maps es un conjunto de API RESTful diseñadas para que los desarrolladores busquen direcciones, lugares, puntos de interés, listados de empresas y otra información geográfica. El servicio de búsqueda asigna una latitud y longitud a una dirección específica, calle transversal, característica geográfica o punto de interés (POI). Los valores de latitud y longitud devueltos por la búsqueda se pueden usar como parámetros en otros servicios de Maps como las rutas y el flujo de tráfico.
+El servicio de búsqueda de Maps es un conjunto de API REST diseñado para desarrolladores. El servicio puede buscar direcciones, lugares, puntos de interés, listados de empresas y otra información geográfica. Cada una de las siguientes opciones tiene valores de latitud y longitud: una dirección específica, una calle transversal, una característica geográfica o un punto de interés (POI). Puede usar los valores de latitud y longitud devueltos de una consulta como parámetros en otros servicios de mapas. Por ejemplo, los valores devueltos pueden convertirse en parámetros para el servicio de enrutamiento o el servicio de flujo de tráfico. 
 
-En este artículo, aprenderá a:
+Vamos a aprender cómo:
 
 * Buscar una dirección mediante [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 * Buscar una dirección junto con sus propiedades y coordenadas.
@@ -28,13 +28,13 @@ En este artículo, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una cuenta de Maps y una clave. Siga las instrucciones que se indican en [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción a una cuenta de Azure Maps y siga los pasos para [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
+Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una cuenta de Maps y una clave. Para crear una cuenta de Azure Maps, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps). Siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) si necesita ayuda para obtener la clave principal. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 Este artículo utiliza la [aplicación Postman](https://www.getpostman.com/apps) para generar llamadas REST. Puede usar cualquier entorno de desarrollo de API que prefiera.
 
 ## <a name="using-fuzzy-search"></a>Uso de la búsqueda aproximada
 
-La API predeterminada del servicio de búsqueda es [búsqueda aproximada](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) y es útil cuando no se sabe cuáles son las entradas de usuario para una consulta de búsqueda. La API combina la búsqueda de POI y geocodificación en una "búsqueda de una sola línea" canónica. Por ejemplo, la API puede controlar las entradas de cualquier dirección o una combinación de tokens de POI. La API también se puede ponderar con una posición contextual (par de latitud y longitud), completamente restringida por una coordenada y un radio, o se puede ejecutar de forma más general sin ningún punto de anclaje de polarización geográfica.
+La API predeterminada para el servicio de búsqueda es [búsqueda aproximada](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). Este servicio es útil cuando no está seguro del formato de entrada del usuario en una consulta de búsqueda. La API combina la búsqueda de POI y geocodificación en una "búsqueda de una sola línea" canónica. Por ejemplo, la API puede controlar las entradas de cualquier dirección o una combinación de tokens de POI. Además, se puede ponderar con una posición contextual (par de latitud y longitud), completamente restringida por una coordenada y un radio, o se puede ejecutar de forma más general sin ningún punto de anclaje de polarización geográfica.
 
 La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxFuzzyLevel=1` para aumentar el rendimiento y reducir los resultados inusuales. Este valor predeterminado puede invalidarse según requiera la solicitud mediante la transmisión del parámetro de consulta `maxFuzzyLevel=2` o `3`.
 
@@ -52,7 +52,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
     | URL de la solicitud | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Authorization | Sin autenticación |
 
-    El atributo **json** de la ruta de acceso URL determina el formato de respuesta. Usa json en todo este artículo para una fácil utilización y legibilidad. Puede encontrar los formatos de respuesta disponibles en la definición de **obtención de búsqueda aproximada** de la [referencia de la API funcional de Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
+    El atributo **json** de la ruta de acceso URL determina el formato de respuesta. En este artículo se usa JSON para facilitar el uso y la legibilidad. Puede encontrar los formatos de respuesta disponibles en la definición de **obtención de búsqueda aproximada** de la [referencia de la API funcional de Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
 3. Haga clic en **Params** (Parámetros) y especifique los siguientes pares clave-valor para utilizar como parámetros de consulta o ruta de acceso en la dirección URL de la solicitud:
 
@@ -66,9 +66,9 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
 
-    La cadena de consulta ambigua de "pizza" devolvió 10 [resultados de punto de interés](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) con categorías correspondientes a "pizza" y "restaurante". Cada resultado devuelve una dirección, valores de latitud y longitud, ventanilla y puntos de entrada para la ubicación.
+    La cadena de consulta ambigua para "pizza" devolvió 10 [resultados de punto de interés](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) en las categorías "pizza" y "restaurante". Cada resultado devuelve una dirección, valores de latitud y longitud, ventanilla y puntos de entrada para la ubicación.
   
-    Los resultados son variados para esta consulta, no se asocian a ninguna ubicación de referencia determinada. Puede usar el parámetro **countrySet** para especificar solo los países o las regiones para los que su aplicación necesita cobertura, ya que el comportamiento predeterminado es buscar en todo el mundo, lo que puede provocar la devolución de resultados innecesarios.
+    Los resultados son variados para esta consulta, no se asocian a ninguna ubicación de referencia determinada. Puede usar el parámetro **countrySet** para especificar solo los países o regiones para los que la aplicación necesita cobertura. El comportamiento predeterminado es buscar en todo el mundo, lo que puede devolver resultados innecesarios.
 
 5. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
@@ -91,7 +91,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
 ## <a name="search-for-address-properties-and-coordinates"></a>Buscar las coordenadas y las propiedades de dirección
 
-Puede pasar una dirección completa o parcial a la API de búsqueda de direcciones y recibir una respuesta que incluye propiedades de la dirección detalladas como la municipalidad o la subdivisión, así como valores posicionales de latitud y longitud.
+Puede pasar una dirección completa o parcial a la API de búsqueda de direcciones. También recibirá una respuesta que incluye propiedades de dirección detalladas. Las propiedades de dirección detalladas son valores como valores posicionales en altitud y longitud, municipio o subdivisión.
 
 1. En Postman, haga clic en **Nueva solicitud** | **Solicitud GET** y asígnele el nombre **Búsqueda de direcciones**.
 2. En la pestaña Builder, seleccione el método HTTP **GET**, escriba la dirección URL de solicitud para el punto de conexión de API y seleccione un protocolo de autorización, si procede.

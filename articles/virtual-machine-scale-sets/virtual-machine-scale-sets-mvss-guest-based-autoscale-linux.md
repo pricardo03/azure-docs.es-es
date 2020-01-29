@@ -1,26 +1,18 @@
 ---
-title: Uso del escalado automático de Azure con métricas de invitado en una plantilla de conjunto de escalado de Linux | Microsoft Docs
+title: Uso del escalado automático de Azure con métricas de invitado en una plantilla de conjunto de escalado de Linux
 description: Obtenga información acerca de cómo usar el escalado automático con métricas de invitado en una plantilla de conjunto de escalado de máquinas virtuales de Linux
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: na
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 8cd665ffd82547c4f554eb4a515a8da7dc5b3f5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88f839b281e4d345b012a7e6acff3770dc536045
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868984"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271954"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Escalado automático con métricas de invitado en una plantilla de conjunto de escalado de Linux
 

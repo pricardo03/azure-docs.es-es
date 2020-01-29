@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 954e61aec5b622d44435a8a5b196fdbfed33c564
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3fdc007caaa4cb79f6083599a5bc176bc022fb03
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561201"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278615"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuración de la retención en Time Series Insights
 
@@ -34,13 +34,13 @@ Para obtener información detallada para comprender mejor estas opciones de conf
 
 ## <a name="configure-data-retention"></a>Configuración de la retención de datos
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Busque su entorno de Time Series Insights existente. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
 
 1. En el encabezado **Configuración**, seleccione **Configuración de almacenamiento**.
 
-    [![Selección de Configuración y, luego, Configurar](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+    [![En Configuración, seleccione Configuración de almacenamiento](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
 1. Seleccione el **tiempo de retención de los datos (en días)** para configurar el período de retención; use para ello la barra de control deslizante o escriba un número en el cuadro de texto.
 
@@ -48,7 +48,7 @@ Para obtener información detallada para comprender mejor estas opciones de conf
 
 1. Alterne la opción de configuración **Comportamiento correspondiente a un exceso del límite de almacenamiento**. Seleccione el comportamiento **Purgar datos antiguos** o **Pausar entradas**.
 
-    [![Retención de datos: aceptar y guardar.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [![Pausar entradas: aceptar y guardar.](media/data-retention/pause-ingress-accept-and-save.png)](media/data-retention/pause-ingress-accept-and-save.png#lightbox)
 
 1. Revise la documentación para conocer los posibles riesgos de pérdida de datos. Seleccione **Guardar** para configurar los cambios.
 
@@ -56,6 +56,6 @@ Para obtener información detallada para comprender mejor estas opciones de conf
 
 - Para obtener más información, consulte [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md) (Información sobre la retención en Time Series Insights).
 
-- Conozca [cómo escalar su entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Aprenda a [escalar el entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
-- Aprenda sobre el [planeamiento de su entorno ](time-series-insights-environment-planning.md).
+- Aprenda sobre el [planeamiento de su entorno](time-series-insights-environment-planning.md).

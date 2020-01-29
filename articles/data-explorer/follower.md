@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: b4e09bf84d78c88d3625b0f6b478746db09cc2d8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030068"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281349"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Uso de la base de datos del seguidor para adjuntar bases de datos en Azure Data Explorer
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Adjunción de una base de datos mediante una plantilla de Azure Resource Manager
 
-En esta sección, obtendrá información sobre cómo crear un clúster del seguidor y asociarle una base de datos mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). Si ya tiene un clúster, quite el recurso `Microsoft.Kusto/clusters` de la lista de recursos siguiente.
+En esta sección aprenderá a adjuntar una base de datos a un clúster existente mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -138,7 +138,7 @@ En esta sección, obtendrá información sobre cómo crear un clúster del segui
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the follower cluster."
+                "description": "Name of the cluster to which the database will be attached."
             }
         },
         "attachedDatabaseConfigurationsName": {
@@ -180,17 +180,6 @@ En esta sección, obtendrá información sobre cómo crear un clúster del segui
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('followerClusterName')]",
-            "type": "Microsoft.Kusto/clusters",
-            "sku": {
-                "name": "Standard_D13_v2",
-                "tier": "Standard",
-                "capacity": 2
-            },
-            "apiVersion": "2019-09-07",
-            "location": "[parameters('location')]"
-        },
-        {
             "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
             "apiVersion": "2019-09-07",
@@ -217,7 +206,7 @@ Puede implementar la plantilla de Azure Resource Manager [mediante Azure Portal]
 
 |**Configuración**  |**Descripción**  |
 |---------|---------|
-|Nombre del clúster del seguidor     |  Nombre del clúster del seguidor. Si el nombre del clúster existe, quite el recurso `Microsoft.Kusto/clusters` de la lista de recursos de la plantilla de ARM. De lo contrario, se creará un nuevo clúster.     |
+|Nombre del clúster del seguidor     |  Nombre del clúster del seguidor.  |
 |Nombre de las opciones de configuración de la base de datos adjunta    |    Nombre del objeto de opciones de configuración de la base de datos adjunta. El nombre debe ser único en el nivel del clúster.     |
 |Nombre de la base de datos     |      Nombre de la base de datos que se va a seguir. Si quiere seguir todas las bases de datos del responsable, use "*".   |
 |Id. del recurso de clúster del responsable    |   Identificador del recurso de clúster del responsable.      |
@@ -394,6 +383,7 @@ El administrador de la base de datos del seguidor puede modificar la [directiva 
 
 * Los clústeres del seguidor y el responsable deben estar en la misma región.
 * No se puede usar la [ingesta de streaming](/azure/data-explorer/ingest-data-streaming) en una base de datos que se está siguiendo.
+* El cifrado de datos con [claves administradas por el cliente](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) no se admite en los clústeres del responsable ni de los seguidores. 
 * No puede eliminar una base de datos que esté asociada a otro clúster antes de desasociarla.
 * No puede eliminar un clúster que tenga una base de datos asociada a otro clúster antes de desasociarla.
 * No puede detener un clúster que tenga bases de datos del seguidor o el responsable asociadas. 

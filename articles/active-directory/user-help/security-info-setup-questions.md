@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c32e2e2a7b609f999c7b804494188e2c6820171
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6fb6153c2dc5794fce0e74d1981e98ad1f37fc1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279003"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156104"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>Configuración de preguntas de seguridad como método de comprobación
 
-Puede seguir estos pasos para agregar su método de restablecimiento de la contraseña. Tras configurarlo por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar información de seguridad.
-
-Tras configurar el método de restablecimiento de contraseña, también debe configurar el método de comprobación mediante dos factores, para lo que se usa una [aplicación de autenticación](security-info-setup-auth-app.md), [un mensaje de texto](security-info-setup-text-msg.md) o un [llamada de teléfono](security-info-setup-phone-number.md).
+Puede seguir estos pasos para agregar su método de restablecimiento de la contraseña. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>Si no ve la opción de preguntas de seguridad, es posible que su organización no le permita usar esta opción para el método de restablecimiento de contraseña. En este caso, tendrá que elegir otro método o ponerse en contacto con el departamento de soporte técnico de su organización para que le proporcione más ayuda.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Autenticación mediante comprobación de seguridad frente a autenticación mediante restablecimiento de contraseña
+
+Los métodos de la información de seguridad se usan tanto para la comprobación de seguridad de dos factores como para al restablecimiento de la contraseña. Sin embargo, no todos los métodos pueden usarse para ambos.
+
+| Método | Se usa para |
+| ------ | -------- |
+| Aplicación de autenticación | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Mensajes de texto | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Llamadas de teléfono | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Clave de seguridad | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Cuenta de correo electrónico | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
+| Preguntas de seguridad | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
 
 ## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Configuración de las preguntas de seguridad desde la página Información de seguridad
 
@@ -75,7 +89,7 @@ Si no desea usar las preguntas de seguridad como método de información de segu
 
 2. Seleccione **Sí** en el cuadro de confirmación para eliminar las **preguntas de seguridad**. Una vez se eliminen las preguntas de seguridad, el método se quitará de su información de seguridad y desaparecerá de la página **Información de seguridad**.
 
-## <a name="additional-security-info-methods"></a>Otros métodos de información de seguridad
+## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
 
 Tiene opciones adicionales para determinar cómo su organización se pone en contacto con usted para comprobar su identidad, basándose en lo está intentando hacer. Entre estas opciones se incluyen:
 

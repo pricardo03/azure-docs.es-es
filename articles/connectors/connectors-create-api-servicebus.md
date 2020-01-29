@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 26609bc95bf6fd49ded23d8f117911a02577405a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445893"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261626"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -154,7 +154,9 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-El conector de Service Bus puede guardar hasta 1500 sesiones únicas a la vez de un bus de servicio en la memoria caché del conector. Si el número de sesiones supera este límite, las sesiones antiguas se quitan de la caché. Para obtener otra información técnica sobre los desencadenadores, las acciones y los límites, que se detallan en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/servicebus/) del conector.
+El conector de Service Bus puede guardar hasta 1500 sesiones únicas a la vez de un bus de servicio en la memoria caché del conector. Si el número de sesiones supera este límite, las sesiones antiguas se quitan de la caché. Para más información, consulte [Sesiones de mensajes](../service-bus-messaging/message-sessions.md).
+
+Para obtener otra información técnica sobre los desencadenadores, las acciones y los límites, que se detallan en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/servicebus/) del conector. Para más información sobre la mensajería de Azure Service Bus, consulte [Qué es Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

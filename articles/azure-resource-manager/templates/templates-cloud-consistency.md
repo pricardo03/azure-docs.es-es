@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 7065d5e9cae9e0a06eab82bd982693a1ad1d8fba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476154"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290655"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
 
@@ -22,7 +22,7 @@ Una ventaja clave de Azure es la coherencia. Las inversiones de desarrollo para 
 Microsoft ofrece servicios en la nube inteligentes y preparados para la empresa en varias ubicaciones, incluidas:
 
 * La plataforma Azure global admitida por una red cada vez mayor de centros de datos administrados por Microsoft en regiones de todo el mundo.
-* Nubes soberanas aisladas como Azure Alemania, Azure Government y Azure China (Azure operado por 21Vianet). Las nubes soberanas proporcionan una plataforma coherente con la mayoría de las mismas características de calidad a las que tienen acceso los clientes de Azure global.
+* Nubes soberanas aisladas como Azure Alemania, Azure Government y Azure China 21Vianet. Las nubes soberanas proporcionan una plataforma coherente con la mayoría de las mismas características de calidad a las que tienen acceso los clientes de Azure global.
 * Azure Stack, una plataforma en la nube híbrida que permite proporcionar servicios de Azure desde el centro de datos de la organización. Las empresas pueden configurar Azure Stack en sus propios centros de datos o consumir servicios de Azure de proveedores de servicios, que ejecutan Azure Stack en sus instalaciones (a veces conocidas como regiones hospedadas).
 
 En el núcleo de todas estas nubes, Azure Resource Manager proporciona una API que permite que una amplia variedad de interfaces de usuario se comunique con la plataforma Azure. Esta API ofrece funcionalidades de infraestructura como código eficaces. Cualquier tipo de recurso que esté disponible en la plataforma de nube de Azure se puede implementar y configurar con Azure Resource Manager. Con una única plantilla, puede implementar y configurar la aplicación completa a un estado operativo final.
@@ -47,15 +47,15 @@ Para obtener una introducción a las plantillas de Azure Resource Manager, vea [
 
 La sintaxis básica de una plantilla de Resource Manager es JSON. Las plantillas usan un superconjunto de JSON, que amplía la sintaxis con expresiones y funciones. El procesador de lenguaje de plantilla se actualiza con frecuencia para admitir funciones de plantilla adicionales. Para obtener una explicación detallada de las funciones de plantilla disponibles, vea [Funciones de la plantilla de Azure Resource Manager](template-functions.md).
 
-Las funciones de plantilla nuevas que se agregan a Azure Resource Manager no están disponibles inmediatamente en las nubes soberanas o Azure Stack. Para implementar correctamente una plantilla, todas las funciones a las que se hace referencia en la plantilla deben estar disponibles en la nube de destino. 
+Las funciones de plantilla nuevas que se agregan a Azure Resource Manager no están disponibles inmediatamente en las nubes soberanas o Azure Stack. Para implementar correctamente una plantilla, todas las funciones a las que se hace referencia en la plantilla deben estar disponibles en la nube de destino.
 
-Las funcionalidades de Azure Resource Manager siempre se introducirán primero en Azure global. Puede usar el script de PowerShell siguiente para comprobar si las funciones de plantilla recién introducidas también están disponibles en Azure Stack: 
+Las funcionalidades de Azure Resource Manager siempre se introducirán primero en Azure global. Puede usar el script de PowerShell siguiente para comprobar si las funciones de plantilla recién introducidas también están disponibles en Azure Stack:
 
 1. Clone el repositorio de GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
 
 1. Una vez que tenga un clon del repositorio local, conéctese a la instancia de Azure Resource Manager de destino con PowerShell.
 
-1. Importe el módulo psm1 y ejecute el cmdlet Test-AzureRmureRmTemplateFunctions:
+1. Importe el módulo psm1 y ejecute el cmdlet Test-AzureRmTemplateFunctions:
 
    ```powershell
    # Import the module
@@ -69,7 +69,7 @@ El script implementa varias plantillas minimizadas, cada una solo con funciones 
 
 ## <a name="working-with-linked-artifacts"></a>Trabajar con artefactos vinculados
 
-Una plantilla puede contener referencias a artefactos vinculados y contiene un recurso de implementación que se vincula a otra plantilla. Las plantillas vinculadas (también denominadas plantillas anidadas) se recuperan mediante Resource Manager en tiempo de ejecución. Una plantilla también puede contener referencias a artefactos para extensiones de máquina virtual (VM). Estos artefactos se recuperan mediante la extensión de máquina virtual que se ejecuta dentro de la máquina virtual para la configuración de la extensión de máquina virtual durante la implementación de plantilla. 
+Una plantilla puede contener referencias a artefactos vinculados y contiene un recurso de implementación que se vincula a otra plantilla. Las plantillas vinculadas (también denominadas plantillas anidadas) se recuperan mediante Resource Manager en tiempo de ejecución. Una plantilla también puede contener referencias a artefactos para extensiones de máquina virtual (VM). Estos artefactos se recuperan mediante la extensión de máquina virtual que se ejecuta dentro de la máquina virtual para la configuración de la extensión de máquina virtual durante la implementación de plantilla.
 
 En las secciones siguientes se describen las consideraciones para mantener la coherencia en la nube al desarrollar plantillas que incluyen artefactos externos a la plantilla de implementación principal.
 
@@ -82,9 +82,9 @@ En el código siguiente se muestra cómo el parámetro templateLink hace referen
 ```json
 "resources": [
   {
+     "type": "Microsoft.Resources/deployments",
      "apiVersion": "2017-05-10",
      "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
      "properties": {
        "mode": "incremental",
        "templateLink": {
@@ -100,9 +100,9 @@ Azure Resource Manager evalúa la plantilla principal en tiempo de ejecución y 
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>Hacer que las plantillas vinculadas sean accesibles entre las nubes
 
-Tenga en cuenta dónde y cómo almacenar las plantillas vinculadas que usa. En tiempo de ejecución, Azure Resource Manager captura todas las plantillas vinculadas y, por tanto, requiere acceso directo a ellas. Una práctica común consiste en usar GitHub para almacenar las plantillas anidadas. Un repositorio de GitHub puede contener archivos que son accesibles públicamente a través de una dirección URL. Aunque esta técnica funciona bien en la nube pública y las nubes soberanas, es posible que un entorno de Azure Stack se encuentre en una red corporativa o en una ubicación remota desconectada, sin ningún acceso de salida a Internet. En esos casos, Azure Resource Manager no podría recuperar las plantillas anidadas. 
+Tenga en cuenta dónde y cómo almacenar las plantillas vinculadas que usa. En tiempo de ejecución, Azure Resource Manager captura todas las plantillas vinculadas y, por tanto, requiere acceso directo a ellas. Una práctica común consiste en usar GitHub para almacenar las plantillas anidadas. Un repositorio de GitHub puede contener archivos que son accesibles públicamente a través de una dirección URL. Aunque esta técnica funciona bien en la nube pública y las nubes soberanas, es posible que un entorno de Azure Stack se encuentre en una red corporativa o en una ubicación remota desconectada, sin ningún acceso de salida a Internet. En esos casos, Azure Resource Manager no podría recuperar las plantillas anidadas.
 
-Un procedimiento mejor para las implementaciones entre nubes consiste en almacenar las plantillas vinculadas en una ubicación que sea accesible para la nube de destino. Lo ideal es que todos los artefactos de implementación se mantengan y se implementen desde una canalización de integración continua y desarrollo continuo (CI/CD). Como alternativa, puede almacenar las plantillas anidadas en un contenedor de Blob Storage, desde el que Azure Resource Manager puede recuperarlas. 
+Un procedimiento mejor para las implementaciones entre nubes consiste en almacenar las plantillas vinculadas en una ubicación que sea accesible para la nube de destino. Lo ideal es que todos los artefactos de implementación se mantengan y se implementen desde una canalización de integración continua y desarrollo continuo (CI/CD). Como alternativa, puede almacenar las plantillas anidadas en un contenedor de Blob Storage, desde el que Azure Resource Manager puede recuperarlas.
 
 Como Blob Storage usa un nombre de dominio completo (FQDN) de punto de conexión distinto en cada nube, debe configurar la plantilla con la ubicación de las plantillas vinculadas con dos parámetros. Los parámetros pueden aceptar la entrada del usuario en tiempo de implementación. Normalmente, varias personas crean y comparten las plantillas, por lo que un procedimiento recomendado consiste en usar un nombre estándar para estos parámetros. Las convenciones de nomenclatura ayudan a que las plantillas sean más reutilizables entre regiones, nubes y autores.
 
@@ -132,9 +132,9 @@ A lo largo de la plantilla, se generan vínculos mediante la combinación del UR
 ```json
 "resources": [
   {
-    "name": "shared",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2015-01-01",
+    "name": "shared",
     "properties": {
       "mode": "Incremental",
       "templateLink": {
@@ -150,7 +150,7 @@ Con este enfoque, se usa el valor predeterminado para el parámetro `_artifactsL
 
 ### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Usar _artifactsLocation en lugar de vínculos codificados de forma rígida
 
-Además de usarse en las plantillas anidadas, la dirección URL del parámetro `_artifactsLocation` se usa como base para todos los artefactos relacionados de una plantilla de implementación. Algunas extensiones de máquina virtual incluyen un vínculo a un script almacenado fuera de la plantilla. Para estas extensiones, los vínculos no se deben codificar de forma rígida. Por ejemplo, las extensiones Custom Script y PowerShell DSC pueden vincular a un script externo en GitHub, como se muestra a continuación: 
+Además de usarse en las plantillas anidadas, la dirección URL del parámetro `_artifactsLocation` se usa como base para todos los artefactos relacionados de una plantilla de implementación. Algunas extensiones de máquina virtual incluyen un vínculo a un script almacenado fuera de la plantilla. Para estas extensiones, los vínculos no se deben codificar de forma rígida. Por ejemplo, las extensiones Custom Script y PowerShell DSC pueden vincular a un script externo en GitHub, como se muestra a continuación:
 
 ```json
 "properties": {
@@ -215,7 +215,7 @@ Sabiendo que las nubes y las regiones de Azure pueden diferir en sus servicios d
 
 Una plantilla implementa y configura los recursos. Un proveedor de recursos proporciona un tipo de recurso. Por ejemplo, el proveedor de recursos de proceso (Microsoft.Compute), proporciona varios tipos de recursos como virtualMachines y availabilitySets. Cada proveedor de recursos proporciona una API a Azure Resource Manager definida por un contrato común, lo que permite una experiencia de autoría coherente y unificada entre todos los proveedores de recursos. Pero un proveedor de recursos que esté disponible en Azure global puede no estarlo en una nube soberana o una región de Azure Stack.
 
-![Proveedores de recursos](./media/templates-cloud-consistency/resource-providers.png) 
+![Proveedores de recursos](./media/templates-cloud-consistency/resource-providers.png)
 
 Para comprobar los proveedores de recursos que están disponibles en una nube determinada, ejecute el script siguiente en la interfaz de la línea de comandos de Azure ([CLI](/cli/azure/install-azure-cli)):
 
@@ -253,7 +253,7 @@ Una plantilla siempre se implementa en un grupo de recursos que se encuentra en 
 
 Aunque los nombres de región se podrían codificar de forma rígida al especificar las propiedades del recurso en una plantilla, este enfoque no garantiza que la plantilla se pueda implementar en otros entornos de Azure Stack, porque lo más probable es que el nombre de la región no exista allí.
 
-Para dar cabida a otras regiones, agregue una ubicación de parámetro de entrada a la plantilla con un valor predeterminado. Si no se especifica ningún valor durante la implementación, se usará el valor predeterminado. 
+Para dar cabida a otras regiones, agregue una ubicación de parámetro de entrada a la plantilla con un valor predeterminado. Si no se especifica ningún valor durante la implementación, se usará el valor predeterminado.
 
 La función de plantilla `[resourceGroup()]` devuelve un objeto que contiene los siguientes pares clave/valor:
 
@@ -284,9 +284,9 @@ Al hacer referencia a la clave de ubicación del objeto en el valor defaultValue
 },
 "resources": [
   {
-    "name": "storageaccount1",
     "type": "Microsoft.Storage/storageAccounts",
     "apiVersion": "2015-06-15",
+    "name": "storageaccount1",
     "location": "[parameters('location')]",
     ...
 ```
@@ -301,40 +301,40 @@ Por este motivo, Resource Manager introdujo el concepto de perfiles de API para 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Location the resources will be deployed to."
-            },
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "metadata": {
+          "description": "Location the resources will be deployed to."
+      },
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "name": "mystorageaccount",
+      "location": "[parameters('location')]",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
     },
-    "variables": {},
-    "resources": [
-        {
-            "name": "mystorageaccount",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            }
-        },
-        {
-            "name": "myavailabilityset",
-            "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2016-03-30",
-            "location": "[parameters('location')]",
-            "properties": {
-                "platformFaultDomainCount": 2,
-                "platformUpdateDomainCount": 2
-            }
-        }
-    ],
-    "outputs": {}
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "apiVersion": "2016-03-30",
+      "name": "myavailabilityset",
+      "location": "[parameters('location')]",
+      "properties": {
+        "platformFaultDomainCount": 2,
+        "platformUpdateDomainCount": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -357,16 +357,16 @@ Una versión de perfil de API actúa como un alias para una única versión de A
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -399,17 +399,17 @@ El perfil de API no es un elemento necesario en una plantilla. Incluso si agrega
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2016-01-01",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -423,7 +423,7 @@ El perfil de API no es un elemento necesario en una plantilla. Incluso si agrega
 
 ## <a name="check-endpoint-references"></a>Comprobar las referencias de punto de conexión
 
-Los recursos pueden tener referencias a otros servicios en la plataforma. Por ejemplo, una dirección IP pública puede tener un nombre DNS público asignado. La nube pública, las nubes soberanas y las soluciones de Azure Stack tienen sus propios espacios de nombres de punto de conexión diferentes. En la mayoría de los casos, un recurso solo requiere un prefijo como entrada en la plantilla. En tiempo de ejecución, Azure Resource Manager le anexa el valor de punto de conexión. Algunos valores de punto de conexión se deben especificar de forma explícita en la plantilla. 
+Los recursos pueden tener referencias a otros servicios en la plataforma. Por ejemplo, una dirección IP pública puede tener un nombre DNS público asignado. La nube pública, las nubes soberanas y las soluciones de Azure Stack tienen sus propios espacios de nombres de punto de conexión diferentes. En la mayoría de los casos, un recurso solo requiere un prefijo como entrada en la plantilla. En tiempo de ejecución, Azure Resource Manager le anexa el valor de punto de conexión. Algunos valores de punto de conexión se deben especificar de forma explícita en la plantilla.
 
 > [!NOTE]
 > Para desarrollar plantillas para mantener la coherencia en la nube, no codifique de forma rígida los espacios de nombres de punto de conexión.
@@ -444,7 +444,7 @@ Los espacios de nombres de punto de conexión también se pueden usar en la sali
 En general, evite los puntos de conexión codificados de forma rígida en una plantilla. El procedimiento recomendado consiste en usar la función de plantilla de referencia para recuperar los puntos de conexión de forma dinámica. Por ejemplo, el punto de conexión que se codifica de forma rígida con más frecuencia es el espacio de nombres de punto de conexión para las cuentas de almacenamiento. Cada cuenta de almacenamiento tiene un FQDN único que se crea concatenando el nombre de la cuenta de almacenamiento con el espacio de nombres de punto de conexión. Una cuenta de Blob Storage con el nombre mystorageaccount1 da como resultado otro FQDN en función de la nube:
 
 * **mystorageaccount1.blob.core.windows.net** cuando se crea en la nube de Azure global.
-* **mystorageaccount1.blob.core.chinacloudapi.cn** cuando se crea en la nube de Azure China.
+* **mystorageaccount1.blob.core.chinacloudapi.cn** cuando se crea en la nube de Azure China 21Vianet.
 
 La función de plantilla de referencia siguiente recupera el espacio de nombres de punto de conexión del proveedor de recursos de almacenamiento:
 
@@ -456,7 +456,7 @@ Si se reemplaza el valor codificado de forma rígida del punto de conexión de c
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>Hacer referencia a recursos existentes con el identificador único
 
-También puede hacer referencia a un recurso existente del mismo grupo de recursos o de otro, y dentro de la misma suscripción o en otra, en el mismo inquilino en la misma nube. Para recuperar las propiedades del recurso, debe usar el identificador único para el recurso propiamente dicho. La función de plantilla `resourceId` recupera el identificador único de un recurso, como SQL Server como se muestra en el código siguiente: 
+También puede hacer referencia a un recurso existente del mismo grupo de recursos o de otro, y dentro de la misma suscripción o en otra, en el mismo inquilino en la misma nube. Para recuperar las propiedades del recurso, debe usar el identificador único para el recurso propiamente dicho. La función de plantilla `resourceId` recupera el identificador único de un recurso, como SQL Server como se muestra en el código siguiente:
 
 ```json
 "outputs": {
@@ -602,8 +602,8 @@ Como las extensiones de máquina virtual son recursos propios de Resource Manage
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines/extensions",
+    "apiVersion": "2015-06-15",
     "name": "myExtension",
     "location": "[parameters('location')]",
     ...
@@ -627,9 +627,9 @@ Cada extensión específica también tiene una versión. Esta versión se muestr
 
 ```json
 {
-    "name": "MyCustomScriptExtension",
     "type": "extensions",
     "apiVersion": "2016-03-30",
+    "name": "MyCustomScriptExtension",
     "location": "[parameters('location')]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/myVM', copyindex())]"
@@ -638,7 +638,7 @@ Cada extensión específica también tiene una versión. Esta versión se muestr
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.7",
-        ...   
+        ...
 ```
 
 Para recuperar una lista de las versiones disponibles para una extensión de máquina virtual específica, use el cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). En el ejemplo siguiente se recuperan las versiones disponibles para la extensión PowerShell DSC (Desired State Configuration) desde **myLocation**:
@@ -655,12 +655,12 @@ Es un desafío realizar el seguimiento de todas las configuraciones relacionadas
 
 En la imagen siguiente se muestra un ejemplo típico de un proceso de desarrollo de un equipo en el que se usa un entorno de desarrollo integrado (IDE). Los distintos tipos de pruebas se ejecutan en diferentes etapas de la escala de tiempo. En este caso, dos desarrolladores trabajan en la misma solución, pero este escenario se aplica igualmente a un único desarrollador o un equipo grande. Normalmente, cada desarrollador crea una copia local de un repositorio central, lo que permite a cada uno de ellos trabajar en la copia local sin afectar a otros que pueden estar trabajando en los mismos archivos.
 
-![Flujo de trabajo](./media/templates-cloud-consistency/workflow.png) 
+![Flujo de trabajo](./media/templates-cloud-consistency/workflow.png)
 
 Tenga en cuenta las sugerencias siguientes para las pruebas y la automatización:
 
 * Asegúrese de usar de herramientas de prueba. Por ejemplo, en Visual Studio Code y Visual Studio se incluye IntelliSense y otras características que pueden ayudarle a validar las plantillas.
-* Para mejorar la calidad del código durante el desarrollo en el IDE local, realice el análisis de código estático con pruebas unitarias y de integración. 
+* Para mejorar la calidad del código durante el desarrollo en el IDE local, realice el análisis de código estático con pruebas unitarias y de integración.
 * Para obtener una experiencia incluso mejor durante el desarrollo inicial, las pruebas unitarias y las de integración solo deben advertir cuando se encuentre un problema y continuar con las pruebas. De este modo, puede identificar los problemas que se deben solucionar y priorizar el orden de los cambios, lo que también se denomina desarrollo controlado por pruebas (TDD).
 * Tenga en cuenta que algunas pruebas se pueden realizar sin estar conectado a Azure Resource Manager. Otras, como probar la implementación de plantilla, requieren Resource Manager para llevar a cabo determinadas acciones que no se pueden realizar sin conexión.
 * Probar una plantilla de implementación sobre la API de validación no es lo mismo que una implementación real. Además, incluso si una plantilla se implementa desde un archivo local, todas las referencias a las plantillas anidadas en la plantilla se recuperan de forma directa mediante Resource Manager, y los artefactos a los que hacen referencia las extensiones de máquina virtual se recuperan mediante el agente de máquina virtual que se ejecuta dentro de la máquina virtual implementada.

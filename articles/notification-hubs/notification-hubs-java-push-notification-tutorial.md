@@ -1,5 +1,5 @@
 ---
-title: Uso de Notification Hubs con Java
+title: Uso de Azure Notification Hubs con Java
 description: Obtenga información acerca de cómo usar Azure Notification Hubs desde un back-end de Java.
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 532ffc7a7393f016f27264b67b4ee5d3e6e5888f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213207"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263870"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Uso de Notification Hubs desde Java
 
@@ -71,7 +71,7 @@ Para crear:
     hub = namespaceManager.createNotificationHub(hub);
     ```
 
- OR
+ O BIEN
 
     ```java
     hub = new NotificationHub("connection string", "hubname");
@@ -374,7 +374,7 @@ La ejecución del código de Java debe generar ahora una notificación que apare
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tema hemos mostrado cómo crear un sencillo cliente de REST en Java para Notification Hubs. Desde aquí puede:
+En este tema hemos mostrado cómo crear un sencillo cliente de REST en Java para Notification Hubs. Desde aquí, puede:
 
 * Descargue el [SDK de Java]completo, que contiene todo el código SDK.
 * Practique con los ejemplos:

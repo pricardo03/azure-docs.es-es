@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 15ccbc568a2986fbb2a547eb958b5e853c8c9f77
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562193"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154829"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funcionamiento del inicio de sesión único en recursos locales de dispositivos unidos a Azure AD
 
@@ -24,12 +24,17 @@ Probablemente no sea una sorpresa le sorprenda que un dispositivo unido a Azure 
 
 En este artículo se explica cómo funciona.
 
-## <a name="how-it-works"></a>Cómo funciona 
+## <a name="prerequisites"></a>Prerequisites
+
+ Si las máquinas unidas a Azure AD no están conectadas a la red de su organización, se requiere una red privada virtual u otra infraestructura de red. El inicio de sesión único local requiere una comunicación de campo visual con los controladores de dominio de AD DS local.
+
+## <a name="how-it-works"></a>Funcionamiento 
 
 Como debe recordar un solo nombre de usuario y contraseña, el inicio de sesión único simplifica el acceso a los recursos y mejora la seguridad del entorno. Con un dispositivo unido a Azure AD, los usuarios ya tienen una experiencia de inicio de sesión único para las aplicaciones de nube en el entorno. Si el entorno tiene una instancia de Azure AD y una instancia de AD local, probablemente desee ampliar el alcance de la experiencia de inicio de sesión único a sus aplicaciones de línea de negocio (LOB) locales, recursos compartidos de archivos e impresoras.  
 
 Los dispositivos unidos a Azure AD no tienen ningún conocimiento acerca del entorno de AD porque no están unidos a él. Sin embargo, puede proporcionar información adicional acerca de su instancia de AD local a estos dispositivos con Azure AD Connect.
-Un entorno con ambos, Azure AD y AD local, también se conoce como entorno híbrido. Si tiene un entorno híbrido, es probable que tenga ya implementado Azure AD Connect para sincronizar la información de identidad local con la de la nube. Como parte del proceso de sincronización, Azure AD Connect sincroniza la información de dominio local con Azure AD. Cuando un usuario inicia sesión en un dispositivo de Azure AD en un entorno híbrido:
+
+Un entorno con ambos, Azure AD y AD local, también se conoce como entorno híbrido. Si tiene un entorno híbrido, es probable que tenga ya implementado Azure AD Connect para sincronizar la información de identidad local con la de la nube. Como parte del proceso de sincronización, Azure AD Connect sincroniza la información de usuario local con Azure AD. Cuando un usuario inicia sesión en un dispositivo de Azure AD en un entorno híbrido:
 
 1. Azure AD envía el nombre del dominio local del usuario como miembro de vuelta al dispositivo. 
 1. El servicio de la autoridad de seguridad local (LSA) permite la autenticación de Kerberos en el dispositivo.

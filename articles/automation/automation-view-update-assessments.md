@@ -3,14 +3,14 @@ title: Visualización de las evaluaciones de actualizaciones de Azure Update Man
 description: En este artículo se describe cómo ver las evaluaciones de actualizaciones para las implementaciones de actualizaciones.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419879"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310091"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Visualización de las evaluaciones de actualizaciones de Azure Update Management
 
@@ -30,7 +30,7 @@ Haga clic en **Actualizaciones que faltan** para ver la lista de actualizaciones
 
 ## <a name="update-classifications"></a>Clasificaciones de actualizaciones
 
-En las siguientes tablas se muestran las clasificaciones de actualizaciones en Update Management, junto con una definición de cada clasificación.
+En las siguientes tablas, se muestran las clasificaciones de las actualizaciones de Update Management admitidas, junto con una definición de cada una de ellas.
 
 ### <a name="windows"></a>Windows
 
@@ -59,6 +59,8 @@ sudo yum -q --security check-update
 ```
 
 Actualmente no hay ningún método compatible para habilitar la disponibilidad de datos de clasificación nativos en CentOS. En este momento, solo se proporciona soporte técnico a clientes que han habilitado esta funcionalidad por su cuenta.
+
+Para clasificar las actualizaciones de la versión 6 de Red Hat Enterprise, debe instalar el complemento de seguridad de yum. En Red Hat Enterprise Linux 7, el complemento ya forma parte de yum, por lo que no es necesario instalar nada. Para más información, consulte el siguiente [artículo de conocimientos](https://access.redhat.com/solutions/10021) de Red Hat.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

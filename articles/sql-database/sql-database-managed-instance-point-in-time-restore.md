@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9ed694ec524c4e3e033c3139735e8e079141ec4a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707666"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515129"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restauración de una base de datos SQL de una instancia administrada a un momento dado anterior
 
@@ -48,8 +48,8 @@ En la tabla siguiente se muestran escenarios de restauración a un momento dado 
 
 |           |Restauración de una base de datos existente en la misma instancia administrada| Restauración de una base de datos existente en otra instancia administrada|Restauración de una base de datos eliminada en la misma instancia administrada|Restauración de una base de datos eliminada en otra instancia administrada|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| Sí|No |No|Sin|
-|**CLI de Azure**|Sí |Sí |No|Sin|
+|**Azure Portal**| Sí|No |No|No|
+|**CLI de Azure**|Sí |Sí |No|No|
 |**PowerShell**| Sí|Sí |Sí|Sí|
 
 ## <a name="restore-an-existing-database"></a>Restauración de una base de datos existente
@@ -58,7 +58,7 @@ Restaure una base de datos existente en la misma instancia mediante Azure Portal
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. Vaya a la instancia administrada y seleccione la base de datos que quiera restaurar.
 3. Seleccione **Restaurar** en la página de la base de datos:
 
@@ -134,9 +134,9 @@ Para una explicación detallada de los parámetros disponibles, consulte la [doc
 
 ---
 
-## <a name="restore-a-deleted-database"></a>Restauración de una base de datos eliminada
+## <a name="restore-a-deleted-database"></a>Restaurar una base de datos eliminada
 
-La restauración de una base de datos eliminada solo se puede realizar mediante PowerShell. La base de datos se puede restaurar en la misma instancia o en otra.
+La restauración de una base de datos eliminada se puede realizar mediante PowerShell o Azure Portal. Use este documento para realizar esta operación con [Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). La base de datos se puede restaurar en la misma instancia o en otra.
 
 Para restaurar una base de datos eliminada mediante PowerShell, especifique los valores de los parámetros en el siguiente comando. A continuación, ejecute el comando:
 

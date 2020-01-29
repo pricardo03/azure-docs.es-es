@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c6658d2b3758eed94f273bf0b3685bbd146278
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d08af9fd34728860343db3578f7283802f1611
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073084"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544759"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -42,7 +42,7 @@ Varias extensiones de máquina virtual de Azure diferentes están disponibles, c
 
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Windows permite que se ejecute cualquier script de PowerShell en una máquina virtual. Los scripts personalizados resultan útiles para diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para controlar la extensión en la VM, debe tener instalado el Agente Windows de Azure. Algunas extensiones individuales tienen requisitos previos, como el acceso a los recursos o las dependencias.
 
@@ -252,6 +252,10 @@ Al moverse la propiedad **command to execute** a la configuración **protegida**
 }
 ```
 
+En una máquina virtual de IaaS de Azure que use extensiones, en la consola de certificados, es posible que vea certificados que tienen el asunto **_Generador de certificados CRP de Windows Azure_** . En una máquina virtual de RDFE clásica, estos certificados tienen el nombre de asunto **_Administración de servicios de Windows Azure para extensiones_** .
+
+Estos certificados protegen la comunicación entre la máquina virtual y su host durante la transferencia de los valores protegidos (contraseña y otras credenciales) que usan las extensiones. Los certificados se compilan mediante el controlador de tejido de Azure y se pasan al agente de máquina virtual. Si detiene e inicia la máquina virtual cada día, el controlador de tejido podría crear un nuevo certificado. El certificado se almacena en el almacén de certificados personales del equipo. Estos certificados se pueden eliminar. El agente de máquina virtual puede volver a crear certificados si es necesario.
+
 ### <a name="how-do-agents-and-extensions-get-updated"></a>¿Cómo se actualizan los agentes y las extensiones?
 
 Los agentes y las extensiones comparten el mismo mecanismo de actualización. Algunas actualizaciones no necesitan reglas adicionales de firewall.
@@ -417,7 +421,7 @@ También puede quitar una extensión en Azure Portal como se indica a continuaci
 4. Elija **Desinstalar**.
 
 ## <a name="common-vm-extensions-reference"></a>Referencia de extensiones de máquina virtual comunes
-| Nombre de la extensión | DESCRIPCIÓN | Más información |
+| Nombre de la extensión | Descripción | Más información |
 | --- | --- | --- |
 | Extensión de la secuencia de comandos personalizada para Windows |Ejecución de scripts en una máquina virtual de Azure |[Extensión de la secuencia de comandos personalizada para Windows](custom-script-windows.md) |
 | Extensión de DSC para Windows |Extensión DSC (configuración de estado deseado) de PowerShell |[Extensión DSC para Windows](dsc-overview.md) |

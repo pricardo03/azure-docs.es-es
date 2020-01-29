@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: a806e6eeecc6976286566d05a0f19dac684b2c0b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a2a404a03c06dde59edc88436afdc9dba3d74797
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75946023"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170163"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory
 
@@ -153,7 +153,7 @@ El script está diseñado para ser flexible. En primer lugar, buscará los recur
     | SubscriptionName |Nombre de la suscripción a Azure que se va a usar para el recurso del Lector inmersivo. Debe tener una suscripción para poder crear un recurso. |
     | nombreDelRecurso |  Debe ser alfanumérico y puede contener "-", siempre y cuando "-" no sea el primer ni el último carácter. No puede tener una longitud de más de 63 caracteres.|
     | ResourceSubdomain |Subdominio personalizado necesario para el recurso del Lector inmersivo. El SDK usa el subdominio al llamar al servicio del Lector inmersivo para iniciar el Lector. El subdominio debe ser único globalmente. El subdominio debe ser alfanumérico y puede contener "-", siempre y cuando "-" no sea el primer ni el último carácter. No puede tener una longitud de más de 63 caracteres. Este parámetro es opcional si el recurso ya existe. |
-    | ResourceSKU |Opciones: `S0` o `S1`. Visite nuestra [página de precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para obtener más información sobre cada SKU disponible. Este parámetro es opcional si el recurso ya existe. |
+    | ResourceSKU |Opciones: `S0`. Visite nuestra [página de precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para obtener más información sobre cada SKU disponible. Este parámetro es opcional si el recurso ya existe. |
     | ResourceLocation |Opciones: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. Este parámetro es opcional si el recurso ya existe. |
     | ResourceGroupName |Los recursos se crean en grupos de recursos dentro de las suscripciones. Suministre el nombre de un grupo de recursos existente. Si el grupo de recursos todavía no existe, se creará uno con este nombre. |
     | ResourceGroupLocation |Si el grupo de recursos no existe, debe proporcionar una ubicación donde se creará el grupo. Ejecute `az account list-locations` para obtener una lista de ubicaciones. Use la propiedad *name* (sin espacios) del resultado devuelto. Este parámetro es opcional si el grupo de recursos ya existe. |
@@ -174,7 +174,7 @@ El script está diseñado para ser flexible. En primer lugar, buscará los recur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte el [tutorial de inicio rápido de Node.js](./quickstart-nodejs.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Node.js.
+* Consulte el [inicio rápido de Node.js](./quickstart-nodejs.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Node.js
 * Vea el [tutorial para Python](./tutorial-python.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
 * Vea el [tutorial para Swift](./tutorial-ios-picture-immersive-reader.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Swift.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](./reference.md)

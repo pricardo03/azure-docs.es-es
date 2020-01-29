@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d7a0c757f7314e45d5b4d13273df984739912b27
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 43223f7cb9ed254340c99d235d494d1e93583c7f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942345"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293545"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-using-python"></a>Capture datos de centros de eventos en Azure Storage y léalos mediante Python 
 Puede usar Configurar un centro de eventos para que los datos enviados a un centro de eventos se capturen en Azure Storage o Azure Data Lake Storage. En este artículo se muestra cómo escribir código de Python para enviar eventos a un centro de eventos y leer los datos capturados en Azure Blob Storage. Para obtener más información acerca de esta característica, consulte la [Introducción a la característica de Captura de centros de eventos](event-hubs-capture-overview.md).
@@ -42,9 +42,9 @@ En esta guía de inicio rápido:
 - Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - [Crear un espacio de nombres de Event Hubs y un centro de eventos en el espacio de nombres](event-hubs-create.md). Anote el nombre del espacio de nombres de Event Hubs, el nombre del centro de eventos y la clave de acceso principal del espacio de nombres. Obtenga la clave de acceso siguiendo las instrucciones del artículo: [Obtenga la cadena de conexión](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). El nombre de la clave predeterminada es: **RootManageSharedAccessKey**. No necesita la cadena de conexión en el tutorial. Solo necesita la clave principal. 
 - Siga estos pasos para crear una **cuenta de Azure Storage** y un **contenedor de blobs**:
-    1. [Cree una cuenta de Azure Storage](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
-    2. [Cree un contenedor de blobs en el almacenamiento](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
-    3. [Obtenga la cadena de conexión para la cuenta de almacenamiento](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+    1. [Cree una cuenta de Azure Storage](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    2. [Cree un contenedor de blobs en el almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
+    3. [Obtenga la cadena de conexión con la cuenta de almacenamiento](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string).
 
         Anote la **cadena de conexión** y el **nombre del contenedor**. Los usará más adelante en el código. 
 - Habilitar la característica **Capturar** en el centro de eventos siguiendo las instrucciones de: [Habilitación de Event Hubs Capture mediante Azure Portal](event-hubs-capture-enable-through-portal.md). Seleccione la cuenta de almacenamiento y el contenedor de blobs que creó en el paso anterior. También puede habilitar la característica al crear un centro de eventos. 
@@ -90,7 +90,7 @@ En esta sección, creará un script de Python que envía 200 eventos (10 disposi
     1. Reemplace `EVENT HUBS NAMESPACE CONNECTION STRING` por la cadena de conexión para el espacio de nombres de Event Hubs.
     2. Reemplace `EVENT HUB NAME` por el nombre del centro de eventos. 
 5. Ejecute el script para enviar eventos al centro de eventos. 
-6. En Azure Portal, puede comprobar que el centro de eventos ha recibido los mensajes. Cambie a la vista de **Mensajes** en la sección **Métricas**. Actualice la página para actualizar el gráfico. Puede tardar unos segundos en mostrar que los mensajes se han recibido. 
+6. En Azure Portal, puede comprobar que el centro de eventos ha recibido los mensajes. Cambie a la vista **Mensajes** en la sección **Métricas**. Actualice la página para actualizar el gráfico. Puede tardar unos segundos en mostrar que los mensajes se han recibido. 
 
     [![Comprobación de que el centro de eventos ha recibido los mensajes](./media/get-started-capture-python-v2/messages-portal.png)](./media/get-started-capture-python-v2/messages-portal.png#lightbox)
 

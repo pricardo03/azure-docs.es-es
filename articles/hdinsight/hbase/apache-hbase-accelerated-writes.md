@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ebcc91bb374183a3f2fe000f37c66230459befa3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179093"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156937"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escrituras aceleradas de Azure HDInsight para Apache HBase
 
@@ -37,7 +37,7 @@ La característica Escrituras aceleradas soluciona el problema de mayores latenc
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Cómo habilitar Escrituras aceleradas para HBase en HDInsight
 
-Para crear un nuevo clúster de HBase con la característica Escrituras aceleradas, siga los pasos de [Configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) hasta llegar al **Paso 3, almacenamiento**. En **Configuración de Metastore**, haga clic en la casilla junto a **Habilitar Escrituras aceleradas (versión preliminar)** . A continuación, continúe con los pasos restantes para crear un clúster.
+Para crear un nuevo clúster de HBase con la característica Escrituras aceleradas, siga los pasos de [Configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) hasta llegar al **Paso 3, almacenamiento**. En **Configuración de tienda de metadatos**, haga clic en la casilla junto a **Enable Accelerated Writes** (Habilitar escrituras aceleradas). A continuación, continúe con los pasos restantes para crear un clúster.
 
 ![Habilitar la opción de escrituras aceleradas para Apache HBase de HDInsight](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 

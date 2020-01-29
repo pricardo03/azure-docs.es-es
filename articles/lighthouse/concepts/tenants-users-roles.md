@@ -1,14 +1,14 @@
 ---
 title: Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
 description: Comprenda los conceptos de los inquilinos, los usuarios y los roles de Azure Active Directory, así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453566"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156342"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
 
@@ -29,6 +29,9 @@ Todos los [roles integrados](../../role-based-access-control/built-in-roles.md) 
 - No se admite el rol de [Propietario](../../role-based-access-control/built-in-roles.md#owner).
 - No se admiten los roles integrados con el permiso [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Se admite el rol integrado [administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator), pero solo con el objetivo limitado de [asignar roles a una identidad administrada en el inquilino del cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). No se aplicará ningún otro permiso que normalmente conceda este rol. Si define un usuario con este rol, también debe especificar los roles integrados que este usuario puede asignar a las identidades administradas.
+
+> [!NOTE]
+> Una vez que se agrega un rol integrado aplicable a Azure, se puede asignar al [incorporar clientes mediante las plantillas de Azure Resource Manager](../how-to/onboard-customer.md). Puede haber un retraso antes de que el rol recién agregado esté disponible en Cloud Partner Portal al [publicar una oferta de servicio administrado](../how-to/publish-managed-services-offers.md).
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Prácticas recomendadas para definir usuarios y roles
 

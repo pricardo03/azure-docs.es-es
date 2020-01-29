@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 01/20/2020
+ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819139"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293630"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integración de Azure Data Explorer con Azure Data Factory
 
@@ -44,6 +44,14 @@ Para ver un tutorial detallado de la actividad de comandos, consulte [usar la ac
 ### <a name="copy-in-bulk-from-a-database-template"></a>Copiar de forma masiva desde una plantilla de base de datos
 
 La [Copia en bloque desde una base de datos a Azure Data Explorer mediante la plantilla de Azure Data Factory](data-factory-template.md) es una canalización de Azure Data Factory. La plantilla se usa para crear muchas canalizaciones por base de datos o por tabla para una copia de datos más rápida. 
+
+### <a name="mapping-data-flows"></a>Asignación de flujos de datos 
+
+[Flujos de datos de asignación de Azure Data Factory](/azure/data-factory/concepts-data-flow-overview): son transformaciones de datos diseñadas de manera visual que permiten a los ingenieros de datos desarrollar una lógica de transformación de datos gráficos sin necesidad de escribir código. Para crear un flujo de datos e ingerir datos en Azure Data Explorer, use el método siguiente:
+
+1. Cree el [flujo de datos de asignación](/azure/data-factory/data-flow-create).
+1. [Exporte los datos a un blob de Azure](/azure/data-factory/data-flow-sink). 
+1. Defina [Event Grid](/azure/data-explorer/ingest-data-event-grid) o la [actividad de copia de ADF](/azure/data-explorer/data-factory-load-data) para ingerir los datos en Azure Data Explorer.
 
 ## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Selección entre las actividades de copia y de comandos de Azure Data Explorer cuando se copian datos 
 

@@ -1,25 +1,17 @@
 ---
-title: Uso del runbook de Azure Automation para administrar dispositivos de StorSimple | Microsoft Docs
+title: Uso de runbooks de Azure Automation para administrar dispositivos de StorSimple
 description: Obtenga información acerca de cómo usar el runbook de Azure Automation para automatizar trabajos de StorSimple.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 30d70bb7e1f868060e3b287a0cdfb117c585b9ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 727bebe0c190ed4dff4408884c45fe166ad541a9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310219"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276966"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Uso de runbooks de Azure Automation para administrar dispositivos de StorSimple
 
@@ -30,7 +22,7 @@ En este artículo se describe cómo se pueden usar los runbooks de Azure Automat
 
 En esta sección se toma como ejemplo un script de Windows PowerShell para StorSimple y se detallan los pasos necesarios para importar el script en un runbook y, después, publicar y ejecutar el runbook.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de que dispone de:
 
@@ -190,7 +182,7 @@ Para crear un módulo de automatización para la administración de dispositivos
    3. Cree un nuevo grupo de recursos o seleccione uno del grupo de recursos existente.
    4. Seleccione una **ubicación** (si es posible la misma en donde se está ejecutando el servicio).
    5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
-   6. Si quiere, seleccione **Anclar al panel**. Haga clic en **Create**(Crear).
+   6. Si quiere, seleccione **Anclar al panel**. Haga clic en **Crear**.
 
        ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
@@ -206,7 +198,7 @@ Para crear un módulo de automatización para la administración de dispositivos
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-6. Vaya a **Automatización de procesos > Runbooks y haga clic en + Agregar un runbook**. En la hoja **Agregar runbook**, haga clic en **Importar un runbook existente**. Seleccione el archivo de script de Windows PowerShell para el **Archivo de runbook**. El tipo de runbook se selecciona automáticamente. Proporcione un nombre y una descripción opcional del runbook. Haga clic en **Create**(Crear).
+6. Vaya a **Automatización de procesos > Runbooks y haga clic en + Agregar un runbook**. En la hoja **Agregar runbook**, haga clic en **Importar un runbook existente**. Seleccione el archivo de script de Windows PowerShell para el **Archivo de runbook**. El tipo de runbook se selecciona automáticamente. Proporcione un nombre y una descripción opcional del runbook. Haga clic en **Crear**.
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 

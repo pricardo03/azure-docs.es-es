@@ -1,5 +1,5 @@
 ---
-title: 'Solución de VMware en Azure de CloudSimple: uso del sitio de la nube privada para hospedar una infraestructura de escritorio virtual mediante VMware Horizon'
+title: 'Azure VMware Solution by CloudSimple: uso del sitio de la nube privada para hospedar una infraestructura de escritorio virtual mediante VMware Horizon'
 description: Describe cómo puede usar su sitio de la nube privada de CloudSimple para hospedar una infraestructura de escritorio virtual mediante VMware Horizon.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 723821a78ecae308443c93567402e3b232c036f0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206560"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314715"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Uso del sitio de la nube privada de CloudSimple para hospedar una infraestructura de escritorio virtual mediante VMware Horizon
 
@@ -47,7 +47,7 @@ En las secciones siguientes se describe cómo implementar una solución de VDI c
 ### <a name="estimate-the-size-of-your-desktop-environment"></a>Calcular el tamaño del entorno de escritorio
 
 * Verifique que la configuración identificada se encuentre dentro de los límites operativos de VMware.
-* Use los recursos necesarios en el sitio de recuperación ante desastres para proteger su entorno local.
+* Estime los recursos necesarios para todos los equipos de escritorio y los componentes de administración de Horizon.
 
 ### <a name="create-a-private-cloud-for-your-environment"></a>Crear una nube privada para su entorno
 

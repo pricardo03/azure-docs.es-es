@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771298"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548006"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
@@ -46,13 +46,13 @@ Se pueden auditar las siguientes operaciones admitidas.
 |Eliminar búsqueda guardada    |Microsoft.OperationalInsights/workspaces/savedSearches|
 |Actualizar reglas de alerta |Microsoft.SecurityInsights/alertRules|
 |Eliminar reglas de alerta |Microsoft.SecurityInsights/alertRules|
-|Actualizar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules|
-|Eliminar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules|
+|Actualizar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules/actions|
+|Eliminar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules/actions|
 |Actualizar marcadores   |Microsoft.SecurityInsights/bookmarks|
 |Eliminar marcadores   |Microsoft.SecurityInsights/bookmarks|
 |Actualizar casos   |Microsoft.SecurityInsights/Cases|
-|Actualizar la investigación de casos  |Microsoft.SecurityInsights/Cases|
-|Crear comentarios de los casos   |Microsoft.SecurityInsights/Cases|
+|Actualizar la investigación de casos  |Microsoft.SecurityInsights/Cases/investigations|
+|Crear comentarios de los casos   |Microsoft.SecurityInsights/Cases/comments|
 |Actualizar los conectores de datos |Microsoft.SecurityInsights/dataConnectors|
 |Eliminar los conectores de datos |Microsoft.SecurityInsights/dataConnectors|
 |Actualizar la configuración    |Microsoft.SecurityInsights/settings|

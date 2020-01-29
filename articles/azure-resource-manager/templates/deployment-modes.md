@@ -2,19 +2,21 @@
 title: Modos de implementación
 description: Descripción de cómo especificar si desea usar un modo de implementación completa o incremental con Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: f5a6f6416240ce512167e779c086d2665771c3f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/17/2020
+ms.openlocfilehash: e53b8c58bf0919e64079e62c687b76ada1db7ff0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476454"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261031"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
-Al implementar los recursos, debe especificar si la implementación es una actualización incremental o una actualización completa.  La diferencia entre estos dos modos es la forma en que Resource Manager controla los recursos existentes en el grupo de recursos que no están en la plantilla. El modo predeterminado es el incremental.
+Al implementar los recursos, debe especificar si la implementación es una actualización incremental o una actualización completa. La diferencia entre estos dos modos es la forma en que Resource Manager controla los recursos existentes en el grupo de recursos que no están en la plantilla.
 
 En ambos modos, Resource Manager intenta crear todos los recursos especificados en la plantilla. Si el recurso ya existe en el grupo de recursos y su configuración es igual, no se realizará ninguna operación en ese recurso. Si cambia los valores de propiedad de un recurso, el recurso se actualiza con esos nuevos valores. Si intenta actualizar la ubicación o el tipo de un recurso existente, la implementación produce un error. En su lugar, implemente un nuevo recurso con la ubicación o escriba la que necesite.
+
+El modo predeterminado es el incremental.
 
 ## <a name="complete-mode"></a>Modo completo
 
@@ -26,16 +28,16 @@ Tenga cuidado al usar el modo completo con [bucles de copia](create-multiple-ins
 
 Si implementa en [más de un grupo de recursos en una plantilla](cross-resource-group-deployment.md), se pueden eliminar los recursos del grupo de recursos especificado en la operación de implementación. Los recursos de los grupos de recursos secundarios no se eliminarán.
 
-Hay algunas diferencias en la forma en que los diferentes tipos de recursos controlan las eliminaciones en modo completo. Los recursos principales se eliminan automáticamente cuando no están en una plantilla implementada en modo completo. Por el contrario, algunos recursos secundarios no se eliminan automáticamente cuando no están en la plantilla. A pesar de ello, estos recursos secundarios sí se eliminan si también se elimina el recurso principal. 
+Hay algunas diferencias en la forma en que los diferentes tipos de recursos controlan las eliminaciones en modo completo. Los recursos principales se eliminan automáticamente cuando no están en una plantilla implementada en modo completo. Por el contrario, algunos recursos secundarios no se eliminan automáticamente cuando no están en la plantilla. A pesar de ello, estos recursos secundarios sí se eliminan si también se elimina el recurso principal.
 
-Por ejemplo, si el grupo de recursos contiene una zona DNS (Microsoft.Network/tipo de recurso dnsZones) y un registro CNAME (Microsoft.Network/dnsZones/tipo de recurso CNAME), la zona DNS estará en el recurso principal del registro CNAME. Si la implementación se realiza en modo completo y no se incluye la zona DNS en la plantilla, se eliminará tanto la zona DNS como el registro CNAME. Si se incluye la zona DNS en la plantilla, pero no se incluye el registro CNAME, el registro CNAME no se eliminará. 
+Por ejemplo, si el grupo de recursos contiene una zona DNS (Microsoft.Network/tipo de recurso dnsZones) y un registro CNAME (Microsoft.Network/dnsZones/tipo de recurso CNAME), la zona DNS estará en el recurso principal del registro CNAME. Si la implementación se realiza en modo completo y no se incluye la zona DNS en la plantilla, se eliminará tanto la zona DNS como el registro CNAME. Si se incluye la zona DNS en la plantilla, pero no se incluye el registro CNAME, el registro CNAME no se eliminará.
 
 Para ver una lista del modo en que los diferentes tipos de recursos administran las eliminaciones, consulte [Eliminación de recursos de Azure en implementaciones en modo completo](complete-mode-deletion.md).
 
 Si el grupo de recursos está [bloqueado](../management/lock-resources.md), el modo completo no elimina los recursos.
 
 > [!NOTE]
-> Solo las plantillas de nivel de raíz admiten el modo de implementación completa. En cuanto a [ plantillas vinculadas o anidadas ](linked-templates.md), debe usar el modo incremental. 
+> Solo las plantillas de nivel de raíz admiten el modo de implementación completa. En cuanto a [ plantillas vinculadas o anidadas ](linked-templates.md), debe usar el modo incremental.
 >
 > Las [implementaciones de nivel de suscripción](deploy-to-subscription.md) no son compatibles con el modo completo.
 >
@@ -46,7 +48,8 @@ Si el grupo de recursos está [bloqueado](../management/lock-resources.md), el m
 
 En el modo incremental, Resource Manager **deja sin modificar** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla. Los recursos de la plantilla **se agregan** al grupo de recursos.
 
-Es importante reseñar que el modo incremental se aplica a todo el recurso, no a las propiedades individuales de un recurso existente. Al volver a implementar un recurso existente en el modo incremental, se aplican todas las propiedades de nuevo. Las **propiedades no se agregan de manera incremental**. Suele pensarse erróneamente que las propiedades que no se especifican en la plantilla se mantienen sin cambios. Si no se especifican determinadas propiedades, Resource Manager interpreta la implementación como que sobrescribe esos valores. Las propiedades que no se incluyen en la plantilla se restablecen a los valores predeterminados establecidos por el proveedor de recursos. Especifique todos los valores no predeterminados del recurso, no solo los que vaya a actualizar. La definición del recurso en la plantilla siempre contiene el estado final del recurso. No puede representar una actualización parcial de un recurso existente.
+> [!NOTE]
+> Al volver a implementar un recurso existente en el modo incremental, se aplican todas las propiedades de nuevo. Las **propiedades no se agregan de manera incremental**. Suele pensarse erróneamente que las propiedades que no se especifican en la plantilla se mantienen sin cambios. Si no se especifican determinadas propiedades, Resource Manager interpreta la implementación como que sobrescribe esos valores. Las propiedades que no se incluyen en la plantilla se restablecen a los valores predeterminados. Especifique todos los valores no predeterminados del recurso, no solo los que vaya a actualizar. La definición del recurso en la plantilla siempre contiene el estado final del recurso. No puede representar una actualización parcial de un recurso existente.
 
 ## <a name="example-result"></a>Resultado de ejemplo
 
@@ -105,9 +108,9 @@ En el siguiente ejemplo se muestra un conjunto de plantillas vinculadas al modo 
 ```json
 "resources": [
   {
+      "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
           <nested-template-or-external-template>

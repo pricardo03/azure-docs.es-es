@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/09/2020
-ms.openlocfilehash: 21ad0c38b8901c1e33e05ab162552cb074a392a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/17/2020
+ms.openlocfilehash: ac9ded703ed18abd9543b6e32e59afe6ccf711a9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969597"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263428"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 En este artículo se describen las distintas aplicaciones y servicios que se supervisan mediante Azure Monitor. 
@@ -181,7 +181,7 @@ Los servicios y las soluciones de la tabla siguiente almacenan sus datos en un �
 | [Azure Sentinel](/azure/sentinel/) | Se conecta a orígenes diferentes, incluido Office 365 y Amazon Web Services CloudTrail. Consulte [Conexión con orígenes de datos](/azure/sentinel/connect-data-sources). |
 | [Análisis de Key Vault](insights/azure-key-vault.md) | Analice registros de AuditEvent de Azure Key Vault. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Cree una configuración de diagnóstico para enviar registros a Azure Monitor. Consulte [Envío de datos de registro al almacenamiento, a Event Hubs o a Log Analytics en Intune (versión preliminar)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
-| Red  | [DNS Analytics](insights/dns-analytics.md): Recopila, analiza y correlaciona los registros analíticos y de auditoría de Windows DNS y otros datos relacionados a partir de los servidores DNS.<br>[Network Performance Monitor](insights/network-performance-monitor.md): Supervisa la conectividad de red y el rendimiento de los puntos de conexión de servicios y aplicaciones.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor): Analice registros y métricas de Azure Application Gateway.<br>[Análisis de tráfico](/azure/network-watcher/traffic-analytics): Analiza los registros de flujo del grupo de seguridad de red (NSG) de Network Watcher para proporcionar conclusiones sobre el flujo de tráfico en la nube de Azure. |
+| Red  | [Network Performance Monitor](insights/network-performance-monitor.md): Supervisa la conectividad de red y el rendimiento de los puntos de conexión de servicios y aplicaciones.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor): Analice registros y métricas de Azure Application Gateway.<br>[Análisis de tráfico](/azure/network-watcher/traffic-analytics): Analiza los registros de flujo del grupo de seguridad de red (NSG) de Network Watcher para proporcionar conclusiones sobre el flujo de tráfico en la nube de Azure. |
 | [Office 365](insights/solution-office-365.md) | Supervise su entorno de Office 365. Versión actualizada con incorporación mejorada disponible a través de Azure Sentinel. |
 | [SQL Analytics](insights/azure-sql.md) | Supervise el rendimiento de bases de datos, grupos elásticos e instancias administradas de Azure SQL a escala y entre varias suscripciones. |
 | [Surface Hub](insights/surface-hubs.md) | Realice un seguimiento del estado y el uso de los dispositivos Surface Hub. |
@@ -200,6 +200,7 @@ Hay otras soluciones disponibles para supervisar diferentes aplicaciones y servi
 | [Active Directory Assessment](insights/ad-assessment.md) | Evalúe el riesgo y el estado de los entornos de Active Directory. |
 | [Estado de replicación de Active Directory](insights/ad-replication-status.md) | Supervisa periódicamente el entorno de Active Directory para comprobar si existen errores de replicación. |
 | [Activity Log Analytics](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analice las entradas de Activity Log mediante consultas y vistas de registros predefinidas. |
+| [DNS Analytics (versión preliminar)](insights/dns-analytics.md) | Recopila, analiza y correlaciona los registros analíticos y de auditoría de Windows DNS y otros datos relacionados a partir de los servidores DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Recopile, vea y analice las métricas de rendimiento y estado de sistema de Cloud Foundry entre varias implementaciones. |
 | [Contenedores](insights/containers.md) | Vea y administre hosts de contenedor de Docker y Windows. |
 | [Evaluaciones a petición](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Evalúe y optimice la disponibilidad, la seguridad y el rendimiento de los entornos de tecnología de Microsoft locales, híbridos y en la nube. |

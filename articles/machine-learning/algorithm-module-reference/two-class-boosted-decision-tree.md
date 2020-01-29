@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7590cab00670c92e8a5b90006778542ec44bf83f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c51ff1e653ac3fbbf6042cb6fb631b05ef94041
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490177"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548363"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árbol de decisión ampliado de dos clases
 
@@ -26,7 +26,7 @@ Un árbol de decisión ampliado es un método de aprendizaje de conjuntos en que
   
 Por lo general, cuando se configuran correctamente, los árboles de decisión ampliados son los métodos más sencillos para obtener el máximo rendimiento en una amplia variedad de tareas de aprendizaje automático. Sin embargo, también son uno de los elementos aprendices que consumen más recursos de memoria y la implementación actual retiene todo en la memoria. Por tanto, un modelo de árbol de decisión ampliado podría no ser capaz de procesar los grandes conjuntos de datos que algunos elementos aprendices lineales pueden administrar.
 
-## <a name="how-to-configure"></a>Configuración
+## <a name="how-to-configure"></a>Cómo se configura
 
 En este módulo se crea un modelo de clasificación no entrenado. Dado que la clasificación es un método de aprendizaje supervisado, para entrenar el modelo, necesita un *conjunto de datos etiquetado* que incluye una columna de etiqueta con un valor para todas las filas.
 
@@ -36,7 +36,7 @@ Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md
   
 2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).
   
-    + **Parámetro único**: Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
+    + **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
   
   
 3.  En **Número máximo de hojas por árbol**, indique el número máximo de nodos terminales (hojas) que se pueden crear en un árbol.
@@ -51,7 +51,7 @@ Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md
   
      La velocidad de aprendizaje determina la rapidez o lentitud con la que el aprendiz converge en la solución óptima. Si el tamaño del paso es demasiado grande, puede pasar por alto la solución óptima. Si el tamaño del paso es demasiado pequeño, el entrenamiento tarda más tiempo en converger en la mejor solución.
   
-6.  En **Número de árboles construidos**, indique el número total de árboles de decisión que se van a crear en el conjunto. Si crea más árboles de decisión, puede obtener potencialmente mejor cobertura, pero aumenta el tiempo de entrenamiento.
+6.  En **Número de árboles construidos**, indique el número total de árboles de decisión que se van a crear en el conjunto. Si crea más árboles de decisión, puede obtener una cobertura potencialmente mejor, pero aumentará el tiempo de entrenamiento.
   
      Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si quiere ver o imprimir un único árbol, establezca el valor en 1. Sin embargo, al hacerlo, solo se produce un único árbol (el árbol con el conjunto inicial de parámetros) y no se realizan iteraciones adicionales.
   
@@ -63,15 +63,14 @@ Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md
 9. Entrene el modelo.
   
     + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), conecte un conjunto de datos etiquetado y el módulo [Entrenar modelo](./train-model.md).  
-  
    
 ## <a name="results"></a>Results
 
-Una vez completado el entrenamiento del modelo, haga clic en la salida de [Entrenar modelo](./train-model.md) para ver los resultados:
+Una vez completado el entrenamiento:
 
-+ Para ver el árbol que se ha creado en cada iteración, seleccione **Visualizar**. 
-+ Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas de cada nodo.
++ Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho del módulo **Train model** (Entrenar modelo). Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar el modelo como un módulo reutilizable.
 
++ Para usar el modelo de puntuación, agregue el módulo **Score Model** (Puntuar modelo) a una canalización.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

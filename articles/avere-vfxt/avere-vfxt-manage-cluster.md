@@ -4,20 +4,22 @@ description: 'Cómo administrar el clúster de Avere: agregar o quitar nodos, y 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d963c951d2202b3f60f0dd93c440b36fabf6478d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415298"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153486"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Administración del clúster de Avere de vFXT
 
-Después de crear el clúster, es posible que deba agregar nodos de clúster, o bien detener o reiniciar el clúster. Una vez finalizado el proyecto, debe saber cómo detener y quitar el clúster de forma permanente.
+En algún momento del ciclo de vida de Avere vFXT for Azure, es posible que tenga que agregar nodos de clúster o iniciar o reiniciar el clúster. Una vez finalizado el proyecto, debe saber cómo detener el clúster y quitarlo de forma definitiva.
 
-Dependiendo de la tarea de administración del clúster, es posible que deba usar el panel de control de Avere, el script de creación de clúster de la línea de comandos de vfxt.py o Azure Portal para hacerlo.
+En este artículo se explica cómo agregar o quitar nodos de clúster y otras operaciones básicas de clúster. Si tiene que cambiar la configuración del clúster o supervisar su trabajo, use el [panel de control de Avere](avere-vfxt-cluster-gui.md).
+
+En función de la tarea de administración, es posible que tenga que usar alguna de estas tres herramientas: panel de control de Avere, el script de administración del clúster de la línea de comandos vfxt.py o Azure Portal.
 
 Esta tabla ofrece una descripción general de las herramientas que se pueden usar para cada tarea.
 
@@ -38,7 +40,7 @@ A continuación, se incluyen instrucciones detalladas de cada herramienta.
 
 Al apagar o detener cualquier máquina virtual de Azure, deja de incurrir en gastos de proceso, pero debe seguir pagando por su almacenamiento. Si apaga un nodo de vFXT o todo el clúster de vFXT y no quiere intentar reiniciarlo, debe usar Azure Portal para eliminar las máquinas virtuales relacionadas.
 
-En Azure Portal, un nodo *detenido* (que se puede reiniciar) muestra el estado **detenido**; un nodo *eliminado* muestra el estado **detenido (desasignado)**  y ya no incurre en cargos de proceso o almacenamiento.
+En Azure Portal, un nodo *detenido* (que se puede reiniciar) muestra el estado **detenido** en Azure Portal. Un nodo *eliminado*muestra el estado **detenido (desasignado)** y ya no incurre en cargos de proceso o almacenamiento.
 
 Antes de eliminar la máquina virtual, asegúrese de que todos los datos cambiados se han escrito de la memoria caché al almacenamiento de back-end mediante las opciones del panel de control de Avere o vfxt.py para detener o apagar el clúster.
 
@@ -50,7 +52,7 @@ El panel de control de Avere se puede usar para estas tareas:
 * Quitar un nodo del clúster
 * Detener o reiniciar todo el clúster
 
-El panel de control de Avere prioriza la integridad de los datos. Por tanto, intenta escribir los datos modificados en el almacenamiento de back-end antes de una operación posiblemente destructiva. Esto la convierte en una opción más segura que el portal de Avere.
+El panel de control de Avere prioriza la integridad de los datos. Por tanto, intenta escribir los datos modificados en el almacenamiento de back-end antes de una operación posiblemente destructiva. Esto lo convierte en una opción más segura que Azure Portal.
 
 Acceda al panel de control de Avere desde un explorador web. Siga las instrucciones de [Acceso al clúster de vFXT](avere-vfxt-cluster-gui.md) si necesita ayuda.
 
@@ -69,7 +71,7 @@ Lea [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/ht
 
 La página de configuración **System Maintenance** (Mantenimiento del sistema) presenta comandos para reiniciar los servicios del clúster, reiniciar el clúster o apagar el clúster de forma segura. Lea [Administration > System Maintenance](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (Administración > Mantenimiento del sistema) en la guía de configuración del clúster de Avere para obtener más información.
 
-Cuando un clúster se está apagando, publica mensajes de estado en la pestaña **Dashboard** (Panel) en primer lugar. Transcurridos unos instantes, la sesión del panel de control de Avere dejará de responder, lo que significa que el clúster se ha apagado.
+Cuando un clúster empieza a apagarse, publica mensajes de estado en la pestaña **Dashboard** (Panel). Transcurridos unos instantes, los mensajes se detienen y al final la sesión del panel de control de Avere deja de responder, lo que significa que el clúster se ha apagado.
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>Administración del clúster con vfxt.py
 
@@ -83,7 +85,7 @@ El script vfxt.py puede usarse para estas tareas de administración del clúster
 * Detener o iniciar un clúster.  
 * Destruir un clúster.
 
-Al igual que el panel de control de Avere, las operaciones de vfxt.py intentan garantizar que los datos cambiados se almacenan permanentemente en el almacenamiento de back-end antes de apagar o destruir el clúster o el nodo. Esto la convierte en una opción más segura que el portal de Avere.
+Al igual que el panel de control de Avere, las operaciones de vfxt.py intentan garantizar que los datos cambiados se almacenan permanentemente en el almacenamiento de back-end antes de apagar o destruir el clúster o el nodo. Esto lo convierte en una opción más segura que Azure Portal.
 
 Una guía de uso completa de vfxt.py está disponible en GitHub: [administración de clúster en la nube con vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
@@ -95,7 +97,7 @@ El clúster debe estar ejecutándose para usar este comando.
 
 Use los valores siguientes:
 
-* Nombre del grupo de recursos del clúster, y también de los recursos de red y almacenamiento si no son los mismos que los del clúster
+* Nombre del grupo de recursos del clúster y también de los recursos de red y almacenamiento, si no están en el mismo grupo de recursos que el clúster
 * Ubicación del clúster
 * Red y subred del clúster
 * Rol de acceso del nodo de clúster (use el rol integrado [Operador de Avere](../role-based-access-control/built-in-roles.md#avere-operator))
@@ -139,7 +141,7 @@ Dado que el clúster está detenido, debe pasar identificadores de instancia par
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-La opción ``--quick-destroy`` puede usarse si no quiere escribir datos modificados de la caché del clúster.
+La opción ``--quick-destroy`` puede usarse si no quiere guardar datos modificados de la memoria caché del clúster.
 
 Lea la [guía de uso de vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) para obtener más información.
 
@@ -195,7 +197,7 @@ Además de eliminar los nodos de clúster, considere la posibilidad de quitar es
 * Discos de datos asociados a los nodos de clúster
 * Interfaces de red y direcciones IP públicas asociadas con componentes de clúster
 * Redes virtuales
-* Cuentas de almacenamiento (**solo** si no contienen ningún dato importante)
+* Contenedores y cuentas de almacenamiento (**solo** si no contienen ningún dato importante)
 * Conjunto de disponibilidad
 
 ![Lista de "todos los recursos" de Azure Portal con los recursos creados para un clúster de prueba](media/avere-vfxt-all-resources-list.png)

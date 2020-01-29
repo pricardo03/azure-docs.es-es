@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979900"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512671"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas comunes y resolución en Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Este error se produce habitualmente cuando una suscripción de Azure se pasa a u
 Este error es irrecuperable. Para resolver la alerta, debe [eliminar el dominio administrado de Azure AD DS existente](delete-aadds.md) y volver a crearlo en el directorio nuevo. Si tiene problemas para eliminar el dominio administrado de Azure AD DS, [abra una solicitud de soporte técnico de Azure][azure-support] para obtener ayuda adicional para la solución de problemas.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C se ejecuta en este directorio
- 
+
 ### <a name="alert-message"></a>Mensaje de alerta
 
 *Azure AD Domain Services no se puede habilitar en un directorio de Azure AD B2C.*
@@ -129,7 +129,7 @@ Azure AD DS requiere una suscripción activa y no se puede pasar a otra suscri
 
 ### <a name="resolution"></a>Solución
 
-Azure AD DS crea recursos específicos para que funcionen correctamente, como las direcciones IP públicas, las NIC y un equilibrador de carga. Si se elimina alguno de estos recursos designados, el dominio administrado está en un estado incompatible e impide que se administre el dominio. Para más información sobre estos recursos, consulte [Recursos de red usados por Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
+Azure AD DS crea recursos adicionales para que funcionen correctamente, como las direcciones IP públicas, las interfaces de red virtual y un equilibrador de carga. Si se elimina alguno de estos recursos designados, el dominio administrado está en un estado incompatible e impide que se administre el dominio. Para más información sobre estos recursos, consulte [Recursos de red usados por Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
 Esta alerta se genera cuando se elimina uno de estos recursos necesarios. Si el recurso se eliminó hace menos de 4 horas, existe la posibilidad de que la plataforma de Azure pueda volver a crear automáticamente el recurso eliminado. En los pasos siguientes se describe cómo comprobar el estado de mantenimiento y la marca de tiempo para la eliminación de recursos:
 
@@ -160,7 +160,7 @@ Este error es irrecuperable. Para resolver la alerta, [elimine el dominio admini
 
 ### <a name="resolution"></a>Solución
 
-Algunas entidades de servicio generadas automáticamente se utilizan para administrar y crear recursos para un dominio administrado de Azure AD DS. Si se modifican los permisos de acceso para una de estas entidades de servicio, no podrá administrar correctamente los recursos. En los pasos siguientes se muestra cómo comprender los permisos de acceso a una entidad de servicio para poder concederlos:
+Algunas entidades de servicio generadas automáticamente se utilizan para administrar y crear recursos para un dominio administrado de Azure AD DS. Si se modifican los permisos de acceso para una de estas entidades de servicio, el dominio no podrá administrar correctamente los recursos. En los pasos siguientes se muestra cómo comprender los permisos de acceso a una entidad de servicio para poder concederlos:
 
 1. Lea sobre el [control de acceso basado en rol y cómo conceder acceso a las aplicaciones en Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Revise el acceso que la entidad de servicio con identificador *abba844e-bc0e-44b0-947a-dc74e5d09022* tiene y conceda el acceso que se ha denegado en una fecha anterior.
@@ -216,11 +216,11 @@ Este error es irrecuperable. Para resolver la alerta, [elimine el dominio admini
 
 ### <a name="resolution"></a>Solución
 
-Los bloqueos de recursos se pueden aplicar a recursos y grupos de recursos de Azure para impedir el cambio o la eliminación. Dado que Azure AD DS es un servicio administrado, la plataforma Azure necesita la capacidad de realizar cambios en la configuración. Si se aplica un bloqueo de recursos en algunos de los componentes de Azure AD DS, la plataforma Azure no puede realizar sus tareas de administración.
+Los bloqueos de recursos se pueden aplicar a recursos de Azure para impedir el cambio o la eliminación. Dado que Azure AD DS es un servicio administrado, la plataforma Azure necesita la capacidad de realizar cambios en la configuración. Si se aplica un bloqueo de recursos en algunos de los componentes de Azure AD DS, la plataforma Azure no puede realizar sus tareas de administración.
 
 Para comprobar los bloqueos de recursos en los componentes de Azure AD DS y quitarlos, siga estos pasos:
 
-1. Para cada uno de los componentes de red de Azure AD DS en el grupo de recursos, como red virtual, NIC o dirección IP pública, compruebe los registros de operaciones en Azure Portal. Estos registros de operaciones deben indicar por qué se produce un error en una operación y dónde se aplica un bloqueo de recursos.
+1. Para cada uno de los componentes de red de Azure AD DS en el grupo de recursos, como red virtual, interfaz de red o dirección IP pública, compruebe los registros de operaciones en Azure Portal. Estos registros de operaciones deben indicar por qué se produce un error en una operación y dónde se aplica un bloqueo de recursos.
 1. Seleccione el recurso en el que se aplica un bloqueo y, en **Bloqueos**, seleccione los bloqueos y quítelos.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: Los recursos no son utilizables
@@ -231,7 +231,7 @@ Para comprobar los bloqueos de recursos en los componentes de Azure AD DS y qu
 
 ### <a name="resolution"></a>Solución
 
-Las directivas se aplican a los recursos y los grupos de recursos de Azure para controlar qué acciones de configuración se permiten. Dado que Azure AD DS es un servicio administrado, la plataforma Azure necesita la capacidad de realizar cambios en la configuración. Si se aplica una directiva en algunos de los componentes de Azure AD DS, la plataforma Azure no puede realizar sus tareas de administración.
+Las directivas se aplican a los recursos y los grupos de recursos de Azure que controlan las acciones de configuración que se permiten. Dado que Azure AD DS es un servicio administrado, la plataforma Azure necesita la capacidad de realizar cambios en la configuración. Si se aplica una directiva en algunos de los componentes de Azure AD DS, la plataforma Azure no puede realizar sus tareas de administración.
 
 Para comprobar las directivas aplicadas en los componentes de Azure AD DS y quitarlas, siga estos pasos:
 
@@ -246,7 +246,7 @@ Para comprobar las directivas aplicadas en los componentes de Azure AD DS y qu
 
 ### <a name="resolution"></a>Solución
 
-[Compruebe el estado de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Los problemas con la configuración de red pueden bloquear la sincronización desde Azure AD. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización.
+[Compruebe el estado de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Los problemas con la configuración de red pueden bloquear la sincronización desde Azure AD. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización correctamente.
 
 Las siguientes razones comunes provocan que la sincronización se detenga en dominios administrados por Azure AD DS:
 
@@ -261,7 +261,7 @@ Las siguientes razones comunes provocan que la sincronización se detenga en dom
 
 ### <a name="resolution"></a>Solución
 
-[Compruebe el estado de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Los problemas con la configuración de red pueden impedir que la plataforma Azure realice las copias de seguridad correctamente. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización.
+[Compruebe el mantenimiento de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Los problemas con la configuración de red pueden impedir que la plataforma Azure realice las copias de seguridad correctamente. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización correctamente.
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Suspensión debida a una suscripción deshabilitada
 
@@ -292,7 +292,7 @@ Cuando el dominio administrado se habilita de nuevo, el estado del dominio admin
 > [!WARNING]
 > Si un dominio administrado de Azure AD DS se suspende durante un largo período, se expone a ser eliminado. Resuelva el motivo de la suspensión lo más rápido posible. Para más información, consulte [Descripción de los estados suspendidos para Azure AD DS](suspension.md).
 
-[Compruebe el estado de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización. Cuando esté preparado, [abra una solicitud de soporte técnico de Azure][azure-support] para volver a habilitar el dominio administrado de Azure AD DS.
+[Compruebe el mantenimiento de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización. Cuando esté preparado, [abra una solicitud de soporte técnico de Azure][azure-support] para volver a habilitar el dominio administrado de Azure AD DS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

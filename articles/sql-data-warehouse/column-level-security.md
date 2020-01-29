@@ -1,6 +1,6 @@
 ---
-title: Seguridad de nivel de columna
-description: La seguridad de nivel de columna (CLS) permite a los clientes controlar el acceso a columnas de la tabla de la base de datos según el contexto de ejecución del usuario o su pertenencia a grupos. CLS simplifica el diseño y la codificación de la seguridad de la aplicación. CLS permite implementar restricciones de acceso a columnas.
+title: ¿Qué es la seguridad de nivel de columna de SQL Data Warehouse?
+description: La seguridad de nivel de columna permite a los clientes controlar el acceso a las columnas de tablas de base de datos según el contexto de ejecución del usuario o la pertenencia a un grupo, lo cual permite simplificar el diseño y la codificación de seguridad de la aplicación, e implementar restricciones en el acceso a las columnas.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,21 +11,24 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 85f705022a0ff5970d30c61206d4f2631254b7ce
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 344701989a753e17d8a026f6bb771a6030bdb71f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077100"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513055"
 ---
 # <a name="column-level-security"></a>Seguridad de nivel de columna
-La seguridad de nivel de columna (CLS) permite a los clientes controlar el acceso a columnas de la tabla de la base de datos según el contexto de ejecución del usuario o su pertenencia a grupos.
-Actualización al vídeo siguiente: desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) también está disponible en SQL Data Warehouse. 
+
+La seguridad de nivel de columna permite a los clientes controlar el acceso a columnas de tablas según el contexto de ejecución del usuario o su pertenencia a grupos.
+
+
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+Desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) también está disponible en SQL Data Warehouse. 
 
-CLS simplifica el diseño y la codificación de la seguridad de la aplicación. CLS le permite implementar restricciones de acceso a columnas para proteger la información confidencial. Por ejemplo, garantiza que determinados usuarios puedan acceder solo a ciertas columnas de una tabla pertenecientes a su departamento. La lógica de restricción de acceso está en el nivel de la base de datos, en lugar de encontrarse en otro nivel de la aplicación lejos de los datos. La base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esta restricción hace que el sistema de seguridad resulte más sólido y confiable, ya que reduce el área expuesta del sistema de seguridad global. Además, CLS también elimina la necesidad de introducir vistas para filtrar las columnas a fin de imponer restricciones de acceso a los usuarios.
+La seguridad de nivel de columna simplifica el diseño y la codificación de la seguridad de la aplicación y esto le permite restringir el acceso a las columnas para proteger información confidencial. Por ejemplo, garantiza que determinados usuarios puedan acceder solo a ciertas columnas de una tabla pertenecientes a su departamento. La lógica de la restricción de acceso está ubicada en el nivel de base de datos en lugar de estar alejado de los datos en otro nivel de aplicación. La base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esta restricción hace que la seguridad resulte más sólida y confiable, ya que reduce el área expuesta del sistema de seguridad global. Además, la seguridad de nivel de columna también elimina la necesidad de introducir vistas para filtrar las columnas a fin de imponer restricciones de acceso a los usuarios.
 
-Puede implementar CLS con la instrucción de T-SQL [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql). Con este mecanismo, se admite tanto la autenticación de SQL como la de Azure Active Directory (AAD).
+Puede implementar este tipo de seguridad con la instrucción [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) de T-SQL. Con este mecanismo, se admite tanto la autenticación de SQL como la de Azure Active Directory (AAD).
 
 ![cls](./media/column-level-security/cls.png)
 
@@ -48,9 +51,9 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>Ejemplo
-En el ejemplo siguiente, se muestra cómo impedir que "TestUser" obtenga acceso a la columna "SSN" de la tabla "Membership":
+En el ejemplo siguiente, se muestra cómo impedir que `TestUser` acceda a la columna `SSN` de la tabla `Membership`:
 
-Cree la tabla "Membership" con la columna SSN destinada a almacenar números del seguro social:
+Cree la tabla `Membership` con la columna SSN destinada a almacenar números del seguro social:
 
 ```sql
 CREATE TABLE Membership
@@ -62,13 +65,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-Permita que "TestUser" obtenga acceso a todas las columnas, excepto a la columna SSN, que contiene información confidencial:
+Permita que `TestUser` acceda a todas las columnas excepto a la columna SSN, que contiene información confidencial:
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-Las consultas ejecutadas como "TestUser" producirán un error si incluyen la columna SSN:
+Las consultas ejecutadas como `TestUser` producirán un error si incluyen la columna SSN:
 
 ```sql
 SELECT * FROM Membership;
@@ -78,6 +81,8 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="use-cases"></a>Casos de uso
-A continuación, se indican algunos ejemplos de cómo se usa CLS actualmente:
+
+Estos son algunos ejemplos de cómo se usa la seguridad de nivel de columna en la actualidad:
+
 - Una empresa de servicios financieros solo permite a los administradores de cuentas obtener acceso a los números del seguro social (SSN), números de teléfono y otra información de identificación personal (PII) del cliente.
-- Un profesional sanitario solo permite a los médicos y a las enfermeras obtener acceso a los historiales médicos confidenciales, mientras que no permite ver estos datos a los miembros del departamento de facturación.
+- Un profesional sanitario solo permite a los médicos y a las enfermeras acceder a los historiales médicos confidenciales mientras que impide ver estos datos a los miembros del departamento de facturación.

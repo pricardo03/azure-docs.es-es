@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 161c6816bbef31142c576f52fd122d9dd8af7883
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529616"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546663"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
 
@@ -27,7 +27,7 @@ Use este módulo para cargar datos en una canalización de aprendizaje automáti
 > Después de registrar un conjunto de datos, puede encontrarlo en la categoría **Conjuntos de datos** -> **My datasets** (Mis conjuntos de datos) en la interfaz del diseñador. Este módulo está reservado para los usuarios de Studio (clásico) para una experiencia familiar. 
 >
 
-En primer lugar, elija el origen desde el que está leyendo y finalice la configuración adicional. El módulo **Importación de datos** admite la lectura de datos de los siguientes orígenes:
+El módulo **Importación de datos** admite la lectura de datos de los siguientes orígenes:
 
 - URL mediante HTTP
 - Almacenamientos en la nube de Azure a través de [**almacenes de información**](../how-to-access-data.md)
@@ -78,7 +78,7 @@ Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar 
 
 Cuando haya terminado la importación, haga clic en el conjunto de datos de salida y seleccione **Visualizar** para ver si los datos se han importado correctamente.
 
-Si quiere guardar los datos para su reutilización, en lugar de importar un nuevo conjunto de datos cada vez que se ejecute la canalización, haga clic con el botón derecho en la salida y seleccione **Guardar como conjunto de datos**. Escriba un nombre para el conjunto de datos. El conjunto de datos guardado conserva los datos del momento en que se guarda y los datos no se actualizan cuando se vuelve a ejecutar la canalización, aunque el conjunto de datos cambie en la canalización. Esto puede ser útil para tomar instantáneas de datos.
+Si desea guardar los datos para su reutilización, en lugar de importar un nuevo conjunto de datos cada vez que se ejecute la canalización, seleccione el icono **Register dataset** (Registrar conjunto de datos) en la pestaña **Outputs** (Resultados) del panel derecho del módulo. Escriba un nombre para el conjunto de datos. El conjunto de datos guardado conserva los datos del momento en que se guarda y el conjunto de datos no se actualizan cuando se vuelve a ejecutar la canalización, aunque el conjunto de datos cambie en la canalización, lo que puede ser útil para tomar instantáneas de los datos.
 
 Después de importar los datos, es posible que tenga que realizar algunos preparativos adicionales para el modelado y análisis:
 

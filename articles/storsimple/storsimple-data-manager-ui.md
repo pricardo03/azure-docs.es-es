@@ -1,25 +1,17 @@
 ---
-title: Interfaz de usuario de Microsoft Azure StorSimple Data Manager | Microsoft Docs
+title: Interfaz de usuario de Microsoft Azure StorSimple Data Manager
 description: Describe cómo se usa la interfaz de usuario del servicio StorSimple Data Manager.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 3a87b4c07d2e961d9876fb44c6584f37ad9246df
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796641"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273982"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Administración del servicio StorSimple Data Manager en Azure Portal
 
@@ -56,7 +48,7 @@ Siga estos pasos para crear un servicio StorSimple Data Manager.
     
    5. Para obtener un vínculo a este servicio en el panel, active **Pin to dashboard** (Anclar al panel).
     
-   6. Haga clic en **Create**(Crear).
+   6. Haga clic en **Crear**.
 
       ![Creación de un servicio StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
@@ -147,7 +139,7 @@ Siempre que tenga que mover los datos de StorSimple a la cuenta de almacenamient
      
      ![Iniciar ejecución de trabajo 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
-2. Haga clic en **Run now** (Ejecutar ahora).
+2. Haga clic en **Ejecutar ahora**.
      
      ![Iniciar ejecución de trabajo 2](./media/storsimple-data-manager-ui/start-job-run2.png)
 

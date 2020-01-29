@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: e9f7a10f19ed23e4f3b4fefa38fbb2d1912f2ac0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: cb15f637337df05c61eeac611286b49e23b6adac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348795"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549197"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)
 
 A medida que administra los clústeres en Azure Kubernetes Service (AKS), a menudo necesita aislar los equipos y las cargas de trabajo. AKS proporciona flexibilidad acerca de cómo puede ejecutar clústeres multiempresa y aislar recursos. Para maximizar la inversión en Kubernetes, deben comprenderse e implementarse estas funciones multiempresa y de aislamiento.
 
-Este artículo de procedimientos recomendados se centra en el aislamiento de los operadores de clústeres. En este artículo, aprenderá a:
+Este artículo de procedimientos recomendados se centra en el aislamiento de los operadores de clústeres. En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Planificar clústeres multiempresa y separación de recursos.
@@ -26,7 +26,7 @@ Este artículo de procedimientos recomendados se centra en el aislamiento de los
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Diseño de clústeres para la configuración multiempresa
 
-Kubernetes proporciona características que permiten aislar de forma lógica los equipos y las cargas de trabajo en el mismo clúster. El objetivo debería consistir en proporcionar el menor número de privilegios, con el ámbito definido según los recursos que necesita cada equipo. Un [espacio de nombres][k8s-namespaces] en Kubernetes crea un límite de aislamiento lógico. Las características y consideraciones adicionales de Kubernetes para el aislamiento y la arquitectura multiempresa incluyen las siguientes áreas:
+Kubernetes proporciona características que permiten aislar de forma lógica los equipos y las cargas de trabajo en el mismo clúster. El objetivo debería consistir en proporcionar el menor número de privilegios, con el ámbito definido según los recursos que necesita cada equipo. Un [espacio de nombres][k8s-namespaces] en Kubernetes crea un límite de aislamiento lógico. A continuación, se incluyen otras características y consideraciones de Kubernetes sobre el aislamiento y la arquitectura multiinquilino:
 
 * La **programación** incluye el uso de características básicas, como las cuotas de recursos y los presupuestos de interrupciones del pod. Para más información acerca de estas características, consulte [Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-scheduler].
   * Las características más avanzadas del programador incluyen manchas y tolerancias, selectores de nodo y afinidad o falta de afinidad del nodo y el pod. Para más información acerca de estas características, consulte [Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-advanced-scheduler].

@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 12/22/2019
 ms.author: ramamill
-ms.openlocfilehash: 318b73011901e9ab07643bc2ecec28e5016e8702
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 43e6a39a52eb81573b4a4ba8ad63d48d0e51dedd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613914"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514834"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatización de la instalación del servicio Mobility
 
@@ -19,8 +19,8 @@ En este artículo se describe cómo automatizar la instalación y las actualizac
 Al implementar Site Recovery para la recuperación ante desastres de máquinas virtuales de VMware locales y servidores físicos en Azure, instala el agente del servicio Mobility en cada máquina que quiere replicar. El servicio Mobility captura las escrituras de datos en la máquina y las reenvía al servidor de procesos de Site Recovery para su replicación. Puede implementar el servicio Mobility de varias maneras:
 
 - **Instalación de inserción**: Deje que Site Recovery instale el agente del servicio Mobility cuando habilite la replicación para una máquina en Azure Portal.
-- **Instalación manual**: Instale el servicio Mobility manualmente en cada máquina. [Obtenga más información](vmware-physical-mobility-service-overview.md) acerca de la instalación de inserción y manual.
-- **Implementación automatizada**: Automatice la instalación con herramientas de implementación de software como System Center Configuration Manager.
+- **Instalación manual**: Instale el servicio Mobility manualmente en cada máquina. [Obtenga más información](/vmware-physical-mobility-service-overview.md) acerca de la instalación de inserción y manual.
+- **Implementación automatizada**: Automatice la instalación con herramientas de implementación de software como Microsoft Endpoint Configuration Manager.
 
 La instalación y actualización automatizadas proporcionan una solución si:
 

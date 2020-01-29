@@ -1,6 +1,6 @@
 ---
 title: Esquema de Azure Event Grid para IoT Hub | Microsoft Docs
-description: Página de referencia sobre el formato y las propiedades del esquema de eventos para IoT Hub
+description: En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure IoT Hub. Enumera los tipos de eventos disponibles, un evento de ejemplo y las propiedades de evento.
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -8,14 +8,14 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/17/2019
+ms.date: 01/21/2020
 ms.author: kgremban
-ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076354"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513038"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos de Azure Event Grid para IoT Hub
 
@@ -27,7 +27,7 @@ Para una lista de scripts de ejemplo y tutoriales, consulte los [orígenes de ev
 
 Azure IoT Hub emite los siguientes tipos de eventos:
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Se publica cuando se registra un dispositivo en una instancia de IoT Hub. |
 | Microsoft.Devices.DeviceDeleted | Se publica cuando se elimina un dispositivo de una instancia de IoT Hub. | 
@@ -148,20 +148,20 @@ Los esquemas de los eventos DeviceCreated y DeviceDeleted tienen la misma estruc
 
 Todos los eventos contienen los mismos datos de nivel superior: 
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | id | string | Identificador único para el evento |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
-| data | object | Datos del evento de IoT Hub.  |
+| datos | object | Datos del evento de IoT Hub.  |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
 | metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 Para todos los eventos de IoT Hub, el objeto de datos contiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | hubName | string | Nombre de la instancia de IoT Hub en que se creó o eliminó el dispositivo. |
 | deviceId | string | Identificador único del dispositivo. Una cadena que distingue mayúsculas de minúsculas puede tener una longitud de hasta 128 caracteres alfanuméricos ASCII de 7 bits más los siguientes caracteres especiales: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
@@ -170,7 +170,7 @@ El contenido del objeto de datos es diferente para cada publicador de eventos.
 
 Para los eventos de IoT Hub de **Dispositivo conectado** y **Dispositivo desconectado**, el objeto de datos contiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | moduleId | string | Identificador único del módulo. Este campo solo es la salida de los dispositivos del módulo. Una cadena que distingue mayúsculas de minúsculas puede tener una longitud de hasta 128 caracteres alfanuméricos ASCII de 7 bits más los siguientes caracteres especiales: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | object | Información de evento del estado de conexión del dispositivo
@@ -178,15 +178,15 @@ Para los eventos de IoT Hub de **Dispositivo conectado** y **Dispositivo descone
 
 En el caso del evento de Azure IoT Hub **Telemetría de dispositivo**, el objeto de datos contiene el mensaje del dispositivo a nube en [formato de mensaje de IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md) y tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| Cuerpo | string | El contenido del mensaje del dispositivo. |
+| body | string | El contenido del mensaje del dispositivo. |
 | properties | string | Las propiedades de la aplicación son cadenas definidas por el usuario que se pueden agregar al mensaje. Estos campos son opcionales. |
 | system properties | string | Las [propiedades del sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) ayudan a identificar el contenido y el origen de los mensajes. El mensaje de telemetría del dispositivo debe estar en un formato JSON válido, el valor de contentType debe ser JSON y el de contentEncoding debe ser UTF-8 en las propiedades del sistema del mensaje. Si no es así, IoT Hub escribirá los mensajes en formato codificado de base 64.  |
 
 Para los eventos de IoT Hub de **Dispositivo creado** y **Dispositivo eliminado**, el objeto de datos contiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | twin | object | Información acerca del dispositivo gemelo, que es la representación en la nube de los metadatos del dispositivo de la aplicación. | 
 | deviceID | string | Identificador único del dispositivo gemelo. | 

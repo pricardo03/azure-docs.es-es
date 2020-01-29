@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/11/2020
-ms.openlocfilehash: 0354abf6a5450a1116423e3a35c3a7e2ae7b9057
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ef70c211c395556a4c15ff06e65098e8aaac32ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971085"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120271"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuración de la clave administrada por el cliente de Azure Monitor 
 
@@ -378,8 +378,6 @@ Si actualiza la clave en Key Vault y no actualiza los nuevos detalles del *ident
 
 - El cifrado de CMK se aplica a los datos ingeridos después de la configuración de CMK. Los datos que se ingieren antes de la configuración de CMK permanecen cifrados con la clave de Microsoft. Puede consultar los datos antes y después de la configuración fácilmente.
 
-- La función de CMK es regional: su instancia de Azure Key Vault, el recurso de *clúster* y las áreas de trabajo asociadas deben estar en la misma región, pero pueden estar en distintas suscripciones.
-
 - Una vez que el área de trabajo está asociada a un recurso de *clúster*, no se puede desasociar del recurso de *clúster*, ya que los datos se cifran con la clave y no se puede acceder a ellos sin su KEK en Azure Key Vault.
 
 - La instancia de Azure Key Vault debe configurarse como recuperable. Las siguientes propiedades no están habilitadas de forma predeterminada y deben configurarse mediante la CLI y PowerShell:
@@ -391,9 +389,9 @@ Si actualiza la clave en Key Vault y no actualiza los nuevos detalles del *ident
 
 - Actualmente no se admite el traslado de un recurso de *clúster* a otro grupo de recursos o a otra suscripción.
 
-- Se producirá un error al asociar el área de trabajo a un recurso de *clúster* si este recurso de *clúster* está en otro inquilino.
+- La instancia de Azure Key Vault, el recurso del *clúster* y las áreas de trabajo asociadas deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
 
--   Se producirá un error al asociar el área de trabajo a un recurso de *clúster* si está asociada a otro recurso de *clúster*.
+- Se producirá un error al asociar el área de trabajo a un recurso de *clúster* si está asociada a otro recurso de *clúster*.
 
 ## <a name="troubleshooting-and-management"></a>Solución de problemas y administración de errores
 
@@ -557,7 +555,7 @@ Content-type: application/json
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.insights/components/{component-name}",
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
   "name": "component-name",
   "type": "Microsoft.Insights/components",
   "location": "region-name",

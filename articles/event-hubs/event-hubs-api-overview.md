@@ -1,6 +1,6 @@
 ---
 title: Introducción a la API de Azure Event Hubs | Microsoft Docs
-description: Información general sobre las API de Azure Event Hubs disponibles
+description: En este artículo se proporciona información general sobre las API disponibles (tiempo de ejecución y administración) para usar el servicio Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 80566b0246179064d2a479b8c9bf3c79a2a93aac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c852bdeb30efe6acf626ae67028ec1ccb9e0b6db
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822617"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310975"
 ---
 # <a name="available-event-hubs-apis"></a>API disponibles de Event Hubs
 

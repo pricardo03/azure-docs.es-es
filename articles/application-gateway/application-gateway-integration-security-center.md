@@ -1,26 +1,20 @@
 ---
 title: Integración de Application Gateway con Azure Security Center | Microsoft Docs
 description: Esta página proporciona información sobre cómo se integra Application Gateway en Azure Security Center.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
+ms.author: victorh
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.author: victorh
-ms.openlocfilehash: 10f115b64f0bd3f7e557da2bedbf3327d0ef483d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122300"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277187"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Introducción a la integración entre Application Gateway y Azure Security Center
 
@@ -50,7 +44,7 @@ Si no tiene una instancia de Application Gateway existente o quiere crear una nu
 
 Si ya tiene una instancia de Application Gateway, puede elegirla en **Usar solución existente**
 
-![página de adición de firewall de aplicaciones web][4]
+![Página para agregar un firewall de aplicaciones web][4]
 
 La adición de una aplicación web a una instancia de Application Gateway a través de Security Center no agrega el recurso como miembro del grupo de back-end. Esto se debe hacer directamente en el recurso de Application Gateway.
 
@@ -68,7 +62,7 @@ Haga clic en **Vincular aplicación** para abrir **Vincular aplicaciones**. Aqu�
 
 Security Center realiza un seguimiento de las aplicaciones agregadas a una instancia de Application Gateway como recursos protegidos.  Supervisa el estado de este recurso y se asegura de que está protegido mediante una instancia de Application Gateway. El siguiente paso consiste en agregar la dirección IP privada, la dirección IP pública o el NIC de la máquina virtual al grupo de back-end de la instancia de Application Gateway. Hasta que esto se hace, aparece una recomendación adicional de **Finalizar protección de la aplicación** hasta que se agrega el recurso.
 
-![página de adición de firewall de aplicaciones web][5]
+![Página para agregar un firewall de aplicaciones web][5]
 
 ## <a name="security-alerts"></a>Alertas de seguridad
 
@@ -76,7 +70,7 @@ En Security Center, vaya a **DETECCIÓN** > **Alertas de seguridad**.  Aquí enc
 
 ![alertas de seguridad][8]
 
-Si hace clic en una regla proporcionará una lista de alertas para esa regla de WAF específica. Cada alerta muestra detalles adicionales sobre la búsqueda. Los detalles de proporcionan un vínculo a la instancia de Application Gateway.
+Si selecciona una regla, aparecerá una lista de alertas para esa regla de WAF específica. Cada alerta muestra detalles adicionales sobre la búsqueda. Los detalles de proporcionan un vínculo a la instancia de Application Gateway.
  
 ![detalles de alertas][9]
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934382"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289619"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,23 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 >
 > La cuenta de almacenamiento predeterminada se aprovisiona automáticamente al crear un área de trabajo.
 >
-> En las cuentas de almacenamiento no predeterminadas, el parámetro `storage_account` de la [función `Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar una cuenta de almacenamiento personalizada mediante el identificador de recursos de Azure.
+> En las cuentas de almacenamiento no predeterminadas, el parámetro `storage_account` de la [función `Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar una cuenta de almacenamiento personalizada mediante el identificador de recursos de Azure.
+
+## <a name="use-azure-data-lake-storage-gen-2"></a>Uso de Azure Data Lake Storage Gen 2
+
+Azure Data Lake Storage Gen 2 es un conjunto de funcionalidades para el análisis de macrodatos basado en Azure Blob Storage. Se puede usar para almacenar los datos usados para entrenar modelos con Azure Machine Learning. 
+
+Para usar Data Lake Storage Gen 2 en la red virtual del área de trabajo de Azure Machine Learning, siga estos pasos:
+
+1. Cree una cuenta de Azure Data Lake Storage Gen 2. Para más información, consulte [Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+1. Siga los pasos 2-4 de la sección anterior, [Uso de una cuenta de almacenamiento para el área de trabajo](#use-a-storage-account-for-your-workspace), para colocar la cuenta en la red virtual.
+
+Cuando utilice Azure Machine Learning con Data Lake Storage Gen 2 en una red virtual, use la siguiente guía:
+
+* Si usa el SDK de __para crear un conjunto de datos__y el sistema que ejecuta el código __no se encuentra en la red virtual__, use el parámetro `validate=False`. Este parámetro omite la validación, lo que genera un error si el sistema no está en la misma red virtual que la cuenta de almacenamiento. Para más información, vea el método [from_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
+
+* Si usa una instancia de Proceso de Azure Machine Learning o un clúster de proceso para entrenar un modelo mediante el conjunto de datos, debe estar en la misma red virtual que la cuenta de almacenamiento.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Uso de una instancia de Key Vault con el área de trabajo
 

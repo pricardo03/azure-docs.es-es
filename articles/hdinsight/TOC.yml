@@ -503,16 +503,20 @@
               href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
             - name: Alertas obsoletas de Apache Ambari
               href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
+            - name: Alertas de directorios de Apache Ambari
+              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
             - name: Solución de problemas de un clúster de HDInsight lento o con errores
               href: ./hdinsight-troubleshoot-failed-cluster.md
             - name: Solución de problemas de Apache Hadoop HDFS
               href: ./hdinsight-troubleshoot-hdfs.md
             - name: Solución de problemas de YARN en Apache Hadoop
               href: ./hdinsight-troubleshoot-yarn.md
+            - name: Error de BCFile no válido del registro de Yarn
+              href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
             - name: Solución de problemas de archivos de Data Lake Store
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
-            - name: Alertas de directorios de Apache Ambari
-              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
+            - name: Conflicto de puertos al iniciar los servicios
+              href: ./hadoop/troubleshoot-port-conflict.md
 - name: Apache Kafka
   items:
     - name: Información general
@@ -870,5 +874,5 @@
           items:
             - name: Problemas de autenticación de ESP
               href: ./domain-joined/domain-joined-authentication-issues.md
-            - name: No se puede iniciar sesión en Zeppelin con ESP
-              href: ./domain-joined/domain-joined-zeppelin-signin.md
+            - name: 'Error al crear clústeres: Dominio no encontrado'
+              href: ./domain-joined/troubleshoot-domainnotfound.md

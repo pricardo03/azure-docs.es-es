@@ -4,15 +4,15 @@ description: Solución de problemas comunes con Azure File Sync.
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/8/2019
+ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027785"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545048"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -41,8 +41,28 @@ Si intenta instalar el agente de sincronización en un controlador de dominio de
 
 Para resolverlo, transfiera el rol PDC a otro controlador de dominio que ejecute Windows Server 2012 R2 o una versión más reciente y, luego, instale el agente de sincronización.
 
-<a id="server-registration-prerequisites"></a>**El registro del servidor muestra el siguiente mensaje: "Faltan requisitos previos"**
+<a id="parameter-is-incorrect"></a>**No se puede acceder a un volumen en Windows Server 2012 R2 por el siguiente error: El parámetro no es correcto**  
+Después de crear un punto de conexión de servidor en Windows Server 2012 R2, se produce el siguiente error al acceder al volumen:
 
+No se puede acceder a letraDeUnidad:\.  
+El parámetro no es correcto.
+
+Para resolverlo, instale las actualizaciones más recientes de Windows Server 2012 R2 y reinicie el servidor.
+
+<a id="server-registration-missing-subscriptions"></a>**ServerRegistration no muestra todas las suscripciones de Azure**  
+Al registrar un servidor con ServerRegistration.exe, no aparecen las suscripciones cuando hace clic en la lista desplegable de suscripciones de Azure.
+
+Este problema se produce porque ServerRegistration.exe no admite actualmente entornos de varios inquilinos. Este problema se corregirá en una próxima actualización del agente de Azure File Sync.
+
+Para dar una solución alternativa a este problema, use los siguientes comandos de PowerShell para registrar el servidor:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+```
+
+<a id="server-registration-prerequisites"></a>**El registro del servidor muestra el siguiente mensaje: "Faltan requisitos previos"**  
 Este mensaje aparece si el Módulo Az o AzureRM de PowerShell no está instalado en PowerShell 5.1. 
 
 > [!Note]  
@@ -304,6 +324,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | El archivo no se puede sincronizar debido a un error inesperado. | Si el error persiste durante varios días, abra una incidencia de soporte técnico. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | El archivo no se puede sincronizar porque está en uso. El archivo se sincronizará cuando ya no esté en uso. | No es necesaria ninguna acción. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Se modificó el archivo durante la sincronización, por lo que debe sincronizarse de nuevo. | No es necesaria ninguna acción. |
+| 0x80070017 | -2147024873 | ERROR_CRC | El archivo no se puede sincronizar debido a un error de CRC. Este error se puede producir si un archivo con niveles no se recuperó antes de eliminar un punto de conexión de servidor o si el archivo está dañado. | Para resolver este problema, consulte [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) para eliminar los archivos con niveles que están huérfanos. Si el error persiste después de eliminar los archivos con niveles que están huérfanos, ejecute [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) en el volumen. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | No se puede sincronizar el archivo porque se ha alcanzado el número máximo de archivos de conflicto. Azure File Sync admite 100 archivos de conflicto por archivo. Para más información sobre los archivos de conflicto, consulte las [preguntas más frecuentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution) sobre Azure File Sync. | Para resolver este problema, reduzca el número de archivos de conflicto. El archivo se sincronizará una vez que el número de archivos de conflicto sea inferior a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Tratamiento de caracteres no admitidos
@@ -435,6 +456,17 @@ Este error se produce porque el agente de Azure File Sync no está autorizado pa
 
 1. [Compruebe que la cuenta de almacenamiento existe.](#troubleshoot-storage-account)
 2. [Compruebe que el firewall y la configuración de red virtual de la cuenta de almacenamiento están configurados correctamente (si están habilitados)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+
+<a id="-2134364014"></a>**Se ha producido un error en la sincronización debido a que la cuenta de almacenamiento está bloqueada.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83092 |
+| **HRESULT (decimal)** | -2134364014 |
+| **Cadena de error** | ECS_E_STORAGE_ACCOUNT_LOCKED |
+| **Se requiere una corrección** | Sí |
+
+Este error se produce porque la cuenta de almacenamiento tiene un [bloqueo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) de solo lectura. Para resolver este problema, elimine el bloqueo de recursos de solo lectura de la cuenta de almacenamiento. 
 
 <a id="-1906441138"></a>**Error de sincronización debido a un problema con la base de datos de sincronización.**  
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc3630f4b832a9b15217e8f5cdc03830f15ee2a7
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428574"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546765"
 ---
 # <a name="convert-to-dataset"></a>Convertir conjunto de datos
 
@@ -51,11 +51,11 @@ Le recomendamos usar el módulo [Edit Metadata](edit-metadata.md) (Editar metada
     Tenga en cuenta que la operación **ReplaceValues** solo se aplica a las coincidencias exactas. Por ejemplo, estas cadenas no se verían afectadas: `obs.`,`obsolete`.  
  
   
-5.  Ejecute la canalización o haga clic con el botón derecho en el módulo Convert to Dataset (Convertir conjunto de datos) y seleccione **Ejecutar seleccionado**.  
+5.  Ejecución de la canalización  
 
 ## <a name="results"></a>Results
 
-+  Para guardar el conjunto de resultados con un nuevo nombre, haga clic con el botón derecho en la salida de Convert to Dataset (Convertir conjunto de datos) y seleccione **Guardar como conjunto de datos**.  
++  Para guardar el conjunto de datos resultante con otro nombre, seleccione el icono **Register dataset** (Registrar conjunto de datos) en la pestaña **Outputs** (Salidas) del panel derecho del módulo.  
   
 ## <a name="technical-notes"></a>Notas técnicas  
 

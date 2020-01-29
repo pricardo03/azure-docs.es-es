@@ -6,16 +6,17 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 01/23/2020
 ms.author: genli
-ms.openlocfilehash: 8c22ce859aa58aeb8339b16265f6614bd7e723f8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ac8dffe3b1200f3925478f968170498ee744bb79
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898772"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548975"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Directrices de la utilidad de carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
+
 Cuando se [crea una solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support), la opción de carga de archivos puede ayudarle a cargar fácilmente los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.  
 
 > [!NOTE]
@@ -25,12 +26,13 @@ Cuando se [crea una solicitud de soporte técnico](https://portal.azure.com/#cre
 
 Siga estas directrices cuando use la opción de carga de archivos:
 
-* Todos los archivos deben tener una extensión de nombre de archivo, por ejemplo, .docx o .xlsx. Consulte en la tabla la lista de extensiones de nombre de archivo permitidas.
+* Todos los archivos deben tener una extensión de nombre de archivo, por ejemplo, *.docx* o *.xlsx*. Consulte en la tabla las extensiones de nombre de archivo permitidas.
 * El nombre de archivo debe ser de 110 caracteres como máximo.
 * No se puede cargar más de un archivo.
-* Los archivos no pueden ser superiores a 4 MB.
+* Los archivos no pueden ser superiores a 4 MB.
 
 ## <a name="table-of-the-allowed-file-name-extensions"></a>Tabla de las extensiones de nombre de archivo permitidas
+
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |

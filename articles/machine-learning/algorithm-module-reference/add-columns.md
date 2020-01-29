@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 55981279cb1902424d1a0f77af097dc379d7222f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b882e6fb697d272ddc06e8d263f4c2144ebd017
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493969"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546935"
 ---
 # <a name="add-columns-module"></a>Módulo Add Columns
 
@@ -38,7 +38,7 @@ Utilice este módulo para concatenar dos conjuntos de datos. Combina todas las c
 ### <a name="results"></a>Results
 Una vez ejecutada la canalización:
 
-- Para ver las primeras filas del nuevo conjunto de datos, haga clic con el botón derecho en la salida de **Add Columns** y seleccione Visualizar.
+- Para ver las primeras filas del nuevo conjunto de datos, haga clic con el botón derecho en el módulo **Add Columns** (Agregar columnas) y seleccione Visualize (Visualizar). O bien, seleccione el módulo y cambie a la pestaña **Outputs** (Salidas) del panel derecho, haga clic en el icono de histograma de **Port outputs** (Salidas de puerto) para visualizar el resultado.
 
 El número de columnas en el nuevo conjunto de datos es igual a la suma de las columnas de ambos conjuntos de datos de entrada.
 

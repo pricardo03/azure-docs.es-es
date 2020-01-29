@@ -9,14 +9,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/21/2020
 ms.author: banders
-ms.openlocfilehash: ddb906aeb8d1c2b0d1f0c97fc12bd389da431646
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985028"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314150"
 ---
 # <a name="azure-spending-limit"></a>Límite de gasto de Azure
 
@@ -34,20 +34,21 @@ Azure envía notificaciones por correo electrónico cuando se alcanza el límite
 
 Si se ha registrado para obtener una cuenta gratuita de Azure y alcanza el límite de gasto, puede actualizar a un precio de [pago por uso](upgrade-azure-subscription.md) para quitar el límite de gasto y que la suscripción de vuelva a habilitar automáticamente.
 
-<a id="remove"></a>
-
 ## <a name="remove-the-spending-limit-in-azure-portal"></a>Eliminación del límite de gasto en Azure Portal
+
+<a id="remove"></a>
 
 Puede quitar el límite de gasto en cualquier momento siempre que haya un método de pago válido asociado a la suscripción de Azure. En el caso de los tipos de suscripción con crédito en varios meses, como Visual Studio Enterprise y Visual Studio Professional, también puede habilitar el límite de gasto al principio del siguiente período de facturación.
 
 Para quitar el límite de gasto, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Seleccione una suscripción. Si se alcanza el límite de gasto de la suscripción, se deshabilitará.
-1. Seleccione **Quitar el límite del gasto** en la parte superior de la página.
-1. Seleccione una opción que sea apropiada para usted.
-
-![Selección de una opción para quitar el límite de gasto](./media/spending-limit/remove-spending-limit01.png)
+1. Vaya a **Suscripciones**.
+1. Seleccione su suscripción. Por ejemplo, *Visual Studio Enterprise*.
+1. En la parte superior de la página, seleccione **Administrar**. Se le redirigirá a https://account.azure.com/. En el lado derecho de la página, seleccione **Quitar límite de gasto**.  
+  ![Ejemplo que muestra Quitar límite de gasto](./media/spending-limit/account-azure-com-spending-limit.png)
+1. Se le redirigirá a Azure Portal. Seleccione una opción adecuada para usted y un método de pago. Seleccione **Finalizar**.  
+  ![Selección de una opción para quitar el límite de gasto](./media/spending-limit/remove-spending-limit.png)
 
 | Opción | Efecto |
 | --- | --- |
@@ -67,7 +68,7 @@ El límite de gasto podría impedirle implementar o usar ciertos servicios de Mi
 Esta característica solo está disponible cuando el límite de gasto se ha eliminado de forma indefinida en los tipos de suscripción que incluyen créditos en varios meses. Puede usar esta característica para activar el límite de gasto automáticamente al principio del siguiente período de facturación.
 
 1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions).
-1. Haga clic aquí en el banner amarillo para cambiar la opción de límite de gasto.
+1. Seleccione el banner amarillo para cambiar la opción de límite de gasto.
 1. Elija **Activar el límite de gasto para el siguiente período de facturación \<fecha inicial del período de facturación\>** .
 
 ## <a name="custom-spending-limit"></a>Límite de gasto personalizado

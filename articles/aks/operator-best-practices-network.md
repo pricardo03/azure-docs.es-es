@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: mlearned
-ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5b138849538cb9bbd6af6cbcf3e7a11b0cf66395
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614750"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549128"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
 Al crear y administrar clústeres en Azure Kubernetes Service (AKS), se proporciona conectividad de red para los nodos y las aplicaciones. Estos recursos de red incluyen los intervalos de direcciones IP, los equilibradores de carga y los controladores de entrada. Para mantener un servicio de alta calidad para las aplicaciones, debe planear y configurar estos recursos.
 
-Este artículo de procedimientos recomendados se centra en la conectividad de red y la seguridad para los operadores del clúster. En este artículo, aprenderá a:
+Este artículo de procedimientos recomendados se centra en la conectividad de red y la seguridad para los operadores del clúster. En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Comparar los modos de red de kubenet y de Azure CNI en AKS
 > * Planear la conectividad y el direccionamiento IP necesarios
-> * Distribuir el tráfico mediante equilibradores de carga, controladores de entrada o firewall de aplicaciones web (WAF)
+> * Distribuir el tráfico mediante equilibradores de carga, controladores de entrada o un firewall de aplicaciones web (WAF)
 > * Conectarse de forma segura a los nodos del clúster
 
 ## <a name="choose-the-appropriate-network-model"></a>Elección del modelo de red adecuado
@@ -47,7 +47,7 @@ Al usar redes de Azure CNI, el recurso de red virtual se encuentra en un grupo d
 
 Para obtener más información sobre la delegación en entidad de servicio de AKS, consulte [Delegación del acceso a otros recursos de Azure][sp-delegation].
 
-Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos de direcciones para las subredes de AKS. La subred debe ser lo suficientemente grande como para proporcionar direcciones IP para cada nodo, pod y recurso de red que implemente. Cada clúster de AKS se debe colocar en su propia subred. Para permitir la conectividad con redes locales o emparejadas en Azure, no use intervalos de direcciones IP que se superpongan con recursos de red existentes. El número de pods que cada nodo ejecuta con las redes de kubenet y de Azure CNI tiene un límite predeterminado. Para controlar los eventos de escalado o las actualizaciones de clúster, también necesita direcciones IP adicionales disponibles para la subred asignada. Este espacio de direcciones adicional es especialmente importante si usa contenedores de Windows Server (actualmente en versión preliminar de AKS), como aquellos grupos de nodos que requieren una actualización para aplicar las revisiones de seguridad más recientes. Para obtener más información sobre los nodos de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
+Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos de direcciones para las subredes de AKS. La subred debe ser lo suficientemente grande como para proporcionar direcciones IP para cada nodo, pod y recurso de red que implemente. Cada clúster de AKS se debe colocar en su propia subred. Para permitir la conectividad con redes locales o emparejadas en Azure, no use intervalos de direcciones IP que se superpongan con recursos de red existentes. El número de pods que cada nodo ejecuta con las redes de kubenet y de Azure CNI tiene un límite predeterminado. Para controlar los eventos de escalado horizontal o las actualizaciones de clúster, también es necesario que haya otras direcciones IP disponibles para utilizarlas en la subred asignada. Este espacio de direcciones adicional es especialmente importante si usa contenedores de Windows Server (actualmente en versión preliminar de AKS), como aquellos grupos de nodos que requieren una actualización para aplicar las revisiones de seguridad más recientes. Para obtener más información sobre los nodos de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
 Para calcular la dirección IP necesaria, consulte [Configuración de redes de Azure CNI en AKS][advanced-networking].
 
@@ -126,7 +126,7 @@ Los recursos de entrada o el equilibrador de carga continúan ejecutándose en e
 
 **Guía de procedimientos recomendados**: use directivas de red para permitir o denegar el tráfico a los pods. De forma predeterminada, se permite todo el tráfico entre los pods dentro de un clúster. Para mejorar la seguridad, defina reglas que limiten la comunicación del pod.
 
-La directiva de red es una característica de Kubernetes que permite controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico según la configuración asignada como etiquetas, espacio de nombres o puerto de tráfico. El uso de directivas de red proporciona una manera nativa en la nube para controlar el flujo de tráfico. Como los pods se crean dinámicamente en un clúster de AKS, se pueden aplicar automáticamente las directivas de red necesarias. No use grupos de seguridad de red de Azure para controlar el tráfico de pod a pod, use las directivas de red.
+La directiva de red es una característica de Kubernetes que permite controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico según la configuración como etiquetas asignadas, espacio de nombres o puerto de tráfico. El uso de directivas de red proporciona una manera nativa en la nube para controlar el flujo de tráfico. Como los pods se crean dinámicamente en un clúster de AKS, se pueden aplicar automáticamente las directivas de red necesarias. No use grupos de seguridad de red de Azure para controlar el tráfico de pod a pod, use las directivas de red.
 
 Para usar la directiva de red, la característica debe habilitarse al crear un clúster de AKS. No se puede habilitar la directiva de red en un clúster de AKS existente. Planee con antelación para asegurarse de que habilita las directivas de red en los clústeres y de que puede usarlas según sea necesario. La directiva de red solo se debe usar para los pods y los nodos basados en Linux de AKS.
 

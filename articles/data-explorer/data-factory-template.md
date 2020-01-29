@@ -8,18 +8,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: ca50a1ecd4d2a21593ddd11f83337ae7476cf916
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 884f4e956b37c2def6c25d0acdf20f15eddf7767
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300439"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293562"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Copia en bloque desde una base de datos a Azure Data Explorer mediante la plantilla de Azure Data Factory 
 
 Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado. Ofrece análisis en tiempo real de grandes volúmenes de datos que se transmiten desde muchos orígenes, como aplicaciones, sitios web y dispositivos IoT. 
 
-Azure Data Factory es un servicio de integración de datos basado en la nube totalmente administrado. Se puede usar para rellenar la base de datos de Azure Data Explorer con datos del sistema existente. También puede ayudarle a ahorrar tiempo a la hora de compilar soluciones de análisis. 
+Para copiar datos de una base de datos de Oracle Server, Netezza, Teradata o SQL Server en Azure Data Explorer, tiene que cargar enormes cantidades de datos de varias tablas. Normalmente, los datos se tienen que dividir aún más en cada tabla para poder cargar filas con varios subprocesos en paralelo desde una única tabla. En este artículo se describe una plantilla para utilizarla en estos escenarios.
 
 Las [plantillas de Azure Data Factory](/azure/data-factory/solution-templates-introduction) son canalizaciones de Data Factory predefinidas. Estas plantillas pueden ayudarle a empezar a trabajar rápidamente con Data Factory y a reducir el tiempo de desarrollo necesario en los proyectos de integración de datos. 
 
@@ -30,7 +30,7 @@ La plantilla de *copia masiva desde la base de datos a Azure Data Explorer* se c
 > * Use la plantilla de *copia masiva desde la base de datos a Azure Data Explorer* para copiar grandes cantidades de datos desde bases de datos como SQL Server y Google BigQuery a Azure Data Explorer. 
 > * Use la [*herramienta Copiar datos de Data Factory*](data-factory-load-data.md) para copiar algunas tablas con cantidades pequeñas o moderadas de datos a Azure Data Explorer. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Un clúster y la base de datos de Azure Data Explorer](create-cluster-database-portal.md).
@@ -53,7 +53,7 @@ ADXTableName varchar(255)
 
 Los elementos de código se describen en la tabla siguiente:
 
-|Propiedad  |DESCRIPCIÓN  | Ejemplo
+|Propiedad  |Descripción  | Ejemplo
 |---------|---------| ---------|
 |PartitionId   |  Orden de copia | 1  |  
 |SourceQuery   |  Consulta que indica qué datos se copiarán durante el tiempo de ejecución de la canalización. | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
@@ -67,7 +67,7 @@ Si su elemento ControlTableDataset tiene un formato diferente, al crearlo adápt
 
     ![Panel "Let's get started" (Introducción) de Azure Data Factory](media/data-factory-template/adf-get-started.png)
 
-1. Seleccione la plantilla Bulk Copy from Database to Azure Data Explorer (Copia masiva desde la base de datos a Azure Data Explorer).
+1. Seleccione la plantilla **Bulk Copy from Database to Azure Data Explorer**.
  
     ![Plantilla "Bulk Copy from Database to Azure Data Explorer" (Copia masiva desde la base de datos a Azure Data Explorer)](media/data-factory-template/pipeline-from-template.png)
 
@@ -90,7 +90,7 @@ Si su elemento ControlTableDataset tiene un formato diferente, al crearlo adápt
 1.  En **Lookup**, seleccione **GetPartitionList** para ver la configuración predeterminada. Automáticamente se crea una consulta.
 1.  Seleccione la actividad Command, **ForEachPartition**, seleccione la pestaña **Settings** (Configuración) y, a continuación, haga lo siguiente:
 
-    a. En el cuadro Batch Count (Número de lotes), escriba un número entre 1 y 50. Esta selección determina el número de canalizaciones que se ejecutan en paralelo hasta que se alcanza el número de filas de *ControlTableDataset*. 
+    a. En el cuadro **Batch count** (Número de lotes), escriba un número entre 1 y 50. Esta selección determina el número de canalizaciones que se ejecutan en paralelo hasta que se alcanza el número de filas de *ControlTableDataset*. 
 
     b. Para asegurarse de que los lotes de canalización se ejecutan en paralelo, *no* active la casilla **Sequential** (Secuencial).
 
@@ -99,7 +99,7 @@ Si su elemento ControlTableDataset tiene un formato diferente, al crearlo adápt
     > [!TIP]
     > El procedimiento recomendado consiste en ejecutar muchas canalizaciones en paralelo, para que los datos se puedan copiar más rápidamente. Para aumentar la eficacia, particione los datos en la tabla de origen y asigne una partición por canalización, según la fecha y la tabla.
 
-1. Seleccione Validate All (Validar todo) para validar la canalización de Azure Data Factory y, a continuación, vea el resultado en el panel Pipeline Validation Output (Salida de validación de canalización).
+1. Seleccione **Validate All** (Validar todo) para validar la canalización de Azure Data Factory y consulte el resultado en el panel **Pipeline Validation Output** (Salida de validación de canalización).
 
     ![Validar las canalizaciones de la plantilla](media/data-factory-template/validate-template-pipelines.png)
 

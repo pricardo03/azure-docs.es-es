@@ -1,26 +1,18 @@
 ---
-title: Uso de la secuenciación de extensiones con conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
+title: Uso de la secuenciación de extensiones con conjuntos de escalado de máquinas virtuales de Azure
 description: Aprenda a secuenciar el aprovisionamiento de extensiones al implementar varias extensiones en conjuntos de escalado de máquinas virtuales.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60620179"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278049"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Secuenciación del aprovisionamiento de extensiones en conjuntos de escalado de máquinas virtuales
 Las extensiones de máquina virtual de Azure proporcionan funcionalidades como configuración y administración posteriores a la implementación, supervisión, seguridad y mucho más. Para lograr los resultados deseados, las implementaciones en producción suelen usar una combinación de varias extensiones configuradas para las instancias de máquina virtual.
@@ -29,7 +21,7 @@ Cuando se usan varias extensiones en una máquina virtual, es importante asegura
 
 En este artículo se detalla cómo puede secuenciar las extensiones a fin de configurarlas para las instancias de máquina virtual de los conjuntos de escalado de máquinas virtuales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se da por hecho que está familiarizado con:
 -   [Extensiones](../virtual-machines/extensions/overview.md) de máquina virtual de Azure
 -   [Modificación](virtual-machine-scale-sets-upgrade-scale-set.md) de conjuntos de escalado de máquinas virtuales

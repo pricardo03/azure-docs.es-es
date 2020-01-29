@@ -12,25 +12,23 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510f1ca441ef9645cff7f577bbad39991cebc285
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3981c152ba836a01daca16cd486623a9a26d86f2
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231867"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156240"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Cambio de la contraseña de la cuenta profesional o educativa desde el portal Mi cuenta
+# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Cambio de la contraseña de la cuenta profesional o educativa desde la página Cambiar contraseña
 
-En la página **Cambiar contraseña** del portal **Mi cuenta** puede actualizar la contraseña de la cuenta profesional o educativa. Esto solo funcionará si conoce la contraseña existente y no está bloqueado en la cuenta.
+La página **Cambiar contraseña** del portal **Mi cuenta** le ayuda a actualizar una contraseña existente para su cuenta profesional o educativa, suponiendo que recuerde la contraseña y que no esté bloqueado en su cuenta. Si no recuerda la contraseña, si está bloqueado en la cuenta o nunca ha obtenido ninguna contraseña de su organización, puede usar la información de seguridad y el dispositivo móvil para restablecer la contraseña.
 
-Si no recuerda la contraseña, si ha sido bloqueado en la cuenta o nunca ha obtenido ninguna contraseña del equipo de soporte técnico de la empresa, puede usar la información de seguridad y el dispositivo móvil para restablecer la contraseña. Para más información, consulte [Restablecimiento de la contraseña profesional o educativa](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
+>[!Important]
+>Este artículo está destinado a los usuarios que intentan actualizar una contraseña conocida para una cuenta profesional o educativa existente. Si es un usuario que intenta entrar en una cuenta personal, como Xbox, Hotmail.com o Outlook.com, pruebe las sugerencias del artículo [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Si es un administrador que intenta encontrar más información sobre cómo probar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte el [autoservicio de restablecimiento de contraseña](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
 
->[!Note]
->Si intenta volver a una cuenta personal, como Xbox, outlook.com o hotmail.com, pruebe las sugerencias del artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+## <a name="update-a-password-from-the-change-password-page"></a>Actualización de una contraseña desde la página Cambiar contraseña
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>Para cambiar la contraseña desde el portal Mi cuenta
-
-1. Inicie sesión en la cuenta profesional o educativa, con la contraseña existente y, después, vaya a la página https://myprofile.microsoft.com/.
+1. Inicie sesión en la cuenta profesional o educativa con la contraseña existente y, después, vaya a la página **Mi cuenta** (https://myprofile.microsoft.com/) ).
 
 2. Seleccione **Contraseña** en el panel de navegación de la izquierda, o bien seleccione el vínculo **Cambiar contraseña** del bloque **Contraseña**.
 

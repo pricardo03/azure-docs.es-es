@@ -1,5 +1,5 @@
 ---
-title: 'Solución de VMware en Azure de CloudSimple: Escalado de privilegios de CloudSimple'
+title: 'Azure VMware Solution by CloudSimple: escalado de privilegios de CloudSimple'
 description: Describe cómo escalar los permisos de CloudSimple para realizar funciones administrativas en la instancia de vCenter de la nube privada.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 524772578ad724e969bbeab0be0a3edcf32a845f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 36c6969ed89d0bb9222f52aa81de0d4128b9e533
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619485"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76542855"
 ---
 # <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Escalado de privilegios de CloudSimple para realizar funciones administrativas en la instancia de vCenter de la nube privada
 
@@ -33,5 +33,8 @@ Entre los motivos para escalar privilegios se pueden citar los siguientes:
 En el portal de CloudSimple, [escale los privilegios](escalate-private-cloud-privileges.md) del usuario local CloudOwner en el inicio de sesión único de vCenter.  Puede escalar los privilegios del usuario remoto solo si se configura un proveedor de identidades adicional en vCenter.  El escalado de privilegios implica agregar el usuario seleccionado al grupo de administradores integrado de vSphere.  Solo un usuario puede tener privilegios elevados.  Si necesita escalar los privilegios de otro usuario, primero debe anular el escalado de los privilegios de los usuarios actuales.
 
 Los usuarios de otros orígenes de identidades se deben agregar como miembros del grupo CloudOwner.
+
+> [!CAUTION]
+> Los nuevos usuarios solo se deben agregar a *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* o *Cloud-Global-VM-Admin-Group*.  Los usuarios agregados al grupo *Administradores* se quitarán automáticamente.  Solo se deben agregar cuentas de servicio al grupo *Administradores* y estas cuentas no se deben usar para iniciar sesión en la interfaz de usuario web de vSphere.
 
 Durante el período de escalado, CloudSimple usa la supervisión automatizada con notificaciones de alerta asociadas para identificar los cambios involuntarios en el entorno.

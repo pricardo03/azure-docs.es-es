@@ -1,5 +1,5 @@
 ---
-title: Integración continua de Azure DevTest Labs en la canalización de integración y entrega continuas de Azure Pipelines | Microsoft Docs
+title: Integración de Azure DevTest Labs en Azure Pipelines
 description: Obtenga información sobre cómo integrar Azure DevTest Labs en la canalización de integración y entrega continuas de Azure Pipelines
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 20ba297d22e26aa8c7e20db300173f12582d257e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9604da5252254120ac7bd3fca3f0cc97324aef92
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224479"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293222"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integración de Azure DevTest Labs en la canalización de integración y entrega continuas de Azure Pipelines
 
@@ -35,7 +35,7 @@ En este artículo se muestra cómo usar Tareas de Azure DevTest Labs para crear 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Regístrese o inicie sesión en su organización de [Azure DevOps](https://dev.azure.com) y [cree un proyecto](/vsts/organizations/projects/create-project) en la organización. 
   
@@ -120,7 +120,7 @@ Para agregar variables para los valores:
    
 1. Para cada variable, seleccione **Agregar** y escriba el nombre y el valor:
    
-   |NOMBRE|Valor|
+   |Nombre|Value|
    |---|---|
    |*vmName*|Nombre de la máquina virtual que asignó en la plantilla de Resource Manager.|
    |*userName*|Nombre de usuario para acceder a la máquina virtual.|
@@ -132,15 +132,15 @@ El siguiente paso consiste en crear la máquina virtual de imagen maestra que se
 
 1. En la pestaña **Canalización** de la canalización de versión, seleccione el texto de hipervínculo de **Fase 1** para **Ver tareas de la fase** y, a continuación, seleccione el signo más **+** junto a **Trabajo de agente**. 
    
-1. En Agregar tareas, seleccione Azure DevTest Labs Create VM (Crear VM de Azure DevTest Labs) y seleccione Agregar. 
+1. En **Agregar tareas**, seleccione **Azure DevTest Labs Create VM** (Crear VM de Azure DevTest Labs) y seleccione **Agregar**. 
    
-1. Seleccione Create Azure DevTest Labs VM (Crear VM de Azure DevTest Labs) en el panel izquierdo. 
+1. Seleccione **Create Azure DevTest Labs VM** (Crear VM de Azure DevTest Labs) en el panel izquierdo. 
 
 1. En el panel de la derecha, rellene el formulario como se indica a continuación:
    
-   |Campo|Valor|
+   |Campo|Value|
    |---|---|
-   |**Suscripción a Azure Resource Manager**|Seleccione una conexión de servicio o suscripción de **Conexiones disponibles del servicio de Azure** o **Suscripciones de Azure disponibles** en el menú desplegable y seleccione **Autorizar** si es necesario.<br /><br />**Nota:** Para más información sobre cómo crear una conexión de permisos más restringida a su suscripción de Azure, consulte [Punto de conexión de servicio de Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).|
+   |**Suscripción a Azure Resource Manager**|Seleccione una conexión de servicio o suscripción de **Conexiones disponibles del servicio de Azure** o **Suscripciones de Azure disponibles** en el menú desplegable y seleccione **Autorizar** si es necesario.<br /><br />**Nota:** Para más información sobre cómo crear una conexión de permisos más restringida a su suscripción de Azure, consulte [Punto de conexión de servicio de Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Nombre de laboratorio**|Seleccione el nombre de un laboratorio existente en el que se creará la máquina virtual de laboratorio.|
    |**Nombre de plantilla**|Escriba la ruta de acceso completa y el nombre del archivo de plantilla que guardó en el repositorio de código fuente. Puede usar las propiedades integradas para simplificar la ruta de acceso, por ejemplo:<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Parámetros de plantilla**|Escriba los parámetros de las variables que definió anteriormente:<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
@@ -158,7 +158,7 @@ Ejecute el script que creó anteriormente para recopilar los detalles de la máq
    
 1. En el panel de la derecha, rellene el formulario como se indica a continuación:
    
-   |Campo|Valor|
+   |Campo|Value|
    |---|---|
    |**Tipo de conexión de Azure**|Seleccione **Azure Resource Manager**.|
    |**Suscripción de Azure**|Seleccione su suscripción o conexión de servicio.| 
@@ -174,11 +174,11 @@ La siguiente tarea consiste en crear una imagen de la máquina virtual recién i
 
 1. En la pestaña **Canalización** de la canalización de versión, seleccione el texto de hipervínculo de **Fase 1** para **Ver tareas de la fase** y, a continuación, seleccione el signo más **+** junto a **Trabajo de agente**. 
    
-1. En Agregar tareas, seleccione Azure DevTest Labs Create Custom Image (Crear imagen personalizada de Azure DevTest Labs) y seleccione Agregar. 
+1. En **Agregar tareas**, seleccione **Azure DevTest Labs Create Custom Image** (Crear imagen personalizada de Azure DevTest Labs) y seleccione **Agregar**. 
    
 1. Configure la tarea de la siguiente manera:
    
-   |Campo|Valor|
+   |Campo|Value|
    |---|---|
    |**Suscripción a Azure Resource Manager**|Seleccione su suscripción o conexión de servicio.|
    |**Nombre de laboratorio**|Seleccione el nombre de un laboratorio existente en el que se creará la imagen.|
@@ -199,7 +199,7 @@ La tarea final consiste en eliminar la máquina virtual que se implementó en la
 
 1. En la pestaña **Canalización** de la canalización de versión, seleccione el texto de hipervínculo de **Fase 1** para **Ver tareas de la fase** y, a continuación, seleccione el signo más **+** junto a **Trabajo de agente**. 
    
-1. En Agregar tareas, seleccione Azure DevTest Labs Delete VM (Eliminar VM de Azure DevTest Labs) y seleccione Agregar. 
+1. En **Agregar tareas**, seleccione **Azure DevTest Labs Delete VM** (Eliminar VM de Azure DevTest Labs) y seleccione **Agregar**. 
    
 1. Configure la tarea de la siguiente manera:
    

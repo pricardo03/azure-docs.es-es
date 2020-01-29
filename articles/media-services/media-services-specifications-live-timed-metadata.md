@@ -1,5 +1,5 @@
 ---
-title: 'Azure Media Services: Señalización de metadatos con tiempo en streaming en vivo | Microsoft Docs'
+title: 'Azure Media Services: Señalización de metadatos con tiempo en streaming en vivo'
 description: En esta especificación se describen los métodos de señalización de los metadatos con tiempo cuando se llevan a cabo la ingesta y el streaming en Azure Media Services. Esto incluye compatibilidad con las señales genéricas de los metadatos con tiempo (ID3), así como con la señalización SCTE-35 para una inserción de anuncios y la señalización de condiciones de inserción.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: fd8533ff310e307604e5ce25a4285cc90f3ea4ab
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933983"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514245"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Señalización de metadatos con tiempo en streaming en vivo 
 

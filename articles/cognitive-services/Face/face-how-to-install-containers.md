@@ -1,5 +1,5 @@
 ---
-title: 'Instalación y ejecución de contenedores: FACE API'
+title: 'Instalación y ejecución de contenedores: Face'
 titleSuffix: Azure Cognitive Services
 description: En este artículo se muestra cómo descargar, instalar y ejecutar contenedores para Face en un tutorial paso a paso.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 574f6bead9cac384c72d2d0cd35353eb571a9490
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e467b195ab1e2124286bfef74d7d1b71a4d99dd6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327035"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165994"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalación y ejecución de contenedores de Face (versión preliminar)
 
@@ -24,15 +24,15 @@ Azure Cognitive Services Face proporciona un contenedor de Linux estandarizado p
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Debe cumplir los siguientes requisitos previos para poder usar los contenedores de Face API.
+Debe cumplir los siguientes requisitos previos para poder usar los contenedores del servicio Face.
 
 |Obligatorio|Propósito|
 |--|--|
 |Motor de Docker| El motor de Docker debe estar instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> En Windows, Docker también debe configurarse para admitir los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor. También necesita conocimientos sobre comandos de `docker` básicos.| 
-|Recurso de Face |Para usar el contenedor, debe tener:<br><br>Un recurso de Azure **Face** y la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas de **introducción** y **claves** del recurso. Esto es necesario para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Introducción**.
+|Recurso de Face |Para usar el contenedor, debe tener:<br><br>Un recurso de Azure **Face** y la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas de **introducción** y **claves** del recurso. Esto es necesario para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**.
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -46,7 +46,7 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
-En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar cada contenedor de Face API.
+En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar a cada contenedor del servicio Face.
 
 | Contenedor | Mínima | Recomendado | Transacciones por segundo<br>(mínimo, máximo)|
 |-----------|---------|-------------|--|
@@ -59,7 +59,7 @@ El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory`
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtención de la imagen de contenedor con el comando docker pull
 
-Las imágenes de contenedor para Face API están disponibles. 
+Las imágenes de contenedor del servicio Face están disponibles. 
 
 | Contenedor | Repositorio |
 |-----------|------------|
@@ -124,7 +124,7 @@ Utilice el host, `http://localhost:5000`, con las API de contenedor.
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si ejecuta el contenedor con un [montaje](./face-resource-container-config.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor.
 
@@ -132,7 +132,7 @@ Si ejecuta el contenedor con un [montaje](./face-resource-container-config.md#mo
 
 ## <a name="billing"></a>Facturación
 
-Los contenedores de Face API envían información de facturación a Azure mediante un recurso de Face API en la cuenta de Azure. 
+Los contenedores del servicio Face envían información de facturación a Azure mediante un recurso de Face en la cuenta de Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -144,11 +144,11 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 
 ## <a name="summary"></a>Resumen
 
-En este artículo aprendió los conceptos y el flujo de trabajo para la descarga, instalación y ejecución de contenedores de Face API. En resumen:
+En este artículo aprendió los conceptos y el flujo de trabajo para la descarga, instalación y ejecución de contenedores del servicio Face. En resumen:
 
 * Las imágenes de contenedor se descargan de Azure Container Registry.
 * Las imágenes de contenedor se ejecutan en Docker.
-* Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Face API mediante la especificación del URI del host del contenedor.
+* Puede usar la API REST o el SDK para llamar a operaciones en contenedores del servicio Face mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de contenedor.
 
 > [!IMPORTANT]

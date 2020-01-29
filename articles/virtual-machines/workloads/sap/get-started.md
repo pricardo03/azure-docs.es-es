@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d4b6ba0c516e7c8c585f9364092403496a53139
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 55872d48dcf2a85812e1627e4e85bcd98b25d576
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894668"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271321"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -120,6 +120,11 @@ Para obtener información sobre la integración de servicios de Azure en los com
 
 
 ## <a name="change-log"></a>Registro de cambios
+
+- 17/01/2020: Cambio en los [grupos de selección de ubicación de proximidad de Azure para conseguir una latencia de red óptima con aplicaciones SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) para cambiar la sección del movimiento de las máquinas virtuales existentes a un grupo de selección de ubicación de proximidad.
+- 17/01/2020: Cambio en las [configuraciones de carga de trabajo de SAP con Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) para que apunten al procedimiento que automatiza las mediciones de latencia entre zonas de disponibilidad
+- 16/01/2020: Cambio en la [instalación y configuración de SAP HANA (instancias grandes) en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) para adaptar las versiones del sistema operativo al directorio de hardware de IaaS de HANA
+- 16/01/2020: Cambios en la [guía de varios SID de alta disponibilidad de las máquinas virtuales de Azure para SAP NetWeaver en SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) para agregar instrucciones para sistemas SAP con la arquitectura de puesta en cola del servidor 2 (ENSA2)
 - 10/01/2020: Cambios en la [escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) y en la [escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) para agregar instrucciones sobre cómo hacer que los cambios de `nfs4_disable_idmapping` sean permanentes.
 - 10/01/2020: Cambios en [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) y en [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para agregar instrucciones sobre cómo montar volúmenes NFSv4 de Azure NetApp Files.
 - 23/12/2019: Publicación de la [guía de varios SID de alta disponibilidad de las máquinas virtuales de Azure para SAP NetWeaver en SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)

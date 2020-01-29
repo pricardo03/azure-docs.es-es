@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/17/2020
+ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646853"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314800"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Datos de flujo como entrada en Stream Analytics
 
@@ -55,6 +55,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 | **Nombre del centro de eventos** | Nombre del centro de eventos que se usa como entrada. |
 | **Nombre de la directiva del centro de eventos** | Directiva de acceso compartido que proporciona acceso al centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración del centro de eventos manualmente.|
 | **Grupo de consumidores del centro de eventos** (recomendado) | Se recomienda encarecidamente usar un grupo de consumidores distinto para cada trabajo de Stream Analytics. Esta cadena identifica el grupo de consumidores que se usa para la ingesta de datos desde el centro de eventos. Si no se especifica ningún grupo de consumidores, el trabajo de Stream Analytics usa el grupo de consumidores $Default.  |
+| **Clave de partición** | Si la entrada está particionada por una propiedad, puede agregar el nombre de esta propiedad. Las claves de partición son opcionales y se utilizan para mejorar el rendimiento de la consulta si incluye una cláusula PARTITION BY o GROUP BY en esta propiedad. |
 | **Formato de serialización de eventos** | El formato de serialización (JSON, CSV, Avro u [otro [Protobuf, XML, propietario...]](custom-deserializer.md)) del flujo de datos de entrada.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
 | **Encoding** | Por el momento, UTF-8 es el único formato de codificación compatible. |
 | **Tipo de compresión de eventos** | El tipo de compresión utilizado para leer el flujo de datos entrante, como None (valor predeterminado), GZip o Deflate. |
@@ -104,6 +105,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 | **Nombre de directiva de acceso compartido** | Directiva de acceso compartido que proporciona acceso a IoT Hub. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | **Clave de directiva de acceso compartido** | Clave de acceso compartido que se usa para autorizar el acceso a IoT Hub.  Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración de IoT Hub manualmente. |
 | **Grupo de consumidores** | Se recomienda encarecidamente usar un grupo de consumidores distinto para cada trabajo de Stream Analytics. El grupo de consumidores que se usa para ingerir datos desde Azure IoT Hub. Stream Analytics usa el grupo de consumidores $Default, a menos que se especifique lo contrario.  |
+| **Clave de partición** | Si la entrada está particionada por una propiedad, puede agregar el nombre de esta propiedad. Las claves de partición son opcionales y se utilizan para mejorar el rendimiento de la consulta si incluye una cláusula PARTITION BY o GROUP BY en esta propiedad. |
 | **Formato de serialización de eventos** | El formato de serialización (JSON, CSV, Avro u [otro [Protobuf, XML, propietario...]](custom-deserializer.md)) del flujo de datos de entrada.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
 | **Encoding** | Por el momento, UTF-8 es el único formato de codificación compatible. |
 | **Tipo de compresión de eventos** | El tipo de compresión utilizado para leer el flujo de datos entrante, como None (valor predeterminado), GZip o Deflate. |
@@ -157,6 +159,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 | **Patrón de ruta de acceso** (opcional) | Ruta de acceso de archivo que sirve para ubicar los blobs dentro del contenedor especificado. Si desea leer los blobs de la raíz del contenedor, no establezca un patrón de ruta de acceso. Dentro de la ruta, puede especificar una o más instancias de las tres variables siguientes: `{date}`, `{time}` o `{partition}`.<br/><br/>Ejemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Ejemplo 2: `cluster1/logs/{date}`<br/><br/>El carácter `*` no es un valor permitido para el prefijo de ruta de acceso. Solo se permiten <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de Blob de Azure</a>. No incluya nombres de contenedor ni nombres de archivo. |
 | **Formato de fecha** (opcional) | Si usa la variable de fecha en la ruta, formato de fecha por el que se organizan los archivos. Ejemplo: `YYYY/MM/DD` |
 | **Formato de hora** (opcional) |  Si usa la variable de hora en la ruta, formato de hora por el que se organizan los archivos. Actualmente, el único valor admitido es `HH` para las horas. |
+| **Clave de partición** | Si la entrada está particionada por una propiedad, puede agregar el nombre de esta propiedad. Las claves de partición son opcionales y se utilizan para mejorar el rendimiento de la consulta si incluye una cláusula PARTITION BY o GROUP BY en esta propiedad. |
 | **Formato de serialización de eventos** | El formato de serialización (JSON, CSV, Avro u [otro [Protobuf, XML, propietario...]](custom-deserializer.md)) del flujo de datos de entrada.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
 | **Encoding** | Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
 | **Compresión** | El tipo de compresión utilizado para leer el flujo de datos entrante, como None (valor predeterminado), GZip o Deflate. |

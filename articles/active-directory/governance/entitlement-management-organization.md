@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608744"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548907"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -31,9 +31,12 @@ La administración de derechos de Azure AD le permite colaborar con personas aje
 
 Una organización conectada es un dominio o directorio externo de Azure AD con el que tiene relación.
 
-Por ejemplo, supongamos que trabaja en Woodgrove Bank y desea colaborar con dos organizaciones externas: Instituto de diseño gráfico y Contoso. Le ha indicado su contacto en el Instituto de diseño gráfico que usan Azure AD y que los usuarios del Instituto de diseño gráfico tienen un nombre principal de usuario que termina con `graphicdesigninstitute.com`. Además, le ha indicado su contacto en Contoso que todavía no usan Azure AD, pero que los usuarios de Contoso tienen un nombre principal de usuario que termina con `contoso.com`.
+Por ejemplo, supongamos que trabaja en Woodgrove Bank y desea colaborar con dos organizaciones externas. Estas dos organizaciones tienen configuraciones diferentes:
 
-Puede configurar dos organizaciones conectadas: una para el Instituto de diseño gráfico con el dominio `graphicdesigninstitute.com` y otra para Contoso con el dominio `contoso.com`. Si después agrega esas dos organizaciones conectadas a una directiva, los usuarios de cada organización que tengan un nombre principal de usuario que coincida con la directiva podrán solicitar paquetes de acceso. Además, dado que el Instituto de diseño gráfico se identificó como usuario de Azure AD, y si el Instituto de diseño gráfico tiene subdominios más adelante, como `graphicdesigninstitute.example`, los usuarios con ese nombre principal de usuario también podrán solicitar los paquetes de acceso con la misma directiva.
+- Graphic Design Institute usa Azure AD y sus usuarios tienen un nombre principal de usuario que termina con `graphicdesigninstitute.com`.
+- Contoso todavía no usa Azure AD. Los usuarios de Contoso tienen un nombre principal de usuario que termina con `contoso.com`.
+
+En este caso, puede configurar dos organizaciones conectadas. Crea una organización conectada para Graphic Design Institute y otra para Contoso. Si después agrega estas dos organizaciones conectadas a una directiva, los usuarios de cada organización que tengan un nombre principal de usuario que coincida con la directiva podrán solicitar paquetes de acceso. Los usuarios con un nombre principal de usuario con el dominio graphicdesigninstitute.com coincidirán con la organización conectada Graphic Design Institute y se les permitirá enviar solicitudes, mientras que los usuarios con un nombre principal de usuario y el dominio contoso.com coincidirán con la organización conectada Contoso y también a ellos se les permitirá solicitar paquetes. Además, dado que Graphic Design Institute usa Azure AD, cualquier usuario con un nombre principal que coincida con un [dominio comprobado](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) agregado a su inquilino, como graphicdesigninstitute.example, también podrá solicitar paquetes de acceso mediante la misma directiva.
 
 ![Ejemplo de una organización conectada](./media/entitlement-management-organization/connected-organization-example.png)
 

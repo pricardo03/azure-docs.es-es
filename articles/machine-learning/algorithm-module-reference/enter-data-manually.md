@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8db1d782b6f92637ad929ba863a8d24c81280577
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497929"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548431"
 ---
 # <a name="enter-data-manually-module"></a>Módulo Introducción manual de datos
 
@@ -97,9 +97,9 @@ Este módulo puede ser útil en escenarios como los siguientes:
   
      Si crea filas con valores que faltan, siempre puede filtrarlas más adelante.  
   
-5.  Haga clic con el botón derecho en el módulo y seleccione **Ejecutar seleccionados** para analizar los datos y cargarlos en el área de trabajo como un conjunto de datos.  
+5.  Conecte el puerto de salida a otros módulos y ejecute la canalización.  
   
-     Para ver el conjunto de datos, haga clic en el puerto de salida y seleccione **Visualizar**.  
+     Para ver el conjunto de datos, haga clic con el botón derecho en el módulo y seleccione **Visualize** (Visualizar).  
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

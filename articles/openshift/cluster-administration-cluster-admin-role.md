@@ -7,12 +7,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 0cb875122c63be18f7c39cdfea7986d705ed434e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 610b1e0112b8135aa09ade5c800eaed987635cb4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539272"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545643"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Rol de administrador de clientes de Red Hat OpenShift en Azure
 
@@ -22,7 +22,6 @@ Cuando su cuenta lleva enlazado el rol de autorización customer-admin-cluster, 
 
 > [!Note] 
 > El rol clúster customer-admin-cluster no lo mismo que el rol cluster-admin.
-
 
 Por ejemplo, puede ejecutar acciones asociadas a un conjunto de verbos (`create`) para operar en un conjunto de nombres de recursos (`templates`). Para ver los detalles de estos roles y sus conjuntos de verbos y recursos, ejecute el siguiente comando:
 
@@ -34,7 +33,13 @@ Por ejemplo, tener el verbo `list` significa que puede mostrar una lista de todo
 
 ## <a name="configure-the-customer-administrator-role"></a>Configuración del rol de administrador de clientes
 
-Solo puede configurar el rol customer-admin-cluster durante la creación del clúster cuando se proporciona la marca `--customer-admin-group-id`. Para más información sobre cómo configurar Azure Active Directory y el grupo de administradores, consulte [Integración de Azure Active Directory para Red Hat OpenShift en Azure](howto-aad-app-configuration.md).
+Solo puede configurar el rol customer-admin-cluster durante la creación del clúster cuando se proporciona la marca `--customer-admin-group-id`. Este campo no se puede configurar actualmente en Azure Portal. Para más información sobre cómo configurar Azure Active Directory y el grupo de administradores, consulte [Integración de Azure Active Directory para Red Hat OpenShift en Azure](howto-aad-app-configuration.md).
+
+## <a name="confirm-membership-in-the-customer-administrator-role"></a>Confirmación de la pertenencia al rol Administrador de clientes
+
+Para confirmar su pertenencia al grupo de administradores de clientes, pruebe los comandos de la CLI de OpenShift `oc get nodes` o `oc projects`. `oc get nodes` mostrará una lista de nodos si tiene el rol customer-admin-cluster y un error de permiso si solo tiene el rol customer-admin-project. `oc projects` mostrará todos los proyectos del clúster, no solo aquellos en los que esté trabajando.
+
+Para explorar más roles y permisos del clúster, puede usar el comando [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

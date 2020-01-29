@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0ab4a0ebf2844d064e40c8417ab22162d2d0ded6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c5ad269bf9cfa43ebad7163c858ef20bc8641878
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485870"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548329"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Máquina de vectores de soporte de dos clases
 
@@ -34,7 +34,7 @@ Este modelo de SVM es un modelo de aprendizaje supervisado que requiere datos et
 
 Para la predicción, el algoritmo de SVM asigna ejemplos nuevos a una categoría u otra, asignándolos en ese mismo espacio. 
 
-## <a name="how-to-configure"></a>Configuración 
+## <a name="how-to-configure"></a>Cómo se configura 
 
 Para este tipo de modelo, se recomienda normalizar el conjunto de datos antes de usarlo para entrenar al clasificador.
   
@@ -42,7 +42,7 @@ Para este tipo de modelo, se recomienda normalizar el conjunto de datos antes de
   
 2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Parámetro único**: Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.  
+    -   **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.  
 
 3.  En **Número de iteraciones**, escriba un número que indique el número de iteraciones usadas al compilar el modelo.  
   
@@ -66,16 +66,15 @@ Para este tipo de modelo, se recomienda normalizar el conjunto de datos antes de
   
     -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).
   
-
 10. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 
 Una vez completado el entrenamiento:
 
-+ Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo) y seleccione **Visualizar**.
++ Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho del módulo **Train model** (Entrenar modelo). Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar el modelo como un módulo reutilizable.
 
-+ Para utilizar los modelos entrenados para realizar predicciones, conecte el modelo entrenado al módulo [Score Model](score-model.md) (Modelo de puntuación).
++ Para usar el modelo de puntuación, agregue el módulo **Score Model** (Puntuar modelo) a una canalización.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

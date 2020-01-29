@@ -1,25 +1,17 @@
 ---
-title: Términos de soporte técnico de StorSimple | Microsoft Docs
+title: Términos de soporte técnico de StorSimple
 description: Aquí se describen las opciones de soporte técnico para clientes de almacenamiento empresarial de la serie StorSimple 8000.
-services: storsimple
-documentationcenter: NA
 author: GabiSocoteanu
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 046558007f1a2f2c86f80af610be56b77fa63da1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d9a75cde58062061149fa4304eace587b1480dd1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990387"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277035"
 ---
 # <a name="storsimple-solution-support"></a>Soporte técnico de la solución StorSimple
 
@@ -89,8 +81,8 @@ En todos los niveles de soporte se proporciona asistencia para problemas relacio
 
 | **GRAVEDAD** |**SITUACIÓN DEL CLIENTE**                                                                                                                                | RESPUESTA ESPERADA DE MICROSOFT <sup>2                                                                                       | RESPUESTA ESPERADA DEL CLIENTE                                                                                                                                                       |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Una        | Impacto empresarial crítico: <ul> <br> <li> El negocio del cliente presenta pérdidas o degradaciones significativas de los servicios. <sup>1</sup> <br> <li> Necesita atención inmediata.                          | Respuesta inicial: <sup>1</sup> <ul><br> <li>1 hora o menos, para planes Premium. <br> <li> 2 horas o menos, para planes Estándar. <br> <li> Esfuerzo constante todos los días y a cualquier hora. | <ul><li> Asignación de recursos adecuados para mantener el esfuerzo constante todos los días y a cualquier hora. <br> <li> Información de contacto adecuada del propietario del caso.                                                |
-| b        | Impacto empresarial moderado: <ul><br> <li> El negocio del cliente presenta pérdidas o degradaciones moderadas de los servicios, pero el trabajo puede continuar parcialmente a pesar de la incidencia. | Respuesta inicial: <sup>1</sup><ul><br> <li> 2 horas o menos, para planes Premium. <br> <li> 4 horas o menos, para planes Estándar.                                      | <ul><li> Asignación de recursos adecuados para mantener el esfuerzo constante durante el horario laboral, a menos que el cliente opte por cancelar el servicio de tipo 24/7. <br> <li> Información de contacto adecuada del propietario del caso. |
+| Un        | Impacto empresarial crítico: <ul> <br> <li> El negocio del cliente presenta pérdidas o degradaciones significativas de los servicios. <sup>1</sup> <br> <li> Necesita atención inmediata.                          | Respuesta inicial: <sup>1</sup> <ul><br> <li>1 hora o menos, para planes Premium. <br> <li> 2 horas o menos, para planes Estándar. <br> <li> Esfuerzo constante todos los días y a cualquier hora. | <ul><li> Asignación de recursos adecuados para mantener el esfuerzo constante todos los días y a cualquier hora. <br> <li> Información de contacto adecuada del propietario del caso.                                                |
+| B        | Impacto empresarial moderado: <ul><br> <li> El negocio del cliente presenta pérdidas o degradaciones moderadas de los servicios, pero el trabajo puede continuar parcialmente a pesar de la incidencia. | Respuesta inicial: <sup>1</sup><ul><br> <li> 2 horas o menos, para planes Premium. <br> <li> 4 horas o menos, para planes Estándar.                                      | <ul><li> Asignación de recursos adecuados para mantener el esfuerzo constante durante el horario laboral, a menos que el cliente opte por cancelar el servicio de tipo 24/7. <br> <li> Información de contacto adecuada del propietario del caso. |
 | C        | Impacto empresarial mínimo: <ul><br> <li> El negocio del cliente funciona sustancialmente con pocas o nulas incidencias en los servicios.                                 | Respuesta inicial: <sup>1</sup><ul> <br> <li> 4 horas o menos, para planes Premium. <br> <li> 8 horas o menos, para planes Estándar.                                      | <ul><li>Información de contacto adecuada del propietario del caso.                                                                                                                                    |
  
 <sup>1</sup> Es posible que Microsoft disminuya el nivel de gravedad de un caso de gravedad A si el cliente no aporta los recursos o las respuestas que se necesitan para poder continuar con los esfuerzos de resolución del problema.

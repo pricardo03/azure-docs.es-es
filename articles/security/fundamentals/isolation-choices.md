@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979273"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121954"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 Azure permite ejecutar aplicaciones y máquinas virtuales (VM) en una infraestructura física compartida. Una de las motivaciones económicas principales para ejecutar aplicaciones en un entorno de nube es la capacidad de distribuir el costo de los recursos compartidos entre varios clientes. Esta práctica de multiinquilino mejora la eficiencia al multiplexar los recursos entre los distintos clientes a un bajo costo. Lamentablemente, también presenta el riesgo del uso compartido de servidores físicos y otros recursos de infraestructura al ejecutar aplicaciones confidenciales y máquinas virtuales que pueden pertenecer a un usuario arbitrario y potencialmente malintencionado.
@@ -179,7 +179,7 @@ Se permite la comunicación desde la VLAN FC a la VLAN principal, pero no se pue
 ### <a name="logical-isolation-between-compute-and-storage"></a>Aislamiento lógico entre Compute y Storage
 Como parte fundamental de su diseño, Microsoft Azure separa las máquinas virtuales de proceso y las de almacenamiento. Esta separación permite escalar la computación y el almacenamiento de forma independiente, facilitando así el multiinquilinato y el aislamiento.
 
-Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad de red con Azure Compute, excepto en el nivel lógico. [Esto](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) significa que, cuando se crea un disco virtual, no se asigna espacio en disco para toda su capacidad. En su lugar, se crea una tabla que asigna direcciones en el disco virtual a las áreas en el disco físico y la tabla está inicialmente vacía. **La primera vez que un cliente escribe datos en el disco virtual, se asigna espacio en el disco físico y se coloca un puntero a este en la tabla.**
+Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad de red con Azure Compute, excepto en el nivel lógico. Esto significa que, cuando se crea un disco virtual, no se asigna espacio en disco para toda su capacidad. En su lugar, se crea una tabla que asigna direcciones en el disco virtual a las áreas en el disco físico y la tabla está inicialmente vacía. **La primera vez que un cliente escribe datos en el disco virtual, se asigna espacio en el disco físico y se coloca un puntero a este en la tabla.**
 ### <a name="isolation-using-storage-access-control"></a>Aislamiento con Storage Access Control
 **Azure Storage Access Control** tiene un modelo de control de acceso simple. Cada suscripción de Azure puede crear una o más cuentas de almacenamiento. Cada cuenta de almacenamiento tiene una única clave secreta que se utiliza para controlar el acceso a todos los datos de esa cuenta de almacenamiento.
 
@@ -320,14 +320,6 @@ La implementación de Azure tiene varios niveles de aislamiento de red. El sigui
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Opciones de aislamiento de red para máquinas Windows en redes virtuales de Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- Más información sobre [opciones de aislamiento de red para máquinas Windows en redes virtuales de Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Esto incluye el escenario de front-end y back-end clásico en el que las máquinas de una determinada red o subred back-end pueden permitir conectarse solo a determinados clientes o equipos a un punto de conexión en particular, en función de una lista de direcciones IP autorizadas.
 
-Esto incluye el escenario de front-end y back-end clásico en el que las máquinas de una determinada red o subred back-end pueden permitir conectarse solo a determinados clientes o equipos a un punto de conexión en particular, en función de una lista de direcciones IP autorizadas.
-
-- [Aislamiento de proceso](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure proporciona diversos servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso que se pueden escalar vertical y horizontalmente de forma automática para satisfacer las necesidades de su aplicación o de su empresa.
-
-- [Aislamiento del almacenamiento](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure separa la computación basada en máquinas virtuales de cliente del almacenamiento. Esta separación permite escalar la computación y el almacenamiento de forma independiente, facilitando así el multiinquilinato y el aislamiento. Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad de red con Azure Compute, excepto en el nivel lógico. Todas las peticiones se ejecutan sobre HTTP o HTTPS, a elección del cliente.
+- Más información sobre [aislamiento de máquinas virtuales de Azure](../../virtual-machines/windows/isolation.md). Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.

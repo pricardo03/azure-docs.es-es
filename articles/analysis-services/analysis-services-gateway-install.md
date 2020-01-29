@@ -4,21 +4,21 @@ description: Aprenda a instalar y configurar una puerta de enlace de datos local
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f578840726543027a8c1b1db9bd88ea42f6e85fa
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029884"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264074"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
-Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales.  Aunque la puerta de enlace que se instala es la misma que la que usan otros servicios, como Power BI, Power Apps y Logic Apps, al instalar para Azure Analysis Services, hay algunos pasos adicionales que debe completar. Este artículo de instalación es específico para **Azure Analysis Services**.
+Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales.  Aunque la puerta de enlace que se instala es la misma que la que usan otros servicios, como Power BI, Power Apps y Logic Apps, al instalar para Azure Analysis Services, hay algunos pasos adicionales que debe completar. Este artículo de instalación es específico para **Azure Analysis Services**. 
 
-Para más información sobre la puerta de enlace y su uso por parte de Azure Analysis Services, consulte [Conexión a orígenes de datos locales](analysis-services-gateway.md).
+Para más información sobre el funcionamiento de Azure Analysis Services con la puerta de enlace, consulte este artículo sobre la [conexión a orígenes de datos locales](analysis-services-gateway.md). Para más información sobre escenarios de instalación avanzados y la puerta de enlace en general, consulte la [documentación sobre puertas de enlace de datos locales](/data-integration/gateway/service-gateway-onprem).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -35,11 +35,11 @@ Para más información sobre la puerta de enlace y su uso por parte de Azure Ana
 
 **Consideraciones importantes:**
 
-* Durante la instalación, al registrar la puerta de enlace en Azure, se selecciona la región predeterminado para su suscripción. Puede elegir otra región. Si tiene servidores en varias regiones, debe instalar una puerta de enlace en cada una de ellas. 
+* Durante la instalación, al registrar la puerta de enlace en Azure, se selecciona la región predeterminado para su suscripción. Puede elegir una suscripción y una región diferentes. Si tiene servidores en varias regiones, debe instalar una puerta de enlace en cada una de ellas. 
 * La puerta de enlace no se puede instalar en un controlador de dominio.
 * Solo se puede instalar una puerta de enlace en un equipo.
 * Instale la puerta de enlace en un equipo que permanezca encendido y no entre en suspensión.
-* No instale la puerta de enlace en un equipo conectado de forma inalámbrica a la red. Puede disminuir el rendimiento.
+* No instale la puerta de enlace en un equipo que esté conectado a la red solamente de forma inalámbrica. Puede disminuir el rendimiento.
 * Al instalar la puerta de enlace, la cuenta de usuario con que ha iniciado sesión en el equipo debe tener Iniciar sesión como privilegios de servicio. Una vez completada la instalación, el servicio de puerta de enlace de datos local usa la cuenta de SERVICE\PBIEgwService para iniciar sesión como servicio. Puede especificar una cuenta diferente durante la instalación o en los servicios una vez completada la instalación. Asegúrese de que la configuración de la directiva de grupo permita tanto la cuenta con la que ha iniciado sesión al instalar como la cuenta de servicio que ha elegido que tenga Iniciar sesión como privilegios de servicio.
 * Inicie sesión en Azure con una cuenta de Azure AD que tenga el mismo [inquilino](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) que la suscripción donde va a registrar la puerta de enlace. No se pueden utilizar cuentas B2B (invitadas) de Azure para instalar y registrar una puerta de enlace.
 * Si los orígenes de datos se encuentran en una red Azure Virtual Network (VNet) debe configurar la propiedad de servidor [AlwaysUseGateway](analysis-services-vnet-gateway.md).
@@ -87,7 +87,7 @@ Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia 
 
 ## <a name="create-resource"></a>Creación de un recurso de puerta de enlace de Azure
 
-Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso de puerta de enlace en su suscripción de Azure. Inicie sesión en Azure con la misma cuenta que usó al registrar la puerta de enlace.
+Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso de puerta de enlace en Azure. Inicie sesión en Azure con la misma cuenta que usó al registrar la puerta de enlace.
 
 1. En Azure Portal, haga clic en **Crear un recurso**, busque **Puerta de enlace de datos local** y, luego, haga clic en **Crear**.
 

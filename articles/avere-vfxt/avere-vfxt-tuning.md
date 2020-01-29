@@ -4,30 +4,22 @@ description: Información general sobre la configuración personalizada para opt
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414327"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152942"
 ---
 # <a name="cluster-tuning"></a>Ajuste del clúster
 
 La mayoría de los clústeres de vFXT pueden beneficiarse de la configuración de rendimiento personalizada. Estas opciones de configuración permiten que el clúster funcione mejor con un flujo de trabajo, un conjunto de datos y unas herramientas determinados.
 
-Esta opción de personalización debe realizarse junto con un representante del soporte técnico, ya que normalmente es necesario configurar características que no están disponibles en el panel de control de Avere.
+Esta opción de personalización debe realizarse con la ayuda de representante de soporte técnico, ya que pude ser necesario configurar características que no estén disponibles en el panel de control de Avere.
 
-En esta sección se explican algunas de las opciones de optimización personalizada que pueden realizarse.
-
-<!-- 
-[ xxx keep or not? \/ research this xxx ]
-
-> [!TIP]
-> The VDBench utility can be helpful in generating I/O workloads to test a vFXT cluster. Read [Measuring vFXT Performance](vdbench.md) to learn more.
-
--->
+En esta sección se describen algunas de las opciones de ajuste personalizada que pueden realizarse.
 
 ## <a name="general-optimizations"></a>Optimizaciones generales
 
@@ -42,19 +34,21 @@ Estos cambios son recomendables según las cualidades del conjunto de datos o el
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Optimizaciones en la nube de NAS o en la puerta de enlace en la nube
 
-Para aprovechar las velocidades de datos más altas entre el clúster de vFXT y el almacenamiento en la nube en un escenario de NAS o puerta de enlace en la nube (donde el clúster de vFXT proporciona acceso de estilo NAS a un contenedor en la nube), su representante puede recomendarle cambiar opciones de configuración como éstas para insertar datos de forma más agresiva al volumen de almacenamiento desde la caché:
+En un escenario de puerta de enlace o NAS de nube, el clúster de vFXT proporciona acceso al estilo NAS a un contenedor en la nube. Para aprovechar las velocidades de datos más altas entre el clúster de vFXT y el almacenamiento en la nube, su representante puede recomendarle cambiar opciones de configuración como éstas para insertar datos de forma más agresiva en volumen de almacenamiento desde la memoria caché. Por ejemplo:
 
 * Aumentar el número de conexiones TCP entre el clúster y el contenedor de almacenamiento.
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Seguridad en la nube u optimizaciones WAN híbridas
 
-En un escenario de seguridad en la nube o en uno dedicado a la optimización WAN del almacenamiento híbrido (donde el clúster de vFXT proporciona integración entre la nube y el almacenamiento de hardware local), estos cambios pueden serle útiles:
+En un escenario de seguridad en la nube o en uno dedicado a la optimización WAN del almacenamiento híbrido, el clúster de vFXT proporciona integración entre la nube y el almacenamiento de hardware local. Estos cambios pueden ser útiles:
 
 * Aumentar el número de conexiones TCP entre el clúster y el archivador principal.
 * Habilitar la configuración de optimización WAN para el archivador principal remoto (esta configuración puede usarse para un archivador remoto local o para un archivador principal en la nube que se encuentre en otra región de Azure).
-* Aumentar el tamaño de búfer del socket TCP (según las necesidades de rendimiento y carga de trabajo).
-* Habilitar la configuración "Reenviar siempre" para reducir los archivos que están en la caché de forma redundante (según las necesidades del rendimiento y de la carga de trabajo).
+* Aumentar el tamaño del búfer de sockets TCP<sup>*</sup>
+* Habilitar la configuración "Reenviar siempre" para reducir los archivos que están en la memoria caché de forma redundante<sup>*</sup>
+
+<sup>*</sup>Es posible que estos ajustes no se apliquen a todos los sistemas, en función de las necesidades de rendimiento y carga de trabajo.
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Ayuda para optimizar Avere vFXT para Azure
 
-Use el procedimiento descrito en [Get help with your system](avere-vfxt-open-ticket.md) (Obtener ayuda con el sistema) para ponerse en contacto con el personal de soporte técnico acerca de estas optimizaciones.
+Para ponerse en contacto con el personal de soporte técnico acerca de estas optimizaciones, siga el procedimiento descrito en [Get help with your system](avere-vfxt-open-ticket.md) (Obtener ayuda con el sistema).

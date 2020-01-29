@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: bad21019607c99964caa1712e50231705689aad2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce74966cab3469d59693c59831bb3d4ce625f90e
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055308"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159671"
 ---
 >[!NOTE]
->Las características descritas en este artículo solo están disponibles en el nivel estándar de IoT Hub. Para más información sobre los niveles Básico y Estándar de IoT Hub, consulte el artículo sobre [cómo elegir el nivel de IoT Hub correcto](../articles/iot-hub/iot-hub-scaling.md).
+>Las características descritas en este artículo solo están disponibles en el nivel estándar de IoT Hub. Para más información sobre los niveles Básico y Estándar o Gratis de IoT Hub, consulte el artículo sobre [cómo elegir el nivel de IoT Hub correcto](../articles/iot-hub/iot-hub-scaling.md).

@@ -1,5 +1,5 @@
 ---
-title: Protección del contenido mediante el cifrado dinámico de Media Services
+title: Protección del contenido mediante el cifrado dinámico de Media Services v3
 titleSuffix: Azure Media Services
 description: Obtenga información sobre la protección de contenido con cifrado dinámico, protocolos de streaming y tipos de cifrado en Azure Media Services.
 services: media-services
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 18e80383bfcbebc6a442663c141100faa56fd061
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977784"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313814"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protección del contenido mediante el cifrado dinámico de Media Services
 
@@ -248,7 +248,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 Para ejemplos de REST que utilizan direcciones URL de adquisición de claves y licencias personalizadas, consulte [Directivas de streaming: creación](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
-> Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+> Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

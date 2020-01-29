@@ -1,5 +1,5 @@
 ---
-title: Carga de un archivo VHD en Azure DevTest Labs mediante el Explorador de Microsoft Azure Storage | Microsoft Docs
+title: Carga de archivos VHD en Azure DevTest Labs mediante el Explorador de Storage
 description: Carga de un archivo VHD en la cuenta de almacenamiento del laboratorio mediante el Explorador de Microsoft Azure Storage
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 3c187d104334fe75ec9e0ce41a3fdc14b508dfb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623430"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170371"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carga de un archivo VHD en la cuenta de almacenamiento del laboratorio mediante el Explorador de Microsoft Azure Storage
 
@@ -35,7 +35,7 @@ Los siguientes pasos le guían en la carga de un archivo VHD en DevTest Labs med
 
 1. Obtenga el nombre de la cuenta de almacenamiento del laboratorio mediante el portal de Azure:
 
-    1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
     1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
     

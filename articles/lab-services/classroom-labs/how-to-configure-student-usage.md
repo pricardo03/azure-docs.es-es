@@ -1,5 +1,5 @@
 ---
-title: Configuración de los valores de uso en los laboratorios educativos de Azure Lab Services | Microsoft Docs
+title: Configuración de los valores de uso de los laboratorios educativos de Azure Lab Services
 description: Obtenga información sobre cómo configurar el número de usuarios del laboratorio, regístrelos en el laboratorio, controle el número de horas que pueden usar la máquina virtual y mucho más.
 services: lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584156"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169224"
 ---
 # <a name="add-and-manage-lab-users"></a>Incorporación y administración de usuarios de laboratorio
 En este artículo se describe cómo agregar usuarios al laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más. 
@@ -38,7 +38,7 @@ En este artículo se describe cómo agregar usuarios al laboratorio, registrarlo
     ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
 
     > [!NOTE]
-    > Una vez registrados en el laboratorio, los nombres de los usuarios aparecen en la lista. El nombre que se muestra en la lista se construye con el nombre y los apellidos del usuario en Azure Active Directory. 
+    > Una vez registrados los nombres de los usuarios en el laboratorio, aparecen en la lista. El nombre que se muestra en la lista se construye con el nombre y los apellidos del usuario en Azure Active Directory. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adición de usuarios mediante la carga de un archivo CSV
 También puede agregar usuarios cargando un archivo CSV con direcciones de correo electrónico de los usuarios.
@@ -72,7 +72,7 @@ Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios 
     ![Envío del vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Verá el estado de la **invitación** en la lista **Users** (Usuarios). El estado debería cambiar a **Sending** (Enviando) y luego a **Sent on \<date>** (Enviado el <fecha>). 
 
-    Para obtener más información sobre la incorporación de alumnos a una clase y la administración de su uso del laboratorio, vea [Cómo configurar el uso de los alumnos](how-to-configure-student-usage.md).
+    Para más información sobre la incorporación de alumnos a una clase y la administración del uso que hacen del laboratorio, consulte [Configuración de los valores de uso de los alumnos](how-to-configure-student-usage.md).
 
 ### <a name="invite-selected-users"></a>Invitar a usuarios seleccionados
 
@@ -143,7 +143,7 @@ Para agregar alumnos a un laboratorio de clase, use sus cuentas de correo electr
 
 - Una cuenta de correo electrónico de alumno proporcionada por la instancia de Azure Active Directory (AAD) de Office 365 de la Universidad. 
 - Una cuenta de correo electrónico de Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com` o `@live.com`.
-- Una cuenta de correo electrónico que no sea de Microsoft, como las proporcionadas por Yahoo o Google. Pero estos tipos de cuentas se deben vincular a una cuenta de Microsoft.
+- Una cuenta de correo electrónico que no sea de Microsoft, como las proporcionadas por Yahoo o Google. No obstante, estos tipos de cuentas se deben vincular a una cuenta de Microsoft.
 - Una cuenta de GitHub. Esta cuenta se debe vincular a una cuenta de Microsoft.
 
 ### <a name="using-a-non-microsoft-email-account"></a>Uso de una cuenta de correo electrónico que no sea de Microsoft
@@ -172,7 +172,7 @@ En la página **Opciones de inicio de sesión**, seleccione **Iniciar sesión co
 Por último, se le pide que cree una cuenta de Microsoft que esté vinculada a su cuenta de GitHub. Sucede automáticamente cuando el alumno selecciona **Siguiente**.  Luego el alumno inicia sesión inmediatamente y se conecta al laboratorio de clase.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Como administrador, crear y administrar cuentas de laboratorio](how-to-manage-lab-accounts.md)
 - [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)

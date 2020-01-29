@@ -5,18 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: a847e08f0249bd968060d10f7686b0e04ba037ca
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/19/2020
+ms.openlocfilehash: 6bb8dfc4b85da47a70ba768400341317462bafd8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790855"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543484"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
-En esta referencia se describen los tipos generales que se usan para identificar desencadenadores y acciones en la definición de flujo de trabajo subyacente de la aplicación lógica, que el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) describe y valida.
-Para buscar los desencadenadores de conector específicos y las acciones que puede usar en las aplicaciones lógicas, vea la lista en [Introducción a los conectores](https://docs.microsoft.com/connectors/).
+En esta referencia se describen los tipos generales que se usan para identificar desencadenadores y acciones en la definición de flujo de trabajo subyacente de la aplicación lógica, que el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) describe y valida. Para buscar los desencadenadores de conector específicos y las acciones que puede usar en las aplicaciones lógicas, vea la lista en [Introducción a los conectores](https://docs.microsoft.com/connectors/).
 
 <a name="triggers-overview"></a>
 
@@ -26,7 +25,7 @@ Todos los flujos de trabajo incluyen un desencadenador, que define las llamadas 
 
 * Un desencadenador de *sondeo*, que comprueba un punto de conexión de servicio a intervalos regulares
 
-* Un desencadenador de *inserción*, que crea una suscripción a un punto de conexión y proporciona una *dirección URL de devolución de llamada* para que el punto de conexión pueda notificar al desencadenador cuando se produzca el evento especificado o estén disponibles los datos. El desencadenador espera la respuesta del punto de conexión antes de activarse. 
+* Un desencadenador de *inserción*, que crea una suscripción a un punto de conexión y proporciona una *dirección URL de devolución de llamada* para que el punto de conexión pueda notificar al desencadenador cuando se produzca el evento especificado o estén disponibles los datos. El desencadenador espera la respuesta del punto de conexión antes de activarse.
 
 Los desencadenadores tienen estos elementos de nivel superior, aunque algunos son opcionales:  
   
@@ -47,18 +46,18 @@ Los desencadenadores tienen estos elementos de nivel superior, aunque algunos so
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*trigger-name*> | String | El nombre del desencadenador | 
 | <*trigger-type*> | String | El tipo de desencadenador como, por ejemplo, "Http" o "ApiConnection" | 
 | <*trigger-inputs*> | Objeto JSON | Las entradas que definen el comportamiento del desencadenador | 
 | <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | Una matriz que contiene una o más [condiciones](#trigger-conditions) que determinan si ejecutar o no el flujo de trabajo. Disponible solo para desencadenadores. | 
 | <*runtime-config-options*> | Objeto JSON | Puede cambiar el comportamiento del entorno en tiempo de ejecución del desencadenador estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
@@ -72,7 +71,7 @@ Cada tipo de desencadenador tiene una interfaz distinta y entradas que definen e
 
 ### <a name="built-in-triggers"></a>Desencadenadores integrados
 
-| Tipo de desencadenador | DESCRIPCIÓN | 
+| Tipo de desencadenador | Descripción | 
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Comprueba o *sondea* cualquier punto de conexión. El punto de conexión debe ajustarse a un contrato de desencadenamiento específico, ya sea mediante un patrón asincrónico "202" o devolviendo una matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Crea un punto de conexión invocable para la aplicación lógica pero llama a la dirección URL especificada para registrar o anular el registro. |
@@ -82,7 +81,7 @@ Cada tipo de desencadenador tiene una interfaz distinta y entradas que definen e
 
 ### <a name="managed-api-triggers"></a>Desencadenadores de API administrados
 
-| Tipo de desencadenador | DESCRIPCIÓN | 
+| Tipo de desencadenador | Descripción | 
 |--------------|-------------| 
 | [**ApiConnection**](#apiconnection-trigger) | Comprueba o *sondea* un punto de conexión mediante [API administradas por Microsoft](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Crea un punto de conexión invocable para la aplicación lógica llamando a [API administradas por Microsoft](../connectors/apis-list.md) para suscribirse o cancelar la suscripción. | 
@@ -127,40 +126,40 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
-|-------|------|-------------| 
-| <*APIConnection_trigger_name*> | String | El nombre del desencadenador | 
-| <*connection-name*> | String | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
-| <*method-type*> | String | El método HTTP para comunicarse con la API administrada: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*api-operation*> | String | La operación de API a la que llamar | 
-| <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
-|||| 
+| Value | Tipo | Descripción |
+|-------|------|-------------|
+| <*APIConnection_trigger_name*> | String | El nombre del desencadenador |
+| <*connection-name*> | String | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo |
+| <*method-type*> | String | El método HTTP para comunicarse con la API administrada: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*api-operation*> | String | La operación de API a la que llamar |
+| <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" |
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
+||||
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API. Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
-| <*max-runs*> | Integer | De forma predeterminada, las instancias del flujo se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
+| <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Entero | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). |
 ||||
 
-*Outputs*
+*Salidas*
  
-| Elemento | type | DESCRIPCIÓN |
+| Elemento | Tipo | Descripción |
 |---------|------|-------------|
 | headers | Objeto JSON | Encabezados de la respuesta |
 | body | Objeto JSON | Cuerpo de la respuesta |
-| status code | Integer | El código de estado de la respuesta |
+| status code | Entero | El código de estado de la respuesta |
 |||| 
 
 *Ejemplo*
 
-Esta definición del desencadenador busca correo electrónico a diario en la bandeja de entrada de una cuenta de Office 365 Outlook: 
+Esta definición del desencadenador busca correo electrónico a diario en la bandeja de entrada de una cuenta de Office 365 Outlook:
 
 ```json
 "When_a_new_email_arrives": {
@@ -221,7 +220,7 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*connection-name*> | String | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje para enviar como carga a la API administrada | 
@@ -229,12 +228,12 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
-| <*max-runs*> | Integer | De forma predeterminada, las instancias del flujo se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
+| <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Entero | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
@@ -302,46 +301,46 @@ Este desencadenador envía una solicitud al punto de conexión HTTP o HTTPS espe
 
 *Obligatorio*
 
-| Propiedad | Valor | type | DESCRIPCIÓN |
+| Propiedad | Value | Tipo | Descripción |
 |----------|-------|------|-------------|
-| `method` | <*method-type*> | Cadena | El método que se usará para enviar la solicitud saliente: "GET", "PUT", "POST", "PATCH" o "DELETE" |
-| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Cadena | La dirección URL del punto de conexión HTTP o HTTPS a la que quiere enviar la solicitud saliente. Tamaño máximo de la cadena: 2 KB <p>Para un servicio o recurso de Azure, esta sintaxis de URI incluye el identificador de recurso y la ruta de acceso al recurso al que quiere acceder. |
+| `method` | <*method-type*> | String | El método que se usará para enviar la solicitud saliente: "GET", "PUT", "POST", "PATCH" o "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | La dirección URL del punto de conexión HTTP o HTTPS a la que quiere enviar la solicitud saliente. Tamaño máximo de la cadena: 2 KB <p>Para un servicio o recurso de Azure, esta sintaxis de URI incluye el identificador de recurso y la ruta de acceso al recurso al que quiere acceder. |
 | `frequency` | <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" |
-| `interval` | <*number-of-time-units*> | Integer | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
+| `interval` | <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
 |||||
 
 *Opcional*
 
-| Propiedad | Valor | type | DESCRIPCIÓN |
+| Propiedad | Value | Tipo | Descripción |
 |----------|-------|------|-------------|
 | `headers` | <*header-content*> | Objeto JSON | Los encabezados que haya que incluir con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | `queries` | <*query-parameters*> | Objeto JSON | Los parámetros de consulta que tenga que usar en la solicitud <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la solicitud. |
 | `body` | <*body-content*> | Objeto JSON | El contenido del mensaje que se va a enviar como carga con la solicitud |
 | `authentication` | <*authentication-type-and-property-values*> | Objeto JSON | El modelo de autenticación que la solicitud utiliza para autenticar las solicitudes salientes. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Más allá de Scheduler, se admite la propiedad `authority`. Cuando no se especifica, el valor predeterminado es `https://management.azure.com/`, pero puede usar otro valor. |
 | `retryPolicy` > `type` | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
-| `runs` | <*max-runs*> | Integer | De forma predeterminada, las instancias del flujo se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). |
-| `maximumWaitingRuns` | <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). |
+| `runs` | <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). |
+| `maximumWaitingRuns` | <*max-runs-queue*> | Entero | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). |
 | `operationOptions` | <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). |
 |||||
 
-*Outputs*
+*Salidas*
 
-| Elemento | type | DESCRIPCIÓN |
+| Elemento | Tipo | Descripción |
 |---------|------|-------------| 
 | headers | Objeto JSON | Encabezados de la respuesta | 
 | body | Objeto JSON | Cuerpo de la respuesta | 
-| status code | Integer | El código de estado de la respuesta | 
+| status code | Entero | El código de estado de la respuesta | 
 |||| 
 
 *Requisitos de las solicitudes entrantes*
 
 Para que funcione bien con la aplicación lógica, el punto de conexión debe cumplir con un patrón de desencadenador específico o un contrato y reconocer estas propiedades:  
   
-| Response | Obligatorio | DESCRIPCIÓN | 
+| Response | Obligatorio | Descripción | 
 |----------|----------|-------------| 
 | status code | Sí | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. | 
-| Encabezado Retry-after | Sin | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
-| Encabezado Location | Sin | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
+| Encabezado Retry-after | No | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
+| Encabezado Location | No | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
 |||| 
 
 *Comportamientos de ejemplo para solicitudes distintas*
@@ -361,8 +360,7 @@ Para que funcione bien con la aplicación lógica, el punto de conexión debe cu
 
 Este desencadenador hace que la aplicación lógica sea invocable mediante la creación de un punto de conexión que puede registrar una suscripción llamando a la dirección URL especificada de este. Cuando se crea este desencadenador en el flujo de trabajo, una solicitud saliente realiza la llamada para registrar la suscripción. De este modo, el desencadenador puede iniciar la escucha de eventos. Cuando una operación hace que este desencadenador no sea válido, una solicitud saliente realiza automáticamente la llamada para cancelar la suscripción. Para más información, consulte [Suscripciones del punto de conexión](#subscribe-unsubscribe).
 
-También puede especificar [límites asincrónicos](#asynchronous-limits) en un desencadenador **HTTPWebhook**.
-El comportamiento del desencadenador depende de las secciones que se usen o se omitan. 
+También puede especificar [límites asincrónicos](#asynchronous-limits) en un desencadenador **HTTPWebhook**. El comportamiento del desencadenador depende de las secciones que se usen o se omitan.
 
 ```json
 "HTTP_Webhook": {
@@ -399,7 +397,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*method-type*> | String | El método HTTP que se usará para la solicitud de suscripción: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-subscribe-URL*> | String | Dirección URL del punto de conexión a donde enviar la solicitud de suscripción | 
@@ -407,25 +405,25 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*method-type*> | String | El método HTTP que se usará para la solicitud de cancelación: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | String | Dirección URL del punto de conexión a donde enviar la solicitud de cancelación | 
 | <*body-content*> | String | Cualquier contenido de mensaje para enviar en la solicitud de suscripción o de cancelación | 
 | <*authentication-type*> | Objeto JSON | El modelo de autenticación que la solicitud utiliza para autenticar las solicitudes salientes. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*max-runs*> | Integer | De forma predeterminada, todas las instancias del flujo se ejecutan al mismo tiempo, o bien en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
+| <*max-runs*> | Entero | De forma predeterminada, todas las instancias del flujo de trabajo se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Entero | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
-*Outputs* 
+*Salidas* 
 
-| Elemento | type | DESCRIPCIÓN |
+| Elemento | Tipo | Descripción |
 |---------|------|-------------| 
 | headers | Objeto JSON | Encabezados de la respuesta | 
 | body | Objeto JSON | Cuerpo de la respuesta | 
-| status code | Integer | El código de estado de la respuesta | 
+| status code | Entero | El código de estado de la respuesta | 
 |||| 
 
 *Ejemplo*
@@ -462,7 +460,7 @@ Este desencadenador crea una suscripción al punto de conexión especificado, pr
 
 ### <a name="recurrence-trigger"></a>Desencadenador de periodicidad  
 
-Este desencadenador se ejecuta según la programación de periodicidad especificada y proporciona una manera sencilla de ejecutar con regularidad un flujo de trabajo. 
+Este desencadenador se ejecuta según la programación de periodicidad especificada y proporciona una manera sencilla de ejecutar con regularidad un flujo de trabajo.
 
 ```json
 "Recurrence": {
@@ -493,23 +491,23 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | La fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico", o bien especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | La fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico", o bien especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
 | <*one-or-more-hour-marks*> | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 23, separados por comas, como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
 | <*one-or-more-minute-marks*> | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 59, separados por comas, como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a. m., 12:30 p. m. y las 2:30 p. m. | 
 | weekDays | Cadena o matriz de cadenas | Si especifica "Week" para `frequency`, puede especificar uno o varios días, separados por comas, cuando quiera ejecutar el flujo de trabajo: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" y "Sunday" | 
-| <*max-runs*> | Integer | De forma predeterminada, todas las instancias del flujo se ejecutan al mismo tiempo, o bien en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
+| <*max-runs*> | Entero | De forma predeterminada, todas las instancias del flujo de trabajo se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Entero | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
@@ -527,7 +525,7 @@ La periodicidad básica con que se ejecuta diariamente el desencadenador:
 }
 ```
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Puede especificar una fecha y hora de inicio para activar el desencadenador. Este desencadenador de periodicidad se inicia en la fecha especificada y luego se activa a diario:
 
@@ -569,7 +567,7 @@ Para más información sobre ejemplos de este desencadenador, consulte [Creació
 
 ### <a name="request-trigger"></a>Desencadenador de solicitud
 
-Este desencadenador hace que se pueda llamar a la aplicación lógica mediante la creación de un punto de conexión que puede aceptar solicitudes entrantes. Para este desencadenador, proporcione un esquema JSON que describa y valide la carga o las entradas que el desencadenador recibe de la solicitud entrante. El esquema también facilita la referencia a propiedades del desencadenador desde acciones posteriores del flujo de trabajo. 
+Este desencadenador hace que se pueda llamar a la aplicación lógica mediante la creación de un punto de conexión que puede aceptar solicitudes entrantes. Para este desencadenador, proporcione un esquema JSON que describa y valide la carga o las entradas que el desencadenador recibe de la solicitud entrante. El esquema también facilita la referencia a propiedades del desencadenador desde acciones posteriores del flujo de trabajo.
 
 Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se describe en [API REST de Servicio de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows). Para información sobre cómo usar este desencadenador como punto de conexión HTTP, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -602,7 +600,7 @@ Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se desc
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*property-name*> | String | El nombre de una propiedad en el esquema JSON que describe la carga | 
 | <*property-type*> | String | El tipo de propiedad | 
@@ -610,19 +608,19 @@ Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se desc
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*method-type*> | String | El método que las solicitudes entrantes deben usar para llamar a la aplicación lógica: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | La ruta de acceso relativa del parámetro que la dirección URL del punto de conexión puede aceptar | 
 | <*required-properties*> | Array | Una o más propiedades que requieren valores | 
-| <*max-runs*> | Integer | De forma predeterminada, todas las instancias del flujo se ejecutan al mismo tiempo, o bien en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
+| <*max-runs*> | Entero | De forma predeterminada, todas las instancias del flujo de trabajo se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Entero | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
 *Ejemplo*
 
-Este desencadenador especifica que una solicitud entrante debe usar el método HTTP POST para llamar al desencadenador e incluye un esquema que valida la entrada de la solicitud entrante: 
+Este desencadenador especifica que una solicitud entrante debe usar el método HTTP POST para llamar al desencadenador e incluye un esquema que valida la entrada de la solicitud entrante:
 
 ```json
 "manual": {
@@ -674,7 +672,7 @@ Por ejemplo, puede especificar que un desencadenador se active solo cuando un si
 }
 ```
 
-De forma predeterminada, un desencadenador solo se activa después de obtener una respuesta "200 OK". Cuando una expresión hace referencia a un código de estado del desencadenador, se reemplaza el comportamiento predeterminado de este. Por tanto, si desea que el desencadenador se active con más de un código de estado, como el "200" y el "201", debe incluir esta expresión como condición: 
+De forma predeterminada, un desencadenador solo se activa después de obtener una respuesta "200 OK". Cuando una expresión hace referencia a un código de estado del desencadenador, se reemplaza el comportamiento predeterminado de este. Por tanto, si desea que el desencadenador se active con más de un código de estado, como el "200" y el "201", debe incluir esta expresión como condición:
 
 `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
@@ -682,15 +680,14 @@ De forma predeterminada, un desencadenador solo se activa después de obtener un
 
 ## <a name="trigger-multiple-runs"></a>Desencadenar varias ejecuciones
 
-Si el desencadenador devuelve una matriz para que la procese la aplicación lógica, un bucle "para cada una" podría tardar demasiado tiempo en procesar cada elemento de la matriz. En lugar de eso, puede usar la propiedad **SplitOn** en el desencadenador para *desagrupar* la matriz. La desagrupación sirve para dividir los elementos de la matriz e iniciar una nueva instancia de flujo de trabajo que se ejecuta para cada elemento de la matriz. Este enfoque resulta útil, por ejemplo, si desea sondear un punto de conexión que puede devolver varios elementos nuevos entre intervalos de sondeo.
-Para conocer el número máximo de elementos de matriz que **SplitOn** puede procesar en una única ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+Si el desencadenador devuelve una matriz para que la procese la aplicación lógica, un bucle "para cada una" podría tardar demasiado tiempo en procesar cada elemento de la matriz. En lugar de eso, puede usar la propiedad **SplitOn** en el desencadenador para *desagrupar* la matriz. La desagrupación sirve para dividir los elementos de la matriz e iniciar una nueva instancia de flujo de trabajo que se ejecuta para cada elemento de la matriz. Este enfoque resulta útil, por ejemplo, si desea sondear un punto de conexión que puede devolver varios elementos nuevos entre intervalos de sondeo. Para conocer el número máximo de elementos de matriz que **SplitOn** puede procesar en una única ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > No puede utilizar **SplitOn** con un patrón de respuesta sincrónica. Cualquier flujo de trabajo que use **SplitOn** e incluya una acción de respuesta se ejecuta de forma asincrónica y envía de inmediato una respuesta `202 ACCEPTED`.
 >
 > Cuando está habilitada la simultaneidad del desencadenador, se reduce significativamente el [límite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Si el número de elementos supera este límite, se deshabilita la funcionalidad de SplitOn.
  
-Si el archivo Swagger del desencadenador describe una carga que es una matriz, la propiedad **SplitOn** se agrega automáticamente a su desencadenador. En caso contrario, agregue esta propiedad en la carga de respuesta que tiene la matriz que desea desagrupar. 
+Si el archivo Swagger del desencadenador describe una carga que es una matriz, la propiedad **SplitOn** se agrega automáticamente a su desencadenador. En caso contrario, agregue esta propiedad en la carga de respuesta que tiene la matriz que desea desagrupar.
 
 *Ejemplo*
 
@@ -711,7 +708,7 @@ Suponga que tiene una API que devuelve esta respuesta:
    ]
 }
 ```
- 
+
 La aplicación lógica solo necesita el contenido de la matriz en `Rows`, por lo que puede crear un desencadenador como en este ejemplo:
 
 ``` json
@@ -734,7 +731,7 @@ La aplicación lógica solo necesita el contenido de la matriz en `Rows`, por lo
 > 
 > Para evitar un error si la propiedad `Rows` no existe, en este ejemplo se utiliza el operador `?`.
 
-La definición de flujo de trabajo ahora puede usar `@triggerBody().name` para obtener los valores `name` `"customer-name-one"` de la primera ejecución y `"customer-name-two"` de la segunda ejecución. Así, las salidas del desencadenador se parecen a estos ejemplos:
+La definición de flujo de trabajo ahora puede usar `@triggerBody().name` para obtener los valores `name``"customer-name-one"` de la primera ejecución y `"customer-name-two"` de la segunda ejecución. Así, las salidas del desencadenador se parecen a estos ejemplos:
 
 ```json
 {
@@ -758,9 +755,7 @@ La definición de flujo de trabajo ahora puede usar `@triggerBody().name` para o
 
 ## <a name="actions-overview"></a>Información general sobre acciones
 
-Azure Logic Apps proporciona varios tipos de acción, cada uno con diferentes entradas que definen un comportamiento único de esta. 
-
-Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales:
+Azure Logic Apps proporciona varios tipos de acción, cada uno con diferentes entradas que definen un comportamiento único de esta. Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales:
 
 ```json
 "<action-name>": {
@@ -777,7 +772,7 @@ Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------|
 | <*action-name*> | String | El nombre de la acción | 
 | <*action-type*> | String | El tipo de acción, por ejemplo, "Http" o "ApiConnection"| 
@@ -788,7 +783,7 @@ Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------|
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para obtener más información, consulte Directivas de reintentos. | 
 | <*runtime-config-options*> | Objeto JSON | Para algunas acciones, puede cambiar el comportamiento de la acción en el tiempo de ejecución estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
@@ -801,7 +796,7 @@ Estos son algunos tipos de acción de uso frecuente:
 
 * [Tipos de acción integrada](#built-in-actions) como estos ejemplos y muchos otros: 
 
-  * [**HTTP** ](#http-action) para llamar a puntos de conexión a través de HTTP o HTTPS
+  * [**HTTP**](#http-action) para llamar a puntos de conexión a través de HTTP o HTTPS
 
   * [**Respuesta**](#response-action) para responder a solicitudes
 
@@ -821,7 +816,7 @@ Estos son algunos tipos de acción de uso frecuente:
 
 ### <a name="built-in-actions"></a>Acciones integradas
 
-| Tipo de acción | DESCRIPCIÓN | 
+| Tipo de acción | Descripción | 
 |-------------|-------------| 
 | [**Redactar**](#compose-action) | Crea una única salida a partir de las entradas y puede tener varios tipos. | 
 | [**Ejecutar código de JavaScript**](#run-javascript-code) | Ejecute fragmentos de código de JavaScript que se ajusten a criterios específicos. Para obtener los requisitos de código y más información, vea [Adición y ejecución de fragmentos de código con código en línea](../logic-apps/logic-apps-add-run-inline-code.md). |
@@ -842,7 +837,7 @@ Estos son algunos tipos de acción de uso frecuente:
 
 ### <a name="managed-api-actions"></a>Acciones de API administradas
 
-| Tipo de acción | DESCRIPCIÓN | 
+| Tipo de acción | Descripción | 
 |-------------|-------------|  
 | [**ApiConnection**](#apiconnection-action) | Comprueba un punto de conexión HTTP mediante una [API administrada por Microsoft](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Funciona igual que HTTP Webhook, pero usa una [API administrada por Microsoft](../connectors/apis-list.md). | 
@@ -854,7 +849,7 @@ Estos son algunos tipos de acción de uso frecuente:
 
 Estas acciones le ayudan a controlar la ejecución del flujo de trabajo e incluyen, a su vez, otras acciones. Desde fuera de una acción de control de flujo de trabajo puede hacer referencia directamente a las acciones de esa acción de control del flujo de trabajo. Por ejemplo, si tiene una acción `Http` dentro de un ámbito, puede hacer referencia a la expresión `@body('Http')` desde cualquier lugar del flujo de trabajo. No obstante, las acciones que existen en una acción de control del flujo de trabajo solo se pueden "ejecutar después" de otras acciones que están en la misma estructura de control del flujo de trabajo.
 
-| Tipo de acción | DESCRIPCIÓN | 
+| Tipo de acción | Descripción | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Ejecuta las mismas acciones en un bucle para todos los elementos de una matriz. | 
 | [**If**](#if-action) | Ejecuta acciones en función de si la condición especificada es true o false. | 
@@ -893,7 +888,7 @@ Esta acción envía una solicitud HTTP a una [API administrada por Microsoft](..
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*action-name*> | String | El nombre de la acción proporcionada por el conector | 
 | <*api-name*> | String | El nombre de la API administrada por Microsoft que se usa para la conexión | 
@@ -903,7 +898,7 @@ Esta acción envía una solicitud HTTP a una [API administrada por Microsoft](..
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | Objeto JSON | Cualquier otra propiedad de entrada que sea aplicable a esta acción específica | 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
@@ -973,7 +968,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*action-name*> | String | El nombre de la acción proporcionada por el conector | 
 | <*method-type*> | String | El método HTTP que se usará para suscribirse o cancelar la suscripción desde un punto de conexión: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
@@ -982,7 +977,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | String | El identificador URI que se utiliza para cancelar la suscripción desde la API | 
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar en la solicitud <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1000,8 +995,7 @@ También puede especificar límites sobre una acción de **ApiConnectionWebhook*
 
 ### <a name="compose-action"></a>Acción Compose
 
-Esta acción crea una única salida a partir de varias entradas, incluidas las expresiones. La salida y las entradas pueden tener cualquier tipo que Azure Logic Apps admita de forma nativa como matrices, objetos JSON, XML y binario.
-Posteriormente, puede usar la salida de la acción en otras acciones. 
+Esta acción crea una única salida a partir de varias entradas, incluidas las expresiones. La salida y las entradas pueden tener cualquier tipo que Azure Logic Apps admita de forma nativa como matrices, objetos JSON, XML y binario. Posteriormente, puede usar la salida de la acción en otras acciones. 
 
 ```json
 "Compose": {
@@ -1013,7 +1007,7 @@ Posteriormente, puede usar la salida de la acción en otras acciones.
 
 *Obligatorio* 
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*inputs-to-compose*> | Any | Las entradas para la creación de una única salida | 
 |||| 
@@ -1036,7 +1030,7 @@ Esta es la salida que esta acción crea:
 
 `abcdefg 1234`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Esta definición de la acción combina una variable de cadena que contiene `abcdefg` y una variable de entero que contiene `1234`:
 
@@ -1074,7 +1068,7 @@ Esta acción ejecuta un fragmento de código de JavaScript y devuelve los result
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN |
+| Value | Tipo | Descripción |
 |-------|------|-------------|
 | <*Fragmento de código de JavaScript*> | Varía | El código JavaScript que se va a ejecutar. Para obtener los requisitos de código y más información, vea [Adición y ejecución de fragmentos de código con código en línea](../logic-apps/logic-apps-add-run-inline-code.md). <p>En el atributo `code`, el fragmento de código puede usar el objeto `workflowContext` de solo lectura como entrada. Este objeto tiene subpropiedades que proporcionan al código acceso a los resultados de los desencadenadores y acciones anteriores en el flujo de trabajo. Para más información sobre el objeto `workflowContext`, vea [Referencia a los resultados de desencadenadores y acciones en el código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
@@ -1085,7 +1079,7 @@ El atributo `explicitDependencies` especifica que quiere incluir de forma explí
 
 Para el atributo `includeTrigger`, puede especificar valores `true` o `false`.
 
-| Valor | type | DESCRIPCIÓN |
+| Value | Tipo | Descripción |
 |-------|------|-------------|
 | <*acciones_anteriores*> | Matriz de cadena | Una matriz con los nombres de acción especificados. Use los nombres de acción que aparecen en la definición del flujo de trabajo donde los nombres de acción usan caracteres de subrayado (_), no espacios (" "). |
 ||||
@@ -1104,9 +1098,9 @@ Esta acción ejecuta código que obtiene el nombre de la aplicación lógica y d
 }
 ```
 
-*Ejemplo 2*
+*Ejemplo 2*
 
-Esta acción ejecuta código en una aplicación lógica que se desencadena cuando llega un nuevo correo electrónico a una cuenta de Office 365 Outlook. La aplicación lógica también usa una acción de envío de correo electrónico de aprobación que reenvía el contenido del correo electrónico recibido junto con una solicitud de aprobación.
+Esta acción ejecuta código en una aplicación lógica que se desencadena cuando llegaun nuevo correo electrónico a una cuenta de Office 365 Outlook. La aplicación lógica también usa una acción de envío de correo electrónico de aprobación que reenvía el contenido del correo electrónico recibido junto con una solicitud de aprobación.
 
 El código extrae las direcciones de correo electrónico de la propiedad `Body` del desencadenador y las devuelve junto con el valor de la propiedad `SelectedOption` de la acción de aprobación. La acción incluye de forma explícita la acción de envío de correo electrónico de aprobación como una dependencia en el atributo `explicitDependencies` > `actions`.
 
@@ -1151,7 +1145,7 @@ Esta acción llama a una [función de Azure](../azure-functions/functions-create
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | String | El identificador de recurso de la función de Azure que quiere llamar. Este es el formato de este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*method-type*> | String | El método HTTP que se usará para llamar a la función: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Si no se especifica, "POST" es el método predeterminado. | 
@@ -1159,7 +1153,7 @@ Esta acción llama a una [función de Azure](../azure-functions/functions-create
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar con la llamada <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar en la solicitud | 
@@ -1229,15 +1223,15 @@ Esta acción envía una solicitud al punto de conexión especificado y comprueba
 
 *Obligatorio*
 
-| Propiedad | Valor | type | DESCRIPCIÓN |
+| Propiedad | Value | Tipo | Descripción |
 |----------|-------|------|-------------|
-| `method` | <*method-type*> | Cadena | El método que se usará para enviar la solicitud saliente: "GET", "PUT", "POST", "PATCH" o "DELETE" |
-| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Cadena | La dirección URL del punto de conexión HTTP o HTTPS a la que quiere enviar la solicitud saliente. Tamaño máximo de la cadena: 2 KB <p>Para un servicio o recurso de Azure, esta sintaxis de URI incluye el identificador de recurso y la ruta de acceso al recurso al que quiere acceder. |
+| `method` | <*method-type*> | String | El método que se usará para enviar la solicitud saliente: "GET", "PUT", "POST", "PATCH" o "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | La dirección URL del punto de conexión HTTP o HTTPS a la que quiere enviar la solicitud saliente. Tamaño máximo de la cadena: 2 KB <p>Para un servicio o recurso de Azure, esta sintaxis de URI incluye el identificador de recurso y la ruta de acceso al recurso al que quiere acceder. |
 |||||
 
 *Opcional*
 
-| Propiedad | Valor | type | DESCRIPCIÓN |
+| Propiedad | Value | Tipo | Descripción |
 |----------|-------|------|-------------|
 | `headers` | <*header-content*> | Objeto JSON | Los encabezados que haya que incluir con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | `queries` | <*query-parameters*> | Objeto JSON | Los parámetros de consulta que tenga que usar en la solicitud <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. |
@@ -1281,7 +1275,7 @@ Esta acción crea una cadena con todos los elementos de una matriz y los separa 
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. | 
 | <*delimitador*> | Cadena de un único carácter | El carácter que separa cada elemento de la cadena | 
@@ -1310,7 +1304,7 @@ Esta definición de acción obtiene los valores de la variable mediante la funci
 
 ### <a name="parse-json-action"></a>Acción Análisis del archivo JSON
 
-Esta acción crea campos o *tokens* fáciles de usar a partir de las propiedades del contenido JSON. Posteriormente, puede acceder a esas propiedades de la aplicación lógica mediante los tokens. Por ejemplo, si desea utilizar una salida JSON de servicios como Azure Service Bus y Azure Cosmos DB, puede incluir esta acción en la aplicación lógica para que pueda hacer referencia más fácilmente a los datos de esa salida. 
+Esta acción crea campos o *tokens* fáciles de usar a partir de las propiedades del contenido JSON. Posteriormente, puede acceder a esas propiedades de la aplicación lógica mediante los tokens. Por ejemplo, si desea utilizar una salida JSON de servicios como Azure Service Bus y Azure Cosmos DB, puede incluir esta acción en la aplicación lógica para que pueda hacer referencia más fácilmente a los datos de esa salida.
 
 ```json
 "Parse_JSON": {
@@ -1325,7 +1319,7 @@ Esta acción crea campos o *tokens* fáciles de usar a partir de las propiedades
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*JSON-source*> | Objeto JSON | El contenido JSON que desea analizar | 
 | <*JSON-schema*> | Objeto JSON | El esquema JSON que describe el contenido JSON subyacente, que la acción utiliza para analizar el contenido JSON de origen. <p>**Sugerencia**: En el diseñador de Logic Apps, puede proporcionar el esquema, o bien una carga de ejemplo para que la acción pueda generar el esquema. | 
@@ -1333,7 +1327,7 @@ Esta acción crea campos o *tokens* fáciles de usar a partir de las propiedades
 
 *Ejemplo*
 
-Esta definición de acción crea estos tokens que puede usar en el flujo de trabajo pero solo en las acciones que ejecuten la siguiente acción **Análisis del archivo JSON**: 
+Esta definición de acción crea estos tokens que puede usar en el flujo de trabajo pero solo en las acciones que ejecuten la siguiente acción **Análisis del archivo JSON**:
 
 `FirstName`, `LastName` y `Email`
 
@@ -1427,7 +1421,7 @@ Esta acción crea una matriz a partir de elementos de otra matriz basándose en 
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. |
 | <*condition-or-filter*> | String | La condición usada para filtrar elementos en la matriz de origen <p>**Nota**: Si ningún valor satisface la condición, la acción crea una matriz vacía. |
@@ -1468,14 +1462,14 @@ Esta acción crea la carga de la respuesta a una solicitud HTTP.
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
-| <*response-status-code*> | Integer | El código de estado HTTP que se envía a la solicitud entrante. El código predeterminado es "200 OK", pero el código puede ser cualquier código de estado válido que comience por 2xx, 4xx o 5xx, pero no por 3xxx. | 
+| <*response-status-code*> | Entero | El código de estado HTTP que se envía a la solicitud entrante. El código predeterminado es "200 OK", pero el código puede ser cualquier código de estado válido que comience por 2xx, 4xx o 5xx, pero no por 3xxx. | 
 |||| 
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*response-headers*> | Objeto JSON | Uno o más encabezados que se incluyen con la respuesta | 
 | <*response-body*> | Varios | El cuerpo de respuesta, que puede ser una cadena, un objeto JSON o incluso contenido binario de una acción anterior | 
@@ -1525,7 +1519,7 @@ A diferencia de otras acciones, la acción **Respuesta** tiene restricciones esp
 
 ### <a name="select-action"></a>Acción Select
 
-Esta acción crea una matriz con objetos JSON mediante la transformación de los elementos de otra matriz según la asignación especificada. La matriz de salida y la matriz de origen siempre tienen el mismo número de elementos. Aunque no puede cambiar el número de objetos de la matriz de salida, puede agregar o quitar propiedades y sus valores para esos objetos. La propiedad `select` especifica al menos un par clave-valor que define la asignación para transformar los elementos de la matriz de origen. Un par clave-valor representa una propiedad y su valor en todos los objetos de la matriz de salida. 
+Esta acción crea una matriz con objetos JSON mediante la transformación de los elementos de otra matriz según la asignación especificada. La matriz de salida y la matriz de origen siempre tienen el mismo número de elementos. Aunque no puede cambiar el número de objetos de la matriz de salida, puede agregar o quitar propiedades y sus valores para esos objetos. La propiedad `select` especifica al menos un par clave-valor que define la asignación para transformar los elementos de la matriz de origen. Un par clave-valor representa una propiedad y su valor en todos los objetos de la matriz de salida.
 
 ```json
 "Select": {
@@ -1543,18 +1537,18 @@ Esta acción crea una matriz con objetos JSON mediante la transformación de los
 
 *Obligatorio* 
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Asegúrese de que incluye una expresión entre comillas dobles. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una matriz vacía. | 
 | <*key-name*> | String | El nombre de la propiedad asignado al resultado de <*expression*> <p>Para agregar una nueva propiedad en todos los objetos de la matriz de salida, proporcione un <*nombre de clave*> para esa propiedad y una <*expresión*> para el valor de propiedad. <p>Para quitar una propiedad de todos los objetos de la matriz, omita el <*nombre de clave*> para esa propiedad. | 
-| <*expresión*> | String | La expresión que transforma el elemento de la matriz de origen y asigna el resultado al <*nombre de clave*> | 
+| <*expression*> | String | La expresión que transforma el elemento de la matriz de origen y asigna el resultado al <*nombre de clave*> | 
 |||| 
 
 La acción **Seleccionar** crea una matriz como salida, por lo que cualquier acción que desee usar esta salida debe aceptar una matriz, o debe convertir la matriz en un tipo que acepte la acción del consumidor. Por ejemplo, para convertir la matriz de salida en una cadena, puede pasar esa matriz a la acción **Redactar** y, a continuación, hacer referencia a la salida de la acción **Redactar** en las demás acciones.
 
 *Ejemplo*
 
-Esta definición de acción crea una matriz de objetos JSON a partir de una matriz de enteros. La acción itera la matriz de origen, obtiene cada valor entero mediante la expresión `@item()` y asigna cada valor a la propiedad "`number`" de cada objeto JSON: 
+Esta definición de acción crea una matriz de objetos JSON a partir de una matriz de enteros. La acción itera la matriz de origen, obtiene cada valor entero mediante la expresión `@item()` y asigna cada valor a la propiedad "`number`" de cada objeto JSON:
 
 ```json
 "Select": {
@@ -1641,7 +1635,7 @@ Esta acción crea una tabla CSV o HTML a partir de una matriz. Para las matrices
 
 *Obligatorio* 
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | \<CSV *o* HTML>| String | El formato de la tabla que desea crear | 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen de la tabla. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una tabla vacía. | 
@@ -1651,7 +1645,7 @@ Esta acción crea una tabla CSV o HTML a partir de una matriz. Para las matrices
 
 Para especificar o personalizar los encabezados y los valores de columna, use la matriz `columns`. Cuando los pares `header-value` tienen el mismo nombre de encabezado, sus valores se mostrarán en la misma columna bajo ese nombre de encabezado. En caso contrario, cada encabezado único define una columna única.
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*column-name*> | String | El nombre del encabezado de una columna | 
 | <*column-value*> | Any | El valor de esa columna | 
@@ -1659,11 +1653,11 @@ Para especificar o personalizar los encabezados y los valores de columna, use la
 
 *Ejemplo 1*
 
-Supongamos que ha creado anteriormente la variable "myItemArray" que contiene actualmente esta matriz: 
+Supongamos que ha creado anteriormente la variable "myItemArray" que contiene actualmente esta matriz:
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
-Esta definición de acción crea una tabla CSV a partir de la variable "myItemArray". La expresión utilizada por la propiedad `from` obtiene la matriz a partir de "myItemArray" mediante la función `variables()`: 
+Esta definición de acción crea una tabla CSV a partir de la variable "myItemArray". La expresión utilizada por la propiedad `from` obtiene la matriz a partir de "myItemArray" mediante la función `variables()`:
 
 ```json
 "Create_CSV_table": {
@@ -1684,9 +1678,9 @@ ID,Product_Name
 1,Oranges 
 ```
 
-*Ejemplo 2*
+*Ejemplo 2*
 
-Esta definición de acción crea una tabla HTML a partir de la variable "myItemArray". La expresión utilizada por la propiedad `from` obtiene la matriz a partir de "myItemArray" mediante la función `variables()`: 
+Esta definición de acción crea una tabla HTML a partir de la variable "myItemArray". La expresión utilizada por la propiedad `from` obtiene la matriz a partir de "myItemArray" mediante la función `variables()`:
 
 ```json
 "Create_HTML_table": {
@@ -1730,13 +1724,13 @@ Esta definición de acción crea una tabla HTML a partir de la variable "myItemA
 
 Esta es la tabla HTML que esta acción crea: 
 
-<table><thead><tr><th>Stock_ID</th><th>DESCRIPCIÓN</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples (Manzanas orgánicas)</td></tr><tr><td>1</td><td>Organic Oranges (Naranjas orgánicas)</td></tr></tbody></table>
+<table><thead><tr><th>Stock_ID</th><th>Descripción</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples (Manzanas orgánicas)</td></tr><tr><td>1</td><td>Organic Oranges (Naranjas orgánicas)</td></tr></tbody></table>
 
 <a name="terminate-action"></a>
 
 ### <a name="terminate-action"></a>Acción Terminate
 
-Esta acción detiene la ejecución de una instancia del flujo de trabajo, cancela cualquier acción en curso, omite las acciones restantes y devuelve el estado especificado. Por ejemplo, puede usar la acción **Terminate** si la aplicación lógica debe salir completamente después de un estado de error. Esta acción no afecta a las acciones ya finalizadas y no puede aparecer dentro de bucles **Foreach** y **Until**, incluidos los bucles secuenciales. 
+Esta acción detiene la ejecución de una instancia del flujo de trabajo, cancela cualquier acción en curso, omite las acciones restantes y devuelve el estado especificado. Por ejemplo, puede usar la acción **Terminate** si la aplicación lógica debe salir completamente después de un estado de error. Esta acción no afecta a las acciones ya finalizadas y no puede aparecer dentro de bucles **Foreach** y **Until**, incluidos los bucles secuenciales.
 
 ```json
 "Terminate": {
@@ -1754,7 +1748,7 @@ Esta acción detiene la ejecución de una instancia del flujo de trabajo, cancel
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*status*> | String | El estado que se devolverá para la ejecución: "Erróneo", "Cancelado" o "Correcto" |
 |||| 
@@ -1763,7 +1757,7 @@ Esta acción detiene la ejecución de una instancia del flujo de trabajo, cancel
 
 Las propiedades del objeto "runStatus" se aplican solo cuando se establece la propiedad "runStatus" en estado "Erróneo".
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*error-code-or-name*> | String | El código o nombre del error |
 | <*error-message*> | String | El mensaje o el texto que describe el error y las acciones que el usuario de la aplicación puede realizar | 
@@ -1789,9 +1783,9 @@ Esta definición de acción detiene la ejecución de un flujo de trabajo, establ
 
 <a name="wait-action"></a>
 
-### <a name="wait-action"></a>Acción Wait  
+### <a name="wait-action"></a>Acción Wait
 
-Esta acción detiene la ejecución del flujo de trabajo durante el intervalo especificado o hasta la hora especificada, pero no ambas opciones. 
+Esta acción detiene la ejecución del flujo de trabajo durante el intervalo especificado o hasta la hora especificada, pero no ambas opciones.
 
 *Intervalo especificado*
 
@@ -1824,9 +1818,9 @@ Esta acción detiene la ejecución del flujo de trabajo durante el intervalo esp
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
-| <*number-of-units*> | Integer | Para la acción **Delay** es el número de unidades que debe esperar | 
+| <*number-of-units*> | Entero | Para la acción **Delay** es el número de unidades que debe esperar | 
 | <*intervalo*> | String | Para la acción de **retraso**, el intervalo que se esperará: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*date-time-stamp*> | String | Para la acción **Delay Until**, la fecha y hora en la que se reanudará la ejecución. Este valor debe usar el [formato UTC de fecha y hora](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
@@ -1848,7 +1842,7 @@ Esta definición de acción detiene el flujo de trabajo durante 15 minutos:
 },
 ```
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Esta definición de acción detiene el flujo de trabajo hasta la hora especificada:
 
@@ -1876,7 +1870,7 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 
 * La misma suscripción de Azure que su aplicación lógica primaria
 
-* Para usar las salidas de la aplicación lógica anidada en la aplicación lógica primaria, la aplicación lógica anidada debe tener una acción [Respuesta](#response-action) 
+* Para usar las salidas de la aplicación lógica anidada en la aplicación lógica primaria, la aplicación lógica anidada debe tener una acción [Respuesta](#response-action)
 
 ```json
 "<nested-logic-app-name>": {
@@ -1897,7 +1891,7 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*nested-logic-app-name*> | String | El nombre de la aplicación lógica a la que desea llamar | 
 | <*trigger-name*> | String | El nombre del desencadenador de la aplicación lógica anidada a la que desea llamar | 
@@ -1908,19 +1902,19 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar con la llamada | 
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar con la llamada | 
 ||||
 
-*Outputs*
+*Salidas*
 
 Las salidas de esta acción varían en función de la acción Respuesta de la aplicación lógica anidada. Si la aplicación lógica anidada no incluye una acción Respuesta, las salidas estarán vacías.
 
 *Ejemplo*
 
-Una vez completada la acción "Start_search" correctamente, esta definición de acción del flujo de trabajo llama a otra aplicación lógica denominada "Get_product_information", que pasa las entradas especificadas: 
+Una vez completada la acción "Start_search" correctamente, esta definición de acción del flujo de trabajo llama a otra aplicación lógica denominada "Get_product_information", que pasa las entradas especificadas:
 
 ```json
 "actions": {
@@ -1974,7 +1968,7 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones en cad
 
 *Obligatorio* 
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*action-1...n*> | String | Los nombres de las acciones que se ejecutan en cada elemento de la matriz | 
 | <*action-definition-1...n*> | Objeto JSON | Las definiciones de las acciones que se ejecutan | 
@@ -1983,9 +1977,9 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones en cad
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
-| <*recuento*> | Integer | De forma predeterminada, las iteraciones de bucles "for each" se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio de la simultaneidad del bucle "for each"](#change-for-each-concurrency). | 
+| <*recuento*> | Entero | De forma predeterminada, las iteraciones de bucle "for each" se ejecutan al mismo tiempo (de forma simultanea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio de la simultaneidad del bucle "for each"](#change-for-each-concurrency). | 
 | <*operation-option*> | String | Para ejecutar un bucle "for each" secuencialmente, en lugar de en paralelo, establezca <*operation-option*> en `Sequential` o <*count*> en `1`, pero no ambas opciones a la vez. Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each). | 
 |||| 
 
@@ -2047,7 +2041,7 @@ Esta acción, que es una *instrucción condicional*, evalúa una expresión que 
 }
 ```
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*condition*> | Objeto JSON | La condición que se va a evaluar, que puede ser una expresión | 
 | <*action-1*> | Objeto JSON | La acción que se ejecutará si <*condition*> se evalúa como true | 
@@ -2137,7 +2131,7 @@ Esta acción agrupa lógicamente las acciones en *ámbitos*, que obtienen su pro
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------|  
 | <*inner-action-1...n*> | Objeto JSON | Una o varias acciones que se ejecutan dentro del ámbito |
 | <*action-inputs*> | Objeto JSON | Las entradas de cada acción |
@@ -2178,7 +2172,7 @@ Esta acción, también conocida como *instrucción switch*, organiza otras accio
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varía | La expresión, objeto JSON o token que se va a evaluar | 
 | <*action-name*> | String | El nombre de la acción que se va a ejecutar para el caso coincidente | 
@@ -2188,7 +2182,7 @@ Esta acción, también conocida como *instrucción switch*, organiza otras accio
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*default-action-name*> | String | El nombre de la acción predeterminada que se va a ejecutar si no hay ningún caso coincidente | 
 | <*default-action-definition*> | Objeto JSON | La definición de la acción que se va a ejecutar si no hay ningún caso coincidente | 
@@ -2304,19 +2298,19 @@ Esta acción de bucle contiene acciones que se ejecutan hasta que la condición 
 }
 ```
 
-| Valor | type | DESCRIPCIÓN | 
+| Value | Tipo | Descripción | 
 |-------|------|-------------| 
 | <*action-name*> | String | El nombre de la acción que desea ejecutar dentro del bucle | 
 | <*action-type*> | String | El tipo de acción que desea ejecutar | 
 | <*action-inputs*> | Varios | Las entradas para que la acción se ejecute | 
 | <*condition*> | String | La condición o expresión que va a evaluar una vez finalizada la ejecución de todas las acciones del bucle | 
-| <*loop-count*> | Integer | El límite en el mayor número de bucles que puede ejecutar la acción. El valor predeterminado de `count` es 60. | 
+| <*loop-count*> | Entero | El límite en el mayor número de bucles que puede ejecutar la acción. El valor predeterminado de `count` es 60. | 
 | <*loop-timeout*> | String | El límite en el tiempo más largo que puede ejecutar el bucle. El valor predeterminado de `timeout` es `PT1H`, que es el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) obligatorio. |
 |||| 
 
 *Ejemplo*
 
-Esta definición de acción del bucle envía una solicitud HTTP a la dirección URL especificada hasta que se cumple una de estas condiciones: 
+Esta definición de acción del bucle envía una solicitud HTTP a la dirección URL especificada hasta que se cumple una de estas condiciones:
 
 * La solicitud obtiene una respuesta con el código de estado "200 OK".
 * El bucle se ha ejecutado 60 veces.
@@ -2364,7 +2358,7 @@ Para admitir estas llamadas, la expresión `@listCallbackUrl()` devuelve una "di
 
 ## <a name="change-asynchronous-duration"></a>Cambio de la duración asincrónica
 
-Para los desencadenadores y las acciones, puede limitar la duración del modelo asincrónico a un intervalo de tiempo específico agregando la propiedad `limit.timeout`. De este modo, si no ha finalizado la acción una vez transcurrido el intervalo, el estado de la acción se marcará como `Cancelled` con el código `ActionTimedOut`. La propiedad `timeout` usa el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
+Para los desencadenadores y las acciones, puede limitar la duración del modelo asincrónico a un intervalo de tiempo específico agregando la propiedad `limit.timeout`. De este modo, si no ha finalizado la acción una vez transcurrido el intervalo, el estado de la acción se marcará como `Cancelled` con el código `ActionTimedOut`. La propiedad `timeout` usa el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
 
 ``` json
 "<trigger-or-action-name>": {
@@ -2381,14 +2375,14 @@ Para los desencadenadores y las acciones, puede limitar la duración del modelo 
 
 ## <a name="runtime-configuration-settings"></a>Valores de configuración del runtime
 
-Puede cambiar el comportamiento predeterminado del runtime para los desencadenadores y acciones con estas propiedades `runtimeConfiguration` en la definición de desencadenador o de acción.
+Para cambiar el comportamiento predeterminado del runtime de desencadenadores y acciones, agregue `runtimeConfiguration` estas propiedades a la definición del desencadenador o la acción.
 
-| Propiedad | Escriba | DESCRIPCIÓN | Desencadenador o acción | 
+| Propiedad | Tipo | Descripción | Desencadenador o acción | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Integer | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de instancias de flujo de trabajo que se pueden ejecutar al mismo tiempo o en paralelo. Este valor puede ayudar a limitar el número de solicitudes que reciben los sistemas de back-end. <p>Establecer la propiedad `runs` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Establezca el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de instancias de flujo de trabajo que se pueden poner en espera de ejecución en caso de que el flujo de trabajo ya esté ejecutando el número máximo de instancias simultáneas. Puede cambiar el límite de simultaneidad en la propiedad `concurrency.runs`. <p>Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | Todos los desencadenadores | 
-| `runtimeConfiguration.concurrency.repetitions` | Integer | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p>Establecer la propiedad `repetitions` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio de la simultaneidad de los bucles "for each"](#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](#sequential-for-each). | Acción: <p>[Foreach](#foreach-action) | 
-| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | Para acciones específicas que admiten y tienen la paginación activada, este valor especifica el número *mínimo* de resultados que se van a recuperar. <p>Para activar la paginación, vea [Obtención masiva de datos, elementos o resultados mediante la paginación](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Acción: Varía |
+| `runtimeConfiguration.concurrency.runs` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de instancias de flujo de trabajo que se pueden ejecutar al mismo tiempo (de forma simultánea o en paralelo). El ajuste de este valor puede ayudar a limitar el número de solicitudes que reciben los sistemas de back-end. <p>Establecer la propiedad `runs` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de instancias de flujo de trabajo que deben esperar para ejecutarse cuando la aplicación lógica ya está ejecutando el número máximo de instancias simultáneas. <p>Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | Todos los desencadenadores | 
+| `runtimeConfiguration.concurrency.repetitions` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo (de forma simultánea o en paralelo). <p>Establecer la propiedad `repetitions` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio de la simultaneidad de los bucles "for each"](#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](#sequential-for-each). | Acción: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Entero | Para acciones específicas que admiten y tienen la paginación activada, este valor especifica el número *mínimo* de resultados que se van a recuperar. <p>Para activar la paginación, vea [Obtención masiva de datos, elementos o resultados mediante la paginación](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Acción: Varía |
 | `runtimeConfiguration.secureData.properties` | Array | En muchos desencadenadores y acciones, esta configuración oculta las entradas, salidas o ambas del historial de ejecución de la aplicación lógica. <p>Para proteger estos datos, consulte [Ocultar entradas y salidas del historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Mayoría de desencadenadores y acciones |
 | `runtimeConfiguration.staticResult` | Objeto JSON | Para las acciones que tienen la opción [resultado estático](../logic-apps/test-logic-apps-mock-data-static-results.md) activada, el objeto `staticResult` tiene estos atributos: <p>- `name`, que hace referencia al nombre de definición del resultado estático de la acción actual, que aparece dentro del atributo `staticResults` en el atributo `definition` del flujo de trabajo de la aplicación lógica. Para más información, vea [Resultados estáticos: Referencia de esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, que especifica si los resultados estáticos tienen el valor `Enabled` o no para la acción actual. <p>Para activar los resultados estáticos, vea [Probar las aplicaciones lógicas con datos simulados mediante la configuración de resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md). | Acción: Varía |
 ||||| 
@@ -2399,7 +2393,7 @@ Puede cambiar el comportamiento predeterminado del runtime para los desencadenad
 
 Puede cambiar el comportamiento predeterminado de los desencadenadores y acciones con la propiedad `operationOptions` de la definición de desencadenador o de acción.
 
-| Opción de operación | type | DESCRIPCIÓN | Desencadenador o acción | 
+| Opción de operación | Tipo | Descripción | Desencadenador o acción | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#asynchronous-patterns). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
 | `OptimizedForHighThroughput` | String | Cambia el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) del número de ejecuciones de acciones por cada 5 minutos al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para establecer esta opción, consulte [Ejecutar en modo de alto rendimiento](#run-high-throughput-mode). | Todas las acciones | 
@@ -2411,11 +2405,11 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 
 ### <a name="change-trigger-concurrency"></a>Cambio en la simultaneidad de desencadenadores
 
-De forma predeterminada, las instancias de la aplicación lógica se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Por tanto, cada instancia del desencadenador se activa antes de que finalice la ejecución de la instancia anterior del flujo de trabajo. Este límite ayuda a controlar el número de solicitudes que reciben los sistemas de back-end. 
+De forma predeterminada, todas las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo (simultáneamente o en paralelo). Este comportamiento implica la activación de todas las instancias del desencadenador antes de que finalice la ejecución de la instancia del ejecución activo anteriormente. Sin embargo, el número de instancias en ejecución simultáneas tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cuando el número de instancias de flujo de trabajo que se ejecutan simultáneamente alcanza este límite, las nuevas deben esperar un tiempo para ejecutarse. Este límite ayuda a controlar el número de solicitudes que reciben los sistemas de back-end.
 
 Para cambiar el límite predeterminado, puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa. Esta propiedad controla el número máximo de instancias de flujo de trabajo que se pueden ejecutar en paralelo. Estas son algunas consideraciones que debe plantearse cuando quiera usar el control de simultaneidad:
 
-* Cuando está habilitada la simultaneidad, se reduce significativamente el [límite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) para [matrices de desagrupación](#split-on-debatch). Si el número de elementos supera este límite, se deshabilita la funcionalidad de SplitOn.
+* Cuando la simultaneidad está habilitada, se reduce significativamente el [límite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) para [matrices de desagrupación](#split-on-debatch). Si el número de elementos supera este límite, se deshabilita la funcionalidad de SplitOn.
 
 * Aunque la simultaneidad está habilitada, una instancia de aplicación lógica de larga duración puede provocar que las nuevas instancias de aplicación lógica entren en un estado de espera. Este estado impide que Azure Logic Apps cree instancias y se produce incluso cuando el número de ejecuciones simultáneas es menor que el número máximo de ejecuciones simultáneas especificado.
 
@@ -2428,7 +2422,7 @@ Para cambiar el límite predeterminado, puede usar el editor de la vista Código
        ![Selección de la instancia más temprana en ejecución](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
 
        > [!TIP]
-       > Para ver solo las instancias que siguen en ejecución, abra la lista **Todas** y seleccione **En ejecución**.    
+       > Para ver solo las instancias que siguen en ejecución, abra la lista **Todas** y seleccione **En ejecución**.
 
     1. En **Ejecución de aplicación lógica**, seleccione **Cancelar ejecución**.
 
@@ -2444,11 +2438,11 @@ Para cambiar el límite predeterminado, puede usar el editor de la vista Código
 
        ![Especificación de la duración del tiempo de expiración](./media/logic-apps-workflow-actions-triggers/timeout.png)
 
-* Si quiere ejecutar la aplicación lógica de manera secuencial, puede establecer la simultaneidad del desencadenador en `1`, ya sea mediante el diseñador o el editor de la vista Código. Sin embargo, no debe establecer también la propiedad `operationOptions` del desencadenador en `SingleInstance` en el editor de la vista Código. De lo contrario, obtendrá un error de validación. Para más información, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger).
+* Para ejecutar la aplicación lógica de manera secuencial, establezca la simultaneidad del desencadenador en `1`, ya sea mediante el diseñador o el editor de la vista del código. Asegúrese de que no establece también la propiedad `operationOptions` del desencadenador en `SingleInstance` en el editor de la vista de código. De lo contrario, obtendrá un error de validación. Para más información, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger).
 
 #### <a name="edit-in-code-view"></a>Edición en la vista Código 
 
-En la definición subyacente del desencadenador, agregue o actualice la propiedad `runtimeConfiguration.concurrency.runs` a un valor entre `1` y `50`, ambos inclusive.
+En la definición del desencadenador subyacente, agregue la propiedad `runtimeConfiguration.concurrency.runs`, que puede tener un valor comprendido entre `1` y `50`.
 
 Este es un ejemplo que limita las ejecuciones simultáneas a 10 instancias:
 
@@ -2467,26 +2461,30 @@ Este es un ejemplo que limita las ejecuciones simultáneas a 10 instancias:
 }
 ```
 
+Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos (...) y, a continuación, elija **Configuración**.
+1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos ( **...** ) y, después, elija **Configuración**.
 
-2. En **Control de simultaneidad**, establezca **Límite** en **Activado**. 
+1. En **Control de simultaneidad**, establezca **Límite** en **Activado**. 
 
-3. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1**.
+1. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1**.
 
 <a name="change-for-each-concurrency"></a>
 
 ### <a name="change-for-each-concurrency"></a>Cambio de la simultaneidad de los bucles "for each"
 
-De forma predeterminada, las iteraciones de bucles "for each" se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.repetitions` en la definición de la acción "for each" subyacente y viceversa. Esta propiedad controla el número máximo de iteraciones que se pueden ejecutar en paralelo.
+De forma predeterminada, todas las iteraciones de bucle "for each" se ejecutan al mismo tiempo (de forma simultánea o en paralelo). Este comportamiento significa que cada iteración empieza a ejecutarse antes de que finalice la ejecución de la anterior. Sin embargo, el número de iteraciones que se ejecutan de forma simultánea tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cuando el número de iteraciones que se ejecutan simultáneamente alcanza este límite, las nuevas deben esperar un tiempo para ejecutarse.
+
+Para cambiar el límite predeterminado, puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.repetitions` en la definición de la acción "for each" subyacente y viceversa. Esta propiedad controla el número máximo de iteraciones que se pueden ejecutar en paralelo.
 
 > [!NOTE] 
 > Si configura la acción "for each" para que se ejecute secuencialmente mediante el diseñador o mediante el editor de la vista Código, no establezca la propiedad `operationOptions` de la acción en `Sequential` en el editor de la vista Código. De lo contrario, obtendrá un error de validación. Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each).
 
 #### <a name="edit-in-code-view"></a>Edición en la vista Código 
 
-En la definición subyacente de la acción "for each", agregue o actualice la propiedad `runtimeConfiguration.concurrency.repetitions` a un valor entre `1` y `50`, ambos inclusive. 
+En la definición de "for each" subyacente, agregue o actualice la propiedad `runtimeConfiguration.concurrency.repetitions`, que puede tener un valor comprendido entre `1` y `50`.
 
 Este es un ejemplo que limita las ejecuciones simultáneas a 10 iteraciones:
 
@@ -2504,23 +2502,25 @@ Este es un ejemplo que limita las ejecuciones simultáneas a 10 iteraciones:
 }
 ```
 
+Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la acción **For each**, en la esquina superior derecha, elija el botón de puntos suspensivos (...) y luego elija **Configuración**.
+1. En la acción **For each**, en la esquina superior derecha, seleccione el botón de puntos suspensivos ( **...** ) y luego seleccione **Configuración**.
 
-2. En **Control de simultaneidad**, establezca **Control de simultaneidad** en **Activado**. 
+1. En **Control de simultaneidad**, establezca **Control de simultaneidad** en **Activado**.
 
-3. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1**.
+1. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1**.
 
 <a name="change-waiting-runs"></a>
 
 ### <a name="change-waiting-runs-limit"></a>Cambio del límite de ejecuciones en espera
 
-De forma predeterminada, todas las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo (simultáneamente) o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cada instancia del desencadenador se activa antes de que finalice la ejecución de la instancia del ejecución activo anteriormente. Aunque puede [cambiar este límite predeterminado](#change-trigger-concurrency), cuando el número de instancias de flujo de trabajo alcanza el nuevo límite de simultaneidad, cualquier otra instancia nueva tendrá que esperar para ejecutarse. 
+De forma predeterminada, todas las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo (simultáneamente o en paralelo). Este comportamiento implica la activación de todas las instancias del desencadenador antes de que finalice la ejecución de la instancia del ejecución activo anteriormente. Sin embargo, el número de instancias en ejecución simultáneas tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cuando el número de instancias de flujo de trabajo que se ejecutan simultáneamente alcanza este límite, las nuevas deben esperar un tiempo para ejecutarse.
 
-El número de ejecuciones que se pueden poner en espera también tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) que puede modificar. No obstante, una vez que la aplicación lógica alcanza el límite de ejecuciones en espera, el motor de Logic Apps ya no acepta nuevas ejecuciones. Los desencadenadores de solicitudes y de webhooks devuelven errores 429 y los desencadenadores recurrentes empiezan a omitir los intentos de sondeo.
+El número de ejecuciones en espera también tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cuando ese número alcanza este límite, el motor de Logic Apps deja de aceptar ejecuciones nuevas. Los desencadenadores de solicitudes y de webhooks devuelven errores 429 y los desencadenadores recurrentes empiezan a omitir los intentos de sondeo.
 
-Para cambiar el límite predeterminado de las ejecuciones en espera, en la definición del desencadenador subyacente, agregue la propiedad `runtimeConfiguration.concurency.maximumWaitingRuns` con un valor entre `0` y `100`. 
+No solo puede [cambiar el límite predeterminado de la simultaneidad del desencadenador](#change-trigger-concurrency), sino que también puede cambiar el límite predeterminado de ejecuciones en espera. En la definición del desencadenador subyacente, agregue la propiedad `runtimeConfiguration.concurrency.maximumWaitingRuns`, que puede tener un valor comprendido entre `1` y `100`.
 
 ```json
 "<trigger-name>": {
@@ -2537,11 +2537,13 @@ Para cambiar el límite predeterminado de las ejecuciones en espera, en la defin
 }
 ```
 
+Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options).
+
 <a name="sequential-trigger"></a>
 
 ### <a name="trigger-instances-sequentially"></a>Desencadenamiento secuencial de instancias
 
-Para que cada instancia de flujo de trabajo de la aplicación lógica se ejecute una vez que haya finalizado la ejecución de la instancia anterior, establezca el desencadenador para que se ejecute de forma secuencial. Puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador también se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa. 
+Para que cada instancia de flujo de trabajo de la aplicación lógica se ejecute una vez que haya finalizado la ejecución de la instancia anterior, establezca el desencadenador para que se ejecute de forma secuencial. Puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador también se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa.
 
 > [!NOTE] 
 > Si configura un desencadenador para que se ejecute secuencialmente mediante el diseñador o mediante el editor de la vista Código, no establezca la propiedad `operationOptions` del desencadenador en `Sequential` en el editor de la vista Código. De lo contrario, obtendrá un error de validación. 
@@ -2582,19 +2584,21 @@ Establezca la propiedad `operationOptions` en `SingleInstance`:
 }
 ```
 
+Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options) y [Opciones de operación](#operation-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos (...) y, a continuación, elija **Configuración**.
+1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos ( **...** ) y, después, elija **Configuración**.
 
-2. En **Control de simultaneidad**, establezca **Límite** en **Activado**. 
+1. En **Control de simultaneidad**, establezca **Límite** en **Activado**. 
 
-3. Arrastre el control deslizante **Grado de paralelismo** al número `1`. 
+1. Arrastre el control deslizante **Grado de paralelismo** al número `1`. 
 
 <a name="sequential-for-each"></a>
 
 ### <a name="run-for-each-loops-sequentially"></a>Ejecución secuencial de bucles "for each"
 
-Para que una iteración de bucle "for each" solo se ejecute una vez que haya finalizado la ejecución de la iteración anterior, establezca la acción "for each" para que se ejecute de forma secuencial. Puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar la simultaneidad de la acción a través del diseñador también se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.repetitions` en la definición de acción subyacente y viceversa. 
+Para que una iteración de bucle "for each" solo se ejecute una vez que haya finalizado la ejecución de la iteración anterior, establezca la acción "for each" para que se ejecute de forma secuencial. Puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar la simultaneidad de la acción a través del diseñador también se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.repetitions` en la definición de acción subyacente y viceversa.
 
 > [!NOTE] 
 > Si configura una acción "for each" para que se ejecute secuencialmente mediante el diseñador o mediante el editor de la vista Código, no establezca la propiedad `operationOptions` de la acción en `Sequential` en el editor de la vista Código. De lo contrario, obtendrá un error de validación. 
@@ -2633,13 +2637,15 @@ Establezca la propiedad `operationOptions` en `Sequential`:
 }
 ```
 
+Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options) y [Opciones de operación](#operation-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la esquina superior derecha de la acción **For each**, elija el botón de puntos suspensivos (...) y, a continuación, elija **Configuración**.
+1. En la esquina superior derecha de la acción **For each**, seleccione el botón de puntos suspensivos ( **...** ) y luego seleccione **Configuración**.
 
-2. En **Control de simultaneidad**, establezca **Control de simultaneidad** en **Activado**. 
+1. En **Control de simultaneidad**, establezca **Control de simultaneidad** en **Activado**.
 
-3. Arrastre el control deslizante **Grado de paralelismo** al número `1`. 
+1. Arrastre el control deslizante **Grado de paralelismo** al número `1`.
 
 <a name="asynchronous-patterns"></a>
 
@@ -2648,7 +2654,7 @@ Establezca la propiedad `operationOptions` en `Sequential`:
 De forma predeterminada, todas las acciones basadas en HTTP siguen el patrón estándar de operación asincrónica. Este patrón especifica que cuando una acción basada en HTTP envía una solicitud al punto de conexión especificado, el servidor remoto devuelve una respuesta "202-Aceptado". Esta respuesta significa que el servidor aceptó la solicitud para su procesamiento. El motor de Logic Apps sigue comprobando la dirección URL especificada por el encabezado de ubicación de la respuesta hasta que se detiene el procesamiento, es decir, cuando se recibe cualquier respuesta que no sea la 202.
 
 No obstante, las solicitudes tienen un límite de tiempo de espera, por lo que para las acciones de larga ejecución puede deshabilitar el comportamiento asincrónico agregando y estableciendo la propiedad `operationOptions` en `DisableAsyncPattern` en las entradas de la acción.
-  
+
 ```json
 "<some-long-running-action>": {
    "type": "Http",
@@ -2658,11 +2664,13 @@ No obstante, las solicitudes tienen un límite de tiempo de espera, por lo que p
 }
 ```
 
+Para más información, consulte [Opciones de operación](#operation-options).
+
 <a name="run-high-throughput-mode"></a>
 
 ### <a name="run-in-high-throughput-mode"></a>Ejecutar en modo de alto rendimiento
 
-Para una única definición de aplicación lógica, el número de acciones que se ejecutan cada cinco minutos tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar este límite al [máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) posible, establezca la propiedad `operationOptions` en `OptimizedForHighThroughput`. Esta opción pone a la aplicación lógica en modo de "alto rendimiento". 
+Para una única definición de aplicación lógica, el número de acciones que se ejecutan cada cinco minutos tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar este límite al [máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) posible, establezca la propiedad `operationOptions` en `OptimizedForHighThroughput`. Esta opción pone a la aplicación lógica en modo de "alto rendimiento".
 
 > [!NOTE]
 > El modo de alto rendimiento se encuentra en versión preliminar. También puede distribuir una carga de trabajo entre varias aplicaciones lógicas, según sea necesario.

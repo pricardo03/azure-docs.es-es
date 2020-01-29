@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/24/2019
-ms.openlocfilehash: c06a7551a5c0f14be94ed14072b81c189e359aa8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/21/2020
+ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535776"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290332"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Conexión de equipos Linux a Azure Monitor
 
@@ -74,9 +74,10 @@ Antes de instalar el agente Log Analytics para Linux, necesita la clave y el ide
 
 El agente de Log Analytics para Linux viene en un conjunto de scripts de shell autoextraíbles e instalables. Este paquete contiene los paquetes Debian y RPM para cada uno de los componentes del agente y se pueden instalar directamente o extraerse para recuperar los paquetes individuales. Hay dos paquetes, uno para arquitecturas x64 y otro para arquitecturas x86. 
 
-En el caso de las máquinas virtuales de Azure, le recomendamos que instale el agente utilizando la [extensión de máquina virtual de Log Analytics](../../virtual-machines/extensions/oms-linux.md) para Linux. 
+> [!NOTE]
+> En el caso de las máquinas virtuales de Azure, le recomendamos que instale el agente utilizando la [extensión de máquina virtual de Log Analytics](../../virtual-machines/extensions/oms-linux.md) para Linux. 
 
-1. Transfiera el paquete adecuado (x86 o x64) a la máquina virtual o al equipo físico Linux mediante scp o sftp.
+1. [Descargue](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) y transfiera el conjunto adecuado (x64 o x86) a la máquina virtual o al equipo físico Linux mediante scp o sftp.
 
 2. Instale el paquete utilizando el argumento `--install`. Para incluir un área de trabajo de Log Analytics durante la instalación, proporcione los parámetros `-w <WorkspaceID>` y `-s <workspaceKey>` que copió anteriormente.
 

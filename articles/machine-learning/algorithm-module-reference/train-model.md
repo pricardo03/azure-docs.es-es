@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c9d02490a5627ead502429ead06608b4fb621058
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490371"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548414"
 ---
 # <a name="train-model-module"></a>Módulo Entrenar modelo
 
@@ -68,10 +68,9 @@ En Azure Machine Learning, crear y usar un modelo suele ser un proceso de tres p
 
 Cuando el modelo está entrenado:
 
-+ Para ver los parámetros del modelo y los pesos de característica, haga clic con el botón derecho en la salida y seleccione **Visualizar**.
-+ Para usar el modelo en otras canalizaciones, haga clic con el botón derecho en el modelo y seleccione **Guardar modelo**. Escriba un nombre para el modelo. 
 
-    De este modo se guarda el modelo como una instantánea que las ejecuciones repetidas de la canalización no actualizan.
++ Para usar el modelo en otras canalizaciones, seleccione el módulo y, después, seleccione el icono **Register dataset** (Registrar conjunto de datos) en la pestaña **Outputs** (Salidas) del panel derecho. Puede acceder a los modelos guardados en la paleta de módulos en **Datasets** (Conjuntos de datos).
+
 + Para usar el modelo para predecir nuevos valores, conéctelo al módulo [Puntuar modelo](./score-model.md), junto con nuevos datos de entrada.
 
 

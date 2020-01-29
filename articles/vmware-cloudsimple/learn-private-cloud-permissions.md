@@ -1,5 +1,5 @@
 ---
-title: 'Solución de VMware en Azure de CloudSimple: Modelo de permisos para la nube privada'
+title: 'Azure VMware Solution by CloudSimple: modelo de permisos para la nube privada'
 description: Describe el modelo de permisos, los grupos y las categorías de la nube privada de CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e0904cc2fd9866a9f8354eac9815945043eca5c
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72987586"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544317"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permisos de la nube privada de VMware vCenter de CloudSimple
 
@@ -43,7 +43,7 @@ Durante la implementación de una nube privada se crea un grupo denominado **Clo
 Para conceder permisos a usuarios individuales para que administren la nube privada, cree cuentas de usuario que se agreguen a los grupos adecuados.
 
 > [!CAUTION]
-> Los nuevos usuarios solo se deben agregar a *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* o *Cloud-Global-VM-Admin-Group*.  Los usuarios agregados al grupo *Administradores* se quitarán automáticamente.  Solo se deben agregar cuentas de servicio al grupo *Administradores*.
+> Los nuevos usuarios solo se deben agregar a *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* o *Cloud-Global-VM-Admin-Group*.  Los usuarios agregados al grupo *Administradores* se quitarán automáticamente.  Solo se deben agregar cuentas de servicio al grupo *Administradores* y estas cuentas no se deben usar para iniciar sesión en la interfaz de usuario web de vSphere.
 
 ## <a name="list-of-vcenter-privileges-for-default-roles"></a>Lista de privilegios de vCenter para roles predeterminados
 
@@ -54,10 +54,10 @@ Para conceder permisos a usuarios individuales para que administren la nube priv
 | **Alarmas** | Confirmar alarma <br> Crear alarma <br> Deshabilitar acción de alarma <br> Modificar alarma <br> Eliminar alarma <br> Establecer estado de la alarma |
 | **Permisos** | Permiso de modificación |
 | **Biblioteca de contenido** | Agregar elemento de biblioteca <br> Crear biblioteca local <br> Crear biblioteca suscrita <br> Eliminar elemento de biblioteca <br> Eliminar biblioteca local <br> Eliminar biblioteca suscrita <br> Descarga de archivos <br> Desalojar elemento de biblioteca <br> Desalojar biblioteca suscrita <br> Importar almacenamiento <br> Sondear información de suscripción <br> Leer en el almacenamiento <br> Sincronizar elemento de biblioteca <br> Sincronizar biblioteca suscrita <br> Escribir introspección <br> Actualizar valores de configuración <br> Actualizar archivos <br> Actualizar biblioteca <br> Actualizar elemento de biblioteca <br> Actualizar biblioteca local <br> Actualizar biblioteca suscrita <br> Ver valores de configuración |
-| **Operaciones criptográficas** | Agregar disco <br> Clon <br> Descifrado <br> Acceso directo <br> Cifrado <br> Descifrar nuevo <br> Administrar KMS <br> Administrar directivas de cifrado <br> Administración de claves <br> Migrar <br> Volver a cifrar <br> Registrar máquina virtual <br> Registrar host |
+| **Operaciones criptográficas** | Agregar disco <br> Clonar <br> Descifrado <br> Acceso directo <br> Cifrado <br> Descifrar nuevo <br> Administrar KMS <br> Administrar directivas de cifrado <br> Administración de claves <br> Migrar <br> Volver a cifrar <br> Registrar máquina virtual <br> Registrar host |
 | **Grupo dvPort** | Crear <br> Eliminar <br> Modificar <br> Operación de directiva <br> Operación de ámbito |
 | **Almacén de datos** | Asignar espacio <br> Examen de un almacén de datos <br> Configurar almacén de datos <br> Operaciones de archivo de bajo nivel <br> Mover almacén de datos <br> Eliminar almacén de datos <br> Quitar archivo <br> Cambiar nombre del almacén de datos <br> Actualizar archivos de máquina virtual <br> Actualizar metadatos de máquina virtual |
-| **ESX Agent Manager** | Configuración <br> Modificar <br> Ver |
+| **ESX Agent Manager** | Config <br> Modificar <br> Ver |
 | **Extensión** | Registrar extensión <br> Anular registro de la extensión <br> Actualizar extensión |
 | **Proveedor de estadísticas externo**| Register <br> Unregister <br> Actualizar |
 | **Carpeta** | Crear carpeta <br> Eliminar carpeta <br> Mover carpeta <br> Cambiar nombre de la carpeta |
@@ -66,7 +66,7 @@ Para conceder permisos a usuarios individuales para que administren la nube priv
 | **Host > Configuración** | Configuración de la partición de almacenamiento |
 | **Host > Inventario** | Modificar clúster |
 | **Etiquetas de vSphere** | Asignar o cancelar la asignación de la etiqueta vSphere <br> Crear etiqueta vSphere <br> Crear categoría de etiqueta vSphere <br> Eliminar etiqueta vSphere <br> Eliminar categoría de etiqueta vSphere <br> Editar etiqueta vSphere <br> Editar categoría de etiqueta vSphere <br> Modificar el campo UsedBy de la categoría <br> Modificar el campo UsedBy de la etiqueta |
-| **Red** | Asignar red <br> Configuración <br> Mover red <br> Remove |
+| **Network** | Asignar red <br> Configuración <br> Mover red <br> Remove |
 | **Rendimiento** | Modificar intervalos |
 | **Hospedar perfil** | Ver |
 | **Recurso** | Aplicar recomendaciones <br> Asignar vApp a un grupo de recursos <br> Asignar máquina virtual a grupo de recursos <br> Crear grupo de recursos <br> Migrar máquina virtual apagada <br> Migrar máquina virtual encendida <br> Modificar grupo de recursos <br> Mover grupo de recursos <br> Consultar vMotion <br> Eliminar grupo de recursos <br> Cambiar nombre del grupo de recursos |
@@ -76,16 +76,16 @@ Para conceder permisos a usuarios individuales para que administren la nube priv
 | **Almacenamiento controlado por perfiles** | Actualización del almacenamiento controlado por perfiles <br> Vista del almacenamiento controlado por perfiles |
 | **Vistas de almacenamiento** | Configurar servicio <br> Ver |
 | **Tareas** | Crear la tarea <br> Actualizar tarea |
-| **Servicio de transferencia**| administración <br> Supervisión |
-| **vApp** | Agregar máquina virtual <br> Asignar grupo de recursos <br> Asignar vApp <br> Clon <br> Crear <br> Eliminar <br> Exportación <br> Importar <br> Move <br> Apagado <br> Encendido <br> Cambiar nombre <br> Suspensión <br> Unregister <br> Ver el entorno de OVF <br> Configuración de aplicaciones de vApp <br> Configuración de instancias de vApp <br> Configuración de managedBy de vApp <br> Configuración de recursos de vApp |
+| **Servicio de transferencia**| Administrar <br> Supervisión |
+| **vApp** | Agregar máquina virtual <br> Asignar grupo de recursos <br> Asignar vApp <br> Clonar <br> Crear <br> Eliminar <br> Exportación <br> Importar <br> Move <br> Apagado <br> Encendido <br> Cambiar nombre <br> Suspender <br> Unregister <br> Ver el entorno de OVF <br> Configuración de aplicaciones de vApp <br> Configuración de instancias de vApp <br> Configuración de managedBy de vApp <br> Configuración de recursos de vApp |
 | **VRMPolicy** | Consultar VRMPolicy <br> Actualizar VRMPolicy |
 | **Máquina virtual > Configuración** | Agregar disco existente <br> Agregar disco nuevo <br> Agregar o eliminar dispositivo <br> Avanzado <br> Cambiar cantidad de CPU <br> Cambiar recurso <br> Configurar managedBy <br> Seguimiento de cambios de disco <br> Concesión de disco <br> Mostrar configuración de conexión <br> Extender disco virtual <br> Hospedar dispositivo USB <br> Memoria <br> Modificar la configuración del dispositivo <br> Consultar compatibilidad con tolerancia a errores <br> Consultar archivos sin propietario <br> Dispositivo sin formato <br> Volver a cargar desde la ruta de acceso <br> Quitar disco <br> Cambiar nombre <br> Restablecer información de invitados <br> Establecer anotación <br> Configuración <br> Ubicación del archivo de intercambio <br> Alternar la bifurcación principal <br> Desbloquear máquina virtual <br> Actualizar compatibilidad con máquina virtual |
 | **Máquina virtual > Operaciones de invitado** | Modificación de alias de operación de invitado <br> Consulta de alias de operación de invitado <br> Modificaciones de operación de invitado <br> Ejecución del programa de operaciones de invitado <br> Consultas de operaciones de invitado |
-| **Máquina virtual > Interacción** | Responder pregunta <br> Operación de copia de seguridad en máquina virtual <br> Configurar soporte de CD <br> Configurar soporte de disquete <br> Interacción de la consola <br> Crear captura de pantalla <br> Desfragmentar todos los discos <br> Conexión del dispositivo <br> Arrastrar y colocar <br> Administración del sistema operativo invitado de VIX API <br> Inyectar códigos de digitalización de USB HID <br> Pausar o desactivar la pausa <br> Realizar operaciones de borrado o reducción <br> Apagado <br> Encendido <br> Registrar sesión en la máquina virtual <br> Volver a reproducir sesión en la máquina virtual <br> Reset <br> Reanudar tolerancia a errores <br> Suspensión <br> Suspender tolerancia a errores <br> Conmutación por error de prueba <br> Reinicio de prueba de máquina virtual secundaria <br> Desactivar tolerancia a errores <br> Activar tolerancia a errores <br> Instalación de herramientas de VMware |
+| **Máquina virtual > Interacción** | Responder pregunta <br> Operación de copia de seguridad en máquina virtual <br> Configurar soporte de CD <br> Configurar soporte de disquete <br> Interacción de la consola <br> Crear captura de pantalla <br> Desfragmentar todos los discos <br> Conexión del dispositivo <br> Arrastrar y colocar <br> Administración del sistema operativo invitado de VIX API <br> Inyectar códigos de digitalización de USB HID <br> Pausar o desactivar la pausa <br> Realizar operaciones de borrado o reducción <br> Apagado <br> Encendido <br> Registrar sesión en la máquina virtual <br> Volver a reproducir sesión en la máquina virtual <br> Reset <br> Reanudar tolerancia a errores <br> Suspender <br> Suspender tolerancia a errores <br> Conmutación por error de prueba <br> Reinicio de prueba de máquina virtual secundaria <br> Desactivar tolerancia a errores <br> Activar tolerancia a errores <br> Instalación de herramientas de VMware |
 | **Máquina virtual > Inventario** | Crear a partir de un elemento existente <br> Crear nuevo <br> Move <br> Register <br> Remove <br> Unregister |
 | **Máquina virtual > Aprovisionamiento** | Permitir acceso al disco <br> Permitir acceso al archivo <br> Permitir acceso a disco de solo lectura <br> Permitir descarga de máquina virtual <br> Permitir carga de archivos de máquina virtual <br> Clonar plantilla <br> Clonar máquina virtual <br> Crear plantilla a partir de máquina virtual <br> Personalizar <br> Implementar plantilla <br> Marcar como plantilla <br> Marcar como máquina virtual <br> Modificar especificación de personalización <br> Promocionar discos <br> Leer especificaciones de personalización |
 | **Máquina virtual > Configuración de servicio** | Permitir notificaciones <br> Permitir sondeo de notificaciones de eventos globales <br> Administrar configuraciones de servicio <br> Modificar configuraciones de servicio <br> Consultar configuraciones de servicio <br> Leer configuraciones de servicio |
-| **Máquina virtual > Administración de instantáneas** | Creación de una instantánea <br> Quitar instantánea <br> Cambiar nombre de instantánea <br> Revertir a instantánea |
+| **Máquina virtual > Administración de instantáneas** | Creación de instantáneas <br> Quitar instantánea <br> Cambiar nombre de instantánea <br> Revertir a instantánea |
 | **Máquina virtual > Replicación de vSphere** | Configuración de la replicación <br> Administrar replicación <br> Supervisión de la replicación |
 | **vService** | Crear dependencia <br> Destruir dependencia <br> Volver a configurar la configuración de dependencia <br> Actualizar dependencia |
 
@@ -97,17 +97,17 @@ Para conceder permisos a usuarios individuales para que administren la nube priv
 | **Carpeta** | Crear carpeta <br> Eliminar carpeta <br> Mover carpeta <br> Cambiar nombre de la carpeta |
 | **Host > Configuración**  | Configuración de la partición de almacenamiento |
 | **Etiquetas de vSphere** | Asignar o cancelar la asignación de la etiqueta vSphere <br> Crear etiqueta vSphere <br> Crear categoría de etiqueta vSphere <br> Eliminar etiqueta vSphere <br> Eliminar categoría de etiqueta vSphere <br> Editar etiqueta vSphere <br> Editar categoría de etiqueta vSphere <br> Modificar el campo UsedBy de la categoría <br> Modificar el campo UsedBy de la etiqueta |
-| **Red** | Asignar red |
+| **Network** | Asignar red |
 | **Recurso** | Aplicar recomendaciones <br> Asignar vApp a un grupo de recursos <br> Asignar máquina virtual a grupo de recursos <br> Crear grupo de recursos <br> Migrar máquina virtual apagada <br> Migrar máquina virtual encendida <br> Modificar grupo de recursos <br> Mover grupo de recursos <br> Consultar vMotion <br> Eliminar grupo de recursos <br> Cambiar nombre del grupo de recursos |
-| **vApp** | Agregar máquina virtual <br> Asignar grupo de recursos <br> Asignar vApp <br> Clon <br> Crear <br> Eliminar <br> Exportación <br> Importar <br> Move <br> Apagado <br> Encendido <br> Cambiar nombre <br> Suspensión <br> Unregister <br> Ver el entorno de OVF <br> Configuración de aplicaciones de vApp <br> Configuración de instancias de vApp <br> Configuración de managedBy de vApp <br> Configuración de recursos de vApp |
+| **vApp** | Agregar máquina virtual <br> Asignar grupo de recursos <br> Asignar vApp <br> Clonar <br> Crear <br> Eliminar <br> Exportación <br> Importar <br> Move <br> Apagado <br> Encendido <br> Cambiar nombre <br> Suspender <br> Unregister <br> Ver el entorno de OVF <br> Configuración de aplicaciones de vApp <br> Configuración de instancias de vApp <br> Configuración de managedBy de vApp <br> Configuración de recursos de vApp |
 | **VRMPolicy** | Consultar VRMPolicy <br> Actualizar VRMPolicy |
 | **Máquina virtual > Configuración** | Agregar disco existente <br> Agregar disco nuevo <br> Agregar o eliminar dispositivo <br> Avanzado <br> Cambiar cantidad de CPU <br> Cambiar recurso <br> Configurar managedBy <br> Seguimiento de cambios de disco <br> Concesión de disco <br> Mostrar configuración de conexión <br> Extender disco virtual <br> Hospedar dispositivo USB <br> Memoria <br> Modificar la configuración del dispositivo <br> Consultar compatibilidad con tolerancia a errores <br> Consultar archivos sin propietario <br> Dispositivo sin formato <br> Volver a cargar desde la ruta de acceso <br> Quitar disco <br> Cambiar nombre <br> Restablecer información de invitados <br> Establecer anotación <br> Configuración <br> Ubicación del archivo de intercambio <br> Alternar la bifurcación principal <br> Desbloquear máquina virtual <br> Actualizar compatibilidad con máquina virtual |
 | **Máquina virtual > Operaciones de invitado** | Modificación de alias de operación de invitado <br> Consulta de alias de operación de invitado <br> Modificaciones de operación de invitado <br> Ejecución del programa de operaciones de invitado <br> Consultas de operaciones de invitado |
-| **Máquina virtual > Interacción** | Responder pregunta <br> Operación de copia de seguridad en máquina virtual <br> Configurar soporte de CD <br> Configurar soporte de disquete <br> Interacción de la consola <br> Crear captura de pantalla <br> Desfragmentar todos los discos <br> Conexión del dispositivo <br> Arrastrar y colocar <br> Administración del sistema operativo invitado de VIX API <br> Inyectar códigos de digitalización de USB HID <br> Pausar o desactivar la pausa <br> Realizar operaciones de borrado o reducción <br> Apagado <br> Encendido <br> Registrar sesión en la máquina virtual <br> Volver a reproducir sesión en la máquina virtual <br> Reset <br> Reanudar tolerancia a errores <br> Suspensión <br> Suspender tolerancia a errores <br> Conmutación por error de prueba <br> Reinicio de prueba de máquina virtual secundaria <br> Desactivar tolerancia a errores <br> Activar tolerancia a errores <br> Instalación de herramientas de VMware
+| **Máquina virtual > Interacción** | Responder pregunta <br> Operación de copia de seguridad en máquina virtual <br> Configurar soporte de CD <br> Configurar soporte de disquete <br> Interacción de la consola <br> Crear captura de pantalla <br> Desfragmentar todos los discos <br> Conexión del dispositivo <br> Arrastrar y colocar <br> Administración del sistema operativo invitado de VIX API <br> Inyectar códigos de digitalización de USB HID <br> Pausar o desactivar la pausa <br> Realizar operaciones de borrado o reducción <br> Apagado <br> Encendido <br> Registrar sesión en la máquina virtual <br> Volver a reproducir sesión en la máquina virtual <br> Reset <br> Reanudar tolerancia a errores <br> Suspender <br> Suspender tolerancia a errores <br> Conmutación por error de prueba <br> Reinicio de prueba de máquina virtual secundaria <br> Desactivar tolerancia a errores <br> Activar tolerancia a errores <br> Instalación de herramientas de VMware
 | **Máquina virtual > Inventario** | Crear a partir de un elemento existente <br> Crear nuevo <br> Move <br> Register <br> Remove <br> Unregister |
 | **Máquina virtual > Aprovisionamiento** | Permitir acceso al disco <br> Permitir acceso al archivo <br> Permitir acceso a disco de solo lectura <br> Permitir descarga de máquina virtual <br> Permitir carga de archivos de máquina virtual <br> Clonar plantilla <br> Clonar máquina virtual <br> Crear plantilla a partir de máquina virtual <br> Personalizar <br> Implementar plantilla <br> Marcar como plantilla <br> Marcar como máquina virtual <br> Modificar especificación de personalización <br> Promocionar discos  <br> Leer especificaciones de personalización |
 | **Máquina virtual > Configuración de servicio** | Permitir notificaciones <br> Permitir sondeo de notificaciones de eventos globales <br> Administrar configuraciones de servicio <br> Modificar configuraciones de servicio <br> Consultar configuraciones de servicio <br> Leer configuraciones de servicio
-| **Máquina virtual > Administración de instantáneas** | Creación de una instantánea <br> Quitar instantánea <br> Cambiar nombre de instantánea <br> Revertir a instantánea |
+| **Máquina virtual > Administración de instantáneas** | Creación de instantáneas <br> Quitar instantánea <br> Cambiar nombre de instantánea <br> Revertir a instantánea |
 | **Máquina virtual > Replicación de vSphere** | Configuración de la replicación <br> Administrar replicación <br> Supervisión de la replicación |
 | **vService** | Crear dependencia <br> Destruir dependencia <br> Volver a configurar la configuración de dependencia <br> Actualizar dependencia |
 
@@ -126,7 +126,7 @@ Para conceder permisos a usuarios individuales para que administren la nube priv
 | **Categoría** | **Privilegio** |
 |----------|-----------|
 | **Grupo dvPort** | Crear <br> Eliminar <br> Modificar <br> Operación de directiva <br> Operación de ámbito |
-| **Red** | Asignar red <br> Configuración <br> Mover red <br> Remove |
+| **Network** | Asignar red <br> Configuración <br> Mover red <br> Remove |
 | **Máquina virtual > Configuración** | Modificar la configuración del dispositivo |
 
 ### <a name="cloud-vm-admin-role"></a>Cloud-VM-Admin-Role
@@ -134,15 +134,15 @@ Para conceder permisos a usuarios individuales para que administren la nube priv
 | **Categoría** | **Privilegio** |
 |----------|-----------|
 | **Almacén de datos** | Asignar espacio <br> Examen de un almacén de datos |
-| **Red** | Asignar red |
+| **Network** | Asignar red |
 | **Recurso** | Asignar máquina virtual a grupo de recursos <br> Migrar máquina virtual apagada <br> Migrar máquina virtual encendida
 | **vApp** | Exportación <br> Importar |
 | **Máquina virtual > Configuración** | Agregar disco existente <br> Agregar disco nuevo <br> Agregar o eliminar dispositivo <br> Avanzado <br> Cambiar cantidad de CPU <br> Cambiar recurso <br> Configurar managedBy <br> Seguimiento de cambios de disco <br> Concesión de disco <br> Mostrar configuración de conexión <br> Extender disco virtual <br> Hospedar dispositivo USB <br> Memoria <br> Modificar la configuración del dispositivo <br> Consultar compatibilidad con tolerancia a errores <br> Consultar archivos sin propietario <br> Dispositivo sin formato <br> Volver a cargar desde la ruta de acceso <br> Quitar disco <br> Cambiar nombre <br> Restablecer información de invitados <br> Establecer anotación <br> Configuración <br> Ubicación del archivo de intercambio <br> Alternar la bifurcación principal <br> Desbloquear máquina virtual <br> Actualizar compatibilidad con máquina virtual |
 | **Máquina virtual > Operaciones de invitado** | Modificación de alias de operación de invitado <br> Consulta de alias de operación de invitado <br> Modificaciones de operación de invitado <br> Ejecución del programa de operaciones de invitado <br> Consultas de operaciones de invitado    |
-| **Máquina virtual > Interacción** | Responder pregunta <br> Operación de copia de seguridad en máquina virtual <br> Configurar soporte de CD <br> Configurar soporte de disquete <br> Interacción de la consola <br> Crear captura de pantalla <br> Desfragmentar todos los discos <br> Conexión del dispositivo <br> Arrastrar y colocar <br> Administración del sistema operativo invitado de VIX API <br> Inyectar códigos de digitalización de USB HID <br> Pausar o desactivar la pausa <br> Realizar operaciones de borrado o reducción <br> Apagado <br> Encendido <br> Registrar sesión en la máquina virtual <br> Volver a reproducir sesión en la máquina virtual <br> Reset <br> Reanudar tolerancia a errores <br> Suspensión <br> Suspender tolerancia a errores <br> Conmutación por error de prueba <br> Reinicio de prueba de máquina virtual secundaria <br> Desactivar tolerancia a errores <br> Activar tolerancia a errores <br> Instalación de herramientas de VMware |
+| **Máquina virtual > Interacción** | Responder pregunta <br> Operación de copia de seguridad en máquina virtual <br> Configurar soporte de CD <br> Configurar soporte de disquete <br> Interacción de la consola <br> Crear captura de pantalla <br> Desfragmentar todos los discos <br> Conexión del dispositivo <br> Arrastrar y colocar <br> Administración del sistema operativo invitado de VIX API <br> Inyectar códigos de digitalización de USB HID <br> Pausar o desactivar la pausa <br> Realizar operaciones de borrado o reducción <br> Apagado <br> Encendido <br> Registrar sesión en la máquina virtual <br> Volver a reproducir sesión en la máquina virtual <br> Reset <br> Reanudar tolerancia a errores <br> Suspender <br> Suspender tolerancia a errores <br> Conmutación por error de prueba <br> Reinicio de prueba de máquina virtual secundaria <br> Desactivar tolerancia a errores <br> Activar tolerancia a errores <br> Instalación de herramientas de VMware |
 | **Máquina virtual > Inventario** | Crear a partir de un elemento existente <br> Crear nuevo <br> Move <br> Register <br> Remove <br> Unregister |
 | **Máquina virtual > Aprovisionamiento** | Permitir acceso al disco <br> Permitir acceso al archivo <br> Permitir acceso a disco de solo lectura <br> Permitir descarga de máquina virtual <br> Permitir carga de archivos de máquina virtual <br> Clonar plantilla <br> Clonar máquina virtual <br> Crear plantilla a partir de máquina virtual <br> Personalizar <br> Implementar plantilla <br> Marcar como plantilla <br> Marcar como máquina virtual <br> Modificar especificación de personalización <br> Promocionar discos <br> Leer especificaciones de personalización |
 | **Máquina virtual > Configuración de servicio** | Permitir notificaciones <br> Permitir sondeo de notificaciones de eventos globales <br> Administrar configuraciones de servicio <br> Modificar configuraciones de servicio <br> Consultar configuraciones de servicio <br> Leer configuraciones de servicio
-| **Máquina virtual > Administración de instantáneas** | Creación de una instantánea <br> Quitar instantánea <br> Cambiar nombre de instantánea <br> Revertir a instantánea |
+| **Máquina virtual > Administración de instantáneas** | Creación de instantáneas <br> Quitar instantánea <br> Cambiar nombre de instantánea <br> Revertir a instantánea |
 | **Máquina virtual > Replicación de vSphere** | Configuración de la replicación <br> Administrar replicación <br> Supervisión de la replicación |
 | **vService** | Crear dependencia <br> Destruir dependencia <br> Volver a configurar la configuración de dependencia <br> Actualizar dependencia |

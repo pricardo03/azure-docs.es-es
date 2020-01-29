@@ -1,6 +1,6 @@
 ---
-title: 'Notification Hubs: arquitectura de inserción empresarial'
-description: Instrucciones de uso de Azure Notification Hubs en un entorno de empresa
+title: Arquitectura de inserción empresarial de Notification Hubs
+description: Aprenda a usar Azure Notification Hubs en un entorno de empresa
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211908"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264040"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Instrucciones sobre arquitectura de inserción empresarial
 
@@ -35,7 +35,7 @@ Una solución mejor es usar el modelo de temas y suscripciones de Azure Service 
 
 Esta es la arquitectura general de la solución (generalizada con varias aplicaciones móviles pero igualmente aplicable cuando solo hay una aplicación móvil).
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 ![][1]
 
@@ -58,7 +58,7 @@ La pieza clave en este diagrama arquitectónico es Azure Service Bus que proporc
 
 ## <a name="sample"></a>Muestra
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Para familiarizarse con los conceptos, así como con los pasos comunes de creación y configuración, realice los siguientes tutoriales:
 

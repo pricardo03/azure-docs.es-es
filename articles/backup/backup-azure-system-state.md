@@ -1,39 +1,37 @@
 ---
 title: Copias de seguridad del estado del sistema de Windows en Azure
 description: Aprenda a hacer copias de seguridad del estado del sistema de Windows Server y/o equipos Windows en Azure.
-services: backup
-author: saurabhsensharma
-manager: shivamg
-keywords: cómo realizar copias de seguridad; cómo realizar una copia de seguridad; copia de seguridad de archivos y carpetas
-ms.service: backup
+ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.author: saurse
-ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 847ed8fc5a6c102284a03fa593587792767d7913
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "76294021"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Copias de seguridad del estado del sistema de Windows en la implementación de Resource Manager
-En este artículo se explica cómo realizar copias de seguridad del estado del sistema de Windows Server en Azure. Es un tutorial diseñado para guiarle por los aspectos básicos.
+
+En este artículo se explica cómo realizar copias de seguridad del estado del sistema de Windows Server en Azure. Está diseñado para guiarle en los aspectos básicos.
 
 Si desea más información acerca de Azure Backup, lea esta [introducción](backup-overview.md).
 
 Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a todos los servicios de Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
+
 Para hacer una copia de seguridad del estado del sistema de Windows Server, debe crear un almacén de Recovery Services en la región en la que quiere almacenar los datos. También debe determinar cómo desea que se replique el almacenamiento.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com/) mediante su suscripción.
+
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com/) mediante su suscripción de Azure.
 2. En el menú del concentrador, haga clic en **Todos los servicios** y, en la lista de recursos, escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
 
-    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
+    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-system-state/open-rs-vault-list.png)
 
     Si hay almacenes de Recovery Services en la suscripción, estos aparecerán en una lista.
-3. En el menú **Almacenes de servicios de recuperación**, haga clic en **Agregar**.
+3. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
 
     ![Creación del almacén de Recovery Services, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
@@ -48,10 +46,10 @@ Para hacer una copia de seguridad del estado del sistema de Windows Server, debe
 6. En la sección **Grupo de recursos**:
 
     * Si desea crear un nuevo grupo de recursos, seleccione **Crear nuevo**.
-    o
+    Or
     * Seleccione **Use existing** (Usar existente) y haga clic en el menú desplegable para ver la lista de grupos de recursos disponibles.
 
-   Para más información sobre los grupos de recursos, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Para más información sobre los grupos de recursos, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. Esta elección determina la región geográfica a la que se envían los datos de copia de seguridad.
 
@@ -64,6 +62,7 @@ Para hacer una copia de seguridad del estado del sistema de Windows Server, debe
     Cuando vea el almacén en la lista de almacenes de Recovery Services, estará listo para configurar la redundancia de almacenamiento.
 
 ### <a name="set-storage-redundancy-for-the-vault"></a>Establecimiento de la redundancia de almacenamiento para el almacén
+
 Cuando cree un almacén de Recovery Services, asegúrese de que la configuración de la redundancia de almacenamiento sea la que quiere.
 
 1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo.
@@ -87,6 +86,7 @@ Cuando cree un almacén de Recovery Services, asegúrese de que la configuració
 Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad del estado del sistema de Windows.
 
 ## <a name="configure-the-vault"></a>Configuración del almacén
+
 1. En la hoja del almacén de Recovery Services (el almacén que acaba de crear), en la sección de introducción, haga clic en **Copia de seguridad** y, a continuación, en la hoja **Introducción a la copia de seguridad**, seleccione **Objetivo de copia de seguridad**.
 
     ![Abrir hoja de objetivo de copia de seguridad](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
@@ -99,7 +99,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     Elija **Local** ya que su equipo Windows o Windows Server es una máquina física que no está en Azure.
 
-3. En el menú **What do you want to backup?** (¿De qué quiere realizar una copia de seguridad?), seleccione **Estado del sistema** y haga clic en **Aceptar**.
+3. En el menú **¿De qué quiere realizar una copia de seguridad?** , seleccione **Estado del sistema** y haga clic en **Aceptar**.
 
     ![Configuración de archivos y carpetas](./media/backup-azure-system-state/backup-goal-system-state.png)
 
@@ -127,7 +127,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     ![descargar las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Descargue las credenciales de almacén en la carpeta Descargas. Una vez que haya terminado de descargar las credenciales del almacén, aparecerá una ventana emergente en la que se le preguntará si desea abrirlas o guardarlas. Haga clic en **Save**(Guardar). Si, accidentalmente, hace clic en **Abrir**, deje que el cuadro de diálogo intente abrir las credenciales de almacén. Se producirá un error. No se pueden abrir las credenciales de almacén. Siga con el paso siguiente. Las credenciales del almacén están en la carpeta de descargas.   
+    Descargue las credenciales de almacén en la carpeta Descargas. Una vez que haya terminado de descargar las credenciales del almacén, aparecerá una ventana emergente en la que se le preguntará si desea abrirlas o guardarlas. Haga clic en **Save**(Guardar). Si, accidentalmente, hace clic en **Abrir**, deje que el cuadro de diálogo intente abrir las credenciales de almacén. Se producirá un error. No se pueden abrir las credenciales de almacén. Siga con el paso siguiente. Las credenciales del almacén están en la carpeta de descargas.
 
     ![finalizó la descarga de las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -164,6 +164,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 Ahora está instalado el agente y el equipo está registrado en el almacén. Está listo para configurar y programar la copia de seguridad.
 
 ## <a name="back-up-windows-server-system-state"></a>Copia de seguridad del estado del sistema de Windows Server
+
 La copia de seguridad inicial incluye dos tareas:
 
 * Programación de la copia de seguridad
@@ -184,7 +185,7 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
 
 2. En el agente de Recovery Services, haga clic en **Programar Backup**.
 
-    ![Programación de una copia de seguridad de Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
+    ![Programar una copia de seguridad de Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
 3. En la página de introducción del Asistente para programar copias de seguridad, haga clic en **Siguiente**.
 
@@ -206,23 +207,27 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
 
 2. En el agente de Recovery Services, haga clic en **Back Up Now** (Iniciar copia de seguridad) para completar la propagación inicial a través de la red.
 
-    ![Copia de seguridad de Windows Server ahora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
+    ![Realizar copia de seguridad de Windows Server ahora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
 3. Seleccione **Estado del sistema** en la pantalla **Seleccionar el elemento de copia de seguridad** que aparece y haga clic en **Siguiente**.
 
 4. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Crear copia de seguridad**.
 
-4. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice la copia de seguridad, el asistente se sigue ejecutando en segundo plano.
-
+5. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice la copia de seguridad, el asistente se sigue ejecutando en segundo plano.
+    > [!NOTE]
+    > El agente de MARS desencadena SFC /verifyonly como parte de las comprobaciones previas antes de cada copia de seguridad del estado del sistema. Esto se hace para asegurarse de que los archivos de los que se ha realizado una copia de seguridad como parte del estado del sistema tienen las versiones correctas correspondientes a la versión de Windows. Más información acerca del comprobador de archivos de sistema (SFC) en [este artículo](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    >
 
 Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
 
   ![IR completado](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## <a name="questions"></a>¿Tiene preguntas?
+
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Obtenga más información acerca de cómo [realizar copias de seguridad de máquinas Windows](backup-configure-vault.md).
 * Ahora que ha realizado una copia de seguridad del estado del sistema de Windows Server, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 * Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).

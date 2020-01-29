@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: e8fc6e8c2f37dcd3edec24fb4d8ed81b32a84bd0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816582"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264210"
 ---
 # <a name="scenario-availability"></a>Disponibilidad de escenarios
 
@@ -45,6 +45,9 @@ El SDK de Voz presenta muchos escenarios en una amplia variedad de lenguajes y e
   - C++/Windows y Linux
   - C# (Framework y .NET Core)/Windows, UWP y Linux
   - Java/Windows, Linux y Android (SDK de dispositivos de voz)
+- **Conversación entre varios dispositivos**
+  - C++/Windows
+  - C# (Framework y .NET Core)/Windows
 - **Transcripción para centros de llamadas**
   - La API REST se puede usar en cualquier situación.
 - **Entrada de audio comprimido con códec**

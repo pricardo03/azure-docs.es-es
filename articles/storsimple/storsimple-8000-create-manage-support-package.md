@@ -1,25 +1,17 @@
 ---
-title: Crear un paquete de soporte de la serie StorSimple 8000 | Microsoft Docs
+title: Crear un paquete de soporte de la serie StorSimple 8000
 description: Obtenga información sobre cómo crear, descifrar y editar un paquete de soporte para el dispositivo de la serie StorSimple 8000.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481866"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277071"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Crear y administrar un paquete de soporte para la serie StorSimple 8000
 
@@ -72,7 +64,7 @@ Puede compartir su paquete de soporte generado manualmente con el servicio de so
 
 Puede usar los siguientes parámetros con el cmdlet Export-HcsSupportPackage.
 
-| Parámetro | Obligatorio/opcional | DESCRIPCIÓN |
+| Parámetro | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | `-Path` |Obligatorio |Se usa para proporcionar la ubicación de la carpeta compartida de red en la que se coloca el paquete de soporte. |
 | `-EncryptionPassphrase` |Obligatorio |Se utiliza para proporcionar una frase de contraseña que ayuda a cifrar el paquete de soporte. |
@@ -149,5 +141,5 @@ A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volv
 
 * Obtenga información sobre la [información recopilada en el paquete de soporte](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
 * Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
-* Obtenga información sobre cómo [usar el servicio Administrador de dispositivos de StorSimple para administrar el dispositivo de StorSimple](storsimple-8000-manager-service-administration.md).
+* Aprenda a [usar el servicio StorSimple Device Manager para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

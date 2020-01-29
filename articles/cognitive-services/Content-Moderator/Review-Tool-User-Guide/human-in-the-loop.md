@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
-ms.openlocfilehash: 465f24c3d9b7f53c0b494f387cc5d21aa6bd83b5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a23e6d46ee6e79fd7a5cabf4434c561f7d83b31b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754227"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169501"
 ---
 # <a name="content-moderator-review-tool"></a>Herramienta de revisión de Content Moderator
 
@@ -31,7 +31,7 @@ La [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com),
 - Automatice la creación de [revisiones](../review-api.md#reviews) humanas cuando lleguen los resultados de la API de moderación.
 - Asigne o escale las revisiones de contenido a varios equipos de revisión organizados por categoría de contenido o nivel de experiencia.
 - Use filtros de lógica personalizados o predeterminados ([flujos de trabajo](../review-api.md#workflows)) para ordenar el contenido y realizar su seguimiento, sin escribir código.
-- Use [conectores](./configure.md#connectors) para procesar el contenido con Microsoft PhotoDNA, Text Analytics y Face API, además de las API de Content Moderator.
+- Use [conectores](./configure.md#connectors) para procesar el contenido con Microsoft PhotoDNA, Text Analytics y el servicio Face, además de las API de Content Moderator.
 - Construya su propio conector para crear flujos de trabajo para cualquier API o proceso de negocio.
 - Obtenga métricas clave de rendimiento de los procesos de moderación de contenido.
 

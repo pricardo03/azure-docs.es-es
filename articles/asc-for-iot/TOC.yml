@@ -37,6 +37,8 @@
       href: concept-security-module.md
     - name: Alertas de seguridad
       href: concept-security-alerts.md
+    - name: Alertas de seguridad personalizables
+      href: concept-customizable-security-alerts.md
     - name: Recomendaciones de seguridad
       href: concept-recommendations.md
     - name: Línea base
@@ -45,7 +47,7 @@
       href: event-aggregation.md
     - name: Precios y costos asociados
       href: concept-pricing.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: ¿Qué agente debo implementar?
       items:

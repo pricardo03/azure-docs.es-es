@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606342"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264838"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
 En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de clase de una cuenta de laboratorio. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. La cuenta que usó para crear una cuenta de laboratorio se agrega automáticamente a este rol. Un propietario de laboratorio puede agregar otros usuarios al rol Creador de laboratorio mediante los pasos que se indican en el siguiente artículo: [Incorporación de un usuario al rol Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Creación de un laboratorio educativo
@@ -40,7 +40,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
     4. Revise el **precio total por hora** mostrado en la página. 
     6. Seleccione **Guardar**.
 
-        ![Nueva ventana de laboratorio](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Ventana de nuevo laboratorio](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. En la página **Virtual machine credentials** (Credenciales de la máquina virtual), especifique las credenciales predeterminadas de todas las máquinas virtuales del laboratorio.
     1. Especifique el **nombre del usuario** para todas las máquinas virtuales del laboratorio.
     2. Especifique la **contraseña** del usuario. 
@@ -51,11 +51,11 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
         Un profesor puede elegir usar la misma contraseña para todas las máquinas virtuales en el laboratorio o permitir a los alumnos establecer contraseñas para sus máquinas virtuales. De forma predeterminada, esta configuración está habilitada para todas las imágenes Windows y Linux, excepto para Ubuntu. Al seleccionar la máquina virtual **Ubuntu**, esta opción está deshabilitada, por lo que se pedirá a los alumnos que establezcan una contraseña cuando inicien sesión por primera vez.  
 
-        ![Nueva ventana de laboratorio](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+        ![Ventana de nuevo laboratorio](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
         > [!IMPORTANT]
         > Tome nota de ambos. No se volverán a mostrar.    
     4. A continuación, seleccione **Next** (Siguiente) en la página **Virtual machine credentials** (Credenciales de la máquina virtual). 
-5. En la página **Lab policies** (Directivas del laboratorio), escriba el número de horas asignadas a cada usuario (**cuota para cada usuario**) fuera del tiempo programado del laboratorio y seleccione **Finish** (Finalizar). 
+5. En la página **Lab policies** (Directivas del laboratorio), escriba el número de horas asignadas para cada usuario (**cuota para cada usuario**) fuera del tiempo programado para el laboratorio y seleccione **Finish** (Terminar). 
 
     ![Cuota para cada usuario](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
 5. Debería ver la siguiente pantalla, que muestra el estado de la creación de la máquina virtual de plantilla. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
@@ -92,15 +92,18 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
 ### <a name="vm-sizes"></a>Tamaños de VM  
 
-| Size | Núcleos | RAM | DESCRIPCIÓN | 
+| Size | Núcleos | RAM | Descripción | 
 | ---- | ----- | --- | ----------- | 
 | Pequeña | 2 | 3,5 GB | Este tamaño es el más adecuado para la línea de comandos, apertura de navegador web, servidores web de poco tráfico, bases de datos pequeñas o medianas. |
-| Mediano | 4 | 7 GB | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria | 
+| Media | 4 | 7 GB | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria | 
 | Mediano (virtualización anidada) | 4 | 16 GB | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. Este tamaño admite la virtualización anidada. <p>Este tamaño puede usarse en escenarios donde cada alumno necesita varias máquinas virtuales. Los profesores pueden usar la virtualización anidada para configurar varias máquinas virtuales anidadas de tamaño pequeño dentro de la máquina virtual. </p> |
 | grande | 8 | 32 GB | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. Este tamaño admite la virtualización anidada |  
 | GPU pequeña (visualización) | 6 | 56 GB | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. | 
 | GPU pequeña (proceso) | 6 | 56 GB | Este tamaño es más adecuado para aplicaciones de proceso intensivo y uso intensivo de la red; por ejemplo, aplicaciones de inteligencia artificial y aprendizaje profundo. | 
 | GPU mediana (visualización) | 12 | 112 GB | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. | 
+
+> [!NOTE]
+> Azure Lab Services instala y configura automáticamente los controladores de GPU necesarios cuando se crea un laboratorio con imágenes de GPU.  
 
 ## <a name="view-all-classroom-labs"></a>Visualización de todos los laboratorios de clase
 1. Vaya al [portal de Azure Lab Services](https://labs.azure.com).
@@ -129,7 +132,7 @@ También puede crear un laboratorio con la opción **New lab** (Nuevo laboratori
 Para cambiar a una cuenta de laboratorio diferente, seleccione la lista desplegable junto a la cuenta de laboratorio y seleccione la otra cuenta de laboratorio. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Como propietario del laboratorio, configurar y publicar plantillas](how-to-create-manage-template.md)
 - [Como propietario del laboratorio, configurar y controlar el uso de un laboratorio](how-to-configure-student-usage.md)

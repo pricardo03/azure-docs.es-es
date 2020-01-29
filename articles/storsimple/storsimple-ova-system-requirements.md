@@ -1,25 +1,18 @@
 ---
-title: Requisitos del sistema de la matriz virtual de Microsoft Azure StorSimple | Microsoft Docs
+title: Requisitos del sistema de la matriz virtual de Microsoft Azure StorSimple
 description: Obtenga más información sobre los requisitos de software y red de la matriz virtual de StorSimple
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 65d2a21a9f40470cee1dd9d713f9f9cb5431a245
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516698"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273764"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
 
@@ -76,7 +69,7 @@ Los siguientes requisitos de software son para los iniciadores de iSCSI con acce
 
 | **Sistemas operativos compatibles** | **Versión requerida** | **Requisitos/notas adicionales** |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes aprovisionados parcialmente. Solo se admiten volúmenes de iSCSI de StorSimple para: <ul><li>Volúmenes simples en discos básicos de Windows.</li><li>NTFS de Windows para dar formato a un volumen.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes de aprovisionamiento parcial. Solo se admiten volúmenes de iSCSI de StorSimple para: <ul><li>Volúmenes simples en discos básicos de Windows.</li><li>NTFS de Windows para dar formato a un volumen.</li> |
 
 Los siguientes requisitos de software son para los iniciadores de SMB con acceso a su matriz virtual de StorSimple (configurada como servidor de archivos).
 
@@ -98,13 +91,13 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 
 | **Nº de puerto<sup>1</sup>** | **Dentro o fuera** | **Ámbito de puerto** | **Obligatorio** | **Notas** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Fuera |WAN |Sin |El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones. <br></br>El usuario puede configurar el proxy web de salida. |
+| TCP 80 (HTTP) |Fuera |WAN |No |El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones. <br></br>El usuario puede configurar el proxy web de salida. |
 | TCP 443 (HTTPS) |Fuera |WAN |Sí |El puerto de salida se usa para tener acceso a los datos en la nube. <br></br>El usuario puede configurar el proxy web de salida. |
 | UDP 53 (DNS) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. <br></br> Tenga en cuenta que si implementa un servidor de archivos, le recomendamos que use el servidor DNS local. |
 | UDP 123 (NTP) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet.<br></br> Tenga en cuenta que si implementa un servidor de archivos, le recomendamos que sincronice la hora con los controladores de dominio de Active Directory. |
 | TCP 80 (HTTP) |En |LAN |Sí |Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> Tenga en cuenta que si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS. |
 | TCP 443 (HTTPS) |En |LAN |Sí |Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. |
-| TCP 3260 (iSCSI) |En |LAN |Sin |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
+| TCP 3260 (iSCSI) |En |LAN |No |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
@@ -121,7 +114,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 > [!NOTE]
 > 
 > * Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube. 
-> * Las IP de destino, por su parte, se deben establecer en [Intervalos IP de centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> * Las IP de destino, por su parte, se deben establecer en los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 

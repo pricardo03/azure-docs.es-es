@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: d3a12dec64d481c5c877039fecc71b46f224e91d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535724"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312437"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>¿Qué es el diseñador de Azure Machine Learning (versión preliminar)? 
+# <a name="what-is-azure-machine-learning-designer"></a>¿Qué es el diseñador de Azure Machine Learning? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 El diseñador de Azure Machine Learning le permite conectar visualmente [conjuntos de datos](#datasets) y [módulos](#module) en un lienzo interactivo para crear modelos de aprendizaje automático. Para más información sobre cómo empezar a trabajar con el diseñador, consulte [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
@@ -116,7 +116,7 @@ El diseñador crea el mismo objeto [PublishedPipeline](https://docs.microsoft.co
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Pasar de la interfaz visual al diseñador
 
-La interfaz visual (versión preliminar) se ha actualizado y ahora es el diseñador Azure Machine Learning (versión preliminar). El diseñador se ha rediseñado para usar un back-end basado en canalización que se integra totalmente con las otras características de Azure Machine Learning. 
+La interfaz visual (versión preliminar) se ha actualizado y ahora es el diseñador Azure Machine Learning. El diseñador se ha rediseñado para usar un back-end basado en canalización que se integra totalmente con las otras características de Azure Machine Learning. 
 
 Como resultado de estas actualizaciones, algunos conceptos y términos de la interfaz visual se han cambiado o renombrado. Consulte la tabla siguiente para obtener los cambios conceptuales más importantes. 
 

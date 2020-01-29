@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 55eb5b0b98a4097d2f300bacabbfef3b0a32b27b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ef584c48ab44fd3616b5c7897d589bddbe45dc0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65468505"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549264"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Crear manualmente y usar un volumen de servidor NFS (sistema de archivos de red) de Linux con Azure Kubernetes Service (AKS)
 Compartir datos entre contenedores a menudo es un componente necesario de las aplicaciones y los servicios basados en contenedores. Habitualmente tiene varios pods que necesitan tener acceso a la misma información en un volumen persistente externo.    
@@ -21,13 +21,13 @@ Si bien los archivos de Azure son una posibilidad, crear un servidor NFS en una 
 En este artículo se muestra cómo crear un servidor NFS en una máquina virtual de Ubuntu. Asimismo, se explica cómo dar acceso a los contenedores de AKS a este sistema de archivos compartido.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte la guía de inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
 El clúster de AKS debe residir en las mismas redes virtuales emparejadas que el servidor NFS. El clúster debe crearse en una red virtual existente, que puede ser la misma que la de su máquina virtual.
 
-En la documentación se describen los pasos para configurar una red virtual existente: [Crear un clúster de AKS en una red virtual existente][aks-virtual-network] y [Conectar redes virtuales con el emparejamiento de VNET][peer-virtual-networks]
+En la documentación se describen los pasos para configurar una red virtual existente: [Creación de un clúster de AKS en la red virtual][aks-virtual-network] y [Conexión de redes virtuales con emparejamiento de redes virtuales][peer-virtual-networks]
 
-También se supone que ha creado una máquina Virtual de Ubuntu Linux (por ejemplo, 18.04 LTS). La configuración y el tamaño pueden ser a su gusto y pueden implementarse mediante Azure. Para el inicio rápido de Linux, consulte [Administración de máquinas virtuales de Linux][linux-create].
+También se supone que ha creado una máquina Virtual de Ubuntu Linux (por ejemplo, 18.04 LTS). La configuración y el tamaño pueden ser a su gusto y pueden implementarse mediante Azure. En el caso del inicio rápido de Linux, consulte el artículo sobre la [administración de máquinas virtuales de Linux][linux-create].
 
 Si implementa el clúster de AKS primero, Azure automáticamente rellenará el campo de red virtual al implementar la máquina de Ubuntu, conectándolos dentro de la misma red virtual. Sin embargo, si desea trabajar con redes emparejadas, consulte la documentación anterior.
 
@@ -94,11 +94,11 @@ chmod +x ~/nfs-server-setup.sh
 
 ## <a name="connecting-aks-cluster-to-nfs-server"></a>Conectar el clúster de AKS al servidor NFS
 Podemos conectar el servidor NFS a nuestro clúster aprovisionando un volumen persistente y una notificación de volumen persistente que especifique cómo acceder al volumen.  
-Es necesario conectar ambos servicios en la misma red virtual o en redes virtuales emparejadas. Las instrucciones para configurar el clúster en la misma red virtual se encuentran en este artículo: [Crear un clúster de AKS en una red virtual existente][aks-virtual-network]
+Es necesario conectar ambos servicios en la misma red virtual o en redes virtuales emparejadas. Las instrucciones para configurar el clúster en la misma red virtual se encuentran en este artículo: [Creación de un clúster de AKS en la red virtual][aks-virtual-network].
 
 Una vez que se encuentren en la misma red virtual (o en redes virtuales emparejadas), deberá aprovisionar un volumen persistente y una notificación de volumen persistente en el clúster de AKS. A continuación, los contenedores pueden montar la unidad NFS en su directorio local.
 
-A continuación se halla un ejemplo de definición de kubernetes para el volumen persistente (esta definición presupone que el clúster y la máquina virtual están en la misma red virtual):
+A continuación, se incluye un ejemplo de una definición de Kubernetes para el volumen persistente (esta definición presupone que el clúster y la máquina virtual están en la misma red virtual):
 
 ```yaml
 apiVersion: v1
@@ -140,7 +140,7 @@ spec:
       type: nfs
 ```
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 Si no puede conectarse al servidor desde un clúster, puede que haya un problema en el directorio exportado o en su directorio primario, o bien que no tenga suficientes permisos para acceder al servidor.
 
 Compruebe que el directorio de exportación y su directorio primario tienen 777 permisos.
@@ -156,7 +156,7 @@ Para obtener un tutorial completo o ayuda para depurar la instalación del servi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para consultar los procedimientos recomendados, vea [Procedimientos recomendados para el almacenamiento y las copias de seguridad en AKS][operator-best-practices-storage].
+Para consultar los procedimientos recomendados asociados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
 <!-- LINKS - external -->
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/

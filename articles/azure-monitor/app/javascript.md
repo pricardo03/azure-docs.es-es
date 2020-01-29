@@ -4,15 +4,15 @@ description: Obtenga recuentos de sesiones y vistas de página, además de datos
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045838"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276778"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -29,7 +29,10 @@ Puede utilizar Application Insights con cualquier página web, solo tiene que ag
     * [Fragmento de código Javascript](#snippet-based-setup)
 
 > [!IMPORTANT]
-> Solo tiene que usar uno de los métodos siguientes para agregar el SDK de JavaScript de Application Insights a la aplicación. Si usa la configuración basada en npm, no use la configuración basada en el fragmento de código. Lo mismo ocurre a la inversa: si usa el método del fragmento de código, no utilice la configuración basada en npm. 
+> Use solo un método para agregar el SDK de JavaScript a la aplicación. Si usa el programa de instalación de NPM, no use el fragmento de código y viceversa.
+
+> [!NOTE]
+> El programa de instalación de NPM instala el SDK de JavaScript como una dependencia del proyecto, habilitando IntelliSense, mientras que el fragmento de código captura el SDK en tiempo de ejecución. Ambos admiten las mismas características. Sin embargo, los desarrolladores que desean más eventos y configuración personalizados normalmente optan por el programa de instalación de NPM, mientras que los usuarios que buscan una habilitación rápida del análisis web integrado optan por el fragmento de código.
 
 ### <a name="npm-based-setup"></a>Configuración basada en npm
 
@@ -208,7 +211,7 @@ Esta versión incluye las características y funcionalidades mínimas, que puede
 
 ## <a name="examples"></a>Ejemplos
 
-Para ver ejemplos ejecutables, consulte [Ejemplos del SDK de JavaScript de Application Insights](https://github.com/topics/applicationinsights-js-demo).
+Para ver ejemplos ejecutables, consulte [Ejemplos del SDK de Application Insights para JavaScript](https://github.com/topics/applicationinsights-js-demo).
 
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Actualizar desde la versión anterior de Application Insights
 
@@ -261,4 +264,3 @@ El SDK de JavaScript de Application Insights es de código abierto. Para ver el 
 * [Seguir el uso](usage-overview.md)
 * [Eventos y métricas personalizados](api-custom-events-metrics.md)
 * [Compilación - Métrica - Aprendizaje](usage-overview.md)
-

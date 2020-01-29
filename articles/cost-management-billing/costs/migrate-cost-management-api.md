@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/25/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0dfb7245135097780f027185e4037b6cafbae690
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b0c30cd35efd598767d21dbdafc5100d8896380c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984848"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514721"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft
 
@@ -81,7 +81,7 @@ Si usa cualquiera de las API de EA existentes, deberá actualizarlas para que ad
 | Propósito | Oferta anterior | Nueva oferta |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | Conector y paquete de contenido de [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) | [Aplicación Power BI para Microsoft Azure Consumption Insights](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) y [conector de Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | Conector y paquete de contenido de [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |  [Conector de Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>API para obtener el saldo y los créditos
 

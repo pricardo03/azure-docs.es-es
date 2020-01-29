@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e85738c344189486726b4e7b7f5a76ab03c0ffa9
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7dff2a88da2e12388bfb3a97cfdad236045170cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991441"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543892"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
@@ -35,7 +35,7 @@ En este artículo, aprenderá a implementar un módulo de seguridad en el dispos
 
 Use los pasos siguientes para implementar un módulo de seguridad de Azure Security Center para IoT para IoT Edge.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 1. En su IoT Hub, asegúrese de que el dispositivo está [registrado como un dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
@@ -66,15 +66,15 @@ Use los pasos siguientes para implementar un módulo de seguridad de Azure Secur
     >[!Note] 
     >Si seleccionó **Implementar a escala**, agregue el nombre del dispositivo y los detalles antes de continuar con la pestaña **Agregar módulos** en las instrucciones siguientes.     
 
-Hay tres pasos para crear una implementación de IoT Edge de Azure Security Center para IoT. En las siguientes secciones se abordan cada uno de ellos. 
+Complete cada uno de los pasos para crear una implementación de IoT Edge de Azure Security Center para IoT. 
 
-#### <a name="step-1-add-modules"></a>Paso 1: Adición de módulos
+#### <a name="step-1-modules"></a>Paso 1: Módulos
 
-1. En la pestaña **Agregar módulos**, en el área **Módulos de implementación**, haga clic en la opción **Configurar** para **AzureSecurityCenterforIoT**. 
-   
-1. Cambiar el **nombre** a **azureiotsecurity**.
-1. Cambie el **URI de la imagen** a **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
-1. Compruebe que el valor de **Opciones de creación del contenedor** está establecido en:      
+1. Seleccione el módulo **AzureSecurityCenterforIoT**.
+1. En la pestaña **Configuración del módulo**, cambie el **nombre** a **azureiotsecurity**.
+1. Si es necesario, en la pestaña **Variables de entorno**, agregue una variable (por ejemplo, en el nivel de depuración).
+1. En la pestaña **Opciones de creación del contenedor**, agregue la configuración siguiente:
+
     ``` json
     {
         "NetworkingConfig": {
@@ -92,24 +92,20 @@ Hay tres pasos para crear una implementación de IoT Edge de Azure Security Cent
         }
     }    
     ```
-1. Compruebe que la opción **Establecer propiedades deseadas de gemelo del módulo**  está seleccionada y cambie el objeto de configuración a:
+    
+1. En la pestaña **Configuración de módulos gemelos**, agregue la configuración siguiente:
       
     ``` json
-    { 
-       "properties.desired":{ 
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
-
-          }
-       }
-    }
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. Haga clic en **Save**(Guardar).
-1. Desplácese hasta el final de la pestaña y seleccione **Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge**. 
-   
-1. Cambie el valor de **Imagen** de **Edge Hub** a **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+1. Seleccione **Actualizar**.
 
-1. Verifique que **Opciones de creación** se ha establecido en: 
+#### <a name="step-2-runtime-settings"></a>Paso 2: Configuración del entorno de ejecución
+
+1. Seleccione **Configuración del entorno de ejecución**.
+1. En **Centro de Microsoft Edge**, cambie el valor de **Imagen** a **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+1. Compruebe que la opción **Opciones de creación** está establecida tal y como se muestra a continuación: 
          
     ``` json
     { 
@@ -134,25 +130,30 @@ Hay tres pasos para crear una implementación de IoT Edge de Azure Security Cent
        }
     }
     ```
-1. Haga clic en **Save**(Guardar).
+    
+1. Seleccione **Guardar**.
    
-1. Haga clic en **Next**.
+1. Seleccione **Next** (Siguiente).
 
-#### <a name="step-2-specify-routes"></a>Paso 2: Especificación de rutas 
+#### <a name="step-3-specify-routes"></a>Paso 3: Especificación de rutas 
 
-1. En la pestaña **Especificar rutas**, asegúrese de tener una ruta (explícita o implícita) que reenviará los mensajes del módulo **azureiotsecurity** a **$upstream** de acuerdo con los ejemplos siguientes; solo entonces, haga clic en **Siguiente**. 
+1. En la pestaña **Especificar rutas**, asegúrese de tener una ruta (explícita o implícita) que reenvíe los mensajes del módulo **azureiotsecurity** a **$upstream** de acuerdo con los ejemplos siguientes. Solo cuando la ruta esté establecida, seleccione **Siguiente**.
 
-~~~Default implicit route
-"route": "FROM /messages/* INTO $upstream" 
-~~~
+   Rutas de ejemplo:
 
-~~~Explicit route
-"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-~~~
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>Paso 3: Revisión de la implementación
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
 
-- En la pestaña **Revisar la implementación**, revise la información de implementación y luego seleccione **Enviar** para completar la implementación.
+1. Seleccione **Next** (Siguiente).
+
+#### <a name="step-4-review-deployment"></a>Paso 4: Revisión de la implementación
+
+- En la pestaña **Revisar la implementación**, revise la información de implementación y seleccione **Crear** para completar la implementación.
 
 ## <a name="diagnostic-steps"></a>Pasos de diagnósticos
 
@@ -166,7 +167,7 @@ Si encuentra algún problema, los registros de contenedor son la mejor manera co
    
 1. Compruebe que los siguientes contenedores se están ejecutando:
    
-   | NOMBRE | IMAGEN |
+   | Nombre | IMAGEN |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

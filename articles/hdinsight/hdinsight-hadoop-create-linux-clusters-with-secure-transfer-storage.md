@@ -7,24 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/22/2020
+ms.openlocfilehash: a8176cc07296b7de7b6aba5356485280ef5ebde1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979120"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548822"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creación de un clúster de Apache Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 
 La característica [Se requiere transferencia segura](../storage/common/storage-require-secure-transfer.md) mejora la seguridad de su cuenta de Azure Storage al aplicar todas las solicitudes a su cuenta mediante una conexión segura. Esta característica y el esquema wasbs solo son compatibles con la versión de clúster de HDInsight 3.6 o posterior.
+
+**Habilitar la transferencia segura del almacenamiento después de crear un clúster puede producir errores al usar la cuenta de almacenamiento y no se recomienda. Es mejor crear un clúster con la propiedad habilitada.**
 
 ## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
 * Suscripción de Azure: para crear una cuenta de evaluación gratuita durante un mes, vaya a [azure.microsoft.com/es-es/free](https://azure.microsoft.com/free).
-* Una cuenta de Azure Storage habilitada para transferencia segura. Para obtener instrucciones, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) y [Requerir transferencia segura](../storage/common/storage-require-secure-transfer.md). La habilitación de la transferencia segura de almacenamiento después de crear un clúster requiere pasos adicionales que no se describen en este artículo.
+* Una cuenta de Azure Storage habilitada para transferencia segura. Para obtener instrucciones, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) y [Requerir transferencia segura](../storage/common/storage-require-secure-transfer.md). 
 * Un contenedor de blobs en la cuenta de almacenamiento.
 
 ## <a name="create-cluster"></a>Crear clúster

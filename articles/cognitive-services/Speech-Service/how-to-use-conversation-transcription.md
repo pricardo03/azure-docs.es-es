@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 64a9e11cec7164fb4421dd018238de9f0670382b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805814"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263734"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcripción de conversaciones en tiempo real (versión preliminar)
 
@@ -35,7 +35,7 @@ El SDK de dispositivos de voz proporciona código de ejemplo en Java para la cap
 - [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java) (Código de ejemplo de dispositivo ROOBO)
 - [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java) (Código de ejemplo de Azure Kinect Dev Kit)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Una suscripción al servicio de voz. Puede [obtener una suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/) si no la tiene.
 
@@ -71,7 +71,7 @@ class Program
         // Edit with your desired region for `{region}`
         var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
         // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
-        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+        // Voice signature format example: { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -90,7 +90,7 @@ class Program
         // Edit with your desired region for `{region}`
         var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
         // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
-        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+        // Voice signature format example: { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -113,6 +113,7 @@ Estos son aspectos destacados de código de ejemplo:
 - Registro de los eventos de interés
 - Incorporación de participantes a la conversación o eliminación de los mismos mediante el objeto Conversation
 - Transmisión del audio
+- A partir de la versión 1.9.0 en adelante del SDK de Voz, se admiten los tipos de valor `int` y `string` en el campo Versión de la firma de voz.
 
 El identificador del hablante y la transcripción vuelven en los eventos registrados.
 
@@ -136,7 +137,7 @@ public class MyConversationTranscriber
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             var meetingId = Guid.NewGuid().ToString();
-            using (var conversation = new Conversation(config, meetingId))
+            using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
                 using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
@@ -189,7 +190,7 @@ public class MyConversationTranscriber
                     // Add participants to the conversation.
                     // Create voice signatures using REST API described in the earlier section in this document.
                     // Voice signature needs to be in the following format:
-                    // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+                    // { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
 
                     var speakerA = Participant.From("Speaker_A", "en-us", signatureA);
                     var speakerB = Participant.From("Speaker_B", "en-us", signatureB);

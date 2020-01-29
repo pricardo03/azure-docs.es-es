@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227417"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548873"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: Introducción a la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
@@ -148,7 +148,7 @@ Puesto que se trata de una regla integrada, vamos a ver una advertencia al abrir
 
 Una regla de sincronización tiene cuatro secciones de configuración: descripción, filtro de ámbito, reglas de unión y transformaciones.
 
-#### <a name="description"></a>DESCRIPCIÓN
+#### <a name="description"></a>Descripción
 La primera sección proporciona información básica como el nombre y la descripción.
 
 ![Pestaña Descripción del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -173,7 +173,7 @@ La tercera sección se usa para configurar cómo se relacionan los objetos del e
 
 ![Pestaña Join rules (Reglas de unión) del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
-El contenido de la regla de unión dependerá de la opción de coincidencia seleccionada en el Asistente para instalación. Para una regla entrante, la evaluación se inicia con un objeto del espacio conector de origen y cada grupo de las reglas de unión se evalúa en secuencia. Si se evalúa un objeto de origen para que coincide exactamente con uno del metaverso usando una de las reglas de unión, los objetos se unirán. Si se han evaluado todas las reglas y no hay coincidencia, se usa el tipo de vínculo de la página de descripción. Si esta configuración se establece en **Aprovisionar**, se creará un nuevo objeto en el destino: el metaverso. Aprovisionar un nuevo objeto en el metaverso también se denomina " **proyectar** " un objeto en el metaverso.
+El contenido de la regla de unión dependerá de la opción de coincidencia seleccionada en el Asistente para instalación. Para una regla entrante, la evaluación se inicia con un objeto del espacio conector de origen y cada grupo de las reglas de unión se evalúa en secuencia. Si se evalúa un objeto de origen para que coincide exactamente con uno del metaverso usando una de las reglas de unión, los objetos se unirán. Si se han evaluado todas las reglas y no hay coincidencia, se usa el tipo de vínculo de la página de descripción. Si esta configuración se establece en **Aprovisionar**, se crea un nuevo objeto en el destino, el metaverso, en caso de que haya al menos un atributo en los criterios de combinación (tenga un valor). Aprovisionar un nuevo objeto en el metaverso también se denomina " **proyectar** " un objeto en el metaverso.
 
 Las reglas de unión solo se evalúan una vez. Cuando un objeto del espacio conector y uno del metaverso se unen, permanecerán así mientras el ámbito de la regla de sincronización se siga cumpliendo.
 
@@ -210,7 +210,7 @@ NULL
 
 Para obtener más información sobre el lenguaje de expresiones de los flujos de atributo, vea [Descripción de las expresiones de aprovisionamiento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
 
-### <a name="precedence"></a>Precedencia
+### <a name="precedence"></a>Prioridad
 Hemos examinado algunas reglas de sincronización individuales, pero las reglas se usan combinadas en la configuración. En algunos casos, se aporta un valor de atributo desde varias reglas de sincronización al mismo atributo de destino. En este caso, se usa la precedencia de atributos para determinar qué atributo prevalecerá. Como ejemplo, examinemos el atributo sourceAnchor. Este atributo es importante para poder iniciar sesión en Azure AD. Podemos encontrar un flujo de atributos para este atributo en dos reglas de sincronización diferentes, **In from AD – User AccountEnabled** e **In from AD – User Common**. Debido a la precedencia de las reglas de sincronización, el atributo sourceAnchor se aportará desde el bosque con una cuenta habilitada primero si hay varios objetos unidos al objeto del metaverso. Si no hay cuentas habilitadas, el motor de sincronización usará la regla de sincronización comodín **In from AD – User Common**. Esta configuración garantiza que siga habiendo un atributo sourceAnchor, incluso en las cuentas deshabilitadas.
 
 ![Reglas de sincronización entrantes](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
@@ -220,7 +220,7 @@ El asistente para instalación establece la precedencia para las reglas de sincr
 ### <a name="putting-it-all-together"></a>Resumen
 Ahora conocemos lo suficiente de las reglas de sincronización para poder comprender cómo funciona la configuración con las distintas reglas de sincronización. Si tomamos un usuario y los atributos que se aportan al metaverso, las reglas se aplican en el orden siguiente:
 
-| NOMBRE | Comentario |
+| Nombre | Comentario |
 |:--- |:--- |
 | In from AD – User Join |Regla para unir objetos del espacio del conector con el metaverso. |
 | In from AD – UserAccount Enabled |Atributos necesarios para iniciar sesión en Azure AD y Office 365. Estos atributos deben ser de la cuenta habilitada. |

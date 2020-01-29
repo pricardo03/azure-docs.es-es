@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454654"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288969"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configuración de la visualización de dependencias sin agente para la evaluación
 
-En este artículo se describe cómo configurar la asignación de dependencias sin agente en Azure Migrate: Server Assessment. Esta capacidad está disponible actualmente en versión preliminar para las máquinas de VMware detectadas con un dispositivo con Azure Migrate. 
+En este artículo se describe cómo configurar la asignación de dependencias sin agente en Azure Migrate: Server Assessment. 
 
 > [!IMPORTANT]
 > La visualización de dependencias sin agente se encuentra actualmente en versión preliminar para las VM de Azure VMware detectadas mediante un dispositivo con Azure Migrate.
@@ -54,17 +54,8 @@ La visualización de dependencias sin agente no requiere la instalación de ning
 - El análisis de dependencias sin agente está actualmente disponible solo para máquinas de VMware.
 - Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
 - Compruebe que ha detectado sus máquinas de VMware en Azure Migrate; para hacerlo, configure un dispositivo de Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment. [Más información](migrate-appliance.md).
-- Asegúrese de que las VM de VMware se admiten para la visualización de dependencias sin agente, como se resume en la tabla siguiente.
+- [Revise los requisitos](migrate-support-matrix-vmware.md#agentless-dependency-visualization) para configurar la visualización de dependencias sin agente.
 
-
-### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
-
-Los sistemas operativos compatibles para la visualización de dependencias sin agente son los siguientes.
-
-**Tipo** | **Sistemas operativos compatibles**
---- | ---
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits)
-**Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
 ## <a name="create-a-user-account-for-discovery"></a>Creación de una cuenta de usuario para la detección
@@ -96,10 +87,10 @@ Elija las máquinas en las que quiere habilitar la detección de dependencias.
 
 1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
 2. Haga clic en el icono **Análisis de dependencias**.
-3. Haga clic en **Start dependency discovery** (Iniciar la detección de dependencias).
-3. En la página **Start dependency discovery** (Iniciar la detección de dependencias), elija el dispositivo que está detectando las máquinas pertinentes.
+3. Haga clic en **Agregar servidores**.
+3. En la página **Agregar servidores**, elija el dispositivo que detecta las máquinas pertinentes.
 4. En la lista de máquinas, seleccione las máquinas.
-5. Haga clic en **Start dependency discovery** (Iniciar la detección de dependencias).
+5. Haga clic en **Agregar servidores**.
 
     ![Inicio de la detección de dependencias](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -132,10 +123,10 @@ Elija las máquinas en las que quiere detener la detección de dependencias.
 
 1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
 2. Haga clic en el icono **Análisis de dependencias**.
-3. Haga clic en **Stop dependency discovery** (Detener la detección de dependencias).
-3. En la página **Stop dependency discovery** (Detener la detección de dependencias), elija el **dispositivo** que está detectando las VM en las que quiere detener la detección de dependencias.
+3. Haga clic en **Quitar servidores**.
+3. En la página **Quitar servidores**, elija el **dispositivo** que está detectando las VM en las que quiere detener la detección de dependencias.
 4. En la lista de máquinas, seleccione las máquinas.
-5. Haga clic en **Stop dependency discovery** (Detener la detección de dependencias).
+5. Haga clic en **Quitar servidores**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

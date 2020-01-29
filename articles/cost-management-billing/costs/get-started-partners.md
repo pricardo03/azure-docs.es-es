@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: a320a446bf6a2ff5d5d923961b2614970ffa70f9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984556"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293919"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -120,7 +120,7 @@ Con independencia de la directiva, los asociados también pueden ver los costos 
 
 Los asociados usan la siguiente información para habilitar la directiva con el fin de ver los cargos de uso de Azure de sus clientes.
 
-En Azure Portal, inicie sesión en el inquilino del asociado y seleccione **Administración de costos + facturación**. Seleccione una cuenta de facturación y, luego, haga clic en **Clientes**. La lista de clientes está asociada a la cuenta de facturación.
+En Azure Portal, inicie sesión en el inquilino del asociado y seleccione **Administración de costos + facturación**. Seleccione la cuenta de facturación correspondiente de Microsoft Partner Agreement y seleccione **Clientes**. La lista de clientes está asociada a la cuenta de facturación.
 
 En la lista de clientes, seleccione el que quiere que vea los costos.
 
@@ -137,7 +137,7 @@ Cuando esta directiva está establecida en **Sí**, los usuarios de suscripcione
 
 Cuando la directiva de visibilidad de los costos está habilitada, todos los servicios que tienen la opción de uso de la suscripción muestran los costos según las tarifas de pago por uso. El uso de reservas aparece con cero cargos para los costos reales y amortizados. Las compras y los derechos no están asociados a una suscripción específica. Por lo tanto, las compras no se muestran en el ámbito de la suscripción.
 
-Para ver los costos del inquilino del cliente, abra Administración de costos + facturación y luego haga clic en Cuentas de facturación. En la lista de cuentas de facturación, seleccione una de ellas.
+Para ver los costos para el inquilino del cliente, abra **Administración de costos + facturación** y seleccione la cuenta de facturación correspondiente de Microsoft Partner Agreement.
 
 ![Selección de una cuenta de facturación](./media/get-started-partners/select-billing-account.png)
 
@@ -213,7 +213,7 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 | Location | Ubicación normalizada del recurso. | N/D |
 | effectivePrice | Precio por unidad efectivo del servicio en la moneda de determinación del precio. Es único para cada producto, familia de servicios, medidor y oferta. Se usa con los precios de la hoja de precios de la cuenta de facturación. Cuando hay precios por niveles o una cantidad incluida, muestra el precio combinado por consumo. | Precio por unidad después de que se realicen los ajustes. |
 | Cantidad | Cantidad medida comprada o consumida. La cantidad del medidor usado durante el período de facturación. | Número de unidades. Asegúrese de que coincide con la información del sistema de facturación durante la conciliación. |
-| unitOfMeasure | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB y horas. | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB, horas, 10 000 s. |
+| unitOfMeasure | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB y horas. | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB, horas y 10 000 s. |
 | pricingCurrency | Moneda que define el precio unitario. | Moneda de la lista de precios.|
 | billingCurrency | Moneda que define el costo facturado. | Moneda de la región geográfica del cliente. |
 | chargeType | Define el tipo de cargo que representa el costo en Azure Cost Management, como compra y reembolso. | Tipo de cargo o ajuste. No está disponible para la actividad actual. |
@@ -263,9 +263,13 @@ Los usuarios con acceso de RBAC a la suscripción también pueden exportar los d
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Creación de una exportación en un inquilino de asociado o de cliente
 
-En Azure Portal, inicie sesión en el inquilino del asociado o de cliente y seleccione **Administración de costos + facturación**. Seleccione un ámbito adecuado, como una cuenta de facturación, y luego seleccione **Análisis de costos**. Cuando se cargue la página, seleccione **Exportar**. Seleccione **Ver todas las exportaciones** en Programar exportación.
+En Azure Portal, inicie sesión en el inquilino del asociado o de cliente y seleccione **Administración de costos + facturación**. Seleccione un ámbito adecuado, como una cuenta de facturación de Microsoft Partner Agreement, y seleccione **Análisis de costos**. Cuando se cargue la página, seleccione **Exportar**. En Programar exportación, seleccione **Ver todas las exportaciones**.
+
+![Selección de Exportar y Ver todas las exportaciones](./media/get-started-partners/export01.png)
 
 A continuación, seleccione **Agregar** y escriba el nombre y seleccione un tipo de exportación. Seleccione la pestaña **Almacenamiento** y escriba la información necesaria.
+
+![Incorporación de una exportación nueva y selección de la pestaña Almacenamiento](./media/get-started-partners/export02.png)
 
 Cuando cree una exportación en el inquilino de asociado, seleccione la suscripción de pago por uso en el inquilino de asociado. Cree una cuenta de Azure Storage con esa suscripción.
 
@@ -274,6 +278,8 @@ En el caso de los usuarios de RBAC en el inquilino del cliente, seleccione una s
 Revise el contenido y, luego seleccione **Crear** para programar una exportación.
 
 Para comprobar los datos en la lista de exportaciones, seleccione el nombre de la cuenta de almacenamiento. En la página de la cuenta de almacenamiento, seleccione **Containers** y el contenedor. Vaya a la carpeta correspondiente y seleccione el archivo CSV. Seleccione **Descargar** para obtener el archivo CSV y abrirlo. Los datos exportados se asemejan a los datos de costos, similares a los detalles de uso de Azure Portal.
+
+![Ejemplo de datos exportados](./media/get-started-partners/example-export-data.png)
 
 ## <a name="cost-management-rest-apis"></a>API REST de Cost Management
 
@@ -400,7 +406,7 @@ PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 #### <a name="delete-a-budget"></a>Eliminación de un presupuesto
 
 ```
-PUT
+DELETE
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
 ```
 

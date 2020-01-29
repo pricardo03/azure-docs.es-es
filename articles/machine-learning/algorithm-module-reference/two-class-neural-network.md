@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d8e27d13de6b1ac6940972022f66811eb75c8986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9263f9741a1921550a2ed683dbed441552d6cce0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485890"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546340"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo Red neuronal de dos clases
 
@@ -36,13 +36,13 @@ La relación entre entradas y salidas se aprende mediante el entrenamiento de la
 
 Para calcular la salida de la red para una entrada determinada, se calcula un valor en cada nodo en las capas ocultas y en la capa de salida. El valor se establece calculando la suma ponderada de los valores de los nodos de la capa anterior. A continuación, se aplica una función de activación a esa suma ponderada.
   
-## <a name="how-to-configure"></a>Configuración
+## <a name="how-to-configure"></a>Cómo se configura
 
 1.  Agregue el módulo **Red neuronal de dos clases** a la canalización. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Clasificación**.  
   
-2.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
+2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Parámetro único**: Elija esta opción si ya sabe cómo desea configurar el modelo.  
+    -   **Single Parameter** (Parámetro único): Elija esta opción si ya sabe cómo desea configurar el modelo.  
 
 3.  En **Hidden layer specification** (Especificación de capa oculta), seleccione el tipo de arquitectura de red que se va a crear.  
   
@@ -82,9 +82,9 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
 
 Una vez completado el entrenamiento:
 
-+ Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento y otros parámetros de la red neuronal, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo) y seleccione **Visualizar**.  
++ Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho del módulo **Train model** (Entrenar modelo). Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar el modelo como un módulo reutilizable.
 
-+ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado de **Trained model** (Modelo entrenado) y seleccione **Save As Trained Model** (Guardar como modelo entrenado). Este modelo no se actualiza en las ejecuciones sucesivas de la misma canalización.
++ Para usar el modelo de puntuación, agregue el módulo **Score Model** (Puntuar modelo) a una canalización.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

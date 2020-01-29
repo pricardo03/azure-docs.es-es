@@ -3,14 +3,14 @@ title: Administración de actualizaciones para varias máquinas virtuales de Azu
 description: En este artículo se describe cómo administrar actualizaciones para máquinas virtuales de Azure y que no son de Azure.
 services: automation
 ms.subservice: update-management
-ms.date: 11/20/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de7171d3807540ae7d5f09c3a877031631248e49
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75417824"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168041"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -147,6 +147,13 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
   - Actualizaciones
 
 - **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment).
+
+> [!NOTE]
+> Es importante saber que las exclusiones invalidan las inclusiones. Por ejemplo, si define una regla de exclusión de `*`, no se instalan revisiones ni paquetes, ya que se excluyen todas. Las revisiones excluidas aparecen todavía como que faltan en la máquina. Para las máquinas Linux, si se incluye un paquete, pero tiene un paquete dependiente que se ha excluido, el paquete no se instala.
+
+> [!NOTE]
+> No puede especificar actualizaciones que se hayan sustituido para incluirlas en la implementación de actualizaciones.
+>
 
 - **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, que son 30 minutos después de la hora actual. También puede especificar una hora distinta.
 

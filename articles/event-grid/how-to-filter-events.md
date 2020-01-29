@@ -1,18 +1,18 @@
 ---
 title: Filtrado de eventos para Azure Event Grid
-description: Muestra cómo crear suscripciones de Azure Event Grid que filtran eventos.
+description: En este artículo se muestra cómo filtrar eventos (por tipo de evento, por asunto, por operadores y datos, etc.) al crear una suscripción de Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 5bb95b80e12c818641e2be2b929cdfd01f8f5b5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58da209c68449d3a28b08f52ec575f7db520f121
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304228"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514568"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrado de eventos para Event Grid
 

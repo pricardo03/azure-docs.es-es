@@ -1,17 +1,17 @@
 ---
-title: Habilitación de cuadernos en la cuenta de Azure Cosmos DB
+title: Habilitación de cuadernos en la cuenta de Azure Cosmos DB (versión preliminar)
 description: La integración de cuadernos en Azure Cosmos DB permite analizar y visualizar los datos desde el portal. En este artículo se describe cómo habilitar esta característica para las cuentas de Cosmos.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 22bad3b31b8cbe54900b96bd4b327f18916e81a3
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8c65b7d010e521ec78322de9807f741c856a2381
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677158"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264855"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB
 
@@ -69,4 +69,4 @@ También puede seleccionar **Nuevo Notebook** para crear un notebook o cargar un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Conozca las ventajas de los [cuadernos de Jupyter para Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)
+- Conozca las ventajas de los [cuadernos de Jupyter para Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)

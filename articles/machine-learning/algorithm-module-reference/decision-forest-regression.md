@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c1b61d43fde00c435b83071015246bf990e873e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497971"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546680"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo Decision Forest Regression (Regresión de bosque de decisión)
 
@@ -24,7 +24,7 @@ Utilice este módulo para crear un modelo de regresión basado en un conjunto de
 
 Una vez que haya configurado el modelo, debe entrenarlo mediante un conjunto de datos etiquetado y el módulo [Entrenar modelo](./train-model.md). A continuación, el modelo entrenado podrá usarse para realizar predicciones. 
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Los árboles de decisión son modelos no paramétricos que llevan a cabo una secuencia de pruebas simples para cada instancia, atravesando una estructura de datos de árbol binario hasta alcanzar un nodo hoja (decisión).
 
@@ -88,11 +88,7 @@ Para obtener más información sobre el marco teórico de este algoritmo y su im
 
 Una vez completado el entrenamiento:
 
-+ Para ver el árbol que se ha creado en cada iteración, haga clic con el botón derecho en el resultado del módulo de entrenamiento y seleccione **Visualizar**.
-
-+ Para ver las reglas de cada nodo, haga clic en cada árbol y explore en profundidad las divisiones.
-
-+ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado del módulo de entrenamiento y seleccione **Save As Trained Model** (Guardar como modelo entrenado). Esta copia del modelo no se actualiza en ejecuciones sucesivas de la canalización. 
++ Para guardar una instantánea del modelo entrenado, seleccione el módulo de entrenamiento y cambie a la pestaña **Outputs** (Salidas) del panel derecho. Haga clic en el icono **Register model** (Registrar modelo).  El modelo guardado se encuentra como un módulo más en el árbol de módulos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

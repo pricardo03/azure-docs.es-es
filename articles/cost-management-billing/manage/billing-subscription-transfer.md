@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 01/17/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f43f7424cddae8659301be0ddc4842412a62952
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986136"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270871"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -86,7 +86,7 @@ Las suscripciones de Visual Studio y Microsoft Partner Network tienen crédito d
 
 ## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Transferencia de la propiedad de facturación de suscripciones de Contrato Enterprise (EA)
 
-El administrador de la empresa puede transferir la propiedad de las suscripciones entre cuentas de una inscripción. Para más información, vea [Transferir propiedad de cuenta](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) en el portal de EA.
+El administrador de la empresa puede transferir la propiedad de las suscripciones entre cuentas de una inscripción. Para más información, consulte [Cambiar el propietario de la cuenta](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) en EA Portal.
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>Pasos siguientes después de aceptar la propiedad de facturación
 

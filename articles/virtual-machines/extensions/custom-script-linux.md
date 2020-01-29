@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: dcc9e63eba605e87a14ba4f09c61a00e9629bd23
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 22346501444694675d92d9a37497f9304c76e13d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941210"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156563"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux
 La extensión de script personalizado versión 2 descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 
@@ -210,7 +210,7 @@ CustomScript usa el algoritmo siguiente para ejecutar un script.
 
 ####  <a name="property-managedidentity"></a>Propiedad: managedIdentity
 
-CustomScript (versión 2.1.2 en adelante) admite el RBAC basado en la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript tener acceso a blobs y contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
+CustomScript (versión 2.1 en adelante) admite la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript acceder a blobs o contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
 
 Para usar esta característica, el usuario debe agregar una identidad [asignada por el sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) o[asignada por el usuario](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) a la máquina virtual o VMSS donde se espera que se ejecute CustomScript y [conceder a la identidad administrada acceso al contenedor de Azure Storage o al blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 

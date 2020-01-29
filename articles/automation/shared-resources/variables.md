@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e56a1c9a158974266b810d31a0e9bb898262761a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ac2c276f051155d7ba18ee91e4ca27acb0b35192
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849435"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167987"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variables en Azure Automation
 
@@ -28,7 +28,7 @@ Los activos de variables son valores que están disponibles para todos los runbo
 
 Como las variables de Automation se conservan, están disponibles aunque se produzca un error en el runbook o en la configuración de DSC. Este comportamiento permite que un runbook establezca un valor y que otro lo use, o bien, que lo use el mismo runbook o la misma configuración de DSC la siguiente vez que se ejecute.
 
-Cuando se crea una variable, puede especificar que se almacene cifrada. Las variables cifradas se almacenan de forma segura en Azure Automation y su valor no se puede recuperar del cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) que se incluye como parte del módulo Azure PowerShell. Es la única manera de que se puede recuperar un valor cifrado desde la actividad **Get-AutomationVariable** en un runbook o una configuración de DSC. Si quiere cambiar una variable cifrada a una sin cifrar, debe eliminarla y volver a crearla como no cifrada.
+Cuando se crea una variable, puede especificar que se almacene cifrada. Las variables cifradas se almacenan de forma segura en Azure Automation y su valor no se puede recuperar del cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) que se incluye como parte del módulo Azure PowerShell. Es la única manera de que se puede recuperar un valor cifrado desde la actividad **Get-AutomationVariable** en un runbook o una configuración de DSC. Si quiere cambiar una variable cifrada por una sin cifrar, debe eliminarla y volver a crearla como no cifrada.
 
 >[!NOTE]
 >Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se almacena en una instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, la clave se carga desde Key Vault y luego se usa para cifrar el recurso. Este proceso se administra mediante Azure Automation.
@@ -41,7 +41,7 @@ Puede almacenar varios valores en una única variable mediante la creación de u
 
 La siguiente es una lista de los tipos de variables disponibles en Automation:
 
-* Cadena
+* String
 * Entero
 * DateTime
 * Boolean
@@ -51,7 +51,7 @@ La siguiente es una lista de los tipos de variables disponibles en Automation:
 
 En AzureRM, los cmdlets de la tabla siguiente se usan para crear y administrar recursos de credenciales de automatización con Windows PowerShell. Se incluyen como parte del [módulo AzureRM.Automation](/powershell/azure/overview), que está disponible para su uso en las configuraciones de DSC y los runbooks de Automation.
 
-| Cmdlets | DESCRIPCIÓN |
+| Cmdlets | Descripción |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|Recupera el valor de una variable existente.|
 |[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|Crea una nueva variable y establece su valor.|
@@ -62,7 +62,7 @@ En AzureRM, los cmdlets de la tabla siguiente se usan para crear y administrar r
 
 Las actividades de la tabla siguiente se usan para acceder a las variables de un runbook y a las configuraciones de DSC. La diferencia entre los cmdlets Get-AzureRmAutomationVariable y Get-AutomationVariable se ha aclarado anteriormente al principio de este documento.
 
-| Actividades | DESCRIPCIÓN |
+| Actividades | Descripción |
 |:---|:---|
 |Get-AutomationVariable|Recupera el valor de una variable existente.|
 |Set-AutomationVariable|Establece el valor de una variable existente.|
@@ -72,7 +72,7 @@ Las actividades de la tabla siguiente se usan para acceder a las variables de un
 
 Las funciones de la tabla siguiente se usan para obtener acceso a las variables de un runbook de Python2 y recuperarlas.
 
-|Funciones de Python2|DESCRIPCIÓN|
+|Funciones de Python2|Descripción|
 |:---|:---|
 |automationassets.get_automation_variable|Recupera el valor de una variable existente. |
 |automationassets.set_automation_variable|Establece el valor de una variable existente. |
@@ -176,4 +176,4 @@ La imagen siguiente muestra las actividades de ejemplo para actualizar una varia
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre cómo conectar actividades en la creación gráfica, consulte [Vínculos y flujo de trabajo en Creación gráfica en Automatización de Azure](../automation-graphical-authoring-intro.md#links-and-workflow)
-- Para empezar a trabajar con cuadernos gráficos, consulte [Mi primer runbook gráfico](../automation-first-runbook-graphical.md)
+- Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](../automation-first-runbook-graphical.md)

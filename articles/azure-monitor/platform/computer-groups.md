@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 9ef0f2810252b73921fc0a72f2e523262c760bab
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eedf04a2168c67449f97d8e462d4ff82653a22b3
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932658"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513715"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
 Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](../log-query/log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
@@ -22,12 +22,12 @@ Los grupos de equipos en Azure Monitor permiten limitar las [consultas de regist
 ## <a name="creating-a-computer-group"></a>Creación de un grupo de equipos
 Puede crear un grupo de equipos en Azure Monitor mediante cualquiera de los métodos de la tabla siguiente.  En las secciones siguientes se proporcionan detalles sobre cada método. 
 
-| Método | DESCRIPCIÓN |
+| Método | Descripción |
 |:--- |:--- |
 | Consulta de registro |Cree una consulta de registros que devuelva una lista de equipos. |
 | API de búsqueda de registros |Use la API de búsqueda de registros para crear mediante programación un grupo de equipos basándose en los resultados de una consulta de registros. |
 | Active Directory |Analice automáticamente la pertenencia al grupo de cualquier equipo agente que sea miembro de un dominio de Active Directory y cree un grupo en Azure Monitor para cada grupo de seguridad. (solo máquinas de Windows)|
-| Administrador de configuración | Importe colecciones desde System Center Configuration Manager y cree un grupo en Azure Monitor para cada una. |
+| Administrador de configuración | Importe colecciones desde Microsoft Endpoint Configuration Manager y cree un grupo en Azure Monitor para cada una. |
 | Windows Server Update Services |Analice automáticamente clientes o servidores WSUS para grupos de destino y cree un grupo en Azure Monitor para cada uno. |
 
 ### <a name="log-query"></a>Consulta de registro
@@ -49,7 +49,7 @@ En la tabla siguiente, se describen las propiedades que definen un grupo de equi
 
 | Propiedad | Descripción |
 |:---|:---|
-| NOMBRE   | Nombre de la consulta que se va a mostrar en el portal. |
+| Nombre   | Nombre de la consulta que se va a mostrar en el portal. |
 | Alias de función | Un alias único usado para identificar el grupo de equipos en una consulta. |
 | Category       | Categoría para organizar las consultas en el portal. |
 
@@ -75,7 +75,7 @@ Configure Azure Monitor para importar los grupos de WSUS desde **Configuración 
 
 Una vez importados los grupos, el menú muestra el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
 
-### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
+### <a name="configuration-manager"></a>Administrador de configuración
 Al configurar Azure Monitor para importar miembros de la recopilación de Configuration Manager, este crea un grupo de equipos para cada colección.  La información de los miembros de la colección se recupera cada tres horas para mantener actualizados los grupos de equipos. 
 
 Para poder importar colecciones de Configuration Manager, debe [conectar Configuration Manager a Azure Monitor](collect-sccm.md).  
@@ -119,7 +119,7 @@ La siguiente consulta devolvería registros UpdateSummary solo para equipos del 
 ## <a name="computer-group-records"></a>Registros de grupos de equipos
 En el área de trabajo de Log Analytics se crea un registro para cada pertenencia a grupos de equipos creada mediante Active Directory o WSUS.  Estos registros tienen el tipo **ComputerGroup** y sus propiedades son las que aparecen en la tabla siguiente.  Para los grupos de equipos basados en consultas de registros no se crean registros.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

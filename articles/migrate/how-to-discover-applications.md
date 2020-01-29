@@ -3,12 +3,12 @@ title: Detección de aplicaciones, roles y características en servidores locale
 description: Obtenga información sobre cómo detectar aplicaciones, roles y características en servidores locales con Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029079"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280771"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina
 
@@ -17,18 +17,18 @@ En este artículo se describe cómo detectar aplicaciones, roles y característi
 La detección del inventario de aplicaciones y roles o características que se ejecutan en las máquinas locales le ayuda a identificar y planear una ruta de migración a Azure que está adaptada a sus cargas de trabajo.
 
 > [!NOTE]
-> La detección de aplicaciones solo se admite actualmente para las VM de VMware y solo se limita a la detección. Todavía no se ofrece la evaluación basada en aplicaciones.  Actualmente, la herramienta Server Assessment evalúa VM de VMware locales, VM de Hyper-V y servidores físicos en el nivel de la máquina, para migraciones mediante lift-and-shift.
+> La detección de aplicaciones solo se admite actualmente para las VM de VMware y solo se limita a la detección. Todavía no se ofrece la evaluación basada en aplicaciones. Valoración basada en máquina de máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores físicos.
 
 Detección de aplicaciones mediante Azure Migrate: Server Assessment es una herramienta sin agente. No es necesario instalar nada en las máquinas ni las VM. Server Assessment usa el dispositivo de Azure Migrate para realizar la detección junto con las credenciales de invitado de la máquina. El dispositivo accede de forma remota a las máquinas de VMware mediante las API de VMware.
 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-1. Revise las [limitaciones de compatibilidad](migrate-support-matrix-vmware.md#application-discovery) para la detección de nivel de aplicación.
-2. Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
-3. Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
+1. Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
+2. Asegúrese de haber [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment a un proyecto.
 4. Compruebe los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para detectar y evaluar las VM de VMware con el dispositivo de Azure Migrate.
-4. Compruebe los [requisitos ](migrate-appliance.md) para implementar el dispositivo de Azure Migrate.
+5. Compruebe los [requisitos ](migrate-appliance.md) para implementar el dispositivo de Azure Migrate.
+6. [Compruebe la compatibilidad y los requisitos](/migrate-support-matrix-vmware.md#application-discovery) para la detección de aplicaciones.
 
 ## <a name="prepare-for-app-discovery"></a>Preparación para la detección de aplicaciones
 

@@ -1,5 +1,5 @@
 ---
-title: Creación de un subclip de vídeo al codificar con la API de REST de Azure Media Services
+title: Creación de un subclip de vídeo al codificar con REST de Azure Media Services
 description: En este tema se describe cómo crear un subclip de vídeo al codificar mediante Azure Media Services con REST
 services: media-services
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3557aef6213955ef77542bffafe0a2b0c374ed68
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704445"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514330"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Creación de un subclip de vídeo al codificar mediante Azure Media Services: REST
 
-Puede recortar un vídeo, o crear un subclip de este al codificarlo mediante la opción [Trabajo](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidad se puede usar con cualquier elemento [Transformación](https://docs.microsoft.com/rest/api/media/transforms) que se compila mediante los valores preestablecidos [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
+Puede recortar un vídeo, o crear un subclip de este al codificarlo mediante la opción [Trabajo](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidad se puede usar con cualquier elemento [Transformación](https://docs.microsoft.com/rest/api/media/transforms) compilado mediante los valores preestablecidos [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
 
 El ejemplo de REST de este tema crea un trabajo que recorta un vídeo cuando envía un trabajo de codificación. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar los pasos descritos en este tema, ha de:
 

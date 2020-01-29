@@ -4,14 +4,14 @@ description: Vínculos para obtener información adicional sobre Avere vFXT para
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: fbd763827383c5ded2bb4ef0047ea3c5f650d78e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78e0500057baf407f1d26afe29d9df1e525cbf3d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416328"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153775"
 ---
 # <a name="additional-documentation"></a>Documentación adicional
 
@@ -25,7 +25,7 @@ Puede encontrar documentación adicional sobre el clúster de Avere en el sitio 
   * En [Customizing Support and Monitoring Settings](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>) (Personalización de la configuración de soporte y supervisión) se explica cómo personalizar la configuración de la carga de soporte técnico y habilitar la supervisión remota.
   * En [Configuring VServers and Global Namespace](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_vserver.html#config-vserver>) (Configuración de VServers y el espacio de nombres global) encontrará información sobre cómo crear un espacio de nombres orientado al cliente.
   * En [Configuring DNS for the Avere cluster](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_network.html#dns-overview>) (Configuración DNS para el clúster de Avere) se explica cómo configurar el DNS de round robin.
-  * En [Adding Backend Storage](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) (Agregar el almacenamiento de back-end) se documenta el modo de agregar archivadores centrales.
+  * En [Adición de almacenamiento de back-end](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) se documenta el modo de agregar archivadores centrales.
 
 * En [Cluster Configuration Guide](<https://azure.github.io/Avere/#operations>) (Guía de configuración del clúster) encontrará una referencia completa acerca de la configuración y las opciones de un clúster de Avere. Un clúster de vFXT usa un subconjunto de estas opciones, pero se puede aplicar la mayoría de páginas de esta configuración.
 
@@ -33,4 +33,4 @@ Puede encontrar documentación adicional sobre el clúster de Avere en el sitio 
 
 ## <a name="vfxt-creation-and-management-documentation"></a>Documentación de creación y administración de vFXT
 
-En GitHub se ofrece una guía completa del uso de vfxt.py, la creación de clústeres en la nube y la utilidad de administración: [Cloud Cluster Management with vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md) (Administración de clústeres en la nube con vfxt.py).
+En GitHub se ofrece una guía completa del uso de vfxt.py, la creación de clústeres en la nube basados en script y la utilidad de administración: [Cloud Cluster Management with vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md) (Administración de clústeres en la nube con vfxt.py).

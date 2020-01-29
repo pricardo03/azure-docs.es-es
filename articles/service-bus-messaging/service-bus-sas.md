@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462076"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121750"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -82,7 +82,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** : URI del recurso al que se accede.
 * **`sig`** : firma.
 
-El valor de `signature-string` es el hash SHA-256 calculado sobre el URI del recurso (**ámbito** tal y como se describe en la sección anterior) y la representación de cadenas del instante de expiración del token, separados por CRLF.
+El valor de `signature-string` es el hash SHA-256 calculado sobre el URI del recurso (**ámbito** tal y como se describe en la sección anterior) y la representación de cadenas del instante de expiración del token, separados por LF.
 
 El cálculo del hash es similar al siguiente pseudocódigo y devuelve un valor de hash de 256 bits/32 bytes.
 

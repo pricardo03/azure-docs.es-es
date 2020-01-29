@@ -1,6 +1,6 @@
 ---
-title: Seguridad de Notification Hubs
-description: En este tema se explica la seguridad de Azure Notification Hubs.
+title: Modelo de seguridad de Notification Hubs
+description: Obtenga información sobre el modelo de seguridad de Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: a9598f6a01e5536351fb20b7c352a5eaf5746042
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273633"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263768"
 ---
 # <a name="notification-hubs-security"></a>Seguridad de Notification Hubs
 
@@ -48,11 +48,11 @@ La clave con acceso de **escucha** permite a una aplicación cliente registrarse
 
 De modo similar a otras entidades, las operaciones del Centro de notificaciones se permiten para tres notificaciones de seguridad: **escucha**, **envío** y **administración**.
 
-| Notificación   | DESCRIPCIÓN                                          | Operaciones permitidas |
+| Notificación   | Descripción                                          | Operaciones permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Escuchar  | Crear o actualizar, leer y eliminar registros únicos | Crear o actualizar registro<br><br>Leer el registro<br><br>Leer todos los registros de un controlador<br><br>Eliminar registro |
 | Envío    | Enviar mensajes a la instancia de Notification Hubs                | Enviar mensaje |
-| administración  | CRUD en Notification Hubs (incluida la actualización de las credenciales de PNS y claves de seguridad) y registros de lectura basados en etiquetas |Crear, actualizar, leer, escribir, eliminar centros<br><br>Leer registros por etiqueta |
+| Administrar  | CRUD en Notification Hubs (incluida la actualización de las credenciales de PNS y claves de seguridad) y registros de lectura basados en etiquetas |Crear, actualizar, leer, escribir, eliminar centros<br><br>Leer registros por etiqueta |
 
 Notification Hubs acepta tokens de SAS generados con claves compartidas configuradas directamente en el centro.
 
@@ -64,11 +64,11 @@ Use las directivas de acceso de nivel de espacio de nombres (credenciales) para 
 
 Para crear una nueva notificación de seguridad o para ver las claves de SAS existentes, haga lo siguiente:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 2. Seleccione **Todos los recursos**.
 3. Seleccione el nombre de la instancia de Notification Hubs para el que desea crear la notificación o ver la clave de SAS.
 4. En el menú izquierdo, seleccione **Directivas de acceso**.
-5. Seleccione **Nueva directiva** para crear una nueva notificación de seguridad. Asigne un nombre a la directiva y seleccione los permisos que desea conceder. Después seleccione **Aceptar**.
+5. Seleccione **Nueva directiva** para crear una nueva notificación de seguridad. Asigne un nombre a la directiva y seleccione los permisos que desea conceder. Después, seleccione **Aceptar**.
 6. La cadena de conexión completa (incluida la nueva clave SAS) se muestra en la ventana Directivas de acceso. Puede copiar esta cadena en el portapapeles para su uso posterior.
 
 Para extraer la clave SAS de una directiva específica, seleccione el botón **Copiar** situado junto a la directiva que contenga la clave de SAS que desee. Pegue este valor en una ubicación temporal y, a continuación, copie la parte de la clave de SAS de la cadena de conexión. En este ejemplo se usa un espacio de nombres de Notification Hubs denominado **mytestnamespace1** y una directiva denominada **policy2**. La clave de SAS es el valor situado cerca del final de la cadena, especificado por **SharedAccessKey**:

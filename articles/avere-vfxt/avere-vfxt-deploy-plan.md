@@ -4,20 +4,25 @@ description: Aquí se explica el plan que se debe realizar antes de implementar 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: d4fc2a6b7def4b7c55faa37fbed756fbb830ff73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cd0c74c8aa40b3e96716ef37aa27b08b5f6aece1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415432"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547547"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 
 En este artículo se explica cómo planear una nueva instancia de Avere vFXT para el clúster de Azure que tiene la posición y el tamaño adecuados para sus necesidades.
 
-Antes de ir a Azure Marketplace o crear las máquinas virtuales, piense en la manera en que el clúster interactuará con otros elementos de Azure. Planifique dónde se ubicarán los recursos de clúster en su red y subredes privadas, y decida dónde estará el almacenamiento de back-end. Asegúrese de que los nodos de clúster que cree sean lo suficientemente potentes para admitir su flujo de trabajo.
+Antes de ir a Azure Marketplace o de crear máquinas virtuales, tenga en cuenta estos detalles:
+
+* ¿Cómo interactuará el clúster con otros recursos de Azure?
+* ¿Dónde deben estar ubicados los elementos de clúster en redes privadas y subredes?
+* ¿Qué tipo de almacenamiento de back-end usará y cómo accederá el clúster a él?
+* ¿Qué grado de eficacia tienen los nodos de clúster para admitir el flujo de trabajo?
 
 Siga leyendo para obtener más información.
 
@@ -41,12 +46,14 @@ Piense dónde ubicará los elementos de su implementación de Avere vFXT para Az
 
 ![Diagrama que muestra el controlador y las máquinas virtuales del clúster dentro de una subred. En torno al límite de la subred hay un límite de red virtual. Igualmente, en la red virtual hay un hexágono que representa el punto de conexión del servicio de almacenamiento; tenga en cuenta que se conecta con una flecha discontinua a una instancia de Blob Storage que está fuera de la red virtual.](media/avere-vfxt-components-option.png)
 
-Siga estas instrucciones cuando planifique la infraestructura de red de su sistema Avere vFXT:
+Siga estas instrucciones cuando planee la infraestructura de red del clúster Avere vFXT:
 
-* Cree una suscripción para cada implementación de Avere vFXT for Azure y administre todos los componentes de esta suscripción. Dicha integración aporta las siguientes ventajas:
+* Cree una nueva suscripción para cada implementación de Avere vFXT for Azure. Administre todos los componentes de esta suscripción.
+
+  Entre las ventajas del uso de una nueva suscripción para cada implementación se incluyen:
   * Seguimiento del costo más sencillo: puede ver y auditar todos los costos de los recursos, la infraestructura y los ciclos de proceso en una única suscripción.
   * Limpieza más sencilla: puede eliminar la suscripción completa una vez finalizado el proyecto.
-  * Creación de particiones adecuada de las cuotas de recursos: proteja otras cargas de trabajo críticas de posibles limitaciones de recursos mediante el aislamiento del clúster y los clientes de Avere vFXT en una suscripción única. Esto evita conflictos al incorporar un gran número de clientes para un flujo de trabajo informático de alto rendimiento.
+  * Creación de particiones adecuada de las cuotas de recursos: aísle los clientes y el clúster de Avere vFXT en una suscripción única para proteger otras cargas de trabajo de la posible limitación de recursos. Esta separación evita conflictos al incorporar un gran número de clientes para un flujo de trabajo de computación de alto rendimiento.
 
 * Busque sus sistemas de procesamiento de clientes cerca del clúster de vFXT. El almacenamiento de back-end puede ser aún más remoto.  
 
@@ -56,7 +63,7 @@ Siga estas instrucciones cuando planifique la infraestructura de red de su siste
   * El mismo grupo de recursos
   * La misma cuenta de almacenamiento
   
-  En la mayoría de las situaciones, la plantilla de creación de clústeres automatizada se encarga de ello.
+  En la mayoría de las situaciones, la plantilla de creación de clústeres se encarga de esta configuración.
 
 * El clúster debe estar ubicado en su propia subred para evitar conflictos de direcciones IP con los clientes o con otros recursos del proceso.
 
@@ -69,7 +76,7 @@ Siga estas instrucciones cuando planifique la infraestructura de red de su siste
   | Resource group | Sí, si está vacío | Debe estar vacío|
   | Cuenta de almacenamiento | **Sí**, si se conecta un contenedor de blobs existente después de la creación del clúster <br/>  **No**, si crea un contenedor de blobs durante la creación del clúster | El contenedor de blobs existente debe estar vacío <br/> &nbsp; |
   | Virtual network | Sí | Debe incluir un punto de conexión de servicio de almacenamiento si va a crear un nuevo contenedor de blobs de Azure. |
-  | Subnet | Sí |   |
+  | Subnet | Sí | No puede contener otros recursos |
 
 ## <a name="ip-address-requirements"></a>Requisitos de las direcciones IP
 
@@ -79,7 +86,7 @@ El clúster de Avere vFXT usa las siguientes direcciones IP:
 
 * Una dirección IP de gestión de clúster. Esta dirección puede moverse de un nodo a otro del clúster según sea necesario para que siempre esté disponible. Use esta dirección para conectarse a la herramienta de configuración del panel de control de Avere.
 * Para cada nodo del clúster:
-  * Al menos una dirección IP orientada al cliente. (El *servidor virtual* del clúster se encarga de administrar todas las direcciones orientadas al cliente y puede moverlas entre nodos según sea necesario).
+  * Al menos una dirección IP orientada al cliente. (El *servidor virtual* del clúster se encarga de administrar todas las direcciones orientadas al cliente y puede mover las direcciones IP entre los nodos según sea necesario).
   * Una dirección IP para la comunicación del clúster.
   * Una dirección IP de la instancia (asignada a la máquina virtual).
 
@@ -102,9 +109,7 @@ Cada nodo de vFXT será idéntico. Es decir, si crea un clúster de tres nodos, 
 
 La caché de disco por nodo se puede configurar y puede oscilar entre los 1000 GB y los 8000 GB. El tamaño recomendado de la memoria caché es de 4 TB por nodo para los nodos Standard_E32s_v3.
 
-Para obtener información adicional sobre estas máquinas virtuales, lea la documentación de Microsoft Azure:
-
-* [Tamaños de máquina virtual optimizada para memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+Para obtener información adicional sobre estas máquinas virtuales, lea la documentación de Microsoft Azure: [Tamaños de máquina virtual optimizada para memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>Cuotas de la cuenta
 
@@ -112,11 +117,11 @@ Asegúrese de que su suscripción tenga la capacidad de ejecutar el clúster de 
 
 ## <a name="back-end-data-storage"></a>Almacenamiento de datos de back-end
 
-Los sistemas de almacenamiento de back-end suministran archivos a la memoria caché del clúster y también reciben datos modificados de la memoria caché. Decida si el espacio de trabajo se almacenará a largo plazo en un nuevo contenedor de blobs o en una nube o sistema de almacenamiento de hardware ya existentes. Estos sistemas de almacenamiento de back-end se denominan *archivadores principales*.
+Los sistemas de almacenamiento de back-end suministran archivos a la memoria caché del clúster y también reciben datos modificados de la memoria caché. Decida si el espacio de trabajo se almacenará a largo plazo en un nuevo contenedor de blobs o en un sistema de almacenamiento de existente (nube o hardware). Estos sistemas de almacenamiento de back-end se denominan *archivadores principales*.
 
 ### <a name="hardware-core-filers"></a>Archivadores principales de hardware
 
-Agregue sistemas de almacenamiento de hardware al clúster de vFXT después de crearlo. Puede usar cualquier sistema de hardware local existente, incluidos los sistemas locales, siempre que se pueda acceder al sistema de almacenamiento desde la subred del clúster.
+Agregue sistemas de almacenamiento de hardware al clúster de vFXT después de crearlo. Puede usar diversos sistemas de hardware conocidos, incluidos los sistemas locales, siempre que se pueda acceder al sistema de almacenamiento desde la subred del clúster.
 
 Lea [Configure storage](avere-vfxt-add-storage.md) (Configurar el almacenamiento) para obtener instrucciones detalladas sobre cómo agregar un sistema de almacenamiento existente al clúster de Avere vFXT.
 
@@ -142,7 +147,7 @@ Los puntos de acceso incluyen:
   > [!TIP]
   > Si configura una dirección IP pública en el controlador del clúster, puede usarla como host de salto. Lea [Controlador de clústeres como host de salto](#cluster-controller-as-jump-host) para más información.
 
-* Red privada virtual (VPN): configure una VPN de sitio a sitio o de punto a sitio para la red privada.
+* Red privada virtual (VPN): configure una VPN de sitio a sitio o de punto a sitio entre la red privada en Azure y las redes corporativas.
 
 * Azure ExpressRoute: configure una conexión privada mediante un asociado de ExpressRoute.
 
@@ -156,20 +161,20 @@ Para mejorar la seguridad para un controlador con una dirección IP pública, el
 
 Al crear el clúster, puede elegir si desea crear o no una dirección IP pública en el controlador del clúster.
 
-* Si crea una **red virtual** o **una subred**, se le asignará una **dirección IP pública** al controlador del clúster.
+* Si crea una **red virtual** o **una subred**, se le asignará una dirección IP **pública** al controlador del clúster.
 * Si selecciona una red virtual y una subred existentes, el controlador del clúster solo tendrá direcciones IP **privadas**.
 
 ## <a name="vm-access-roles"></a>Roles de acceso a máquinas virtuales
 
 Azure usa el [control de acceso basado en rol](../role-based-access-control/index.yml) (RBAC) para autorizar que las máquinas virtuales del clúster realicen determinadas tareas. Por ejemplo, el controlador de clúster necesita autorización para crear y configurar las máquinas virtuales del nodo de clúster. Los nodos de clúster deben poder asignar o reasignar direcciones IP a otros nodos de clúster.
 
-Se utilizan dos roles de Azure integrados para las máquinas de virtuales de Avere vFXT for Azure:
+Se utilizan dos roles de Azure integrados para las máquinas de virtuales de Avere vFXT:
 
 * El controlador de clúster utiliza el rol integrado [Colaborador de Avere](../role-based-access-control/built-in-roles.md#avere-contributor).
 * Los nodos de clúster utilizan el rol integrado [Operador de Avere](../role-based-access-control/built-in-roles.md#avere-operator).
 
 Si necesita personalizar los roles de acceso para los componentes de vFXT Avere, debe definir su propio rol y asignarlo a las máquinas virtuales al crearlos. No se puede usar la plantilla de implementación en Azure Marketplace. Consulte al servicio de Soporte técnico y Atención al cliente de Microsoft. abriendo una incidencia en Azure Portal, como se describe en [Obtener ayuda con su sistema](avere-vfxt-open-ticket.md).
 
-## <a name="next-step-understand-the-deployment-process"></a>Paso siguiente: comprender el proceso de implementación
+## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción a la implementación](avere-vfxt-deploy-overview.md) ofrece una visión general de todos los pasos necesarios para crear una instancia del sistema Avere vFXT for Azure y prepararla para suministrar datos.

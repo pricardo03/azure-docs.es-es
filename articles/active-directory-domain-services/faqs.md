@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 61c9d887f1b193258161cd96ccfa3618e8371890
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a25337cad39674bc6016f67bdc46a804518d0b03
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081020"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509026"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
 
@@ -41,10 +41,10 @@ Esta página responde a las preguntas más frecuentes acerca de Azure Active Dir
 No. Solo se puede crear un único dominio administrado atendido por Azure AD Domain Services para un único directorio de Azure AD.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>¿Puedo habilitar Azure AD Domain Services en una red virtual clásica?
-No se admiten redes virtuales clásicas para nuevas implementaciones. Los dominios administrados existentes implementados en redes virtuales clásicas seguirán siendo compatibles.
+No se admiten redes virtuales clásicas para nuevas implementaciones. Los dominios administrados existentes implementados en redes virtuales clásicas seguirán siendo compatibles. También puede [migrar Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager (versión preliminar)](migrate-from-classic-vnet.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>¿Puedo habilitar Azure AD Domain Services en una red virtual de Azure Resource Manager?
-Sí. Azure AD Domain Services se puede habilitar en una red virtual de Azure Resource Manager. Ya no se admiten redes virtuales clásicas de Azure para cuando se crea un nuevo dominio administrado.
+Sí. Azure AD Domain Services se puede habilitar en una red virtual de Azure Resource Manager. Ya no hay redes virtuales clásicas de Azure disponibles cuando crea un nuevo dominio administrado.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>¿Puedo migrar mi dominio administrado existente de una red virtual clásica a una red virtual de Resource Manager?
 Sí, esta característica se encuentra en versión preliminar. Para más información, consulte [Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager (versión preliminar)](migrate-from-classic-vnet.md).
@@ -62,7 +62,7 @@ El propio servicio no admite directamente este escenario. Su dominio administrad
 Sí. Para más información, consulte [cómo habilitar Azure AD Domain Services mediante PowerShell](powershell-create-instance.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>¿Puedo habilitar Azure AD Domain Services mediante la plantilla de Resource Manager?
-Sí, puede crear un dominio administrado de Azure AD Domain Services mediante una plantilla de Resource Manager. Se deben crear una entidad de servicio y un grupo de Azure AD para la administración mediante Azure Portal o Azure PowerShell antes de que se implemente la plantilla. Al crear un dominio administrado de Azure AD Domain Services en Azure Portal, existe la opción de exportar la plantilla para su uso en implementaciones adicionales. También hay una [plantilla de ejemplo en el repositorio de ejemplos de plantillas de GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-AAD-DomainServices).
+Sí, puede crear un dominio administrado de Azure AD Domain Services mediante una plantilla de Resource Manager. Se deben crear una entidad de servicio y un grupo de Azure AD para la administración mediante Azure Portal o Azure PowerShell antes de que se implemente la plantilla. Para más información, consulte [Creación de un dominio administrado de Azure Active Directory Domain Services mediante una plantilla de Resource Manager](template-create-instance.md). Al crear un dominio administrado de Azure AD Domain Services en Azure Portal, existe también la opción de exportar la plantilla para su uso en implementaciones adicionales.
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>¿Puedo agregar controladores de dominio a un dominio administrado de Servicios de dominio de Azure AD?
 No. El dominio de Servicios de dominio de Azure AD es un dominio administrado. No es necesario aprovisionar, configurar o administrar de otro modo controladores de dominio para este dominio. Microsoft proporciona estas actividades de administración como servicio. Por lo tanto, no podrá agregar controladores de dominio adicionales (ni de lectura y escritura ni de solo lectura) para el dominio administrado.
@@ -76,7 +76,7 @@ No. Después de crear un dominio administrado de Azure AD Domain Services, no pu
 ## <a name="administration-and-operations"></a>Administración y operaciones
 
 * [¿Puedo conectarme al controlador de dominio para mi dominio administrado mediante Escritorio remoto?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
-* [He habilitado Servicios de dominio de Azure AD. ¿Qué cuenta de usuario utilizo para unir máquinas a este dominio?](#ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain)
+* [He habilitado Azure AD Domain Services. ¿Qué cuenta de usuario utilizo para unir máquinas a este dominio?](#ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain)
 * [¿Puedo tener privilegios de administrador de dominio para el dominio administrado proporcionado por Azure AD Domain Services?](#do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services)
 * [¿Puedo modificar pertenencias a grupos mediante LDAP u otras herramientas administrativas de AD en dominios administrados?](#can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains)
 * [¿Cuánto tardan los cambios realizados en el directorio de Azure AD en estar visibles en mi dominio administrado?](#how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain)
@@ -88,7 +88,7 @@ No. Después de crear un dominio administrado de Azure AD Domain Services, no pu
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>¿Puedo conectarme al controlador de dominio para mi dominio administrado mediante Escritorio remoto?
 No. Los administradores de inquilinos no tienen privilegios para conectarse a controladores de dominio en el dominio administrado con el Escritorio remoto. Los miembros del grupo *Administradores de controlador de dominio de AAD* pueden administrar el dominio administrado usando las herramientas de administración de AD, como el Centro de administración de Active Directory (ADAC) o AD PowerShell. Estas herramientas se instalan mediante la característica *Herramientas de administración de servidor remoto* en un servidor de Windows unido al dominio administrado. Para obtener más información, consulte [Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure AD Domain Services](tutorial-create-management-vm.md).
 
-### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>He habilitado Servicios de dominio de Azure AD ¿Qué cuenta de usuario utilizo para unir máquinas a este dominio?
+### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>He habilitado Azure AD Domain Services. ¿Qué cuenta de usuario utilizo para unir máquinas a este dominio?
 Los miembros del grupo administrativo *Administradores de controlador de dominio de AAD* pueden unir máquinas mediante dominio. Además, los miembros de este grupo se les concede acceso mediante Escritorio remoto a las máquinas que se han unido al dominio.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>¿Puedo tener privilegios de administrador de dominio para el dominio administrado proporcionado por Azure AD Domain Services?
@@ -104,7 +104,7 @@ Los cambios realizados en el directorio de Azure AD mediante la interfaz de usua
 No. Microsoft administra el esquema del dominio administrado. No se admiten extensiones de esquema en los Servicios de dominio de Azure AD.
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>¿Puedo modificar o agregar registros DNS en mi dominio administrado?
-Sí. Los miembros del grupo *Administradores de controlador de dominio de AAD* reciben privilegios de *Administrador de DNS* con el fin de modificar los registros DNS en el dominio administrado. Estos usuarios pueden utilizar la consola de administrador de DNS en un equipo que ejecuta Windows Server unido al dominio administrado para administrar DNS. A fin de utilizar la consola de administrador de DNS, instale *Herramientas del servidor DNS*, que forma parte de la característica opcional *Herramientas de administración remota del servidor* en el servidor. Para obtener más información, consulte [Administración de DNS en un dominio administrado con Azure AD Domain Services](manage-dns.md)
+Sí. Los miembros del grupo *Administradores de controlador de dominio de AAD* reciben privilegios de *Administrador de DNS* con el fin de modificar los registros DNS en el dominio administrado. Estos usuarios pueden utilizar la consola de administrador de DNS en una máquina que ejecuta Windows Server unido al dominio administrado para administrar DNS. A fin de utilizar la consola de administrador de DNS, instale *Herramientas del servidor DNS*, que forma parte de la característica opcional *Herramientas de administración remota del servidor* en el servidor. Para obtener más información, consulte [Administración de DNS en un dominio administrado con Azure AD Domain Services](manage-dns.md)
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>¿Qué es la directiva de duración de la contraseña en un dominio administrado?
 La duración predeterminada de la contraseña en un dominio administrado de Azure AD Domain Services es de 90 días. Esta duración de la contraseña no está sincronizada con la duración de la contraseña configurada en Azure AD. Por lo tanto, podría darse una situación donde las contraseñas de los usuarios hayan expirado en el dominio administrado, pero sigan siendo válidas en Azure AD. En tales escenarios, los usuarios deben cambiar sus contraseñas en Azure AD y la nueva contraseña se sincronizará con el dominio administrado. Además, los atributos *password-does-not-expire* y *user-must-change-password-at-next-logon* de las cuentas de usuario no se sincronizan con el dominio administrado.
@@ -131,7 +131,7 @@ Se incluye Azure AD Domain Services en la evaluación gratuita de Azure. Puede s
 No. Después de habilitar un dominio administrado de Azure AD Domain Services, el servicio está disponible en la red virtual administrada hasta que se elimina el dominio administrado. No hay manera de pausar el servicio. La facturación continúa cada hora hasta que se elimine el dominio administrado.
 
 ### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>¿Puedo conmutar por error Azure AD Domain Services a otra región en un evento de recuperación ante desastres?
-No. Azure AD Domain Services no proporciona actualmente un modelo de implementación con redundancia geográfica. Se limita a una única red virtual en una región de Azure. Si quiere usar varias regiones de Azure, debe ejecutar los controladores de dominio de Active Directory en máquinas virtuales de IaaS de Azure. Puede encontrar información sobre la arquitectura [aquí](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
+No. Azure AD Domain Services no proporciona actualmente un modelo de implementación con redundancia geográfica. Se limita a una única red virtual en una región de Azure. Si quiere usar varias regiones de Azure, debe ejecutar los controladores de dominio de Active Directory en máquinas virtuales de IaaS de Azure. Para la guía de arquitectura, consulte [Amplíe el dominio local de Active Directory a Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>¿Puedo obtener Servicios de dominio de Azure AD como parte de Enterprise Mobility Suite (EMS)? ¿Necesito Azure AD Premium para usar Azure AD Domain Services?
 No. No, Azure AD Domain Services es un servicio de pago por uso de Azure y no forma parte de EMS. Azure AD Domain Services puede utilizarse con todas las ediciones de Azure AD (Gratis y Premium). Se le facturará por cada hora en función del uso.
@@ -139,7 +139,7 @@ No. No, Azure AD Domain Services es un servicio de pago por uso de Azure y no fo
 ### <a name="what-azure-regions-is-the-service-available-in"></a>¿En qué regiones de Azure está disponible el servicio?
 Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para saber en qué regiones de Azure está disponible Azure AD Domain Services.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Consulte nuestra [Guía de solución de problemas](troubleshoot.md) para obtener soluciones a los problemas más habituales al configurar o administrar Azure AD Domain Services.
 

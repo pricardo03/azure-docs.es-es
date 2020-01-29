@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 4c6ccf9dce0fc119bd666871489a42a3ef734f81
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769207"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260090"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -153,12 +153,22 @@ Los valores definidos en la [configuración de la aplicación](./functions-how-t
 
 Puede extraer valores de la instancia de `IConfiguration` a un tipo personalizado. Copiar los valores de configuración de la aplicación en un tipo personalizado facilita la prueba de los servicios, ya que permite que estos valores se inserten. Los valores leídos en la instancia de configuración deben ser pares de clave/valor simples.
 
-Considere la clase siguiente que incluye una propiedad con nombre coherente con una configuración de aplicación.
+Considere la clase siguiente que incluye una propiedad con nombre coherente con una configuración de aplicación:
 
 ```csharp
 public class MyOptions
 {
     public string MyCustomSetting { get; set; }
+}
+```
+
+Y un archivo `local.settings.json` que puede estructurar la configuración personalizada de la manera siguiente:
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "MyOptions:MyCustomSetting": "Foobar"
+  }
 }
 ```
 
@@ -168,7 +178,7 @@ Desde dentro del método `Startup.Configure`, puede extraer valores de la instan
 builder.Services.AddOptions<MyOptions>()
                 .Configure<IConfiguration>((settings, configuration) =>
                                            {
-                                                configuration.Bind(settings);
+                                                configuration.GetSection("MyOptions").Bind(settings);
                                            });
 ```
 

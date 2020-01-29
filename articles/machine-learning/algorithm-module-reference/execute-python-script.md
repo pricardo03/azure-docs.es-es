@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a28b77a25971128b9474f18d860f6204c3433c73
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497866"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312301"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para ejecutar código de Python. Para obtener más información acerca de los principios de diseño y arquitectura de Python, consulte [el siguiente artículo.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
 

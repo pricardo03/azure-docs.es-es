@@ -1,6 +1,6 @@
 ---
 title: Configuración de puerto de Azure Relay | Microsoft Docs
-description: Obtenga información sobre los valores de puerto de Azure Relay.
+description: En este artículo se incluye una tabla que describe la configuración que se requiere para los valores de los puertos de Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 9d11179a8518ebf48f68f8607f94e0253d4edb80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55bb6b620c7ba9ee13068213cbc867b165acc185
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789933"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514891"
 ---
 # <a name="azure-relay-port-settings"></a>Configuración de puerto de Relay de Azure
 
@@ -34,20 +34,20 @@ Las conexiones híbridas emplean protocolos WebSocket en el puerto 443 con SSL c
 |Enlace|Seguridad de transporte|Port|  
 |-------------|------------------------|----------|  
 |[Clase BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (cliente)|Sí|HTTPS| 
-|" |Sin|HTTP|  
+|" |No|HTTP|  
 |[Clase BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (servicio)|Es posible usar el|9351/HTTP|  
 |[Clase NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (cliente)|Sí|9351/HTTPS|  
-|" |Sin|9350/HTTP|  
+|" |No|9350/HTTP|  
 |[Clase NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (servicio)|Es posible usar el|9351/HTTP|  
 |[Clase NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (cliente o servicio)|Es posible usar el|5671/9352/HTTP (9352/9353 si se usa el modo híbrido)|  
 |[Clase NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (cliente)|Sí|9351/HTTPS|  
-|" |Sin|9350/HTTP|  
+|" |No|9350/HTTP|  
 |[Clase NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (servicio)|Es posible usar el|9351/HTTP|  
 |[Clase WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (cliente)|Sí|HTTPS|  
-|" |Sin|HTTP|  
+|" |No|HTTP|  
 |[Clase WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (servicio)|Es posible usar el|9351/HTTP|  
 |[Clase WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (cliente)|Sí|HTTPS|  
-|" |Sin|HTTP|  
+|" |No|HTTP|  
 |[Clase WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (servicio)|Es posible usar el|9351/HTTP|
 
 ## <a name="next-steps"></a>Pasos siguientes

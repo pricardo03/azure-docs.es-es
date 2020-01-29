@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ae9c678d9dfca895ec74ed92bcb1b541db6b134e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930026"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545507"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Control de seguridad: Registro y supervisión
 
@@ -77,7 +77,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 |--|--|--|
 | 2.4 | 6.2, 6.3 | Customer |
 
-Si el recurso de proceso es propiedad de Microsoft, este será responsable de su supervisión. Si el recurso de proceso es propiedad de su organización, la responsabilidad de su supervisión recaerá sobre usted. Puede usar Azure Security Center para supervisar el sistema operativo. Entre los datos que recopila Security Center del sistema operativo se incluyen: tipo y versión del sistema operativo, sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Log Analytics también recopila los archivos de volcado de memoria.
+Si el recurso de proceso es propiedad de Microsoft, este será responsable de su supervisión. Si el recurso de proceso es propiedad de su organización, la responsabilidad de su supervisión recaerá sobre usted. Puede usar Azure Security Center para supervisar el sistema operativo. Entre los datos que recopila Security Center del sistema operativo se incluyen: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Log Analytics también recopila los archivos de volcado de memoria.
 
 Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor:
 

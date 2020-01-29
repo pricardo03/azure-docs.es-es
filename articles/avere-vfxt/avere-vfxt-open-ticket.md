@@ -4,18 +4,18 @@ description: Explicación para abrir incidencias de soporte técnico sobre Avere
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 27f32a922a1b063096b0ccf28a01a78d442e0271
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889283"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153341"
 ---
 # <a name="get-help-with-your-system"></a>Obtenga ayuda con el sistema
 
-Si necesita ayuda con Avere vFXT para Azure, estas son las diversas maneras de obtener soporte técnico:
+Si necesita ayuda con el sistema Avere vFXT for Azure, estas son las diversas maneras de obtener soporte técnico:
 
 * **Problema con Avere vFXT**: use Azure Portal para abrir una incidencia de soporte técnico referente a Avere vFXT tal como se describe [a continuación](#open-a-support-ticket-for-your-avere-vfxt).
 * **Cuota**: si tiene un problema relacionado con la cuota, [solicite un aumento de cuota](#request-a-quota-increase).
@@ -27,11 +27,7 @@ Si tiene problemas al implementar o usar Avere vFXT, solicite ayuda mediante Azu
 
 Siga estos pasos para asegurarse de que su incidencia de soporte técnico se etiqueta con un recurso del clúster. Gracias a esta etiqueta podremos ofrecerle el recurso correcto de soporte técnico.
 
-1. En [https://portal.azure.com](https://portal.azure.com), seleccione **Grupos de recursos**.
-
-   ![captura de pantalla del menú izquierdo de Azure Portal con la opción "Grupos de recursos" marcada](media/avere-vfxt-ticket-rg.png)
-
-1. Busque el grupo de recursos que contiene el clúster de vFXT donde se produjo el problema y haga clic en una de las máquinas virtuales de Avere.
+1. En [https://portal.azure.com](https://portal.azure.com), seleccione **Grupos de recursos**. Busque el grupo de recursos que contiene el clúster de vFXT donde se produjo el problema y haga clic en una de las máquinas virtuales del clúster de Avere.
 
     ![captura de pantalla del panel de "información general" del grupo de recursos de Azure Portal con una máquina virtual concreta marcada](media/avere-vfxt-ticket-vm.png)
 
@@ -39,15 +35,25 @@ Siga estos pasos para asegurarse de que su incidencia de soporte técnico se eti
 
     ![Captura de pantalla de la página de la máquina virtual de Azure Portal para la máquina virtual de la captura de pantalla anterior. El menú de la izquierda se desplaza hasta la parte inferior y se resalta la opción "New support request" (Nueva solicitud de soporte técnico).](media/avere-vfxt-ticket-request.png)
 
-1. En la página uno de la solicitud de soporte técnico, haga clic en **Todos los servicios** y vaya a **Almacenamiento** para elegir **Avere vFXT**.
+1. En la primera página de la solicitud de soporte técnico, elija el tipo de problema y asegúrese de que la suscripción correcta está seleccionada.
 
-    ![captura de pantalla de la nueva pantalla de solicitud de soporte técnico en Azure Portal con el encabezado "Basics" (Datos básicos) y una marca indicando el elemento "Service" (Servicio). Se selecciona el botón "All services" (Todos los servicios) y en el campo del menú desplegable se mostrará el valor "Avere vFXT"](media/avere-vfxt-ticket-service.png)
+   En **Servicio**, haga clic en **Todos los servicios** y en **Almacenamiento**  elija **Avere vFXT**.
 
-1. En la página dos, elija el tipo de problema y la categoría que mejor coincida con su problema. Agregue un título corto y una descripción que incluya la hora en la que se produjo el problema.
+   Agregue un breve resumen y seleccione el tipo de problema.
 
-   ![captura de pantalla de la nueva pantalla de solicitud de soporte técnico con el encabezado "Problem" (Problema), que contiene varios campos que deben completarse](media/avere-vfxt-ticket-problem.png)
+    ![Captura de una nueva pantalla de solicitud de soporte técnico en Azure Portal. La pestaña Aspectos básicos está seleccionada. Los elementos de la pantalla incluyen el tipo de problema, la suscripción, el servicio, el resumen y el tipo de problema.](media/ticket-basics.png)
 
-1. En la página tres, rellene la información de contacto y haga clic en **Crear**. Se enviarán un número de confirmación y otro de vale a su dirección de correo electrónico y un miembro del personal del servicio de soporte técnico se pondrá en contacto con usted.
+   Haga clic en **Siguiente** para continuar.
+
+1. La segunda página del formulario de soporte técnico contiene sugerencias para corregir el problema en función de la descripción del resumen. Haga clic en el botón **Siguiente** en la parte inferior si todavía necesita crear una incidencia de soporte técnico.
+
+   ![Captura de la nueva pantalla de solicitud de soporte técnico con la pestaña Soluciones seleccionada. Un campo de texto en el centro tiene el título "Solución recomendada" y explica posibles remedios.](media/ticket-solutions.png)
+
+1. En la tercera página, proporcione detalles, por ejemplo, información sobre el clúster, la hora a la que se produjo el problema, la gravedad y cómo ponerse en contacto con usted. Rellene la información y haga clic en el botón **Siguiente** situado en la parte inferior.
+
+   ![Captura de la nueva pantalla de solicitud de soporte técnico con la pestaña Detalles seleccionada. Los campos de información se organizan en las categorías "Detalles del problema", "Método de soporte técnico" e "Información de contacto".](media/ticket-details.png)
+
+1. Revise la información de la página y haga clic en **Crear**. Se enviarán un número de confirmación y otro de vale a su dirección de correo electrónico y un miembro del personal del servicio de soporte técnico se pondrá en contacto con usted.
 
 ## <a name="request-a-quota-increase"></a>Solicitar un aumento de cuota
 

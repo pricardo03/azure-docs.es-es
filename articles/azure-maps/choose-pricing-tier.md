@@ -3,61 +3,60 @@ title: Elección del plan de tarifa adecuado | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre los planes de tarifa que ofrece Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 01/02/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5ff774f9848db948058075a98504e6c13db5467a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8764e9161f952118ca7ae28343dcd16477cf1eee
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911763"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155764"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Elección del plan de tarifa adecuado de Azure Maps
 
-Azure Maps ofrece dos planes de tarifa. El propósito de este artículo es ayudarle a elegir el plan de tarifa adecuado para satisfacer sus necesidades. Para ayudarle a elegir el plan de tarifa adecuado, plantéese las dos preguntas siguientes.
+Azure Maps ofrece dos planes de tarifa, S0 y S1. El propósito de este artículo es ayudarle a elegir el plan de tarifa adecuado para satisfacer sus necesidades. Para ayudarle a elegir el plan de tarifa adecuado, plantéese las dos preguntas siguientes.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>¿Qué funcionalidades geoespaciales tiene previsto usar?
-El plan de tarifa S0 es la opción adecuada si las principales API geoespaciales satisfacen los requisitos de su servicio. Si desea funcionalidades más avanzadas para su aplicación, considere la posibilidad de optar por el plan de tarifa S1. Las funcionalidades de ejemplo son imágenes aéreas e híbridas, obteniendo los servicios Route Range y Batch Geocoding. La tabla **Funcionalidades de los planes de tarifa** que se muestra a continuación ofrece una mejor idea de las necesidades de su aplicación. También le ayuda a elegir un plan de tarifa más adecuado para su aplicación.
+El plan de tarifa S0 es la opción adecuada si las principales API geoespaciales satisfacen los requisitos de su servicio. Si desea funcionalidades más avanzadas para su aplicación, considere la posibilidad de optar por el plan de tarifa S1. Ejemplo de funcionalidades avanzadas: imágenes aéreas e híbridas, obtención del alcance de la ruta y geocodificación por lotes. La tabla **funcionalidades del plan de tarifa** puede ayudarle a elegir el plan de tarifa más adecuado para la aplicación.
 
 ## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>¿Cuántos usuarios simultáneos tiene previsto admitir? 
-Los planes de tarifa S0 y S1 manipulan diferentes volúmenes de rendimiento de datos. Antes de elegir un plan de tarifa de Azure Maps, plantéese algunas preguntas. Un ejemplo es "¿cuántos usuarios simultáneos tiene previsto admitir?" El plan de tarifa S0 manipula hasta **50 consultas por segundo**. El plan de tarifa S1 manipula **más de 50 consultas por segundo**.
+Los planes de tarifa S0 y S1 manipulan diferentes volúmenes de rendimiento de datos. El plan de tarifa S0 puede manipular hasta **50 consultas por segundo** y el plan de tarifa S1, **más de 50 consultas por segundo**.
 
 ### <a name="pricing-tier-capabilities"></a>Funcionalidades de los planes de tarifa
 
 | Capacidad                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Búsqueda (avance/retroceso geocodificación, puntos de interés)  |        ✓           |     ✓    |
-| Batch geocoding (versión preliminar)              |                   |     ✓    |
-| Polygons from search          |                   |     ✓    |
-| Enrutamiento                                 |        ✓           |     ✓    |
-| Route range                    |                   |     ✓    |
-| Batch routing (versión preliminar)                |                   |     ✓    |
-| Matrix routing (versión preliminar)               |                   |     ✓    |
-| Representación                                  |        ✓           |     ✓    |
-| Imagery plus hybrid imagery    |            |     ✓    |
-| Tráfico                                 |        ✓           |     ✓    |
-| Zonas horarias                              |        ✓           |     ✓    |
-| Geolocation (versión preliminar)                |        ✓           |     ✓    |
-| Data (versión preliminar)               |                   |     ✓    |
-| Spatial (versión preliminar)               |                   |     ✓    |
-| Geofencing (versión preliminar)               |                   |     ✓    |
-
-
+| Representación de mapas                              | ✓                   | ✓       |
+| Imágenes de satélite                       |                     | ✓        |
+| Search                                  | ✓                    | ✓        |
+| Búsqueda por lotes                            |                     | ✓        |
+| Enrutar                                   | ✓                    |✓        |
+| Enrutamiento por lotes                            |                    | ✓        |
+| Enrutamiento de matriz                          |                     | ✓        |
+| Alcance de ruta (isocronas)                |                     | ✓        |
+| Tráfico                                |✓                    |✓        |
+| Zona horaria                               |✓                    |✓        |
+| Geolocalización (versión preliminar)                    |✓                   |✓        |
+| Spatial Operations                        |                    |✓        |
+| Geovalla                                |                    |✓        |
+| Datos de Azure Maps (versión preliminar)                |                     | ✓        |
+| Movilidad (versión preliminar)                       |                     | ✓        |
+| Meteorología (versión preliminar)                        |✓                    |✓        |
 
 Merece la pena considerar estos puntos de datos adicionales:
 * ¿Qué tipo de empresa tiene?
-* ¿Qué importancia tiene la aplicación que se genera?
-
-Consulte la tabla **Clientes objetivo de los planes de tarifa** para obtener una visión general de los planes de tarifa S0 y S1. Para más información, consulte [Precios de Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
+* ¿Es crítica la aplicación?
 
 ### <a name="pricing-tier-targeted-customers"></a>Clientes objetivo de los planes de tarifa
 
+Consulte la tabla **Clientes objetivo de los planes de tarifa** para obtener una visión general de los planes de tarifa S0 y S1. Para más información, consulte [Precios de Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
+
 | Plan de tarifa  |     Clientes objetivo                                                                |
-|---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>El plan de tarifa S0 está orientado a los clientes que son pequeñas y medianas empresas. Es el plan de tarifa adecuado para usted si no espera grandes volúmenes de usuarios simultáneos. También es adecuado si las principales API geoespaciales mostradas en la tabla anterior satisfacen los requisitos de su servicio. Este plan se encuentra disponible con carácter general. Funciona para las aplicaciones en todas las fases de producción: desde el desarrollo de la prueba de concepto y la primera fase de pruebas hasta la producción e implementación de la aplicación.<p>|
+|-----------------|:-----------------------------------------------------------------------------------------|
+| S0            |    <p>El plan de tarifa S0 funciona para las aplicaciones en todas las fases de producción, desde el desarrollo de la prueba de concepto y la primera fase de pruebas hasta la puesta en producción e implementación de la aplicación. Sin embargo, este nivel está diseñado para el desarrollo a pequeña escala, para clientes con pocos usuarios simultáneos o ambos. <p>|
 | S1            |    <p>El plan de tarifa S1 está orientado a clientes que necesitan soporte para aplicaciones empresariales a gran escala y críticas para la empresa, o bien grandes volúmenes de usuarios simultáneos. También es para aquellos clientes que requieren servicios geoespaciales avanzados.</p>|
 
 ## <a name="next-steps"></a>Pasos siguientes

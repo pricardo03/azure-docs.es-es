@@ -6,9 +6,13 @@
   items:
     - name: 'Creación de máquinas virtuales de SQL: Portal'
       href: provision-sql-server-linux-virtual-machine.md
+- name: Tutoriales
+  items:
+    - name: Configuración del grupo de disponibilidad de máquinas virtuales RHEL de Azure con STONITH
+      href: sql-server-linux-rhel-ha-stonith-tutorial.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/
     - name: PowerShell
       href: /powershell/azure/overview

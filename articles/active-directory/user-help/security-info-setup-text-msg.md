@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fe8610d7551b63ed613153ba1ee0e6f8e73b5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6e8e8b20fc9b8e19b2f7c5f9c1b9e926580c9dbb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278922"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156070"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configuración de mensajería de texto como su método de comprobación
 
 Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y verificación en dos pasos. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
 
-Si se le pide que lo configure inmediatamente después de iniciar sesión con su cuenta profesional o educativa, consulte los pasos que se detallan en el artículo [Configuración de la información de seguridad (versión preliminar) desde el mensaje de la página de inicio de sesión](security-info-setup-signin.md).
+Si se le pide que configure esto justo después de haber iniciado sesión en su cuenta profesional o educativa, consulte los pasos detallados en el artículo de [configuración de su información de seguridad desde el símbolo del sistema de página de inicio de sesión](security-info-setup-signin.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Si no ve una opción telefónica, es posible que su organización no le permita usar un número de teléfono para la comprobación. En este caso, tendrá que elegir otro método o ponerse en contacto con el administrador para que le proporcione más ayuda.
+>Si no ve una opción telefónica, es posible que su organización no le permita usar esta opción para la comprobación. En este caso, tendrá que elegir otro método o ponerse en contacto con el departamento de soporte técnico de su organización para que le proporcione más ayuda.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>Configuración de mensajes de texto desde la página Información de seguridad
 
@@ -84,11 +84,11 @@ Si ya no desea usar los mensajes de texto como método de información de seguri
 
 Si quiere que los mensajes de texto sean el método predeterminado que se usa al iniciar sesión en su cuenta profesional o educativa mediante la verificación en dos pasos o para las solicitudes de restablecimiento de contraseña, puede establecerlo en la página **Información de seguridad**.
 
-### <a name="to-change-your-default-security-info-method"></a>Para cambiar su método de información de seguridad predeterminado
+### <a name="to-change-your-default-security-info-method"></a>Para cambiar el método de información de seguridad predeterminado
 
 1. En la página **Información de seguridad**, seleccione el vínculo **Cambiar** situado junto a la información **Método de inicio de sesión predeterminado**.
 
-    ![Cambio del vínculo del método de inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+    ![Cambio de vínculo del método de inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
 2. Seleccione **Teléfono: texto ( *_su_número_de_teléfono_* )** en la lista desplegable de métodos disponibles y, después, seleccione **Confirmar**.
 
@@ -96,11 +96,11 @@ Si quiere que los mensajes de texto sean el método predeterminado que se usa al
 
     El método predeterminado que se usa para el inicio de sesión se cambia en **Teléfono: texto ( *_su_número_de_teléfono_* )** .
 
-## <a name="additional-security-info-methods"></a>Otros métodos de información de seguridad
+## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
 
 Tiene opciones adicionales para determinar cómo su organización se pone en contacto con usted para comprobar su identidad, basándose en lo está intentando hacer. Entre estas opciones se incluyen:
 
-- **Aplicación autenticadora.** Descargue y use una aplicación autenticadora para obtener una notificación de aprobación o un código de aprobación generado de forma aleatoria para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones detalladas sobre cómo configurar y usar la aplicación Microsoft Authenticator, vea [Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md).
+- **Aplicación autenticadora.** Descargue y use una aplicación autenticadora para obtener una notificación de aprobación o un código de aprobación generado de forma aleatoria para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo configurar y usar la aplicación Microsoft Authenticator, consulte [Set up security info to use an authenticator app](security-info-setup-auth-app.md) (Configuración de la información de seguridad para usar una aplicación de autenticador).
 
 - **Llamada a dispositivo móvil o al teléfono del trabajo.** Escriba el número del dispositivo móvil y recibirá una llamada telefónica para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo comprobar su identidad con un número de teléfono, consulte [Configuración de la información de seguridad para usar llamadas de teléfono](security-info-setup-phone-number.md).
 

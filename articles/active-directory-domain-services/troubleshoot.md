@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 5c2a8c8cfa2425985a22b93d4ade509320c48564
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2c6f594b16aac40abf885e0d058c7aba48d32f9c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998727"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512630"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Errores comunes y pasos de solución de problemas para Azure Active Directory Domain Services
 
@@ -43,7 +43,7 @@ Si tiene problemas para habilitar Azure AD DS, revise los siguientes errores c
 
 **Resolución**
 
-Compruebe que no tiene ya un entorno de AD DS con el mismo nombre de dominio en la red virtual. Por ejemplo, puede tener un dominio de AD DS denominado *contoso.com* que se ejecute en máquinas virtuales de Azure. Al intentar habilitar un dominio administrado de Azure AD DS con el mismo nombre de dominio (*contoso.com*) en esa red virtual, la operación solicitada genera un error
+Compruebe que no tenga un entorno de AD DS con el mismo nombre de dominio en la misma red virtual o una emparejada. Por ejemplo, puede tener un dominio de AD DS denominado *contoso.com* que se ejecute en máquinas virtuales de Azure. Al intentar habilitar un dominio administrado de Azure AD DS con el mismo nombre de dominio (*contoso.com*) en esa red virtual, la operación solicitada genera un error
 
 que se debe a los conflictos de nombre en el nombre de dominio de la red virtual. Una búsqueda DNS comprueba si un entorno de AD DS existente responde en el nombre de dominio solicitado. Para resolver este problema, use un nombre diferente para configurar el dominio administrado de Azure AD DS o desaprovisione el dominio de AD DS existente y vuelva a intentar habilitar Azure AD DS.
 
@@ -72,7 +72,7 @@ Compruebe si hay una aplicación con el nombre *Azure AD Domain Services Sync* 
 
 Compruebe si hay una aplicación con el nombre *AzureActiveDirectoryDomainControllerServices* con el identificador de aplicación *d87dcbc6-a371-462e-88e3-28ad15ec4e64* en el directorio de Azure AD. Si existe, elimínela y vuelva a habilitar Azure AD DS.
 
-Use el siguiente script de PowerShell para buscar una aplicación existente y eliminarla si es necesario.
+Use el siguiente script de PowerShell para buscar una instancia de aplicación existente y eliminarla si es necesario:
 
 ```powershell
 $InformationPreference = "Continue"

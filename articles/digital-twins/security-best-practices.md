@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/15/2020
+ms.openlocfilehash: 5fc5ba447557aa89e8f0870c576d6d4c439f3353
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860952"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122566"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Digital Twins
 
@@ -40,6 +40,7 @@ Algunos de los procedimientos principales para proteger los dispositivos IoT de 
 > * Limite el ancho de banda de E/S y dispositivo para mejorar el rendimiento. La limitación de velocidad puede mejorar la seguridad al impedir ataques por denegación de servicio.
 > * Mantenga actualizado el firmware del dispositivo, el sistema operativo y el software.
 > * Audite y revise periódicamente los procedimientos recomendados de seguridad de dispositivos, software, redes y puertas de enlace, ya que siguen mejorando y evolucionando.
+> * Use sistemas, software y dispositivos de seguridad de confianza, certificados y compatibles. Por ejemplo, revise [las ofertas de cumplimiento](https://azure.microsoft.com/overview/trusted-cloud/compliance/) para la nube de Azure.
 
 Algunos de los procedimientos más importantes para proteger de forma segura un espacio de IoT son:
 
@@ -67,8 +68,8 @@ Azure Digital Twins usa [Azure Active Directory](https://docs.microsoft.com/azur
 > * Para autenticarse, use un certificado emitido por una [entidad emisora de certificados](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) de confianza en lugar de secretos de aplicación.
 > * Limite el ámbito de acceso de OAuth 2.0 para un token.
 > * Compruebe la longitud de tiempo que es válido un token y si un token sigue siendo válido.
-> * Establezca periodos de tiempo adecuados durante los cuales los tokens son válidos.
-> * Actualice los tokens expirados.
+> * Establezca periodos de tiempo adecuados durante los cuales los tokens son válidos. Actualice los tokens expirados.
+> * Quite los **URI de redirección** y permisos que no se usan, siguiendo los [Procedimientos recomendados del control de acceso basado en roles](#role-based-access-control-best-practices).
 
 ## <a name="role-based-access-control-best-practices"></a>Procedimientos recomendados del control de acceso basado en roles
 

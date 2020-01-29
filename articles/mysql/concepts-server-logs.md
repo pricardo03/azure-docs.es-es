@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 9b661a7fa6a7b9f079a3b24d1b83f27118c4bd23
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/21/2020
+ms.openlocfilehash: e0c58c5c3fef41a472fe791f66292c9280531493
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745856"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514687"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registros de consultas lentas en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
@@ -41,10 +41,11 @@ Otros parámetros que se pueden ajustar son los siguientes:
 - **log_slow_admin_statements**: si ON incluye instrucciones administrativas como ALTER_TABLE y ANALYZE_TABLE en las instrucciones escritas en slow_query_log.
 - **log_queries_not_using_indexes**: determina si las consultas que no utilizan índices se registran en slow_query_log.
 - **log_throttle_queries_not_using_indexes**: este parámetro limita el número de consultas que no son de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando log_queries_not_using_indexes está configurado en ON.
-- **log_output**: si es "File", permite escribir el registro de consultas lento en el almacenamiento del servidor local y en los registros de diagnóstico de Azure Monitor. Si es "None", el registro de consultas lentas solo se escribirá en registros de diagnóstico de Azure Monitor. 
+- **log_output**: si es "File", permite escribir el registro de consultas lento en el almacenamiento del servidor local y en los registros de diagnóstico de Azure Monitor. Si es "None", el registro de consultas lentas solo se escribirá en los registros de diagnóstico de Azure Monitor. 
 
-> [!Note]
-> Para `sql_text`, el registro se truncará si supera los 2048 caracteres.
+> [!IMPORTANT]
+> Si las tablas no están indexadas y se establecen loa parámetros `log_queries_not_using_indexes` y `log_throttle_queries_not_using_indexes` en ON (Activar) el rendimiento de MySQL puede resultar afectado, ya que todas las consultas que se ejecuten en estas tablas se escribirán en el registro de consulta lento.<br><br>
+> Si planea registrar consultas lentas durante un periodo prolongado, se recomienda establecer `log_output` en "None" (No). Si se establece en "File" (Archivo), estos registros se escriben en el almacenamiento del servidor local, lo que puede afectar al rendimiento de MySQL. 
 
 Consulte la [documentación rel registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de MySQL para obtener una descripción completa de los parámetros de registro de consultas lentas.
 
@@ -84,5 +85,64 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | `thread_id_s` | Id. de subproceso |
 | `\_ResourceId` | URI de recurso |
 
+> [!Note]
+> Para `sql_text`, el registro se truncará si supera los 2048 caracteres.
+
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Análisis de registros en los registros de Azure Monitor
+
+Una vez que los registros de consultas lentos se canalizan a los registros de Azure Monitor a través de registros de diagnóstico, puede realizar un análisis en mayor profundidad de sus consultas lentas. A continuación encontrará algunas consultas de ejemplo que le ayudarán a ponerse en marcha. Asegúrese de que actualizar los datos siguientes con el nombre del servidor.
+
+- Consultas que duran más de 10 segundos en un servidor concreto
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```
+
+- Lista de cinco consultas más largas en un servidor concreto
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | order by query_time_d desc
+    | take 5
+    ```
+
+- Resumir las consultas lentas por tiempo de consulta mínimo, máximo, medio y desviación estándar en un servidor concreto
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
+    ```
+
+- Representar en un gráfico la distribución de consultas lentas en un servidor concreto
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart
+    ```
+
+- Mostrar las consultas durante más de 10 segundos en todos los servidores de MySQL con Registros de diagnóstico habilitado
+
+    ```Kusto
+    AzureDiagnostics
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```    
+    
 ## <a name="next-steps"></a>Pasos siguientes
-- [How to configure and access server logs from the Azure CLI](howto-configure-server-logs-in-cli.md) (Configuración y acceso de registros de servidor desde la CLI de Azure).
+- [Configuración registros de consultas lentos en Azure Portal](howto-configure-server-logs-in-portal.md)
+- [Configuración de registros de consultas lentos en la CLI de Azure](howto-configure-server-logs-in-cli.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af3aea7218ea8792bb66188e8df7baf9f460b0b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462548"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512205"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD
 
@@ -37,7 +37,7 @@ La unión a Azure AD está pensaba para las organizaciones en las que la nube e
 |   | Windows Hello para empresas |
 |   | Claves de seguridad de FIDO2.0 (versión preliminar) |
 | **Administración de dispositivos** | Administración de dispositivos móviles (por ejemplo, Microsoft Intune) |
-|   | Administración conjunta con Microsoft Intune y System Center Configuration Manager |
+|   | Administración conjunta con Microsoft Intune y Microsoft Endpoint Configuration Manager |
 | **Principales funcionalidades** | SSO tanto a los recursos en la nube como a los recursos locales |
 |   | Acceso condicional a través de la inscripción de MDM y la evaluación de cumplimiento de MDM |
 |   | Autoservicio de restablecimiento de contraseña y restablecimiento de PIN de Windows Hello |
@@ -45,7 +45,7 @@ La unión a Azure AD está pensaba para las organizaciones en las que la nube e
 
 Los dispositivos unidos a Azure AD inician sesión con una cuenta organizativa de Azure AD. Es posible limitar aún más el acceso a los recursos de la organización en función de esa cuenta de Azure AD y a las [directivas de acceso condicional](../conditional-access/overview.md) aplicadas a la identidad del dispositivo.
 
-Los administradores pueden proteger y controlar aún más los dispositivos unidos a Azure AD con herramientas de administración de dispositivos móviles (MDM), como Microsoft Intune o en escenarios de administración conjunta con System Center Configuration Manager. Estas herramientas proporcionan una manera de aplicar las configuraciones que requiere la organización, como el cifrado del almacenamiento, la complejidad de las contraseñas y las instalaciones y actualizaciones de software. Los administradores pueden hacer que las aplicaciones de la organización estén disponibles para los dispositivos unidos a Azure AD con [System Center Configuration Manager y Microsoft Store para Empresas](https://docs.microsoft.com/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Los administradores pueden proteger y controlar aún más los dispositivos unidos a Azure AD con herramientas de administración de dispositivos móviles (MDM), como Microsoft Intune o en escenarios de administración conjunta con Microsoft Endpoint Configuration Manager. Estas herramientas proporcionan una manera de aplicar las configuraciones que requiere la organización, como el cifrado del almacenamiento, la complejidad de las contraseñas y las instalaciones y actualizaciones de software. Los administradores pueden hacer que las aplicaciones de la organización estén disponibles en los dispositivos unidos a Azure AD con Configuration Manager para [administrar aplicaciones de Microsoft Store para Empresas y Educación](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
 La unión a Azure AD se puede lograr mediante opciones de autoservicio, como la configuración rápida (OOBE), la inscripción masiva o [Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
 

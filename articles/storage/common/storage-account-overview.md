@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975707"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274559"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -64,17 +64,15 @@ En la mayoría de los casos, debe usar cuentas de uso general v2. Puede usar cue
 
 ### <a name="blockblobstorage-accounts"></a>Cuentas BlockBlobStorage
 
-Una cuenta BlockBlobStorage es una cuenta de almacenamiento especializada que puede usar para almacenar datos de objetos no estructurados como blobs en bloques. También puede usar una cuenta BlockBlobStorage para crear blobs en bloques premium. Este tipo de cuenta de almacenamiento admite blobs en bloques y blobs adjuntos, pero no blobs en páginas, tablas ni colas.
+Una cuenta BlockBlobStorage es una cuenta de almacenamiento especializada del nivel de rendimiento Premium que se usa para almacenar datos de objetos no estructurados como blobs en bloques o blobs en anexos. En comparación con las cuentas de uso general v2 y BlobStorage, las cuentas BlockBlobStorage ofrecen latencia baja y coherente y mayores tasas de transacción.
 
-En comparación con las cuentas de uso general v2 y BlobStorage, las cuentas BlockBlobStorage ofrecen latencia baja y coherente y mayores tasas de transacción.
-
-Las cuentas BlockBlobStorage no admiten actualmente los niveles de acceso frecuente, esporádico ni de archivo.
+Las cuentas BlockBlobStorage no admiten actualmente los niveles de acceso frecuente, esporádico ni de archivo. Este tipo de cuenta de almacenamiento no admite blobs en páginas, tablas o colas.
 
 ### <a name="filestorage-accounts"></a>Cuentas FileStorage
 
 Una cuenta FileStorage es una cuenta de almacenamiento especializada que se usa para almacenar y crear recursos compartidos de archivos premium. Este tipo de cuenta de almacenamiento admite archivos, pero no de blobs en bloques, blobs en anexos, blobs en páginas, tablas ni colas.
 
-Las cuentas FileStorage ofrecen características dedicadas de rendimiento único, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre los [niveles de rendimiento de recursos compartidos de archivo](../files/storage-files-planning.md#file-share-performance-tiers) en la guía de planeación de archivos.
+Las cuentas FileStorage ofrecen características de rendimiento únicas, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre los [niveles de rendimiento de recursos compartidos de archivo](../files/storage-files-planning.md#file-share-performance-tiers) en la guía de planeación de archivos.
 
 ## <a name="naming-storage-accounts"></a>Nomenclatura de las cuentas de almacenamiento
 
@@ -85,12 +83,20 @@ Cuando especifique un nombre para la cuenta de almacenamiento, tenga en cuenta e
 
 ## <a name="performance-tiers"></a>Niveles de rendimiento
 
+En función del tipo de cuenta de almacenamiento que cree, puede elegir entre los niveles de rendimiento Estándar y Premium.
+
+### <a name="general-purpose-storage-accounts"></a>Cuentas de almacenamiento de uso general
+
 Las cuentas de almacenamiento de uso general pueden configurarse para cada uno de los niveles de rendimiento siguientes:
 
 - Un nivel de rendimiento estándar para almacenar blobs, archivos, tablas, colas y discos de máquina virtual de Azure. Para obtener más información sobre los objetivos de escalabilidad de cuentas de almacenamiento estándar, consulte [Objetivos de escalabilidad para cuentas de almacenamiento estándar](scalability-targets-standard-account.md).
-- Un nivel de rendimiento prémium para almacenar solo los discos de máquina virtual no administrados. Microsoft recomienda usar discos administrados en lugar de discos no administrados con máquinas virtuales de Azure. Para obtener más información sobre los objetivos de escalabilidad del nivel de rendimiento premium, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en páginas premium](../blobs/scalability-targets-premium-page-blobs.md).
+- Un nivel de rendimiento Premium para almacenar los discos de máquina virtual no administrados. Microsoft recomienda usar discos administrados en lugar de discos no administrados con máquinas virtuales de Azure. Para obtener más información sobre los objetivos de escalabilidad del nivel de rendimiento premium, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en páginas premium](../blobs/scalability-targets-premium-page-blobs.md).
+
+### <a name="blockblobstorage-storage-accounts"></a>Cuentas de almacenamiento BlockBlobStorage
 
 Las cuentas de almacenamiento BlockBlobStorage proporcionan un nivel de rendimiento premium para almacenar blobs en bloques y blobs en anexos. Para obtener más información, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en bloques premium](../blobs/scalability-targets-premium-block-blobs.md).
+
+### <a name="filestorage-storage-accounts"></a>Cuentas de almacenamiento FileStorage
 
 Las cuentas de almacenamiento FileStorage proporcionan un nivel de rendimiento prémium para los recursos compartidos de archivos de Azure. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Files](../files/storage-files-scale-targets.md).
 
@@ -102,7 +108,7 @@ Los niveles de acceso disponibles son:
 
 - Nivel de acceso **frecuente**. Este nivel está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
 - Nivel de acceso **esporádico**. Este nivel está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
-- Nivel de **archivo**. Este nivel está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
+- Nivel de **archivo**. Este nivel está disponible solo para blobs en bloques y blobs en anexos individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
 
 Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f528135445824a17a8d8c95913adf6934cc87eb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895742"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260140"
 ---
 # <a name="configure-rules-preview-features"></a>Configurar las reglas (características de la versión preliminar)
 
@@ -33,7 +33,7 @@ Use la sección de dispositivos de destino para seleccionar el tipo de dispositi
 
 Las reglas se activan según las condiciones. Actualmente, cuando se agregan varias condiciones a una regla, se agrupan lógicamente mediante AND. En otras palabras, se deben cumplir todas las condiciones para que la regla se evalúe como "true".  
 
-En la siguiente captura de pantalla, las condiciones comprueban si la temperatura es mayor que 90 y la humedad es menor que 10. Cuando ambas instrucciones son "true", la regla se evalúa como "true" y se desencadena una acción.
+En la siguiente captura de pantalla, las condiciones comprueban si la temperatura es mayor que 70 &deg;F y la humedad es menor que 10. Cuando ambas instrucciones son "true", la regla se evalúa como "true" y se desencadena una acción.
 
 ![Condiciones](media/howto-configure-rules/conditions.png)
 

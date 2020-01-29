@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 27ad81c42a079485d8eab95bb1250cba41e8fb5b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893984"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281281"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -71,7 +71,7 @@ El acceso a todas las direcciones URL y direcciones IP enumeradas anteriormente 
 
 **Característica** | **Detalles**
 --- | ---
-Control del ancho de banda | Se admite. En el agente de MARS, use **Cambiar propiedades** para ajustar el ancho de banda.
+Control del ancho de banda | Compatible. En el agente de MARS, use **Cambiar propiedades** para ajustar el ancho de banda.
 Limitación de la red | No está disponible para las máquinas de copia de seguridad que ejecutan Windows Server 2008 R2, Windows Server 2008 SP2 o Windows 7.
 
 ## <a name="support-for-direct-backups"></a>Compatibilidad con copias de seguridad directas
@@ -88,21 +88,23 @@ Los sistemas operativos deben ser de 64 bits y ejecutar los Service Pack y actu
 
 **Sistema operativo** | **Archivos/carpetas** | **Estado del sistema** | **Requisitos de software o módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Sí | Sin |  Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 8.1 (Enterprise, Pro)| Sí |Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 8 (Enterprise, Pro) | Sí | Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sí | Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 10 (Enterprise, Pro, Home) | Sí | No |  Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 8.1 (Enterprise, Pro)| Sí |No | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 8 (Enterprise, Pro) | Sí | No | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sí | No | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sí | Sí |- .NET 4.5 <br> -Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe)
 Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sí | Sí | - .NET 3.5, .Net 4.5 <br> -Windows PowerShell <br> - Versión compatible de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sí | Sin | - .NET 3.5, .Net 4.5 <br> Windows PowerShell <br> - Versión compatible de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe) <br> - Base de Virtual Server 2005 + KB KB948515
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sí | Sin | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sí | No | - .NET 3.5, .Net 4.5 <br> Windows PowerShell <br> - Versión compatible de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe) <br> - Base de Virtual Server 2005 + KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sí | No | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 
 Para obtener más información, consulte el artículo sobre los [Sistemas operativos de MABS y DPM compatibles](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
 ## <a name="backup-limits"></a>Límites de Backup
+
+### <a name="size-limits"></a>Límites de tamaño
 
 Azure Backup limita el tamaño del origen de datos de archivo o carpeta del que se puede realizar una copia de seguridad. Los elementos para los que realiza una copia de seguridad desde un único volumen no pueden exceder los tamaños resumidos en esta tabla:
 
@@ -114,14 +116,18 @@ Windows Server 2008 SP2| 1700 GB
 Windows 8 o posterior| 54 400 GB
 Windows 7| 1700 GB
 
+### <a name="other-limitations"></a>Otras limitaciones
+
+- MARS no admite la protección de varias máquinas con el mismo nombre en un único almacén.
+
 ## <a name="supported-file-types-for-backup"></a>Tipos de archivo compatibles para copia de seguridad
 
 **Tipo** | **Soporte técnico**
 --- | ---
-Cifrados| Se admite.
-Comprimidos | Se admite.
-Dispersos | Se admite.
-Comprimidos y dispersos |Se admite.
+Cifrados| Compatible.
+Compressed | Compatible.
+Dispersos | Compatible.
+Comprimidos y dispersos |Compatible.
 Vínculos físicos| No compatible. Se omite.
 Punto de repetición de análisis| No compatible. Se omite.
 Cifrados y dispersos |No compatible. Se omite.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d1d94e07fc38ae5de62793666df5a73dbf8b79eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475166"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264023"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Panel Cliente de los análisis de Marketplace comercial
 
@@ -72,7 +72,7 @@ El gráfico de **tendencias de clientes** muestra el recuento de todos los clien
 
 El gráfico **Clientes por pedido/uso** tiene las tres pestañas siguientes: "pedidos", "uso normalizado" y "uso sin procesar". El **percentil de principales clientes** muestra el eje x, según lo determina el número de pedidos. El eje y muestra el número de pedidos del cliente. En el eje z secundario (gráfico de líneas) se muestra el porcentaje acumulado del número total de pedidos. Puede mostrar detalles manteniendo el puntero sobre los puntos del gráfico de líneas.
 
-A modo de ejemplo, vea el siguiente gráfico para ver el uso normalizado: El 30.° percentil superior de clientes contribuye al 87 % del uso normalizado de forma acumulativa. El 30.º percentil de clientes solo contribuye a 1,57 millones de horas de uso.
+A modo de ejemplo, vea el siguiente gráfico para ver el uso normalizado: El 30.° percentil superior de clientes contribuye al 87 % del uso normalizado de forma acumulativa. El 30.º percentil de clientes solo contribuye con 1,57 millones de horas de uso.
 
 ### <a name="customers-by-skus"></a>Clientes por SKU
 
@@ -109,10 +109,10 @@ Los filtros de la página **Clientes** se aplican a nivel de la página Clientes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre los informes de análisis disponibles en el Marketplace comercial del Centro de partners, consulte [Análisis de Marketplace comercial en el Centro de partners](./analytics.md).
-- Para ver gráficos, tendencias y valores de datos agregados que resuman la actividad de Marketplace de la oferta, consulte la documentación [Panel Resumen de los análisis de Marketplace comercial](./summary-dashboard.md).
-- Para obtener información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de Marketplace comercial](./orders-dashboard.md).
+- Para obtener información general sobre los informes de análisis disponibles en el Marketplace comercial del Centro de partners, consulte [Análisis para Marketplace comercial en el Centro de partners](./analytics.md).
+- Para ver gráficos, tendencias y valores de datos agregados que resuman la actividad de Marketplace de la oferta, vea [Panel Resumen en los análisis de Marketplace comercial](./summary-dashboard.md).
+- Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de Marketplace comercial](./orders-dashboard.md).
 - Para que la máquina virtual (VM) ofrezca métricas de uso y de facturación de uso medido, consulte [Panel Uso de los análisis de Marketplace comercial](./usage-dashboard.md).
 - Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de Marketplace comercial](./downloads-dashboard.md).
-- Para obtener una vista consolidada de comentarios de clientes de las ofertas de Azure Marketplace y AppSource, consulte [Panel Valoraciones y opiniones de los análisis de Marketplace comercial](./ratings-reviews.md).
-- Para ver las preguntas más frecuentes sobre los análisis de Marketplace comercial y obtener un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología de los análisis de Marketplace comercial](./faq-terminology.md).
+- Para obtener una vista consolidada de comentarios de los clientes para las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de Marketplace comercial](./ratings-reviews.md).
+- Para consultar las preguntas más frecuentes sobre los análisis de Marketplace comercial y obtener un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología de los análisis de Marketplace comercial](./faq-terminology.md).

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 11/04/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771928"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546357"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -23,12 +23,49 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
 
+## <a name="2020-01-21"></a>2020-01-21
+
+### <a name="azure-machine-learning-sdk-for-python-v1085"></a>SDK de Azure Machine Learning para Python v1.0.85
+
++ **Nuevas características:**
+  + **azureml-core**
+    + Obtenga el uso principal actual y la limitación de cuota para los recursos de AmlCompute en un área de trabajo y una suscripción determinadas
+  
+  + **azureml-contrib-pipeline-steps**
+    + Permita al usuario pasar un conjunto de datos tabulares como resultado intermedio del paso anterior a parallelrunstep
+
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-runtime**
+    + Se ha quitado el requisito de la columna y_query de la solicitud al servicio de previsión implementado. 
+    + "y_query" se ha quitado de la sección de solicitud de servicio del cuaderno Orange Juice de Dominick.
+    + Se ha corregido el error que impide la previsión en los modelos implementados y que funciona en conjuntos de datos con columnas de fecha y hora.
+    + Se ha agregado el coeficiente de correlación de Matthews como una métrica de clasificación, tanto para la clasificación binaria como la multiclase.
+  + **azureml-contrib-interpret**
+    + Se han eliminado los explicadores de texto de azureml-contrib-interpret, ya que la explicación del texto se ha movido al repositorio interpret-text, que se liberará pronto.
+  + **azureml-core**
+    + Conjunto de datos: los usos del conjunto de datos de archivo ya no dependen de que Numpy y Pandas estén instalados en el entorno de Python.
+    + Se ha cambiado LocalWebservice.wait_for_deployment () para comprobar el estado del contenedor de Docker local antes de intentar hacer ping a su punto de conexión de mantenimiento, lo que reduce considerablemente el tiempo que se tarda en informar de un error de implementación.
+    + Se ha corregido la inicialización de una propiedad interna usada en LocalWebservice.reload() cuando el objeto de servicio se crea a partir de una implementación existente mediante el constructor LocalWebservice ().
+    + Mensaje de error editado para clarificación.
+    + Se ha agregado un nuevo método llamado get_access_token () a AksWebservice que devolverá el objeto AksServiceAccessToken, que contiene el token de acceso, la actualización después de la marca de tiempo, la expiración en la marca de tiempo y el tipo de token. 
+    + El método get_token () existente está en desuso en AksWebservice, ya que el nuevo método devuelve toda la información que devuelve este método.
+    + Se ha modificado la salida del comando get-access-token de az ml service. Se ha cambiado el nombre del token a accessToken y de refreshBy a refreshAfter. Se han agregado las propiedades expiryOn y tokenType.
+    + Se ha reparado get_active_runs
+  + **azureml-explain-model**
+    + se ha actualizado shap a la versión 0.33.0 e interpret-community a la 0.4.*
+  + **azureml-interpret**
+    + se ha actualizado shap a la versión 0.33.0 e interpret-community a la 0.4.*
+  + **azureml-train-automl-runtime**
+    + Se ha agregado el coeficiente de correlación de Matthews como una métrica de clasificación, tanto para la clasificación binaria como la multiclase.
+    + Se ha dejado en desuso la marca de preprocesamiento del código y se ha reemplazado por características-características está activada de forma predeterminada
+
 ## <a name="2020-01-06"></a>2020-01-06
 
 ### <a name="azure-machine-learning-sdk-for-python-v1083"></a>SDK de Azure Machine Learning para Python v 1.0.83
 
 + **Nuevas características:**
   + Conjunto de datos: Agregue dos opciones `on_error` y `out_of_range_datetime` para que se produzca un error en `to_pandas_dataframe` cuando los datos tengan valores de error en lugar de llenarlos con `None`.
+  + Área de trabajo: Se ha agregado la marca `hbi_workspace` para las áreas de trabajo con información confidencial que habilita un cifrado adicional y deshabilita el diagnóstico avanzado en áreas de trabajo. También hemos agregado compatibilidad con la posibilidad de traer sus propias claves para la instancia de Cosmos DB asociada, mediante la especificación de los parámetros `cmk_keyvault` y `resource_cmk_uri` al crear un área de trabajo, lo que crea una instancia de Cosmos DB en su suscripción mientras aprovisiona el área de trabajo. [Obtenga más información aquí.](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
 
 + **Mejoras y correcciones de errores**
   + **azureml-automl-runtime**
@@ -49,7 +86,6 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
   + **azureml-train-automl-client**
     + Alineación corregida en la salida de la consola para ejecuciones de automl
     + Se corrigió un error que hacía que la versión incorrecta de pandas se instalara en amlcompute remoto.
-
 
 ## <a name="2019-12-23"></a>2019-12-23
 
@@ -1488,7 +1524,7 @@ El proceso de Azure Machine Learning se puede crear en Python, mediante Azure Po
 + Canalizaciones de Machine Learning
   + Cuadernos nuevos y actualizados para empezar a trabajar con canalizaciones, ámbitos de lote y ejemplos de transferencia del estilo: https://aka.ms/aml-pipeline-notebooks
   + Aprenda a [crear su primera canalización](how-to-create-your-first-pipeline.md)
-  + Aprenda a [ejecutar predicciones por lotes mediante canalizaciones](how-to-run-batch-predictions.md)
+  + Aprenda a [ejecutar predicciones por lotes mediante canalizaciones](how-to-use-parallel-run-step.md)
 + Destino de proceso de Azure Machine Learning
   + Los [cuadernos de ejemplo](https://aka.ms/aml-notebooks) ahora están actualizados para usar este nuevo proceso administrado.
   + [Obtenga información sobre este proceso](how-to-set-up-training-targets.md#amlcompute)

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757429"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169589"
 ---
 # <a name="configure-the-review-tool"></a>Configuración de la herramienta de revisión
 
@@ -75,7 +75,7 @@ La pestaña **Tags** (Etiquetas) le permite definir etiquetas de moderación per
 Para crear una etiqueta, debe escribir un código corto, el nombre y la descripción en los campos correspondientes.
 
 - **Short code** (Código corto): escriba un código de dos letras para la etiqueta. Por ejemplo, **cb**
-- **Nombre**: Escriba un nombre de etiqueta corto y descriptivo en minúsculas, sin espacios. Por ejemplo, **isbullying**.
+- **Name**: Escriba un nombre de etiqueta corto y descriptivo en minúsculas, sin espacios. Por ejemplo, **isbullying**.
 - **Description** (Descripción): (opcional) escriba una descripción del tipo de contenido que identifica la etiqueta. Ejemplo: **Representaciones o ejemplos de ciberacoso**.
 
 Haga clic en **Add** (Agregar) para agregar una etiqueta y haga clic en **Save** (Guardar) cuando haya terminado de crear etiquetas.
@@ -90,14 +90,14 @@ Puede eliminar etiquetas personalizadas son solo seleccionar el icono de Papeler
 
 La pestaña **Connectors** (Conectores) le permite administrar los conectores, que son complementos específicos del servicio que pueden procesar contenido de distintas maneras como parte de los [flujos de trabajo](../review-api.md#workflows) de contenido.
 
-El conector predeterminado al crear un flujo de trabajo es el conector de Content Moderator, que puede marcar contenido como **adulto** o **subido de tono**, buscar palabras soeces, etc. Sin embargo, puede usar otros conectores, aquí enumerados, siempre que tenga credenciales para sus respectivos servicios (para usar el conector de Face API, por ejemplo, deberá obtener una clave de suscripción de [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)).
+El conector predeterminado al crear un flujo de trabajo es el conector de Content Moderator, que puede marcar contenido como **adulto** o **subido de tono**, buscar palabras soeces, etc. Sin embargo, puede usar otros conectores, aquí enumerados, siempre que tenga credenciales para sus respectivos servicios (para usar el conector de Face, por ejemplo, deberá obtener una clave de suscripción de [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)).
 
 La [herramienta de revisión](./human-in-the-loop.md) incluye los conectores siguientes:
 
-- Emotion API
-- Face API
+- Emotion
+- Caras
 - PhotoDNA Cloud Service
-- Text Analytics API
+- Text Analytics
 
 ### <a name="add-a-connector"></a>Agregar un conector
 

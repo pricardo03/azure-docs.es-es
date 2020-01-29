@@ -1,6 +1,6 @@
 ---
 title: 'Integración con Apache Spark: Azure Event Hubs | Microsoft Docs'
-description: Integración con Apache Spark para Structured Streaming con Event Hubs
+description: En este artículo se muestra cómo realizar la integración con Apache Spark para habilitar Structured Streaming con Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c4fd74e9123e1310be297a15090433d365d24cf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343399"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311689"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Integración de Apache Spark con Azure Event Hubs
 
@@ -29,9 +29,9 @@ En este artículo, se describe cómo se crea una aplicación continua en [Azure 
 
 En el ejemplo de este artículo se usan dos cuadernos de Scala: uno para el streaming de los eventos de un centro de eventos y otro para enviar eventos de vuelta.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no dispone de ninguna, [cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Suscripción a Azure. Si no dispone de ninguna, [cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Una instancia de Event Hubs. Si no dispone de ninguna, [cree una](event-hubs-create.md).
 * Una instancia de [Azure Databricks](https://azure.microsoft.com/services/databricks/). Si no dispone de ninguna, [cree una](../azure-databricks/quickstart-create-databricks-workspace-portal.md).
 * [Creación de una biblioteca mediante coordenadas de maven](https://docs.databricks.com/user-guide/libraries.html#upload-a-maven-package-or-spark-package): `com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.1`.

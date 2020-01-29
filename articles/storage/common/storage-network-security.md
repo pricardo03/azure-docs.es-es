@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e4a8afdb9bea4f528e57c914149f611b0578c63
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2c3b329aa767fbe9795c90ca236008210576fe12
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973471"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514738"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -380,8 +380,8 @@ Al habilitar la opción **Allow trusted Microsoft services...** (Permitir servic
 | Azure File Sync          | Microsoft.StorageSync      | Permite transformar el servidor de archivos local en una memoria caché para recursos compartidos de archivos de Azure. Permite la sincronización de varios sitios, la recuperación rápida ante desastres y la copia de seguridad en la nube. [Más información](../files/storage-sync-files-planning.md) |
 | HDInsight de Azure          | Microsoft.HDInsight        | Aprovisione el contenido inicial del sistema de archivos predeterminado para un nuevo clúster de HDInsight. [Más información](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Azure Import/Export      | Microsoft.ImportExport     | Permite la importación de datos en Azure y la exportación de datos desde Azure mediante el servicio de importación y exportación. [Más información](/azure/storage/common/storage-import-export-service).  |
-| Azure Monitor            | Microsoft.Insights         | Permite la escritura de los datos de supervisión en una cuenta segura de almacenamiento. [Más información](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Conexión a Azure         | Microsoft.Network          | Almacenamiento y análisis de los registros de tráfico de red. [Más información](/azure/network-watcher/network-watcher-packet-capture-overview). |
+| Azure Monitor            | Microsoft.Insights         | Permite escribir datos de supervisión en una cuenta de almacenamiento protegida, incluidos los registros de diagnóstico de recursos, los registros de inicio de sesión y de auditoría de Azure Active Directory y los registros de Microsoft Intune. [Más información](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
+| Conexión a Azure         | Microsoft.Network          | Almacenamiento y análisis de los registros de tráfico de red. [Más información](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite la replicación para la recuperación ante desastres de máquinas virtuales de IaaS de Azure al usar la caché habilitada para firewall, el origen o las cuentas de almacenamiento de destino.  [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
 La opción **Permitir servicios de Microsoft de confianza...** también permite que una instancia concreta de los servicios siguientes acceda a la cuenta de almacenamiento, si se [asigna explícitamente un rol de RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) a la [identidad administrada que el sistema ha asignado](../../active-directory/managed-identities-azure-resources/overview.md) para la instancia de ese recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de RBAC que se asigna a la identidad administrada.

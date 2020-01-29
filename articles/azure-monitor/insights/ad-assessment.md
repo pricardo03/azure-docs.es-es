@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e97ce1655ae35f4986a915a382d456bb8d2ce4b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406131"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167844"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Azure Monitor
 
@@ -166,6 +166,17 @@ Después de que se ejecute la siguiente comprobación de estado programada, de f
 2. Si posteriormente decide que desea ver las recomendaciones omitidas, quite todos los archivos IgnoreRecommendations.txt. También puede quitar RecommendationID de ellos.
 
 ## <a name="ad-health-check-solutions-faq"></a>Preguntas más frecuentes sobre las soluciones de AD Health Check
+
+*¿Qué comprobaciones lleva a cabo la solución AD Assessment?*
+
+* La consulta siguiente muestra una descripción de todas las comprobaciones que se llevan a cabo actualmente:
+
+```Kusto
+ADAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+Los resultados pueden exportarse a Excel para su revisión.
 
 *¿Con qué frecuencia se ejecuta una comprobación de estado?*
 

@@ -4,34 +4,34 @@ description: Pasos para implementar el clúster de Avere vFXT en Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: ad5b0ecd9e7e6326c5b91844b6f7b557972b4852
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415447"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547530"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementación del clúster de vFXT
 
-Este procedimiento explica cómo usar el asistente para la implementación disponible en Azure Marketplace. El asistente implementa automáticamente el clúster mediante una plantilla de Azure Resource Manager. Después de escribir los parámetros en el formulario y hacer clic en **Crear**, Azure completa automáticamente estos pasos:
+Este procedimiento explica cómo usar el asistente para la implementación disponible en Azure Marketplace. El asistente implementa automáticamente el clúster mediante una plantilla de Azure Resource Manager. Después de escribir los parámetros en el formulario y hacer clic en **Crear**, Azure completa automáticamente estas tareas:
 
 * Crea el controlador de clúster, que es una máquina virtual básica que contiene el software necesario para implementar y administrar el clúster.
 * Configura el grupo de recursos y la infraestructura de red virtual, incluida la creación de elementos si es necesario.
 * Crea las máquinas virtuales del nodo de clúster y las configura como el clúster de Avere.
 * En caso de que se le solicite, crea un contenedor de blobs de Azure y lo configura como un archivador principal del clúster.
 
-Después de seguir las instrucciones de este documento, tendrá una red virtual, una subred, un controlador y un clúster de vFXT, tal como se muestra en el diagrama siguiente. Este diagrama muestra el filtro principal de Azure Blob opcional, que incluye un nuevo contenedor de almacenamiento de blobs (en una nueva cuenta de almacenamiento, que no se muestra) y un punto de conexión de servicio para Microsoft Storage dentro de la subred.
+Después de seguir las instrucciones de este documento, tendrá una red virtual, una subred, un controlador de clúster y un clúster de vFXT, tal como se muestra en el diagrama siguiente. Este diagrama muestra el filtro principal de Azure Blob opcional, que incluye un nuevo contenedor de almacenamiento de blobs (en una nueva cuenta de almacenamiento, que no se muestra) y un punto de conexión de servicio para Microsoft Storage dentro de la subred.
 
 ![diagrama que muestra tres rectángulos concéntricos con componentes del clúster de Avere. El rectángulo exterior se etiqueta como "Resource group" (Grupo de recursos) y contiene un hexágono con la etiqueta "Blob storage (optional)" (Almacenamiento de blobs [opcional]). El siguiente rectángulo tiene la etiqueta "Red virtual: 10.0.0.0/16" y no contiene ningún componente único. El rectángulo más interno tiene la etiqueta "Subnet:10.0.0.0/24" (Subred:10.0.0.0/24) y contiene una máquina virtual con la etiqueta "Cluster controller" (Controlador de clúster), una pila de tres máquinas virtuales con la etiqueta "vFXT nodes (vFXT cluster)" (nodos vFXT [clúster de vFXT]) y un hexágono con la etiqueta "Service endpoint" (Punto de conexión de servicio). Hay una flecha que conecta el punto de conexión de servicio (que se encuentra dentro de la subred) y el almacenamiento de blobs (que está fuera de la subred y la red virtual en el grupo de recursos). La flecha pasa los límites de la red virtual y la subred.](media/avere-vfxt-deployment.png)
 
 Antes de usar la plantilla de creación, asegúrese de haber abordado estos requisitos previos:  
 
-1. [Suscripción nueva](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Permisos de propietario de la suscripción](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [Cuota del clúster de vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Punto de conexión de servicio de almacenamiento (si es necesario)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed): necesario para implementaciones que utilizan una red virtual existente y que crean un almacenamiento de blobs.
+* [Suscripción nueva](avere-vfxt-prereqs.md#create-a-new-subscription)
+* [Permisos de propietario de la suscripción](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+* [Cuota del clúster de vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+* [Punto de conexión de servicio de almacenamiento (si es necesario)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed): necesario para implementaciones que utilizan una red virtual existente y que crean un almacenamiento de blobs
 
 Para más información sobre los pasos de planeación e implementación del clúster, lea [Planeamiento de un sistema de Avere vFXT](avere-vfxt-deploy-plan.md) e [Descripción general de la implementación](avere-vfxt-deploy-overview.md).
 
@@ -41,7 +41,7 @@ Acceda a la plantilla de creación en Azure Portal; para ello, busque Avere y se
 
 ![Ventana del explorador que muestra Azure Portal con la ruta "Nuevo > Marketplace > Todo". En la página Todo, el campo de búsqueda tiene el término "avere" y el segundo resultado, "Plantilla de Avere vFXT for Azure ARM", está subrayado en rojo para resaltarlo.](media/avere-vfxt-template-choose.png)
 
-Después de leer los detalles de la página Plantilla de Avere vFXT for Azure ARM, haga clic en **Crear** para comenzar.
+Después de leer los detalles de la página Plantilla de Avere vFXT for Azure ARM, haga clic en su botón **Crear** para comenzar.
 
 ![Azure Marketplace con la visualización de la primera página de la plantilla de implementación](media/avere-vfxt-deploy-first.png)
 
@@ -149,11 +149,11 @@ Para encontrar la información:
 
 1. En el lado izquierdo, haga clic en **Implementaciones** y, luego, en **microsoft-avere.vfxt-template**.
 
-   ![Página del portal del grupo de recursos con Implementaciones seleccionada a la izquierda y microsoft-avere.vfxt-template que aparece en una tabla en el Nombre de la implementación](media/avere-vfxt-outputs-deployments.png) <!-- update image for new portal GUI -->
+   ![Página del portal del grupo de recursos con Implementaciones seleccionada a la izquierda y microsoft-avere.vfxt-template que aparece en una tabla en el Nombre de la implementación](media/avere-vfxt-outputs-deployments.png)
 
 1. En el lado izquierdo, haga clic en **Salidas**. Copie los valores en cada uno de los campos.
 
-   ![página de resultados en la que se muestran los valores SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs y MGMT_IP en los campos situados a la derecha de las etiquetas](media/avere-vfxt-outputs-values.png)<!-- update image for new portal GUI -->
+   ![página de resultados en la que se muestran los valores SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs y MGMT_IP en los campos situados a la derecha de las etiquetas](media/avere-vfxt-outputs-values.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,20 +4,20 @@ description: Cómo agregar datos a un nuevo volumen de almacenamiento para usarl
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 183ed719eb5396fe0e442e6b774d962d1ba48386
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480591"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153725"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover datos al clúster de vFXT: ingesta paralela de datos
 
-Después de haber creado un nuevo clúster de vFXT, su primera tarea consistirá en mover los datos a su nuevo volumen de almacenamiento. Sin embargo, si su método habitual para mover datos es emitir un simple comando de copia desde un cliente, es probable que el rendimiento de copia se vea ralentizado. Tenga en cuenta que la copia uniproceso no es una buena opción para copiar datos en el almacenamiento back-end del clúster de Avere vFXT.
+Cuando haya creado un nuevo clúster de vFXT, su primera tarea consistirá en mover los datos a un nuevo volumen de almacenamiento de Azure. Sin embargo, si su método habitual para mover datos es emitir un simple comando de copia desde un cliente, es probable que el rendimiento de copia se vea ralentizado. Tenga en cuenta que la copia uniproceso no es una buena opción para copiar datos en el almacenamiento de back-end del clúster de Avere vFXT.
 
-Dado que el clúster de Avere vFXT es una caché escalable de varios clientes, la forma más rápida y eficiente de copiar datos en él es usando varios clientes. En esta técnica paraleliza la ingesta de datos referentes a archivos y objetos.
+Dado que el clúster de Avere vFXT for Azure es una caché multicliente escalable, la forma más rápida y eficiente de copiar datos en él es emplear varios clientes. En esta técnica paraleliza la ingesta de datos referentes a archivos y objetos.
 
 ![Diagrama que muestra el movimiento de datos de varios clientes de múltiples subprocesos: en la parte superior izquierda, hay un icono para el almacenamiento de hardware local que tiene varias flechas que salen de él. Las flechas apuntan a cuatro equipos cliente diferentes. A su vez, salen desde cada equipo cliente tres flechas que apuntan hacia Avere vFXT. A continuación, desde Avere vFXT, varias flechas apuntan a Blob Storage.](media/avere-vfxt-parallel-ingest.png)
 
@@ -44,12 +44,12 @@ La máquina virtual del agente de ingesta de datos forma parte de un tutorial do
 
 ## <a name="strategic-planning"></a>Plan estratégico
 
-Al crear una estrategia para copiar datos en paralelo, debe comprender las ventajas y desventajas que acarrea el tamaño del archivo, el recuento de archivos y la profundidad del directorio.
+Cuando diseñe una estrategia para copiar datos en paralelo, debe comprender las ventajas y desventajas que acarrea el tamaño del archivo, el número de archivos y la profundidad del directorio.
 
 * Cuando los archivos son pequeños, la métrica de interés se basa en los archivos por segundo.
 * Cuando los archivos son grandes (de 10 MiBi o más), la métrica de interés se mide en función de los bytes por segundo.
 
-Cada proceso de copia tiene una tasa de rendimiento y una tasa de transferencia de archivos que puede medirse en función de la longitud del comando de copia y factorizando el tamaño y número de archivos. La explicación referente a cómo medir estas tasas no se encuentra en este documento, pero es imperativo que sepa si usará archivos pequeños o grandes.
+Cada proceso de copia tiene una tasa de rendimiento y una tasa de transferencia de archivos que puede medirse en función de la longitud del comando de copia y factorizando el tamaño y número de archivos. La explicación acerca de cómo se miden estas tasas no se encuentra en este documento, pero es importante que sepa si usará archivos pequeños o grandes.
 
 ## <a name="manual-copy-example"></a>Ejemplo de copia manual
 
@@ -278,11 +278,11 @@ Este es un método sencillo y eficaz para los conjuntos de archivos que tengan c
 
 ## <a name="use-the-msrsync-utility"></a>Uso de la utilidad msrsync
 
-La herramienta ``msrsync`` también se puede usar para mover datos a un archivador principal de back-end para el clúster de Avere. Además, esta herramienta está diseñada para optimizar el uso del ancho de banda ejecutando varios procesos de tipo ``rsync`` en paralelo. Está disponible en GitHub en <https://github.com/jbd/msrsync>.
+La herramienta ``msrsync`` también se puede usar para mover datos a un archivo central de back-end del clúster de Avere. Además, esta herramienta está diseñada para optimizar el uso del ancho de banda ejecutando varios procesos de tipo ``rsync`` en paralelo. Está disponible en GitHub en <https://github.com/jbd/msrsync>.
 
 ``msrsync`` divide el directorio de origen en "cubos" separados y luego ejecuta procesos de tipo ``rsync`` individuales en cada cubo.
 
-Las pruebas preliminares que se realizan con una máquina virtual de cuatro núcleos mostraron una eficacia mejor al usar 64 procesos. Use la opción de ``msrsync`` ``-p`` para establecer el número de procesos en 64.
+Las pruebas preliminares que se realizan con una máquina virtual de cuatro núcleos mostraron una eficacia mejor al usar 64 procesos. Use la opción de ``msrsync````-p`` para establecer el número de procesos en 64.
 
 También puede usar el argumento ``--inplace`` con los comandos ``msrsync``. Si se utiliza esta opción, considere la posibilidad de ejecutar un segundo comando (como con [rsync](#use-a-two-phase-rsync-process), descrito anteriormente) para garantizar la integridad de datos.
 

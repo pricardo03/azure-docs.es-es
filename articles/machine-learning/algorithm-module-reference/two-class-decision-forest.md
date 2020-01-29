@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: ebe9a0368f2111fa6787b7fa4f4432d7ad4106c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 60ea2633ce09b828d1e3576cadf73ecb5c26c1bd
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485946"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546374"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión de dos clases
 
@@ -47,32 +47,32 @@ Sin embargo, los árboles de decisión simples pueden sobreajustar los datos y s
 
 Para obtener más información, consulte [Bosques de decisión](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
-## <a name="how-to-configure"></a>Configuración
+## <a name="how-to-configure"></a>Cómo se configura
   
 1.  Agregue el módulo **Bosque de decisión de dos clases** a la canalización en Azure Machine Learning y abra el panel **Propiedades** del módulo. 
 
     Puede encontrar el módulo en **Machine Learning**. Expanda **Inicializar** y, a continuación, **Clasificación**.  
   
-2.  Para obtener información sobre el **método de nuevo muestreo**, elija el método utilizado para crear los árboles individuales.  Puede elegir entre **agregación** o **replicación**.  
+2.  Para obtener información sobre el **método de nuevo muestreo**, elija el método utilizado para crear los árboles individuales.  Puede elegir entre **Bagging** (Agregación) o **Replicate** (Replicación).  
   
-    -   **Bagging** (agregación): La agregación también se denomina *agregación de arranque*. En este método, cada árbol crece en una muestra nueva, creada al muestrear de forma aleatoria el conjunto de datos original con el conjunto de reemplazo hasta que haya un conjunto de datos con el tamaño del original.  
+    -   **Bagging** (agregación): la agregación también se denomina *agregación de arranque*. En este método, cada árbol crece en una muestra nueva, creada al muestrear de forma aleatoria el conjunto de datos original con el conjunto de reemplazo hasta que haya un conjunto de datos con el tamaño del original.  
   
          Los resultados de los modelos se combinan mediante *votación*, que es una forma de agregación. Cada árbol de un bosque de decisión de clasificación produce un histograma de etiquetas de frecuencia no normalizada. En el proceso de agregación se suman estos histogramas y se normalizan para obtener las "probabilidades" de cada etiqueta. De esta manera, los árboles con un nivel alto de confianza en la predicción tendrán un peso mayor en la decisión final del conjunto.  
   
          Para obtener más información, consulte la entrada de Wikipedia sobre la agregación de arranque.  
   
-    -   **Replicación**: en la replicación, cada árbol se entrena exactamente con los mismos datos de entrada. La determinación de qué predicado de división se utiliza para cada nodo de árbol sigue siendo aleatoria y los árboles serán diversos.   
+    -   **Replicate** (replicación): en la replicación, cada árbol se entrena exactamente con los mismos datos de entrada. La determinación de qué predicado de división se utiliza para cada nodo de árbol sigue siendo aleatoria y los árboles serán diversos.   
   
-3.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
+3.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Parámetro único**: Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
+    -   **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
   
-4.  En **Número de árboles de decisión**, escriba el número máximo de árboles de decisión que se pueden crear en el conjunto. Si crea más árboles de decisión, puede obtener potencialmente mejor cobertura, pero aumenta el tiempo de entrenamiento.  
+4.  En **Número de árboles de decisión**, escriba el número máximo de árboles de decisión que se pueden crear en el conjunto. Al crear más árboles de decisión, puede obtener una mejor cobertura, pero el tiempo de entrenamiento aumenta.  
   
     > [!NOTE]
     >  Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si quiere ver o imprimir un único árbol, puede establecer el valor en 1. Sin embargo, solo se puede producir un único árbol (el árbol con el conjunto inicial de parámetros) y no se realizan iteraciones adicionales.
   
-5.  En **Profundidad máxima de los árboles de decisión**, escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, a riesgo de que se produzca un sobreajuste y aumente el tiempo de entrenamiento.
+5.  En **Maximum depth of the decision trees** (Profundidad máxima de los árboles de decisión), escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, a riesgo de que se produzca un sobreajuste y aumente el tiempo de entrenamiento.
   
 6.  En **Number of random splits per node** (Número de divisiones aleatorias por nodo), escriba el número de divisiones que se usarán al crear cada nodo del árbol. Una *división* significa que las características de cada nivel del árbol (nodo) se dividen al azar.
   
@@ -86,18 +86,13 @@ Para obtener más información, consulte [Bosques de decisión](https://go.micro
   
 9. Adjunte un conjunto de datos etiquetados y uno de los [módulos de entrenamiento](module-reference.md):  
   
-    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Modelo de entrenamiento](./train-model.md).  
-  
+    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](./train-model.md).  
     
 ## <a name="results"></a>Results
 
 Una vez completado el entrenamiento:
 
-+ Para ver el árbol que se ha creado en cada iteración, haga clic con el botón derecho en el resultado del módulo [Modelo de entrenamiento](./train-model.md) y seleccione **Visualizar**.
-  
-    Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas de cada nodo.
-
-+ Para guardar una instantánea del modelo, haga clic con el botón derecho en el resultado de **Modelo de entrenamiento** y seleccione **Guardar modelo**. El modelo guardado no se actualiza en ejecuciones sucesivas de la canalización.
++ Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho del módulo **Train model** (Entrenar modelo). Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar el modelo como un módulo reutilizable.
 
 + Para usar el modelo de puntuación, agregue el módulo **Score Model** (Puntuar modelo) a una canalización.
 

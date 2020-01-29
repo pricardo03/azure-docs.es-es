@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: e01579272878a2436abca2ee50f0f6ea6cf78cbf
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 2344e2189d6b0f02e7fed1aab25d32551c1fedcf
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045601"
+ms.locfileid: "76154348"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creación de un clúster privado de Azure Kubernetes Service (versión preliminar)
 
@@ -131,7 +131,7 @@ El punto de conexión del servidor de la API no tiene ninguna dirección IP pú
 
 ## <a name="limitations"></a>Limitaciones 
 * Las [limitaciones del servicio Azure Private Link][private-link-service] se aplican a los clústeres privados, a puntos de conexión privados de Azure y a puntos de conexión del servicio de red virtual, que actualmente no se admiten en la misma red virtual.
-* No se admiten nodos virtuales en un clúster privado para rotar las instancias privadas de Cisco Application Centric Infrastructure (Cisco ACI) en una red virtual privada de Azure.
+* No se pueden usar los nodos virtuales de un clúster privado para poner en marcha Azure Container Instances (ACI) en una red virtual de Azure privada.
 * No se admite de serie la integración de Azure DevOps con clústeres privados.
 * En el caso de los clientes que necesitan habilitar Azure Container Registry para trabajar con instancias privadas de AKS, la red virtual de Container Registry debe estar emparejada con la red virtual del clúster del agente.
 * Actualmente no hay compatibilidad con Azure Dev Spaces.

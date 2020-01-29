@@ -3,14 +3,16 @@ title: Uso de Azure Update Management con clientes de Configuration Manager
 description: Este artículo pretende ayudarle a configurar Microsoft Endpoint Configuration Manager con esta solución para implementar actualizaciones de software en clientes de Configuration Manager.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2018
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9df401ec9c6d11bfef5d1d60833c855029f8ca01
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f0ca836e3b53c3cce755d45b50fe168073f0bbaa
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769955"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513140"
 ---
 # <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Implementación de actualizaciones en los clientes de Microsoft Endpoint Configuration Manager con Update Management
 
@@ -25,7 +27,7 @@ Puede crear informes sobre los servidores Windows administrados y actualizarlos.
 * Esta característica se habilita en la rama actual de Configuration Manager, versión 1606 y posteriores. Para integrar el sitio de administración central de Configuration Manager o un sitio primario independiente con registros de Azure Monitor e importar colecciones, revise [Conectar Configuration Manager con Azure Monitor](../azure-monitor/platform/collect-sccm.md).  
 * Los agentes de Windows deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o tener acceso a Microsoft Update si no reciben actualizaciones de seguridad de Configuration Manager.   
 
-La forma de administrar los clientes hospedados en IaaS de Azure con el entorno existente de Configuration Manager depende, principalmente, de la conexión que tiene entre centros de datos de Azure y su infraestructura. Esta conexión afecta a los cambios de diseño que pueda necesitar hacer en la infraestructura de Configuration Manager y a los costos derivados de los cambios necesarios. Para comprender qué consideraciones de planeación debe evaluar antes de continuar, revise [Configuration Manager en Azure - Preguntas más frecuentes](/sccm/core/understand/configuration-manager-on-azure#networking).
+La forma de administrar los clientes hospedados en IaaS de Azure con el entorno existente de Configuration Manager depende, principalmente, de la conexión que tiene entre centros de datos de Azure y su infraestructura. Esta conexión afecta a los cambios de diseño que pueda necesitar hacer en la infraestructura de Configuration Manager y a los costos derivados de los cambios necesarios. Para comprender qué consideraciones de planeación debe evaluar antes de continuar, revise [Configuration Manager en Azure - Preguntas más frecuentes](https://docs.microsoft.com/configmgr/core/understand/configuration-manager-on-azure#networking).
 
 ## <a name="configuration"></a>Configuración
 
@@ -33,7 +35,7 @@ La forma de administrar los clientes hospedados en IaaS de Azure con el entorno 
 
 Siga estos pasos si va a continuar administrando las implementaciones de actualizaciones desde Configuration Manager. Azure Automation se conecta a Configuration Manager para aplicar actualizaciones a los equipos cliente conectados al área de trabajo de Log Analytics. El contenido de la actualización está disponible en la caché del equipo cliente como si la implementación se administrara mediante Configuration Manager.
 
-1. Cree una implementación de actualizaciones de software desde el sitio de nivel superior de la jerarquía de Configuration Manager mediante el proceso descrito en el [proceso de implementación de actualizaciones de software](/sccm/sum/deploy-use/deploy-software-updates). La única opción que se debe configurar de forma distinta de una implementación estándar es la opción **No instalar actualizaciones de software** para controlar el comportamiento de descarga del paquete de implementación. La solución Update Management administra este comportamiento mediante la creación de una implementación de actualizaciones programada en el paso siguiente.
+1. Cree una implementación de actualizaciones de software desde el sitio de nivel superior de la jerarquía de Configuration Manager siguiendo el proceso que se describe en [Implementación de actualizaciones de software](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates). La única opción que se debe configurar de forma distinta de una implementación estándar es la opción **No instalar actualizaciones de software** para controlar el comportamiento de descarga del paquete de implementación. La solución Update Management administra este comportamiento mediante la creación de una implementación de actualizaciones programada en el paso siguiente.
 
 1. En Azure Automation, seleccione **Update Management**. Cree una nueva implementación según los pasos descritos en [Creación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment) y seleccione **Grupos importados** en la lista desplegable **Tipo** para seleccionar la colección adecuada de Configuration Manager. Tenga en cuenta los siguientes puntos importantes: a. Si una ventana de mantenimiento se define en la colección de dispositivos de Configuration Manager, los miembros de la colección respetan sus condiciones, en lugar de la configuración **Duración** definida en la implementación programada.
     b. Los miembros de la colección de destino deben tener una conexión a Internet (ya sea directamente, a través de un servidor proxy o a través de la puerta de enlace de Log Analytics).
@@ -42,7 +44,7 @@ Después de completar la implementación de actualizaciones mediante Azure Autom
 
 ### <a name="manage-software-updates-from-azure-automation"></a>Administrar actualizaciones de software desde Azure Automation
 
-Para administrar actualizaciones para VM Windows Server que son clientes de Configuration Manager, debe configurar la directiva de cliente para deshabilitar la característica Administración de actualizaciones de software para todos los clientes que administra esta solución. De forma predeterminada, la configuración de cliente está dirigida a todos los dispositivos de la jerarquía. Para obtener más información sobre esta configuración de directiva y cómo configurarla, revise [Cómo configurar el cliente en System Center Configuration Manager](/sccm/core/clients/deploy/configure-client-settings).
+Para administrar actualizaciones para VM Windows Server que son clientes de Configuration Manager, debe configurar la directiva de cliente para deshabilitar la característica Administración de actualizaciones de software para todos los clientes que administra esta solución. De forma predeterminada, la configuración de cliente está dirigida a todos los dispositivos de la jerarquía. Para más información sobre esta configuración de directiva y cómo configurarla, consulte [Cómo establecer la configuración de cliente en Configuration Manager](https://docs.microsoft.com/configmgr/core/clients/deploy/configure-client-settings).
 
 Después de aplicar este cambio de configuración, cree una nueva implementación según los pasos descritos en [Creación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment) y seleccione **Grupos importados** en la lista desplegable **Tipo** para seleccionar la colección adecuada de Configuration Manager.
 

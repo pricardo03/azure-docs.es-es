@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428404"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548380"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimizar los hiperparámetros del modelo
 
@@ -81,11 +81,11 @@ En esta sección se describe cómo realizar un barrido de parámetros básico, q
 
 Cuando se complete el entrenamiento:
 
-+ Para ver un conjunto de métricas de precisión del mejor modelo, haga clic con el botón derecho en el módulo, seleccione **Resultados del barrido** y, luego seleccione **Visualizar**.
++ Para ver un conjunto de métricas de precisión del mejor modelo, haga clic con el botón derecho en el módulo y seleccione **Visualize** (Visualizar).
 
     La salida incluye todas las métricas de precisión aplicables al tipo de modelo, pero es la métrica seleccionada para la clasificación la que determina qué modelo se considera "mejor".
 
-+ Para usar el modelo en la puntuación de otras canalizaciones sin tener que repetir el proceso de optimización, haga clic con el botón derecho en la salida del modelo y seleccione **Save as Trained Model** (Guardar como modelo entrenado). 
++ Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho del módulo **Train model** (Entrenar modelo). Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar el modelo como un módulo reutilizable.
 
 
 ## <a name="technical-notes"></a>Notas técnicas

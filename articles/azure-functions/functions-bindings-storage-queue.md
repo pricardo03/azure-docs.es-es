@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3680de5d8e0e761047e1263c2679da87b1fa2d0b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ea213921c736bc3b6bf88c0bdd81a96656ecbe5b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769462"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547292"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo trabajar con enlaces de Azure Queue Storage e
 
 ## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
 
-Los enlaces de almacenamiento de Queue se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) de GitHub.
+Los enlaces de Queue Storage se proporcionan en el paquete de NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) de GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -29,7 +29,7 @@ Los enlaces de almacenamiento de Queue se proporcionan en el paquete NuGet [Micr
 
 ## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y versiones posteriores
 
-Los enlaces de almacenamiento de Queue se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) de GitHub.
+Los enlaces de Queue Storage se proporcionan en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) de GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -40,17 +40,7 @@ Las funciones esperan una cadena codificada en *base64*. Cualquier ajuste al tip
 
 Use el desencadenador de cola para iniciar una función cuando se reciba un nuevo elemento en una cola. El mensaje de la cola se proporciona a modo de entrada para la función.
 
-## <a name="trigger---example"></a>Desencadenador: ejemplo
-
-Vea el ejemplo específico del lenguaje:
-
-* [C#](#trigger---c-example)
-* [Script de C# (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
@@ -67,7 +57,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Desencadenador: ejemplo de script de C#
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de cola de un archivo *function.json* y código de [script de C# (.csx)](functions-reference-csharp.md) que usa el enlace. La función sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
@@ -122,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 En la sección acerca del [uso](#trigger---usage) se explica `myQueueItem`, que recibe el nombre de la propiedad `name` de function.json.  En la [sección de metadatos del mensaje](#trigger---message-metadata) se explican el resto de variables que se muestran.
 
-### <a name="trigger---javascript-example"></a>Desencadenador: ejemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de cola de un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
@@ -167,23 +157,7 @@ module.exports = async function (context, message) {
 
 En la sección acerca del [uso](#trigger---usage) se explica `myQueueItem`, que recibe el nombre de la propiedad `name` de function.json.  En la [sección de metadatos del mensaje](#trigger---message-metadata) se explican el resto de variables que se muestran.
 
-### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
-
-En el siguiente ejemplo de Java se muestra una función de desencadenador de cola de almacenamiento que registra el mensaje desencadenado que se pone en la cola `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
-
-### <a name="trigger---python-example"></a>Ejemplo de desencadenador de Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra cómo leer un mensaje en cola pasado a una función a través de un desencadenador.
 
@@ -204,7 +178,7 @@ Un desencadenador de cola de almacenamiento se define en *function.json*, donde 
 }
 ```
 
-El código *_\_init_\_.py* declara un parámetro como `func.ServiceBusMessage`, que permite leer el mensaje de la cola en la función.
+El código *_\_init_\_.py* declara un parámetro como `func.ServiceBusMessage`, lo que permite leer el mensaje de la cola en la función.
 
 ```python
 import logging
@@ -231,7 +205,27 @@ def main(msg: func.QueueMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>Desencadenador: atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+En el siguiente ejemplo de Java se muestra una función de desencadenador de cola de almacenamiento que registra el mensaje desencadenado que se pone en la cola `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+ ---
+
+## <a name="trigger---attributes-and-annotations"></a>Desencadenador: atributos y anotaciones
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los siguientes atributos para configurar un desencadenador de cola:
 
@@ -249,7 +243,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los s
   }
   ```
 
-  Puede establecer la propiedad `Connection` para especificar la cuenta de almacenamiento que se usará, tal como se muestra en el ejemplo siguiente:
+  Puede establecer la propiedad `Connection` para especificar la configuración de aplicación que contiene la cadena de conexión de la cuenta de almacenamiento, tal como se muestra en el ejemplo siguiente:
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -261,7 +255,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los s
   }
   ```
 
-  Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
+  Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -287,6 +281,47 @@ La cuenta de almacenamiento que se debe usar se determina en el orden siguiente:
 * El atributo `StorageAccount` aplicado a la clase.
 * La configuración de aplicación "AzureWebJobsStorage".
 
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+El script de C# no admite atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python no admite atributos.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+La anotación `QueueTrigger` proporciona acceso a la cola que desencadena la función. En el ejemplo siguiente, el mensaje de la cola se hace disponible para la función mediante el parámetro `message`.
+
+```java
+package com.function;
+import com.microsoft.azure.functions.annotation.*;
+import java.util.Queue;
+import com.microsoft.azure.functions.*;
+
+public class QueueTriggerDemo {
+    @FunctionName("QueueTriggerDemo")
+    public void run(
+        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Queue message: " + message);
+    }
+}
+```
+
+| Propiedad    | Descripción |
+|-------------|-----------------------------|
+|`name`       | Declara el nombre del parámetro en la firma de la función. Cuando se desencadena la función, el valor de este parámetro tiene el contenido del mensaje de la cola. |
+|`queueName`  | Declara el nombre de la cola en la cuenta de almacenamiento. |
+|`connection` | Apunta a la cadena de conexión de la cuenta de almacenamiento. |
+
+---
+
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `QueueTrigger`.
@@ -303,7 +338,9 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="trigger---usage"></a>Desencadenador: uso
 
-En C# y el script de C#, acceda a los datos de mensaje mediante un parámetro de método, como `string paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. Puede enlazar a cualquiera de los siguientes tipos:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Acceda a los datos de mensaje mediante un parámetro de método, como `string paramName`. Puede enlazar a cualquiera de los siguientes tipos:
 
 * Objeto: el entorno de tiempo de ejecución de Functions deserializa una carga JSON en una instancia de una clase arbitraria definida en el código. 
 * `string`
@@ -312,7 +349,30 @@ En C# y el script de C#, acceda a los datos de mensaje mediante un parámetro de
 
 Si intenta enlazar a `CloudQueueMessage` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
-En JavaScript, use `context.bindings.<name>` para tener acceso a la carga del elemento de la cola. Si la carga es JSON, se deserializa en un objeto.
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+Acceda a los datos de mensaje mediante un parámetro de método, como `string paramName`. `paramName` es el valor especificado en la propiedad `name` de *function.json*. Puede enlazar a cualquiera de los siguientes tipos:
+
+* Objeto: el entorno de tiempo de ejecución de Functions deserializa una carga JSON en una instancia de una clase arbitraria definida en el código. 
+* `string`
+* `byte[]`
+* [CloudQueueMessage]
+
+Si intenta enlazar a `CloudQueueMessage` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+La carga del elemento de cola está disponible mediante `context.bindings.<NAME>`, donde `<NAME>` coincide con el nombre definido en *function.json*. Si la carga es JSON, el valor se deserializa en un objeto.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Puede acceder al mensaje de la cola mediante un parámetro de tipo [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+La anotación [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) proporciona acceso al mensaje de la cola que desencadenó la función.
+
+---
 
 ## <a name="trigger---message-metadata"></a>Desencadenador: metadatos del mensaje
 
@@ -320,7 +380,7 @@ El desencadenador de cola proporciona varias [propiedades de metadatos](./functi
 
 |Propiedad|Tipo|Descripción|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Carga de cola (si hay una cadena válida). Si la cola envía la carga como una cadena, `QueueTrigger` tiene el mismo valor que la variable denominada por la propiedad `name` en *function.json*.|
+|`QueueTrigger`|`string`|Carga de cola (si hay una cadena válida). Si la carga del mensaje de la cola es una cadena, `QueueTrigger` tiene el mismo valor que la variable denominada por la propiedad `name` en *function.json*.|
 |`DequeueCount`|`int`|Es el número de veces que se ha quitado de la cola este mensaje.|
 |`ExpirationTime`|`DateTimeOffset`|Es la hora de expiración del mensaje.|
 |`Id`|`string`|Es el identificador del mensaje de cola.|
@@ -365,22 +425,12 @@ El archivo [host.json](functions-host-json.md#queues) contiene opciones de confi
 
 Use el enlace de salida de Azure Queue Storage para escribir mensajes en una cola.
 
-## <a name="output---example"></a>Salida: ejemplo
-
-Vea el ejemplo específico del lenguaje:
-
-* [C#](#output---c-example)
-* [Script de C# (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
-* [Java](#output---java-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>Salida: ejemplo de C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que crea un mensaje de cola para cada una de las solicitudes HTTP que se reciben.
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
+[StorageAccount("MyStorageConnectionAppSetting")]
 public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
@@ -393,7 +443,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="output---c-script-example"></a>Salida: ejemplo de script de C#
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador HTTP de un archivo *function.json* y el código de [script de C# (.csx)](functions-reference-csharp.md) que usa el enlace. La función crea un elemento de cola con una carga del objeto **CustomQueueMessage** para cada una de las solicitudes HTTP recibidas.
 
@@ -411,7 +461,7 @@ Este es el archivo *function.json*:
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -454,7 +504,7 @@ public static void Run(
 }
 ```
 
-### <a name="output---javascript-example"></a>Salida: ejemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador HTTP de un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función crea un elemento de cola para cada una de las solicitudes HTTP recibidas.
 
@@ -472,7 +522,7 @@ Este es el archivo *function.json*:
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -504,25 +554,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>Salida: ejemplo de Java
-
- En el ejemplo siguiente se muestra una función de Java que crea un mensaje de cola cuando una solicitud HTTP la desencadena.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros cuyo valor se escribiría en Queue Storage.  El parámetro type debe ser `OutputBinding<T>`, donde T es cualquier tipo nativo de Java de un POJO.
-
-### <a name="output---python-example"></a>Salida: ejemplo de Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra cómo generar valores únicos y múltiples en las colas de almacenamiento. La configuración necesaria para *function.json* es la misma en cualquier caso.
 
@@ -585,7 +617,29 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>Salida: atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+ En el ejemplo siguiente se muestra una función de Java que crea un mensaje de cola cuando una solicitud HTTP la desencadena.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros cuyo valor se escribiría en Queue Storage.  El tipo de parámetro debe ser `OutputBinding<T>`, donde `T` es cualquier tipo nativo de Java de un POJO.
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Salida: atributos y anotaciones
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
@@ -611,9 +665,54 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
+Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output).
 
 Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte Desencadenador: atributos.
+
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+El script de C# no admite atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python no admite atributos.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+La anotación `QueueOutput` permite tener acceso para escribir un mensaje con la salida de una función. En el ejemplo siguiente se muestra una función desencadenada mediante HTTP que crea un mensaje de cola.
+
+```java
+package com.function;
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerQueueOutput {
+    @FunctionName("HttpTriggerQueueOutput")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") OutputBinding<String> message,
+            final ExecutionContext context) {
+
+        message.setValue(request.getQueryParameters().get("name"));
+        return request.createResponseBuilder(HttpStatus.OK).body("Done").build();
+    }
+}
+```
+
+| Propiedad    | Descripción |
+|-------------|-----------------------------|
+|`name`       | Declara el nombre del parámetro en la firma de la función. Cuando se desencadena la función, el valor de este parámetro tiene el contenido del mensaje de la cola. |
+|`queueName`  | Declara el nombre de la cola en la cuenta de almacenamiento. |
+|`connection` | Apunta a la cadena de conexión de la cuenta de almacenamiento. |
+
+El parámetro asociado a la anotación `QueueOutput` tiene como tipo una instancia de [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java).
+
+---
 
 ## <a name="output---configuration"></a>Salida: configuración
 
@@ -631,7 +730,9 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="output---usage"></a>Uso de salidas
 
-En C# y script de C#, escriba un mensaje de cola único mediante un parámetro de método como `out T paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. Puede usar el tipo de valor devuelto del método en lugar de un parámetro `out`, y `T` puede ser cualquiera de los siguientes tipos:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Escriba un mensaje de cola único mediante un parámetro de método como `out T paramName`. Puede usar el tipo de valor devuelto del método en lugar de un parámetro `out`, y `T` puede ser cualquiera de los siguientes tipos:
 
 * Un objeto serializable como JSON
 * `string`
@@ -645,8 +746,43 @@ En C# y script de C#, escriba varios mensajes de cola mediante uno de los siguie
 * `ICollector<T>` o `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-En las funciones de JavaScript, use `context.bindings.<name>` para tener acceso al mensaje de cola de salida. Puede usar una cadena o un objeto JSON serializable para la carga del elemento de cola.
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
+Escriba un mensaje de cola único mediante un parámetro de método como `out T paramName`. `paramName` es el valor especificado en la propiedad `name` de *function.json*. Puede usar el tipo de valor devuelto del método en lugar de un parámetro `out`, y `T` puede ser cualquiera de los siguientes tipos:
+
+* Un objeto serializable como JSON
+* `string`
+* `byte[]`
+* [CloudQueueMessage] 
+
+Si intenta enlazar a `CloudQueueMessage` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
+
+En C# y script de C#, escriba varios mensajes de cola mediante uno de los siguientes tipos: 
+
+* `ICollector<T>` o `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+El elemento de la cola de salida está disponible mediante `context.bindings.<NAME>`, donde `<NAME>` coincide con el nombre definido en *function.json*. Puede usar una cadena o un objeto JSON serializable para la carga del elemento de cola.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Hay dos opciones para la generación de un mensaje del centro de eventos desde una función:
+
+- **Valor devuelto**: Establezca la propiedad `name` de *function.json* en `$return`. Con esta configuración, el valor devuelto de la función se conserva como un mensaje de Queue Storage.
+
+- **Imperativa**: Pase un valor al método [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como un mensaje de Queue Storage.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Hay dos opciones para la generación de un mensaje del centro de eventos desde una función mediante la anotación [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput):
+
+- **Valor devuelto**: Al aplicar la anotación a la propia función, el valor devuelto de la función se conserva como un mensaje del centro de eventos.
+
+- **Imperativa**: Para establecer explícitamente el valor del mensaje, aplique la anotación a un parámetro específico del tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), donde `T` es un POJO o cualquier tipo de Java nativo. Con esta configuración, pasar un valor al método `setValue` conserva el valor como un mensaje del centro de eventos.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>Excepciones y códigos de retorno
 
@@ -679,7 +815,6 @@ En esta sección se describen las opciones de configuración globales disponible
     }
 }
 ```
-
 
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|

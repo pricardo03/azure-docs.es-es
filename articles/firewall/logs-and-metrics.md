@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 01/22/2020
 ms.author: victorh
-ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974517"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315038"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Métricas y registros de Azure Firewall
 
@@ -103,17 +103,19 @@ Las siguientes métricas están disponibles para Azure Firewall:
 
     Unidad: bytes
 
-- **Estado de mantenimiento del firewall**: indica el estado del firewall.
+- **Estado de mantenimiento del firewall**: indica el estado del firewall en base a la disponibilidad del puerto SNAT.
 
     Unit: porcentaje
 
    Esta métrica tiene dos dimensiones:
-  - **Estado**: los valores posibles son *Correcto*, *Degradado* e *Incorrecto.*
-  - **Motivo**: indica el motivo del estado correspondiente del firewall. Por ejemplo, puede indicar *puertos SNAT* si el estado del firewall es Degradado o Incorrecto.
+  - Estado: los valores posibles son *Correcto*, *Degradado* e *Incorrecto.*
+  - Motivo: indica el motivo del estado correspondiente del firewall. 
 
+     Si se usan puertos SNAT > 95 %, se consideran agotados y el mantenimiento tiene un 50 % con estado =**degradado** y razón =**puerto SNAT**. El firewall mantiene el procesamiento del tráfico y las conexiones existentes no se ven afectadas. Sin embargo, es posible que de forma intermitente no se establezcan las nuevas conexiones.
 
+     Si se usan puertos SNAT < 95 %, el firewall se considera correcto y el mantenimiento se muestra como 100 %.
 
-
+     Si no hay informe sobre el uso de puertos SNAT, el mantenimiento se muestra como 0 %. 
 
 - **Uso de puertos SNAT**: el porcentaje de puertos SNAT que el firewall ha utilizado.
 

@@ -1,6 +1,6 @@
 ---
 title: Uso de Notification Hubs con Python
-description: Obtenga información acerca de cómo usar Azure Notification Hubs desde un back-end de Python.
+description: Aprenda a usar Azure Notification Hubs desde una aplicación de Python.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5321802023d57bedc135e2d19b2289f1d66deb72
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213066"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313834"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Uso de Notification Hubs desde Python
 
@@ -32,7 +32,7 @@ Puede acceder a todas las características de Notification Hubs desde un back-en
 > [!NOTE]
 > Esta es una implementación de referencia de ejemplo que permite implementar los envíos de notificaciones en Python, por lo que no es el SDK de Python oficialmente compatible del centro de notificaciones. El ejemplo se creó con Python 3.4.
 
-Este artículo muestra cómo:
+En este artículo aprenderá a:
 
 - Cree un cliente REST para las características de Notification Hubs en Python.
 - Envíe notificaciones mediante la interfaz de Python a la API REST del centro de notificaciones.
@@ -447,7 +447,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se explica cómo crear a un cliente REST de Python para Notification Hubs. Desde aquí puede:
+En este artículo se explica cómo crear a un cliente REST de Python para Notification Hubs. Desde aquí, puede:
 
 - Descargar el [ejemplo de contenedor de REST de Python] completo, que contiene todo el código de este artículo.
 - Continuar aprendiendo sobre la característica de etiquetado de Notification Hubs en el [tutorial de noticias de última hora]

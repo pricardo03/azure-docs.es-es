@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fb3ff990dcc207fd6dff6073c7464b6e410431af
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493888"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546884"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión del árbol de decisión potenciado
 
@@ -29,8 +29,6 @@ Este método de regresión es un método de aprendizaje supervisado y, por lo ta
 
 Cuando haya definido el modelo, entrénelo usando el [modelo de entrenamiento](./train-model.md).
 
-> [!TIP]
-> ¿Quiere más información sobre los árboles que se han creado? Después de entrenar el modelo, haga clic con el botón derecho en el resultado del módulo [Modelo de entrenamiento](./train-model.md) y seleccione **Visualizar** para ver el árbol que se ha creado en cada iteración. Puede explorar en profundidad las divisiones de cada árbol y ver las reglas de cada nodo.  
   
 ## <a name="more-about-boosted-regression-trees"></a>Más información sobre los árboles de regresión potenciados  
 
@@ -54,20 +52,20 @@ El método de potenciación de gradientes también se puede usar para clasificar
 
 1.  Agregue el módulo **Boosted  Decision Tree** (Árbol de decisión ampliado) al experimento. Puede encontrar este módulo en **Machine Learning**, **Initialize** (Inicializar), en la categoría **Regression** (Regresión). 
   
-2.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
+2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Parámetro único**: seleccione esta opción si sabe cómo quiere configurar el modelo y proporcione un conjunto específico de valores como argumentos.  
+    -   **Single Parameter** (Parámetro único): seleccione esta opción si sabe cómo quiere configurar el modelo y proporcione un conjunto específico de valores como argumentos.  
    
   
 3. **Número máximo de hojas por árbol**: indique el número máximo de nodos terminales (hojas) que se pueden crear en un árbol.  
 
-    Al aumentar este valor, podría aumentar el tamaño del árbol y obtener una mayor precisión, asumiendo un el riesgo de sobreajuste y de mayor tiempo de entrenamiento.  
+    Al aumentar este valor, podría aumentar el tamaño del árbol y obtener una mayor precisión, a riesgo de experimentar un sobreajuste y un mayor tiempo de entrenamiento.  
 
 4. **Número mínimo de muestras por nodo hoja**: indique el número mínimo de casos necesarios para crear un nodo terminal (hoja) en un árbol.
 
     Al aumentar este valor, aumenta el umbral para crear reglas nuevas. Por ejemplo, con el valor predeterminado de 1, incluso un solo caso puede provocar que se cree una regla nueva. Si aumenta el valor a 5, los datos de entrenamiento tienen que contener, como mínimo, cinco casos que cumplan las mismas condiciones.
 
-5. **Velocidad de aprendizaje**: escriba un número entre 0 y 1 que defina el tamaño de paso durante el aprendizaje. La velocidad de aprendizaje determina la rapidez o lentitud con la que el aprendiz converge en la solución óptima. Si el tamaño del paso es demasiado grande, puede pasar por alto la solución óptima. Si el tamaño del paso es demasiado pequeño, el entrenamiento tarda más tiempo a converger en la mejor solución.
+5. **Velocidad de aprendizaje**: escriba un número entre 0 y 1 que defina el tamaño de paso durante el aprendizaje. La velocidad de aprendizaje determina la rapidez o lentitud con la que el aprendiz converge en la solución óptima. Si el tamaño del paso es demasiado grande, puede pasar por alto la solución óptima. Si el tamaño del paso es demasiado pequeño, el entrenamiento tarda más tiempo en converger en la mejor solución.
 
 6. **Número de árboles construidos**: indica el número total de árboles de decisión que se va a crear en el conjunto. Al crear más árboles de decisión, puede obtener una mejor cobertura, pero el tiempo de entrenamiento aumenta.
 
@@ -91,13 +89,9 @@ El método de potenciación de gradientes también se puede usar para clasificar
 
 Una vez completado el entrenamiento:
 
-+ Para ver el árbol que se ha creado en cada iteración, haga clic con el botón derecho en el resultado del módulo [Train Model](train-model.md) (Modelo de entrenamiento) y seleccione **Visualize** (Visualizar).
-  
-     Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas de cada nodo.  
-
 + Para usar el modelo para la puntuación, conéctelo a [Score Model](./score-model.md) (Modelo de puntuación) para predecir los valores de ejemplos de nuevas entradas.
 
-+ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado **Trained model** (Modelo entrenado) del módulo de entrenamiento y seleccione **Save As** (Guardar como). La copia del modelo entrenado que guarde no se actualiza en las ejecuciones sucesivas de la canalización.
++ Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho de **Trained model** (Modelo entrenado) y haga clic en el icono **Register dataset** (Registrar conjunto de datos). La copia del modelo entrenado se guardará como si fuera un módulo en el árbol de módulos y no se actualizará en las posteriores ejecuciones de la canalización.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

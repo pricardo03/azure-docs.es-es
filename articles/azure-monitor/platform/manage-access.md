@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 890e2fb06b9194bba49b94eae4b8ea3f0bfed1d7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3a75efc8c73c96bfff0ba94ca3e9753ea536fd53
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932184"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289125"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -47,7 +47,7 @@ Este valor se puede cambiar en la página **Propiedades** del área de trabajo. 
 
 ![Cambio del modo de acceso del área de trabajo](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Con PowerShell
+### <a name="using-powershell"></a>Usar PowerShell
 
 Use el comando siguiente para examinar el modo de control de acceso para todas las áreas de trabajo en la suscripción:
 
@@ -104,7 +104,7 @@ Cada área de trabajo puede tener varias cuentas asociadas, y cada cuenta puede 
 
 Las siguientes actividades también requieren permisos de Azure:
 
-|. |Permisos de Azure necesarios |Notas |
+|Acción |Permisos de Azure necesarios |Notas |
 |-------|-------------------------|------|
 | Agregar y quitar soluciones de supervisión | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Es necesario conceder estos permisos en el nivel de suscripción o grupo de recursos. |
 | Cambiar el plan de tarifa | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -132,12 +132,12 @@ Los miembros del rol *Lector de Log Analytics* pueden:
 
 El rol Lector de Log Analytics incluye las siguientes acciones de Azure:
 
-| type    | Permiso | DESCRIPCIÓN |
+| Tipo    | Permiso | Descripción |
 | ------- | ---------- | ----------- |
-| . | `*/read`   | Capacidad para ver todos los recursos de Azure y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y configuraciones de todos los recursos <br> En el caso de las áreas de trabajo, permite permisos completos sin restricciones para leer la configuración del área de trabajo y realizar consultas en los datos. Consulte opciones más específicas anteriormente. |
-| . | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | En desuso, no es necesario asignarlos a los usuarios. |
-| . | `Microsoft.OperationalInsights/workspaces/search/action` | En desuso, no es necesario asignarlos a los usuarios. |
-| . | `Microsoft.Support/*` | Capacidad de abrir casos de soporte técnico |
+| Acción | `*/read`   | Capacidad para ver todos los recursos de Azure y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y configuraciones de todos los recursos <br> En el caso de las áreas de trabajo, permite permisos completos sin restricciones para leer la configuración del área de trabajo y realizar consultas en los datos. Consulte opciones más específicas anteriormente. |
+| Acción | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | En desuso, no es necesario asignarlos a los usuarios. |
+| Acción | `Microsoft.OperationalInsights/workspaces/search/action` | En desuso, no es necesario asignarlos a los usuarios. |
+| Acción | `Microsoft.Support/*` | Capacidad de abrir casos de soporte técnico |
 |No acción | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Evita la lectura de la clave del área de trabajo necesaria para usar la API de recopilación de datos e instalar agentes. Esto impide que los usuarios agreguen nuevos recursos al área de trabajo. |
 
 Los miembros del rol *Colaborador de Log Analytics* pueden:
@@ -160,7 +160,7 @@ Los miembros del rol *Colaborador de Log Analytics* pueden:
 
 El rol Colaborador de Log Analytics incluye las siguientes acciones de Azure:
 
-| Permiso | DESCRIPCIÓN |
+| Permiso | Descripción |
 | ---------- | ----------- |
 | `*/read`     | Capacidad para ver todos los recursos y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y configuraciones de todos los recursos <br> En el caso de las áreas de trabajo, permite conceder permisos completos sin restricciones para leer el valor del área de trabajo y realizar consultas en los datos. Consulte opciones más específicas anteriormente. |
 | `Microsoft.Automation/automationAccounts/*` | Capacidad para crear y configurar cuentas de Azure Automation, incluido agregar y editar runbooks |
@@ -187,12 +187,12 @@ Se recomienda realizar las asignaciones en el nivel de recurso (área de trabajo
 
 Cuando los usuarios consulten los registros desde un área de trabajo mediante el acceso de contexto del recurso, tendrán los siguientes permisos en el recurso:
 
-| Permiso | DESCRIPCIÓN |
+| Permiso | Descripción |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Ejemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidad para ver todos los datos de registro para el recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidad para configurar diagnósticos a fin de permitir la configuración de registros para este recurso. |
 
-El permiso `/read`se suele conceder desde un rol que incluye los permisos _/read o\*_ _\*_ como los roles [Lector](../../role-based-access-control/built-in-roles.md#reader) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) integrados. Los roles personalizados que contienen acciones específicas o roles integrados dedicados no incluyen este permiso.
+El permiso `/read` se suele conceder desde un rol que incluye los permisos _\*/read o_ _\*_ como los roles [Lector](../../role-based-access-control/built-in-roles.md#reader) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) integrados. Los roles personalizados que contienen acciones específicas o roles integrados dedicados no incluyen este permiso.
 
 Consulte [Definición del control de acceso por tabla](#table-level-rbac) a continuación, si desea crear un control de acceso diferente para las distintas tablas.
 
@@ -241,13 +241,12 @@ Consulte [Definición del control de acceso por tabla](#table-level-rbac) a cont
 
 **RBAC de nivel de tabla** le permite definir un control más pormenorizado de los datos de un área de trabajo de Log Analytics, además de los restantes permisos. Este control le permite definir tipos de datos específicos que son accesibles solo a un conjunto concreto de usuarios.
 
-El control de acceso de la tabla se implementa con [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) para conceder o denegar un acceso específico a las [tablas](../log-query/logs-structure.md) del área de trabajo. Estos roles se aplican a las áreas de trabajo con los [modos de control de acceso](design-logs-deployment.md#access-control-mode) contexto del área de trabajo o contexto del recurso, independientemente del [modo de acceso](design-logs-deployment.md#access-mode) del usuario.
+El control de acceso de la tabla se implementa con [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) para conceder o denegar el acceso a [tablas](../log-query/logs-structure.md) específicas del área de trabajo. Estos roles se aplican a las áreas de trabajo con los [modos de control de acceso](design-logs-deployment.md#access-control-mode) contexto del área de trabajo o contexto del recurso, independientemente del [modo de acceso](design-logs-deployment.md#access-mode) del usuario.
 
 Cree un [rol personalizado](../../role-based-access-control/custom-roles.md) con las acciones siguientes para definir el acceso al control de acceso de la tabla.
 
-* Para conceder acceso a una tabla, inclúyala en la sección **Actions** de la definición de rol.
-* Para denegar el acceso a una tabla, inclúyala en la sección **NotActions** de la definición de rol.
-* Use * para especificar todas las tablas.
+* Para conceder acceso a una tabla, inclúyala en la sección **Actions** de la definición de rol. Para restar el acceso desde las **Acciones** permitidas, inclúyalo en la sección **NotActions**.
+* Use Microsoft.OperationalInsights/workspaces/query/* para especificar todas las tablas.
 
 Por ejemplo, para crear un rol con acceso a las tablas _Heartbeat_ y _AzureActivity_, cree un rol personalizado con las siguientes acciones:
 
@@ -260,7 +259,7 @@ Por ejemplo, para crear un rol con acceso a las tablas _Heartbeat_ y _AzureActiv
   ],
 ```
 
-Para crear un rol con acceso solo a las tablas _SecurityBaseline_ y otras, cree un rol personalizado con las siguientes acciones:
+Para crear un rol con acceso solo a la tabla _SecurityBaseline_, cree un rol personalizado con las siguientes acciones:
 
 ```
 "Actions":  [
@@ -268,16 +267,13 @@ Para crear un rol con acceso solo a las tablas _SecurityBaseline_ y otras, cree 
     "Microsoft.OperationalInsights/workspaces/query/read",
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
-"NotActions":  [
-    "Microsoft.OperationalInsights/workspaces/query/*/read"
-],
 ```
 
 ### <a name="custom-logs"></a>Registros personalizados
 
  Los registros personalizados se crean a partir de orígenes de datos, como los registros personalizados y la API HTTP Data Collector. La manera más fácil de identificar el tipo de registro es mediante la comprobación de las tablas que aparecen en [Registros personalizados del esquema del registro](../log-query/get-started-portal.md#understand-the-schema).
 
- Actualmente no se puede conceder o denegar el acceso a los registros personalizados individuales, pero puede conceder o denegar el acceso a todos los registros personalizados. Para crear un rol con acceso a todos los registros personalizados, cree un rol personalizado con las siguientes acciones:
+ Actualmente no se puede conceder el acceso a registros personalizados individuales, pero puede conceder el acceso a todos los registros personalizados. Para crear un rol con acceso a todos los registros personalizados, cree un rol personalizado con las siguientes acciones:
 
 ```
 "Actions":  [

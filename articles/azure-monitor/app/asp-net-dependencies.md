@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/25/2019
-ms.openlocfilehash: 7b23da81143a4ae66d9f25cd953c4a3952f27455
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5b37ce1ba3d8a9d56cb2204c9db89d0e47d9996e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678364"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277680"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
-Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mide la duración de las llamadas de dependencia, independientemente de si devuelven un error o no, junto con información adicional como el nombre de la dependencia y más. Puede investigar llamadas de dependencia específicas y relacionarlas a solicitudes y excepciones.
+Una *dependencia* es un componente externo al que la aplicación llama. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mide la duración de las llamadas de dependencia, independientemente de si devuelven un error o no, junto con información adicional como el nombre de la dependencia y más. Puede investigar llamadas de dependencia específicas y relacionarlas a solicitudes y excepciones.
 
 ## <a name="automatically-tracked-dependencies"></a>Dependencias con seguimiento automático
 

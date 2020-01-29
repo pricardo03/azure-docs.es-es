@@ -10,58 +10,63 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: d27b0b7aadf5cffc2a362843ab5373ee0dc5b170
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681368"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261847"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre la información del método de comprobación para restablecer su propia contraseña
 
-> [!IMPORTANT]
-> ¿Está aquí porque no puede iniciar sesión? Si es así, consulte [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
+Si alguna vez ha olvidado su contraseña en el trabajo o en la escuela, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa.
 
-Como usuario final, puede restablecer su contraseña o desbloquear su cuenta con el autoservicio de restablecimiento de contraseñas (SSPR) de Azure Active Directory (Azure AD). Para poder usar esta funcionalidad, debe registrar los métodos de comprobación o confirmar los predefinidos que haya rellenado el administrador.
+Para poder registrar sus datos y restablecer su contraseña es preciso que el administrador active esta característica. Si no ve la opción **He olvidado mi contraseña**, significa que el administrador no ha activado la característica para su organización. Si cree que no es correcto, solicite ayuda al departamento de soporte técnico.
 
-## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registro o confirmación de los datos de autenticación con SSPR
+>[!Important]
+>Este artículo está destinado a los usuarios que intentan utilizar el registro para el autoservicio de restablecimiento de contraseña. Esto significa que podrá restablecer su propia contraseña profesional o educativa (por ejemplo, alain@contoso.com), sin necesidad de que le ayude el administrador. Si es un administrador que desea obtener información acerca de cómo activar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte [Implementar el autoservicio de restablecimiento de contraseña de Azure AD y otros artículos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
-1. Abra el explorador web en el dispositivo y vaya a la [página de registro en el restablecimiento de contraseña](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
-2. Escriba el nombre de usuario y la contraseña proporcionados por el administrador.
-3. Según el modo en que el personal de TI haya realizado la configuración, una o varias de las opciones siguientes estarán a su disposición para que lleve a cabo la configuración y la verificación. Si el administrador tiene permiso para usar su información, puede rellenar una parte en su lugar.
-    * **Teléfono del trabajo**: Solo el administrador puede establecer esta opción.
-    * **Teléfono de autenticación**: Establezca esta opción en otro número de teléfono al que tenga acceso. Un ejemplo es un teléfono móvil que pueda recibir un mensaje de texto o una llamada.
-    * **Correo electrónico de autenticación**: Establezca esta opción en una dirección de correo electrónico alternativa a la que pueda tener acceso sin usar la contraseña que quiere restablecer.
-    * **Preguntas de seguridad**: El administrador ha aprobado esta lista de preguntas para que las responda. No puede usar la misma pregunta o respuesta más de una vez.
-4. Proporcione la información requerida por el administrador y compruébela. Si hay más de una opción, se recomienda registrar varios métodos. Así se proporciona flexibilidad cuando uno de los métodos no esté disponible. Un ejemplo es cuando viaja y no puede tener acceso a su teléfono del trabajo.
+## <a name="set-up-your-password-reset-verification-method"></a>Configuración del método de comprobación de restablecimiento de contraseña
 
-    ![Registre los métodos de verificación y seleccione Finalizar][Register]
+1. Abra el explorador web en el dispositivo y vaya a la [página de información de seguridad](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 
-5. Seleccione **Finalizar**. Ahora puede usar SSPR cuando lo necesite.
+2. En función de cómo haya configurado el administrador la organización, una o varias de las opciones siguientes estarán disponibles para su configuración como método de comprobación de seguridad. Si hay varias opciones disponibles, es muy recomendable usar más de una como método de comprobación de seguridad, en caso de que uno de los métodos deje de estar disponible.
 
-Los datos que escriba en el **número de teléfono** o en el **correo electrónico de autenticación** no serán visibles en el directorio global. Las únicas personas que pueden ver estos datos son el propio usuario y los administradores. Solo el propio usuario puede ver las respuestas a las preguntas de seguridad.
+    - **Aplicación de autenticación.** Elija usar la aplicación Microsoft Authenticator u otra aplicación autenticadora como método de comprobación de seguridad. Para más información sobre la configuración de la aplicación, consulte [Configuración de la aplicación Microsoft Authenticator como método de comprobación](security-info-setup-auth-app.md).
 
-Los administradores pueden requerir que confirme los métodos de verificación después de un período de tiempo para asegurarse de que todavía tiene los métodos adecuados registrados.
+    - **Mensajes de texto.** Elija enviar mensajes de texto a su dispositivo móvil. Para más información acerca de cómo configurar la mensajería de texto, consulte [Configuración de mensajería de texto como su método de comprobación](security-info-setup-text-msg.md).
+
+    - **Llamadas de teléfono.** Elige recibir una llamada de teléfono en el número de teléfono registrado. Para más información acerca de cómo configurar llamadas telefónicas, consulte [Configuración de un número de teléfono como método de comprobación](security-info-setup-phone-number.md).
+
+    - **Clave de seguridad.** Elija esta opción para usar una clave de seguridad compatible con Microsoft. Para más información, consulte [Configuración de una clave de seguridad como su método de comprobación](security-info-setup-security-key.md).
+
+    - **Dirección de correo electrónico.** Elija usar una dirección de correo electrónico alternativa que se pueda utilizar sin requerir la contraseña olvidada o perdida. Esto solo funciona para el restablecimiento de contraseña, no como método de comprobación de seguridad. Para más información acerca de la configuración de una dirección de correo electrónico, consulte [Configuración de una dirección de correo electrónico como método de comprobación](security-info-setup-email.md).
+
+    - **Preguntas de seguridad.** Elija configurar y responder a preguntas de seguridad predefinidas configuradas por el administrador. Esto solo funciona para el restablecimiento de contraseña, no como método de comprobación de seguridad. Para más información acerca de las preguntas de seguridad, consulte [Configuración de preguntas de seguridad como método de comprobación](security-info-setup-questions.md).
+
+3. Después de seleccionar y configurar los métodos, elija **Finalizar** para completar el proceso.
+
+    > [!Note]
+    > La información agregada para el número de teléfono o la dirección de correo electrónico no se comparte con el directorio global de su organización. Las únicas personas que pueden ver esta información son el propio usuario y el administrador. Solo el propio usuario puede ver las respuestas a las preguntas de seguridad.
 
 ## <a name="common-problems-and-their-solutions"></a>problemas comunes y sus soluciones
 
  A continuación se presentan algunos casos terror comunes y sus soluciones:
 
-| Caso de error| ¿Qué tipo de error aparece?| Solución |
+| Mensaje de error |  Posible solución |
 | --- | --- | --- |
-| Al escribir mi identificador de usuario, aparece una página "Póngase en contacto con su administrador" | Póngase en contacto con el administrador. <br> <br> Hemos detectado que la contraseña de su cuenta de usuario no está administrada por Microsoft. Como consecuencia, no podemos restablecer automáticamente su contraseña. <br> <br> Póngase en contacto con el personal de TI para obtener ayuda adicional. | Está viendo este mensaje porque el personal de TI administra su contraseña en el entorno local y no le permite restablecerla desde el vínculo **No se puede tener acceso a su cuenta**. <br> <br> Para restablecer la contraseña, póngase en contacto directamente con el personal de TI para obtener ayuda. Hágales saber que desea restablecer la contraseña para que puedan habilitar esta característica para usted.|
-| Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña". | La cuenta no está habilitada para restablecer la contraseña. <br> <br> Su personal de TI no ha configurado la cuenta para utilizarla con este servicio. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje, es que el personal de TI no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo **No se puede tener acceso a su cuenta** o bien no le han autorizado para usar la característica. <br> <br> Para restablecer la contraseña, seleccione el vínculo **Póngase en contacto con un administrador**. Se enviará un correo electrónico al personal de TI de su empresa. El correo electrónico les permite saber que desea restablecer la contraseña para que puedan habilitar esta característica para usted. |
-| Después de escribir mi identificador de usuario, recibo el error "No se pudo comprobar su cuenta". | No se ha podido comprobar su cuenta. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje, es que está habilitado para usar el restablecimiento de contraseña, pero no se ha registrado para usar el servicio. Para registrarse para el restablecimiento de contraseña, vaya a la [página de registro de restablecimiento de contraseña](https://aka.ms/ssprsetup) después de haber recuperado el acceso a su cuenta. <br> <br> Para restablecer la contraseña, seleccione el vínculo **Póngase en contacto con un administrador** para enviar un correo electrónico al personal de TI de la compañía. |
+| Póngase en contacto con el administrador.<br>Hemos detectado que la contraseña de su cuenta de usuario no está administrada por Microsoft. Como consecuencia, no podemos restablecer automáticamente su contraseña.<br>Póngase en contacto con el personal de TI para obtener ayuda adicional.| Si recibe este mensaje de error después de escribir el identificador de usuario, significa que su organización administra internamente la contraseña y no desea que usted pueda restablecer la contraseña desde el vínculo **No se puede tener acceso a la cuenta**. Para restablecer la contraseña en esta situación, debe ponerse en contacto con el departamento de soporte técnico de su organización o con el administrador para obtener ayuda. |
+| La cuenta no está habilitada para restablecer la contraseña.<br>Su personal de TI no ha configurado la cuenta para utilizarla con este servicio.<br>Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si recibe este mensaje de error después de escribir el identificador de usuario, significa que su organización no ha activado la característica de restablecimiento de contraseña o que no está autorizado para usarla. Para restablecer la contraseña, seleccione el vínculo **Póngase en contacto con un administrador**. Después de hacer clic en el vínculo, se envía un mensaje de correo electrónico al departamento de soporte técnico de su organización o al administrador, que les informa que desea restablecer la contraseña. |
+| No se ha podido comprobar su cuenta.<br>Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si recibe este mensaje de error después de escribir el identificador de usuario, significa que su organización ha activado el restablecimiento de contraseña y que puede usarlo, pero que no se ha registrado para el servicio. En esta situación, debe ponerse en contacto con el departamento de soporte técnico de su organización o el administrador para restablecer la contraseña. Para más información sobre cómo registrarse para restablecer la contraseña después de volver al dispositivo, consulte el proceso anterior en este artículo. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cambiar la contraseña mediante el autoservicio de restablecimiento de contraseñas](active-directory-passwords-update-your-own-password.md)
-* [Página de registro en el restablecimiento de contraseña](https://aka.ms/ssprsetup)
-* [Portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/)
-* [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+- [Cambiar la contraseña mediante el autoservicio de restablecimiento de contraseñas](active-directory-passwords-update-your-own-password.md)
 
-[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Página de registro en el restablecimiento de contraseña que muestra los métodos registrados y botón Finalizar"
+- [Página Información de seguridad](https://mysignins.microsoft.com/security-info)
 
+- [Portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/)
+
+- [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)

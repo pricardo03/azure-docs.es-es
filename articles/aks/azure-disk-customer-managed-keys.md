@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 1359f645c634f401f139fe1cd559f23aa4126c22
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 23a5dbf2333ca86c2d51d54bf983b00a71936eec
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029969"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547955"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traiga sus propias claves (BYOK) con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -98,7 +98,7 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk"></a>Creación de un nuevo clúster de AKS y cifrado del disco del sistema operativo
 
-Cree una **nuevo grupo de recursos** y el clúster de AKS y luego use la clave para cifrar el disco del sistema operativo. Las claves administradas por el cliente solo se admiten en versiones de kubernetes posteriores a la 1.17. 
+Cree una **nuevo grupo de recursos** y el clúster de AKS y luego use la clave para cifrar el disco del sistema operativo. Las claves administradas por el cliente solo se admiten en versiones de Kubernetes posteriores a la 1.17. 
 
 > [!IMPORTANT]
 > Asegúrese de crear un nuevo grupo de recursos para el clúster de AKS.
@@ -191,4 +191,4 @@ Revise los [procedimientos recomendados para la seguridad de los clústeres de A
 [byok-azure-portal]: /azure/storage/common/storage-encryption-keys-portal
 [customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys
 [key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
-[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-scenarios-and-restrictions
+[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-regions

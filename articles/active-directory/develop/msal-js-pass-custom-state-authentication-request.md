@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/29/2019
+ms.date: 01/16/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4cb0f3d054f9afd0c606f80fd6fc5d553eff806
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 29418e0000f917f7184a230c04b93adeae44efef
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916322"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261201"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Paso del estado personalizado en solicitudes de autenticación con MSAL.js
+
 El parámetro *state*, tal como se define en OAuth 2.0, se incluye en una solicitud de autenticación y también se devuelve en la respuesta del token para evitar ataques de falsificación de la solicitud entre sitios. De forma predeterminada, la Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) pasa un valor único del parámetro *state* generado al azar en las solicitudes de autenticación.
 
 El parámetro state también se puede usar para codificar la información de estado de la aplicación antes de la redirección. Puede pasar el estado del usuario en la aplicación, por ejemplo, la página o vista en el que estuviera, como entrada para este parámetro. La biblioteca MSAL.js le permite pasar el estado personalizado como parámetro de estado en el objeto `Request`:
@@ -40,8 +41,16 @@ export type AuthenticationParameters = {
     account?: Account;
     sid?: string;
     loginHint?: string;
+    forceRefresh?: boolean;
 };
 ```
+
+> [!Note]
+> Si desea omitir un token almacenado en caché e ir al servidor, pase el valor booleano `forceRefresh` al objeto AuthenticationParameters usado para realizar una solicitud de token o inicio de sesión.
+> `forceRefresh` no debe usarse de forma predeterminada, debido al impacto en el rendimiento de la aplicación.
+> La experiencia de los usuarios será mejor si se utiliza la caché.
+> Solo se debe omitir la caché en los casos en los que se sepa que los datos almacenados actualmente en caché no tienen información actualizada.
+> Por ejemplo, en el caso de una herramienta de administración que agrega roles a un usuario que necesita obtener un nuevo token con roles actualizados.
 
 Por ejemplo:
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351326"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260960"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -246,6 +246,9 @@ Cada definición de regla incluye un conjunto de filtros y un conjunto de accion
 ### <a name="sample-rule"></a>Ejemplo de regla
 
 La siguiente regla de ejemplo filtra la cuenta para ejecutar las acciones en objetos que existen dentro de `container1` y empiezan por `foo`.  
+
+>[!NOTE]
+>La administración del ciclo de vida solo admite el tipo de blob en bloques.  
 
 - Establecer el nivel de blob en nivel esporádico 30 días después de la última modificación
 - Establecer el nivel de blob en nivel de almacenamiento de archivo 90 días después de la última modificación

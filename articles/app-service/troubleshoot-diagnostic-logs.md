@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 54435dd21fccdd43f17d13674b324b989a00f7a1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 777fa7caa80371592f93ee6f7458a7669fe6698f
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684250"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121365"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -23,11 +23,11 @@ En este artículo se usa [Azure Portal](https://portal.azure.com) y la CLI de Az
 >
 >
 
-|Tipo|Plataforma|Location|DESCRIPCIÓN|
+|Tipo|Plataforma|Location|Descripción|
 |-|-|-|-|
 | Registro de aplicaciones | Windows, Linux | Sistema de archivos de App Service o blobs de Azure Storage | Registra los mensajes generados por el código de aplicación. Los mensajes se pueden generar en el marco web que elija o directamente desde el código de aplicación mediante el patrón de registro estándar del lenguaje. A cada mensaje se le asigna una de las siguientes categorías: **Crítico**, **Error**, **Advertencia**, **Información**, **Depuración** y **Seguimiento**. Puede seleccionar el grado de detalle que quiere que tenga el registro; para ello, establezca el nivel de gravedad al habilitar el registro de la aplicación.|
 | Registro del servidor web| Windows | Sistema de archivos de App Service o blobs de Azure Storage| Datos de solicitud HTTP sin procesar en el [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Cada mensaje de registro incluye datos como el método HTTP, el URI del recurso, la dirección IP del cliente, el puerto del cliente, el agente de usuario, el código de respuesta, etc. |
-| Registro de errores detallado | Windows | Sistema de archivos de App Service | Copias de las páginas de error *.htm* que se habrían enviado al explorador del cliente. Por motivos de seguridad, no se deben enviar páginas de error detalladas a los clientes en producción, pero App Service puede guardar la página de error cada vez que se produzca un error de aplicación que tenga el código HTTP 400 o superior. La página puede contener información útil para determinar por qué el servidor devuelve el código de error. |
+| Mensajes de error detallados| Windows | Sistema de archivos de App Service | Copias de las páginas de error *.htm* que se habrían enviado al explorador del cliente. Por motivos de seguridad, no se deben enviar páginas de error detalladas a los clientes en producción, pero App Service puede guardar la página de error cada vez que se produzca un error de aplicación que tenga el código HTTP 400 o superior. La página puede contener información útil para determinar por qué el servidor devuelve el código de error. |
 | Seguimiento de solicitudes con error | Windows | Sistema de archivos de App Service | Información de seguimiento detallada sobre las solicitudes con error, lo que incluye un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Resulta útil si desea mejorar el rendimiento del sitio o aislar un error HTTP específico. Se genera una carpeta para cada solicitud con error, que contiene el archivo de registro XML y la hoja de estilos XSL con la que ver el archivo de registro. |
 | Registro de implementación | Windows, Linux | Sistema de archivos de App Service | Registros al publicar contenido en una aplicación. El registro de implementación tiene lugar automáticamente, no hay valores configurables. Ayuda a determinar por qué no se realizó una implementación. Por ejemplo, si usa un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), puede usar el registro de implementación para determinar por qué el script da error. |
 
@@ -163,7 +163,7 @@ En el caso de las aplicaciones Linux o de contenedor, el archivo ZIP contiene re
 
 En el caso de las aplicaciones Windows, el archivo ZIP incluye el contenido del directorio *D:\Home\LogFiles* en el sistema de archivos de App Service. Tiene la siguiente estructura:
 
-| Tipo de registro | Directorio | DESCRIPCIÓN |
+| Tipo de registro | Directorio | Descripción |
 |-|-|-|
 | **Registros de aplicaciones** |*/LogFiles/Application/* | Contiene uno o varios archivos de texto. El formato de los mensajes de registro depende del proveedor de registro que se use. |
 | **Seguimiento de solicitudes con error** | */LogFiles/W3SVC#########/* | Contiene archivos XML y un archivo XSL. Puede ver los archivos XML con formato en el explorador. |
@@ -182,7 +182,7 @@ Con la nueva [integración de Azure Monitor](https://aka.ms/appsvcblog-azmon), p
 
 En la tabla siguiente se muestran las descripciones y los tipos de registros admitidos: 
 
-| Tipo de registro | Soporte técnico de Windows | Compatibilidad con Linux (Docker) | DESCRIPCIÓN |
+| Tipo de registro | Soporte técnico de Windows | Compatibilidad con Linux (Docker) | Descripción |
 |-|-|-|
 | AppServiceConsoleLogs | TBA | Sí | Salida estándar y error estándar |
 | AppServiceHTTPLogs | Sí | Sí | Registros de servidor web |

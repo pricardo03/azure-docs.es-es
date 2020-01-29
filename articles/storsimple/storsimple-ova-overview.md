@@ -1,25 +1,18 @@
 ---
-title: Información general acerca de la matriz virtual de Microsoft Azure StorSimple | Microsoft Docs
+title: Introducción sobre la matriz virtual de Microsoft Azure StorSimple
 description: Describe la matriz virtual de StorSimple, una solución de almacenamiento integrada que administra las tareas de almacenamiento de información entre una matriz virtual local y el almacenamiento de nube de Microsoft Azure.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516704"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273869"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introducción a la matriz virtual de StorSimple
 

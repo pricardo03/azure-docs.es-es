@@ -1,5 +1,5 @@
 ---
-title: 'Detección de caras en una imagen: Face API'
+title: 'Detección de caras en una imagen: Face'
 titleSuffix: Azure Cognitive Services
 description: Esta guía muestra cómo usar la detección de caras para extraer atributos como el sexo, la edad o la postura de una imagen determinada.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744284"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169871"
 ---
 # <a name="get-face-detection-data"></a>Obtención de los datos de detección de caras
 
-Esta guía muestra cómo usar la detección de caras para extraer atributos como el sexo, la edad o la postura de una imagen determinada. Los fragmentos de código de esta guía están escritos en C# con la biblioteca cliente Face API de Azure Cognitive Services. La misma funcionalidad está disponible mediante la [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Esta guía muestra cómo usar la detección de caras para extraer atributos como el sexo, la edad o la postura de una imagen determinada. Los fragmentos de código de esta guía están escritos en C# con la biblioteca cliente Face de Azure Cognitive Services. La misma funcionalidad está disponible mediante la [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 Esta guía le muestra cómo:
 
@@ -27,7 +27,7 @@ Esta guía le muestra cómo:
 - Obtener las ubicaciones de diversos puntos de referencia faciales, como las pupilas, nariz y boca, de una imagen.
 - Adivinar el sexo, edad, emoción y otros atributos de una cara detectada.
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 En esta guía se da por supuesto que ya ha construido un objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) llamado `faceClient`, con una clave de suscripción y una dirección URL de punto de conexión de Face. A partir de aquí, puede usar la característica de detección de caras mediante una llamada a [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), que se usa en esta guía o una llamada a [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Para obtener instrucciones sobre cómo configurar esta característica, siga uno de los inicios rápidos.
 

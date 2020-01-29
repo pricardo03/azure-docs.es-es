@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c120c9092d9cf0e4029cadea1b412a73e858fa75
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278963"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156155"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configuración de un número de teléfono como método de comprobación
 
@@ -30,7 +30,20 @@ Si se le pide que configure esto justo después de haber iniciado sesión en su 
 > [!Note]
 > Información de seguridad no admite el uso de extensiones telefónicas. Incluso si agrega el formato correcto +1 4255551234X12345, las extensiones se quitan antes de realizarse la llamada.
 >
-> Si no ve una opción telefónica, es posible que su organización no le permita usar un número de teléfono para la verificación. En este caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
+> Si no ve la opción de teléfono, es posible que su organización no le permita usar esta opción para la comprobación. En este caso, tendrá que elegir otro método o ponerse en contacto con el departamento de soporte técnico de su organización para que le proporcione más ayuda.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Autenticación mediante comprobación de seguridad frente a autenticación mediante restablecimiento de contraseña
+
+Los métodos de la información de seguridad se usan tanto para la comprobación de seguridad de dos factores como para al restablecimiento de la contraseña. Sin embargo, no todos los métodos pueden usarse para ambos.
+
+| Método | Se usa para |
+| ------ | -------- |
+| Aplicación de autenticación | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Mensajes de texto | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Llamadas de teléfono | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Clave de seguridad | Autenticación mediante la comprobación de dos factores y restablecimiento de la contraseña. |
+| Cuenta de correo electrónico | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
+| Preguntas de seguridad | Solo autenticación mediante restablecimiento de contraseña. Deberá elegir otro método para la comprobación mediante dos factores. |
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configuración de llamadas de teléfono desde la página Información de seguridad
 
@@ -41,7 +54,7 @@ Dependiendo de la configuración de su organización, es posible que pueda usar 
 
 ### <a name="to-set-up-phone-calls"></a>Para configurar llamadas de teléfono
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a su página https://myprofile.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
     ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile-page.png)
 
@@ -55,11 +68,11 @@ Dependiendo de la configuración de su organización, es posible que pueda usar 
 
 4. En la página **Teléfono**, escriba el número de teléfono de su dispositivo móvil, elija **Llamarme** y, a continuación, seleccione **Siguiente**.
 
-    ![Adición de número de teléfono y elección de llamadas de teléfono](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
+    ![Adición de un número de teléfono y elección de llamadas de teléfono](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
 5. Responda a la llamada de teléfono de verificación, enviada al número de teléfono que escribió, y siga las instrucciones.
 
-    La página cambia para mostrar su éxito.
+    La página cambia para mostrar que la operación se ha realizado correctamente.
 
     ![Notificación de éxito, que conecta el número de teléfono, la opción para recibir llamadas de teléfono y su cuenta](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
@@ -74,7 +87,7 @@ Si ya no desea usar las llamadas de teléfono como método de información de se
 
 ### <a name="to-delete-phone-calls"></a>Para eliminar las llamadas telefónicas
 
-1. En la página **Información de seguridad**, seleccione el vínculo **Eliminar** situado junto a la opción **Teléfono**.
+1. En la página **Información de seguridad**, seleccione el vínculo **Eliminar**, que se encuentra al lado de la opción **Teléfono**.
 
     ![Vínculo para eliminar el método del teléfono de la información de seguridad](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
@@ -84,7 +97,7 @@ Si ya no desea usar las llamadas de teléfono como método de información de se
 
 Si desea que las llamadas de teléfono sean el método predeterminado usado al iniciar sesión en su cuenta profesional o educativa mediante la comprobación en dos pasos o para las solicitudes de restablecimiento de contraseña, puede establecerlo en la página **Información de seguridad**.
 
-### <a name="to-change-your-default-security-info-method"></a>Para cambiar su método de información de seguridad predeterminado
+### <a name="to-change-your-default-security-info-method"></a>Para cambiar el método de información de seguridad predeterminado
 
 1. En la página **Información de seguridad**, seleccione el vínculo **Cambiar** situado junto a la información **Método de inicio de sesión predeterminado**.
 

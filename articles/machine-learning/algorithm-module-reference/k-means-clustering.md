@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 135b425ca87a309bc171e252d8ff04b2027a3c50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 000db771f27c7063aee120f06e13eec3575c8ef5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213910"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546646"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: Agrupación en clústeres K-Means
 
@@ -58,7 +58,7 @@ Cuando procesa los datos de entrenamiento, el algoritmo K-means comienza con un 
   
 2.  Para especificar cómo quiere que se entrene el modelo, seleccione la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Parámetro único**: si conoce los parámetros exactos que desea usar en el modelo de agrupación en clústeres, puede proporcionar un conjunto específico de valores como argumentos.  
+    -   **Single Parameter** (Parámetro único): si conoce los parámetros exactos que desea usar en el modelo de agrupación en clústeres, puede proporcionar un conjunto específico de valores como argumentos.  
   
 3.  En **Number of centroids** (Número de centroides), escriba el número de clústeres con el que desea que comience el algoritmo.  
   
@@ -115,9 +115,9 @@ Cuando haya terminado de configurar y entrenar el modelo, puede usarlo para gene
 
 Si usó el módulo [Train Clustering Model clústeres](train-clustering-model.md) (Entrenamiento del modelo de agrupación en clústeres):
 
-1. Haga clic con el botón secundario en el módulo **Train Clustering Model clústeres** (Entrenamiento del modelo de agrupación en clústeres).
+1. Seleccione el módulo **Train Clustering Model** (Entrenar modelo de agrupación en clústeres) y abra el panel derecho.
 
-2. Seleccione **Trained model** (Modelo entrenado) y, a continuación, seleccione **Save as Trained Mode** (Guardar como modelo entrenado).
+2. Seleccione la pestaña **Outputs** (Salidas). Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar una copia del modelo entrenado.
 
 El modelo guardado representa los datos de entrenamiento en el momento de guardar el modelo. Si más tarde actualiza los datos de entrenamiento utilizados en la canalización, no actualiza el modelo guardado. 
 
@@ -127,7 +127,7 @@ Si usó el módulo [Train Clustering Model clústeres](train-clustering-model.md
 
 1. Haga clic con el botón secundario en el módulo **Train Clustering Model clústeres** (Entrenamiento del modelo de agrupación en clústeres).
 
-2. Seleccione **Results dataset** (Conjunto de datos de resultados) y, a continuación, seleccione **Visualize** (Visualizar).
+2. Seleccione **Visualize** (Visualizar).
 
 ### <a name="tips-for-generating-the-best-clustering-model"></a>Sugerencias para generar el mejor modelo de agrupación en clústeres  
 

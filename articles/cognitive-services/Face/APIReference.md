@@ -1,5 +1,5 @@
 ---
-title: 'Referencia de API: Face API'
+title: 'Referencia de API: Face'
 titleSuffix: Azure Cognitive Services
 description: La referencia de API proporciona información sobre las API de algoritmos Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList y Face.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 940a5e25125acc2631fd3629bd610bb0e927e650
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 431525964eb69431600d36ba8249c6dc465a5df3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390104"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169929"
 ---
 # <a name="face-api-reference-list"></a>Lista de referencia de Face API
 
-Azure Face API es una API basada en la nube que proporciona algoritmos para la detección y el reconocimiento de caras. Las API de Face pueden clasificarse en las siguientes categorías:
+Face de Azure es un servicio basado en la nube que proporciona algoritmos para la detección y el reconocimiento de caras. Las API de Face pueden clasificarse en las siguientes categorías:
 
 - API de algoritmos de Face: Abarcan funciones básicas, como [detección](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [búsqueda de parecidos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [verificación](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [identificación](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) y [agrupación](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 - [API de FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): se usa para administrar una lista de caras en las [búsquedas de parecidos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).

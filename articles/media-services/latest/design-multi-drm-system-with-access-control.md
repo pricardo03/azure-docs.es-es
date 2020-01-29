@@ -1,5 +1,5 @@
 ---
-title: Diseño de un sistema de protección de contenido con DRM múltiple y control de acceso mediante Azure Media Services | Microsoft Docs
+title: 'Sistema de protección de contenido con varios DRM: Azure Media Services, versión 3'
 description: En este artículo se proporciona una descripción detallada de cómo diseñar un sistema de protección de contenido con varios DRM con Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: efc070491ca1ea84dc8ef095a2144df9d0bf1bcb
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896168"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311910"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
 
@@ -202,10 +202,10 @@ La implementación incluye los siguientes pasos:
 
     | **DRM** | **Browser** | **Resultado para el usuario autorizado** | **Resultado para el usuario no autorizado** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge o Internet Explorer 11 en Windows 10 |Correcto |Fail (no superado) |
-    | **Widevine** |Chrome, Firefox, Opera |Correcto |Fail (no superado) |
-    | **FairPlay** |Safari en macOS      |Correcto |Fail (no superado) |
-    | **AES-128** |Exploradores más modernos  |Correcto |Fail (no superado) |
+    | **PlayReady** |Microsoft Edge o Internet Explorer 11 en Windows 10 |Correcto |Incorrecto |
+    | **Widevine** |Chrome, Firefox, Opera |Correcto |Incorrecto |
+    | **FairPlay** |Safari en macOS      |Correcto |Incorrecto |
+    | **AES-128** |Exploradores más modernos  |Correcto |Incorrecto |
 
 Para más información sobre cómo configurar Azure AD para una aplicación de reproductor de ASP.NET MVC, consulte [Integración de la aplicación OWIN basada en MVC de Azure Media Services con Azure Active Directory y restricción de la entrega de claves de contenido basada en notificaciones de JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -286,15 +286,15 @@ Puede ponerse en contacto con cualquiera de los autores para que le creen o le a
 
 Las capturas de pantalla siguientes muestran diferentes páginas de inicio de sesión que se usan con distintas cuentas de dominio:
 
-**Cuenta de dominio de inquilino de Azure AD personalizado**: la página de inicio de sesión personalizada del dominio de inquilino de Azure AD personalizado.
+**Cuenta de dominio de inquilino de Azure AD personalizado**: Página de inicio de sesión personalizada del dominio de inquilino de Azure AD personalizado.
 
 ![Cuenta uno de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
-**Cuenta de dominio de Microsoft con tarjeta inteligente**: la página de inicio de sesión personalizada por el responsable de TI corporativo de Microsoft con autenticación en dos fases.
+**Cuenta de dominio de Microsoft con tarjeta inteligente**: Página de inicio de sesión personalizada por el responsable de TI corporativo de Microsoft con autenticación en dos fases.
 
 ![Cuenta dos de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
-**Cuenta Microsoft**: la página de inicio de sesión de la cuenta Microsoft para los consumidores.
+**Cuenta de Microsoft**: Página de inicio de sesión de la cuenta de Microsoft para los consumidores.
 
 ![Cuenta tres de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 

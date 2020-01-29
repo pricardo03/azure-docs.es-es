@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402593"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168175"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -27,7 +27,7 @@ En este artículo se describen los detalles sobre la incorporación y utilizaci�
 * El agente de dependencia instalado en el equipo Windows o en el servidor Linux.
 
 >[!NOTE]
->Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../../azure-monitor/insights/vminsights-overview.md) Para obtener información sobre las diferencias entre la solución de Service Map y la característica de asignación de Azure monitor para VM, consulte las siguientes [Preguntas más frecuentes](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
+>Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../../azure-monitor/insights/vminsights-overview.md) Para obtener información sobre las diferencias entre la solución de Service Map y la característica de asignación de Azure monitor para VM, consulte las siguientes [Preguntas más frecuentes](../faq.md#azure-monitor-for-vms-preview).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -321,7 +321,7 @@ Puesto que pueden existir varios registros para un proceso y equipo especificado
 
 ### <a name="connections"></a>Conexiones
 
-Las métricas de conexión se escriben en una nueva tabla en Log Analytics: VMConnection. Esta tabla proporciona información sobre las conexiones para una máquina (entrantes y salientes). Las métricas de conexión también se exponen a través de API que proporcionan los medios para obtener una métrica específica durante un período de tiempo.  Las conexiones TCP resultantes de *aceptar* en un socket de escucha son de entrada, mientras que, las creadas al *conectar* con un puerto e IP concretos son de salida. La dirección de una conexión se representa mediante la propiedad Direction, que se puede definir como **inbound** u **outbound**. 
+Las métricas de conexión se escriben en una nueva tabla en Log Analytics: VMConnection. Esta tabla proporciona información sobre las conexiones para una máquina (entrantes y salientes). Las métricas de conexión también se exponen a través de API que proporcionan los medios para obtener una métrica específica durante un período de tiempo.  Las conexiones TCP resultantes de aceptar en un socket de escucha son de entrada, mientras que las creadas al conectarse a un puerto y una dirección IP determinados son de salida. La dirección de una conexión se representa mediante la propiedad Direction, que se puede definir como **inbound** u **outbound**. 
 
 Los registros de estas tablas se generan a partir de los datos que notifica el agente de dependencia. Cada registro representa una observación en un intervalo de tiempo de un minuto. La propiedad TimeGenerated indica el inicio del intervalo de tiempo. Cada registro contiene información para identificar la entidad correspondiente; es decir, conexión o puerto, así como las métricas asociadas con esa entidad. Actualmente, solo se notifica la actividad de red que tiene lugar mediante TCP a través de IPv4.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428559"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546714"
 ---
 # <a name="cross-validate-model"></a>Modelo de validación cruzada
 
@@ -76,7 +76,7 @@ En este escenario se entrena y se prueba el modelo con el módulo Cross-Validate
 
 7. Consulte la sección [Resultados](#results) para obtener una descripción de los informes.
 
-    Para obtener una copia del modelo para su reutilización posterior, haga clic con el botón derecho en la salida del módulo que contiene el algoritmo (por ejemplo, **Two Class Bayes Point Machine** [Máquina del punto de Bayes de dos clases]) y seleccione **Save as Trained Model** (Guardar como modelo entrenado).
+    Para obtener una copia del modelo para su posterior reutilización, cambie a la pestaña **Outputs** (Salidas) del panel derecho del módulo que contiene el algoritmo (por ejemplo, **Two Class Bayes Point Machine** [Máquina del punto de Bayes de dos clases]) Luego, seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar una copia del modelo entrenado en el árbol de módulos.
 
 ## <a name="results"></a>Results
 
@@ -86,7 +86,7 @@ Una vez completadas todas las iteraciones, el modelo de validación cruzada crea
 
 La primera salida del módulo proporciona los datos de origen de cada fila, junto con algunos valores de predicción y las probabilidades relacionadas. 
 
-Para ver estos resultados, en la canalización, haga clic con el botón derecho en el módulo Cross Validate Model (Modelo de validación cruzada), seleccione **Scored results** (Resultados puntuados) y haga clic en **Visualize** (Visualizar).
+Para ver los resultados, en la canalización, haga clic con el botón derecho en el módulo Cross Validate Model (Modelo de validación cruzada). Seleccione **Visualize Scored results** (Visualizar resultados con puntuación).
 
 | Nuevo nombre de columna      | Descripción                              |
 | -------------------- | ---------------------------------------- |
@@ -100,7 +100,7 @@ El segundo informe se agrupa por plegamientos. Recuerde que, durante la ejecuci�
 
 En este informe, los plegamientos se enumeran por valor de índice en orden ascendente.  Para ordenar por cualquier otra columna, puede guardar los resultados como un conjunto de datos.
 
-Para ver estos resultados, en la canalización, haga clic con el botón derecho en el módulo Cross Validate Model (Modelo de validación cruzada), Seleccione **Evaluation results by fold** (Resultados de la evaluación por pliegue) y **Visualize** (Visualizar).
+Para ver los resultados, en la canalización, haga clic con el botón derecho en el módulo Cross Validate Model (Modelo de validación cruzada). Seleccione **Visualize Evaluation results by fold** (Visualizar los resultados de evaluación por plegamiento)
 
 
 |Nombre de la columna| Descripción|

@@ -3,12 +3,12 @@ title: 'Azure Service Fabric: uso de las referencias de KeyVault de la aplicaci�
 description: En este artículo se explica cómo usar la compatibilidad con KeyVaultReference de Service Fabrica para los secretos de aplicación.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463039"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545490"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Compatibilidad de KeyVaultReference para aplicaciones de Service Fabric (versión preliminar)
 
@@ -22,7 +22,7 @@ Un desafío común al compilar aplicaciones en la nube es cómo almacenar de man
 
 - Almacén central de secretos (CSS).
 
-    El Almacén central de secretos (CSS) es la caché de secretos local cifrada de Service Fabric, KeyVaultReference, una vez que se capturan y se almacenan en caché en CSS.
+    El Almacén central de secretos (CSS) es la caché de secretos local cifrada de Service Fabric. CSS es una caché local de almacén de secretos que conserva datos confidenciales, como contraseñas, tokens y claves, cifrados en memoria. Los secretos de KeyVaultReference, una vez capturados, se almacenan en la memoria caché en CSS.
 
     Agregue lo siguiente a la configuración del clúster en `fabricSettings` para habilitar todas las características necesarias para la compatibilidad con KeyVaultReference.
 
@@ -61,6 +61,7 @@ Un desafío común al compilar aplicaciones en la nube es cómo almacenar de man
 
     > [!NOTE] 
     > Se recomienda usar un certificado de cifrado independiente para CSS. Puede agregarlo en la sección "CentralSecretService".
+    
 
     ```json
         {
@@ -68,7 +69,18 @@ Un desafío común al compilar aplicaciones en la nube es cómo almacenar de man
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-
+Para que los cambios surtan efecto, también tendrá que cambiar la directiva de actualización para especificar un reinicio forzado del runtime de Service Fabric en cada nodo a medida que la actualización avanza a través del clúster. Con este reinicio se garantiza que el servicio de sistema recién habilitado se inicia y se ejecuta en cada uno de los nodos. En el siguiente fragmento de código, forceRestart es la opción esencial; use los valores existentes para el resto de la configuración.
+```json
+"upgradeDescription": {
+    "forceRestart": true,
+    "healthCheckRetryTimeout": "00:45:00",
+    "healthCheckStableDuration": "00:05:00",
+    "healthCheckWaitDuration": "00:05:00",
+    "upgradeDomainTimeout": "02:00:00",
+    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
+    "upgradeTimeout": "12:00:00"
+}
+```
 - Conceda permiso de acceso a keyvault a la identidad administrada de la aplicación
 
     Consulte este [documento](how-to-grant-access-other-resources.md) para ver cómo conceder acceso a keyvault a la identidad administrada. Además, tenga en cuenta que si usa una identidad administrada asignada por el sistema, la identidad administrada solo se crea después de la implementación de la aplicación.

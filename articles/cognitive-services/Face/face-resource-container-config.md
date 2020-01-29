@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de contenedores: FACE API'
+title: 'Configuración de contenedores: Face'
 titleSuffix: Azure Cognitive Services
 description: El entorno en tiempo de ejecución del contenedor de Face se configura mediante los argumentos del comando `docker run`. Hay configuraciones obligatorias y opcionales.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 78fd2aa977062d2f0d6b981140f3db5b263e4651
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 3c78c9eb85c3a8be236be5c3a24bd877db204b6c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795035"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167973"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar los contenedores de Face en Docker
 
 El entorno en tiempo de ejecución del contenedor de **Face** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
-## <a name="configuration-settings"></a>Valores de configuración
+## <a name="configuration-settings"></a>Parámetros de configuración
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -51,9 +51,9 @@ Este valor se puede encontrar en el siguiente lugar:
 
 No olvide agregar la ruta _Face_ al URI de punto de conexión, tal como se muestra en el ejemplo. 
 
-|Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Obligatorio| Nombre | Tipo de datos | Descripción |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](face-how-to-install-containers.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
+|Sí| `Billing` | String | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](face-how-to-install-containers.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 <!-- specific to face only -->
 
@@ -61,7 +61,7 @@ No olvide agregar la ruta _Face_ al URI de punto de conexión, tal como se muest
 
 Las opciones de configuración de la sección `CloudAI` proporcionan opciones específicas de contenedor únicas para el contenedor. Se admiten las opciones de configuración y objetos siguientes para el contenedor de Face en la sección `CloudAI`.
 
-| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+| Nombre | Tipo de datos | Descripción |
 |------|-----------|-------------|
 | `Storage` | Object | Escenario de almacenamiento utilizado por el contenedor de Face. Para obtener más información sobre los escenarios de almacenamiento y la configuración asociada para el objeto `Storage`, consulte [Configuración del escenario de almacenamiento](#storage-scenario-settings) |
 
@@ -80,11 +80,11 @@ El contenedor de Face almacena datos de blob, de caché, de metadatos y de la co
 
 Los escenarios de almacenamiento y las opciones de configuración asociadas se administran mediante el objeto `Storage`, en la sección de configuración `CloudAI`. Las opciones de configuración siguientes están disponibles en el objeto `Storage`:
 
-| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+| Nombre | Tipo de datos | Descripción |
 |------|-----------|-------------|
-| `StorageScenario` | Cadena | Escenario de almacenamiento admitido por el contenedor. Están disponibles los valores siguientes:<br/>`Memory`: valor predeterminado. El contenedor usa un almacenamiento en memoria, no persistente y no distribuido para uso temporal y de nodo único. Si el contenedor se detiene o elimina, se destruye el almacenamiento de dicho contenedor.<br/>`Azure`: el contenedor usa recursos de Azure para el almacenamiento. Si el contenedor se detiene o elimina, se conserva el almacenamiento de dicho contenedor.|
-| `ConnectionStringOfAzureStorage` | Cadena | Cadena de conexión para el recurso de Azure Storage usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
-| `ConnectionStringOfCosmosMongo` | Cadena | Cadena de conexión de MongoDB para el recurso de Azure Cosmos DB usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
+| `StorageScenario` | String | Escenario de almacenamiento admitido por el contenedor. Están disponibles los valores siguientes:<br/>`Memory`: valor predeterminado. El contenedor usa un almacenamiento en memoria, no persistente y no distribuido para uso temporal y de nodo único. Si el contenedor se detiene o elimina, se destruye el almacenamiento de dicho contenedor.<br/>`Azure`: el contenedor usa recursos de Azure para el almacenamiento. Si el contenedor se detiene o elimina, se conserva el almacenamiento de dicho contenedor.|
+| `ConnectionStringOfAzureStorage` | String | Cadena de conexión para el recurso de Azure Storage usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
+| `ConnectionStringOfCosmosMongo` | String | Cadena de conexión de MongoDB para el recurso de Azure Cosmos DB usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
 
 Por ejemplo, el siguiente comando especifica el escenario de almacenamiento de Azure y proporciona las cadenas de conexión de ejemplo para los recursos de Azure Storage y Cosmos DB usados para almacenar datos del contenedor de Face.
 
@@ -122,10 +122,10 @@ Los contenedores de Face no usan los montajes de entrada o salida para almacenar
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](face-how-to-install-containers.md#the-host-computer) puede no ser accesible debido a un conflicto entre los permisos que usa la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
 
-|Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Opcional| Nombre | Tipo de datos | Descripción |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | Cadena | Los contenedores de Face no usan esto.|
-|Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | String | Los contenedores de Face no usan esto.|
+|Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
@@ -136,7 +136,7 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 
 Reemplace {_argument_name_} por sus propios valores:
 
-| Marcador de posición | Valor | Formato o ejemplo |
+| Marcador de posición | Value | Formato o ejemplo |
 |-------------|-------|---|
 | **{CLAVE_API}** | La clave del punto de conexión del recurso `Face` en la página Claves de `Face` de Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Face`.| Consulte el apartado de [recopilación de los parámetros necesarios](face-how-to-install-containers.md#gathering-required-parameters) para ejemplos explícitos. |

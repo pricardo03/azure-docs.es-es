@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 718fd4054d5e21c7f6309b3b1ac65a459c514ea0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932375"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548023"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en Privileged Identity Management
 
@@ -111,6 +111,9 @@ Mi auditoría permite ver la actividad del rol personal.
 1. Filtre el historial con una fecha predefinida o un intervalo personalizado.
 
     ![Lista de auditoría para el usuario actual](media/azure-pim-resource-rbac/my-audit-time.png)
+    
+> [!NOTE]
+> El acceso al historial de auditoría requiere un rol de administrador global o de administrador de roles con privilegios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

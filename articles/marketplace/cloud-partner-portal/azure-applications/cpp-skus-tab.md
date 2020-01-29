@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826177"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543161"
 ---
 # <a name="azure-application-skus-tab"></a>Pestaña SKU de aplicación de Azure
 
@@ -44,13 +44,13 @@ La siguiente captura de pantalla muestra el formulario SKU Details (Detalles de 
 
 Proporcione los siguientes valores de SKU.  Los campos anexados con un asterisco son obligatorios.
 
-|    Campo         |       DESCRIPCIÓN                                                            |
+|    Campo         |       Descripción                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Título\***     | Título para la SKU. Este título aparece en la galería para este elemento.   |
 | **Resumen\***    | Descripción breve resumida de la SKU. (La longitud máxima es de 100 caracteres).  |
 | **Descripción\*** | Descripción detallada de la SKU. Es compatible con HTML básico.                 | 
 | **Tipo de SKU\***   | Tipo de solución de aplicación de Azure, seleccione ***Plantilla de solución** para este escenario. |
-| **Cloud Availability\*** (Disponibilidad en la nube) | Ubicación de la SKU. El valor predeterminado es **Azure público**.  <b/>   **Azure público**: La aplicación se implementará en los clientes de todas las regiones públicas de Azure que tengan la integración de Marketplace.  <b/>   **Nube de Azure Government**: La aplicación se implementará en la nube de Azure Government. Antes de publicar en [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recomienda que los publicadores prueben y validen que la solución funcione según lo previsto en este entorno. Para realizar copias intermedias y pruebas, solicite una [cuenta de prueba](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
+| **Cloud Availability\*** (Disponibilidad en la nube) | Ubicación de la SKU. El valor predeterminado es **Azure público**.  <b/>   **Azure público**: la aplicación se podrá implementar en los clientes de todas las regiones públicas de Azure en que se haya integrado Marketplace.  <b/>   **Nube de Azure Government**: la aplicación se implementará en la nube de Azure Government. Antes de publicar en [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recomienda que los publicadores prueben y validen que la solución funcione según lo previsto en este entorno. Para realizar copias intermedias y pruebas, solicite una [cuenta de prueba](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
 | **Is this a Private SKU?\*** (¿Es una SKU privada?) | Seleccione **Sí** si esta SKU solo está disponible para un grupo selecto de clientes. |
 |   |   |
 
@@ -66,15 +66,15 @@ La siguiente captura de pantalla muestra el formulario SKU Details (Detalles de 
 
 Configure las siguientes opciones de la SKU. Los campos anexados con un asterisco son obligatorios.
 
-|    Campo         |       DESCRIPCIÓN                                                            |
+|    Campo         |       Descripción                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Título\***     | Título para la SKU. Este título aparece en la galería para este elemento.   |
 | **Resumen\***    | Descripción breve resumida de la SKU. (La longitud máxima es de 100 caracteres).  |
 | **Descripción\*** | Descripción detallada de la SKU. Es compatible con HTML básico.                 | 
 | **Tipo de SKU\***   | Tipo de solución de aplicación de Azure, seleccione ***Aplicación administrada** para este escenario. 
-| **Cloud Availability\*** (Disponibilidad en la nube) | Ubicación de la SKU. El valor predeterminado es **Azure público**.  <b/>   **Azure público**: La aplicación se implementará en los clientes de todas las regiones públicas de Azure que tengan la integración de Marketplace.  <b/>   **Nube de Azure Government**: La aplicación se implementará en la nube de Azure Government. Antes de publicar en [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recomienda que los publicadores prueben y validen que la solución funcione según lo previsto en este entorno. Para realizar copias intermedias y pruebas, solicite una [cuenta de prueba](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Government es una nube de la comunidad gubernamental con acceso controlado para los clientes de asociados tribales, locales, estatales y federales de Estados Unidos y asociados aptos para abastecer a tales entidades. |
+| **Cloud Availability\*** (Disponibilidad en la nube) | Ubicación de la SKU. El valor predeterminado es **Azure público**.  <b/>   **Azure público**: la aplicación se podrá implementar en los clientes de todas las regiones públicas de Azure en que se haya integrado Marketplace.  <b/>   **Nube de Azure Government**: la aplicación se implementará en la nube de Azure Government. Antes de publicar en [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recomienda que los publicadores prueben y validen que la solución funcione según lo previsto en este entorno. Para realizar copias intermedias y pruebas, solicite una [cuenta de prueba](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Government es una nube de la comunidad gubernamental con acceso controlado para los clientes de asociados tribales, locales, estatales y federales de Estados Unidos y asociados aptos para abastecer a tales entidades. |
 | **Is this a Private SKU?\*** (¿Es una SKU privada?) | Seleccione **Sí** si esta SKU solo está disponible para un grupo selecto de clientes. |
-| **Country/Region availability\*** (Disponibilidad de país o región) | Use **Seleccionar regiones** para ver la lista de países o regiones que están disponibles. Compruebe cada país o región y, luego, seleccione **Aceptar** para guardar sus selecciones.  <b/>   ![Lista de disponibilidad por región y región](./media/azure-app-select-country-region.png)  |
+| **Country/Region availability\*** (Disponibilidad de país o región) | Use **Seleccionar regiones** para ver la lista de países o regiones que están disponibles. Compruebe cada país o región y, luego, seleccione **Aceptar** para guardar sus selecciones.  <b/>   ![Lista de disponibilidad por país y región](./media/azure-app-select-country-region.png)  |
 | **Old Pricing\*** (Precios antiguos) | El precio de la SKU, en USD, por mes. Los precios se establecen en la moneda local con tasas de cambio actuales tras la configuración. Valide estos ajustes, puesto que, en última instancia, usted es el propietario de esta configuración. Para establecer o ver el precio de cada país o región individualmente, exporte la hoja de cálculo de precios e impórtela con precios personalizados.  Tiene que guardar los cambios de precios para habilitar la exportación/importación de los datos de precios.  |
 | **Simplified Currency Pricing\*** (Precios en moneda simplificada) | El precio de la SKU, en USD, por mes. Debe ser igual que Old Pricing. Para más información, consulte [Precios en moneda simplificada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
 |  |  |
@@ -82,17 +82,19 @@ Configure las siguientes opciones de la SKU. Los campos anexados con un asterisc
 
 ### <a name="package-details-for-solution-template"></a>Detalles del paquete para una plantilla de solución
 
-   ![Detalles del paquete para una plantilla de solución](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![Detalles del paquete para una plantilla de solución](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 Proporcione los valores siguientes de **Detalles del paquete**.  Los campos anexados con un asterisco son obligatorios.
 
 - **Versión\*** : Versión del paquete que va a cargar. Las etiquetas de versión deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros.
 - **Package file (.zip)\*** (Archivo de paquete [.zip]): Este paquete contiene los siguientes archivos, guardados en un archivo ZIP.
-  - MainTemplate.json: archivo de plantilla de implementación que se usa para implementar la solución o la aplicación y para crear los recursos que se definen en esta. Para más información, consulte [cómo crear archivos de plantilla de implementación](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-  - createUIDefinition.json: Azure Portal usa este archivo para generar la interfaz de usuario para el aprovisionamiento de esta solución o aplicación. Para más información, consulte [Creación de la interfaz de usuario de Azure Portal para una aplicación administrada](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - **mainTemplate.json\*** : archivo de plantilla de implementación que se usa para implementar la solución o la aplicación y para crear los recursos que se definen para esta. Para más información, consulte [cómo crear archivos de plantilla de implementación](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+  - **createUIDefinition.json\*** : Azure Portal usa este archivo para generar la interfaz de usuario para el aprovisionamiento de esta solución o aplicación. Para más información, consulte [Creación de la interfaz de usuario de Azure Portal para una aplicación administrada](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - Scripts (si es necesario): todos los scripts adicionales que se puedan necesitar al ejecutar la plantilla, por ejemplo, `Microsoft.Compute/virtualMachines/extensions`.
+  - Plantillas anidadas (si es necesario): todas las plantillas anidadas adicionales.
 
-  >[!IMPORTANT] 
-  >Este paquete debe contener los demás scripts o plantillas anidadas que sean necesarios para aprovisionar esta aplicación. La carpeta raíz debe contener los archivos MainTemplate.json y createUIDefinition.json.
+  > [!IMPORTANT] 
+  > Este paquete debe contener los demás scripts o plantillas anidadas que sean necesarios para aprovisionar esta aplicación. Tanto el archivo mainTemplate.json como el archivo createUIDefinition.json deben estar en la carpeta raíz. Para más información sobre los artefactos de implementación, consulte [Azure Resource Manager: guía de procedimientos recomendados](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 
 ### <a name="package-details-for-managed-application"></a>Detalles del paquete para una aplicación administrada

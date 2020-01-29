@@ -1,5 +1,5 @@
 ---
-title: Desarrollo distribuido y colaborativo de recursos de Azure DevTest Labs | Microsoft Docs
+title: Desarrollo distribuido y colaborativo de recursos de Azure DevTest Labs
 description: En este artículo se indican los procedimientos recomendados para establecer un entorno de desarrollo distribuido y colaborativo para desarrollar recursos de DevTest Labs.
 services: devtest-lab,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8ffc8ed3f84284ff69e9515cba0982790b823a37
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 9469591b1945adaffca973828d619d5d06655262
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543765"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170124"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Procedimientos recomendados para el desarrollo distribuido y colaborativo de recursos de Azure DevTest Labs
 El desarrollo distribuido y colaborativo permite que diferentes equipos o personas desarrollen y mantengan un código base. Para que tenga éxito, el proceso de desarrollo depende de la capacidad de crear, compartir e integrar la información. Este principio clave de desarrollo se puede aplicar en Azure DevTest Labs. En un laboratorio, hay varios tipos de recursos que normalmente se distribuyen entre los diferentes laboratorios de una empresa. Los diferentes tipos de recursos se centran en dos áreas:
@@ -58,7 +58,7 @@ En el diagrama siguiente se muestran dos repositorios: un repositorio de empresa
 Esta estructura por niveles permite el desarrollo y, al mismo tiempo, mantiene una mayor calidad en la rama principal, mientras que la existencia de varios repositorios conectados a un laboratorio ofrece una mayor flexibilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes    
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - Adición de un repositorio a un laboratorio con [Azure Portal](devtest-lab-add-artifact-repo.md) o la [plantilla de Azure Resource Manager](add-artifact-repository.md)
 - [Artefactos de DevTest Labs](devtest-lab-artifact-author.md)

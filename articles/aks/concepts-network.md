@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913883"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547972"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ Para simplificar la configuración de red de las cargas de trabajo de la aplicac
 
     ![Diagrama que muestra el flujo de tráfico de NodePort en un clúster de AKS][aks-nodeport]
 
-- **LoadBalancer**: crea un recurso de equilibrador de carga de Azure, configura una dirección IP externa y conecta los pods solicitados al grupo de back-end del equilibrador de carga. Para permitir que el tráfico de los clientes llegue a la aplicación, se crean las reglas de equilibrio de carga en los puertos deseados. 
+- **LoadBalancer**: crea un recurso de equilibrador de carga de Azure, configura una dirección IP externa y conecta los pods solicitados al grupo de back-end del equilibrador de carga. Para permitir que el tráfico de los clientes llegue a la aplicación, se crean reglas de equilibrio de carga en los puertos deseados. 
 
     ![Diagrama que muestra el flujo de tráfico de LoadBalancer en un clúster de AKS][aks-loadbalancer]
 
@@ -74,7 +74,7 @@ Para más información, consulte el artículo de [Configuración de la red de ku
 
 ### <a name="azure-cni-advanced-networking"></a>Redes (avanzadas) de Azure CNI
 
-Con Azure CNI, cada pod obtiene una dirección IP de la subred y se puede acceder a ella directamente. Estas direcciones IP deben ser únicas en el espacio de la red y deben planificarse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planificación, ya que de otro modo puede conducir al agotamiento de direcciones IP o a la necesidad de recompilar los clústeres en una subred mayor, a medida que crecen las exigencias de la aplicación.
+Con Azure CNI, cada pod obtiene una dirección IP de la subred y se puede acceder a ella directamente. Estas direcciones IP deben ser únicas en el espacio de red y deben planearse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planificación, ya que de otro modo puede conducir al agotamiento de direcciones IP o a la necesidad de recompilar los clústeres en una subred mayor, a medida que crecen las exigencias de la aplicación.
 
 Los nodos usan el complemento [Azure Container Networking Interface (CNI)][cni-networking] de Kubernetes.
 
@@ -132,7 +132,7 @@ En AKS, puede crear un recurso de entrada con algo parecido a NGINX, o usar la c
 
 Otra característica común de los controladores de entrada es la terminación SSL/TLS. En aplicaciones web de gran tamaño, a las que se accede a través de HTTPS, la terminación TLS puede controlarse mediante el recurso de entrada en lugar de en la propia aplicación. Para proporcionar una configuración y generación automática de certificados TLS, puede configurar el recurso de entrada para que use proveedores como Let's Encrypt. Para más información sobre cómo configurar un controlador de entrada de NGINX con Let's Encrypt, consulte el artículo de [Entrada y TLS][aks-ingress-tls].
 
-También puede configurar el controlador de entrada para conservar la dirección IP de origen de cliente en las solicitudes a los contenedores en el clúster de AKS. Cuando la solicitud de un cliente se enruta a un contenedor del clúster de AKS mediante el controlador de entrada, la dirección IP de origen de la solicitud no estará disponible para el contenedor de destino. Al habilitar la *conservación de la dirección IP de origen de cliente*, la dirección IP de origen para el cliente está disponible en el encabezado de solicitud en *X-Forwarded-For*. Si usa la conservación de la dirección IP de origen de cliente en el controlador de entrada, no puede usar SSL de paso a través. La conservación de la dirección IP de origen de cliente y SSL de paso a través pueden usarse con otros servicios, como de tipo *LoadBalancer*.
+También puede configurar el controlador de entrada para conservar la dirección IP de origen de cliente en las solicitudes a los contenedores en el clúster de AKS. Si la solicitud de un cliente se enruta a un contenedor del clúster de AKS mediante el controlador de entrada, la dirección IP de origen de la solicitud no estará disponible para el contenedor de destino. Al habilitar la *conservación de la dirección IP de origen de cliente*, la dirección IP de origen para el cliente está disponible en el encabezado de solicitud en *X-Forwarded-For*. Si usa la conservación de la dirección IP de origen de cliente en el controlador de entrada, no puede usar SSL de paso a través. La conservación de la dirección IP de origen de cliente y SSL de paso a través pueden usarse con otros servicios, como de tipo *LoadBalancer*.
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
 

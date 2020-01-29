@@ -1,5 +1,5 @@
 ---
-title: Exportación y eliminación de datos personales de Azure DevTest Labs | Microsoft Docs
+title: Exportación y eliminación de datos personales de Azure DevTest Labs
 description: Obtenga información sobre cómo eliminar y exportar datos personales desde el servicio de Azure DevLast Labs para cumplir las obligaciones contraídas en virtud del Reglamento general de protección de datos (RGPD).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371173"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169696"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportación y eliminación de datos personales de Azure DevTest Labs
 En este artículo se proporcionan los pasos para eliminar y exportar datos personales desde el servicio de Azure DevTest Labs. 
@@ -160,7 +160,7 @@ Ahora observemos más de cerca los datos exportados. Como se mencionó anteriorm
 
 El archivo **virtualmachines.csv** contiene las siguientes columnas de datos:
 
-| Nombre de la columna | DESCRIPCIÓN |
+| Nombre de la columna | Descripción |
 | ----------- | ----------- | 
 | SubscriptionId | Identificador de la suscripción en la que existe el laboratorio. |
 | LabUId | Identificador GUID único para el laboratorio. |
@@ -169,7 +169,7 @@ El archivo **virtualmachines.csv** contiene las siguientes columnas de datos:
 | ResourceGroupName | Nombre del grupo de recursos que contiene la máquina virtual. | 
 | ResourceId | Identificador de recurso completo de la máquina virtual. |
 | ResourceUId | GUID de la máquina virtual. |
-| NOMBRE | Nombre de la máquina virtual. |
+| Nombre | Nombre de la máquina virtual. |
 | CreatedTime | Fecha y hora a la que se creó la máquina virtual. |
 | DeletedDate | Fecha y hora a la que se eliminó la máquina virtual. Si está vacío, la eliminación no se ha producido todavía. |
 | ResourceOwner | Propietario de la máquina virtual. Si el valor está vacío, se trata de una máquina virtual reclamable o creada por una entidad de servicio. |
@@ -188,7 +188,7 @@ El archivo **virtualmachines.csv** contiene las siguientes columnas de datos:
 
 A continuación se enumeran las columnas de datos incluidas en **disks.csv**:
 
-| Nombre de la columna | DESCRIPCIÓN | 
+| Nombre de la columna | Descripción | 
 | ----------- | ----------- | 
 | SubscriptionId | Identificador de la suscripción que contiene el laboratorio. |
 | LabUId | GUID del laboratorio. |
@@ -197,7 +197,7 @@ A continuación se enumeran las columnas de datos incluidas en **disks.csv**:
 | ResourceGroupName | Nombre del grupo de recursos que contiene el laboratorio. | 
 | ResourceId | Identificador de recurso completo de la máquina virtual. |
 | ResourceUId | GUID de la máquina virtual. |
- |NOMBRE | El nombre del disco conectado. |
+ |Nombre | El nombre del disco conectado. |
 | CreatedTime |Fecha y hora en que se creó el disco de datos. |
 | DeletedDate | Fecha y hora en que se eliminó el disco de datos. |
 | ResourceStatus | Estado del recurso. Activo, si el recurso existe. Inactivo, si se ha eliminado. |
@@ -213,7 +213,7 @@ A continuación se enumeran las columnas de datos incluidas en **disks.csv**:
 Los datos exportados se pueden manipular y visualizar mediante herramientas, como SQL Server, Power BI, etc. Esta característica es especialmente útil si quiere informar del uso del laboratorio al equipo de administración, que puede que no esté usando la misma suscripción de Azure que usted.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes: 
+Vea los artículos siguientes: 
 
 - [Set policies for a lab](devtest-lab-get-started-with-lab-policies.md) (Definición de directivas para un laboratorio)
 - [Preguntas más frecuentes](devtest-lab-faq.md)

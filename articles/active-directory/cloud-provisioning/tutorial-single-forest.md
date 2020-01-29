@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691c8e8d2f2c6c8e9472ba7a4ae83d8b76f2850c
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7f7c348e29fa2234627a53095a99e913a6389a27
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868735"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280975"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integración de un único bosque con un único inquilino de Azure AD
 
@@ -26,7 +26,7 @@ Este tutorial le guía en la creación de un entorno de identidad híbrida media
 
 El entorno que se crea en este tutorial se puede usar para realizar pruebas o para familiarizarse con el aprovisionamiento en la nube.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 
 1. Cree una cuenta de administrador global solo en la nube en el inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). Realizar este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
@@ -34,7 +34,7 @@ El entorno que se crea en este tutorial se puede usar para realizar pruebas o pa
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
-1. Identidad de un servidor host unido a un dominio en el que se ejecuta Windows Server 2012 R2 o superior con un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1 o posterior 
+1. Identifique un servidor host unido a un dominio en el que se ejecuta Windows Server 2012 R2 o superior con un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1 o posterior. 
 
 2. Si hay un firewall entre los servidores y Azure AD, configure los elementos siguientes:
    - Asegúrese de que los agentes pueden realizar solicitudes *de salida* a Azure AD a través de los puertos siguientes:
@@ -63,8 +63,8 @@ El entorno que se crea en este tutorial se puede usar para realizar pruebas o pa
 
    ![Pantalla principal](media/how-to-install/install1.png)
 
-7. Una vez que finalice esta operación, se iniciará el asistente de configuración.  Inicie sesión con su cuenta de administrador global de Azure AD.  Tenga en cuenta que si la seguridad de IE mejorada está habilitada, bloqueará el inicio de sesión.  En ese caso, cierre la instalación, deshabilite la seguridad mejorada de IE en Administrador del servidor y haga clic en el **AAD Connect Provisioning Agent Wizard** (Asistente para el agente de aprovisionamiento de AAD Connect) para reiniciar la instalación.
-8. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de dominio de Active Directory.  NOTA:  La cuenta de administrador de dominio no debe tener requisitos de cambio de contraseña. Si la contraseña expira o cambia, tendrá que volver a configurar el agente con las credenciales nuevas. Esta operación agregará el directorio local.  Haga clic en **Next**.
+7. Una vez que finalice esta operación, se iniciará el asistente para configuración.  Inicie sesión con su cuenta de administrador global de Azure AD.  Tenga en cuenta que si la seguridad de IE mejorada está habilitada, bloqueará el inicio de sesión.  En ese caso, cierre la instalación, deshabilite la seguridad mejorada de IE en Administrador del servidor y haga clic en el **AAD Connect Provisioning Agent Wizard** (Asistente para el agente de aprovisionamiento de AAD Connect) para reiniciar la instalación.
+8. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de dominio de Active Directory.  NOTA:  La cuenta de administrador de dominio no debe tener requisitos de cambio de contraseña. Si la contraseña expira o cambia, tendrá que volver a configurar el agente con las credenciales nuevas. Esta operación permitirá agregar su directorio local.  Haga clic en **Next**.
 
    ![Pantalla principal](media/how-to-install/install3.png)
 
@@ -83,7 +83,7 @@ La comprobación del agente se produce en Azure Portal y en el servidor local qu
 ### <a name="azure-portal-agent-verification"></a>Comprobación del agente en Azure Portal
 Para comprobar que Azure ve el agente, siga estos pasos:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 2. A la izquierda, seleccione **Azure Active Directory**, haga clic en **Azure AD Connect** y, en el centro, seleccione **Administración del aprovisionamiento (versión preliminar)** .</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -97,7 +97,7 @@ Para comprobar que Azure ve el agente, siga estos pasos:
 Para comprobar que el agente se ejecuta, siga estos pasos:
 
 1.  Inicie sesión en el servidor con una cuenta de administrador.
-2.  Abra **Servicios**. Para ello, vaya a él o a Inicio/Ejecutar/Services.msc.
+2.  Abra **Servicios**. Para ello, vaya ahí o a Inicio/Ejecutar/Services.msc.
 3.  En **Servicios** asegúrese de que tanto el **Actualizador del Agente de Microsoft Azure AD Connect** como el **Agente de aprovisionamiento de Microsoft Azure AD Connect** están presentes y que su estado es **En ejecución**.
 ![Servicios](media/how-to-troubleshoot/troubleshoot1.png)
 
@@ -107,7 +107,7 @@ Para comprobar que el agente se ejecuta, siga estos pasos:
 1.  Inicie sesión en Azure Portal.
 2.  Haga clic en **Azure Active Directory**.
 3.  Haga clic en **Azure AD Connect**.
-4.  Seleccione **Administrar aprovisionamiento (versión preliminar)** 
+4.  Seleccione **Administración del aprovisionamiento (versión preliminar)** 
 ![](media/how-to-configure/manage1.png).
 5.  Haga clic en **Nueva configuración**
 ![](media/tutorial-single-forest/configure1.png).

@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: sgilley
 ms.date: 12/25/2019
-ms.openlocfilehash: 9e0bae722430662ddbe252e82c5108eb820ce352
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 88f688608a0ae3d435699362f9326c7c02d494a4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660149"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311123"
 ---
 # <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Uso de un árbol de decisión ampliado para predecir la renovación con el diseñador de Azure Machine Learning
 
-**Ejemplo 5 del diseñador (versión preliminar)**
+**Ejemplo de diseñador 5**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Obtenga información sobre cómo compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar).
+Aprenda a crear una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador.
 
 Esta canalización entrena 2 clasificadores de **árbol de decisión de dos clases** para predecir las tareas comunes de los sistemas de administración de relaciones con clientes (CRM): deserción de clientes. Los valores de los datos y las etiquetas se dividen en múltiples orígenes de datos y se codifican para anonimizar la información del cliente, sin embargo, todavía podemos usar al diseñador para combinar conjuntos de datos y entrenar un modelo con los valores ocultos.
 

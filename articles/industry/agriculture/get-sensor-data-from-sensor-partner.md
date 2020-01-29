@@ -5,18 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d9e20c8e5859efc8f1f8a5214e6837ad46d2980d
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777791"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513749"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
 Azure FarmBeats le ayuda a introducir los datos de streaming de los dispositivos y sensores de IoT en un centro de datos. Actualmente, se admiten los siguientes asociados de dispositivos de sensor.
 
-  ![Asociados de FarmBeats](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![Asociados de FarmBeats](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
 La integración de los datos de los dispositivos con Azure FarmBeats ayuda a mover los datos del suelo de los sensores de IoT implementados en la granja al centro de datos. Los datos, una vez disponibles, se pueden visualizar mediante el acelerador de FarmBeats. Los datos se pueden usar para la fusión de datos y la creación de modelos de inteligencia artificial o de aprendizaje automático (ML/AI) mediante FarmBeats.
 
@@ -46,7 +46,7 @@ También puede generar las credenciales mediante la ejecución de este script de
 
 3. Haga clic en el registro de la aplicación que se ha creado como parte de la implementación de FarmBeats. Tendrá el mismo nombre que el centro de datos de FarmBeats.
 
-4. Haga clic en "Exponer una API" -> "Agregar una aplicación cliente", escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active "Authorize Scope" (Autorizar ámbito). Esto proporcionará acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes.
+4. Haga clic en "Exponer una API" -> "Agregar una aplicación cliente", escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active "Authorize Scope" (Autorizar ámbito). De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes.
 
 5. Abra Cloud Shell. Esta opción está disponible en la barra de herramientas de la esquina superior derecha de Azure Portal.
 

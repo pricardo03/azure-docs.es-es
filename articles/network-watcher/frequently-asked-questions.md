@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 0eea6700b8b248a87666071ee02572d356110cd0
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 856c249b72e9e0ff8667d10821ad14b3432b0775
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830180"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509196"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Preguntas más frecuentes (P+F) sobre Azure Network Watcher
 El servicio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) proporciona un conjunto de herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure. En este artículo se responde a preguntas habituales sobre el servicio.
@@ -71,17 +71,22 @@ La captura de paquetes, la solución de problemas de conexión y el monitor de c
 ### <a name="what-does-nsg-flow-logs-do"></a>¿Qué hace Registro de flujo de NSG?
 Los recursos de red de Azure se pueden combinar y administrar mediante [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview). Registro de flujo de NSG permite registrar información de flujo de una tupla de 5 sobre todo el tráfico de los grupos de seguridad de red. Los registros de flujo sin procesar se escriben en una cuenta de Azure Storage desde donde se pueden procesar, analizar, consultar o exportar según sea necesario.
 
-### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall-or-through-a-service-endpoints"></a>¿Cómo se usan los registros de flujo de grupo de seguridad de red en una cuenta de Storage con un firewall o a través de puntos de conexión de servicio?
+### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall"></a>¿Cómo se usan los registros de flujo de grupo de seguridad de red en una cuenta de Storage con un firewall?
 
-Para usar una cuenta de Storage con un firewall o a través de puntos de conexión de servicio, debe permitir que los Servicios de Microsoft de confianza accedan a la cuenta de almacenamiento:
+Para usar una cuenta de Storage con un firewall, debe especificar una excepción para que los Servicios de Microsoft de confianza accedan a la cuenta de almacenamiento:
 
-* Busque el nombre de la cuenta de almacenamiento, buscando el NSG en la [página de información general de los registros de flujo de NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)
-* Para ir a la cuenta de almacenamiento, escriba el nombre de la cuenta de almacenamiento en la búsqueda global del portal.
+* Para ir a la cuenta de almacenamiento, escriba el nombre de la misma en la búsqueda global del portal o en la [página de cuentas de almacenamiento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 * En la sección **CONFIGURACIÓN**, seleccione **Firewalls y redes virtuales**.
 * En "Permitir el acceso desde", seleccione **Redes seleccionadas**. Después, en **Excepciones**, active la casilla situada junto a **"Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento"** 
 * Si ya está seleccionada, no hay que hacer ningún cambio.  
+* Busque el grupo de seguridad de red de destino en la [página de introducción a los registros de flujo de NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) y habilite los registros de flujo de NSG con la cuenta de almacenamiento anterior seleccionada.
 
 Puede comprobar los registros de almacenamiento después de unos minutos; verá una marca de tiempo actualizada o un nuevo archivo JSON.
+
+### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints-for-storage"></a>¿Cómo se usan los registros de flujo de NSG con puntos de conexión de servicio para el almacenamiento?
+
+Consulte [el tutorial de sobre cómo habilitar puntos de conexión de servicio](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
+
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>¿Cuál es la diferencia entre la versión 1 y la versión 2 de los registros de flujo?
 La versión 2 de los registros de flujo presenta el concepto de *estado del flujo* y almacena información sobre los bytes y los paquetes transmitidos. [Más información](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

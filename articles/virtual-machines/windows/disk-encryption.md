@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 38459e76cc8f9df8bfb7c15750e138cfd55c453c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: bc45f05da553f456094c1ca96454090ded4d9f4f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028464"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290434"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Cifrado del lado servidor de Azure Managed Disks
 
@@ -58,14 +58,14 @@ Para revocar el acceso a las claves administradas por el cliente, vea [PowerShel
 
 Actualmente, solo se admiten las siguientes regiones:
 
-- Disponible como oferta de disponibilidad general en las regiones Este de EE. UU., Oeste de EE. UU. 2 y Centro-sur de EE. UU.
+- Disponible como una oferta de disponibilidad general en las regiones del Este de EE. UU., Oeste de EE. UU. 2 y Centro-sur de EE. UU.
 - Disponible como versión preliminar pública en las regiones Centro-oeste de EE. UU., Este de EE. UU. 2, Centro de Canadá y Norte de Europa.
 
 ### <a name="restrictions"></a>Restricciones
 
 Por ahora, las claves administradas por el cliente tienen las siguientes restricciones:
 
-- Solo se admiten [claves RSA "suaves" y "fuertes"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) de tamaño 2080, ninguna otra clave ni tamaño.
+- Solo se admiten las [claves RSA "suaves" y "fuertes"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) con el tamaño 2080, sin incluir ninguna otra clave ni tamaño.
 - Los discos creados a partir de imágenes personalizadas que están cifradas con cifrado del lado servidor y las claves administradas por el cliente deben cifrarse con las mismas claves administradas por el cliente y deben estar en la misma suscripción.
 - Las instantáneas creadas a partir de discos que están cifrados con cifrado del lado servidor y claves administradas por el cliente deben cifrarse con las mismas claves administradas por el cliente.
 - Las imágenes personalizadas cifradas con cifrado del lado servidor y claves administradas por el cliente no se pueden usar en la galería de imágenes compartidas.
@@ -238,3 +238,6 @@ New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -
 
 - [Explore las plantillas de Azure Resource Manager para crear discos cifrados con claves administradas por el cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [Replicación de máquinas con discos habilitados para claves administradas por el cliente](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
+- [Configuración de la recuperación ante desastres de máquinas virtuales de VMware en Azure con PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
+- [Configuración de la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

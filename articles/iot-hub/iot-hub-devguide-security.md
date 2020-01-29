@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429305"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546952"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
@@ -347,7 +347,7 @@ El resultado, que concedería acceso para leer todas las identidades del disposi
 
 ## <a name="supported-x509-certificates"></a>Certificados X.509 compatibles
 
-Puede usar cualquier certificado X.509 para autenticar un dispositivo en IoT Hub, cargando ya sea una huella digital del certificado o una entidad de certificación (CA) a Azure IoT Azure. La autenticación mediante huellas digitales de certificado solo comprueba que la huella digital presentada coincida con la huella digital configurada. La autenticación mediante la entidad de certificación valida la cadena de certificados. 
+Puede usar cualquier certificado X.509 para autenticar un dispositivo en IoT Hub, cargando ya sea una huella digital del certificado o una entidad de certificación (CA) a Azure IoT Azure. La autenticación mediante huellas digitales de certificado comprueba que la huella digital presentada coincida con la huella digital configurada. La autenticación mediante la entidad de certificación valida la cadena de certificados. En cualquier caso, el protocolo de enlace TLS requiere que el dispositivo tenga un certificado y una clave privada válidos. Consulte la especificación de TLS para más información, por ejemplo: [RFC 5246: el protocolo de seguridad de la capa de transporte (TLS) versión 1.2](https://tools.ietf.org/html/rfc5246/).
 
 Los certificados admitidos incluyen:
 
@@ -461,6 +461,8 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En [Lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) se describe el lenguaje de consulta que se puede usar para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
 
 * En [Compatibilidad con MQTT de IoT Hub](iot-hub-mqtt-support.md) se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
+
+* En [RFC 5246: el protocolo de seguridad de la capa de transporte (TLS) versión 1.2](https://tools.ietf.org/html/rfc5246/), se proporciona más información sobre la autenticación TLS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/8/2020
+ms.date: 1/15/2020
 ms.author: raiye
-ms.openlocfilehash: dd148a4dd454e2ebebcb6b9befc576570ecb0352
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778216"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122252"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -214,9 +214,9 @@ Versión de .NET Framework instalada: 3.5 (incluye 2.0 y 3.0), 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
-| WA-GUEST-OS-2.94_201912-01 | 8 de enero de 2020 | Post 2.95 |  
-| WA-GUEST-OS-2.93_201911-01 | 5 de diciembre de 2019 | Post 2.94 |  
-|~WA-GUEST-OS-2.91_201910-01~| 1 de noviembre de 2019 | 8 de enero de 2020 |  
+| WA-GUEST-OS-2.93_201912-01 | 8 de enero de 2020 | Post 2.95 |  
+| WA-GUEST-OS-2.92_201911-01 | 5 de diciembre de 2019 | Post 2.94 |  
+|~~WA-GUEST-OS-2.91_201910-01~~| 1 de noviembre de 2019 | 8 de enero de 2020 |  
 |~~WA-GUEST-OS-2.90_201909-01~~| 7 de octubre de 2019 | 5 de diciembre de 2019 |  
 |~~WA-GUEST-OS-2.89_201908-01~~| 4 de agosto de 2019 | 1 de noviembre de 2019 |  
 |~~WA-GUEST-OS-2.88_201907-01~~| 26 de julio de 2019 | 7 de octubre de 2019 |

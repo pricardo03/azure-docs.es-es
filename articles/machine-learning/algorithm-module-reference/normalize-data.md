@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e74e80c7db7e624649494201d56fd82486e193d7
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466047"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546612"
 ---
 # <a name="normalize-data-module"></a>Módulo Normalize Data
 
@@ -98,11 +98,11 @@ Con este módulo, puede aplicar solo un método de normalización a la vez. Por 
 
 El módulo **Normalize Data** genera dos salidas:
 
-- Para ver los valores transformados, haga clic con el botón derecho en el módulo, seleccione **Transformed dataset** (Conjunto de datos transformado) y haga clic en **Visualizar**.
+- Para ver los valores transformados, haga clic con el botón derecho en el módulo y seleccione **Visualize** (Visualizar).
 
     De forma predeterminada, los valores se transforman en su lugar. Si desea comparar los valores transformados con los valores originales, use el módulo [Agregar columnas](./add-columns.md) para recombinar los conjuntos de datos y ver las columnas en paralelo.
 
-- Para guardar la transformación para que pueda aplicar el mismo método de normalización para otro conjunto de datos similar, haga clic con el botón derecho en el módulo, seleccione **Transformation function** (Función de transformación) y haga clic en **Save as Transform** (Guardar como transformación).
+- Para guardar la transformación, con el fin de poder aplicar el mismo método de normalización a otro conjunto de datos, seleccione el módulo y, después, seleccione **Register dataset** (Registrar conjunto de datos) en la pestaña **Outputs** (Salidas) del panel derecho.
 
     A continuación, puede cargar las transformaciones guardadas desde el grupo **Transformaciones** del panel de navegación izquierdo y aplicarlas a un conjunto de datos con el mismo esquema con [./Aplicar transformación](apply-transformation.md).  
 

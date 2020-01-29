@@ -1,33 +1,25 @@
 ---
-title: Uso de la extensión Estado de la aplicación con conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
+title: Uso de la extensión Estado de la aplicación con conjuntos de escalado de máquinas virtuales de Azure
 description: Obtenga información sobre cómo usar la extensión Estado de la aplicación para supervisar el estado de las aplicaciones implementadas en conjuntos de escalado de máquinas virtuales.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: e074d76f9ed095725d99bddc9eb21925f4b3697c
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 37d93b04e6755512eac6c2a168bd2a04f8ac298f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114485"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275873"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso de la extensión Estado de la aplicación con conjuntos de escalado de máquinas virtuales
 Supervisar el estado de la aplicación es una señal importante para administrar y actualizar la implementación. Los conjuntos de escalado de máquinas virtuales de Azure proporcionan compatibilidad para [actualizaciones graduales](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluyendo [las actualizaciones automáticas de imagen de sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), que se basan en la supervisión del estado de las instancias individuales para actualizar la implementación.
 
 En este artículo se describe cómo usar la extensión Estado de la aplicación para supervisar el estado de las aplicaciones implementadas en conjuntos de escalado de máquinas virtuales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se asume que está familiarizado con:
 -   [Extensiones](../virtual-machines/extensions/overview.md) de máquina virtual de Azure
 -   [Modificación](virtual-machine-scale-sets-upgrade-scale-set.md) de conjuntos de escalado de máquinas virtuales
@@ -35,7 +27,7 @@ En este artículo se asume que está familiarizado con:
 ## <a name="when-to-use-the-application-health-extension"></a>Cuándo se debe usar la extensión Estado de la aplicación
 La extensión Estado de la aplicación se implementa dentro de una instancia de conjunto de escalado de máquinas virtuales e informa sobre el estado de la máquina virtual desde dentro de la instancia de conjunto de escalado. Puede configurar la extensión para hacer un sondeo en un punto de conexión de la aplicación y actualizar el estado de la aplicación en esa instancia. Azure comprueba el estado de esta instancia para determinar si una instancia es apta para las operaciones de actualización.
 
-Dado que la extensión informa sobre el estado desde dentro de una máquina virtual, la extensión puede utilizarse en situaciones donde no se pueden usar los sondeos externos, como los de Estado de la aplicación (que usan [sondeos](../load-balancer/load-balancer-custom-probe-overview.md) de Azure Load Balancer personalizados).
+Dado que la extensión informa sobre el estado desde dentro de una máquina virtual, se puede usar en situaciones donde se pueden aprovechar los sondeos externos, como los de Estado de la aplicación (que usan [sondeos](../load-balancer/load-balancer-custom-probe-overview.md) de Azure Load Balancer personalizados).
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
@@ -63,7 +55,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de Estado de la a
 
 ### <a name="property-values"></a>Valores de propiedad
 
-| NOMBRE | Valor / ejemplo | Tipo de datos
+| Nombre | Valor / ejemplo | Tipo de datos
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
@@ -72,7 +64,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de Estado de la a
 
 ### <a name="settings"></a>Configuración
 
-| NOMBRE | Valor / ejemplo | Tipo de datos
+| Nombre | Valor / ejemplo | Tipo de datos
 | ---- | ---- | ----
 | protocol | `http` o `tcp` | string |
 | port | Opcional cuando el protocolo es `http`, obligatorio cuando el protocolo es `tcp` | int |

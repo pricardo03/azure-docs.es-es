@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: ''
-ms.openlocfilehash: 938d93b1df077914323c7b5f4ee1d42276aeff04
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c102e7ffde7faab5d864c1d9acaafe141664ebf
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434910"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119557"
 ---
 # <a name="stay-connected-with-azure-iot-central-preview-features"></a>Manténgase conectado con Azure IoT Central (características en versión preliminar)
 
@@ -21,7 +21,7 @@ ms.locfileid: "75434910"
 
 En este artículo se proporciona información general sobre cómo Azure IoT Central ayuda a mantener los dispositivos conectados y en buen estado.
 
-Con cualquier solución de IoT diseñada para funcionar a escala, es importante tener un enfoque bien estructurado en relación con la administración de dispositivos. No es suficiente que los dispositivos simplemente se conecten. Se necesita un método para mantenerlos conectados y en buen estado a medida que la solución evoluciona, crece y envejece. Azure IoT Central proporciona las funcionalidades necesarias para asegurarse de que los dispositivos de la solución de IoT estén bien atendidos durante todo el ciclo de vida de la aplicación.
+Con cualquier solución de IoT diseñada para funcionar a escala, es importante tener un enfoque bien estructurado en relación con la administración de dispositivos. No basta con que los dispositivos se conecten a la nube. Se necesita un método para mantenerlos conectados y en buen estado a medida que la solución evoluciona, crece y envejece. Azure IoT Central proporciona las funcionalidades necesarias para asegurarse de que los dispositivos de la solución de IoT estén bien atendidos durante todo el ciclo de vida de la aplicación.
 
 ## <a name="dashboards"></a>Paneles 
 Los [paneles](howto-manage-devices.md#import-devices) integrados proporcionan un área expuesta personalizable para supervisar el estado de los dispositivos y la telemetría. Comience con un panel prediseñado a partir de una [plantilla de aplicación](howto-use-app-templates.md) o cree sus propios paneles adaptados a las necesidades de la aplicación. Los paneles se pueden compartir con todos los usuarios de la aplicación o mantenerse privados.
