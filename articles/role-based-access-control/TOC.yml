@@ -40,8 +40,6 @@
           href: role-definitions.md
         - name: Lista de definiciones de roles
           href: role-definitions-list.md
-        - name: Roles integrados
-          href: built-in-roles.md
     - name: Lista de asignaciones de roles
       items:
         - name: Portal
@@ -96,6 +94,8 @@
       href: troubleshooting.md
 - name: Referencia
   items:
+    - name: Roles integrados
+      href: built-in-roles.md
     - name: Operaciones del proveedor de recursos
       href: resource-provider-operations.md
     - name: Límites del control de acceso basado en rol

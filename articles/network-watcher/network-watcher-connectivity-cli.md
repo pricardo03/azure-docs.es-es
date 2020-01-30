@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Aprenda a usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con la CLI de Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 07358d5d77e91f0b4eebffa068ff72fc83c74893
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 842e58de8dbc06d3f045b0e9d0dc6b99e6b1e2fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276019"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842893"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Solución de problemas de conexiones con Azure Network Watcher mediante la CLI de Azure
 

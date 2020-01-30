@@ -3,9 +3,7 @@ title: 'Administración de capturas de paquetes con Azure Network Watcher: CLI d
 description: En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante la CLI de Azure
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7e6b1d77d002b8c1ed32a4e7adbdd1a46cf65668
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 7eea4c05a48c5e055766f942cc44ee4cf189de5d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687083"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840868"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Administrar capturas de paquetes con Azure Network Watcher mediante la CLI de Azure
 
@@ -44,7 +42,7 @@ Este artículo le guiará por las diferentes tareas de administración que está
 
 En este artículo se da por hecho que tiene los siguientes recursos:
 
-- Una instancia de Network Watcher en la región donde desea crear una captura de paquetes.
+- Una instancia de Network Watcher en la región donde desea crear una captura de paquetes
 - Una máquina virtual con la extensión de captura de paquetes habilitada.
 
 > [!IMPORTANT]
@@ -222,7 +220,7 @@ az network watcher packet-capture delete --name packetCaptureName --location wes
 ```
 
 > [!NOTE]
-> Eliminar una captura de paquetes no elimina el archivo en la cuenta de almacenamiento.
+> La eliminación de una captura de paquetes no elimina el archivo en la cuenta de almacenamiento.
 
 ## <a name="download-a-packet-capture"></a>Descarga de una captura de paquetes
 

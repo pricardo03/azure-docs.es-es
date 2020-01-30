@@ -8,17 +8,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: a79b0476fccbd2e2b9d3cf47ecfdc99c17c2862d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0f67caad03c4ebd1cf8f3721f377d8362219016a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113335"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837738"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Aptitud cognitiva de extracción de documentos
 
 > [!IMPORTANT] 
-> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST, versión 2019-05-06-Preview](search-api-preview.md), se ofrecen características de versión preliminar. Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
+> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
 
 La aptitud de **extracción de documentos** extrae el contenido de un archivo dentro de la canalización de enriquecimiento. Esto le permite aprovechar el paso de extracción de documentos que normalmente se produce antes de la ejecución del conjunto de aptitudes con archivos que se pueden haber generado otras aptitudes.
 
@@ -33,13 +33,13 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 Los parámetros distinguen mayúsculas de minúsculas.
 
-| Entradas            | Valores permitidos | DESCRIPCIÓN |
+| Entradas            | Valores permitidos | Descripción |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Se establece en `default` para la extracción de documentos desde archivos que no son de texto puro o JSON. Se establece en `text` para mejorar el rendimiento en los archivos de texto sin formato. Se establece en `json` para extraer contenido estructurado de los archivos JSON. Si `parsingMode` no se define explícitamente, se establecerá en `default`. |
 | `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Se establece en `contentAndMetadata` para extraer todos los metadatos y el contenido textual de cada archivo. Se establece en `allMetadata` para extraer solo los [metadatos específicos del tipo de contenido](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (por ejemplo, los metadatos únicos de los archivos .png). Si `dataToExtract` no se define explícitamente, se establecerá en `contentAndMetadata`. |
 | `configuration` | Véase a continuación. | Diccionario de parámetros opcionales que ajustan el modo en que se realiza la extracción de documentos. Consulta la tabla siguiente para obtener descripciones de las propiedades de configuración admitidas. |
 
-| Parámetro de configuración   | Valores permitidos | DESCRIPCIÓN |
+| Parámetro de configuración   | Valores permitidos | Descripción |
 |-------------------------|----------------|-------------|
 | `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Se establece en `none` para ignorar las imágenes insertadas o los archivos de imagen del conjunto de datos. Este es el valor predeterminado. <br/>Para el [análisis de imágenes mediante aptitudes cognitivas](cognitive-search-concept-image-scenarios.md), se establece en `generateNormalizedImages` para que la aptitud cree una matriz de imágenes normalizadas como parte del descifrado de documentos. Esta acción requiere que `parsingMode` se establezca en `default` y `dataToExtract` se establezca en `contentAndMetadata`. Una imagen normalizada hace referencia a un procesamiento adicional que crea una imagen de salida uniforme, dimensionada y rotada para facilitar una representación consistente cuando se incluyen imágenes en resultados de búsqueda visuales (por ejemplo, fotografías del mismo tamaño en un control de gráficos, tal como se ve en la [demostración JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Esta información se genera para cada imagen cuando se usa esta opción.  <br/>Si se establece en `generateNormalizedImagePerPage`, los archivos PDF se tratarán de manera diferente. En lugar de extraer las imágenes insertadas, cada página se representará como una imagen y se normalizará en consecuencia.  Los tipos de archivo que no son PDF se tratarán igual que si se hubiera establecido `generateNormalizedImages`.
 | `normalizedImageMaxWidth` | Cualquier entero comprendido entre 50 y 10 000 | El ancho máximo (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000. | 
@@ -49,7 +49,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 > El valor predeterminado es de 2000 píxeles para el ancho máximo de las imágenes normalizadas, y la altura se basa en los tamaños máximos admitidos por la [habilidad de OCR](cognitive-search-skill-ocr.md) y la [habilidad de análisis de imágenes](cognitive-search-skill-image-analysis.md). La [aptitud de OCR](cognitive-search-skill-ocr.md) admite un ancho y un alto máximos de 4200 para los idiomas distintos del inglés y 10 000 para el inglés.  Si aumenta los límites máximos, el procesamiento podría generar un error en imágenes de mayor tamaño en función de la definición del conjunto de aptitudes y del idioma de los documentos. 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
-| Nombre de entrada     | DESCRIPCIÓN |
+| Nombre de entrada     | Descripción |
 |--------------------|-------------|
 | file_data | Archivo del que se debe extraer el contenido. |
 
@@ -72,9 +72,9 @@ Este objeto de referencia de archivo se puede generar mediante una de estas tres
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 
-| Nombre de salida    | DESCRIPCIÓN |
+| Nombre de salida    | Descripción |
 |--------------|-------------|
-| contenido | Contenido textual del documento. |
+| content | Contenido textual del documento. |
 | normalized_images | Si `imageAction` se establece en un valor distinto de `none`, el nuevo campo *normalized_images* contendrá una matriz de imágenes. Consulte [la documentación de extracción de imágenes](cognitive-search-concept-image-scenarios.md) para obtener más detalles sobre el formato de salida de cada imagen. |
 
 ##  <a name="sample-definition"></a>Definición de ejemplo
@@ -145,7 +145,7 @@ Este objeto de referencia de archivo se puede generar mediante una de estas tres
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

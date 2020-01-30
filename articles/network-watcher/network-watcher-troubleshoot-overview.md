@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: En esta página se proporciona una introducción a las funcionalidades de solución de problemas de recursos en Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
-ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277771"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840696"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
 
@@ -53,13 +50,13 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | Tipo de error | Motivo | Log|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
-| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin|
-| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño. | Sin |
-| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin |
-| PlatformInActive | Hay un problema con la plataforma. | Sin|
-| ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin|
-| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Este error es solo una advertencia.| Sin|
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |No|
+| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |No|
+| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño. | No |
+| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | No |
+| PlatformInActive | Hay un problema con la plataforma. | No|
+| ServiceNotRunning | No se está ejecutando el servicio subyacente. | No|
+| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Este error es solo una advertencia.| No|
 | ConnectionsNotConnected | Las conexiones no están conectadas. Este error es solo una advertencia.| Sí|
 | GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
 
@@ -68,12 +65,12 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | Tipo de error | Motivo | Log|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
-| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin|
-| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño.  | Sin |
-| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin |
-| ConnectionEntityNotFound | Falta una configuración de conexión. | Sin |
-| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin|
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |No|
+| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |No|
+| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño.  | No |
+| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | No |
+| ConnectionEntityNotFound | Falta una configuración de conexión. | No |
+| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |No|
 | ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | Sí |
 | ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| Sí|
 | Authentication | Error de coincidencia de clave previamente compartida. | Sí|
@@ -108,7 +105,7 @@ Los archivos de registro de la solución de problemas de recursos se guardan en 
 > [!NOTE]
 > En algunos casos, solo se escribe un subconjunto de los archivos de registro en el almacenamiento.
 
-Para instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](https://storageexplorer.com/)
+Para más instrucciones acerca de cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

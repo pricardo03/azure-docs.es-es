@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311551"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716897"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Uso de Docker Compose para implementar varios contenedores
 
@@ -25,11 +25,11 @@ En este artículo se muestra cómo implementar varios contenedores de Azure Cogn
 
 Puede ser útil coordinar varias imágenes de contenedor en un solo equipo host. En este artículo, reuniremos los contenedores de Reconocer texto y Form Recognizer.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente:
 
-* Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * [Motor de Docker](https://www.docker.com/products/docker-engine). Confirme que la CLI de Docker funciona en una ventana de consola.
 * Un recurso de Azure con el plan de tarifa correcto. Solo los siguientes planes de tarifa funcionan con este contenedor:
   * El recurso **Computer Vision** solo con el plan de tarifa estándar o F0.

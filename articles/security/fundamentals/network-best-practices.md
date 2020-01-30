@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 85e1ebc05ad4ebe1d58716981c0688df0126efb0
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937241"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772003"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedimientos recomendados de seguridad de la red de Azure
 En este artículo se aborda un conjunto de procedimientos recomendados de Azure que sirven para mejorar la seguridad de la red. Estos procedimientos recomendados se derivan de nuestra experiencia con las redes en Azure, y las experiencias de clientes como usted.
@@ -160,10 +160,10 @@ Se recomienda usar el equilibrio de carga siempre que se pueda y, según sea ade
 - Tiene aplicaciones sin estado que acepten solicitudes entrantes de Internet.
 - No se requieren sesiones temporales o descargas de SSL. Las sesiones temporales son un método que se usa con el equilibrio de carga de la aplicación, para lograr la afinidad del servidor.
 
-**Opción de equilibrio de carga**: use Azure Portal para [crear un equilibrador de carga externo](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) que distribuya las solicitudes entrantes entre varias máquinas virtuales para proporcionar un mayor nivel de disponibilidad.
+**Opción de equilibrio de carga**: use Azure Portal para [crear un equilibrador de carga externo](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) que distribuya las solicitudes entrantes entre varias máquinas virtuales para proporcionar un mayor nivel de disponibilidad.
 
 **Escenario**: tendrá que equilibrar la carga de las conexiones de las máquinas virtuales que no estén en Internet. En la mayoría de los casos, los dispositivos se encargan de iniciar en una instancia de Azure Virtual Network las conexiones que se aceptan para el equilibrio de carga, como instancias de SQL Server o servidores web internos.   
-**Opción de equilibrio de carga**: use Azure Portal para [crear un equilibrador de carga interno](../../load-balancer/quickstart-create-basic-load-balancer-powershell.md) que distribuya las solicitudes entrantes entre varias máquinas virtuales para proporcionar un mayor nivel de disponibilidad.
+**Opción de equilibrio de carga**: use Azure Portal para [crear un equilibrador de carga interno](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) que distribuya las solicitudes entrantes entre varias máquinas virtuales para proporcionar un mayor nivel de disponibilidad.
 
 **Escenario**: necesita conseguir un equilibrio de carga global ya que:
 

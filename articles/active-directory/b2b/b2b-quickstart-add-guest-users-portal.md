@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 11/12/2019
+ms.date: 01/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431d2eac6b612bee629df184ed80c5c8a15513db
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 2f3d96926221a69e1cf216be81368a2eb87c938a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273380"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758347"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Inicio rápido: Incorporación de usuarios invitados a su directorio en Azure Portal
 
@@ -27,7 +27,7 @@ En este tutorial, agregará un nuevo usuario invitado a Azure AD, enviará una i
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar el escenario de este tutorial, necesita:
 
@@ -52,7 +52,7 @@ Para completar el escenario de este tutorial, necesita:
    - **Dirección de correo (obligatorio)** . La dirección de correo del usuario invitado.
    - **Mensaje personal (opcional)** Incluye un mensaje de bienvenida personal al usuario invitado.
    - **Grupos**: Puede agregar al usuario invitado a uno o varios de los grupos existentes, o puede hacerlo después.
-   - **Rol del directorio**: Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. 
+   - **Rol del directorio**. Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. 
 
 6. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. Aparece una notificación en la esquina superior derecha con el mensaje **Usuario invitado correctamente**. 
 7.  Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.

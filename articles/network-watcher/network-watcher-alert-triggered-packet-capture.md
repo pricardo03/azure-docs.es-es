@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: En este artículo se describe cómo crear una captura de paquetes desencadenada mediante alertas con Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276130"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842944"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
 
@@ -37,7 +35,7 @@ Con Network Watcher, la característica de alertas y las funciones del ecosistem
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * La versión más reciente de [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Una instancia existente de Network Watcher. [Cree una instancia de Network Watcher](network-watcher-create.md) si aún no tiene una.
@@ -140,7 +138,7 @@ Para usar cmdlets de PowerShell de Network Watcher, cargue el módulo más recie
 
 1. Haga clic con el botón derecho en la subcarpeta **Az.Network** y seleccione **Cargar archivos**. 
 
-6. Vaya a los módulos de Azure. En la carpeta **Az.Network** local, seleccione todos los archivos de la carpeta. Después seleccione **Aceptar**. 
+6. Vaya a los módulos de Azure. En la carpeta **Az.Network** local, seleccione todos los archivos de la carpeta. Después, seleccione **Aceptar**. 
 
 7. Repita estos pasos para las carpetas **Az.Accounts** y **Az.Resources**.
 

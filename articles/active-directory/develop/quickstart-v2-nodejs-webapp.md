@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2869333fe0e9103724b9b1075270a5c3301c472
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0d69f762cea53f2a4c022ad6dddb52faeced1adf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968024"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703344"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Inicio rápido: Incorporación del inicio de sesión mediante OpenID Connect a una aplicación web de Node.js
 
@@ -25,7 +24,7 @@ ms.locfileid: "74968024"
 
 En esta guía de inicio rápido, aprenderá a configurar la autenticación de OpenID Connect en una aplicación web creada mediante Node.js con Express. El ejemplo está diseñado para ejecutarse en cualquier plataforma.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para ejecutar este ejemplo, necesitará lo siguiente:
 
@@ -44,7 +43,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 1. Seleccione **Nuevo registro**.
 
 1. Cuando aparezca la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
-    - En la sección **Nombre**, escriba un nombre significativo que se mostrará a los usuarios de la aplicación. Por ejemplo:  MyWebApp
+    - En la sección **Nombre**, escriba un nombre significativo que se mostrará a los usuarios de la aplicación. Por ejemplo: MyWebApp
     - En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** .
 
     Si hay más de un URI de redirección, deberá agregarlos desde la pestaña **Autenticación** más adelante, después de que la aplicación se haya creado correctamente.
@@ -65,7 +64,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
     - Seleccione la duración de clave **En 1 año, En 2 años** o **Nunca expira**.
     - Al hacer clic en el botón **Agregar**, se mostrará el valor de la clave. Copie el valor de clave y guárdelo en una ubicación segura.
 
-    Necesitará esta clave más adelante para configurar la aplicación. Este valor de clave no se volverá a mostrar ni se recuperará de ningún otro modo, por lo que debe registrarlo en cuanto esté visible desde el Azure Portal.
+    Necesitará esta clave más adelante para configurar la aplicación. Este valor de clave no se volverá a mostrar ni a recuperar de ninguna otra forma, de modo que regístrelo en cuanto esté visible en Azure Portal.
 
 ## <a name="download-the-sample-application-and-modules"></a>Descarga de la aplicación de ejemplo y los módulos
 

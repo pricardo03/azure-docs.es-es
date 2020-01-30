@@ -3,22 +3,20 @@ title: Lectura de registros de flujos de NSG | Microsoft Docs
 description: En este artículo se muestra cómo analizar registros de flujos de NSG
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: kumud
-ms.openlocfilehash: cdfcf6b379feb5cc71c173275601ce9c55d57d12
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.author: damendo
+ms.openlocfilehash: ee44dda7a7ca2f7e1ad386498798191fe792cef0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539260"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840849"
 ---
 # <a name="read-nsg-flow-logs"></a>Lectura de registros de flujos de NSG
 
@@ -33,7 +31,7 @@ Los registros de flujos de NSG se almacenan en una cuenta de almacenamiento de [
 
 En el siguiente escenario tiene un registro de flujo de ejemplo que se almacena en una cuenta de almacenamiento. Aprenderá a leer de forma selectiva los eventos más recientes de los registros de los flujos de grupo de seguridad de red. En este artículo usaremos PowerShell, aunque los conceptos tratados en él no se limitan al lenguaje de programación y se pueden aplicar a todos los lenguajes admitidos por las API de Azure Storage.
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 Antes de empezar, tiene que tener el registro de flujo de grupo de seguridad de red habilitado en uno o más grupos de seguridad de red de su cuenta. Para obtener instrucciones sobre cómo habilitar los registros de flujo de grupo de seguridad de red, consulte el artículo siguiente: [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
 

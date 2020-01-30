@@ -12,13 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 439d2c06f05aa8824afa4a4aec3990ecba1aa8da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921345"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704126"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Inicio rápido: Modificación de las cuentas compatibles con una aplicación
 
@@ -26,7 +25,7 @@ Al registrar una aplicación en la plataforma de identidad de Microsoft, tal vez
 
 En esta guía de inicio rápido, aprenderá a modificar la configuración de la aplicación para cambiar quién o qué cuentas pueden acceder a la aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para comenzar, asegúrese de que completa estos requisitos previos:
 

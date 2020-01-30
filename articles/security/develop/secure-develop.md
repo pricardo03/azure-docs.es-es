@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9a4f5094837b0c642c4de75180039064de4e40c2
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 76219ec454fd105ed4bbf1a2fa0e922475d8dd1f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513990"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834984"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
@@ -89,7 +89,7 @@ Esto significa que menos personas tienen acceso a los datos reales, lo que reduc
 
 Para defenderse contra ataques por fuerza bruta y adivinación por diccionario, debe implementar una directiva de contraseñas seguras que garantice que los usuarios crean contraseñas complejas (por ejemplo, con una longitud mínima de 12 caracteres, que requiera caracteres alfanuméricos y especiales).
 
-Puede usar un marco de identidad para crear y aplicar directivas de contraseñas. Azure Active Directory B2C le ayuda con la administración de contraseñas al incluir [directivas integradas](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [autoservicio de restablecimiento de contraseñas](../../active-directory-b2c/active-directory-b2c-reference-sspr.md) y mucho más.
+Puede usar un marco de identidad para crear y aplicar directivas de contraseñas. Azure Active Directory B2C le ayuda con la administración de contraseñas al incluir [directivas integradas](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [autoservicio de restablecimiento de contraseñas](../../active-directory-b2c/user-flow-self-service-password-reset.md) y mucho más.
 
 Para defenderse contra ataques en cuentas predeterminadas, compruebe que todas las claves y contraseñas sean reemplazables y que se generen o reemplacen después de instalar recursos.
 

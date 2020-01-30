@@ -3,23 +3,20 @@ title: Introducción a la captura de paquetes en Azure Network Watcher | Microso
 description: En esta página se proporciona una información general sobre las funcionalidades de la captura de paquetes de Network Watcher
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: damendo
+ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061593"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840815"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introducción a la captura de paquetes variable en Azure Network Watcher
 
@@ -34,7 +31,7 @@ Para reducir la información que se captura únicamente a la información que de
 
 **Configuración de captura**
 
-|Propiedad|DESCRIPCIÓN|
+|Propiedad|Descripción|
 |---|---|
 |**Número máximo de bytes por paquete (bytes)** | El número de bytes de cada paquete que se captura, si se deja en blanco se capturan todos los bytes. El número de bytes de cada paquete que se captura, si se deja en blanco se capturan todos los bytes. Si necesita solo el encabezado de IPv4, indique 34 aquí |
 |**Número máximo de bytes por sesión (bytes)** | Número total de bytes en esa captura, una vez que se alcanza este valor la sesión se finaliza.|
@@ -42,7 +39,7 @@ Para reducir la información que se captura únicamente a la información que de
 
 **Filtrado (opcional)**
 
-|Propiedad|DESCRIPCIÓN|
+|Propiedad|Descripción|
 |---|---|
 |**Protocolo** | El protocolo para filtrar la captura de paquetes. Los valores disponibles son TCP, UDP y All (Todos).|
 |**Dirección IP local** | Este valor filtra la captura de paquetes a los paquetes en los que la dirección IP local coincide con este valor de filtro.|

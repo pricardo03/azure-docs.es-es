@@ -3,25 +3,21 @@ title: Vista de las latencias relativas a regiones de Azure desde ubicaciones es
 description: Obtenga información sobre cómo ver las latencias relativas en distintos proveedores de Internet a regiones de Azure desde ubicaciones específicas.
 services: network-watcher
 documentationcenter: ''
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: damendo
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: kumud
+ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: edbc6f9ce4c1434fa27989f053c108914a151320
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745780"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840543"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Vista de latencias relativas a las regiones de Azure desde ubicaciones específicas
 

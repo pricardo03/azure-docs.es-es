@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: En este artículo se describe cómo usar Azure Network Watcher y las herramientas de código abierto para realizar la detección de intrusiones en la red.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8a0b4ff4fc985355d8dc76f2f3fd7fb35da55ec0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275931"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845030"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realización de detección de intrusiones en la red con Azure Network Watcher y herramientas de código abierto
 
@@ -217,7 +215,7 @@ Para más instrucciones sobre cómo instalar Elasticsearch, consulte la página 
     sudo /etc/init.d/logstash start
     ```
 
-Para obtener más instrucciones sobre cómo instalar Logstash, consulte la [documentación oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
+Para más instrucciones sobre cómo instalar Logstash, consulte la [documentación oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
 ### <a name="install-kibana"></a>Instalación de Kibana
 
@@ -238,13 +236,13 @@ Para obtener más instrucciones sobre cómo instalar Logstash, consulte la [docu
 1. Para ver la interfaz web de Kibana, vaya a `http://localhost:5601`.
 1. En este escenario, el patrón de índice usado para los registros de Suricata es "logstash-*".
 
-1. Si quiere ver el panel de Kibana de forma remota, cree una regla NSG de entrada que permita acceder al **puerto 5601**.
+1. Si quiere ver el panel de Kibana de forma remota, cree una regla de grupo de seguridad de red de entrada que permita acceder al **puerto 5601**.
 
 ### <a name="create-a-kibana-dashboard"></a>Creación de un panel de Kibana
 
-En este artículo, hemos proporcionado un panel de ejemplo para que vea las tendencias y los detalles de sus alertas.
+En este artículo, se proporciona un panel de ejemplo para que vea tendencias y detalles de sus alertas.
 
-1. Descargue el archivo de panel [aquí](https://aka.ms/networkwatchersuricatadashboard), el archivo de visualización [aquí](https://aka.ms/networkwatchersuricatavisualization) y el archivo de búsqueda guardado [aquí](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Descargue el archivo de panel de [aquí](https://aka.ms/networkwatchersuricatadashboard), el archivo de visualización de [aquí](https://aka.ms/networkwatchersuricatavisualization) y el archivo de búsqueda guardada de [aquí](https://aka.ms/networkwatchersuricatasavedsearch).
 
 1. En la pestaña **Management** (Administración) de Kibana, vaya a **Saved Objects** (Objetos guardados) e importe los tres archivos. A continuación, en la pestaña **Dashboard** (Panel), puede abrir y cargar el panel de ejemplo.
 

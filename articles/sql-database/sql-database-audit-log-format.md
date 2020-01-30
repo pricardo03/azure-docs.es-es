@@ -5,16 +5,16 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 13746b86eed75055ceb5203afafb2d27a78ce1d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722091"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del registro de auditoría de SQL Database
 
@@ -43,7 +43,7 @@ Los eventos de auditoría se escriben en el área de trabajo de Log Analytics de
 
 ## <a id="subheading-1"></a>Campos del registro de auditoría
 
-| Nombre (blob) | Nombre (Event Hubs/Log Analytics) | DESCRIPCIÓN | Tipo de blob | Tipo de Event Hubs/Log Analytics |
+| Nombre (blob) | Nombre (Event Hubs/Log Analytics) | Descripción | Tipo de blob | Tipo de Event Hubs/Log Analytics |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | Identificador de la acción. | varchar(4) | string |
 | action_name | action_name_s | Nombre de la acción | N/D | string |
@@ -76,7 +76,7 @@ Los eventos de auditoría se escriben en el área de trabajo de Log Analytics de
 | server_principal_id | server_principal_id_d | Identificador del contexto de inicio de sesión donde se realiza la acción. | int | int |
 | server_principal_name | server_principal_name_s | Inicio de sesión actual. | sysname | string |
 | server_principal_sid | server_principal_sid_s | Id. de seguridad de inicio de sesión actual. | varbinary | string |
-| session_id | session_id_d | Identificador de la sesión en la que se produjo el evento. | smallint | int |
+| session_id | session_id_d | Identificador de la sesión en la que se produjo el evento. | SMALLINT | int |
 | session_server_principal_name | session_server_principal_name_s | Entidad de seguridad del servidor para la sesión. | sysname | string |
 | statement | statement_s | Instrucción T-SQL ejecutada (si existe). | nvarchar(4000) | string |
 | succeeded | succeeded_s | Indica si la acción que desencadenó el evento se realizó correctamente. Para los eventos que no son de inicio de sesión ni por lotes, solo notifica si la comprobación del permiso se realizó correctamente o con errores, no la operación. 1 = correcto, 0 = error | bit | string |
@@ -86,7 +86,7 @@ Los eventos de auditoría se escriben en el área de trabajo de Log Analytics de
 | target_server_principal_name | target_server_principal_name_s | Inicio de sesión de destino de la acción. NULL si no es aplicable. | sysname | string |
 | target_server_principal_sid | target_server_principal_sid_s | Id. de seguridad del inicio de sesión de destino. NULL si no es aplicable. | varbinary | string |
 | transaction_id | transaction_id_d | Solo SQL Server (a partir de 2016). 0 para Azure SQL DB | bigint | int |
-| user_defined_event_id | user_defined_event_id_d | Id. de evento definido por el usuario pasado como un argumento a sp_audit_write. NULL para eventos del sistema (valor predeterminado) y distinto de cero para eventos definidos por el usuario. Para más información, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
+| user_defined_event_id | user_defined_event_id_d | Id. de evento definido por el usuario pasado como un argumento a sp_audit_write. NULL para eventos del sistema (valor predeterminado) y distinto de cero para eventos definidos por el usuario. Para más información, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | SMALLINT | int |
 | user_defined_information | user_defined_information_s | Información definida por el usuario pasada como un argumento a sp_audit_write. NULL para eventos del sistema (valor predeterminado) y distinto de cero para eventos definidos por el usuario. Para más información, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
 
 ## <a name="next-steps"></a>Pasos siguientes

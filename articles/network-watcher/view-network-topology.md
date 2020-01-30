@@ -3,23 +3,20 @@ title: Visualización de una topología de redes virtuales de Azure | Microsoft 
 description: Aprenda a ver los recursos en una red virtual y las relaciones entre ellos.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
-ms.author: kumud
-ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682047"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840577"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualización de la topología de una red virtual de Azure
 
@@ -133,19 +130,19 @@ Todos los recursos devueltos en una topología tienen uno de los siguientes tipo
 
 | Tipo de relación | Ejemplo                                                                                                |
 | ---               | ---                                                                                                    |
-| Independencia       | Una red virtual contiene subredes. Una subred contiene una interfaz de red.                            |
+| Containment       | Una red virtual contiene subredes. Una subred contiene una interfaz de red.                            |
 | Asociado        | Una interfaz de red está asociada a una máquina virtual. Una dirección IP pública está asociada a una interfaz de red. |
 
-## <a name="properties"></a>Properties (Propiedades)
+## <a name="properties"></a>Propiedades
 
 Todos los recursos que se devuelven en una topología tienen las siguientes propiedades:
 
-- **Nombre**: Nombre del recurso.
+- **Name**: Nombre del recurso.
 - **Id**: identificador URI del recurso.
 - **Ubicación**: región de Azure en la que existe el recurso.
 - **Asociaciones**: lista de asociaciones para el objeto al que se hace referencia. Cada asociación tiene las siguientes propiedades:
     - **AssociationType**: hace referencia a la relación entre los objetos secundario y principal. Los valores válidos son *Contains* o *Associated*.
-    - **Nombre**: nombre del recurso al que se hace referencia.
+    - **Name**: nombre del recurso al que se hace referencia.
     - **ResourceId**: identificador URI del recurso al que se hace referencia en la asociación.
 
 ## <a name="next-steps"></a>Pasos siguientes

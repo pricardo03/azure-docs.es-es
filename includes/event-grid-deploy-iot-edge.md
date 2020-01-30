@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8656bbb070e2b05a06ea22dd1634a40182b440cb
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: b453a04a170764a037eed7415eaf71e5a4d37526
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098668"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844602"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Implementación del módulo de Event Grid en IoT Edge
 
@@ -40,8 +40,10 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 ### <a name="add-modules"></a>Adición de módulos
 
 1. En la sección **Módulos de implementación**, seleccione **Agregar**.
-1. En los tipos de módulos de la lista desplegable, seleccione **Módulo IoT Edge**.
+1. En los tipos de módulos de la lista desplegable, seleccione **Módulo IoT Edge**
 1. Proporcione el nombre, la imagen y las opciones de creación del contenedor:
+
+[!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
 
    * **Nombre**: eventgridmodule
    * **URI de imagen**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
@@ -50,8 +52,8 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth:clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -66,7 +68,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     ```
 
  1. Haga clic en **Guardar**
- 1. Seleccione **Siguiente** para ir a la sección de rutas.
+ 1. Seleccione **Siguiente** para ir a la sección de rutas
 
     > [!NOTE]
     > Si va a usar una máquina virtual de Azure como dispositivo perimetral, agregue una regla de puerto de entrada para permitir tráfico entrante en el puerto 4438. Para instrucciones sobre cómo agregar la regla, consulte [Apertura de puertos en una máquina virtual](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
@@ -84,7 +86,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 ### <a name="verify-your-deployment"></a>Comprobación de la implementación
 
 1. Después de enviar la implementación, regresará a la página de IoT Edge del centro de IoT.
-1. Seleccione el **dispositivo IoT Edge** de destino de la implementación para abrir sus detalles.
+1. Seleccione el **dispositivo IoT Edge** elegido como destino con la implementación para abrir sus detalles.
 1. En los detalles del dispositivo, compruebe que el módulo de Event Grid aparece como **Especificado en la implementación** y **Notificado por el dispositivo**.
 
 Puede tardar unos minutos para que el módulo se inicie en el dispositivo y, a continuación, notifique a IoT Hub. Actualice la página para ver el estado actualizado.

@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 82d366b3f807e21e3531da00da78520fed90bc66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645256"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720034"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integración del control de código fuente para Azure SQL Data Warehouse
 
@@ -55,7 +55,7 @@ En este tutorial se describe cómo integrar el proyecto de base de datos de SQL�
 
 3. En Team Explorer en Visual Studio, confirme todos los cambios en el repositorio local de Git 
 
-   ![Confirmar](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Confirmación")  
+   ![Confirmar](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 
 4. Ahora que ha confirmado los cambios localmente en el repositorio clonado, sincronice e inserte los cambios en el repositorio de Azure Repos en el proyecto de Azure DevOps.
 
@@ -82,13 +82,3 @@ En este tutorial se describe cómo integrar el proyecto de base de datos de SQL�
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Desarrollo para Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-

@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: En este artículo, aprenderá a diagnosticar un problema de enrutamiento en una red de máquinas virtuales mediante la funcionalidad de Próximo salto de Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 23ffc16948c250a6999c33b8812769ba889f4900
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bf4c5e364b7f18b363f9915f54e43c7ea54c33c4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276090"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834693"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: CLI de Azure
 
@@ -59,7 +58,7 @@ La máquina virtual tarda en crearse unos minutos. No continúe con los pasos re
 
 Para probar la comunicación de red con Network Watcher, primero debe habilitar un monitor de red en la región en la que quiere probar la máquina virtual y, a continuación, usar la funcionalidad de próximo salto de Network Watcher para probar la comunicación.
 
-### <a name="enable-network-watcher"></a>Habilitar Network Watcher
+### <a name="enable-network-watcher"></a>Habilitación de Network Watcher
 
 Si ya dispone de un monitor de red habilitado en la región Este de EE. UU., pase a la sección [Use el siguiente salto](#use-next-hop). Utilice el comando [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) para crear un monitor de red en la región Este de EE. UU.:
 
@@ -70,7 +69,7 @@ az network watcher configure \
   --enabled
 ```
 
-### <a name="use-next-hop"></a>Use el siguiente salto
+### <a name="use-next-hop"></a>Use el próximo salto
 
 Azure crea rutas automáticamente a los destinos predeterminados. Es posible crear rutas personalizadas que reemplacen las rutas predeterminadas. En ocasiones, las rutas personalizadas pueden provocar errores de comunicación. Para probar el enrutamiento desde una máquina virtual, use [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) para determinar el siguiente salto de enrutamiento cuando el tráfico esté destinado a una dirección específica.
 

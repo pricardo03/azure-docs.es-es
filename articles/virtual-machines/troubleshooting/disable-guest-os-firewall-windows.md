@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705545"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718878"
 ---
-# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Deshabilitar el firewall del sistema operativo invitado en la máquina virtual de Azure
+# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Deshabilitar el firewall del sistema operativo invitado en Azure Virtual Machine
 
 En este artículo se proporciona una referencia para las situaciones en que se sospecha que el firewall del sistema operativo invitado está filtrando el tráfico parcial o completo en una máquina virtual (VM). Esto puede ocurrir si deliberadamente se realizaron cambios en el firewall que han provocado errores en las conexiones RDP.
 
@@ -148,7 +148,7 @@ Si tiene una situación en la que no se puede llegar a la máquina virtual media
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'BROKENSYSTEM\ControlSet00'+$ControlSet+'\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
-    # To ensure the firewall is not set thru AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
+    # To ensure the firewall is not set through AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile'

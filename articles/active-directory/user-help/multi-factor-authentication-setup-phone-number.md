@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f03e92c1bfd86d15bf582487e3e92a3713b63e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c01a7a9c5adb050d98840938260c8486ecdeb199
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619826"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705197"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configuración de un dispositivo móvil como método de verificación en dos fases
 
@@ -75,6 +74,6 @@ Después de configurar el método de verificación en dos fases, puede agregar o
 
 - [Administración de las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Inicio de sesión con la verificación en dos fases](multi-factor-authentication-end-user-signin.md)
+- [Inicio de sesión con la verificación en dos pasos](multi-factor-authentication-end-user-signin.md)
 
 - [Obtención de ayuda con la verificación en dos fases](multi-factor-authentication-end-user-troubleshoot.md)

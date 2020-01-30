@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cda02408f9e90cb9f19a4f7d806a34e5cff9c33c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2876ea32bdcd900a454ae6b7ac58c11b8ec67c3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426039"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840492"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Prueba local de datos activos mediante herramientas de Azure Stream Analytics para Visual Studio (versión preliminar)
 
@@ -38,7 +38,6 @@ Se admiten las siguientes opciones de pruebas locales:
 2. Para probar datos en vivo, elija **Use Cloud Input** (Usar entrada de nube) en el cuadro de lista desplegable.
 
    ![Entrada de la nube en vivo de Azure Stream Analytics para Visual Studio](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
-
 
 3. Establezca el valor de **Start Time** (Hora de inicio) para definir cuándo el trabajo comenzará a procesar los datos de entrada. Puede que el trabajo deba leer los datos de entrada con antelación para garantizar la precisión de los resultados. La hora predeterminada se establece en 30 minutos antes de la hora actual.
 
@@ -65,6 +64,5 @@ Se admiten las siguientes opciones de pruebas locales:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de un trabajo de Stream Analytics mediante las herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md)
-* [Instalación de las herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md)
 * [Prueba de las consultas de Stream Analytics localmente con Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Uso de Visual Studio para ver trabajos de Azure Stream Analytics](stream-analytics-vs-tools.md)

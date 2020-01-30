@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a09ccdc867cb6d0e84a6e0f85e532839604f5e
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 078379c52c7e7fe5072ecc19c95d6b7e40b5f876
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619946"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705265"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configuración de una aplicación de autenticación como método de verificación en dos fases
 
@@ -118,6 +117,6 @@ Después de configurar el método de verificación en dos fases, puede agregar o
 
 - [Administración de las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Inicio de sesión con la verificación en dos fases](multi-factor-authentication-end-user-signin.md)
+- [Inicio de sesión con la verificación en dos pasos](multi-factor-authentication-end-user-signin.md)
 
 - [Obtención de ayuda con la verificación en dos fases](multi-factor-authentication-end-user-troubleshoot.md)

@@ -3,22 +3,20 @@ title: Introducción a la solución de problemas de conexiones en Azure Network 
 description: En esta página se proporciona información general de la funcionalidad de solución de problemas de conexiones en Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705819"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842876"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introducción a la solución de problemas de conexiones en Azure Network Watcher
 
@@ -31,7 +29,7 @@ La característica de solución de problemas de conexiones de Network Watcher pr
 
 En la tabla siguiente se muestran las propiedades que se devuelven cuando la solución de problemas de conexiones terminó de ejecutarse.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |ConnectionStatus     | Estado de la comprobación de conectividad. Los resultados posibles son **Reachable** y **Unreachable**.        |
 |AvgLatencyInMs     | Promedio de latencia durante la comprobación de conectividad en milisegundos. (Solo se muestra si el estado de la comprobación es accesible).        |
@@ -74,7 +72,7 @@ A continuación, se muestra un ejemplo de un problema encontrado en un salto.
 
 La solución de problemas de conexiones devuelve tipos de error sobre la conexión. En la tabla siguiente se proporciona una lista de los tipos de errores actuales devueltos.
 
-|Type  |DESCRIPCIÓN  |
+|Tipo  |Descripción  |
 |---------|---------|
 |CPU     | Alta utilización de CPU.       |
 |Memoria     | Alta utilización de memoria.       |

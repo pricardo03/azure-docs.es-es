@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: dech
-ms.openlocfilehash: 44cdd4307be56d864afb45d619958cc59a3fa978
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8df78df27ffb7e8bb8fc88567bd0b3d37be20488
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220534"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719507"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Uso de Node.js para conectarse y consultar datos en una cuenta de Azure Cosmos DB SQL API
 
@@ -27,7 +27,7 @@ ms.locfileid: "74220534"
 
 En este inicio rápido se muestra cómo usar una aplicación en Node.js para conectarse a la cuenta [SQL API](sql-api-introduction.md) en Azure Cosmos DB. Luego puede usar consultas SQL de Azure Cosmos DB para consultar y administrar datos. La aplicación en Node.js que se crea en este artículo usa el [SDK de JavaScript de SQL](sql-api-sdk-node.md). En esta guía de inicio rápido se usa la versión 2.0 del [SDK de JavaScript](https://www.npmjs.com/package/@azure/cosmos).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -142,13 +142,13 @@ Ahora vuelva a Azure Portal para obtener los detalles de la cadena de conexión 
 
 3. Copie el valor del URI del portal (con el botón de copia) y conviértalo en el valor de la clave de punto de conexión en `config.js`. 
 
-    `config.endpoint = "https://FILLME.documents.azure.com"`
+    `config.endpoint = "<Your Azure Cosmos account URI>"`
 
 4. Después, copie el valor de la clave principal del portal y conviértalo en el valor de `config.key` en `config.js`. Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
 
-    `config.key = "FILLME"`
+    `config.key = "<Your Azure Cosmos account key>"`
     
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 1. Ejecute `npm install` en un terminal para instalar los módulos de NPM necesarios.
 

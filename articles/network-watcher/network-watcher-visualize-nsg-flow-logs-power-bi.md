@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: En esta página se describe cómo utilizar Power BI para visualizar los registros de flujo del grupo de seguridad de red (NSG).
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
-ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
-ms.openlocfilehash: 05378799dd77a17b69adbcf492af2e1cb1030375
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277727"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840611"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualización de registros de flujo del grupo de seguridad de red con Power BI
 
@@ -45,7 +42,7 @@ Utilizando los objetos visuales proporcionados en la plantilla puede examinar:
 
 La plantilla que se proporciona es editable, por lo que puede modificarla agregando nuevos datos u objetos visuales, o modificando consultas para adaptarla a sus necesidades.
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 Antes de empezar, tiene que tener el registro de flujo de grupo de seguridad de red habilitado en uno o más grupos de seguridad de red de su cuenta. Para obtener instrucciones sobre cómo habilitar los registros de flujo de grupo de seguridad de red, consulte el artículo siguiente: [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
 

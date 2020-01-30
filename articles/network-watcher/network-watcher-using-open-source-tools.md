@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Esta página describe cómo utilizar la captura de paquetes de Network Watcher con Capanalysis para visualizar los patrones de tráfico de entrada y salida de las máquinas virtuales.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3baf73eed09e6880820952b8457526b6c21dd83b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277757"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840662"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualización de los patrones de tráfico de red de entrada y salida de las máquinas virtuales utilizando herramientas de código abierto
 
@@ -97,7 +94,7 @@ La característica de captura de paquetes de Network Watcher permite capturar lo
 
 Para más información acerca de los registros de flujo de NSG, visite el artículo sobre [Registros de flujo de NSG](network-watcher-nsg-flow-logging-overview.md)
 
-Aprenda a visualizar los registros de flujo de grupos de seguridad de red con Power BI en el artículo [Visualización de registros de flujo del grupo de seguridad de red de Azure con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Aprenda a visualizar los registros de flujo de grupo de seguridad de red con Power BI en el artículo [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualización de registros de flujo de grupo de seguridad de red con Power BI).
 <!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png

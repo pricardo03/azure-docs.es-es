@@ -12,13 +12,12 @@ ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec5fe8e93c9032a07c1defe5b28753e0f520a320
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 32691892ccae31541855f47bd8274aa28b6dc185
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963340"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704296"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web
 
@@ -40,7 +39,7 @@ En esta guía de inicio rápido, le mostraremos cómo configurar la aplicación 
 * [Adición de credenciales a la aplicación web](#add-credentials-to-your-web-application)
 * [Adición de permisos para acceder a las API web](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para comenzar, asegúrese de que completa estos requisitos previos:
 
@@ -125,7 +124,7 @@ Para configurar la aplicación según la plataforma o dispositivo que tenga como
 
 1. Especifique la información de configuración según la plataforma que haya seleccionado.
 
-   | Plataforma                | Opciones              | Valores de configuración            |
+   | Plataforma                | Opciones              | Parámetros de configuración            |
    |-------------------------|----------------------|-----------------------------------|
    | **Aplicaciones web**    | **Web**              | Escriba el **URI de redireccionamiento** para la aplicación. |
    | **Aplicaciones móviles** | **iOS**              | Escriba el **Identificador de paquete** de la aplicación, que encontrará en Xcode en Info.plist, o bien en Configuración de compilación. Al agregar del identificador del paquete, se crea automáticamente un URI de redireccionamiento para la aplicación. |

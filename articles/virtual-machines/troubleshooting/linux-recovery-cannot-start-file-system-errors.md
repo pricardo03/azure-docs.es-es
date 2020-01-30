@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432310"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842408"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solución de problemas de inicio de máquinas virtuales Linux debido a errores del sistema de archivos
 
@@ -73,7 +73,7 @@ Este problema puede producirse si el sistema de archivos no se apagó correctame
 
 Linux cuenta con varios comprobadores de sistemas de archivos. Las más comunes para las distribuciones de Azure son: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific) y [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
-## <a name="resolution"></a>Resolución
+## <a name="resolution"></a>Solución
 
 Para resolver este problema, arranque la máquina virtual en modo de emergencia mediante la [consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) y use esa herramienta para reparar el sistema de archivos. Si la consola serie no está habilitada en la máquina virtual o no funciona, consulte la sección [Reparación de la máquina virtual sin conexión](#repair-the-vm-offline) de este artículo.
 
@@ -110,20 +110,20 @@ Para resolver este problema, arranque la máquina virtual en modo de emergencia 
 
    ```
    mkdir /temp
-   mount /dev/sda2 /temp
+   mount /dev/sda1 /temp
    ```
 
 8. Si el disco no se puede montar, ejecute el comando xfs_repair con la opción -L (que fuerza el llenado con ceros del registro):
 
    ```
-   xfs_repair /dev/sda2 -L
+   xfs_repair /dev/sda1 -L
    ```
 
 9. A continuación, intente montar el sistema de archivos. Si el disco se monta correctamente, recibirá la siguiente salida:
  
    ```
-   XFS (sda2): Mounting V1 Filesystem
-   XFS (sda2): Ending clean mount
+   XFS (sda1): Mounting V1 Filesystem
+   XFS (sda1): Ending clean mount
    ```
 
 10. Reinicie la máquina virtual y, luego, compruebe si se ha resuelto el problema.

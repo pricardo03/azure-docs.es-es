@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 35d568afa0c45529b33b7918fd453213f432ba06
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/23/2020
+ms.openlocfilehash: fd6d3e24adfc22d2f6ea17f09b8dea4638a054b6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792280"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769038"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -55,12 +55,10 @@ Existen limitaciones que deben considerarse:
 * Disponibilidad regional: Azure Database for PostgreSQL está disponible en Oeste de EE. UU. 2, Centro de Francia, Norte de Emiratos Árabes Unidos y Centro de Alemania. Sin embargo, sus regiones emparejadas no están disponibles.
     
 * Pares unidireccionales: Algunas regiones de Azure se emparejan solo en una dirección. Estas regiones incluyen Oeste de la India y Sur de Brasil. 
-   Esto significa que un servidor maestro de Oeste de la India puede crear una réplica en India meridional. Sin embargo, un servidor maestro de India del Sur no puede crear una réplica en India occidental. Esto es debido a que la región secundaria del Oeste de la India es India meridional, pero la región secundaria de esta última no es India occidental.
+   Esto significa que un servidor maestro de India occidental puede crear una réplica en India del Sur. Sin embargo, un servidor maestro de India del Sur no puede crear una réplica en India occidental. Esto es debido a que la región secundaria del India occidental es India del Sur, pero la región secundaria de esta última no es India occidental.
 
 
 ## <a name="create-a-replica"></a>Creación de una réplica
-El servidor maestro debe tener el `azure.replication_support` establecido en **RÉPLICA**. Cuando se cambia este parámetro, es necesario reiniciar el servidor para que el cambio surta efecto. Este parámetro `azure.replication_support` se aplica únicamente a los niveles De uso General y Optimizado para memoria.
-
 Cuando se inicia el flujo de trabajo de creación de la réplica, se crea un servidor Azure Database for PostgreSQL en blanco. El nuevo servidor se rellena con los datos que estaban en el servidor maestro. El tiempo que se tarda en crear la réplica depende de la cantidad de datos en el servidor maestro y del tiempo desde la última copia de seguridad completa semanal. Puede oscilar desde unos minutos hasta varias horas.
 
 Cada réplica se habilita para el [crecimiento automático](concepts-pricing-tiers.md#storage-auto-grow) del almacenamiento. La característica de crecimiento automático permite a la réplica mantenerse al día con los datos replicados en ella y evitar una interrupción en la replicación causada por errores de almacenamiento insuficiente.
@@ -148,7 +146,7 @@ Una vez que la aplicación procesa correctamente las lecturas y las escrituras, 
 
 En esta sección se resumen las consideraciones sobre la característica de réplica de lectura.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 El parámetro `azure.replication_support` debe establecerse en **RÉPLICA** en el servidor maestro antes de crear una réplica de lectura. Cuando se cambia este parámetro, es necesario reiniciar el servidor para que el cambio surta efecto. El parámetro `azure.replication_support` se aplica únicamente a los niveles De uso General y Optimizado para memoria.
 
 ### <a name="new-replicas"></a>Nuevas réplicas

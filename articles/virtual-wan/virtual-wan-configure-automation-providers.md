@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2f847d8db983303d46b465f4f80bff65eeff632f
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168487"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775315"
 ---
 # <a name="virtual-wan-partners"></a>Asociados de Virtual WAN
 
@@ -89,7 +89,7 @@ El archivo de configuración de dispositivo contiene la configuración que se de
     * **Espacio de direcciones** de las redes virtuales que están conectadas al concentrador.<br>Ejemplo:
 
          ```
-        "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
+        "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
     * **Direcciones IP** de vpngateway del concentrador virtual. Dado que en el elemento vpngateway cada conexión consta de 2 túneles en configuración activa-activa, verá ambas direcciones IP enumeradas en este archivo. En este ejemplo puede ver "Instance0" e "Instance1" para cada sitio.<br>Ejemplo:
 
@@ -118,7 +118,7 @@ El archivo de configuración de dispositivo contiene la configuración que se de
                "Region":"West Europe",
                "ConnectedSubnets":[ 
                   "10.2.0.0/16",
-                  "10.30.0.0/16"
+                  "10.3.0.0/16"
                ]
             },
             "gatewayConfiguration":{ 

@@ -12,13 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966119"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704228"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Inicio rápido: Configuración de una aplicación para exponer las API web
 
@@ -26,7 +25,7 @@ Puede desarrollar una API web y ponerla a disposición de las aplicaciones clien
 
 En esta guía de inicio rápido, aprenderá a configurar una aplicación para que exponga un nuevo ámbito y lo ponga a disposición de las aplicaciones cliente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para comenzar, asegúrese de que completa estos requisitos previos:
 
@@ -60,7 +59,7 @@ Para exponer un ámbito nuevo mediante la interfaz de usuario:
 
 1. Cuando se muestre la página **Agregar un ámbito**, escriba la información del ámbito:
 
-    | Campo | DESCRIPCIÓN |
+    | Campo | Descripción |
     |-------|-------------|
     | **Nombre de ámbito** | Escriba un nombre significativo para el ámbito.<br><br>Por ejemplo, `Employees.Read.All`. |
     | **¿Quién puede dar el consentimiento?** | Seleccione si los usuarios pueden dar su consentimiento a este ámbito, o si se requiere el consentimiento del administrador. Seleccione **Solo administradores** para permisos con más privilegios. |
@@ -69,7 +68,7 @@ Para exponer un ámbito nuevo mediante la interfaz de usuario:
 
     Si los usuarios pueden dar su consentimiento al ámbito, agregue también los valores de los campos siguientes:
 
-    | Campo | DESCRIPCIÓN |
+    | Campo | Descripción |
     |-------|-------------|
     | **Nombre para mostrar del consentimiento del usuario** | Escriba un nombre significativo para el ámbito, que verán los usuarios.<br><br>Por ejemplo: `Read-only access to your Employee records` |
     | **Descripción del consentimiento del usuario** | Escriba una descripción significativa para el ámbito, que verán los usuarios.<br><br>Por ejemplo: `Allow the application to have read-only access to your Employee data.` |

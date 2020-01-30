@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Uso de temas y suscripciones de Azure Service Bus con Java'
-description: 'Inicio rápido: Uso de temas y suscripciones de Service Bus en Azure'
+title: Uso de temas y suscripciones de Azure Service Bus con Java
+description: En esta guía de inicio rápido, puede escribir código de Java para enviar mensajes a un tema de Azure Service Bus y, luego, recibir mensajes provenientes de suscripciones a ese tema.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8a721d929ff89fd644c78296ae54cee757bf9610
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9b75b5cd5e674020f41897309a3c69b9371cc768
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720005"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759302"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con Java
 
@@ -28,9 +28,9 @@ ms.locfileid: "73720005"
 
 En esta guía de inicio rápido, puede escribir código de Java para enviar mensajes a un tema de Azure Service Bus y, luego, recibir mensajes provenientes de suscripciones a ese tema. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Siga los pasos de [Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
     1. Cree un **espacio de nombres** de Service Bus.
     2. Obtenga la **cadena de conexión**.

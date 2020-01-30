@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c5b4904419af1fe86e43dc2f781ef43ce8dd762
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a5e4f9853a68b7b4d8b97cc76032cfa88708c097
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078786"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842689"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidad de SAP HANA dentro de una región de Azure
 En este artículo se describen varios escenarios de disponibilidad dentro de una región de Azure. Azure tiene muchas regiones repartidas por todo el mundo. Para obtener la lista de las regiones de Azure, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). Para implementar SAP HANA en máquinas virtuales dentro de una región de Azure, Microsoft ofrece la implementación de una única máquina virtual con una instancia de HANA. Para una mayor disponibilidad, puede implementar dos máquinas virtuales con dos instancias de HANA dentro de un [conjunto de disponibilidad de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) que usen la replicación del sistema HANA para la disponibilidad. 
@@ -108,7 +108,7 @@ En este escenario, se cargan previamente los datos replicados en la instancia de
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Replicación del sistema de SAP HANA con conmutación por error automática
 
-En la configuración de disponibilidad estándar más habitual dentro de una región de Azure, dos máquinas virtuales de Azure que ejecutan Linux SLES tienen definido un clúster de conmutación por error. El clúster de Linux SLES se basa en el marco [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) en combinación con un dispositivo [STONITH](http://linux-ha.org/wiki/STONITH). 
+En la configuración de disponibilidad estándar más habitual dentro de una región de Azure, dos máquinas virtuales de Azure que ejecutan Linux SLES tienen definido un clúster de conmutación por error. El clúster de Linux SLES se basa en el marco [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) en combinación con un dispositivo [STONITH](http://www.linux-ha.org/wiki/STONITH). 
 
 Desde una perspectiva de SAP HANA, el modo de replicación usado se sincroniza y se configura una conmutación por error automática. En la segunda máquina virtual, la instancia de SAP HANA actúa como un nodo en espera activa. El nodo en espera recibe una secuencia sincrónica de registros de cambios de la instancia principal de SAP HANA. A medida que las transacciones se confirman en la aplicación en el nodo principal de HANA, dicho nodo espera hasta que el nodo secundario de SAP HANA confirma que ha recibido el registro de confirmación. SAP HANA ofrece dos modos diferentes de replicación sincrónica. Para obtener más información y conocer las diferencias entre estos dos modos de replicación sincrónica, lea el artículo de SAP [Replication modes for SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html) (Modos de replicación en la replicación del sistema de SAP HANA).
 

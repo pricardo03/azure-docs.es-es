@@ -12,13 +12,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa8bc27f014b794059f30a62d47f298096df2f1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 36abbee0bf25550425f4e476e6a4e7b75df815a6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573794"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705061"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>Edición o revocación de permisos de aplicación en el portal Aplicaciones (versión preliminar)
 
@@ -47,11 +46,11 @@ En la parte inferior de la ventana de permisos se muestra lo que el administrado
 
 Después de administrar los permisos de la aplicación y las cuentas guardadas en el portal **Aplicaciones**, puede:
 
-- Organizar sus aplicaciones en las distintas categorías creadas y proporcionadas por su organización. Para más información, consulte [Acceso a las áreas de trabajo y uso de las mismas en el portal Aplicaciones (versión preliminar)](my-applications-portal-workspaces.md).
+- Organizar las aplicaciones en las distintas categorías creadas y proporcionadas por la organización. Para más información, vea [Acceso a las áreas de trabajo y uso de las mismas en el portal Aplicaciones (versión preliminar)](my-applications-portal-workspaces.md).
 
 ## <a name="related-articles"></a>Artículos relacionados
 
-- [Actualización de la información del perfil y de la cuenta](my-account-portal-overview.md). Instrucciones para actualizar su información personal que aparece en el portal **Mi perfil** (versión preliminar).
+- [Actualización de la información del perfil y de la cuenta](my-account-portal-overview.md). Instrucciones sobre cómo actualizar la información personal que aparece en el portal **Mi perfil** (versión preliminar).
 
 - [Administración de organizaciones](my-account-portal-organizations-page.md). Instrucciones sobre cómo ver y administrar la información relacionada con la organización en la página **Organizaciones** del portal **Mi perfil**.
 

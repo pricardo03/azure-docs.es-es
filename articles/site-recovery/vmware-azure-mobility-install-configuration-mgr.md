@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 12/22/2019
 ms.author: ramamill
-ms.openlocfilehash: 43e6a39a52eb81573b4a4ba8ad63d48d0e51dedd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 50f8b5b4412e02692bf2b5d57b7f0dee27c2a25a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514834"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842706"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatización de la instalación del servicio Mobility
 
@@ -19,7 +19,7 @@ En este artículo se describe cómo automatizar la instalación y las actualizac
 Al implementar Site Recovery para la recuperación ante desastres de máquinas virtuales de VMware locales y servidores físicos en Azure, instala el agente del servicio Mobility en cada máquina que quiere replicar. El servicio Mobility captura las escrituras de datos en la máquina y las reenvía al servidor de procesos de Site Recovery para su replicación. Puede implementar el servicio Mobility de varias maneras:
 
 - **Instalación de inserción**: Deje que Site Recovery instale el agente del servicio Mobility cuando habilite la replicación para una máquina en Azure Portal.
-- **Instalación manual**: Instale el servicio Mobility manualmente en cada máquina. [Obtenga más información](/vmware-physical-mobility-service-overview.md) acerca de la instalación de inserción y manual.
+- **Instalación manual**: Instale el servicio Mobility manualmente en cada máquina. [Obtenga más información](vmware-physical-mobility-service-overview.md) acerca de la instalación de inserción y manual.
 - **Implementación automatizada**: Automatice la instalación con herramientas de implementación de software como Microsoft Endpoint Configuration Manager.
 
 La instalación y actualización automatizadas proporcionan una solución si:

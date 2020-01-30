@@ -3,23 +3,21 @@ title: Análisis de tráfico de Azure | Microsoft Docs
 description: Aprenda a analizar los registros de flujo del grupo de seguridad de redes de Azure con Análisis de tráfico.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907143"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840594"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -62,17 +60,17 @@ Análisis de tráfico examina los registros de flujo sin formato del grupo de se
 Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
 
 * Centro de Canadá
-* Centro occidental de EE.UU.
-* East US
+* Centro-Oeste de EE. UU.
+* Este de EE. UU.
 * Este de EE. UU. 2
 * Centro-Norte de EE. UU
-* Centro-Sur de EE. UU
+* Centro-sur de EE. UU.
 * Centro de EE. UU.
 * Oeste de EE. UU.
 * Oeste de EE. UU. 2
 * Centro de Francia
-* Europa occidental
-* Europa del Norte
+* Oeste de Europa
+* Norte de Europa
 * Sur de Brasil
 * Oeste de Reino Unido
 * Sur de Reino Unido 2
@@ -80,30 +78,30 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 * Sudeste de Australia
 * Asia oriental
 * Sudeste asiático
-* Corea Central
-* India Central
-* Sur de la India
-* Este de Japón 
-* Oeste de Japón
-* Gobierno de EE. UU. - Virginia
+* Centro de Corea del Sur
+* Centro de la India
+* India del Sur
+* Japón Oriental 
+* Japón Occidental
+* US Gov - Virginia
 * Este de China 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiones admitidas: Áreas de trabajo de Log Analytics
 
 El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 * Centro de Canadá
-* Centro occidental de EE.UU.
-* East US
+* Centro-Oeste de EE. UU.
+* Este de EE. UU.
 * Este de EE. UU. 2
 * Centro-Norte de EE. UU
-* Centro-Sur de EE. UU
+* Centro-sur de EE. UU.
 * Centro de EE. UU.
 * Oeste de EE. UU.
 * Oeste de EE. UU. 2
 * Centro de EE. UU.
 * Centro de Francia
-* Europa occidental
-* Europa del Norte
+* Oeste de Europa
+* Norte de Europa
 * Sur de Brasil
 * Oeste de Reino Unido
 * Sur de Reino Unido 2
@@ -111,13 +109,13 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 * Sudeste de Australia
 * Asia oriental
 * Sudeste asiático
-* Corea Central
-* India Central
-* Este de Japón
-* Gobierno de EE. UU. - Virginia
+* Centro de Corea del Sur
+* Centro de la India
+* Japón Oriental
+* US Gov - Virginia
 * Este de China 2
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="user-access-requirements"></a>Requisitos del acceso de usuario
 
@@ -194,13 +192,13 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 7. Seleccione un área de trabajo de Log Analytics (OMS) existente o seleccione **Crear área de trabajo nueva** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las [regiones admitidas](#supported-regions-log-analytics-workspaces) y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 > [!NOTE]
->No es necesario que el área de trabajo de Log Analytics que hospeda la solución Análisis de tráfico y los grupos de seguridad de red estén en la misma región. Por ejemplo, puede tener Análisis de tráfico en un área de trabajo de la región Europa Occidental y, en cambio, tener los grupos de seguridad de red en las regiones Este de EE. UU. y Oeste de EE. UU. Se pueden configurar varios grupos de seguridad de red en la misma área de trabajo.
+>No es necesario que el área de trabajo de Log Analytics que hospeda la solución Análisis de tráfico y los grupos de seguridad de red estén en la misma región. Por ejemplo, puede tener Análisis de tráfico en un área de trabajo de la región Oeste de Europa y, en cambio, tener los grupos de seguridad de red en las regiones Este de EE. UU. y Oeste de EE. UU. Se pueden configurar varios grupos de seguridad de red en la misma área de trabajo.
 
 8. Seleccione **Guardar**.
 
     ![Selección de cuenta de almacenamiento, área de trabajo de Log Analytics y habilitación de Análisis de tráfico](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Repita los pasos anteriores con todos los demás grupos de seguridad de red para los que desee habilitar Análisis de tráfico. Los datos de los registros de flujos se envían al área de trabajo, por tanto, asegúrese de que las leyes y reglamentos locales de su país permiten el almacenamiento de datos en la región donde existe el área de trabajo. Si ha establecido intervalos de procesamiento diferentes para NSG diferentes, los datos se recopilarán en distintos intervalos. Por ejemplo:  Puede optar por habilitar el intervalo de procesamiento de 10 minutos para redes virtuales críticas y el de una hora para redes virtuales no críticas.
+Repita los pasos anteriores con todos los demás grupos de seguridad de red para los que desee habilitar Análisis de tráfico. Los datos de los registros de flujos se envían al área de trabajo, por tanto, asegúrese de que las leyes y reglamentos locales de su país permiten el almacenamiento de datos en la región donde existe el área de trabajo. Si ha establecido intervalos de procesamiento diferentes para NSG diferentes, los datos se recopilarán en distintos intervalos. Por ejemplo: Puede optar por habilitar el intervalo de procesamiento de 10 minutos para redes virtuales críticas y el de una hora para redes virtuales no críticas.
 
 También puede configurar el análisis de tráfico mediante el cmdlet [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) de PowerShell en Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 

@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante PowerShell.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3be68f6ef87ba37bcfaf418225ce7f460aed53a1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: e76193a635ee723e13ea4a8a23f668b6e3d1cbb0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277876"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840883"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Administración de capturas de paquetes con Azure Network Watcher mediante PowerShell
 
@@ -46,12 +43,12 @@ Este artículo le guiará por las diferentes tareas de administración que está
 
 En este artículo se da por hecho que tiene los siguientes recursos:
 
-* Una instancia de Network Watcher en la región donde desea crear una captura de paquetes.
+* Una instancia de Network Watcher en la región donde desea crear una captura de paquetes
 
 * Una máquina virtual con la extensión de captura de paquetes habilitada.
 
 > [!IMPORTANT]
-> La captura de paquetes requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, visite [Extensión de máquina virtual del agente de Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual Linux, visite [Extensión de máquina virtual del agente de Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
+> La captura de paquetes requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="install-vm-extension"></a>Instalación de la extensión de máquina virtual
 
@@ -68,7 +65,7 @@ En el ejemplo siguiente se recupera la información de extensión necesaria para
 > [!NOTE]
 > El cmdlet `Set-AzVMExtension` puede tardar varios minutos en completarse.
 
-En las máquinas virtuales con Windows:
+En las máquinas virtuales Windows:
 
 ```powershell
 $AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
@@ -265,7 +262,7 @@ Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCapt
 ```
 
 > [!NOTE]
-> Eliminar una captura de paquetes no elimina el archivo en la cuenta de almacenamiento.
+> La eliminación de una captura de paquetes no elimina el archivo en la cuenta de almacenamiento.
 
 ## <a name="download-a-packet-capture"></a>Descarga de una captura de paquetes
 

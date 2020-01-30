@@ -12,13 +12,12 @@ ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10225efb1dcd870f5922a6521b0bd6ec44965152
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 25e37d27805adb47fae19bdcc0e94253f8c4ccf2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920691"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703463"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Inicio rápido: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de iOS o macOS
 
@@ -77,7 +76,7 @@ Este inicio rápido va dirigido a las aplicaciones de iOS y macOS. Algunos pasos
 - [Descargar el código de ejemplo para iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 - [Descargar el código de ejemplo para macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
-#### <a name="step-3-install-dependencies"></a>Paso 3: Instalación de dependencias
+#### <a name="step-3-install-dependencies"></a>Paso 3: Instalar dependencias
 
 En una ventana de terminal, vaya a la carpeta con el ejemplo de código descargado y ejecute `pod install` para instalar la biblioteca de MSAL más reciente.
 

@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adbb913fc8ec6376f1c5f47708da4fd7df740ff
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 32d58a5536cda5a5a446eee15401dabc0c936304
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619856"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705231"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configuración del teléfono de la oficina como método de verificación en dos fases
 
@@ -52,6 +51,6 @@ Después de configurar el método de verificación en dos fases, puede agregar o
 
 - [Administración de las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Inicio de sesión con la verificación en dos fases](multi-factor-authentication-end-user-signin.md)
+- [Inicio de sesión con la verificación en dos pasos](multi-factor-authentication-end-user-signin.md)
 
 - [Obtención de ayuda con la verificación en dos fases](multi-factor-authentication-end-user-troubleshoot.md)

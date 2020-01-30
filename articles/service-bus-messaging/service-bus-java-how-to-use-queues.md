@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Uso de colas de Service Bus con Java'
-description: 'Inicio rápido: Obtenga información acerca de cómo usar las colas de Service Bus en Azure. Ejemplos de código escritos en Java.'
+title: Uso de colas de Service Bus con Java
+description: En este tutorial, obtendrá información sobre cómo crear aplicaciones de Java para enviar mensajes a una cola de Azure Service Bus y recibir mensajes de una cola de Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bb51f30a69294cd78d0664a5bdae70c969da1972
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5a32d92dd8a44602034d84262f2e502a60ac23a9
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721695"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760647"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Inicio rápido: Uso de colas de Azure Service Bus con Java para enviar y recibir mensajes
 
@@ -30,8 +30,8 @@ En este tutorial, obtendrá información sobre cómo crear aplicaciones de Java 
 > [!NOTE]
 > Puede encontrar ejemplos de Java en GitHub en el [repositorio azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-## <a name="prerequisites"></a>Requisitos previos
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
     1. Lea la **introducción** rápida de las **colas** de Service Bus. 
     2. Cree un **espacio de nombres** de Service Bus. 

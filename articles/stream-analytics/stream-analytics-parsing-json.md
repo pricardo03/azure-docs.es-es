@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 1741510c7398ce74da81f006cb4109d9a33f8f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbfa6f8b85814f0f77234e014ade0ff757a4c4b8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431606"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720085"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Análisis de datos JSON y AVRO en Azure Stream Analytics
 
@@ -78,7 +78,7 @@ El resultado es el siguiente:
 
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Acceso a los campos anidados cuando el nombre de la propiedad es una variable
-Use la función [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) si el nombre de la propiedad es una variable. 
+Use la función [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) si el nombre de la propiedad es una variable. 
 
 Por ejemplo, imagine que un flujo de datos de ejemplo tiene que combinarse con los datos de referencia que contienen los umbrales para cada sensor de dispositivo. A continuación se muestra un fragmento de código de tales datos de referencia.
 

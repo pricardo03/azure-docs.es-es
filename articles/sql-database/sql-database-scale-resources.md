@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4366b2718271b1e27325e6946c5016e9230cea4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462620"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835919"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
 
@@ -55,7 +55,8 @@ Las tres versiones de Azure SQL Database ofrecen la posibilidad de escalar diná
 - En [Instancia administrada](sql-database-managed-instance.md) se usa el modo de [núcleos virtuales](sql-database-managed-instance.md#vcore-based-purchasing-model) y se puede definir el máximo de núcleos de CPU y el máximo de almacenamiento asignado a la instancia. Todas las bases de datos dentro de la instancia comparten los recursos asignados a la instancia.
 - Los [grupos elásticos](sql-database-elastic-pool-scale.md) permiten definir el límite máximo de recursos por grupo de bases de datos en el grupo.
 
-Si se inicia la acción de escalado o reducción vertical en cualquiera de los tipos, se reiniciará el proceso del motor de base de datos y se moverá a otra máquina virtual si es necesario. El cambio del proceso del motor de base de datos a una nueva máquina virtual es un **proceso en línea** en el que puede continuar usando el servicio de Azure SQL Database existente mientras el proceso está en curso. Una vez que el motor de base de datos de destino está completamente inicializado y listo para procesar las consultas, las conexiones [pasarán del motor de base de datos de origen al de destino](sql-database-single-database-scale.md#impact-of-changing-service-tier-or-rescaling-compute-size).
+Si se inicia la acción de escalado o reducción vertical en cualquiera de los tipos, se reiniciará el proceso del motor de base de datos y se moverá a otra máquina virtual si es necesario. El cambio del proceso del motor de base de datos a una nueva máquina virtual es un **proceso en línea** en el que puede continuar usando el servicio de Azure SQL Database existente mientras el proceso está en curso. Una vez que el motor de base de datos de destino está completamente inicializado y listo para procesar las consultas, las conexiones [pasarán del motor de base de datos de origen al de destino](sql-database-single-database-scale.md#impact). 
+
 
 > [!NOTE]
 > Puede esperar una pequeña interrupción de la conexión cuando el proceso de escalado o reducción vertical haya terminado. Si ha implementado la [lógica de reintentos para errores transitorios estándar](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), no notará la conmutación por error.

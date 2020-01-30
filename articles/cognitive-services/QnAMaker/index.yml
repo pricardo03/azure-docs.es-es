@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentación de QnA Maker
   description: QnA Maker es un servicio de API basado en la nube que crea una capa de conversación, preguntas y respuestas mediante los datos. QnA Maker le permite alimentar un servicio de preguntas y respuestas con su contenido semiestructurado, como documentos de preguntas frecuentes, direcciones URL y manuales de productos. El servicio QnA Maker responde a preguntas en el lenguaje natural de los usuarios, para lo que las hace coincidir con la mejor respuesta posible de los QnA de su base de conocimiento.
-  ms.openlocfilehash: 03518a1d7156d57424b28980d05bb03bfef56503
-  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+  ms.openlocfilehash: e566fdb18bdabe80447de9b2882cf7d57209d15e
+  ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/14/2020
-  ms.locfileid: "75945601"
+  ms.lasthandoff: 01/29/2020
+  ms.locfileid: "76844116"
 landingContent:
 - title: Acerca de QnA Maker
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
     - text: Ciclo de vida del desarrollo
       url: concepts/development-lifecycle-knowledge-base.md
     - text: Orígenes de datos
-      url: concepts/data-sources-supported.md
+      url: concepts/knowledge-base.md
   - linkListType: video
     links:
     - text: Creación de un bot en un momento

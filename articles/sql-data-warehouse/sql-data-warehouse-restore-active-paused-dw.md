@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a73658510111df44c522d88ed5eceb7dcfa80d0d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d0bcf9ca6373984989d24efd2af4ffbbb19c5548
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685539"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759693"
 ---
 # <a name="restore-an-existing-azure-sql-data-warehouse"></a>Restauración de una instancia de Azure SQL Data Warehouse existente
 
@@ -24,16 +24,16 @@ En este artículo, aprenderá a restaurar una instancia de Azure SQL Data Wareho
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Compruebe la capacidad DTU**. Cada instancia de SQL Data Warehouse está hospedada en un servidor SQL Server (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor de SQL Server tiene suficiente cuota de DTU restante para la base de datos que se va a restaurar. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU][Request a DTU quota change].
+**Compruebe la capacidad DTU**. Cada instancia de SQL Data Warehouse está hospedada en un servidor SQL Server (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor de SQL Server tiene suficiente cuota de DTU restante para la base de datos que se va a restaurar. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-1. Asegúrese de [instalar Azure PowerShell][Install Azure PowerShell].
-2. Tenga un punto de restauración existente desde el que desee realizar la restauración. Si desea crear una restauración, consulte [el tutorial para crear un de restauración definido por el usuario][the tutorial to create a new user-defined restore point].
+1. Asegúrese de [instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+2. Tenga un punto de restauración existente desde el que desee realizar la restauración. Si desea crear una restauración, consulte [el tutorial para crear un de restauración definido por el usuario](sql-data-warehouse-restore-points.md).
 
 ## <a name="restore-an-existing-data-warehouse-through-powershell"></a>Restauración de una base de datos de almacenamiento de datos existente mediante PowerShell
 
-Para restaurar una base de datos de almacenamiento de datos existente a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase][Restore-AzSqlDatabase] de PowerShell.
+Para restaurar una base de datos de almacenamiento de datos existente a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
 
 1. Abra PowerShell.
 
@@ -45,13 +45,13 @@ Para restaurar una base de datos de almacenamiento de datos existente a partir d
 
 5. Elija el punto de restauración deseado mediante RestorePointCreationDate.
 
-6. Restaure la base de datos de almacenamiento de datos al punto de restauración deseado mediante el comando [Restore-AzSqlDatabase][Restore-AzSqlDatabase] de PowerShell.
+6. Restaure la base de datos de almacenamiento de datos al punto de restauración deseado mediante el comando [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
         1. Para restaurar la instancia de SQL Data Warehouse en un servidor lógico diferente, asegúrese de especificar el nombre del otro servidor lógico.  Este servidor lógico también puede estar en un grupo de recursos y una región diferentes.
         2. Para realizar la restauración en otra suscripción, use el botón Mover para mover el servidor lógico a otra suscripción.
 
 7. Compruebe que la base de datos de almacenamiento de datos restaurada está en línea.
 
-8. Una vez finalizada la restauración, puede configurar la base de datos de almacenamiento de datos recuperada siguiendo la explicación que se proporciona en el apartado [Configuración de la base de datos después de realizar la recuperación][Configure your database after recovery].
+8. Una vez finalizada la restauración, puede configurar la base de datos de almacenamiento de datos recuperada siguiendo la explicación que se proporciona en el apartado [Configuración de la base de datos después de realizar la recuperación](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-an-existing-data-warehouse-through-the-azure-portal"></a>Restauración de una base de datos de almacenamiento de datos existente mediante Azure Portal
 
-1. Inicie sesión en el [Azure Portal][Azure portal].
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Vaya a la instancia de SQL Data Warehouse desde la que desea realizar la restauración.
 3. En la parte superior de la hoja de información general, seleccione **Restaurar**.
 
@@ -100,29 +100,7 @@ $RestoredDatabase.status
     ![Puntos de restauración automáticos](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Restauración de un almacén de datos eliminado][Restore a deleted data warehouse]
-- [Restauración desde un almacenamiento de datos de copia de seguridad geográfica][Restore from a geo-backup data warehouse]
+- [Restauración de un almacén de datos eliminado](sql-data-warehouse-restore-deleted-dw.md)
+- [Restauración desde un almacenamiento de datos de copia de seguridad geográfica](sql-data-warehouse-restore-from-geo-backup.md)
+
  
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[the tutorial to create a new user-defined restore point]:../sql-data-warehouse/sql-data-warehouse-restore-points.md
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-
-<!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/

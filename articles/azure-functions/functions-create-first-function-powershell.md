@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8cc89805ce53c141ff2c012fccb3c01ff2e9db49
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: b1a1caf985e9693e261684c1edb21184071ebfc8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167895"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845907"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Creación de su primera función de PowerShell en Azure
 
@@ -67,36 +67,7 @@ La plantilla del proyecto de Azure Functions de Visual Studio Code crea un proye
 
 Visual Studio Code crea el proyecto de la aplicación de función de PowerShell en una nueva área de trabajo. Este proyecto contiene los archivos de configuración [host.json](functions-host-json.md) y [local.settings.json](functions-run-local.md#local-settings-file), que se aplican a todas las funciones del proyecto. Este [proyecto de PowerShell](functions-reference-powershell.md#folder-structure) es igual que una aplicación de función que se ejecuta en Azure.
 
-## <a name="run-the-function-locally"></a>Ejecución local de la función
-
-Azure Functions Core Tools se integra con Visual Studio Code para permitirle ejecutar y depurar un proyecto de Azure Functions localmente.  
-
-1. Para depurar la función, inserte una llamada al cmdlet [`Wait-Debugger`] en el código de la función antes de adjuntar el depurador y luego presione F5 para iniciar el proyecto de la aplicación de función y adjuntar el depurador. La salida de Core Tools aparece en el panel **Terminal**.
-
-1. En el panel **Terminal**, copie el punto de conexión de la dirección URL de la función desencadenada por HTTP.
-
-    ![Salida local de Azure](./media/functions-create-first-function-powershell/functions-vscode-f5.png)
-
-1. Adjunte la cadena de consulta `?name=<yourname>` a esta dirección URL y use `Invoke-RestMethod` para ejecutar la solicitud, del modo siguiente:
-
-    ```powershell
-    PS > Invoke-RestMethod -Method Get -Uri http://localhost:7071/api/HttpTrigger?name=PowerShell
-    Hello PowerShell
-    ```
-
-    También puede ejecutar la solicitud GET desde un explorador.
-
-    Cuando se llama al punto de conexión HttpTrigger sin pasar un parámetro `name` como un parámetro de consulta o en el cuerpo, la función devuelve un error [HttpStatusCode]::BadRequest. Al revisar el código de run.ps1, verá que este error se produce por diseño.
-
-1. Para detener la depuración, presione Mayús + F5.
-
-Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
-
-> [!NOTE]
-> No olvide quitar todas las llamadas a `Wait-Debugger` antes de publicar sus funciones en Azure. 
->
-> La creación de una instancia de Function App en Azure solo le solicitará el nombre de la aplicación de funciones. Otros valores se definen automáticamente.
-> Establezca `azureFunctions.advancedCreation` en `true` para que se le pidan todos los demás valores.
+[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

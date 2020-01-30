@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dfa7681b43bd18e15ee929156ab9a45bb9790c5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646496"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845592"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -39,7 +39,7 @@ Todos los recursos de Azure se crean en una suscripción y una región de Azure.
 
 ## <a name="subscriptions"></a>Suscripciones
 
-Puede implementar tantas redes virtuales como sea necesario en cada suscripción, hasta el [límite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) que se haya establecido. Por ejemplo, algunas organizaciones tienen suscripciones distintas para diferentes departamentos. Para obtener más información y detalles en torno a las suscripciones, consulte [Gobernanza de suscripción](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
+Puede implementar tantas redes virtuales como sea necesario en cada suscripción, hasta el [límite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) que se haya establecido. Por ejemplo, algunas organizaciones tienen suscripciones distintas para diferentes departamentos. Para obtener más información y detalles en torno a las suscripciones, consulte [Gobernanza de suscripción](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentación
 

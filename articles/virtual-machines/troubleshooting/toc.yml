@@ -159,8 +159,6 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
-    - name: 'Reinicio, apagado o detención de servicios'
-      href: boot-error-troubleshoot-windows.md
 - name: Se cambian los nombres de dispositivos
   href: troubleshoot-device-names-problems.md
 - name: Acceso a la recuperación de máquinas virtuales
@@ -199,6 +197,8 @@
       href: troubleshoot-critical-service-failed-boot-error.md
     - name: Reinicio de bucle
       href: troubleshoot-reboot-loop.md
+    - name: 'Reinicio, apagado o detención de servicios'
+      href: boot-error-troubleshoot-windows.md
     - name: Bloqueo en Windows Update
       href: troubleshoot-stuck-updating-boot-error.md
 - name: Errores de limitación
