@@ -15,15 +15,14 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7915c0dae652e113410002128e4ea19ddba68a07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962627"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696918"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedimientos para: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedimientos: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -40,11 +39,11 @@ Esta guía se aplica a:
 * Azure Active Directory B2B
 * Acceso condicional de Azure Active Directory
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En esta guía se supone que sabe cómo:
 
-* Aprovisionar la aplicación mediante el portal heredado para Azure AD. Para obtener más información, consulte [Registro de una aplicación](quickstart-register-app.md)
+* Aprovisionar la aplicación mediante el portal heredado para Azure AD. Para obtener más información, consulte [Registro de una aplicación](quickstart-register-app.md).
 * Integrar la aplicación con el [SDK iOS de Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Conceptos relativos al inicio de sesión único

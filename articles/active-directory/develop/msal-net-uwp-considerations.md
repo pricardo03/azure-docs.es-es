@@ -13,13 +13,12 @@ ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14546a63db952119303428140c65ee402010816
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 549e36099e06d665ecab879ceb3c38987d000852
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921788"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695099"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Consideraciones específicas de la Plataforma universal de Windows con MSAL.NET
 En UWP, hay varias consideraciones que debe tener en cuenta al usar MSAL.NET.
@@ -43,7 +42,7 @@ La implementación subyacente en la plataforma UWP (WAB) no funciona correctamen
 
 Una solución alternativa es usar un método alternativo (nombre de usuario/contraseña + autenticación por teléfono), pero la experiencia no es buena.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Algunos clientes han comunicado que, en algunos entornos empresariales específicos, se produjo el siguiente error de inicio de sesión:
 
@@ -64,7 +63,7 @@ Para obtener información, vea [Agente de autenticación web: Fiddler](https://d
 ## <a name="next-steps"></a>Pasos siguientes
 En los ejemplos siguientes se proporcionan más detalles:
 
-Muestra | Plataforma | DESCRIPCIÓN 
+Muestra | Plataforma | Descripción 
 |------ | -------- | -----------|
 |[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Una aplicación cliente de la Plataforma universal de Windows que utiliza msal.net, accediendo a Microsoft Graph para un usuario que se autentica con el punto de conexión Azure AD v2.0. <br>![Topología](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Una aplicación de Xamarin Forms sencilla que muestra cómo usar MSAL para autenticar MSA y Azure AD mediante el punto de conexión AAD v2.0 y cómo obtener acceso a Microsoft Graph con el token resultante. <br>![Topología](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

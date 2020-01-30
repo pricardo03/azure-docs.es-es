@@ -14,13 +14,12 @@ ms.date: 10/07/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c195a5da6b04a919947c0ae65d7d6109115627d2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 55c7ee6711c6001745053b850c1b4e1859af5dbe
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918396"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699026"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
@@ -211,7 +210,7 @@ En los ejemplos, puede aprender a:
 * Crear una directiva para una aplicación nativa que llama a una API web
 * Administrar una directiva avanzada
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de aplicaciones, entidades de servicio y de la organización en general. Si no está familiarizado con Azure AD, se recomienda que aprenda [cómo obtener un inquilino de Azure AD](quickstart-create-new-tenant.md) antes de continuar con estos ejemplos.  
 
 Para comenzar, realice uno de los pasos siguientes:
@@ -390,7 +389,7 @@ Crea una nueva directiva.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |La matriz de cadenas JSON que contiene todas las reglas de la directiva. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Cadena del nombre de la directiva. |`-DisplayName "MyTokenPolicy"` |
@@ -407,7 +406,7 @@ Obtiene todas las directivas de AzureAD o una directiva especificada.
 Get-AzureADPolicy
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> [Opcional] |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 
@@ -420,7 +419,7 @@ Obtiene todas las aplicaciones y entidades de servicio vinculadas a una directiv
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 
@@ -433,7 +432,7 @@ Actualiza una directiva existente.
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Cadena del nombre de la directiva. |`-DisplayName "MyTokenPolicy"` |
@@ -451,7 +450,7 @@ Elimina la directiva especificada.
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. | `-Id <ObjectId of Policy>` |
 
@@ -467,7 +466,7 @@ Vincula la directiva especificada a una aplicación.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |El valor de **ObjectId** de la directiva. | `-RefObjectId <ObjectId of Policy>` |
@@ -481,7 +480,7 @@ Obtiene la directiva asignada a una aplicación.
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 
@@ -494,7 +493,7 @@ Quita una directiva de una aplicación.
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |El valor de **ObjectId** de la directiva. | `-PolicyId <ObjectId of Policy>` |
@@ -511,7 +510,7 @@ Vincula la directiva especificada a una entidad de servicio.
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |El valor de **ObjectId** de la directiva. | `-RefObjectId <ObjectId of Policy>` |
@@ -525,7 +524,7 @@ Obtiene cualquier directiva vinculada a la entidad de servicio especificada.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 
@@ -538,7 +537,7 @@ Quita la directiva de la entidad de servicio especificada.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Parámetros | DESCRIPCIÓN | Ejemplo |
+| Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |El valor de **ObjectId** de la directiva. | `-PolicyId <ObjectId of Policy>` |

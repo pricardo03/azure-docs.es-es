@@ -13,13 +13,12 @@ ms.date: 09/6/2019
 ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0653eef585dd81d2e03585bf45b45ee9df9de292
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0c7b059fd8d9b34ad6d1e565431d39ffc706cb45
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917258"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696714"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guía de migración de ADAL a MSAL para Android
 
@@ -29,7 +28,7 @@ En este artículo se resaltan los cambios que debe realizar para migrar una apli
 
 ADAL funciona con el punto de conexión de Azure Active Directory v1.0. La biblioteca de autenticación de Microsoft (MSAL) funciona con la Plataforma de identidad de Microsoft, que anteriormente se conocía como punto de conexión de Azure Active Directory v2.0. La Plataforma de identidad de Microsoft se diferencia de Azure Active Directory v1.0 en lo siguiente:
 
-Admite:
+Es compatible con:
   - Identidad organizativa (Azure Active Directory)
   - Identidades no organizativas como Outlook.com, Xbox Live, etc.
   - (Solo B2C) Inicio de sesión federado con Google, Facebook, Twitter y Amazon
@@ -241,7 +240,7 @@ En MSAL, hay una jerarquía de excepciones y cada una tiene su propio conjunto d
 
 Lista de excepciones de MSAL
 
-|Excepción  | DESCRIPCIÓN  |
+|Excepción  | Descripción  |
 |---------|---------|
 | `MsalException`     | Excepción comprobada predeterminada producida por MSAL.  |
 | `MsalClientException`     | Se produce si el error está en el lado del cliente. |

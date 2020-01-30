@@ -17,13 +17,12 @@ ms.date: 09/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67f9107e352f1ae52158d09caea4ba8118a3c515
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6eb71bb4fdaa602dcbce5d351c261493647f3caa
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964436"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700811"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web con OpenID Connect y Azure Active Directory
 
@@ -89,7 +88,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| Parámetro |  | DESCRIPCIÓN |
+| Parámetro |  | Descripción |
 | --- | --- | --- |
 | tenant |requerido |El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son los identificadores de inquilino; por ejemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` para los tokens independientes del inquilino. |
 | client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. Haga clic en **Azure Active°Directory**, en **Registros de aplicaciones**, elija la aplicación y busque el identificador de la aplicación en la página de aplicación. |
@@ -116,7 +115,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | ID_token |El `id_token` que solicitó la aplicación. Puede usar el `id_token` para comprobar la identidad del usuario y comenzar una sesión con el usuario. |
 | state |Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
@@ -133,7 +132,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
@@ -142,7 +141,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 En la tabla siguiente se describen los distintos códigos de error que pueden devolverse en el parámetro `error` de la respuesta de error.
 
-| Código de error | DESCRIPCIÓN | Acción del cliente |
+| Código de error | Descripción | Acción del cliente |
 | --- | --- | --- |
 | invalid_request |Error de protocolo, como un parámetro obligatorio que falta. |Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que suele detectarse durante las pruebas iniciales. |
 | unauthorized_client |La aplicación cliente no puede solicitar un código de autorización. |Este error suele producirse cuando la aplicación cliente no está registrada en Azure AD o no se ha agregado al inquilino de Azure AD del usuario. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
@@ -178,7 +177,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parámetro |  | DESCRIPCIÓN |
+| Parámetro |  | Descripción |
 | --- | --- | --- |
 | post_logout_redirect_uri |recomendado |La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto.  Esta dirección URL debe coincidir con uno de los URI de redirección registrados para su aplicación en el portal de registro de aplicaciones.  Si no se incluye *post_logout_redirect_uri*, se muestra un mensaje genérico al usuario. |
 
@@ -225,7 +224,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | ID_token |El `id_token` que solicitó la aplicación. Puede usar el `id_token` para comprobar la identidad del usuario y comenzar una sesión con el usuario. |
 | código |El authorization_code que solicitó la aplicación. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Los authorization_codes son de corta duración y normalmente expiran después de unos 10 minutos. |
@@ -243,7 +242,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |

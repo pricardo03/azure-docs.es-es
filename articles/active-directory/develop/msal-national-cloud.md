@@ -13,13 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916048"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695745"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Uso de MSAL en un entorno de nube nacional
 
@@ -35,7 +34,7 @@ Incluida la nube mundial, Azure Active Directory (Azure AD) se implementa en las
 
 En esta guía se muestra cómo iniciar sesión en cuentas profesionales y educativas, obtener un token de acceso y llamar a la API de Microsoft Graph en el entorno de la [nube de Azure Government](https://azure.microsoft.com/global-infrastructure/government/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar, asegúrese de que cumpla estos requisitos previos.
 
@@ -71,7 +70,7 @@ Para habilitar la aplicación MSAL.js para nubes soberanas:
 
 ### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.us/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.us/).
     
    Para buscar los puntos de conexión de Azure Portal para otras nubes nacionales, consulte [Puntos de conexión de registro de aplicaciones](authentication-national-cloud.md#app-registration-endpoints).
 

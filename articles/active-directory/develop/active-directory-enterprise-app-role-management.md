@@ -13,19 +13,18 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 702c64fbc4eda2af7132a2117c1b09ca0bf41cff
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a70abd1cddb866037926bbbc881682d50599366b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918600"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699264"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
 Mediante Azure Active Directory (Azure AD) se puede personalizar el tipo de notificación de la notificación de rol en el token de respuesta que se recibe después de autorizar una aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure AD con configuración de directorios.
 - Una suscripción que tenga el inicio de sesión único (SSO) habilitado. El inicio de sesión único se debe configurar con la aplicación.
@@ -152,7 +151,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
 9. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
-    | Nombre del atributo | Valor de atributo |
+    | Nombre del atributo | Valor del atributo |
     | -------------- | ----------------|
     | Nombre de rol  | user.assignedroles |
 

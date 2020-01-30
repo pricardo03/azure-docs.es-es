@@ -13,13 +13,12 @@ ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bfdeaba26e98f600b81b3a473326ff4086f1aa2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b15a83fdde73a1c2c1d91f66017bbf927a2df584
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967157"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697462"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -34,7 +33,7 @@ En este artículo se explica el proceso para mostrar una aplicación en la galer
 - Los clientes mutuos pueden utilizar un tutorial de configuración paso a paso.
 - Los clientes que usan el sistema para la administración de identidades entre dominios ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) pueden usar el aprovisionamiento para la misma aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Para las aplicaciones federadas (Open ID y SAML/WS-Fed), la aplicación debe admitir el modelo de software como servicio (SaaS) para que se incluya en la galería de Azure AD. Las aplicaciones de la galería empresarial tienen que admitir varias configuraciones de cliente y no la de un cliente específico.
 - Para OpenID Connect, la aplicación debe ser de varios inquilinos y para ella se debe implementar correctamente el [marco de consentimiento de Azure AD](consent-framework.md). El usuario puede enviar la solicitud de inicio de sesión a un punto de conexión común para que los clientes puedas proporcionar su consentimiento a la aplicación. Puede controlar el acceso de usuario en función del identificador del inquilino y el UPN del usuario que se recibieron en el token.

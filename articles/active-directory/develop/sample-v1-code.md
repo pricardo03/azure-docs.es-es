@@ -17,13 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a71eaebcc6345d6550d6ddd38350fe709706d740
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: b0b9e8215789936eb4f61900faae552407d01252
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809282"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702596"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Ejemplos de código de Azure Active Directory (punto de conexión v1.0)
 
@@ -124,7 +123,7 @@ Los ejemplos siguientes muestran una API web que llama a otra API web. El segund
 
 Para obtener ejemplos y tutoriales en los que se muestren los diferentes patrones de uso de Microsoft Graph API, incluida la autenticación con Azure AD, consulte [Microsoft Graph Community samples & tutorials](https://github.com/microsoftgraph/msgraph-community-samples) (Ejemplos y tutoriales de la comunidad de Microsoft Graph).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [Guía del desarrollador de Azure Active Directory](v1-overview.md)
 

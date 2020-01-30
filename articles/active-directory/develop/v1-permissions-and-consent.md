@@ -17,13 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c13f4cabfbd996c1d811a8a3e35e69893c51154f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042328"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700930"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory
 
@@ -61,7 +60,7 @@ Los permisos de Azure AD tienen un número de propiedades que ayudan a los usuar
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nombre de propiedad | DESCRIPCIÓN | Ejemplo |
+| Nombre de propiedad | Descripción | Ejemplo |
 | --- | --- | --- |
 | `ID` | Es un valor de GUID que identifica este permiso de forma única. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Indica si este permiso está disponible para su uso. | true |

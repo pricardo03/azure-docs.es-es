@@ -12,13 +12,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bd060e0c627e8183f8d7f7b449f8d6f19c951b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b7f9daa61e012a9420702d7df7411d0c07c6e193
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967054"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697870"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -86,7 +85,7 @@ Los desarrolladores pueden tomar este desafío y anexarlo a una solicitud nueva 
 
 ## <a name="scenarios"></a>Escenarios
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 El acceso condicional de Azure AD es una característica que se incluye en [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Puede obtener más información sobre los requisitos de licencia en el [informe de uso sin licencia](../active-directory-conditional-access-unlicensed-usage-report.md). Los desarrolladores pueden unirse a [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que incluye una suscripción gratis a Enterprise Mobility Suite que, a su vez, incluye Azure AD Premium.
 

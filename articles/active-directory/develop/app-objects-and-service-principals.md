@@ -14,13 +14,12 @@ ms.date: 04/13/2019
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf436881a74cffd0053718413ce83a148fa019d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 19085346fb5797245c9f71911f8178df0a1b742a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918209"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698431"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
 
@@ -84,7 +83,7 @@ En el siguiente se muestra la relación entre un objeto de aplicación de la apl
 
 En este escenario de ejemplo:
 
-| Paso | DESCRIPCIÓN |
+| Paso | Descripción |
 |------|-------------|
 | 1    | Es el proceso de creación de los objetos de aplicación y de entidad de servicio del inquilino principal de la aplicación. |
 | 2    | Cuando los administradores de Contoso y Fabrikam completan el consentimiento, se crea un objeto de entidad de servicio en el inquilino de Azure AD de la empresa y se asignan los permisos que concede el administrador. Tenga en cuenta también que la aplicación de recursos humanos podría estar configurada o diseñada para dar consentimiento a los usuarios para el uso individual. |

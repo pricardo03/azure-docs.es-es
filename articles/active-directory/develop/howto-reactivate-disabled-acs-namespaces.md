@@ -12,15 +12,14 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cc038e67e5528a52b0b98ea1698da07e8120242
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ad908b814a7c2b4dce9d15153b0991f51f623e8b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966952"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697105"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedimientos para: Reactivación de los espacios de nombres deshabilitados de Access Control Service
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedimientos: Reactivación de los espacios de nombres deshabilitados de Access Control Service
 
 En noviembre de 2017, anunciamos que Microsoft Azure Access Control Service (ACS), un servicio de Azure Active Directory (Azure AD), se va a retirar el 7 de noviembre de 2018.
 
@@ -90,7 +89,7 @@ Ya no se aprobarán automáticamente más extensiones. Si necesita tiempo adicio
 1. Inicie sesión en Azure Portal y cree una [nueva solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support).
 1. Rellene el formulario de solicitud de soporte técnico tal como se muestra en el ejemplo siguiente.
 
-    | Campo de solicitud de soporte técnico | Valor |
+    | Campo de solicitud de soporte técnico | Value |
     |-----------------------|--------------------|
     | **Tipo de problema** | `Technical` |
     | **Suscripción** | Establecimiento de la suscripción |

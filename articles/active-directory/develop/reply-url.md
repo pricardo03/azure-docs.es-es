@@ -10,13 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920334"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702528"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta
 
@@ -26,7 +25,7 @@ Un URI de redireccionamiento, o URL de respuesta, es la ubicación a la que el s
 
 En la tabla siguiente se muestra el número máximo de URI de redireccionamiento que se pueden agregar al registrar la aplicación.
 
-| Cuentas en las que se inicia sesión | Número máximo de URI de redireccionamiento | DESCRIPCIÓN |
+| Cuentas en las que se inicia sesión | Número máximo de URI de redireccionamiento | Descripción |
 |--------------------------|---------------------------------|-------------|
 | Cuentas profesionales o educativas de Microsoft en un inquilino de Azure Active Directory (Azure AD) de una organización | 256 | El campo `signInAudience` del manifiesto de aplicación está establecido en *AzureADMyOrg* o *AzureADMultipleOrgs*. |
 | Cuentas personales de Microsoft y profesionales o educativas | 100 | El campo `signInAudience` del manifiesto de aplicación está establecido en *AzureADandPersonalMicrosoftAccount*. |

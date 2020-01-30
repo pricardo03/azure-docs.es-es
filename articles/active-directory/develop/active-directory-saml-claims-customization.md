@@ -14,13 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e1a466902ccb47d57e5f9590ba94bf08c76ec5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7a4a58943b251628780694c001ca441a14e9c09a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918447"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698686"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -56,7 +55,7 @@ Si la solicitud SAML no contiene ningún elemento para NameIDPolicy, Azure AD em
 
 En el menú desplegable **Elija el formato del identificador de nombre**, puede seleccionar una de las opciones siguientes.
 
-| Formato de NameID | DESCRIPCIÓN |
+| Formato de NameID | Descripción |
 |---------------|-------------|
 | **Valor predeterminado** | Azure AD usará el formato de origen predeterminado. |
 | **Persistent** | Azure AD usará Persistent como el formato de NameID. |
@@ -70,7 +69,7 @@ También se admite NameID transitorio, pero no está disponible en la lista desp
 
 Seleccione el origen que desee para la notificación `NameIdentifier` (o NameID). Puede seleccionar entre las opciones siguientes:
 
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 |------|-------------|
 | Email | Dirección de correo electrónico del usuario |
 | userprincipalName | Nombre principal de usuario (UPN) del usuario. |
@@ -100,7 +99,7 @@ También puede asignar cualquier valor constante (estático) a cualquier notific
 
 También puede usar las funciones de transformaciones de notificaciones.
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 |----------|-------------|
 | **ExtractMailPrefix()** | Quita el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario. De este modo se extrae solo la primera parte del nombre de usuario por la que se pasa (por ejemplo, "joe_smith" en lugar de joe_smith@contoso.com). |
 | **Join()** | Combina un atributo con un dominio comprobado. Si el valor de identificador de usuario seleccionado tiene un dominio, extraerá el nombre de usuario para anexar el dominio comprobado seleccionado. Por ejemplo, si selecciona el correo electrónico (joe_smith@contoso.com) como valor de identificador de usuario y selecciona contoso.onmicrosoft.com como dominio comprobado, el resultado será joe_smith@contoso.onmicrosoft.com. |
@@ -127,7 +126,7 @@ Para aplicar una transformación a un atributo de usuario:
 
 Puede utilizar las siguientes funciones para transformar notificaciones.
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 |----------|-------------|
 | **ExtractMailPrefix()** | Quita el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario. De este modo se extrae solo la primera parte del nombre de usuario por la que se pasa (por ejemplo, "joe_smith" en lugar de joe_smith@contoso.com). |
 | **Join()** | Crea un nuevo valor al combinar dos atributos. Si quiere, puede usar un separador entre los dos atributos. Para la transformación de notificaciones NameID, la combinación está restringida a un dominio comprobado. Si el valor de identificador de usuario seleccionado tiene un dominio, extraerá el nombre de usuario para anexar el dominio comprobado seleccionado. Por ejemplo, si selecciona el correo electrónico (joe_smith@contoso.com) como valor de identificador de usuario y selecciona contoso.onmicrosoft.com como dominio comprobado, el resultado será joe_smith@contoso.onmicrosoft.com. |

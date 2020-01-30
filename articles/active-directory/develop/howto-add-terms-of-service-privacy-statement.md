@@ -12,15 +12,14 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842820"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697343"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos para: Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos: Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
 
 Los desarrolladores que crean y administran las aplicaciones que se integran con Azure Active Directory (Azure AD) y cuentas Microsoft deben incluir vínculos a las declaraciones del servicio y la declaración de privacidad de la aplicación. Las condiciones del servicio y la declaración de privacidad se exponen a los usuarios mediante la experiencia de consentimiento del usuario. Ayudan a los usuarios a saber que pueden confiar en la aplicación. Las condiciones del servicio y la declaración de privacidad son especialmente importantes para las aplicaciones multiinquilino orientadas al usuario: aplicaciones utilizadas por varios directorios o que están disponibles para cualquier cuenta Microsoft.
 
@@ -40,7 +39,7 @@ Los ejemplos siguientes muestran la experiencia de consentimiento del usuario cu
 
 Antes de agregar vínculos a los documentos de las condiciones del servicio y de la declaración de privacidad para la aplicación, asegúrese de que las direcciones URL siguen estas directrices.
 
-| Directrices     | DESCRIPCIÓN                           |
+| Directrices     | Descripción                           |
 |---------------|---------------------------------------|
 | Formato        | Dirección URL válida                             |
 | Esquemas válidos | HTTP y HTTPS<br/>Se recomienda utilizar HTTPS |
@@ -59,7 +58,7 @@ Cuando las condiciones del servicio y la declaración de privacidad estén prepa
 ### <a name="azure-portal"></a>Mediante Azure Portal
 Siga estos pasos en Azure Portal.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Navegue hasta la sección **Registros de aplicaciones** y seleccione la aplicación.
 3. Abra el panel **Personalización de marca**.
 4. Rellene los campos **URL de las condiciones del servicio** y **URL de la declaración de privacidad**.

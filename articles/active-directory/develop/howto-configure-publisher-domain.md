@@ -13,15 +13,14 @@ ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2739f5db8c50449e3481ccdfb495b30edba54ce1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 68040c8ee22454c300296493b6c840eabbca98aa
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966986"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697139"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain"></a>Procedimientos para: Configuración del dominio de editor de una aplicación
+# <a name="how-to-configure-an-applications-publisher-domain"></a>Procedimientos: Configuración del dominio de editor de una aplicación
 
 El dominio de editor de una aplicación se muestra a los usuarios en la [petición de consentimiento de la aplicación](application-consent-experience.md) para que los usuarios sepan dónde se envía su información. Las aplicaciones multiinquilino registradas después del 21 de mayo de 2019 que no tengan un dominio de editor se muestran como **no verificadas**. Las aplicaciones multiinquilino son aquellas que admiten cuentas ajenas a un único directorio organizativo; por ejemplo, admiten todas las cuentas de Azure AD o admiten todas las cuentas de Azure AD y las cuentas personales de Microsoft.
 

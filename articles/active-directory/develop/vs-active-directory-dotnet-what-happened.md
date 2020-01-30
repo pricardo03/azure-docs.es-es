@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4328ea6145d32616f1784d94976dab29216fbc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 83717f9a78d80923f020ab699be9ddabbbcc12ef
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852003"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700012"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio)?
 
@@ -27,13 +26,13 @@ ms.locfileid: "68852003"
 
 En este artículo se identifican los cambios exactos realizados en el proyecto AASP.NET MVC cuando se agrega el [servicio conectado de Azure Active Directory mediante Visual Studio](vs-active-directory-add-connected-service.md).
 
-Para obtener información sobre cómo trabajar con el servicio conectado, vea [Introducción](vs-active-directory-dotnet-getting-started.md).
+Para más información sobre cómo trabajar con el servicio conectado, consulte la [introducción](vs-active-directory-dotnet-getting-started.md).
 
 ## <a name="added-references"></a>Referencias agregadas
 
 Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (referencias de NuGet).
 
-| type | Referencia |
+| Tipo | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -48,7 +47,7 @@ Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (refer
 
 Referencias adicionales si ha seleccionado la opción **Leer datos de directorio**:
 
-| type | Referencia |
+| Tipo | Referencia |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
@@ -62,7 +61,7 @@ Referencias adicionales si ha seleccionado la opción **Leer datos de directorio
 
 Se quitan las referencias siguientes (solo proyectos de ASP.NET 4, como en Visual Studio 2015):
 
-| type | Referencia |
+| Tipo | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -138,7 +137,7 @@ Cambios adicionales si seleccionó la opción **Leer datos de directorio**:
 
 - Se actualizó el método `Startup.Configuration` para incluir una llamada a `ConfigureAuth(app)` si ya existía la clase; en caso contrario, se agregó una clase `Startup` que incluye llamadas al método.
 
-- Se agregó `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) o `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), que contiene la información que Visual Studio usa para realizar el seguimiento de la adición del servicio conectado.
+- Se agregó `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) o `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), que contiene información que usa Visual Studio para realizar el seguimiento de la adición del servicio conectado.
 
 - Si seleccionó la opción **Leer datos de directorio**, se agregó `Models/ADALTokenCache.cs` y `Models/ApplicationDbContext.cs` para admitir el almacenamiento en caché de tokens. Se agregó también un controlador y una vista adicionales para ilustrar el acceso a la información de perfil de usuario mediante Graph API de Azure: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml` y `Views/UserProfile/Relogin.cshtml`
 

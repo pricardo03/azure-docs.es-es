@@ -17,13 +17,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf512f802e0e4944e6ce949830719b87301adfc4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834805"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701406"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
 
@@ -47,7 +46,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parámetro |  | DESCRIPCIÓN |
+| Parámetro |  | Descripción |
 | --- | --- | --- |
 | id | Obligatorio | Azure AD usa este atributo para rellenar el atributo `InResponseTo` de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, `id6c1c178c166d486687be4aaf5e482730` es un id. válido. |
 | Versión | Obligatorio | Este parámetro debe establecerse en **2.0**. |
@@ -97,7 +96,7 @@ El elemento `Scoping`, que incluye una lista de proveedores de identidades, es o
 
 Si se proporciona, no incluya el atributo `ProxyCount` ni el elemento `IDPListOption` o `RequesterID`, ya que no se admiten.
 
-### <a name="signature"></a>Firma
+### <a name="signature"></a>Signature
 No incluya un elemento `Signature` en los elementos `AuthnRequest`, ya que Azure AD no es compatible con la firma de solicitudes de autenticación.
 
 ### <a name="subject"></a>Asunto
@@ -199,7 +198,7 @@ Se establece en `https://sts.windows.net/<TenantIDGUID>/`, donde \<TenantIDGUID>
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### <a name="signature"></a>Firma
+#### <a name="signature"></a>Signature
 
 Azure AD firma la aserción como respuesta a un inicio de sesión correcto. El elemento `Signature` contiene una firma digital que el servicio en la nube puede utilizar para autenticar el origen con el fin de comprobar la integridad de la aserción.
 

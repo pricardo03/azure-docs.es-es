@@ -13,13 +13,12 @@ ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a71093ee05e032a5df89bb0560b6daa82e2fbf2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cba213824cba86b4ea54e852b7e2f1ede83abfea
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916152"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695815"
 ---
 # <a name="logging-in-msal-applications"></a>Inicio de sesión en aplicaciones de MSAL
 
@@ -211,7 +210,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 Para establecer el nivel de registro al iniciar sesión con MSAL para iOS y macOS, use uno de los siguientes valores:
 
-|Nivel  |DESCRIPCIÓN |
+|Nivel  |Descripción |
 |---------|---------|
 | `MSALLogLevelNothing`| Deshabilitar todos los registros |
 | `MSALLogLevelError` | Nivel predeterminado; imprime información solo cuando se producen errores. |
@@ -288,7 +287,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Para establecer el nivel de registro al iniciar sesión con MSAL para iOS y macOS, use uno de los siguientes valores:
 
-|Nivel  |DESCRIPCIÓN |
+|Nivel  |Descripción |
 |---------|---------|
 | `MSALLogLevelNothing`| Deshabilitar todos los registros |
 | `MSALLogLevelError` | Nivel predeterminado; imprime información solo cuando se producen errores. |

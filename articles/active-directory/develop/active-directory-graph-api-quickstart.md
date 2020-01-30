@@ -13,15 +13,14 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f4baee8186894e985143b7d68d3c4a9ec34b55b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f32d9832f0bad81ca29ab7553d956b593531d1bd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845134"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698941"
 ---
-# <a name="how-to-use-the-azure-ad-graph-api"></a>Procedimientos para: Usar Graph API de Azure AD
+# <a name="how-to-use-the-azure-ad-graph-api"></a>Procedimientos: Usar Graph API de Azure AD
 
 > [!IMPORTANT]
 > Le recomendamos encarecidamente que utilice [Microsoft Graph](https://developer.microsoft.com/graph) en lugar de Graph API de Azure AD para tener acceso a recursos de Azure Active Directory (Azure AD). Nuestros esfuerzos de desarrollo ahora se centran en Microsoft Graph y no están previstas realizar mejoras adicionales para Graph API de Azure AD. Hay un número muy limitado de escenarios para los que Graph API de Azure AD todavía podría ser adecuado. Para obtener más información, consulte la entrada de blog [Microsoft Graph o Graph de Azure AD](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) y [Migrar aplicaciones de Graph de Azure AD a Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
@@ -62,7 +61,7 @@ En la captura de pantalla siguiente se muestra el resultado que vería si fuera 
 
 ![Salida de ejemplo en Azure AD Graph API Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Carga de Azure AD Graph Explorer**: para cargar la herramienta, vaya a [https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Haga clic en **Iniciar sesión** e inicie sesión con las credenciales de su cuenta de Azure AD para ejecutar el Probador de Graph de Azure AD con el inquilino. Si ejecuta el Probador de Graph de Azure AD con su propio inquilino, usted o el administrador tendrán que dar su consentimiento durante el inicio de sesión. Si dispone de una suscripción a Office 365, tendrá automáticamente un inquilino de Azure AD. De hecho, las credenciales que usa para iniciar sesión en Office 365 son cuentas de Azure AD y puede usarlas con el Probador de Graph de Azure AD.
+**Carga de Azure AD Graph Explorer**: para cargar la herramienta, vaya a [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Haga clic en **Iniciar sesión** e inicie sesión con las credenciales de su cuenta de Azure AD para ejecutar el Probador de Graph de Azure AD con el inquilino. Si ejecuta el Probador de Graph de Azure AD con su propio inquilino, usted o el administrador tendrán que dar su consentimiento durante el inicio de sesión. Si dispone de una suscripción a Office 365, tendrá automáticamente un inquilino de Azure AD. De hecho, las credenciales que usa para iniciar sesión en Office 365 son cuentas de Azure AD y puede usarlas con el Probador de Graph de Azure AD.
 
 **Ejecutar una consulta**: para ejecutar una consulta, escríbala en el cuadro de texto de la solicitud y haga clic en **GET** o en la tecla **Entrar**. Los resultados se muestran en el cuadro de respuesta. Por ejemplo, `https://graph.windows.net/myorganization/groups?api-version=1.6` enumera todos los objetos de grupo del directorio del usuario que ha iniciado sesión.
 
@@ -84,7 +83,7 @@ En el ejemplo siguiente, usará el depurador web Fiddler para crear un nuevo gru
 
 **Obtener un token de acceso**: para obtener acceso a Azure AD Graph, los clientes deben autenticarse primero correctamente en Azure AD. Para obtener más información, consulte [Escenarios de autenticación en Azure AD](v1-authentication-scenarios.md).
 
-**Redactar y ejecutar una consulta**: Complete los siguientes pasos:
+**Redactar y ejecutar una consulta**: Complete los pasos siguientes:
 
 1. Abra el depurador web Fiddler y cambie a la pestaña **Composer** (Compositor).
 2. Puesto que desea crear un nuevo grupo de seguridad, seleccione **Post** como método de HTTP en el menú desplegable. Para más información sobre las operaciones y los permisos de los objetos de grupo, consulte la sección sobre los [grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) en la [referencia sobre la API de REST Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).

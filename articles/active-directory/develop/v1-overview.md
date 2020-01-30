@@ -16,13 +16,12 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e790728cbc7415532754d10773d466e9a0280422
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ad58f9b135056ef273f612abc80262a55a7a1f5e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373905"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700998"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Introducción a Azure Active Directory para desarrolladores (v1.0)
 
@@ -37,11 +36,11 @@ Azure Active Directory (Azure AD) es un servicio de identidad en la nube que per
 |[Tipos de aplicaciones](app-types.md) | Una introducción a los escenarios de autenticación que se admiten en Azure AD. |
 | | |
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Las guías de inicio y tutoriales siguientes sobre v1.0 le llevan por los pasos necesarios para compilar una aplicación en su plataforma preferida mediante el SDK de la Biblioteca de autenticación de Azure AD (ADAL). Para comenzar, consulte las **guías de inicio de v1.0** y los **tutoriales de v1.0** en [Plataforma de identidad de Microsoft (Azure Active Directory para desarrolladores)](index.yml).
 
-## <a name="how-to-guides"></a>Guías de procedimientos
+## <a name="how-to-guides"></a>Guías paso a paso
 
 Consulte las **guías de procedimientos de v1.0** para encontrar información detallada y tutoriales sobre las tareas más comunes en Azure AD.
 

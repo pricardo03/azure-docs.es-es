@@ -13,15 +13,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c04377877619c96f139f4b6c1cf826573524d900
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 174a80b99f65393f5c5bbe35b30e7ac5b54a359e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845559"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699468"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimientos para: Migración desde Azure Access Control Service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimientos: Migración desde Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), un servicio de Azure Active Directory (Azure AD), se retirará el 7 de noviembre de 2018. Para entonces, las aplicaciones y servicios que utilizan Access Control deben migrarse completamente a un mecanismo de autenticación diferente. En este artículo se describen las recomendaciones para los clientes actuales que pretenden dejar de usar Access Control. Si actualmente no utiliza Access Control, no es necesario realizar ninguna acción.
 
@@ -207,7 +206,7 @@ En líneas generales, *Azure Active Directory probablemente no sea la opción ad
 | **Personalizaciones** | | |
 | UI de selección de cuenta o detección de dominio de inicio personalizable | Código descargable que se puede incorporar en las aplicaciones | No compatible |
 | Carga de certificados de firma de tokens personalizados | Compatible | Compatible |
-| Personalización de notificaciones en tokens |- Paso a través de notificaciones de entrada desde proveedores de identidad<br />- Obtención de token de acceso del proveedor de identidades como una notificación<br />- Emisión de notificaciones de salida basadas en valores de las notificaciones de entrada<br />- Emisión de notificaciones de salida con valores constantes. |- No se puede pasar a través notificaciones desde proveedores de identidades federados.<br />- No se puede obtener el token de acceso del proveedor de identidades como una notificación.<br />- No se pueden emitir notificaciones de salida basadas en valores de notificaciones de entrada.<br />- Se pueden emitir notificaciones de salida con valores constantes.<br />- Se pueden emitir notificaciones de salida en función de las propiedades de los usuarios que se sincronizan con Azure AD. |
+| Personalización de notificaciones en tokens |- Paso a través de notificaciones de entrada desde proveedores de identidad<br />- Obtención de token de acceso del proveedor de identidades como una notificación<br />- Emisión de notificaciones de salida basadas en valores de las notificaciones de entrada<br />- Emisión de notificaciones de salida con valores constantes |- No se puede pasar a través notificaciones desde proveedores de identidades federados.<br />- No se puede obtener el token de acceso del proveedor de identidades como una notificación<br />- No se pueden emitir notificaciones de salida basadas en valores de notificaciones de entrada.<br />- Se pueden emitir notificaciones de salida con valores constantes.<br />- Se pueden emitir notificaciones de salida en función de las propiedades de los usuarios que se sincronizan con Azure AD. |
 | **Automation** | | |
 | Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible a través de Microsoft Graph y Graph API de Azure AD. |
 

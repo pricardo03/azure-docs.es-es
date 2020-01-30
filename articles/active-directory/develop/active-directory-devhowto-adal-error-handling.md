@@ -11,13 +11,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4e0f434831f624dbd8c9c1302aab6816cd3d148
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2801ccc69f15aa275e58e433984ddb4f7c18b66
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966170"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699043"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 
@@ -49,7 +48,7 @@ Hay un conjunto de errores que genera el sistema operativo que podrían requerir
 
 Principalmente, hay dos casos de errores de AcquireTokenSilent:
 
-| Caso | DESCRIPCIÓN |
+| Caso | Descripción |
 |------|-------------|
 | **Caso 1**: Puede resolverse el error con un inicio de sesión interactivo | Es necesaria una solicitud interactiva para los errores debidos a la ausencia de tokens válidos. En concreto, una búsqueda en caché y un token de actualización no válido o que haya expirado requieren una llamada a AcquireToken para resolverse.<br><br>En estos casos, debe pedirse al usuario final que inicie sesión. La aplicación puede optar por hacer una solicitud interactiva inmediatamente, tras la interacción del usuario final (por ejemplo, pulsar un botón de inicio de sesión), o hacerla posteriormente. La elección depende del comportamiento deseado para la aplicación.<br><br>Vea el código en la sección siguiente para este caso concreto y los errores que permiten diagnosticarlo.|
 | **Caso 2**: No puede resolverse el error con un inicio de sesión interactivo | Para los errores de red y los errores transitorios o temporales, u otros problemas, una solicitud interactiva de AcquireToken no resuelve el problema. Las solicitudes de inicio de sesión interactivas innecesarias pueden frustrar a los usuarios finales. ADAL realiza automáticamente un reintento único para la mayoría de los errores de AcquireTokenSilent.<br><br>La aplicación cliente también puede realizar un reintento en algún momento posterior, pero cuándo y cómo hacerlo depende del comportamiento de la aplicación y de la experiencia del usuario final deseada. Por ejemplo, la aplicación puede realizar un reintento de AcquireTokenSilent tras unos minutos o como respuesta a alguna acción del usuario final. Un reintento inmediato dará como resultado que la aplicación se encuentre limitada y no debe realizarse.<br><br>Un reintento subsiguiente que produzca el mismo error no significa que el cliente debe realizar una solicitud interactiva mediante AcquireToken porque eso no soluciona el error.<br><br>Vea el código en la sección siguiente para este caso concreto y los errores que permiten diagnosticarlo. |

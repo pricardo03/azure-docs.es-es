@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0cf375902281817ecc002f8fb76be32eed149d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9858fdb7da80fe03498392ea93bf3c83b8a7e4dd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966323"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699876"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué le ha ocurrido a mi proyecto de WebAPI (servicio conectado de Visual Studio para Azure Active Directory)?
 
@@ -102,7 +101,7 @@ Se quitan las referencias siguientes (solo proyectos de ASP.NET 4, como en Visua
 
 - Se agregó el atributo `[Authorize]` a `Controllers/ValueController.cs` y cualquier otro controlador existente.
 
-- Se agregó o modificó, según el caso, una clase de inicio de autenticación, `App_Start/Startup.Auth.cs`, que contiene la lógica de inicio para la autenticación de Azure AD. Si seleccionó la opción **Leer datos de directorio**, este archivo también contiene código para recibir código de OAuth y cambiarlo por un token de acceso.
+- Se agregó o modificó, según el caso, una clase de inicio de autenticación, `App_Start/Startup.Auth.cs`, que contiene la lógica de inicio para la autenticación de Azure AD. Si seleccionó la opción **Leer datos de directorio**, este archivo también contiene código para recibir un código de OAuth y cambiarlo por un token de acceso.
 
 - (Solo Visual Studio 2015 con aplicaciones ASP.NET 4) Se quitó `App_Start/IdentityConfig.cs` y se agregaron `Controllers/AccountController.cs`, `Models/IdentityModel.cs` y `Providers/ApplicationAuthProvider.cs`.
 

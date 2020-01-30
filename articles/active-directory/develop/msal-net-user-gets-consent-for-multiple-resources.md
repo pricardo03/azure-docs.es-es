@@ -13,13 +13,12 @@ ms.date: 04/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89afdbed6870b4ce739ed51131def686c41a3015
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3bd23a1f14d5e3cbf9fc41ade47571c6689f3468
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921750"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695031"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>El usuario obtiene consentimiento para varios recursos con MSAL.NET
 El punto de conexión de la plataforma de identidad de Microsoft no le permitirá obtener un token para varios recursos a la vez. Cuando use la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET), el parámetro de ámbitos del método de adquisición de token solo debe contener ámbitos para un recurso único. Sin embargo, puede dar su consentimiento para varios recursos por adelantado si especifica otros ámbitos con el método de generador de `.WithExtraScopeToConsent`.

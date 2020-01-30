@@ -17,13 +17,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22abde182437bfeb4a42e5c9a0d8e41a4643f8f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9c02611ea6f083a6ce8f95844e52429fc1152f90
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964453"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701015"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -55,7 +54,7 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
 
 ### <a name="register-the-middle-tier-service"></a>Registro del servicio de nivel intermedio
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En la barra superior, seleccione su cuenta y, en la lista **Directorio**, seleccione un inquilino de Active Directory para la aplicación.
 1. Haga clic en **Más servicios** en el panel izquierdo y elija **Azure Active Directory**.
 1. Seleccione **Registros de aplicaciones** y, luego, **Nuevo registro**.
@@ -73,7 +72,7 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
 
 ### <a name="register-the-client-application"></a>Registro del tipo de aplicación cliente
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En la barra superior, seleccione su cuenta y, en la lista **Directorio**, seleccione un inquilino de Active Directory para la aplicación.
 1. Haga clic en **Más servicios** en el panel izquierdo y elija **Azure Active Directory**.
 1. Seleccione **Registros de aplicaciones** y, luego, **Nuevo registro**.
@@ -109,7 +108,7 @@ La aplicación cliente está protegida mediante un secreto compartido o un certi
 
 Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre servicios contiene los parámetros siguientes:
 
-| Parámetro |  | DESCRIPCIÓN |
+| Parámetro |  | Descripción |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. Una solicitud OBO usa JSON Web Token, por lo que el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token de acceso usado en la solicitud. |
@@ -143,7 +142,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Una solicitud de token de acceso entre servicios con un certificado contiene los parámetros siguientes:
 
-| Parámetro |  | DESCRIPCIÓN |
+| Parámetro |  | Descripción |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. Una solicitud OBO usa un token de acceso JWT, por lo que el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token usado en la solicitud. |
@@ -181,7 +180,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Una respuesta correcta es una respuesta de OAuth 2.0 de JSON con los parámetros siguientes:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para más información sobre los tokens de portador, consulte [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
 | scope |Ámbito de acceso concedido en el token. |
@@ -253,7 +252,7 @@ Algunos servicios web basados en OAuth necesitan tener acceso a otras API de ser
 
 Una solicitud de servicio a servicio para una aserción SAML contiene los siguientes parámetros:
 
-| Parámetro |  | DESCRIPCIÓN |
+| Parámetro |  | Descripción |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. En el caso de una solicitud que usa un JWT, el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token de acceso usado en la solicitud.|
@@ -272,7 +271,7 @@ La respuesta contiene un token SAML codificado con UTF8 y Base64url.
 
 ### <a name="response-with-saml-assertion"></a>Respuesta con aserción SAML
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
 | scope |Ámbito de acceso concedido en el token. |

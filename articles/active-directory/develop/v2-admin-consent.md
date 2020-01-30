@@ -17,13 +17,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b820be5631d207a32cbf14aa1eec9f3f6de2af52
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b9d6ab0fc2f2bf500f17161de7e090a6f60c0feb
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766062"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700743"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimiento del administrador en la Plataforma de identidad de Microsoft
 
@@ -51,11 +50,11 @@ Cuando esté listo para solicitar permisos al administrador de la organización,
 ```
 
 
-| Parámetro     | Condición     | DESCRIPCIÓN                                                                               |
+| Parámetro     | Condición     | Descripción                                                                               |
 |--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
 | `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, O puede hacerse referencia genéricamente con `organizations`, como se muestra en el ejemplo. No use "común", ya que las cuentas personales no pueden proporcionar consentimiento del administrador salvo en el contexto de un inquilino. Para garantizar una mejor compatibilidad con las cuentas personales que administran los inquilinos, use el identificador de inquilino cuando sea posible. |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
-| `redirect_uri` | Obligatorio |El URI de redirección adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
+| `redirect_uri` | Obligatorio |El URI de redireccionamiento adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
 | `state` | Recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
 |`scope`        | Obligatorio      | Define el conjunto de permisos que la aplicación solicita. Puede ser estático (mediante /.default) o ámbitos dinámicos.  Puede incluir ámbitos de OIDC (`openid`, `profile`, `email`). | 
 
@@ -70,7 +69,7 @@ Si el administrador aprueba los permisos para la aplicación, la respuesta corre
 http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
 ```
 
-| Parámetro         | DESCRIPCIÓN                                                                                       |
+| Parámetro         | Descripción                                                                                       |
 |------------------:|:-------------------------------------------------------------------------------------------------:|
 | `tenant`| El inquilino del directorio que concedió los permisos solicitados, en formato GUID.|
 | `state`           | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban.|
@@ -83,7 +82,7 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 Cuando se agregan a los parámetros que se ven en una respuesta correcta, los parámetros de error se ven como se muestra a continuación.
 
-| Parámetro          | DESCRIPCIÓN                                                                                      |
+| Parámetro          | Descripción                                                                                      |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
 | `error`            | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos.|
 | `error_description`| Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error.|

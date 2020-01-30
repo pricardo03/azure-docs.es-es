@@ -17,17 +17,16 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b935ad2491ca486a3bc6878f0332e5390600b1bc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919331"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700692"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidad de Microsoft y credenciales de contraseña de propietario de recursos de OAuth 2.0
 
-La Plataforma de identidad de Microsoft admite la [concesión de credenciales de contraseña de propietario de recursos (ROPC) de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que, para que una aplicación inicie la sesión del usuario, se pueda controlar directamente su contraseña.  En este artículo se describe cómo programar directamente con el protocolo en la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
+La Plataforma de identidad de Microsoft admite la [concesión de credenciales de contraseña de propietario de recursos (ROPC) de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que, para que una aplicación inicie la sesión del usuario, se pueda controlar directamente su contraseña.  En este artículo se describe cómo programar directamente con el protocolo de la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
 
 > [!WARNING]
 > Microsoft recomienda que _no_ use el flujo de ROPC. En la mayoría de los escenarios, hay alternativas más seguras y recomendables. Este flujo requiere un alto grado de confianza en la aplicación y conlleva riesgos que no están presentes en otros flujos. Solo debe usar este flujo cuando no se puedan usar otros más seguros.
@@ -69,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Parámetro | Condición | DESCRIPCIÓN |
+| Parámetro | Condición | Descripción |
 | --- | --- | --- |
 | `tenant` | Obligatorio | El inquilino del directorio en el que desea iniciar la sesión del usuario. Puede estar en formato de nombre descriptivo o GUID. Este parámetro no se puede establecer en `common` ni en `consumers`, pero sí se puede establecer en `organizations`. |
 | `client_id` | Obligatorio | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. | 
@@ -95,9 +94,9 @@ En el ejemplo siguiente se muestra una respuesta de token correcta:
 }
 ```
 
-| Parámetro | Formato | DESCRIPCIÓN |
+| Parámetro | Formato | Descripción |
 | --------- | ------ | ----------- |
-| `token_type` | Cadena | Siempre se establece en `Bearer`. |
+| `token_type` | String | Siempre se establece en `Bearer`. |
 | `scope` | Cadenas separadas por espacios | Si se devolvió un token de acceso, este parámetro muestra los ámbitos para los que es válido el token de acceso. |
 | `expires_in`| int | Número de segundos durante los que el token de acceso incluido es válido. |
 | `access_token`| Cadena opaca | Se emite para los [ámbitos](v2-permissions-and-consent.md) solicitados. |
@@ -110,7 +109,7 @@ Puede usar el token de actualización para adquirir nuevos tokens de acceso y to
 
 Si el usuario no ha proporcionado la contraseña o el nombre de usuario adecuado o si el cliente no ha recibido el consentimiento solicitado, la autenticación no se realizará.
 
-| Error | DESCRIPCIÓN | Acción del cliente |
+| Error | Descripción | Acción del cliente |
 |------ | ----------- | -------------|
 | `invalid_grant` | Error de autenticación | Las credenciales no eran las correctas o el cliente no tiene consentimiento para los ámbitos solicitados. Si no se conceden los ámbitos, se devolverá un error `consent_required`. Si esto ocurre, el cliente debería enviar el usuario a una solicitud interactiva mediante una vista web o un explorador. |
 | `invalid_request` | La solicitud se construyó de manera inadecuada. | El tipo de concesión no es compatible con los contextos de autenticación `/common` ni `/consumers`.  Use `/organizations` o un identificador de inquilino en su lugar. |

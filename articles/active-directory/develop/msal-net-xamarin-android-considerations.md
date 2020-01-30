@@ -13,13 +13,12 @@ ms.date: 04/24/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678b581e09fe1eac49e4f2bf07eabbbc944c8d4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c916ac98774600c16eb26ed43b8ae4b273137865
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424148"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695014"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Consideraciones específicas de Xamarin Android con MSAL.NET
 En este artículo se describen las consideraciones específicas al usar Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).

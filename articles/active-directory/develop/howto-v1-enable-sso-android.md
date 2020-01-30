@@ -15,15 +15,14 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4d247c569cdc0beff499cee191b95711a603e42
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b2dfcd1711be107fd161d38e5c9df660d35d8332
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917563"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696935"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedimientos para: Habilitación de SSO entre aplicaciones en Android mediante ADAL
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedimientos: Habilitación de SSO entre aplicaciones en Android mediante ADAL
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -33,7 +32,7 @@ La plataforma de identidad de Microsoft, junto con los SDK, facilitan la habilit
 
 En esta guía de procedimientos aprenderá a configurar el SDK dentro de la aplicación para proporcionar SSO a sus clientes.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En esta guía se supone que sabe cómo:
 

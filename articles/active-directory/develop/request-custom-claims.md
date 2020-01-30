@@ -17,15 +17,14 @@ ms.date: 08/26/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65b85a5c551b4e26c39959a1bd4f435a5fa4fe6e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0aa4648d3d5e76c2d0ebd7524ad8dfa52da3fb30
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920317"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702494"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procedimientos para: solicitar notificaciones personalizadas mediante MSAL para iOS y macOS
+# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procedimientos: solicitar notificaciones personalizadas mediante MSAL para iOS y macOS
 
 OpenID Connect le permite solicitar opcionalmente la devolución de notificaciones individuales desde el punto de conexión UserInfo o en el token de identificación. Una solicitud de notificaciones se representa como un objeto JSON que contiene una lista de notificaciones solicitadas. Consulte [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) para obtener más detalles.
 

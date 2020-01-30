@@ -17,13 +17,12 @@ ms.date: 02/08/2017
 ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac618b28fae7410a773012e390dcd6b3a63b966
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 85ed6fc1535daf64394380ded44f74d5f9f939b6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834775"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701117"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Llamadas entre servicios mediante las credenciales del cliente (secreto compartido o certificado)
 
@@ -57,7 +56,7 @@ Se pueden dar dos casos en función de si la aplicación cliente elige un secret
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primer caso: solicitud de token de acceso con un secreto compartido
 Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre servicios contiene los parámetros siguientes:
 
-| Parámetro |  | DESCRIPCIÓN |
+| Parámetro |  | Descripción |
 | --- | --- | --- |
 | grant_type |requerido |Especifica el tipo de concesión solicitado. En un flujo de concesión de credenciales de cliente, el valor debe ser **client_credentials**. |
 | client_id |requerido |Especifica el identificador de cliente de Azure AD del servicio web que realiza la llamada. Para buscar el identificador del cliente de la aplicación que realiza la llamada, en [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory** y **Registros de aplicaciones**, y haga clic en la aplicación. El identificador client_id es el *identificador de aplicación* |
@@ -78,12 +77,12 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitud de token de acceso con un certificado
 Una solicitud de token de acceso entre servicios con un certificado contiene los parámetros siguientes:
 
-| Parámetro |  | DESCRIPCIÓN |
+| Parámetro |  | Descripción |
 | --- | --- | --- |
 | grant_type |requerido |Especifica el tipo de respuesta solicitado. En un flujo de concesión de credenciales de cliente, el valor debe ser **client_credentials**. |
 | client_id |requerido |Especifica el identificador de cliente de Azure AD del servicio web que realiza la llamada. Para buscar el identificador del cliente de la aplicación que realiza la llamada, en [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory** y **Registros de aplicaciones**, y haga clic en la aplicación. El identificador client_id es el *identificador de aplicación* |
 | client_assertion_type |requerido |El valor debe ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |requerido | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para obtener información sobre cómo registrar el certificado y el formato de la aserción.|
+| client_assertion |requerido | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para información sobre cómo registrar el certificado y el formato de la aserción.|
 | resource | requerido |Escriba el URI del identificador de la aplicación del servicio web de recepción. Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Registros de aplicaciones**, haga clic en la aplicación de servicio y, a continuación, en **Configuración** y en **Propiedades**. |
 
 Tenga en cuenta que los parámetros son casi iguales que en el caso de solicitud con un secreto compartido, salvo que el parámetro client_secret se sustituye por dos parámetros: client_assertion_type y client_assertion.
@@ -103,7 +102,7 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 
 Una respuesta correcta contiene una respuesta de OAuth 2.0 de JSON con los siguientes parámetros:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | access_token |El token de acceso solicitado. El servicio web de llamada puede usar este token para autenticarse en el servicio web de recepción. |
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para más información sobre los tokens de portador, consulte [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
@@ -125,6 +124,6 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [OAuth 2.0 en Azure AD](v1-protocols-oauth-code.md)
 * [Ejemplo en C# de la llamada entre servicios con un secreto compartido](https://github.com/Azure-Samples/active-directory-dotnet-daemon) y [Ejemplo en C# de la llamada entre servicios con un certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

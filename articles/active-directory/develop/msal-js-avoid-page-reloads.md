@@ -13,13 +13,12 @@ ms.date: 05/29/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d1ef1f76b1b1a807f48f7c79e41ada68b561fc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e68798861d5799a4314bd9cd9b2eeeadb926a90f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916442"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696153"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evite las recargas de página al adquirir y renovar tokens en modo silencioso utilizando MSAL.js
 La Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) usa elementos `iframe` ocultos para adquirir y renovar los tokens silenciosamente en segundo plano. Azure AD devuelve el token de vuelta a los redirect_uri registrados especificados en la solicitud de token (de forma predeterminada, es la página raíz de la aplicación). Puesto que la respuesta es 302, da como resultado el HTML correspondiente al `redirect_uri` que se carga en el `iframe`. Normalmente, el `redirect_uri` de la aplicación es la página raíz y esto provoca que se vuelva a cargar.
