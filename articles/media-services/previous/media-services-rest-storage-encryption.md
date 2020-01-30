@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 30ac6a94142c9b9d987fb3fd32b3483cc6dc130c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867590"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773598"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Cifrado del contenido con cifrado de almacenamiento 
 
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).   > No se van a agregar características o funcionalidades nuevas a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
+> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).   > No se van a agregar características o funcionalidades nuevas a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 >   
 
 Es muy recomendable cifrar el contenido de manera local mediante el cifrado AES de 256 bits y luego cargarlo a Azure Storage donde se almacena cifrado en reposo.
@@ -46,7 +46,7 @@ Al obtener acceso a las entidades de Media Services, debe establecer los campos 
 
 ### <a name="storage-side-encryption"></a>Cifrado del lado de almacenamiento
 
-|Opción de cifrado|DESCRIPCIÓN|Media Services v2|Media Services v3|
+|Opción de cifrado|Descripción|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Cifrado de almacenamiento en Media Services|Cifrado de AES-256, clave administrada por Media Services|Admitido<sup>(1)</sup>|No admitido<sup>(2)</sup>|
 |[Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Cifrado en el lado del servidor que ofrece Azure Storage, clave administrada por Azure o por el cliente|Compatible|Compatible|
@@ -113,14 +113,14 @@ A continuación, se muestran los pasos generales para generar claves de contenid
 
     Para el cifrado de almacenamiento, se deben incluir las siguientes propiedades en el cuerpo de la solicitud.
 
-    Propiedad del cuerpo de la solicitud    | DESCRIPCIÓN
+    Propiedad del cuerpo de la solicitud    | Descripción
     ---|---
-    Id | El identificador de ContentKey se genera con el siguiente formato: "nb:kid:UUID:\<NUEVO GUID>".
+    Identificador | El identificador de ContentKey se genera con el siguiente formato: "nb:kid:UUID:\<NUEVO GUID>".
     ContentKeyType | El tipo de clave de contenido es un entero que define la clave. En el formato de cifrado de almacenamiento, el valor es 1.
     EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Microsoft Azure Media Services mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Es el identificador de la clave de protección para el certificado X.509 de cifrado de almacenamiento que se usó para cifrar la clave de contenido.
     ProtectionKeyType | Es el tipo de cifrado para la clave de protección que se usó para cifrar la clave de contenido. Este valor es StorageEncryption(1) en nuestro ejemplo.
-    Checksum |Suma de comprobación calculada de MD5 para la clave de contenido. Se calcula mediante el cifrado del identificador de contenido con la clave de contenido. El código de ejemplo muestra cómo calcular la suma de comprobación.
+    Suma de comprobación |Suma de comprobación calculada de MD5 para la clave de contenido. Se calcula mediante el cifrado del identificador de contenido con la clave de contenido. El código de ejemplo muestra cómo calcular la suma de comprobación.
 
 
 ### <a name="retrieve-the-protectionkeyid"></a>Recuperación de ProtectionKeyId
@@ -134,7 +134,7 @@ Solicitud:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Respuesta:
@@ -165,7 +165,7 @@ Solicitud:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -205,7 +205,7 @@ Solicitud
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -254,7 +254,7 @@ En el ejemplo siguiente se muestra cómo crear un recurso.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
@@ -301,7 +301,7 @@ Solicitud:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -326,7 +326,7 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     Content-Length: 164
 

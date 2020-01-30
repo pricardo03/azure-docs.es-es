@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: ae5e3481d51a27b05afdb334e6e04c785a68c01a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 664d6006ab78f91a8ed0e199cf78fae9512efd73
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447672"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843046"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Inicio rápido: Adición de preguntas y respuestas con el portal de QnA Maker
 
@@ -86,7 +86,7 @@ En este procedimiento, agregue preguntas adicionales.
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Adición de metadatos para filtrar las respuestas
 
-Agregar metadatos a un conjunto de preguntas y respuestas permite a la aplicación cliente solicitar respuestas filtradas. Este filtro se aplica antes de que se apliquen los [clasificadores primero y segundo](../concepts/knowledge-base.md#ranker-process).
+Agregar metadatos a un conjunto de preguntas y respuestas permite a la aplicación cliente solicitar respuestas filtradas. Este filtro se aplica antes de que se apliquen los [clasificadores primero y segundo](../concepts/query-knowledge-base.md#ranker-process).
 
 1. Agregue el segundo conjunto de preguntas y respuestas, sin los metadatos, de la [primera tabla de este inicio rápido](#qna-table) y, luego, continúe con los pasos siguientes.
 

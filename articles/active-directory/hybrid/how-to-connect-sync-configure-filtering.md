@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243507"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768167"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronización de Azure AD Connect: Configuración del filtrado
 Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Office 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
@@ -298,7 +298,7 @@ Siga estos pasos:
 
 Después de la sincronización, todos los cambios se almacenan provisionalmente para exportarlos. Antes de realizar los cambios en Azure AD, se quiere comprobar que todos sean correctos.
 
-1. Inicie un símbolo del sistema y vaya a `%Program Files%\Microsoft Azure AD Sync\bin`.
+1. Inicie un símbolo del sistema y vaya a `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Ejecute `csexport "Name of Connector" %temp%\export.xml /f:x`.  
    El nombre del conector puede encontrarse en el servicio de sincronización. Tendrá un nombre similar a contoso.com – AAD en Azure AD.
 3. Ejecute `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.

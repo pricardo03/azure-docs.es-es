@@ -3,12 +3,12 @@ title: Supervisión del estado del clúster de Kubernetes con Azure Monitor para
 description: En este artículo se describe cómo puede ver y analizar el estado de los clústeres de AKS y que no es AKS con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 12/01/2019
-ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405092"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843997"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Descripción del estado del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -23,7 +23,7 @@ Para obtener información acerca de cómo habilitar Azure Monitor para contenedo
 >[!NOTE]
 >Para admitir clústeres de AKS Engine, compruebe que cumplen con lo siguiente:
 >- Está usando la versión más reciente del [cliente de HELM](https://helm.sh/docs/using_helm/).
->- La versión de agente en contenedor es *microsoft/oms:ciprod11012019*. Para actualizar el agente, consulte [Actualización del agente en un clúster de Kubernetes](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>- La versión de agente en contenedor es *microsoft/oms:ciprod11012019*. Para actualizar el agente, consulte [Actualización del agente en un clúster de Kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
 >
 
 ## <a name="overview"></a>Información general

@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 11/20/2018
-author: wmengmsft
-ms.author: wmeng
-ms.openlocfilehash: b849db465bb9a30456e9f93f9439c53cb26c9e52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: sakash279
+ms.author: akshanka
+ms.openlocfilehash: 0f94ae4a4b5ad7806658c4ae54146d4ac940750e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480182"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771292"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Table API de Azure Cosmos DB para Node.js: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -44,13 +44,13 @@ Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelac
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
 
-| Versión | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de noviembre de 2017 |--- |
 
 ## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

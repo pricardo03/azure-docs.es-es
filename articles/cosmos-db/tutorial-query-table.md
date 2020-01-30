@@ -1,19 +1,19 @@
 ---
 title: ¿Cómo consultar datos de tabla en Azure Cosmos DB?
 description: Obtenga información sobre cómo consultar los datos almacenados en la cuenta de Table API de Azure Cosmos DB mediante filtros OData y consultas LINQ.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7dc2c00f273f327755dab52a4bda02840d911f96
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869925"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770483"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consulta de Azure Cosmos DB mediante la Table API
 
@@ -36,7 +36,7 @@ Vea [Consultar tablas y entidades](https://docs.microsoft.com/rest/api/storagese
 
 Para más información sobre las funcionalidades premium que ofrece Azure Cosmos DB, consulte el artículo [Azure Cosmos DB: Table API](table-introduction.md) y [Azure Cosmos DB: desarrollo con Table API en .NET](tutorial-develop-table-dotnet.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para que estas consultas funcionen, debe tener una cuenta de Azure Cosmos DB, así como datos de la entidad en el contenedor. ¿No tiene nada de lo anterior? Efectúe el [inicio rápido en cinco minutos](create-table-dotnet.md) o siga el [tutorial de desarrolladores](tutorial-develop-table-dotnet.md) para crear una cuenta y rellenar la base de datos.
 
@@ -72,7 +72,7 @@ Esta es una consulta de ejemplo en la que se muestra cómo filtrar por propiedad
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Para obtener más información sobre cómo construir expresiones de filtro para diferentes tipos de datos, consulte [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities) (Consulta de tablas y entidades).
+Para obtener más información sobre cómo construir expresiones de filtro para diferentes tipos de datos, consulte [Consulta de tablas y entidades](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
 
 **Resultados**
 
@@ -84,18 +84,9 @@ Para obtener más información sobre cómo construir expresiones de filtro para 
 También puede realizar consultas con LINQ, que se traduce a las correspondientes expresiones de consulta de OData. Este es un ejemplo de cómo compilar consultas mediante el SDK de .NET:
 
 ```csharp
-CloudTableClient tableClient = account.CreateCloudTableClient();
-CloudTable table = tableClient.GetTableReference("People");
-
-TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
-    .Where(
-        TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
-            TableOperators.And,
-            TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal,"Ben@contoso.com")
-    ));
-
-await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
+IQueryable<CustomerEntity> linqQuery = table.CreateQuery<CustomerEntity>()
+            .Where(x => x.PartitionKey == "4")
+            .Select(x => new CustomerEntity() { PartitionKey = x.PartitionKey, RowKey = x.RowKey, Email = x.Email });
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

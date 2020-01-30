@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/09/2020
+ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 459d75bec3d4b4d0cf9057e0c6de238e7f165bfb
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2a2ac42f546895a1135651bd5ef1266776f02ad1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548992"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756099"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado (versión preliminar)
 
@@ -45,7 +45,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 * **[Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools**. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](./use-vs-code-to-create-template.md).
 
-* **Una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción**. Esta identidad se usa para ejecutar scripts de implementación. Para crear una, consulte [Identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Necesitará el identificador de identidad al implementar la plantilla. El formato del identificador es:
+* **Una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción**. Esta identidad se usa para ejecutar scripts de implementación. Para crear una, consulte [Identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Necesitará el identificador de identidad al implementar la plantilla. El formato de la identidad es:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -197,9 +197,9 @@ El script de implementación agrega un certificado al almacén de claves. Config
       "kind": "AzurePowerShell",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "2.8",
+        "azPowerShellVersion": "3.0",
         "timeout": "PT30M",
-        "arguments": "[format(' -vaultName {0} -certificateName {1} -subjectName {2}', parameters('keyVaultName'), parameters('certificateName'), parameters('subjectName'))]", // can pass an arguement string, double quotes must be escaped
+        "arguments": "[format(' -vaultName {0} -certificateName {1} -subjectName {2}', parameters('keyVaultName'), parameters('certificateName'), parameters('subjectName'))]", // can pass an argument string, double quotes must be escaped
         "scriptContent": "
           param(
             [string] [Parameter(Mandatory=$true)] $vaultName,
@@ -262,8 +262,8 @@ El script de implementación agrega un certificado al almacén de claves. Config
     * **kind**: especifica el tipo de script. Actualmente solo es compatible el script de PowerShell.
     * **forceUpdateTag**: determina si el script de implementación debe ejecutarse aunque el origen del script no haya cambiado. Puede ser una marca de tiempo actual o un identificador único. Para más información, consulte la sección [Ejecución de un script varias veces](./deployment-script-template.md#run-script-more-than-once).
     * **azPowerShellVersion**: especifica la versión del módulo de Azure PowerShell que se va a usar. Actualmente, el script de implementación es compatible con las versiones 2.7.0; 2.8.0 y 3.0.0.
-    * **timeout**: especifica el tiempo de ejecución de script máximo permitido especificado en el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**.
-    * **arguments**: Especifique los valores de los parámetros. los valores se separan con espacios.
+    * **timeout**: especifique el tiempo máximo de ejecución de scripts permitido en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**.
+    * **arguments**: Especifique los valores de los parámetros. Los valores se separan con espacios.
     * **scriptContent**: especifica el contenido del script. Para ejecutar un script externo, use **primaryScriptURI** en su lugar. Para más información, consulte [Uso de scripts externos](./deployment-script-template.md#use-external-scripts).
         Solo es necesario declarar **$DeploymentScriptOutputs** al probar el script en una máquina local. La declaración de la variable permite que el script se ejecute en una máquina local y en un recurso deploymentScript sin tener que realizar cambios. El valor asignado a $DeploymentScriptOutputs está disponible como salidas en las implementaciones. Para más información, consulte [Trabajo con salidas de los scripts de implementación](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
     * **cleanupPreference**: especifica la preferencia sobre cuándo se deben eliminar los recursos del script de implementación.  El valor predeterminado es **Always**, lo que significa que los recursos del script de implementación se eliminan independientemente del estado terminal (Succeeded, Failed, Canceled). En este tutorial se usa **OnSuccess** para que pueda ver los resultados de la ejecución del script.

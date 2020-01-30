@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 01/27/2020
 ms.author: mlearned
-ms.openlocfilehash: 497dab37f178a9ae7d0ab6cd647a10bac44539f8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1d04ab3ebb96d2739b991620b05aa307d9eaf91
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472501"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767433"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Versión preliminar: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -89,7 +89,7 @@ Aunque esta característica está en versión preliminar, se aplican las siguien
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Dicha ubicación es donde se almacenan los metadatos del grupo de recursos, así como el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crear los recursos. Cree un grupo de recursos con el comando [az group create][az-group-create].
+Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Dicha ubicación es donde se almacenan los metadatos del grupo de recursos, así como el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crear los recursos. Cree un grupo de recursos con el comando [az group create][az-group-create].
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -136,7 +136,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.14.6 \
+    --kubernetes-version 1.15.7 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -162,12 +162,12 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.14.6
+    --kubernetes-version 1.15.7
 ```
 
 El comando anterior crea un nuevo grupo de nodos denominado *npwin* y lo agrega a *myAKSCluster*. Al crear un grupo de nodos para ejecutar contenedores de Windows Server, el valor predeterminado para *node-vm-size* es *Standard_D2s_v3*. Si decide establecer el parámetro *node-vm-size*, compruebe la lista de [tamaños de máquina virtual restringidos][restricted-vm-sizes]. El tamaño mínimo recomendado es *Standard_D2s_v3*. El comando anterior también usa la subred predeterminada en la red virtual predeterminada que se crea al ejecutar `az aks create`.
 
-## <a name="connect-to-the-cluster"></a>Conexión al clúster
+## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
 Para administrar un clúster de Kubernetes, usará [kubectl][kubectl], el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. Para instalar `kubectl` localmente, use el comando [az aks install-cli][az-aks-install-cli]:
 
@@ -181,7 +181,7 @@ Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el co
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para comprobar la conexión con el clúster, use el comando [kubectl get][kubectl-get] para que devuelva una lista de los nodos del clúster.
+Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -191,8 +191,8 @@ La siguiente salida de ejemplo muestra todos los nodos del clúster. Asegúrese 
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.6
-aksnpwin987654                      Ready    agent   108s   v1.14.6
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
+aksnpwin987654                      Ready    agent   108s   v1.15.7
 ```
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación

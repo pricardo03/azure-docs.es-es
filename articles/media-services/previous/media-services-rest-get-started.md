@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f0f9b2c974c0a095719973b1c6173d682718dbbf
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014868"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773681"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introducción a la entrega de contenido a petición mediante REST  
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Esta guía de inicio rápido le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo bajo demanda (VoD) mediante API de REST de Azure Media Services (AMS).
 
@@ -36,7 +36,7 @@ Haga clic en la imagen para verla a tamaño completo.
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Los siguientes requisitos previos son necesarios para empezar a desarrollar con las API de REST de Media Services.
 
 * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -109,7 +109,7 @@ En el ejemplo siguiente se muestra cómo crear un recurso.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 45
@@ -163,7 +163,7 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 164
 
@@ -225,7 +225,7 @@ En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 74
 
@@ -284,7 +284,7 @@ En el ejemplo siguiente se muestra cómo crear un localizador de dirección URL 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 178
 
@@ -348,7 +348,7 @@ Ahora que ha cargado el archivo, actualice la información de tamaño de FileAss
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
     {  
@@ -376,7 +376,7 @@ Si se realiza correctamente, se devuelve lo siguiente:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -395,7 +395,7 @@ Si se realiza correctamente, se devuelve lo siguiente:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 **Respuesta HTTP**
@@ -426,7 +426,7 @@ El código siguiente solicita el identificador del codificador.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -473,7 +473,7 @@ En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conj
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 482
 
@@ -595,7 +595,7 @@ Puede recuperar el estado del trabajo mediante la propiedad State, tal como se m
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 0
@@ -632,7 +632,7 @@ En el ejemplo siguiente se muestra cómo llamar a CancelJob.
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.2
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
 
@@ -656,7 +656,7 @@ En el código siguiente se muestra cómo solicitar el identificador del recurso 
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -733,7 +733,7 @@ En el ejemplo siguiente se muestra cómo especificar AccessPolicy para los permi
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 74
@@ -756,7 +756,7 @@ El código siguiente muestra cómo obtener una dirección URL que se puede usar 
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 182
@@ -847,7 +847,7 @@ El siguiente código muestra cómo crear un localizador de direcciones URL de st
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs
     Content-Length: 182

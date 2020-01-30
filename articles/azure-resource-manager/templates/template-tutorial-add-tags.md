@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ed5e5c63bed90136e498491a6735cbaa127cf1f9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689683"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773195"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Adición de etiquetas a la plantilla de Resource Manager
 
@@ -26,7 +26,7 @@ Debe tener Visual Studio Code con la extensión Herramientas de Resource Manage
 
 La plantilla anterior implementó una cuenta de almacenamiento, un plan de App Service y una aplicación web.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 Después de implementar estos recursos, es posible que tenga que realizar un seguimiento de los costos y encontrar los recursos que pertenecen a una categoría. Para ayudar a resolver estos problemas, puede agregar etiquetas.
 
@@ -36,7 +36,7 @@ Etiquete los recursos para agregar valores que le ayuden a identificar su uso. P
 
 En el ejemplo siguiente se resaltan los cambios en la plantilla. Copie el archivo completo y reemplace la plantilla por su contenido.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,86,103)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## <a name="deploy-template"></a>Implementar plantilla
 

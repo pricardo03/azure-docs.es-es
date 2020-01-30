@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547309"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773291"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor
 
@@ -204,13 +204,13 @@ Para más información sobre cómo diseñar e implementar un clúster de equilib
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Para obtener información sobre cómo diseñar e implementar Azure Load Balancer, consulte [¿Qué es Azure Load Balancer?](../../load-balancer/load-balancer-overview.md) Para implementar un equilibrador de carga básico, siga los pasos descritos en esta [guía de inicio rápido](../../load-balancer/quickstart-create-basic-load-balancer-portal.md), excepto los pasos descritos en la sección **Creación de servidores back-end**.   
+Para obtener información sobre cómo diseñar e implementar Azure Load Balancer, consulte [¿Qué es Azure Load Balancer?](../../load-balancer/load-balancer-overview.md) Para implementar un equilibrador de carga básico, siga los pasos descritos en esta [guía de inicio rápido](../../load-balancer/quickstart-load-balancer-standard-public-portal.md), excepto los pasos descritos en la sección **Creación de servidores back-end**.   
 
 > [!NOTE]
 > La configuración de Azure Load Balancer mediante la **SKU básica** requiere que las máquinas virtuales de Azure pertenezcan a un conjunto de disponibilidad. Para obtener más información sobre los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../virtual-machines/windows/manage-availability.md). Para agregar máquinas virtuales existentes a un conjunto de disponibilidad, consulte [Configuración del conjunto de disponibilidad de Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
-Después de crear el equilibrador de carga, debe crearse un grupo back-end, que distribuye el tráfico a uno o más servidores de puerta de enlace. Siga los pasos descritos en la sección del artículo de la guía de inicio rápido [Creación de recursos para el equilibrador de carga](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
+Después de crear el equilibrador de carga, debe crearse un grupo back-end, que distribuye el tráfico a uno o más servidores de puerta de enlace. Siga los pasos descritos en la sección del artículo de la guía de inicio rápido [Creación de recursos para el equilibrador de carga](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
 >[!NOTE]
 >Cuando configure el sondeo de estado, debe configurarse para usar el puerto TCP del servidor de puerta de enlace. El sondeo de estado agrega o quita de forma dinámica los servidores de puerta de enlace de la rotación de Load Balancer en base a su respuesta a las comprobaciones de estado. 

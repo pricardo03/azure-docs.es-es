@@ -3,12 +3,12 @@ title: Errores de recurso no encontrado
 description: Describe cómo resolver errores cuando un recurso no se puede encontrar al implementarse con una plantilla de Resource Manager.
 ms.topic: troubleshooting
 ms.date: 01/21/2020
-ms.openlocfilehash: c3e19af24fa7fb850eadf3deb346180476943241
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310669"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773259"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Resolver errores de recursos de Azure no encontrados
 
@@ -98,5 +98,5 @@ En la función reference, use `Full` para obtener todas las propiedades, incluid
 Por ejemplo, para obtener el identificador de inquilino de una identidad administrada que se aplica a un conjunto de escalado de máquinas virtuales, use:
 
 ```json
-"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
 ```

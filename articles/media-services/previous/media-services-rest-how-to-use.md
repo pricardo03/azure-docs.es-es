@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895809"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773658"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services 
 
@@ -45,7 +45,7 @@ Las siguientes consideraciones se aplican al usar REST.
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.17
+        x-ms-version: 2.19
         Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
@@ -58,7 +58,7 @@ Las siguientes consideraciones se aplican al usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Encabezados de solicitud HTTP estándar compatibles con los Media Services
 Para cada llamada que realice en los Media Services, hay un conjunto de encabezados necesarios que debe incluir en la solicitud y también un conjunto de encabezados opcionales que puede incluir si lo desea. En la tabla siguiente se enumeran los encabezados necesarios:
 
-| Encabezado | Tipo | Valor |
+| Encabezado | Tipo | Value |
 | --- | --- | --- |
 | Authorization |Portador |El portador es el único mecanismo de autorización aceptado. El valor también debe incluir el token de acceso proporcionado por Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (o una versión más reciente)|
@@ -72,7 +72,7 @@ Para cada llamada que realice en los Media Services, hay un conjunto de encabeza
 
 A continuación se muestra un conjunto de encabezados opcionales:
 
-| Encabezado | Tipo | Valor |
+| Encabezado | Tipo | Value |
 | --- | --- | --- |
 | Date |Fecha RFC 1123 |Marca de tiempo de la solicitud |
 | Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contenga la secuencia de blob como la carga. |
@@ -81,15 +81,15 @@ A continuación se muestra un conjunto de encabezados opcionales:
 | Accept-Charset |Tipo de juego de caracteres como "UTF-8" |El valor predeterminado es UTF-8. |
 | X-HTTP-Method |Método HTTP |Permite a los clientes o firewalls que no admiten métodos HTTP como PUT o DELETE usar estos métodos mediante túnel a través de una llamada GET. |
 | Content-Type |Tipo de contenido |Tipo de contenido del cuerpo de la solicitud en solicitudes PUT o POST. |
-| client-request-id |Cadena |Valor definido por el autor de la llamada que identifica la solicitud determinada. Si se especifica, este valor se incluirá en el mensaje de respuesta como una manera de asignar la solicitud. <p><p>**Importante**<p>Los valores deben estar limitados a 2096b (2k). |
+| client-request-id |String |Valor definido por el autor de la llamada que identifica la solicitud determinada. Si se especifica, este valor se incluirá en el mensaje de respuesta como una manera de asignar la solicitud. <p><p>**Importante**<p>Los valores deben estar limitados a 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Encabezados de respuesta HTTP estándar compatibles con los Media Services
 A continuación se muestra un conjunto de encabezados que pueden devolverse según el recurso que estuviera solicitando y la acción que deseara realizar.
 
-| Encabezado | Tipo | Valor |
+| Encabezado | Tipo | Value |
 | --- | --- | --- |
-| request-id |Cadena |Identificador único de la operación o servicio actual generado. |
-| client-request-id |Cadena |Identificador especificado por el autor de la llamada en la solicitud original, si está presente. |
+| request-id |String |Identificador único de la operación o servicio actual generado. |
+| client-request-id |String |Identificador especificado por el autor de la llamada en la solicitud original, si está presente. |
 | Date |Fecha RFC 1123 |Fecha y hora en que se procesó la solicitud. |
 | Content-Type |Varía |Tipo de contenido del cuerpo de respuesta. |
 | Content-Encoding |Varía |Gzip o deflate, según corresponda. |
@@ -97,12 +97,12 @@ A continuación se muestra un conjunto de encabezados que pueden devolverse seg�
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Verbos HTTP estándar compatibles con los Media Services
 A continuación se muestra una lista completa de verbos HTTP que se pueden usar al realizar solicitudes HTTP:
 
-| Verbo | DESCRIPCIÓN |
+| Verbo | Descripción |
 | --- | --- |
 | GET |Devuelve el valor actual de un objeto. |
 | POST |Crea un objeto basado en los datos proporcionados o envía un comando. |
 | PUT |Reemplaza un objeto o crea un objeto con nombre (si procede). |
-| DELETE |Elimina un objeto. |
+| Delete |Elimina un objeto. |
 | MERGE |Actualiza un objeto existente con los cambios de propiedad con nombre. |
 | HEAD |Devuelve los metadatos de un objeto para una respuesta GET. |
 

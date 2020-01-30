@@ -13,13 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921921"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834202"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales
 
@@ -177,12 +176,12 @@ La solución recomendada es usar la [directiva de caché](#acquire-a-token-to-ap
 Como alternativa, puede usar la notificación `tid` si usa las [directivas personalizadas de B2C](https://aka.ms/ief), ya que proporciona la capacidad de devolver notificaciones adicionales a la aplicación. Más información sobre la [transformación de notificaciones](/azure/active-directory-b2c/claims-transformation-technical-profile).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigación de "Missing from token response" (Falta en la respuesta del token)
-Una opción es usar la notificación "name" como nombre de usuario preferido. El proceso se menciona este [documento de B2C](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> "En la columna Notificación de devolución, elija las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a su aplicación después de una experiencia de edición de perfiles correcta. Por ejemplo, seleccione Nombre para mostrar y Código postal".
+Una opción es usar la notificación "name" como nombre de usuario preferido. El proceso se menciona este [documento de B2C](../../active-directory-b2c/user-flow-overview.md) -> "En la columna Notificación de devolución, elija las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a su aplicación después de una experiencia de edición de perfiles correcta. Por ejemplo, seleccione Nombre para mostrar y Código postal".
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
 En el siguiente ejemplo se ofrecen más detalles sobre la adquisición de tokens de forma interactiva con MSAL.NET para aplicaciones de Azure AD B2C.
 
-| Muestra | Plataforma | DESCRIPCIÓN|
+| Muestra | Plataforma | Descripción|
 |------ | -------- | -----------|
 |[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Una aplicación de Xamarin Forms sencilla que muestra cómo usar MSAL.NET para autenticar a los usuarios mediante Azure AD B2C y acceder a una API web con los tokens resultantes.|

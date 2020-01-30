@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471690"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773205"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Adición de parámetros a una plantilla de Azure Resource Manager
 
@@ -26,7 +26,7 @@ Debe tener Visual Studio Code con la extensión Herramientas de Resource Manage
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
 Es posible que haya observado que existe un problema con esta plantilla. El nombre de la cuenta de almacenamiento está codificado de forma rígida. Esta plantilla solo se puede usar para implementar la misma cuenta de almacenamiento cada vez. Para implementar una cuenta de almacenamiento con un nombre diferente, tendría que crear una nueva plantilla, lo que obviamente no es una forma práctica de automatizar las implementaciones.
 
@@ -36,7 +36,7 @@ Para que la plantilla se pueda volver a usar, vamos a agregar un parámetro que 
 
 Copie el archivo completo y reemplace la plantilla por su contenido.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
@@ -80,7 +80,7 @@ Los parámetros le permiten personalizar la implementación al proporcionar valo
 
 La plantilla anterior siempre implementaba una cuenta de almacenamiento Standard_LRS. Es posible que desee disponer de flexibilidad para implementar diferentes SKU según el entorno. En el ejemplo siguiente se resaltan los cambios para agregar un parámetro para la SKU. Copie el archivo completo y péguelo en la plantilla.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
 El parámetro **storageSKU** tiene un valor predeterminado. Este valor se usa cuando no se especifica ningún valor durante la implementación. También tiene una lista de valores permitidos. Estos valores coinciden con los valores necesarios para crear una cuenta de almacenamiento. Deseará evitar que los usuarios de su plantilla pasen SKU que no funcionan.
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: af08a24ff28d59bf743f92aa69ffa823dcdcc544
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 100f059f7c9f18ab6920f50c850b3b8d5a617908
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951044"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840203"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Un perfil técnico posibilita estos tipos de escenarios:
 - [Proveedor de RESTful](restful-technical-profile.md): llamada a los servicios de la API de REST, como validar entrada de usuario, enriquecer los datos de usuario o integrar con aplicaciones de línea de negocio.
 - [SAML2](saml-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
 - [Autoaserción](self-asserted-technical-profile.md): interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión, representar la página de registro o restablecer la contraseña.
-- [Administración de sesiones](active-directory-b2c-reference-sso-custom.md): administración de distintos tipos de sesiones.
+- [Administración de sesiones](custom-policy-reference-sso.md): administración de distintos tipos de sesiones.
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>Flujo del perfil técnico
@@ -57,7 +57,7 @@ Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario en
 4. **ValidationTechnicalProfiles**: para un [perfil técnico autoafirmado](self-asserted-technical-profile.md), puede llamar a un [perfil técnico de validación](validation-technical-profile.md) de entrada. El perfil técnico de validación valida los datos perfilados por el usuario y devuelve un mensaje de error o de ejecución correcta, con o sin notificaciones de salida. Por ejemplo, antes de que Azure AD B2C cree una nueva cuenta, comprueba si el usuario ya existe en los servicios de directorio. Puede llamar a un perfil técnico de la API REST para agregar su propia lógica de negocios.<p>El ámbito de las notificaciones de salida de un perfil técnico de validación se limita al perfil técnico que invoca el perfil técnico de validación y otros perfiles técnicos de validación en el mismo perfil técnico. Si desea usar las notificaciones de salida en el siguiente paso de orquestación, deberá agregar las notificaciones de salida al perfil técnico que invoca el perfil técnico de validación.
 5. **OutputClaims**: las notificaciones se devuelven al contenedor de notificaciones. Puede usar dichas notificaciones en el siguiente paso de orquestación o en las transformaciones de notificaciones de salida.
 6. **OutputClaimsTransformations**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de salida se toman del contenedor de notificaciones. Las notificaciones de salida del perfil técnico de los pasos anteriores pueden ser notificaciones de entrada de una transformación de notificaciones de salida. Después de la ejecución, las notificaciones de salida se vuelven a poner en el contenedor de notificaciones. Las notificaciones de salida de una transformación de notificaciones de salida pueden ser también notificaciones de entrada de una transformación de notificaciones de salida subsiguiente.
-7. **Administración de sesión de inicio de sesión único (SSO)**  - [La administración de sesión de SSO](active-directory-b2c-reference-sso-custom.md) controla la interacción con un usuario después de que el usuario se haya autenticado. Por ejemplo, el administrador puede controlar si se muestra la selección de proveedores de identidades, o si se tienen que volver a especificar los detalles de la cuenta local.
+7. **Administración de sesión de inicio de sesión único (SSO)**  - [La administración de sesión de SSO](custom-policy-reference-sso.md) controla la interacción con un usuario después de que el usuario se haya autenticado. Por ejemplo, el administrador puede controlar si se muestra la selección de proveedores de identidades, o si se tienen que volver a especificar los detalles de la cuenta local.
 
 Un perfil técnico puede heredar de otro perfil técnico para cambiar la configuración o agregar funcionalidad nueva.  El elemento **IncludeTechnicalProfile** es una referencia al perfil técnico base del que se deriva un perfil técnico.
 

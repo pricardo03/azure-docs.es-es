@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f07eb65243b4f797a2955e33aca50ed8c46d256e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950993"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840407"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migración de una API web basada en OWIN a b2clogin.com
 
@@ -29,11 +29,11 @@ En las secciones siguientes se muestra un ejemplo de cómo habilitar varios emis
 > [!NOTE]
 > Este artículo está destinado a clientes de Azure AD B2C con API actualmente implementadas aplicaciones que hacen referencia a `login.microsoftonline.com` y a quienes quieran migrar al punto de conexión recomendado `b2clogin.com`. Si va a configurar una nueva aplicación, use [b2clogin.com](b2clogin.md) como se indica.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de continuar con los pasos de este artículo, necesita tener los siguientes recursos de Azure AD B2C:
 
-* [Flujos de usuario](tutorial-create-user-flows.md) o [directivas personalizadas](active-directory-b2c-get-started-custom.md) creadas en el inquilino
+* [Flujos de usuario](tutorial-create-user-flows.md) o [directivas personalizadas](custom-policy-get-started.md) creadas en el inquilino
 
 ## <a name="get-token-issuer-endpoints"></a>Obtención de los puntos de conexión de emisores de tokens
 
@@ -147,7 +147,7 @@ Cuando las cadenas de punto de conexión se construyen durante la ejecución de 
 
 En este artículo se ha presentado un método para configurar una API web que implementa el middleware de Microsoft OWIN (Katana) para aceptar tokens de varios puntos de conexión de emisor. Como puede observar, hay otras diversas cadenas en los archivos *Web.Config* de los proyectos TaskService y TaskWebApp que deberían cambiarse si quiere compilar y ejecutar estos proyectos en su propio inquilino. Puede modificar los proyectos de forma adecuada si quiere verlos en acción; sin embargo, el objetivo de este artículo no es mostrar un tutorial completo de cómo hacerlo.
 
-Para más información sobre los diferentes tipos de tokens de seguridad emitidos por Azure AD B2C, consulte [Introducción a los tokens en Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Para más información sobre los diferentes tipos de tokens de seguridad emitidos por Azure AD B2C, consulte [Introducción a los tokens en Active Directory B2C](tokens-overview.md).
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip

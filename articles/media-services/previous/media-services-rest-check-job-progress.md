@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ec72b7e7bf4c2b859e8ceecf617c90a4853cb517
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: cac8622c95ca2cb08ef412ac7117caac0c52ca56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901493"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773616"
 ---
 # <a name="how-to-check-job-progress"></a>Comprobación del progreso del trabajo
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede ver el estado del trabajo mediante la propiedad State del trabajo. Para obtener más información sobre la propiedad State, consulte [Propiedades de la entidad Job](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
@@ -42,7 +42,7 @@ Solicitud:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Respuesta:

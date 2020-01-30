@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fdb925f820cad79fe68e7082f4ed63292a7d9444
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8bda1d3bcce37cbb7b5306d460bddd4652349fe9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951095"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840356"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C
 
@@ -74,26 +74,26 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 
 ## <a name="metadata"></a>Metadatos
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | client_id | Sí | El identificador de la aplicación del proveedor de identidades. |
-| IdTokenAudience | Sin | El público de id_token. Si se especifica, Azure AD B2C comprueba si el token se encuentra en una notificación proporcionada por el proveedor de identidades y si es igual al especificado. |
+| IdTokenAudience | No | El público de id_token. Si se especifica, Azure AD B2C comprueba si el token se encuentra en una notificación proporcionada por el proveedor de identidades y si es igual al especificado. |
 | METADATOS | Sí | URL que apunta a un documento de configuración JSON con un formato que se corresponde con la especificación Detección de OpenID Connect, que también se conoce como punto de conexión de configuración de OpenID conocido. |
-| ProviderName | Sin | Nombre del proveedor de identidades. |
-| response_types | Sin | Tipo de respuesta según la especificación OpenID Connect Core 1.0. Valores posibles: `id_token`, `code` o `token`. |
-| response_mode | Sin | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
-| scope | Sin | Ámbito de la solicitud definida según la especificación OpenID Connect Core 1.0. Por ejemplo, `openid`, `profile` y `email`. |
-| HttpBinding | Sin | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
-| ValidTokenIssuerPrefixes | Sin | Clave que puede usarse para iniciar sesión en todos los inquilinos al usar un proveedor de identidades multiinquilino, como Azure Active Directory. |
-| UsePolicyInRedirectUri | Sin | Indica si se usará una directiva al crear el URI de redireccionamiento. Al configurar la aplicación en el proveedor de identidades, necesita especificar el URI de redireccionamiento. El URI de redireccionamiento apunta a Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  Si especifica `false`, tendrá que agregar un URI de redireccionamiento por cada directiva que use. Por ejemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
-| MarkAsFailureOnStatusCode5xx | Sin | Indica si una solicitud a un servicio externo tiene que marcarse como un error si el código de estado HTTP se encuentra en el intervalo 5xx. El valor predeterminado es `false`. |
-| DiscoverMetadataByTokenIssuer | Sin | Indica si los metadatos de OIDC tienen que detectarse con el emisor en el token JWT. |
+| ProviderName | No | Nombre del proveedor de identidades. |
+| response_types | No | Tipo de respuesta según la especificación OpenID Connect Core 1.0. Valores posibles: `id_token`, `code` o `token`. |
+| response_mode | No | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
+| scope | No | Ámbito de la solicitud definida según la especificación OpenID Connect Core 1.0. Por ejemplo, `openid`, `profile` y `email`. |
+| HttpBinding | No | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
+| ValidTokenIssuerPrefixes | No | Clave que puede usarse para iniciar sesión en todos los inquilinos al usar un proveedor de identidades multiinquilino, como Azure Active Directory. |
+| UsePolicyInRedirectUri | No | Indica si se usará una directiva al crear el URI de redireccionamiento. Al configurar la aplicación en el proveedor de identidades, necesita especificar el URI de redireccionamiento. El URI de redireccionamiento apunta a Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  Si especifica `false`, tendrá que agregar un URI de redireccionamiento por cada directiva que use. Por ejemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
+| MarkAsFailureOnStatusCode5xx | No | Indica si una solicitud a un servicio externo tiene que marcarse como un error si el código de estado HTTP se encuentra en el intervalo 5xx. El valor predeterminado es `false`. |
+| DiscoverMetadataByTokenIssuer | No | Indica si los metadatos de OIDC tienen que detectarse con el emisor en el token JWT. |
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
 El elemento **CryptographicKeys** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | client_secret | Sí | Secreto de cliente de la aplicación del proveedor de identidades. La clave de cifrado es necesaria solo si los metadatos de **response_type** se establecen en `code`. En este caso, Azure AD B2C realiza otra llamada para cambiar el código de autorización por un token de acceso. Si los metadatos se establecen en `id_token`, puede omitir la clave criptográfica.  |
 
@@ -103,6 +103,6 @@ Al configurar el URI de redireccionamiento del proveedor de identidades, escriba
 
 Ejemplos:
 
-- [Agregar una cuenta Microsoft (MSA) como un proveedor de identidades mediante directivas personalizadas](active-directory-b2c-custom-setup-msa-idp.md)
-- [Iniciar sesión con cuentas de Azure AD](active-directory-b2c-setup-aad-custom.md)
-- [Permitir que los usuarios inicien sesión en un proveedor de identidades de Azure AD multiinquilino mediante directivas personalizadas](active-directory-b2c-setup-commonaad-custom.md)
+- [Agregar una cuenta Microsoft (MSA) como un proveedor de identidades mediante directivas personalizadas](identity-provider-microsoft-account-custom.md)
+- [Iniciar sesión con cuentas de Azure AD](identity-provider-azure-ad-single-tenant-custom.md)
+- [Permitir que los usuarios inicien sesión en un proveedor de identidades de Azure AD multiinquilino mediante directivas personalizadas](identity-provider-azure-ad-multi-tenant-custom.md)

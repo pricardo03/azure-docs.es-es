@@ -13,13 +13,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78acb1f27b27c53aaaac508e0aa99a5b9c14ff2d
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 74d443cc87a71950a31732db48e94ea3b5ced7ba
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914932"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705316"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
 
@@ -55,7 +54,7 @@ Puede crear y eliminar contraseñas de la aplicación en la página de **comprob
 
 1. Inicie sesión en la [página de comprobación de la seguridad adicional](https://account.activedirectory.windowsazure.com/Proofup.aspx) y seleccione **Contraseñas de aplicación**.
 
-    ![Página de contraseñas de la aplicación, con la pestaña de contraseñas de la aplicación resaltada](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
+    ![Página de contraseñas de aplicación, con la pestaña de contraseñas de aplicación resaltada](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
 
 2. Seleccione **Crear**, escriba el nombre de la aplicación que requiere la contraseña de la aplicación y, a continuación, seleccione **Siguiente**.
 

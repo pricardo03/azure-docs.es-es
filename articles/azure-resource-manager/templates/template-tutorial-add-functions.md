@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b32b0377502697e32e56e5c8324ca287c9a3cf69
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1db391f42aeb4fdf80baf001150f845daef3bf4f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471810"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773223"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: Adición de funciones de plantilla a una plantilla de Resource Manager
 
@@ -26,7 +26,7 @@ Debe tener Visual Studio Code con la extensión Herramientas de Resource Manage
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
 La ubicación de la cuenta de almacenamiento está codificada de forma rígida en **Este de EE. UU.** . Sin embargo, puede que tenga que implementar la cuenta de almacenamiento en otras regiones. Una vez más, se enfrenta al problema de que la plantilla carece de flexibilidad. Podría agregar un parámetro para la ubicación, pero sería aún mejor si su valor predeterminado fuera algo más que un simple valor codificado de forma rígida.
 
@@ -40,7 +40,7 @@ En el ejemplo siguiente se resaltan los cambios para agregar un parámetro denom
 
 Copie el archivo completo y reemplace la plantilla por su contenido.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json?range=1-44&highlight=24-27,34)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json" range="1-44" highlight="24-27,34":::
 
 ## <a name="deploy-template"></a>Implementar plantilla
 

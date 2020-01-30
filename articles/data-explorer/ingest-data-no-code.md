@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 11/17/2019
-ms.openlocfilehash: 2574f27b4b86bab276a56f95fda9fa2a1434c095
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 01/29/2020
+ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995939"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836566"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutorial: Ingesta y consulta de datos de supervisión en Azure Data Explorer 
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > [!NOTE]
 > Crear todos los recursos en la misma ubicación o región de Azure 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Un clúster y la base de datos de Azure Data Explorer](create-cluster-database-portal.md). En este tutorial, el nombre de la base de datos es *TestDatabase*.
@@ -330,7 +330,7 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
 2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *DiagnosticRawRecords* e ingiere sus resultados en la tabla *DiagnosticMetrics*:
 
     ```kusto
-    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
@@ -344,7 +344,7 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
         | mv-expand events = Records
         | where isnotempty(events.operationName)
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Result = tostring(events.resultType),
@@ -363,7 +363,7 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
 2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *DiagnosticRawRecords* e ingiere sus resultados en la tabla *DiagnosticLogs*:
 
     ```kusto
-    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
@@ -376,7 +376,7 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
         ActivityLogsRawRecords
         | mv-expand events = Records
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Category = tostring(events.category),
@@ -393,7 +393,7 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
 2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *ActivityLogsRawRecords* e ingiere sus resultados en la tabla *ActivityLogs*:
 
     ```kusto
-    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 ---
 

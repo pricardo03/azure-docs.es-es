@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f7eb4d8e784acc659f6661ef6efbdb06816b142c
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1fc63b222fd2f08bb4b5596d58f825c8f6b1910e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064454"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836243"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitación de la restricción de acceso por edad en Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "71064454"
 
 La restricción de acceso por edad en Azure Active Directory B2C (Azure AD B2C) le permite identificar a los menores que quieren usar la aplicación. Puede optar por impedir que los menores inicien sesión en la aplicación. Los usuarios también pueden volver a la aplicación e identificar su grupo de edad y su estado de consentimiento parental. Azure AD B2C puede bloquear a los menores sin consentimiento parental. Azure AD B2C también se puede configurar para permitir que la aplicación decida qué hacer con los menores.
 
-Después de habilitar la restricción de acceso por edad en el [flujo de usuario](active-directory-b2c-reference-policies.md), se pedirá a los usuarios su fecha de nacimiento y el país o región donde residen. Si inicia sesión un usuario que no ha introducido la información anteriormente, deberá escribirla la próxima vez que inicie sesión. Las reglas se aplican cada vez que un usuario inicia sesión.
+Después de habilitar la restricción de acceso por edad en el [flujo de usuario](user-flow-overview.md), se pedirá a los usuarios su fecha de nacimiento y el país o región donde residen. Si inicia sesión un usuario que no ha introducido la información anteriormente, deberá escribirla la próxima vez que inicie sesión. Las reglas se aplican cada vez que un usuario inicia sesión.
 
 Azure AD B2C usa la información que escribe el usuario para identificar si es un menor. A continuación, el campo **ageGroup** se actualiza en su cuenta. El valor puede ser `null`, `Undefined`, `Minor`, `Adult` y `NotAdult`.  Los campos **ageGroup** y **consentProvidedForMinor** se utilizan para calcular el valor de **legalAgeGroupClassification**.
 

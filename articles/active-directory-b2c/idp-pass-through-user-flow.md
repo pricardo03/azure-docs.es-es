@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 25a8181d404091064c26407c98fe31465cd4f4b3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948818"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838962"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Transmisión de un token de acceso a través de un flujo de usuario a la aplicación en Azure Active Directory B2C
 
-Un [flujo de usuario](active-directory-b2c-reference-policies.md) en Azure Active Directory B2C (Azure AD B2C) proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](active-directory-b2c-reference-tokens.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Habilite una notificación en el flujo de usuario para pasar el token a través de las aplicaciones que registre en Azure AD B2C.
+Un [flujo de usuario](user-flow-overview.md) en Azure Active Directory B2C (Azure AD B2C) proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](tokens-overview.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Habilite una notificación en el flujo de usuario para pasar el token a través de las aplicaciones que registre en Azure AD B2C.
 
-Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de [OAuth 2.0](active-directory-b2c-reference-oauth-code.md), incluidos [Facebook](active-directory-b2c-setup-fb-app.md) y [Google](active-directory-b2c-setup-goog-app.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
+Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de [OAuth 2.0](authorization-code-flow.md), incluidos [Facebook](identity-provider-facebook.md) y [Google](identity-provider-google.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * La aplicación debe usar un [flujo de usuario v2](user-flow-versions.md).
 * El flujo de usuario se configura con un proveedor de identidades de OAuth 2.0.
@@ -56,4 +56,4 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [información general sobre los tokens de Azure AD B2C](active-directory-b2c-reference-tokens.md).
+Consulte la [información general sobre los tokens de Azure AD B2C](tokens-overview.md).

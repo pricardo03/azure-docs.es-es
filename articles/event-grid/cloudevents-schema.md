@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: e7cddf95a6537e5799acc523effb484c2249453d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548057"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844741"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Uso del esquema CloudEvents v1.0 con Event Grid
 
@@ -73,7 +73,6 @@ Puede usar Event Grid con eventos de entrada y salida de esquema CloudEvents. Cl
 |--------------------|---------------------
 | Formato de CloudEvents | Formato de CloudEvents
 | Formato de Event Grid  | Formato de CloudEvents
-| Formato de CloudEvents | Formato de Event Grid
 | Formato de Event Grid  | Formato de Event Grid
 
 Con todos los esquemas de eventos, Event Grid requiere validación al publicar en un tema de Event Grid y al crear una suscripción de eventos. Para más información, vea [Event Grid security and authentication](security-authentication.md) (Seguridad y autenticación de Event Grid).
@@ -109,8 +108,6 @@ New-AzureRmEventGridTopic `
   -Name <topic_name> `
   -InputSchema CloudEventSchemaV1_0
 ```
-
-La versión actual de CloudEvents no admite el procesamiento por lote de eventos. Para publicar eventos con el esquema de CloudEvent en un tema, publique cada evento individualmente.
 
 ### <a name="output-schema"></a>Esquema de salida
 

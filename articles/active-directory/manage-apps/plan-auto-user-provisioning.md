@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 44ed85ac8171484cccf39c0b048a5c7a026a657d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732457"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711596"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -25,7 +25,7 @@ Muchas organizaciones confían en aplicaciones de software como servicio (SaaS) 
 
 El aprovisionamiento automático de usuarios de Azure Active Directory (Azure AD) simplifica este proceso mediante la automatización segura de la creación, el mantenimiento y la eliminación de las identidades de usuarios en aplicaciones SaaS basadas en reglas de negocio. Esta automatización permite escalar de manera eficaz los sistemas de administración de identidades en entornos híbridos y solo en la nube a medida que se extiende su dependencia de soluciones basadas en la nube.
 
-Consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para comprender mejor la funcionalidad.
+Consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md) para comprender mejor la funcionalidad.
 
 ## <a name="learn"></a>Obtener información
 
@@ -59,7 +59,7 @@ En este artículo se usan los términos siguientes:
 
 * Inicio de sesión único (SSO): la capacidad de un usuario de iniciar sesión una vez y acceder a todas las aplicaciones habilitadas para SSO. En el contexto del aprovisionamiento de usuarios, SSO es el resultado de que los usuarios tengan una cuenta única para acceder a todos los sistemas que usan el aprovisionamiento automático de usuarios.
 
-* Sistema de origen: el repositorio de los usuarios desde donde se aprovisiona Azure AD. Azure AD es el sistema de origen para la mayoría de los conectores de aprovisionamiento integrados previamente. Sin embargo, hay algunas excepciones para las aplicaciones en la nube, como SAP, WorkDay y AWS. Por ejemplo, consulte el [aprovisionamiento de usuarios de WorkDay a AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+* Sistema de origen: el repositorio de los usuarios desde donde se aprovisiona Azure AD. Azure AD es el sistema de origen para la mayoría de los conectores de aprovisionamiento integrados previamente. Sin embargo, hay algunas excepciones para las aplicaciones en la nube, como SAP, WorkDay y AWS. Por ejemplo, consulte el [aprovisionamiento de usuarios de WorkDay a AD](../saas-apps/workday-inbound-tutorial.md).
 
 * Sistema de destino: el repositorio de los usuarios hacia donde se aprovisiona Azure AD. Por lo general, el sistema de destino es una aplicación SaaS como ServiceNow, Zscaler y Slack. El sistema de destino también puede ser un sistema local, como AD.
 
@@ -73,8 +73,8 @@ En este artículo se usan los términos siguientes:
 | Vídeos| [¿Qué es el aprovisionamiento de usuarios en Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [¿Cómo implementar el aprovisionamiento de usuarios en Azure Active Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integración de Salesforce con Azure AD: automatización del aprovisionamiento de usuarios](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Cursos en línea| SkillUp Online:  [Administración de identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Obtenga información sobre cómo integrar Azure AD con muchas aplicaciones SaaS y proteger el acceso del usuario a esas aplicaciones. |
 | Libros| [Modern Authentication with Azure Active Directory for Web Applications (Developer Reference)](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0) (Autenticación remota con Azure Active Directory para aplicaciones web [referencia para desarrolladores]), primera edición.  <br> ‎Se trata de una guía autoritativa y profunda sobre cómo compilar soluciones de autenticación de Active Directory para estos entornos nuevos. |
-| Tutoriales| Consulte la [lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
-| Preguntas más frecuentes| [Preguntas más frecuentes](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sobre el aprovisionamiento automatizado de usuarios |
+| Tutoriales| Consulte la [lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure AD](../saas-apps/tutorial-list.md). |
+| Preguntas más frecuentes| [Preguntas más frecuentes](user-provisioning.md) sobre el aprovisionamiento automatizado de usuarios |
 
 ### <a name="solution-architectures"></a>Arquitecturas de las soluciones
 
@@ -92,9 +92,9 @@ En este ejemplo, los usuarios y los grupos se crean en una base de datos de recu
 
 1. El **agente de Azure AD Connect** ejecuta sincronizaciones programadas de identidades (usuarios y grupos) desde la instancia de AD local a Azure AD.
 
-1. El **servicio de aprovisionamiento de Azure AD** comienza un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) en el sistema de origen y el sistema de destino. 
+1. El **servicio de aprovisionamiento de Azure AD** comienza un [ciclo inicial](user-provisioning.md) en el sistema de origen y el sistema de destino. 
 
-1. El **servicio de aprovisionamiento de Azure AD** consulta el sistema de origen para saber si algún usuario o grupo cambió desde el ciclo inicial y envía los cambios en [ciclos incrementales](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. El **servicio de aprovisionamiento de Azure AD** consulta el sistema de origen para saber si algún usuario o grupo cambió desde el ciclo inicial y envía los cambios en [ciclos incrementales](user-provisioning.md).
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Aprovisionamiento automático de usuarios para empresas solo en la nube
 
@@ -106,9 +106,9 @@ En este ejemplo, la creación de usuarios se produce en Azure AD y el servicio 
 
 1. Los usuarios o grupos se crean en Azure AD.
 
-1. El **servicio de aprovisionamiento de Azure AD** comienza un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) en el sistema de origen y el sistema de destino. 
+1. El **servicio de aprovisionamiento de Azure AD** comienza un [ciclo inicial](user-provisioning.md) en el sistema de origen y el sistema de destino. 
 
-1. El **servicio de aprovisionamiento de Azure AD** consulta el sistema de origen para saber si algún usuario o grupo se actualizó desde el ciclo inicial y realiza cualquier [ciclo incremental](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. El **servicio de aprovisionamiento de Azure AD** consulta el sistema de origen para saber si algún usuario o grupo se actualizó desde el ciclo inicial y realiza cualquier [ciclo incremental](user-provisioning.md).
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Aprovisionamiento automático de usuarios para aplicaciones de recursos humanos en la nube 
 
@@ -138,7 +138,7 @@ La comunicación es fundamental para el éxito de cualquier servicio nuevo. Comu
 
 ### <a name="plan-a-pilot"></a>Planeamiento de un piloto
 
-Se recomienda que la configuración inicial del aprovisionamiento automático de usuarios esté en un entorno de prueba con un subconjunto de usuarios pequeño antes de escalarla a todos los usuarios de producción. Vea los [procedimientos recomendados](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) para ejecutar un piloto.
+Se recomienda que la configuración inicial del aprovisionamiento automático de usuarios esté en un entorno de prueba con un subconjunto de usuarios pequeño antes de escalarla a todos los usuarios de producción. Vea los [procedimientos recomendados](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) para ejecutar un piloto.
 
 #### <a name="best-practices-for-a-pilot"></a>Procedimientos recomendados para un piloto  
 
@@ -146,29 +146,29 @@ Un piloto le permite probar con un grupo pequeño antes de implementar una funci
 
 En su primera oleada, TI de destino, facilidad de uso y otros usuarios adecuados que pueden probar y proporcionar comentarios. Use estos comentarios para desarrollar aún más las comunicaciones e instrucciones que envía a sus usuarios y proporcionarles información sobre los tipos de problemas que puede ver su personal de soporte técnico.
 
-Amplíe la implementación en grupos de usuarios más grandes mediante el aumento del ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) o agregando usuarios manualmente a los grupos objetivo.
+Amplíe la implementación en grupos de usuarios más grandes mediante el aumento del ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](../users-groups-roles/groups-dynamic-membership.md) o agregando usuarios manualmente a los grupos objetivo.
 
 ## <a name="plan-application-connections-and-administration"></a>Planeamiento de la administración y conexiones de aplicación
 
-Use el portal de Azure AD para ver y administrar todas las aplicaciones que admiten el aprovisionamiento. Consulte [Búsqueda de aplicaciones en el portal](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal).
+Use el portal de Azure AD para ver y administrar todas las aplicaciones que admiten el aprovisionamiento. Consulte [Búsqueda de aplicaciones en el portal](configure-automatic-user-provisioning-portal.md).
 
 ### <a name="determine-the-type-of-connector-to-use"></a>Determine el tipo de conector que se va a usar
 
-Los pasos que son necesarios para habilitar y configurar el aprovisionamiento automático varían según la aplicación. Si la aplicación que quiere aprovisionar automáticamente aparece en la [galería de aplicaciones SaaS de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), debe seleccionar el [tutorial de integración específico para la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) para configurar el conector de aprovisionamiento de usuarios integrado previamente.
+Los pasos que son necesarios para habilitar y configurar el aprovisionamiento automático varían según la aplicación. Si la aplicación que quiere aprovisionar automáticamente aparece en la [galería de aplicaciones SaaS de Azure AD](../saas-apps/tutorial-list.md), debe seleccionar el [tutorial de integración específico para la aplicación](../saas-apps/tutorial-list.md) para configurar el conector de aprovisionamiento de usuarios integrado previamente.
 
 Si no es así, siga estos pasos:
 
-1. [Cree una solicitud](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) para un conector de aprovisionamiento de usuarios integrado previamente. Nuestro equipo trabajará con usted y con el desarrollador de la aplicación para incorporar la aplicación a nuestra plataforma si es compatible con SCIM.
+1. [Cree una solicitud](../develop/howto-app-gallery-listing.md) para un conector de aprovisionamiento de usuarios integrado previamente. Nuestro equipo trabajará con usted y con el desarrollador de la aplicación para incorporar la aplicación a nuestra plataforma si es compatible con SCIM.
 
-1. Use la compatibilidad con el aprovisionamiento genérico de usuarios [BYOA SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) de la aplicación. Este es un requisito de Azure AD para aprovisionar usuarios en la aplicación sin un conector de aprovisionamiento integrado previamente.
+1. Use la compatibilidad con el aprovisionamiento genérico de usuarios [BYOA SCIM](use-scim-to-provision-users-and-groups.md) de la aplicación. Este es un requisito de Azure AD para aprovisionar usuarios en la aplicación sin un conector de aprovisionamiento integrado previamente.
 
-1. Si la aplicación puede usar el conector BYOA SCIM, consulte el [tutorial de integración de BYOA SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) para configurar el conector para la aplicación.
+1. Si la aplicación puede usar el conector BYOA SCIM, consulte el [tutorial de integración de BYOA SCIM](use-scim-to-provision-users-and-groups.md) para configurar el conector para la aplicación.
 
-Para más información, consulte [¿Qué aplicaciones y sistemas puedo usar con el aprovisionamiento automático de usuarios de Azure AD?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+Para más información, consulte [¿Qué aplicaciones y sistemas puedo usar con el aprovisionamiento automático de usuarios de Azure AD?](user-provisioning.md)
 
 ### <a name="collect-information-to-authorize-application-access"></a>Recopilación de información para autorizar el acceso a la aplicación
 
-La configuración del aprovisionamiento automático de usuarios es un proceso por aplicación. Para cada aplicación, necesita proporcionar [credenciales de administrador](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) para conectarse al punto de conexión del usuario del sistema de destino.
+La configuración del aprovisionamiento automático de usuarios es un proceso por aplicación. Para cada aplicación, necesita proporcionar [credenciales de administrador](configure-automatic-user-provisioning-portal.md) para conectarse al punto de conexión del usuario del sistema de destino.
 
 En la imagen siguiente muestra una versión de las credenciales de administración necesarias:
 
@@ -198,17 +198,17 @@ Para cada aplicación, documente la información siguiente:
 
 Antes de implementar el aprovisionamiento automático de usuarios, debe determinar los usuarios y grupos que se aprovisionarán en la aplicación.
 
-* Use [filtros de ámbito](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters) para definir reglas basadas en atributos que determinen qué usuarios se aprovisionan en una aplicación.
+* Use [filtros de ámbito](define-conditional-rules-for-provisioning-user-accounts.md) para definir reglas basadas en atributos que determinen qué usuarios se aprovisionan en una aplicación.
 
-* A continuación, use [asignaciones de usuarios y grupos](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) según sea necesario para el filtrado adicional.
+* A continuación, use [asignaciones de usuarios y grupos](assign-user-or-group-access-portal.md) según sea necesario para el filtrado adicional.
 
 ### <a name="define-user-and-group-attribute-mapping"></a>Definición de la asignación de atributos de usuario y grupo
 
-Para implementar el aprovisionamiento automático de usuarios, debe definir los atributos de usuario y grupo necesarios para la aplicación. Hay un conjunto preconfigurado de atributos y [asignaciones de atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. No todas las aplicaciones SaaS habilitan atributos de grupo.
+Para implementar el aprovisionamiento automático de usuarios, debe definir los atributos de usuario y grupo necesarios para la aplicación. Hay un conjunto preconfigurado de atributos y [asignaciones de atributos](configure-automatic-user-provisioning-portal.md) entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. No todas las aplicaciones SaaS habilitan atributos de grupo.
 
-Azure AD admite la asignación de atributo a atributo directa, lo que proporciona valores constantes o permite [escribir expresiones para asignaciones de atributos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings). Esta flexibilidad le brinda un control preciso de lo que se rellenará en el atributo del sistema de destino. Puede usar [Microsoft Graph API](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration) y Probador de Graph para exportar el esquema y las asignaciones de atributos de aprovisionamiento de usuarios a un archivo JSON e importarlos de nuevo en Azure AD.
+Azure AD admite la asignación de atributo a atributo directa, lo que proporciona valores constantes o permite [escribir expresiones para asignaciones de atributos](functions-for-customizing-application-data.md). Esta flexibilidad le brinda un control preciso de lo que se rellenará en el atributo del sistema de destino. Puede usar [Microsoft Graph API](export-import-provisioning-configuration.md) y Probador de Graph para exportar el esquema y las asignaciones de atributos de aprovisionamiento de usuarios a un archivo JSON e importarlos de nuevo en Azure AD.
 
-Para más información, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+Para más información, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Consideraciones especiales para el aprovisionamiento de usuarios
 
@@ -216,9 +216,9 @@ Tenga en cuenta lo siguiente para disminuir los problemas posteriores a la imple
 
 * Asegúrese de que los atributos usados para asignar objetos de usuario o grupo entre las aplicaciones de origen y de destino sean resistentes. No deberían hacer que los usuarios o grupos se aprovisionen de manera incorrecta si los atributos cambian (por ejemplo, un usuario se mueve a otra parte de la empresa).
 
-* Las aplicaciones pueden tener restricciones o requisitos específicos que deben cumplirse para que el aprovisionamiento de usuarios funcione correctamente. Por ejemplo, Slack trunca los valores de ciertos atributos. Consulte los [tutoriales de aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) específicos para cada aplicación.
+* Las aplicaciones pueden tener restricciones o requisitos específicos que deben cumplirse para que el aprovisionamiento de usuarios funcione correctamente. Por ejemplo, Slack trunca los valores de ciertos atributos. Consulte los [tutoriales de aprovisionamiento automático de usuarios](../saas-apps/tutorial-list.md) específicos para cada aplicación.
 
-* Confirme la coherencia del esquema entre los sistemas de origen y de destino. Entre los problemas comunes se incluyen atributos como UPN o correo que no coinciden. Por ejemplo, UPN en Azure AD se establece como *john_smith@contoso.com* y en la aplicación, es *jsmith@contoso.com* . Para más información, consulte la [referencia del esquema de usuario y grupo](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups).
+* Confirme la coherencia del esquema entre los sistemas de origen y de destino. Entre los problemas comunes se incluyen atributos como UPN o correo que no coinciden. Por ejemplo, UPN en Azure AD se establece como *john_smith@contoso.com* y en la aplicación, es *jsmith@contoso.com* . Para más información, consulte la [referencia del esquema de usuario y grupo](use-scim-to-provision-users-and-groups.md).
 
 ## <a name="plan-testing-and-security"></a>Planeamiento de pruebas y seguridad
 
@@ -233,7 +233,7 @@ Una vez que haya configurado el aprovisionamiento automático de usuarios para l
 | El usuario se agrega a un grupo asignado al sistema de destino | El objeto de usuario se aprovisiona en el sistema de destino. <br>El usuario puede iniciar sesión en el sistema de destino y realizar las acciones deseadas. |
 | El usuario se quita de un grupo asignado al sistema de destino | El objeto de usuario se desaprovisiona en el sistema de destino.<br>El usuario no puede iniciar sesión en el sistema de destino. |
 | La información de usuario se actualiza en Azure AD con cualquier método | Los atributos de usuario actualizados se reflejan en el sistema de destino después de un ciclo incremental. |
-| El usuario está fuera del ámbito | El objeto de usuario está deshabilitado o eliminado. <br>Nota: Este comportamiento se invalida para el [aprovisionamiento de Workday](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions). |
+| El usuario está fuera del ámbito | El objeto de usuario está deshabilitado o eliminado. <br>Nota: Este comportamiento se invalida para el [aprovisionamiento de Workday](skip-out-of-scope-deletions.md). |
 
 ### <a name="plan-security"></a>Planeamiento de seguridad
 
@@ -243,7 +243,7 @@ Es habitual que se requiera una revisión de seguridad como parte de una impleme
 
 Si la implementación del aprovisionamiento automático de usuarios no funciona como se desea en el entorno de producción, los pasos de reversión siguientes pueden ayudarlo a revertir a un estado correcto conocido anterior:
 
-1. Revise el [informe de resumen de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting) y los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting) para determine qué operaciones incorrectas se produjeron en los usuarios o grupos afectados.
+1. Revise el [informe de resumen de aprovisionamiento](check-status-user-account-provisioning.md) y los [registros de aprovisionamiento](check-status-user-account-provisioning.md#provisioning-logs-preview) para determine qué operaciones incorrectas se produjeron en los usuarios o grupos afectados.
 
 1. Use los registros de auditoría del aprovisionamiento para determinar el último estado correcto conocido de los usuarios o grupos afectados. Revise también los sistemas de origen (Azure AD o AD).
 
@@ -257,13 +257,13 @@ Elija los pasos que se ajusten a los requisitos de la solución.
 
 Cuando el servicio de aprovisionamiento de Azure AD se ejecuta por primera vez, el ciclo inicial en el sistema de origen y el sistema de destino crea una instantánea de todos los objetos de usuario para cada sistema de destino.
 
-Al habilitar el aprovisionamiento automático para una aplicación, el ciclo inicial puede tardar desde 20 minutos a varias horas. La duración depende del tamaño del directorio de Azure AD y el número de usuarios en el ámbito del aprovisionamiento. Consulte [Cómo mejorar el rendimiento del aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish).
+Al habilitar el aprovisionamiento automático para una aplicación, el ciclo inicial puede tardar desde 20 minutos a varias horas. La duración depende del tamaño del directorio de Azure AD y el número de usuarios en el ámbito del aprovisionamiento. Consulte [Cómo mejorar el rendimiento del aprovisionamiento](application-provisioning-when-will-provisioning-finish.md).
 
 El servicio de aprovisionamiento almacena el estado de ambos sistemas después del ciclo inicial, lo que permite mejorar el rendimiento de los ciclos incrementales siguientes.
 
 ### <a name="configure-automatic-user-provisioning"></a>Configuración del aprovisionamiento automático de usuarios
 
-Use [Azure Portal](https://portal.azure.com/) para administrar el aprovisionamiento y el desaprovisionamiento automáticos de cuentas de usuario en aplicaciones que lo admitan. Siga los pasos que aparecen en [¿Cómo configuro el aprovisionamiento automático para una aplicación?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+Use [Azure Portal](https://portal.azure.com/) para administrar el aprovisionamiento y el desaprovisionamiento automáticos de cuentas de usuario en aplicaciones que lo admitan. Siga los pasos que aparecen en [¿Cómo configuro el aprovisionamiento automático para una aplicación?](user-provisioning.md)
 
 El servicio de aprovisionamiento de usuarios de Azure AD también se puede configurar y administrar mediante [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
@@ -273,7 +273,7 @@ Ahora que realizó la implementación, es necesario administrar la solución.
 
 ### <a name="monitor-user-provisioning-operation-health"></a>Supervisión del estado de las operaciones de aprovisionamiento de usuarios
 
-Después de un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) exitoso, el servicio de aprovisionamiento de Azure AD ejecutará actualizaciones incrementales de manera indefinida, a intervalos específicos para cada aplicación, hasta que se produce alguno de estos eventos:
+Después de un [ciclo inicial](user-provisioning.md) exitoso, el servicio de aprovisionamiento de Azure AD ejecutará actualizaciones incrementales de manera indefinida, a intervalos específicos para cada aplicación, hasta que se produce alguno de estos eventos:
 
 * El servicio se detiene de manera manual y se desencadena un ciclo inicial nuevo mediante [Azure Portal](https://portal.azure.com/) o con el comando adecuado de [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
@@ -281,15 +281,15 @@ Después de un [ciclo inicial](https://docs.microsoft.com/azure/active-directory
 
 * El proceso de aprovisionamiento entra en cuarentena debido a una alta tasa de errores y permanece en ese estado durante más de cuatro semanas, cuando se deshabilitará automáticamente.
 
-Para revisar estos eventos y todas las demás actividades realizadas por el servicio de aprovisionamiento, consulte los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD.
+Para revisar estos eventos y todas las demás actividades realizadas por el servicio de aprovisionamiento, consulte los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD.
 
-Para saber cuánto tiempo tardan los ciclos de aprovisionamiento y supervisar el progreso del trabajo de aprovisionamiento, puede [comprobar el estado de aprovisionamiento de usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+Para saber cuánto tiempo tardan los ciclos de aprovisionamiento y supervisar el progreso del trabajo de aprovisionamiento, puede [comprobar el estado de aprovisionamiento de usuarios](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### <a name="gain-insights-from-reports"></a>Obtención de información a partir de los datos
 
-Azure AD puede proporcionar [información adicional](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) sobre el uso del aprovisionamiento de usuarios y el estado operativo mediante registros de auditoría e informes.
+Azure AD puede proporcionar [información adicional](application-provisioning-when-will-provisioning-finish-specific-user.md) sobre el uso del aprovisionamiento de usuarios y el estado operativo mediante registros de auditoría e informes.
 
-Los administradores deben comprobar el informe de resumen del aprovisionamiento para supervisar el estado operativo del trabajo de aprovisionamiento. Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los registros de aprovisionamiento de Azure AD. Consulte [Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning).
+Los administradores deben comprobar el informe de resumen del aprovisionamiento para supervisar el estado operativo del trabajo de aprovisionamiento. Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los registros de aprovisionamiento de Azure AD. Consulte [Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](check-status-user-account-provisioning.md).
 
 Se recomienda asumir la propiedad de estos informes y consumirlos según una cadencia que cumpla con los requisitos de la organización. Azure AD conserva la mayoría de los datos de auditoría durante 30 días.
 
@@ -297,27 +297,27 @@ Se recomienda asumir la propiedad de estos informes y consumirlos según una cad
 
 Consulte los vínculos siguientes para solucionar los problemas que pueden surgir durante el aprovisionamiento:
 
-* [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
+* [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](application-provisioning-config-problem.md)
 
-* [Sincronización de un atributo de Active Directory local con Azure AD para el aprovisionamiento en una aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning-sync-attributes-for-mapping)
+* [Sincronización de un atributo de Active Directory local con Azure AD para el aprovisionamiento en una aplicación](user-provisioning-sync-attributes-for-mapping.md)
 
-* [Aprovisionamiento de usuarios a una aplicación de la galería de Azure AD que tarda horas o más](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish)
+* [Aprovisionamiento de usuarios a una aplicación de la galería de Azure AD que tarda horas o más](application-provisioning-when-will-provisioning-finish.md)
 
-* [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios em una aplicación de galería de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit)
+* [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios em una aplicación de galería de Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
 
-* [No se aprovisionan usuarios en una aplicación de la galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+* [No se aprovisionan usuarios en una aplicación de la galería de Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned)
+* [Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)
 
 ### <a name="helpful-documentation"></a>Documentación útil
 
-* [Escritura de expresiones para la asignación de atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+* [Escritura de expresiones para la asignación de atributos](functions-for-customizing-application-data.md)
 
 * [Introducción a la API de sincronización de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 
-* [Omisión de la eliminación de cuentas de usuario que están fuera de ámbito](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions)
+* [Omisión de la eliminación de cuentas de usuario que están fuera de ámbito](skip-out-of-scope-deletions.md)
 
-* [Agente de aprovisionamiento de Azure AD Connect: historial de versiones](https://docs.microsoft.com/azure/active-directory/manage-apps/provisioning-agent-release-version-history)
+* [Agente de aprovisionamiento de Azure AD Connect: historial de versiones](provisioning-agent-release-version-history.md)
 
 #### <a name="resources"></a>Recursos
 
@@ -328,8 +328,8 @@ Consulte los vínculos siguientes para solucionar los problemas que pueden surgi
 * [Foro de Azure AD sobre el desbordamiento de pila](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Configuración del aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal)
+* [Configuración del aprovisionamiento automático de usuarios](configure-automatic-user-provisioning-portal.md)
 
-* [Exportación o importación de la configuración de aprovisionamiento mediante Microsoft Graph API](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration)
+* [Exportación o importación de la configuración de aprovisionamiento mediante Microsoft Graph API](export-import-provisioning-configuration.md)
 
-* [Escritura de expresiones para la asignación de atributos en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+* [Escritura de expresiones para la asignación de atributos en Azure Active Directory](functions-for-customizing-application-data.md)

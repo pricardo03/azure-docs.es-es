@@ -17,13 +17,12 @@ ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 270fda72378b61e6011d5bbf4ce43496df045c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ed1cb6a080a35fa81c6a859f88d987020c8504c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423218"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773319"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 
@@ -76,7 +75,7 @@ Los metadatos son un documento de notación de objetos JavaScript (JSON) simple.
 }
 ```
 
-Si la aplicación tiene claves de firma personalizadas como resultado de usar la característica de [asignación de notificaciones](active-directory-claims-mapping.md), debe anexar un parámetro de consulta `appid` que contenga el identificador de aplicación con el fin de obtener un elemento `jwks_uri` que apunte a la información de la clave de firma de la aplicación. Por ejemplo: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene el elemento `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Si la aplicación tiene claves de firma personalizadas como resultado de usar la característica de [asignación de notificaciones](active-directory-claims-mapping.md), debe anexar un parámetro de consulta `appid` que contenga el identificador de aplicación con el fin de obtener un elemento `jwks_uri` que apunte a la información de la clave de firma de la aplicación. Por ejemplo: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene el elemento `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 Normalmente, este documento de metadatos se usa para configurar una biblioteca o SDK de OpenID Connect; la biblioteca usa los metadatos para realizar su trabajo. Sin embargo, si no usa una biblioteca de OpenID Connect precompilada, puede seguir los pasos del resto de este artículo para realizar el inicio de sesión en una aplicación web mediante el punto de conexión de la plataforma de identidad de Microsoft.
 

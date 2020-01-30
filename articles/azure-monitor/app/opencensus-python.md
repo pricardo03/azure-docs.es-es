@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 87c0b62cec0b61bfc52ec31233ca7c1f947fdd98
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432483"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846135"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configuración de Azure Monitor para las aplicaciones de Python (versión preliminar)
 
@@ -42,7 +42,7 @@ En primer lugar, tiene que crear un recurso de Application Insights en Azure Mon
    | ------------- |:-------------|:-----|
    | **Nombre**      | Valor único globalmente | Nombre que identifica la aplicación que está supervisando. |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights. |
-   | **Ubicación** | East US | Ubicación cerca de usted o de donde se hospeda la aplicación. |
+   | **Ubicación** | Este de EE. UU. | Ubicación cerca de usted o de donde se hospeda la aplicación. |
 
 1. Seleccione **Crear**.
 
@@ -136,7 +136,7 @@ Estos son los exportadores que proporciona OpenCensus asignados a los tipos de t
 
 4. Ahora, al ejecutar el script de Python, todavía se le seguirá pidiendo que especifique los valores, pero en el shell solo se imprime el valor. El valor de `SpanData` creado se enviará a Azure Monitor. Puede encontrar los datos del intervalo emitidos en `dependencies`.
 
-5. Para información sobre el muestreo en OpenCensus, eche un vistazo al [muestreo en OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python).
+5. Para información sobre el muestreo en OpenCensus, eche un vistazo al [muestreo en OpenCensus](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
 
 6. Para detalles sobre la correlación de telemetría en los datos de seguimiento, eche un vistazo a la [correlación de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python) de OpenCensus.
 

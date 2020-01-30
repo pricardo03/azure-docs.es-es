@@ -3,19 +3,19 @@ title: Evaluaciones en Azure Migrate
 description: Obtenga información sobre las evaluaciones en Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029106"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833336"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Acerca de las evaluaciones en Azure Migrate
 
 En este artículo se describe cómo se calculan las evaluaciones en [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool). Las evaluaciones se ejecutan en grupos de máquinas locales para averiguar si están listas para la migración a Azure Migrate.
 
 ## <a name="how-do-i-run-an-assessment"></a>¿Cómo se ejecuta una evaluación?
-Puede ejecutar una evaluación mediante Azure Migrate: Server Assessment u otra herramienta de Azure o de terceros. Después de crear un proyecto de Azure Migrate, agregue la herramienta que necesite. [Más información](how-to-add-tool-first-time.md
+Puede ejecutar una evaluación mediante Azure Migrate: Server Assessment u otra herramienta de Azure o de terceros. Después de crear un proyecto de Azure Migrate, agregue la herramienta que necesite. [Más información](how-to-add-tool-first-time.md)
 
 ### <a name="collect-compute-data"></a>Recopilación de datos de proceso
 
@@ -77,7 +77,7 @@ Esto es lo que se incluye en una evaluación en Azure Migrate: Server Assessment
 
 **Propiedad** | **Detalles**
 --- | ---
-**Ubicación de destino** | Ubicación a la que se quiere migrar. Server Assessment admite actualmente las siguientes regiones de Azure de destino:<br/><br/> Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, India central, Centro de EE. UU., Este de China, Norte de China, Asia Oriental, Este de EE. UU., Este de EE. UU. 2, Centro de Alemania, Noreste de Alemania, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Europa del Norte, Centro y sur de EE. UU., Sudeste Asiático, India del Sur, Sur del Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro occidental de EE. UU., Europa Occidental, India occidental, Oeste de EE. UU. y Oeste de EE. UU. 2.
+**Ubicación de destino** | Ubicación a la que se quiere migrar. Server Assessment admite actualmente las siguientes regiones de Azure de destino:<br/><br/> Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de la India, Centro de EE. UU., Este de China, Norte de China, Asia Oriental, Este de EE. UU., Este de EE. UU. 2, Сentro de Alemania, Nordeste de Alemania, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y sur de EE. UU., Sudeste Asiático, India del Sur, Sur de Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro-oeste de EE. UU., Oeste de Europa, India occidental, Oeste de EE. UU. y Oeste de EE. UU. 2.
 *Disco de almacenamiento de destino (ajuste de tamaño tal cual)* * | Tipo de discos que se van a usar para el almacenamiento en Azure. <br/><br/> Especifique el disco de almacenamiento de destino como administrado premium, administrado de SSD estándar o administrado de HDD estándar.
 **Disco de almacenamiento de destino (ajuste de tamaño basado en el rendimiento)** | Especifique el tipo de disco de almacenamiento de destino como automático, administrado premium, administrado de HDD estándar o administrado de SSD estándar.<br/><br/> **Automático**: La recomendación de disco se realiza en función de los datos de rendimiento de los discos (las operaciones de entrada/salida por segundo [IOPS] y el rendimiento).<br/><br/>**Premium o estándar**:  La evaluación recomienda una SKU de disco dentro del tipo de almacenamiento seleccionado.<br/><br/> Si quiere lograr un Acuerdo de Nivel de Servicio de VM de una sola instancia del 99,9 %, considere el uso de discos administrados premium. Esto garantiza que todos los discos de la evaluación se recomienden como discos administrados premium.<br/><br/> Azure Migrate solo admite discos administrados para la valoración de la migración.
 **Instancias reservadas (RI)** | Especifique [instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) en Azure para que las estimaciones de costos en la evaluación tengan en cuenta los descuentos de RI.<br/><br/> Actualmente, las instancias reservadas solo se admiten en ofertas de pago por uso en Azure Migrate.

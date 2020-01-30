@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6854400f2152a5952a7b24dbd860d7ad4bfc943d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640085"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774916"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Codificación de un recurso mediante Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Solicitud:
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
         Authorization: Bearer <ENCODED JWT TOKEN> 
         x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
         Host: media.windows.net
@@ -116,7 +116,7 @@ En muchos escenarios de aplicaciones, los desarrolladores desean crear una serie
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -160,7 +160,7 @@ En el ejemplo siguiente se muestra cómo usar el procesamiento por lotes de ODat
     Accept: multipart/mixed
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
@@ -180,7 +180,7 @@ En el ejemplo siguiente se muestra cómo usar el procesamiento por lotes de ODat
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -197,7 +197,7 @@ En el ejemplo siguiente se muestra cómo usar el procesamiento por lotes de ODat
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {  
@@ -221,7 +221,7 @@ En el ejemplo siguiente se muestra cómo crear una plantilla JobTemplate con una
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -248,7 +248,7 @@ En el ejemplo siguiente se muestra cómo crear un trabajo que hace referencia a 
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -279,5 +279,5 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo crear un trabajo para codificar un recurso, consulte [Comprobación del progreso del trabajo con Media Services](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Obtención de una instancia de procesador multimedia](media-services-rest-get-media-processor.md)

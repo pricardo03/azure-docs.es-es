@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3e92ee5ffd97174331703b703e811bd1ce5f43
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 609031bfad23a14a954a09a447e363e89a9d29d5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815865"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711752"
 ---
 # <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Exportación o importación de la configuración de aprovisionamiento mediante Graph API
 
@@ -31,14 +31,14 @@ Puede usar Microsoft Graph API y Graph Explorer para exportar el esquema y las a
 1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Propiedades de la aplicación de aprovisionamiento. Por ejemplo, si desea exportar la asignación de la *aplicación de aprovisionamiento de usuarios de Workday a AD*, vaya a la sección Propiedades de dicha aplicación. 
 1. En la sección Propiedades de la aplicación de aprovisionamiento, copie el valor GUID asociado con el campo *Id. de objeto*. Este valor también se conoce como el elemento **ServicePrincipalId** de la aplicación y se usará en las operaciones del Probador de Graph.
 
-   ![Identificador de la entidad de servicio de la aplicación de Workday](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![Identificador de la entidad de servicio de la aplicación de Workday](media/export-import-provisioning-mappings/wd_export_01.png)
 
 ## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Paso 2: Iniciar sesión en el Probador de Graph de Microsoft
 
 1. Iniciar el [Probador de Graph de Microsoft](https://developer.microsoft.com/graph/graph-explorer)
 1. Haga clic en el botón "Iniciar sesión con Microsoft" e inicie sesión con las credenciales de administrador de la aplicación o de administrador global de Azure AD.
 
-    ![Inicio de sesión en Graph](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Inicio de sesión en Graph](media/export-import-provisioning-mappings/wd_export_02.png)
 
 1. Una vez haya iniciado sesión correctamente, verá los detalles de la cuenta de usuario en el panel izquierdo.
 
@@ -52,7 +52,7 @@ En el Probador de Graph de Microsoft, ejecute la siguiente consulta GET; para el
 
 Obtendrá una respuesta como la que se muestra a continuación. Copie el "atributo de identificador" que aparece en la respuesta. Este valor se corresponde con la propiedad **ProvisioningJobId** y se utilizará para recuperar los metadatos del esquema subyacente.
 
-   [![Id. del trabajo de aprovisionamiento](./media/export-import-provisioning-mappings/wd_export_03.png)](./media/export-import-provisioning-mappings/wd_export_03.png#lightbox)
+   [![Id. del trabajo de aprovisionamiento](media/export-import-provisioning-mappings/wd_export_03.png)](media/export-import-provisioning-mappings/wd_export_03.png#lightbox)
 
 ## <a name="step-4-download-the-provisioning-schema"></a>Paso 4: Descargar el esquema de aprovisionamiento
 
@@ -77,10 +77,10 @@ En el Probador de Graph de Microsoft, configure la siguiente consulta PUT, reemp
 
 En la pestaña "Cuerpo de la solicitud", copie el contenido del archivo del esquema JSON.
 
-   [![Cuerpo de la solicitud](./media/export-import-provisioning-mappings/wd_export_04.png)](./media/export-import-provisioning-mappings/wd_export_04.png#lightbox)
+   [![Cuerpo de la solicitud](media/export-import-provisioning-mappings/wd_export_04.png)](media/export-import-provisioning-mappings/wd_export_04.png#lightbox)
 
 En la pestaña "Encabezados de solicitud", agregue el atributo de encabezado Content-Type con el valor “application/json”.
 
-   [![Encabezados de solicitud](./media/export-import-provisioning-mappings/wd_export_05.png)](./media/export-import-provisioning-mappings/wd_export_05.png#lightbox)
+   [![Encabezados de solicitud](media/export-import-provisioning-mappings/wd_export_05.png)](media/export-import-provisioning-mappings/wd_export_05.png#lightbox)
 
 Haga clic en el botón "Ejecutar consulta" para importar el nuevo esquema.

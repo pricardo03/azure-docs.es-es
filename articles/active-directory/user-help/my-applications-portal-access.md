@@ -12,13 +12,12 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed450f67b152bef4eb68ac8252b586b62992aa0d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dee6973a638a2cabc0ccc2138ed9db8b798f4d1c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820390"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705129"
 ---
 # <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Acceso e inicio de aplicaciones desde el portal Aplicaciones (versión preliminar)
 

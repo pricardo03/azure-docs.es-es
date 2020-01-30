@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb8711bc4a6134ec740a55d9f5d5794b2de77ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0380689ae6ca81e3f31a07f1e205c7773fdea8c6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587181"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773953"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Visualización de datos desde Azure Data Explorer en Redash
 
-[Redash](https://www.redash.io/) se conecta a los orígenes de datos y los consulta, y crea paneles para visualizar datos y compartirlos con los emparejamientos. En este artículo, aprenderá a configurar Azure Data Explorer como origen de datos de Redash y luego a visualizar datos.
+[Redash](https://redash.io/) se conecta a los orígenes de datos y los consulta, y crea paneles para visualizar datos y compartirlos con los emparejamientos. En este artículo, aprenderá a configurar Azure Data Explorer como origen de datos de Redash y luego a visualizar datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 1. [Crear un clúster y una base de datos](create-cluster-database-portal.md).
 1. Ingerir datos como se explica en [Ingesta de datos de ejemplo en Azure Data Explorer](ingest-sample-data.md). Para más opciones de ingesta, consulte la [información general sobre la ingesta](ingest-data-overview.md).

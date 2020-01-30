@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: d21ebabb34b828624c196922f88380f02234dc05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940906"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711867"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -39,17 +39,17 @@ Siga estos pasos para acceder a la característica **Asignaciones** del aprovisi
 1. Seleccione **Aprovisionamiento** para administrar la configuración de aprovisionamiento de cuentas de usuario de la aplicación seleccionada.
 1. Expanda **Asignaciones** para ver y modificar los atributos de usuario que fluyen entre Azure AD y la aplicación de destino. Si la aplicación de destino lo admite, en esta sección se puede configurar opcionalmente el aprovisionamiento de grupos y cuentas de usuario.
 
-   ![Uso de asignaciones para ver y editar atributos de usuario](./media/customize-application-attributes/21.png)
+   ![Uso de asignaciones para ver y editar atributos de usuario](media/customize-application-attributes/21.png)
 
 1. Al seleccionar una configuración de **Asignaciones**, se abre la pantalla relacionada **Asignación de atributos**. Hay algunas asignaciones de atributos que una aplicación SaaS necesita para funcionar correctamente. Para los atributos necesarios, la característica **Eliminar** no está disponible.
 
-   ![Uso de la asignación de atributos para configurar asignaciones de atributos para aplicaciones](./media/customize-application-attributes/22.png)
+   ![Uso de la asignación de atributos para configurar asignaciones de atributos para aplicaciones](media/customize-application-attributes/22.png)
 
    En esta captura de pantalla, puede ver que el atributo **Username** de un objeto administrado en Salesforce se rellena con el valor de **userPrincipalName** del objeto vinculado de Azure Active Directory.
 
 1. Seleccione una **asignación de atributos** para abrir la pantalla **Editar atributo**. Aquí puede editar los atributos de usuario que fluyen entre Azure AD y la aplicación de destino.
 
-   ![Uso del atributo de edición para editar atributos de usuario](./media/customize-application-attributes/23.png)
+   ![Uso del atributo de edición para editar atributos de usuario](media/customize-application-attributes/23.png)
 
 ### <a name="understanding-attribute-mapping-types"></a>Información sobre los tipos de asignación de atributos
 
@@ -71,7 +71,7 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
 
 - **Atributo de origen**: especifica el atributo de usuario del sistema de origen (por ejemplo, Azure Active Directory).
 - **Atributo de destino**: especifica el atributo de usuario del sistema de destino (por ejemplo, ServiceNow).
-- **Valor predeterminado si es nulo (opcional)** : valor que se enviará al sistema de destino si el atributo de origen es NULL. Este valor solo se aprovisionará cuando se cree un usuario. El "valor predeterminado si es nulo" no se aprovisionará al actualizar un usuario existente. Si, por ejemplo, quiere aprovisionar todos los usuarios existentes en el sistema de destino con un puesto determinado (cuando es NULL en el sistema de origen), puede usar la siguiente [expresión](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Asegúrese de reemplazar el "valor predeterminado" con lo que le gustaría aprovisionar cuando sea NULL en el sistema de origen. 
+- **Valor predeterminado si es nulo (opcional)** : valor que se enviará al sistema de destino si el atributo de origen es NULL. Este valor solo se aprovisionará cuando se cree un usuario. El "valor predeterminado si es nulo" no se aprovisionará al actualizar un usuario existente. Si, por ejemplo, quiere aprovisionar todos los usuarios existentes en el sistema de destino con un puesto determinado (cuando es NULL en el sistema de origen), puede usar la siguiente [expresión](functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Asegúrese de reemplazar el "valor predeterminado" con lo que le gustaría aprovisionar cuando sea NULL en el sistema de origen. 
 - **Hacer coincidir objetos con este atributo**: especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre los sistemas de origen y de destino. Normalmente esto se establece en el atributo userPrincipalName o mail en Azure AD, que se suele asignar a un campo de nombre de usuario en una aplicación de destino.
 - **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
 - **Aplicar esta asignación**
@@ -92,7 +92,7 @@ El servicio de aprovisionamiento de Azure AD se puede implementar en escenarios 
 
 Algunas aplicaciones seleccionadas, como ServiceNow, Box y G Suite, admiten la posibilidad de aprovisionar objetos de grupo además de objetos de usuario. Los objetos de grupo pueden contener propiedades de grupo como nombres para mostrar y alias de correo electrónico, además de miembros de grupo.
 
-![En el ejemplo se muestra ServiceNow con objetos de grupo y usuario aprovisionados](./media/customize-application-attributes/24.png)
+![En el ejemplo se muestra ServiceNow con objetos de grupo y usuario aprovisionados](media/customize-application-attributes/24.png)
 
 El aprovisionamiento de grupos se puede habilitar o deshabilitar de manera opcional; para ello, seleccione la asignación de grupo en **Asignaciones** y establezca **Habilitado** en la opción deseada en la pantalla **Asignación de atributos**.
 
@@ -193,13 +193,13 @@ Los atributos personalizados no pueden ser atributos referenciales ni atributos 
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Aprovisionamiento de un rol para una aplicación de SCIM
 Use los pasos siguientes para aprovisionar roles para un usuario para la aplicación. Tenga en cuenta que la descripción siguiente es específica de las aplicaciones de SCIM personalizadas. En el caso de las aplicaciones de la galería como Salesforce y ServiceNow, use las asignaciones de roles predefinidas. En las viñetas siguientes se explica cómo transformar el atributo AppRoleAssignments al formato que espera la aplicación.
 
-- La asignación de un elemento appRoleAssignment en Azure AD a un rol de la aplicación requiere que se transforme el atributo mediante una [expresión](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). El atributo appRoleAssignment **no debe asignarse directamente** a un atributo de rol sin usar una expresión para analizar los detalles del rol. 
+- La asignación de un elemento appRoleAssignment en Azure AD a un rol de la aplicación requiere que se transforme el atributo mediante una [expresión](functions-for-customizing-application-data.md). El atributo appRoleAssignment **no debe asignarse directamente** a un atributo de rol sin usar una expresión para analizar los detalles del rol. 
 
 - **SingleAppRoleAssignment** 
   - **Cuándo se debe usar:** use la expresión SingleAppRoleAssignment para aprovisionar un rol único para un usuario y para especificar el rol principal. 
   - **Cómo se configura:** use los pasos anteriores para ir a la página de asignaciones de atributos y use la expresión SingleAppRoleAssignment para asignar al atributo de roles. Hay tres atributos de roles entre los que elegir: (roles[primary eq "True"].display, roles[primary eq "True].type y roles[primary eq "True"].value). Puede optar por incluir cualquiera de los atributos de rol o todos en las asignaciones. Si quiere incluir más de uno, simplemente agregue una nueva asignación e inclúyala como atributo de destino.  
   
-  ![Adición de SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  ![Adición de SingleAppRoleAssignment](media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Cosas que hay que tener en cuenta**
     - Asegúrese de que no se asignen varios roles a un usuario. No se puede garantizar el rol que se va a aprovisionar.
     
@@ -231,11 +231,11 @@ Use los pasos siguientes para aprovisionar roles para un usuario para la aplicac
   - **Cuándo se debe usar:** use la expresión AppRoleAssignmentsComplex para aprovisionar varios roles para un usuario. 
   - **Cómo se configura:** edite la lista de atributos admitidos como se explica arriba para incluir un nuevo atributo para los roles: 
   
-    ![Agregar roles](./media/customize-application-attributes/add-roles.png)<br>
+    ![Agregar roles](media/customize-application-attributes/add-roles.png)<br>
 
     Luego use la expresión AppRoleAssignmentsComplex para asignar al atributo de rol personalizado como se muestra en la imagen siguiente:
 
-    ![Adición de AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+    ![Adición de AppRoleAssignmentsComplex](media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Cosas que hay que tener en cuenta**
     - todos los roles se aprovisionan como primary = false.
     - POST contiene el tipo de rol. La solicitud PATCH no contiene tipo. Se trabaja en el envío del tipo en las solicitudes POST y PATCH.

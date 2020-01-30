@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 66c69552157df957e572a3af092131a3b7e560d5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fc6766943747c066581fe3820481cfe4a35d5296
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871689"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774977"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Uso de la autenticación de Azure AD para acceder a la API de Media Services con REST
 
@@ -47,7 +47,7 @@ En este tutorial, aprenderá a:
 > [!IMPORTANT]
 > Actualmente Media Services es compatible con el modelo de autenticación de Azure Access Control Service. No obstante, la autenticación de Access Control dejará de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 - [Cree una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
@@ -62,7 +62,7 @@ En este tutorial, aprenderá a:
 
 Para obtener acceso a la API de Media Services, debe recopilar los siguientes puntos de datos.
 
-|Configuración|Ejemplo|DESCRIPCIÓN|
+|Configuración|Ejemplo|Descripción|
 |---|-------|-----|
 |Dominio del inquilino de Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como punto de conexión de servicio de token seguro (STS) se crea con el siguiente formato: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD emite un JWT para tener acceso a los recursos (un token de acceso).|
 |Punto de conexión de la API de REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este es el punto de conexión en el que se realizan todas las llamadas API de REST de Media Services en la aplicación.|
@@ -180,7 +180,7 @@ Esta sección muestra cómo obtener acceso a la API **Assets** mediante **Postma
 5. Haga clic en el vínculo **Edición en masa** a la derecha de la ventana de Postman.
 6. Pegue los encabezados siguientes:
 
-        x-ms-version:2.15
+        x-ms-version:2.19
         Accept:application/json
         Content-Type:application/json
         DataServiceVersion:3.0

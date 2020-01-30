@@ -2,14 +2,15 @@
 title: Configuración de la recuperación ante desastres de máquinas virtuales de Azure con Azure Site Recovery
 description: Aprenda a configurar la recuperación ante desastres para las máquinas virtuales de Azure en una región de Azure diferente con el servicio Azure Site Recovery.
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 1/24/2020
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7d78064285057f6abd91c3ca95e01ec86f1a1a39
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169328"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759796"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -75,17 +76,6 @@ Si usa un proxy de firewall basado en direcciones URL para controlar la conectiv
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
 Si usa un grupo de seguridad de red, cree reglas de grupo de seguridad de red basadas en etiquetas de servicio para acceder a Azure Storage, Azure Active Directory, el servicio Site Recovery y la supervisión de Site Recovery. [Más información](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
-
-> [!NOTE]
-> Se recomienda configurar siempre las reglas del grupo de seguridad de red con etiquetas de servicio para el acceso de salida.
-
-Para controlar la conectividad de salida mediante direcciones IP, permita estas direcciones en los firewalls basados en IP, el proxy o las reglas del grupo de seguridad de red:
-
-- [Intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
-- [Intervalos de direcciones IP del centro de datos de Windows Azure en Alemania](https://www.microsoft.com/download/details.aspx?id=54770)
-- [Intervalos de direcciones IP del centro de datos de Windows Azure en China](https://www.microsoft.com/download/details.aspx?id=42064)
-- [Direcciones URL e intervalos de direcciones IP de Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-- [Direcciones IP de puntos de conexión del servicio Site Recovery](https://aka.ms/site-recovery-public-ips)
 
 ## <a name="verify-azure-vm-certificates"></a>Comprobación de los certificados de la máquina virtual de Azure
 

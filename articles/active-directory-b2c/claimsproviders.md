@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8d2570af6abb34a87ac4c69dd63408c8ec2e8005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a20f40c893c36823906d5cecadd9be21b8a4fd2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511520"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836021"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -41,7 +41,7 @@ Los proveedores de notificaciones tienen un conjunto de [perfiles técnicos](tec
 
 El elemento **ClaimsProviders** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | ClaimsProvider | 1:n | Proveedor de notificaciones acreditado que se puede utilizar en varios recorridos de usuario. |
 
@@ -49,10 +49,10 @@ El elemento **ClaimsProviders** contiene el elemento siguiente:
 
 El elemento **ClaimsProvider** contiene los siguientes elementos secundarios:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ---------- | ----------- |
-| Dominio | 0:1 | Cadena que contiene el nombre de dominio del proveedor de notificaciones. Por ejemplo, si el proveedor de notificaciones incluye el perfil técnico de Facebook, el nombre de dominio será Facebook.com. Este nombre de dominio se utilizará con todos los perfiles técnicos definidos en el proveedor de notificaciones, a menos que se reemplace por el perfil técnico. También se puede hacer referencia al nombre de dominio en **domain_hint**. Para más información, consulte la sección **Redirección del inicio de sesión a un proveedor social** de [Configuración de inicio de sesión directo con Azure Active Directory B2C](direct-signin.md). |
-| DisplayName | 0:1 | Cadena que contiene el nombre del proveedor de notificaciones que se muestra a los usuarios. |
+| Domain | 0:1 | Cadena que contiene el nombre de dominio del proveedor de notificaciones. Por ejemplo, si el proveedor de notificaciones incluye el perfil técnico de Facebook, el nombre de dominio será Facebook.com. Este nombre de dominio se utilizará con todos los perfiles técnicos definidos en el proveedor de notificaciones, a menos que se reemplace por el perfil técnico. También se puede hacer referencia al nombre de dominio en **domain_hint**. Para más información, consulte la sección **Redirección del inicio de sesión a un proveedor social** de [Configuración de inicio de sesión directo con Azure Active Directory B2C](direct-signin.md). |
+| DisplayName | 1:1 | Cadena que contiene el nombre del proveedor de notificaciones que se muestra a los usuarios. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Conjunto de perfiles técnicos admitidos por el proveedor de notificaciones. |
 
 **ClaimsProvider** organiza la forma en que los perfiles técnicos se relacionan con el proveedor de notificaciones. En el ejemplo siguiente, se muestra el proveedor de notificaciones de Azure Active Directory con los perfiles técnicos de Azure Active Directory:

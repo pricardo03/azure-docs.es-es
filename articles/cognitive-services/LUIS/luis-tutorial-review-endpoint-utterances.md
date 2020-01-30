@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447815"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843980"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de las aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS.
@@ -46,7 +46,7 @@ Siga estos pasos para importar una aplicación.
 
 1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. En el [portal de LUIS (versión preliminar)](https://preview.luis-ai), importe el archivo .json en una nueva aplicación.
+1. En el [portal de LUIS (versión preliminar)](https://preview.luis.ai), importe el archivo .json en una nueva aplicación.
 
 1. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `review`.
 

@@ -3,12 +3,12 @@ title: Detección de aplicaciones, roles y características en servidores locale
 description: Obtenga información sobre cómo detectar aplicaciones, roles y características en servidores locales con Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 7c3a6360e051b8cb694393695e75578ce2c135ec
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280771"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846319"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina
 
@@ -28,7 +28,7 @@ Detección de aplicaciones mediante Azure Migrate: Server Assessment es una herr
 2. Asegúrese de haber [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment a un proyecto.
 4. Compruebe los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para detectar y evaluar las VM de VMware con el dispositivo de Azure Migrate.
 5. Compruebe los [requisitos ](migrate-appliance.md) para implementar el dispositivo de Azure Migrate.
-6. [Compruebe la compatibilidad y los requisitos](/migrate-support-matrix-vmware.md#application-discovery) para la detección de aplicaciones.
+6. [Compruebe la compatibilidad y los requisitos](migrate-support-matrix-vmware.md#application-discovery) para la detección de aplicaciones.
 
 ## <a name="prepare-for-app-discovery"></a>Preparación para la detección de aplicaciones
 

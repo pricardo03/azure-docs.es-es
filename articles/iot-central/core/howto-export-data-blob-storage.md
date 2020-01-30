@@ -8,12 +8,12 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: b6a437af33e3e85b8dc07de223b6e1fd7ce6cb03
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 79d578c910c7d08355901308e00db5912d1f3baf
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176253"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721496"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportación de datos a Azure Blob Storage
 
@@ -27,7 +27,7 @@ En este artículo se describe cómo usar la función de exportación continua de
 > Al activar la exportación de datos continua, solo obtendrá los datos a partir de ese momento. Actualmente, los datos no se pueden recuperar durante un tiempo cuando la exportación de datos continua estaba desactivada. Para conservar más datos históricos, activa la exportación continua de datos al principio.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Ser administrador en la aplicación de IoT Central
 
@@ -39,7 +39,7 @@ Si no tiene una instancia existente de Storage a la que exportar, siga estos pas
 1. Cree una [cuenta de almacenamiento en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede obtener más información sobre cómo crear nuevas [cuentas de almacenamiento de Azure Blob ](https://aka.ms/blobdocscreatestorageaccount) o [cuentas de almacenamiento de Azure Data Lake Storage v2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
 
     > [!Note] 
-    > Si decide exportar datos a una cuenta de almacenamiento de ADLS v2, debe elegir el **tipo de cuenta** como **BlobStorage**. 
+    > Si decide exportar datos a una cuenta de almacenamiento de ADLS v2, debe elegir **Tipo de cuenta** como **BlobStorage**. 
 
     > [!Note] 
     > Puede exportar datos a cuentas de almacenamiento en suscripciones que no sean la de su aplicación de IoT Central de pago por uso. En este caso se conectará mediante una cadena de conexión.
@@ -55,7 +55,7 @@ Ahora que tiene un destino de Storage al que exportar los datos, siga estos paso
 2. En el panel izquierdo, seleccione **Exportación de datos**.
 
     > [!Note]
-    > Si no ve la exportación de datos en el panel izquierdo, significa que no es administrador de la aplicación. Hable con un administrador para configurar la exportación de datos.
+    > Si no ve Exportación de datos en el panel izquierdo, significa que no es un administrador de la aplicación. Hable con un administrador para configurar la exportación de datos.
 
 3. Seleccione el botón **+ Nuevo** en la esquina superior derecha. Elija **Azure Blob Storage** como destino de la exportación. 
 
@@ -620,7 +620,7 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the template ID and version from the id and verison properties.
+        // Fetch the template ID and version from the id and version properties.
         const templateId = record.id;
         const templateVersion = record.version;
 

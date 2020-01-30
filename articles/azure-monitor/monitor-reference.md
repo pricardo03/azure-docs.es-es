@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: ac9ded703ed18abd9543b6e32e59afe6ccf711a9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: d605b852d37af3b1e2ef0868084f3c0b99c24784
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263428"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765716"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 En este artículo se describen las distintas aplicaciones y servicios que se supervisan mediante Azure Monitor. 
@@ -42,7 +42,7 @@ Las soluciones se basan en consultas de registros y vistas personalizadas para u
 |:---|:---|
 | [Estado del agente](insights/solution-agenthealth.md) | Analice el estado y la configuración de los agentes de Log Analytics. |
 | [Administración de alertas](platform/alert-management-solution.md) | Analice las alertas recopiladas de System Center Operations Manager, Nagios o Zabbix. |
-| [Mapa de servicio](insights/service-map.md) | Detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux, y asigna la comunicación entre servicios. La misma funcionalidad se proporciona en   |
+| [Mapa de servicio](insights/service-map.md) | Detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux, y asigna la comunicación entre servicios. |
 
 
 

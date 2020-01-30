@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74fa1caad629e6f7f745f84787b6f415876bbae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c15580481c153a58122db593f678998be485b57d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233176"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705010"
 ---
 # <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Búsqueda y uso de las aplicaciones basadas en la nube de su organización en el portal Aplicaciones
 
@@ -70,9 +69,9 @@ Se ha agregado un icono a la derecha de la barra de **direcciones** que le permi
 #### <a name="to-change-your-my-apps-portal-using-the-extension"></a>Cambio del portal Mis aplicaciones con la extensión
 Puede elegir cuántas aplicaciones ver en la sección **Usado recientemente** y decidir si desea permitir que se redirijan las direcciones URL internas de su organización.
 
-1. Seleccione el nuevo icono de **extensión de inicio de sesión seguro de Mis aplicaciones** ![icono de extensión](media/my-apps-portal/my-apps-portal-extension-icon.png) a la derecha de la barra de **direcciones** y, a continuación, seleccione **Iniciar sesión para comenzar**.
+1. Seleccione el nuevo icono de **extensión de inicio de sesión seguro de Mis aplicaciones**![icono de extensión](media/my-apps-portal/my-apps-portal-extension-icon.png) a la derecha de la barra de **direcciones** y, a continuación, seleccione **Iniciar sesión para comenzar**.
 
-2. Haga clic con el botón derecho en el icono **Configuración** ![icono Configuración](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) y, a continuación, seleccione **Configuración**.
+2. Haga clic con el botón derecho en el icono **Configuración**![icono Configuración](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) y, a continuación, seleccione **Configuración**.
 
 3. En el cuadro **Configuración**, seleccione el número de aplicaciones recientes que desee ver en el portal y si permitir el redireccionamiento de las direcciones URL internas de su organización para poder usarlas de forma remota.
 

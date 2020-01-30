@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 11/09/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 259ce2b1881c31c2558539fed34513575d193a48
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962031"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840424"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Uso de Azure Portal para crear y eliminar usuarios consumidores en Azure AD B2C
 
-Puede haber escenarios en los que desee crear manualmente cuentas de consumidor en el directorio de Azure Active Directory B2C (Azure AD B2C). Aunque las cuentas de consumidor de un directorio de Azure AD B2C se crean normalmente cuando los usuarios se suscriben para utilizar una de las aplicaciones, puede crearlas mediante programación y mediante Azure Portal. Este artículo se centra en el método de Azure Portal para la creación y eliminación de usuarios.
+Puede haber escenarios en los que desee crear manualmente cuentas de consumidor en el directorio de Azure Active Directory B2C (Azure AD B2C). Aunque las cuentas de consumidor de un directorio de Azure AD B2C se crean normalmente cuando los usuarios se suscriben para utilizar una de las aplicaciones, puede crearlas mediante programación y mediante Azure Portal. Este artículo se centra en el método de Azure Portal para la creación y eliminación de usuarios.
 
 Para agregar o eliminar usuarios, la cuenta debe tener asignado el rol *Administrador de usuarios* o *Administrador de empresa*.
 
@@ -37,7 +37,7 @@ Este artículo se centra en el trabajo con **cuentas de consumidor** en Azure Po
 
 ## <a name="create-a-consumer-user"></a>Creación de un usuario consumidor
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. En **Administrar**, seleccione **Usuarios**.
@@ -61,4 +61,4 @@ Para más información sobre cómo restaurar un usuario durante los primeros 30 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para escenarios de administración automatizada de usuarios, por ejemplo, la migración de usuarios de otro proveedor de identidades al directorio de Azure AD B2C, consulte [Azure AD B2C: migración de usuarios](active-directory-b2c-user-migration.md).
+Para escenarios de administración automatizada de usuarios, por ejemplo, la migración de usuarios de otro proveedor de identidades al directorio de Azure AD B2C, consulte [Azure AD B2C: migración de usuarios](user-migration.md).

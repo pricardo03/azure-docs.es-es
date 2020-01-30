@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/25/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dccd2ebb6ac2c11e19e986d39eabda5f0ab6a8fc
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382062"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774285"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Content Moderator para .NET
 
@@ -274,7 +274,6 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [CLI de Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 
 En este inicio rápido, ha aprendido a usar la biblioteca de .NET para Content Moderator para realizar tareas de moderación. A continuación, lea una guía conceptual para aprender más sobre la moderación de imágenes u otro contenido multimedia.
 

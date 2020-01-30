@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046048"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760915"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -156,19 +156,9 @@ La página de **Propiedades** le permite definir las categorías y los sectores 
 
 Seleccione un mínimo de una y un máximo de tres categorías, que se utilizarán para colocar la oferta en las áreas de búsqueda de Marketplace adecuadas. Asegúrese de indicar la forma en que la oferta da soporte a estas categorías en la descripción de la oferta. 
 
-### <a name="standard-marketplace-terms-and-conditions"></a>Términos y condiciones de Marketplace estándar
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
-Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece una plantilla de Contrato estándar con el fin de ayudar a facilitar una transacción en Marketplace.
-
-En lugar de crear términos y condiciones personalizados, puede ofrecer el software en virtud del Contrato estándar, que los clientes solo tienen que revisar y aceptar una vez.
-
-El Contrato estándar se puede encontrar aquí: https://go.microsoft.com/fwlink/?linkid=2041178.
-
-Para usar el Contrato estándar, active la casilla **¿Usar el contrato estándar?** .
-
-#### <a name="terms-of-use"></a>Términos de uso
-
-Si no activa la casilla **¿Usar el contrato estándar?** , deberá proporcionar sus propios términos de uso legales en el campo **Términos de uso**. Escriba hasta 10.000 caracteres de texto o, si los términos de uso requieren una descripción más larga, proporcione la dirección URL donde se pueden encontrar los términos de licencia adicionales. Los clientes deberán aceptar estos términos para poder probar la aplicación.
+[!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
 ## <a name="offer-listing"></a>Descripción de la oferta
 

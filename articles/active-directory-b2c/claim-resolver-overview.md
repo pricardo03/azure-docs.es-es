@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949881"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836055"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
-Los solucionadores de notificaciones de [directivas personalizadas](active-directory-b2c-overview-custom.md) de Azure Active Directory B2C (Azure AD B2C) proporcionan información de contexto sobre una solicitud de autorización, como el nombre de la directiva, el identificador de correlación de la solicitud, el idioma de la interfaz de usuario, etc.
+Los solucionadores de notificaciones de [directivas personalizadas](custom-policy-overview.md) de Azure Active Directory B2C (Azure AD B2C) proporcionan información de contexto sobre una solicitud de autorización, como el nombre de la directiva, el identificador de correlación de la solicitud, el idioma de la interfaz de usuario, etc.
 
 Para utilizar un solucionador de notificaciones en una notificación de entrada o salida, se define una cadena **ClaimType** en el elemento [ClaimsSchema](claimsschema.md) y, a continuación, se establece **DefaultValue** en el solucionador de notificaciones del elemento de notificación de entrada o salida. Azure AD B2C lee el valor del solucionador de notificaciones y usa el valor en el perfil técnico.
 
@@ -46,16 +46,16 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 
 ### <a name="culture"></a>Referencia cultural
 
-| Notificación | DESCRIPCIÓN | Ejemplo |
+| Notificación | Descripción | Ejemplo |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Código ISO de dos letras para el idioma. | en |
-| {Culture:LCID}   | El identificador de configuración regional del código de idioma. | 1033 |
+| {Culture:LCID}   | El identificador de configuración regional del código de idioma. | 3082 |
 | {Culture:RegionName} | Código ISO de dos letras para la región. | US |
-| {Culture:RFC5646} | Código de idioma RFC5646. | en-US |
+| {Culture:RFC5646} | Código de idioma RFC5646. | es-ES |
 
 ### <a name="policy"></a>Directiva
 
-| Notificación | DESCRIPCIÓN | Ejemplo |
+| Notificación | Descripción | Ejemplo |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | Nombre de la directiva del usuario de confianza. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | El identificador de inquilino de la directiva del usuario de confianza. | your-tenant.onmicrosoft.com |
@@ -64,7 +64,7 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Notificación | DESCRIPCIÓN | Ejemplo |
+| Notificación | Descripción | Ejemplo |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |El parámetro de cadena de consulta `acr_values`. | N/D |
 | {OIDC:ClientId} |El parámetro de cadena de consulta `client_id`. | 00000000-0000-0000-0000-000000000000 |
@@ -72,13 +72,13 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {OIDC:LoginHint} |  El parámetro de cadena de consulta `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | El parámetro de cadena de consulta `max_age`. | N/D |
 | {OIDC:Nonce} |El parámetro de cadena de consulta `Nonce`. | defaultNonce |
-| {OIDC:Prompt} | El parámetro de cadena de consulta `prompt`. | inicio de sesión |
+| {OIDC:Prompt} | El parámetro de cadena de consulta `prompt`. | login |
 | {OIDC:Resource} |El parámetro de cadena de consulta `resource`. | N/D |
 | {OIDC:scope} |El parámetro de cadena de consulta `scope`. | openid |
 
 ### <a name="context"></a>Context
 
-| Notificación | DESCRIPCIÓN | Ejemplo |
+| Notificación | Descripción | Ejemplo |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | Versión del marco de experiencia de identidad (número de compilación).  | 1.0.507.0 |
 | {Context:CorrelationId} | Identificador de correlación.  | 00000000-0000-0000-0000-000000000000 |
@@ -91,7 +91,7 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 
 Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth2 se puede asignar a una notificación en el recorrido del usuario. Por ejemplo, la solicitud de la aplicación puede incluir un parámetro de cadena de consulta con el nombre de `app_session`, `loyalty_number` o cualquier cadena de consulta personalizada.
 
-| Notificación | DESCRIPCIÓN | Ejemplo |
+| Notificación | Descripción | Ejemplo |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Parámetro de cadena de consulta. | hawaii |
 | {OAUTH-KV:app_session} | Parámetro de cadena de consulta. | A3C5R |
@@ -100,7 +100,7 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 
 ### <a name="oauth2"></a>OAuth2
 
-| Notificación | DESCRIPCIÓN | Ejemplo |
+| Notificación | Descripción | Ejemplo |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | El token de acceso. | N/D |
 
@@ -137,7 +137,7 @@ Al usar solucionadores de notificaciones, puede rellenar previamente el nombre d
 
 ### <a name="dynamic-ui-customization"></a>Personalización de la interfaz de usuario dinámica
 
-Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de conexión de la definición de contenido HTML, lo que permite representar dinámicamente el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro personalizado que se pasa desde la aplicación web o dispositivo móvil. Para más información, consulte [Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas](active-directory-b2c-ui-customization-custom-dynamic.md). También puede localizar la página HTML basándose en un parámetro de idioma, o bien puede cambiar el contenido basándose en el identificador de cliente.
+Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de conexión de la definición de contenido HTML, lo que permite representar dinámicamente el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro personalizado que se pasa desde la aplicación web o dispositivo móvil. Para más información, consulte [Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas](custom-policy-ui-customization-dynamic.md). También puede localizar la página HTML basándose en un parámetro de idioma, o bien puede cambiar el contenido basándose en el identificador de cliente.
 
 El ejemplo siguiente pasa en la cadena de consulta un parámetro denominado **campaignId** con un valor de `hawaii`, un código de **idioma** de `en-US` y una **aplicación** que representa el identificador de cliente:
 
@@ -159,7 +159,7 @@ Como resultado, Azure AD B2C envía los parámetros anteriores a la página de c
 
 ### <a name="application-insights-technical-profile"></a>Perfil técnico de Application Insights
 
-Con Azure Application Insights y los solucionadores de notificaciones, puede obtener información sobre el comportamiento del usuario. En el perfil técnico de Application Insights, envía notificaciones de entrada que se conservan en Azure Application Insights. Para más información, consulte [Seguimiento del comportamiento del usuario dentro de los recorridos de Azure AD B2C mediante Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md). El ejemplo siguiente envía el identificador de directiva, el identificador de correlación, el idioma y el identificador de cliente a Azure Application Insights.
+Con Azure Application Insights y los solucionadores de notificaciones, puede obtener información sobre el comportamiento del usuario. En el perfil técnico de Application Insights, envía notificaciones de entrada que se conservan en Azure Application Insights. Para más información, consulte [Seguimiento del comportamiento del usuario dentro de los recorridos de Azure AD B2C mediante Application Insights](analytics-with-application-insights.md). El ejemplo siguiente envía el identificador de directiva, el identificador de correlación, el idioma y el identificador de cliente a Azure Application Insights.
 
 ```XML
 <TechnicalProfile Id="AzureInsights-Common">

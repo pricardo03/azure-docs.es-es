@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2c6986409f4cd9ad7e5799a55c4c301e51d5e879
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8942ad8bdc4f9fc37a88d09871c983f63cd8c1b9
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968177"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773698"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Cifrado dinámico: Configuración de una directiva de autorización de claves de contenido  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -39,7 +39,7 @@ Para más información, consulte los siguientes artículos.
 - [Autenticación de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Integrar una la aplicación OWIN basada en MVC de Azure Media Services con Azure Active Directory y restringir la entrega de claves de contenido basada en notificaciones de JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-### <a name="some-considerations-apply"></a>Se deben tener en cuenta ciertas cosas:
+### <a name="some-considerations-apply"></a>Se aplican algunas consideraciones
 * Para usar el empaquetado y el cifrado dinámicos, asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado "En ejecución".
 * El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).
 * Cargue y codifique los recursos con la opción AssetCreationOptions.StorageEncrypted.
@@ -47,7 +47,7 @@ Para más información, consulte los siguientes artículos.
 * El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y los objetos relacionados (opciones y restricciones de directiva) durante 15 minutos. Puede crear ContentKeyAuthorizationPolicy, especificar que se utilice una restricción de token, probarla y actualizar la directiva con la restricción abierta. Este proceso tarda aproximadamente unos 15 minutos antes de que la directiva cambie a su versión abierta.
 * Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un localizador existente y crear uno nuevo.
 * En este momento no se pueden cifrar las descargas progresivas.
-* El punto de conexión de streaming de Media Services establece el valor del encabezado CORS "Access-Control-Allow-Origin" en la respuesta de la comprobación preliminar como el comodín "\*". Este valor funciona bien con la mayoría de reproductores, incluyendo Azure Media Player, Roku y JWPlayer, entre otros. Sin embargo, algunos reproductores que usan dash.js no funcionan porque, con el modo de las credenciales establecido en "include", el elemento XMLHttpRequest de sus archivos dash.js no permite el comodín "\*" como valor de "Access-Control-Allow-Origin". Como solución alternativa a esta limitación de los archivos dash.js, si hospeda al cliente desde un solo dominio, Media Services puede especificar ese dominio en el encabezado de respuesta de la comprobación preliminar. Para obtener ayuda, abra un vale de soporte técnico en Azure Portal.
+* El punto de conexión de streaming de Media Services establece el valor del encabezado CORS "Access-Control-Allow-Origin" en la respuesta de la comprobación preliminar como el comodín "\*". Este valor funciona bien con la mayoría de reproductores, incluyendo Azure Media Player, Roku y JWPlayer, entre otros. Sin embargo, algunos reproductores que usan dash.js no funcionan porque, con el modo de las credenciales establecido en "include", el elemento XMLHttpRequest de sus archivos dash.js no permite el comodín "\*" como valor de "Access-Control-Allow-Origin". Como solución alternativa a esta limitación de los archivos dash.js, si hospeda al cliente desde un solo dominio, Media Services puede especificar ese dominio en el encabezado de respuesta de la comprobación preliminar. Para obtener ayuda, abra una incidencia de soporte técnico en Azure Portal.
 
 ## <a name="aes-128-dynamic-encryption"></a>Cifrado dinámico AES-128
 > [!NOTE]
@@ -73,7 +73,7 @@ Solicitud:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: d732dbfa-54fc-474c-99d6-9b46a006f389
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 36
@@ -109,7 +109,7 @@ Solicitud:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: d225e357-e60e-4f42-add8-9d93aba1409a
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 168
@@ -145,7 +145,7 @@ Solicitud:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 9847f705-f2ca-4e95-a478-8f823dbbaa29
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 154
@@ -166,7 +166,7 @@ Solicitud:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: e613efff-cb6a-41b4-984a-f4f8fb6e76a4
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 78
@@ -248,7 +248,7 @@ Solicitud:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 2643d836-bfe7-438e-9ba2-bc6ff28e4a53
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 1079
@@ -300,7 +300,7 @@ Solicitud:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 9e7fa407-f84e-43aa-8f05-9790b46e279b
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 58
@@ -337,7 +337,7 @@ Solicitud:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: f160ad25-b457-4bc6-8197-315604c5e585
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 593
@@ -385,7 +385,7 @@ Solicitud:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: ab079b0e-2ba9-4cf1-b549-a97bfa6cd2d3
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 1525

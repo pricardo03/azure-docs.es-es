@@ -3,12 +3,12 @@ title: Copia de seguridad de recursos compartidos de archivos de Azure con la CL
 description: Aprenda a usar la CLI de Azure para realizar copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 10ae6d88e8a40ba4175e664ed338f0a02be7a7ca
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294874"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844048"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Copia de seguridad de recursos compartidos de archivos de Azure con la CLI
 
@@ -104,7 +104,7 @@ Si desea desencadenar una copia de seguridad a petición para el recurso compart
 
 Debe definir los parámetros siguientes para desencadenar una copia de seguridad a petición:
 
-* **--container-name** es el nombre de la cuenta de almacenamiento que hospeda el recurso compartido de archivos. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](https://docs.microsoft.com/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
+* **--container-name** es el nombre de la cuenta de almacenamiento que hospeda el recurso compartido de archivos. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
 * **--item-name** es el nombre del recurso compartido de archivos para el que desea desencadenar una copia de seguridad a petición. Para recuperar el **nombre** o **nombre descriptivo** del elemento de copia de seguridad, use el comando [az backup item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list).
 * **--retain-until** especifica la fecha hasta la que desea conservar el punto de recuperación. El valor debe establecerse en formato de hora UTC (dd-mm-aaaa).
 

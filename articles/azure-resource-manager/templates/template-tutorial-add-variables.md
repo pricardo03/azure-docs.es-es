@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a27022f8c06449d8b05f90f78055b983bc88c01c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471530"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765499"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Adición de variables a la plantilla de Resource Manager
 
@@ -26,7 +26,7 @@ Debe tener Visual Studio Code con la extensión Herramientas de Resource Manage
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
 El parámetro del nombre de la cuenta de almacenamiento es difícil de usar porque tiene que proporcionar un nombre único. Si ha realizado los tutoriales anteriores de esta serie, probablemente esté cansado de pensar en un nombre único. Para solucionar este problema, agregue una variable que construya un nombre único para la cuenta de almacenamiento.
 
@@ -34,7 +34,7 @@ El parámetro del nombre de la cuenta de almacenamiento es difícil de usar porq
 
 En el ejemplo siguiente se resaltan los cambios para agregar una variable a la plantilla que crea un nombre de cuenta de almacenamiento único. Copie el archivo completo y reemplace la plantilla por su contenido.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
 Observe que se incluye una variable llamada **uniqueStorageName**. Esta variable usa cuatro funciones para construir un valor de cadena.
 

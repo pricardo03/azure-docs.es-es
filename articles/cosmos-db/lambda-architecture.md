@@ -6,12 +6,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 9d16a9b07ffb77145a6903bfb0de387c2b94c964
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68ce06d8a2904bf99f58a53817444b2992b23501
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441769"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719745"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementación de una arquitectura lambda en la plataforma Azure 
 
@@ -44,7 +44,7 @@ A medida que avancemos, podremos implementar esta arquitectura usando solo lo si
 
 * Contenedore(s) de Azure Cosmos
 * Clúster de HDInsight (Apache Spark 2.1)
-* Spark Connector [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
+* Spark Connector [1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.1.0_2.11/1.2.6/jar)
 
 ## <a name="speed-layer"></a>Capa de velocidad
 

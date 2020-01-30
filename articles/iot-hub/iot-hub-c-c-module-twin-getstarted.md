@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 4443d1117d0dd08cbe2fe89b8ca8465c0c7083f8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 095f6c6ab8395c4ab314fbe948cbc1fbd32cd510
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706933"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719150"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub (C)
 
@@ -31,7 +31,7 @@ Al final de este tutorial, tiene dos aplicaciones de C:
 > [!NOTE]
 > Para obtener más información acerca de los diversos SDK de Azure IoT que puede usar para crear ambas aplicaciones para que se ejecuten en dispositivos y en el back-end de la solución, consulte [Azure IoT SDKs](iot-hub-devguide-sdks.md) (SDK de IoT de Azure).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
@@ -250,7 +250,7 @@ En esta sección se crea una aplicación de C en el dispositivo simulado que act
 
 Este ejemplo de código muestra cómo recuperar el módulo gemelo y actualizar las propiedades notificadas. 
 
-## <a name="get-updates-on-the-device-side"></a>Obtención de actualizaciones en el lado de dispositivo
+## <a name="get-updates-on-the-device-side"></a>Obtener actualizaciones en el lado de dispositivo
 
 Además del código anterior, puede agregar el siguiente bloque de código para obtener el mensaje de actualización gemela en el dispositivo.
 
@@ -353,7 +353,7 @@ void iothub_module_client_sample_device_twin_run(void)
 
             (void)IoTHubModuleClient_LL_SetOption(iotHubModuleClientHandle, OPTION_LOG_TRACE, &traceOn);
 
-            // Check the return of all API calls when developing your solution. Return checks ommited for sample simplification.
+            // Check the return of all API calls when developing your solution. Return checks omitted for sample simplification.
 
             (void)IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, deviceTwinCallback, iotHubModuleClientHandle);
             (void)IoTHubModuleClient_LL_SendReportedState(iotHubModuleClientHandle, (const unsigned char*)reportedState, reportedStateSize, reportedStateCallback, iotHubModuleClientHandle);

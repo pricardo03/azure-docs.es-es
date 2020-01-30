@@ -1,22 +1,22 @@
 ---
 title: Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
 description: Obtenga información sobre cómo redirigir las alertas de métrica de Azure a otros sistemas que no son de Azure.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 88de4464e5b95b49e76e5d9c4f7dc0d6732076e1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286157"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705520"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
-Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían SMS, registran errores, notifican a un equipo mediante servicios de chat y mensajería o llevan a cabo otras acciones. 
+Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían mensajes SMS, para registrar errores, para notificar a un equipo mediante servicios de chat y mensajería o llevar a cabo otras acciones. 
 
 En este artículo se describe cómo establecer un webhook en una alerta de métrica de Azure. También muestra el aspecto de la carga útil para HTTP POST a un webhook. Para obtener información sobre la configuración y el esquema de una alerta de registro de actividad de Azure (alerta de eventos), consulte [Llamada a un webhook cuando se activan alertas del registro de actividades de Azure](alerts-log-webhook.md).
 
@@ -78,7 +78,7 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 | name |Y | |Nombre de la alerta |
 | description |Y | |Descripción de la alerta. |
 | conditionType |Y |Métrica, Evento |Se admiten dos tipos de alertas: métrica y evento. Las alertas de métrica se basan en una condición de métrica. Las alertas de evento se basan en un evento del registro de actividad. Use este valor para comprobar si la alerta está basada en una métrica o en un evento. |
-| condition |Y | |Los campos específicos que buscar en función del campo **conditionType**. |
+| condición |Y | |Los campos específicos que buscar en función del campo **conditionType**. |
 | metricName |Para alertas de métricas | |El nombre de la métrica que define qué supervisa la regla. |
 | metricUnit |Para alertas de métricas |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |La unidad permitida en la métrica. Consulte [Valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Para alertas de métricas | |Valor real de la métrica que causó la alerta |

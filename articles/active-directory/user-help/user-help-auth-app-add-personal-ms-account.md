@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fd29c1f3f393c37c9e9a8d0995766258c2eb45
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8945f7a49f4c04b3265cb79c88c9acb287c50d10
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278897"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704755"
 ---
 # <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Incorporación de cuentas personales Microsoft a la aplicación Microsoft Authenticator
 
@@ -28,7 +27,7 @@ Agregue sus cuentas personales de Microsoft, como Outlook.com y Xbox LIVE, a la 
 - **Método de inicio de sesión sin contraseña.** Escriba el nombre de usuario en el dispositivo en el que va a iniciar sesión con su cuenta personal de Microsoft y, después, use su dispositivo móvil para comprobar que es usted mediante el uso de la huella digital, la cara o un PIN. Para este método, no es preciso que escriba su contraseña.
 
 >[!Important]
->Para poder agregar su cuenta, debe descargar e instalar la aplicación Microsoft Authenticator. Si no ha hecho aún, siga los pasos descritos en el artículo [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-download-install.md).
+>Antes de agregar su cuenta, debe descargar e instalar la aplicación Microsoft Authenticator. Si no lo ha hecho aún, siga los pasos descritos en el artículo para [descargar e instalar la aplicación](user-help-auth-app-download-install.md).
 
 ## <a name="add-your-personal-microsoft-account"></a>Adición de una cuenta personal de Microsoft
 

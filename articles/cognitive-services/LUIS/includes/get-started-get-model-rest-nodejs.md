@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: cc8f01d5608b36521185695cd5f7be531ba7aeaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505863"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748892"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Clave de inicio.
 * Importe la aplicación [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) desde el repositorio de GitHub cognitive-services-language-understanding.
@@ -89,8 +89,8 @@ Use Go para agregar una [API](https://aka.ms/luis-apim-v3-authoring) de entidad 
             body: utterances
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     const train = async (verb) => {
     
@@ -104,14 +104,14 @@ Use Go para agregar una [API](https://aka.ms/luis-apim-v3-authoring) de entidad 
             body: null // The body can be empty for a training request
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     
     // MAIN
     main().then(() => console.log("done")).catch((err)=> console.log(err returned));
     ```
-1. Reemplace los valores siguientes:
+1. Reemplace los siguientes valores:
 
     * `YOUR-KEY` por la clave de inicio.
     * `YOUR-ENDPOINT` por el punto de conexión, por ejemplo, `westus2.api.cognitive.microsoft.com`.

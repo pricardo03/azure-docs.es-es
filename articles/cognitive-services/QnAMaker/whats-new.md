@@ -10,18 +10,18 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 94c2f86b6d0a592e53c2ab1f9833bdb045f81583
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 2d7615d810e96beb61c3fe0b182a88158dc77c07
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325888"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844843"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novedades de QnA Maker
 
-Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.  
+Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.
 
-## <a name="release-notes"></a>Notas de la versión 
+## <a name="release-notes"></a>Notas de la versión
 
 Conozca las novedades de QnA Maker.
 
@@ -33,15 +33,15 @@ Conozca las novedades de QnA Maker.
 
 ### <a name="october-2019"></a>Octubre de 2019
 
-* [Establecimiento explícito del idioma](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) para todas las bases de conocimiento del servicio QnA Maker. 
+* [Establecimiento explícito del idioma](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) para todas las bases de conocimiento del servicio QnA Maker.
 
 ### <a name="september-2019"></a>Septiembre de 2019
 
-* Importación y exportación con el [formato de archivo XLS](concepts/data-sources-supported.md) 
+* Importación y exportación con el [formato de archivo XLS](concepts/content-types.md)
 
 ### <a name="june-2019"></a>Junio de 2019
 
-* [Modelo de clasificación](concepts/knowledge-base.md#ranker-process) mejorado para francés, italiano, alemán, español y portugués
+* [Modelo de clasificación](concepts/query-knowledge-base.md#ranker-process) mejorado para francés, italiano, alemán, español y portugués
 
 ### <a name="april-2019"></a>Abril de 2019
 
@@ -51,7 +51,7 @@ Conozca las novedades de QnA Maker.
 ### <a name="march-2019"></a>Marzo de 2019
 
 * El [aprendizaje activo](how-to/improve-knowledge-base.md) proporciona sugerencias para nuevas alternativas de preguntas basadas en preguntas de usuarios reales.
-* Se ha mejorado el modelo del [clasificador](concepts/knowledge-base.md#ranker-process) del procesamiento de lenguaje natural (NLP) para inglés. 
+* Se ha mejorado el modelo del [clasificador](concepts/query-knowledge-base.md#ranker-process) del procesamiento de lenguaje natural (NLP) para inglés.
 
 > [!div class="nextstepaction"]
 > [Crear un servicio QnA Maker](how-to/set-up-qnamaker-service-azure.md)

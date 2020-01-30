@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2b74830463702e7de02d00bcfe88521fce2c803
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: caa7cbed7c56b63bcbf5ad8f287ab6cf32575c15
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932042"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840305"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -125,7 +125,7 @@ El elemento **SingleSignOn** contiene el atributo siguiente:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Ámbito | Sí | El ámbito del comportamiento de inicio de sesión único. Valores posibles: `Suppressed`, `Tenant`, `Application` o `Policy`. El valor `Suppressed` indica que se suprime el comportamiento. Por ejemplo, en el caso de una sesión de inicio de sesión único, no se mantiene ninguna sesión para el usuario y siempre se solicita al usuario una selección del proveedor de identidades. El valor `TrustFramework` indica que el comportamiento se aplica a todas las directivas del marco de confianza. Por ejemplo, un usuario que navega por dos recorridos de directiva para un marco de confianza no se solicita para una selección del proveedor de identidades. El valor `Tenant` indica que el comportamiento se aplica a todas las directivas del inquilino. Por ejemplo, a un usuario que sigue dos recorridos de directiva para un inquilino no se le solicita que seleccione el proveedor de identidades. El valor `Application` indica que el comportamiento se aplica a todas las directivas de la aplicación que hace la solicitud. Por ejemplo, a un usuario que sigue dos recorridos de directiva para una aplicación no se le solicita que seleccione el proveedor de identidades. El valor `Policy` indica que el comportamiento solo se aplica a una directiva. Por ejemplo, a un usuario que sigue dos recorridos de directiva para un marco de confianza se le solicita que seleccione el proveedor de identidades al cambiar de una directiva a otra. |
-| KeepAliveInDays | Sí | Controla cuánto tiempo permanece el usuario con la sesión iniciada. Si se establece el valor en 0, se desactiva la funcionalidad KMSI. Para más información, consulte [Mantener la sesión iniciada](active-directory-b2c-reference-kmsi-custom.md). |
+| KeepAliveInDays | Sí | Controla cuánto tiempo permanece el usuario con la sesión iniciada. Si se establece el valor en 0, se desactiva la funcionalidad KMSI. Para más información, consulte [Mantener la sesión iniciada](custom-policy-keep-me-signed-in.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -140,7 +140,7 @@ El elemento **JourneyInsights** contiene los siguientes atributos:
 | ServerEnabled | Sí | Valores posibles: `true` o `false`. Si es `true`, se envía el JSON UserJourneyRecorder existente como evento personalizado a Application Insights. |
 | TelemetryVersion | Sí | El valor tiene que ser `1.0.0`. |
 
-Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md).
+Para obtener más información, vea [Recopilación de registros](troubleshoot-with-application-insights.md).
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
@@ -162,7 +162,7 @@ El elemento **ContentDefinitionParameter** contiene el atributo siguiente:
 | --------- | -------- | ----------- |
 | Nombre | Sí | El nombre del par clave-valor. |
 
-Para obtener más información, vea [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](active-directory-b2c-ui-customization-custom-dynamic.md).
+Para obtener más información, vea [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](custom-policy-ui-customization-dynamic.md).
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 

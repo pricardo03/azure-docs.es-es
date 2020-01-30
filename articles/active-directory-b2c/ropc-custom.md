@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951071"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840271"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure el flujo de credenciales de contraseña de propietario del recurso en Azure Active Directory B2C con una directiva personalizada.
 
@@ -36,9 +36,9 @@ No se admiten los siguientes flujos:
 - **Aplicación de página única**: una aplicación de front-end que se escribe principalmente en JavaScript. A menudo, la aplicación se escribe con un marco como AngularJS, Ember.js o Durandal.
 - **Flujo de cliente confidencial**: se valida el identificador de cliente de la aplicación, pero no el secreto de aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## <a name="register-an-application"></a>Registro de una aplicación
 
@@ -96,7 +96,7 @@ Siga los pasos de [Introducción a las directivas personalizadas en Azure Active
     </ClaimsTransformations>
     ```
 
-4. Busque el elemento **ClaimsProvider** que tenga como **DisplayName** `Local Account SignIn` y agregue el siguiente perfil técnico:
+4. Busque el elemento **ClaimsProvider** que tenga como **DisplayName**`Local Account SignIn` y agregue el siguiente perfil técnico:
 
     ```XML
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -261,7 +261,7 @@ Use su aplicación favorita de desarrollo de API para generar una llamada de API
 - Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C.
 - Reemplace `B2C_1A_ROPC_Auth` por el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
 
-| Clave | Valor |
+| Clave | Value |
 | --- | ----- |
 | username | `user-account` |
 | password | `password1` |
@@ -306,7 +306,7 @@ Cree una llamada POST como la que se muestra aquí. Use la información de la ta
 - Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C.
 - Reemplace `B2C_1A_ROPC_Auth` por el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
 
-| Clave | Valor |
+| Clave | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | ID_token |
@@ -342,4 +342,4 @@ La implementación de Azure AD B2C cumple los estándares de OAuth 2.0 para las 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Vea un ejemplo completo de este escenario en el [Paquete inicial de directiva personalizada de Azure Active Directory B2C](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
-- Obtenga más información sobre los tokens usados por Azure Active Directory B2C en la [Referencia de tokens](active-directory-b2c-reference-tokens.md).
+- Obtenga más información sobre los tokens usados por Azure Active Directory B2C en la [Referencia de tokens](tokens-overview.md).

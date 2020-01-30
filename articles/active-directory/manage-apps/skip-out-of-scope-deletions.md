@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: c0664cbc8097f18ec9722e789ad40d5925781637
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997078"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711666"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Omisión de la eliminación de cuentas de usuario que están fuera de ámbito
 
@@ -37,14 +37,14 @@ Dado que esta configuración se utiliza profusamente con la aplicación de *apro
 1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Propiedades de la aplicación de aprovisionamiento. Por ejemplo, si desea exportar la asignación de la *aplicación de aprovisionamiento de usuarios de Workday a AD*, vaya a la sección Propiedades de dicha aplicación. 
 1. En la sección Propiedades de la aplicación de aprovisionamiento, copie el valor GUID asociado con el campo *Id. de objeto*. Este valor también se conoce como el elemento **ServicePrincipalId** de la aplicación y se usará en las operaciones del Probador de Graph.
 
-   ![Identificador de la entidad de servicio de la aplicación de Workday](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![Identificador de la entidad de servicio de la aplicación de Workday](media/skip-out-of-scope-deletions/wd_export_01.png)
 
 ## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Paso 2: Iniciar sesión en el Probador de Graph de Microsoft
 
 1. Iniciar el [Probador de Graph de Microsoft](https://developer.microsoft.com/graph/graph-explorer)
 1. Haga clic en el botón "Iniciar sesión con Microsoft" e inicie sesión con las credenciales de administrador de la aplicación o de administrador global de Azure AD.
 
-    ![Inicio de sesión en Graph](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Inicio de sesión en Graph](media/skip-out-of-scope-deletions/wd_export_02.png)
 
 1. Una vez haya iniciado sesión correctamente, verá los detalles de la cuenta de usuario en el panel izquierdo.
 
@@ -56,11 +56,11 @@ En el Probador de Graph de Microsoft, ejecute la siguiente consulta GET; para el
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
-   ![Consulta de trabajo GET](./media/skip-out-of-scope-deletions/skip-03.png)
+   ![Consulta de trabajo GET](media/skip-out-of-scope-deletions/skip-03.png)
 
 Copie la respuesta en un archivo de texto. Será similar al texto JSON que se muestra a continuación, y los valores resaltados son los específicos de su implementación. Agregue las líneas resaltadas en verde al final y actualice la contraseña de conexión de Workday resaltada en azul. 
 
-   ![Respuesta del trabajo GET](./media/skip-out-of-scope-deletions/skip-04.png)
+   ![Respuesta del trabajo GET](media/skip-out-of-scope-deletions/skip-04.png)
 
 Este es el bloque JSON que se agrega a la asignación. 
 
@@ -82,22 +82,22 @@ En la dirección URL siguiente, reemplace [servicePrincipalId] por el valor de *
 ```
 Copie el texto actualizado del paso 3 en "Request Body" y establezca el encabezado "Content-Type" en "application/json" en "Request Headers". 
 
-   ![Solicitud PUT](./media/skip-out-of-scope-deletions/skip-05.png)
+   ![Solicitud PUT](media/skip-out-of-scope-deletions/skip-05.png)
 
 Haga clic en "Ejecutar consulta". 
 
 Debería aparecer la siguiente salida: "Success – Status Code 204" (Correcto: código de estado 204). 
 
-   ![Respuesta PUT](./media/skip-out-of-scope-deletions/skip-06.png)
+   ![Respuesta PUT](media/skip-out-of-scope-deletions/skip-06.png)
 
 ## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Paso 5: Comprobar que los usuarios fuera de ámbito no se deshabilitan
 
 Para probar los resultados de esta marca en el comportamiento esperado, actualice de las reglas de ámbito para omitir un usuario específico. En el ejemplo siguiente, se excluye el empleado con el identificador 21173 (que antes estaba dentro del ámbito) agregando una nueva regla de ámbito: 
 
-   ![Ejemplo de ámbito](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Ejemplo de ámbito](media/skip-out-of-scope-deletions/skip-07.png)
 
 En el siguiente ciclo de aprovisionamiento, el servicio de aprovisionamiento de Azure AD identificará que el usuario 21173 ha quedado fuera del ámbito y, si la propiedad SkipOutOfScopeDeletions está habilitada, la regla de sincronización de dicho usuario mostrará un mensaje como el siguiente: 
 
-   ![Ejemplo de ámbito](./media/skip-out-of-scope-deletions/skip-08.png)
+   ![Ejemplo de ámbito](media/skip-out-of-scope-deletions/skip-08.png)
 
 

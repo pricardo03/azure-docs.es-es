@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 5737a53d3eca0da440f178f9fd34adf5e968dd62
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063372"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840186"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,15 +38,15 @@ Una directiva personalizada se representa como uno o más archivos con formato X
 
 El elemento **TrustFrameworkPolicy** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sí | Versión del esquema que se usará para ejecutar la directiva. El valor debe ser `0.3.0.0` |
-| TenantObjectId | Sin | Identificador de objeto único del inquilino de Azure Active Directory B2C (Azure AD B2C). |
+| TenantObjectId | No | Identificador de objeto único del inquilino de Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Sí | Identificador único del inquilino al que pertenece esta directiva. |
 | PolicyId | Sí | Identificador único de la directiva. Es necesario agregar el prefijo *B2C_1A_* al identificador. |
 | PublicPolicyUri | Sí | URI de la directiva, que es una combinación del id. de inquilino y el id. de directiva. |
-| DeploymentMode | Sin | Valores posibles: `Production`, `Debugging` o `Development`. `Production` es el valor predeterminado. Use esta propiedad para depurar la directiva. Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | Sin | Punto de conexión que se usará cuando **DeploymentMode** se establece en `Development`. El valor tiene que ser `urn:journeyrecorder:applicationinsights`. Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md). |
+| DeploymentMode | No | Valores posibles: `Production`, `Debugging` o `Development`. `Production` es el valor predeterminado. Use esta propiedad para depurar la directiva. Para obtener más información, vea [Recopilación de registros](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | No | Punto de conexión que se usará cuando **DeploymentMode** se establece en `Development`. El valor tiene que ser `urn:journeyrecorder:applicationinsights`. Para obtener más información, vea [Recopilación de registros](troubleshoot-with-application-insights.md). |
 
 
 En el ejemplo siguiente, se muestra cómo especificar el elemento **TrustFrameworkPolicy**:
@@ -80,7 +80,7 @@ Este es el modelo de herencia:
 - La directiva secundaria de cualquier nivel puede heredar de la directiva principal y extenderse mediante la adición de nuevos elementos.
 - No existe un límite en el número de niveles.
 
-Para obtener información, consulte [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
+Para obtener información, consulte [Introducción a las directivas personalizadas](custom-policy-get-started.md).
 
 ## <a name="base-policy"></a>Directiva de base
 
@@ -88,7 +88,7 @@ Para heredar una directiva de otra directiva, es necesario declarar un elemento 
 
 El elemento **BasePolicy** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | El identificador del inquilino de Azure AD B2C. |
 | PolicyId | 1:1 | El identificador de la directiva principal. |
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
 
 Un recorrido del usuario define la lógica empresarial del proceso por el que pasará el usuario. Cada recorrido del usuario es un conjunto de pasos de orquestación que realiza una serie de acciones, de forma secuencial y en términos de autenticación y recopilación de información.
 
-El archivo de directiva **SocialAndLocalAccounts** del [paquete inicial](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contiene los recorridos del usuario SignUpOrSignIn, ProfileEdit y PasswordReset. Puede agregar más recorridos del usuario para otros escenarios, como cambiar la dirección de correo electrónico o vincular y desvincular una cuenta de red social.
+El archivo de directiva **SocialAndLocalAccounts** del [paquete inicial](custom-policy-get-started.md#custom-policy-starter-pack) contiene los recorridos del usuario SignUpOrSignIn, ProfileEdit y PasswordReset. Puede agregar más recorridos del usuario para otros escenarios, como cambiar la dirección de correo electrónico o vincular y desvincular una cuenta de red social.
 
 Los pasos de orquestación pueden realizar una llamada a un [perfil técnico](technicalprofiles.md). Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades. Por ejemplo, un perfil técnico puede realizar estas acciones, entre otras:
 

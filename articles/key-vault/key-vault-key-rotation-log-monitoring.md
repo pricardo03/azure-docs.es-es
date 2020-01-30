@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1f60ce3a23882a48e6008b76c0eedcab99e013b2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a0aa20a8d1ddecfe401a4e099a4f298971779501
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883455"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720119"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves
 
@@ -314,7 +314,7 @@ public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outpu
         else
         {
             dtPrev = DateTime.UtcNow;
-            log.Verbose($"Sync point file didnt have a date. Setting to now.");
+            log.Verbose($"Sync point file didn't have a date. Setting to now.");
         }
     }
 

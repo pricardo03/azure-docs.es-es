@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561939"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846457"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -136,7 +136,7 @@ Cuando se ejecuta en un plan Premium, puede conectar funciones de desencadenador
 También puede habilitar los desencadenadores de red virtual mediante el siguiente comando de la CLI de Azure:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
 Los desencadenadores de red virtual se admiten en la versión 2.x y superior del tiempo de ejecución de Functions. Se admiten los siguientes tipos de desencadenador no HTTP.

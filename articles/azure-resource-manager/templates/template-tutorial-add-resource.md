@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471680"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765586"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutorial: Adición de un recurso a una plantilla de Azure Resource Manager
 
@@ -28,7 +28,7 @@ Para agregar una definición de cuenta de almacenamiento a la plantilla existent
 
 Reemplace **{provide-unique-name}** por un nombre único de cuenta de almacenamiento. El nombre de la cuenta de almacenamiento debe ser único en Azure. El nombre debe tener solo letras minúsculas o números. No debe superar los 24 caracteres. Para el nombre, puede probar a utilizar **store1** como prefijo y, a continuación, agregar sus iniciales y la fecha del día. Por ejemplo, podría usar el nombre **store1abc09092019**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json?range=1-19&highlight=5-17)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
 No es fácil adivinar un nombre único para una cuenta de almacenamiento y no resulta eficaz para automatizar implementaciones de gran tamaño. Más adelante en esta serie de tutoriales, usará características de plantilla que facilitan la creación de un nombre único.
 

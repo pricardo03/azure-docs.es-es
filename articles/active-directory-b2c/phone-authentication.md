@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96bf088e6db29817d1ae4276c254a84723e5d03d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475050"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840339"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configuración del registro y el inicio de sesión en el teléfono con directivas personalizadas en Azure AD B2C
 
@@ -30,7 +30,7 @@ Siga los pasos de este artículo para usar las directivas personalizadas y permi
 
 * [Inquilino de Azure AD B2C](tutorial-create-tenant.md)
 * [Aplicación web registrada](tutorial-register-applications.md) en el inquilino
-* [Directivas personalizadas](active-directory-b2c-get-started-custom.md) cargadas en el inquilino
+* [Directivas personalizadas](custom-policy-get-started.md) cargadas en el inquilino
 
 ## <a name="get-the-phone-sign-up--sign-in-starter-pack"></a>Obtención del paquete de inicio de registro e inicio de sesión en el teléfono
 
@@ -44,7 +44,7 @@ En los siguientes pasos se da por supuesto que ha completado los [requisitos pre
 
 1. En cada archivo, reemplace la cadena `yourtenant` por el nombre del inquilino de Azure AD B2C. Por ejemplo, si el nombre del inquilino de B2C es *contosob2c*, todas las instancias de `yourtenant.onmicrosoft.com` se convierten en `contosob2c.onmicrosoft.com`.
 
-1. Complete los pasos de la sección [Agregar identificadores de aplicación a la directiva personalizada](active-directory-b2c-get-started-custom.md#add-application-ids-to-the-custom-policy) de [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md). En este caso, actualice `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con los valores de **Id. de aplicación (cliente)** de las dos aplicaciones que registró al completar los requisitos previos, *IdentityExperienceFramework* y *ProxyIdentityExperienceFramework*.
+1. Complete los pasos de la sección [Agregar identificadores de aplicación a la directiva personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md). En este caso, actualice `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con los valores de **Id. de aplicación (cliente)** de las dos aplicaciones que registró al completar los requisitos previos, *IdentityExperienceFramework* y *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Carga de los archivos de directivas
 

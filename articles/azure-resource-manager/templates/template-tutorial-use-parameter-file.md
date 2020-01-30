@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: abafa00febe0431acf5c678cc179c6c114fa9179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470840"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773158"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: Uso de archivos de parámetros para implementar la plantilla de Resource Manager
 
@@ -26,7 +26,7 @@ Debe tener Visual Studio Code con la extensión Herramientas de Resource Manage
 
 La plantilla tiene muchos parámetros que puede proporcionar durante la implementación. Al final del tutorial anterior, la plantilla tenía el siguiente aspecto:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json":::
 
 Esta plantilla funciona bien, pero ahora desea administrar fácilmente los parámetros que pasa a la plantilla.
 
@@ -36,13 +36,13 @@ Los archivos de parámetros son archivos JSON con una estructura similar a la pl
 
 En VS Code, cree un nuevo archivo con el siguiente contenido. Guarde el archivo con el nombre **azuredeploy.parameters.dev.json**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
 Este archivo es el archivo de parámetros para el entorno de desarrollo. Observe que usa Standard_LRS para la cuenta de almacenamiento, asigna un nombre a los recursos con el prefijo **dev** y establece la etiqueta **Environment** en **Dev**.
 
 De nuevo, cree un nuevo archivo con el siguiente contenido. Guarde el archivo con el nombre **azuredeploy.parameters.prod.json**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
 Este archivo es el archivo de parámetros para el entorno de producción. Observe que usa Standard_GRS para la cuenta de almacenamiento, asigna un nombre a los recursos con el prefijo **contoso** y establece la etiqueta **Environment** en **Production**. En un entorno de producción real, también deseará usar una instancia de App Service con una SKU que no sea gratuita, pero seguiremos con esa SKU para este tutorial.
 

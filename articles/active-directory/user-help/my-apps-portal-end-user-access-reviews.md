@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 232f4b6fde84b7e1cd706b62e0ba9a0998b4171e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e739024686bdac497b9b7dd450c5ed46e3cf9a63
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231836"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705027"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realización de una revisión de acceso desde el portal Aplicaciones
 
@@ -44,7 +43,7 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
 
     Aparecerá la página **Aplicaciones**, que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
 
-    ![Página Aplicaciones en el portal Aplicaciones](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![Página de aplicaciones en el portal Mis aplicaciones](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
 3. Seleccione el icono **Revisiones de acceso** para ver una lista de revisiones de acceso que esperan su aprobación.
 
@@ -74,8 +73,8 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Acceso a aplicaciones y uso de estas en el portal Aplicaciones](my-apps-portal-end-user-access.md).
+- [Acceder y usar las aplicaciones del portal Aplicaciones](my-apps-portal-end-user-access.md).
 
 - [Modificación de información de perfil](my-apps-portal-end-user-update-profile.md).
 
-- [Visualización y actualización de la información relacionada con grupos](my-apps-portal-end-user-groups.md).
+- [Ver y actualizar la información relacionada con grupos](my-apps-portal-end-user-groups.md).

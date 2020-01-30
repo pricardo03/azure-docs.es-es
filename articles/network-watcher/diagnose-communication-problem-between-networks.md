@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: En este tutorial, aprenderá a diagnosticar los problemas de comunicación entre una red virtual de Azure conectada a una red local o a otra red virtual, a través de una puerta de enlace de red virtual de Azure, mediante la capacidad de diagnóstico de VPN de Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
 ms.service: network-watcher
 ms.devlang: na
@@ -14,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419736"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834695"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnóstico de problemas de comunicación entre redes mediante Azure Portal
 
@@ -37,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar el diagnóstico de VPN, debe tener una puerta de enlace de VPN en ejecución. Si no tiene una puerta de enlace de VPN para realizar diagnósticos, puede implementar una mediante un [script de PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Puede ejecutar el script de PowerShell desde:
 - **Una instalación local de PowerShell**: El script requiere el módulo `Az` de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instale Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
@@ -47,7 +45,7 @@ Este script necesita aproximadamente una hora para crear una puerta de enlace de
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Habilitación de Network Watcher
 
@@ -80,7 +78,7 @@ Si ya dispone de un monitor de red habilitado en la región Este de EE. UU., vay
     Puede ver que la opción **ESTADO DE LA SOLUCIÓN DE PROBLEMAS** tiene el valor **Incorrecto**, así como un **Resumen** y los **Detalles** del problema en la pestaña **Estado**.
 10. Cuando seleccione la pestaña **Acción**, el proceso de diagnóstico de VPN proporciona información adicional. En el ejemplo que se muestra en la siguiente imagen, el proceso de diagnóstico de VPN le indicará que debe comprobar el estado de cada conexión:
 
-    ![.](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Acción](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnosticar una conexión de puerta de enlace
 
@@ -93,7 +91,7 @@ Una puerta de enlace está conectada a otras redes a través de una conexión de
     La prueba se ejecuta durante varios minutos.
 2. Una vez completada la prueba de la conexión, recibirá resultados similares a los que se muestran en las siguientes imágenes en las fichas **Estado** y **Acción**:
 
-    ![Estado de la conexión](./media/diagnose-communication-problem-between-networks/connection-status.png)
+    ![Estado de conexión](./media/diagnose-communication-problem-between-networks/connection-status.png)
 
     ![Acción de conexión](./media/diagnose-communication-problem-between-networks/connection-action.png)
 

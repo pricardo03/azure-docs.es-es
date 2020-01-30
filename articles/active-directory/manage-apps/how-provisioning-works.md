@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 910317201275ba1598ed3e4d89815542b88fb108
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 5238f8ca9258e4f7907d9d9755b7252e60f40de8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719977"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711535"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -29,13 +29,13 @@ El aprovisionamiento automático hace referencia a la creación de identidades y
 El **servicio de aprovisionamiento de Azure AD** aprovisiona usuarios para las aplicaciones SaaS y otros sistemas mediante la conexión a un punto de conexión de la API de administración de usuarios de System for Cross-Domain Identity Management (SCIM) 2.0 que proporciona el proveedor de la aplicación. Este punto de conexión SCIM permite a Azure AD crear, actualizar y quitar usuarios mediante programación. Para las aplicaciones seleccionadas, el servicio de aprovisionamiento también puede crear, actualizar y quitar objetos adicionales relacionados con la identidad, como los grupos y los roles. El canal utilizado para el aprovisionamiento entre Azure AD y la aplicación se cifra mediante el cifrado SSL HTTPS.
 
 
-![Servicio de aprovisionamiento de Azure AD](./media/user-provisioning/provisioning0.PNG)
+![Servicio de aprovisionamiento de Azure AD](media/how-provisioning-works/provisioning0.PNG)
 *Figura 1: Servicio de aprovisionamiento de Azure AD*
 
-![Flujo de trabajo de aprovisionamiento de usuarios salientes](./media/user-provisioning/provisioning1.PNG)
+![Flujo de trabajo de aprovisionamiento de usuarios salientes](media/how-provisioning-works/provisioning1.PNG)
 *Figura 2: Flujo de trabajo "saliente" del aprovisionamiento de usuarios desde Azure AD a aplicaciones SaaS populares*
 
-![Flujo de trabajo de aprovisionamiento de usuarios salientes](./media/user-provisioning/provisioning2.PNG)
+![Flujo de trabajo de aprovisionamiento de usuarios salientes](media/how-provisioning-works/provisioning2.PNG)
 *Figura 3: Flujo de trabajo "entrante" del aprovisionamiento de usuarios desde aplicaciones populares de administración del capital humano (HCM) a Azure Active Directory y Windows Server Active Directory*
 
 ## <a name="provisioning-using-scim-20"></a>Aprovisionamiento mediante SCIM 2.0
@@ -73,11 +73,11 @@ Para el aprovisionamiento saliente desde Azure AD a una aplicación SaaS, confia
 
   * Los grupos dinámicos puede afectar al rendimiento del aprovisionamiento de un extremo a otro desde Azure AD a las aplicaciones SaaS.
 
-  * La velocidad con la se aprovisiona o desaprovisiona un usuario de un grupo dinámico en una aplicación SaaS depende de la rapidez con la que el grupo dinámico pueda evaluar los cambios de pertenencia. Para información acerca de cómo comprobar el estado de procesamiento de un grupo dinámico, consulte [Creación de un grupo dinámico y comprobación de su estado](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
+  * La velocidad con la se aprovisiona o desaprovisiona un usuario de un grupo dinámico en una aplicación SaaS depende de la rapidez con la que el grupo dinámico pueda evaluar los cambios de pertenencia. Para información acerca de cómo comprobar el estado de procesamiento de un grupo dinámico, consulte [Creación de un grupo dinámico y comprobación de su estado](../users-groups-roles/groups-create-rule.md).
 
   * Cuando un usuario pierde la pertenencia en el grupo dinámico, se considera un evento de desaprovisionamiento. Tenga en cuenta este escenario cuando cree reglas para grupos dinámicos.
 
-* **Grupos anidados.** El servicio de aprovisionamiento de usuarios de Azure AD no puede leer o aprovisionar usuarios en grupos anidados. El servicio solo puede leer y aprovisionar aquellos usuarios que son miembros inmediatos de un grupo asignado explícitamente. Esta limitación de las "asignaciones basadas en grupos a aplicaciones" también afecta al inicio de sesión único (consulte [Uso de un grupo para administrar el acceso a las aplicaciones SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)). En lugar de ello, asigne explícitamente o defina de otro modo el [ámbito en](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) los grupos que contengan los usuarios que se deban aprovisionar.
+* **Grupos anidados.** El servicio de aprovisionamiento de usuarios de Azure AD no puede leer o aprovisionar usuarios en grupos anidados. El servicio solo puede leer y aprovisionar aquellos usuarios que son miembros inmediatos de un grupo asignado explícitamente. Esta limitación de las "asignaciones basadas en grupos a aplicaciones" también afecta al inicio de sesión único (consulte [Uso de un grupo para administrar el acceso a las aplicaciones SaaS](../users-groups-roles/groups-saasapps.md)). En lugar de ello, asigne explícitamente o defina de otro modo el [ámbito en](define-conditional-rules-for-provisioning-user-accounts.md) los grupos que contengan los usuarios que se deban aprovisionar.
 
 ### <a name="attribute-based-scoping"></a>Ámbito basado en atributos 
 
@@ -85,7 +85,7 @@ Puede usar filtros de ámbito para definir reglas basadas en atributos que deter
 
 ### <a name="b2b-guest-users"></a>Usuarios B2B (invitados)
 
-El servicio de aprovisionamiento de usuarios de Azure AD se puede usar para aprovisionar usuarios de B2B (o invitados) en Azure AD para aplicaciones SaaS. Sin embargo, para que los usuarios de B2B inicien sesión en la aplicación SaaS mediante Azure AD, esta debe tener su funcionalidad de inicio de sesión único basado en SAML configurada de una forma concreta. Para más información acerca de cómo configurar aplicaciones SaaS para admitir inicios de sesión de usuarios de B2B, consulte [Configuración de aplicaciones de SaaS para la colaboración B2B]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+El servicio de aprovisionamiento de usuarios de Azure AD se puede usar para aprovisionar usuarios de B2B (o invitados) en Azure AD para aplicaciones SaaS. Sin embargo, para que los usuarios de B2B inicien sesión en la aplicación SaaS mediante Azure AD, esta debe tener su funcionalidad de inicio de sesión único basado en SAML configurada de una forma concreta. Para más información acerca de cómo configurar aplicaciones SaaS para admitir inicios de sesión de usuarios de B2B, consulte [Configuración de aplicaciones de SaaS para la colaboración B2B](../b2b/configure-saas-apps.md).
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de aprovisionamiento: inicial e incremental.
 
@@ -160,7 +160,7 @@ Si todas o la mayoría de las llamadas realizadas al sistema de destino no tiene
 
 En cuarentena, la frecuencia de los ciclos incrementales se reduce gradualmente a una vez al día.
 
-El trabajo de aprovisionamiento sale de la cuarentena después de que se hayan resuelto todos los errores causantes y se inicie el siguiente ciclo de sincronización. Si el trabajo de aprovisionamiento permanece en cuarentena durante más de cuatro semanas, se deshabilita. [Aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) encontrará más información sobre el estado de cuarentena.
+El trabajo de aprovisionamiento sale de la cuarentena después de que se hayan resuelto todos los errores causantes y se inicie el siguiente ciclo de sincronización. Si el trabajo de aprovisionamiento permanece en cuarentena durante más de cuatro semanas, se deshabilita. [Aquí](application-provisioning-quarantine-status.md) encontrará más información sobre el estado de cuarentena.
 
 ### <a name="how-long-provisioning-takes"></a>¿Cuánto tiempo tarda el aprovisionamiento?
 
@@ -184,7 +184,7 @@ El servicio de aprovisionamiento de Azure AD eliminará temporalmente un usuario
 
 Si se produce uno de los cuatro eventos anteriores y la aplicación de destino no admite eliminaciones temporales, el servicio de aprovisionamiento enviará una solicitud DELETE para eliminar permanentemente al usuario de la aplicación. 
 
-30 días después de que un usuario se elimine en Azure AD, se eliminará permanentemente del inquilino. En este punto, el servicio de aprovisionamiento enviará una solicitud DELETE para eliminar permanentemente al usuario en la aplicación. En cualquier momento durante la ventana de treinta días, puede [eliminar manualmente un usuario de forma permanente]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore), lo que envía una solicitud de eliminación a la aplicación.
+30 días después de que un usuario se elimine en Azure AD, se eliminará permanentemente del inquilino. En este punto, el servicio de aprovisionamiento enviará una solicitud DELETE para eliminar permanentemente al usuario en la aplicación. En cualquier momento durante la ventana de treinta días, puede [eliminar manualmente un usuario de forma permanente](../fundamentals/active-directory-users-restore.md), lo que envía una solicitud de eliminación a la aplicación.
 
 Si ve un atributo IsSoftDeleted en sus asignaciones de atributos, se utiliza para determinar el estado del usuario y si se debe enviar una solicitud de actualización con active = false para eliminar al usuario temporalmente. 
 

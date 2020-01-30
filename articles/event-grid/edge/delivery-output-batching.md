@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 7d6b83354baf3db5ddb65f94fee1c3dce2dcca94
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991825"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841754"
 ---
 # <a name="output-batching"></a>Procesamiento por lotes de salida
 
@@ -77,16 +77,16 @@ El comportamiento de procesamiento por lotes de Event Grid se puede personalizar
 
 La siguiente configuración de tiempo de implementación controla el valor máximo permitido al crear una suscripción de eventos.
 
-| Nombre de propiedad | DESCRIPCIÓN |
+| Nombre de propiedad | Descripción |
 | ------------- | ----------- | 
-| `api:deliveryPolicyLimits:maxpreferredBatchSizeInKilobytes` | Valor máximo permitido para el control `PreferredBatchSizeInKilobytes`. El valor predeterminado es `1033`.
-| `api:deliveryPolicyLimits:maxEventsPerBatch` | Valor máximo permitido para el control `MaxEventsPerBatch`. El valor predeterminado es `50`.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valor máximo permitido para el control `PreferredBatchSizeInKilobytes`. El valor predeterminado es `1033`.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido para el control `MaxEventsPerBatch`. El valor predeterminado es `50`.
 
 ## <a name="configuring-runtime-default-values"></a>Configuración de valores predeterminados en tiempo de ejecución
 
 La siguiente configuración de tiempo de implementación controla el valor predeterminado en tiempo de ejecución de cada control cuando no se especifica en la suscripción de eventos. Para volver a iterar, debe establecerse al menos un control en la suscripción de eventos para activar el comportamiento del procesamiento por lotes.
 
-| Nombre de propiedad | DESCRIPCIÓN |
+| Nombre de propiedad | Descripción |
 | ------------- | ----------- |
-| `broker:defaultMaxBatchSizeInBytes` | Tamaño máximo de la solicitud de entrega cuando solo se especifica `MaxEventsPerBatch`. El valor predeterminado es `1_058_576`.
-| `broker:defaultMaxEventsPerBatch` | Número máximo de eventos para agregar a un lote cuando solo se especifica `MaxBatchSizeInBytes`. El valor predeterminado es `10`.
+| `broker__defaultMaxBatchSizeInBytes` | Tamaño máximo de la solicitud de entrega cuando solo se especifica `MaxEventsPerBatch`. El valor predeterminado es `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos para agregar a un lote cuando solo se especifica `MaxBatchSizeInBytes`. El valor predeterminado es `10`.

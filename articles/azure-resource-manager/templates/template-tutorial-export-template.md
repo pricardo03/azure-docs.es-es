@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0680309b13bf4499f0d153f44e575c1762b54d79
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471130"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773168"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Uso de una plantilla desde Azure Portal
 
@@ -26,7 +26,7 @@ Debe tener Visual Studio Code con la extensión Herramientas de Resource Manage
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
 Esta plantilla es adecuada para implementar cuentas de almacenamiento, pero puede agregarle más recursos. Puede exportar una plantilla desde un recurso existente para obtener rápidamente el código JSON de ese recurso.
 
@@ -76,7 +76,7 @@ En el ejemplo siguiente se resaltan los elementos agregados a la plantilla. Cont
 
 Copie el archivo completo y reemplace la plantilla por su contenido.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json" range="1-77" highlight="28-31,50-69":::
 
 ## <a name="deploy-template"></a>Implementar plantilla
 

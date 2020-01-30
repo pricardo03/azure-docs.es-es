@@ -3,13 +3,13 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/02/2020
-ms.openlocfilehash: ebfa1139ba0649280634bc0fd18627ba74f0c3cc
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 01/28/2020
+ms.openlocfilehash: c6661ce6d3e0f62c47b1f234898dbf47de36f3ee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294123"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845954"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 

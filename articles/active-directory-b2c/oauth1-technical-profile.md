@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: a4f26f180e34ee9c7a0222b0d7f6be95c78de1b4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951112"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840390"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OAuth1 en una directiva personalizada en Azure Active Directory B2C
 
@@ -41,9 +41,9 @@ Los elementos **InputClaims** y **InputClaimsTransformations** están vacíos o 
 
 ## <a name="output-claims"></a>Notificaciones de salida
 
-El elemento **OutputClaims** contiene una lista de notificaciones devuelta por el proveedor de identidadades de OAuth1. Es posible que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en el proveedor de identidades. También puede incluir notificaciones no especificadas por el proveedor de identidades, siempre que establezca el atributo **DefaultValue**.
+El elemento **OutputClaims** contiene una lista de notificaciones devuelta por el proveedor de identidadades de OAuth1. Puede que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en el proveedor de identidades. También puede incluir notificaciones no especificadas por el proveedor de identidades, siempre que establezca el atributo **DefaultValue**.
 
-El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o generar otras nuevas.
+El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
 El ejemplo siguiente muestra las notificaciones devueltas por el proveedor de identidades de Twitter:
 
@@ -51,7 +51,7 @@ El ejemplo siguiente muestra las notificaciones devueltas por el proveedor de id
 - La notificación **screen_name** que se asigna a la notificación **displayName**.
 - La notificación **email** sin asignación de nombre.
 
-El perfil técnico también devuelve notificaciones, que no son devueltas por el proveedor de identidades:
+El perfil técnico también muestra la notificaciones no proporcionadas por el proveedor de identidades:
 
 - La notificación **identityProvider** que contiene el nombre del proveedor de identidades.
 - La notificación **authenticationSource** con un valor predeterminado de `socialIdpAuthentication`.
@@ -68,21 +68,21 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 ## <a name="metadata"></a>Metadatos
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | client_id | Sí | El identificador de la aplicación del proveedor de identidades. |
-| ProviderName | Sin | Nombre del proveedor de identidades. |
+| ProviderName | No | Nombre del proveedor de identidades. |
 | request_token_endpoint | Sí | La dirección URL del punto de conexión del token de solicitud de acuerdo con RFC 5849. |
 | authorization_endpoint | Sí | La dirección URL del punto de conexión de autorización de acuerdo con RFC 5849. |
 | access_token_endpoint | Sí | La dirección URL del punto de conexión del token de acuerdo con RFC 5849. |
-| ClaimsEndpoint | Sin | La dirección URL del punto de conexión de la información de usuario. |
-| ClaimsResponseFormat | Sin | El formato de respuesta de las notificaciones.|
+| ClaimsEndpoint | No | La dirección URL del punto de conexión de la información de usuario. |
+| ClaimsResponseFormat | No | El formato de respuesta de las notificaciones.|
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
 El elemento **CryptographicKeys** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | client_secret | Sí | Secreto de cliente de la aplicación del proveedor de identidades.   |
 
@@ -94,7 +94,7 @@ Si usa el dominio **b2clogin.com** en lugar de **login.microsoftonline.com**, as
 
 Ejemplos:
 
-- [Adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas](identity-provider-twitter-custom.md)
 
 
 

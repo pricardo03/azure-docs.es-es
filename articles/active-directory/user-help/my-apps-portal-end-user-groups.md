@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa251ee361af12ecf3fef3c7cd437fa06c1cea52
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803921"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704959"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Actualización de la información de los grupos en el portal Mis aplicaciones
 
@@ -45,7 +44,7 @@ Si el administrador le ha dado permiso para ver el icono **Grupos**, puede:
 
     Aparecerá la página **Aplicaciones**, que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
 
-    ![Página Aplicaciones en el portal Aplicaciones](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![Página de aplicaciones en el portal Mis aplicaciones](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
 
 3. Seleccione el icono **Grupos** para ver la información relacionada con el grupo.
 
@@ -177,8 +176,8 @@ Puede unirse a un grupo ya existente desde la página **Grupos**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Acceso a aplicaciones y uso de estas en el portal Aplicaciones](my-apps-portal-end-user-access.md).
+- [Acceder y usar las aplicaciones del portal Aplicaciones](my-apps-portal-end-user-access.md).
 
 - [Modificación de información de perfil](my-apps-portal-end-user-update-profile.md).
 
-- [Realización de revisiones de acceso propias](my-apps-portal-end-user-access-reviews.md).
+- [Realizar sus propias revisiones de acceso](my-apps-portal-end-user-access-reviews.md).

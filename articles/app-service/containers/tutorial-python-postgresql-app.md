@@ -3,17 +3,17 @@ title: 'Tutorial: Aplicación de Python en Linux con Postgre'
 description: Aprenda a poner en funcionamiento una aplicación Python para Linux en Azure App Service, con conexión a una base de datos de PostgreSQL en Azure. En este tutorial se utiliza Django.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/14/2019
+ms.date: 01/23/2020
 ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: e0880cd1c16a8a0080551bbeaefe04f2f8dd705b
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 3aa5b5085a6120ca513f0aeba344e7f541f0fd72
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681067"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713411"
 ---
 # <a name="tutorial-run-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service
 
@@ -47,6 +47,11 @@ En primer lugar, conéctese al servidor local de PostgreSQL y cree una base de d
 En una ventana de terminal local, ejecute `psql` para conectarse al servidor local de PostgreSQL como el usuario `postgres` integrado.
 
 ```bash
+sudo su - postgres
+psql
+```
+or
+```PowerShell
 psql -U postgres
 ```
 
@@ -166,7 +171,7 @@ En el siguiente comando, reemplace *\<nombreDePostgresql>* por un nombre de serv
 Reemplace *\<nombreDelGrupoDeRecursos>* y *\<región>* por el nombre y la región del grupo de recursos que desea utilizar. Para *\<nombreDeUsuarioAdministrador>* y *\<contraseñaDeAdministración>* , cree las credenciales de usuario de la cuenta de administrador de la base de datos. Recuerde los valores de *\<nombreDeUsuarioAdministrador>* y *\<contraseñaDeAdministración>* para usarlos más adelante en el inicio de sesión en el servidor y las bases de datos de PostgreSQL.
 
 ```azurecli-interactive
-az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
+az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen5_1
 ```
 
 Cuando se crea el servidor de Azure Database for PostgreSQL, la CLI de Azure muestra código JSON similar al del siguiente ejemplo:
@@ -174,15 +179,19 @@ Cuando se crea el servidor de Azure Database for PostgreSQL, la CLI de Azure mue
 ```json
 {
   "administratorLogin": "myusername",
+  "earliestRestoreDate": "2020-01-22T19:02:15.727000+00:00",
   "fullyQualifiedDomainName": "myservername.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myservername",
-  "location": "westus",
+  "location": "westeurope",
+  "masterServerId": "",
   "name": "myservername",
+  "replicaCapacity": 5,
+  "replicationRole": "None",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 1,
-    "family": "Gen4",
-    "name": "B_Gen4_1",
+    "family": "Gen5",
+    "name": "B_Gen5_1",
     "size": null,
     "tier": "Basic"
   },
@@ -276,6 +285,8 @@ Vaya a *http:\//localhost:8000/admin* e inicie sesión con el usuario administra
 
 Vaya a *http:\//localhost:8000* de nuevo y verá la pregunta de sondeo. La aplicación ya está escribiendo datos en la base de datos de Azure Database for PostgreSQL.
 
+Para detener el servidor de Django, escriba Ctrl+C en el terminal.
+
 ## <a name="deploy-the-web-app-to-azure-app-service"></a>Implementar la aplicación web en Azure App Service
 
 En este paso se implementa la aplicación Python conectada a la base de datos de Azure Database for PostgreSQL en Azure App Service.
@@ -353,25 +364,29 @@ Para información sobre cómo el código accede a estos valores de aplicación, 
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash 
-Counting objects: 7, done.
+Counting objects: 60, done.
 Delta compression using up to 8 threads.
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (7/7), 775 bytes | 0 bytes/s, done.
-Total 7 (delta 4), reused 0 (delta 0)
+Compressing objects: 100% (51/51), done.
+Writing objects: 100% (60/60), 15.37 KiB | 749.00 KiB/s, done.
+Total 60 (delta 9), reused 0 (delta 0)
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '6520eeafcc'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Python deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Preparing deployment for commit id '06f3f7c0cb'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
 . 
 . 
 . 
+remote: Done in 100 sec(s).
+remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
+remote: Deployment Logs : 'https://<app-name>.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/06f3f7c0cb52ce3b4aff85c2b5099fbacb65ab94/log'
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git 
-   06b6df4..6520eea  master -> master
+ * [new branch]      master -> master
 ```  
 
 El servidor de implementación de App Service ve el archivo *requirements.txt* en la raíz del repositorio y ejecuta la administración de paquetes de Python automáticamente después de `git push`.

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 57bae42eb44c174657e59fa8b017da2931ae681b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814597"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721632"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Pestaña Marketplace de módulo IoT Edge
 
@@ -129,7 +129,7 @@ Use las siguientes directrices para un logotipo de imagen principal:
 *  Evite el uso de mucho texto cuando diseñe el logotipo. El nombre del publicador, el título del plan, el resumen largo de la oferta y un botón Crear se insertan mediante programación dentro del logotipo cuando se publica la oferta. 
 * Incluya un espacio rectangular sin usar en el lado derecho del logotipo de imagen principal. Este espacio en blanco tiene 415 x 100 píxeles y el desplazamiento desde la izquierda es de 370 píxeles.  
 
-<!-- P2: woudl be nice to also have an picture int he context of iot edge of the hero image
+<!-- P2: would be nice to also have an picture int he context of iot edge of the hero image
 As an example, the following hero icon is for the Azure Container Service.
 
 ![Example hero icon for Azure Container Service](./media/publishvm_010.png)

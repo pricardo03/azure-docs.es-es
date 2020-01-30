@@ -11,29 +11,29 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a49eae95628645f6586a637c103433b122b5d287
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2bc02433be9ee7955b0e10ac659ee40e315e5a5e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950959"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840169"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C
 
-En las aplicaciones, es posible que quiera permitir que los usuarios inicien sesión con distintos proveedores de identidades. Un *proveedor de identidades* crea, mantiene y administra la información de identidad al tiempo que proporciona servicios de autenticación a las aplicaciones. Puede agregar proveedores de identidades compatibles con Azure Active Directory B2C (Azure AD B2C) a los [flujos de usuario](active-directory-b2c-reference-policies.md) mediante Azure Portal.
+En las aplicaciones, es posible que quiera permitir que los usuarios inicien sesión con distintos proveedores de identidades. Un *proveedor de identidades* crea, mantiene y administra la información de identidad al tiempo que proporciona servicios de autenticación a las aplicaciones. Puede agregar proveedores de identidades compatibles con Azure Active Directory B2C (Azure AD B2C) a los [flujos de usuario](user-flow-overview.md) mediante Azure Portal.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear las aplicaciones del proveedor de identidades
 > * Agregar los proveedores de identidades al inquilino
 > * Agregar los proveedores de identidades al flujo del usuario
 
-Por lo general, solo se usa un proveedor de identidades en las aplicaciones, pero existe la opción de agregar más. En este tutorial se muestra cómo agregar un proveedor de identidades de Azure AD y un proveedor de identidades de Facebook a la aplicación. Agregar ambos tipos de proveedores de identidades a la aplicación es opcional. También puede agregar otros proveedores de identidades, como [Amazon](active-directory-b2c-setup-amzn-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [Google](active-directory-b2c-setup-goog-app.md), [LinkedIn](active-directory-b2c-setup-li-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md) o [Twitter](active-directory-b2c-setup-twitter-app.md).
+Por lo general, solo se usa un proveedor de identidades en las aplicaciones, pero existe la opción de agregar más. En este tutorial se muestra cómo agregar un proveedor de identidades de Azure AD y un proveedor de identidades de Facebook a la aplicación. Agregar ambos tipos de proveedores de identidades a la aplicación es opcional. También puede agregar otros proveedores de identidades, como [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md) o [Twitter](identity-provider-twitter.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [Cree un flujo de usuario](tutorial-create-user-flows.md) para permitir a los usuarios registrarse e iniciar sesión en la aplicación.
 
@@ -45,7 +45,7 @@ Las aplicaciones del proveedor de identidades proporcionó el identificador y la
 
 Para habilitar el inicio de sesión de los usuarios de Azure AD, deberá registrar una aplicación dentro del inquilino de Azure AD. El inquilino de Azure AD no es el mismo que el usuario de Azure AD B2C.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Nuevo registro**.

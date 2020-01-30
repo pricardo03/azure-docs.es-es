@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: En este tutorial, aprenderá a diagnosticar un problema de enrutamiento de red de máquina virtual mediante la funcionalidad de próximo salto de Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276041"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845206"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: Diagnosticar un problema de enrutamiento de red de máquina virtual con Azure Portal
 
@@ -49,13 +48,13 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Seleccione **Compute** y **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
-    |NOMBRE|myVm|
+    |Nombre|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Seleccione su suscripción.|
-    |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
+    |Resource group| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Location| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
@@ -66,7 +65,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 Para probar la comunicación de red con Network Watcher, primero debe habilitar un monitor de red en al menos una región de Azure y, a continuación, usar la funcionalidad de próximo salto de Network Watcher para probar la comunicación.
 
-### <a name="enable-network-watcher"></a>Habilitación del monitor de red
+### <a name="enable-network-watcher"></a>Habilitación de Network Watcher
 
 Si ya dispone de un monitor de red habilitado en al menos una región, vaya a la sección [Usar próximo salto](#use-next-hop).
 
@@ -84,7 +83,7 @@ Azure crea rutas automáticamente a los destinos predeterminados. Es posible cre
 1. En Azure Portal, seleccione **Próximo salto**, en **Network Watcher**.
 2. Seleccione su suscripción, escriba o seleccione los siguientes valores y, a continuación, seleccione **Próximo salto**, tal y como se muestra en la siguiente figura:
 
-    |Configuración                  |Valor                                                   |
+    |Configuración                  |Value                                                   |
     |---------                |---------                                               |
     | Resource group          | Seleccione myResourceGroup                                 |
     | Máquina virtual         | Seleccione myVm                                            |

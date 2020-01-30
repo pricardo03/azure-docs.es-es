@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 753977ed0516e934f661d81904b60ff9935aa423
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981172"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843555"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -620,7 +620,7 @@ Los extremos HTTP y HTTPS admiten varios tipos de autenticación. Según el dese
 
 ### <a name="basic-authentication"></a>Autenticación básica
 
-Si la opción [Básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) está disponible, especifique estos valores de propiedad:
+Si la opción [Básica](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) está disponible, especifique estos valores de propiedad:
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
@@ -682,7 +682,7 @@ Para obtener más información acerca de cómo proteger los servicios mediante l
 
 * [Protección de API mediante la autenticación de certificados de cliente en Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Protección de los servicios RESTful mediante certificados de cliente](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Protección de los servicios RESTful mediante certificados de cliente](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [Credenciales de certificado para la autenticación de aplicaciones](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Uso de un certificado SSL en el código de aplicación de Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 

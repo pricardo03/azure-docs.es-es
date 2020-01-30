@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 74b991fce132c991ebd5fbd3789328e2a500da86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e7f60335b3e75d93f408dec3386ca0bdcd6a0388
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232309"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711459"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar el aprovisionamiento automático de usuarios para aplicaciones multiinquilino
 
@@ -56,7 +56,7 @@ Las aplicaciones que requieren un registro de usuario se encuentran en la aplica
 
 Azure AD proporciona varias rutas de integración para habilitar el aprovisionamiento automático de usuarios para la aplicación.
 
-* El [Servicio de aprovisionamiento de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) administra el aprovisionamiento y el desaprovisionamiento de usuarios desde Azure AD a la aplicación (aprovisionamiento saliente) y desde la aplicación hacia Azure AD (aprovisionamiento entrante). El servicio se conecta a los puntos de conexión de la API de administración de usuarios de System for Cross-Domain Identity Management (SCIM) que proporciona la aplicación.
+* El [Servicio de aprovisionamiento de Azure AD](user-provisioning.md) administra el aprovisionamiento y el desaprovisionamiento de usuarios desde Azure AD a la aplicación (aprovisionamiento saliente) y desde la aplicación hacia Azure AD (aprovisionamiento entrante). El servicio se conecta a los puntos de conexión de la API de administración de usuarios de System for Cross-Domain Identity Management (SCIM) que proporciona la aplicación.
 
 * Al usar [Microsoft Graph](https://docs.microsoft.com/graph/), la aplicación administra el aprovisionamiento entrante y saliente de usuarios y grupos desde Azure AD a la aplicación, consultando para ello Microsoft Graph API.
 
@@ -87,9 +87,9 @@ Para obtener más información sobre cómo usa el servicio de aprovisionamiento 
 
 * [Más información acerca del estándar SCIM](https://aka.ms/SCIMOverview)
 
-* [Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones](use-scim-to-provision-users-and-groups.md)
 
-* [Información sobre la implementación de SCIM de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Información sobre la implementación de SCIM de Azure AD](use-scim-to-provision-users-and-groups.md)
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph para el aprovisionamiento
 
@@ -115,7 +115,7 @@ SAML JIT usa la información de notificaciones en el token SAML para crear y act
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Habilitar el inicio de sesión único en la aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
+* [Habilitar el inicio de sesión único en la aplicación](isv-sso-content.md)
 
 * [Envíe el listado de aplicaciones](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) y asóciese con Microsoft para crear la documentación en el sitio web de Microsoft.
 

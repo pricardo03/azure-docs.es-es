@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo usar Ansible para crear una cola d
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, service bus, cola
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 9903419a52be61cd7ec74214858bce81df7e727e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 8ba4c2296d903c4f35aa36eb92dfbc3b56ec4b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155807"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713218"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Tutorial: Configurar las colas de Azure Service Bus con Ansible
 
@@ -23,11 +23,11 @@ ms.locfileid: "74155807"
 >
 > * Creación de una cola
 > * Creación de una política de SAS
-> * Recuperación de información del espacio de nombres
+> * Recuperar información del espacio de nombres
 > * Recuperación de información de la cola
 > * Revocación de la política SAS de cola
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -90,7 +90,7 @@ Guarde el siguiente cuaderno de estrategias como `servicebus_queue_policy.yml`:
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -102,7 +102,7 @@ Guarde el siguiente cuaderno de estrategias como `servicebus_queue_policy.yml`:
           var: policy
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 - El valor `rights` representa el privilegio que tiene un usuario con la cola. El valor debe ser uno de los siguientes: `manage`, `listen`, `send` o `listen_send`.
 
 Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
@@ -193,7 +193,7 @@ Guarde el siguiente cuaderno de estrategias como `servicebus_queue_policy_delete
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"

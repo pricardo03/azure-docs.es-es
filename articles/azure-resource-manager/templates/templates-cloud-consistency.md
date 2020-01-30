@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290655"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773140"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
 
@@ -449,7 +449,7 @@ En general, evite los puntos de conexión codificados de forma rígida en una pl
 La función de plantilla de referencia siguiente recupera el espacio de nombres de punto de conexión del proveedor de recursos de almacenamiento:
 
 ```json
-"diskUri":"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, 'container/myosdisk.vhd')]"
+"diskUri":"[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))).primaryEndpoints.blob, 'container/myosdisk.vhd')]"
 ```
 
 Si se reemplaza el valor codificado de forma rígida del punto de conexión de cuenta de almacenamiento con la función de plantilla `reference`, se puede usar la misma plantilla para implementar correctamente en otros entornos sin realizar ningún cambio en la referencia de punto de conexión.
@@ -493,7 +493,7 @@ Puede recuperar la misma lista con el cmdlet de PowerShell de Azure [Get-AzureRm
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
-Este comando tarda unos minutos en devolver todas las imágenes disponibles en la región de Europa Occidental de la nube de Azure global.
+Este comando tarda unos minutos en devolver todas las imágenes disponibles en la región de Oeste de Europa de la nube de Azure global.
 
 Si puso estas imágenes de máquina virtual a disposición de Azure Stack, se podría consumir todo el almacenamiento disponible. Para dar cabida incluso a la unidad de escala más pequeña, Azure Stack permite seleccionar las imágenes que quiere agregar a un entorno.
 

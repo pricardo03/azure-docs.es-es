@@ -12,13 +12,12 @@ ms.date: 03/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2987183900ad3232d46b2152bd52808ae96c802b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383065"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704840"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solución de problemas relacionados con el portal Mis aplicaciones
 
@@ -86,10 +85,10 @@ Si después de probar todo esto no puede acceder a la aplicación, debe ponerse 
 
 Después de iniciar sesión en el portal **Mis aplicaciones**, también puede actualizar su perfil e información de cuenta, la información del grupo y la información de revisión de acceso (si tiene permiso).
 
-- [Acceso a aplicaciones y uso en el portal Mis aplicaciones](my-apps-portal-end-user-access.md).
+- [Acceder y usar las aplicaciones del portal Aplicaciones](my-apps-portal-end-user-access.md).
 
 - [Modificación de información de perfil](my-apps-portal-end-user-update-profile.md).
 
-- [Visualización y actualización de la información relacionada con grupos](my-apps-portal-end-user-groups.md).
+- [Ver y actualizar la información relacionada con grupos](my-apps-portal-end-user-groups.md).
 
-- [Realización de revisiones de acceso propias](my-apps-portal-end-user-access-reviews.md).
+- [Realizar sus propias revisiones de acceso](my-apps-portal-end-user-access-reviews.md).

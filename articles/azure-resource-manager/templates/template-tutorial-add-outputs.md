@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 540e037e83d359dc67cb32f98dec0319bf490707
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471710"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765749"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Adición de salidas a una plantilla de Resource Manager
 
@@ -26,7 +26,7 @@ Debe tener Visual Studio Code con la extensión Herramientas de Resource Manage
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
 
 Este código implementa una cuenta de almacenamiento, pero no devuelve ninguna información sobre dicha cuenta. Es posible que necesite capturar propiedades de un nuevo recurso para que estén disponibles más adelante como referencia.
 
@@ -36,7 +36,7 @@ Puede usar salidas para devolver valores de la plantilla. Por ejemplo, puede res
 
 En el ejemplo siguiente se resalta el cambio en la plantilla para agregar un valor de salida. Copie el archivo completo y reemplace la plantilla por su contenido.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json" range="1-53" highlight="47-52":::
 
 Hay algunos elementos importantes que se deben tener en cuenta sobre el valor de salida que ha agregado.
 

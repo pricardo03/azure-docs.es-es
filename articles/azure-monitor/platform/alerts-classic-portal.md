@@ -1,17 +1,17 @@
 ---
 title: Crear, ver y administrar las alertas de métricas clásicas mediante Azure Monitor
 description: Aprenda a usar Azure Portal, CLI o Powershell para crear, ver y administrar las reglas de alerta de métricas clásicas.
-author: snehithm
+author: yanivlavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: snmuvva
-ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yalavi
+ms.openlocfilehash: fd15d6bb9442d91c672fdd444313880001880e07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66129756"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705605"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas clásicas mediante Azure Monitor
 

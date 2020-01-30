@@ -4,12 +4,12 @@ description: Conozca cómo Azure App Service actualiza el sistema operativo y lo
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1a56fed04399325be315d8d977e5a72223bddac5
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688568"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846250"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicación de revisiones al sistema operativo y al entorno de tiempo de ejecución en Azure App Service
 
@@ -83,6 +83,7 @@ En la tabla siguiente se muestra cómo consultar las versiones de Windows y del 
 | Versión de PHP | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `php --version` |
 | Versión de Node.js predeterminada | En [Cloud Shell](../cloud-shell/overview.md), ejecute el comando siguiente: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Versión de Python | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `python --version` |  
+| Versión de Java | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `java -version` |  
 
 > [!NOTE]  
 > El acceso a la ubicación del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, donde se almacena la información sobre las [revisiones "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins), está bloqueado.

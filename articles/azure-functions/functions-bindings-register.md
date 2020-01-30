@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 599becae0225bea623c383ead49cd9abcea6fff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35df4c6c20345053bcc39a267a90a7bb1b227241
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231106"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766226"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
@@ -62,9 +62,6 @@ Reemplace `<TARGET_VERSION>` en el ejemplo con una versión específica del paqu
 Si usa `Install-Package` para hacer referencia a un enlace, no es necesario usar [agrupaciones de extensiones](#extension-bundles). Este enfoque es específico de las bibliotecas de clases compiladas en Visual Studio.
 
 ## <a name="vs-code"></a> Biblioteca de clases de C# con Visual Studio Code
-
-> [!NOTE]
-> Se recomienda usar [agrupaciones de extensiones](#extension-bundles) para que Functions instale automáticamente un conjunto compatible de paquetes de extensiones de enlace. 
 
 En **Visual Studio Code**, instale paquetes para un proyecto de biblioteca de clases de C# desde el símbolo del sistema mediante el comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) de la CLI de .NET Core. En el ejemplo siguiente se muestra cómo agregar un enlace:
 

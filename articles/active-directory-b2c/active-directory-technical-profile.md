@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a839c86a717122778f736f01fea4bdd08da8945
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e27288f95f07c481ab98a112ed9f02a34046600a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949565"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835800"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ El elemento **InputClaimsTransformations** puede contener una colección de elem
 
 El elemento **OutputClaims** contiene una lista de notificaciones devuelta por el perfil técnico de Azure AD. Es posible que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en Azure Active Directory. También puede incluir las notificaciones que Azure Active Directory no devuelve, siempre y cuando establezca el atributo `DefaultValue`.
 
-El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o generar otras nuevas.
+El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
 Por ejemplo, el perfil técnico **AAD-UserWriteUsingLogonEmail** crea una cuenta local y devuelve las notificaciones siguientes:
 
@@ -253,15 +253,15 @@ El perfil técnico siguiente elimina una cuenta de usuario de red social mediant
 ```
 ## <a name="metadata"></a>Metadatos
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Operación | Sí | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Sin | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. El valor se puede [localizar](localization.md).|
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Sin | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. El valor se puede [localizar](localization.md).|
-| ApplicationObjectId | Sin | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
-| ClientId | Sin | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. |
+| UserMessageIfClaimsPrincipalDoesNotExist | No | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. El valor se puede [localizar](localization.md).|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | No | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.|
+| UserMessageIfClaimsPrincipalAlreadyExists | No | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. El valor se puede [localizar](localization.md).|
+| ApplicationObjectId | No | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
+| ClientId | No | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
 
 
 

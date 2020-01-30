@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Implementación de un modelo de Machine Learning con el diseñador'
 titleSuffix: Azure Machine Learning
-description: En este tutorial se indica cómo crear una solución de análisis predictivo en el diseñador de Azure Machine Learning. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
+description: En este tutorial se indica cómo crear una solución de análisis predictivo en el diseñador de Azure Machine Learning (versión preliminar). Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 89fdac5e59b59c60d7e20b94799d78b029d236d6
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 470e633b2c64283db9b6a5b1cd777a6a054dad16
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315004"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719796"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Puede implementar el modelo predictivo desarrollado en la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para que otros usuarios puedan usarlo. En la parte 1, ha entrenado el modelo. Ahora, es momento de generar predicciones basadas en los datos que escriba el usuario. En esta parte del tutorial, va a realizar lo siguiente:
@@ -55,10 +55,6 @@ Para implementar la canalización, antes debe convertir la canalización de entr
     >
 
 1. Seleccione **Ejecutar** y use el mismo destino de proceso y experimento que usó en la parte 1.
-
-1. Seleccione el módulo **Score Model** (Puntuar modelo).
-
-1. En el panel de propiedades, seleccione **Salidas** > **Visualizar** para comprobar que el modelo sigue funcionando. Puede ver que se muestran los datos originales, junto con el precio previsto ("etiquetas puntuadas").
 
 1. Seleccione **Implementar**.
 

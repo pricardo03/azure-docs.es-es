@@ -17,12 +17,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8aa8265733128ed3b2ad5ddf16dcebb122b0f054
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 87818066a656aa4bcd6f45f1835ca1512a674a9e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443438"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712311"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Configuración del aprovisionamiento de usuarios en una aplicación de la galería de Azure AD
 
@@ -40,19 +40,19 @@ Si desea solicitar soporte técnico para el aprovisionamiento automático con un
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configuración de una aplicación para el aprovisionamiento automático
 
-*Automático* significa que se ha desarrollado un conector de aprovisionamiento de Azure AD para esta aplicación. Para más información sobre el servicio de aprovisionamiento de Azure AD y cómo funciona, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
+*Automático* significa que se ha desarrollado un conector de aprovisionamiento de Azure AD para esta aplicación. Para más información sobre el servicio de aprovisionamiento de Azure AD y cómo funciona, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md).
 
-Para más información sobre cómo aprovisionar usuarios y grupos específicos en una aplicación, consulte [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
+Para más información sobre cómo aprovisionar usuarios y grupos específicos en una aplicación, consulte [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](configure-automatic-user-provisioning-portal.md).
 
 Los pasos que son necesarios para habilitar y configurar el aprovisionamiento automático varían según la aplicación.
 
 > [!NOTE]
-> Para empezar, debería buscar el tutorial de configuración específico para configurar el aprovisionamiento para su aplicación y seguir esos pasos para configurar la aplicación y Azure AD para crear la conexión de aprovisionamiento. 
+> Para empezar, debería buscar el tutorial de configuración específico para configurar el aprovisionamiento para su aplicación y seguir esos pasos para configurar la aplicación y Azure AD para crear la conexión de aprovisionamiento.
 
-Puede encontrar tutoriales sobre aplicaciones en [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Puede encontrar tutoriales sobre aplicaciones en [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).
 
 Una cuestión importante que tener en cuenta al configurar el aprovisionamiento es revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Esto incluye la configuración de la "propiedad de coincidencia" que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas. Consulte el vínculo en *Pasos siguientes* para más información sobre las asignaciones de atributos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+[Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](customize-application-attributes.md)
 

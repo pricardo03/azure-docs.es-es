@@ -15,17 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ROBOTS: NOINDEX
-ms.openlocfilehash: 99c5e4d99f45e2a642a46f7dc070fb7512ff4d73
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e7894bfada4d363e89f526280e2925b4f4c6180a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422546"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711880"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problemas en la configuración del inicio de sesión único federado para una aplicación ajena a la galería
 
-Si se produce un problema al configurar una aplicación. Compruebe que ha seguido todos los pasos del artículo [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)
+Si se produce un problema al configurar una aplicación. Compruebe que ha seguido todos los pasos del artículo [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure Active Directory.](configure-federated-single-sign-on-non-gallery-applications.md)
 
 ## <a name="cant-add-another-instance-of-the-application"></a>No se puede agregar otra instancia de la aplicación
 
@@ -41,7 +40,7 @@ Si la aplicación no admite nada de lo indicado anteriormente, no podrá configu
 
 No podrá seleccionar el formato de EntityID (identificador de usuario) que Azure AD envía a la aplicación en la respuesta a la autenticación de usuario.
 
-Azure AD selecciona el formato del atributo NameID (identificador de usuario) en función del valor seleccionado o del formato que solicite la aplicación en el elemento AuthRequest de SAML. Para más información, visite la sección NameIDPolicy del artículo [Protocolo SAML de inicio de sesión único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest).
+Azure AD selecciona el formato del atributo NameID (identificador de usuario) en función del valor seleccionado o del formato que solicite la aplicación en el elemento AuthRequest de SAML. Para más información, visite la sección NameIDPolicy del artículo [Protocolo SAML de inicio de sesión único](../develop/single-sign-on-saml-protocol.md#authnrequest).
 
 ## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>¿Dónde se obtienen los metadatos de la aplicación o el certificado de Azure AD?
 
@@ -69,7 +68,7 @@ Azure AD no proporciona una dirección URL para obtener los metadatos. Solo se p
 
 ## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>No sabe cómo personalizar las notificaciones SAML que se han enviado a una aplicación
 
-Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
+Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](../develop/active-directory-claims-mapping.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](what-is-application-management.md)

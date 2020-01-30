@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100708"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841719"
 ---
 # <a name="delivery-and-retry"></a>Entrega y nuevo intento
 
@@ -29,12 +29,12 @@ Event Grid espera 60 segundos para obtener una respuesta después de entregar u
 
 Hay dos colas de reserva preconfiguradas que determinan la programación según la que se realizará un reintento. Son las siguientes:
 
-| Schedule | DESCRIPCIÓN |
+| Programación | Descripción |
 | ---------| ------------ |
-| 1 minuto | Los mensajes que terminan aquí se intentan cada minuto.
+| 1 minuto. | Los mensajes que terminan aquí se intentan cada minuto.
 | 10 minutos | Los mensajes que terminan aquí se intentan cada 10 minutos.
 
-### <a name="how-it-works"></a>Cómo funciona
+### <a name="how-it-works"></a>Funcionamiento
 
 1. El mensaje llega al módulo de Event Grid. Se intenta entregar inmediatamente.
 1. Si se produce un error en la entrega, el mensaje se pone en una cola de 1 minuto y se vuelve a intentar transcurrido ese tiempo.
@@ -52,12 +52,12 @@ Si se alcanza alguno de los límites de la directiva de reintentos, se descartar
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>Configuración de los valores predeterminados para todos los suscriptores
 
-Hay dos propiedades, `brokers:defaultMaxDeliveryAttempts` y `broker:defaultEventTimeToLiveInSeconds`, que se pueden configurar como parte de la implementación de Event Grid, que controlan los valores predeterminados de la directiva de reintentos de todos los suscriptores.
+Hay dos propiedades, `brokers__defaultMaxDeliveryAttempts` y `broker__defaultEventTimeToLiveInSeconds`, que se pueden configurar como parte de la implementación de Event Grid, que controlan los valores predeterminados de la directiva de reintentos de todos los suscriptores.
 
-| Nombre de propiedad | DESCRIPCIÓN |
+| Nombre de propiedad | Descripción |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Número máximo de intentos de entrega de un evento. Valor predeterminado: 30.
-| `broker:defaultEventTimeToLiveInSeconds` | TTL del evento en segundos transcurrido el cual se descartará un evento si no se entrega. Valor predeterminado: **7200** segundos
+| `broker__defaultMaxDeliveryAttempts` | Número máximo de intentos de entrega de un evento. Valor predeterminado: 30.
+| `broker__defaultEventTimeToLiveInSeconds` | TTL del evento en segundos transcurrido el cual se descartará un evento si no se entrega. Valor predeterminado: **7200** segundos
 
 ## <a name="configuring-defaults-per-subscriber"></a>Configuración de valores predeterminados por suscriptor
 
@@ -71,8 +71,8 @@ En el ejemplo siguiente se configura la directiva de reintentos en el módulo de
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {

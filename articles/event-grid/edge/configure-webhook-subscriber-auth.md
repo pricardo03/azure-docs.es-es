@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 97ed1e2ad84d895e9da0d96cd070e14acb46385d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 101dcae5870322878cec48098f2efae32cc68c14
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991833"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841737"
 ---
 # <a name="configure-webhook-subscriber-authentication"></a>Configuración de la autenticación de suscriptores de webhook
 
@@ -25,9 +25,9 @@ En esta guía se proporcionan ejemplos de las posibles configuraciones de suscri
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=false"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=false"
   ]
 }
  ```
@@ -37,42 +37,42 @@ En esta guía se proporcionan ejemplos de las posibles configuraciones de suscri
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ]
 }
  ```
 
 >[!NOTE]
->Establezca la propiedad `outbound:webhook:allowUnknownCA` en `true` solo en entornos de prueba, ya que normalmente usará certificados autofirmados. En el caso de las cargas de trabajo de producción, se recomienda que se establezcan en **false**.
+>Establezca la propiedad `outbound__webhook__allowUnknownCA` en `true` solo en entornos de prueba, ya que normalmente usará certificados autofirmados. En el caso de las cargas de trabajo de producción, se recomienda que se establezcan en **false**.
 
 ## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Permitir suscriptor HTTPS pero omitir la validación de certificados
 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=true",
-    "outbound:webhook:allowUnknownCA=false"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=true",
+    "outbound__webhook__allowUnknownCA=false"
   ]
 }
  ```
 
 >[!NOTE]
->Establezca la propiedad `outbound:webhook:skipServerCertValidation` en `true` solo en entornos de prueba, ya que es posible que no esté presentando un certificado que deba autenticarse. En el caso de las cargas de trabajo de producción, se recomienda que se establezcan en **false**.
+>Establezca la propiedad `outbound__webhook__skipServerCertValidation` en `true` solo en entornos de prueba, ya que es posible que no esté presentando un certificado que deba autenticarse. En el caso de las cargas de trabajo de producción, se recomienda que se establezcan en **false**.
 
 ## <a name="allow-both-http-and-https-with-self-signed-certificates"></a>Permitir HTTP y HTTPS con certificados autofirmados
 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=false",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "outbound__webhook__httpsOnly=false",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ]
 }
  ```
 
 >[!NOTE]
->Establezca la propiedad `outbound:webhook:httpsOnly` en `false` solo en entornos de prueba, ya que es posible que desee empezar con un suscriptor HTTP. En el caso de las cargas de trabajo de producción, se recomienda que se establezcan en **true**.
+>Establezca la propiedad `outbound__webhook__httpsOnly` en `false` solo en entornos de prueba, ya que es posible que desee empezar con un suscriptor HTTP. En el caso de las cargas de trabajo de producción, se recomienda que se establezcan en **true**.

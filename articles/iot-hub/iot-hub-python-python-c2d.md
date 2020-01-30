@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 4cda59448856630468076ef63c51b8a216a31bd0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 53bff62795e54d88e768b3a22c8b358519b69a91
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001936"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767818"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Python)
 
@@ -41,7 +41,7 @@ Al final de este tutorial tendrá dos aplicaciones de consola de Python:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -85,7 +85,7 @@ En esta sección, creará una aplicación de consola de Python para simular el d
     ```python
     def iothub_client_sample_run():
         try:
-            client = iothub_client_init()
+            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
             message_listener_thread = threading.Thread(target=message_listener, args=(client,))
             message_listener_thread.daemon = True
@@ -110,7 +110,7 @@ En esta sección, creará una aplicación de consola de Python para simular el d
 
 7. Guarde y cierre el archivo **SimulatedDevice.py**.
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtener la cadena de conexión de IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Obtención de la cadena de conexión de IoT Hub
 
 En este artículo, creará un servicio de back-end para enviar mensajes de la nube a un dispositivo a través de la instancia de IOT Hub que creó en [Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-python.md). Para enviar mensajes de nube a un dispositivo, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
 
@@ -118,7 +118,7 @@ En este artículo, creará un servicio de back-end para enviar mensajes de la nu
 
 ## <a name="send-a-cloud-to-device-message"></a>Envío de mensajes de nube a dispositivo
 
-En esta sección, escribirá una aplicación de consola de Python que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesitará el identificador del dispositivo que agregó en el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-python.md). También necesitará la cadena de conexión de IoT Hub que copió anteriormente en [Obtener la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
+En esta sección, escribirá una aplicación de consola de Python que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesitará el identificador del dispositivo que agregó en el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-python.md). También necesitará la cadena de conexión de IoT Hub que copió anteriormente en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
 
 1. Con un editor de texto, cree un archivo **SendCloudToDeviceMessage.py**.
 
@@ -137,7 +137,7 @@ En esta sección, escribirá una aplicación de consola de Python que envía men
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-3. Agregue el código siguiente al archivo **SendCloudToDeviceMessage.py**. Reemplace los valores de marcador de posición "{iot hub connection string}" y "{device id}" por la cadena de conexión de IoT Hub y el id. de dispositivo que anotó anteriormente:
+3. Agregue el código siguiente al archivo **SendCloudToDeviceMessage.py**. Reemplace los valores de marcador de posición "{iot hub connection string}" y "{device id}" por la cadena de conexión de IoT Hub y el identificador de dispositivo que anotó anteriormente:
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"

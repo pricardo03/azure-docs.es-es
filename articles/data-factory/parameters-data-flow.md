@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746136"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760222"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrización de flujos de datos de asignación
 
@@ -23,9 +23,6 @@ La asignación de flujos de datos de asignación en Azure Data Factory admite el
 * Usar cualquiera de estos dos lenguajes de expresiones para establecer un valor literal estático
 
 Use esta funcionalidad para hacer que los flujos de datos sean flexibles y reutilizables y estén destinados para un uso general. Puede parametrizar las expresiones y los valores del flujo de datos con estos parámetros.
-
-> [!NOTE]
-> Para usar expresiones del flujo de control de canalizaciones, el parámetro del flujo de datos debe ser de tipo cadena.
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Creación de parámetros en un flujo de datos de asignación
 

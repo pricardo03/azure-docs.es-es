@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f7122035f8d70cb91f4ec4f64e1dd4f7b2842b8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949847"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76839098"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Pase de un token de acceso a través de una directiva personalizada a la aplicación en Azure Active Directory B2C
 
-Un [directiva personalizada](active-directory-b2c-get-started-custom.md) en Azure Active Directory B2C (Azure AD B2C) proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](active-directory-b2c-reference-tokens.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Agregue un tipo de notificación y envíe dicha notificación a la directiva personalizada para pasar el token a través de las aplicaciones que registre en Azure AD B2C.
+Un [directiva personalizada](custom-policy-get-started.md) en Azure Active Directory B2C (Azure AD B2C) proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](tokens-overview.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Agregue un tipo de notificación y envíe dicha notificación a la directiva personalizada para pasar el token a través de las aplicaciones que registre en Azure AD B2C.
 
-Azure AD B2C admite pasar el token de acceso de los proveedores de identidades de [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) y [OpenID Connect](active-directory-b2c-reference-oidc.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
+Azure AD B2C admite pasar el token de acceso de los proveedores de identidades de [OAuth 2.0](authorization-code-flow.md) y [OpenID Connect](openid-connect.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * La directiva personalizada se configura con un proveedor de identidades de OAuth 2.0. o de OpenID Connect.
 
@@ -84,7 +84,7 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 
 ### <a name="upload-the-files"></a>Carga de los archivos
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el filtro **Directorio y suscripción** del menú superior y seleccione el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Marco de experiencia de identidad**.
@@ -96,7 +96,7 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 ### <a name="run-the-policy"></a>Ejecución de la directiva
 
 1. Abra la directiva que ha cambiado. Por ejemplo, *B2C_1A_signup_signin*.
-2. Para **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token en el ejemplo siguiente, **URL de respuesta** debe mostrar `https://jwt.ms`.
+2. En **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token en el ejemplo siguiente, **URL de respuesta** debe mostrar `https://jwt.ms`.
 3. Seleccione **Ejecutar ahora**.
 
     Debería ver algo parecido al siguiente ejemplo:
@@ -105,4 +105,4 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre los tokens en la [referencia del token de Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Obtenga más información sobre los tokens en la [referencia del token de Azure Active Directory B2C](tokens-overview.md).

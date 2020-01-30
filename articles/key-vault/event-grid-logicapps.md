@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ccc4aaed8e5827fbc06b252c8c88b814d9a31fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c2a15393c5c8e685e9a565f1099eeee935c0d5da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134002"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845848"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Uso de Logic Apps para recibir correo electrónico sobre los cambios de estado de los secretos en el almacén de claves
 
@@ -22,10 +22,10 @@ En esta guía aprenderá a responder a los eventos de Azure Key Vault que se rec
 
 Para información general sobre la integración de Azure Key Vault y Azure Event Grid, consulte [Supervisión de Key Vault con Azure Event Grid (versión preliminar)](event-grid-overview.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una cuenta de correo electrónico de cualquier proveedor de correo electrónico que sea compatible con Azure Logic Apps (como, por ejemplo, Office 365 Outlook). Esta cuenta de correo electrónico se usa para enviar las notificaciones de eventos. Para obtener una lista completa de los conectores compatibles de Logic Apps, consulte la [información general sobre los conectores](/connectors).
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Un almacén de claves en la suscripción de Azure. Puede crear rápidamente un almacén de claves si sigue los pasos descritos en [Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](quick-create-cli.md).
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Creación de una aplicación lógica mediante Event Grid
@@ -34,7 +34,6 @@ En primer lugar, cree una aplicación lógica con el controlador de Event Grid y
 
 Para crear una suscripción de Azure Event Grid, siga estos pasos:
 
-1. Abra Azure Portal desde el vínculo siguiente: https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true 
 1. En Azure Portal, vaya a su almacén de claves, seleccione **Eventos > Tareas iniciales** y haga clic en **Aplicaciones lógicas**.
 
     
@@ -86,8 +85,8 @@ Cuando se cree el secreto, se recibirá un correo electrónico en las direccione
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información general: [Supervisión de Key Vault con Azure Event Grid (versión preliminar)](event-grid-overview.md)
-- Procedimientos para: [Enrutar las notificaciones del almacén de claves a Azure Automation](event-grid-tutorial.md).
+- Introducción: [Supervisión de Key Vault con Azure Event Grid (versión preliminar)](event-grid-overview.md)
+- Procedimientos: [Enrutar las notificaciones del almacén de claves a Azure Automation](event-grid-tutorial.md).
 - [Esquema de eventos de Azure Event Grid para Azure Key Vault (versión preliminar)](../event-grid/event-schema-key-vault.md)
 - Más información sobre [Azure Event Grid](../event-grid/index.yml).
 - Más información acerca de la [característica Logic Apps de Azure App Service](../logic-apps/index.yml).

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 01/24/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b43d2de0a366d7e69a025b2e4e2998dccda2038e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65782919"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756218"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creación de un script de instalación desatendida para el conector del proxy de la aplicación de Azure AD
 
@@ -41,7 +41,7 @@ Hay dos pasos para una instalación desatendida. Primero, instale el conector. D
 ## <a name="install-the-connector"></a>Instalación del conector
 Siga estos pasos para instalar el conector sin registrarlo:
 
-1. Abra el símbolo del sistema.
+1. Abra un símbolo del sistema.
 2. Ejecute el siguiente comando, en el que el parámetro /q significa instalación desatendida. Una instalación desatendida no le pide que acepte el contrato de licencia para el usuario final.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q

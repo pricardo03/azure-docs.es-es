@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8bf44893bf23502aaf8c446d9e6d7c9022bfce3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 452687f3886a85bea796e3899410667ee1d592fa
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425653"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840322"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Selección de un diseño de página en Azure Active Directory B2C mediante directivas personalizadas
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Puede habilitar el código de JavaScript del lado cliente en las directivas de Azure Active Directory B2C (Azure AD B2C), independientemente de si usa flujos de usuario o directivas personalizadas. Para habilitar JavaScript para sus aplicaciones, debe agregar un elemento a su [directiva personalizada](active-directory-b2c-overview-custom.md), seleccionar un diseño de página y usar [b2clogin.com](b2clogin.md) en las solicitudes.
+Puede habilitar el código de JavaScript del lado cliente en las directivas de Azure Active Directory B2C (Azure AD B2C), independientemente de si usa flujos de usuario o directivas personalizadas. Para habilitar JavaScript para sus aplicaciones, debe agregar un elemento a su [directiva personalizada](custom-policy-overview.md), seleccionar un diseño de página y usar [b2clogin.com](b2clogin.md) en las solicitudes.
 
 Un diseño de página es una asociación de elementos que proporciona Azure AD B2C y el contenido que proporciona el usuario.
 
@@ -113,4 +113,4 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Encuentre más información acerca de cómo personalizar la interfaz de usuario de las aplicaciones en [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+Encuentre más información acerca de cómo personalizar la interfaz de usuario de las aplicaciones en [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C](custom-policy-ui-customization.md).

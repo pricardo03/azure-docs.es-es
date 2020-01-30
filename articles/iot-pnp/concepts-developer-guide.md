@@ -7,12 +7,12 @@ ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 21001a22be6297595658ff347e9f8a7b04bb6faf
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 61fe4af2d40d7252aa2b0dffb373a81162b9f67a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531401"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722516"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guía para desarrolladores de modelado de IoT Plug and Play (versión preliminar)
 
@@ -45,7 +45,7 @@ En el ejemplo siguiente se muestra el modelo de funcionalidad del dispositivo de
       "schema": "urn:azureiot:deviceManagement:DeviceInformation:1"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 

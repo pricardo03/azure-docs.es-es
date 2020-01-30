@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 11548ba180a2dd6541240431d670812448c502b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d7ab79d49aade7dd6e98cf33ce538174d176c784
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981586"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705350"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Envío o recepción de eventos en Event Hubs mediante Python
 
@@ -22,7 +22,7 @@ Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de inge
 En este tutorial se describe cómo crear aplicaciones de Python para enviar o recibir eventos en un centro de eventos.
 
 > [!IMPORTANT]
-> En este inicio rápido se usa la versión 5 del SDK de Python para Azure Event Hubs. Para ver un inicio rápido que use la versión 1 del SDK de Python, consulte [este artículo](event-hubs-python-get-started-send.md). Si usa la versión 1 del SDK, se recomienda migrar el código a la versión más reciente. Para más información, consulte la [guía de migración](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+> En este inicio rápido se usa la versión 5 del SDK de Python para Azure Event Hubs. Para ver un inicio rápido que usa la versión 1 antigua del SDK de Python, consulte [este artículo](event-hubs-python-get-started-send.md). Si usa la versión 1 del SDK, se recomienda migrar el código a la versión más reciente. Para más información, consulte la [guía de migración](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
 
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -42,7 +42,7 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
     Instale este paquete para recibir los eventos con Azure Blob Storage como almacén de puntos de control.
 
     ```cmd
-    pip install azure-eventhub-checkpointstoreblobaio
+    pip install azure-eventhub-checkpointstoreblob-aio
     ```
 
 ## <a name="send-events"></a>Envío de eventos

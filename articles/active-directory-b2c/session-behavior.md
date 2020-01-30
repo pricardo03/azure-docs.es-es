@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c75eae72b94c807897d74e365ec9f4ef74c83dd9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6147dc64833f44f24afe14cd1da34432a3735519
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063665"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840237"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión en Azure Active Directory B2C
 
-Esta característica ofrece un control más preciso, [por directivas](active-directory-b2c-reference-policies.md), de lo siguiente:
+Esta característica ofrece un control más preciso, [por directivas](user-flow-overview.md), de lo siguiente:
 
 - La duración de las sesiones de aplicación web administradas por Azure AD B2C.
 - El comportamiento de inicio de sesión único (SSO) entre varias aplicaciones y flujos de usuario en el inquilino de Azure AD B2C.
 
 Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña.
 
-Azure AD B2C admite el [protocolo de autenticación OpenID Connect](active-directory-b2c-reference-oidc.md) para habilitar el inicio de sesión seguro en las aplicaciones web. Puede usar las propiedades siguientes para administrar sesiones de la aplicación web:
+Azure AD B2C admite el [protocolo de autenticación OpenID Connect](openid-connect.md) para habilitar el inicio de sesión seguro en las aplicaciones web. Puede usar las propiedades siguientes para administrar sesiones de la aplicación web:
 
 ## <a name="session-behavior-properties"></a>Propiedades de comportamiento de sesión
 
@@ -48,7 +48,7 @@ Los siguientes casos de uso se habilitan mediante estas propiedades:
 
 ## <a name="configure-the-properties"></a>Configuración de las propiedades
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino de Azure AD B2C.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Flujos de usuario (directivas)** .

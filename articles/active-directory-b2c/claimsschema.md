@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a26d6228fd2d0383f22d4f286cc84e263facfe6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1e72e100bcb3d06403af1514dea13de59c623310
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999098"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713077"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,13 +42,13 @@ El elemento **ClaimsSchema** define los tipos de notificación a los que se pued
 
 El elemento **ClaimType** contiene el siguiente atributo:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Un identificador que se usa para el tipo de notificación. Hay otros elementos que pueden usar este identificador en la directiva. |
+| Identificador | Sí | Un identificador que se usa para el tipo de notificación. Hay otros elementos que pueden usar este identificador en la directiva. |
 
 El elemento **ClaimType** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | El título que se muestra a los usuarios en varias pantallas. El valor se puede [localizar](localization.md). |
 | DataType | 0:1 | Tipo de la notificación. Se pueden usar los tipos de datos siguientes: boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection. |
@@ -63,15 +63,15 @@ PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateVali
 
 **DefaultPartnerClaimTypes** puede contener el siguiente elemento:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | Protocolo | 0:n | Lista de protocolos con su nombre de tipo de notificación de partner predeterminado. |
 
 El elemento **Protocol** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Name | Sí | El nombre de un protocolo válido compatible con Azure AD B2C. Los valores posibles son:  OAuth1, OAuth2, SAML2 y OpenIdConnect. |
+| Nombre | Sí | El nombre de un protocolo válido compatible con Azure AD B2C. Los valores posibles son:  OAuth1, OAuth2, SAML2 y OpenIdConnect. |
 | PartnerClaimType | Sí | El nombre del tipo de notificación que se usará. |
 
 En el ejemplo siguiente, cuando el marco de experiencia de identidad interactúa con un proveedor de identidades de SAML2 o una aplicación de usuario de confianza, la notificación **surname** se asigna a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`; con OpenIdConnect y OAuth2, la notificación se asigna a `family_name`.
@@ -104,10 +104,10 @@ Como resultado, el token JWT emitido por Azure AD B2C emite `family_name` en lug
 
 El elemento **Mask** contiene los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Type` | Sí | Tipo de enmascaramiento de la notificación. Valores posibles: `Simple` o `Regex`. El valor `Simple` indica que se aplica un solo enmascaramiento del texto en la parte inicial de una notificación de la cadena. El valor `Regex` indica que una expresión regular se aplica a una notificación de la cadena en conjunto.  Si se especifica el valor `Regex`, también debe definirse un atributo opcional con la expresión regular que se va a usar. |
-| `Regex` | Sin | Si **`Type`** se establece en `Regex`, especifique la expresión regular que se va a usar.
+| `Regex` | No | Si **`Type`** se establece en `Regex`, especifique la expresión regular que se va a usar.
 
 El ejemplo siguiente configura una notificación **PhoneNumber** con el enmascaramiento `Simple`:
 
@@ -144,26 +144,26 @@ El marco de experiencia de identidad representa solo la primera letra de la dire
 
 El elemento **Restriction** puede contener el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| MergeBehavior | Sin | El método usado para combinar los valores de enumeración con un ClaimType en una directiva principal con el mismo identificador. Use este atributo para sobrescribir una notificación especificada en la directiva base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` es una colección de datos que se deben anexar al final de la colección especificada en la directiva principal. El valor `Prepend` es una colección de datos que se deben agregar antes de la colección especificada en la directiva principal. El valor `ReplaceAll` es una colección de datos especificada en la directiva principal que se debe omitir. |
+| MergeBehavior | No | El método usado para combinar los valores de enumeración con un ClaimType en una directiva principal con el mismo identificador. Use este atributo para sobrescribir una notificación especificada en la directiva base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` es una colección de datos que se deben anexar al final de la colección especificada en la directiva principal. El valor `Prepend` es una colección de datos que se deben agregar antes de la colección especificada en la directiva principal. El valor `ReplaceAll` es una colección de datos especificada en la directiva principal que se debe omitir. |
 
 El elemento **Restriction** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| Enumeration | 1:n | Las opciones disponibles en la interfaz de usuario para que el usuario seleccione una notificación, como un valor en un menú desplegable. |
+| Enumeración | 1:n | Las opciones disponibles en la interfaz de usuario para que el usuario seleccione una notificación, como un valor en un menú desplegable. |
 | Patrón | 1:1 | Expresión regular que se va a usar. |
 
-### <a name="enumeration"></a>Enumeration
+### <a name="enumeration"></a>Enumeración
 
 El elemento **Enumeration** contiene los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Texto | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
-|Valor | Sí | El valor de notificación que está asociado a la selección de esta opción. |
-| SelectByDefault | Sin | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
+|Value | Sí | El valor de notificación que está asociado a la selección de esta opción. |
+| SelectByDefault | No | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente se configura una notificación de lista desplegable **Ciudad** con un valor predeterminado establecido en `New York`:
 
@@ -188,10 +188,10 @@ Lista desplegable Ciudad con un valor predeterminado establecido en Nueva York:
 
 El elemento **Pattern** puede contener los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | RegularExpression | Sí | La expresión regular con la que deben coincidir las notificaciones de este tipo para que sean válidas. |
-| HelpText | Sin | El patrón o una expresión regular para esta notificación. |
+| HelpText | No | El patrón o una expresión regular para esta notificación. |
 
 En el ejemplo siguiente se configura una notificación de **correo electrónico** con el texto de ayuda y la validación de entrada de la expresión regular:
 
@@ -368,7 +368,7 @@ El tipo de entrada de usuario **Paragraph** se usa para proporcionar un campo qu
   <UserHelpText>A claim responsible for holding response messages to send to the relying party</UserHelpText>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>

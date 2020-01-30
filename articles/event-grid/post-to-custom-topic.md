@@ -1,19 +1,19 @@
 ---
 title: Publicación de eventos en un tema personalizado de Azure Event Grid
-description: Se describe cómo publicar un evento en un tema personalizado de Azure Event Grid
+description: En este artículo se describe cómo publicar un evento en un tema personalizado. Muestra el formato de los datos de publicación y eventos.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304208"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721564"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicación en un tema personalizado de Azure Event Grid
 
@@ -79,7 +79,7 @@ Para los temas personalizados, los datos de nivel superior contienen los mismos 
 Para obtener una descripción de estas propiedades, vea [Esquema de eventos de Azure Event Grid](event-schema.md). Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento en la matriz se limita a 64 KB (disponibilidad general) o 1 MB (versión preliminar).
 
 > [!NOTE]
-> Los eventos con un tamaño de hasta 64 KB están cubiertos por el acuerdo de nivel de servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en una versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
+> Los eventos con un tamaño de hasta 64 KB están cubiertos por el Acuerdo de Nivel de Servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
 
 Por ejemplo, un esquema de datos de evento válido es:
 

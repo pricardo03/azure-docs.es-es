@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de un controlador de entrada de Application Gateway 
 description: Tutorial que ilustra cómo crear un clúster de Kubernetes con Azure Kubernetes Service con Application Gateway como controlador de entrada
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867400"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772871"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: Creación de un controlador de entrada de Application Gateway en Azure Kubernetes Service
 
@@ -51,7 +51,7 @@ El primer paso es crear el directorio que contenga los archivos de configuració
     cd clouddrive
     ```
 
-1. Cree un directorio llamado `terraform-aks-k8s`.
+1. Cree un directorio llamado `terraform-aks-appgw-ingress`.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
@@ -731,8 +731,8 @@ En el código de esta sección se usa [Helm](/azure/aks/kubernetes-helm), el adm
     - `armAuth.secretJSON`: solo es necesario cuando se elige el tipo de secreto de entidad de servicio (cuando se establece `armAuth.type` en `servicePrincipal`).
 
     Notas clave:
-    - El valor `identityResourceID` se crea en el script de Terraform y se encuentra al ejecutar: `echo "$(terraform output identity_client_id)"`.
-    - El valor `identityClientID` se crea en el script de Terraform y se encuentra al ejecutar: `echo "$(terraform output identity_resource_id)"`.
+    - El valor `identityResourceID` se crea en el script de Terraform y se encuentra al ejecutar: `echo "$(terraform output identity_resource_id)"`.
+    - El valor `identityClientID` se crea en el script de Terraform y se encuentra al ejecutar: `echo "$(terraform output identity_client_id)"`.
     - El valor `<resource-group>` es el grupo de recursos de la instancia de Application Gateway.
     - El valor `<identity-name>` es el nombre de la identidad creada.
     - Todas las identidades de una suscripción determinada se pueden enumerar mediante: `az identity list`.

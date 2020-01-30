@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00f8a0e8d655f9412eceb7b0901ced829e490f78
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4dd38eee8ebc12ed01874611ec5e532a4d78ede2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616092"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704806"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Agregar manualmente una cuenta a la aplicación
 
@@ -28,7 +27,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
 >[!Important]
 >Antes de agregar su cuenta, debe descargar e instalar la aplicación Microsoft Authenticator. Si no lo ha hecho aún, siga los pasos descritos en el artículo para [descargar e instalar la aplicación](user-help-auth-app-download-install.md).
 
-## <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
+## <a name="add-your-work-or-school-account"></a>Agregar una cuenta profesional o educativa
 
 1. En su equipo, fíjese en el **código** y la **dirección URL** que se encuentra en la página para **configurar la aplicación móvil**. Mantenga esta página abierta para que pueda ver el código y la dirección URL.
 
@@ -63,7 +62,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
     >[!NOTE]
     >Para obtener más información acerca de la verificación en dos fases y su cuenta de Google, consulte [Activar la verificación en dos pasos](https://support.google.com/accounts/answer/185839) y [Más información acerca de la verificación en dos pasos](https://www.google.com/landing/2step/help.html).
 
-## <a name="add-your-facebook-account"></a>Agregar la cuenta de Facebook
+## <a name="add-your-facebook-account"></a>Adición de la cuenta de Facebook
 
 1. Puede hacerlo en la página **Set up via Third Party Authenticator** (Configurar mediante el autenticador de terceros), que incluye el código QR y un código escrito que debe agregar en la aplicación. Mantenga esta página abierta para que pueda ver el código.
 
@@ -78,7 +77,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
     >[!NOTE]
     >Para obtener más información acerca de la verificación en dos fases y su cuenta de Facebook, consulte [¿Qué es la autenticación en dos pasos y cómo funciona?](https://www.facebook.com/help/148233965247823).
 
-## <a name="add-your-amazon-account"></a>Agregar la cuenta de Amazon
+## <a name="add-your-amazon-account"></a>Adición de la cuenta de Amazon
 
 Puede agregar su cuenta personal de Amazon activando primero la verificación en dos fases y, luego, agregando la cuenta a la aplicación.
 

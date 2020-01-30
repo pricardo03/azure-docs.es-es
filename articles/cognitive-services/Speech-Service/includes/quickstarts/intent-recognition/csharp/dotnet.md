@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: acd122668a5aa70becbf284bd064535e859ad01b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e2cb4f81e3de5e22bae3029e42ec2f67dae55424
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772988"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761419"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -42,15 +42,15 @@ Vamos a agregar código que funcione como el esqueleto del proyecto. Tenga en cu
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de Voz
 
-Para poder inicializar un objeto `IntentRecognizer`, es preciso crear una configuración que use la clave y ubicación del recurso de predicción de LUIS. 
+Para poder inicializar un objeto `IntentRecognizer`, es preciso crear una configuración que use la clave y ubicación del recurso de predicción de LUIS.
 
 > [!IMPORTANT]
-> La clave de inicio y las claves de creación no funcionarán. Debe usar la clave de predicción y la ubicación que creó anteriormente. Para más información, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition). 
+> La clave de inicio y las claves de creación no funcionarán. Debe usar la clave de predicción y la ubicación que creó anteriormente. Para más información, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
 
-Inserte este código en el método `RecognizeIntentAsync()`. Asegúrese de actualizar estos valores: 
+Inserte este código en el método `RecognizeIntentAsync()`. Asegúrese de actualizar estos valores:
 
-* Reemplace `"YourLanguageUnderstandingSubscriptionKey"` por la clave de predicción de LUIS. 
-* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS. 
+* Reemplace `"YourLanguageUnderstandingSubscriptionKey"` por la clave de predicción de LUIS.
+* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS.
 
 >[!TIP]
 > Si necesita ayuda para encontrar estos valores, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
@@ -65,16 +65,16 @@ El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us c
 
 Ahora, vamos a crear un objeto `IntentRecognizer`. Este objeto se crea dentro de una instrucción using para garantizar la versión correcta de los recursos no administrados. Inserte este código en el método `RecognizeIntentAsync()`, justo debajo de la configuración de Voz.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=28-30,76)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=29-30,76)]
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adición de un objeto LanguageUnderstandingModel e intenciones
 
-Debe asociar un objeto `LanguageUnderstandingModel` con el reconocedor de intenciones y agregar las intenciones que desee que se reconozcan. Vamos a usar las intenciones del dominio precompilado para la automatización doméstica. Inserte este código en la instrucción using de la sección anterior. Asegúrese de reemplazar `"YourLanguageUnderstandingAppId"` por el identificador de la aplicación de LUIS. 
+Debe asociar un objeto `LanguageUnderstandingModel` con el reconocedor de intenciones y agregar las intenciones que desee que se reconozcan. Vamos a usar las intenciones del dominio precompilado para la automatización doméstica. Inserte este código en la instrucción using de la sección anterior. Asegúrese de reemplazar `"YourLanguageUnderstandingAppId"` por el identificador de la aplicación de LUIS.
 
 >[!TIP]
 > Si necesita ayuda para encontrar este valor, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=31-35)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
 
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 
@@ -88,7 +88,7 @@ Cuando el servicio Voz devuelva el resultado del reconocimiento, querrá hacer a
 
 Dentro de la instrucción using, debajo de `RecognizeOnceAsync()`, agregue este código:
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=48-75)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=49-75)]
 
 ## <a name="check-your-code"></a>Comprobación del código
 
@@ -97,7 +97,7 @@ En este momento, el código debe tener esta apariencia:
 > [!NOTE]
 > Se han agregado algunos comentarios a esta versión.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=7-86)]
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 

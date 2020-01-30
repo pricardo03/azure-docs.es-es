@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo usar Ansible para configurar el RB
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156877"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836973"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configuración de roles de control de acceso basado en rol (RBAC) en Azure Kubernetes Service (AKS) con Ansible
 
@@ -26,7 +26,7 @@ Es posible configurar AKS para que utilice [Azure Active Directory (AD)](/azure/
 > * Crear un clúster de AKS habilitado para Azure AD
 > * Configurar un rol de RBAC en el clúster
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -50,7 +50,7 @@ Estos valores son necesarios para ejecutar el cuaderno de estrategias de ejemplo
 
 En esta sección, creará una instancia de AKS con la [aplicación de Azure AD](#configure-azure-ad-for-aks-authentication).
 
-Estas son algunas notas claves que se deben tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
+Estas son algunas notas importantes que hay que tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
 
 - El cuaderno de estrategias carga `ssh_key` desde `~/.ssh/id_rsa.pub`. Si lo modifica, utilice el formato de línea única, empezando por "ssh-rsa" (sin las comillas).
 - Los valores `client_id` y `client_secret` se cargan desde `~/.azure/credentials`, que es el archivo de credenciales predeterminado. Puede establecer estos valores en su entidad de servicio o cargarlos desde las variables de entorno:
@@ -119,7 +119,7 @@ Guarde el siguiente cuaderno de estrategias como `aks-create.yml`:
 
 Para crear un enlace de RBAC, primero debe obtener el identificador de objeto de Azure AD. 
 
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. En el campo de búsqueda de la parte superior de la página, escriba `Azure Active Directory`. 
 
@@ -156,7 +156,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Reemplace el marcador de posición `&lt;your-aad-account>` por el [Id. de objeto](#get-the-azure-ad-object-id) del inquilino de Azure AD.
+Reemplace el marcador de posición `<your-aad-account>` por el [Id. de objeto](#get-the-azure-ad-object-id) del inquilino de Azure AD.
 
 Guarde el siguiente cuaderno de estrategias, que implementa el nuevo rol en AKS, como `aks-kube-deploy.yml`:
 

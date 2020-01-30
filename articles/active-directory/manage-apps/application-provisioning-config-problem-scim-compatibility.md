@@ -16,12 +16,12 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee480d4a52f77e054bf8f0780707444b6db28b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275810"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712351"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
 
@@ -66,7 +66,7 @@ Sí. Si ya usa esta instancia de aplicación para el inicio de sesión único y 
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Obtener trabajos](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obtener trabajos") 
+   ![Obtener trabajos](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obtener trabajos") 
 
 
 6. En los resultados, copie la cadena "ID" completa que comienza con "customappsso" o "scim".
@@ -74,7 +74,7 @@ Sí. Si ya usa esta instancia de aplicación para el inicio de sesión único y 
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Obtener esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obtener esquema") 
+   ![Obtener esquema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obtener esquema") 
 
 8. Copie la salida JSON desde el último paso y guárdela en un archivo de texto. Este archivo contiene las asignaciones de atributos personalizadas que ha agregado a la aplicación anterior y deben ser aproximadamente unas miles de líneas de JSON.
 9. Ejecute el comando siguiente para eliminar el trabajo de aprovisionamiento:

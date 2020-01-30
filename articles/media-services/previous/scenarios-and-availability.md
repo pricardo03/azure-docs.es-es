@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978175"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843946"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Escenarios y disponibilidad de características de Media Services en centros de datos
 
@@ -33,7 +33,7 @@ En este tema se muestran escenarios comunes para la entrega de contenido [en viv
 
 ## <a name="overview"></a>Información general
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Para empezar a usar Azure Media Services, debe tener lo siguiente:
 
@@ -127,7 +127,7 @@ Para más información, consulte [Uso de canales que reciben streaming en vivo c
 
 ### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Uso de canales habilitados para realizar la codificación en directo con Azure Media Services
 
-El diagrama siguiente muestra las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de streaming en vivo, en la que se habilita un canal para realizar la codificación en directo con Media Services.
+El diagrama siguiente muestra las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de streaming en vivo, en la que se habilita un canal para Live Encoding con Media Services.
 
 ![Flujo de trabajo activo](./media/scenarios-and-availability/media-services-live-streaming-new.png)
 
@@ -177,7 +177,7 @@ Los clientes de Media Services pueden elegir un punto de conexión de streaming 
 
 #### <a name="availability"></a>Disponibilidad
 
-|NOMBRE|Status|Centros de datos
+|Nombre|Status|Centros de datos
 |---|---|---|
 |Estándar|GA|All|
 |Premium|GA|All|
@@ -186,7 +186,7 @@ Los clientes de Media Services pueden elegir un punto de conexión de streaming 
 
 #### <a name="availability"></a>Disponibilidad
 
-Está disponible en todos los centros de datos, excepto: Alemania, Sur de Brasil, Oeste de la India, Sur de la India y Centro de la India. 
+Está disponible en todos los centros de datos, excepto: Alemania, Sur de Brasil, India occidental, Sur de la India y Centro de la India. 
 
 ### <a name="encoding-media-processors"></a>Codificación de procesadores de multimedia
 
@@ -211,9 +211,8 @@ Análisis multimedia es una colección de componentes de voz y visión que facil
 |Azure Media Indexer|GA|All|
 |Azure Media Motion Detector|Vista previa|All|
 |Azure Media OCR|Vista previa|All|
-|Azure Media Redactor|Vista previa|All|
+|Azure Media Redactor|GA|All|
 |Azure Media Video Thumbnails|Vista previa|All|
-|Azure Media Indexer 2|Vista previa|Todos excepto China y la región Gobierno Federal|
 
 ### <a name="protection"></a>Protección
 
@@ -255,7 +254,7 @@ Para más información, consulte la sección acerca del [escalado](#scaling).
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,19 +1,19 @@
 ---
 title: SDK y recursos de .NET para Table API de Azure Cosmos DB
 description: Obtenga toda la información acerca de Table API de Azure Cosmos DB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 5e98c40384207c77b4ea7e9557a7d1ebebd95e47
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058583"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771628"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API Table de .NET de Azure Cosmos DB: descarga y notas de la versión
 
@@ -66,7 +66,7 @@ ms.locfileid: "71058583"
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * Incorporación de TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism y TableQueryContinuationTokenLimitInKb a TableRequestOptions
-* Corrección de errores
+* Correcciones de errores
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
@@ -87,7 +87,7 @@ El paquete de versión preliminar [WindowsAzure.Storage-PremiumTable](https://ww
 El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un SDK retirado.
 <br/>
 
-| Versión | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |16 de septiembre de 2019| |
 | [2.1.0](#2.1.0) |22 de enero de 2019|1 de abril de 2020 |
@@ -95,10 +95,10 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 | [1.1.3](#1.1.3) |17 de julio de 2018|1 de diciembre de 2019 |
 | [1.1.1](#1.1.1) |26 de marzo de 2018|1 de diciembre de 2019 |
 | [1.1.0](#1.1.0) |21 de febrero de 2018|1 de diciembre de 2019 |
-| [1.0.0](#1.0.0) |15 de noviembre de 2017|15 de noviembre de 2019 |
+| [1.0.0](#1.0.0) |15 de noviembre de 2017|15 de noviembre de 2019 |
 | 0.9.0-preview |11 de noviembre de 2017 |11 de noviembre de 2019 |
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si se produce un error 
 
@@ -122,6 +122,6 @@ al intentar usar el paquete de NuGet Microsoft.Azure.CosmosDB.Table, tiene dos o
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 Para obtener más información sobre Table API de Azure Cosmos DB, consulte [Introducción a Table API de Azure Cosmos DB](table-introduction.md). 

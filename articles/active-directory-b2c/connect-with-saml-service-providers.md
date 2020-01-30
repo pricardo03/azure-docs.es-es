@@ -12,12 +12,12 @@ ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043521"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836667"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -41,11 +41,11 @@ Resumen de los dos escenarios principales no exclusivos con SAML:
 | Escenario | Rol de Azure AD B2C | Instrucciones |
 | -------- | ----------------- | ------- |
 | Mi aplicación espera una aserción de SAML para completar una autenticación. | **Azure AD B2C actúa como proveedor de identidades (IdP)**<br />Azure AD B2C actúa como IdP de SAML para las aplicaciones. | Este artículo. |
-| Mis usuarios necesitan un inicio de sesión único con un proveedor de identidades compatible con SAML, como ADFS, Salesforce o Shibboleth.  | **Azure AD B2C actúa como proveedor de servicios (SP)**<br />Azure AD B2C actúa como proveedor de servicios al conectarse al proveedor de identidades de SAML. Es un proxy de federación entre la aplicación y el proveedor de identidades de SAML.  | <ul><li>[Configuración del inicio de sesión con IdP de SAML y ADFS mediante directivas personalizadas](active-directory-b2c-custom-setup-adfs2016-idp.md)</li><li>[Configuración del inicio de sesión con un proveedor de SAML Salesforce mediante directivas personalizadas](active-directory-b2c-setup-sf-app-custom.md)</li></ul> |
+| Mis usuarios necesitan un inicio de sesión único con un proveedor de identidades compatible con SAML, como ADFS, Salesforce o Shibboleth.  | **Azure AD B2C actúa como proveedor de servicios (SP)**<br />Azure AD B2C actúa como proveedor de servicios al conectarse al proveedor de identidades de SAML. Es un proxy de federación entre la aplicación y el proveedor de identidades de SAML.  | <ul><li>[Configuración del inicio de sesión con IdP de SAML y ADFS mediante directivas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configuración del inicio de sesión con un proveedor de SAML Salesforce mediante directivas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Realice los pasos del artículo [Introducción a las directivas personalizadas en Azure AD B2C](active-directory-b2c-get-started-custom.md). Necesita la directiva personalizada *SocialAndLocalAccounts* del paquete de inicio de la directiva personalizada que se describe en el artículo.
+* Realice los pasos del artículo [Introducción a las directivas personalizadas en Azure AD B2C](custom-policy-get-started.md). Necesita la directiva personalizada *SocialAndLocalAccounts* del paquete de inicio de la directiva personalizada que se describe en el artículo.
 * Conocimientos básicos del protocolo SAML (Lenguaje de marcado de aserción de seguridad).
 * Una aplicación web configurada como un proveedor de servicios SAML (SP). En este tutorial, puede usar una [aplicación de prueba SAML][samltest] que proporcionamos.
 

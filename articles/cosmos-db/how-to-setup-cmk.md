@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: c77e89c509f10155ddc27e92f09465959b629f67
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7a77a54dc59ec427bf6abdf8fc1d410533b5be44
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979199"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771901"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 
 > [!NOTE]
-> En este momento, debe solicitar acceso para poder usar esta funcionalidad. Para ello, póngase en contacto con [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+> En este momento, debe solicitar acceso para poder usar esta funcionalidad. Para ello, póngase en contacto con [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
 
 Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas. Azure Cosmos DB ofrece dos opciones para administrar las claves usadas para cifrar los datos en reposo:
 

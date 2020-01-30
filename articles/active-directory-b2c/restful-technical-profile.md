@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 00d5ba6fd86ea722270dfbe73324323bd831a529
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a562345caf47540321528560a5ee0b4854c42a9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263377"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840288"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
 
@@ -260,7 +260,7 @@ public class ResponseContent
 
 Consulte los siguientes artículos para obtener ejemplos del uso de un perfil técnico de RESTful:
 
-- [Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-custom-rest-api-netfw.md)
-- [Protección de los servicios RESTful mediante la autenticación HTTP básica](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [Protección de los servicios RESTful mediante certificados de cliente](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md)
+- [Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](rest-api-claims-exchange-dotnet.md)
+- [Protección de los servicios RESTful mediante la autenticación HTTP básica](secure-rest-api-dotnet-basic-auth.md)
+- [Protección de los servicios RESTful mediante certificados de cliente](secure-rest-api-dotnet-certificate-auth.md)
+- [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](custom-policy-rest-api-claims-validation.md)

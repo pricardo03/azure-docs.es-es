@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 944ddb7f83a4d10861e5a16dbc69b8f9e4dabfe0
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7bac2546ac35f5f188a6490c4d9ecb2b86d7bb2d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422686"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843063"
 ---
 # <a name="what-is-the-qna-maker-service"></a>¿Qué es el servicio QnA Maker?
 
@@ -25,10 +25,10 @@ Una aplicación cliente para QnA Maker es cualquier aplicación conversacional q
 
 ## <a name="when-to-use-qna-maker"></a>Cuándo usar QnA Maker
 
-* **Cuando tiene información estática**: use QnA Maker cuando tenga información estática en la base de conocimiento de las respuestas. Esta base de conocimiento está personalizada para sus necesidades, que ha creado con documentos como [archivos PDF y direcciones URL.](../concepts/data-sources-supported.md)
-* **Si desea proporcionar la misma respuesta a una solicitud, una pregunta o un comando**: cuando distintos usuarios envían la misma pregunta, se devuelve la misma respuesta. 
+* **Cuando tiene información estática**: use QnA Maker cuando tenga información estática en la base de conocimiento de las respuestas. Esta base de conocimiento está personalizada para sus necesidades, que ha creado con documentos como [archivos PDF y direcciones URL.](../concepts/content-types.md)
+* **Si desea proporcionar la misma respuesta a una solicitud, una pregunta o un comando**: cuando distintos usuarios envían la misma pregunta, se devuelve la misma respuesta.
 * **Si desea filtrar la información estática en función de la metainformación**: agregue etiquetas de [metadatos](../how-to/metadata-generateanswer-usage.md) para proporcionar opciones de filtrado adicionales relacionadas con los usuarios de la aplicación cliente y la información. La información común de los metadatos incluye el tipo de contenido o formato [de charla](../how-to/chit-chat-knowledge-base.md), y el propósito y la actualización del contenido.
-* **Si desea administrar una conversación de bot que incluya información estática**: la base de conocimiento toma el texto o el comando de conversación de un usuario y lo responde. Si la respuesta forma parte de un flujo de conversación determinado previamente, representado en la base de conocimiento con [contexto multiturno](../how-to/multiturn-conversation.md), el bot puede proporcionar fácilmente este flujo.  
+* **Si desea administrar una conversación de bot que incluya información estática**: la base de conocimiento toma el texto o el comando de conversación de un usuario y lo responde. Si la respuesta forma parte de un flujo de conversación determinado previamente, representado en la base de conocimiento con [contexto multiturno](../how-to/multiturn-conversation.md), el bot puede proporcionar fácilmente este flujo.
 
 ## <a name="use-qna-maker-knowledge-base-in-a-chat-bot"></a>Uso de una base de conocimiento de QnA Maker en un bot de chat
 
@@ -43,9 +43,9 @@ Una vez publicada una base de conocimiento de QnA Maker, una aplicación cliente
 |3|La aplicación cliente usa la respuesta JSON para tomar decisiones acerca de cómo continuar con la conversación. Estas decisiones pueden incluir mostrar la respuesta principal y presentar más opciones para refinar la búsqueda de la mejor respuesta. |
 |||
 
-## <a name="what-is-a-knowledge-base"></a>¿Qué es una base de conocimiento? 
+## <a name="what-is-a-knowledge-base"></a>¿Qué es una base de conocimiento?
 
-QnA Maker [importa el contenido](../concepts/data-sources-supported.md) en una base de conocimiento de conjuntos de preguntas y respuestas. El proceso de importación extrae información sobre la relación entre las partes del contenido estructurado y semiestructurado para implicar relaciones entre los conjuntos de preguntas y respuestas. Puede editar estos conjuntos de preguntas y respuestas, o agregar otros nuevos.  
+QnA Maker [importa el contenido](../concepts/knowledge-base.md) en una base de conocimiento de conjuntos de preguntas y respuestas. El proceso de importación extrae información sobre la relación entre las partes del contenido estructurado y semiestructurado para implicar relaciones entre los conjuntos de preguntas y respuestas. Puede editar estos conjuntos de preguntas y respuestas, o agregar otros nuevos.
 
 El contenido del conjunto de preguntas y respuestas incluye:
 * Todas las formas alternativas de la pregunta
@@ -54,13 +54,13 @@ El contenido del conjunto de preguntas y respuestas incluye:
 
 ![Ejemplo de pregunta y respuesta con metadatos](../media/qnamaker-overview-learnabout/example-question-and-answer-with-metadata.png)
 
-Después de publicar la base de conocimiento, una aplicación cliente envía una pregunta de usuario al punto de conexión. El servicio de QnA Maker procesa la pregunta y responde con la mejor respuesta. 
+Después de publicar la base de conocimiento, una aplicación cliente envía una pregunta de usuario al punto de conexión. El servicio de QnA Maker procesa la pregunta y responde con la mejor respuesta.
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>Creación, administración y publicación en un bot sin código
 
-En el portal de QnA Maker se proporciona toda la experiencia de creación de la base de conocimiento. Puede importar documentos en su formulario actual a la base de conocimiento. Estos documentos (como las preguntas más frecuentes, el manual del producto, la hoja de cálculo o la página web) se convierten en conjuntos de preguntas y respuestas. Cada conjunto se analiza para los mensajes de seguimiento y se conecta a otros conjuntos. El formato de _marcado_ final admite una presentación enriquecida que incluye imágenes y vínculos. 
+En el portal de QnA Maker se proporciona toda la experiencia de creación de la base de conocimiento. Puede importar documentos en su formulario actual a la base de conocimiento. Estos documentos (como las preguntas más frecuentes, el manual del producto, la hoja de cálculo o la página web) se convierten en conjuntos de preguntas y respuestas. Cada conjunto se analiza para los mensajes de seguimiento y se conecta a otros conjuntos. El formato de _marcado_ final admite una presentación enriquecida que incluye imágenes y vínculos.
 
-Una vez editada la base de conocimiento, publíquela [en un bot de Azure Web App](https://azure.microsoft.com/services/bot-service/) en funcionamiento sin escribir ningún código. Pruebe el bot en [Azure Portal](https://portal.azure.com) o descargue y continúe el desarrollo. 
+Una vez editada la base de conocimiento, publíquela [en un bot de Azure Web App](https://azure.microsoft.com/services/bot-service/) en funcionamiento sin escribir ningún código. Pruebe el bot en [Azure Portal](https://portal.azure.com) o descargue y continúe el desarrollo.
 
 ## <a name="search-quality-and-ranking-provides-the-best-possible-answer"></a>La calidad de la búsqueda y la clasificación proporcionan la mejor respuesta posible
 
@@ -68,28 +68,28 @@ El sistema de QnA Maker es un enfoque de clasificación por capas. Los datos se 
 
 ## <a name="qna-maker-improves-the-conversation-process"></a>QnA Maker mejora el proceso de conversación
 
-QnA Maker proporciona solicitudes multiturno y aprendizaje activo para ayudarle a mejorar sus conjuntos de preguntas y respuestas básicos. 
+QnA Maker proporciona solicitudes multiturno y aprendizaje activo para ayudarle a mejorar sus conjuntos de preguntas y respuestas básicos.
 
-**Los mensajes multiturno** le ofrecen la oportunidad de conectar pares de preguntas y respuestas. Esta conexión permite a la aplicación cliente proporcionar una respuesta superior y proporciona más preguntas para refinar la búsqueda de una respuesta final. 
+**Los mensajes multiturno** le ofrecen la oportunidad de conectar pares de preguntas y respuestas. Esta conexión permite a la aplicación cliente proporcionar una respuesta superior y proporciona más preguntas para refinar la búsqueda de una respuesta final.
 
-Una vez que la base de conocimiento recibe las preguntas de los usuarios en el punto de conexión publicado, QnA Maker aplica el **aprendizaje activo** a estas preguntas reales para sugerir cambios en la base de conocimiento y mejorar la calidad. 
+Una vez que la base de conocimiento recibe las preguntas de los usuarios en el punto de conexión publicado, QnA Maker aplica el **aprendizaje activo** a estas preguntas reales para sugerir cambios en la base de conocimiento y mejorar la calidad.
 
 ## <a name="development-lifecycle"></a>Ciclo de vida del desarrollo
 
-QnA Maker permite la creación, el entrenamiento y la publicación, además de ofrecer permisos de colaboración para integrarse en el ciclo de vida de desarrollo completo. 
+QnA Maker permite la creación, el entrenamiento y la publicación, además de ofrecer permisos de colaboración para integrarse en el ciclo de vida de desarrollo completo.
 
 ## <a name="how-do-i-start"></a>¿Cómo se empieza?
 
-**Paso 1**: cree un recurso de QnA Maker en [Azure Portal](https://portal.azure.com). 
+**Paso 1**: cree un recurso de QnA Maker en [Azure Portal](https://portal.azure.com).
 
-**Paso 2**: cree una base de conocimiento en el portal de [QnA Maker](https://www.qnamaker.ai). Agregue [archivos y direcciones URL](../concepts/data-sources-supported.md)para crear la base de conocimiento.  
+**Paso 2**: cree una base de conocimiento en el portal de [QnA Maker](https://www.qnamaker.ai). Agregue [archivos y direcciones URL](../concepts/content-types.md)para crear la base de conocimiento.
 
-**Paso 3**: Publique su base de conocimiento y realice pruebas desde su punto de conexión personalizado con [cURL o Postman](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md). 
+**Paso 3**: Publique su base de conocimiento y realice pruebas desde su punto de conexión personalizado con [cURL o Postman](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
-**Paso 4**: Desde la aplicación cliente, llame a su punto de conexión de la base de conocimiento mediante programación. La aplicación cliente procesa la respuesta JSON para mostrar la mejor respuesta al usuario.  
+**Paso 4**: Desde la aplicación cliente, llame a su punto de conexión de la base de conocimiento mediante programación. La aplicación cliente procesa la respuesta JSON para mostrar la mejor respuesta al usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
-QnA Maker proporciona todo lo que necesita para compilar, administrar e implementar la base de conocimiento personalizada. 
+QnA Maker proporciona todo lo que necesita para compilar, administrar e implementar la base de conocimiento personalizada.
 
 > [!div class="nextstepaction"]
 > [Revisar los últimos cambios](../whats-new.md)

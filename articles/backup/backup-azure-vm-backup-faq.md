@@ -4,12 +4,12 @@ description: En este artículo, descubra las respuestas a preguntas comunes sobr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: d70f4832daba59739d6798517902e921927194d6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5d2f702b49e1e7aeb2ab33008556e91264b39427
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293987"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705418"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -98,11 +98,6 @@ La directiva de copia de seguridad de máquina virtual de Azure admite un interv
 Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure.
 
 En la actualidad, Azure Backup admite la copia de seguridad de todos los discos (sistema operativo y datos) en una máquina virtual junto con la solución de copia de seguridad de máquinas virtuales. Con la funcionalidad de exclusión de disco, tiene la opción de realizar una copia de seguridad de uno o de varios de los múltiples discos de datos de una máquina virtual. Esto proporciona una solución eficaz y rentable para sus necesidades de copia de seguridad y restauración. Cada punto de recuperación contiene datos de los discos incluidos en la operación de copia de seguridad, lo que permite además tener un subconjunto de discos restaurados desde el punto de recuperación determinado durante la operación de restauración. Esto se aplica a la restauración tanto desde la instantánea como desde el almacén.
-
-Esta solución es especialmente útil en los escenarios siguientes:
-  
-1. Tiene datos críticos de los que se va a realizar una copia de seguridad en un solo disco y no desea realizar copias de seguridad del resto de los discos conectados a una máquina virtual. Esto minimiza los costos de almacenamiento de copia de seguridad.  
-2. Tiene otras soluciones de copia de seguridad para parte de los datos de la máquina virtual. Por ejemplo, realiza una copia de seguridad de las bases de datos o los datos con una solución de copia de seguridad de carga de trabajo diferente y desea usar la copia de seguridad de nivel de máquina virtual de Azure para el resto de los discos y datos para crear un sistema eficaz y sólido con las mejores funcionalidades disponibles.
 
 Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
 

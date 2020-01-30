@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eba9919b7a1d89e6aea8fb93ef8c4b3e92960368
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 1b0ad7049375cb20d2daa0e6f920b680d03530a5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950874"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840135"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalización de la interfaz de experiencias de usuario en Azure Active Directory B2C
 
-Para experiencias de usuario más comunes, como registrarse, iniciar sesión y editar perfiles, puede usar los [flujos de usuario](active-directory-b2c-reference-policies.md) de Azure Active Directory B2C (Azure AD B2C). La información de este tutorial le ayuda a obtener información acerca de cómo [personalizar la interfaz de usuario (IU)](customize-ui-overview.md) de estas experiencias mediante sus propios archivos HTML y CSS.
+Para experiencias de usuario más comunes, como registrarse, iniciar sesión y editar perfiles, puede usar los [flujos de usuario](user-flow-overview.md) de Azure Active Directory B2C (Azure AD B2C). La información de este tutorial le ayuda a obtener información acerca de cómo [personalizar la interfaz de usuario (IU)](customize-ui-overview.md) de estas experiencias mediante sus propios archivos HTML y CSS.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear archivos de personalización de la interfaz de usuario
@@ -31,7 +31,7 @@ En este artículo, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [Cree un flujo de usuario](tutorial-create-user-flows.md) para permitir a los usuarios registrarse e iniciar sesión en la aplicación.
 
@@ -43,7 +43,7 @@ Cree una cuenta de almacenamiento de Azure y el contenedor y, después, coloque 
 
 Aunque se pueden almacenar los archivos de muchas maneras, para este tutorial, almacénelos en el [almacenamiento de blobs de Azure](../storage/blobs/storage-blobs-introduction.md).
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que está usando el directorio que contiene su suscripción de Azure. Seleccione el filtro **Directorio y suscripciones** en el menú superior y elija el directorio que contiene su suscripción. Este directorio es diferente que el de la carpeta que contiene el inquilino de Azure B2C.
 3. Elija Todos los servicios en la esquina superior izquierda de Azure Portal, busque y seleccione **Cuentas de almacenamiento**.
 4. Seleccione **Agregar**.
@@ -166,4 +166,4 @@ En este artículo, ha aprendido cómo:
 > * Probar la interfaz de usuario personalizada
 
 > [!div class="nextstepaction"]
-> [Personalización de idioma en Azure Active Directory B2C](active-directory-b2c-reference-language-customization.md)
+> [Personalización de idioma en Azure Active Directory B2C](user-flow-language-customization.md)

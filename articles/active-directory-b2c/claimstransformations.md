@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511533"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836707"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-El elemento **ClaimsTransformations** contiene una lista de funciones de transformación de notificaciones que puede usarse en los recorridos del usuario como parte de una [directiva personalizada](active-directory-b2c-overview-custom.md). Una transformación de notificaciones convierte una notificación determinada en otra. En la transformación de notificaciones, debe especificar el método de transformación, por ejemplo, agregando un elemento a una colección de cadenas o cambiando las mayúsculas y minúsculas de una cadena.
+El elemento **ClaimsTransformations** contiene una lista de funciones de transformación de notificaciones que puede usarse en los recorridos del usuario como parte de una [directiva personalizada](custom-policy-overview.md). Una transformación de notificaciones convierte una notificación determinada en otra. En la transformación de notificaciones, debe especificar el método de transformación, por ejemplo, agregando un elemento a una colección de cadenas o cambiando las mayúsculas y minúsculas de una cadena.
 
 Para incluir la lista de funciones de transformación de notificaciones que se puede usar en los recorridos del usuario, se debe declarar un elemento XML ClaimsTransformations en la sección BuildingBlocks de la directiva.
 
@@ -35,9 +35,9 @@ Para incluir la lista de funciones de transformación de notificaciones que se p
 
 El elemento **ClaimsTransformation** contiene los atributos siguientes:
 
-| Atributo |Obligatorio | DESCRIPCIÓN |
+| Atributo |Obligatorio | Descripción |
 | --------- |-------- | ----------- |
-| Id |Sí | Un identificador que se usa para identificar de forma única la transformación de la notificación. Se hace referencia al identificador desde otros elementos XML de la directiva. |
+| Identificador |Sí | Un identificador que se usa para identificar de forma única la transformación de la notificación. Se hace referencia al identificador desde otros elementos XML de la directiva. |
 | TransformationMethod | Sí | El método de transformación que se va a usar en la transformación de las reclamaciones. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
@@ -59,7 +59,7 @@ El elemento **ClaimsTransformation** contiene los elementos siguientes:
 ```
 
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | Una lista de elementos **InputClaim** que especifican los tipos de notificación que se toman como entrada en la transformación de notificaciones. Cada uno de esto elementos contiene una referencia a un ClaimType ya definido en la sección ClaimsSchema de la directiva. |
 | InputParameters | 0:1 | Una lista de elementos **InputParameter** que se proporcionan como entrada para la transformación de notificaciones.  
@@ -69,7 +69,7 @@ El elemento **ClaimsTransformation** contiene los elementos siguientes:
 
 El elemento **InputClaims** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Un tipo de notificación de entrada esperado. |
 
@@ -77,7 +77,7 @@ El elemento **InputClaims** contiene el elemento siguiente:
 
 El elemento **InputClaim** contiene los atributos siguientes:
 
-| Atributo |Obligatorio | DESCRIPCIÓN |
+| Atributo |Obligatorio | Descripción |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Sí | Una referencia a un ClaimType ya definido en la sección ClaimsSchema de la directiva. |
 | TransformationClaimType |Sí | Un identificador para hacer referencia a un tipo de notificación de transformación. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
@@ -86,23 +86,23 @@ El elemento **InputClaim** contiene los atributos siguientes:
 
 El elemento **InputParameters** contiene el siguiente elemento:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | InputParameter | 1:n | Un parámetro de entrada esperado. |
 
 #### <a name="inputparameter"></a>InputParameter
 
-| Atributo | Obligatorio |DESCRIPCIÓN |
+| Atributo | Obligatorio |Descripción |
 | --------- | ----------- |----------- |
-| Id | Sí | Un identificador que es una referencia a un parámetro del método de transformación de notificaciones. Cada método de transformación de notificaciones tiene sus propios valores. Consulte la tabla de la transformación de notificaciones para obtener una lista completa de los valores disponibles. |
+| Identificador | Sí | Un identificador que es una referencia a un parámetro del método de transformación de notificaciones. Cada método de transformación de notificaciones tiene sus propios valores. Consulte la tabla de la transformación de notificaciones para obtener una lista completa de los valores disponibles. |
 | DataType | Sí | El tipo de datos del parámetro, como String, Boolean, Int o DateTime, según la enumeración DataType en el esquema XML de la directiva personalizada. Este tipo se usa para realizar operaciones aritméticas correctamente. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
-| Valor | Sí | Un valor que se pasa de forma literal a la transformación. Algunos de los valores son arbitrarios, algunos de ellos se seleccionan desde el método de transformación de notificaciones. |
+| Value | Sí | Un valor que se pasa de forma literal a la transformación. Algunos de los valores son arbitrarios, algunos de ellos se seleccionan desde el método de transformación de notificaciones. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
 El elemento **OutputClaims** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | Un tipo de notificación de salida esperado. |
 
@@ -110,7 +110,7 @@ El elemento **OutputClaims** contiene el elemento siguiente:
 
 El elemento **OutputClaim** contiene los atributos siguientes:
 
-| Atributo |Obligatorio | DESCRIPCIÓN |
+| Atributo |Obligatorio | Descripción |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Sí | Una referencia a un ClaimType ya definido en la sección ClaimsSchema de la directiva.
 | TransformationClaimType | Sí | Un identificador para hacer referencia a un tipo de notificación de transformación. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
@@ -160,7 +160,7 @@ Por ejemplo, puede almacenar la última versión de sus términos del servicio q
 Para obtener ejemplos de transformaciones de notificaciones, consulte las páginas de referencia siguientes:
 
 - [Boolean](boolean-transformations.md)
-- [Fecha](date-transformations.md)
+- [Date](date-transformations.md)
 - [Entero](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [General](general-transformations.md)
