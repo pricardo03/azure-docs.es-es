@@ -65,6 +65,7 @@
       items:
         - name: Descripción y ajuste de las unidades de streaming
           href: stream-analytics-streaming-unit-consumption.md
+          displayName: 'scale, performance'
         - name: Mejora del rendimiento de las consultas
           href: stream-analytics-parallelization.md
         - name: Nueva partición de la entrada
@@ -176,6 +177,8 @@
           href: stream-analytics-live-data-local-testing.md
         - name: Visualización de trabajos en Visual Studio
           href: stream-analytics-vs-tools.md
+        - name: Depuración de consultas mediante un diagrama de trabajos
+          href: debug-locally-using-job-diagram.md
         - name: Desarrollo de un trabajo con Edge
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Configuración de canalizaciones de integración y entrega continuas

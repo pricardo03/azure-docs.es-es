@@ -13,26 +13,25 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Creación de función: C#'
-      href: functions-create-your-first-function-visual-studio.md
-    - name: 'Creación de función: Java'
-      href: functions-create-first-java-maven.md
-    - name: 'Creación de función: JavaScript'
-      href: functions-create-first-function-vs-code.md
-    - name: 'Creación de función: PowerShell'
-      href: functions-create-first-function-powershell.md
-    - name: 'Creación de función: Python'
-      href: functions-create-first-function-python.md
-    - name: Conexión a los servicios
+    - name: Crear función
+      expanded: true
       items:
-        - name: 'Almacenamiento: C#'
-          href: functions-add-output-binding-storage-queue-vs.md
-        - name: 'Almacenamiento: Java'
-          href: functions-add-output-binding-storage-queue-java.md
-        - name: 'Almacenamiento: JavaScript'
+        - name: Visual Studio Code
+          href: /azure/azure-functions/functions-create-first-function-vs-code
+        - name: Visual Studio
+          href: functions-create-your-first-function-visual-studio.md
+        - name: Línea de comandos
+          href: functions-create-first-azure-function-azure-cli.md
+        - name: Maven (Java)
+          href: functions-create-first-java-maven.md
+    - name: Conexión al almacenamiento
+      items:
+        - name: Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: 'Almacenamiento: Python'
-          href: functions-add-output-binding-storage-queue-python.md
+        - name: Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Maven (Java)
+          href: functions-add-output-binding-storage-queue-java.md
 - name: Tutoriales
   items:
     - name: Functions con Logic Apps
@@ -73,7 +72,7 @@
           href: /samples/browse/?products=azure-functions&languages=python
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
-    - name: CLI de Azure
+    - name: Azure CLI
       href: functions-cli-samples.md
 - name: Conceptos
   items:
@@ -106,7 +105,7 @@
           href: functions-bindings-errors.md
     - name: Lenguajes
       items:
-        - name: Idiomas admitidos
+        - name: Idiomas compatibles
           href: supported-languages.md
         - name: 'C# (biblioteca de clases)'
           href: functions-dotnet-class-library.md
@@ -128,7 +127,7 @@
       href: functions-diagnostics.md
     - name: Costos según el plan de consumo
       href: functions-consumption-costs.md
-    - name: Consideraciones sobre rendimiento
+    - name: Consideraciones de rendimiento
       href: functions-best-practices.md
       displayName: best practice
     - name: Proxy de funciones
@@ -137,9 +136,9 @@
       href: functions-networking-options.md
     - name: Direcciones IP
       href: ip-addresses.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Guía del desarrollador
           href: functions-reference.md
@@ -160,7 +159,7 @@
                 - name: Portal de Azure
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
-                  href: functions-create-first-azure-function-azure-cli.md
+                  href: create-cli.md
                 - name: Visual Studio
                   href: create-visual-studio.md
                 - name: Visual Studio Code
@@ -358,7 +357,7 @@
           href: functions-bindings-signalr-service.md
         - name: Almacenamiento de tablas
           href: functions-bindings-storage-table.md
-        - name: Temporizador
+        - name: Timer
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md

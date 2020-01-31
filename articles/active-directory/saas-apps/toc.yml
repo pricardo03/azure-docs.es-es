@@ -1037,7 +1037,7 @@
           href: people-tutorial.md
         - name: Peoplecart
           href: peoplecart-tutorial.md
-        - name: Perception United States (no UltiPro)
+        - name: Perception Estados Unidos (no UltiPro)
           href: perceptionunitedstates-tutorial.md
         - name: Perceptyx
           href: perceptyx-tutorial.md
@@ -1327,6 +1327,8 @@
           href: springerlink-tutorial.md
         - name: Sprinklr
           href: sprinklr-tutorial.md
+        - name: SSO de Spintr
+          href: spintr-sso-tutorial.md
         - name: 'SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft y JDE'
           href: ssogen-tutorial.md
         - name: StatusPage
@@ -1455,7 +1457,7 @@
           href: veritas-tutorial.md
         - name: Versal
           href: versal-tutorial.md
-        - name: Viareport (Europe)
+        - name: Viareport (Europa)
           href: viareports-inativ-portal-europe-tutorial.md
         - name: Vibe HCM
           href: vibehcm-tutorial.md
@@ -1680,6 +1682,8 @@
           href: merchlogix-provisioning-tutorial.md
         - name: Meta Networks Connector
           href: meta-networks-connector-provisioning-tutorial.md
+        - name: Mixpanel
+          href: mixpanel-provisioning-tutorial.md
         - name: myPolicies
           href: mypolicies-provisioning-tutorial.md
         - name: Mindtickle

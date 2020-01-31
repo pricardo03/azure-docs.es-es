@@ -24,6 +24,8 @@
   items:
     - name: Conceptos de Event Grid
       href: concepts.md
+    - name: Controladores de eventos y destinos
+      href: event-handlers.md
     - name: Seguridad y autenticación
       href: security-authentication.md
     - name: Esquemas de eventos
@@ -34,7 +36,7 @@
       href: delivery-output-batching.md
     - name: Filtrado avanzado
       href: advanced-filtering.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Conservación del estado
       items:
@@ -42,6 +44,8 @@
           href: persist-state-linux.md
         - name: Windows
           href: persist-state-windows.md
+    - name: Supervisión de temas y suscripciones
+      href: monitor-topics-subscriptions.md
     - name: Configuración de protocolos de API
       href: configure-api-protocol.md
     - name: Configuración de la autenticación de clientes
@@ -60,3 +64,5 @@
       href: configure-event-grid.md
     - name: Esquema de configuración de módulos gemelos
       href: twin-json.md
+    - name: Notas de la versión
+      href: release-notes.md

@@ -67,23 +67,37 @@
       href: Tutorials/create-qna-bot.md
 - name: Conceptos
   items:
-    - name: Base de conocimiento
-      href: Concepts/knowledge-base.md
-      displayName: 'metadata, pair'
-    - name: Uso de LUIS y QnA Maker
-      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
-    - name: Ciclo de vida de desarrollo de una base de conocimiento
-      href: Concepts/development-lifecycle-knowledge-base.md
-      displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Recursos de Azure
+      href: Concepts/azure-resources.md
+    - name: Diseño de una base de conocimiento
+      items:
+        - name: Para lenguajes
+          href: Concepts/design-language-culture.md
+        - name: Para aplicaciones cliente
+          href: Concepts/integration-with-other-applications.md
+    - name: Orígenes de datos y contenido
+      items:
+        - name: Importación de orígenes de datos
+          href: Concepts/knowledge-base.md
+        - name: Tipos de contenido importados
+          href: Concepts/content-types.md
+        - name: Conjuntos de preguntas y respuestas
+          href: Concepts/question-answer-set.md
+    - name: Ciclo de vida de una base de conocimiento
+      items:
+        - name: Ciclo de vida del desarrollo
+          href: Concepts/development-lifecycle-knowledge-base.md
+          displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Consulta de la base de conocimiento
+      items:
+        - name: Obtención de respuesta
+          displayName: 'DefaultAnswer, Default answer'
+          href: Concepts/query-knowledge-base.md
+        - name: Puntuación de confianza
+          href: Concepts/confidence-score.md
     - name: Procedimientos recomendados
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
-    - name: Puntuación de confianza
-      displayName: 'DefaultAnswer, Default answer'
-      href: Concepts/confidence-score.md
-    - name: Orígenes de datos admitidos
-      href: Concepts/data-sources-supported.md
-      displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: Guías paso a paso
   items:
     - name: Edición de la base de conocimiento
@@ -106,6 +120,8 @@
         - name: Obtención de respuestas mediante metadatos
           href: How-To/metadata-generateanswer-usage.md
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+        - name: Establecimiento de una respuesta predeterminada
+          href: How-to/change-default-answer.md
         - name: Creación de un bot con QnA Maker y LUIS
           href: Tutorials/integrate-qnamaker-luis.md
         - name: Selección de idioma
