@@ -3,12 +3,12 @@ title: Tipos de recursos que compatibles con Azure Resource Health | Microsoft D
 description: Tipos de recursos que se admiten a través de Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f25dc32774cb040a2b9873c6811ff184373c5104
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a61c8b90f4dc5e52a875488afb5374e3d6b7ce4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465273"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717070"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -139,7 +139,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Está conectado el túnel VPN?</li><li>¿Existen conflictos de configuración en la conexión?</li><li>¿Están configuradas correctamente las claves precompartidas?</li><li>¿Se puede acceder al dispositivo local de VPN?</li><li>¿Hay discrepancias en la directiva de seguridad de IPSec/IKE?</li><li>¿Está la conexión VPN de sitio a sitio aprovisionada correctamente o está en estado de error?</li><li>¿Está la conexión entre redes virtuales aprovisionada correctamente o está en estado de error?</li></ul>|
 
-## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.network/expressroutecircuits
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿El circuito de ExpressRoute está en buen estado?</li></ul>|

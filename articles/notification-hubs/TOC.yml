@@ -79,6 +79,8 @@
       href: samples-powershell.md
 - name: Conceptos
   items:
+    - name: Seguridad de la capa de transporte (TLS)
+      href: notification-hubs-tls12.md
     - name: Instrucciones sobre arquitectura de inserción empresarial
       href: notification-hubs-enterprise-push-notification-architecture.md
     - name: Registros de dispositivos
@@ -90,7 +92,7 @@
           href: notification-hubs-templates-cross-platform-push-messages.md
     - name: Modelo de seguridad
       href: notification-hubs-push-notification-security.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Cambiar el plan de tarifa
       href: change-pricing-tier.md

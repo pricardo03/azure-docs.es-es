@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 6ef7736a50783388b5ec0b32c698a0e747a7fd42
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0af19ec740e96cd572ffe37285d7e58ead83b25
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458433"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774861"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitectura de la conectividad en Azure Database for PostgreSQL
 En este artículo se explica la arquitectura de la conectividad de Azure Database for PostgreSQL y cómo se dirige el tráfico a la instancia de base de datos de Azure Database for PostgreSQL desde los clientes de dentro y de fuera de Azure.
@@ -41,30 +41,30 @@ En la siguiente tabla se enumeran las direcciones IP principales y secundarias d
 | Norte de China | 139.219.15.17    |
 | Norte de China 2 | 40.73.50.0     |
 | Asia oriental | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
-| East US | 40.121.158.30, 191.238.6.43  |
-| Este de EE. UU. 2 |40.79.84.180, 191.239.224.107, 52.167.104.0     |
+| Este de EE. UU. | 40.121.158.30, 191.238.6.43  |
+| Este de EE. UU. 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | Centro de Francia | 40.79.137.0, 40.79.129.1  |
 | Centro de Alemania | 51.4.144.100     |
 | Nordeste de Alemania | 51.5.144.179  |
 | India central | 104.211.96.159     |
 | Sur de India | 104.211.224.146  |
 | India occidental | 104.211.160.80    |
-| Este de Japón | 13.78.61.196, 191.237.240.43  |
-| Oeste de Japón | 104.214.148.156, 191.238.68.11    |
-| Corea Central | 52.231.32.42   |
+| Japón Oriental | 13.78.61.196, 191.237.240.43  |
+| Japón Occidental | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
+| Centro de Corea del Sur | 52.231.32.42   |
 | Corea del Sur | 52.231.200.86    |
 | Centro-Norte de EE. UU | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
-| Europa del Norte | 40.113.93.91, 191.235.193.75    |
+| Norte de Europa | 40.113.93.91, 191.235.193.75    |
 | Norte de Sudáfrica  | 102.133.152.0    |
 | Oeste de Sudáfrica | 102.133.24.0   |
-| Centro-Sur de EE. UU |13.66.62.124, 23.98.162.75   |
-| Sudeste de Asia | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
+| Centro-sur de EE. UU. |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
+| Sudeste Asiático | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Centro de Emiratos Árabes Unidos | 20.37.72.64  |
 | Norte de Emiratos Árabes Unidos | 65.52.248.0    |
 | Sur de Reino Unido 2 | 51.140.184.11   |
 | Oeste de Reino Unido | 51.141.8.11  |
-| Centro occidental de EE.UU. | 13.78.145.25     |
-| Europa occidental | 40.68.37.158, 191.237.232.75     |
+| Centro-Oeste de EE. UU. | 13.78.145.25     |
+| Oeste de Europa | 40.68.37.158, 191.237.232.75     |
 | Oeste de EE. UU. | 104.42.238.205, 23.99.34.75  |
 | Oeste de EE. UU. 2 | 13.66.226.202  |
 ||||

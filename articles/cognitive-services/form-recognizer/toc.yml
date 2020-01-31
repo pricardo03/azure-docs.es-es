@@ -17,36 +17,20 @@
       items:
         - name: Entrenamiento y uso de un modelo personalizado sin etiquetas
           items:
-            - name: v2.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-train-extract.md
-                - name: Python
-                  href: quickstarts/python-train-extract.md
-            - name: v1.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-train-extract-v1.md
-                - name: Python
-                  href: quickstarts/python-train-extract-v1.md
+            - name: cURL
+              href: quickstarts/curl-train-extract.md
+            - name: Python
+              href: quickstarts/python-train-extract.md
         - name: Entrenamiento y uso de un modelo personalizado con etiquetas
           items:
             - name: Python
               href: quickstarts/python-labeled-data.md
         - name: Uso de un modelo de recibo creado previamente
           items:
-            - name: v2.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-receipts.md
-                - name: Python
-                  href: quickstarts/python-receipts.md
-            - name: v1.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-receipts-v1.md
-                - name: Python
-                  href: quickstarts/python-receipts-v1.md
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
         - name: Obtención información acerca del diseño de texto
           items:
             - name: Python
