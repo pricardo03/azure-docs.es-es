@@ -13,6 +13,8 @@
           href: Quickstarts/csharp-sdk.md
         - name: SDK de Python
           href: QuickStarts/python-sdk.md
+        - name: Go SDK
+          href: QuickStarts/go-sdk.md
     - name: Uso de la API de REST
       items:
         - name: Detectar caras en una imagen

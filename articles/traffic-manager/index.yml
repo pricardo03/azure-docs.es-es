@@ -8,15 +8,15 @@ metadata:
   ms.service: traffic-manager
   ms.topic: landing-page
   ms.collection: collection
-  author: asudbring
-  ms.author: allensu
+  author: rohinkoul
+  ms.author: rohink
   ms.date: 08/19/2019
-  ms.openlocfilehash: e0990e15a10d18d836daddc1d5fba83af95948d8
-  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.openlocfilehash: eb0172894a1cc03e465ada78575c9b7b1f76141a
+  ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/27/2019
-  ms.locfileid: "70051967"
+  ms.lasthandoff: 02/01/2020
+  ms.locfileid: "76938003"
 landingContent:
 - title: Acerca de Traffic Manager
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
     links:
     - text: Mejora de la disponibilidad del servicio y la ubicación de los datos
       url: https://docs.microsoft.com/learn/modules/distribute-load-with-traffic-manager/
-- title: Primeros pasos
+- title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
@@ -50,7 +50,7 @@ landingContent:
       url: traffic-manager-configure-priority-routing-method.md
     - text: Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario
       url: tutorial-traffic-manager-subnet-routing.md
-- title: administración
+- title: Administrar
   linkLists:
   - linkListType: concept
     links:
@@ -70,7 +70,7 @@ landingContent:
       url: traffic-manager-load-balancing-azure.md
     - text: Hacer que un dominio de Internet de la compañía indique un dominio de Azure Traffic Manager
       url: traffic-manager-point-internet-domain.md
-    - text: Consideraciones sobre rendimiento
+    - text: Consideraciones de rendimiento
       url: traffic-manager-performance-considerations.md
 - title: Solución de problemas
   linkLists:
@@ -86,5 +86,5 @@ landingContent:
     links:
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.trafficmanager/?view=azps-2.5.0
-    - text: CLI de Azure
+    - text: Azure CLI
       url: https://docs.microsoft.com/cli/azure/network/traffic-manager?view=azure-cli-latest
