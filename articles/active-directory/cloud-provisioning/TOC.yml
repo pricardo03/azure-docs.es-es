@@ -24,7 +24,7 @@
       href: concept-attributes.md
     - name: Escritura de expresiones para la asignación de atributos en Azure Active Directory
       href: reference-expressions.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Instalación y actualización
       items:
@@ -34,15 +34,17 @@
           href: how-to-install.md
         - name: Configuración del aprovisionamiento en la nube
           href: how-to-configure.md
+        - name: Uso del inicio de sesión único
+          href: how-to-sso.md
     - name: Planeamiento y diseño
       items:
         - name: "Topologías y escenarios para el aprovisionamiento en la nube de Azure\_AD Connect"
           href: plan-cloud-provisioning-topologies.md
-    - name: administración
+    - name: Administrar
       items:
         - name: Actualización automática del agente
           href: how-to-automatic-upgrade.md
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Transformaciones
           href: how-to-transformation.md

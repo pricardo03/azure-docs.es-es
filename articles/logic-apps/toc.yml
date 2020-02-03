@@ -330,16 +330,13 @@
     - name: Supervisión
       items:
         - name: Supervisión de aplicaciones lógicas
-          href: logic-apps-monitor-your-logic-apps.md
+          href: monitor-logic-apps.md
         - name: Supervisión de aplicaciones lógicas con los registros de Azure Monitor
-          href: logic-apps-monitor-your-logic-apps-oms.md
+          href: monitor-logic-apps-log-analytics.md
         - name: Supervisión de mensajes B2B con los registros de Azure Monitor
-          href: logic-apps-monitor-b2b-message.md
-          items:
-            - name: Seguimiento de mensajes B2B con los registros de Azure Monitor
-              href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Creación de consultas para mensajes B2B con los registros de Azure Monitor
-              href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+          href: monitor-b2b-messages-log-analytics.md
+        - name: Creación de consultas de supervisión y seguimiento
+          href: create-monitoring-tracking-queries.md
     - name: 'Ejemplos, escenarios y tutoriales'
       href: logic-apps-examples-and-scenarios.md
       items:

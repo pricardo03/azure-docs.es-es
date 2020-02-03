@@ -888,13 +888,19 @@
             - name: Acceso externo al seguimiento
               href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
+        - name: Creación de paneles con MLflow Search API
+          href: /azure/databricks/applications/mlflow/build-dashboards
+          maintainContext: true
         - name: 'Almacenamiento, carga e implementación de modelos'
           items:
             - name: 'Introducción a la implementación, carga y guardado'
               href: /azure/databricks/applications/mlflow/models
               maintainContext: true
-            - name: Ejemplos de modelos de MLflow
-              href: /azure/databricks/applications/mlflow/  model-examples
+            - name: Ejemplo de un modelo de MLflow
+              href: /azure/databricks/applications/mlflow/model-example
+              maintainContext: true
+            - name: Implementación de modelo de Scikit-learn en Azure
+              href: /azure/databricks/applications/mlflow/scikit-learn-model-deployment-on-azure-ml
               maintainContext: true
         - name: Reproducción de ejecuciones con proyectos de MLflow
           href: /azure/databricks/applications/mlflow/projects
@@ -1411,7 +1417,7 @@
               maintainContext: true
         - name: Python
           items:
-            - name: Creación de un clúster con Anaconda
+            - name: Creación de un clúster con Conda
               href: /azure/databricks/kb/python/anaconda-environment
               maintainContext: true
             - name: Instalación y compilación de Cython
@@ -1465,6 +1471,9 @@
           items:
             - name: Ejecución de código C++ en Scala
               href: /azure/databricks/kb/scala/running-c-plus-plus-code-scala
+              maintainContext: true
+            - name: Errores en los trabajos JAR simultáneos de Spark
+              href: /azure/databricks/kb/scala/spark-jar-job-error
               maintainContext: true
         - name: SQL
           items:
