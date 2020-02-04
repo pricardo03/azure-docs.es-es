@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Optimización de los costos de las instancias reservadas con Cloudyn en Azure'
 description: En este tutorial, aprenderá a optimizar los costos de las instancias reservadas para Azure y Amazon Web Services (AWS).
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
@@ -9,13 +8,13 @@ ms.date: 05/20/2019
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
-manager: benshy
-ms.openlocfilehash: c1afad7cb36916777b2f6cefa40b9bd1ddc465a2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.reviewer: benshy
+ms.openlocfilehash: 9b0dbc31f3789cb0033a531ad6c5395d3cfb8bcc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75983760"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769934"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -71,7 +70,7 @@ Las barras de color rojo muestran el costo acumulado de la compra de instancias 
 
 ## <a name="benefits-of-ris"></a>Ventajas de las instancias reservadas
 
-Cada compra de instancias reservadas se aplica a una máquina virtual de tamaño y ubicación específicos. Por ejemplo, D2s\_v3, que se ejecuta en la ubicación del oeste de Estados Unidos como se muestra en la siguiente imagen:
+Cada compra de instancias reservadas se aplica a una máquina virtual de tamaño y ubicación específicos. Por ejemplo, D2s\_v3, que se ejecuta en la ubicación del Oeste de EE. UU. como se muestra en la siguiente imagen:
 
 ![Detalles de las instancias reservadas de Azure](./media/tutorial-optimize-reserved-instances/azure02.png)
 

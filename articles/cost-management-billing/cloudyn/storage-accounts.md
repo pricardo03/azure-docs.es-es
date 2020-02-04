@@ -1,21 +1,20 @@
 ---
 title: Configuración de cuentas de almacenamiento para Cloudyn en Azure | Microsoft Docs
 description: En este artículo se describe cómo configurar cuentas de almacenamiento de Azure y cubos de almacenamiento de AWS para Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 2a8f3645dcf2987d0c0a204e7e8a86cd6d718e47
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: aa5fc1dddec6931b5eff1e34cf6c12b218bdf2fd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986544"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769954"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configuración de cuentas de almacenamiento para Cloudyn
 

@@ -10,10 +10,10 @@ ms.date: 09/30/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: cb20c88577bba614c70fdf5a266d482d06aeca57
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986756"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Aplicación del descuento por reserva a Azure Cosmos DB
@@ -47,9 +47,9 @@ El descuento por reserva se aplica a los costos de rendimiento de Azure Cosmos D
 |Azure Cosmos DB - 100 RU/s/Hora - Centro de Corea del Sur|   Centro de Corea del Sur    |       1  |
 |Azure Cosmos DB - 100 RU/s/Hora - Sur de Reino Unido|   Sur de Reino Unido 2      |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Oeste de Reino Unido|   Oeste de Reino Unido      |    1     |
-|Azure Cosmos DB - 100 RU/s/Hora - Norte de Reino Unido |   Norte del Reino Unido    |     1    |
-|Azure Cosmos DB - 100 RU/s/Hora - Sur de Reino Unido 2|   Sur del Reino Unido 2      |     1    |
-|Azure Cosmos DB - 100 RU/s/Hora - Este de EE. UU. 2|  Este de EE. UU. - 2     |     1    |
+|Azure Cosmos DB - 100 RU/s/Hora - Norte de Reino Unido |   Norte de Reino Unido    |     1    |
+|Azure Cosmos DB - 100 RU/s/Hora - Sur de Reino Unido 2|   Sur de Reino Unido 2      |     1    |
+|Azure Cosmos DB - 100 RU/s/Hora - Este de EE. UU. 2|  Este de EE. UU. 2     |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Centro y norte de EE. UU.|   Centro y norte de EE. UU.      |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Oeste de EE. UU.|   Oeste de EE. UU.      |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Centro de EE. UU.| Centro de EE. UU.        |     1    |

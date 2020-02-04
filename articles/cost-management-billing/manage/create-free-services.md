@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 99ceebe0825c868e40f6a68f44ca55eee91f087c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75985900"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Creación de servicios incluidos con la cuenta gratuita de Azure
@@ -27,7 +27,7 @@ Le recomendamos que use el vínculo a la [página de servicios gratuitos](https:
 ![Captura de pantalla que muestra la página de servicios gratuitos](./media/create-free-services/billing-freeservices-grid.png)
 
 ## <a name="services-can-be-created-in-any-region"></a>Los servicios se pueden crear en cualquier región
-Mientras esté dentro de los límites, puede crear servicios de forma gratuita en cualquier región donde los servicios estén disponibles. Por ejemplo, obtendrá 750 horas de una máquina virtual Windows B1S gratis cada mes con la cuenta gratuita de Azure. Puede crear la máquina virtual en cualquier región donde estén disponibles las máquinas virtuales de la serie B. Azure no le cobra a menos que supere 750 horas. Por ejemplo, un cliente que se encuentre en EE. UU. puede aprovisionar una máquina virtual Windows B1S en la región Europa Occidental y usarla de forma gratuita durante 750 horas.
+Mientras esté dentro de los límites, puede crear servicios de forma gratuita en cualquier región donde los servicios estén disponibles. Por ejemplo, obtendrá 750 horas de una máquina virtual Windows B1S gratis cada mes con la cuenta gratuita de Azure. Puede crear la máquina virtual en cualquier región donde estén disponibles las máquinas virtuales de la serie B. Azure no le cobra a menos que supere 750 horas. Por ejemplo, un cliente que se encuentre en EE. UU. puede aprovisionar una máquina virtual Windows B1S en la región Oeste de Europa y usarla de forma gratuita durante 750 horas.
 
 Para información sobre la disponibilidad del servicio de Azure por región, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 

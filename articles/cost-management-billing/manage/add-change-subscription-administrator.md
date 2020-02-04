@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: banders
 ms.openlocfilehash: a35d7d4ef24218c96e305abf623f746c92c8aa87
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986184"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Agregar o cambiar los administradores de la suscripción de Azure
@@ -50,7 +50,7 @@ Si no está seguro de quién es el administrador de cuenta de la suscripción, u
 
 1. Haga clic en la suscripción a la que quiere conceder acceso.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
 
@@ -62,7 +62,7 @@ Si no está seguro de quién es el administrador de cuenta de la suscripción, u
 
 1. En la lista desplegable **Rol**, seleccione el rol **Propietario**.
 
-1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar y direcciones de correo electrónico.
+1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar y direcciones de correo electrónico en el directorio.
 
     ![Captura de pantalla que muestra el rol de propietario seleccionado](./media/add-change-subscription-administrator/add-role.png)
 

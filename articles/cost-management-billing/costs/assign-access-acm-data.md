@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: e3140ee990127db6815828314103a09dff7cf26e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8cb803c78b8bb5acd7880f79a19b5e3f0a978bd8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984744"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773970"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
@@ -48,13 +48,6 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 
 <sup>2</sup> La cuenta de inscripción también se denomina como Propietario de la cuenta.
 
-El siguiente diagrama ilustra la relación entre los ámbitos de la administración de costos con los roles y la configuración del portal de EA.
-
-![Diagrama que ilustra la relación entre los ámbitos de la administración de costos con los roles y la configuración del portal de EA](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
-
-Cuando la opción **AD: ver los cargos**  esté deshabilitada en el portal de EA, verá un mensaje que indica que los *Costos están deshabilitados para su organización* cuando intente ver los costos para los departamentos y cuentas.
-
-Del mismo modo, cuando **PC: ver los cargos** esté deshabilitado en el portal de EA, verá un mensaje que indica que los *Costos están deshabilitados para su organización* cuando intente ver los costos para las cuentas de inscripción, los grupos de administración, las suscripciones y los grupos de recursos.
 
 ## <a name="other-azure-account-scopes"></a>Otros ámbitos de la cuenta de Azure
 
