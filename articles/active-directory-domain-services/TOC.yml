@@ -79,6 +79,8 @@
           href: delete-aadds.md
         - name: Migración desde una implementación clásica (versión preliminar)
           href: migrate-from-classic-vnet.md
+        - name: Cambio de SKU
+          href: change-sku.md
     - name: Protección de Azure AD DS
       items:
         - name: Protección de un dominio administrado

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450071"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767731"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes
 
@@ -233,7 +233,7 @@ El objeto query expone varios valores **Next**, en función de la opción de des
 ### <a name="limitations"></a>Limitaciones
 
 > [!IMPORTANT]
-> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si se consultan dispositivos gemelos individuales por su identificador, use la API de recuperación de dispositivo gemelo. Esta API siempre contiene los últimos valores y tiene límites restrictivos más altos.
+> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si se consultan dispositivos gemelos individuales por su identificador, use la [API de REST Get Twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin). Esta API siempre devuelve los últimos valores y tiene límites restrictivos más altos. Puede emitir la API de REST directamente o usar la funcionalidad equivalente en uno de los [SDK del servicio Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Actualmente, las comparaciones solo se admiten entre tipos primitivos (no objetos), por ejemplo `... WHERE properties.desired.config = properties.reported.config` solo se admite si esas propiedades tienen valores primitivos.
 
@@ -328,7 +328,7 @@ SELECT <select_list>
 
 La cláusula **FROM <from_specification>** solo puede asumir tres valores: **FROM devices** para consultar los dispositivos gemelos, **FROM devices.modules** para consultar desde los módulos gemelos o **FROM devices.jobs** para consultar los detalles de un trabajo por dispositivo.
 
-## <a name="where-clause"></a>Cláusula WHERE
+## <a name="where-clause"></a>WHERE, cláusula
 
 La cláusula **WHERE <filter_condition>** es opcional. Especifica una o varias condiciones que los documentos JSON en la colección FROM deben satisfacer para incluirse como parte del resultado. Cualquier documento JSON debe evaluar las condiciones especificadas como "true" para que se incluya en el resultado.
 
@@ -457,26 +457,26 @@ Se admiten los siguientes operadores:
 
 Cuando se consultan gemelos y trabajos, la única función admitida es:
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 | -------- | ----------- |
 | IS_DEFINED(property) | Devuelve un valor booleano que indica si se ha asignado un valor a la propiedad (incluido `null`). |
 
 En condiciones de rutas, se admiten las siguientes funciones matemáticas:
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 | -------- | ----------- |
 | ABS(x) | Devuelve el valor absoluto (positivo) de la expresión numérica especificada. |
 | EXP(x) | Devuelve el valor exponencial de la expresión numérica especificada (e^x). |
 | POWER(x,y) | Devuelve el valor de la expresión especificada a la potencia especificada (x^y).|
 | SQUARE(x) | Devuelve el cuadrado del valor numérico especificado. |
 | CEILING(x) | Devuelve el valor entero más pequeño mayor o igual que la expresión numérica especificada. |
-| FLOOR(x) | Devuelve el valor entero más grande menor o igual que la expresión numérica especificada. |
+| FLOOR(x) | Devuelve el entero más grande que sea menor o igual que la expresión numérica especificada. |
 | SIGN(x) | Devuelve el signo positivo (+1), cero (0) o negativo (-1) de la expresión numérica especificada.|
 | SQRT(x) | Devuelve la raíz cuadrada del valor numérico especificado. |
 
 En condiciones de rutas, se admiten las funciones de conversión y comprobación de tipos siguientes:
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 | -------- | ----------- |
 | AS_NUMBER | Convierte la cadena de entrada en un número. `noop` si la entrada es un número; `Undefined` si la cadena no representa un número.|
 | IS_ARRAY | Devuelve un valor booleano que indica si el tipo de la expresión especificada es una matriz. |
@@ -490,7 +490,7 @@ En condiciones de rutas, se admiten las funciones de conversión y comprobación
 
 En condiciones de rutas, se admiten las siguientes funciones de cadena:
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Devuelve una cadena que es el resultado de concatenar dos o más valores de cadena. |
 | LENGTH(x) | Devuelve el número de caracteres de la expresión de cadena especificada.|

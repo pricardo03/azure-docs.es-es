@@ -2,18 +2,17 @@
 title: 'Tutorial: Ejecución de Azure Functions en trabajos de Azure Stream Analytics'
 description: En este tutorial aprenderá a configurar Azure Functions como un receptor de salida para los trabajos de Stream Analytics.
 author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/05/2019
-ms.author: mamccrea
-ms.reviewer: mamccrea
-ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/27/2020
+ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369327"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772886"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
 
@@ -51,7 +50,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Creación de una función en Azure Functions que pueda escribir datos en Azure Redis Cache
 
-1. Consulte la sección [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentación de Functions. Esto explica cómo crear una aplicación de función y una [función desencadenada por HTTP en Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) mediante el lenguaje CSharp.  
+1. Consulte la sección [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentación de Functions. En esta sección se explica cómo crear una aplicación de funciones y una [función desencadenada por HTTP en Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) mediante el lenguaje CSharp.  
 
 2. Vaya a la función **run.csx**. Actualícela con el código siguiente. Reemplace **"\<su cadena de conexión de Azure Cache for Redis va aquí\>"** por la cadena de conexión principal de Azure Cache for Redis que recuperó en la sección anterior. 
 
@@ -149,7 +148,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
    |Opción de importación| Puede utilizar la función de la suscripción actual o proporcionar la configuración manualmente si la función se encuentra en otra suscripción. |
    |Function App| Nombre de la aplicación de Functions |
    |Función| Nombre de la función de la aplicación de Functions (nombre de la función run.csx).|
-   |Tamaño máximo de lote|Establece el tamaño máximo de cada lote de salida, que se envía a la función, en bytes. De manera predeterminada, este valor se establece en 262 144 bytes (256 KB).|
+   |Tamaño máximo de lote|Establece el tamaño máximo de cada lote de salida que se envía a la función, en bytes. De manera predeterminada, este valor se establece en 262 144 bytes (256 KB).|
    |Número máximo de lotes|Especifica el número máximo de eventos de cada lote que se envía a la función. El valor predeterminado es 100. Esta propiedad es opcional.|
    |Clave|Permite usar una función de otra suscripción. Proporcione el valor de clave para acceder a la función. Esta propiedad es opcional.|
 
@@ -187,13 +186,10 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
    Este comando debe imprimir el valor de la clave especificada:
 
    ![Captura de pantalla de la salida de Azure Redis Cache](./media/stream-analytics-with-azure-functions/image5.png)
-   
-## <a name="error-handling-and-retries"></a>Control de errores y reintentos
-Si se produce un error al enviar eventos a Azure Functions, Stream Analytics volverá a intentar completar correctamente la operación. Sin embargo, hay algunos errores en los que no se produce ningún reintento y son los siguientes:
 
- 1. HttpRequestExceptions
- 2. Entidad de solicitud demasiado larga (código de error Http 413)
- 3. ApplicationExceptions
+## <a name="error-handling-and-retries"></a>Control de errores y reintentos
+
+Si se produce algún error al enviar eventos a Azure Functions, Stream Analytics reintentará la mayoría de las operaciones. Todas las excepciones HTTP se reintentan hasta que se ejecutan correctamente con la excepción del error HTTP 413 (la entidad es demasiado grande). Un error de que una entidad demasiado grande se trata como un error de datos, que está sujeto a la [directiva de reintento o de eliminación](stream-analytics-output-error-policy.md).
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -210,7 +206,7 @@ Cuando no los necesite, elimine el grupo de recursos, el trabajo de streaming y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha creado un trabajo simple de Stream Analytics que ejecuta una función de Azure. Para más información acerca de los trabajos de Stream Analytics, continúe con el tutorial siguiente:
+En este tutorial, ha creado un trabajo de Stream Analytics simple que ejecuta una función una instancia de Azure Functions. Para más información sobre los trabajos de Stream Analytics, continúe con el tutorial siguiente:
 
 > [!div class="nextstepaction"]
 > [Ejecución de funciones definidas por el usuario en JavaScript en los trabajos de Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

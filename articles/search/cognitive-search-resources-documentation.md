@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e73e69f90b1228154d7f209c54c6b52cc03d5eb4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466720"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837797"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentación para el enriquecimiento con inteligencia artificial en Azure Cognitive Search
 
@@ -24,11 +24,11 @@ Los artículos siguientes son la documentación completa que trata sobre el enri
 ## <a name="getting-started"></a>Introducción
 + [Introducción a la inteligencia artificial en Azure Cognitive Search](cognitive-search-concept-intro.md)
 + [Inicio rápido: Creación de un conjunto de aptitudes cognitivo en Azure Portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Indexación con inteligencia artificial](cognitive-search-tutorial-blob.md)
++ [Tutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md) (Tutorial: Indexación enriquecida con inteligencia artificial)
 + [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guía de procedimientos
-+ [Definición de un conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) (Referencia a las anotaciones de un conjunto de aptitudes)
 + [How to map fields to an index](cognitive-search-output-field-mapping.md) (Asignación de campos enriquecidos a un índice)
 + [How to process and extract information from images](cognitive-search-concept-image-scenarios.md) (Procesamiento y extracción de información de imágenes)
@@ -43,6 +43,7 @@ Los artículos siguientes son la documentación completa que trata sobre el enri
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
+  + [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
   + [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md)
@@ -58,11 +59,11 @@ Los artículos siguientes son la documentación completa que trata sobre el enri
 + [Aptitudes en desuso](cognitive-search-skill-deprecated.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
-+ [API DE REST](https://docs.microsoft.com/rest/api/searchservice/)
++ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
   + [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/)
 + [Indexadores de Azure Cognitive Search](search-indexer-overview.md)

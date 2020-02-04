@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: uso de temas de Service Bus con PHP'
-description: 'Inicio rápido: Aprenda a usar temas de Service Bus con PHP en Azure.'
+title: Uso de temas de Azure Service Bus con PHP
+description: En este tutorial, va a aprender a usar los temas de Azure Service Bus y las suscripciones de una aplicación PHP.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: b55d3c93f9926b7446dadf069b37a878caa81e15
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92f25f4bdac4942478c93f717c81eadd2c2f5b4a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721653"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760681"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con PHP
 
@@ -33,9 +33,9 @@ En este artículo se muestra cómo usar los temas y las suscripciones de Service
 - Recepción de mensajes de una suscripción
 - Eliminación de temas y suscripciones
 
-## <a name="prerequisites"></a>Requisitos previos
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga los pasos del [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un **espacio de nombres** de Service Bus y obtener la **cadena de conexión**.
+## <a name="prerequisites"></a>Prerequisites
+1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga los pasos de [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un **espacio de nombres** de Service Bus y obtener la **cadena de conexión**.
 
     > [!NOTE]
     > En este inicio rápido, creará un **tema** y una **suscripción** al tema mediante **PHP**. 

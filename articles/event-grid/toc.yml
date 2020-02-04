@@ -138,6 +138,8 @@
       href: custom-disaster-recovery.md
     - name: Solución de errores
       href: troubleshoot-errors.md
+    - name: Habilitación de los registros de diagnóstico de un tema
+      href: enable-diagnostic-logs-topic.md
 - name: Referencia
   items:
     - name: Azure CLI

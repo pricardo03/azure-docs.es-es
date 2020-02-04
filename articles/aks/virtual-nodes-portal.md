@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: ab0aebf0b66ac01e19699795b14063df31cb9621
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6a50663fd0cc907e0dc97b50decd8b6edbaa42cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263758"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713210"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales en Azure Portal
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo crear y configurar los recursos de red virtua
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en ACI y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas*. De forma predeterminada, los clústeres de AKS se crean con redes *básicas*. En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
+Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en Azure Container Instances (ACI) y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas*. De forma predeterminada, los clústeres de AKS se crean con redes *básicas*. En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
 
 Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando [az provider list][az-provider-list], tal como se muestra en el siguiente ejemplo:
 
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Si el proveedor se muestra como *NotRegistered*, registre el proveedor mediante el [registro de proveedor de az][az-provider-register] tal como se muestra en el ejemplo siguiente:
+Si el proveedor se muestra como *NotRegistered*, registre el proveedor con el comando [az provider register][az-provider-register] tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -52,15 +52,15 @@ Se admiten las siguientes regiones para las implementaciones de nodos virtuales:
 * Centro de EE. UU. (centralus)
 * Este de EE. UU. (eastus)
 * Este de EE. UU. 2 (eastus2)
-* Este de Japón (japaneast)
-* Europa del Norte (northeurope)
+* Japón Oriental (japaneast)
+* Norte de Europa (northeurope)
 * Sudeste Asiático (southeastasia)
 * Centro-oeste de EE. UU. (westcentralus)
-* Europa Occidental (westeurope)
+* Oeste de Europa (westeurope)
 * Oeste de EE. UU. (westus)
 * Oeste de EE. UU. 2 (westus2)
 
-## <a name="known-limitations"></a>Limitaciones conocidas
+## <a name="known-limitations"></a>Restricciones conocidas
 La funcionalidad de nodos virtuales es muy dependiente del conjunto de características de ACI. Los escenarios siguientes no se admiten aún con los nodos virtuales
 
 * Uso de entidad de servicio para extraer imágenes de ACR. La [solución alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste en usar [secretos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
@@ -100,7 +100,7 @@ Seleccione **Revisar + crear**. Una vez completada la validación, seleccione **
 
 Se tardan unos minutos en crear el clúster de AKS y en prepararlo para usarlo.
 
-## <a name="connect-to-the-cluster"></a>Conexión al clúster
+## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
 Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para administrar un clúster de Kubernetes, use [kubectl][kubectl], el cliente de línea de comandos de Kubernetes. El cliente `kubectl` viene preinstalado en Azure Cloud Shell.
 
@@ -112,7 +112,7 @@ Use el comando [az aks get-credentials][az-aks-get-credentials] para configurar 
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para comprobar la conexión con el clúster, use el comando [kubectl get][kubectl-get] para que devuelva una lista de los nodos del clúster.
+Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -247,3 +247,4 @@ Los nodos virtuales son un componente de una solución de escalado en AKS. Para 
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register

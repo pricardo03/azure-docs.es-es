@@ -3,20 +3,20 @@ title: Conocimiento del negocio en el Proceso de ciencia de datos en equipos
 description: Los objetivos, las tareas y los resultados de la fase de descripción del negocio de los proyectos de ciencia de datos en el Proceso de ciencia de datos en equipos.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303560"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710336"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase de descripción de negocio del ciclo de vida del Proceso de ciencia de datos en equipo
 

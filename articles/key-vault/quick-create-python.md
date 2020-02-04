@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: a514dbce91a98bd51e51b1724d631bc224b2f33a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b76441c8b11032d3713d7679acfc7f350533b76b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527933"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769190"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Inicio rápido: biblioteca cliente de Azure Key Vault para Python
 
@@ -22,7 +22,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 - Aumentar la seguridad y el control sobre claves y contraseñas
 - Crear e importar claves de cifrado en minutos
 - Reducir la latencia con escala en la nube y redundancia global
-- Simplificar y automatizar tareas para certificados SSL/TLS
+- Simplificar y automatizar tareas para certificados TLS/SSL
 - Utilizar módulos HSM con certificación FIPS 140-2 nivel 2
 
 [Documentación de referencia de API](/python/api/overview/azure/key-vault?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-keyvault/)

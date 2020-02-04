@@ -1,6 +1,6 @@
 ---
 title: Filtros de tema de Azure Service Bus | Microsoft Docs
-description: Filtros de temas de Azure Service Bus
+description: En este artículo se explica cómo los suscriptores pueden especificar filtros para definir qué mensajes desean recibir de un tema.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/27/2020
 ms.author: spelluru
-ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332234"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774493"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros y acciones de temas
 

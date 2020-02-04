@@ -1,24 +1,17 @@
 ---
-title: Inicio rápido para agregar marcas de características a Spring Boot en Azure App Configuration | Microsoft Docs
-description: Un inicio rápido para agregar marcas de características a aplicaciones de Spring y administrarlas en Azure App Configuration
-services: azure-app-configuration
-documentationcenter: ''
+title: Inicio rápido para agregar marcas de características en Spring Boot con Azure App Configuration
+description: Adición de marcas de características a aplicaciones de Spring Boot y su administración en Azure App Configuration
 author: lisaguthrie
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Spring Boot
-ms.workload: tbd
-ms.date: 1/9/2019
+ms.date: 01/21/2020
 ms.author: lcozzens
-ms.openlocfilehash: 3e82354116969b01743700485b5c2dd75b4887e4
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4438851ef7ea015060926075f46822de877b85b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310074"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766436"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Inicio rápido: Incorporación de marcas de características a una aplicación de Spring Boot
 
@@ -32,19 +25,20 @@ Las bibliotecas de administración de características de Spring Boot amplían e
 - Un [SDK de Java Development Kit](https://docs.microsoft.com/java/azure/jdk)admitido con la versión 8.
 - [Apache Maven](https://maven.apache.org/download.cgi), versión 3.0 o posterior.
 
-## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
+## <a name="create-an-app-configuration-instance"></a>Creación de una instancia de App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seleccione **Feature Manager** (Administrador de características)  >  **+ Crear** para agregar las siguientes marcas de características:
+6. Seleccione **Administrador de características** >  **+Agregar** para agregar una marca de características denominada `Beta`.
 
-    | Clave | State |
-    |---|---|
-    | Beta | Off |
+    > [!div class="mx-imgBorder"]
+    > ![Habilitación de la marca de característica denominada Beta](media/add-beta-feature-flag.png)
+
+    Deje `label` sin definir por ahora.
 
 ## <a name="create-a-spring-boot-app"></a>Creación de una aplicación Spring Boot
 
-Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.spring.io/).
+Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spring.io/).
 
 1. Vaya a <https://start.spring.io/>.
 
@@ -52,27 +46,27 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
    - Genere un proyecto de **Maven** con **Java**.
    - Especifique una versión de **Spring Boot** igual o superior a la 2.0.
-   - Especifique los nombres de **Group** (Grupo) y **Artifact** (Artefacto) de la aplicación.
+   - Especifique los nombres de **Group** (Grupo) y **Artifact** (Artefacto) de la aplicación.  En este artículo se usan `com.example` y `demo`.
    - Adición de la dependencia de **Spring Web**
 
-3. Después de especificar las opciones anteriores, seleccione **Generar proyecto**. Cuando se le solicite, descargue el proyecto en una ruta de acceso del equipo local.
+3. Después de especificar las opciones anteriores, seleccione **Generar proyecto**. Cuando se le solicite, descargue el proyecto en el equipo local.
 
-## <a name="add-feature-management"></a>Incorporación de la administración de características
+## <a name="add-feature-management"></a>Adición de la administración de características
 
-1. Después de extraer los archivos en el sistema local, la aplicación sencilla de Spring Boot estará lista para editarla. Busque el archivo *pom.xml* en el directorio raíz de la aplicación.
+1. Después de extraer los archivos en el sistema local, la aplicación de Spring Boot estará lista para editarlos. Busque *pom.xml* en el directorio raíz de la aplicación.
 
-2. Abra el archivo *pom.xml* en un editor de texto y agregue el iniciador de Spring Cloud Azure Config y Administración de características a la lista de `<dependencies>`:
+1. Abra el archivo *pom.xml* en un editor de texto y agregue lo siguiente a la lista de `<dependencies>`:
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.1</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.1</version>
     </dependency>
     <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,35 +75,48 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
     ```
 
 > [!Note]
-> Hay una biblioteca de administración de características que no es web y que no tiene ninguna dependencia de Spring-Web. Para ver las diferencias, consulte los [documentos](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management)adicionales. Además, si no usa App Configuration, consulte la [declaración de la marca de características](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management#feature-flag-declaration).
+> Hay una biblioteca de administración de características que no es web y que no tiene ninguna dependencia de Spring-Web. Consulte la [documentación](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) de GitHub para conocer las diferencias.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
-1. Abra _bootstrap.properties_ en el directorio _resources_ de la aplicación. Si _bootstrap.properties_ no existe, créelo. Agregue la siguiente línea al archivo.
+1. Vaya al directorio `resources` de la aplicación y abra `bootstrap.properties`.  Si el archivo no existe, créelo. Agregue la siguiente línea al archivo.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-1. En el portal de App Configuration del almacén de configuración, vaya a Claves de acceso. Seleccione la pestaña Claves de solo lectura. En esta pestaña, copie el valor de una de las cadenas de conexión y agréguelo como una variable de entorno nueva con el nombre de variable `APP_CONFIGURATION_CONNECTION_STRING`.
+1. En el portal de App Configuration del almacén de configuración, seleccione `Access keys`en la barra lateral. Seleccione la pestaña Claves de solo lectura. Copie el valor de la cadena de conexión principal.
+
+1. Agregue la cadena de conexión principal como variable de entorno y use el nombre de variable `APP_CONFIGURATION_CONNECTION_STRING`.
 
 1. Abra el archivo de Java de la aplicación principal y agregue `@EnableConfigurationProperties` para habilitar esta característica.
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.context.properties.ConfigurationProperties;
     import org.springframework.boot.context.properties.EnableConfigurationProperties;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
 
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
     public class DemoApplication {
+
         public static void main(String[] args) {
             SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
-
-1. Cree un archivo Java llamado *MessageProperties.javaº* en el directorio del paquete de la aplicación. Agregue las siguientes líneas:
+1. Cree un archivo Java llamado *MessageProperties.javaº* en el directorio del paquete de la aplicación.
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
     @ConfigurationProperties(prefix = "config")
     public class MessageProperties {
         private String message;
@@ -124,11 +131,22 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
     }
     ```
 
-1. Cree un archivo Java nuevo llamado *HelloController.java* en el directorio del paquete de la aplicación. Agregue las siguientes líneas:
+1. Cree un archivo Java nuevo llamado *HelloController.java* en el directorio del paquete de la aplicación. 
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+    import org.springframework.stereotype.Controller;
+    import org.springframework.ui.Model;
+
+    import com.microsoft.azure.spring.cloud.feature.manager.FeatureManager;
+    import org.springframework.web.bind.annotation.GetMapping;
+
+
     @Controller
     @ConfigurationProperties("controller")
+
     public class HelloController {
 
         private FeatureManager featureManager;
@@ -139,13 +157,13 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabled("Beta"));
+            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta"));
             return "welcome";
         }
     }
     ```
 
-1. Cree un archivo HTML llamado *welcome.html*en el directorio de plantillas de la aplicación. Agregue las siguientes líneas:
+1. Cree un archivo HTML llamado *welcome.html*en el directorio de plantillas de la aplicación.
 
     ```html
     <!DOCTYPE html>
@@ -202,7 +220,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
     ```
 
-1. Cree una carpeta llamada CSS en static y dentro de ella un nuevo archivo CSS llamado *main.css*. Agregue las siguientes líneas:
+6. Cree una carpeta llamada CSS en `static` y dentro de ella un archivo CSS llamado *main.css*.
 
     ```css
     html {
@@ -237,24 +255,24 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
 ## <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
-1. Compile la aplicación de Spring Boot con Maven y ejecútela; por ejemplo:
+1. Compile la aplicación de Spring Boot con Maven y ejecútela.
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
 
-2. Inicie una ventana del explorador y vaya a `https://localhost:8080`, que es la dirección URL predeterminada de la aplicación web hospedada localmente.
+1. Inicie una ventana del explorador y vaya a la dirección URL predeterminada de una aplicación web hospedada localmente: `https://localhost:8080`.
 
     ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-3. En el portal de App Configuration, seleccione **Feature Manager** (Administrador de características) y cambie el estado de la clave **Beta** a **On** (Activado):
+1. En el portal de App Configuration, seleccione **Feature Manager** (Administrador de características) y cambie el estado de la clave **Beta** a **On** (Activado):
 
     | Clave | State |
     |---|---|
     | Beta | Por |
 
-4. Actualice la página del explorador para ver los nuevos valores de configuración.
+1. Actualice la página del explorador para ver los nuevos valores de configuración.
 
     ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 

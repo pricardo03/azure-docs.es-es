@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125413"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758757"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación 
 
@@ -41,7 +40,20 @@ El sistema de autenticación altera y agrega características constantemente par
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 
-Septiembre de 2019: Aplicación adicional de la semántica de POST de acuerdo con las reglas de análisis de direcciones URL: los parámetros duplicados desencadenarán un error y se omitirá la marca [BOM](https://www.w3.org/International/questions/qa-byte-order-mark).
+No hay ninguno programado en este momento.  Consulte a continuación los cambios que están o estarán próximamente en producción. 
+
+## <a name="february-2020"></a>Febrero de 2020: 
+
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Los fragmentos vacíos se anexarán a cada redirección HTTP desde el punto de conexión de inicio de sesión. 
+
+**Fecha efectiva**: 8 de febrero de 2020
+
+**Puntos de conexión afectados**: v1.0 y v2.0
+
+**Protocolo afectado**: Flujos de OAuth y OIDC que usan response_type=query: incluye el [flujo de código de autorización](v2-oauth2-auth-code-flow.md) en algunos casos y el [flujo implícito](v2-oauth2-implicit-grant-flow.md). 
+
+Cuando se envía una respuesta de autenticación desde login.microsoftonline.com a una aplicación a través de la redirección HTTP, el servicio anexará un fragmento vacío a la dirección URL de respuesta.  Esto evita una clase de ataques de redireccionamiento, ya que se asegura de que el explorador borre todo fragmento existente en la solicitud de autenticación.  Ninguna aplicación debe tener una dependencia de este comportamiento. 
+
 
 ## <a name="august-2019"></a>Agosto de 2019
 

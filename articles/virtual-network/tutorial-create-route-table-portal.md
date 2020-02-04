@@ -5,25 +5,20 @@ description: En este tutorial, aprenderá a enrutar el tráfico de red con una t
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 96b6788e48b845ef7f0add11767eb36b47cac36b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350293"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775276"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -48,19 +43,19 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Tabla de rutas**.
-
-1. En **Crear tabla de rutas**, escriba o seleccione esta información:
+1. En el menú de Azure Portal, seleccione **Crear un recurso**.
+2. En el cuadro de búsqueda, escriba *Tabla de enrutamiento*. Cuando **Tabla de enrutamiento** aparezca en los resultados de la búsqueda, selecciónelo.
+3. En la página **Tabla de enrutamiento**, seleccione **Crear**.
+4. En **Crear tabla de rutas**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba *myRouteTablePublic*. |
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y seleccione *Aceptar*. |
-    | Location | Deje el valor predeterminado **Este de EE. UU.**
+    | Location | Seleccione **Este de EE. UU**.
     | Propagación de rutas de puerta de enlace de red virtual | Deje el valor predeterminado **Habilitado**. |
-
-1. Seleccione **Crear**.
+5. Seleccione **Crear**.
 
 ## <a name="create-a-route"></a>Creación de una ruta
 
@@ -167,7 +162,7 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
     | Contraseña | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Vuelva a escribir la contraseña. |
     | **REGLAS DE PUERTO DE ENTRADA** |  |
-    | Puertos de entrada públicos | Deje el valor predeterminado **Ninguno**.
+    | Puertos de entrada públicos | Seleccione **Ninguno**.
     | **AHORRE DINERO** |  |
     | ¿Ya tiene una licencia de Windows? | Deje el valor predeterminado **No**. |
 

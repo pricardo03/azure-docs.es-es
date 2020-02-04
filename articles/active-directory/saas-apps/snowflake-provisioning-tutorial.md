@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 04d9ec8cad2404466d2df649df4d5c461768b76f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2aaf1d2b377abc0b10b0b14de03d01c7f6fae5b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693597"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767762"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configuración de Snowflake para el aprovisionamiento automático de usuarios
 
@@ -31,7 +31,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Snowflake y
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -56,10 +56,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 Antes de configurar Snowflake para aprovisionar automáticamente usuarios con Azure AD, deberá habilitar el aprovisionamiento SCIM en Snowflake.
 
-> [!NOTE]
-> Actualmente, esta integración está en versión preliminar privada en Snowflake. Si desea habilitar esta característica en su cuenta de Snowflake, póngase en contacto con un representante de ventas de Snowflake.
-
-1. Inicie sesión en la consola de administración de Snowflake. Escriba la consulta que se muestra a continuación en el área de trabajo resaltado y haga clic en **Run** (Ejecutar).
+1. Inicie sesión en la consola de administración de Snowflake. Escriba la consulta que se muestra a continuación en la hoja de cálculo resaltada y haga clic en **Ejecutar**.
 
     ![Consola de administración de Snowflake](media/Snowflake-provisioning-tutorial/image00.png)
 
@@ -102,7 +99,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Snowflake en Azure AD, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -152,13 +149,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-15. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Snowflake.
+15. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Snowflake. Si esta opción no está disponible, configure los campos obligatorios en Credenciales de administrador, haga clic en **Guardar** y actualice la página. 
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
 16. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
-    ![Almacenamiento de la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
+    ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
     Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Snowflake.
 

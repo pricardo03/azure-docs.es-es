@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 992dd7b85dee0774b8388ae22fe18377ca9e5691
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 510a2c3f04cc4c307acad18ee3012d9407155f9f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664844"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766461"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Inicio rápido: Creación de alertas personalizadas
 
@@ -79,30 +79,7 @@ Use los grupos de seguridad para agrupar los dispositivos en categorías lógica
  
 ## <a name="alerts-available-for-customization"></a>Alertas disponibles para la personalización
 
-En la tabla siguiente se proporciona un resumen de las alertas disponibles para la personalización.
-
-
-| severity | NOMBRE | Origen de datos | DESCRIPCIÓN | Corrección sugerida|
-|---|---|---|---|---|
-| Bajo      | Alerta personalizada: el número de mensajes de la nube al dispositivo en el protocolo AMQP está fuera del intervalo permitido.          | IoT Hub     | El número de mensajes de nube a dispositivo (protocolo AMQP) dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.||
-| Bajo      | Alerta personalizada: el número de mensajes de la nube al dispositivo rechazados en el protocolo AMQP está fuera del intervalo permitido. | IoT Hub     | El número de mensajes de nube a dispositivo (protocolo AMQP) rechazados por el dispositivo dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.||
-| Bajo      | Alerta personalizada: el número de mensajes del dispositivo a la nube en el protocolo AMQP está fuera del intervalo permitido.      | IoT Hub     | La cantidad de mensajes de dispositivo a nube (protocolo AMQP) dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|   |
-| Bajo      | Alerta personalizada: el número de invocaciones del método directo está fuera del intervalo permitido. | IoT Hub     | La cantidad de invocaciones del método directo dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.||
-| Bajo      | Alerta personalizada: el número de cargas de archivos está fuera del intervalo permitido. | IoT Hub     | La cantidad de cargas de archivos dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.| |
-| Bajo      | Alerta personalizada: el número de mensajes de la nube al dispositivo en el protocolo HTTP está fuera del intervalo permitido. | IoT Hub     | La cantidad de mensajes de la nube al dispositivo (protocolo HTTP) en un período de tiempo no está en el intervalo permitido configurado                                  |
-| Bajo      | Alerta personalizada: el número de mensajes de la nube al dispositivo rechazados en el protocolo HTTP no se encuentra en el intervalo permitido. | IoT Hub     | La cantidad de mensajes de nube a dispositivo (protocolo HTTP) dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente. |
-| Bajo      | Alerta personalizada: el número de mensajes del dispositivo a la nube en el protocolo HTTP está fuera del intervalo permitido. | IoT Hub| La cantidad de mensajes de dispositivo a nube (protocolo HTTP) dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|    |
-| Bajo      | Alerta personalizada: el número de mensajes de la nube al dispositivo en el protocolo MQTT está fuera del intervalo permitido. | IoT Hub     | La cantidad de mensajes de nube a dispositivo (protocolo MQTT) dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|   |
-| Bajo      | Alerta personalizada: el número de mensajes de la nube al dispositivo rechazados en el protocolo MQTT está fuera del intervalo permitido. | IoT Hub     | La cantidad de mensajes de nube a dispositivo (protocolo MQTT) rechazados por el dispositivo dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente. |
-| Bajo      | Alerta personalizada: el número de mensajes del dispositivo a la nube en el protocolo MQTT está fuera del intervalo permitido.          | IoT Hub     | La cantidad de mensajes de dispositivo a nube (protocolo MQTT) dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|
-| Bajo      | Alerta personalizada: el número de purgas de la cola de comandos está fuera del intervalo permitido.                               | IoT Hub     | La cantidad de purgas de la cola de comandos dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.||
-| Bajo      | Alerta personalizada: el número de actualizaciones de módulos gemelos está fuera del intervalo permitido.                                       | IoT Hub     | La cantidad de actualizaciones de módulos gemelos dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|
-| Bajo      | Alerta personalizada: el número de operaciones sin autorizar está fuera del intervalo permitido.  | IoT Hub     | La cantidad de operaciones sin autorizar dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|
-| Bajo      | Alerta personalizada: el número de conexiones activas está fuera del intervalo permitido.  | Agente       | El número de conexiones activas dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|  Investigue los registros del dispositivo. Averigüe dónde se originó la conexión y determine si es inofensiva o malintencionada. Si es malintencionada, quite el posible malware y reconozca el origen. Si es inofensiva, agregue el origen a la lista de conexiones permitidas.  |
-| Bajo      | Alerta personalizada: se ha creado una conexión saliente a una dirección IP que no está permitida.                             | Agente       | Se ha creado una conexión saliente a una dirección IP que está fuera de la lista de direcciones IP permitidas. |Investigue los registros del dispositivo. Averigüe dónde se originó la conexión y determine si es inofensiva o malintencionada. Si es malintencionada, quite el posible malware y reconozca el origen. Si es inofensiva, agregue el origen a la lista de direcciones IP permitidas.                        |
-| Bajo      | Alerta personalizada: el número de inicios de sesión locales con errores está fuera del intervalo permitido.                               | Agente       | La cantidad de inicios de sesión locales con errores dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente. |   |
-| Bajo      | Alerta personalizada: inicio de sesión de un usuario que no está en la lista de usuarios permitidos. | Agente       | Un usuario local no incluido en la lista de usuarios permitidos ha iniciado sesión en el dispositivo.|  Si va a guardar datos sin procesar, vaya a la cuenta de Log Analytics y use los datos para investigar el dispositivo, identifique el origen y, a continuación, corrija la lista de permitidos o bloqueados para esos valores. Si no va a guardar datos sin procesar, vaya al dispositivo y corrija la lista de permitidos o bloqueados para esos valores.|
-| Bajo      | Alerta personalizada: se ha ejecutado un proceso no permitido. | Agente       | Se ha ejecutado en el dispositivo un proceso que no se permite. |Si va a guardar datos sin procesar, vaya a la cuenta de Log Analytics y use los datos para investigar el dispositivo, identifique el origen y, a continuación, corrija la lista de permitidos o bloqueados para esos valores. Si no va a guardar datos sin procesar, vaya al dispositivo y corrija la lista de permitidos o bloqueados para esos valores.  |
+Azure Security Center para IoT ofrece un gran número de alertas que se pueden personalizar en función de las necesidades específicas de cada persona. Revise la [tabla de alertas personalizable](concept-customizable-security-alerts.md) para conocer la gravedad de las alertas, el origen de datos, la descripción y los pasos de corrección que sugerimos dar si se recibe alguna alerta. 
 |
 
 

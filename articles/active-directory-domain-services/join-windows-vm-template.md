@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: c9f5bcd9921b0324eb194eefd2066f6c0eaa4706
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bf01eea71134d932305cce7665c68d4dcc655cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975203"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712555"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Una una máquina virtual con Windows Server a un dominio administrado de Azure Active Directory Domain Services mediante una plantilla de Resource Manager
 
@@ -40,7 +40,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
 Las plantillas de Resource Manager le permiten definir la infraestructura de Azure en el código. Los recursos necesarios, las conexiones de red o la configuración de máquinas virtuales se pueden definir en una plantilla. Estas plantillas crean implementaciones coherentes y reproducibles cada vez, y pueden tener varias versiones a medida que realiza cambios. Para más información, consulte [Información general de plantillas de Azure Resource Manager][template-overview].
 
-Cada recurso se define en una plantilla mediante JSON. En el siguiente ejemplo de JSON se usa el tipo de recurso *Microsoft.Compute/virtualMachines/extensions* para instalar la extensión de unión a un dominio de Active Directory. Se especifican parámetros que usa en el momento de la implementación. Al implementarse la extensión, la máquina virtual se une al dominio administrado de Azure AD DS.
+Cada recurso se define en una plantilla mediante la notación de objetos JavaScript (JSON). En el siguiente ejemplo de JSON se usa el tipo de recurso *Microsoft.Compute/virtualMachines/extensions* para instalar la extensión de unión a un dominio de Active Directory. Se especifican parámetros que usa en el momento de la implementación. Al implementarse la extensión, la máquina virtual se une al dominio administrado de Azure AD DS.
 
 ```json
  {
@@ -94,7 +94,7 @@ Para crear una máquina virtual con Windows Server y, a continuación, unirla a
     | Prefijo de etiqueta DNS          | Escriba un nombre DNS para usarlo para la máquina virtual, por ejemplo, *myvm*. |
     | Tamaño de VM                   | Especifique un tamaño de VM, como *Standard_DS2_v2*. |
     | Dominio al que unirse            | El nombre DNS de dominio administrado de Azure AD DS como, por ejemplo, *aadds.contoso.com*. |
-    | Nombre de usuario de dominio           | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado. Esta cuenta debe ser miembro del grupo de *administradores de Azure AD DC*. |
+    | Nombre de usuario de dominio           | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado, como `contosoadmin@aadds.contoso.com`. Esta cuenta debe ser miembro del grupo de *administradores de Azure AD DC*. |
     | Contraseña de dominio           | La contraseña de la cuenta de usuario especificada en la configuración anterior. |
     | Ruta de acceso de unidad organizativa opcional          | La unidad organizativa personalizada en la que agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa *Equipos de DC de AAD* predeterminada. |
     | Nombre de usuario administrador de máquina virtual         | Especifique una cuenta de administrador local para su creación en la máquina virtual. |
@@ -123,7 +123,7 @@ Para unir una máquina virtual con Windows Server existente a un dominio admini
     | Resource group            | Elija el grupo de recursos con su máquina virtual existente. |
     | Location                  | Seleccione la ubicación de su máquina virtual existente. |
     | Lista de máquinas virtuales                   | Escriba la lista separada por comas de las máquinas virtuales existentes que unir al dominio administrado de Azure AD DS, como *myVM1,myVM2*. |
-    | Nombre de usuario de unión a un dominio     | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado. Esta cuenta debe ser miembro del grupo de *administradores de Azure AD DC*. |
+    | Nombre de usuario de unión a un dominio     | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado, como `contosoadmin@aadds.contoso.com`. Esta cuenta debe ser miembro del grupo de *administradores de Azure AD DC*. |
     | Contraseña de usuario de unión a un dominio | La contraseña de la cuenta de usuario especificada en la configuración anterior. |
     | Ruta de acceso de unidad organizativa opcional          | La unidad organizativa personalizada en la que agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa *Equipos de DC de AAD* predeterminada. |
 

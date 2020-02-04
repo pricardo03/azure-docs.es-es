@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: e33aa98939eeb5b5394f1f5cc05e28ae8f6ae4f2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5c8b3ed329c03bd08b2a0b3e26ada7a4e36ceb49
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515241"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716876"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implementación del contenedor de detección de idioma Text Analytics en Azure Kubernetes Service
 
 Aprenda a implementar el contenedor de detección de idioma. Este procedimiento muestra cómo crear los contenedores de Docker locales, insertar los contenedores en su propio registro de contenedor privado, ejecutar el contenedor en un clúster de Kubernetes y probarlo en un explorador web.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente. No use Azure Cloud Shell.
 
@@ -36,7 +36,7 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
 
 ## <a name="running-the-sample"></a>Ejecución del ejemplo
 
-Este procedimiento carga y ejecuta el ejemplo de contenedor de Cognitive Services para la detección de idioma. El ejemplo tiene dos contenedores, uno para la aplicación cliente y otro para el contenedor de Cognitive Services. Debe insertar ambas imágenes en su propio Azure Container Registry. Una vez que estén allí, cree una instancia de Azure Kubernetes Service para acceder a estas imágenes y ejecute los contenedores. Cuando se ejecuten los contenedores, use la CLI **kubectl** para ver su rendimiento. Acceda a la aplicación cliente con una solicitud HTTP y vea los resultados.
+Este procedimiento carga y ejecuta el ejemplo de contenedor de Cognitive Services para la detección de idioma. El ejemplo tiene dos contenedores, uno para la aplicación cliente y otro para el contenedor de Cognitive Services. Insertaremos ambas imágenes en la instancia de Azure Container Registry. Una vez que estén allí, cree una instancia de Azure Kubernetes Service para acceder a estas imágenes y ejecute los contenedores. Cuando se ejecuten los contenedores, use la CLI **kubectl** para ver su rendimiento. Acceda a la aplicación cliente con una solicitud HTTP y vea los resultados.
 
 ![Idea conceptual de la ejecución de contenedores de ejemplo](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 

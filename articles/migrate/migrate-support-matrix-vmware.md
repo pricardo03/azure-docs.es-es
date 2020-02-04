@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga más información sobre la compatibilidad para la evaluación de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 74dae71404fe827c9e19d5e3042afd2f98a7a5dd
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154693"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846178"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -52,7 +52,7 @@ Además de detectar máquinas, Azure Migrate: Server Assessment puede detectar a
 --- | ---
 **vCenter Server** | Las máquinas que quiera detectar y evaluar las debe administrar vCenter Server, versión 5.5, 6.0, 6.5 o 6.7.
 **Permisos (evaluación)** | Cuenta de solo lectura de vCenter Server.
-**Permisos (detección de aplicaciones)** | Cuenta de vCenter Server con acceso de solo lectura, así como privilegios habilitados para Máquinas virtuales > Operaciones de invitado.
+**Permisos (detección de aplicaciones)** | Cuenta de vCenter Server con acceso de solo lectura, así como privilegios habilitados para **Máquinas virtuales > Operaciones de invitado**.
 **Permisos (visualización de dependencias)** | Cuenta de Center Server con acceso de solo lectura, así como privilegios habilitados **Máquinas virtuales** > **Operaciones de invitado**.
 
 
@@ -67,8 +67,9 @@ Azure Migrate usa el [dispositivo de Azure Migrate](migrate-appliance.md) para l
 
 **Dispositivo** | **Connection**
 --- | ---
-Dispositivo | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/><br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexiones salientes en el puerto 443, 5671 y 5672 para enviar metadatos de detección y rendimiento a Azure Migrate.
+Dispositivo | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/><br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexiones salientes en los puertos 443 (HTTPS), 5671 y 5672 (AMQP) para enviar los metadatos de detección y rendimiento a Azure Migrate.
 Servidor vCenter | Conexiones entrantes en el puerto TCP 443 para permitir que el dispositivo recopile los metadatos de configuración y rendimiento de las evaluaciones. <br/><br/> De forma predeterminada, el dispositivo se conecta a vCenter en el puerto 443. Si el servidor vCenter escucha en un puerto diferente, puede modificar el puerto al configurar la detección.
+Hosts de ESXi | **Solo son necesarios para la [detección de aplicaciones](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#application-discovery) y la [visualización de dependencias sin agentes](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-dependency-visualization)** <br/><br/> El dispositivo se conecta a los hosts de ESXi en el puerto TCP 443 para detectar aplicaciones y ejecutar la visualización de dependencias sin agentes en las VM que se ejecutan en los hosts.
 
 ## <a name="agent-based-dependency-visualization"></a>Visualización de dependencias basada en agente
 

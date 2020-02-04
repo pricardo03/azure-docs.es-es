@@ -1,6 +1,6 @@
 ---
 title: Configuración de una cuenta de laboratorio con Azure Lab Services | Microsoft Docs
-description: En este tutorial, va a configurar una cuenta de laboratorio con Azure Lab Services.
+description: Aprenda a configurar una cuenta de laboratorio con Azure Lab Services, a agregar un creador de laboratorios y a especificar las imágenes de Marketplace que van a usar los laboratorios en la cuenta de laboratorio.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 8c252870a82a60a561f12fab9d728c028458212a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 62ccda96563a53ebc77337bb2f89cfddd4410a26
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562109"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719048"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services
 En Azure Lab Services, una cuenta de laboratorio sirve como cuenta central en la que se administran los laboratorios de una organización. En su cuenta de laboratorio, puede conceder permiso a otros usuarios para crear laboratorios y establecer las directivas que se aplican a todos los laboratorios de la cuenta de laboratorio. En este tutorial, aprenderá a crear una cuenta de laboratorio como administrador de laboratorio. 

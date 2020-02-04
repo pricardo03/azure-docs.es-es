@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167624"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712541"
 ---
 # <a name="what-is-identity-provisioning"></a>Qué es el aprovisionamiento de identidades
 
 En la actualidad, tanto en las empresas como en las organizaciones se puede encontrar cada vez más una combinación de aplicaciones locales y en la nube.  Los usuarios requieren acceso tanto a las aplicaciones que se encuentran en un entorno local como a las que están en la nube. Es necesario tener una única identidad para todas estas aplicaciones (las locales y las de la nube).
 
-El aprovisionamiento es el proceso de crear un objeto en función de varias condiciones, mantener el objeto actualizado y eliminar el objeto cuando dejan de cumplirse dichas condiciones. Por ejemplo, cuando un nuevo usuario se une a una organización, se incorpora al sistema de RR. HH.  En ese momento, el aprovisionamiento puede crear una cuenta de usuario correspondiente en la nube, en Active Directory y en las distintas aplicaciones a las que el usuario necesita acceder.  Esto permite al usuario empezar a trabajar y tener acceso a las aplicaciones y sistemas que necesitan desde el primer día. 
+El aprovisionamiento es el proceso de crear un objeto en función de varias condiciones, mantener el objeto actualizado y eliminar el objeto cuando dejan de cumplirse las condiciones. Por ejemplo, cuando un nuevo usuario se une a una organización, se incorpora al sistema de RR. HH.  En ese momento, el aprovisionamiento puede crear una cuenta de usuario correspondiente en la nube, en Active Directory y en las distintas aplicaciones a las que el usuario necesita acceder.  Esto permite al usuario empezar a trabajar y tener acceso a las aplicaciones y sistemas que necesitan desde el primer día. 
 
 ![aprovisionamiento en la nube](media/what-is-provisioning/cloud1.png)
 

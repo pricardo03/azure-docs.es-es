@@ -2,20 +2,20 @@
 title: 'Desarrollo Agile de proyectos de ciencia de datos: Team Data Science Process'
 description: Ejecute un proyecto de ciencia de datos de forma sistemática, con control de versiones y en colaboración dentro de un equipo de proyecto mediante el proceso de ciencia de datos en equipo.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 09c5962e62077fbecc9b327320d0bb5b88416ffa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260684"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722108"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desarrollo de Agile de proyectos de ciencia de datos
 
@@ -42,8 +42,8 @@ Las siguientes son las definiciones de los tipos de elementos de trabajo:
 - **Característica**: una característica se corresponde a una interacción de proyecto. Las diferentes interacciones con un cliente son distintas características, y es mejor considerar las diversas fases de un proyecto como características diferentes. Si elige un esquema como *\<ClientName>-\<EngagementName>* para denominar las características, podrá reconocer fácilmente el contexto del proyecto e interacción mediante los propios nombres.
   
 - **Caso de usuario**: los casos de usuario son elementos de trabajo necesarios para completar íntegramente una característica. Los siguientes son algunos ejemplos de casos de usuario:
-  - Obtener los datos 
-  - Exploración de los datos 
+  - Obtener datos 
+  - Exploración de datos 
   - Generación de características
   - Creación de modelos
   - Modelos operativos 
@@ -86,13 +86,13 @@ Después de crear el proyecto y el repositorio de código del proyecto, puede ag
    
    También puede vincular la característica al repositorio de código de Azure Repos del proyecto seleccionando **Agregar vínculo** en la sección **Desarrollo**. 
    
-   Cuando termine de editar la característica, seleccione **Guardar y cerrar**.
+   Después de editar la característica, seleccione **Guardar y cerrar**.
    
    ![Editar la característica y seleccionar Guardar y cerrar](./media/agile-development/3a-add-link-repo.png)
 
 ## <a name='AddStoryunderfeature-4'></a>Adición de un caso de usuario a la característica 
 
-En la característica, puede agregar casos de usuario para describir los pasos principales necesarios para finalizar el proyecto. 
+En la característica, puede agregar casos de usuario para describir los pasos principales necesarios para completar el proyecto. 
 
 Para agregar un nuevo caso de usuario a una característica:
 

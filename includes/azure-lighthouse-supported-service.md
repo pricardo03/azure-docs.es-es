@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/19/2019
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: c8e1af7142dcafb6574b7d71b55dd85b3fbc18d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4e2395659659781da49159247991d0711491ff2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469631"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846040"
 ---
 > [!NOTE]
-> En este servicio se admite la [administración de recursos delegados de Azure](../articles/lighthouse/concepts/azure-delegated-resource-management.md), que permite a los proveedores de servicios administrar los recursos y las suscripciones que los clientes han delegado desde dentro del inquilino del proveedor de servicios. Para obtener más información, consulte [Azure Lighthouse](../articles/lighthouse/overview.md).
+> En este servicio se admite la [administración de recursos delegados de Azure](../articles/lighthouse/concepts/azure-delegated-resource-management.md), que permite a los proveedores de servicios iniciar sesión en su propio inquilino para administrar las suscripciones y los grupos de recursos que los clientes han delegado. Para obtener más información, consulte [Azure Lighthouse](../articles/lighthouse/overview.md).

@@ -4,29 +4,29 @@ description: 'Conozca más información sobre la API de Azure Cosmos DB para Mo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a48fb82402cd4719cb210ec2dab55b3a0f7883ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a32affab45ab99a89113644bb08c4f2b57d69018
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721020"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 3.6): características y sintaxis que se admiten
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede comunicarse con la API de Azure Cosmos DB para MongoDB mediante cualquiera de los [controladores](https://docs.mongodb.org/ecosystem/drivers) del cliente de MongoDB de código abierto. La API de Azure Cosmos DB para MongoDB permite usar los controladores de cliente existentes mediante la adhesión al [protocolo de conexión](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) de MongoDB.
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede comunicarse con la API de Azure Cosmos DB para MongoDB mediante cualquiera de los [controladores](https://docs.mongodb.org/ecosystem/drivers) del cliente de MongoDB de código abierto. La API de Azure Cosmos DB para MongoDB permite usar los controladores de cliente existentes mediante la adhesión al [protocolo de conexión](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) de MongoDB.
 
 Con la API de Azure Cosmos DB para MongoDB, puede disfrutar de las ventajas de MongoDB a las que está acostumbrado, con todas las funcionalidades empresariales que ofrece Cosmos DB: [distribución global](distribute-data-globally.md), [particionamiento automático](partition-data.md), garantías de disponibilidad y latencia, indexación automática de cada campo, cifrado en reposo, copias de seguridad y mucho más.
 
 ## <a name="protocol-support"></a>Compatibilidad con protocolos
 
-La API de Azure Cosmos DB para MongoDB es compatible de manera predeterminada con la versión del servidor de MongoDB **3.6** para las cuentas nuevas. A continuación se enumeran los operadores admitidos y las limitaciones o excepciones. Cualquier controlador de cliente que reconozca estos protocolos podrá conectarse a la API de Azure Cosmos DB para MongoDB.
+La API de Azure Cosmos DB para MongoDB es compatible de manera predeterminada con la versión del servidor de MongoDB **3.6** para las cuentas nuevas. A continuación se enumeran los operadores admitidos y las limitaciones o excepciones. Cualquier controlador de cliente que reconozca estos protocolos podrá conectarse a la API de Azure Cosmos DB para MongoDB. Tenga en cuenta que cuando se usa la API de Azure Cosmos DB para las cuentas de MongoDB, la versión 3.6 de las cuentas tiene el punto de conexión en el formato `*.mongo.cosmos.azure.com`, mientras que la versión 3.2 de las cuentas tiene el punto de conexión en el formato `*.documents.azure.com`.
 
 ## <a name="query-language-support"></a>Compatibilidad con lenguajes de consulta
 
-La API de Azure Cosmos DB para MongoDB proporciona una compatibilidad completa con las construcciones del lenguaje de consulta de MongoDB. A continuación, encontrará una lista detallada de las opciones, comandos, fases, operadores y operaciones compatibles actualmente.
+La API de Azure Cosmos DB para MongoDB proporciona una compatibilidad completa con las construcciones del lenguaje de consulta de MongoDB. A continuación, encontrará una lista detallada de las opciones, comandos, fases, operadores y operaciones admitidos actualmente.
 
 ## <a name="database-commands"></a>Comandos de base de datos
 
@@ -34,43 +34,77 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operación de consulta y escritura
 
-- delete
-- find
-- findAndModify
-- getLastError
-- getMore
-- insert
-- update
+|Get-Help  |Compatible |
+|---------|---------|
+|delete | Sí |
+|find | Sí     |
+|findAndModify | Sí  |
+|getLastError|   Sí |
+|getMore  |  Sí  |
+|getPrevError | No  |
+|insert  |   Sí  |
+|parallelCollectionScan  | Sí   |
+|resetError |   No  |
+|update  |   Sí  |
+|[Flujos de cambio](mongodb-change-streams.md)  |  Sí  |
+|GridFS |   Sí  |
 
 ### <a name="authentication-commands"></a>Comandos de autenticación
 
-- logout
-- authenticate
-- getnonce
+|Get-Help  |Compatible |
+|---------|---------|
+|authenticate    |   Sí      |
+|logout    |      Sí   |
+|getnonce   |    Sí     |
+
 
 ### <a name="administration-commands"></a>Comandos de administración
 
-- dropDatabase
-- listDatabases
-- listCollections
-- drop
-- create
-- filemd5
-- createIndexes
-- listIndexes
-- dropIndexes
-- connectionStatus
-- reIndex
-- killCursors
+|Get-Help  |Compatible |
+|---------|---------|
+|Colecciones limitadas   |   No      |
+|cloneCollectionAsCapped     |   No      |
+|collMod     |   No      |
+|collMod: expireAfterSeconds   |   No      |
+|convertToCapped   |  No       |
+|copydb     |  No       |
+|create   |    Sí     |
+|createIndexes     |  Sí       |
+|currentOp     |  Sí       |
+|drop     |   Sí      |
+|dropDatabase     |  Sí       |
+|dropIndexes     |   Sí      |
+|filemd5    |   Sí      |
+|killCursors    |  Sí       |
+|killOp     |   No      |
+|listCollections     |  Sí       |
+|listDatabases     |  Sí       |
+|listIndexes     |  Sí       |
+|reIndex     |    Sí     |
+|renameCollection     |    No     |
+|connectionStatus    |     No    |
 
 ### <a name="diagnostics-commands"></a>Comandos de diagnóstico
 
-- buildInfo
-- collStats
-- dbStats
-- hostInfo
-- listDatabases
-- whatsmyuri
+|Get-Help  |Compatible |
+|---------|---------|
+|buildInfo       |   Sí      |
+|collStats    |  Sí       |
+|connPoolStats     |  No       |
+|connectionStatus     |  No       |
+|dataSize     |   No      |
+|dbHash    |    No     |
+|dbStats     |   Sí      |
+|explain     | No        |
+|explain: executionStats     |     No    |
+|features     |    No     |
+|hostInfo     |   No      |
+|listDatabases       |   Sí      |
+|listCommands     |  No       |
+|profiler     |  No       |
+|serverStatus     |  No       |
+|top     |    No     |
+|whatsmyuri     |   Sí      |
 
 <a name="aggregation-pipeline"/>
 
@@ -78,252 +112,433 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 
 ### <a name="aggregation-commands"></a>Comandos de agregación
 
-- aggregate
-- count
-- distinct
+|Get-Help  |Compatible |
+|---------|---------|
+|aggregate |   Sí  |
+|count     |   Sí  |
+|distinct  | Sí |
+|mapReduce | No |
 
 ### <a name="aggregation-stages"></a>Fases de agregación
 
-- $project
-- $match
-- $limit
-- $skip
-- $unwind
-- $group
-- $sample
-- $sort
-- $lookup
-- $out
-- $count
-- $addFields
-- $redact
-- $replaceRoot
+|Get-Help  |Compatible |
+|---------|---------|
+|$collStats |No|
+|$project   |Sí|
+|$match |Sí|
+|$redact|   Sí|
+|$limit |Sí|
+|$skip  |Sí|
+|$unwind|   Sí|
+|$group |   Sí|
+|$sample|       Sí|
+|$sort  |Sí|
+|$geoNear|  No|
+|$lookup    |   Sí|
+|$out       |Sí|
+|$indexStats|       No|
+|$facet |No|
+|$bucket|   No|
+|$bucketAuto|   No|
+|$sortByCount|  Sí|
+|$addFields |Sí|
+|$replaceRoot|  Sí|
+|$count |Sí|
+|$currentOp|    No|
+|$listLocalSessions |No|
+|$listSessions  |No|
+|$graphLookup   |No|
 
-### <a name="aggregation-expressions"></a>Expresiones de agregación
+### <a name="boolean-expressions"></a>Expresiones booleanas
 
-#### <a name="boolean-expressions"></a>Expresiones booleanas
+|Get-Help  |Compatible |
+|---------|---------|
+|$and| Sí|
+|$or|Sí|
+|$not|Sí|
 
-- $and
-- $or
-- $not
+### <a name="set-expressions"></a>Expresiones de conjunto
 
-#### <a name="set-expressions"></a>Expresiones de conjunto
+|Get-Help  |Compatible |
+|---------|---------|
+| $setEquals | Sí|
+|$setIntersection|Sí|
+| $setUnion|Sí|
+| $setDifference|Sí|
+| $setIsSubset|Sí|
+| $anyElementTrue|Sí|
+| $allElementsTrue|Sí|
 
-- $setEquals
-- $setIntersection
-- $setUnion
-- $setDifference
-- $setIsSubset
-- $anyElementTrue
-- $allElementsTrue
+### <a name="comparison-expressions"></a>Expresiones de comparación
 
-#### <a name="comparison-expressions"></a>Expresiones de comparación
+|Get-Help  |Compatible |
+|---------|---------|
+|$cmp     |  Sí       |
+|$eq|   Sí| 
+|$gt |  Sí| 
+|$gte|  Sí| 
+|$lt    |Sí|
+|$lte|  Sí| 
+|$ne    |   Sí| 
+|$in    |   Sí| 
+|$nin   |   Sí| 
 
-- $cmp
-- $eq
-- $gt
-- $gte
-- $lt
-- $lte
-- $ne
+### <a name="arithmetic-expressions"></a>Expresiones aritméticas
 
-#### <a name="arithmetic-expressions"></a>Expresiones aritméticas
+|Get-Help  |Compatible |
+|---------|---------|
+|$abs |  Sí       |
+| $add |  Sí       |
+| $ceil |  Sí       |
+| $divide |  Sí       |
+| $exp |  Sí       |
+| $floor |  Sí       |
+| $ln |  Sí       |
+| $log |  Sí       |
+| $log10 |  Sí       |
+| $mod |  Sí       |
+| $multiply |  Sí       |
+| $pow |  Sí       |
+| $sqrt |  Sí       |
+| $subtract |  Sí       |
+| $trunc |  Sí       |
 
-- $abs
-- $add
-- $ceil
-- $divide
-- $exp
-- $floor
-- $ln
-- $log
-- $log10
-- $mod
-- $multiply
-- $pow
-- $sqrt
-- $subtract
-- $trunc
+### <a name="string-expressions"></a>Expresiones de cadena
 
-#### <a name="string-expressions"></a>Expresiones de cadena
+|Get-Help  |Compatible |
+|---------|---------|
+|$concat |  Sí       |
+| $indexOfBytes|  Sí       |
+| $indexOfCP|  Sí       |
+| $split|  Sí       |
+| $strLenBytes|  Sí       |
+| $strLenCP|  Sí       |
+| $strcasecmp|  Sí       |
+| $substr|  Sí       |
+| $substrBytes|  Sí       |
+| $substrCP|  Sí       |
+| $toLower|  Sí       |
+| $toUpper|  Sí       |
 
-- $concat
-- $indexOfBytes
-- $indexOfCP
-- $split
-- $strLenBytes
-- $strLenCP
-- $strcasecmp
-- $substr
-- $substrBytes
-- $substrCP
-- $toLower
-- $toUpper
+### <a name="text-search-operator"></a>Operador de búsqueda de texto
 
-#### <a name="array-expressions"></a>Expresiones de matriz
+|Get-Help  |Compatible |
+|---------|---------|
+| $meta | No|
 
-- $arrayElemAt
-- $concatArrays
-- $filter
-- $indexOfArray
-- $isArray
-- $range
-- $reverseArray
-- $size
-- $slice
-- $in
+### <a name="array-expressions"></a>Expresiones de matriz
 
-#### <a name="date-expressions"></a>Expresiones de fecha
+|Get-Help  |Compatible |
+|---------|---------|
+|$arrayElemAt   |   Sí|
+|$arrayToObject|    Sí|
+|$concatArrays  |   Sí|
+|$filter    |   Sí|
+|$indexOfArray  |Sí|
+|$isArray   |   Sí|
+|$objectToArray |Sí|
+|$range |Sí|
+|$reverseArray  |   Sí|
+|$reduce|   Sí|
+|$size  |   Sí|
+|$slice |   Sí|
+|$zip   |   Sí|
+|$in    |   Sí|
 
-- $dayOfYear
-- $dayOfMonth
-- $dayOfWeek
-- $year
-- $month
-- $week
-- $hour
-- $minute
-- $second
-- $millisecond
-- $isoDayOfWeek
-- $isoWeek
+### <a name="variable-operators"></a>Operadores de variable
 
-#### <a name="conditional-expressions"></a>Expresiones condicionales
+|Get-Help  |Compatible |
+|---------|---------|
+|$map   |No|
+|$let   |Sí|
 
-- $cond
-- $ifNull
+### <a name="system-variables"></a>Variables del sistema
 
-## <a name="aggregation-accumulators"></a>Acumuladores de agregación
+|Get-Help  |Compatible |
+|---------|---------|
+|$$CURRENT| Sí|
+|$$DESCEND|     Sí|
+|$$KEEP     |Sí|
+|$$PRUNE    |   Sí|
+|$$REMOVE   |Sí|
+|$$ROOT     |Sí|
 
-Cosmos DB admite todos los acumuladores de MongoDB v3.6 excepto:
+### <a name="literal-operator"></a>Operador literal
 
-- $stdDevPop
-- $stdDevSamp
+|Get-Help  |Compatible |
+|---------|---------|
+|$literal   |Sí|
+
+### <a name="date-expressions"></a>Expresiones de fecha
+
+|Get-Help  |Compatible |
+|---------|---------|
+|$dayOfYear |Sí    |
+|$dayOfMonth|   Sí |
+|$dayOfWeek |Sí    |
+|$year  |Sí    |
+|$month |Sí|   
+|$week  |Sí    |
+|$hour  |Sí    |
+|$minute|   Sí|    
+|$second    |Sí    |
+|$millisecond|  Sí|    
+|$dateToString  |Sí    |
+|$isoDayOfWeek  |Sí    |
+|$isoWeek   |Sí    |
+|$dateFromParts|    No| 
+|$dateToParts   |No |
+|$dateFromString|   No|
+|$isoWeekYear   |Sí    |
+
+### <a name="conditional-expressions"></a>Expresiones condicionales
+
+|Get-Help  |Compatible |
+|---------|---------|
+| $cond| Sí|
+| $ifNull| Sí|
+| $switch |Sí|
+
+### <a name="data-type-operator"></a>Operador de tipo de datos
+
+|Get-Help  |Compatible |
+|---------|---------|
+| $type| Sí|
+
+### <a name="accumulator-expressions"></a>Expresiones de acumulador
+
+|Get-Help  |Compatible |
+|---------|---------|
+|$sum   |Sí    |
+|$avg   |Sí    |
+|$first|    Sí|
+|$last  |Sí    |
+|$max   |Sí    |
+|$min   |Sí    |
+|$push| Sí|
+|$addToSet| Sí|
+|$stdDevPop|    No  |
+|$stdDevSamp|   No|
+
+### <a name="merge-operator"></a>Operador de combinación
+
+|Get-Help  |Compatible |
+|---------|---------|
+| $mergeObjects | Sí|
+
+## <a name="data-types"></a>Tipos de datos
+
+|Get-Help  |Compatible |
+|---------|---------|
+|Double |Sí    |
+|String |Sí    |
+|Object |Sí    |
+|Array  |Sí    |
+|Binary Data    |Sí|   
+|ObjectId   |Sí    |
+|Boolean    |Sí    |
+|Date   |Sí    |
+|Null   |Sí    |
+|Entero de 32 bits (int)   |Sí    |
+|Timestamp  |Sí    |
+|Entero de 64 bits (long)  |Sí    |
+|MinKey |Sí    |
+|MaxKey |Sí    |
+|Decimal128 |Sí|   
+|Expresión regular |Sí|
+|JavaScript |Sí|
+|JavaScript (con ámbito)|   Sí |
+|No definido  |Sí    |
+
+## <a name="indexes-and-index-properties"></a>Índices y propiedades de índice
+
+### <a name="indexes"></a>Índices
+
+|Get-Help  |Compatible |
+|---------|---------|
+|Índice de campo único |Sí    |
+|Índice compuesto |Sí    |
+|Índice de varias claves |Sí    |
+|Índice de texto |No|
+|2dsphere   |Sí    |
+|Índice 2d   |No |
+|Índice de hash   | Sí|
+
+### <a name="index-properties"></a>Propiedades de índice
+
+|Get-Help  |Compatible |
+|---------|---------|
+|TTL|   Sí |
+|Único |Sí|
+|Parcial|   No|
+|No distingue mayúsculas de minúsculas   |No|
+|Dispersos |No |
+|Información previa|    Sí |
 
 ## <a name="operators"></a>Operadores
 
-Los siguientes operadores son compatibles con los correspondientes ejemplos de su uso. Tenga en cuenta este documento de muestra utilizada en las consultas siguientes:
+### <a name="logical-operators"></a>Operadores lógicos
 
-```json
-{
-  "Volcano Name": "Rainier",
-  "Country": "United States",
-  "Region": "US-Washington",
-  "Location": {
-    "type": "Point",
-    "coordinates": [
-      -121.758,
-      46.87
-    ]
-  },
-  "Elevation": 4392,
-  "Type": "Stratovolcano",
-  "Status": "Dendrochronology",
-  "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-}
-```
+|Get-Help  |Compatible |
+|---------|---------|
+|$or    |   Sí|
+|$and   |   Sí|
+|$not   |   Sí|
+|$nor   |   Sí| 
 
-Operator | Ejemplo |
---- | --- |
-$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
-$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
-$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
-$lte | `{ "Elevation": { $lte: 5000 } }` | | -
-$ne | `{ "Elevation": { $ne: 1 } }` |  | -
-$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
-$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
-$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
-$exists | `{ "Status": { $exists: true } }`|  | -
-$type | `{ "Status": { $type: "string" } }`|  | -
-$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
-$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
+### <a name="element-operators"></a>Operadores de elementos
 
-### <a name="notes"></a>Notas
+|Get-Help  |Compatible |
+|---------|---------|
+|$exists|   Sí|
+|$type  |   Sí|
+
+### <a name="evaluation-query-operators"></a>Operadores de consulta de evaluación
+
+|Get-Help  |Compatible |
+|---------|---------|
+|$expr  |   No|
+|$jsonSchema    |   No|
+|$mod   |   Sí|
+|$regex |   Sí|
+|$text  | No (No admitido. Utilice $regex en su lugar).| 
+|$where |No| 
 
 En las consultas de $regex, las expresiones ancladas a la izquierda permiten la búsqueda de índice. Sin embargo, si utiliza el modificador 'i' (no distingue mayúsculas y minúsculas) y el modificador 'm' modificador (multilínea), se realiza el examen de colección de todas las expresiones.
-Cuando es necesario incluir '$' o '|', es mejor crear dos (o más) consultas regex.
-Por ejemplo, dada la siguiente consulta original: ```find({x:{$regex: /^abc$/})```, tiene que modificarse de la siguiente forma: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-La primera parte utilizará el índice para restringir la búsqueda a esos documentos que empiezan por ^ abc y la segunda parte buscará coincidencias con los datos exactos.
-El operador de barra '|' actúa como una función "or": la consulta ```find({x:{$regex: /^abc|^def/})``` coincide con los documentos con los que el campo "x" tiene un valor que comienza por "abc" o "def". Para utilizar el índice, se recomienda dividir la consulta en dos consultas distintas combinadas mediante el operador $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+
+Cuando es necesario incluir '$' o '|', es mejor crear dos (o más) consultas regex. Por ejemplo, dada la siguiente consulta original: ```find({x:{$regex: /^abc$/})```, tiene que modificarse de la siguiente forma:
+
+```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+
+La primera parte utilizará el índice para restringir la búsqueda a esos documentos que empiezan por ^ abc y la segunda parte buscará coincidencias con los datos exactos. El operador de barra '|' actúa como una función "or": la consulta ```find({x:{$regex: /^abc|^def/})``` coincide con los documentos con los que el campo "x" tiene un valor que comienza por "abc" o "def". Para utilizar el índice, se recomienda dividir la consulta en dos consultas distintas combinadas mediante el operador $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+
+### <a name="array-operators"></a>Operadores de matriz
+
+|Get-Help  |Compatible | 
+|---------|---------|
+| $all | Sí| 
+| $elemMatch | Sí| 
+| $size | Sí | 
+
+### <a name="comment-operator"></a>Operador de comentario
+
+|Get-Help  |Compatible | 
+|---------|---------|
+$comment |Sí| 
+
+### <a name="projection-operators"></a>Operadores de proyección
+
+|Get-Help  |Compatible |
+|---------|---------|
+|$elemMatch |Sí|
+|$meta| No|
+|$slice | Sí|
 
 ### <a name="update-operators"></a>Operadores de actualización
 
 #### <a name="field-update-operators"></a>Operadores de actualización de campo
 
-- $inc
-- $mul
-- $rename
-- $setOnInsert
-- $set
-- $unset
-- $min
-- $max
-- $currentDate
+|Get-Help  |Compatible |
+|---------|---------|
+|$inc   |   Sí|
+|$mul   |   Sí|
+|$rename    |   Sí|
+|$setOnInsert|  Sí|
+|$set   |Sí|
+|$unset| Sí|
+|$min   |Sí|
+|$max   |Sí|
+|$currentDate   | Sí|
 
 #### <a name="array-update-operators"></a>Operadores de actualización de matriz
 
-- $addToSet
-- $pop
-- $pullAll
-- $pull
-- $pushAll
-- $push
-- $each
-- $slice
-- $sort
-- $position
+|Get-Help  |Compatible |
+|---------|---------|
+|$  |Sí|
+|$[]|   Sí|
+|$[<identifier>]|   Sí|
+|$addToSet  |Sí|
+|$pop   |Sí|
+|$pullAll|  Sí|
+|$pull  |Sí|
+|$push  |Sí|
+|$pushAll| Sí|
+
+
+#### <a name="update-modifiers"></a>Modificadores de actualización
+
+|Get-Help  |Compatible |
+|---------|---------|
+|$each  |   Sí|
+|$slice |Sí|
+|$sort  |Sí|
+|$position  |Sí|
 
 #### <a name="bitwise-update-operator"></a>Operador de actualización bit a bit
 
-- $bit
+|Get-Help  |Compatible |
+|---------|---------|
+| $bit  |   Sí|    
+|$bitsAllSet    |   No|
+|$bitsAnySet    |   No|
+|$bitsAllClear  |No|
+|$bitsAnyClear  |No|
 
 ### <a name="geospatial-operators"></a>Operadores de geoespaciales
 
-Operator | Ejemplo | |
---- | --- | --- |
-$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Sí |
-$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sí |
-$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sí |
-$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Sí |
-$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sí |
-$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Sí |
-$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Sí |
-$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | Sí |
-$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Sí |
-$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Sí |
-$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sí |
+Operator | Compatible| 
+--- | --- |
+$geoWithin | Sí |
+$geoIntersects | Sí | 
+$near |  Sí |
+$nearSphere |  Sí |
+$geometry |  Sí |
+$minDistance | Sí |
+$maxDistance | Sí |
+$center | Sí |
+$centerSphere | Sí |
+$box | Sí |
+$polygon |  Sí |
 
-## <a name="sort-operations"></a>Ordenar operaciones
+## <a name="cursor-methods"></a>Métodos de cursor
+
+|Get-Help  |Compatible |
+|---------|---------|
+|cursor.batchSize() |   Sí|
+|cursor.close() |Sí|
+|cursor.isClosed()|     Sí|
+|cursor.collation()|    No|
+|cursor.comment()   |Sí|
+|cursor.count() |Sí|
+|cursor.explain()|  No|
+|cursor.forEach()   |Sí|
+|cursor.hasNext()   |Sí|
+|cursor.hint()  |Sí|
+|cursor.isExhausted()|  Sí|
+|cursor.itcount()   |Sí|
+|cursor.limit() |Sí|
+|cursor.map()   |Sí|
+|cursor.maxScan()   |Sí|
+|cursor.maxTimeMS()|    Sí|
+|cursor.max()   |Sí|
+|cursor.min()   |Sí|
+|cursor.next()| Sí|
+|cursor.noCursorTimeout()   |No|
+|cursor.objsLeftInBatch()   |Sí|
+|cursor.pretty()|   Sí|
+|cursor.readConcern()|  Sí|
+|cursor.readPref()      |Sí|
+|cursor.returnKey() |No|
+|cursor.showRecordId()| No|
+|cursor.size()  |Nes|
+|cursor.skip()  |Sí|
+|cursor.sort()  |   Sí|
+|cursor.tailable()| No|
+|cursor.toArray()   |Sí|
+
+## <a name="sort-operations"></a>Operaciones de ordenación
 
 Cuando se usa la operación `findOneAndUpdate`, se admiten las operaciones de ordenación en un solo campo, pero no se admiten las operaciones de ordenación en varios campos.
-
-## <a name="additional-operators"></a>Operadores adicionales
-
-Operator | Ejemplo | Notas
---- | --- | --- |
-$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-$size | ```{ "Location.coordinates": { $size: 2 } }``` |
-$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
-$text |  | No compatible. Utilice $regex en su lugar.
-
-## <a name="unsupported-operators"></a>Operadores no compatibles
-
-Los operadores ```$where``` y ```$eval``` no son compatibles con Azure Cosmos DB.
-
-### <a name="methods"></a>Métodos
-
-Los siguientes métodos son compatibles:
-
-#### <a name="cursor-methods"></a>Métodos de cursor
-
-Método | Ejemplo | Notas
---- | --- | --- |
-cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | No se devuelven los documentos sin criterio de ordenación.
 
 ## <a name="unique-indexes"></a>Índices únicos
 
@@ -335,7 +550,7 @@ Cosmos DB admite un período de vida (TTL) en función de la marca de tiempo del
 
 ## <a name="user-and-role-management"></a>Administración de usuarios y roles
 
-Cosmos DB no admite aún usuarios y roles. Sin embargo, Cosmos DB admite el control de acceso basado en roles (RBAC) y claves/contraseñas de solo lectura y escritura que pueden obtenerse a través de [Azure Portal](https://portal.azure.com) (página de cadena de conexión).
+Cosmos DB no admite aún usuarios y roles. Sin embargo, Cosmos DB admite el control de acceso basado en rol (RBAC) y claves o contraseñas de solo lectura y escritura que se pueden obtener mediante [Azure Portal](https://portal.azure.com) (página de cadena de conexión).
 
 ## <a name="replication"></a>Replicación
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 69899f521e73cb5af1af145a0915dbe1a017f307
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 8ae78bb8c0b70e20bfe12b8dc52c02abb6030bdf
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281202"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774115"
 ---
 <a name="HOLTop"></a>
 
@@ -22,6 +22,7 @@ ms.locfileid: "76281202"
 
 > [!NOTE]
 > * En este inicio rápido se usa la versión `3.0-preview` de la biblioteca cliente de Text Analytics, que incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+>
 > * Por motivos de simplicidad, en el código de este artículo se usa almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda enviar cadenas en lotes por motivos de rendimiento y escalabilidad. Por ejemplo, llamar a `SentimentBatchAsync()` y no a `Sentiment()`.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -36,6 +37,9 @@ ms.locfileid: "76281202"
 [!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### <a name="create-a-new-nodejs-application"></a>Creación de una aplicación Node.js
+
+> [!NOTE]
+> Esta versión de la biblioteca cliente de Text Analytics también se puede ejecutar en el [explorador](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio para la aplicación y vaya a él. 
 

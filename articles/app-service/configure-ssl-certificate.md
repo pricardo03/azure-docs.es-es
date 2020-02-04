@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768474"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845932"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adición de un certificado SSL en Azure App Service
 
@@ -61,6 +61,7 @@ El certificado administrado de App Service gratuito es una solución inmediata p
 - No admite certificados comodín.
 - No admite dominios desnudos.
 - No se puede exportar.
+- No admite registros A de DNS.
 
 > [!NOTE]
 > El certificado gratuito lo emite DigiCert. En algunos dominios de nivel superior debe permitir explícitamente DigiCert como emisor de certificados mediante la creación de un [registro de dominio de CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con el valor `0 issue digicert.com`.

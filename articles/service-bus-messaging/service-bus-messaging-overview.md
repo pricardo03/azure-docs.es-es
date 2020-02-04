@@ -1,6 +1,6 @@
 ---
 title: Información general sobre la mensajería de Azure Service Bus | Microsoft Docs
-description: Descripción de la mensajería de Service Bus
+description: En este artículo se proporciona información general de alto nivel sobre Azure Service Bus, un agente de mensajería de integración empresarial totalmente administrado.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561596"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759387"
 ---
 # <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 
@@ -120,7 +120,7 @@ Service Bus se integra completamente con los siguientes servicios de Azure:
 
 * [Event Grid](https://azure.microsoft.com/services/event-grid/)
 * [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Azure Functions](https://azure.microsoft.com/services/functions/)
+* [Funciones de Azure](https://azure.microsoft.com/services/functions/)
 * [Dynamics 365](https://dynamics.microsoft.com)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 

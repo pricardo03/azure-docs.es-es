@@ -3,24 +3,24 @@ title: 'Creación de una canalización de CI/CD con Azure Pipelines: Proceso de
 description: Creación de una canalización de integración continua y entrega continua para aplicaciones de Inteligencia artificial (IA) mediante Docker y Kubernetes.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: f07ce8e8834a2804b6a5b7668718c8e6bff00fa6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260660"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721836"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Creación de canalizaciones de CI/CD para aplicaciones de inteligencia artificial con Azure Pipelines, Docker y Kubernetes
 
-Una aplicación de inteligencia artificial (IA) es un código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para una aplicación de inteligencia artificial siempre hay dos flujos de trabajo: Los científicos de datos crean el modelo de ML y los desarrolladores de aplicaciones compilan la aplicación y la exponen a los usuarios finales para su consumo. En este artículo se describe cómo implementar una canalización de integración continua y entrega continua (CI/CD) para una aplicación de inteligencia artificial que inserta el modelo de ML en el código fuente de la aplicación. En el código de ejemplo y el tutorial se usa una aplicación web sencilla de Python Flask y se captura un modelo previamente entrenado de una cuenta privada de Azure Blob Storage. También puede usar una cuenta de almacenamiento de AWS S3.
+Una aplicación de inteligencia artificial (IA) es un código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para una aplicación de inteligencia artificial siempre hay dos flujos de trabajo: Los científicos de datos crean el modelo de ML y los desarrolladores de aplicaciones compilan la aplicación y la exponen a los usuarios finales para su consumo. En este artículo se describe cómo implementar una canalización de integración continua y entrega continua (CI/CD) para una aplicación de inteligencia artificial que inserta el modelo de ML en el código fuente de la aplicación. En el código de ejemplo y el tutorial se usa una aplicación web de Python Flask y se captura un modelo previamente entrenado de una cuenta privada de Azure Blob Storage. También puede usar una cuenta de almacenamiento de AWS S3.
 
 > [!NOTE]
 > El siguiente proceso es una de las diversas formas de realizar integración continua o entrega continua. Existen alternativas a esta herramienta y a los requisitos previos.
@@ -60,9 +60,9 @@ En el diagrama y los pasos siguientes se describe la arquitectura de canalizaci�
 10. Las solicitudes de usuario para la aplicación pasan por el servidor DNS.
 11. El servidor DNS pasa la solicitud al equilibrador de carga y devuelve las respuestas al usuario.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Proceso de ciencia de datos en equipo (TDSP)](/azure/machine-learning/team-data-science-process/)
 - [Azure Machine Learning (AML)](/azure/machine-learning/)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes)

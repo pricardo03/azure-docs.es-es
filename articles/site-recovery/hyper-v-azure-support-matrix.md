@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863900"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774421"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -33,7 +33,7 @@ Hyper-V sin Virtual Machine Manager | Ahora puede realizar la recuperación ante
 **Server** | **Requisitos** | **Detalles**
 --- | --- | ---
 Hyper-V en ejecución sin Virtual Machine Manager |  Windows Server 2019, Windows Server 2016 (incluida la instalación básica del servidor), Windows Server 2012 R2 con las actualizaciones más recientes | Si ya ha configurado Windows Server 2012 R2 o SCVMM 2012 R2 con Azure Site Recovery, y va a actualizar el sistema operativo, siga las instrucciones de la [documentación.](upgrade-2012R2-to-2016.md) 
-Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si se usa Virtual Machine Manager, los hosts de Windows Server 2019 deben administrarse en Virtual Machine Manager 2019. De manera similar, los hosts de Windows Server 2016 se deben administrar en Virtual Machine Manager 2016.<br/><br/>
+Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si se usa Virtual Machine Manager, los hosts de Windows Server 2019 deben administrarse en Virtual Machine Manager 2019. De manera similar, los hosts de Windows Server 2016 se deben administrar en Virtual Machine Manager 2016.<br/><br/> Nota: No se admite la conmutación por recuperación a una ubicación alternativa para los hosts de Windows Server 2019.
 
 
 ## <a name="replicated-vms"></a>Máquinas virtuales replicadas
@@ -51,8 +51,8 @@ Sistema operativo invitado | Cualquier sistema operativo invitado [compatible co
 
 **Acción** | **Detalles**
 --- | ---
-Cambiar el tamaño de disco en una máquina virtual de Hyper-V replicada | No compatible. Deshabilite la replicación, realice el cambio y, luego, vuelva a habilitar la replicación para la máquina virtual.
-Agregar disco en máquina virtual de Hyper-V replicada | No compatible. Deshabilite la replicación, realice el cambio y, luego, vuelva a habilitar la replicación para la máquina virtual.
+Cambiar el tamaño de disco en una máquina virtual de Hyper-V replicada | No compatible. Deshabilite la replicación, realice el cambio y, luego, vuelva a habilitar la replicación para la VM.
+Agregar disco en máquina virtual de Hyper-V replicada | No compatible. Deshabilite la replicación, realice el cambio y, luego, vuelva a habilitar la replicación para la VM.
 
 ## <a name="hyper-v-network-configuration"></a>Configuración de la red de Hyper-V
 
@@ -111,7 +111,7 @@ SMB 3.0 | No | No
 RDM | N/D | N/D
 Disco > 1 TB | Sí, hasta 4095 GB | Sí, hasta 4095 GB
 Disco: sector físico y lógico de 4 K | No compatible: Gen 1, Gen 2 | No compatible: Gen 1, Gen 2
-Disco: sector lógico de 4 K y sector físico de 512 bytes | Sí |  Sí
+Disco: Sector lógico de 4 K y sector físico de 512 bytes | Sí |  Sí
 Administración de volúmenes lógicos (LVM). Se admite LVM solo en discos de datos. Azure proporciona un único disco de sistema operativo. | Sí | Sí
 Volumen con disco seccionado > 1 TB | Sí | Sí
 Espacios de almacenamiento | No | No
@@ -133,8 +133,8 @@ Cifrado en reposo (SSE)| Sí | Sí
 Cifrado en reposo (CMK) <br></br> (Solo para conmutación por error en discos administrados)| Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
 Premium Storage | Sí | Sí
 Servicio Import/Export | No | No
-Cuentas de almacenamiento de Azure con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.
-Modificar cuenta de almacenamiento | No. No se puede modificar la cuenta de Azure Storage de destino después de habilitar la replicación. Para modificarla, deshabilite y vuelva a habilitar la recuperación ante desastres. | No
+Cuentas de Azure Storage con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.
+Modificar cuenta de almacenamiento | No. No se puede modificar la cuenta de Azure Storage de destino después de habilitar la replicación. Para modificarla, deshabilite la recuperación ante desastres y vuelva a habilitarla. | No
 
 
 ## <a name="azure-compute-features"></a>Características de proceso de Azure

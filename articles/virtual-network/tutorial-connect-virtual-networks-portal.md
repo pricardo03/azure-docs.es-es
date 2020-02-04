@@ -4,25 +4,21 @@ description: En este tutorial, aprenderá a conectar las redes virtuales con emp
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b32f3762f2546a4d4956bf38c914173657e9d3da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3966615d28630fdd2ab799f478ef7edaa3377e1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499867"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775294"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conexión de redes virtuales con emparejamiento de redes virtuales usando Azure Portal
 
@@ -44,26 +40,28 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Creación de redes virtuales
 
-1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
+1. En Azure Portal, seleccione **Crear un recurso**.
 2. Seleccione **Redes** y **Red virtual**.
-3. En la página **Datos básicos**, escriba o seleccione la siguiente información y acepte los valores predeterminados para el resto de la configuración:
+3. En la pestaña **Fundamentos**, escriba o seleccione la siguiente información y acepte los valores predeterminados en las siguientes opciones:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Subscription| Seleccione su suscripción.|
-    |Grupos de recursos| Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
+    |Resource group| Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
     |Region| Seleccione **Este de EE. UU**.|
-    |NOMBRE|myVirtualNetwork1|
+    |Nombre|myVirtualNetwork1|
 
-4. En la página **Direcciones IP**, escriba 10.0.0.0/16 para el campo **Espacio de direcciones**. Haga clic en el botón **Agregar subred** que aparece a continuación y escriba Subnet1 en **Nombre de subred** y 10.0.0.0/24 en **Intervalo de direcciones de subred**.
+4. En la pestaña **Direcciones IP**, escriba 10.0.0.0/16 en el campo **Espacio de direcciones**. Haga clic en el botón **Agregar subred** que aparece a continuación y escriba *Subnet1* en **Nombre de subred** y 10.0.0.0/24 en **Intervalo de direcciones de subred**.
+5. Seleccione **Revisar y crear** y, luego, **Crear**.
    
-5. Complete de nuevo los pasos del 1 al 3, con los cambios siguientes:
+5. Complete de nuevo los pasos del 1 al 5, con los cambios siguientes:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
-    |NOMBRE|myVirtualNetwork2|
+    |Nombre|myVirtualNetwork2|
     |Espacio de direcciones|10.1.0.0/16|
     |Resource group| Seleccione **Usar existente** y después seleccione **myResourceGroup**.|
+    |Nombre de subred | Subnet2|
     |Intervalo de direcciones de subred|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Emparejamiento de redes virtuales
@@ -75,7 +73,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**.
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Nombre del emparejamiento de myVirtualNetwork1 a la red virtual remota|myVirtualNetwork1-myVirtualNetwork2: la primera vez que se cargue la página, verá aquí la frase "remote virtual network" (red virtual remota). Después de elegir la red virtual remota, la frase "remote virtual network" (red virtual remota) se reemplazará por el nombre de la red virtual remota.|
     |Subscription| Seleccione su suscripción.|
@@ -96,28 +94,25 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
 
 ### <a name="create-the-first-vm"></a>Creación de la primera máquina virtual
 
-1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
+1. En Azure Portal, seleccione **Crear un recurso**.
 2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. Puede seleccionar otro sistema operativo, pero en los pasos restantes se supone que seleccionó **Windows Server 2016 Datacenter**. 
 3. Escriba o seleccione la siguiente información para **Aspectos básicos**, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Crear**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Resource group| Seleccione **Usar existente** y después seleccione **myResourceGroup**.|
-    |NOMBRE|myVm1|
+    |Nombre|myVm1|
     |Location| Seleccione **Este de EE. UU**.|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
 4. Seleccione un tamaño de máquina virtual para la opción **Tamaño**.
 5. Seleccione los valores siguientes en **Redes**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Virtual network| myVirtualNetwork1: si no está ya seleccionado, seleccione **Red virtual** y, luego, **myVirtualNetwork1**.|
     |Subnet| Subnet1: si aún no está seleccionado, seleccione **Subred** y, después, **Subnet1**.|
-    
-
-    ![Configuración de máquina virtual](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
    
 6. Seleccionar **Redes**. Elija **Permitir los puertos seleccionados** en la opción **Puertos de entrada públicos**. Elija **RDP** para la opción **Seleccionar puertos de entrada** debajo de esto. 
 
@@ -127,9 +122,9 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
 
 Complete de nuevo los pasos del 1 al 6, con los cambios siguientes:
 
-|Configuración|Valor|
+|Configuración|Value|
 |---|---|
-|NOMBRE | myVm2|
+|Nombre | myVm2|
 |Virtual network | myVirtualNetwork2|
 
 Las máquinas virtuales tardan unos minutos en crearse. No siga con los pasos restantes hasta que se creen ambas máquinas virtuales.

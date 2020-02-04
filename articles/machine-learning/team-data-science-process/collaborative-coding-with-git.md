@@ -2,20 +2,20 @@
 title: 'Codificación colaborativa con Git: proceso de ciencia de datos en equipo'
 description: Cómo realizar el desarrollo de código de colaboración para los proyectos de ciencia de datos con GIT con una planeación ágil.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195494"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721904"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificación colaborativa con GIT
 
@@ -80,7 +80,7 @@ En la página principal del proyecto de Azure DevOps, seleccione **Repos** > **S
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-En la pantalla **Nueva solicitud de incorporación de cambios**, si es necesario, vaya al repositorio de Git y a la rama en la que desea combinar los cambios. Agregue o cambie cualquier otra información que desee. En **Revisores**, agregue los nombres de los usuarios que necesita para revisar los cambios y, a continuación, seleccione **Crear**. 
+En la pantalla **Nueva solicitud de incorporación de cambios**, si es necesario, vaya al repositorio de Git y a la rama en la que desea combinar los cambios. Agregue o cambie cualquier otra información que desee. En **Revisores**, agregue los nombres de los revisores y, a continuación, seleccione **Crear**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 

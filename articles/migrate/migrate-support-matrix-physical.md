@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de servidores físicos con Azure Migra
 description: Obtenga información sobre la compatibilidad para la evaluación de servidores físicos con Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 057d384c14328deca2853e891f23250aa1d61702
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 489f95bbbbeb261b56f1a3a86da44f5fcce0adf5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154795"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846577"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de compatibilidad para la evaluación de servidores físicos 
 
@@ -55,8 +55,8 @@ En la tabla siguiente se resumen los requisitos de los puertos para la evaluaci�
 
 **Dispositivo** | **Connection**
 --- | ---
-**Dispositivo** | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexiones salientes en los puertos 443, 5671 y 5672 para enviar los metadatos de detección y rendimiento a Azure Migrate.
-**Servidores físicos** | **Windows:** Conexiones entrantes en los puertos 443, los puertos WinRM 5985 (HTTP) y 5986 (HTTPS) para extraer los metadatos de configuración y rendimiento de los servidores de Windows. <br/> **Linux:**  Conexiones entrantes en el puerto 22 (UDP) para extraer los metadatos de configuración y rendimiento de los servidores Linux. |
+**Dispositivo** | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexiones salientes en los puertos 443 (HTTPS), 5671 y 5672 (AMQP) para enviar los metadatos de detección y rendimiento a Azure Migrate.
+**Servidores físicos** | **Windows:** Conexiones entrantes en los puertos WinRM 5985 (HTTP) y 5986 (HTTPS) para extraer los metadatos de configuración y rendimiento de los servidores de Windows. <br/> **Linux:**  Conexiones entrantes en el puerto 22 (UDP) para extraer los metadatos de configuración y rendimiento de los servidores Linux. |
 
 ## <a name="agent-based-dependency-visualization"></a>Visualización de dependencias basada en agente
 

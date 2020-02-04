@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 43ea197c4dc774a4e011cd9fb2b3adcf94866d90
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 423f0866494054702330c8e51fb1ef45e74a0650
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926081"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845704"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
@@ -52,15 +52,15 @@ Se admiten las siguientes regiones para las implementaciones de nodos virtuales:
 * Centro de EE. UU. (centralus)
 * Este de EE. UU. (eastus)
 * Este de EE. UU. 2 (eastus2)
-* Este de Japón (japaneast)
-* Europa del Norte (northeurope)
+* Japón Oriental (japaneast)
+* Norte de Europa (northeurope)
 * Sudeste Asiático (southeastasia)
 * Centro-oeste de EE. UU. (westcentralus)
-* Europa Occidental (westeurope)
+* Oeste de Europa (westeurope)
 * Oeste de EE. UU. (westus)
 * Oeste de EE. UU. 2 (westus2)
 
-## <a name="known-limitations"></a>Limitaciones conocidas
+## <a name="known-limitations"></a>Restricciones conocidas
 La funcionalidad de nodos virtuales es muy dependiente del conjunto de características de ACI. Los escenarios siguientes no se admiten aún con los nodos virtuales
 
 * Uso de entidad de servicio para extraer imágenes de ACR. La [solución alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste en usar [secretos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
@@ -81,7 +81,7 @@ Si prefiere instalar y usar la CLI en un entorno local, para este artículo se r
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos con el comando [az group create][az-group-create]. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westus*.
+Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -174,7 +174,7 @@ az aks create \
     --client-secret <password>
 ```
 
-Unos minutos después, el comando se completa y devuelve información en formato JSON acerca del clúster.
+En unos minutos, terminará de ejecutarse el comando, que devuelve información con formato JSON sobre el clúster.
 
 ## <a name="enable-virtual-nodes-addon"></a>Habilitar complemento de nodos virtuales
 
@@ -188,7 +188,7 @@ az aks enable-addons \
     --subnet-name myVirtualNodeSubnet
 ```
 
-## <a name="connect-to-the-cluster"></a>Conexión al clúster
+## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
 Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][az-aks-get-credentials]. Con este paso se descargan las credenciales y se configura la CLI de Kubernetes para usarlas.
 
@@ -196,7 +196,7 @@ Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el co
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para comprobar la conexión con el clúster, use el comando [kubectl get][kubectl-get] para que devuelva una lista de los nodos del clúster.
+Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
 ```console
 kubectl get nodes
@@ -319,6 +319,10 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 
 Ahora, quite los recursos de red virtual y el grupo de recursos:
 
+
+> [!NOTE]
+> Si recibe un error al intentar quitar el perfil de red, espere 3 o 4 días para que la plataforma mitigue de forma automática el problema y vuelva a intentar la eliminación. Si necesita eliminar un perfil de red inmediatamente, [abra una solicitud de soporte técnico](https://azure.microsoft.com/support/create-ticket/) que haga referencia al servicio Azure Container Instances.
+
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
@@ -334,12 +338,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-# Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981258"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773081"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Uso de Form Recognizer con Azure Logic Apps para analizar facturas
 
-En este tutorial, creará un flujo de trabajo en Azure Logic Apps que use Form Recognizer, un servicio que forma parte del conjunto de Azure Cognitive Services y que sirve para extraer datos de facturas. En primer lugar, usará Form Recognizer para entrenar un modelo con un conjunto de datos de ejemplo y, a continuación, probará el modelo con otro conjunto de datos. Los datos de ejemplo que se usan en este tutorial se almacenan en contenedores de blobs de Azure Storage.
+En este tutorial, creará un flujo de trabajo en Azure Logic Apps que use Form Recognizer, un servicio que forma parte del conjunto de Azure Cognitive Services y que sirve para extraer datos de facturas. En primer lugar, entrene un modelo de Form Recognizer mediante un conjunto de datos de ejemplo y, después, pruebe el modelo en otro conjunto de datos.
 
 Este tutorial abarca lo siguiente:
 
@@ -41,12 +41,12 @@ Form Recognizer está disponible como versión preliminar de acceso limitado. Pa
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Información de la factura que se va a analizar
 
-El conjunto de datos de ejemplo que usamos para entrenar el modelo y probarlo está disponible como archivo. zip desde [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Descargue y extraiga el archivo .zip y abra un archivo PDF de factura en la carpeta **/Train**. Observe que tiene una tabla con el número de factura, la fecha de factura, etc. 
+El conjunto de datos de ejemplo que va a usar para entrenar el modelo y probarlo está disponible como archivo. zip en [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Descargue y extraiga el archivo .zip y abra un archivo PDF de factura en la carpeta **/Train**. Observe que tiene una tabla con el número de factura, la fecha de factura, etc. 
 
 > [!div class="mx-imgBorder"]
 > ![Factura de ejemplo](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
-En este tutorial, aprenderá a extraer la información de estas tablas en un formato JSON mediante un flujo de trabajo creado con Azure Logic Apps y Form Recognizer.
+En este tutorial aprenderá a usar un flujo de trabajo de Azure Logic Apps para extraer la información de tablas como estas en formato JSON.
 
 ## <a name="create-an-azure-storage-blob-container"></a>Creación de un contenedor de blobs de Azure Storage
 
@@ -62,7 +62,7 @@ Este contenedor se usa para cargar datos de ejemplo necesarios para entrenar el 
 
 Descargue los datos de ejemplo disponibles en [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extraiga los datos en una carpeta local y cargue el contenido de la carpeta **/Train** en el contenedor **formrecocontainer** que creó anteriormente. Siga las instrucciones que se indican en [Carga de un blob en bloques](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) para cargar datos en un contenedor.
 
-Copie la dirección URL del contenedor. La necesitará más adelante en el tutorial. Si ha creado la cuenta de almacenamiento y el contenedor con los mismos nombres que se muestran en este tutorial, la dirección URL será *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
+Copie la dirección URL del contenedor. Esta dirección URL se necesitará más adelante en el tutorial. Si ha creado la cuenta de almacenamiento y el contenedor con los mismos nombres que se muestran en este tutorial, la dirección URL será *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -75,7 +75,7 @@ Puede usar Azure Logic Apps para automatizar y organizar tareas y flujos de trab
 * Configure la aplicación lógica para que use una operación de **entrenamiento de modelo** de Form Recognizer para entrenar un modelo con los datos de ejemplo que cargó en el almacenamiento de blobs de Azure.
 * Configure la aplicación lógica para que use una operación de **análisis de formulario** de Form Recognizer para usar el modelo que ya ha entrenado. Este componente analizará la factura que se proporciona a esta aplicación lógica según el modelo entrenado anteriormente.
 
-En primer lugar, siga estos pasos para configurar el flujo de trabajo.
+siga estos pasos para configurar el flujo de trabajo.
 
 1. En el menú principal de Azure, seleccione **Crear un recurso** > **Integración** > **Aplicación lógica**.
 
@@ -86,7 +86,7 @@ En primer lugar, siga estos pasos para configurar el flujo de trabajo.
    | **Nombre** | <*nombre-de-la-aplicación-lógica*> | El nombre de la aplicación lógica, que solo puede contener letras, números,guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`,`)`) y puntos (`.`). En este ejemplo se usa "My-First-Logic-App". |
    | **Suscripción** | <*Azure-subscription-name*> | El nombre de la suscripción de Azure |
    | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | Nombre del [grupo de recursos de Azure](./../../azure-resource-manager/management/overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se usa "My-First-LA-RG". |
-   | **Ubicación** | <*Azure-region*> | La región en la que desea almacenar la información de la aplicación lógica. En este ejemplo se utiliza "West US". |
+   | **Ubicación** | <*Azure-region*> | La región en la que desea almacenar la información de la aplicación lógica. En este ejemplo se utiliza "Oeste de EE. UU.". |
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. |
    ||||
 
@@ -99,7 +99,7 @@ En primer lugar, siga estos pasos para configurar el flujo de trabajo.
 
 ### <a name="configure-the-logic-app-to-trigger-the-workflow-when-an-email-arrives"></a>Configuración de la aplicación lógica para desencadenar el flujo de trabajo cuando se reciba un correo electrónico
 
-En este tutorial, desencadenará el flujo de trabajo cuando se reciba un correo electrónico con una factura adjunta. En este tutorial, elegimos Office 365 como servicio de correo electrónico, pero puede usar cualquier otro proveedor de correo electrónico que desee.
+En este tutorial, desencadenará el flujo de trabajo cuando se reciba un correo electrónico con una factura adjunta. En este tutorial, se usa Office 365 como servicio de correo electrónico, pero puede usar cualquier otro proveedor de correo electrónico que desee.
 
 1. En las pestañas, seleccione Todo, seleccione **Office 365 Outlook** y, a continuación, en **Desencadenadores**, seleccione **Cuando llega un nuevo correo electrónico**.
 
@@ -149,14 +149,14 @@ En esta sección, agregará la operación de **análisis de formulario** al fluj
     > [!div class="mx-imgBorder"]
     > ![Análisis de un modelo de Form Recognizer](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
 
-1. En el cuadro de diálogo **Analyze Form** (Analizar formulario), realice lo siguiente:
+1. En el cuadro de diálogo **Analyze Form** (Analizar formulario), siga estos pasos:
 
     1. Haga clic en el cuadro de texto **Id. del modelo** y, en el cuadro de diálogo que se abre, en la pestaña **Contenido dinámico**, seleccione **modelId**. Al hacerlo, proporciona la aplicación de flujo con el identificador del modelo entrenado en la última sección.
 
         > [!div class="mx-imgBorder"]
         > ![Uso de ModelID para Form Recognizer](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
 
-    2. Haga clic en el cuadro de texto **Documento** y, en el cuadro de diálogo que se abre, en la pestaña **Contenido dinámico**, seleccione **Attachments Content** (Contenido de datos adjuntos). Al hacerlo, se configura el flujo para usar el archivo de factura de ejemplo que se adjunta en el correo electrónico enviado para desencadenar el flujo de trabajo.
+    2. Haga clic en el cuadro de texto **Documento** y, en el cuadro de diálogo que se abre, en la pestaña **Contenido dinámico**, seleccione **Attachments Content** (Contenido de datos adjuntos). Así se configura el flujo para usar el archivo de factura de ejemplo que se adjunta en el correo electrónico que desencadena el flujo de trabajo.
 
         > [!div class="mx-imgBorder"]
         > ![Uso de datos adjuntos de correo electrónico para analizar facturas](media/tutorial-form-recognizer-with-logic-apps/analyze-form-input-data.png)
@@ -165,7 +165,7 @@ En esta sección, agregará la operación de **análisis de formulario** al fluj
 
 ### <a name="extract-the-table-information-from-the-invoice"></a>Extracción de la información de tabla de la factura
 
-En esta sección, configuraremos la aplicación lógica para extraer la información de tabla dentro de las facturas.
+En esta sección, se configura la aplicación lógica para extraer la información de tabla dentro de las facturas.
 
 1. Seleccione **Agregar una acción**, en **Elegir una acción** busque **Redactar** y, en las acciones que están disponibles, seleccione **Redactar** de nuevo.
     ![Extracción de la información de tabla de la factura](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)
@@ -179,7 +179,7 @@ En esta sección, configuraremos la aplicación lógica para extraer la informac
 
 ## <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 
-Para probar la aplicación lógica, use las facturas de ejemplo de la carpeta **/Test** del conjunto de datos de ejemplo que descargó de [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Lleve a cabo los siguiente pasos:
+Para probar la aplicación lógica, use las facturas de ejemplo de la carpeta **/Test** del conjunto de datos de ejemplo que descargó de [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Siga estos pasos:
 
 1. En el diseñador de Azure Logic Apps de la aplicación, seleccione **Ejecutar** en la barra de herramientas de la parte superior. El flujo de trabajo ahora está activo y espera a recibir un correo electrónico con la factura adjunta.
 1. Envíe un correo electrónico con una factura de ejemplo adjunta a la dirección de correo electrónico que proporcionó al crear la aplicación lógica. Asegúrese de que el correo electrónico se entrega en la carpeta que proporcionó al configurar la aplicación lógica.

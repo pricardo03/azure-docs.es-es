@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: a106699f4e3148eba85acc913e6f97be6ce9be66
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: bffba0ce5481250a696cdf4ec0aed6b59620bfe9
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515094"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773825"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Inicio rápido: Control de un dispositivo conectado a un centro de IoT (.NET)
 
@@ -33,7 +33,7 @@ El inicio rápido usa dos aplicaciones .NET escritas anteriormente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en el equipo de desarrollo.
 
@@ -51,7 +51,7 @@ Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure p
 az extension add --name azure-cli-iot-ext
 ```
 
-Si aún no lo ha hecho, descargue el proyecto de C# de muestra desde https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip y extraiga el archivo ZIP.
+Si aún no lo ha hecho, descargue los ejemplos de C# de Azure IoT de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip y extraiga el archivo ZIP.
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

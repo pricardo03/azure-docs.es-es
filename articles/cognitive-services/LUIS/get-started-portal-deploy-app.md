@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448067"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772495"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Inicio rápido: Implementación de una aplicación en el portal de LUIS
 
@@ -45,7 +45,7 @@ Cree el recurso del punto de conexión de predicción en Azure Portal. Dicho rec
    |Creación de la ubicación|**Oeste de EE. UU.**|La región de Azure para la creación.|
    |Creación del plan de tarifa|**F0**|El plan de tarifa predeterminado para la creación.|
    |Ubicación del tiempo de ejecución|**Oeste de EE. UU.**|La región de Azure para las consultas del punto de conexión de predicción.|
-   |Plan de tarifa del tiempo de ejecución|**S0**|Este plan de tarifa permite financiar sitios web de tráfico elevado.|
+   |Plan de tarifa del tiempo de ejecución|**S0**|Este plan de tarifa proporciona sitios web de tráfico elevado.|
    | | | |
 
 
@@ -74,6 +74,9 @@ Cada vez que crea un recurso para LUIS, será preciso que lo asigne a la aplicac
 1. Siga los mismos pasos para agregar la clave de creación a la aplicación.
 
 1. Busque la nueva fila en la tabla correspondiente al nuevo recurso de predicción y copie la dirección URL del punto de conexión. Se construye correctamente para realizar una solicitud `HTTP GET` al punto de conexión de LUIS API para una predicción.
+
+> [!TIP]
+> Si tiene previsto usar el aprendizaje activo para mejorar una aplicación LUIS, seleccione **Cambiar parámetros de consulta** y seleccione **Guardar registros**. Esta acción cambia la dirección URL, ya que agrega el parámetro QueryString `log=true`. Copie y utilice la dirección URL de consulta de ejemplo modificada al realizar consultas de predicción en el punto de conexión del runtime.
 
 ## <a name="train-the-app"></a>Entrenamiento de la aplicación
 

@@ -8,22 +8,26 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: f01ac67b25cbcc098973a3beb0a2b7b311827a37
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 3694c0b74393068538a0c8f496444a1541d88fee
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766402"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769059"
 ---
-# <a name="use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Uso de Python para conectarse y consultar datos en un servidor único Azure Database for PostgreSQL
-En esta guía de inicio rápido se muestra cómo trabajar con un Azure Database for PostgreSQL mediante Python en macOS, Ubuntu Linux o Windows. En la guía de inicio rápido se muestra cómo conectarse a la base de datos y usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos. En este artículo se da por hecho que está familiarizado con Python, pero que es nuevo para trabajar con Azure Database for PostgreSQL.
+# <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de Python para conectarse y consultar datos en un servidor único Azure Database for PostgreSQL
 
-## <a name="prerequisites"></a>Requisitos previos
-- Un servidor único Azure Database for PostgreSQL, creado al seguir los pasos descritos en [Inicio rápido: Cree un servidor de Azure Database for PostgreSQL en Azure Portal ](quickstart-create-server-database-portal.md)o [ en la guía de Inicio rápido de: Cree un Azure Database for PostgreSQL mediante la de CLI de Azure](quickstart-create-server-database-azure-cli.md). 
+En este inicio rápido se muestra cómo trabajar con una instancia de Azure Database for PostgreSQL mediante Python en macOS, Ubuntu Linux o Windows. En la guía de inicio rápido se muestra cómo conectarse a la base de datos y usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos. En este artículo se da por hecho que está familiarizado con Python, pero que es nuevo para trabajar con Azure Database for PostgreSQL.
+
+## <a name="prerequisites"></a>Prerequisites
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+- Finalización de [Inicio rápido: Cree un servidor de Azure Database for PostgreSQL en Azure Portal ](quickstart-create-server-database-portal.md)o [ en la guía de Inicio rápido de: Cree un Azure Database for PostgreSQL mediante la de CLI de Azure](quickstart-create-server-database-azure-cli.md).
   
 - [Python](https://www.python.org/downloads/) 2.7.9+ o 3.4+.
   
-- La actualización más reciente de [pip](https://pip.pypa.io/en/stable/installing/) instalador de paquetes, que se instala con `pip install -U pip`. 
+- Instalador de paquetes [pip](https://pip.pypa.io/en/stable/installing/) más reciente.
 
 ## <a name="install-the-python-libraries-for-postgresql"></a>Instalación de las bibliotecas de Python para PostgreSQL
 El módulo [psycopg2](https://pypi.python.org/pypi/psycopg2/) permite conectarse a una base de datos de PostgreSQL y realizar consultas, y está disponible como un paquete de Linux, macOS o Windows [wheel](https://pythonwheels.com/). Instale la versión binaria del módulo, incluidas todas las dependencias. Para más información sobre `psycopg2` instalación y requisitos, consulte [Instalación](http://initd.org/psycopg/docs/install.html). 

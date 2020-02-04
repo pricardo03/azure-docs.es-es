@@ -1,14 +1,14 @@
 ---
 title: Índice de ejemplos de planos técnicos
 description: Índice de ejemplos de cumplimiento y estándar para implementar entornos, directivas y las bases de Cloud Adoption Framework con Azure Blueprints.
-ms.date: 12/05/2019
+ms.date: 01/10/2020
 ms.topic: sample
-ms.openlocfilehash: a0be956037f6b1ee5229ecde7b1491f552113866
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa5f02af6a0e59359d6bc3c2d24515fea535a0fa
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436557"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938305"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -21,6 +21,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Proporciona un conjunto de directivas para ayudar a cumplir con las recomendaciones de CIS Microsoft Azure Foundations Benchmark. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Proporciona un conjunto de directivas para ayudar a cumplir con FedRAMP Moderate. |
+| [Nivel de impacto alto de FedRAMP](./fedramp-h/index.md) | Proporciona un conjunto de directivas que ayudar a cumplir los requisitos del nivel de impacto alto de FedRAMP. |
 | [HIPAA/HITRUST](./HIPAA-HITRUST/index.md) | Proporciona un conjunto de directivas para ayudar a cumplir con HIPAA/HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma ISO 27001. |
@@ -37,12 +38,12 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 
 ![Estrategia de ejemplos de planos técnicos](../media/blueprint-samples-strategy.png)
 
-Los planos técnicos de la zona de aterrizaje de migración de CAF y de fundamentos de CAF asumen que el cliente prepara una suscripción individual limpia existente para migrar los recursos locales o las cargas de trabajo a Azure.
-(Región A y B en la figura anterior).  
+Los planos técnicos de la zona de aterrizaje de migración de CAF y de la fundación CAF asumen que el cliente prepara una suscripción individual limpia existente para migrar los recursos y cargas de trabajo locales a Azure
+(regiones A y B en la ilustración).  
 
 Hay una oportunidad de iterar en los planos técnicos de ejemplo y buscar patrones de las personalizaciones que solicita el cliente. También existe la oportunidad de abordar de forma proactiva los planos técnicos específicos del sector, como los servicios financieros y el comercio electrónico (extremo superior de la región B). Del mismo modo, se prevé la creación de planos técnicos para consideraciones de arquitectura complejas, tales como suscripciones múltiples, alta disponibilidad, recursos entre regiones y clientes que implementan controles sobre las suscripciones y recursos existentes (regiones C y D).
 
-Hay planos técnicos de ejemplo que abordan el escenario del cliente donde los requisitos de cumplimiento son elevados y las complejidades de la arquitectura son altas (región E en la figura anterior). La región F anterior es la que abordarán los clientes y asociados al aprovechar los planos técnicos de ejemplo y personalizarlos en función de sus necesidades únicas.
+Hay planos técnicos de ejemplo que abordan un escenario de cliente en el que los requisitos de cumplimiento son elevados y las complejidades de la arquitectura son altas (región E en la ilustración). La región F de la ilustración es la que abordarán los clientes y asociados que van a aprovechar los planos técnicos de ejemplo y a personalizarlos en función de sus necesidades únicas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

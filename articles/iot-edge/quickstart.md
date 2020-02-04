@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: aa6d3d61cb2ce0972653f787976a89e3d372ae27
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cefd8472c23458b94c4da5ae3c239e9d427276bf
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912350"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760188"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Windows virtual
 
-Pruebe Azure IoT Edge en este inicio rápido mediante la implementación de código en contenedor en un dispositivo de IoT Edge virtual. IoT Edge permite administrar de forma remota el código de los dispositivos para que pueda enviar más cargas de trabajo al perímetro. En este inicio rápido, se recomienda usar una máquina virtual de Azure para el dispositivo IoT Edge, que le permite crear rápidamente una máquina de pruebas, instalar los requisitos previos y, luego, eliminarla cuando haya terminado.
+Pruebe Azure IoT Edge mediante la implementación de código en contenedor en un dispositivo IoT Edge virtual. IoT Edge permite administrar de forma remota el código de los dispositivos para que pueda enviar más cargas de trabajo al perímetro. Para este inicio rápido, se recomienda usar una máquina virtual de Azure para el dispositivo IoT Edge. Con una máquina virtual, podrá crear rápidamente una máquina de pruebas, instalar los requisitos previos y, después, eliminarla cuando haya terminado.
 
 En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
@@ -50,7 +50,7 @@ Recursos en la nube:
 * Un grupo de recursos para administrar todos los recursos que se van a usar en esta guía de inicio rápido.
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus2 
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 Dispositivo de IoT Edge:
@@ -158,7 +158,7 @@ Use PowerShell para descargar e instalar el entorno de ejecución de IoT Edge. U
 
 5. Vuelva a ejecutar PowerShell como administrador.
 
-6. El comando **Initialize-IoTEdge** configura el entorno de ejecución de Azure IoT Edge en el equipo. El comportamiento predeterminado del comando es el aprovisionamiento manual con contenedores de Windows. 
+6. El comando **Initialize-IoTEdge** configura el entorno de ejecución de Azure IoT Edge en el equipo. El comportamiento predeterminado del comando es el aprovisionamiento manual con contenedores de Windows.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -245,7 +245,7 @@ az group delete --name IoTEdgeResources
 
 En esta guía de inicio rápido, ha creado un dispositivo IoT Edge y ha usado la interfaz en la nube de Azure IoT Edge para implementar el código en el dispositivo. Ahora tiene un dispositivo de prueba que genera datos sin procesar acerca de su entorno.
 
-El siguiente paso es configurar el entorno de desarrollo local para que pueda empezar a crear módulos de IoT Edge que ejecutan la lógica de negocios. 
+El siguiente paso es configurar el entorno de desarrollo local para que pueda empezar a crear módulos de IoT Edge que ejecutan la lógica de negocios.
 
 > [!div class="nextstepaction"]
 > [Empezar a desarrollar módulos de IoT Edge para dispositivos Windows](tutorial-develop-for-windows.md)

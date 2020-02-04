@@ -3,23 +3,23 @@ title: 'Exploración de datos en una máquina virtual de SQL Server: proceso de 
 description: Explore y procese datos, además de generar características mediante Python o SQL en una máquina virtual de SQL Server de Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 877c639c35378b173b6ec9c8697725e3b3c09290
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d3eb4d2faf58d1861fda9d04437f9f9530c77672
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053608"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718487"
 ---
 # <a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
-En este documento se aborda cómo explorar datos y generar características para los datos almacenados en una VM de SQL Server en Azure. Esto puede hacerse mediante la administración de datos usando SQL o mediante un lenguaje de programación como Python.
+En este documento se aborda cómo explorar datos y generar características para los datos almacenados en una VM de SQL Server en Azure. Este objetivo puede alcanzarse mediante la administración de datos usando SQL o mediante un lenguaje de programación, como Python.
 
 > [!NOTE]
 > En las instrucciones SQL de ejemplo de este documento se supone que los datos están en SQL Server. Si no lo están, consulte el mapa de proceso de ciencia de datos en la nube para obtener información sobre cómo mover los datos a SQL Server.
@@ -43,7 +43,7 @@ A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar
 1. Obtener el número de observaciones por día
    
     `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
-2. Obtenga los niveles de una columna de categorías
+2. Obtención de los niveles de una columna de categorías
    
     `select  distinct <column_name> from <databasename>`
 3. Obtener el número de niveles de combinación de dos columnas de categorías 
@@ -66,7 +66,7 @@ En esta sección, se describen formas de generar características mediante SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Generación de características basadas en recuentos
-Los ejemplos siguientes muestran dos formas de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estos pueden entonces combinarse con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
+Los ejemplos siguientes muestran dos formas de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estos resultados pueden combinarse luego con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -82,7 +82,7 @@ En el ejemplo siguiente se muestra cómo generar características discretizadas 
 ### <a name="sql-featurerollout"></a>Implementación de las características de una sola columna
 En esta sección, se muestra cómo se implementa una sola columna de una tabla para generar características adicionales. En el ejemplo se supone que hay una columna de latitud o longitud en la tabla a partir de la cual está intentando generar características.
 
-Aquí se incluye un breve manual sobre los datos de ubicación de latitud y longitud (extraído de stackoverflow [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)(¿Cómo medir la precisión de la latitud y la longitud?)). Resulta útil para comprender bien todo antes de caracterizar el campo de ubicación:
+Aquí se incluye un breve manual sobre los datos de ubicación de latitud y longitud (extraído de stackoverflow [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)(¿Cómo medir la precisión de la latitud y la longitud?)). Es útil comprender esta guía antes de incluir la ubicación como una o más características:
 
 * La señal indica si estamos en el norte o sur, y este u oeste del mundo.
 * Un dígito de las centenas distinto de cero indica que se usa la longitud y no la latitud.
@@ -95,7 +95,7 @@ Aquí se incluye un breve manual sobre los datos de ubicación de latitud y long
 * La quinta posición decimal tiene un valor de hasta 1,1 m: puede distinguir entre distintos árboles. Solo es posible conseguir una precisión de este nivel con unidades GPS comerciales con corrección diferencial.
 * La sexta posición decimal tiene un valor de hasta 0,11 m: puede usarse para diseñar estructuras en detalle, para el diseño de paisajes o la construcción de carreteras. Debería ser más que suficiente para realizar el seguimiento de los movimientos de glaciares y ríos. Esto se consigue al tomar medidas meticulosas con GPS, como GPS corregido de forma diferencial.
 
-La información de ubicación se puede caracterizar como sigue, con diferencias entre la información de región, ubicación y ciudad. Tenga en cuenta que también es posible llamar a un punto de conexión de REST, como la API de mapas de Bing disponible en [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) (Encontrar una ubicación por punto) para obtener la información de la región o el distrito.
+La información de ubicación se puede caracterizar como sigue, con diferencias entre la información de región, ubicación y ciudad. También es posible llamar a un punto de conexión de REST, como la API de mapas de Bing disponible en [Encontrar una ubicación por punto](https://msdn.microsoft.com/library/ff701710.aspx) para obtener la información de la región o el distrito.
 
     select 
         <location_columnname>
@@ -121,7 +121,7 @@ La característica recién generada se puede agregar como una columna a una tabl
 ![Lectores de azureml][1] 
 
 ## <a name="python"></a>Uso de un lenguaje de programación como Python
-Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en blobs de Azure mediante Python, como se documenta en [Proceso de datos de blobs de Azure en su entorno de ciencia de datos](data-blob.md). Los datos deben cargarse desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
+Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en blobs de Azure mediante Python, como se documenta en [Proceso de datos de blobs de Azure en su entorno de ciencia de datos](data-blob.md). Cargue los datos de la base de datos en una trama de datos Pandas para un mayor procesamiento. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
 
 El formato de cadena de conexión siguiente puede usarse para conectarse a una base de datos de SQL Server desde Python mediante pyodbc (reemplace servername, dbname, username y password con sus valores específicos):
 

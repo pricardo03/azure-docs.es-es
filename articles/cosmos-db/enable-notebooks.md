@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 8c65b7d010e521ec78322de9807f741c856a2381
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: dcec310db43baa513b2d574d03f3f35dee3f773b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264855"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768016"
 ---
-# <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB
+# <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB (versión preliminar)
 
 > [!IMPORTANT]
-> Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en las siguientes regiones de Azure: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa y Oeste de EE. UU. 2. Para usar cuadernos, [cree una cuenta nueva con Notebooks](#enable-notebooks-in-a-new-cosmos-account) o [habilite los Notebooks en una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones.
+> Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en las siguientes regiones de Azure: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU.., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa y Oeste de EE. UU. 2. Para usar cuadernos, [cree una cuenta nueva con Notebooks](#enable-notebooks-in-a-new-cosmos-account) o [habilite los Notebooks en una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones.
 
 Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visualizar los datos desde Azure Portal. En este artículo se describe cómo habilitar esta característica para la cuenta de Azure Cosmos DB.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974109"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769111"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -117,7 +117,7 @@ En el área de trabajo de Azure Machine Learning Studio, seleccione **Compute** 
 
 Puede realizar las siguientes acciones:
 
-* Crear de una instancia de proceso. Especificar el nombre, el tipo de máquina virtual de Azure, incluidas las GPU, habilitar o deshabilitar el acceso SSH y, si lo desea, configurar las opciones de red virtual. También puede crear una instancia directamente desde cuadernos integrados, Azure Portal, plantilla de Resource Manager o SDK de Azure Machine Learning. La cuota de núcleos dedicados por región que se aplica a la creación de instancias de proceso se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning.
+* Crear de una instancia de proceso. Especifique el nombre, el tipo de VM de Azure, incluidas las GPU (tenga en cuenta que el tipo de VM no puede cambiarse después de la creación), habilite o deshabilite el acceso SSH y, si lo desea, configure las opciones de red virtual. También puede crear una instancia directamente desde cuadernos integrados, Azure Portal, plantilla de Resource Manager o SDK de Azure Machine Learning. La cuota de núcleos dedicados por región que se aplica a la creación de instancias de proceso se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning.
 * Actualice la pestaña instancias de proceso
 * Iniciar, detener y reiniciar una instancia de proceso.
 * Eliminar una instancia de proceso.

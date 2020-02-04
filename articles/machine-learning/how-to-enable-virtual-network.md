@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289619"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760865"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,11 +179,14 @@ Si no quiere usar las reglas de salida predeterminadas y quiere limitar el acces
 
 - Deniegue la conexión saliente a Internet mediante las reglas de NSG.
 
-- Limite el tráfico de salida a los elementos siguiente:
-   - Azure Storage, mediante la __etiqueta de servicio__ de __Storage.Region_Name__ (por ejemplo, Storage.EastUS)
-   - Azure Container Registry, mediante la __etiqueta de servicio__ de __AzureContainerRegistry.Region_Name__ (por ejemplo, AzureContainerRegistry.EastUS)
+- En el caso de una __instancia de proceso__ o un __clúster de proceso__, limite el tráfico saliente a los siguientes elementos:
+   - Azure Storage, mediante la __etiqueta de servicio__ de __Storage__
+   - Azure Container Registry, mediante la __etiqueta de servicio__ de __AzureContainerRegistry__
    - Azure Machine Learning, mediante la __etiqueta de servicio__ de __AzureMachineLearning__
-   - En el caso de una instancia de proceso, Azure Cloud, mediante la __etiqueta de servicio__ de __AzureResourceManager__
+   
+- Para una __instancia de proceso__, agregue también los siguientes elementos:
+   - Azure Resource Manager, mediante la __etiqueta de servicio__ de __AzureResourceManager__
+   - Azure Active Directory, mediante la __etiqueta de servicio__ de __AzureActiveDirectory__
 
 La configuración de la regla de NSG en Azure Portal se muestra en la siguiente imagen:
 
@@ -206,12 +209,12 @@ La configuración de la regla de NSG en Azure Portal se muestra en la siguiente 
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> Estimador training__
+> __Entrenamiento de Estimador__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```

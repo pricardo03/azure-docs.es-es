@@ -1,6 +1,6 @@
 ---
 title: Guardado y distribución de imágenes en Azure DevTest Labs | Microsoft Docs
-description: Obtenga información sobre cómo crear un generador de imágenes personalizadas en Azure DevTest Labs.
+description: En este artículo se tratan los pasos para guardar imágenes personalizadas de máquinas virtuales (VM) que ya se han creado en Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: feabd055833e5f0d850138af528cce1da82cae49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e5bc8e5041bfe6d95e3ff1a93bb3338ccead5bb4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622682"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759438"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Guardar imágenes personalizadas y distribuirlas a varios laboratorios
-En este artículo se le ofrecen los pasos para guardar las imágenes personalizadas de máquinas virtuales que ya se han creado. También se trata cómo distribuir estas imágenes personalizadas en otros laboratorios DevTest Labs de la organización.
+En este artículo se tratan los pasos para guardar las imágenes personalizadas de máquinas virtuales (VM) que ya se han creado. También se trata cómo distribuir estas imágenes personalizadas en otros laboratorios DevTest Labs de la organización.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Los siguientes elementos ya deben estar implementados:
 
 - Un laboratorio para el generador de imágenes en Azure DevTest Labs.

@@ -112,7 +112,7 @@
               href: azure-create-vm.md
             - name: Administración de máquinas virtuales de CloudSimple en Azure
               href: azure-manage-vm.md
-    - name: Guías de procedimientos
+    - name: Guías paso a paso
       items:
         - name: Protección del entorno
           href: private-cloud-secure.md
@@ -122,7 +122,7 @@
               href: escalate-privileges.md
             - name: Configuración de DNS y DHCP de carga de trabajo
               href: dns-dhcp-setup.md
-            - name: Migración de cargas de trabajo mediante redes extendidas de nivel 2
+            - name: Migración de cargas de trabajo mediante redes extendidas de Capa 2
               href: migration-layer-2-vpn.md
         - name: Redes de la nube privada
           items:
@@ -136,6 +136,8 @@
               href: on-premises-dns-setup.md
             - name: Configuración de las conexiones de una VPN de sitio a sitio de alta disponibilidad
               href: high-availability-vpn-connection.md
+            - name: Configuración de DNS de la nube privada a local
+              href: private-cloud-dns-forwarding.md
         - name: Plataforma de VMware
           items:
             - name: Más información sobre el modelo de permisos de la nube privada

@@ -1,6 +1,6 @@
 ---
 title: 'Llamada a una API web desde una aplicación web: Plataforma de identidad de Microsoft | Azure'
-description: Obtenga información sobre cómo compilar una aplicación web que llame a las API web (llamada a una API web)
+description: Obtenga información sobre cómo compilar una aplicación web que llame a las API web (llamada a una API web protegida)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,21 +14,20 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d62101c9b2c8055374f8fd0fcf694441081b4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423560"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758978"
 ---
-# <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Aplicación web que llama a las API web: llamada a una API web
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplicación web que llama a las API web: Llamada a una API de web
 
 Ahora que dispone de un token, puede llamar a una API web protegida.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Este es un código simplificado de la acción de `HomeController`. Este código obtiene un token para llamar a Microsoft Graph. Se agregó este código de tiempo, que muestra cómo llamar a Microsoft Graph como API de REST. La URL de Graph API se proporciona en el archivo `appsettings.json` y se lee en una variable denominada `webOptions`:
+Aquí encontrará un código simplificado de la acción de `HomeController`. Este código obtiene un token para llamar a Microsoft Graph. Se ha agregado el código para mostrar cómo llamar a Microsoft Graph como API de REST. La URL de Microsoft Graph API se proporciona en el archivo appsettings.json y se lee en una variable denominada `webOptions`:
 
 ```JSon
 {
@@ -48,10 +47,10 @@ public async Task<IActionResult> Profile()
  string accountIdentifier = claimsPrincipal.GetMsalAccountId();
  string loginHint = claimsPrincipal.GetLoginHint();
 
- // Get the account
+ // Get the account.
  IAccount account = await application.GetAccountAsync(accountIdentifier);
 
- // Special case for guest users as the Guest iod / tenant id are not surfaced.
+ // Special case for guest users, because the guest ID / tenant ID are not surfaced.
  if (account == null)
  {
   var accounts = await application.GetAccountsAsync();
@@ -63,7 +62,7 @@ public async Task<IActionResult> Profile()
                             .ExecuteAsync();
  var accessToken = result.AccessToken;
 
- // Calls the web API (here the graph)
+ // Calls the web API (Microsoft Graph in this case).
  HttpClient httpClient = new HttpClient();
  httpClient.DefaultRequestHeaders.Authorization =
      new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
@@ -85,7 +84,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Puede usar el mismo principio para llamar a cualquier API web.
 >
-> La mayoría de las API web de Azure proporcionan un SDK que simplifica la llamada. Esto también sucede con Microsoft Graph. En el siguiente artículo obtendrá información de dónde encontrar un tutorial que ilustra estos aspectos.
+> La mayoría de las API web de Azure proporcionan un SDK que simplifica la llamada a la API. Esto también se cumple para Microsoft Graph. En el siguiente artículo, aprenderá dónde encontrar un tutorial que ilustra el uso de la API.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
@@ -121,7 +120,7 @@ def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)
     if not token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service
+    graph_data = requests.get(  # Use token to call downstream service.
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
         ).json()

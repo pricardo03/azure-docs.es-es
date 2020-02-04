@@ -3,20 +3,20 @@ title: 'Hoja de referencia rápida de canalización de datos Azure Machine Learn
 description: Una hoja de referencia rápida imprimible en la que se muestra cómo configurar una canalización de datos automatizada para el servicio web de Azure Machine Learning, si los datos son locales, se transmiten, o se encuentran en Azure o en un servicio en la nube de terceros.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: 7c7011991deb632110264233ea0e7aeabe793fbb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670482"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721870"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de Azure Machine Learning
 La **hoja de referencia rápida de canalización de datos automatizada de Microsoft Azure Machine Learning** le ayuda a navegar por la tecnología que puede usar para obtener sus datos para su servicio web de Machine Learning donde se puede puntuar por su modelo de análisis predictivo.

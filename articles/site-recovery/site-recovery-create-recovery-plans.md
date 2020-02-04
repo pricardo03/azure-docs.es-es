@@ -1,22 +1,18 @@
 ---
 title: Creación y personalización de planes de recuperación en Azure Site Recovery.
 description: Aprenda a crear y personalizar planes de recuperación para la recuperación ante desastres mediante el servicio Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: article
-ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: 9bb5a1a3aa0c2a4681ddecb5e20df41d481755ec
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.topic: how-to
+ms.date: 01/23/2020
+ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084520"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705843"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creación y personalización de los planes de recuperación
 
-En este artículo se describe cómo crear y personalizar un plan de recuperación en [Azure Site Recovery](site-recovery-overview.md). Antes de comenzar, [obtenga más información](recovery-plan-overview.md) sobre los planes de recuperación.
+En este artículo se describe cómo crear y personalizar un plan de recuperación de conmutación por error en [Azure Site Recovery](site-recovery-overview.md). Antes de comenzar, [obtenga más información](recovery-plan-overview.md) sobre los planes de recuperación.
 
 ## <a name="create-a-recovery-plan"></a>Creación de un plan de recuperación
 
@@ -24,22 +20,25 @@ En este artículo se describe cómo crear y personalizar un plan de recuperació
 2. En **Crear plan de recuperación**, especifique un nombre para el plan.
 3. Elija un origen y un destino en función de las máquinas del plan y seleccione **Resource Manager** para el modelo de implementación. La ubicación de origen debe tener máquinas habilitadas para conmutación por error y recuperación. 
 
-   **Conmutación por error** | **Origen** | **Destino** 
+    **Conmutación por error** | **Origen** | **Destino** 
    --- | --- | ---
-   Azure a Azure | Región de Azure |Región de Azure
-   VMware en Azure | Servidor de configuración | Azure
-   Máquinas físicas a Azure | Servidor de configuración | Azure   
-   Hyper-V administrado por VMM en Azure  | Nombre para mostrar de VMM | Azure
-   Hyper-V sin VMM en Azure | Nombre del sitio de Hyper-V | Azure
-   VMM a VMM |Nombre descriptivo de VMM | Nombre para mostrar de VMM 
+   Azure a Azure | Seleccione la región de Azure | Seleccione la región de Azure
+   VMware en Azure | Seleccione el servidor de configuración | Seleccione Azure
+   Máquinas físicas a Azure | Seleccione el servidor de configuración | Seleccione Azure   
+   Hyper-V en Azure | Seleccione el nombre del sitio de Hyper-V | Seleccione Azure
+   Hyper-V (administrado por VMM) a Azure  | Seleccione el servidor VMM | Seleccione Azure
+  
+    Tenga en cuenta lo siguiente:
+    -  Solo puede usar un plan de recuperación para la conmutación por error desde la ubicación de origen a Azure. No puede usar un plan de recuperación para la conmutación por recuperación desde Azure.
+    - La ubicación de origen debe tener máquinas habilitadas para conmutación por error y recuperación. 
+    - Un plan de recuperación puede contener máquinas que tengan el mismo origen y destino. 
+    - Puede incluir las VM de VMware y VM de Hyper-V administradas por VMM en el mismo plan.
+    - Las VM de VMware y los servidores físicos pueden estar en el mismo plan.
 
-   > [!NOTE]
-   > Un plan de recuperación puede contener máquinas que tengan el mismo origen y destino. Las máquinas virtuales de Hyper-V y VMware administradas por VMM no pueden estar en el mismo plan. Las máquinas virtuales de VMware y los servidores físicos pueden estar en el mismo plan, donde el origen es un servidor de configuración.
-
-2. En **Seleccionar máquinas virtuales**, seleccione las máquinas (o el grupo de replicación) que desea agregar al plan. A continuación, haga clic en **Aceptar**.
+4. En **Seleccionar máquinas virtuales**, seleccione las máquinas (o el grupo de replicación) que desea agregar al plan. A continuación, haga clic en **Aceptar**.
     - Las máquinas se agregan al grupo predeterminado (Grupo 1) del plan. Después de la conmutación por error, todas las máquinas de este grupo se inician al mismo tiempo.
     - Solo puede seleccionar las máquinas que se encuentran en las ubicaciones de origen y destino que especificó. 
-1. Haga clic en **Aceptar** para crear el plan.
+5. Haga clic en **Aceptar** para crear el plan.
 
 ## <a name="add-a-group-to-a-plan"></a>Incorporación de un grupo a un plan
 

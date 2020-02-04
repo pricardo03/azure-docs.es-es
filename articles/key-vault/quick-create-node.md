@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e36e3ae9ce2e8ca116921de428b4dcc09b37afb6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a59ba62df546c60c4086829eec355d3e69b69363
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978584"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773736"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para Node.js (v4)
 
@@ -22,12 +22,12 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 - Aumentar la seguridad y el control sobre claves y contraseñas
 - Crear e importar claves de cifrado en minutos
 - Reducir la latencia con escala en la nube y redundancia global
-- Simplificar y automatizar tareas para certificados SSL/TLS
+- Simplificar y automatizar tareas para certificados TLS/SSL
 - Utilizar módulos HSM con certificación FIPS 140-2 nivel 2
 
 [Documentación de referencia de la API](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Paquete (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org) actual del sistema operativo.
@@ -37,7 +37,7 @@ En esta guía de inicio rápido se supone que está ejecutando la [CLI de Azure]
 
 ## <a name="setting-up"></a>Instalación
 
-### <a name="install-the-package"></a>Instalación del paquete
+### <a name="install-the-package"></a>Instalar el paquete
 
 En la ventana de la consola, instale la biblioteca de secretos de Azure Key Vault para Node.js.
 

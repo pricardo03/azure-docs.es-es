@@ -13,33 +13,33 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714895"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768460"
 ---
-# <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Crear y entrenar un modelo predictivo en R con Machine Learning Services (versión preliminar) de Azure SQL Database
+# <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Inicio rápido: Crear y entrenar un modelo predictivo en R con Machine Learning Services (versión preliminar) de Azure SQL Database
 
-En esta guía de inicio rápido, deberá crear y entrenar un modelo predictivo mediante R, guardará el modelo en una tabla de la base de datos SQL y usará ese modelo para predecir valores a partir de datos nuevos mediante la versión preliminar pública de [Machine Learning Services (con R) en Azure SQL Database](sql-database-machine-learning-services-overview.md). 
-
-El modelo que usará en la guía de inicio rápido es un modelo de regresión simple que predice la distancia de frenado de un automóvil en función de la velocidad. Deberá usar el conjunto de datos denominado **Automóviles** incluido con R, ya que es pequeño y fácil de entender.
-
-> [!TIP]
-> Muchos conjuntos de datos, pequeños y grandes, se incluyen con el entorno en tiempo de ejecución de R. Para obtener una lista de los conjuntos de datos instalados con R, escriba `library(help="datasets")` desde el símbolo del sistema de R.
+En este inicio rápido, va a crear y entrenar un modelo predictivo mediante R, guardará el modelo en una tabla de la base de datos y usará ese modelo para predecir valores a partir de datos nuevos mediante Machine Learning Services (con R) en Azure SQL Database.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/) antes de empezar.
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una [base de datos de Azure SQL](sql-database-single-database-get-started.md) con una [regla de firewall de nivel de servidor](sql-database-server-level-firewall-rule.md)
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) con R habilitado. [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
-- Para ejecutar el código de ejemplo en estos ejercicios, primero debe tener una instancia de Azure SQL Database con Machine Learning Services (con R) habilitada. Durante la versión preliminar pública, Microsoft le incorporará y habilitará el aprendizaje automático para la base de datos nueva o existente. Siga los pasos que se indican en [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
+> [!NOTE]
+> Durante la versión preliminar pública, Microsoft le incorporará y habilitará el aprendizaje automático para la base de datos nueva o existente.
 
-- Asegúrese de que tiene instalada la versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Puede ejecutar los scripts de R con herramientas de consulta o de otro tipo de administración de base de datos, pero en este tutorial usará SSMS.
+En este ejemplo se usa un modelo de regresión simple para predecir la distancia de detención de un automóvil en función de la velocidad mediante el conjunto de datos **cars** que se incluye con R.
 
-- En esta guía de inicio rápido, también es necesario configurar una regla de firewall de nivel de servidor. Para obtener información acerca de cómo puede realizar estos pasos, consulte [Crear una regla de firewall de nivel de servidor](sql-database-server-level-firewall-rule.md).
+> [!TIP]
+> Muchos conjuntos de datos se incluyen con el entorno de ejecución de R; para obtener una lista de los conjuntos de datos instalados, escriba `library(help="datasets")` en el símbolo del sistema de R.
 
 ## <a name="create-and-train-a-predictive-model"></a>Crear y entrenar un modelo predictivo
 
@@ -50,7 +50,7 @@ Los requisitos de un modelo lineal son sencillos:
 - Proporcione los datos de entrada para utilizarlos en el entrenamiento del modelo.
 
 > [!TIP]
-> Si necesita un actualizador de los modelos lineales, consulte este tutorial, que describe el proceso de ajuste de un modelo mediante rxLinMod: [Ajuste de modelos lineales](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+> Para más información sobre los modelos lineales, pruebe este tutorial, donde se describe el proceso para adaptar un modelo mediante rxLinMod: [Ajuste de modelos lineales](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
 En los siguientes pasos, configurará los datos de entrenamiento, creará un modelo de regresión, lo entrenará mediante esos datos de entrenamiento y, a continuación, guardará el modelo en una tabla SQL.
 
@@ -173,9 +173,9 @@ VALUES (
 
 ![Modelo entrenado con salida adicional](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
-## <a name="score-new-data-using-the-trained-model"></a>Puntuar los datos nuevos mediante el modelo entrenado
+## <a name="score-new-data-using-the-trained-model"></a>Puntuación de datos nuevos con el modelo entrenado
 
-*Puntuación* es un término que se usa en la ciencia de datos para referirse a la generación de predicciones, probabilidades u otros valores basados en nuevos datos introducidos en un modelo entrenado. Usará el modelo que creó en la sección anterior para puntuar las predicciones con respecto a los nuevos datos.
+*Puntuación* es un término usado en ciencia de datos que equivale a generar predicciones, probabilidades y otros valores basándose en datos nuevos proporcionados a un modelo entrenado. Usará el modelo que ha creado en la sección anterior para puntuar predicciones en relación con datos nuevos.
 
 ¿Ha observado que los datos de entrenamiento originales se detienen a una velocidad de 25 millas por hora? Esto se debe a que los datos originales se basaron en un experimento de 1920. Es posible que se pregunte lo siguiente: ¿cuánto tiempo tardaría un automóvil de 1920 en detenerse, asumiendo que podría ir como máximo a 60 mph o incluso a 100 mph? Para responder a esta pregunta, debe proporcionar algunos valores de velocidad nuevos en el modelo.
 
@@ -244,7 +244,7 @@ VALUES (
 > [!NOTE]
 > En este script de ejemplo, la función `str` se agrega durante la fase de prueba, para comprobar el esquema de los datos que se devuelven desde R. Puede eliminar la instrucción más tarde.
 >
-> Los nombres de columna utilizados en el script de R no necesariamente se pasan a la salida del procedimiento almacenado. Aquí la instrucción WITH RESULTS define algunos nombres de columna nuevos.
+> Los nombres de columna usados en el script de R no tienen que pasarse necesariamente al resultado del procedimiento almacenado. Aquí la instrucción WITH RESULTS define algunos nombres de columna nuevos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -253,4 +253,4 @@ Para más información acerca de Azure SQL Database Machine Learning Services co
 - [Azure SQL Database Machine Learning Services con R (versión preliminar)](sql-database-machine-learning-services-overview.md)
 - [Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-quickstart-r-create-script.md)
 - [Escribir funciones de R avanzadas en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-machine-learning-services-functions.md)
-- [Trabajar con datos SQL y R en Machine Learning Services (versión preliminar) de Azure SQL Database](sql-database-machine-learning-services-data-issues.md)
+- [Trabajar con datos SQL y R en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-machine-learning-services-data-issues.md)

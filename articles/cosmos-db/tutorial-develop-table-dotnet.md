@@ -1,19 +1,19 @@
 ---
 title: Table API de Azure Cosmos DB con el SDK de .NET Standard
 description: Obtenga información acerca de cómo almacenar y consultar los datos estructurados en una cuenta de Table API de Azure Cosmos DB.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: b3497df8acdb2e7d184dba54e93506146d842348
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314392"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770725"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -178,6 +178,12 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
     Console.WriteLine();
     return table;
 }
+```
+
+Si recibe una "excepción 503 de servicio no disponible", es posible que los puertos necesarios para el modo de conexión estén bloqueados por un firewall. Para corregir este problema, abra los puertos necesarios o use la conectividad del modo de puerta de enlace como se indica en el código siguiente:
+
+```csharp
+tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 ```
 
 ## <a name="define-the-entity"></a>Definición de la entidad 

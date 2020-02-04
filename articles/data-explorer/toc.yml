@@ -174,12 +174,28 @@
               href: manage-cluster-vertical-scaling.md
             - name: Comprobación del estado del clúster
               href: check-cluster-health.md
+            - name: Incorporación de la entidad de seguridad de un clúster
+              items:
+                - name: 'C#'
+                  href: cluster-principal-csharp.md
+                - name: Python
+                  href: cluster-principal-python.md
+                - name: Plantilla del Administrador de recursos de Azure
+                  href: cluster-principal-resource-manager.md
         - name: Base de datos
           items:
             - name: Bases de datos de seguidores
               href: follower.md
             - name: Administración de permisos de la base de datos
               href: manage-database-permissions.md
+            - name: Incorporación de entidad de seguridad de base de datos
+              items:
+                - name: 'C#'
+                  href: database-principal-csharp.md
+                - name: Python
+                  href: database-principal-python.md
+                - name: Plantilla del Administrador de recursos de Azure
+                  href: database-principal-resource-manager.md
             - name: Directivas
               items:
                 - name: 'C#'

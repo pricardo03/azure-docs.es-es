@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Uso de colas de Service Bus con PHP'
-description: 'Inicio rápido: Obtenga información acerca de cómo usar las colas de Service Bus en Azure. Ejemplos de código escritos en PHP.'
+title: Uso de colas de Azure Service Bus con PHP
+description: En este tutorial, obtendrá información sobre cómo crear aplicaciones de PHP para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: d576c269f4178c7543327c6b75f46f5487d7a205
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fcb735d81cac587c75a133ad582f2a839551dcfa
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719187"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760698"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Inicio rápido: Uso de colas de Service Bus con PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 En este tutorial, obtendrá información sobre cómo crear aplicaciones de PHP para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus. 
 
-## <a name="prerequisites"></a>Requisitos previos
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
     1. Lea la **introducción** rápida de las **colas** de Service Bus. 
     2. Cree un **espacio de nombres** de Service Bus. 

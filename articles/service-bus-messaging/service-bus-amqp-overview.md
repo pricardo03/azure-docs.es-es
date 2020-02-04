@@ -1,6 +1,6 @@
 ---
-title: Introducción a AMQP 1.0 en Azure Service Bus | Microsoft Docs
-description: Obtenga información acerca de cómo utilizar Advanced Message Queuing Protocol (AMQP) 1.0 en Azure.
+title: Introducción a AMQP 1.0 en Azure Service Bus
+description: Obtenga información sobre cómo Azure Service Bus admite Advanced Message Queuing Protocol (AMQP), un protocolo estándar abierto.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 34829482e570354c1ab1e1fd6cec0c96b993cd83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60403927"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759319"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Soporte de AMQP 1.0 en Service Bus
 Tanto el servicio en la nube de Azure Service Bus como el [Service Bus para Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local, admiten el protocolo AMQP (Advanced Message Queueing Protocol) 1.0. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto. Puede construir aplicaciones mediante componentes creados con distintos lenguajes y marcos, y que se ejecutan en diferentes sistemas operativos. Todos estos componentes se pueden conectar a Service Bus e intercambiar directamente mensajes empresariales estructurados de manera eficaz y con total fidelidad.

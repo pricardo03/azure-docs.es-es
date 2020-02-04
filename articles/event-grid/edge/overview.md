@@ -7,19 +7,19 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: e03429ed3df5bd3518d5e5194bd842b9a4f290ba
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: feac5891734731e6f7377750127958a40a815036
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991498"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844670"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>¿Qué es Azure Event Grid en Azure IoT Edge?
-Event Grid en IoT Edge aporta la eficacia y flexibilidad de Azure Event Grid a Edge para todos los escenarios basados en eventos y en publicaciones y suscripciones. Cree temas, publique eventos y suscríbase a varios destinos, tanto si son módulos del mismo dispositivo, como otros dispositivos perimetrales o servicios en la nube.
+Event Grid en IoT Edge aporta la eficacia y flexibilidad de Azure Event Grid al borde. Cree temas, publique eventos y suscríbase a varios destinos, tanto si son módulos del mismo dispositivo, como otros dispositivos perimetrales o servicios en la nube.
 
-Como en la nube, el módulo de Event Grid en IoT Edge controla el enrutamiento, el filtrado y la entrega fiable de eventos a escala. Filtre los eventos para asegurarse de que solo se envían los eventos pertinentes a distintos controladores de eventos mediante filtros de cadena, numéricos y booleanos avanzados. La lógica de reintento garantiza que el evento alcance el módulo de destino, el dispositivo perimetral o el servicio en la nube, incluso si no está disponible en el momento de la publicación. Permite usar Event Grid en IoT Edge como un eficaz mecanismo de almacenamiento y reenvío.
+Como en la nube, el módulo de Event Grid en IoT Edge controla el enrutamiento, el filtrado y la entrega fiable de eventos a escala. Filtre los eventos para asegurarse de que solo se envían los eventos pertinentes a distintos controladores de eventos mediante filtros de cadena, numéricos y booleanos avanzados. La lógica de reintento garantiza que el evento alcance el módulo de destino, incluso si no está disponible en el momento de la publicación. Permite usar Event Grid en IoT Edge como un eficaz mecanismo de almacenamiento y reenvío.
 
-Event Grid en IoT Edge admite tanto CloudEvents v1.0 como esquemas de eventos personalizados. También admite la misma semántica de publicación y suscripción que Event Grid en la nube para facilitar la interoperabilidad con Azure y terceros.
+Event Grid en IoT Edge admite tanto CloudEvents v1.0 como esquemas de eventos personalizados. También admite la misma semántica de Pub/Sub que Event Grid en la nube para facilitar la interoperabilidad.
 
 En este artículo se ofrece información general sobre Azure Event Grid en IoT Edge. Para obtener instrucciones paso a paso sobre cómo usar este módulo en Edge, consulte [Publicar y suscribirse a eventos localmente](pub-sub-events-webhook-local.md). 
 
@@ -29,7 +29,7 @@ En esta imagen se muestran algunas de las formas en que puede usar Event Grid en
 
 ## <a name="when-to-use-event-grid-on-iot-edge"></a>¿Cuándo usar Event Grid en IoT Edge?
 
-Event Grid en IoT Edge se ha diseñado para proporcionar un modelo de eventos uniforme, fácil de usar y confiable para crear arquitecturas basadas en eventos entre Edge y la nube.
+Event Grid en IoT Edge proporciona un modelo de eventos confiable y fácil de usar entre el perímetro y la nube.
 
 Event Grid en IoT Edge se ha diseñado con un área expuesta del entorno en tiempo de ejecución simétrica al servicio en la nube de Azure para que pueda usar los mismos eventos y llamadas a la API donde lo necesite. Tanto si realiza publicaciones o suscripciones en la nube, como en Edge o ambos, ahora, Event Grid en IoT Edge puede ser la solución única.
 
@@ -55,8 +55,12 @@ Event Grid en IoT Edge se crea para enviar eventos donde quiera. Actualmente, se
 
 * Otros módulos, como IoT Hub, funciones y módulos personalizados
 * Otros dispositivos perimetrales
-* Los servicios hospedados en la nube incluyen Azure Event Grid y Azure Functions
-* Webhooks
+* WebHooks
+* Servicio en la nube de Azure Event Grid
+* Event Hubs
+* Colas de Service Bus
+* Temas de Service Bus
+* Colas de almacenamiento
 
 ## <a name="supported-environments"></a>Entornos admitidos
 Actualmente, se admiten los entornos de Windows de 64 bits, Linux de 64 bits y ARM de 32 bits.

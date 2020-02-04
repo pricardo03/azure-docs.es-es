@@ -2,20 +2,20 @@
 title: Tareas para un colaborador individual en el proceso de ciencia de datos en equipos
 description: Tutorial detallado de las tareas de un colaborador individual en un proyecto de equipo de ciencia de datos.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b64d9669c11f15de5e6bd616ff7a79f59b748363
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244254"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721258"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tareas para un colaborador individual en el proceso de ciencia de datos en equipos
 
@@ -32,7 +32,7 @@ En el diagrama siguiente se muestran las tareas que los colaboradores individual
 > [!NOTE] 
 > En este artículo se utiliza Azure Repos y una instancia de Data Science Virtual Machine (DSVM) para configurar un entorno de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de desarrollo u hospedaje de código, las tareas del colaborador individual serán las mismas, pero la manera de realizarlas puede ser diferente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este tutorial se da por supuesto que los siguientes recursos y permisos están configurados por el [administrador de grupo](group-manager-tasks.md), el [responsable de equipo](team-lead-tasks.md) y el [responsable de proyecto](project-lead-tasks.md):
 
@@ -42,9 +42,9 @@ En este tutorial se da por supuesto que los siguientes recursos y permisos está
 - **Almacenamiento de archivos** de Azure configurado para los recursos compartidos de su equipo o proyecto, si procede
 - **Permisos** para clonar y volver a enviar al repositorio del proyecto 
 
-Para clonar los repositorios y modificar su contenido en la máquina local o en la DSVM, o montar el almacenamiento de archivos de Azure en la DSVM, necesita lo siguiente:
+Para clonar los repositorios y modificar su contenido en la máquina local o en la DSVM, o montar el almacenamiento de archivos de Azure en la DSVM, debe tener en cuenta la lista siguiente:
 
-- Una suscripción de Azure.
+- Suscripción a Azure.
 - Git instalado en la máquina. Si usa una DSVM, GIT está preinstalado. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).
 - Si desea usar la DSVM, la DSVM de Windows o Linux creada y configurada en Azure. Para más información e instrucciones, consulte la [documentación de Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
 - Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md*, desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 

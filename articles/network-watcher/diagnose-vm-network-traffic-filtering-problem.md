@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: En esta guía de inicio rápido, aprenderá a diagnosticar los problemas que surgen al filtrar el tráfico de las máquinas virtuales utilizando la funcionalidad Comprobación del flujo de IP de Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276007"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844928"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Inicio rápido: Diagnóstico de problemas al filtrar el tráfico de red de las máquinas virtuales con Azure Portal
 
@@ -41,13 +40,13 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Seleccione **Proceso** y, luego, **Windows Server 2016 Datacenter** o una versión de **Ubuntu Server**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
-    |NOMBRE|myVm|
+    |Nombre|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Seleccione su suscripción.|
-    |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
+    |Resource group| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Location| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
@@ -73,11 +72,11 @@ Si ya dispone de un monitor de red habilitado en al menos una región, vaya a la
 
 Cuando se crea una máquina virtual, Azure permite y deniega el tráfico de entrada y salida de la máquina virtual conforme a unos valores predeterminados. Si lo desea, puede invalidar después los valores predeterminados de Azure para permitir o denegar otros tipos de tráfico.
 
-1. En el portal, seleccione **Todos los servicios**. En el **cuadro Filtrar** de *Todos los servicios*, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados, selecciónela.
+1. En el portal, seleccione **Todos los servicios**. En el cuadro **Todos los servicios** *Filtro*, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados, selecciónela.
 2. Seleccione **Comprobación del flujo de IP** en **HERRAMIENTAS DE DIAGNÓSTICO DE RED**.
 3. Seleccione su suscripción, escriba o seleccione los siguientes valores y seleccione **Comprobar**, tal y como se muestra en la siguiente imagen:
 
-    |Configuración            |Valor                                                                                              |
+    |Configuración            |Value                                                                                              |
     |---------          |---------                                                                                          |
     | Resource group    | Seleccione myResourceGroup                                                                            |
     | Máquina virtual   | Seleccione myVm                                                                                       |

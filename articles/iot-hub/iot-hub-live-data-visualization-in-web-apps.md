@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 073a766662b2ead4b816276fa7fda6dc5e6caca7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954647"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767947"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub en una aplicación web
 
@@ -29,7 +29,7 @@ En este tutorial, obtendrá información sobre cómo visualizar los datos del se
 
 * Agregar un grupo de consumidores a la instancia de IoT Hub que la aplicación web usará para leer datos del sensor
 * Descargar el código de la aplicación web desde GitHub
-* Examinar el código de la aplicación web
+* Examen del código de la aplicación web
 * Configurar las variables de entorno para contener los artefactos de IoT Hub necesarios para la aplicación web
 * Ejecutar la aplicación web en la máquina de desarrollo
 * Abrir la aplicación web para ver los datos de temperatura y de humedad en tiempo real desde IoT Hub
@@ -165,10 +165,10 @@ En esta sección, aprovisiona una aplicación web en App Service e implementa el
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. Ahora puede aprovisionar una aplicación web en su plan de App Service. El parámetro `--deployment-local-git` permite que el código de la aplicación web se cargue e implemente desde un repositorio de Git en la máquina local. El nombre de la aplicación web debe ser único globalmente y puede contener letras mayúsculas y minúsculas, números y guiones.
+2. Ahora puede aprovisionar una aplicación web en su plan de App Service. El parámetro `--deployment-local-git` permite que el código de la aplicación web se cargue e implemente desde un repositorio de Git en la máquina local. El nombre de la aplicación web debe ser único globalmente y puede contener letras mayúsculas y minúsculas, números y guiones. Asegúrese de especificar la versión de Node 10.6 o posterior para el parámetro `--runtime`, en función de la versión del tiempo de ejecución de Node.js que esté usando. Puede usar el comando `az webapp list-runtimes` para obtener una lista de los tiempos de ejecución admitidos.
 
    ```azurecli-interactive
-   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --deployment-local-git
+   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
 3. Ahora agregue la configuración de la aplicación para las variables de entorno que especifican la cadena de conexión de IoT Hub y el grupo de consumidores del centro de eventos. Las opciones de configuración individuales están delimitadas mediante espacios en el parámetro `-settings`. Use la cadena de conexión del servicio para su instancia de IoT Hub y el grupo de consumidores que creó anteriormente en este tutorial. No incluya los valores entre comillas.
@@ -229,7 +229,7 @@ En esta sección, aprovisiona una aplicación web en App Service e implementa el
 
 11. Vaya a `https://<your web app name>.azurewebsites.net` en un explorador. Se muestra una página web similar a la que vio cuando ejecutó la aplicación web que se muestra localmente. Suponiendo que el dispositivo se está ejecutando y enviando datos, debería ver un gráfico de ejecución de las 50 lecturas más recientes de temperatura y humedad enviadas por el dispositivo.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si encuentra algún problema con este ejemplo, pruebe los pasos descritos en las secciones siguientes. Si sigue teniendo problemas, envíenos comentarios en la parte inferior de este tema.
 

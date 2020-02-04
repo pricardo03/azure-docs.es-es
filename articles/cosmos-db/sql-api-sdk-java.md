@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a7eaabedd6736c107625204f982a530f2bab73d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444842"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718180"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 |**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name246246"></a><a name="2.4.6"/>2.4.6
+* Se ha actualizado la etiqueta de directiva de réplica del lado cliente correcta en databaseAccount y se han realizado lecturas de configuración de databaseAccount desde la caché.
 
 ### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
 * Evitar el error de reintento en intervalo de claves de partición no válido, si el usuario proporciona pkRangeId.

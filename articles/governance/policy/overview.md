@@ -3,12 +3,13 @@ title: Introducción a Azure Policy
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9babfd52071ed7d033761802f696c3b6021287af
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885473"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846052"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -62,7 +63,7 @@ Para obtener más información sobre las estructuras de las definiciones de dire
 
 ## <a name="policy-assignment"></a>Asignación de directiva
 
-Una asignación de directiva es una definición de directiva que se asignó para que ocurra dentro de un ámbito específico. Este ámbito puede ir desde un [grupo de administración](../management-groups/overview.md) a un grupo de recursos. El término *ámbito* hace referencia a todos los grupos de recursos, suscripciones o grupos de administración a los que se asigna la definición de directiva. Todos los recursos secundarios heredan las asignaciones de directivas. Este diseño conlleva que una directiva aplicada a un grupo de recursos también se aplique a los recursos de dicho grupo. Sin embargo, puede excluir un subámbito de la asignación de directiva.
+Una asignación de directiva es una definición de directiva que se asignó para que ocurra dentro de un ámbito específico. Este ámbito puede ir desde un [grupo de administración](../management-groups/overview.md) a un recurso individual. El término *ámbito* hace referencia a todos los recursos, grupos de recursos, suscripciones o grupos de administración a los que se asigna la definición de directiva. Todos los recursos secundarios heredan las asignaciones de directivas. Este diseño conlleva que una directiva aplicada a un grupo de recursos también se aplique a los recursos de dicho grupo. Sin embargo, puede excluir un subámbito de la asignación de directiva.
 
 Por ejemplo, en el ámbito de la suscripción, puede asignar una directiva que impida la creación de recursos de red. También podría excluir un grupo de recursos en la suscripción que está diseñado para la infraestructura de red. De esta forma, concede acceso a este grupo de recursos de red a los usuarios de confianza con la creación de recursos de red.
 

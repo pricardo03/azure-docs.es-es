@@ -1,10 +1,9 @@
 ---
-title: Información general sobre la mensajería de Azure Service Bus (ejemplos) | Microsoft Docs
-description: Describe ejemplos de mensajería de Service Bus con vínculos a cada uno.
+title: Información general sobre la mensajería de Azure Service Bus (ejemplos)
+description: En los ejemplos de mensajería de Service Bus se muestran las características principales de la mensajería de Azure Service Bus. Se proporcionan vínculos a ejemplos en GitHub.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: a5ca41f1d9b1fb5b2dd8b9066af85543f1fddd23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccaca451ac4fb7b4301aca429a42baea91e5ed10
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786765"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773460"
 ---
 # <a name="service-bus-messaging-samples"></a>Ejemplos de mensajería de Service Bus
 En los ejemplos de mensajería de Service Bus se muestran las características principales de la [mensajería de Service Bus](https://azure.microsoft.com/services/service-bus/). Actualmente, puede encontrar los ejemplos en los siguientes lugares:

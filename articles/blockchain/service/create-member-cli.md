@@ -1,15 +1,15 @@
 ---
 title: 'Creación de un miembro de Azure Blockchain Service: CLI de Azure'
 description: Cree un miembro de Azure Blockchain Service para un consorcio de la cadena de bloques mediante la CLI de Azure.
-ms.date: 11/20/2019
+ms.date: 01/23/2020
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 6a9673431c3da21b3ce645b9aff30506be1012f3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 703444b6077c2301e1ffec77c8096fb76ddaa731
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455952"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759933"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure
 
@@ -27,7 +27,7 @@ Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se req
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Para crear un grupo de recursos, use el comando [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
 az group create \
@@ -37,7 +37,9 @@ az group create \
 
 ## <a name="create-a-blockchain-member"></a>Creación de un miembro de cadena de bloques
 
-Cree un miembro de cadena de bloques en Azure Blockchain Service que ejecute el protocolo de libro de contabilidad de quorum en un nuevo consorcio. Hay varios parámetros y propiedades que se deben pasar. Reemplace los parámetros de ejemplo por los suyos propios.
+Un miembro de Azure Blockchain Service es un nodo de la cadena de bloques en una red de cadenas de bloques del consorcio privado. Al aprovisionar un miembro, puede crear una red de consorcio o unirse a ella. Necesita al menos un miembro para una red de consorcio. El número de miembros de la cadena de bloques que necesitan los participantes depende de su escenario. Los participantes del consorcio pueden tener uno o varios miembros de la cadena de bloques o pueden compartir miembros con otros participantes. Para más información sobre los consorcios, consulte [Consorcio de Azure Blockchain Service](consortium.md).
+
+Hay varios parámetros y propiedades que se deben pasar. Reemplace los parámetros de ejemplo por los suyos propios.
 
 ```azurecli-interactive
 az resource create \
@@ -48,13 +50,13 @@ az resource create \
                     --properties '{"location":"westus2", "properties":{"password":"strongMemberAccountPassword@1", "protocol":"Quorum", "consortium":"myConsortiumName", "consortiumManagementAccountPassword":"strongConsortiumManagementPassword@1"}, "sku":{"name":"S0"}}'
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos donde se crean los recursos de Azure Blockchain Service. Use el grupo de recursos que creó en la sección anterior.
 | **name** | Un nombre único que identifica al miembro de cadena de bloques de Azure Blockchain Service. El nombre se usa como dirección de punto de conexión público. Por ejemplo, `myblockchainmember.blockchain.azure.com`.
 | **ubicación** | Región de Azure donde se crea el miembro de cadena de bloques. Por ejemplo, `westus2`. Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
 | **password** | La contraseña del nodo de transacción predeterminado del miembro. Use la contraseña para la autenticación básica al conectarse al punto de conexión público del nodo de transacción predeterminado del miembro de la cadena de bloques.
-| **consortium** | Nombre del consorcio al que unirse o que se va a crear.
+| **consortium** | Nombre del consorcio al que unirse o que se va a crear. Para más información sobre los consorcios, consulte [Consorcio de Azure Blockchain Service](consortium.md).
 | **consortiumAccountPassword** | Este valor también se conoce como la contraseña de la cuenta del miembro, y se usa para cifrar la clave privada de la cuenta de Ethereum que se crea para el miembro. Usará la cuenta del miembro y la contraseña de la cuenta del miembro para la administración del consorcio.
 | **skuName** | Tipo de nivel. Use S0 para Estándar y B0 para Básico.
 
@@ -74,7 +76,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido ha implementado un miembro de Azure Blockchain Service y un nuevo consorcio. Pruebe el siguiente inicio rápido para usar Azure Blockchain Development Kit for Ethereum para realizar la asociación con un consorcio en Azure Blockchain Service.
+En este inicio rápido ha implementado un miembro de Azure Blockchain Service y un nuevo consorcio. Pruebe el siguiente inicio rápido para usar Azure Blockchain Development Kit para Ethereum para adjuntar a un miembro de Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
 > [Uso de Visual Studio Code para conectarse a Azure Blockchain Service](connect-vscode.md)

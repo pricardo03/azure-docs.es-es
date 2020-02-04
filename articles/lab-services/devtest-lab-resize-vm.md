@@ -1,6 +1,6 @@
 ---
-title: Cambio de tamaño de una máquina virtual en un laboratorio de Azure DevTest Labs | Microsoft Docs
-description: Obtenga información sobre cómo cambiar el tamaño de una máquina virtual en Azure DevTest Labs.
+title: Cambio de tamaño de una máquina virtual en un laboratorio de Azure DevTest Labs
+description: Obtenga información sobre cómo cambiar el tamaño de una máquina virtual (VM) en Azure DevTest Labs en función de sus necesidades de CPU, red o rendimiento de disco.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: a0bc618a9c0a02aae884d8be359df6bdbf4c0d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf7c425766a97aaa1d143133f04502a0aa3c36cb
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868091"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756184"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>Cambio de tamaño de una máquina virtual en un laboratorio de Azure DevTest Labs
 Una de las características importantes de Azure Virtual Machines es que permite cambiar el tamaño de una máquina virtual (VM) en función de sus necesidades de CPU, red o rendimiento de disco. Ahora, Azure DevTest Labs admite esta característica para las máquinas virtuales en un laboratorio. La característica de cambio de tamaño se ajusta a la directiva de laboratorio para los tamaños de máquina virtual permitidos en el laboratorio. Es decir, se puede cambiar el tamaño de una máquina virtual, pero solo a los tamaños permitidos en el laboratorio. 
@@ -31,7 +31,7 @@ Para cambiar el tamaño de una máquina virtual en un laboratorio de Azure DevTe
 > [!NOTE]
 > Si está conectado a la máquina virtual a través de una sesión de escritorio remoto (RDP), guarde el trabajo y desconéctese de la máquina virtual antes de cambiar su tamaño.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el que incluye la máquina virtual que quiere cambiar de tamaño.  
 4. En el panel izquierdo, seleccione **Mis máquinas virtuales**. 

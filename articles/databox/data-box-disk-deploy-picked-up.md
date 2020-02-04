@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514126"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845490"
 ---
 ::: zone target="chromeless"
 
@@ -155,10 +155,28 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 
    Si surge algún problema, póngase en contacto con Data Box Operations Asia a la siguiente dirección de correo electrónico, adbo@microsoft.com. Especifique el nombre del trabajo en el encabezado del asunto y el problema que ha aparecido.
 
-3. Realice la entrega al mensajero. 
+3. Realice la entrega al mensajero.
 
+### <a name="in-self-managedtabin-selfmanaged"></a>[En entorno autoadministrado](#tab/in-selfmanaged)
+
+Si usa Data Box Disk en Japón, Singapur, Corea y Europa Occidental, y ha seleccionado la opción de envío autoadministrada durante la creación del pedido, siga estas instrucciones. 
+
+1. Vaya a la hoja **Información general** del pedido en Azure Portal. Siga las instrucciones que se muestran al seleccionar **Programar recogida**. Debería ver un código de autorización que se utiliza en el momento de dejar el pedido.
+
+2. Envíe un correo electrónico al equipo de operaciones de Azure Data Box mediante la siguiente plantilla cuando esté listo para devolver el dispositivo.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. El equipo de operaciones de Azure Data Box trabajará con usted para organizar la devolución en el centro de datos de Azure.
 
 ::: zone target="docs"
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 4902c679fa9b8b0140f7da8f32b3382983a635ed
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311332"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721122"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde
     | [Estimadores](#estimators) | Las clases de estimador **facilitan el entrenamiento de modelos en función de marcos populares de aprendizaje automático**. Hay clases de estimador para **Scikit-learn**, **PyTorch**, **TensorFlow** y **Chainer**. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores. |
     | [Canalización de aprendizaje automático](#machine-learning-pipeline) | Las canalizaciones no son un método de entrenamiento distinto, sino una **manera de definir un flujo de trabajo con pasos modulares y reutilizables**, que puede incluir el entrenamiento como parte del flujo de trabajo. Las canalizaciones de aprendizaje automático admiten el uso de aprendizaje automático automatizado, estimadores y configuración de ejecución para entrenar modelos. Como las canalizaciones no se centran específicamente en el entrenamiento, las razones para usar una canalización son más variadas que los demás métodos de entrenamiento. Por lo general, puede usar una canalización cuando:<br>* Quiere **programar procesos desatendidos**, como trabajos de entrenamiento de larga duración o la preparación de los datos.<br>* Use **varios pasos** coordinados entre ubicaciones de almacenamiento y recursos de proceso heterogéneos.<br>* Use la canalización como una **plantilla reutilizable** para escenarios específicos, como el reentrenamiento o la puntuación por lotes.<br>* **Haga seguimiento y realice versiones de sus orígenes de datos, entradas y salidas** del flujo de trabajo.<br>* El flujo de trabajo **lo implementan distintos equipos que trabajan en pasos específicos de manera independiente**. Luego, los pasos se pueden reunir en una canalización para implementar el flujo de trabajo. |
 
-+ **Diseñador**: el diseñador de Azure Machine Learning proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
++ **Diseñador**: el diseñador de Azure Machine Learning (versión preliminar) proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
 
 + **CLI**: la CLI de Machine Learning proporciona comandos para tareas comunes con Azure Machine Learning y se usa a menudo para **scripting y automatizar tareas**. Por ejemplo, una vez que haya creado una canalización o un script de entrenamiento, puede usar la CLI para iniciar una ejecución de entrenamiento según una programación o cuando se actualicen los archivos de datos usados para el entrenamiento. En el caso de los modelos de entrenamiento, proporciona comandos que envían trabajos de entrenamiento. Puede enviar trabajos mediante configuraciones de ejecución o canalizaciones.
 

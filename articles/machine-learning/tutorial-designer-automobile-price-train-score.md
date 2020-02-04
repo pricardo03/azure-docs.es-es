@@ -9,19 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 917ded03892f3a8a5812948bcbfe31f029fc5cf8
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 639a61cddde27b0d989e5a3dd4c599c353182a73
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314987"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720198"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Predicción del precio de un automóvil con el diseñador
+# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este tutorial de dos partes aprenderá a usar el diseñador de Azure Machine Learning para desarrollar e implementar una solución de análisis predictivo que prediga el precio de cualquier automóvil. 
-
-En la primera parte, configurará el entorno, arrastrará los módulos a un lienzo interactivo y los conectará entre sí para crear una canalización de Azure Machine Learning.
+En este tutorial de dos partes aprenderá a usar el diseñador de Azure Machine Learning para desarrollar e implementar una solución de análisis predictivo que prediga el precio de cualquier automóvil.
 
 En la primera parte del tutorial, aprenderá a:
 
@@ -32,7 +30,7 @@ En la primera parte del tutorial, aprenderá a:
 > * Entrenar un modelo de Machine Learning.
 > * Evaluar un modelo de Machine Learning.
 
-En la [segunda parte](tutorial-designer-automobile-price-deploy.md) del tutorial aprenderá a implementar el modelo predictivo como punto de conexión de inferencia en tiempo real para predecir el precio de cualquier automóvil en función de las especificaciones técnicas que envíe. 
+En la [segunda parte](tutorial-designer-automobile-price-deploy.md) del tutorial implementará el modelo como punto de conexión de inferencia en tiempo real para predecir el precio de cualquier automóvil en función de las especificaciones técnicas que envíe. 
 
 > [!NOTE]
 >Está disponible una versión completa de este tutorial como una canalización de ejemplo.
@@ -41,7 +39,9 @@ En la [segunda parte](tutorial-designer-automobile-price-deploy.md) del tutorial
 
 ## <a name="create-a-new-pipeline"></a>Creación de una canalización
 
-Las canalizaciones de Azure Machine Learning organizan varios pasos de aprendizaje automático y procesamiento de datos dependientes en un único recurso. Las canalizaciones ayudan a organizar, administrar y reutilizar flujos de trabajo de aprendizaje automático complejos entre proyectos y usuarios. Para crear una canalización de Azure Machine Learning, necesita un área de trabajo de Azure Machine Learning. En esta sección aprenderá a crear estos dos recursos.
+Las canalizaciones de Azure Machine Learning organizan varios pasos de aprendizaje automático y procesamiento de datos en un único recurso. Las canalizaciones permiten organizar, administrar y reutilizar flujos de trabajo de aprendizaje automático complejos entre proyectos y usuarios.
+
+Para crear una canalización de Azure Machine Learning, necesita un área de trabajo de Azure Machine Learning. En esta sección aprenderá a crear estos dos recursos.
 
 ### <a name="create-a-new-workspace"></a>Crear un área de trabajo
 
@@ -59,7 +59,7 @@ Si tiene un área de trabajo de Azure Machine Learning con una edición Enterpri
 
 1. Seleccione **Easy-to-use prebuilt modules** (Módulos precompilados fáciles de usar).
 
-1. Seleccione el nombre predeterminado de la canalización, **Pipeline-Created-on** (Canalización: fecha de creación) en la parte superior del lienzo. Cambie el nombre a algo significativo. Por ejemplo, *Automobile price prediction* (Predicción del precio de automóviles). No es necesario que el nombre sea único.
+1. En la parte superior del lienzo, seleccione el nombre predeterminado de la canalización, **Pipeline-Created-on** (Canalización creada el). Cambie el nombre a *Automobile price prediction* (Predicción del precio de automóviles). No es necesario que el nombre sea único.
 
 ## <a name="import-data"></a>Importar datos
 
@@ -109,7 +109,7 @@ Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conj
 
 1. Seleccione el módulo **Select Columns in Dataset**.
 
-1. En el panel de propiedades a la derecha del lienzo, seleccione **Parameters** > **Edit column** (Parámetros > Editar columna).
+1. En el panel de propiedades de la derecha del lienzo, seleccione **All columns** (Todas las columnas).
 
 1. Seleccione el signo **+** para agregar una nueva regla.
 
@@ -120,12 +120,12 @@ Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conj
 1. En la esquina inferior derecha, seleccione **Save** (Guardar) para cerrar el selector de columnas.
 
     ![Excluir una columna](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
-        
-    El panel de propiedades muestra que la columna **normalized-losses** se ha excluido.
 
 1. Seleccione el módulo **Select Columns in Dataset**. 
 
-1. En el panel de propiedades, seleccione **Parameters** > **Comment** (Parámetros > Comentario) y escriba *Exclude normalized losses* (Excluir pérdidas normalizadas).
+1. En el panel de propiedades, seleccione el cuadro de texto **Comment** (Comentario) y escriba *Exclude normalized losses* (Excluir pérdidas normalizadas).
+
+    Los comentarios aparecerán en el gráfico para ayudarle a organizar la canalización.
 
 ### <a name="clean-missing-data"></a>Limpiar datos que faltan
 
@@ -148,31 +148,30 @@ Después de quitar la columna **normalized-losses**, aún faltan valores en el c
 
 ## <a name="train-a-machine-learning-model"></a>Entrenar un modelo de Machine Learning
 
-Ahora que se han procesado los datos, puede entrenar un modelo predictivo.
-
-### <a name="select-an-algorithm"></a>Selección de un algoritmo
-
-*Clasificación* y *regresión* son dos tipos de algoritmos de aprendizaje automático supervisado. La clasificación predice una respuesta a partir de un conjunto definido de categorías, como el color —rojo, azul o verde—. La regresión se usa para predecir un número.
+Ahora que los módulos están listos para procesar los datos, puede configurar los módulos de entrenamiento.
 
 Como lo que se desea es predecir un precio, que es un número, se puede usar un algoritmo de regresión. En este ejemplo, va a usar un modelo de regresión lineal.
 
 ### <a name="split-the-data"></a>División de los datos
 
-Divida los datos en dos conjuntos de datos independientes, para entrenar el modelo y para probarlo.
+La división de los datos es una tarea común en el aprendizaje automático. Dividirá los datos en dos conjuntos independientes. Uno de ellos entrenará el modelo, mientras que el otro probará su funcionamiento.
 
-1. Escriba **split data** en el cuadro de búsqueda para buscar el módulo **Split Data** (Dividir datos). Conéctelo al puerto izquierdo del módulo **Clean Missing Data**(Limpiar datos que faltan).
+1. Escriba **split data** en el cuadro de búsqueda para buscar el módulo **Split Data** (Dividir datos). Conecte al puerto izquierdo del módulo **Clean Missing Data**(Limpiar datos que faltan) al módulo **Split Data** (Dividir datos).
+
+    > [!IMPORTANT]
+    > Asegúrese de que el puerto de salida izquierdo de **Clean Missing Data** (Limpiar datos que faltan) se conecta a **Split Data** (Dividir datos). El puerto izquierdo contiene los datos limpios. El puerto izquierdo contiene los datos descartados.
 
 1. Seleccione el módulo **Split Data** (Dividir datos).
 
 1. En el panel de propiedades, establezca el valor de **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) en 0,7.
 
-    De este modo divide los datos: el 70 % para entrenar el modelo y el 30 % para probarlo.
+    De este modo divide los datos: el 70 % para entrenar el modelo y el 30 % para probarlo. Al conjunto de datos del 70 % se podrá acceder a través del puerto de salida de la izquierda. Los restantes datos estarán disponibles a través del puerto de salida derecho.
 
 1. En el cuadro **Comment** (Comentario) del panel de propiedades, escriba *Split the dataset into training set (0.7) and test set (0.3)* (Dividir el conjunto de datos en conjunto de entrenamiento [0,7] y conjunto de pruebas [0,3]).
 
 ### <a name="train-the-model"></a>Entrenamiento del modelo
 
-Para entrenar el modelo, proporciónele un conjunto de datos que incluya el precio. El modelo examina los datos y busca correlaciones entre las características de un automóvil y su precio, para construir un modelo.
+Para entrenar el modelo, proporciónele un conjunto de datos que incluya el precio. El algoritmo construye un modelo que explica la relación entre las características y el precio presentado por los datos de entrenamiento.
 
 1. Para seleccionar el algoritmo de aprendizaje, borre e el cuadro de búsqueda de la paleta de módulos.
 
@@ -187,6 +186,9 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 1. Conecte la salida del módulo **Linear Regression** (Regresión lineal) a la entrada izquierda del módulo **Train Model** (Entrenar modelo).
 
 1. Conecte la salida de datos de entrenamiento (puerto izquierdo) del módulo **Dividir datos** a la entrada derecha del módulo **Entrenar modelo**.
+    
+    > [!IMPORTANT]
+    > Asegúrese de que el puerto de salida izquierdo de **Split Data** (Dividir datos) se conecta a **Train Model** (Entrenar modelo). El puerto izquierdo contiene el conjunto de entrenamiento. El puerto derecho contiene el conjunto de prueba.
 
     ![Captura de pantalla que muestra la configuración correcta del módulo Train Model (Entrenar modelo). El módulo Linear Regression (Regresión lineal) se conecta al puerto izquierdo del módulo Train Model (Entrenar modelo) y el módulo Split Data (Dividir datos) se conecta al puerto derecho de Train Model (Entrenar modelo)](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
@@ -196,19 +198,23 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
 1. En el cuadro de diálogo **Label column** (Columna de etiqueta), expanda el menú desplegable y seleccione **Column names** (Nombres de columna). 
 
-1. En el cuadro de texto, escriba *price*. El precio es el valor que el modelo va a predecir.
+1. En el cuadro de texto, escriba *precio* para especificar el valor que el modelo va a predecir.
 
     La canalización debe ser parecida a esta:
 
     ![Captura de pantalla que muestra la configuración correcta de la canalización después de agregar el módulo Entrenar modelo.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
-## <a name="evaluate-a-machine-learning-model"></a>Evaluar un modelo de Machine Learning
+## <a name="score-a-machine-learning-model"></a>Puntuación de un modelo de Machine Learning
 
 Después de entrenar el modelo con el 70 % de los datos, puede usarlo para puntuar el otro 30 % y ver si el modelo funciona correctamente.
 
 1. Escriba *score model* en el cuadro de búsqueda para encontrar el módulo **Score Model** (Puntuar modelo). Arrastre el módulo al lienzo de la canalización. 
 
 1. Conecte la salida del módulo **Train Model** (Entrenar modelo) al puerto de entrada izquierdo de **Score Model** (Entrenar modelo). Conecte la salida de los datos de prueba (puerto derecho) del módulo **Split Data** al puerto de entrada derecho de **Score Model**.
+
+## <a name="evaluate-a-machine-learning-model"></a>Evaluar un modelo de Machine Learning
+
+Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación que dio el modelo al conjunto de datos de prueba.
 
 1. Escriba *evaluate* en el cuadro de búsqueda para buscar el módulo **Evaluate Model** (Evaluar modelo). Arrastre el módulo al lienzo de la canalización. 
 
@@ -218,25 +224,29 @@ Después de entrenar el modelo con el 70 % de los datos, puede usarlo para punt
 
     ![Captura de pantalla que muestra la configuración correcta de la canalización.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-### <a name="run-the-pipeline"></a>Ejecución de la canalización
+## <a name="run-the-pipeline"></a>Ejecución de la canalización
 
 [!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
 
-### <a name="view-results"></a>Vista de resultados
+### <a name="view-scored-labels"></a>Visualización de etiquetas con puntuación
 
-Una vez finalizada la ejecución, puede ver los resultados de la ejecución de la canalización. 
+Una vez finalizada la ejecución, puede ver los resultados de la ejecución de la canalización. En primer lugar, examine las predicciones generadas por el modelo de regresión.
 
 1. Seleccione el módulo **Score Model** (Puntuar modelo) para ver su salida.
 
-1. En el panel de propiedades, seleccione **Outputs** > **Visualize** (Salidas > Visualizar).
+1. En el panel de propiedades, seleccione **Outputs** (Salidas) > icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
     ![Captura de pantalla de la visualización de salida en la que aparece la columna Scored Label (Etiqueta puntuada) resaltada](./media/tutorial-designer-automobile-price-train-score/score-result.png)
 
+### <a name="evaluate-models"></a>Evaluación de modelos
+
+Use **Evaluate Model** (Evaluar modelo) para ver el rendimiento del modelo entrenado en el conjunto de datos de prueba.
+
 1. Seleccione el módulo **Evaluate Model** (Evaluar modelo) para ver su salida.
 
-1. En el panel de propiedades, seleccione **Output** > **Visualize** (Salida > Visualizar).
+1. En el panel de propiedades, seleccione **Output** (Salida) > icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
 
 Se muestran las siguientes estadísticas de su modelo:
 

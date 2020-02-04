@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 66e2cb30dcd58b7ad0c6cedbb547f75c8039bc58
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2f99f50ffcccb052526981a712ac5046836a44ae
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824132"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712905"
 ---
 # <a name="run-opc-publisher"></a>Ejecutar OPC Publisher
 
@@ -579,7 +579,7 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-La configuración predeterminada envía datos a IoT Hub cada 10 segundos o cuando hay 256 kB de datos disponibles para que IoT Hub los ingiera. Esta configuración agrega una latencia moderada de unos 10 segundos, pero tiene menos probabilidad de perder datos debido al gran tamaño de los mensajes. La salida del diagnóstico muestra que no se han perdido actualizaciones de nodo de OPC: `monitored item notifications enqueue failure: 0`.
+La configuración predeterminada envía datos a IoT Hub cada 10 segundos o cuando hay 256 kB de datos disponibles para que IoT Hub los ingiera. Esta configuración agrega una latencia moderada de unos 10 segundos, pero tiene menos probabilidad de perder datos debido al gran tamaño de los mensajes. La salida del diagnóstico muestra que no se han perdido actualizaciones de nodo de OPC: `monitored item notifications enqueue failure: 0`.
 
 #### <a name="constant-send-interval---si-1---ms-0"></a>Intervalo de envío constante (--si 1 --ms 0)
 

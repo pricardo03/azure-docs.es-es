@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 16748d9948518964d47ee9543765e3cb59ae2ec4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 9ed62ea6fdfc0732128ed340cc0bc48481eb73ec
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74902083"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841087"
 ---
 # <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Inicio rápido: Creación de una aplicación de búsqueda en el portal (Azure Cognitive Search)
 
@@ -21,9 +21,11 @@ Use el Asistente para **crear aplicaciones de búsqueda** del portal para genera
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
+En este momento, querrá actualizar a la [versión más reciente de Microsoft Edge](https://www.microsoft.com/edge) o usar el explorador Chrome de Google para este inicio rápido.
+
+[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
 [Cree un índice](search-create-index-portal.md) para usarlo como base de la aplicación. 
 
@@ -89,7 +91,7 @@ En la siguiente captura de pantalla, se muestran las opciones del asistente, jun
 
 El índice subyacente se compone de datos ficticios generados que se han duplicado en los documentos y, en algunas ocasiones, las descripciones no coinciden con la imagen. Si crea una aplicación con sus propios índices el resultado será más coherente.
 
-![Ejecución de la aplicación](media/search-create-app-portal/run-app.png)
+![Ejecución la aplicación](media/search-create-app-portal/run-app.png)
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

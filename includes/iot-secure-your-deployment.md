@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75840646"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748805"
 ---
 En este artículo se proporciona el siguiente nivel de detalle para proteger la infraestructura de Internet de las cosas (IoT) basada en IoT de Azure. Incluye vínculos a detalles de niveles de implementación para configurar e implementar cada componente. También se proporcionan comparaciones y opciones entre diversos métodos que compiten entre sí.
 
@@ -77,7 +77,7 @@ Al establecer una conexión TLS segura con Azure IoT Hub, el dispositivo IoT aut
 
 ## <a name="securing-the-connection"></a>Protección de la conexión
 
-La conexión a Internet entre el dispositivo IoT y Azure IoT Hub está protegida mediante el estándar de Seguridad de capa de transporte (TLS). Azure IoT admite [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 y TLS 1.0, en este orden. La compatibilidad con TLS 1.0 solo se proporciona para permitir versiones anteriores. Si es posible, [configure el centro](../articles/iot-hub/iot-hub-tls.md) para que use TLS 1.2 porque proporciona la máxima seguridad.
+La conexión a Internet entre el dispositivo IoT y Azure IoT Hub está protegida mediante el estándar de Seguridad de capa de transporte (TLS). Azure IoT admite [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 y TLS 1.0, en este orden. La compatibilidad con TLS 1.0 solo se proporciona para permitir versiones anteriores. Consulte [Compatibilidad de TLS en IoT Hub](../articles/iot-hub/iot-hub-tls-support.md) para ver cómo configurar el centro para usar TLS 1.2, ya que proporciona la máxima seguridad.
 
 ## <a name="securing-the-cloud"></a>Protección de la nube
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 437b87a3d684d7751adc89ba77b20ea86b3455e4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806001"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717316"
 ---
 # <a name="create-a-custom-voice"></a>Creación de una voz personalizada
 
@@ -38,7 +38,7 @@ Cada conjunto de datos que cargue debe cumplir los requisitos del tipo de datos 
 > Los usuarios de suscripción gratuita (F0) pueden cargar dos conjuntos de datos al mismo tiempo. En cambio, los usuarios con una suscripción estándar (S0) pueden cargar cinco conjuntos de datos a la vez. Si alcanza el límite, espere hasta que al menos uno de los conjuntos de datos finalice la importación. A continuación, inténtelo de nuevo.
 
 > [!NOTE]
-> El número máximo de conjuntos de datos que se pueden importar por suscripción es de 10 archivos ZIP para usuarios de la suscripción gratuita (F0) y 500 para usuarios de la suscripción estándar (S0).
+> El número máximo de conjuntos de datos que se pueden importar por suscripción es de 10 archivos ZIP para usuarios de la suscripción gratuita (F0) y 500 para usuarios para la suscripción estándar (S0).
 
 Los conjuntos de datos se validan automáticamente una vez que pulsa el botón de carga. La validación de datos incluye una serie de comprobaciones en los archivos de audio para comprobar su formato de archivo, el tamaño y la frecuencia de muestreo. Corrija los errores si los hay y vuelva a realizarla. Cuando se inicia correctamente la solicitud de importación de datos, debería ver una entrada en la tabla de datos que se corresponde con el conjunto de datos que acaba de cargar.
 
@@ -47,7 +47,7 @@ En la siguiente tabla se muestran los estados de procesamiento de los conjuntos 
 | State | Significado |
 | ----- | ------- |
 | Processing | El conjunto de datos se ha recibido y se está procesando. |
-| Succeeded | El conjunto de datos se ha validado y se puede usar para compilar un modelo de voz. |
+| Correcto | El conjunto de datos se ha validado y se puede usar para compilar un modelo de voz. |
 | Con error | El conjunto de datos ha dado error durante el procesamiento debido a muchas razones, por ejemplo, errores de archivo, problemas de datos o problemas de red. |
 
 Una vez completada la validación, puede ver el número total de expresiones coincidentes para cada uno de los conjuntos de datos en la columna **Utterances** (Expresiones). Si el tipo de datos que ha seleccionado requiere una segmentación de audio de larga duración, esta columna solo refleja las expresiones que se han segmentado automáticamente en función de las transcripciones o mediante el servicio de transcripción de voz. Puede seguir descargando el conjunto de datos validado para ver los resultados detallados de las expresiones importadas correctamente y sus transcripciones de asignación. Sugerencia: la segmentación de audio de larga duración puede tardar más de una hora en completar el procesamiento de datos.
@@ -78,7 +78,7 @@ Una vez que el conjunto de datos se haya validado, podrá usarlo para compilar s
     > Los nombres de audio duplicados se quitarán del entrenamiento. Asegúrese de que los conjuntos de datos que seleccione no contengan los mismos nombres de audio en varios archivos ZIP.
 
     > [!TIP]
-    > Para obtener unos resultados de calidad, es necesario usar los conjuntos de datos del mismo altavoz. Cuando los conjuntos de datos que ha enviado para el entrenamiento contengan un número total de menos de 6000 expresiones distintas, entrenará el modelo de voz mediante la técnica de síntesis paramétrica estadística. En el caso de que los datos de entrenamiento excedan un número total de 6000 expresiones diferentes, se iniciará un proceso de entrenamiento con la técnica de síntesis de concatenación. Normalmente la tecnología de concatenación puede producir resultados más naturales y aumenta la fidelidad de la voz. [Póngase en contacto con el equipo de voz personalizada](https://go.microsoft.com/fwlink/?linkid=2108737) si quiere entrenar un modelo con la tecnología TTS neuronal más reciente, la cual puede producir una voz digital equivalente a las [voces neuronales](language-support.md#neural-voices) disponibles públicamente.
+    > Para obtener unos resultados de calidad, es necesario usar los conjuntos de datos del mismo altavoz. Cuando los conjuntos de datos que ha enviado para el entrenamiento contengan un número total de menos de 6000 expresiones distintas, entrenará el modelo de voz mediante la técnica de síntesis paramétrica estadística. En el caso de que los datos de entrenamiento excedan un número total de 6000 expresiones diferentes, se iniciará un proceso de entrenamiento con la técnica de síntesis de concatenación. Normalmente la tecnología de concatenación puede producir resultados más naturales y aumenta la fidelidad de la voz. [Póngase en contacto con el equipo de Voz personalizada](https://go.microsoft.com/fwlink/?linkid=2108737) si quiere entrenar un modelo con la tecnología TTS neuronal más reciente, la cual puede producir una voz digital equivalente a las [voces neuronales](language-support.md#neural-voices) disponibles públicamente.
 
 5.  Haga clic en **Train** (Entrenar) para empezar a crear el modelo de voz.
 
@@ -89,7 +89,7 @@ El estado que se muestra refleja el proceso de convertir el conjunto de datos en
 | State | Significado |
 | ----- | ------- |
 | Processing | Se está creando el modelo de voz. |
-| Succeeded | El modelo de voz se ha creado y se puede implementar. |
+| Correcto | El modelo de voz se ha creado y se puede implementar. |
 | Con error | El modelo de voz ha dado error en el entrenamiento por muchas razones, por ejemplo, problemas desapercibidos con los datos o problemas de red. |
 
 El tiempo de aprendizaje varía según el volumen de datos de audio procesados. El intervalo de tiempo típicos varía, aproximadamente, desde los 30 minutos para unos cientos de expresiones, hasta 40 horas para 20.000 expresiones. Cuando finalice correctamente el entrenamiento del modelo, puede empezar a probarlo.
@@ -117,7 +117,7 @@ Una vez que la fuente de voz se haya creado correctamente, podrá probarla antes
     > [!NOTE]
     > Recuerde que el idioma del texto debe ser el mismo que el de la fuente de voz. Solo se pueden probar los modelos entrenados correctamente. En este paso, solo se admite texto sin formato.
 
-5.  Haga clic en **Create**(Crear).
+5.  Haga clic en **Crear**.
 
 Cuando haya enviado la solicitud de prueba, volverá a la página de prueba. La tabla ahora incluye una entrada que corresponde a su nueva solicitud y la columna de estado. Es posible que se tarden unos minutos en sintetizar la voz. Cuando la columna de estado muestre el valor **Succeeded** (Correcto), puede reproducir el audio, o descargar la entrada de texto (un archivo .txt) y la salida de audio (un archivo .wav) y escuchar esta última para comprobar la calidad.
 
@@ -145,6 +145,6 @@ El punto de conexión personalizado es técnicamente idéntico al punto de conex
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Guía: Grabar ejemplos de voz](record-custom-voice-samples.md)
+* [Guía: Grabación de muestras de voz](record-custom-voice-samples.md)
 * [Referencia de Text-to-Speech API](rest-text-to-speech.md)
 * [Long Audio API](long-audio-api.md)

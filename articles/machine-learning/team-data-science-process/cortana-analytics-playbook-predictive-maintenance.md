@@ -3,20 +3,20 @@ title: 'Guía de Azure AI para soluciones de mantenimiento predictivo: proceso d
 description: Una descripción completa de la ciencia de datos que ofrece soluciones de mantenimiento predictivo en varios sectores verticales.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5cd16280ba942404ffb23fd1c9d0e1a20af8c7c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977138"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721819"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -37,13 +37,13 @@ La primera mitad de esta guía describe los problemas empresariales habituales, 
 | [Recursos de aprendizaje para mantenimiento predictivo](#training-resources-for-predictive-maintenance) | cualquiera o todas las opciones anteriores y desea conocer los conceptos fundamentales detrás de la ciencia de datos, herramientas y técnicas
 
 ### <a name="prerequisite-knowledge"></a>Conocimiento de los requisitos previos
-El contenido para BDM no espera que el lector tenga ningún conocimiento de ciencia de datos previo. En el caso del contenido para TDM, resulta útil contar con un conocimiento básico de estadística y ciencia de datos. Se recomienda tener conocimientos de los servicios de inteligencia artificial y datos de Azure, Python, R, XML y JSON. Las técnicas de inteligencia artificial se implementan en paquetes de Python y R. Las plantillas de soluciones se implementan mediante los servicios de Azure, las herramientas de desarrollo y los SDK.
+El contenido para BDM no espera que el lector tenga ningún conocimiento de ciencia de datos previo. En el caso del contenido para TDM, resulta útil contar con un conocimiento básico de estadística y ciencia de datos. Se recomienda tener conocimientos de los servicios de inteligencia artificial y datos de Azure, Python, R, XML y JSON. Las técnicas de inteligencia artificial se implementan en paquetes de Python y R. Las plantillas de soluciones se implementan mediante servicios de Azure, herramientas de desarrollo y SDK.
 
 ## <a name="business-case-for-predictive-maintenance"></a>Caso empresarial para mantenimiento predictivo
 
 Las empresas requieren que el equipo crítico se ejecute al máximo nivel de eficacia y utilización para capitalizar la rentabilidad de sus inversiones de capital. Estos recursos podrían abarcar desde motores de aviones, turbinas, ascensores o enfriadores industriales (cuyo costo es millonario) hasta dispositivos cotidianos como fotocopiadoras, máquinas de café o refrigeradores de agua.
 - De manera predeterminada, la mayoría de las empresas confían en el _mantenimiento correctivo_, en el que las piezas se reemplazan una vez que presentan errores. El mantenimiento correctivo garantiza que las piezas se usen por completo (por lo tanto, no se desperdicia la vida útil del componente), pero para el negocio implica costos en tiempo de inactividad, trabajo y requisitos de mantenimiento no programado (horas de inactividad o ubicaciones poco prácticas).
-- En el nivel siguiente, las empresas practican el _mantenimiento preventivo_, en el que determinan el tiempo de vida útil de alguna pieza y realizan su mantenimiento o reemplazo antes de que ocurra algún error. El mantenimiento preventivo evita errores catastróficos y no programados. Pero los altos costos del tiempo de inactividad programado, la infrautilización de los componentes antes de que alcancen toda su vigencia de uso y el trabajo todavía se mantienen.
+- En el nivel siguiente, las empresas practican el _mantenimiento preventivo_, en el que determinan el tiempo de vida útil de alguna pieza y realizan su mantenimiento o reemplazo antes de que ocurra algún error. El mantenimiento preventivo evita errores catastróficos y no programados. Pero los altos costos del tiempo de inactividad programado, la infrautilización de los componentes durante la vigencia de uso y el trabajo todavía se mantienen.
 - El objetivo del _mantenimiento predictivo_ es optimizar el equilibrio entre el mantenimiento correctivo y el preventivo, mediante la habilitación del reemplazo _justo a tiempo_ de los distintos componentes. En este enfoque, los componentes solo se reemplazan cuando estén próximos a presentar errores. Al extender la vida útil de los componentes (en comparación con el mantenimiento preventivo) y reducir los costos laborales y el mantenimiento no programado (en comparación con el mantenimiento correctivo), las empresas pueden obtener un mayor ahorro y mayores ventajas competitivas.
 
 ## <a name="business-problems-in-pdm"></a>Problemas empresariales en el mantenimiento predictivo
@@ -92,7 +92,7 @@ Esta sección se centra en una colección de casos de uso de mantenimiento predi
 |**Sector financiero** |                         |
 |Los _errores de un cajero automático_ son un problema común del sector bancario. Aquí, el problema es informar la probabilidad de que una transacción de retiro de efectivo de un cajero automático se interrumpe debido a un error en las piezas o un atasco de papel en el dispensador de efectivo. En función de las predicciones de los errores en las transacciones, se puede realizar un mantenimiento proactivo de los cajeros automáticos para evitar errores.| En lugar de permitir que la máquina presente errores en medio de una transacción, la alternativa deseable es programar la máquina para denegar el servicio en función de la predicción.|
 |**Sector energético** |                          |
-|_Error en turbinas eólicas_: las turbinas eólicas son la principal fuente energética en países o regiones respetuosos con el medio ambiente y significan altos costos de capital. Un componente clave de las turbinas eólicas es el motor del generador. Si presenta errores, la turbina deja de funcionar. También es muy costoso de arreglar.|Predecir KPI como el MTTF (tiempo medio entre errores) puede ayudar a las empresas generadoras de energía eviten los errores de las turbinas y garanticen que el tiempo de inactividad sea mínimo. Las probabilidades de error informarán a los técnicos que supervisen las turbinas que probablemente pronto presenten errores y programen regímenes de mantenimiento en función del tiempo. Los modelos predictivos proporcionan conclusiones sobre los distintos factores que contribuyen a los errores, lo que ayuda a los técnicos a comprender mejor que las causas principales de los problemas.|
+|_Error en turbinas eólicas_: las turbinas eólicas son la principal fuente energética en países o regiones respetuosos con el medio ambiente y significan altos costos de capital. Un componente clave de las turbinas eólicas es el motor del generador, cuyo error hace que la turbina resulte ineficaz. También es muy costoso de arreglar.|Predecir KPI como el MTTF (tiempo medio entre errores) puede ayudar a las empresas generadoras de energía eviten los errores de las turbinas y garanticen que el tiempo de inactividad sea mínimo. Las probabilidades de error informarán a los técnicos que supervisen las turbinas que probablemente pronto presenten errores y programen regímenes de mantenimiento en función del tiempo. Los modelos predictivos proporcionan conclusiones sobre los distintos factores que contribuyen a los errores, lo que ayuda a los técnicos a comprender mejor que las causas principales de los problemas.|
 |_Errores de disyuntores_: la distribución de la electricidad a hogares y empresas requiere que las redes eléctricas siempre funcionen para garantizar la entrega de la energía. Los disyuntores ayudar a limitar o evitar daños en las redes eléctricas durante alguna sobrecarga o condiciones meteorológicas adversas. El problema empresarial aquí es predecir los errores de los disyuntores.| Las soluciones de mantenimiento predictivo ayudan a reducir los costos de reparación y aumentan el ciclo de vida del equipo, como los disyuntores. Ayudan a mejorar la calidad de la red energética mediante la reducción de interrupciones del servicio y errores inesperados.|
 |**Transporte y logística** |    |
 |_Errores en puertas de ascensores_: las grandes empresas de ascensores proporcionan un servicio completo para millones de ascensores en funcionamiento en todo el mundo. Las principales preocupaciones para esos clientes son la seguridad, la confiabilidad y el tiempo de actividad de los ascensores. Estas empresas realizan el seguimiento de estos y otros atributos a través de sensores, los que ayudarán a realizar el mantenimiento correctivo y preventivo. En un ascensor, el principal problema para los clientes es el funcionamiento incorrecto de las puertas de los ascensores. El problema empresarial de este caso es proporcionar una aplicación predictiva de la base de conocimientos que prediga las posibles causas de los errores en las puertas.| Los ascensores son inversiones de capital posiblemente para un período de 20 a 30 años. Por tanto, cada venta potencial puede ser muy competitiva, por lo que las expectativas de servicio y soporte técnico son altas. El mantenimiento predictivo puede brindar a estas empresas una ventaja con respecto a la competencia en cuanto a sus ofertas de productos y servicios.|
@@ -231,14 +231,14 @@ Las especificaciones técnicas del equipo, como la fecha de fabricación, el nú
 
 Los esfuerzos de preparación de los datos descritos hasta el momento deben implicar que los datos se organicen como se muestra a continuación. Los datos de aprendizaje, prueba y validación deben tener este esquema lógico (en este ejemplo se muestra el tiempo en unidades de días).
 
-| Identificador de recurso | Hora | \<Columnas de características> | Etiqueta |
+| Identificador de recurso | Time | \<Columnas de características> | Etiqueta |
 | ---- | ---- | --- | --- |
 | A123 |Día 1 | . . . | . |
 | A123 |Día 2 | . . . | . |
-| ...  |...   | . . . | . |
+| …  |…   | . . . | . |
 | B234 |Día 1 | . . . | . |
 | B234 |Día 2 | . . . | . |
-| ...  |...   | . . . | . |
+| …  |…   | . . . | . |
 
 El último paso en la ingeniería de características es el **etiquetado** de la variable de destino. Este proceso depende de la técnica de modelado. A su vez, la técnica de modelado depende del problema empresarial y de la naturaleza de los datos disponibles. El etiquetado se describe en la sección siguiente.
 
@@ -271,7 +271,7 @@ Aquí la pregunta es: "¿Cuál es la probabilidad de que el recurso presente un 
 Figura 3. Etiquetado para clasificación binaria
 
 A continuación, se muestran ejemplos de estrategia de etiquetado para algunos de los casos de uso.
-- _Retrasos de vuelos_: se puede elegir X como 1 día para predecir los retrasos en las 24 horas siguientes. Todos los vuelos que están dentro de las 24 horas antes de los errores están etiquetados como 1.
+- _Retrasos de vuelos_: Se puede elegir X como un día para predecir los retrasos en las 24 horas siguientes. Todos los vuelos que están dentro de las 24 horas antes de los errores están etiquetados como 1.
 - _Errores en la dispensación de efectivo en los cajeros automáticos_: un objetivo puede ser determinar la probabilidad de error de una transacción en la hora siguiente. En ese caso, todas las transacciones realizadas dentro de la última hora del error se etiquetan como 1. Para predecir la probabilidad de error sobre los próximos N billetes dispensados, todos los billetes dispensados dentro de los últimos N billetes de un error se etiquetan como 1.
 - _Errores de disyuntores_: el objetivo puede ser predecir el próximo error del mando del disyuntor. En ese caso, X será un mando futuro.
 - _Errores en las puertas del metro_: X se puede elegir como dos días.
@@ -423,7 +423,7 @@ Por el contrario, el mantenimiento predictivo implica la _puntuación de Batch_.
 
 En la parte final de esta guía se proporciona una lista de plantillas de soluciones de mantenimiento predictivo, tutoriales y experimentos implementados en Azure. Las aplicaciones de mantenimiento predictivo se pueden implementar en una suscripción de Azure, en cuestión de minutos en algunos casos. Se pueden usar como demostraciones de prueba de concepto, espacios aislados para experimentar con alternativas o aceleradores para implementaciones de producción reales. Estas plantillas están en [Azure AI Gallery](https://gallery.azure.ai) o en [Azure GitHub](https://github.com/Azure). Estos ejemplos distintos se acumularán en esta plantilla de soluciones en el tiempo.
 
-| # | Título | DESCRIPCIÓN |
+| # | Título | Descripción |
 |--:|:------|-------------|
 | 2 | [Plantilla de soluciones de mantenimiento predictivo de Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Una plantilla de solución de código abierto que demuestra el modelado de Azure ML y una infraestructura completa de Azure que es capaz de admitir escenarios de mantenimiento predictivo en el contexto de supervisión remota de IoT. |
 | 3 | [Aprendizaje profundo para mantenimiento predictivo](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notebook de Azure con una solución de demostración sobre el uso de redes con memoria a corto y largo plazo (LSTM) (una clase de redes neuronales recurrentes) para el mantenimiento predictivo, con una [entrada de blog sobre este ejemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|

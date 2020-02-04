@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978107"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716314"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Diseño de un panel de análisis en tiempo real on Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -28,7 +28,7 @@ En este tutorial, usará Azure Database for PostgreSQL Hiperescala (Citus) para 
 > * Consulta de datos sin procesar y agregados
 > * Expiración de los datos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -222,7 +222,7 @@ En los pasos anteriores, creó recursos de Azure en un grupo de servidores. Si n
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a aprovisionar un grupo de servidores Hiperescala (Citus). Se conectó a él con psql, creó un esquema y distribuyó datos. Aprendió a consultar datos en formato sin procesar, agregar esos datos de manera habitual, consultar las tablas de agregados y hacer expirar los datos antiguos.
+En este tutorial, aprendió a aprovisionar un grupo de servidores Hiperescala (Citus). Se conectó a él con psql, creó un esquema y distribuyó datos. Ha aprendido a consultar datos en formato sin procesar, a agregar esos datos de manera habitual, a consultar las tablas de agregados y a hacer expirar los datos antiguos.
 
 A continuación, conozca los conceptos de hiperescala.
 > [!div class="nextstepaction"]

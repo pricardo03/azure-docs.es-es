@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anantr
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: d1d822a5e7dadffd6be841e51ac407995adba2ea
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552560"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765673"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
@@ -73,7 +73,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 
 ## <a name="essentials"></a>Essentials
 
-| Campo | DESCRIPCIÓN|
+| Campo | Descripción|
 |:---|:---|
 | alertId | GUID que identifica de forma única la instancia de alerta. |
 | alertRule | Nombre de la regla de alertas que generó la instancia de la alerta. |
@@ -151,7 +151,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 ### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> En el caso de las alertas de registro que tienen definida una carga de JSON, habilitar el esquema común revertirá el esquema de la carga al que se describe a continuación. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludedSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar la consulta de búsqueda en conjunto con la [API de Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludedSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar la consulta de búsqueda en conjunto con la [API de Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

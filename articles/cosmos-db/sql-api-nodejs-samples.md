@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
-ms.openlocfilehash: d79ac0e368ad824f6ceaea7bbcba151ecec72336
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ac3d74cb76a936cc88261a2fedf16764e8ae52f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220147"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718300"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Ejemplos de Node.js para administrar datos en Azure Cosmos DB
 
@@ -71,7 +71,7 @@ El archivo [ContainerManagement](https://github.com/Azure/azure-cosmos-js/blob/m
 
 ## <a name="item-examples"></a>Ejemplos de elementos
 
-El archivo [ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) muestra cómo realizar las operaciones CRUD en el elemento. Para información sobre los documentos de Azure Cosmos antes de ejecutar los ejemplos siguientes, consulte el artículo conceptual [Uso de bases de datos, contenedores y elementos](databases-containers-items.md). 
+El archivo [ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts) muestra cómo realizar las operaciones CRUD en el elemento. Para información sobre los documentos de Azure Cosmos antes de ejecutar los ejemplos siguientes, consulte el artículo conceptual [Uso de bases de datos, contenedores y elementos](databases-containers-items.md). 
 
 | Tarea | Referencia de API |
 | --- | --- |
@@ -98,12 +98,12 @@ El archivo [IndexManagement](https://github.com/Azure/azure-cosmos-js/blob/maste
 
 ## <a name="server-side-programming-examples"></a>Ejemplos de programación en el servidor
 
-El archivo [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) del proyecto [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) muestra cómo realizar las tareas siguientes. Para obtener información sobre la programación del lado servidor en Azure Cosmos DB antes de ejecutar los ejemplos siguientes, vea el artículo conceptual [Procedimientos almacenados, desencadenadores y funciones definidas por el usuario](stored-procedures-triggers-udfs.md). 
+El archivo [index.ts](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/index.ts) del proyecto [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) muestra cómo realizar las siguientes tareas. Para información sobre la programación del lado servidor en Azure Cosmos DB antes de ejecutar los ejemplos siguientes, consulte el artículo conceptual [Procedimientos almacenados, desencadenadores y funciones definidas por el usuario](stored-procedures-triggers-udfs.md). 
 
 | Tarea | Referencia de API |
 | --- | --- |
-| [Crear un procedimiento almacenado](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/upsert.js) |[StoredProcedures.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedures?view=azure-node-latest) |
-| [Ejecutar un procedimiento almacenado](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/index.ts) |[StoredProcedure.execute](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedure?view=azure-node-latest) |
+| [Creación de un procedimiento almacenado](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/upsert.js) |[StoredProcedures.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedures?view=azure-node-latest) |
+| [Ejecución de un procedimiento almacenado](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/index.ts) |[StoredProcedure.execute](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedure?view=azure-node-latest) |
 
 Para más información sobre la programación en el servidor, consulte [Programación en el servidor de Azure Cosmos DB: procedimientos almacenados, desencadenadores de base de datos y UDF](stored-procedures-triggers-udfs.md).
 

@@ -5,14 +5,14 @@ services: container-service
 author: jnoller
 ms.service: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707219"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767379"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -42,6 +42,8 @@ Los servicios son *administrados* en el sentido en que Microsoft y el equipo de 
 
 > [!NOTE]
 > Los nodos de trabajo de AKS aparecen en Azure Portal como recursos de Azure IaaS normales. No obstante, estas máquinas virtuales se implementan en un grupo de recursos de Azure personalizado (con el prefijo MC\\\*). Los nodos de trabajo de AKS se pueden cambiar. Por ejemplo, puede conectar otros recursos de Azure a los nodos de trabajo de AKS y usar Secure Shell (SSH) para cambiar estos nodos igual que cambia las máquinas virtuales normales (en cambio, no puede cambiar la imagen base del sistema operativo y los cambios podrían no persistir tras una actualización o un reinicio). Pero si realiza cambios *fuera de la administración de la banda y la personalización*, el clúster de AKS puede dejar de ser compatible. Evite cambiar los nodos de trabajo a menos que el Soporte técnico de Microsoft se lo solicite.
+
+La emisión de operaciones no compatibles, como se definió anteriormente, como la desasignación de todos los nodos de agente, hace que el clúster deje de ser compatible. AKS se reserva el derecho de archivar los planos de control que se han configurado fuera de las directrices de compatibilidad durante períodos prolongados iguales o superiores a 30 días. AKS mantiene copias de seguridad de los metadatos de etcd del clúster y puede reasignar fácilmente el clúster. Esta reasignación puede iniciarse con cualquier operación PUT haciendo que el clúster vuelva a ser compatible, como una actualización o un escalado a los nodos de agente activos.
 
 ## <a name="shared-responsibility"></a>Responsabilidad compartida
 

@@ -3,20 +3,20 @@ title: Fase de aceptación del cliente del ciclo de vida del proceso de ciencia 
 description: Los objetivos, las tareas y los resultados de la fase de aceptación del cliente de los proyectos de ciencia de datos.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91d645e6120040870c7c1696c7bfd8f68509cb35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303577"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720527"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase de aceptación del cliente del ciclo de vida del proceso de ciencia de datos en equipos
 

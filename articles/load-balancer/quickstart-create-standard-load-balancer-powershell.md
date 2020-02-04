@@ -1,29 +1,29 @@
 ---
-title: 'Inicio rápido: Creación de una instancia de Standard Load Balancer: Azure PowerShell'
+title: 'Inicio rápido: Creación de una instancia de Load Balancer: Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: En esta guía de inicio rápido se muestra cómo crear un Standard Load Balancer mediante Azure PowerShell
+description: En este inicio rápido se muestra cómo crear una instancia de Load Balancer mediante Azure PowerShell.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 21488fbc8a5a9354db74d5b93719d100bce8878c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 50a7854688164383bff08bfe55d356fe32239812
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045668"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846518"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer mediante Azure PowerShell
+# <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Inicio rápido: Creación de una instancia de Load Balancer con Azure PowerShell
 
 En este inicio rápido se muestra cómo crear una instancia de Standard Load Balancer con Azure PowerShell. Para probar el equilibrador de carga, implemente tres máquinas virtuales que ejecuten Windows Server y equilibre la carga de una aplicación web entre ellas. Para más información sobre Standard Load Balancer, consulte [Introducción a Standard Load Balancer](load-balancer-standard-overview.md).
 
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Cree una dirección IP pública con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). En el ejemplo siguiente, se crea una dirección IP pública denominada *myPublicIP* en el grupo de recursos *myResourceGroupSLB*:
+Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Cree una dirección IP pública con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). En el ejemplo siguiente se crea una dirección IP pública con redundancia de zona denominada *myPublicIP* en el grupo de recursos *myResourceGroupSLB*:
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -56,11 +56,25 @@ $publicIp = New-AzPublicIpAddress `
  -SKU Standard
 ```
 
-## <a name="create-standard-load-balancer"></a>Creación de Standard Load Balancer
+Para crear una dirección IP pública de zona en la zona 1, utilice lo siguiente.
+
+```azurepowershell
+$publicIp = New-AzPublicIpAddress `
+ -ResourceGroupName $rgName `
+ -Name 'myPublicIP' `
+ -Location $location `
+ -AllocationMethod static `
+ -SKU Standard
+ -zone 1
+```
+
+Use ```-SKU Basic``` para crear una dirección IP pública básica. Microsoft recomienda el uso de Standard Load Balancer para cargas de trabajo de producción.
+
+## <a name="create-load-balancer"></a>Cree un equilibrador de carga
 
 En esta sección, va a configurar la dirección IP de front-end y el grupo de direcciones de back-end para el equilibrador de carga, y, a continuación, creará Standard Load Balancer.
 
-### <a name="create-front-end-ip"></a>Creación de una dirección IP de front-end
+### <a name="create-frontend-ip"></a>Creación de la dirección IP de front-end
 
 Cree una dirección IP de front-end con [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). En el ejemplo siguiente, se crea una configuración de direcciones IP de front-end llamada *myFrontEnd* y se asocia a la dirección *myPublicIP*:
 
@@ -146,6 +160,8 @@ $lb = New-AzLoadBalancer `
   -InboundNatRule $natrule1,$natrule2,$natrule3
 ```
 
+Utilice ```-SKU Basic``` para crear una instancia de Load Balancer Básico. Microsoft recomienda el uso de Standard Load Balancer para cargas de trabajo de producción.
+
 ## <a name="create-network-resources"></a>Crear recursos de red
 Para poder implementar algunas máquinas virtuales y probar el equilibrador, debe crear unos recursos de red que lo permitan: una red virtual y varias NIC virtuales. 
 
@@ -195,6 +211,9 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
   -AllocationMethod static
 
 ```
+
+Use ```-SKU Basic``` para crear direcciones IP públicas básicas. Microsoft recomienda el uso de Standard Load Balancer para cargas de trabajo de producción.
+
 ### <a name="create-network-security-group"></a>Creación de un grupo de seguridad de red
 Cree un grupo de seguridad de red para definir las conexiones entrantes a la red virtual.
 
@@ -356,7 +375,6 @@ Remove-AzResourceGroup -Name myResourceGroupSLB
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado un equilibrador de carga estándar, le ha asociado máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga y el sondeo de estado y, después, ha probado el equilibrador de carga. Para más información acerca de Azure Load Balancer, diríjase a los tutoriales correspondientes.
+En esta guía de inicio rápido, ha creado una instancia de Standard Load Balancer, le ha asociado máquinas virtuales, ha configurado la regla de tráfico de Load Balancer y el sondeo de estado y, después, ha probado la instancia de Load Balancer. Para más información sobre Azure Load Balancer, consulte los [tutoriales sobre Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Tutoriales de Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)
+Más información sobre [Load Balancer y zonas de disponibilidad](load-balancer-standard-availability-zones.md).

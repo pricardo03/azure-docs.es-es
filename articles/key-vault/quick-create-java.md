@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e06c8d5373f8740e8091daae242a4f7af6c0ea4a
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995871"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769232"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para Java
 
@@ -22,12 +22,12 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 - Aumentar la seguridad y el control sobre claves y contraseñas
 - Crear e importar claves de cifrado en minutos
 - Reducir la latencia con escala en la nube y redundancia global
-- Simplificar y automatizar tareas para certificados SSL/TLS
+- Simplificar y automatizar tareas para certificados TLS/SSL
 - Utilizar módulos HSM con certificación FIPS 140-2 nivel 2
 
 [Código fuente](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Documentación de referencia de API](https://azure.github.io/azure-sdk-for-java) | [Documentación del producto](index.yml) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/?view=azure-java-stable), versión 8 o posterior
@@ -80,7 +80,7 @@ Cambie el directorio a la carpeta akv-java/ recién creada.
 cd akv-java
 ```
 
-### <a name="install-the-package"></a>Instalación del paquete
+### <a name="install-the-package"></a>Instalar el paquete
 
 Abra el archivo *pom.xml* en el editor de texto. Agregue los siguientes elementos de dependencia al grupo de dependencias.
 

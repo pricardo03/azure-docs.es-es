@@ -1,22 +1,15 @@
 ---
 title: 'Extracción de datos: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Extraiga datos de texto de expresiones con intenciones y entidades. Conozca qué tipo de datos se pueden extraer de Language Understanding (LUIS)
-services: cognitive-services
 author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: ff0a9838d1fcc9db3b6cc25b47c840e01056e6cd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.date: 01/23/2020
+ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703147"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716291"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extracción de datos de texto de expresiones con intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -36,7 +29,7 @@ LUIS proporciona los datos del [punto de conexión](luis-glossary.md#endpoint) p
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 El valor de `appID` está disponible en la página **Configuración** de la aplicación LUIS, así como parte de la dirección URL (después de `/apps/`) cuando edite esa aplicación LUIS. El valor de `subscription-key` es la clave de punto de conexión que se ha usado para consultar a la aplicación. Aunque puede usar la clave de inicio o creación gratis mientras se familiariza con LUIS, es importante que cambie la clave del punto de conexión por una clave que admita el [uso esperado de LUIS](luis-boundaries.md#key-limits). La unidad de `timezoneOffset` es minutos.
 
@@ -78,18 +71,18 @@ Los datos principales son el **nombre de la intención** de puntuación superior
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
-|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
+|Objeto de datos|Tipo de datos|Ubicación de los datos|Value|
 |--|--|--|--|
-|Intención|Cadena|topScoringIntent.intent|"GetStoreInfo"|
+|Intención|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función de más de una puntuación de intención, devuelve todas las puntuaciones de intenciones.
 
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
-Establezca el parámetro Querystring, `verbose=true`. La respuesta del punto de conexión es:
+Establezca el parámetro querystring, `verbose=true`. La respuesta del punto de conexión es:
 
 ```JSON
 {
@@ -138,14 +131,14 @@ Establezca el parámetro querystring, `show-all-intents=true`. La respuesta del 
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 Las intenciones se ordenan de mayor a menor puntuación.
 
-|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|Score|
+|Objeto de datos|Tipo de datos|Ubicación de los datos|Value|Score|
 |--|--|--|--|:--|
-|Intención|Cadena|intents[0].intent|"GetStoreInfo"|0.984749258|
-|Intención|Cadena|intents[1].intent|"None"|0.0168218873|
+|Intención|String|intents[0].intent|"GetStoreInfo"|0.984749258|
+|Intención|String|intents[1].intent|"None"|0.0168218873|
 
 Si agrega dominios creados previamente, el nombre de la intención indica el dominio, como `Utilties` o `Communication`, así como la intención:
 
@@ -201,13 +194,13 @@ Si agrega dominios creados previamente, el nombre de la intención indica el dom
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
-|Domain|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
+|Domain|Objeto de datos|Tipo de datos|Ubicación de los datos|Value|
 |--|--|--|--|--|
-|Sectores públicos|Intención|Cadena|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicación|Intención|Cadena|intents[1].intent|<b>Communication</b>.StartOver"|
-||Intención|Cadena|intents[2].intent|"None"|
+|Sectores públicos|Intención|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicación|Intención|String|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intención|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Datos de entidades
@@ -250,12 +243,11 @@ Se devuelven todas las entidades de la matriz **entities** de la respuesta desde
 ```
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 ## <a name="tokenized-entity-returned"></a>Entidad tokenizada devuelta
-Varias [referencias culturales](luis-language-support.md#tokenization) devuelven el objeto entidad con el valor `entity` [tokenizado](luis-glossary.md#token). Los valores de startIndex y endIndex que devuelve LUIS en el objeto de entidad no se asignan al nuevo valor tokenizado, sino a la consulta original para extraer la entidad sin formato mediante programación. 
 
-Por ejemplo, en alemán, la palabra `das Bauernbrot` se tokeniza de esta forma: `das bauern brot`. Se devuelve el valor tokenizado, `das bauern brot`, y se puede determinar mediante programación el valor original de los valores de startIndex y endIndex de la consulta original, lo que le proporciona `das Bauernbrot`.
+Revise la [compatibilidad de los tokens](luis-language-support.md#tokenization) en LUIS.
 
 ## <a name="simple-entity-data"></a>Datos de entidad simple
 
@@ -263,11 +255,11 @@ Una [entidad simple](reference-entity-simple.md) es un valor de aprendizaje auto
 
 ## <a name="composite-entity-data"></a>Datos de entidad compuesta
 
-Una [entidad compuesta](reference-entity-composite.md) consta de otras entidades, como las entidades precompiladas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa. 
+Una [entidad compuesta](reference-entity-composite.md) consta de otras entidades, como las entidades precompiladas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa.
 
 ## <a name="list-entity-data"></a>Datos de entidad de lista
 
-Las [entidades de lista](reference-entity-list.md) representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. 
+Las [entidades de lista](reference-entity-list.md) representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión.
 
 ## <a name="prebuilt-entity-data"></a>Datos de entidades creadas previamente
 Las entidades [creadas previamente](luis-concept-entity-types.md) se detectan en función de una coincidencia de expresión regular mediante el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Las entidades creadas previamente se devuelven en la matriz de entidades y usan el nombre de tipo con el prefijo `builtin::`. El texto siguiente es una expresión de ejemplo con las entidades creadas previamente devueltas:
@@ -534,7 +526,7 @@ Con el parámetro de cadena de consulta, `verbose=true`:
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 ## <a name="regular-expression-entity-data"></a>Datos de entidades de expresiones regulares
 
 Una [entidad de expresión regular](reference-entity-regular-expression.md) extrae una entidad basada en un patrón de expresión regular que se proporciona.
@@ -544,11 +536,11 @@ Obtener nombres de una expresión es difícil porque un nombre puede ser casi cu
 
 ### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Agregar las entidades PersonName y GeographyV2 creadas previamente
 
-Las entidades [PersonName](luis-reference-prebuilt-person.md) y [GeographyV2](luis-reference-prebuilt-geographyV2.md) están disponibles en algunas [referencias culturales del idioma](luis-reference-prebuilt-entities.md). 
+Las entidades [PersonName](luis-reference-prebuilt-person.md) y [GeographyV2](luis-reference-prebuilt-geographyV2.md) están disponibles en algunas [referencias culturales del idioma](luis-reference-prebuilt-entities.md).
 
 ### <a name="names-of-people"></a>Nombres de personas
 
-Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad **[personName](luis-reference-prebuilt-person.md)** precompilada o una **[entidad sencilla](luis-concept-entity-types.md#simple-entity)** con [roles](luis-concept-roles.md) de nombre y apellido. 
+Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad **[personName](luis-reference-prebuilt-person.md)** precompilada o una **[entidad sencilla](luis-concept-entity-types.md#simple-entity)** con [roles](luis-concept-roles.md) de nombre y apellido.
 
 Si usa la entidad sencilla, asegúrese de proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
@@ -599,7 +591,7 @@ El nombre de la entidad es `Location`, con dos roles, `Origin` y `Destination`.
 
 #### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
-En v3, el **nombre de rol** es el nombre principal del objeto. 
+En v3, el **nombre de rol** es el nombre principal del objeto.
 
 El nombre de la entidad es `Location`, con dos roles, `Origin` y `Destination`.
 
@@ -687,7 +679,7 @@ Más información acerca del [punto de conexión de predicción de V3](luis-migr
 
 ## <a name="patternany-entity-data"></a>Datos de la entidad Pattern.any
 
-[Pattern.any](reference-entity-pattern-any.md) es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  
+[Pattern.any](reference-entity-pattern-any.md) es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
 Si el análisis de sentimiento está configurado, la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
@@ -1141,7 +1133,7 @@ Más información acerca del [punto de conexión de predicción de V3](luis-migr
 
 Si una palabra o frase coincide con más de una entidad de lista, la consulta de punto de conexión devolverá todas las entidades de lista.
 
-Para la consulta `when is the best time to go to red rock?`, si la aplicación tiene la palabra `red` en más de una lista, LUIS reconocerá todas las entidades y devolverá una matriz de entidades como parte de la respuesta del punto de conexión JSON: 
+Para la consulta `when is the best time to go to red rock?`, si la aplicación tiene la palabra `red` en más de una lista, LUIS reconocerá todas las entidades y devolverá una matriz de entidades como parte de la respuesta del punto de conexión JSON:
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 

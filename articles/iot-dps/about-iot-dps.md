@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: b28e09b2d304dc392442d98fe39654bab2c8d09c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f9ac3c85bcd8e50918961649bdb5739fc66f1627
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645062"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772944"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionamiento de dispositivos con el servicio Azure IoT Hub Device Provisioning
 Microsoft Azure proporciona un amplio conjunto de servicios públicos en la nube integrados para todas las necesidades de su solución de IoT. El servicio IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que ofrece un aprovisionamiento just-in-time, sin intervención del usuario, de la instancia apropiada de IoT Hub, que permite a los clientes aprovisionar millones de dispositivos de forma segura y escalable.
@@ -80,7 +80,7 @@ El servicio Device Provisioning tiene muchas características que hacen que resu
 * **Lista de inscripción** que contiene el registro completo de dispositivos o grupos de dispositivos que pueden registrarse en algún momento. La lista de inscripción contiene información sobre la configuración deseada del dispositivo una vez que se registra, y se puede actualizar en cualquier momento.
 * **Varias directivas de asignación** para controlar la forma en que Device Provisioning Service asigna dispositivos a las instancias de IoT Hub para dar soporte a los escenarios: Menos latencia, distribución ponderada uniformemente (valor predeterminado) y configuración estática a través de la lista de inscripción. Tenga en cuenta que para determinar la latencia se usa el mismo método que [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Registros de supervisión y diagnóstico** para asegurarse de que todo funciona correctamente.
-* La **compatibilidad con varios concentradores** permite que el servicio Device Provisioning asigne dispositivos a más de una instancia de IoT Hub. El servicio Device Provisioning puede comunicarse con los concentradores de varias suscripciones de Azure.
+* La **compatibilidad con varios concentradores** permite que Device Provisioning Service asigne dispositivos a más de una instancia de IoT Hub. El servicio Device Provisioning puede comunicarse con los concentradores de varias suscripciones de Azure.
 * La **compatibilidad entre regiones** permite que Device Provisioning Service asigne dispositivos a instancias de IoT Hub en otras regiones.
 
 Puede aprender más sobre los conceptos y características implicados en el aprovisionamiento de dispositivos en [conceptos de dispositivo](concepts-device.md), [conceptos de servicio](concepts-service.md) y [conceptos de seguridad](concepts-security.md).

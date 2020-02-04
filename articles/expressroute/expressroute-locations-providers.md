@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57a066132cbc8812fac95862bd1b02a3fc59ff2f
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 02e2c0472a6ba7449229a5de5c6d8948be064644
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293902"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845792"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -43,12 +43,12 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | --- | --- | --- |
 | **Australia Government** | Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 |
 | **Europa** | Centro de Francia, Sur de Francia, Norte de Alemania, Centro-oeste de Alemania, Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Suiza, Oeste de Suiza, Oeste de Reino Unido, Sur de Reino Unido, Oeste de Europa |Ámsterdam, Ámsterdam2, Copenhague, Dublín, Fráncfort, Ginebra, Londres, Londres2, Marsella, Milán, Múnich, Newport (Gales), Oslo, París, Stavanger, Estocolmo, Zúrich |
-| **Norteamérica** | Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Ciudad de Quebec, Toronto |
-| **Asia** | Este de Asia y Sudeste de Asia |RAE de Hong Kong, Yakarta, Kuala Lumpur, Singapur, Singapur2, Taipéi |
+| **Norteamérica** | Este de EE. UU., oeste de EE. UU., Este de EE. UU. 2, Oeste de EE.UU. 2, centro de EE. UU., Centro-sur de EE. UU.., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y Este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Ciudad de Quebec, Toronto |
+| **Asia** | Asia Oriental y Sudeste Asiático |RAE de Hong Kong, Yakarta, Kuala Lumpur, Singapur, Singapur2, Taipéi |
 | **India** | India occidental, India central, India del Sur |Chennai (Madrás), Chennai (Madrás)2, Mumbai (Bombay), Mumbai (Bombay)2 |
-| **Japón** | Oeste de Japón y Este de Japón |Osaka, Tokyo |
+| **Japón** | Japón Occidental y Japón Oriental |Osaka, Tokyo |
 | **Oceanía** | Este de Australia y Sudeste de Australia |Auckland, Melbourne, Perth, Sídney, Sídney2 | 
-| **Corea del Sur** | Corea Central, Corea del Sur |Busan, Seúl|
+| **Corea del Sur** | Centro de Corea del Sur, Sur de Corea del Sur |Busan, Seúl|
 | **Emiratos Árabes Unidos** | Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos | Dubai, Dubai2 |
 | **Sudáfrica** | Oeste de Sudáfrica, Norte de Sudáfrica |Ciudad del cabo, Johannesburgo |
 | **Sudamérica** | Sur de Brasil |Sao Paulo |
@@ -58,7 +58,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
-| **Nube del gobierno de Estados Unidos** |Arizona Gob. EE. UU., Iowa Gob. EE. UU., Texas Gob. EE.UU., Virginia Gob. EE.UU., US DoD Central, US DoD Este  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
+| **Nube del US Gov** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD (este)  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **Este de China** |Este de China, Este de China 2 |Shanghai, Shanghai2 |
 | **Norte de China** |Norte de China, Norte de China 2 |Beijing, Beijing2 |
 | **Alemania** |Centro de Alemania, Alemania oriental |Berlín+, Fráncfort |
@@ -77,25 +77,25 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 ### <a name="global-commercial-azure"></a>Servicios comerciales globales de Azure
 | **Ubicación** | **Dirección** | **Zona** | **Regiones de Azure locales** | **ER Direct** | **Proveedores de servicios** |
 | --- | --- | --- | --- | --- | --- |
-| **Ámsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | Europa occidental | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon y Zayo |
-| **Ámsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa occidental | 10 Gb/s, 100 Gb/s | CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, Interxion, Orange, Vodafone |
+| **Ámsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | Oeste de Europa | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon y Zayo |
+| **Ámsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Oeste de Europa | 10 Gb/s, 100 Gb/s | CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, Interxion, Orange, Vodafone |
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | N/D | N/D | Equinix, Megaport |
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | N/D | 10 Gb/s | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **Busán** | [LG CNS](https://www.lgcns.com/datacenter) | 2 | Corea del Sur | N/D | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Centro de Australia | 10 Gb/s, 100 Gb/s | CDC |
 | **Canberra 2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Centro de Australia 2| 10 Gb/s, 100 Gb/s | CDC |
 | **Ciudad del cabo** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Oeste de Sudáfrica | 10 Gb/s | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
-| **Chennai** | Tata Communications | 2 | Sur de la India | 10 Gb/s | Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chennai2** | Airtel | 2 | Sur de la India | N/D | Airtel |
+| **Chennai** | Tata Communications | 2 | India del Sur | 10 Gb/s | Global CloudXchange (GCX), SIFY, Tata Communications |
+| **Chennai2** | Airtel | 2 | India del Sur | N/D | Airtel |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | Centro-Norte de EE. UU | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
 | **Copenhague** | [Interxion CPH1](https://www.interxion.com/Locations/copenhagen/) | 1 | N/D | 10 Gb/s | Interxion |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 1 | N/D | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
-| **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | Centro occidental de EE.UU. | N/D | CoreSite, Megaport, Zayo |
+| **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | Centro-Oeste de EE. UU. | N/D | CoreSite, Megaport, Zayo |
 | **Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | Norte de Emiratos Árabes Unidos | N/D | Etisalat UAE |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Norte de Emiratos Árabes Unidos | N/D | du datamena, Megaport, Orange, Orixcom |
-| **Dublín** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa del Norte | 10 Gb/s, 100 Gb/s | Colt, eir, Equinix, Interxion, Megaport |
+| **Dublín** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Norte de Europa | 10 Gb/s, 100 Gb/s | Colt, eir, Equinix, Interxion, Megaport |
 | **Fráncfort** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Centro-oeste de Alemania | 10 Gb/s, 100 Gb/s | Colt, DE-CIX, GEANT, Interxion, Megaport, Orange, Telia Carrier |
-| **Ginebra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Oeste de Suiza | 10 Gb/s, 100 Gb/s | Equinix |
+| **Ginebra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Oeste de Suiza | 10 Gb/s, 100 Gb/s | Equinix, Megaport |
 | **RAE de Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asia oriental | N/D | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Yakarta** | Telkom Indonesia | 4 | N/D | 10 Gb/s | |
 | **Johannesburgo** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Norte de Sudáfrica | 10 Gb/s | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Orange, Teraco |
@@ -108,21 +108,21 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Sudeste de Australia | 10 Gb/s, 100 Gb/s | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | N/D | 10 Gb/s | C3ntro, Equinix, Megaport, Neutrona Networks |
 | **Milán** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | N/D | 10 Gb/s | |
-| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | N/D | N/D | Bell Canada, Cologix, Megaport, Telus, Zayo |
+| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | N/D | 10 Gb/s, 100 Gb/s | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **Mumbai (Bombay)** | Tata Communications | 2 | Oeste de la India | N/D | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | 2 | Oeste de la India | N/D | Airtel, Sify y Vodafone Idea |
 | **Múnich** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | N/D | 10 Gb/s, 100 Gb/s | |
 | **Nueva York** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | N/D | N/D | CenturyLink Cloud Connect, Colt, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport (Gales)** | [Datos de última generación](https://www.nextgenerationdata.co.uk) | 1 | Oeste de Reino Unido | N/D | British Telecom, Colt, Level 3 Communications, Next Generation Data |
-| **Osaka** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Oeste de Japón | 10 Gb/s, 100 Gb/s | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
+| **Osaka** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Japón Occidental | 10 Gb/s, 100 Gb/s | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Este de Noruega | 10 Gb/s, 100 Gb/s | Megaport, Telenor, Telia Carrier |
 | **París** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | Centro de Francia | N/D | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | N/D | 10 Gb/s | Megaport, NextDC |
 | **Quebec ciudad** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Este de Canadá | N/D | Bell Canada, Megaport |
-| **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | Centro-Sur de EE. UU | 10 Gb/s, 100 Gb/s | CenturyLink Cloud Connect, Megaport |
+| **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | Centro-sur de EE. UU. | 10 Gb/s, 100 Gb/s | CenturyLink Cloud Connect, Megaport |
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Sur de Brasil | N/D | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica y UOLDIVEO |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | Oeste de EE. UU. 2 | 10 Gb/s, 100 Gb/s | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
-| **Seúl** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 2 | Corea Central | 10 Gb/s, 100 Gb/s | KINX, KT, LG CNS, Sejong Telecom |
+| **Seúl** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 2 | Centro de Corea del Sur | 10 Gb/s, 100 Gb/s | KINX, KT, LG CNS, Sejong Telecom |
 | **Silicon Valley** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | Oeste de EE. UU. | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Comcast, Coresite, Equinix, InterCloud, Internet2, IX Reach, Packet, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Silicon Valley2** | [Coresite SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | Oeste de EE. UU. | 10 Gb/s, 100 Gb/s | Colt, Coresite | 
 | **Singapur** | [Equinix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 2 | Sudeste asiático | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon y Vodafone |
@@ -132,7 +132,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Sidney** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | Este de Australia | 10 Gb/s, 100 Gb/s | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus Group NZ |
 | **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | Este de Australia | 10 Gb/s, 100 Gb/s | NextDC |
 | **Taipéi** | Chief Telecom | 2 | N/D | 10 Gb/s | Chief Telecom, FarEasTone |
-| **Tokio** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Este de Japón | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Megaport, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
+| **Tokio** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japón Oriental | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Megaport, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Centro de Canadá | 10 Gb/s, 100 Gb/s | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Este de EE. UU., Este de EE. UU. 2 | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, InterCloud, IX Reach, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, SES, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | Este de EE. UU., Este de EE. UU. 2 | 10 Gb/s, 100 Gb/s | CenturyLink Cloud Connect, Coresite, Intelsat, Viasat, Zayo | 
@@ -144,14 +144,14 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 
 Las nubes nacionales de Azure están aisladas entre sí y de los servicios comerciales globales de Azure. ExpressRoute para una nube de Azure no se puede conectar a las regiones de Azure de otras nubes.
 
-### <a name="us-government-cloud"></a>Nube del gobierno de Estados Unidos
+### <a name="us-government-cloud"></a>Nube del US Gov
 | **Ubicación** | **Dirección** | **Regiones de Azure locales**| **ER Direct** | **Proveedores de servicios** |
 | --- | --- | --- | --- | --- |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | N/D | 10 Gb/s, 100 Gb/s | AT&T NetBond, Equinix, Level 3 Communications y Verizon |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | N/D | 10 Gb/s, 100 Gb/s | Equinix, Megaport y Verizon |
 | **Nueva York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | N/D | 10 Gb/s, 100 Gb/s | Equinix, CenturyLink Cloud Connect, Verizon |
-| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | Gobierno de EE. UU.: Arizona | N/D | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
-| **San Antonio** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | Gobierno de EE. UU.: Texas | N/D | CenturyLink Cloud Connect, Megaport |
+| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov: Arizona | N/D | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
+| **San Antonio** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | US Gov Texas | N/D | CenturyLink Cloud Connect, Megaport |
 | **Silicon Valley** | [Equinix SV4](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv4/) | N/D | 10 Gb/s, 100 Gb/s | AT&T, Equinix, Level 3 Communications, Verizon |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | N/D | N/D | Equinix, Megaport |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD (este), US Gov Virginia | 10 Gb/s, 100 Gb/s | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
@@ -160,7 +160,7 @@ Las nubes nacionales de Azure están aisladas entre sí y de los servicios comer
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
 | **Beijing** |China Telecom |
-| **Beijing2** | China Telecom, GDS |
+| **Beijing2** | China Telecom, China Unicom, GDS |
 | **Shanghai** |China Telecom |
 | **Shanghai2** | China Telecom, GDS |
 

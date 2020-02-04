@@ -2,14 +2,14 @@
 title: Evaluación de máquinas virtuales de Hyper-V para la migración a Azure con Azure Migrate | Microsoft Docs
 description: Describe cómo evaluar máquinas virtuales de Hyper-V locales para su migración a Azure mediante Azure Migrate.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 01/23/2020
 ms.custom: mvc
-ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029029"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845521"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Evaluación de las máquinas virtuales de Hyper-V con Azure Migrate Server Assessment
 
@@ -138,7 +138,7 @@ Importe el archivo descargado y cree la VM.
 2. En **Elegir tipo de importación**, haga clic en **Copiar la máquina virtual (crear un identificador único nuevo)** . A continuación, haga clic en **Siguiente**.
 3. En **Elegir destino**, deje la configuración predeterminada. Haga clic en **Next**.
 4. En **Carpetas de almacenamiento**, deje la configuración predeterminada. Haga clic en **Next**.
-5. En **Elegir red**, especifique el conmutador virtual que usará la VM. El conmutador necesita conectividad a Internet para enviar datos a Azure.
+5. En **Elegir red**, especifique el conmutador virtual que usará la VM. El conmutador necesita conectividad a Internet para enviar datos a Azure. [Aprenda a](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) crear un conmutador virtual.
 6. En **Resumen**, revise los valores de configuración. Haga clic en **Finalizar**.
 7. En Administrador de Hyper-V > **Máquinas virtuales**, inicie la VM.
 

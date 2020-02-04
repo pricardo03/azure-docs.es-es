@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/17/2019
+ms.date: 01/23/2020
 ms.author: juliako
-ms.openlocfilehash: 05a515d5f74569ff8d0fa8aec68eb681dc79d2fc
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 3984f33cd97ada9b3d5301e45fe3506966880848
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779610"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719677"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetado dinámico en Media Services v3
 
@@ -29,18 +29,7 @@ En Media Services, un [punto de conexión de streaming](streaming-endpoint-conce
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Para preparar los archivos de origen para su entrega
 
-Para aprovechar el empaquetado dinámico, tiene que [codificar](encoding-concept.md) el archivo intermedio (origen) en un conjunto de archivos MP4 de varias velocidades de bits (archivo multimedia base ISO 14496-12). Tiene que tener un [recurso](assets-concept.md) con los archivos MP4 y de configuración de streaming codificados que el empaquetado dinámico de Media Services necesita. A partir de este conjunto de archivos MP4, puede usar el empaquetado dinámico para proporcionar vídeo mediante los siguientes protocolos de streaming multimedia:
-
-|Protocolo|Ejemplo|
-|---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
-
-Si tiene previsto proteger el contenido mediante el cifrado dinámico de Media Services, consulte [Protocolos de streaming y tipos de cifrado](content-protection-overview.md#streaming-protocols-and-encryption-types).
+Para aprovechar el empaquetado dinámico, tiene que [codificar](encoding-concept.md) el archivo intermedio (origen) en un conjunto de archivos MP4 de varias velocidades de bits (archivo multimedia base ISO 14496-12). Tiene que tener un [recurso](assets-concept.md) con los archivos MP4 y de configuración de streaming codificados que el empaquetado dinámico de Media Services necesita. A partir de este conjunto de archivos MP4, puede usar el empaquetado dinámico para proporcionar vídeo mediante los protocolos de streaming multimedia que se describen a continuación:
 
 > [!TIP]
 > Una manera de obtener los archivos de configuración de streaming y MP4 consiste en [codificar su archivo intermedio con Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -48,6 +37,36 @@ Si tiene previsto proteger el contenido mediante el cifrado dinámico de Media S
 Para que los vídeos del recurso codificado estén disponibles para que los clientes puedan reproducirlos, tiene que crear un [localizador de streaming](streaming-locators-concept.md) y generar direcciones URL de streaming. Después, según el formato especificado en el manifiesto del cliente de streaming (HLS, MPEG DASH o Smooth Streaming), recibirá la transmisión en el protocolo que haya elegido.
 
 Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Media Services creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente.
+
+Si tiene previsto proteger el contenido mediante el cifrado dinámico de Media Services, consulte [Protocolos de streaming y tipos de cifrado](content-protection-overview.md#streaming-protocols-and-encryption-types).
+
+### <a name="hls-protocol"></a>Protocolo HLS
+
+El cliente de streaming puede especificar los siguientes formatos de HLS:
+
+|Protocolo|Ejemplo|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+### <a name="mpeg-dash-protocol"></a>Protocolo MPEG-DASH
+
+El cliente de streaming puede especificar los siguientes formatos MPEG-DASH:
+
+|Protocolo|Ejemplo|
+|---|---|
+|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
+
+### <a name="smooth-streaming-protocol"></a>Protocolo Smooth Streaming
+
+El cliente de streaming puede especificar los siguientes formatos de Smooth Streaming:
+
+|Protocolo|Notas y ejemplos| 
+|---|---|
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
+|Smooth Streaming 2.0 (manifiesto heredado)|De forma predeterminada el formato de manifiesto Smooth Streaming contiene la etiqueta de repetición (r-tag). Sin embargo, algunos reproductores no admiten `r-tag`. Los clientes con estos reproductores pueden utilizar un formato que deshabilite la etiqueta r-tag:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
 ## <a name="on-demand-streaming-workflow"></a>Flujo de trabajo de streaming a petición
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3275e31744faba5b029e5a4619a51420400b9d0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2e2a3dbf0ce3be28a78f04eb5bb1c369aeff1441
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425605"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773447"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -99,6 +99,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | OutputClaimsTransformations | 0:1 | Lista de referencias (definidas anteriormente) a transformaciones de notificaciones que tienen que ejecutarse cuando el proveedor de notificaciones reciba las notificaciones. |
 | ValidationTechnicalProfiles | 0:n | Lista de referencias a otros perfiles técnicos que el perfil técnico usa con fines de validación. Para obtener más información, vea [Validación del perfil técnico](validation-technical-profile.md).|
 | SubjectNamingInfo | 0:1 | Controla la producción del nombre de firmante en los tokens donde el nombre de firmante se especifica por separado de las notificaciones. Por ejemplo, OAuth o SAML.  |
+| IncludeInSso | 0:1 |  Si el uso de este perfil técnico debe aplicar el comportamiento de inicio de sesión único (SSO) para la sesión o, en su lugar, requerir una interacción explícita. Este elemento solo es válido en los perfiles de SelfAsserted usados dentro de un perfil técnico de validación. Valores posibles: `true` (opción predeterminada) o `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Identificador de un perfil técnico cuyas notificaciones de entrada o salida quiere que se agreguen a este perfil técnico. El perfil técnico al que se haga referencia tiene que definirse en el mismo archivo de directiva. |
 | IncludeTechnicalProfile |0:1 | Identificador de un perfil técnico cuyos datos quiere agregar a este perfil técnico. El perfil técnico al que se haga referencia tiene que existir en el mismo archivo de directiva. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Perfil técnico distinto que se usará para la administración de sesiones. |

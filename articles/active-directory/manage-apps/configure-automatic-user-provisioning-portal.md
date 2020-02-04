@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e776ce8a455f2a5b453e23ebb996de9ddb5175a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430191"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711960"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
@@ -38,7 +38,7 @@ Use el portal de Azure Active Directory para ver y administrar todas las aplicac
 1. Seleccione cualquier aplicación para cargar el panel de recursos, donde puede ver los informes y administrar la configuración de la aplicación.
 1. Seleccione **Aprovisionamiento** para administrar la configuración de aprovisionamiento de cuentas de usuario de la aplicación seleccionada.
 
-   ![Pantalla Aprovisionamiento para administrar la configuración del aprovisionamiento de cuentas de usuario](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Pantalla Aprovisionamiento para administrar la configuración del aprovisionamiento de cuentas de usuario](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modos de aprovisionamiento
 
@@ -68,7 +68,7 @@ Expanda **Asignaciones** para ver y modificar los atributos de usuario que fluye
 
 Hay un conjunto preconfigurado de asignaciones entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, como grupos o contactos. Seleccione una asignación de la tabla para abrir el editor de asignaciones a la derecha, donde puede verlas y personalizarlas.
 
-![Muestra la pantalla Asignación de atributos](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Muestra la pantalla Asignación de atributos](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Las personalizaciones compatibles incluyen:
 
@@ -88,4 +88,4 @@ Si el aprovisionamiento se habilita por primera vez para una aplicación, active
 
 Cambie **Estado de aprovisionamiento** a **Desactivado** para pausar el servicio de aprovisionamiento. En este estado, Azure no crea, actualiza ni quita ningún objeto de grupo o usuario en la aplicación. Cambie el estado de nuevo a **Activado** y el servicio vuelve adonde lo dejó.
 
-**Borrar el estado actual y reiniciar la sincronización** desencadena un ciclo inicial. Después, el servicio evaluará de nuevo todos los usuarios del sistema de origen y determinará si están en el ámbito del aprovisionamiento. Esto puede ser útil si la aplicación está en cuarentena actualmente o si necesita realizar un cambio en las asignaciones de atributos. Tenga en cuenta que el ciclo inicial tarda más tiempo en completarse que el ciclo incremental típico debido al número de objetos que deben evaluarse. Se puede obtener más información sobre el rendimiento de los ciclos inicial e incremental [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user). 
+**Borrar el estado actual y reiniciar la sincronización** desencadena un ciclo inicial. Después, el servicio evaluará de nuevo todos los usuarios del sistema de origen y determinará si están en el ámbito del aprovisionamiento. Esto puede ser útil si la aplicación está en cuarentena actualmente o si necesita realizar un cambio en las asignaciones de atributos. Tenga en cuenta que el ciclo inicial tarda más tiempo en completarse que el ciclo incremental típico debido al número de objetos que deben evaluarse. Se puede obtener más información sobre el rendimiento de los ciclos inicial e incremental [aquí](application-provisioning-when-will-provisioning-finish-specific-user.md). 

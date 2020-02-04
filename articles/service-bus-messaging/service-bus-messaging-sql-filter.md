@@ -1,6 +1,6 @@
 ---
 title: Referencia de la sintaxis de SQLFilter de Azure Service Bus | Microsoft Docs
-description: Obtenga más información sobre la gramática de SQLFilter.
+description: En este artículo se ofrece información sobre la gramática de SQLFilter. SqlFilter admite un subconjunto del estándar SQL-92.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60591804"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759670"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxis de SQLFilter
 
@@ -60,13 +60,13 @@ Un objeto *SqlFilter* es una instancia de la [clase SqlFilter](/dotnet/api/micro
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` o `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
+-   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` y `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
   
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 Un intento de acceso a una propiedad de sistema que no existe es un error, mientras que uno a una propiedad de usuario inexistente, no lo es. En su lugar, una propiedad de usuario inexistente internamente se evalúa como un valor desconocido. Un valor desconocido se trata de una forma especial durante la evaluación de operador.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -115,22 +115,22 @@ Esta gramática significa cualquier cadena que empiece por una letra y vaya segu
       <expression>  
 ```  
   
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
   
 `<pattern>` debe ser una expresión que se evalúa como una cadena. Se utiliza como patrón para el operador LIKE.      Puede contener los siguientes caracteres comodín:  
   
--   `%`:  cualquier cadena de cero o más caracteres.  
+-   `%`:  Cualquier cadena de cero o más caracteres.  
   
 -   `_`: Cualquier carácter individual.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
       <expression>  
 ```  
   
-### <a name="remarks"></a>Comentarios  
+### <a name="remarks"></a>Observaciones  
 
 `<escape_char>` debe ser una expresión que se evalúa como una cadena de longitud 1. Se utiliza como carácter de escape para el operador LIKE.  
   
@@ -172,24 +172,24 @@ Esta gramática significa cualquier cadena que empiece por una letra y vaya segu
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Comentarios  
+### <a name="remarks"></a>Observaciones  
 
 Las constantes booleanas se representan mediante las palabras clave **TRUE** o **FALSE**. Los valores se almacenan como `System.Boolean`.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Comentarios  
+### <a name="remarks"></a>Observaciones  
 
 Las constantes de cadena se incluyen entre comillas simples y contienen caracteres Unicode válidos. Una comilla simple incrustada en una constante de cadena se representan como dos comillas simples.  
   
@@ -201,7 +201,7 @@ Las constantes de cadena se incluyen entre comillas simples y contienen caracter
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
   
 La función `newid()` devuelve un elemento **System.Guid** generado por el método `System.Guid.NewGuid()`.  
   

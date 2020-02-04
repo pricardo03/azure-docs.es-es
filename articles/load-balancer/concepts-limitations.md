@@ -9,17 +9,16 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer components and limitations and how it will affect my environment.
 ms.devlang: na
 ms.topic: overview
-ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 31c247199bfbfc57ffef376649edefd487fd1962
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263547"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757806"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes y limitaciones de Load Balancer
 Azure Load Balancer contiene varios componentes clave para su funcionamiento.  Estos componentes se pueden configurar en la suscripción mediante Azure Portal, la CLI de Azure o Azure PowerShell.  
@@ -58,7 +57,7 @@ Load Balancer Básico no es admite reglas de salida.
 
 Load Balancer proporciona las siguientes funcionalidades básicas para las aplicaciones TCP y UDP:
 
-* **Algoritmo de equilibrio de carga**: con Azure Load Balancer puede crear una regla de equilibrio de carga para distribuir el tráfico que llega al front-end a las instancias del grupo de back-end. Load Balancer usa un algoritmo hash para la distribución de los flujos de entrada y reescribe los encabezados de los flujos en las instancias del grupo de back-end. Un servidor está disponible para recibir nuevos flujos cuando el sondeo de estado indica un punto de conexión de back-end correcto.
+* **Algoritmo de equilibrio de carga**: con Azure Load Balancer puede crear una regla de equilibrio de carga para distribuir el tráfico que llega al front-end a las instancias del grupo de back-end. Load Balancer usa un algoritmo hash para la distribución de los flujos de entrada (no bytes) y reescribe los encabezados de los flujos en las instancias del grupo de back-end. Un servidor está disponible para recibir nuevos flujos cuando el sondeo de estado indica un punto de conexión de back-end correcto.
 De forma predeterminada, Load Balancer usa un hash de tupla 5. 
 
    El hash incluye: 

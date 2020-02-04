@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2daf17ccef1bca363fe92f71a332fbfa78637135
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982178"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844790"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal
 
@@ -41,6 +41,9 @@ Cuando haya terminado, verá que los datos del evento se han enviado a la aplica
 1. Para suscribirse a eventos, cree una cuenta de almacenamiento de uso general v2 o una cuenta de Blob Storage. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 
    ![Pasos iniciales](./media/blob-event-quickstart-portal/provide-blob-values.png)
+
+>[!NOTE]
+> Solo las cuentas de almacenamiento de tipo **StorageV2 (uso general v2)** y **BlobStorage** admiten la integración de eventos. **Storage (uso general v1)** *no* admite la integración con Event Grid.
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 

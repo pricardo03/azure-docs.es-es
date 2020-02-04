@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/21/2020
+ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514279"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772782"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -99,13 +99,15 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben ten
 |kms.core.windows.net|Puerto TCP 1688|Activación de Windows 10|
 
 >[!IMPORTANT]
->Es esencial abrir estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure AD.
+>Es esencial abrir estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure Active Directory.
 
 >[!NOTE]
+>Windows Virtual Desktop actualmente no tiene una lista de intervalos de direcciones IP que puede incluir en la lista blanca para permitir el tráfico de red. En este momento, solo se admiten direcciones URL específicas en las listas blancas.
+>
 >Debe usar el carácter comodín (*) para las direcciones URL que impliquen tráfico de servicio. Si prefiere no usar el carácter comodín (*) para el tráfico relacionado con el agente, aquí se muestra cómo buscar las direcciones URL sin estos caracteres:
 >
 >1. Registre las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop.
->2. Abra **Visor de eventos** y vaya a **Windows** > **Registros de aplicación** y busque el identificador de evento 3702.
+>2. Abra **Visor de eventos** y desplácese a **Registros de Windows** > **Aplicación** > **WVD-Agent** y busque el evento ID 3702.
 >3. Agregue a la lista de permitidos las direcciones URL que se encuentran en el identificador de evento 3702. Las direcciones URL del identificador de evento 3702 son específicas de la región. Deberá repetir el proceso de inclusión en la lista de permitidos con las direcciones URL pertinentes de cada región en la que desee implementar las máquinas virtuales.
 
 Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Se pueden implementar escritorios y aplicaciones en máquinas virtuales (VM) de cualquier región de Azure, y la solución de administración y los datos de estas VM residirán en Estados Unidos. Esto puede dar lugar a la transferencia de datos a Estados Unidos.
@@ -137,7 +139,7 @@ Windows Virtual Desktop admite las imágenes de SO x64 siguientes:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop no es compatible con imágenes de los sistemas operativos x86 (32 bits), Windows 10 Enterprise N o Windows 10 Enterprise KN.
+Windows Virtual Desktop no es compatible con imágenes de los sistemas operativos x86 (32 bits), Windows 10 Enterprise N o Windows 10 Enterprise KN. Windows 7 tampoco admite las soluciones de perfil basadas en VHD o VHDX hospedadas en Azure Storage administrado debido a un límite de tamaño del sector.
 
 Las opciones de automatización y de implementación disponibles dependen del sistema operativo y la versión que elija, tal como se muestra en la tabla siguiente: 
 

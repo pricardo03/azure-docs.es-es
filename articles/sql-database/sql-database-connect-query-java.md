@@ -1,5 +1,5 @@
 ---
-title: Uso de Java para consultar
+title: Uso de Java para consultar una base de datos
 description: En este tema se muestra cómo usar Java para crear un programa que se conecta a una base de datos de Azure SQL y realiza consultas mediante instrucciones T-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,49 +11,52 @@ ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
-ms.openlocfilehash: 6d4d9353e29a29b0cd6db7575e49a00a213355d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 034f92ca3b7552373ae69148d09d58d3a5dd166a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827038"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768655"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Inicio rápido: Uso de Java para conectarse a una base de datos de Azure SQL y realizar consultas en ella
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Java para consultar una base de datos de Azure SQL
 
-En este artículo se muestra cómo usar [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para conectarse a una base de datos de Azure SQL. Luego puede usar instrucciones de T-SQL para consultar los datos.
+En este inicio rápido se muestra cómo utilizar Java para conectarse a una base de datos de Azure SQL y luego utilizar instrucciones T-SQL para consultar los datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para completar este ejemplo, asegúrese de que cumple los siguientes requisitos previos:
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una [instancia de Azure SQL Database](sql-database-single-database-get-started.md).
+- Software relacionado con [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)
 
-- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+  # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-  || Base de datos única | Instancia administrada |
-  |:--- |:--- |:---|
-  | Crear| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configuración | [Regla de firewall de IP en el nivel de servidor](sql-database-server-level-firewall-rule.md)| [Conectividad desde una máquina virtual](sql-database-managed-instance-configure-vm.md)|
-  |||[Conectividad desde el sitio](sql-database-managed-instance-configure-p2s.md)
-  |Carga de datos|Adventure Works cargado por inicio rápido|[Restauración de World Wide Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restauración o importación de Adventure Works a partir del archivo [BACPAC](sql-database-import.md) desde [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  
-  > [!IMPORTANT]
-  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
+  Instale Homebrew y Java y, a continuación, instale Maven con los pasos **1.2** y **1.3** de [Creación de aplicaciones de Java con SQL Server en macOS](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-- Java y software relacionado instalado para el sistema operativo:
+  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  - **MacOS**: instalación de Homebrew y Java y, a continuación, instalación de Maven. Consulte [pasos 1.2 y 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
+  Instale Java, el kit de desarrollo de Java y, a continuación, instale Maven con los pasos **1,2**, **1.3** y **1.4** de [Creación de aplicaciones de Java con SQL Server en Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
 
-  - **Ubuntu**: instalación de Java, instalación del Kit de desarrollo de Java e instalación de Maven. Consulte [pasos 1.2, 1.3 y 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-  - **Windows**: instalación de Java y, a continuación, instalación de Maven. Consulte [pasos 1.2 y 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+  Instale Java y, a continuación, instale Maven con los pasos **1.2** y **1.3** de [Creación de aplicaciones de Java con SQL Server en Windows](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+
+  ---
+
+> [!IMPORTANT]
+> Los scripts de este artículo se escriben para utilizar la base de datos **Adventure Works**.
+
+> [!NOTE]
+> También puede elegir una instancia administrada de Azure SQL.
+>
+> Para crear y configurar, use [Azure portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)o la [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44). Después, configure la conectividad [local](sql-database-managed-instance-configure-p2s.md) o de la [máquina virtual](sql-database-managed-instance-configure-vm.md).
+>
+> Para cargar los datos, consulte la [restauración con BACPAC](sql-database-import.md) con el archivo [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) o consulte la [restauración de la base de datos de Wide World Importers](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="get-sql-server-connection-information"></a>Obtención de información de conexión de SQL Server
 
 Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor o nombre de host, el nombre de la base de datos y la información de inicio de sesión.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 2. Seleccione **Bases de datos SQL** o abra la página **Instancias administradas de SQL**.
 

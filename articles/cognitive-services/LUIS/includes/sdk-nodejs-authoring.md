@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 65611dfb171008deab9d1d6cb15f0470fcbc2753
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 58ee74f7b01738e67f9fddd39eb4eee59cdb65b6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170422"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774220"
 ---
 La biblioteca cliente de creación de Language Understanding (LUIS) para Node.js puede usarse con los siguientes fines:
 
@@ -25,7 +25,7 @@ La biblioteca cliente de creación de Language Understanding (LUIS) para Node.js
 * Entrenar y publicar una aplicación.
 * Eliminar la aplicación
 
-[Documentación de referencia](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Paquete de creación (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Documentación de referencia](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Paquete de creación (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [Paquete de runtime (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -125,7 +125,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso. Si ha
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Cree un objeto [CognitiveServicesCredentials]() con la clave y úselo con el punto de conexión para crear un objeto [LUISAuthoringClient]().
+Cree un objeto [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) con la clave y úselo con el punto de conexión para crear un objeto [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest).
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 

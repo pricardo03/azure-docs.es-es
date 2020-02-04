@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 685d982835042aa4a697d19a650e8dcb1476b400
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7b9954930c668e338cc289e948a5591c09ec2654
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186013"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694443"
 ---
 ## <a name="provide-feedback-to-the-user"></a>Envío de comentarios al usuario
 
 Puede escribir código para controlar el evento actualizado de la sesión. Este evento se desencadena cada vez que la sesión mejora su capacidad de reconocimiento del entorno. Esto le permite hacer lo siguiente:
 
-- Proporcionar comentarios al usuario a medida que el dispositivo se mueve y la sesión actualiza su capacidad de reconocimiento del entorno.
-- Determinar en qué momento hay suficientes datos espaciales de seguimiento para crear o localizar anclajes espaciales. Obtendrá más información al respecto en un paso posterior.
+- Usar la clase `UserFeedback` para proporcionar comentarios al usuario cuando el dispositivo se mueve y la sesión actualiza su capacidad de reconocimiento del entorno. Para ello:
+- Determine en qué momento hay suficientes datos espaciales de seguimiento para crear anclajes espaciales, lo que se puede determinar con `ReadyForCreateProgress` o `RecommendedForCreateProgress`. Una vez que `ReadyForCreateProgress` sea superior a 1, tendremos suficientes datos para guardar un anclaje espacial de la nube, aunque se recomienda esperar hasta que `RecommendedForCreateProgress` sea superior a 1 para hacerlo.

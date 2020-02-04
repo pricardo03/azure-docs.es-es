@@ -1,6 +1,6 @@
 ---
 title: Configuración de un laboratorio con Azure Lab Services | Microsoft Docs
-description: En este tutorial, va a configurar un laboratorio para usarlo en una clase.
+description: En este tutorial, va a usar Azure Lab Services para configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los alumnos de su clase.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: a5f8c8c00a9f63558043167c5cf8269f9e139d54
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2c28375ce7252e93340f395b97224d292940ce65
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584927"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719184"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -32,7 +32,7 @@ En este tutorial realizará lo siguiente:
 > * Configuración de la programación para el laboratorio
 > * Envío de correo electrónico de invitación a los alumnos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para configurar un laboratorio educativo en una cuenta de laboratorio, debe ser miembro de alguno de estos roles en la cuenta de laboratorio: Propietario, Creador de laboratorio o Colaborador. La cuenta que usó para crear una cuenta de laboratorio se agrega automáticamente al rol de propietario.
 
 El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador de laboratorio**. Por ejemplo, un propietario de laboratorio agrega profesores al rol Creador de laboratorio. A continuación, los profesores pueden crear laboratorios con máquinas virtuales para sus clases. Los estudiantes pueden usar el vínculo de registro que reciban de los profesores para registrar el laboratorio. Una vez registrados, pueden usar las máquinas virtuales de los laboratorios para hacer las tareas de clase y de casa. Para obtener instrucciones detalladas sobre cómo agregar usuarios al rol Creador de laboratorio, consulte [Incorporación de un usuario al rol Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
@@ -53,7 +53,7 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
         Si selecciona una imagen de Linux, verá una opción para habilitar la conexión a Escritorio remoto para ella. Para más información, consulte [Habilitar conexión de escritorio remoto para Linux](how-to-enable-remote-desktop-linux.md).
     2. En la página **Virtual machine credentials** (Credenciales de la máquina virtual), especifique las credenciales predeterminadas de todas las máquinas virtuales del laboratorio. Especifique los valores de **Name** (Nombre) y **Password** (Contraseña) para el usuario y seleccione **Next** (Siguiente).  
 
-        ![Nueva ventana de laboratorio](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+        ![Ventana de nuevo laboratorio](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
         > [!IMPORTANT]
         > Tome nota de ambos. No se volverán a mostrar.

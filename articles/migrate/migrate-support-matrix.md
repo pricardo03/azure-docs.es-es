@@ -1,31 +1,19 @@
 ---
 title: Matriz de compatibilidad para Azure Migrate
 description: Proporciona un resumen de limitaciones y configuraciones de compatibilidad para el servicio Azure Migrate.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/28/2020
 ms.author: raynew
-ms.openlocfilehash: fa6ea1ec1992c94d44531cda9802290edf8db301
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 5c29b80f30b024d34ec4e8f65e51b59fc70e8f93
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669148"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846550"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de compatibilidad para Azure Migrate
 
 Puede usar el [servicio Azure Migrate](migrate-overview.md) para evaluar y migrar máquinas a la nube de Microsoft Azure. En este artículo se resumen las configuraciones y limitaciones de compatibilidad generales para los escenarios e implementaciones de Azure Migrate.
-
-
-## <a name="azure-migrate-versions"></a>Versiones de Azure Migrate
-
-Existen dos versiones del servicio Azure Migrate:
-
-- **Versión actual**: use esta versión para crear nuevos proyectos de Azure Migrate, detectar evaluaciones locales y organizar valoraciones y migraciones. [Más información](whats-new.md#release-version-july-2019).
-- **Versión anterior**: para clientes que usaban la versión anterior de Azure Migrate (solo se admitía la evaluación de VM de VMware locales), ahora debería usar la versión actual. En la versión anterior, no puede crear nuevos proyectos de Azure Migrate ni realizar nuevas detecciones.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>Escenarios de migración o evaluación admitidos
 
@@ -65,11 +53,21 @@ Migración de servidores de Azure Migrate | N/D | Migrar [máquinas virtuales de
 **Soporte técnico** | **Detalles**
 --- | ---
 Subscription | Puede tener varios proyectos de Azure Migrate en una suscripción.
-Permisos de Azure | Necesita permisos de Colaborador o Propietario en la suscripción para crear un proyecto de Azure Migrate.
+Permisos de Azure | Necesita permisos de colaborador o propietario en la suscripción para crear un proyecto de Azure Migrate.
 Máquinas virtuales de VMware  | Evalúe hasta 35 000 máquinas virtuales de VMware en un único proyecto.
 Máquinas virtuales de Hyper-V | Evalúe hasta 35 000 máquinas virtuales de Hyper-V en un único proyecto.
 
 Un proyecto puede incluir máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
+
+## <a name="azure-permissions"></a>Permisos de Azure
+
+Para que Azure Migrate funcione con Azure, necesita estos permisos antes de empezar a evaluar y migrar máquinas.
+
+**Task** | **Permisos** | **Detalles**
+--- | --- | ---
+Crear un proyecto de Azure Migrate | La cuenta de Azure necesita permisos para crear un proyecto. | Realice la configuración para [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project) o [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-create-project).
+Registrar el dispositivo de Azure Migrate | Azure Migrate usa un [dispositivo de Azure Migrate](migrate-appliance.md) ligero para evaluar las VM de VMware con Azure Migrate Server Assessment y para ejecutar la [migración sin agentes](server-migrate-overview.md) de VM de VMware con la Azure Migrate Server Migration. Este dispositivo realiza la detección de máquinas virtuales y envía sus metadatos y sus datos de rendimiento a Azure Migrate.<br/><br/> Durante el registro, Azure Migrate crea dos aplicaciones de Azure Active Directory (Azure AD) que identifican de forma única al dispositivo y necesita permisos para crearlas.<br/><br/> - La primera aplicación se comunica con los puntos de conexión de servicio de Azure Migrate.<br/><br/> - La segunda aplicación accede a un almacén de Azure Key Vault creado durante el registro para almacenar la información de la aplicación de Azure AD y los valores de configuración del dispositivo. | Realice la configuración para [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance) o [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
+Crear un almacén de claves para la migración sin agentes de VMware | Cuando se migran VM de VMware con Azure Migrate Server Migration sin agentes, Azure Migrate crea una instancia de Key Vault para administrar las claves de acceso a la cuenta de almacenamiento de replicación de la suscripción. Para crear el almacén, debe establecer permisos (propietario, colaborador y administrador de acceso de usuario) en el grupo de recursos en el que reside el proyecto de Azure Migrate. | [Configure](tutorial-prepare-vmware.md#assign-role-assignment-permissions) los permisos.
 
 ## <a name="supported-geographies"></a>Ubicaciones geográficas admitidas
 
@@ -77,15 +75,15 @@ Puede crear un proyecto de Azure Migrate en varias zonas geográficas. Aunque so
 
 **Geografía** | **Ubicación de almacenamiento de metadatos**
 --- | ---
-Azure Government | Gobierno de EE. UU. - Virginia
+Azure Government | US Gov - Virginia
 Asia Pacífico | Asia Oriental o Sudeste Asiático
 Australia | Este de Australia o Sudeste de Australia
 Brasil | Sur de Brasil
 Canadá | Centro de Canadá o Este de Canadá
 Europa | Norte de Europa y Oeste de Europa
 Francia | Centro de Francia
-India | India central o India meridional
-Japón |  Este de Japón u Oeste de Japón
+India | Centro de la India o India del Sur
+Japón |  Japón Oriental u Japón Occidental
 Corea | Centro de Corea del Sur o Sur de Corea del Sur
 Reino Unido | Sur de Reino Unido u Oeste de Reino Unido
 Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
@@ -104,6 +102,14 @@ Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
 
 [Revise](migrate-support-matrix-hyper-v.md) la matriz de compatibilidad de la evaluación de servidores y migración de servidores de Azure Migrate para máquinas virtuales de Hyper-V.
 
+
+
+## <a name="azure-migrate-versions"></a>Versiones de Azure Migrate
+
+Existen dos versiones del servicio Azure Migrate:
+
+- **Versión actual**: use esta versión para crear nuevos proyectos de Azure Migrate, detectar evaluaciones locales y organizar valoraciones y migraciones. [Más información](whats-new.md#release-version-july-2019).
+- **Versión anterior**: para clientes que usaban la versión anterior de Azure Migrate (solo se admitía la evaluación de VM de VMware locales), ahora debería usar la versión actual. En la versión anterior, no puede crear nuevos proyectos de Azure Migrate ni realizar nuevas detecciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

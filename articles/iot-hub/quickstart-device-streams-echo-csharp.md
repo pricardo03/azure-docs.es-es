@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 14139d56a9a733a284d0ec49cabcb3ff7ce67fce
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ee709919f550a8b9afaf56e5e071522a494348ac
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084290"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773823"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en C# mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -28,12 +28,12 @@ Azure IoT Hub admite actualmente flujos de dispositivos como una [característic
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * La versión preliminar de los flujos de dispositivo solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
   * Centro de EE. UU.
   * EUAP del centro de EE. UU.
-  * Europa del Norte
+  * Norte de Europa
   * Sudeste asiático
 
 * Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben en C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en la máquina de desarrollo.
@@ -50,7 +50,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     az extension add --name azure-cli-iot-ext
     ```
 
-* [Descargue el proyecto de C# de ejemplo](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP. Lo necesitará en el lado del dispositivo y el lado del servicio.
+* [Descargue los ejemplos de C# de Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP. Lo necesitará en el lado del dispositivo y el lado del servicio.
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

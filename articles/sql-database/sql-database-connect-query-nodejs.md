@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Uso de Node.js para consultar datos de una base de datos de Azure SQL'
+title: Uso de Node.js para consultar una base de datos
 description: Cómo usar Node.js para crear un programa que se conecte a una base de datos de Azure SQL y realice consultas mediante instrucciones T-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,51 +11,52 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 064baf0215a2eaf7b90b78716b87606990b8fd21
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c0da38a41bf613237ea3b164d70e4729a7284ca7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279253"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768599"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Node.js para consultar una base de datos de Azure SQL
 
-En esta guía de inicio rápido se muestra cómo usar [Node.js](https://nodejs.org) para conectarse a una base de datos de Azure SQL. Luego puede usar instrucciones de T-SQL para consultar los datos.
+En esta guía de inicio rápido se muestra cómo se usa Node.js para conectarse a una base de datos de Azure SQL y cómo se utilizan las instrucciones T-SQL para consultar los datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para completar este ejemplo, asegúrese de que cumple los siguientes requisitos previos:
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una [instancia de Azure SQL Database](sql-database-single-database-get-started.md).
+- Software relacionado con [Node.js](https://nodejs.org)
 
-- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+  # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-  || Base de datos única | Instancia administrada |
-  |:--- |:--- |:---|
-  | Crear| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configuración | [Regla de firewall de IP en el nivel de servidor](sql-database-server-level-firewall-rule.md)| [Conectividad desde una máquina virtual](sql-database-managed-instance-configure-vm.md)|
-  |||[Conectividad desde el sitio](sql-database-managed-instance-configure-p2s.md)
-  |Carga de datos|Adventure Works cargado por inicio rápido|[Restauración de World Wide Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restauración o importación de Adventure Works a partir del archivo [BACPAC](sql-database-import.md) desde [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
+  Instale Homebrew y Node.js, después instale el controlador ODBC y SQLCMD mediante los pasos **1.2** y **1.3** en [Creación de aplicaciones Node.js mediante SQL Server en macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
 
-  > [!IMPORTANT]
-  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
+  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
 
+  Instale Node.js, después instale el controlador ODBC y SQLCMD mediante los pasos **1.2** y **1.3** en [Creación de aplicaciones Node.js mediante SQL Server en Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
 
-- Software relacionado con Node.js para el sistema operativo:
+  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-  - **MacOS**, instale Homebrew y Node.js y, después, instale el controlador ODBC y SQLCMD. Consulte [pasos 1.2 y 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
-  
-  - **Ubuntu**, instale Node.js y, después, instale el controlador ODBC y SQLCMD. Consulte [pasos 1.2 y 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-  
-  - **Windows**, instale Chocolatey y Node.js y, después, instale el controlador ODBC y SQLCMD. Consulte [pasos 1.2 y 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+  Instale Chocolatey y Node.js, después instale el controlador ODBC y SQLCMD mediante los pasos **1.2** y **1.3** en [Creación de aplicaciones Node.js mediante SQL Server en Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+
+  ---
+
+> [!IMPORTANT]
+> Los scripts de este artículo se escriben para utilizar la base de datos **Adventure Works**.
+
+> [!NOTE]
+> También puede elegir una instancia administrada de Azure SQL.
+>
+> Para crear y configurar, use [Azure portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)o la [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44). Después, configure la conectividad [local](sql-database-managed-instance-configure-p2s.md) o de la [máquina virtual](sql-database-managed-instance-configure-vm.md).
+>
+> Para cargar los datos, consulte la [restauración con BACPAC](sql-database-import.md) con el archivo [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) o consulte la [restauración de la base de datos de Wide World Importers](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="get-sql-server-connection-information"></a>Obtención de información de conexión de SQL Server
 
 Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor o nombre de host, el nombre de la base de datos y la información de inicio de sesión.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL**.
 

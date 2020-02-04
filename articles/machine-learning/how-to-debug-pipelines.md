@@ -9,21 +9,21 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 991f7ebf51be5f805a8b12fa0af0fefeff0ef582
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 5ba26584f08e705b24749a76d6f607aa84b48fab
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309564"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769126"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo se obtiene información sobre cómo depurar y resolver los problemas de las [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) en el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) y el [diseñador de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer).
-
+En este artículo aprenderá a depurar y resolver los problemas de las [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) y el [diseñador de Azure Machine Learning (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
 
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Depuración y solución de problemas en el SDK de Azure Machine Learning
-En la siguientes secciones se da una información general sobre los errores comunes durante la creación de canalizaciones, y sobre las diferentes estrategias para depurar el código que se ejecuta en una canalización. Cuando aparezcan problemas y una canalización no se ejecute según lo esperado, utilice las sugerencias que se ofrecen a continuación. 
+En la siguientes secciones se da una información general sobre los errores comunes durante la creación de canalizaciones, y sobre las diferentes estrategias para depurar el código que se ejecuta en una canalización. Cuando aparezcan problemas y una canalización no se ejecute según lo esperado, utilice las sugerencias que se ofrecen a continuación.
+
 ### <a name="testing-scripts-locally"></a>Prueba de scripts de forma local
 
 Uno de los errores más comunes en una canalización es que uno de los scripts adjuntos (script de limpieza de datos, script de puntuación, etc.) no se ejecute según lo previsto, o que contenga errores en tiempo de ejecución en el contexto de proceso remoto que son difíciles de depurar en el área de trabajo en Azure Machine Learning Studio. 
@@ -79,7 +79,49 @@ La tabla siguiente contiene problemas comunes que se pueden producir durante el 
 | La canalización no reutiliza los pasos | La reutilización de pasos está habilitada de forma predeterminada, asegúrese de que no la ha deshabilitado en un paso de la canalización. Si la reutilización está deshabilitada, el parámetro `allow_reuse` del paso se establecerá en `False`. |
 | La canalización se está volviendo a ejecutar innecesariamente | Para asegurarse de que los pasos solo se vuelven a ejecutar cuando sus datos o scripts subyacentes cambian, desacople los directorios de cada paso. Si usa el mismo directorio de origen para varios pasos, puede experimentar la repetición innecesaria de ejecuciones. Use el parámetro `source_directory` en un objeto de paso de canalización para apuntar a su directorio aislado para ese paso, y asegúrese de que no está usando la misma ruta de acceso `source_directory` para varios pasos. |
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer"></a>Depuración y solución de problemas en el diseñador de Azure Machine Learning
+### <a name="logging-options-and-behavior"></a>Opciones de registro y comportamiento
+
+En la tabla siguiente se proporciona información sobre las distintas opciones de depuración para las canalizaciones. No se trata de una lista exhaustiva, ya que existen otras opciones aparte de las de Azure Machine Learning, Python y OpenCensus que se muestran aquí.
+
+| Biblioteca                    | Tipo   | Ejemplo                                                          | Destination                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
+|----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SDK de Azure Machine Learning | Métrica | `run.log(name, val)`                                             | UI del portal de Azure Machine Learning             | [Seguimiento de experimentos](how-to-track-experiments.md#available-metrics-to-track)<br>[Clase azureml.core.Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Impresión/registro de Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Registros de controladores, diseñador de Azure Machine Learning | [Seguimiento de experimentos](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registro de Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Python para OpenCensus          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights: seguimientos                | [Depuración de canalizaciones en Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Exportadores de Azure Monitor de OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Guía de registro de Python](https://docs.python.org/3/howto/logging-cookbook.html) |
+
+#### <a name="logging-options-example"></a>Ejemplo de opciones de registro
+
+```python
+import logging
+
+from azureml.core.run import Run
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+run = Run.get_context()
+
+# Azure ML Scalar value logging
+run.log("scalar_value", 0.95)
+
+# Python print statement
+print("I am a python print statement, I will be sent to the driver logs.")
+
+# Initialize python logger
+logger = logging.getLogger(__name__)
+logger.setLevel(args.log_level)
+
+# Plain python logging statements
+logger.debug("I am a plain debug statement, I will be sent to the driver logs.")
+logger.info("I am a plain info statement, I will be sent to the driver logs.")
+
+handler = AzureLogHandler(connection_string='<connection string>')
+logger.addHandler(handler)
+
+# Python logging with OpenCensus AzureLogHandler
+logger.warning("I am an OpenCensus warning statement, find me in Application Insights!")
+logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
+``` 
+
+## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Depuración y solución de problemas del diseñador de Azure Machine Learning (versión preliminar)
 
 En esta sección se proporciona información general sobre cómo solucionar problemas de las canalizaciones en el diseñador.
 En el caso de las canalizaciones creadas en el diseñador, puede encontrar los **archivos de registro** en la página de creación o en la página de detalles de ejecución de canalización.
@@ -103,6 +145,9 @@ También puede buscar los archivos de registro de ejecuciones específicas en la
 1. Seleccione cualquier módulo en el panel de versión preliminar previa.
 1. En el panel Propiedades, vaya a la pestaña **Registros**.
 1. Seleccione el archivo de registro `70_driver_log.txt`.
+
+## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuración y solución de problemas en Application Insights
+Para obtener más información sobre el uso de la biblioteca de Python para OpenCensus de esta manera, consulte esta guía: [Depuración y solución de problemas de canalizaciones de aprendizaje automático en Application Insights](how-to-debug-pipelines-application-insights.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

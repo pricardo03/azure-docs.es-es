@@ -9,18 +9,20 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: b43f2f351345f05c3eb56a84fb1a0eadb4826707
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771519"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767627"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Hoja de características de los algoritmos de Machine Learning para el diseñador de Azure Machine Learning
 
 La **hoja de referencia rápida de algoritmos de Azure Machine Learning** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
 
 Azure Machine Learning tiene una gran biblioteca de algoritmos de las familias ***clasificación***, ***sistemas de recomendación***, ***agrupación en clústeres***, ***detección de anomalías***, ***regresión*** y ***análisis de texto***. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
+
+Para obtener instrucciones adicionales, consulte [Selección de algoritmos](how-to-select-algorithms.md).
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Descargar: Hoja de características de los algoritmos de Machine Learning
 
@@ -32,7 +34,7 @@ Descargue e imprima la hoja de referencia rápida de algoritmos de Machine Learn
 
 ## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Cómo usar la hoja de características de los algoritmos de Machine Learning
 
-Las sugerencias ofrecidas en esta hoja de referencia rápida de algoritmos son reglas generales aproximadas. Algunas se pueden ignorar y otras se pueden infringir de forma fragante. Su finalidad es sugerir un punto de partida. No tema ejecutar una competición directa entre varios algoritmos en sus datos. Realmente no hay sustituto para comprender los principios de cada algoritmo y el sistema que generó los datos.
+Las sugerencias ofrecidas en esta hoja de referencia rápida de algoritmos son reglas generales aproximadas. Algunas se pueden ignorar y otras se pueden infringir de forma fragante. Esta hoja de referencia rápida tiene como finalidad sugerir un punto de partida. No tema ejecutar una competición directa entre varios algoritmos en sus datos. Realmente no hay sustituto para comprender los principios de cada algoritmo y el sistema que generó los datos.
 
 Cada algoritmo de aprendizaje automático tiene su propio estilo o sesgo inductivo. Para un problema específico, varios algoritmos pueden ser apropiados y un algoritmo puede servir mejor que otros. Pero no siempre es posible saber de antemano cuál es la mejor opción. En estos casos, varios algoritmos se muestran juntos en la hoja de referencia rápida. Una estrategia adecuada sería probar un algoritmo y, si los resultados no resultan satisfactorios, probar los demás. 
 
@@ -48,17 +50,17 @@ En el aprendizaje supervisado, cada punto de datos se etiqueta o asocia con una 
 
 ### <a name="unsupervised-learning"></a>Aprendizaje sin supervisión
 
-En el aprendizaje sin supervisar, los puntos de datos no tienen etiquetas asociadas a ellos. En su lugar, el objetivo de un algoritmo de aprendizaje sin supervisar es organizar los datos de alguna manera o describir su estructura. Esto puede significar agruparlos en clústeres, como hace K-means, o buscar diferentes maneras de examinar datos complejos para que parezcan más simples.
+En el aprendizaje sin supervisar, los puntos de datos no tienen etiquetas asociadas a ellos. En su lugar, el objetivo de un algoritmo de aprendizaje sin supervisar es organizar los datos de alguna manera o describir su estructura. El aprendizaje sin supervisar agrupa los datos en clústeres, al igual que K-means, o busca diferentes maneras de examinar datos complejos para que parezcan más simples.
 
 ### <a name="reinforcement-learning"></a>Aprendizaje de refuerzo
 
-En el aprendizaje de refuerzo, el algoritmo elige una acción en respuesta a cada punto de datos. Se trata de un enfoque común en robótica, donde el conjunto de lecturas del sensor en un punto en el tiempo es un punto de datos, y el algoritmo debe elegir la siguiente acción del robot. También resulta perfecto para las aplicaciones de Internet de las cosas. El algoritmo de aprendizaje también recibe una señal de recompensa un poco más adelante, que indica cómo de buena fue la decisión. Según esto, el algoritmo modifica su estrategia para lograr la mayor recompensa. 
+En el aprendizaje de refuerzo, el algoritmo elige una acción en respuesta a cada punto de datos. Se trata de un enfoque común en robótica, donde el conjunto de lecturas del sensor en un punto en el tiempo es un punto de datos, y el algoritmo debe elegir la siguiente acción del robot. También resulta perfecto para las aplicaciones de Internet de las cosas. El algoritmo de aprendizaje también recibe una señal de recompensa un poco más adelante, que indica cómo de buena fue la decisión. Según esta señal, el algoritmo modifica su estrategia para lograr la mayor recompensa. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga información sobre Studio en Azure Machine Learning y Azure Portal](overview-what-is-azure-ml.md).
+* Consulte instrucciones adicionales en [Selección de algoritmos](how-to-select-algorithms.md).
 
-* Vea una lista de algoritmos y módulos en la[ referencia de módulos y algoritmos](algorithm-module-reference/module-reference.md).
+* [Obtenga información sobre Studio en Azure Machine Learning y Azure Portal](overview-what-is-azure-ml.md).
 
 * [Tutorial: Compilar un modelo de predicción en el diseñador de Azure Machine Learning ](tutorial-designer-automobile-price-train-score.md).
 

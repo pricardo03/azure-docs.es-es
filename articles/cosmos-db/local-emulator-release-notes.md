@@ -3,15 +3,15 @@ title: Descarga y notas de la versión del emulador de Azure Cosmos
 description: Obtenga las notas de la versión del emulador de Azure Cosmos para distintas versiones e información de descarga.
 ms.service: cosmos-db
 ms.topic: tutorial
-author: markjbrown
-ms.author: mjbrown
+author: milismsft
+ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3878f6d01a2adfff2adc6a22aad20a5f83992b8d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445308"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719694"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador de Azure Cosmos: notas de la versión e información de descarga.
 
@@ -25,6 +25,10 @@ En este artículo se muestran las notas de la versión del emulador de Azure Cos
 |**Introducción**|[Uso del emulador de Azure Cosmos para desarrollo y pruebas locales](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="290"></a>2.9.0
+
+- En esta versión se agrega la opción de establecer la coherencia con un prefijo y aumentar los límites máximos de usuarios y permisos.
 
 ### <a name="272"></a>2.7.2
 

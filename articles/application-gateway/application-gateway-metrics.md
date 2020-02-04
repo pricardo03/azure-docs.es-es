@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: a8882a810d18d06b33d6382bd8bd86ffe75b39d8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777825"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766813"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -22,36 +22,51 @@ Application Gateway publica puntos de datos, denominados métricas, para [Azure 
 
 ### <a name="timing-metrics"></a>Métricas de tiempo
 
-Están disponibles las siguientes métricas relacionadas con el momento de la solicitud y la respuesta. Mediante el análisis de estas métricas para un cliente de escucha específico, puede determinar si la ralentización en la aplicación se debe a la WAN, Application Gateway, la red entre Application Gateway y la aplicación de back-end, o el rendimiento de la aplicación de back-end.
+Application Gateway proporciona varias métricas de temporización integradas relacionadas con la solicitud y la respuesta, que se miden en milisegundos. 
+
+![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
 > Si hay más de un agente de escucha en Application Gateway, filtre siempre por la dimensión *Agente de escucha* al comparar las diferentes métricas de latencia para obtener una inferencia significativa.
 
-- **Cliente RTT**
+- **Tiempo de conexión de back-end**
 
-  Tiempo medio de ida y vuelta entre clientes y Application Gateway. Esta métrica indica cuánto tiempo se tarda en establecer conexiones y devolver confirmaciones. 
+  Tiempo empleado en establecer una conexión con la aplicación de back-end. 
 
-- **Tiempo total de Application Gateway**
-
-  Promedio de tiempo que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como promedio del intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que esto normalmente incluye el tiempo de procesamiento de Application Gateway, el tiempo que los paquetes de solicitud y respuesta viajan por la red y el tiempo que el servidor back-end tardó en responder.
-  
-Después de filtrar por cliente de escucha, si el *RTT cliente* es mucho más que el *tiempo total de Application Gateway*, se puede deducir que la latencia observada por el cliente se debe a la conectividad de red entre el cliente y Application Gateway. Si ambas latencias son comparables, la latencia alta podría deberse a alguna de las siguientes causas: Application Gateway, la red entre Application Gateway y la aplicación de back-end, o el rendimiento de la aplicación de back-end.
+  Esto incluye la latencia de red, así como el tiempo que tarda la pila TCP del servidor back-end en establecer nuevas conexiones. En el caso de SSL, incluye también el tiempo empleado en el protocolo de enlace. 
 
 - **Tiempo de respuesta del primer byte de back-end**
 
-  Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del primer byte del encabezado de respuesta, el tiempo de procesamiento aproximado del servidor back-end
+  Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del primer byte del encabezado de la respuesta. 
+
+  Se aproxima a la suma de *Tiempo de conexión de back-end*, el tiempo que tarda la solicitud en alcanzar el back-end desde Application Gateway, el tiempo que tarda la aplicación de back-end en responder (el tiempo que el servidor tardó en generar contenido, y posiblemente capturar las consultas de la base de datos) y el tiempo que tarda el primer byte de la respuesta en llegar a Application Gateway desde el back-end.
 
 - **Tiempo de respuesta del último byte de back-end**
 
-  Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del último byte del cuerpo de la respuesta
-  
-Si el *tiempo total de Application Gateway* es mucho más que el *tiempo de respuesta del último byte del back-end* para un agente de escucha concreto, se puede deducir que la latencia alta puede deberse a Application Gateway. Por otro lado, si las dos métricas son comparables, el problema podría deberse a la red entre Application Gateway y la aplicación de back-end, o bien el rendimiento de la aplicación de back-end.
+  Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del último byte del cuerpo de la respuesta. 
 
-- **Tiempo de conexión de back-end**
+  Se aproxima a la suma de *Tiempo de respuesta del primer byte de back-end* y el tiempo de transferencia de datos (este número puede variar en gran medida según el tamaño de los objetos solicitados y la latencia de la red del servidor).
 
-  Tiempo empleado en establecer una conexión con una aplicación de back-end. En el caso de SSL, incluye el tiempo empleado en el protocolo de enlace. Tenga en cuenta que esta métrica es diferente de las otras métricas de latencia, ya que solo mide el tiempo de conexión y, por lo tanto, no debe compararse directamente en magnitud con las demás latencias. Sin embargo, la comparación del patrón de *tiempo de conexión de back-end* con el patrón de las demás latencias puede indicar si se podría deducir un aumento de las latencias debido a una variación en la red entre Application Gatway y la aplicación de back-end. 
-  
+- **Tiempo total de Application Gateway**
+
+  Promedio de tiempo que se tarda en recibir y procesar una solicitud y en enviar la respuesta. 
+
+  Este es el intervalo desde el momento en que Application Gateway recibe el primer byte de la solicitud HTTP hasta el momento en que se envía el último byte de respuesta al cliente. Esto incluye el tiempo de procesamiento que tarda Application Gateway, el *Tiempo de respuesta del último byte de back-end*, el tiempo que tarda Application Gateway en enviar toda la respuesta y el *Cliente RTT*.
+
+- **Cliente RTT**
+
+  Tiempo medio de ida y vuelta entre clientes y Application Gateway.
+
+
+
+Estas métricas se pueden usar para determinar si la ralentización observada se debe a la red del cliente, al rendimiento de Application Gateway, a la red de back-end y la saturación de la pila TCP del servidor back-end, al rendimiento de la aplicación de back-end o al tamaño de archivo grande.
+
+Por ejemplo, si hay un pico en la tendencia de *Tiempo de respuesta del primer byte de back-end*, pero la tendencia de *Tiempo de conexión de back-end* es estable, se puede deducir que la latencia de Application Gateway al back-end y el tiempo necesario para establecer la conexión son estables, y el pico se debe a un aumento en el tiempo de respuesta de la aplicación de back-end. Por otro lado, si el pico en *Tiempo de respuesta del primer byte de back-end* se asocia a un pico correspondiente en *Tiempo de conexión de back-end*, se puede deducir que la red entre Application Gateway y el servidor back-end o la pila TCP del servidor back-end se han saturado. 
+
+Si observa un pico en *Tiempo de respuesta del último byte de back-end*, pero el *Tiempo de respuesta del primer byte de back-end* es estable, se puede deducir que el pico se debe a que se está solicitando un archivo más grande.
+
+Del mismo modo, si el *Tiempo total de Application Gateway* tiene un pico, pero el *Tiempo de respuesta del último byte de back-end* es estable, puede ser la señal de un cuello de botella de rendimiento en Application Gateway o de un cuello de botella en la red entre el cliente y Application Gateway. Además, si el *Cliente RTT* también tiene un pico correspondiente, esto indica que la degradación se debe a la red entre el cliente y Application Gateway.
 
 ### <a name="application-gateway-metrics"></a>Métricas de Application Gateway
 
@@ -112,11 +127,11 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 - **Recuento de hosts con estado correcto**
 
-  El número de back-ends que el sondeo de Estado ha determinado que son correctos. También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.
+  El número de back-ends que el sondeo de Estado ha determinado que son correctos. También puede filtrar en función de grupos de back-end para mostrar el número de hosts en buen estado en un grupo de back-end específico.
 
 - **Recuento de hosts con estado incorrecto**
 
-  El número de back-ends que el sondeo de Estado ha determinado que son incorrectos. También puede filtrar en función de grupos de back-end para mostrar hosts en mal estado en un grupo de back-end específico.
+  El número de back-ends que el sondeo de Estado ha determinado que son incorrectos. También puede filtrar en función de grupos de back-end para mostrar el número de hosts en estado incorrecto en un grupo de back-end específico.
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas compatibles con la SKU de Application Gateway V1
 
@@ -158,11 +173,11 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 - **Recuento de hosts con estado correcto**
 
-  El número de back-ends que el sondeo de Estado ha determinado que son correctos. También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.
+  El número de back-ends que el sondeo de Estado ha determinado que son correctos. También puede filtrar en función de grupos de back-end para mostrar el número de hosts en buen estado en un grupo de back-end específico.
 
 - **Recuento de hosts con estado incorrecto**
 
-  El número de back-ends que el sondeo de Estado ha determinado que son incorrectos. También puede filtrar en función de grupos de back-end para mostrar hosts en mal estado en un grupo de back-end específico.
+  El número de back-ends que el sondeo de Estado ha determinado que son incorrectos. También puede filtrar en función de grupos de back-end para mostrar el número de hosts en estado incorrecto en un grupo de back-end específico.
 
 ## <a name="metrics-visualization"></a>Visualización de las métricas
 

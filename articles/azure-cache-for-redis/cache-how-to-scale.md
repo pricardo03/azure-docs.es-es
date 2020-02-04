@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: e8a1cf0e197841b6af8c65fe00c25aa42dbd0e7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433510"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714458"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Escalado de Azure Cache for Redis
 Azure Cache for Redis tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la memoria caché. Después de crear una memoria caché, puede ajustar su tamaño y el plan de tarifa si cambian los requisitos de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.
@@ -166,7 +166,7 @@ Si se produce un error en una operación de escalado, el servicio intenta revert
 
 
 ### <a name="how-long-does-scaling-take"></a>¿Cuánto tarda el escalado?
-El escalado tarda aproximadamente 20 minutos, según la cantidad de datos que haya en la memoria caché.
+El tiempo de escalado depende de cuántos datos hay en la memoria caché, donde las mayores cantidades de datos tardan más tiempo en completarse. El escalado tarda aproximadamente entre 20 minutos. En el caso de las memorias caché en clúster, el escalado tarda aproximadamente 20 minutos por partición.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>¿Cómo puedo saber si el escalado ha terminado?
 En Azure Portal puede ver la operación de escalado en curso. Cuando se completa el escalado, el estado de la memoria caché cambia de **En ejecución**.
@@ -176,6 +176,3 @@ En Azure Portal puede ver la operación de escalado en curso. Cuando se completa
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-

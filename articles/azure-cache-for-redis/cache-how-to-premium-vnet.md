@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f449dc08dede30a7dec977bb66e0a2c0b509a1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433488"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846409"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -37,7 +37,7 @@ Para configurar la red virtual de la memoria caché nueva, haga clic en **Virtua
 
 ![Virtual network][redis-cache-vnet]
 
-Seleccione la subred deseada en la lista desplegable **Subred** y especifique la **dirección IP estática** deseada. Si utiliza una red virtual con el enfoque clásico, el campo **Dirección IP estática** es opcional y no se especifica ninguna, sino que se elegirá una de la red seleccionada.
+En la lista desplegable **Subred**, seleccione la subred deseada.  Si lo desea, especifique una **dirección IP estática**. El campo **Dirección IP estática** es opcional y, si no se especifica ninguna, se elige una de la subred seleccionada.
 
 > [!IMPORTANT]
 > Si se implementa una instancia de Azure Cache for Redis en una red virtual de Resource Manager, la caché debe estar en una subred dedicada que no contenga otros recursos, salvo instancias de Azure Cache for Redis. Si se intenta implementar una instancia de Azure Cache for Redis en una red virtual de Resource Manager en una subred que contiene otros recursos, se produce un error en la implementación.

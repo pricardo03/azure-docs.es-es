@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: fbda2f645308e30a6f408335b7a1b37095522921
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5082ed06b4ce5baf3869fc035654be3c7a45f29f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003324"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845298"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual Windows en .NET
 
@@ -37,7 +37,7 @@ Antes de empezar, lea los [conceptos básicos de Key Vault](basic-concepts.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para Windows, Mac y Linux:
   * [Git](https://git-scm.com/downloads)
@@ -146,7 +146,7 @@ Para instalar .NET Core, vaya a la [página de descargas de .NET](https://www.mi
 
 ### <a name="create-and-run-a-sample-net-app"></a>Creación y ejecución de una aplicación de .NET de ejemplo
 
-Abra el símbolo del sistema.
+Abra un símbolo del sistema.
 
 Puede imprimir "Hola mundo" en la consola mediante la ejecución de los siguientes comandos:
 
@@ -181,10 +181,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Edite el archivo de clase para que contenga el código en el proceso de dos pasos siguiente:
+Edite el archivo de clase para que contenga el código en el proceso de tres pasos siguiente:
 
 1. Capturar un token del punto de conexión MSI local en la máquina virtual. Si lo hace, también captura un token de Azure AD.
-1. Pase el token al almacén de claves y, después, capture el secreto. 
+2. Pase el token al almacén de claves y, después, capture el secreto. 
+3. Agregue tanto el nombre del almacén como el nombre del secreto a la solicitud.
 
 ```csharp
  class Program
@@ -205,9 +206,10 @@ Edite el archivo de clase para que contenga el código en el proceso de dos paso
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");
         }
-
+        
         static string FetchSecretValueFromKeyVault(string token)
         {
+            //Step 3: Add the vault name and secret name to the request.
             WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();

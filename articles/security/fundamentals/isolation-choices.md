@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121954"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756167"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 Azure permite ejecutar aplicaciones y máquinas virtuales (VM) en una infraestructura física compartida. Una de las motivaciones económicas principales para ejecutar aplicaciones en un entorno de nube es la capacidad de distribuir el costo de los recursos compartidos entre varios clientes. Esta práctica de multiinquilino mejora la eficiencia al multiplexar los recursos entre los distintos clientes a un bajo costo. Lamentablemente, también presenta el riesgo del uso compartido de servidores físicos y otros recursos de infraestructura al ejecutar aplicaciones confidenciales y máquinas virtuales que pueden pertenecer a un usuario arbitrario y potencialmente malintencionado.
@@ -111,6 +111,9 @@ Microsoft Azure proporciona diversos servicios de computación en la nube que in
 ### <a name="isolated-virtual-machine-sizes"></a>Tamaños de máquinas virtuales aislados
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
+
+### <a name="dedicated-hosts"></a>Hosts dedicados
+Además de los hosts aislados descritos en la sección anterior, Azure también ofrece hosts dedicados. Los hosts dedicados de Azure son un servicio que proporciona servidores físicos capaces de hospedar una o varias máquinas virtuales, y que están dedicados a una única suscripción de Azure. Los hosts dedicados ofrecen aislamiento del hardware a nivel de servidor físico. No se colocarán otras máquinas virtuales en los hosts. Los hosts dedicados se implementan en los mismos centros de datos y comparten la misma red y la misma infraestructura de almacenamiento subyacente que otros hosts no aislados. Para obtener más información, consulte la introducción detallada a los [hosts dedicados de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Aislamiento de Hyper-V y sistema operativo raíz entre la máquina virtual raíz y las máquinas virtuales invitadas
 La plataforma de proceso de Azure se basa en la virtualización, lo que significa que todo el código del cliente se ejecuta en una máquina virtual de Hyper-V. En cada nodo de Azure (o punto de conexión de red), hay un hipervisor que se ejecuta directamente sobre el hardware y divide un nodo en un número variable de máquinas virtuales invitadas.

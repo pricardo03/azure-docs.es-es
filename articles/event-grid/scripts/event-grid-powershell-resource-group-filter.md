@@ -1,6 +1,6 @@
 ---
 title: 'Azure PowerShell: suscripción a un grupo de recursos'
-description: 'Ejemplo de script de Azure Event Grid y Azure PowerShell: suscripción a un grupo de recursos y filtrado por recurso'
+description: En este artículo se proporciona un script de Azure PowerShell de ejemplo que muestra cómo suscribirse a los eventos de Azure Event Grid de un grupo de recursos y un filtro de un recurso.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -9,14 +9,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 222bf6fb9297afda038b38d3fb528711ad03a3ca
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5d41bfec5978d1baf38eaf1608f50375170d9929
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790731"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720612"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>Suscripción a eventos de un grupo de recursos y filtrado de un recurso con PowerShell
 

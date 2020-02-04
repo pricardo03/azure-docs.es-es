@@ -11,18 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 8d4917bb8956185e0cb557368fbb0c64343c0ac6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e23a4c39f93ea4de7f5dd38bb266d63ed52913cb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422545"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845865"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
 En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una instancia de Azure SQL Database en el nivel de proceso aprovisionado. Como alternativa, el [nivel de proceso sin servidor](sql-database-serverless.md) proporciona escalado automático de proceso y factura por segundo el proceso que se usa.
-
-## <a name="change-compute-size-vcores-or-dtus"></a>Cambio del tamaño de proceso (núcleos virtuales o DTU)
 
 Después de elegir inicialmente el número de núcleos virtuales o DTU, puede escalar o reducir una base de datos verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
@@ -33,7 +31,7 @@ El vídeo siguiente muestra cómo cambiar de manera dinámica el nivel de servic
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
-### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto de cambiar el nivel de servicio o la escala del tamaño de proceso
+## <a name="impact"></a>Impacto
 
 El cambio en el nivel de servicio o el tamaño de proceso implica principalmente que el servicio realice los pasos siguientes:
 
@@ -48,7 +46,7 @@ El cambio en el nivel de servicio o el tamaño de proceso implica principalmente
 > [!IMPORTANT]
 > Durante los pasos del flujo de trabajo no se pierden datos. Asegúrese de que ha implementado alguna [lógica de reintento](sql-database-connectivity-issues.md) en las aplicaciones y los componentes que utilizan Azure SQL Database mientras se cambia el nivel de servicio.
 
-### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latencia de cambiar el nivel de servicio o la escala del tamaño de proceso
+## <a name="latency"></a>Latencia 
 
 La latencia estimada de cambiar el nivel de servicio o la escala del tamaño de proceso de una base de datos única o un grupo elástico se parametriza como sigue:
 
@@ -61,7 +59,7 @@ La latencia estimada de cambiar el nivel de servicio o la escala del tamaño de 
 > [!TIP]
 > Para supervisar las operaciones en curso, consulte: [Administración de operaciones mediante la API REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Administración de operaciones mediante la CLI](/cli/azure/sql/db/op), [Supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) y estos dos comandos de PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) y [Stop AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Cancelación de cambios del nivel de servicio o de la escala del proceso
+## <a name="cancelling-changes"></a>Cancelación de cambios
 
 Un cambio del nivel de servicio o de la escala del proceso se puede cancelar.
 
@@ -90,7 +88,7 @@ else {
 }
 ```
 
-### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Consideraciones adicionales cuando se cambia el nivel de servicio o la escala de tamaño de proceso
+## <a name="additional-considerations"></a>Consideraciones adicionales
 
 - Si va a actualizar a un nivel de servicio o tamaño de proceso más elevado, el tamaño máximo de la base de datos no aumenta a no ser que especifique un tamaño mayor (maxsize).
 - Para cambiar una base de datos a una versión anterior, su espacio usado no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino y del tamaño de proceso.
@@ -100,7 +98,7 @@ else {
 - Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si va a cambiar al nivel **Básico**, hay un período de retención de copia de seguridad más bajo. Consulte el artículo sobre [Copias de seguridad de Azure SQL Database](sql-database-automated-backups.md).
 - Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
 
-### <a name="billing-during-compute-rescaling"></a>Facturación durante el cambio de escala de proceso
+## <a name="billing"></a>Facturación 
 
 Se le cobrará por cada hora que una base de datos exista con el mayor nivel de servicio + tamaño de proceso aplicable durante esa hora, independientemente del uso o de si la base de datos estuvo activa durante menos tiempo. Por ejemplo, si crea una base de datos única y la elimina a los cinco minutos, se le efectuará un cargo de una hora por usar la base de datos.
 
@@ -125,9 +123,13 @@ Se le cobrará por cada hora que una base de datos exista con el mayor nivel de 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
+### <a name="geo-replicated-database"></a>Base de datos con replicación geográfica
+
+Para cambiar el tamaño de una base de datos secundaria replicada, cambie el tamaño de la base de datos principal. A continuación, este cambio se replicará y se implementará también en la base de datos secundaria. 
+
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>P11 y P15 se restringen cuando el tamaño máximo es mayor de 1 TB
 
-Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de Gobierno de EE. UU. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB. Las siguientes consideraciones y limitaciones se aplican a las bases de datos P11 y P15 con un tamaño máximo mayor de 1 TB:
+Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de US Gov En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB. Las siguientes consideraciones y limitaciones se aplican a las bases de datos P11 y P15 con un tamaño máximo mayor de 1 TB:
 
 - Si el tamaño máximo de una base de datos P11 o P15 nunca se estableció en un valor mayor que 1 TB, entonces solo puede restablecerse o copiarse a una base de datos P11 o P15.  Posteriormente, la base de datos puede escalarse de nuevo a un tamaño de proceso diferente siempre que la cantidad de espacio asignado en el momento de la operación de cambio de escala no supere los límites de tamaño máximo con el nuevo tamaño de proceso.
 - En escenarios de replicación geográfica activa:

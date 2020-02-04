@@ -3,24 +3,24 @@ title: 'Exploración de datos en una máquina virtual de SQL Server: proceso de 
 description: Cómo explorar los datos que se almacenan en una máquina virtual de SQL Server en Azure con SQL o un lenguaje de programación como Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be75490e4e86956337ce38133df6095790b3a374
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae8c7c43ecbf9bc625e1e46be3e2c71c8d57b6f7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303662"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720102"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Exploración de los datos de una máquina virtual de SQL Server en Azure
 
-Este artículo explica cómo explorar los datos que se almacenan en una máquina virtual de SQL Server en Azure. Esto puede hacerse mediante la administración de datos usando SQL o mediante un lenguaje de programación como Python.
+Este artículo explica cómo explorar los datos que se almacenan en una máquina virtual de SQL Server en Azure. Utilice SQL o Python para examinar los datos.
 
 Esta tarea constituye un paso del [proceso de ciencia de datos en equipos](overview.md).
 
@@ -35,23 +35,23 @@ A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar
 1. Obtener el número de observaciones por día
    
     `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
-2. Obtenga los niveles de una columna de categorías
+2. Obtención de los niveles de una columna de categorías
    
     `select  distinct <column_name> from <databasename>`
 3. Obtener el número de niveles de combinación de dos columnas de categorías 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
-4. Obtención de la distribución para columnas numéricas
+4. Obtener la distribución para columnas numéricas
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 > [!NOTE]
-> Para obtener un ejemplo práctico, puede usar el [conjunto de datos de los taxis de la Ciudad de Nueva York](https://www.andresmh.com/nyctaxitrips/) y consultar el IPNB llamado [Tratamiento de datos de la Ciudad de Nueva York mediante un Bloc de notas de IPython y SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), que se trata de un tutorial completo.
+> Para obtener un ejemplo práctico, puede usar el conjunto de datos [NYC Taxi dataset](https://www.andresmh.com/nyctaxitrips/) y consultar el IPNB denominado [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Tratamiento de datos de la ciudad de Nueva York mediante IPython Notebook y SQL Server), que ofrece un tutorial completo.
 > 
 > 
 
 ## <a name="python"></a>Exploración de los datos de SQL con Python
-Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en Blob de Azure mediante Python, como se documenta en [Proceso de datos de Blob de Azure en su entorno de ciencia de datos](data-blob.md). Los datos deben cargarse desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
+Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en Blob de Azure mediante Python, como se documenta en [Proceso de datos de Blob de Azure en su entorno de ciencia de datos](data-blob.md). Cargue los datos desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
 
 El formato de cadena de conexión siguiente puede usarse para conectarse a una base de datos de SQL Server desde Python mediante pyodbc (reemplace servername, dbname, username y password con sus valores específicos):
 

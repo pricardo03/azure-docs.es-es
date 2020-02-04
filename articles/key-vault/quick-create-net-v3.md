@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 29e1af5f23b2167a524872731490b5862a14e5c1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9b92796e477ea0dd6795015edd3f400dd2cc9aa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975404"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773756"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET (SDK v3)
 
@@ -25,7 +25,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 - Aumentar la seguridad y el control sobre claves y contraseñas
 - Crear e importar claves de cifrado en minutos
 - Reducir la latencia con escala en la nube y redundancia global
-- Simplificar y automatizar tareas para certificados SSL/TLS
+- Simplificar y automatizar tareas para certificados TLS/SSL
 - Utilizar módulos HSM con certificación FIPS 140-2 nivel 2
 
 [Documentación de referencia de la API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
@@ -34,7 +34,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 > Cada almacén de claves debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [SDK de .NET Core 2.1 o posterior](https://dotnet.microsoft.com/download/dotnet-core/2.1).
@@ -67,7 +67,7 @@ Build succeeded.
  0 Error(s)
 ```
 
-### <a name="install-the-package"></a>Instalación del paquete
+### <a name="install-the-package"></a>Instalar el paquete
 
 En la ventana de la consola, instale la biblioteca cliente de Azure Key Vault para .NET:
 

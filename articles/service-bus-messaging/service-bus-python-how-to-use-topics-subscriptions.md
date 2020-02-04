@@ -1,10 +1,9 @@
 ---
 title: 'Inicio rápido: Uso de temas y suscripciones de Azure Service Bus con Python'
-description: Aprenda a usar los temas de Azure Service Bus y las suscripciones de Python.
+description: En este artículo se muestra cómo crear un tema de Azure Service Bus, una suscripción, enviar mensajes a un tema y recibir mensajes de la suscripción.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 94a49b31139947c6323ab391b78ecd03ee911e0a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748491"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774539"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con Python
 
@@ -33,8 +32,8 @@ En este artículo se describe cómo usar Python con los temas y las suscripcione
 - Recepción de mensajes de suscripciones
 - Eliminación de temas y suscripciones
 
-## <a name="prerequisites"></a>Requisitos previos
-- Una suscripción de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+- Suscripción a Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Un espacio de nombres de Service Bus, creado siguiendo los pasos descritos en [Inicio rápido: Uso de Azure Portal para crear suscripciones y temas de Service Bus](service-bus-quickstart-topics-subscriptions-portal.md). Copie el nombre del espacio de nombres, el nombre de la clave de acceso compartido y el valor de clave principal de la pantalla **Directivas de acceso compartido** para usarlos más adelante en este inicio rápido. 
 - Python 3.4.x o superior, con el paquete del [SDK de Python de Azure][Azure Python package] instalado. Para obtener más información, consulte la [guía de instalación de Python](/azure/python/python-sdk-azure-install).
 

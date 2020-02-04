@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus con .NET y AMQP 1.0 | Microsoft Docs
-description: Uso de Azure Service Bus desde .NET con AMQP
+description: En este artículo se describe cómo usar Azure Service Bus desde una aplicación .NET mediante AMQP (Advanced Message Queuing Protocol).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 536c315077cb74a1dfa8db457f0f0b3725edf7a1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749264"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759254"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Uso de Service Bus desde .NET con AMQP 1.0
 
-La compatibilidad con AMQP 1.0 está disponible en el paquete de Service Bus versión 2.1 o posterior. Asegúrese de tener la versión más reciente descargando los bits de Service Bus desde [NuGet][NuGet].
+La compatibilidad con AMQP 1.0 está disponible en el paquete de Service Bus versión 2.1 o posterior. Asegúrese de tener la versión más reciente descargando los bits de Service Bus de [NuGet][NuGet].
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Configuración de aplicaciones .NET para usar AMQP 1.0
 
@@ -63,7 +63,7 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 
 | Tipo de objeto de cuerpo de .NET | Tipo de AMQP asignado | Tipo de sección de cuerpo de AMQP |
 | --- | --- | --- |
-| booleano |boolean |Valor de AMQP |
+| bool |boolean |Valor de AMQP |
 | byte |ubyte |Valor de AMQP |
 | ushort |ushort |Valor de AMQP |
 | uint |uint |Valor de AMQP |
@@ -72,11 +72,11 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 | short |short |Valor de AMQP |
 | int |int |Valor de AMQP |
 | long |long |Valor de AMQP |
-| float |float |Valor de AMQP |
+| FLOAT |FLOAT |Valor de AMQP |
 | double |double |Valor de AMQP |
-| decimal |decimal128 |Valor de AMQP |
+| Decimal |decimal128 |Valor de AMQP |
 | char |char |Valor de AMQP |
-| Datetime |timestamp |Valor de AMQP |
+| DateTime |timestamp |Valor de AMQP |
 | Guid |uuid |Valor de AMQP |
 | byte[] |binary |Valor de AMQP |
 | string |string |Valor de AMQP |
@@ -86,7 +86,7 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 | Identificador URI |Cadena descrita (consulte la tabla siguiente) |Valor de AMQP |
 | DateTimeOffset |Longitud descrita (consulte la tabla siguiente) |Valor de AMQP |
 | TimeSpan |Longitud descrita (consulte a continuación) |Valor de AMQP |
-| Stream |binary |Datos de AMQP (pueden ser varios) Las secciones de datos contienen los bytes sin formato que se leen desde el objeto de secuencia. |
+| STREAM |binary |Datos de AMQP (pueden ser varios) Las secciones de datos contienen los bytes sin formato que se leen desde el objeto de secuencia. |
 | Otro objeto |binary |Datos de AMQP (pueden ser varios) Contiene el binario serializado del objeto que usa DataContractSerializer o un serializador proporcionado por la aplicación. |
 
 | Tipo .NET | Mapped AMQP Described Type | Notas |

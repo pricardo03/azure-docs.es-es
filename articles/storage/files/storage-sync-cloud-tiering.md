@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 483f13f89acd1bce0ceb8486ac252e6f844d881f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431736"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768205"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles es una característica opcional de Azure File Sync por la que los archivos a los que se tiene acceso con frecuencia se almacenan en caché localmente en el servidor mientras que todos los demás archivos se organizan en niveles en Azure Files, según la configuración de directiva. Cuando un archivo está en capas, el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) sustituye al archivo localmente por un puntero o punto de repetición de análisis. El punto de repetición de análisis representa una dirección URL del archivo en Azure Files. Un archivo con niveles tiene los atributos “sin conexión” y FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS establecidos en NTFS para que las aplicaciones de terceros puedan identificar de forma segura archivos con niveles.
  
-Cuando un usuario abre un archivo con niveles, el servicio Azure File Sync recupera completamente los datos de archivo de Azure Files sin necesidad de que el usuario sepa que el archivo está almacenado en Azure. 
+Cuando un usuario abre un archivo con niveles, Azure File Sync recupera completamente los datos de archivo de Azure Files sin necesidad de que el usuario sepa que el archivo está almacenado en Azure. 
  
  > [!Important]  
  > La nube por niveles no se admite para los puntos de conexión de servidor en los volúmenes del sistema de Windows y solo se pueden organizar por niveles en Azure Files los archivos mayores de 64 KiB.
@@ -103,11 +103,10 @@ También puede usar PowerShell para forzar que se recupere un archivo. Esta opci
     
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
-
-Si se especifica el parámetro `-Order CloudTieringPolicy`, se recuperarán primero los archivos modificados más recientemente.
-Otros parámetros opcionales:
+Parámetros opcionales:
+* `-Order CloudTieringPolicy` recuperará primero los archivos modificados más recientemente.  
 * `-ThreadCount` determina el número de archivos que se pueden recuperar en paralelo.
 * `-PerFileRetryCount` determina la frecuencia con que se intentará recuperar un archivo que está bloqueado actualmente.
 * `-PerFileRetryDelaySeconds` determina el tiempo en segundos entre los reintentos de recuperación y siempre se debe usar en combinación con el parámetro anterior.
@@ -127,6 +126,13 @@ Cuando se habilita la característica de organización en niveles en la nube, se
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
+
+<a id="afs-image-thumbnail"></a>
+### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>¿Por qué mis archivos con niveles no muestran miniaturas ni vistas previas en el Explorador de Windows?
+En el caso de los archivos con niveles, las vistas previas y las miniaturas no estarán visibles en el punto de conexión del servidor. Este comportamiento es el esperado, ya que la característica de caché de vistas en miniatura de Windows omite intencionadamente la lectura de archivos con el atributo sin conexión. Con Niveles de la nube habilitado, la lectura de archivos con niveles provocaría su descarga (recuperación).
+
+Este comportamiento no es específico de Azure File Sync, el Explorador de Windows muestra una "X gris" para los archivos que tienen establecido el atributo sin conexión. Verá el icono X al acceder a los archivos a través de SMB. Para obtener una explicación detallada de este comportamiento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)

@@ -1,6 +1,6 @@
 ---
 title: Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services | Microsoft Docs
-description: Obtenga información sobre cómo asociar una galería de imágenes compartidas a un laboratorio en Azure Lab Services.
+description: En este artículo se describe cómo asociar una galería de imágenes compartidas a un aula laboratorio en Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 4f3f435110f0cba5ea2370f2900d4e7031904067
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 98a21e9fa846d5a91ed1242701484afaa641cddc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890327"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718043"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services
 Los profesores y administradores del laboratorio pueden guardar una imagen de máquina virtual de plantilla en una [galería de imágenes compartidas](../../virtual-machines/windows/shared-image-galleries.md) de Azure para que otros usuarios puedan reutilizarla. Como primer paso, el administrador del laboratorio asocia una galería de imágenes compartidas existente a la cuenta de laboratorio. Una vez que se ha asociado la galería de imágenes compartidas, los laboratorios creados en la cuenta de laboratorio pueden guardar imágenes en la galería de imágenes compartidas. Otros profesores pueden seleccionar esta imagen de la galería de imágenes compartidas para crear una plantilla para sus clases. 
@@ -37,12 +37,12 @@ Al crear una cuenta de laboratorio, puede asociarle una galería de imágenes co
 ## <a name="configure-after-the-lab-account-is-created"></a>Configuración después de crear la cuenta de laboratorio
 Una vez que se ha creado la cuenta de laboratorio, puede realizar las tareas siguientes:
 
-- Crear y asociar una galería de imágenes compartidas
+- Creación y asociación de una galería de imágenes compartidas
 - Asociar una galería de imágenes compartidas a la cuenta de laboratorio
 - Desasociar una galería de imágenes compartidas de la cuenta de laboratorio
 
 ## <a name="create-and-attach-a-shared-image-gallery"></a>Creación y asociación de una galería de imágenes compartidas
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú de la izquierda. Seleccione **Lab Services** en la sección **DEVOPS**. Si selecciona la estrella (`*`) junto a **Lab Services**, se agrega a la sección **FAVORITOS** en el menú de la izquierda. A partir de la próxima vez, seleccione **Lab Services** en **FAVORITOS**.
 
     ![Todos los servicios -> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)

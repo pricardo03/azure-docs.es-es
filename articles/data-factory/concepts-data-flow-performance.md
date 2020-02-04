@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/25/2020
+ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444520"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773845"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -129,6 +129,12 @@ Establecer las propiedades throughput y batch en los receptores de CosmosDB solo
 * Tamaño de lote: Calcule el tamaño de fila aproximado de los datos y asegúrese de que el tamaño del lote de rowSize * es inferior a 2 millones. Si lo es, aumente el tamaño del lote para obtener un mejor rendimiento
 * Rendimiento: establezca aquí un valor de rendimiento mayor aquí para que los documentos escriban más rápidamente en CosmosDB. Tenga en cuenta que los costos de RU son mayores ya que el valor de rendimiento es mayor.
 *   Presupuesto de rendimiento de escritura: use un valor que sea menor que el total de RU por minuto. Si tiene un flujo de datos con un número elevado de particiones de Spark y establece un presupuesto de rendimiento, habrá más equilibrio entre las particiones.
+
+## <a name="join-performance"></a>Rendimiento de combinaciones
+
+La administración del rendimiento de las combinaciones en el flujo de datos es una operación muy común que realizará a lo largo del ciclo de vida de las transformaciones de datos. En ADF, los flujos de datos no requieren que los datos se ordenen antes de las combinaciones, ya que estas operaciones se realizan como combinaciones hash en Spark. Sin embargo, puede beneficiarse de un rendimiento mejorado con la optimización de combinaciones de "difusión". Esto evitará el orden aleatorio, ya que se inserta el contenido de cualquiera de los lados de la relación de combinación en el nodo de Spark. Esto funciona bien con las tablas más pequeñas que se usan para las búsquedas de referencias. Las tablas de mayor tamaño que pueden no caber en la memoria del nodo no son buenas candidatas para la optimización de difusión.
+
+Otra optimización de combinaciones consiste en crear combinaciones de manera que se evite la tendencia de Spark a implementar combinaciones cruzadas. Por ejemplo, cuando se incluyen valores literales en las condiciones de combinación, Spark puede considerar esto como requisito para realizar primero un producto cartesiano completo, para luego filtrar los valores combinados. Pero si se asegura de tener valores de columna en ambos lados de la condición de combinación, puede evitar este producto cartesiano inducido por Spark y mejorar el rendimiento de las combinaciones y los flujos de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

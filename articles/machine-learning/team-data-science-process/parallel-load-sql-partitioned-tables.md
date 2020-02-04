@@ -3,20 +3,20 @@ title: 'Importación paralela de datos en bloque en tablas de partición SQL: pr
 description: Compilación de tablas con particiones para la importación paralela en bloque de datos en una base de datos de SQL Server.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61428312"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721343"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Creación y optimización de tablas para importación en paralelo rápida de datos en SQL Server en una VM de Azure
 
@@ -54,7 +54,7 @@ En el ejemplo siguiente se crea una nueva base de datos con tres grupos de archi
         ( NAME = ''LogFileGroup'', FILENAME = ''' + @data_path + '<log_file_name>.ldf'' , SIZE = 1024KB , FILEGROWTH = 10%)
     ')
 
-## <a name="create-a-partitioned-table"></a>Crear una tabla con particiones
+## <a name="create-a-partitioned-table"></a>Creación de una tabla con particiones
 Para crear tablas con particiones según el esquema de datos, asignado a los grupos de archivos de base de datos que se crearon en el paso anterior, primero debe crear una función y un esquema de partición. Cuando se importan datos de forma masiva en las tablas con particiones, los registros se distribuyen entre los grupos de archivos según un esquema de partición, tal y como se describe a continuación.
 
 ### <a name="1-create-a-partition-function"></a>1. Crear una función de partición
@@ -99,7 +99,7 @@ Para obtener más información, consulte [Crear tablas e índices con particione
 * [Modifique la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK_LOGGED y así minimizar la sobrecarga de registros; por ejemplo:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de big data en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de macrodatos en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 El siguiente script de PowerShell es un ejemplo de carga paralela de datos mediante BCP.
 
