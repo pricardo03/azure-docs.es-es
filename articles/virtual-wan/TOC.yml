@@ -47,8 +47,9 @@
     - name: "Configuración de la autenticación de Azure\_AD para varias aplicaciones en la VPN de usuario (versión preliminar)"
       href: openvpn-azure-ad-tenant-multi-app.md
     - name: Configuración de automatización (asociados de Virtual WAN)
-    - name: Descargar perfiles de VPN globales y basados en centros de conectividad
       href: virtual-wan-configure-automation-providers.md
+    - name: Descargar perfiles de VPN globales y basados en centros de conectividad
+      href: global-hub-profile.md
     - name: Configuración del enrutamiento
       items:
         - name: Enrutamiento del tráfico desde una central virtual a NVA

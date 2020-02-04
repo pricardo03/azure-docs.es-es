@@ -20,7 +20,7 @@
       href: features-linux.md
     - name: Windows
       href: features-windows.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Azure Disk Encryption
       items:
@@ -64,19 +64,27 @@
           href: hpccompute-gpu-linux.md
         - name: Windows
           href: hpccompute-gpu-windows.md
-    - name: Log Analytics
+    - name: Azure Monitor
       items:
-        - name: Linux
-          href: oms-linux.md
-        - name: Windows
-          href: oms-windows.md
-    - name: Azure Monitor para máquinas virtuales
-      items:
-        - name: Dependency Agent para Linux
-          href: agent-dependency-linux.md
-        - name: Dependency Agent para Windows
-          href: agent-dependency-windows.md
-    - name: PowerShell DSC
+        - name: Extensión Diagnostics
+          items:
+            - name: Linux
+              href: diagnostics-linux.md
+            - name: Windows
+              href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
+        - name: Log Analytics
+          items:
+            - name: Linux
+              href: oms-linux.md
+            - name: Windows
+              href: oms-windows.md
+        - name: Azure Monitor para máquinas virtuales
+          items:
+            - name: Dependency Agent para Linux
+              href: agent-dependency-linux.md
+            - name: Dependency Agent para Windows
+              href: agent-dependency-windows.md
+    - name: DSC de PowerShell
       href: dsc-overview.md
       items:
         - name: DSC y Windows
@@ -89,14 +97,6 @@
           href: dsc-template.md
     - name: Acceso a máquinas virtuales
       href: vmaccess.md
-    - name: Diagnóstico de máquina virtual
-      items:
-        - name: Linux
-          href: diagnostics-linux.md
-        - name: Windows
-          href: diagnostics-windows.md
-        - name: Uso de plantillas
-          href: diagnostics-template.md
     - name: Extensiones de terceros
       items:
         - name: Chef

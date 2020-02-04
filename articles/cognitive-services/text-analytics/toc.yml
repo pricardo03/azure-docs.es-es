@@ -14,10 +14,8 @@
   items:
     - name: Biblioteca de cliente
       items:
-        - name: Análisis de texto con la versión 3.0-preview
+        - name: Análisis de texto con la biblioteca de cliente
           href: quickstarts/text-analytics-sdk.md
-        - name: Análisis de texto con la versión 2
-          href: quickstarts/text-analytics-sdk-v2.md
     - name: API DE REST
       items:
         - name: Usar Java
