@@ -3,12 +3,12 @@ title: Configuración de Azure Active Directory para la autenticación de client
 description: Obtenga información sobre cómo configurar Azure Active Directory (Azure AD) para autenticar a los clientes de los clústeres de Service Fabric.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 2a6ffdb1c1fdc447545477286a6d131be2449cdb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614696"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843827"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configuración de Azure Active Directory para la autenticación de cliente
 
@@ -104,9 +104,19 @@ Al intentar iniciar sesión en Azure AD y Service Fabric Explorer, la página de
 La aplicación del clúster (web) que representa Service Fabric Explorer intenta la autenticación en Azure AD y, como parte de la solicitud, proporciona la dirección URL de retorno de redireccionamiento. Pero no aparece en la lista **URL DE RESPUESTA** de la aplicación Azure AD.
 
 #### <a name="solution"></a>Solución
-Seleccione "Registros de aplicaciones" en la página de AAD, seleccione la aplicación de clúster y, a continuación, seleccione el botón **URL de respuesta**. En la página "URL de respuesta", agregue la dirección URL de Service Fabric Explorer a la lista o reemplace algunos de los elementos de esta. Cuando haya terminado, guarde los cambios.
+En la página de Azure AD, seleccione **Registros de aplicaciones**, seleccione la aplicación de clúster y, a continuación, seleccione **URL de respuesta**. En el panel **URL de respuesta**, agregue la dirección URL de Service Fabric Explorer a la lista o reemplace algunos de los elementos de esta. Guarde el cambio.
 
-![Dirección URL de respuesta de la aplicación web][web-application-reply-url]
+![URL de respuesta de la aplicación web][web-application-reply-url]
+
+### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>Al usar la autenticación de Azure AD para conectarse al clúster a través de PowerShell se produce un error de inicio de sesión: "AADSTS50011"
+#### <a name="problem"></a>Problema
+Cuando intenta conectarse a un clúster de Service Fabric con Azure AD a través de PowerShell, la página de inicio de sesión devuelve un error: "AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: &lt;guid&gt;".
+
+#### <a name="reason"></a>Motivo
+De forma similar al problema anterior, PowerShell intenta autenticarse en Azure AD, que proporciona una dirección URL de redireccionamiento que no aparece en la lista de **URL de respuesta** de la aplicación de Azure AD.  
+
+#### <a name="solution"></a>Solución
+Use el mismo proceso que en el problema anterior, pero establezca la dirección URL en `urn:ietf:wg:oauth:2.0:oob` (un redireccionamiento especial para la autenticación de la línea de comandos).
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Conexión del clúster mediante la autenticación de Azure AD a través de PowerShell
 Para conectar el clúster de Service Fabric, use el siguiente ejemplo de comando de PowerShell:

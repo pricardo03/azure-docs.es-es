@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 322b7656a5e8cb5d0fd0274cc9f09adec2c2c5e1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3b4b9f782d3306777e853a22ed24fac803da4fb9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514772"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835263"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
@@ -234,7 +234,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 ||||
 
 
-## <a name="alerts-akscluster"></a>Alertas del nivel de clúster de AKS
+## <a name="alerts-akscluster"></a>Alertas para contenedores: clústeres de Azure Kubernetes Service
 
 [Más detalles y notas](security-center-alerts-compute.md#azure-containers-)
 
@@ -249,7 +249,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 |**VERSIÓN PRELIMINAR: se ha detectado un contenedor con un volumen confidencial montado**|El análisis del registro de auditoría de Kubernetes detectó un nuevo contenedor con un volumen confidencial montado. El volumen detectado es del tipo hostPath y monta una carpeta o un archivo confidenciales del nodo en el contenedor. Si el contenedor corre peligro, el atacante puede usar este montaje para obtener acceso al nodo.|PrivilegeEscalation|
 ||||
 
-## <a name="alerts-containerhost"></a>Alertas del nivel de host de contenedor
+## <a name="alerts-containerhost"></a>Alertas para contenedores: nivel de host
 
 [Más detalles y notas](security-center-alerts-compute.md#azure-containers-)
 
@@ -304,7 +304,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 ||||
 
 
-## <a name="alerts-azurecosmos"></a>Azure Cosmos DB
+## <a name="alerts-azurecosmos"></a>Alertas de Azure Cosmos DB (versión preliminar)
 
 [Más detalles y notas](security-center-alerts-data-services.md#azure-cosmos-db)
 

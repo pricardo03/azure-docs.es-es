@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c4f0a72cb598a8e38fc69f23f62f0f456cccb04
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543926"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833371"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -130,9 +130,9 @@ Es habitual exigir al usuario a cambiar la contraseña durante el primer inicio 
   
 La funcionalidad de contraseña temporal ayuda a garantizar que la transferencia de propiedad de la credencial se complete al usarse por primera vez, con el fin de minimizar la duración del tiempo en el que más de un usuario tiene conocimiento de esa credencial.
 
-Para admitir contraseñas temporales en Azure AD para usuarios sincronizados, puede habilitar la característica *ForcePasswordResetOnLogonFeature* mediante la ejecución del siguiente comando en el servidor de Azure AD Connect:
+Para admitir contraseñas temporales en Azure AD para usuarios sincronizados, puede habilitar la característica *ForcePasswordChangeOnLogOn* mediante la ejecución del siguiente comando en el servidor de Azure AD Connect:
 
-`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
 > Forzar a un usuario a cambiar su contraseña en el siguiente inicio de sesión requiere un cambio de contraseña al mismo tiempo.  AD Connect no recogerá la marca de forzar el cambio de contraseña por sí misma; es complementaria al cambio de contraseña detectado que se produce durante la sincronización de hash de contraseñas.

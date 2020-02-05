@@ -4,18 +4,23 @@ description: Administración de una máquina virtual con la recopilación de inv
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventario, automatización, cambio, seguimiento
-ms.date: 02/06/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419826"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844826"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
-Puede habilitar el seguimiento del inventario para una máquina virtual de Azure desde la página de recursos de esta. Puede recopilar y ver el inventario de software, archivos, demonios de Linux, servicios de Windows y claves del Registro de Windows en los equipos. Este método proporciona una interfaz de usuario basada en explorador para instalar y configurar la recopilación de inventario.
+Puede habilitar el seguimiento del inventario para una máquina virtual de Azure desde la página de recursos de esta. Puede recopilar y ver la siguiente información de inventario en los equipos:
+
+- software de Windows (aplicaciones Windows y actualizaciones de Windows), servicios, archivos y claves del registro;
+- archivos y demonios de software de Linux (paquetes).
+
+Este método proporciona una interfaz de usuario basada en explorador para instalar y configurar la recopilación de inventario.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

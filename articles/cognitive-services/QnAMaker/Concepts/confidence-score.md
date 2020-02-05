@@ -1,29 +1,29 @@
 ---
 title: 'Puntuación de confianza: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Esta puntuación de confianza indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión.
+description: Se debe publicar una base de conocimiento. Una vez publicada, se consulta la base de conocimiento a través del punto de conexión de predicción del tiempo de ejecución mediante generateAnswer API.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/27/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e2f7136ea7b973386eeb746a74ad09fadb490e83
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d901a803311805825c22503af6098e805a67e8f6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229115"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843459"
 ---
-# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Puntuación de confianza de una base de conocimiento de QnA Maker
-Cuando una consulta de usuario se compara con una base de conocimientos (KB), QnA Maker devuelve respuestas pertinentes, junto con una puntuación de confianza. Esta puntuación indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión. 
+# <a name="the-confidence-score-of-an-answer"></a>Puntuación de confianza de una respuesta
+Cuando una consulta de usuario se compara con una base de conocimientos (KB), QnA Maker devuelve respuestas pertinentes, junto con una puntuación de confianza. Esta puntuación indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión.
 
 La puntuación de confianza es un número entre 0 y 100. Una puntuación de 100 es probablemente una coincidencia exacta, mientras que una puntuación de 0 significa que no se ha encontrado ninguna respuesta coincidente. Cuanto mayor sea la puntuación, mayor será la confianza en la respuesta. Para una consulta determinada, podrían devolverse varias respuestas. En ese caso, las respuestas se devuelven en orden de mayor a menor puntuación de confianza.
 
-En el ejemplo siguiente, puede ver una entidad QnA con dos preguntas. 
+En el ejemplo siguiente, puede ver una entidad QnA con dos preguntas.
 
 
 ![Ejemplo de un par de QnA](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
@@ -57,9 +57,9 @@ Al elegir el umbral, tenga en cuenta el equilibrio entre los valores de Precisi�
 > [!NOTE]
 > Las versiones más recientes de QnA Maker incluyen mejoras en la lógica de puntuación, lo que podría afectar al umbral. Siempre que actualice el servicio, no olvide probar y ajustar el umbral, en caso necesario. Puede comprobar la versión del servicio QnA [aquí](https://www.qnamaker.ai/UserSettings)y obtener información acerca de cómo obtener las actualizaciones más recientes [aquí](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
-## <a name="set-threshold"></a>Establecimiento del umbral 
+## <a name="set-threshold"></a>Establecimiento del umbral
 
-Establezca la puntuación del umbral como una propiedad del [cuerpo JSON GenerateAnswer API](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Esto significa que se configura para cada llamada en GenerateAnswer. 
+Establezca la puntuación del umbral como una propiedad del [cuerpo JSON GenerateAnswer API](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Esto significa que se configura para cada llamada en GenerateAnswer.
 
 En la plataforma de bots, establezca la puntuación como parte del objeto de opciones con [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) o [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
@@ -72,40 +72,23 @@ Si varias respuestas tienen una puntuación de confianza similar, es probable qu
 
 
 ## <a name="confidence-score-differences-between-test-and-production"></a>Diferencias de puntuación de confianza entre prueba y producción
-La puntuación de confianza de una respuesta puede cambiar de manera apenas perceptible entre la prueba y la versión publicada de la base de conocimiento, aunque el contenido sea el mismo. Esto se debe a que el contenido de la prueba y la base de conocimiento publicada se encuentran en distintos índices de Azure Cognitive Search. 
+La puntuación de confianza de una respuesta puede cambiar de manera apenas perceptible entre la prueba y la versión publicada de la base de conocimiento, aunque el contenido sea el mismo. Esto se debe a que el contenido de la prueba y la base de conocimiento publicada se encuentran en distintos índices de Azure Cognitive Search.
 
 El índice de prueba contiene todos los pares de QnA de las bases de conocimiento. Al consultar el índice de prueba, la consulta se aplica a todo el índice y los resultados se restringen a la partición de esa base de conocimiento específica. Si los resultados de la consulta de prueba afectan negativamente a la capacidad de validar la base de conocimiento, puede:
 * Organizar la base de conocimiento mediante una de las siguientes opciones:
-    * Un recurso restringido a 1 KB: restrinja el único recurso de QnA (y el índice de prueba de Azure Cognitive Search resultante) a una única base de conocimiento. 
+    * Un recurso restringido a 1 KB: restrinja el único recurso de QnA (y el índice de prueba de Azure Cognitive Search resultante) a una única base de conocimiento.
     * Dos recursos, uno para pruebas y otro para producción: tienen dos recursos de QnA Maker, el uso de uno para la prueba (con sus propios índices de prueba y producción) y otro para el producto (también tiene sus propios índices de prueba y producción).
 * Y siempre utilizan los mismos parámetros, como **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** al consultar la base de conocimiento de producción y de prueba.
 
 Cuando se publica una base de conocimiento, el contenido de preguntas y respuestas de la base de conocimiento se mueve desde el índice de prueba a un índice de producción en Azure Search. Vea cómo se lleva a cabo la operación de [publicación](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-Si tiene una base de conocimiento en regiones diferentes, cada región usa su propio índice de Azure Cognitive Search. Dado que se usan distintos índices, las puntuaciones no serán las mismas exactamente. 
+Si tiene una base de conocimiento en regiones diferentes, cada región usa su propio índice de Azure Cognitive Search. Dado que se usan distintos índices, las puntuaciones no serán las mismas exactamente.
 
 
 ## <a name="no-match-found"></a>No se encontraron coincidencias
-Si el clasificador no encuentra ninguna buena coincidencia, se devuelve una puntuación de confianza de 0,0 o "None" (Ninguna) y la respuesta predeterminada no es "No good match found in the KB" (No se encontró ninguna buena coincidencia en KB)". Puede invalidar esta [respuesta predeterminada](#change-default-answer) en el código de aplicación o bot mediante una llamada al punto de conexión. Como alternativa, también puede establecer la respuesta de invalidación en Azure, lo que cambiará el valor predeterminado para todas las knowledge base implementada en un determinado servicio QnA Maker.
-
-## <a name="change-default-answer"></a>Cambio de la respuesta predeterminada
-
-1. Vaya a [Azure Portal](https://portal.azure.com) y navegue hasta el grupo de recursos que representa el servicio QnA Maker que creó.
-
-2. Haga clic para abrir **App Service**.
-
-    ![En Azure Portal, acceda a App Service para QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
-
-3. Haga clic en **Configuración de la aplicación** y edite el campo **DefaultAnswer** a la respuesta predeterminada deseada. Haga clic en **Save**(Guardar).
-
-    ![Seleccione Configuración de la aplicación y, a continuación, edite el valor de DefaultAnswer para QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
-
-4. Reiniciar App Service
-
-    ![Después de cambiar DefaultAnswer, reinicie la instancia de App Service de QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
-
+Si el clasificador no encuentra ninguna buena coincidencia, se devuelve una puntuación de confianza de 0,0 o "None" (Ninguna) y la respuesta predeterminada no es "No good match found in the KB" (No se encontró ninguna buena coincidencia en KB)". Puede invalidar esta [respuesta predeterminada](../How-To/metadata-generateanswer-usage.md) en el código de aplicación o bot mediante una llamada al punto de conexión. Como alternativa, también puede establecer la respuesta de invalidación en Azure, lo que cambiará el valor predeterminado para todas las knowledge base implementada en un determinado servicio QnA Maker.
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Orígenes de datos admitidos](./data-sources-supported.md)
+> [procedimientos recomendados](./best-practices.md)
 

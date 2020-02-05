@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: f920df20a8dc1cace76f641ce1c71f9b91a30bf4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 70253e66903916bde05f9e6e55e3c0609cb4a146
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867669"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841121"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Entrenar e implementar un modelo desde la CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -246,7 +246,7 @@ La salida de este comando es similar al JSON siguiente:
 > [!IMPORTANT]
 > Copie el valor de la entrada `id`, tal y como se utiliza en la sección siguiente.
 
-Extraiga del repositorio una plantilla más completa para el archivo JSON que describe un conjunto de información mediante el siguiente comando:
+Consulte una plantilla más completa para el conjunto de datos mediante el siguiente comando:
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
@@ -288,9 +288,9 @@ data:
 
 Cambie el valor de la entrada `id` para que coincida con el valor devuelto al registrar el conjunto de datos. Este valor se usa para cargar los datos en el destino de proceso durante el entrenamiento.
 
-Este YAML hace lo siguiente:
+Este código YAML da lugar a las siguientes acciones durante el entrenamiento:
 
-* Monte el conjunto de datos (basándose en el identificador del conjunto de datos) en el entorno de entrenamiento y almacena la ruta de acceso al punto de montaje en la variable de entorno `mnist`.
+* Monta el conjunto de datos (basándose en el identificador del conjunto de datos) en el entorno de entrenamiento y almacena la ruta de acceso al punto de montaje en la variable de entorno `mnist`.
 * Pase la ubicación de los datos (punto de montaje) dentro del entorno de entrenamiento al script mediante el argumento `--data-folder`.
 
 El archivo runconfig también contiene información que se usa para configurar el entorno que usa la ejecución de entrenamiento. Si inspecciona este archivo, verá que hace referencia al destino de proceso `cpu-compute` que creó anteriormente. También muestra el número de nodos que se usará cuando se realice el entrenamiento (`"nodeCount": "4"`) y contiene una sección `"condaDependencies"` que muestra los paquetes de Python necesarios para ejecutar el script de entrenamiento.
@@ -298,7 +298,7 @@ El archivo runconfig también contiene información que se usa para configurar e
 > [!TIP]
 > Aunque es posible crear manualmente un archivo runconfig, el que se encuentra en este ejemplo se creó con el archivo `generate-runconfig.py` incluido en el repositorio. Este archivo obtiene una referencia al conjunto de datos registrado, crea una configuración de ejecución mediante programación y, luego, la guarda en el archivo.
 
-Para más información sobre cómo ejecutar archivos de configuración, consulte [Configuración y uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli) o este [archivo JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) para ver todo el esquema de un runconfig.
+Para más información sobre los archivos de configuración de ejecución, consulte [Configuración y uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Para obtener una referencia JSON completa, consulte el archivo [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Envío de la ejecución de entrenamiento
 
@@ -379,7 +379,9 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 Este comando implementa un servicio nuevo denominado `myservice`, con la versión 1 del modelo que registró anteriormente.
 
-El archivo `inferenceConfig.yml` proporciona información sobre cómo realizar la inferencia, como el script de entrada (`score.py`) y las dependencias de software. Para más información sobre la estructura de este archivo, consulte el [esquema de configuración de inferencia](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+En el archivo `inferenceConfig.yml` se proporciona información sobre cómo usar el modelo para inferencias. Por ejemplo, hace referencia al script de entrada (`score.py`) y a las dependencias de software. 
+
+Para más información sobre la estructura de este archivo, consulte el [esquema de configuración de inferencia](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
 El `aciDeploymentConfig.yml` describe el entorno de implementación que se usa para hospedar el servicio. La configuración de implementación es específica del tipo de proceso que se usa para la implementación. En este caso, se usa una instancia de Azure Container Instances. Para más información, consulte el [esquema de configuración de implementación](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 

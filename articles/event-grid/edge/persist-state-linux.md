@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 3506399537fe2cb16014ceb3429bce5aeee8cb69
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 39b16c6cfd5b94d412827ed88197edbef2da1453
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100330"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844639"
 ---
 # <a name="persist-state-in-linux"></a>Conservación del estado en Linux
 
-Los temas y las suscripciones creadas en el módulo de Event Grid se almacenan de forma predeterminada en el sistema de archivos de contenedor. Sin persistencia, si se vuelve a implementar el módulo, se perderán todos los metadatos creados. Actualmente solo se conservan los metadatos. Los eventos se almacenan en memoria. Si el módulo de Event Grid se vuelve a implementar o se reinicia, se perderán todos los eventos no entregados.
+Los temas y las suscripciones creados en el módulo de Event Grid se almacenan de forma predeterminada en el sistema de archivos de contenedor. Sin persistencia, si se vuelve a implementar el módulo, se perderán todos los metadatos creados. Para conservar los datos en las implementaciones y reinicios, debe conservar los datos fuera del sistema de archivos de contenedor.
+
+De forma predeterminada, solo se conservan los metadatos y los eventos todavía se almacenan en memoria para mejorar el rendimiento. Siga la sección Conservación de eventos para habilitar también la conservación de eventos.
 
 En este artículo se proporcionan los pasos para implementar el módulo de Event Grid con persistencia en las implementaciones de Linux.
 
@@ -61,7 +63,8 @@ Por ejemplo, la siguiente configuración producirá la creación del volumen **e
   ],
   "HostConfig": {
     "Binds": [
-      "egmetadataDbVol:/app/metadataDb"
+      "egmetadataDbVol:/app/metadataDb",
+      "egdataDbVol:/app/eventsDb"
     ],
     "PortBindings": {
       "4438/tcp": [
@@ -74,7 +77,7 @@ Por ejemplo, la siguiente configuración producirá la creación del volumen **e
 }
 ```
 
-También puede crear un volumen de Docker mediante comandos de cliente de Docker. 
+En lugar de montar un volumen, puede crear un directorio en el sistema host y montar ese directorio.
 
 ## <a name="persistence-via-host-directory-mount"></a>Persistencia mediante el montaje de directorios de host
 
@@ -138,7 +141,8 @@ En lugar de un volumen de Docker, también tiene la opción de montar una carpet
           ],
           "HostConfig": {
                 "Binds": [
-                  "/myhostdir:/app/metadataDb"
+                  "/myhostdir:/app/metadataDb",
+                  "/myhostdir2:/app/eventsDb"
                 ],
                 "PortBindings": {
                       "4438/tcp": [
@@ -153,3 +157,32 @@ En lugar de un volumen de Docker, también tiene la opción de montar una carpet
 
     >[!IMPORTANT]
     >No cambie la segunda parte del valor de enlace. Apunta a una ubicación concreta dentro del módulo. Para el módulo de Event Grid en Linux, debe ser **/app/metadata**.
+
+
+## <a name="persist-events"></a>Conservación de eventos
+
+Para habilitar la conservación de eventos, primero debe habilitar la conservación de metadatos mediante el montaje de volúmenes o el montaje de directorios de host, siguiendo las secciones anteriores.
+
+Aspectos importantes que se deben tener en cuenta sobre la conservación de eventos:
+
+* La conservación de eventos se habilita en cada suscripción de evento y puede activarse una vez que se ha montado un volumen o directorio.
+* La conservación de eventos se configura en una suscripción de eventos en el momento de su creación y no se puede modificar una vez creada la suscripción de eventos. Para cambiar la conservación de eventos, debe eliminar y volver a crear la suscripción de eventos.
+* La conservación de eventos casi siempre es más lenta que en las operaciones de memoria; sin embargo, la diferencia de velocidad depende en gran medida de las características de la unidad. El equilibrio entre la velocidad y la confiabilidad es inherente a todos los sistemas de mensajería, aunque generalmente solo es obvio a gran escala.
+
+Para habilitar la conservación de eventos en una suscripción de eventos, establezca `persistencePolicy` en `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

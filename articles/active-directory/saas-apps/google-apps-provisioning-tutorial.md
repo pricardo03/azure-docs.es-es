@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8239b25f5ebf94d7368190f3169d0637d9943df1
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720311"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841257"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
@@ -30,9 +30,9 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en G Suite y 
 
 > [!NOTE]
 > El conector de G Suite se actualizó recientemente, en octubre de 2019. Entre los cambios realizados en el conector de G Suite se incluyen los siguientes:
-- Se ha agregado compatibilidad con atributos adicionales de usuario y grupo de G Suite. 
-- Se han actualizado los nombres de atributo de destino de G Suite para que coincidan con lo que se define [aquí](https://developers.google.com/admin-sdk/directory).
-- Se han actualizado las asignaciones de atributos predeterminadas.
+> - Se ha agregado compatibilidad con atributos adicionales de usuario y grupo de G Suite. 
+> - Se han actualizado los nombres de atributo de destino de G Suite para que coincidan con lo que se define [aquí](https://developers.google.com/admin-sdk/directory).
+> - Se han actualizado las asignaciones de atributos predeterminadas.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -209,6 +209,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="common-issues"></a>Problemas comunes
 * Pueden producirse errores de autorización cuando la cuenta utilizada para establecer una conexión no corresponde a un administrador de GSuite. Asegúrese de que la cuenta usada para autorizar el acceso tenga permisos de administrador en **todos los dominios** que se tengan que aprovisionar para los usuarios. 
+* Azure AD permite deshabilitar usuarios en GSuite para que no puedan tener acceso a la aplicación, aunque no elimina usuarios de GSuite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

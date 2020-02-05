@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: c8051126fc4a895c6e72e90942fac65d777afd8e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 01/27/2020
+ms.openlocfilehash: be6fd633f026c98e8f75467dc8661e695e121721
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546493"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841274"
 ---
 # <a name="summarize-data"></a>Resumen de datos
 
@@ -70,6 +70,20 @@ El informe del módulo puede incluir las siguientes estadísticas.
 |**P5**|Percentil 5 %|
 |**P95**|Percentil 95 %|
 |**P99.5**|Percentil 99,5 % |
+
+## <a name="technical-notes"></a>Notas técnicas
+
+- En el caso de las columnas no numéricas, solo se calculan los valores de Recuento, Recuento de valores únicos y Recuento de valores que faltan. En el caso de otras estadísticas, se devuelve un valor nulo.
+
+- Las columnas que contienen valores booleanos se procesan mediante las siguientes reglas:
+
+    - Al calcular el Mín., se aplica un operador lógico AND.
+    
+    - Al calcular el Máx., se aplica un operador lógico OR.
+    
+    - Al calcular Intervalo, el módulo comprueba primero si el número de valores únicos de la columna es igual a 2.
+    
+    - Cuando se calcula cualquier estadística que requiere cálculos de punto flotante, los valores True se tratan como 1,0 y los valores False se tratan como 0,0.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872305"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843267"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -65,7 +65,7 @@ Si va a crear un documento multiturno, tenga en cuenta las siguientes directrice
 
 * Use encabezados y subtítulos para denotar la jerarquía. Por ejemplo, puede agregar h1 para indicar las preguntas y respuestas principales y h2 para las que se deben tomar como aviso. Use el tamaño de encabezado pequeño para indicar la jerarquía subsiguiente. No utilice el estilo, el color u otro mecanismo para inferir la estructura en el documento, QnA Maker no extraerá las indicaciones multiturno.
 
-* El primer carácter del encabezado debe escribirse en mayúsculas. 
+* El primer carácter del encabezado debe escribirse en mayúsculas.
 
 * No termine un encabezado con un signo de interrogación, `?`.
 
@@ -113,7 +113,7 @@ Agregue una opción de seguimiento a un par de pregunta y respuesta que no esté
 1. En la fila de **Signout** (Cerrar sesión), en la columna **Respuesta**, seleccione **Add follow-up prompt** (Agregar opción de seguimiento).
 1. En los campos de la ventana emergente **Follow-up prompt** (Aviso de seguimiento), escriba los siguientes valores:
 
-    |Campo|Valor|
+    |Campo|Value|
     |--|--|
     |Display text|Escriba **Apagar el dispositivo**. Este es el texto personalizado que se mostrará en el aviso de seguimiento.|
     |Context-only (Solo contexto)| Seleccione esta casilla. Solo se devolverá una respuesta si la pregunta especifica contexto.|
@@ -150,7 +150,7 @@ Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento,
 1. En la columna **Respuesta** seleccione **Add follow-up prompt** (Agregar opción de seguimiento).
 1. En **Follow-up prompt (PREVIEW)** [Aviso de seguimiento (VERSIÓN PRELIMINAR)], cree un nuevo aviso de seguimiento mediante la especificación de los valores siguientes:
 
-    |Campo|Valor|
+    |Campo|Value|
     |--|--|
     |Display text|*Create a Windows Account* (Crear una cuenta de Windows). El texto personalizado que se mostrará en el aviso de seguimiento.|
     |Context-only (Solo contexto)|Seleccione esta casilla. Solo se devolverá esta respuesta si la pregunta especifica contexto.|
@@ -368,7 +368,7 @@ Puede agregar o eliminar avisos multiturno mediante [Update API de QnA Maker](ht
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exportar la base de conocimiento para el control de versiones
 
-QnA Maker [admite el control de versiones](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) en el portal de QnA Maker al incluir pasos de conversación multiturno en el archivo exportado.
+QnA Maker admite el control de versiones al incluir pasos de conversación de varios turnos en el archivo exportado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

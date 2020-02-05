@@ -3,22 +3,20 @@ title: Preguntas frecuentes sobre Análisis de tráfico de Azure | Microsoft Doc
 description: Conozca las respuestas a las preguntas más frecuentes sobre Análisis de tráfico.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: kumud
-ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.author: damendo
+ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907102"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840628"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -67,17 +65,17 @@ Si no se muestra ninguna salida, póngase en contacto con el administrador de la
 
 Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
 - Centro de Canadá
-- Centro occidental de EE.UU.
-- East US
+- Centro-Oeste de EE. UU.
+- Este de EE. UU.
 - Este de EE. UU. 2
 - Centro-Norte de EE. UU
-- Centro-Sur de EE. UU
+- Centro-sur de EE. UU.
 - Centro de EE. UU.
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
 - Centro de Francia
-- Europa occidental
-- Europa del Norte
+- Oeste de Europa
+- Norte de Europa
 - Sur de Brasil
 - Oeste de Reino Unido
 - Sur de Reino Unido 2
@@ -85,37 +83,37 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 - Sudeste de Australia 
 - Asia oriental
 - Sudeste asiático
-- Corea Central
-- India Central
-- Sur de la India
-- Este de Japón
-- Oeste de Japón
-- Gobierno de EE. UU. - Virginia
+- Centro de Corea del Sur
+- Centro de la India
+- India del Sur
+- Japón Oriental
+- Japón Occidental
+- US Gov - Virginia
 - Este de China 2
 
 El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 - Centro de Canadá
-- Centro occidental de EE.UU.
-- East US
+- Centro-Oeste de EE. UU.
+- Este de EE. UU.
 - Este de EE. UU. 2
 - Centro-Norte de EE. UU
-- Centro-Sur de EE. UU
+- Centro-sur de EE. UU.
 - Centro de EE. UU.
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
 - Centro de Francia
-- Europa occidental
-- Europa del Norte
+- Oeste de Europa
+- Norte de Europa
 - Oeste de Reino Unido
 - Sur de Reino Unido 2
 - Este de Australia
 - Sudeste de Australia
 - Asia oriental
 - Sudeste asiático 
-- Corea Central
-- India Central
-- Este de Japón
-- Gobierno de EE. UU. - Virginia
+- Centro de Corea del Sur
+- Centro de la India
+- Japón Oriental
+- US Gov - Virginia
 - Este de China 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>¿Los grupos de seguridad de red en los que he habilitado los registros de flujo pueden estar en otras regiones que no sean las de mi área de trabajo?
@@ -265,6 +263,62 @@ Análisis de tráfico no ofrece compatibilidad integrada para las alertas. Sin e
 - Use el [esquema que se documenta aquí](traffic-analytics-schema.md) para escribir las consultas. 
 - Haga clic en "Nueva regla de alertas" para crear una nueva alerta.
 - Consulte la [documentación de alertas de registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para crear la alerta.
+
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>¿Cómo puedo comprobar cuáles máquinas virtuales reciben más tráfico local?
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            | where <Scoping condition>
+            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+            | where isnotempty(vm) 
+             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
+            | render timechart
+
+  Para las direcciones IP:
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+            | where isnotempty(IP) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
+            | render timechart
+
+Para la hora, use el formato aaaa-mm-dd 00:00:00
+
+## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>¿Cómo puedo comprobar la desviación estándar del tráfico que reciben las máquinas virtuales desde máquinas locales?
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+            | where isnotempty(vm) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+            | summarize deviation = stdev(traffic)  by vm
+
+
+Para las direcciones IP:
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+            | where isnotempty(IP) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+            | summarize deviation = stdev(traffic)  by IP
+            
+## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>¿Cómo puedo comprobar qué puertos son accesibles (o están bloqueados) entre pares de direcciones IP con reglas de NSG?
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
+            | extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s, " ") , pack_array(SrcIP_s)),
+            destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_s))
+            | mvexpand SourceIp = sourceIPs to typeof(string)
+            | mvexpand DestIp = destIPs to typeof(string)
+            | project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 
+            | summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
 

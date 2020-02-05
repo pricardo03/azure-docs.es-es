@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768221"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844945"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registros en Azure Database for PostgreSQL con un único servidor
 Azure Database for PostgreSQL permite configurar y acceder a los registros estándar de Postgres. Los registros se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. La información de registro que puede configurar y a la que puede acceder incluye errores, información de consultas, registros de vaciado automático, conexiones y puntos de control (no está disponible el acceso a los registros de transacciones).
@@ -29,7 +29,7 @@ Para obtener más información acerca de los parámetros de registro de Postgres
 Para aprender a configurar los parámetros en Azure Database for PostgreSQL, consulte la [documentación del portal](howto-configure-server-parameters-using-portal.md) o la [documentación de la CLI](howto-configure-server-parameters-using-cli.md). 
 
 > [!NOTE]
-> La configuración de un volumen elevado de registros, por ejemplo el registro de instrucciones, puede suponer una sobrecarga importante en el rendimiento. 
+> La configuración de un volumen elevado de registros (por ejemplo, el registro de instrucciones) puede suponer una sobrecarga importante en el rendimiento. 
 
 ## <a name="access-log-files"></a>Acceso a los archivos .log
 El formato de registro predeterminado en Azure Database for PostgreSQL es .log. Una línea de ejemplo de este registro tiene el siguiente aspecto:
@@ -69,7 +69,7 @@ Para habilitar los registros de diagnóstico mediante PowerShell, la CLI o API R
 
 ### <a name="access-diagnostic-logs"></a>Acceso a los registros de diagnóstico
 
-La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, el esquema se describe en el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs-collect-storage.md). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs-collect-storage.md). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics**, por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
@@ -78,7 +78,7 @@ A continuación se muestran consultas que puede intentar iniciar. Puede configur
 Buscar todos los registros de Postgres de un servidor determinado del último día
 ```
 AzureDiagnostics
-| where LogicalServerName_s == 'myservername'
+| where LogicalServerName_s == "myservername"
 | where TimeGenerated > ago(1d) 
 ```
 
@@ -99,7 +99,7 @@ En la tabla siguiente se describen los campos del tipo **PostgreSQLLogs**. En fu
 | TenantId | El identificador de inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Marca de tiempo de cuando se grabó el registro en UTC |
-| type | Tipo del registro. Siempre `AzureDiagnostics` |
+| Tipo | Tipo del registro. Siempre `AzureDiagnostics` |
 | SubscriptionId | GUID de la suscripción a la que pertenece el servidor |
 | ResourceGroup | Nombre del grupo de recursos al que pertenece el servidor |
 | ResourceProvider | Nombre del proveedor de recursos Siempre `MICROSOFT.DBFORPOSTGRESQL` |

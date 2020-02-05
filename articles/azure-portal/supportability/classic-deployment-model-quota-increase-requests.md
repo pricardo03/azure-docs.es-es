@@ -1,108 +1,108 @@
 ---
-title: Modelo de implementación clásica de Azure | Microsoft Docs
-description: modelo de implementación clásica de Azure
+title: modelo de implementación clásica de Azure
+description: El modelo de implementación clásica, que ahora se ha sustituido por el modelo de Resource Manager, aplica un límite de cuota de vCPU global para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales.
 author: sowmyavenkat86
 ms.author: svenkat
-ms.date: 06/20/2019
+ms.date: 01/27/2020
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: d8f4bf04251347c44ea1692cfdda2602e23117f4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a3d5106cafc1d3bfe77f3e42e85cedb668fc4fa0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898788"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835632"
 ---
 # <a name="classic-deployment-model"></a>Modelo de implementación clásica
 
-El modelo de implementación clásica es el modo de implementación de Azure de la generación anterior. Este modelo impone un límite de cuota de vCPU global para máquinas virtuales y conjuntos de escalado de máquinas virtuales. El modelo de implementación clásica ya no se recomienda y ahora se reemplaza por el modelo de Resource Manager. 
+El modelo de implementación clásica es el modo de implementación de Azure de la generación anterior. Este modelo impone un límite de cuota de vCPU global para máquinas virtuales y conjuntos de escalado de máquinas virtuales. El modelo de implementación clásica ya no se recomienda y ahora se reemplaza por el modelo de Resource Manager.
 
-Para más información sobre estos dos modelos de implementación y las ventajas de usar Resource Manager, consulte la página [Implementación de Resource Manager y clásica](../../azure-resource-manager/management/deployment-models.md).
- 
+Para obtener más información sobre estos dos modelos de implementación y las ventajas de usar Resource Manager, consulte [Implementación de Resource Manager y clásica](../../azure-resource-manager/management/deployment-models.md).
+
 Cuando se crea una nueva suscripción, se asigna una cuota predeterminada de vCPU a ella. Cada vez que se implementa una nueva máquina virtual mediante el modelo de implementación clásica, la suma del uso de vCPU nuevas y existentes en todas las regiones no debe superar la cuota de vCPU aprobada para dicho modelo.
- 
-Más información sobre las cuotas en la página [Límites de suscripción y servicios de Azure](https://aka.ms/quotalimits).
 
-Puede solicitar un aumento en el límite de cuota de vCPU para el modelo de implementación clásica a través de la hoja Ayuda y soporte técnico o la hoja Usos y cuota en el portal.
+Para aprender más sobre estas cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitud de un aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción a través de la hoja **Ayuda y soporte técnico**
+Puede solicitar un aumento del límite de cuota de vCPU para el modelo de implementación clásica. Use **Ayuda y soporte técnico** o **Uso y cuotas** en Azure Portal.
 
-Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja Ayuda y soporte técnico de Azure disponible en Azure Portal. 
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-help--support"></a>Solicitud de un aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción mediante Ayuda y soporte técnico
 
-1. En https://portal.azure.com, seleccione **Ayuda y soporte técnico**.
+Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante **Ayuda y soporte técnico** en Azure Portal.
 
-   ![Ayuda y soporte técnico](./media/resource-manager-core-quotas-request/helpsupport.png)
- 
-2.  Seleccione **Nueva solicitud de soporte técnico**. 
+1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Ayuda y soporte técnico**.
 
-      ![Nueva solicitud de soporte](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+   ![Selección de Ayuda y soporte técnico en Azure Portal](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-3. En el menú desplegable Tipo de incidencia, seleccione **Límites de servicio y suscripción (cuotas)** .
+1. Seleccione **Nueva solicitud de soporte técnico**.
 
-   ![Menú desplegable Tipo de incidencia](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Creación de una solicitud de soporte técnico en Azure Portal](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-4. Seleccione la suscripción que necesita una cuota mayor.
+1. En **Tipo de problema**, elija **Límites de servicio y suscripción (cuotas)** .
 
-   ![Selección de la suscripción en la nueva solicitud de soporte técnico](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
-   
-5. Seleccione **Compute-VM (cores-vCPUs) subscription limit increases** (El límite de la suscripción a proceso/máquina virtual (núcleos/vCPU) aumenta) en el menú desplegable **Tipo de cuota**. 
+   ![Selección de cuotas como el tipo de problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
+
+1. Seleccione la suscripción cuya cuota quiere aumentar.
+
+   ![Selección de la suscripción para la que se va a aumentar una cuota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
+
+1. Seleccione **Tipo de cuota** y, luego, **Compute-VM (cores-vCPUs) subscription limit increases** (Aumento del límite de suscripción para VM de proceso [núcleos/vCPU]).
+
+   ![Selección del tipo de cuota que se va a aumentar](./media/resource-manager-core-quotas-request/select-quota-type.png)
+
+1. Seleccione **Siguiente: Soluciones** para abrir **DETALLES DEL PROBLEMA**. Seleccione **Proporcionar detalles** para proporcionar información adicional.
+
+   ![Especificación de detalles para ayudar a la solicitud](./media/resource-manager-core-quotas-request/provide-details-link.png)
+
+1. En **Detalles de la cuota**, seleccione **Clásico** y elija una **Ubicación**.
+
+   ![Adición de detalles, incluido el modelo de implementación y la ubicación](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+
+1. Para **Familia de SKU**, seleccione una o varias familias de SKU para aplicarles el aumento.
+
+   ![Especificación de la familia de SKU que se va a aumentar](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+
+1. Escriba los nuevos límites que quiere en la suscripción. Para eliminar una línea, anule la selección de SKU en **Familia de SKU** o seleccione el icono de descarte "X". Después de especificar una cuota para cada familia de SKU, seleccione **Guardar y continuar** en **Detalles de la cuota** para continuar con la solicitud de soporte técnico.
+
+   ![Solicitud de nuevos límites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usage--quotas"></a>Solicitud de aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción mediante Usos y cuotas
+
+Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante **Uso y cuotas** en Azure Portal.
+
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Suscripciones**.
+
+   ![Navegación a Suscripciones en Azure Portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+
+1. Seleccione la suscripción cuya cuota quiere aumentar.
+
+   ![Selección de la suscripción que se va a modificar](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
+
+1. Seleccione **Uso y cuotas**.
+
+   ![Selección de uso y cuotas para una suscripción](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
+
+1. En la esquina superior derecha, seleccione **Solicitar aumento**.
+
+   ![Selección para aumentar la cuota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
+
+1. Seleccione **Compute-VM (cores-vCPUs) subscription limit increases** (Aumento del límite de suscripción para VM de proceso [núcleos/vCPU]) como **Tipo de cuota**.
 
    ![Selección del tipo de cuota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-6. En **Detalles del problema**, haga clic en **Proporcionar detalles** para aportar información adicional que ayude a procesar la solicitud.
+1. Seleccione **Siguiente: Soluciones** para abrir **DETALLES DEL PROBLEMA**. Seleccione **Proporcionar detalles** para proporcionar información adicional.
 
-   ![Proporcionar detalles](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Especificación de detalles para la solicitud](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-7. En el panel **Detalles de la cuota**, seleccione Clásico y elija una ubicación.
+1. En **Detalles de la cuota**, seleccione **Clásico** y una **Ubicación**.
 
-   ![Modelo de implementación en Detalles de la cuota](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+   ![Selección de detalles de la cuota, incluido el modelo de implementación y la ubicación](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-8. Seleccione las **familias de SKU** que requieren un aumento. 
+1. Seleccione una o varias familias de SKU para el aumento.
 
-   ![Familia de SKU](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+   ![Selección de la familia de SKU para el aumento](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
-9. Escriba los nuevos límites que quiere en la suscripción. Para quitar una línea, desactive la SKU de la lista desplegable de familias de SKU o haga clic en el icono de descartar "x". Después de escribir la cuota deseada para cada familia de SKU, haga clic en **Guardar y continuar** en el panel Detalles de la cuota para continuar con la creación de la solicitud de soporte técnico.
+1. Escriba los nuevos límites que quiere en la suscripción. Para eliminar una línea, anule la selección de SKU en **Familia de SKU** o seleccione el icono de descarte "X". Después de especificar una cuota para cada familia de SKU, seleccione **Guardar y continuar** en **Detalles de la cuota** para continuar con la solicitud de soporte técnico.
 
-   ![Nuevos límites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
-
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Solicitud de un aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción a través de la hoja **Usages + Quota** (Usos y cuota)
-
-Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja "Usos y cuota" de Azure disponible en Azure Portal. 
-
-1. En https://portal.azure.com, seleccione **Suscripciones**.
-
-   ![Suscripciones](./media/resource-manager-core-quotas-request/subscriptions.png)
-
-2. Seleccione la suscripción que necesita una cuota mayor.
-
-   ![Seleccionar suscripción](./media/resource-manager-core-quotas-request/select-subscription.png)
-
-3. Seleccione **Uso y cuotas**.
-
-   ![Selección de uso y cuotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
-
-4. En la esquina superior derecha, seleccione **Solicitar aumento**.
-
-   ![Solicitud de aumento](./media/resource-manager-core-quotas-request/request-increase.png)
-
-5. Seleccione **Compute-VM (cores-vCPUs) subscription limit increases** (El límite de la suscripción a proceso/máquina virtual (núcleos/vCPU) aumenta) como tipo de cuota. 
-
-   ![Rellenado del formulario](./media/resource-manager-core-quotas-request/select-quota-type.png)
-   
-6. En **Detalles del problema**, haga clic en **Proporcionar detalles** para aportar información adicional que ayude a procesar la solicitud.
-
-   ![Proporcionar detalles](./media/resource-manager-core-quotas-request/provide-details.png)
-
-7. En el panel **Detalles de la cuota**, seleccione Clásico y elija una ubicación.
-
-   ![Modelo de implementación en Detalles de la cuota](./media/resource-manager-core-quotas-request/quota-details-classic.png)
-
-8. Seleccione las **familias de SKU** que requieren un aumento. 
-
-   ![Familia de SKU](./media/resource-manager-core-quotas-request/sku-family-classic.png)
-
-9. Escriba los nuevos límites que quiere en la suscripción. Para quitar una línea, desactive la SKU de la lista desplegable de familias de SKU o haga clic en el icono de descartar "x". Después de escribir la cuota deseada para cada familia de SKU, haga clic en **Guardar y continuar** en el panel Detalles de la cuota para continuar con la creación de la solicitud de soporte técnico.
-
-   ![Nuevos límites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+   ![Escritura de una nueva cuota](./media/resource-manager-core-quotas-request/new-limits-classic.png)
 
