@@ -44,7 +44,7 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Controlar resaltado de referencias
       href: ../Bing-Web-Search/hit-highlighting.md
@@ -56,10 +56,6 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Actualización de la versión v5 a la v7 de la API
       href: bing-news-upgrade-guide-v5-to-v7.md
-    - name: Trabajo con Visual Studio
-      items:
-        - name: Use el servicio conectado de Bing News Search
-          href: vs-bing-news-search-connected-service.md
 - name: Conceptos
   items:
     - name: Envío de consultas de búsqueda

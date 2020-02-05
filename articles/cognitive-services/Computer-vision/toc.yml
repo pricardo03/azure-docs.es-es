@@ -117,7 +117,7 @@
       href: concept-recognizing-text.md
     - name: Detección de contenido para adultos
       href: concept-detecting-adult-content.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Llamada a Computer Vision API
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
@@ -135,13 +135,11 @@
         - name: Uso de instancias de contenedores
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
-    - name: Usar el servicio conectado de Computer Vision
-      href: vs-computer-vision-connected-service.md
     - name: Análisis de vídeos en tiempo real
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'

@@ -101,8 +101,6 @@
           href: ea-portal-vm-reservations.md
         - name: Solución de problemas de acceso al portal de Azure EA
           href: ea-portal-troubleshoot.md
-        - name: Tareas de EA del contrato de cliente de Microsoft
-          href: mca-enterprise-operations.md
 - name: Solución de problemas
   items:
     - name: No se han encontrado suscripciones

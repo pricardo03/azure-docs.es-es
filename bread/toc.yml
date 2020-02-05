@@ -194,19 +194,16 @@
             - name: IoT Central
               tocHref: /azure/iot-central/core/
               topicHref: /azure/iot-central/core/
-            - name: IoT Central (características en versión preliminar)
-              tocHref: /azure/iot-central/preview/
-              topicHref: /azure/iot-central/preview/
-            - name: IoT Central para el sector energético (características de la versión preliminar)
+            - name: IoT Central para el sector energético
               tocHref: /azure/iot-central/energy/
               topicHref: /azure/iot-central/energy/
-            - name: IoT Central para la administración pública (características de la versión preliminar)
+            - name: IoT Central para la administración pública
               tocHref: /azure/iot-central/government/
               topicHref: /azure/iot-central/government/
-            - name: IoT Central para el sector sanitario (características de la versión preliminar)
+            - name: IoT Central para el sector sanitario
               tocHref: /azure/iot-central/healthcare/
               topicHref: /azure/iot-central/healthcare/
-            - name: IoT Central para el comercio minorista (características de la versión preliminar)
+            - name: IoT Central para el comercio minorista
               tocHref: /azure/iot-central/retail/
               topicHref: /azure/iot-central/retail/
         - name: IoT Edge
