@@ -4,12 +4,12 @@ description: Aprenda a implementar grupos de contenedores en una red virtual de 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845180"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901870"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -259,10 +259,6 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Eliminación de recursos de red
-
-
-> [!NOTE]
-> Si recibe un error al intentar eliminar el perfil de red, espere de 3 a 4 días a que la plataforma mitigue de forma automática el problema y vuelva a intentar la eliminación. Si necesita eliminar un perfil de red inmediatamente, [abra una solicitud de soporte técnico](https://azure.microsoft.com/support/create-ticket/) que haga referencia al servicio de Azure Container Instances.
 
 Actualmente, esta característica necesita varios comandos adicionales para eliminar los recursos de red que ha creado antes. Si ha usado los comandos de ejemplo en las secciones anteriores de este artículo para crear la red virtual y la subred, puede usar el siguiente script para eliminar esos recursos de red.
 

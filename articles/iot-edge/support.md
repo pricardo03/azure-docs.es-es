@@ -8,16 +8,16 @@ ms.date: 08/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0d6b5e826720cf51d38b3bc3c2b87d274a2ea816
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3f1f4efc13e2d11e7111264564a227a484d611d5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665889"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760103"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatibles con Azure IoT Edge
 
-En este artículo se proporcionan detalles sobre qué sistemas y componentes son compatibles con IoT Edge, ya sea oficialmente o en versión preliminar. 
+En este artículo se proporcionan detalles sobre qué sistemas y componentes son compatibles con IoT Edge, ya sea oficialmente o en versión preliminar.
 
 Si tiene problemas al usar el servicio Azure IoT Edge, hay varias maneras de buscar soporte técnico. Pruebe uno de los siguientes canales para obtener soporte técnico:
 
@@ -34,18 +34,20 @@ Los módulos de Azure IoT Edge se implementan como contenedores, por lo que IoT 
 <br>
 <center>
 
-![Moby como entorno de ejecución de contenedores](./media/support/only-moby-for-production.png)
+![Motor de Moby como entorno de ejecución de contenedor](./media/support/only-moby-for-production.png)
 </center>
 
 ## <a name="operating-systems"></a>Sistemas operativos
+
 Azure IoT Edge se ejecuta en la mayoría de los sistemas operativos que pueden ejecutar contenedores. No obstante, la compatibilidad no es igual en todos. Los sistemas operativos se agrupan en niveles que representan el nivel de compatibilidad que los usuarios pueden esperar.
+
 * Se admiten los sistemas de nivel 1. Para los sistemas de nivel 1, Microsoft:
-    * tiene este sistema operativo en pruebas automatizadas
-    * proporciona paquetes de instalación para ellos
+  * tiene este sistema operativo en pruebas automatizadas
+  * proporciona paquetes de instalación para ellos
 * Los sistemas de nivel 2 son compatibles con Azure IoT Edge y pueden usarse con relativa facilidad. Para los sistemas de nivel 2:
-    * Microsoft ha realizado pruebas ad hoc en las plataformas o conoce a un asociado que ha ejecutado correctamente Azure IoT Edge en la plataforma
-    * Los paquetes de información de otras plataformas pueden funcionar en estas plataformas
-    
+  * Microsoft ha realizado pruebas informales en las plataformas o conoce a un asociado que ha ejecutado correctamente Azure IoT Edge en la plataforma
+  * Los paquetes de información de otras plataformas pueden funcionar en estas plataformas
+
 La familia del sistema operativo host siempre debe coincidir con la familia del sistema operativo invitado que se utilice en el contenedor de un módulo. En otras palabras, solo se pueden usar contenedores de Linux en Linux y contenedores de Windows en Windows. En el caso de Windows, solo se pueden usar contenedores aislados de los procesos; no se admiten los contenedores aislados de Hyper-V.  
 
 <br>
@@ -68,7 +70,6 @@ Los sistemas que se enumeran en la tabla siguiente son compatibles con Microsoft
 | [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19), compilación 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows Server IoT 2019](https://docs.microsoft.com/windows/iot-core/windows-server), compilación 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
-
 Los sistemas operativos de Windows anteriores son obligatorios en los dispositivos que ejecutan contenedores de Windows en Windows, que es la única configuración compatible para producción. Los paquetes de instalación de Azure IoT Edge para Windows permiten usar contenedores de Linux en Windows, aunque solo en los entornos de desarrollo y pruebas. Para obtener más información, consulte [Uso de IoT Edge en Windows para ejecutar contenedores de Linux](how-to-install-iot-edge-windows-with-linux.md).
 
 ### <a name="tier-2"></a>Nivel 2
@@ -80,7 +81,7 @@ Los sistemas que se enumeran en la tabla siguiente se consideran compatibles con
 | [CentOS 7.5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 8](https://www.debian.org/releases/jessie/) | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Debian 10](https://www.debian.org/releases/buster/) <sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 10](https://www.debian.org/releases/buster/) <sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/tutorial-c-module/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
@@ -90,13 +91,14 @@ Los sistemas que se enumeran en la tabla siguiente se consideran compatibles con
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
 | Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> Los sistemas Debian 10, incluido Raspian Buster, usan una versión de OpenSSL que IoT Edge no admite. Use el siguiente comando para instalar una versión anterior antes de instalar IoT Edge: 
+<sup>1</sup> Los sistemas Debian 10, incluido Raspian Buster, usan una versión de OpenSSL que IoT Edge no admite. Use el siguiente comando para instalar una versión anterior antes de instalar IoT Edge:
 
 ```bash
 sudo apt-get install libssl1.0.2
 ```
 
 ## <a name="virtual-machines"></a>Virtual Machines
+
 Azure IoT Edge puede ejecutarse en máquinas virtuales. El uso de una máquina virtual como dispositivo de IoT Edge es una práctica habitual cuando los clientes desean mejorar la infraestructura existente con inteligencia perimetral. La familia del sistema operativo de la máquina virtual host debe coincidir con la familia del sistema operativo invitado que se utiliza en el contenedor de un módulo. Este requisito también se aplica cuando Azure IoT Edge se ejecuta directamente en un dispositivo. Azure IoT Edge es independiente de la tecnología de virtualización subyacente y funciona en máquinas virtuales que incorporan plataformas como Hyper-V y vSphere.
 
 <br>
@@ -106,13 +108,14 @@ Azure IoT Edge puede ejecutarse en máquinas virtuales. El uso de una máquina v
 </center>
 
 ## <a name="minimum-system-requirements"></a>Requisitos mínimos del sistema
+
 Azure IoT Edge funciona perfectamente en dispositivos tan pequeños como Raspberry Pi3 y en hardware de nivel de servidor. La elección del hardware adecuado para el escenario dependerá de las cargas de trabajo que se deseen ejecutar. Tomar la decisión final sobre el dispositivo que se va a utilizar puede resultar complicado; sin embargo, puede empezar creando un prototipo de una solución en portátiles o equipos de escritorio tradicionales.
 
-La experiencia que adquiera mientras crea ese prototipo le ayudará a realizar la selección final del dispositivo. Debe considerar las siguientes cuestiones: 
+La experiencia que adquiera mientras crea ese prototipo le ayudará a realizar la selección final del dispositivo. Debe considerar las siguientes cuestiones:
 
 * ¿Cuántos módulos hay en la carga de trabajo?
 * ¿Cuántas capas comparten los contenedores de los módulos?
-* ¿En qué idioma se escriben los módulos? 
+* ¿En qué idioma se escriben los módulos?
 * ¿Cuántos datos procesarán los módulos?
 * ¿Necesitan los módulos algún hardware especializado para acelerar sus cargas de trabajo?
 * ¿Cuáles son las características del rendimiento deseado de la solución?

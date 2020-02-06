@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico PCI-DSS v3.2.1
 description: Asignación a los controles de la muestra de plano técnico Estándar de seguridad de los datos para el sector de las tarjetas de pago v3.2.1 en Azure Policy y RBAC.
-ms.date: 06/24/2019
+ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: 38db59a7f0b93e2c87b3c7acdfbcc2b8cbd11489
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: db21ac9d628e777b6ff2cc86516cfb1497f5a62f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546568"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905641"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Asignación a los controles de la muestra de plano técnico PCI-DSS v3.2.1
 
@@ -36,10 +36,10 @@ Este plano técnico ayuda a instaurar la directiva con el uso de controles cript
 - Se debe permitir el cifrado de datos transparente en bases de datos SQL
 - El cifrado de discos debe aplicarse en máquinas virtuales
 - Las variables de cuenta de automatización deben cifrarse
-- Se deben habilitar solo las conexiones seguras a Redis Cache
-- Se debe habilitar la transferencia segura a cuentas de almacenamiento
+- Solo se deben habilitar las conexiones seguras a Redis Cache
+- Se debe habilitar la transferencia segura a las cuentas de almacenamiento
 - Se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric
-- Se debe habilitar el Cifrado de datos transparente en bases de datos SQL
+- Se debe permitir el cifrado de datos transparente en bases de datos SQL
 - Implementación del cifrado de datos transparente de SQL DB
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>Examen de vulnerabilidades y actualizaciones del sistema de 5.1, 6.2, 6.6 y 11.2.1
@@ -50,8 +50,8 @@ Este plano técnico ayuda a administrar las vulnerabilidades del sistema de info
 - Implementación de la extensión de Microsoft IaaSAntimalware predeterminada para Windows Server
 - Implementación de la detección de amenazas en servidores SQL Server
 - Se deben instalar actualizaciones del sistema en las máquinas
-- Se deben corregir vulnerabilidades en la configuración de seguridad en las máquinas
-- Se deben corregir las vulnerabilidades en las bases de datos SQL
+- Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
+- Se deben corregir las vulnerabilidades de las bases de datos SQL
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 
 ## <a name="711-712-and-713-separation-of-duties"></a>7.1.1. Separación de obligaciones de 7.1.2 y 7.1.3
@@ -101,7 +101,7 @@ Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignaci�
 - \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
 - \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
 
 ## <a name="103-and-1054-audit-generation"></a>Generación de auditoría de 10.3 y 10.5.4
 
@@ -112,7 +112,7 @@ Los registros de diagnóstico proporcionan conclusiones detalladas sobre las ope
 - Auditar la configuración de diagnóstico
 - Auditar configuración de auditoría de SQL en el nivel de servidor
 - Implementación de auditorías en servidores SQL Server
-- Se deben migrar las cuentas de almacenamiento a nuevos recursos de Azure Resource Manager
+- Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
 - Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager
 
 ## <a name="1236-and-1237-information-security"></a>Seguridad de la información de 12.3.6 y 12.3.7

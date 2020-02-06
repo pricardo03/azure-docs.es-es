@@ -5,25 +5,25 @@ description: Compile un clasificador y use scripts de Python personalizados para
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 1430db34f9c31cbd9d9df921650c628d265bccc5
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ed8ee9b1c711ee0056377154379b8df56e0785df
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311094"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964607"
 ---
 # <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Compilación de un clasificador y uso scripts de Python para predecir el riesgo crediticio con el diseñador de Azure Machine Learning
 
-**Ejemplo de diseñador 4**
+**Ejemplo 4 del diseñador (versión preliminar)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este artículo se muestra cómo compilar una canalización compleja de aprendizaje automático con el diseñador. Aprenderá a implementar lógica personalizada mediante scripts de Python y a comparar varios modelos para elegir la mejor opción.
+Este artículo muestra cómo compilar una canalización compleja de aprendizaje automático con el diseñador (versión preliminar). Aprenderá a implementar lógica personalizada mediante scripts de Python y a comparar varios modelos para elegir la mejor opción.
 
 En este ejemplo se entrena un clasificador para que predecir el riesgo crediticio según información de aplicaciones de crédito, como, por ejemplo, el historial de créditos, la edad y el número de tarjetas de crédito. Sin embargo, puede aplicar los conceptos de este artículo para abordar su propios problemas de aprendizaje automático.
 

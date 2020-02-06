@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico para el cumplimiento con PCI-DSS v3.2.1
 description: Pasos de implementación del ejemplo de plano técnico del Estándar de seguridad de los datos del sector de las tarjetas de pago v3.2.1, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 06/24/2019
+ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: aa641b35f1a7533a13803e7984c83df2f3268de6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546547"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905556"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementación del ejemplo de plano técnico para el cumplimiento con PCI-DSS v3.2.1
 
@@ -91,7 +91,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
 En la tabla siguiente se proporciona una lista de los parámetros del artefacto de plano técnico:
 
-|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
+|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |\[Versión preliminar\] Audite los controles PCI v3.2.1:2018 e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Lista de tipos de recursos | Audite la configuración de diagnóstico para los tipos de recursos seleccionados. El valor predeterminado es todos los recursos seleccionados.| 
 |Ubicaciones permitidas|Asignación de directiva|Lista de ubicaciones permitidas|Lista de ubicaciones de centro de datos permitidas en las que cualquier recurso se puede implementar. Esta se puede personalizar hasta las ubicaciones de Azure deseadas de todo el mundo. Seleccione las ubicaciones que quiere permitir.| 

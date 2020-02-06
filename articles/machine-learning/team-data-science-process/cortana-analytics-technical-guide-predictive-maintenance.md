@@ -3,20 +3,20 @@ title: 'Guía para mantenimiento predictivo para el sector aeroespacial: proceso
 description: Una guía técnica sobre la plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: a73308274c9aedf6a85745c17c14637e2ef3d27d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9871e1402336f5ad282c12f959d45fda85512a84
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492476"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721853"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en el sector aeroespacial
 
@@ -63,7 +63,7 @@ El servicio [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 Use [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para proporcionar un análisis casi en tiempo real del flujo de entrada del servicio [Azure Event Hubs](#azure-event-hub). Después, publique los resultados en un panel de [Power BI](https://powerbi.microsoft.com) y archive todos los eventos entrantes sin formato en el servicio [Azure Storage](https://azure.microsoft.com/services/storage/) para procesarse posteriormente mediante [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a name="hdinsight-custom-aggregation"></a>Agregación personalizada de HDInsight
-Ejecute los scripts de [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (organizados mediante Azure Data Factory) mediante HDInsight para proporcionar las agregaciones en los eventos sin procesar que se almacenaron con el servicio Azure Stream Analytics.
+Ejecute los scripts de [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (organizados mediante Azure Data Factory) mediante HDInsight para proporcionar las agregaciones en los eventos sin procesar que se almacenaron con el recurso de Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Realice predicciones sobre la vida útil restante (RUL) de un motor de avión determinado dadas las entradas que se reciben con el servicio [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (organizado por Azure Data Factory). 
@@ -89,7 +89,7 @@ El servicio Azure Event Hubs es genérico; los datos se pueden publicar datos en
 Este documento no describe cómo introducir los datos, pero puede enviar fácilmente eventos o datos a una instancia de Azure Event Hubs mediante las API de Event Hubs.
 
 ### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
-Utilice el servicio Azure Stream Analytics para proporcionar análisis casi en tiempo real mediante la lectura de flujos de datos y el envío de datos a cualquier número de orígenes.
+Utilice el recurso de Azure Stream Analytics para proporcionar análisis casi en tiempo real mediante la lectura de flujos de datos y el envío de datos a cualquier número de orígenes.
 
 Para el mantenimiento predictivo de la plantilla de solución aeroespacial, la consulta del servicio Azure Stream Analytics consta de cuatro subconsultas, y cada una de ellas consume eventos del servicio Centro de eventos de Azure y tiene salidas a cuatro ubicaciones distintas. Estas salidas constan de tres conjuntos de datos de Power BI y una ubicación de Azure Storage.
 
@@ -148,8 +148,8 @@ Para obtener más información acerca de cómo se creó el experimento de Azure 
 ## <a name="monitor-progress"></a>Supervisión de progreso
 Una vez iniciado el generador de datos, la canalización comienza a deshidratarse y los distintos componentes de la solución empiezan a entrar en acción siguiendo los comandos emitidos por la factoría de datos. Hay dos maneras de supervisar la canalización.
 
-1. Uno de los trabajos de Stream Analytics escribe los datos entrantes sin procesar en Blob Storage. Si hace clic en el componente Blob Storage de su solución desde la pantalla donde implementó correctamente la solución y después hace clic en Abrir en el panel derecho, irá a [Azure Portal](https://portal.azure.com/). Una vez allí, haga clic en Blobs. En el siguiente panel, verá una lista de Containers. Haga clic en **maintenancesadata**. En el siguiente panel, verá la carpeta **rawdata**. Dentro de la carpeta rawdata, verá carpetas con nombres como date=17 y hour=18. La presencia de estas carpetas significa que los datos sin procesar se generan en el equipo y se almacenan en un almacenamiento de blobs. Debería ver archivos csv con tamaños finitos en MB en esas carpetas.
-2. El último paso de la canalización consiste en escribir los datos (por ejemplo, predicciones del aprendizaje automático) en SQL Database. Es posible que deba esperar un máximo de tres horas para los datos aparezcan en SQL Database. Puede supervisar la cantidad de datos disponibles en SQL Database a través de [Azure Portal](https://portal.azure.com/). En el panel izquierdo, busque y haga clic en el ![icono SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) de BASES DE DATOS SQL. Después, busque la base de datos **pmaintenancedb** y haga clic en ella. En la parte inferior de la página siguiente, haga clic en ADMINISTRAR.
+* Uno de los trabajos de Stream Analytics escribe los datos entrantes sin procesar en Blob Storage. Si hace clic en el componente Blob Storage de su solución desde la pantalla donde implementó correctamente la solución y después hace clic en Abrir en el panel derecho, irá a [Azure Portal](https://portal.azure.com/). Una vez allí, haga clic en Blobs. En el siguiente panel, verá una lista de Containers. Haga clic en **maintenancesadata**. En el siguiente panel, verá la carpeta **rawdata**. Dentro de la carpeta rawdata, verá carpetas con nombres como date=17 y hour=18. La presencia de estas carpetas significa que los datos sin procesar se generan en el equipo y se almacenan en un almacenamiento de blobs. Debería ver archivos csv con tamaños finitos en MB en esas carpetas.
+* El último paso de la canalización consiste en escribir los datos (por ejemplo, predicciones del aprendizaje automático) en SQL Database. Es posible que deba esperar un máximo de tres horas para los datos aparezcan en SQL Database. Puede supervisar la cantidad de datos disponibles en SQL Database a través de [Azure Portal](https://portal.azure.com/). En el panel izquierdo, busque y haga clic en el ![icono SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) de BASES DE DATOS SQL. Después, busque la base de datos **pmaintenancedb** y haga clic en ella. En la parte inferior de la página siguiente, haga clic en ADMINISTRAR.
    
     ![Icono de Administrar](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
@@ -162,8 +162,11 @@ Configure el panel de Power BI para visualizar los datos de Azure Stream Analyti
 ### <a name="set-up-the-cold-path-dashboard"></a>Configuración del panel de ruta de acceso inactiva
 En la canalización de datos de la ruta de acceso inactiva, el objetivo es obtener la predicción de la RUL (vida útil restante) de cada motor del avión cuando finaliza un vuelo (ciclo). El resultado de la predicción se actualiza cada 3 horas para poder predecir la vida útil restante de los motores de los aviones que hayan terminado un vuelo durante las últimas 3 horas.
 
-Power BI se conecta a una base de datos de Azure SQL como su origen de datos, donde se almacenan los resultados de predicción. Nota: 1) Al implementar la solución, aparecerá una predicción real en la base de datos dentro de 3 horas.
-El archivo pbix incluido con la descarga del generador, contiene algunos datos de inicialización para que pueda crear el panel de Power BI inmediatamente. 2) En este paso, el requisito previo es descargar e instalar gratuitamente el software [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
+Power BI se conecta a una base de datos de Azure SQL como su origen de datos, donde se almacenan los resultados de predicción. 
+
+Nota: 
+1.    Al implementar la solución, aparecerá una predicción real en la base de datos dentro de 3 horas. El archivo pbix incluido con la descarga del generador, contiene algunos datos de inicialización para que pueda crear el panel de Power BI inmediatamente. 
+2.    En este paso, el requisito previo es descargar e instalar gratuitamente el software [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL Database que estaba en marcha en el momento de la implementación de la solución que contiene los datos (por ejemplo, resultados de predicción) para su visualización.
 
@@ -172,7 +175,7 @@ Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL D
    Antes de continuar con los pasos siguientes, necesitará el **nombre del servidor de la base de datos, el nombre de la base de datos, el nombre de usuario y la contraseña** . Estos son los pasos que le ayudarán a encontrarlos.
    
    * Una vez que la opción **Azure SQL Database** se muestre en color verde en el diagrama de la plantilla de solución, haga clic en ella y, después, en **Abrir**.
-   * Verá una nueva pestaña o ventana del explorador que muestra la página del Portal de Azure. Haga clic en **"Grupos de recursos"** en el panel izquierdo.
+   * Verá una nueva pestaña o ventana del explorador que muestra la página de Azure Portal. Haga clic en **"Grupos de recursos"** en el panel izquierdo.
    * Seleccione la suscripción que va a utilizar para implementar la solución y, después, seleccione **nombreDeLaSolución\_grupoDeRecursos**.
    * En el nuevo panel emergente, haga clic en el ![icono de SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) para acceder a la base de datos. El nombre de la base de datos se sitúa junto a este icono (por ejemplo, **pmaintenancedb**), y el **nombre del servidor de bases de datos** aparece bajo la propiedad de nombre de servidor y se parece a **nombreDeLaSolución.database.windows.net**.
    * El **nombre de usuario** y la **contraseña** de la base de datos son los mismos que los registrados anteriormente durante la implementación de la solución.
@@ -186,7 +189,7 @@ Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL D
    * En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **Base de datos**, escriba su **nombre de usuario** y **contraseña** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una base de datos de Azure SQL). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. A continuación, haga clic en **"Conectar"** .
    * Haga clic en la segunda tabla **PMResult**; después, en ![Icono de Navegación](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) junto a la opción **Origen** de **PASOS APLICADOS** en el panel de la derecha **Configuración de la consulta**. Luego, actualice los nombres del servidor y de la base de datos como en los pasos anteriores y, por último, haga clic en Aceptar.
    * Una vez que se le dirija a la página anterior, cierre la ventana. Se muestra un mensaje y haga clic **Aplicar**. Finalmente, haga clic en el botón **Guardar** para guardar los cambios. El archivo de Power BI ha establecido ya la conexión con el servidor. Si las visualizaciones están vacías, asegúrese de borrar todas las selecciones para poder visualizar todos los datos haciendo clic en el icono de borrador de la esquina superior derecha de las leyendas. Utilice el botón Actualizar para reflejar los nuevos datos en las visualizaciones. Inicialmente, solo verá los datos de inicialización en las visualizaciones ya que la factoría de datos está programada para actualizarse cada tres horas. Después de 3 horas, verá nuevas predicciones reflejadas en las visualizaciones al actualizar los datos.
-3. (Opcional) Publique el panel de la ruta de acceso en frío en [Power BI en línea](https://www.powerbi.com/). Tenga en cuenta que este paso necesita una cuenta de Power BI (o la cuenta de Office 365).
+3. (Opcional) Publique el panel de la ruta de acceso en frío en [Power BI en línea](https://www.powerbi.com/). Este paso necesita una cuenta de Power BI (o la cuenta de Office 365).
    
    * Haga clic en **Publicar** y, unos segundos más tarde, aparecerá una ventana con un mensaje que indicará que la publicación en Power BI se ha realizado correctamente y con una marca de verificación verde. Haga clic en el vínculo "Abrir PredictiveMaintenanceAerospace.pbix en Power BI". Para obtener instrucciones detalladas, consulte [Publicar desde Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Para crear un nuevo panel: haga clic en el signo **+** junto a la sección **Paneles** del panel izquierdo. Escriba el nombre "Demo de mantenimiento predictivo" para este nuevo panel.
@@ -214,7 +217,7 @@ Los siguientes pasos lo guiarán en el proceso para visualizar la salida de dato
    * La consulta ASA tiene tres salidas, que son **aircraftmonitor**, **aircraftalert** y **flightsbyhour**. Puede ver la consulta haciendo clic en la pestaña de consulta. Debe agregar a ASA la salida correspondiente a cada una de estas tablas. Cuando se agrega la primera salida (**aircraftmonitor**) asegúrese de que el **alias de salida**, el **nombre del conjunto de datos** y el **nombre de la tabla** son los mismos (**aircraftmonitor**). Repita los pasos para agregar las salidas de **aircraftalert** y **flightsbyhour**. Una vez haya agregado las tres tablas de salida e iniciado el trabajo de ASA, recibirá un mensaje de confirmación ("Se ha iniciado correctamente el trabajo de Stream Analytics maintenancesa02asapbi").
 2. Inicie sesión en [Power BI en línea](https://www.powerbi.com)
    
-   * En la sección Conjuntos de datos del panel izquierdo de Mi área de trabajo, deben aparecer los nombres de los ***CONJUNTOS DE DATOS*** **aircraftmonitor**, **aircraftalert** y **flightsbyhour**. Son los datos de transmisión que insertó desde Azure Stream Analytics en el paso anterior. El conjunto de datos **flightsbyhour** puede no aparecer al mismo tiempo que los otros dos conjuntos de datos debido a la naturaleza de la consulta SQL que hay detrás. Sin embargo, deben aparecer después de una hora.
+   * En la sección Conjuntos de datos del panel izquierdo de Mi área de trabajo, deben aparecer los nombres de los ***CONJUNTOS DE DATOS*****aircraftmonitor**, **aircraftalert** y **flightsbyhour**. Son los datos de transmisión que insertó desde Azure Stream Analytics en el paso anterior. El conjunto de datos **flightsbyhour** puede no aparecer al mismo tiempo que los otros dos conjuntos de datos debido a la naturaleza de la consulta SQL que hay detrás. Sin embargo, deben aparecer después de una hora.
    * Asegúrese de que el panel ***Visualizaciones*** está abierto y se muestra en el lado derecho de la pantalla.
 3. Una vez que tenga los datos fluyendo en Power BI, puede comenzar a visualizar los datos de streaming. Este es un panel de ejemplo con algunas visualizaciones de la ruta de acceso en caliente ancladas. Puede crear otros iconos de panel basados en conjuntos de datos adecuados. Dependiendo de cuánto tiempo tarde en ejecutarse el generador de datos, los números en las visualizaciones pueden ser diferentes.
 

@@ -5,24 +5,28 @@ ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 12e16cc7e17ae217a334fe25d71672ab2cafa5a8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 95c603d4a10eb0e4d0817e20755c0f9b36baa96f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768442"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842340"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configuración de la aplicación App Service para usar el inicio de sesión de la cuenta de Microsoft
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-En este tema se muestra cómo configurar Azure App Service para usar la cuenta Microsoft como proveedor de autenticación. 
+En este tema se muestra cómo configurar Azure App Service para usar AAD con el fin de admitir inicios de sesión de cuentas de Microsoft personales.
+
+> [!NOTE]
+> Tanto las cuentas personales de Microsoft como las cuentas de la organización usan el proveedor de identidades de AAD. En este momento, no es posible configurar este proveedor de identidades para admitir ambos tipos de inicios de sesión.
 
 ## <a name="register-microsoft-account"> </a>Registro de la aplicación con la cuenta de Microsoft
 
 1. Vaya a [**Registros de aplicaciones**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) en Azure Portal. Si es necesario, inicie sesión con la cuenta de Microsoft.
 1. Seleccione **Nuevo registro** y escriba el nombre de la aplicación.
-1. En **URI de redirección**, seleccione **Web** y escriba `https://<app-domain-name>/.auth/login/microsoftaccount/callback`. Reemplace *\<app-domain-name>* con el nombre de dominio de su aplicación.  Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Asegúrese de usar el esquema HTTPS en la dirección URL.
+1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **	Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino) y cuentas de Microsoft personales (como Skype o Xbox)** .
+1. En **URI de redirección**, seleccione **Web** y escriba `https://<app-domain-name>/.auth/login/aad/callback`. Reemplace *\<app-domain-name>* con el nombre de dominio de su aplicación.  Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Asegúrese de usar el esquema HTTPS en la dirección URL.
 
 1. Seleccione **Registrar**.
 1. Copie el **id. de la aplicación (cliente)** . Lo necesitará más adelante.
@@ -36,12 +40,12 @@ En este tema se muestra cómo configurar Azure App Service para usar la cuenta M
 
 1. Vaya a la aplicación en [Azure Portal].
 1. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que la opción **Autenticación de App Service** está **Activada**.
-1. En **Authentication Providers** (Proveedores de autenticación), seleccione **Microsoft Account** (Cuenta de Microsoft). Pegue el identificador de la aplicación (cliente) y el secreto de cliente que obtuvo anteriormente. Habilite los ámbitos que necesite la aplicación.
+1. En **Proveedores de autenticación,** seleccione **Azure Active Directory**. Seleccione **Avanzado** en **Modo de administración**. Pegue el identificador de la aplicación (cliente) y el secreto de cliente que obtuvo anteriormente. Use **https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0** para el campo **Dirección URL del emisor**.
 1. Seleccione **Aceptar**.
 
    App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio ni a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
-1. (Opcional) Para restringir el acceso de los usuarios a la cuenta de Microsoft, configure la **acción necesaria cuando la solicitud no esté autenticada** en **Log in with Microsoft Account** (Iniciar sesión con la cuenta Microsoft). Al establecer esta funcionalidad, la aplicación requiere que se autentiquen todas las solicitudes. También redirige todas las solicitudes no autenticadas a la cuenta de Microsoft para la autenticación.
+1. (Opcional) Para restringir el acceso a los usuarios de la cuenta de Microsoft, establezca **Acción necesaria cuando la solicitud no está autenticada** en **Iniciar sesión con Azure Active Directory**. Al establecer esta funcionalidad, la aplicación requiere que se autentiquen todas las solicitudes. También redirige todas las solicitudes no autenticadas para usar AAD para la autenticación. Tenga en cuenta que, dado que ha configurado la **dirección URL del emisor** para usar el inquilino de la cuenta de Microsoft, solo las cuentas personales se autenticarán correctamente.
 
    > [!CAUTION]
    > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no interesar en las aplicaciones que tienen una página principal disponible públicamente así como en muchas aplicaciones de página única. Para tales aplicaciones, puede ser preferible **Permitir solicitudes anónimas (ninguna acción)** y que la aplicación inicie manualmente la autenticación. Para más información, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).

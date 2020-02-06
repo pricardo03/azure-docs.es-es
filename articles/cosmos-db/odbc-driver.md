@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035612"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721088"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -33,7 +33,7 @@ Empecemos con el controlador ODBC.
 
 1. Descargue los controladores para su entorno:
 
-    | Instalador | Sistemas operativos compatibles| 
+    | Instalador | Sistemas operativos admitidos| 
     |---|---| 
     |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/cosmos-odbc-64x64) para Windows de 64 bits| Versiones de 64 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 y Windows Server 2008 R2.| 
     |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/cosmos-odbc-32x64) para Windows de 32 bits en 64 bits| Versiones de 64 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 y Windows Server 2003.| 
@@ -109,7 +109,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de contenedo
 
 1. Para utilizar este esquema con un DSN, abra la **ventana de Configuración de DSN del controlador ODBC de Azure Cosmos DB** (con el Administrador de orígenes de datos ODBC), haga clic en **Opciones avanzadas** y, luego, en el cuadro **Archivo de esquema**, desplácese al esquema guardado. Al guardar un archivo de esquema en un DSN existente se modifica la conexión de DSN para tener como ámbito los datos y la estructura definidos por el esquema.
 
-## <a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
+## <a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de contenedores** o **delimitadores de tabla**. En una sesión de muestreo, se pueden utilizar los dos métodos, pero solo puede usarse uno de ellos en cada contenedor. 
 
@@ -172,7 +172,7 @@ Para consultar la base de datos vinculada, escriba una consulta SSMS. En este ej
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
 ```
 
-Ejecute la consulta. El resultado debe ser similar a lo siguiente:
+Ejecutar la consulta. El resultado debe ser similar a lo siguiente:
 
 ```
 attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
@@ -239,7 +239,7 @@ Puede utilizar el nuevo DSN para conectar Azure Cosmos DB con cualquier herramie
 
 1. Ahora puede crear objetos visuales con Power BI haciendo clic en la pestaña Informe ![Pestaña Informe en Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), haciendo clic en **Nuevo objeto visual** y, por último, personalizando el icono. Para más información sobre cómo crear visualizaciones en Power BI Desktop, consulte [Tipos de visualización en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si recibe el siguiente error, asegúrese de que los valores de **Host** y **Clave de acceso** copiados de Azure Portal en el [paso 2](#connect) son correctos y luego vuelva a intentarlo. Utilice los botones de copia situados a la derecha de los valores de **Host** y **Clave de acceso** en Azure Portal para copiar los valores sin errores.
 
