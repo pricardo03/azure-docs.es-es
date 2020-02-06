@@ -3,7 +3,7 @@ title: Soporte técnico de Azure con máquinas virtuales de generación 2
 description: Información general de compatibilidad de Azure para máquinas virtuales de generación 2
 services: virtual-machines-windows
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: lahugh
-ms.openlocfilehash: 6f03826bf0b82150fa89ad6e17cbcb76f98bb835
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/28/2020
+ms.author: jushiman
+ms.openlocfilehash: ace08d95e1f2eb5a6e7252ecdf505e282b04ddf8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790044"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837362"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -30,7 +30,7 @@ Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en
 
 ## <a name="generation-2-vm-sizes"></a>Tamaños de VM de generación 2
 
-Las VM de generación 1 son compatibles con todos los tamaños de máquina virtual en Azure. Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de VM seleccionadas:
+Las máquinas virtuales de primera generación son compatibles con todos los tamaños de máquina virtual de Azure (salvo con las de la serie Mv2). Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de VM seleccionadas:
 
 * [Serie B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [Serie DC](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
@@ -111,7 +111,7 @@ Actualmente, las SKU siguientes admiten imágenes de la generación 1 y de la ge
 * Windows Server 2016
 * Windows Server 2019
 
-Al seleccionar una SKU de Windows Server como oferta, en la pestaña **Avanzado**, hay una opción para crear una máquina virtual **Generación 1** (BIOS) o **Generación 2** (UEFI). Si selecciona **Gen 2**, asegúrese de que el tamaño de la máquina virtual seleccionado en la pestaña **Datos básicos** [se admite para máquinas virtuales de la generación 2](#generation-2-vm-sizes).
+Al seleccionar una SKU de Windows Server como oferta, en la pestaña **Avanzado**, hay una opción para crear una máquina virtual **Generación 1** (BIOS) o **Generación 2** (UEFI). Si selecciona **Gen 2**, asegúrese de que el tamaño de la máquina virtual seleccionado en la pestaña **Datos básicos**[se admite para máquinas virtuales de la generación 2](#generation-2-vm-sizes).
 
 ![Selección de la máquina virtual Generación 1 o Generación 2](./media/generation-2/gen1-gen2-select.png)
 
@@ -123,6 +123,12 @@ Por ejemplo, use el siguiente cmdlet de PowerShell para obtener una lista de las
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+También puede usar la CLI de Azure para ver las imágenes de segunda generación disponibles, organizadas por **publicador**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 Si va a crear una máquina virtual con Windows Server 2012 como sistema operativo, seleccione la SKU de máquina virtual de generación 1 (BIOS) o de generación 2 (UEFI), que tiene un aspecto similar al siguiente:

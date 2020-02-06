@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113842"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838265"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de enriquecimiento con IA
 
@@ -29,7 +29,7 @@ Como parte de la averiguación de documentos, hay un nuevo conjunto de parámetr
 
 No puede desactivar la normalización de imágenes. Las habilidades que iteran las imágenes esperan imágenes normalizadas. Para habilitar la normalización de imágenes en un indexador debe adjuntar un conjunto de aptitudes a ese indexador.
 
-| Parámetro de configuración | DESCRIPCIÓN |
+| Parámetro de configuración | Descripción |
 |--------------------|-------------|
 | imageAction   | Se establece en "none" si no debe realizar ninguna acción cuando se encuentran imágenes incrustadas o archivos de imagen. <br/>Se establece en "generateNormalizedImages" para generar una matriz de imágenes normalizadas como parte de la averiguación del documento.<br/>Se establece en "generateNormalizedImagePerPage" para generar una matriz de imágenes normalizadas donde en los archivos PDF del origen de datos, cada página se representa en una imagen de salida.  La funcionalidad es igual que "generateNormalizedImages" para tipos de archivos que no son PDF.<br/>En el caso de todas las opciones que no sean "none", las imágenes se expondrán en el campo *normalized_images*. <br/>El valor predeterminado es "none". Esta configuración solo es pertinente para los orígenes de datos de blob cuando "dataToExtract" se establece en "contentAndMetadata". <br/>Se extraerá un máximo de 1000 imágenes de un documento determinado. Si hay más de 1000 imágenes en un documento, se extraerán las 1000 primeras y se generará una advertencia. |
 |  normalizedImageMaxWidth | El ancho máximo (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000. El valor máximo permitido es 10 000. | 
@@ -60,9 +60,9 @@ Especifique imageAction en su [definición de indexador](https://docs.microsoft.
 
 Cuando *imageAction* se establece en un valor distinto de "none", el nuevo campo *normalized_images* contendrá una matriz de imágenes. Cada imagen es un tipo complejo que tiene los siguientes miembros:
 
-| Miembro de la imagen       | DESCRIPCIÓN                             |
+| Miembro de la imagen       | Descripción                             |
 |--------------------|-----------------------------------------|
-| data               | Cadena codificada en BASE64 de la imagen normalizada en formato JPEG.   |
+| datos               | Cadena codificada en BASE64 de la imagen normalizada en formato JPEG.   |
 | width              | Ancho de la imagen normalizada en píxeles. |
 | height             | Altura de la imagen normalizada en píxeles. |
 | originalWidth      | El ancho original de la imagen antes de la normalización. |
@@ -213,10 +213,10 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
         }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Habilidad Análisis de imágenes](cognitive-search-skill-image-analysis.md)
++ [Aptitud de análisis de imágenes](cognitive-search-skill-image-analysis.md)
 + [Habilidad de OCR](cognitive-search-skill-ocr.md)
 + [Habilidad de Combinación de texto](cognitive-search-skill-textmerger.md)
-+ [Definición de un conjunto de habilidades](cognitive-search-defining-skillset.md)
-+ [Asignación a campos de índice](cognitive-search-output-field-mapping.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Cómo asignar campos enriquecidos](cognitive-search-output-field-mapping.md)

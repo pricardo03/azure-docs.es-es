@@ -6,18 +6,19 @@ author: billmath
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295386"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897054"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factores que influyen en el rendimiento de Azure AD Connect
 
@@ -29,7 +30,7 @@ Azure AD Connect sincroniza su instancia de Active Directory en Azure AD. Este s
 | Escala| El número de objetos, como usuarios, grupos y unidades organizativas, que administrará Azure AD Connect. |
 | Hardware| El hardware (físico o virtual) para Azure AD Connect y la capacidad de rendimiento dependiente de cada componente de hardware, incluida la configuración de la CPU, la memoria, la red y el disco duro. |
 | Configuración| Cómo procesa Azure AD Connect los directorios y la información. |
-| Carga| Frecuencia de cambios de objeto. Las cargas pueden variar durante una hora, día o semana. Dependiendo del componente, es posible que tenga que diseñar para carga máxima o carga media. |
+| Cargar| Frecuencia de cambios de objeto. Las cargas pueden variar durante una hora, día o semana. Dependiendo del componente, es posible que tenga que diseñar para carga máxima o carga media. |
 
 El propósito de este documento es describir los factores que afectan al rendimiento del motor de aprovisionamiento de Azure AD Connect. Las organizaciones grandes o complejas (organizaciones que aprovisionan más de 100 000 objetos) pueden usar las recomendaciones para optimizar su implementación de Azure AD Connect si experimentan alguno de los problemas de rendimiento que se describen aquí. Los otros componentes de Azure AD Connect, como los agentes y el [estado de Azure AD Connect](how-to-connect-health-agent-install.md) no se tratan aquí.
 
@@ -95,7 +96,7 @@ Las operaciones siguientes se incluyen en un ciclo de sincronización completa:
 > [!NOTE]
 > Se requiere una planeación cuidadosa cuando se realizan actualizaciones en masa de muchos objetos en Active Directory o Azure AD. Las actualizaciones en masa harán que el proceso de sincronización diferencial tarde más tiempo al importar, ya que muchos objetos se cambiaron. Pueden producirse importaciones largas incluso si la actualización en masa no afecta al proceso de sincronización. Por ejemplo, asignar licencias a muchos usuarios en Azure AD dará lugar a un largo ciclo de importación desde Azure AD, pero no resultará en ningún cambio de atributo en Active Directory.
 
-### <a name="synchronization"></a>Sincronización
+### <a name="synchronization"></a>Synchronization
 
 El tiempo de ejecución del proceso de sincronización tiene las siguientes características de rendimiento:
 

@@ -3,20 +3,20 @@ title: 'Muestreo de datos en tablas de HDInsight Hive de Azure: proceso de cienc
 description: Reducir el tamaño de los datos almacenados en tablas de Azure HDInsight Hive mediante consultas de Hive para reducirlos a un tamaño más manejable para el análisis.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042890"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720000"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Muestreo de datos en tablas de HDInsight Hive de Azure
 En este artículo, se describe cómo reducir el tamaño de los datos almacenados en tablas de Azure HDInsight Hive mediante consultas de Hive para reducirlos a un tamaño más manejable para el análisis. En él se tratan tres métodos de muestreo que se utilizan normalmente:
@@ -31,7 +31,7 @@ Si el conjunto de datos que pretende analizar es grande, es recomendable reducir
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Cómo enviar consultas de Hive
-Las consultas de Hive se pueden enviar desde la consola de línea de comandos de Hadoop del nodo principal del clúster de Hadoop. Para ello, inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre el envío de consultas de Hive en la consola de línea de comandos de Hadoop, consulte [Envío de consultas de Hive](move-hive-tables.md#submit).
+Las consultas de Hive se pueden enviar desde la consola de línea de comandos de Hadoop del nodo principal del clúster de Hadoop.  Inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre el envío de consultas de Hive en la consola de línea de comandos de Hadoop, consulte [Envío de consultas de Hive](move-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Muestra aleatoria uniforme
 El muestreo aleatorio uniforme implica que cada fila del conjunto de datos tiene la misma probabilidad de muestreo. Se puede implementar agregando un campo adicional de rand() al conjunto de datos en la consulta "select" interna y, en la consulta "select" externa, esa condición en ese campo aleatorio.

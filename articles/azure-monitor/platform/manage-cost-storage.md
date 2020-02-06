@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 8c4169ccfb35b74b92ea4996cbc779bac35d6ccb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045176"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715864"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor
 
@@ -149,7 +149,7 @@ Para establecer la retención de un tipo de datos determinado (en este ejemplo, 
 
 Los tipos de datos `Usage` y `AzureActivity` no se pueden establecer con retención personalizada. Adoptarán el máximo de la retención predeterminada del área de trabajo o 90 días. 
 
-Una herramienta excelente para conectarse directamente a Azure Resource Manager para establecer la retención por tipo de datos es la herramienta OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Más información sobre ARMclient en los artículos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) y [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  A continuación se muestra un ejemplo de uso de ARMClient, el establecimiento de los datos de SecurityEvent con una retención de 730 días:
+Una herramienta excelente para conectarse directamente a Azure Resource Manager para establecer la retención por tipo de datos es la herramienta OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Más información sobre ARMclient en los artículos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) y [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  A continuación se muestra un ejemplo de uso de ARMClient, estableciendo los datos de SecurityEvent con una retención de 730 días:
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"

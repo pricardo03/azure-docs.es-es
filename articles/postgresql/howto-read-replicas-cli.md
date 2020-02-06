@@ -5,22 +5,22 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: fb0803987428ced688e83a37fae36c61b63a28a8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/23/2020
+ms.openlocfilehash: b10ac3b4bc9dacd723b8b1265911df721b781189
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770125"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774800"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creación y administración de réplicas de lectura desde la CLI de Azure con API REST
 
 En este artículo aprenderá a crear y administrar réplicas de lectura en Azure Database for PostgreSQL desde la CLI de Azure con API REST. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 - [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-up-azure-cli.md) que se usará como servidor maestro.
@@ -37,6 +37,11 @@ El parámetro `azure.replication_support` debe establecerse en **REPLICA** en el
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
 
+> [!NOTE]
+> Si al intentar establecer azure.replication_support desde la CLI de Azure recibe un error que indica que el valor proporcionado no es válido, es probable que el servidor ya tenga establecido REPLICA de forma predeterminada. Un error impide que esta configuración se refleje correctamente en los servidores más recientes donde REPLICA es el valor predeterminado interno. <br><br>
+> Puede omitir los pasos de preparación maestros y pasar a crear la réplica. <br><br>
+> Si quiere confirmar que el servidor está en esta categoría, visite la página de replicación del servidor de Azure Portal. "Deshabilitar replicación" estará atenuada y "Agregar réplica" estará activa en la barra de herramientas.
+
 2. Reinicie el servidor para aplicar el cambio.
 
    ```azurecli-interactive
@@ -47,10 +52,10 @@ El parámetro `azure.replication_support` debe establecerse en **REPLICA** en el
 
 El comando [az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) requiere los siguientes parámetros:
 
-| Configuración | Valor de ejemplo | DESCRIPCIÓN  |
+| Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
-| Nombre | mydemoserver-replica | Nombre del nuevo servidor de réplica que se crea. |
+| name | mydemoserver-replica | Nombre del nuevo servidor de réplica que se crea. |
 | source-server | mydemoserver | Nombre o identificador de recurso del servidor maestro existente desde el que replicar. |
 
 En el siguiente ejemplo de la CLI, la réplica se crea en la misma región que el maestro.
@@ -70,7 +75,7 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 
 Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor maestro de uso general u optimizado para memoria y no ha reiniciado el servidor, recibirá un error. Complete estos dos pasos antes de crear una réplica.
 
-Se crea una réplica con la misma configuración de proceso y almacenamiento que la maestra. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
 
 > [!IMPORTANT]
 > Antes de actualizar la configuración de un servidor maestro a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
@@ -150,7 +155,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor maestro de uso general u optimizado para memoria y no ha reiniciado el servidor, recibirá un error. Complete estos dos pasos antes de crear una réplica.
 
-Se crea una réplica con la misma configuración de proceso y almacenamiento que la maestra. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
 
 
 > [!IMPORTANT]

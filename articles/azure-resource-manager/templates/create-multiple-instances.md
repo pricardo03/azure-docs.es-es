@@ -3,12 +3,12 @@ title: Implementación de varias instancias de recursos
 description: Use la operación de copia y matrices en una plantilla del Administrador de recursos de Azure para iterar varias veces al implementar recursos.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 54d406771f64d97a3ba564556be6dc49677a732d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 0250f5ee64c91d8d75ad246271ab31324a2553f8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121988"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836936"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propiedad o iteración de variables en las plantillas de Azure Resource Manager
 
@@ -205,6 +205,10 @@ En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad dataDisks
 
 Tenga en cuenta que, cuando se usa `copyIndex` dentro de una iteración de propiedad, debe proporcionar el nombre de la iteración. No tiene que proporcionar el nombre cuando se usa con la iteración de recursos.
 
+> [!NOTE]
+> La iteración de propiedades también admite un argumento de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, como copyIndex ("dataDisks", 1).
+>
+
 Resource Manager expande la matriz `copy` durante la implementación. El nombre de la matriz se convierte en el nombre de la propiedad. Los valores de entrada se convierten en las propiedades del objeto. La plantilla implementada se convierte en:
 
 ```json
@@ -299,6 +303,10 @@ Puede usar la iteración de recursos y propiedades conjuntamente. Haga referenci
 ## <a name="variable-iteration"></a>Iteración variable
 
 Para crear varias instancias de una variable, use la propiedad `copy` en la sección de variables. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad `input`. Puede utilizar una propiedad `copy` que esté dentro de una variable o en el nivel superior de la sección de variables. Si usa `copyIndex` dentro de una iteración de variables, debe proporcionar el nombre de la iteración.
+
+> [!NOTE]
+> La iteración de variables también admite un argumento de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, como copyIndex ("diskNames", 1).
+>
 
 Para obtener un ejemplo sencillo de creación de una matriz de valores de cadena, consulte [Plantilla de copy array](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 

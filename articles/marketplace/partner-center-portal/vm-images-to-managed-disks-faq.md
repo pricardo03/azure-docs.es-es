@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 5eeb223601a3990ef899d7eea96378a8b2a28eee
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d85f6ba9d50b7d30930322ca34cb15edb30e1472
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933528"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775010"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Migración de imágenes de máquina virtual (VM) a almacenamiento de disco administrado en Azure Marketplace
 
@@ -56,6 +56,10 @@ Se recomienda migrar las imágenes en la fecha programada. Sin embargo, si tiene
 ### <a name="can-i-publish-updates-to-my-vm-images-during-the-move"></a>¿Puedo publicar actualizaciones en mis imágenes de máquina virtual durante la migración?
 
 No se pueden realizar actualizaciones en las imágenes de máquina virtual durante la migración.
+
+### <a name="will-the-publishing-process-change-after-my-vm-image-is-moved-to-managed-disk"></a>¿Va a cambiar el proceso de publicación después de que la imagen de la máquina virtual se mueva a Disco administrado?
+
+No, el proceso de publicación sigue igual. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

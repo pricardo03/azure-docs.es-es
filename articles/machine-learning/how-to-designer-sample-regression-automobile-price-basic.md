@@ -5,25 +5,25 @@ description: Cree un modelo de regresión de aprendizaje automático para predec
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 18a9f9d49dce96b037f10a95a458e52d020fe6c7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 6f4fe941cc44211f9f5d5e77b11043257b43a8ea
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311077"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963304"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Uso de la regresión para predecir los precios de los automóviles con el diseñador de Azure Machine Learning
 
-**Ejemplo de diseñador 1**
+**Ejemplo 1 del diseñador (versión preliminar)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Obtenga información sobre cómo compilar un modelo de regresión de aprendizaje automático sin tener que escribir una sola línea de código mediante el diseñador.
+Obtenga información sobre cómo compilar un modelo de regresión de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar).
 
 Esta canalización entrena un **regresor lineal** para predecir el precio de un automóvil en función de las características técnicas, como la marca, el modelo, la potencia y el tamaño. Como estamos intentando responder a la pregunta "¿cuánto?", esto se denomina un problema de regresión. Sin embargo, puede aplicar los mismos pasos fundamentales de este ejemplo para abordar cualquier tipo de problema de aprendizaje automático, ya sea una regresión, una clasificación, una agrupación en clústeres, etc.
 

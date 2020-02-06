@@ -3,26 +3,26 @@ title: 'Prueba del código de ciencia de datos con Azure DevOps Services: Proces
 description: Prueba de código de ciencia de datos en Azure con el conjunto de datos de predicción de ingresos de adultos UCI con el proceso de ciencia de datos en equipo y Azure DevOps Services
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336701"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722068"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Prueba del código de ciencia de datos en Azure con el proceso de ciencia de datos en equipo y Azure DevOps Services
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 
 
 ## <a name="introduction-on-code-testing"></a>Introducción a las pruebas de código
-La "prueba unitaria" es una práctica antigua para el desarrollo de software. Pero para la ciencia de datos, a menudo no resulta claro lo que significa y cómo se debe probar el código para distintas fases de un ciclo de vida de ciencia de datos, tales como:
+La "prueba unitaria" es una práctica antigua para el desarrollo de software. Pero en el caso de la ciencia de datos, a menudo no que claro lo que significa "prueba unitaria" y cómo se debe probar el código en las distintas fases de un ciclo de vida de ciencia de datos, tales como:
 
 * Preparación de los datos
 * Examen de calidad de datos
@@ -114,33 +114,33 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
     a. En el repositorio del proyecto, seleccione **Compilación y lanzamiento** y luego seleccione **+Nuevo** para crear un nuevo proceso de compilación.
 
-       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
+    ![Selecciones para iniciar un nuevo proceso de compilación](./media/code-test/create_new_build.PNG)
 
     b. Siga las indicaciones para seleccionar la ubicación del código fuente, el nombre del proyecto, el repositorio y la información de rama.
     
-       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
+    ![Código fuente, nombre, repositorio e información de rama](./media/code-test/fill_in_build_info.PNG)
 
     c. Seleccione una plantilla. Dado que no hay ninguna plantilla de proyecto de Python, empiece seleccionando **Proceso vacío**. 
 
-       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
+    ![Lista de plantillas y botón "Proceso vacío"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar un DSVM para finalizar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
+    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar una DSVM para completar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
     
-       ![Build and agent selections](./media/code-test/select_agent.PNG)
+    ![Selecciones de compilación y agentes](./media/code-test/select_agent.PNG)
 
-    e. Seleccione **+** en el panel izquierdo, para agregar una tarea para esta fase de compilación. Dado que vamos a ejecutar el script de Python **test1.py** para terminar todas las comprobaciones, esta tarea utiliza un comando de PowerShell para ejecutar código de Python.
+    e. Seleccione **+** en el panel izquierdo, para agregar una tarea para esta fase de compilación. Dado que vamos a ejecutar el script de Python **test1.py** para completar todas las comprobaciones, esta tarea utiliza un comando de PowerShell para ejecutar código de Python.
     
-       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
+    ![Panel "Agregar tareas" con PowerShell seleccionado](./media/code-test/add_task_powershell.PNG)
 
     f. En los detalles de PowerShell, rellene la información necesaria, como el nombre y la versión de PowerShell. Elija **Script en línea** como el tipo. 
     
-       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
+    En el cuadro **Script en línea**, puede escribir **python test1.py**. Asegúrese de que la variable de entorno está configurada correctamente para Python. Si necesita un kernel o una versión diferente de Python, puede especificar explícitamente la ruta de acceso, tal como se muestra en la figura: 
     
-       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
+    ![Detalles de PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    g. Seleccione **Guardar y poner en cola** para finalizar el proceso de canalización de compilación.
+    g. Seleccione **Guardar y poner en cola** para completar el proceso de canalización de compilación.
 
-       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
+    ![Botón "Guardar y poner en cola"](./media/code-test/save_and_queue_build_definition.PNG)
 
 Ahora, cada vez que se inserte una nueva confirmación en el repositorio de código, se iniciará automáticamente el proceso de compilación. (Aquí usamos maestro como el repositorio, pero puede definir cualquier rama). El proceso ejecuta el archivo **test1.py** en la máquina del agente para asegurarse de que todos los elementos definidos en el código se ejecutan correctamente. 
 

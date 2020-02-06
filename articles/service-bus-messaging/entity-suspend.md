@@ -1,6 +1,6 @@
 ---
-title: Entidades de mensajería de suspensión de Azure Service Bus | Microsoft Docs
-description: Suspenda y reactive entidades de mensajes de Azure Service Bus.
+title: Entidades de mensajería de suspensión de Azure Service Bus
+description: En este artículo se explica cómo suspender y reactivar temporalmente entidades de mensaje de Azure Service Bus (colas, temas y suscripciones).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170800"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760392"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspensión y reactivación de entidades de mensajería (deshabilitar)
 
@@ -41,7 +41,7 @@ El portal solo permite deshabilitar completamente las colas. También puede desh
 Los estados que se pueden establecer para una cola son:
 
 -   **Activa**: la cola está activa.
--   **Deshabilitado**: la cola se ha suspendido.
+-   **Disabled**: la cola se ha suspendido.
 -   **SendDisabled**: la cola se suspende parcialmente y se permite la recepción.
 -   **ReceiveDisabled**: la cola se suspende parcialmente y se permite el envío.
 

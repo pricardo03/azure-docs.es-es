@@ -3,7 +3,7 @@ title: 'Configuración del enrutamiento de tráfico de varios valores: Azure Tra
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico a puntos de conexión A/AAAA.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: allensu
-ms.openlocfilehash: 3e5e6cb55b86df8a48f96771fb2436afa8acaa18
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040371"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938779"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de varios valores en Traffic Manager
 
@@ -41,9 +41,9 @@ Cree un perfil de Traffic Manager que dirija el tráfico de usuario mediante el 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**:
     
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
+    | Nombre                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento de **varios valores**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
     | Resource group          | Seleccione *myResourceGroupTM1*. |
@@ -60,10 +60,10 @@ Agregue dos direcciones IP como puntos de conexión externos para el perfil de T
 2. En **perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión** y, a continuación, haga clic en **Agregar**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | type                    | Punto de conexión externo                                   |
-    | NOMBRE           | myEndpoint1                                        |
+    | Tipo                    | Punto de conexión externo                                   |
+    | Nombre           | myEndpoint1                                        |
     | Nombre de dominio completo (FQDN) o IP           | Escriba la dirección IP pública del punto de conexión que desea agregar a este perfil de Traffic Manager                         |
     |        |           |
 
@@ -74,7 +74,7 @@ Agregue dos direcciones IP como puntos de conexión externos para el perfil de T
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre el [método de enrutamiento del tráfico ponderado](traffic-manager-configure-weighted-routing-method.md).
+- Información sobre el [método de enrutamiento de tráfico ponderado](traffic-manager-configure-weighted-routing-method.md).
 - Sepa cómo funciona el [método de enrutamiento por prioridad](traffic-manager-configure-priority-routing-method.md).
 - Información sobre el [método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md)
 - Información sobre el [método de enrutamiento geográfico](traffic-manager-configure-geographic-routing-method.md).

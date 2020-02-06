@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 3f16d84f66f2da6094054d161f286070fc86a73b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720130"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720935"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Almacenamiento de secretos en un almacén de claves en Azure DevTest Labs
 Puede que al usar Azure DevTest Labs deba escribir un secreto complejo: una contraseña para la máquina virtual Windows, una clave SSH pública para la máquina virtual Linux o un token de acceso personal para clonar el repositorio de Git mediante un artefacto. Los secretos son normalmente largos y tienen caracteres aleatorios. Por lo tanto, escribirlos puede ser complicado y supone un inconveniente, especialmente si se usa el mismo secreto varias veces.

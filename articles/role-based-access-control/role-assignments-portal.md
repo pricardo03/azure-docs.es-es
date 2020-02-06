@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 17a325e96e9709b60da2f23d1dc68e3300fde80c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4003e11120c13624379cf7dad9334e896cd3a7a8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707862"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774678"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal
 
@@ -27,15 +27,15 @@ ms.locfileid: "74707862"
 
 Si tiene que asignar roles de Administrador en Azure Active Directory, consulte [Ver y asignar roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para agregar o quitar asignaciones de roles, debe tener:
 
 - Permisos `Microsoft.Authorization/roleAssignments/write` y `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de acceso de usuarios](built-in-roles.md#user-access-administrator) o [propietario](built-in-roles.md#owner)
 
-## <a name="overview-of-access-control-iam"></a>Introducción a Control de acceso (IAM)
+## <a name="access-control-iam"></a>Control de acceso (IAM)
 
-**Control de acceso (IAM)** es la hoja que se usa para asignar roles. También se conoce como administración de identidades y acceso y aparece en varias ubicaciones en Azure Portal. A continuación se muestra un ejemplo de la hoja Control de acceso (IAM) de una suscripción.
+**Control de acceso (IAM)** es la hoja que se usa para asignar roles y conceder acceso a los recursos de Azure. También se conoce como administración de identidades y acceso y aparece en varias ubicaciones en Azure Portal. A continuación se muestra un ejemplo de la hoja Control de acceso (IAM) de una suscripción.
 
 ![Hoja Control de acceso (IAM) para una suscripción](./media/role-assignments-portal/access-control-subscription.png)
 
@@ -47,7 +47,7 @@ Para ser más eficaz con la hoja Control de acceso (IAM), es útil si puede resp
 
 1. **¿Qué rol necesitan?**
 
-    Los permisos se agrupan en roles. Puede seleccionar en una lista de varios [roles integrados](built-in-roles.md) o utilizar sus propios roles personalizados.
+    Los permisos se agrupan en roles. Puede seleccionarlos de una lista de varios [roles integrados](built-in-roles.md) o utilizar sus propios roles personalizados.
 
 1. **¿Dónde necesitan acceso?**
 
@@ -55,21 +55,25 @@ Para ser más eficaz con la hoja Control de acceso (IAM), es útil si puede resp
 
 ## <a name="add-a-role-assignment"></a>Adición de una asignación de roles
 
-Siga estos pasos para asignar un rol en distintos ámbitos.
+En RBAC de Azure, para conceder acceso a un recurso de Azure, se agrega una asignación de roles. Siga estos pasos para asignar un rol.
 
-1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione el ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
+1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione el ámbito al que quiere conceder acceso. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
-1. Haga clic en el recurso específico.
+1. Haga clic en el recurso específico de ese ámbito.
 
 1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
-1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles.
+    ![Control de acceso (IAM) y la pestaña Asignaciones de roles](./media/role-assignments-portal/role-assignments.png)
+
+1. Haga clic en **Agregar** > **Agregar asignación de roles**.
 
    Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
    ![Menú Agregar](./media/role-assignments-portal/add-menu.png)
+
+    Se abre el panel Agregar asignación de roles.
 
    ![Panel Agregar asignación de roles](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -81,23 +85,29 @@ Siga estos pasos para asignar un rol en distintos ámbitos.
 
    Transcurridos unos instantes, se asigna el rol a la entidad de seguridad en el ámbito seleccionado.
 
+    ![Agregar asignación de roles guardado](./media/role-assignments-portal/add-role-assignment-save.png)
+
 ## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Asignación de un usuario como administrador de una suscripción
 
 Para que un usuario sea administrador de una suscripción de Azure, asígnele el rol [Propietario](built-in-roles.md#owner) en el ámbito de la suscripción. El rol Propietario da al usuario acceso total a todos los recursos de la suscripción, incluido el derecho a conceder acceso a otros. Estos pasos son los mismos que para la asignación de cualquier otro rol.
 
 1. En Azure Portal, haga clic en **Todos los servicios** y luego en **Suscripciones**.
 
-1. Haga clic en la suscripción en la que desea agregar una asignación de roles.
+1. Haga clic en la suscripción a la que quiere conceder acceso.
 
 1. Haga clic en **Control de acceso (IAM).**
 
-1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
+1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles de esta suscripción.
 
-1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles.
+    ![Control de acceso (IAM) y la pestaña Asignaciones de roles](./media/role-assignments-portal/role-assignments.png)
+
+1. Haga clic en **Agregar** > **Agregar asignación de roles**.
 
    Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
    ![Menú Agregar](./media/role-assignments-portal/add-menu.png)
+
+    Se abre el panel Agregar asignación de roles.
 
    ![Panel Agregar asignación de roles](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -111,7 +121,7 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
 ## <a name="remove-a-role-assignment"></a>Eliminación de una asignación de rol
 
-En RBAC, para quitar el acceso hay que quitar una asignación de roles. Siga estos pasos para eliminar una asignación de roles.
+En RBAC de Azure, para quitar el acceso de un recurso de Azure, se quita una asignación de roles. Siga estos pasos para eliminar una asignación de roles.
 
 1. Abra **Control de acceso (IAM)** en un ámbito como, por ejemplo, grupo de administración, suscripción, grupo de recursos o recurso, en donde quiere quitar el acceso.
 
@@ -127,7 +137,7 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Siga est
 
 1. En el mensaje de eliminación de asignación de roles que aparece, haga clic en **Sí**.
 
-    Las asignaciones de roles heredadas no se pueden quitar. Si necesita quitar una asignación de roles heredada, debe hacerlo en el ámbito en el que se creó. En la columna **Ámbito**, junto a **(Heredado)** , hay un vínculo que lo dirige al ámbito donde se asignó este rol. Vaya al ámbito indicado ahí para quitar la asignación de roles.
+    Si ve un mensaje que indica que las asignaciones de roles heredadas no se pueden quitar, significa que intenta quitar una asignación de roles en un ámbito secundario. Debe abrir el control de acceso (IAM) en el ámbito en el que se asignó el rol e intentarlo de nuevo. Una forma rápida de abrir el control de acceso (IAM) en el ámbito correcto es examinar la columna **Ámbito** y hacer clic en el vínculo situado junto a **(Heredado)** .
 
    ![Mensaje de eliminación de asignación de roles](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 

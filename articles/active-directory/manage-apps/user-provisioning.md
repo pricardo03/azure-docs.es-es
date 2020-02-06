@@ -15,16 +15,16 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d515731b8da186ef7e44a397d5abf87dfa65e83a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9848e686188288b507a0a74d0f9fa16f8f0e4253
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433782"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841206"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones con Azure Active Directory
 
-En Azure Active Directory (Azure AD), el término **aprovisionamiento de aplicaciones** hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a las que los usuarios necesitan acceso. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Algunos escenarios comunes son el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) y [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), entre otras.
+En Azure Active Directory (Azure AD), el término **aprovisionamiento de aplicaciones** hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a las que los usuarios necesitan acceso. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Algunos escenarios comunes son el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md) y [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), entre otras.
 
 ![Diagrama de información general del aprovisionamiento](media/user-provisioning/provisioning-overview.png)
 
@@ -63,11 +63,11 @@ Azure AD ofrece compatibilidad preintegrada con muchas aplicaciones SaaS y sist
 
    ![Logotipo de Salesforce](media/user-provisioning/gallery-app-logos.png)
 
-   Si quiere solicitar una nueva aplicación para el aprovisionamiento, puede [solicitar que la aplicación se integre con la galería de aplicaciones](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). Si se da una solicitud de aprovisionamiento de usuarios, es necesario que la aplicación tenga un punto de conexión compatible con SCIM. Solicite al proveedor de la aplicación que siga el estándar SCIM para que podamos incorporar la aplicación a nuestra plataforma rápidamente.
+   Si quiere solicitar una nueva aplicación para el aprovisionamiento, puede [solicitar que la aplicación se integre con la galería de aplicaciones](../develop/howto-app-gallery-listing.md). Si se da una solicitud de aprovisionamiento de usuarios, es necesario que la aplicación tenga un punto de conexión compatible con SCIM. Solicite al proveedor de la aplicación que siga el estándar SCIM para que podamos incorporar la aplicación a nuestra plataforma rápidamente.
 
 * **Aplicaciones que admiten SCIM 2.0**. Para obtener información sobre cómo conectar genéricamente aplicaciones que implementan API de administración de usuarios basadas en SCIM 2.0, consulte [Aprovisionamiento de usuarios de SCIM con Azure Active Directory (Azure AD)](use-scim-to-provision-users-and-groups.md).
 
-## <a name="what-is-scim"></a>¿Qué es SCIM?
+## <a name="what-is-system-for-cross-domain-identity-management-scim"></a>¿Qué es el sistema de administración de identidades entre dominios (SCIM)?
 
 Para ayudar a automatizar el aprovisionamiento y el desaprovisionamiento, las aplicaciones exponen las API de grupo y de usuario propietario. Sin embargo, cualquier persona que intente administrar usuarios en más de una aplicación le indicará que cada una intenta realizar las mismas acciones sencillas, como crear o actualizar usuarios, agregar usuarios a grupos o cancelar el aprovisionamiento de usuarios. Aún así, todas estas acciones sencillas se implementan de forma que difieren ligeramente, con diferentes rutas de acceso de puntos de conexión, distintos métodos para especificar la información del usuario y un esquema distinto para representar cada elemento de información.
 
@@ -81,7 +81,7 @@ Las aplicaciones de la galería de Azure AD admiten uno de los dos modos de apr
 
 * El aprovisionamiento **manual** significa que todavía no hay ningún conector de aprovisionamiento de Azure AD automático para la aplicación. Las cuentas de usuario deben crearse manualmente, por ejemplo, agregando usuarios directamente en el portal administrativo de la aplicación o cargando una hoja de cálculo con los detalles de estas cuentas. Consulte la documentación suministrada por la aplicación o póngase en contacto con su desarrollador para determinar qué mecanismos hay disponibles.
 
-* **Automático** significa que se ha desarrollado un conector de aprovisionamiento de Azure AD para esta aplicación. Debe seguir el tutorial de configuración específico para configurar el aprovisionamiento de la aplicación. Puede encontrar tutoriales sobre aplicaciones en [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+* **Automático** significa que se ha desarrollado un conector de aprovisionamiento de Azure AD para esta aplicación. Debe seguir el tutorial de configuración específico para configurar el aprovisionamiento de la aplicación. Puede encontrar tutoriales sobre aplicaciones en [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).
 
 En la galería de Azure AD, las aplicaciones que admiten el aprovisionamiento automático se designan mediante un icono de **aprovisionamiento**. Cambie a la nueva experiencia en versión preliminar de la galería para ver estos iconos (en el banner situado en la parte superior de la **página para agregar una aplicación**, seleccione el vínculo que indica **Haga clic aquí para probar la nueva y mejorada experiencia de la galería de aplicaciones**).
 
@@ -91,7 +91,7 @@ El modo de aprovisionamiento compatible con una aplicación también se puede ve
 
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>¿Cómo configuro el aprovisionamiento automático para una aplicación?
 
-En el caso de las aplicaciones preintegradas que se enumeran en la galería, se ofrece una guía paso a paso para configurar el aprovisionamiento automático. Consulte la [lista de tutoriales para las aplicaciones integradas de la galería](https://docs.microsoft.com/azure/active-directory/saas-apps/). En el vídeo siguiente se muestra cómo configurar el aprovisionamiento automático de usuarios para SalesForce.
+En el caso de las aplicaciones preintegradas que se enumeran en la galería, se ofrece una guía paso a paso para configurar el aprovisionamiento automático. Consulte la [lista de tutoriales para las aplicaciones integradas de la galería](../saas-apps/tutorial-list.md). En el vídeo siguiente se muestra cómo configurar el aprovisionamiento automático de usuarios para SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 

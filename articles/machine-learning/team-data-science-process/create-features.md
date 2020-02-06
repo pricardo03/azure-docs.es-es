@@ -3,20 +3,20 @@ title: 'Ingeniería de características en ciencia de datos: proceso de ciencia 
 description: Explica el propósito del diseño de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e633c5742b8a7882149a347ced46e55440cb6913
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02f109f250fa9bcd4c77cecd0b1b3e4514ecd8bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492438"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721139"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingeniería de características en ciencia de datos
 En este artículo se explica el propósito del diseño de características y se ofrecen ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Los ejemplos usados para ilustrar este proceso se extraen de Azure Machine Learning Studio. 
@@ -25,7 +25,7 @@ Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)
 
 La ingeniería de características intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características de los datos sin procesar que facilitan el proceso de aprendizaje. La ingeniería y la selección de características forman parte del proceso TDSP descrito en [¿Cuál es el ciclo de vida de la ciencia de datos en equipos (TDSP)?](overview.md) La selección y la ingeniería de características son partes del paso del **desarrollo de características** del TDSP. 
 
-* **Ingeniería de características**: este proceso trata de crear más características pertinentes a partir de las que tengamos sin procesar en los datos, así como de mejorar la eficacia predictiva del algoritmo de aprendizaje.
+* **Diseño de características**: este proceso trata de crear más características pertinentes a partir de las que tengamos sin procesar en los datos, así como de mejorar la eficacia predictiva del algoritmo de aprendizaje.
 * **Selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
@@ -57,7 +57,7 @@ Con el objetivo de construir características eficaces en los datos de entrenami
 3. C = el número de bicicletas alquiladas en cada uno de los 12 días anteriores a la misma hora
 4. D = el número de bicicletas arrendadas en cada una de las 12 semanas anteriores a la misma hora y el mismo día
 
-Aparte del conjunto de funciones A, que ya existe en los datos sin procesar originales, los otros tres conjuntos de funciones se crean mediante el proceso de diseño de funciones. El conjunto de características B captura cada demanda de bicicletas reciente. El conjunto de características C captura la demanda de bicicletas en una hora específica. El conjunto de características D captura la demanda de bicicletas en una hora específica y un día de la semana específico. Los conjuntos de datos de entrenamiento incluyen el conjunto de características A, A+B, A+B+C y A+B+C+D, respectivamente.
+Aparte del conjunto de funciones A, que ya existe en los datos sin procesar originales, los otros tres conjuntos de funciones se crean mediante el proceso de diseño de funciones. El conjunto de funciones B captura la demanda de bicicletas reciente. El conjunto de características C captura la demanda de bicicletas en una hora específica. El conjunto de características D captura la demanda de bicicletas en una hora específica y un día de la semana específico. Los conjuntos de datos de entrenamiento incluyen el conjunto de características A, A+B, A+B+C y A+B+C+D, respectivamente.
 
 En el experimento de Azure Machine Learning, estos cuatro conjuntos de datos de entrenamiento se forman a través de cuatro ramas del conjunto de datos de entrada procesado previamente. Con la excepción de la rama que se encuentra más a la izquierda, cada una de estas ramas contiene un módulo [Ejecutar script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), en el que las características derivadas (conjuntos de características B, C y D) se construyen y anexan respectivamente al conjunto de datos importado. En la siguiente figura se muestra el script de R que se usa para crear el conjunto de características B en la segunda rama a la izquierda.
 
@@ -67,14 +67,14 @@ La comparación de los resultados de rendimiento de los cuatro modelos se resume
 
 ![comparación de resultados](./media/create-features/result1.png)
 
-Las características A+B+C muestran los mejores resultados. Observe que la tasa de errores disminuye cuando se incluyen conjuntos de datos adicionales en los datos de entrenamiento. Esto verifica la presunción con respecto a que los conjuntos de características B y C proporcionan información pertinente adicional para la tarea de regresión. Sin embargo, agregar la característica D no parece proporcionar reducción adicional ninguna en lo que respecta a la tasa de errores.
+Las características A+B+C muestran los mejores resultados. La tasa de errores disminuye cuando se incluyen conjuntos de datos adicionales en los datos de entrenamiento. Esto verifica la presunción con respecto a que los conjuntos de características B y C proporcionan información pertinente adicional para la tarea de regresión. Sin embargo, agregar la característica D no parece proporcionar reducción adicional ninguna en lo que respecta a la tasa de errores.
 
-## <a name="example2"></a> Ejemplo 2: Creación de características en minería de texto
+## <a name="example2"></a> Ejemplo 2: Creación de características en minería de texto
 El diseño de características se aplica ampliamente en las tareas relacionadas con la minería de texto, como la clasificación de documentos y el análisis de opiniones. Por ejemplo, cuando quiere clasificar documentos en varias categorías, una hipótesis típica es que las palabras/frases incluidas que se encuentran en una categoría de documento tienen menos probabilidades de presentarse en otra categoría de documento. Dicho de otro modo, la frecuencia de la distribución de palabras/frases puede caracterizar distintas categorías de documento. En las aplicaciones de minería de texto, debido a que partes individuales de contenidos de texto normalmente sirven como los datos de entrada, es necesario el proceso de diseño de características para crear las características que implican las frecuencias de palabras/frases.
 
-Para llevar a cabo esta tarea, se aplica una técnica llamada **hash de características** para convertir eficazmente las características arbitrarias de texto en índices. En lugar de asociar cada característica de texto (palabras/frases) a un índice determinado, este método funciona mediante la aplicación de una función de hash a las características y el uso de sus valores de hash como índices directamente.
+Para llevar a cabo esta tarea, se aplica una técnica llamada **hash de características** que permite convertir eficazmente las características arbitrarias de texto en índices. En lugar de asociar cada característica de texto (palabras/frases) a un índice determinado, este método funciona mediante la aplicación de una función de hash a las características y el uso de sus valores de hash como índices directamente.
 
-En Azure Machine Learning, existe un módulo llamado [Hash de características](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) que crea oportunamente estas características de palabras/frases. La figura siguiente muestra un ejemplo del uso de este módulo. El conjunto de datos de entrada contiene dos columnas: la clasificación de libro, que va de 1 a 5, y el contenido mismo de la reseña. El objetivo de este módulo [Hash de características](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) es recuperar una gran cantidad de características nuevas que muestran la frecuencia de repetición de las palabras/frases correspondientes dentro de la reseña de ese libro en especial. Para usar este módulo, complete los siguientes pasos:
+En Azure Machine Learning, existe un módulo llamado [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) (Hash de características) que crea oportunamente las características de palabras y frases. La figura siguiente muestra un ejemplo del uso de este módulo. El conjunto de datos de entrada contiene dos columnas: la clasificación de libro, que va de 1 a 5, y el contenido mismo de la reseña. El objetivo de este módulo [Hash de características](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) es recuperar una gran cantidad de características nuevas que muestran la frecuencia de repetición de las palabras/frases correspondientes dentro de la reseña de ese libro en especial. Para usar este módulo, complete los siguientes pasos:
 
 * Primero, seleccione la columna que contiene el texto de entrada ("Col2" en este ejemplo).
 * Segundo, defina el "Tamaño de bits de hash" en 8,lo que significa que se crearán 2^8=256 características. La palabra/frase en todo el texto tendrá hash en 256 índices. El parámetro "Tamaño de bits de hash" va de 1 a 31. Es menos probable que las palabras/frases tengan hash en el mismo índice si este valor se define para que sea un número mayor.

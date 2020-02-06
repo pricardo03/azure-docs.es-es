@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dcc2d6fc252f288f15e2583012798b4d0e9cee6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169435"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841972"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configuración del inicio de sesión único basado en SAML en aplicaciones que no están en la galería
 
@@ -26,7 +26,7 @@ Al [agregar una aplicación de la galería](add-gallery-app.md) o una [aplicaci�
 > [!NOTE]
 > ¿Desea agregar una aplicación de galería? Consulte las instrucciones de configuración paso a paso en la [lista de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md)
 
-Para configurar un inicio de sesión único de SAML para una aplicación que no esté en la galería sin escribir código, debe tener una suscripción o Azure AD Premium, y la aplicación debe ser compatible con SAML 2.0. Para más información acerca de las versiones de Azure AD, visite [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Para configurar un inicio de sesión único de SAML para una aplicación que no esté en la galería sin escribir código, debe tener una suscripción junto con una licencia de Azure AD Premium, y la aplicación debe ser compatible con SAML 2.0. Para más información acerca de las versiones de Azure AD, visite [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -50,7 +50,7 @@ Si la aplicación no se ha agregado a su inquilino de Azure AD, consulte [Incor
 
 1. Escriba la siguiente configuración. El proveedor de la aplicación le proporcionará estos valores. Puede especificar los valores manualmente o cargar un archivo de metadatos para extraer el valor de los campos.
 
-    | Opción de configuración básica de SAML | Iniciado por el proveedor de servicios | Iniciado por IdP | DESCRIPCIÓN |
+    | Opción de configuración básica de SAML | Iniciado por el proveedor de servicios | Iniciado por IdP | Descripción |
     |:--|:--|:--|:--|
     | **Identificador (identificador de entidad)** | Obligatorio para algunas aplicaciones | Obligatorio para algunas aplicaciones | Identifica de forma única la aplicación. Azure AD envía el identificador a la aplicación como el parámetro Audiencia del token SAML. Se espera que la aplicación lo valide. Este valor también aparece como el id. de entidad en los metadatos SAML proporcionados por la aplicación. Escriba una dirección URL que use el siguiente modelo: "https://<subdomain>.contoso.com" *Puede encontrar este valor como el elemento **Issuer** (Emisor) en el elemento **AuthnRequest** (solicitud SAML) enviado por la aplicación.* |
     | **URL de respuesta** | Obligatorio | Obligatorio | Especifica el lugar donde la aplicación espera recibir el token SAML. La dirección URL de respuesta también se conoce como dirección URL del Servicio de consumidor de aserciones (ACS). Puede usar los campos adicionales de URL de respuesta para especificar varias direcciones URL de respuesta. Por ejemplo, puede que necesite direcciones URL de respuesta adicionales para varios subdominios. O bien, con fines de prueba, puede especificar varias direcciones URL de respuesta (host local y direcciones URL públicas) al mismo tiempo. |
@@ -70,11 +70,11 @@ Cuando un usuario se autentique en la aplicación, Azure AD emite un token SAML
 
 2. Compruebe el **Valor de identificador de nombre**. El valor predeterminado es *user.principalname*. El identificador de usuario permite identificar de manera exclusiva a cada usuario dentro de la aplicación. Por ejemplo, si la dirección de correo electrónico es a la vez el nombre de usuario y el identificador único, establezca el valor en *user.mail*.
 
-3. Para modificar el **valor de identificador de nombre**, seleccione el icono **Editar** (un lápiz) del campo **Valor de identificador de nombre**. Realice los cambios que considere necesarios en el formato y el origen del identificador. Para más información, consulte [Edición de NameId](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Al acabar, guarde los cambios. 
+3. Para modificar el **valor de identificador de nombre**, seleccione el icono **Editar** (un lápiz) del campo **Valor de identificador de nombre**. Realice los cambios que considere necesarios en el formato y el origen del identificador. Para más información, consulte [Edición de NameId](../develop/active-directory-saml-claims-customization.md#editing-nameid). Al acabar, guarde los cambios. 
  
 4. Para configurar notificaciones de grupo, seleccione el icono **Editar** para el campo **Grupos devueltos en la notificación**. Para más información, consulte [Configuración de notificaciones de grupos](../hybrid/how-to-connect-fed-group-claims.md).
 
-5. Para agregar una notificación, seleccione **Agregar nueva notificación** en la parte superior de la página. Escriba el **nombre** y seleccione el origen adecuado. Si selecciona el origen **Atributo**, deberá elegir el **Atributo de origen** que quiere usar. Si selecciona el origen **Traducción**, deberá elegir los valores de **Transformación** y **Parámetro 1** que quiere usar. Para más información consulte [Incorporación de notificaciones específicas de la aplicación](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Al acabar, guarde los cambios. 
+5. Para agregar una notificación, seleccione **Agregar nueva notificación** en la parte superior de la página. Escriba el **nombre** y seleccione el origen adecuado. Si selecciona el origen **Atributo**, deberá elegir el **Atributo de origen** que quiere usar. Si selecciona el origen **Traducción**, deberá elegir los valores de **Transformación** y **Parámetro 1** que quiere usar. Para más información consulte [Incorporación de notificaciones específicas de la aplicación](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Al acabar, guarde los cambios. 
 
 6. Seleccione **Guardar**. La nueva notificación aparece en la tabla.
 
@@ -120,7 +120,7 @@ Desde Azure AD, puede descargar el certificado activo en formato Base64 o Raw d
 
 4. Si realizó cambios, seleccione **Guardar** en la parte superior de **Certificado de firma de SAML**. 
 
-## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Paso 4 Configuración de la aplicación para que use Azure AD
+## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Paso 4. Configuración de la aplicación para que use Azure AD
 
 En la sección **Configurar \<applicationName>** se enumeran los valores que tienen que configurarse en la aplicación para que use Azure AD como proveedor de identidades de SAML. Los valores necesarios varían dependiendo de la aplicación. Para más información, consulte la documentación de SAML de la aplicación. Para encontrar la documentación, vaya al encabezado **Configurar \<nombreDeAplicación>** y seleccione **Ver instrucciones detalladas**. La documentación aparece en la página **Configurar inicio de sesión**. Esta página le guiará para rellenar los valores de **Dirección URL de inicio de sesión**, **Identificador de Azure AD** y **URL de cierre de sesión** en el encabezado **Configurar \<nombreDeAplicación>** .
 
@@ -150,7 +150,7 @@ Si aparece un mensaje de error, realice los pasos siguientes:
 
 1. Copie y pegue los detalles en el cuadro **What does the error look like?** (¿Qué aspecto tiene el error?).
 
-    ![Obtención de instrucciones para la resolución](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Obtención de instrucciones para la resolución](media/configure-single-sign-on-non-gallery-applications/error-guidance.png)
 
 2. Seleccione **Obtenga instrucciones para la resolución**. Se muestran la causa principal e instrucciones para la resolución.  En este ejemplo, el usuario no se asignó a la aplicación.
 

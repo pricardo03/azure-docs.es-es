@@ -1,6 +1,6 @@
 ---
 title: Mensajería asincrónica de Service Bus | Microsoft Docs
-description: Descripción de la mensajería asincrónica de Azure Service Bus.
+description: Obtenga información acerca de la forma en que Azure Service Bus admite la asincronía a través de un mecanismo de almacenamiento y reenvío con colas, temas y suscripciones.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531117"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761039"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Patrones de mensajería asincrónica y alta disponibilidad
 
@@ -62,10 +62,10 @@ Otros componentes de Azure en ocasiones pueden tener problemas de servicio ocasi
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Error de Service Bus en un subsistema individual
 Con cualquier aplicación, las circunstancias pueden provocar que algún componente interno de Service Bus pueda volverse incoherente. Cuando Service Bus lo detecta, recopila datos de la aplicación para ayudar a diagnosticar lo que sucedió. Una vez que se hayan recopilado los datos, la aplicación se reinicia para intentar que vuelva a un estado coherente. Este proceso ocurre con bastante rapidez y su resultado es que una entidad parezca que no está disponible durante unos minutos, aunque los tiempos de inactividad son mucho menores.
 
-En estos casos, la aplicación cliente genera una excepción [System.TimeoutException][System.TimeoutException] o [MessagingException][MessagingException]. Service Bus contiene una mitigación para este problema en forma de lógica de reintento de cliente automatizado. Si se agotó el período de reintento y no se entregó el mensaje, puede probar con otras de las funciones que se mencionan en el artículo sobre la [administración de desastres e interrupciones][handling outages and disasters].
+En estos casos, la aplicación cliente genera una excepción [System.TimeoutException][System.TimeoutException] o [MessagingException][MessagingException]. Service Bus contiene una mitigación para este problema en forma de lógica de reintento de cliente automatizado. Si al agotarse el período de reintento aún no se ha entregado el mensaje, puede probar con otras de las funciones que se mencionan en el artículo sobre la [administración de desastres e interrupciones][handling outages and disasters].
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha aprendido los conceptos básicos de la mensajería asincrónica de Service Bus, puede consultar más información sobre la [administración de desastres e interrupciones][handling outages and disasters].
+Ahora que ya conoce los conceptos básicos de la mensajería asincrónica de Service Bus, puede consultar más información sobre la [administración de desastres e interrupciones][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx

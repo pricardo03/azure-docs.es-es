@@ -4,12 +4,12 @@ description: Aprenda qué métricas se utilizan normalmente para el escalado aut
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364601"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845570"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
 
@@ -36,7 +36,7 @@ Las siguientes métricas de nivel de host se emiten de forma predeterminada para
 - [Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Métricas de host para conjuntos de escalado de máquinas virtuales Windows y Linux basadas en Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Métricas de SO invitado para máquinas virtuales Windows basadas en Resource Manager
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métricas de SO invitado para máquinas virtuales Windows basadas en Resource Manager
 Cuando crea una nueva máquina virtual en Azure, los diagnósticos se habilitan mediante la extensión Diagnósticos. La extensión de diagnósticos emite un conjunto de métricas realizadas desde dentro de la máquina virtual. Esto significa que puede escalar automáticamente fuera de las métricas que no se emiten de forma predeterminada.
 
 Puede generar una lista de las métricas mediante el siguiente comando en PowerShell.
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |Count |
 | \NetworkInterface\TotalCollisions |Count |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Métricas web comúnmente usadas (granja de servidores)
-También puede realizar el escalado automático basándose en métricas de servidor web comunes, como la longitud de cola Http. El nombre de la métrica es **HttpQueueLength**.  En la siguiente sección se muestran las métricas de granja de servidores (Web Apps) disponibles.
+## <a name="commonly-used-app-service-server-farm-metrics"></a>Métricas de App Service comúnmente usadas (granja de servidores)
+También puede realizar el escalado automático basándose en métricas de servidor web comunes, como la longitud de cola Http. El nombre de la métrica es **HttpQueueLength**.  En la siguiente sección se muestran las métricas de granja de servidores disponibles (App Service).
 
 ### <a name="web-apps-metrics"></a>Métricas de Web Apps
 Puede generar una lista de las métricas de Web Apps mediante el siguiente comando en PowerShell.
@@ -159,8 +159,8 @@ Por ejemplo, con una cuenta de almacenamiento clásico el parámetro de escalado
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 En el caso de una cuenta de almacenamiento (no clásica) el metricTrigger incluiría lo siguiente:
@@ -177,7 +177,7 @@ Puede escalar por la longitud de la cola de Service Bus, que es el número de me
 Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla de Resource Manager para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```

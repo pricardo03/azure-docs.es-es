@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 39153b05b16395cf2dfc0511efa601d1cc4da550
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e134c69f5d602cb4369e9410e3e2b9d3478b11a0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749707"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756256"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Objetivos de escalabilidad y rendimiento de las cuentas de almacenamiento de blob en páginas Premium
 
@@ -31,7 +31,7 @@ Las cuentas de almacenamiento de blobs en páginas Premium tienen los siguientes
 
 | Capacidad total de la cuenta                            | Ancho de banda total de una cuenta de almacenamiento con redundancia local                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| Capacidad de disco: 35 TB <br>Capacidad de instantánea: 10 TB | Hasta 50 gigabits por segundo de entrada<sup>1</sup> y salida<sup>2</sup> |
+| Capacidad de disco: 4 TB (disco individual)/35 TB (total acumulado de todos los discos) <br>Capacidad de instantánea: 10 TB | Hasta 50 gigabits por segundo de entrada<sup>1</sup> y salida<sup>2</sup> |
 
 <sup>1</sup> Todos los datos (solicitudes) que se envían a una cuenta de almacenamiento
 

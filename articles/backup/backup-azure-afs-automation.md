@@ -1,18 +1,18 @@
 ---
-title: Copia de seguridad y restauración de archivos de Azure Files con PowerShell
-description: En este artículo se aprende a realizar copias de seguridad y a restaurar archivos de Azure Files mediante el servicio Azure Backup y PowerShell.
+title: Copia de seguridad de Azure Files con PowerShell
+description: En este artículo se aprende a realizar copias de seguridad de Azure Files mediante el servicio Azure Backup y PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5147ab893d4ebad395d7dbd8cc25872177ec10a2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294055"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773098"
 ---
-# <a name="back-up-and-restore-azure-files-with-powershell"></a>Copia de seguridad y restauración de archivos de Azure Files con PowerShell
+# <a name="back-up-azure-files-with-powershell"></a>Copia de seguridad de Azure Files con PowerShell
 
-En este artículo se describe cómo usar Azure PowerShell para realizar una copia de seguridad de un recurso compartido de archivos de Azure Files y recuperarlo mediante el almacén de Recovery Services de [Azure Backup](backup-overview.md).
+En este artículo se describe cómo usar Azure PowerShell para realizar una copia de seguridad de un recurso compartido de archivos de Azure Files mediante el almacén de Recovery Services de [Azure Backup](backup-overview.md).
 
 En este artículo se explica lo siguiente:
 
@@ -22,8 +22,6 @@ En este artículo se explica lo siguiente:
 > * Cree un almacén de Recovery Services.
 > * Configurar la copia de seguridad de un recurso compartido de archivos de Azure.
 > * Ejecutar un trabajo de copia de seguridad.
-> * Restaurar un recurso compartido de archivos del que se ha realizado una copia de seguridad, o bien un archivo individual de un recurso compartido.
-> * Supervisar los trabajos de copia de seguridad y restauración.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -274,148 +272,6 @@ Las instantáneas de recursos compartidos de archivos de Azure se usan al realiz
 Las copias de seguridad a petición se pueden usar para conservar las instantáneas durante 10 años. Los programadores pueden usarse para ejecutar scripts de PowerShell a petición con la retención seleccionada. De este modo, se toman instantáneas a intervalos regulares cada semana, mes o año. Al tomar instantáneas periódicas, haga referencia a las [limitaciones de las copias de seguridad a petición](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) mediante Azure Backup.
 
 Si busca scripts de ejemplo, puede ver el script de ejemplo en GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) con el runbook de Azure Automation que le permite programar las copias de seguridad de forma periódica y conservarlas hasta 10 años.
-
-### <a name="modify-the-protection-policy"></a>Modificación de la directiva de protección
-
-Para cambiar la directiva empleada para la realizar la copia de seguridad del recurso compartido de archivos de Azure, use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Especifique el elemento de copia de seguridad pertinente y la nueva directiva de copia de seguridad.
-
-En el siguiente ejemplo se cambia la directiva de protección de **testAzureFS** de **dailyafs** a **monthlyafs**.
-
-```powershell
-$monthlyafsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "monthlyafs"
-$afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType AzureFiles -Name "testAzureFS"
-Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsPol
-```
-
-## <a name="restore-azure-file-shares-and-files"></a>Restauración de archivos y recursos compartidos de archivos de Azure
-
-Puede restaurar un recurso compartido de archivos al completo o archivos específicos de dicho recurso compartido. La restauración puede llevarse a cabo en la ubicación original o en una ubicación alternativa.
-
-### <a name="fetch-recovery-points"></a>Captura de puntos de recuperación
-
-Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) para enumerar todos los puntos de recuperación del elemento del que se ha realizado la copia de seguridad.
-
-En el script siguiente:
-
-* La variable **$rp**es una matriz de puntos de recuperación para el elemento de copia de seguridad seleccionado de los últimos siete días.
-* La matriz se ordena en orden inverso de tiempo con el punto de recuperación más reciente en el índice **0**.
-* Use la indexación de matrices de PowerShell estándar para seleccionar el punto de recuperación.
-* En el ejemplo, **$rp[0]** selecciona el último punto de recuperación.
-
-```powershell
-$startDate = (Get-Date).AddDays(-7)
-$endDate = Get-Date
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $afsBkpItem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
-
-$rp[0] | fl
-```
-
-La salida será similar a la siguiente.
-
-```powershell
-FileShareSnapshotUri : https://testStorageAcct.file.core.windows.net/testAzureFS?sharesnapshot=2018-11-20T00:31:04.00000
-                       00Z
-RecoveryPointType    : FileSystemConsistent
-RecoveryPointTime    : 11/20/2018 12:31:05 AM
-RecoveryPointId      : 86593702401459
-ItemName             : testAzureFS
-Id                   : /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Micros                      oft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;teststorageRG;testStorageAcct/protectedItems/AzureFileShare;testAzureFS/recoveryPoints/86593702401462
-WorkloadType         : AzureFiles
-ContainerName        : storage;teststorageRG;testStorageAcct
-ContainerType        : AzureStorage
-BackupManagementType : AzureStorage
-```
-
-Una vez seleccionado el punto de recuperación adecuado, restaure el recurso compartido de archivos o el archivo en la ubicación original o en una ubicación alternativa.
-
-### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Restauración de un recurso compartido de archivos de Azure en una ubicación alternativa
-
-Use [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar en el punto de recuperación seleccionado. Especifique estos parámetros para identificar la ubicación alternativa:
-
-* **TargetStorageAccountName**: La cuenta de almacenamiento en la que se restaura el contenido de la copia de seguridad. La cuenta de almacenamiento de destino debe estar en la misma ubicación que el almacén.
-* **TargetFileShareName**: Los recursos compartidos de archivos de la cuenta de almacenamiento de destino en la que se restaura el contenido de la copia de seguridad.
-* **TargetFolder**: La carpeta del recurso compartido de archivos en la que se restauran los datos. Si el contenido de la copia de seguridad debe restaurarse en una carpeta raíz, asigne los valores de la carpeta de destino como una cadena vacía.
-* **ResolveConflict**: Instrucción en caso de conflicto con los datos restaurados. Acepta **Overwrite** o **Skip**.
-
-Ejecute el cmdlet con los parámetros de la manera siguiente:
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -ResolveConflict Overwrite
-```
-
-El comando devuelve un trabajo con un identificador del cual se puede realizar un seguimiento, como se indica en el ejemplo siguiente.
-
-```powershell
-WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   -----
-testAzureFS        Restore              InProgress           12/10/2018 9:56:38 AM                               9fd34525-6c46-496e-980a-3740ccb2ad75
-```
-
-### <a name="restore-an-azure-file-to-an-alternate-location"></a>Restauración de un archivo de Azure en una ubicación alternativa
-
-Use [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar en el punto de recuperación seleccionado. Especifique estos parámetros para identificar la ubicación alternativa y para identificar de forma única el archivo que quiere restaurar.
-
-* **TargetStorageAccountName**: La cuenta de almacenamiento en la que se restaura el contenido de la copia de seguridad. La cuenta de almacenamiento de destino debe estar en la misma ubicación que el almacén.
-* **TargetFileShareName**: Los recursos compartidos de archivos de la cuenta de almacenamiento de destino en la que se restaura el contenido de la copia de seguridad.
-* **TargetFolder**: La carpeta del recurso compartido de archivos en la que se restauran los datos. Si el contenido de la copia de seguridad debe restaurarse en una carpeta raíz, asigne los valores de la carpeta de destino como una cadena vacía.
-* **SourceFilePath**: La ruta de acceso absoluta del archivo que se va a restaurar en el recurso compartido de archivos, como una cadena. Esta ruta de acceso es la misma ruta utilizada en el cmdlet de PowerShell **Get-AzStorageFile**.
-* **SourceFileType**: Indica si se ha seleccionado un directorio o un archivo. Admite **Directory** o **File**.
-* **ResolveConflict**: Instrucción en caso de conflicto con los datos restaurados. Acepta **Overwrite** o **Skip**.
-
-Los parámetros adicionales (SourceFilePath y SourceFileType) solo están relacionadas con el archivo individual que quiere restaurar.
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
-```
-
-Este comando devuelve un trabajo con un identificador del cual se puede realizar un seguimiento, como se indica en la sección anterior.
-
-### <a name="restore-azure-file-shares-and-files-to-the-original-location"></a>Restauración de archivos y recursos compartidos de archivos de Azure en la ubicación original
-
-Al restaurar en una ubicación original, no es necesario especificar parámetros relacionados con el destino. Solo debe proporcionarse **ResolveConflict**.
-
-#### <a name="overwrite-an-azure-file-share"></a>Sobrescribir un recurso compartido de archivos de Azure
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
-```
-
-#### <a name="overwrite-an-azure-file"></a>Sobrescribir un archivo de Azure
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
-```
-
-## <a name="track-backup-and-restore-jobs"></a>Seguimiento de trabajos de copia de seguridad y restauración
-
-Las operaciones de copia de seguridad y restauración a petición devuelven un trabajo con un identificador, como se ha indicado al [ejecutar una copia de seguridad a petición](#trigger-an-on-demand-backup). Use el cmdlet [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) para hacer un seguimiento del progreso del trabajo y de los detalles.
-
-```powershell
-$job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
-
- $job | fl
-
-
-IsCancellable        : False
-IsRetriable          : False
-ErrorDetails         : {Microsoft.Azure.Commands.RecoveryServices.Backup.Cmdlets.Models.AzureFileShareJobErrorInfo}
-ActivityId           : 00000000-5b71-4d73-9465-8a4a91f13a36
-JobId                : 00000000-6c46-496e-980a-3740ccb2ad75
-Operation            : Restore
-Status               : Failed
-WorkloadName         : testAFS
-StartTime            : 12/10/2018 9:56:38 AM
-EndTime              : 12/10/2018 11:03:03 AM
-Duration             : 01:06:24.4660027
-BackupManagementType : AzureStorage
-
-$job.ErrorDetails
-
- ErrorCode ErrorMessage                                          Recommendations
- --------- ------------                                          ---------------
-1073871825 Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support.
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

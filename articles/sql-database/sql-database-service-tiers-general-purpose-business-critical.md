@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/01/2019
-ms.openlocfilehash: 5e3cc12351313b8fb1dedf795031202070ac7cf7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.date: 01/23/2020
+ms.openlocfilehash: fab24d55509ab315775437ca343e35fc90174f63
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558989"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715092"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Niveles de servicio de Azure SQL Database
 
@@ -37,23 +37,23 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 | **Más adecuado para** | |  Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal fluido, restauración rápida de bases de datos. | Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 |  **Disponible en estos tipos de recurso:** ||Base de datos única / grupo elástico / instancia administrada | Base de datos única | Base de datos única / grupo elástico / instancia administrada |
 | **Tamaño de proceso**|Base de datos única / grupo elástico | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales |
-| | Instancia administrada | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales | N/D | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales |
+| | instancia administrada | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales | N/D | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales |
 | | Grupos de instancias administradas | 2, 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales | N/D | N/D |
 | **Tipo de almacenamiento** | All | Almacenamiento remoto Premium (por instancia) | Almacenamiento desacoplado con caché de SSD local (por instancia) | Almacenamiento SSD local extremadamente rápido (por instancia) |
 | **Tamaño de la base de datos** | Base de datos única / grupo elástico | 5 GB – 4 TB | Hasta 100 TB | 5 GB – 4 TB |
-| | Instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
+| | instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
 | **Tamaño de almacenamiento** | Base de datos única / grupo elástico | 5 GB – 4 TB | Hasta 100 TB | 5 GB – 4 TB |
-| | Instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
+| | instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
 | **Tamaño de TEMPDB** | Base de datos única / grupo elástico | [32 GB por núcleo virtual](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB por núcleo virtual](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB por núcleo virtual](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Instancia administrada  | [24 GB por núcleo virtual](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | Hasta 4 TB: [limitado en función del tamaño de almacenamiento](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| | instancia administrada  | [24 GB por núcleo virtual](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | Hasta 4 TB: [limitado en función del tamaño de almacenamiento](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 | **Rendimiento de escritura de registros** | Base de datos única | [1,875 MB/s por núcleo virtual (máximo 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por núcleo virtual (máximo 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Instancia administrada | [3 MB/s por núcleo virtual (máximo 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por núcleo virtual (máximo 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| | instancia administrada | [3 MB/s por núcleo virtual (máximo 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por núcleo virtual (máximo 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 |**Disponibilidad**|All| 99,99% |  [99,95 % con una réplica secundaria; 99,99 % con más réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995 % con una base de datos única con redundancia de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Copias de seguridad**|All|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)| RA-GRS, 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, de 7 a 35 días (7 días de forma predeterminada) |
 |**OLTP en memoria** | | N/D | N/D | Disponible |
-|**Réplicas de solo lectura**| | 0  | 0 - 4 | 1 (integrada, incluida en el precio) |
+|**Réplicas de solo lectura**| | 0 integradas <br> 0 a 4 con [replicación geográfica](sql-database-active-geo-replication.md) | 0 a 4 integradas | 1 integrada, incluida en el precio <br> 0 a 4 con [replicación geográfica](sql-database-active-geo-replication.md) |
 |**Precios y facturación** | Base de datos única | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/single/) se cobran. <br/>Las IOPS no se cobran. | Se cobran los [núcleos virtuales de cada réplica y el almacenamiento usado](https://azure.microsoft.com/pricing/details/sql-database/single/). <br/>IOPS todavía no se ha cargado. | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/single/) se cobran. <br/>Las IOPS no se cobran. |
-|| Instancia administrada | [El núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) se cobran. <br/>Las IOPS no se cobran.<br/>Todavía no se ha cobrado el almacenamiento de copia de seguridad. | N/D | [El núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) se cobran. <br/>Las IOPS no se cobran.<br/>Todavía no se ha cobrado el almacenamiento de copia de seguridad. | 
+|| de SQL DB | Se cobra el [núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/). <br/>Las IOPS no se cobran.<br/>El almacenamiento de copia de seguridad no se cobra aún. | N/D | Se cobra el [núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/). <br/>Las IOPS no se cobran.<br/>El almacenamiento de copia de seguridad no se cobra aún. | 
 |**Modelos de descuento**| | [Instancias reservadas](sql-database-reserved-capacity.md)<br/>[Ventaja híbrida de Azure](sql-database-azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Ventaja híbrida de Azure](sql-database-azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instancias reservadas](sql-database-reserved-capacity.md)<br/>[Ventaja híbrida de Azure](sql-database-azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
 Para más información, consulte las diferencias detalladas entre los niveles de servicio en las páginas de la [base de datos única (núcleo virtual)](sql-database-vcore-resource-limits-single-databases.md), los [grupos de bases de datos únicas (núcleo virtual)](sql-database-dtu-resource-limits-single-databases.md), la [base de datos única (DTU)](sql-database-dtu-resource-limits-single-databases.md), los [grupos de bases de datos únicas(DTU)](sql-database-dtu-resource-limits-single-databases.md) y de [Instancia administrada](sql-database-managed-instance-resource-limits.md).

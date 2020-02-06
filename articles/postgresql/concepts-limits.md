@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d74206ebdf35a8f5b353553cb89e954cb2313611
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768544"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836463"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Límites de Azure Database for PostgreSQL con un único servidor
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Para más información sobre los niveles de recursos (proceso, memoria, almacenamiento), consulte el artículo acerca de los [planes de tarifa](concepts-pricing-tiers.md).
 
 
 ## <a name="maximum-connections"></a>Número máximo de conexiones
-El número máximo de conexiones por plan de tarifa y núcleos virtuales es el siguiente: 
+A continuación se muestran el número máximo de conexiones por plan de tarifa y los núcleos virtuales. El sistema de Azure requiere cinco conexiones para supervisar el servidor de Azure Database for PostgreSQL. 
 
 |**Plan de tarifa**| **Núcleos virtuales**| **Conexiones máximas** | **Número máximo de conexiones de usuario** |
 |---|---|---|---|
@@ -40,7 +40,10 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > FATAL:  sorry, too many clients already
 
-El sistema de Azure requiere cinco conexiones para supervisar el servidor de Azure Database for PostgreSQL. 
+> [!IMPORTANT]
+> Para obtener la mejor experiencia posible, se recomienda usar un agrupador de conexiones, como pgBouncer, para administrar las conexiones de forma eficaz.
+
+Una conexión de PostgreSQL, aunque no esté activa, puede ocupar aproximadamente 10 MB de memoria. Además, la creación de conexiones lleva su tiempo. La mayoría de las aplicaciones solicitan muchas conexiones de corta duración, y esto es lo que conforma esta situación. El resultado es que hay menos recursos disponibles para la carga de trabajo real, lo que baja el rendimiento. Esto se puede evitar con un agrupador de conexiones, ya que reduce las conexiones inactivas y reutiliza las conexiones existentes. Para más información, visite nuestra [entrada de blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 ### <a name="scale-operations"></a>Operaciones de escalado

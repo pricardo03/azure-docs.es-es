@@ -3,20 +3,20 @@ title: 'Ciencia de datos con Spark en Azure HDInsight: proceso de ciencia de dat
 description: El kit de herramientas MLlib de Spark ofrece importantes funciones de modelado de aprendizaje automático para el entorno distribuido de HDInsight.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 932587afcffcb3b1a259a02a98c648e938e99931
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 63148b99e65a5ccc49d54d4ae6c58adebc72c6d3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60256413"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718521"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Información general sobre la ciencia de los datos con Spark en HDInsight de Azure
 
@@ -41,9 +41,9 @@ Estos cuadernos están indicados para ejecutarse en el kernel pySpark del servid
 ### <a name="spark-20-notebooks"></a>Cuadernos de Spark 2.0
 Estos cuadernos están indicados para ejecutarse en el kernel pySpark3 del servidor de cuadernos de Jupyter.
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): En este archivo se ofrece información sobre cómo realizar el modelado, la puntuación y la exploración de datos en clústeres de Spark 2.0 con el conjunto de datos de carreras y tarifas de taxi de Nueva York que se describe [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este cuaderno puede ser un buen punto de partida para explorar rápidamente el código proporcionado para Spark 2.0. Para obtener un análisis más pormenorizado de los datos del cuaderno sobre taxis en Nueva York, vea el siguiente cuaderno de esta lista. Vea las notas después de esta lista en las que se establece una comparación de estos cuadernos.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): En este archivo se ofrece información sobre cómo realizar el modelado, la puntuación y la exploración de datos en clústeres de Spark 2.0 con el conjunto de datos de carreras y tarifas de taxi de Nueva York que se describe [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este cuaderno puede ser un buen punto de partida para explorar rápidamente el código proporcionado para Spark 2.0. Para obtener un análisis más pormenorizado de los datos del cuaderno sobre taxis en Nueva York, vea el siguiente cuaderno de esta lista. En las notas que encontrará después de esta lista se establece una comparación de estos cuadernos.
 - [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): En este archivo se muestra cómo realizar la limpieza y transformación de datos (operaciones de dataframe y Spark SQL), la exploración, el modelado y la puntuación con el conjunto de datos de carreras y tarifas de taxi de Nueva York descrito [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): En este archivo se muestra cómo realizar la limpieza y transformación de datos (operaciones de dataframe y Spark SQL), la exploración, el modelado y la puntuación con el conocido conjunto de datos de salidas puntuales de líneas aéreas de 2011 y 2012. Se ha integrado el conjunto de datos de las líneas aéreas con los datos climatológicos del aeropuerto (por ejemplo, velocidad del viento, temperatura, altitud, etc.), antes de realizar el modelado, para que estas características climatológicas puedan incluirse en el modelo.
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): En este archivo se muestra cómo realizar la limpieza y transformación de datos (operaciones de dataframe y Spark SQL), la exploración, el modelado y la puntuación con el conocido conjunto de datos de salidas puntuales de líneas aéreas de 2011 y 2012. Se ha integrado el conjunto de datos de las líneas aéreas con los datos climatológicos del aeropuerto (por ejemplo, velocidad del viento, temperatura, altitud, etc.), antes de realizar el modelado, con el fin de poder incluir estas características climatológicas en el modelo.
 
 <!-- -->
 
@@ -63,9 +63,9 @@ Estos cuadernos están indicados para ejecutarse en el kernel pySpark3 del servi
 
 <!-- -->
 
-Para obtener instrucciones sobre la operacionalización de un modelo de Spark 2.0 y el consumo de modelo para puntuación, consulte el [documento de Spark 1.6 sobre consumo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) para obtener un ejemplo que muestre los pasos necesarios. Para utilizar esta opción en Spark 2.0, reemplace el archivo de código Python por [este archivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
+Para obtener instrucciones sobre la operacionalización de un modelo de Spark 2.0 y el consumo de modelo para puntuación, consulte el [documento de Spark 1.6 sobre consumo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) para obtener un ejemplo que muestre los pasos necesarios. Para utilizar este ejemplo en Spark 2.0, reemplace el archivo de código Python por [este archivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Los procedimientos siguientes están relacionados con Spark 1.6. En la versión Spark 2.0, use los cuadernos descritos anteriormente, con sus correspondientes vínculos.
 
@@ -89,7 +89,7 @@ Los procedimientos siguientes están relacionados con Spark 1.6. En la versión 
 >
 
 ## <a name="the-nyc-2013-taxi-data"></a>Datos de taxis de Nueva York de 2013
-Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archivos comprimidos de valores separados por comas (CSV) (~48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (identificador único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
+Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archivos comprimidos de valores separados por comas (CSV) (~48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. El registro de cada carrera incluye la hora y la ubicación de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (identificador único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
 
 1. Los archivos CSV 'trip_data' contienen información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
 
@@ -133,7 +133,7 @@ Hemos tomado una muestra del 0,1 % de estos archivos y los hemos combinado en ar
 | payment_type |Tipo de pago (efectivo, tarjeta de crédito, etc.) |
 | fare_amount |Importe de la tarifa en |
 | surcharge |Suplemento |
-| mta_tax |Impuestos de MTA |
+| mta_tax |Impuesto de transporte en metro MTA |
 | tip_amount |Importe de la propina |
 | tolls_amount |Importe de los peajes |
 | total_amount |Importe total |
@@ -141,7 +141,7 @@ Hemos tomado una muestra del 0,1 % de estos archivos y los hemos combinado en ar
 | tip_class |Clase de propina (0: 0 $, 1: 0-5 $, 2: 6-10 $, 3: 11-20 $, 4: > 20 $) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Ejecución del código desde un Notebook de Jupyter en el clúster de Spark
-Puede iniciar Jupyter Notebook desde el portal de Azure. Busque el clúster de Spark en el panel y haga clic en él para entrar en la página de administración del clúster. Después, haga clic en **Paneles de clúster** -> **Jupyter Notebook** para abrir el cuaderno asociado al clúster Spark.
+Puede iniciar Jupyter Notebook desde el portal de Azure. Busque el clúster de Spark en el panel y haga clic en él para entrar en la página de administración del clúster. Para abrir el cuaderno asociado al clúster Spark, haga clic en **Paneles de clúster** -> **Jupyter Notebook**.
 
 ![Paneles de clúster](./media/spark-overview/spark-jupyter-on-portal.png)
 
@@ -149,7 +149,7 @@ También puede ir a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para te
 
 ![Examinar cuadernos de Jupyter Notebook](./media/spark-overview/spark-jupyter-notebook.png)
 
-Seleccione PySpark para ver un directorio que contenga algunos ejemplos de cuadernos previamente empaquetados que utilicen la API de PySpark. Los cuadernos que incluyen los ejemplos de código para este conjunto de aplicaciones de tema de Spark están disponibles en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Seleccione PySpark para ver un directorio con algunos ejemplos de cuadernos preempaquetados que utilizan la API PySpark. Los cuadernos que contienen los ejemplos de código de este conjunto de temas de Spark están disponibles en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 Puede cargar los cuadernos directamente desde [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) en el servidor de Jupyter Notebook, en su clúster de Spark. En la página principal de su instancia de Jupyter, haga clic en el botón **Cargar** de la parte derecha de la pantalla. Se abre un explorador de archivos. Pegue aquí la dirección URL de GitHub (contenido sin procesar) del cuaderno y haga clic en **Abrir**.
 
@@ -174,7 +174,7 @@ Ahora puede:
 
 ![Curva ROC de regresión logística para el enfoque genérico](./media/spark-overview/pyspark-jupyter-autovisualization.png)
 
-## <a name="whats-next"></a>Pasos siguientes
+## <a name="whats-next"></a>¿Qué sigue?
 Ahora que ya ha configurado un clúster de HDInsight Spark y ha cargado los cuadernos de Jupyter Notebook, está listo para trabajar con los temas correspondientes a estos tres cuadernos de PySpark, que muestran cómo explorar los datos y crear y utilizar los modelos. El cuaderno de exploración y modelado de datos avanzado muestra cómo incluir la validación cruzada, el barrido de los hiperparámetros y la evaluación de modelos.
 
 **Exploración y modelado de datos con Spark:** Explore el conjunto de datos y cree, puntúe y evalúe modelos de aprendizaje automático con la ayuda del tema [Creación de modelos de clasificación y regresión para datos con el kit de herramientas de MLib de Spark](spark-data-exploration-modeling.md).

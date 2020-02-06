@@ -3,14 +3,14 @@ title: 'CLI de Azure Service Fabric: sfctl chaos schedule'
 description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para la programación de Chaos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639180"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906191"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obtenga y establezca la programación de chaos.
@@ -71,9 +71,10 @@ Chaos programará automáticamente ejecuciones según la programación Chaos Sch
 
 ### <a name="examples"></a>Ejemplos
 
-El comando siguiente establece una programación (suponiendo que la programación actual tiene versión 0) que se inicia el 1 de enero de 2016 y expira el 1 de enero de 2038, ejecutando Chaos 24 horas al día, 7 días a la semana. Durante ese tiempo, se programará Chaos en el clúster.
-
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+El comando siguiente establece una programación (suponiendo que la programación actual tiene versión 0) que se inicia el 1 de enero de 2016 y expira el 1 de enero de 2038, ejecutando Chaos 24 horas al día, 7 días a la semana.
+Durante ese tiempo, se programará Chaos en el clúster.
+```
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
     {
@@ -134,6 +135,8 @@ El comando siguiente establece una programación (suponiendo que la programació
         ]
     }
     ]
+```
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

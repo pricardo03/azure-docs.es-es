@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: f9d00cff5d910d6bbbb4c436249283cca87b91e1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 6ea1bce6c14d7266b5ce49b94e39d661bfc57717
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549111"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713316"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -394,10 +394,10 @@ El programador de Kubernetes puede utilizar taints y tolerations para limitar la
 
 Para más información sobre cómo usar las características avanzadas programadas de Kubernetes, consulte [Best practices for advanced scheduler features in AKS][taints-tolerations] (Procedimientos recomendados para las características avanzadas del programador en AKS).
 
-En este ejemplo, aplique un valor taint al nodo basado en GPU mediante el comando [kubectl taint node][kubectl-taint]. Especifique el nombre del nodo basado en GPU de la salida del comando `kubectl get nodes` anterior. El valor taint se aplica como *key:value* y como una opción de programación. En el ejemplo siguiente se usa el par *sku=gpu* y se definen los pods que, en caso contrario, tendrán la capacidad *NoSchedule*:
+En este ejemplo, aplique un valor taint al nodo basado en GPU mediante el comando --node-taints. Especifique el nombre del nodo basado en GPU de la salida del comando `kubectl get nodes` anterior. El valor taint se aplica como *key:value* y como una opción de programación. En el ejemplo siguiente se usa el par *sku=gpu* y se definen los pods que, en caso contrario, tendrán la capacidad *NoSchedule*:
 
 ```console
-kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
+az aks nodepool --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 ```
 
 El siguiente manifiesto YAML básico de ejemplo usa un valor toleration para permitir al programador de Kubernetes ejecutar un pod NGINX en el nodo basado en GPU. Para ver un ejemplo más adecuado pero que requiere mucho tiempo para ejecutar un trabajo de Tensorflow en el conjunto de datos de MNIST, consulte [Use GPUs for compute-intensive workloads on AKS][gpu-cluster] (Uso de GPU para cargas de trabajo de procesos intensivos en AKS).

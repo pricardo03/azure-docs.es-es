@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b33f7cedca4ef130eefa28c1dbaaedd82d11a9e4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 924705b7ce1d324583077797714491bdf3fc5cc9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645763"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721224"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Cómo supervisar la caché de Gen2
 La arquitectura de almacenamiento Gen2 organiza de forma automática por niveles los segmentos de almacén de columnas consultados con más frecuencia en una memoria caché que reside en discos SSD basados en NVMe diseñados para almacenes de datos de Gen2. El aumento de rendimiento se consigue cuando las consultas recuperan segmentos que se encuentran en la caché. En este artículo se describe cómo supervisar y solucionar problemas de rendimiento lento de las consultas determinando si la carga de trabajo aprovecha de forma óptima la caché de Gen2.  
@@ -36,37 +36,19 @@ En la tabla siguiente se describen escenarios en función de los valores de las 
 
 |                                | **Porcentaje de aciertos de caché alto** | **Porcentaje de aciertos de caché bajo** |
 | :----------------------------: | :---------------------------: | :--------------------------: |
-| **Porcentaje de caché usada alto** |          Escenario 1.           |          Escenario 2.          |
-| **Porcentaje de caché usada bajo**  |          Escenario 3.           |          Escenario 4.          |
+| **Porcentaje de caché usada alto** |          Escenario 1           |          Escenario 2          |
+| **Porcentaje de caché usada bajo**  |          Escenario 3           |          Escenario 4          |
 
-**Escenario 1:** la caché se está usando de forma óptima. [Solucione los problemas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) de otras áreas que puedan ralentizar las consultas.
+**Escenario 1:** la caché se está usando de forma óptima. [Solucione los problemas](sql-data-warehouse-manage-monitor.md) de otras áreas que puedan ralentizar las consultas.
 
 **Escenario 2:** el conjunto de datos de trabajo actual no cabe en la caché, lo que provoca un porcentaje de aciertos de caché bajo debido a las lecturas físicas. Considere la posibilidad de escalar verticalmente el nivel de rendimiento y vuelva a ejecutar la carga de trabajo para rellenar la caché.
 
-**Escenario 3:** es probable que la consulta se ejecute lentamente debido a razones no relacionadas con la caché. [Solucione los problemas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) de otras áreas que puedan ralentizar las consultas. También puede considerar la posibilidad de [reducir verticalmente la instancia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) para reducir el tamaño de la caché con el fin de ahorrar costos. 
+**Escenario 3:** es probable que la consulta se ejecute lentamente debido a razones no relacionadas con la caché. [Solucione los problemas](sql-data-warehouse-manage-monitor.md) de otras áreas que puedan ralentizar las consultas. También puede considerar la posibilidad de [reducir verticalmente la instancia](sql-data-warehouse-manage-monitor.md) para reducir el tamaño de la caché con el fin de ahorrar costos. 
 
 **Escenario 4:** tenía una caché inactiva que podría ser el motivo de la lentitud de la consulta. Considere la posibilidad de volver a ejecutar la consulta, ya que ahora el conjunto de datos de trabajo debería estar almacenado en la caché. 
 
-**Importante: Si el porcentaje de aciertos de caché o el porcentaje de caché usada no se actualiza después de volver a ejecutar la carga de trabajo, es posible que el conjunto de trabajo ya se encuentre en la memoria. Tenga en cuenta que en la caché solo se guardan las tablas de almacén de columnas en clúster.**
+> [!IMPORTANT]
+> Si el porcentaje de aciertos de caché o el porcentaje de caché usada no se actualiza después de volver a ejecutar la carga de trabajo, es posible que el conjunto de trabajo ya se encuentre en la memoria. En la caché solo se guardan las tablas de almacén de columnas en clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre la optimización del rendimiento general de las consultas, vea [Supervisión de ejecuciones de consultas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution).
-
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
-
-<!--MSDN references-->
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: https://msdn.microsoft.com/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+Para obtener más información sobre la optimización del rendimiento general de las consultas, vea [Supervisión de ejecuciones de consultas](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution).

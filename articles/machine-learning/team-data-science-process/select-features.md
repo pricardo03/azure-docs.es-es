@@ -3,20 +3,20 @@ title: Selección de características en el proceso de ciencia de datos en equip
 description: Aquí se explica el propósito de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: da5da64538ceaf906388c49963c0d5115e1b5ab9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480226"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716672"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Selección de características en el proceso de ciencia de datos en equipos (TDSP)
 En este artículo se explican los propósitos de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Estos ejemplos se extraen de Azure Machine Learning Studio.
@@ -29,10 +29,10 @@ La ingeniería y la selección de características forman parte del proceso de c
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
 
 ## <a name="filter-features-from-your-data---feature-selection"></a>Filtrado de características desde sus datos: selección de características
-La selección de características es un proceso que normalmente se aplica para la construcción de conjuntos de datos de entrenamiento para tareas de modelado predictivo, como las tareas de clasificación o de regresión. El objetivo es seleccionar un subconjunto de las características a partir del conjunto de datos original que reduce sus dimensiones al usar un conjunto de características mínimo para que represente la cantidad máxima de varianza en los datos. Este subconjunto de características se utiliza para entrenar el modelo. La selección de características tiene dos propósitos principales.
+La selección de características se puede usar para tareas de clasificación o regresión. El objetivo es seleccionar un subconjunto de las características a partir del conjunto de datos original que reduce sus dimensiones al usar un conjunto de características mínimo para que represente la cantidad máxima de varianza en los datos. Este subconjunto de características se utiliza para entrenar el modelo. La selección de características tiene dos propósitos principales.
 
 * En primer lugar, la selección de características a menudo aumenta la precisión de la clasificación a través de la eliminación de características irrelevantes, redundantes o altamente correlacionadas.
-* En segundo lugar, disminuye la cantidad de características, lo que hace que el proceso de entrenamiento del modelo sea más eficiente. Esto resulta especialmente importante cuando se trata de sistemas aprendices que son costosos de entrenar, como las máquinas de vectores de soporte.
+* En segundo lugar, disminuye la cantidad de características, lo que hace que el proceso de entrenamiento del modelo sea más eficiente. La eficiencia es importante cuando se trata de sistemas aprendices costosos de entrenar, como las máquinas de vectores de soporte.
 
 A pesar de que la selección de características sí busca disminuir la cantidad de características en el conjunto de datos que se usa para entrenar el modelo, no nos referiremos a ella con el término "reducción de la dimensionalidad". Los métodos de selección de características extraen un subconjunto de las características originales de los datos sin cambiarlas.  Los métodos de reducción de dimensionalidad emplean características diseñadas que pueden transformar las características originales y, de ese modo, modificarlas. Algunos ejemplos de los métodos de reducción de dimensionalidad incluyen el análisis del componente principal, el análisis de correlación canónica y la descomposición en valores singulares.
 
@@ -44,7 +44,7 @@ En Azure Machine Learning Studio, estos son los módulos proporcionados para la 
 
 Por ejemplo, considere el uso del módulo de [selección de características basada en filtro][filter-based-feature-selection]. Para mayor comodidad, continúe con el ejemplo de minería de datos de texto. Suponga que desea crear un modelo de regresión una vez creado un conjunto de 256 características mediante el módulo de [hash de características][feature-hashing] y que la variable de respuesta es la "Col1" y contiene una clasificación de las reseñas de un libro, que van desde 1 a 5. Defina el "Método de puntuación de características" en "Correlación de Pearson", la "Columna de destino" en "Col1" y el "Número de características deseadas" en 50. Seguidamente, el módulo de [Selección de características basada en filtro][filter-based-feature-selection] generará un conjunto de datos con 50 características, junto con el atributo de destino "Col1". La figura siguiente muestra el flujo de este experimento y los parámetros de entrada:
 
-![Propiedades del módulo de selección de características basándose en filtros](./media/select-features/feature-Selection1.png)
+![Propiedades del módulo de selección de características basada en filtros](./media/select-features/feature-Selection1.png)
 
 La figura siguiente muestra los conjuntos de datos resultantes:
 
@@ -59,7 +59,7 @@ La figura siguiente muestra las puntuaciones correspondientes de las caracterís
 A través de la aplicación de este módulo de [selección de características basada en filtro][filter-based-feature-selection], se seleccionan 50 de las 256 características, debido a que tienen las características más correlacionadas con la variable de destino "Col1", según el método de puntuación "Correlación de Pearson".
 
 ## <a name="conclusion"></a>Conclusión
-La selección de características y la ingeniería de características son dos características  diseñadas y seleccionadas frecuentemente que aumentan la eficiencia del proceso de entrenamiento en el que se intenta extraer la información clave que contienen los datos. También mejoran la eficacia de estos modelos para clasificar los datos de entrada de manera precisa y para predecir resultados de interés de manera más sólida. El diseño y la selección de características también se pueden combinar para que sea posible hacer un mejor seguimiento computacional del aprendizaje. Para ello, mejora y luego reduce el número de características que se necesitan para calibrar o entrenar un modelo. Matemáticamente hablando, las características seleccionadas para entrenar el modelo son un conjunto mínimo de variables independientes que explican los patrones existentes en los datos y, a continuación, predicen correctamente los resultados.
+El diseño y la selección de características son dos funciones diseñadas y seleccionadas habitualmente que aumentan la eficacia del proceso de entrenamiento que intenta extraer la información clave que contienen los datos. También mejoran la eficacia de estos modelos para clasificar los datos de entrada de manera precisa y para predecir resultados de interés de manera más sólida. El diseño y la selección de características también se pueden combinar para que sea posible hacer un mejor seguimiento computacional del aprendizaje. Para ello, mejora y luego reduce el número de características que se necesitan para calibrar o entrenar un modelo. Matemáticamente hablando, las características seleccionadas para entrenar el modelo son un conjunto mínimo de variables independientes que explican los patrones existentes en los datos y, a continuación, predicen correctamente los resultados.
 
 No siempre es necesario realizar el diseño o la selección de funciones. Esta necesidad depende de los datos que se hayan recopilado, del algoritmo seleccionado y del objetivo del experimento.
 

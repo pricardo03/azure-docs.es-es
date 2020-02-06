@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cb3b10ca67ab283b999e4fff8e3bb79ae3b59745
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 72b3349e0ad4fd86b91a7a02f70b2bcf1efbc271
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950823"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712856"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -28,7 +28,7 @@ En este artículo se proporcionan ejemplos para usar las transformaciones de not
 
 Comparar dos notificaciones y emitir una excepción si no son iguales según la comparación especificada inputClaim1, inputClaim2 y stringComparison.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo de la primera notificación, que se va a comparar. |
 | InputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
@@ -89,7 +89,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 
 Cambia el uso de mayúsculas y minúsculas en la notificación proporcionada, dependiendo del operador.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | El tipo ClaimType que se va cambiar. |
 | InputParameter | toCase | string | Puede ser uno de los siguientes valores: `LOWER` o `UPPER`. |
@@ -124,7 +124,7 @@ Use esta transformación de notificaciones para cambiar cualquier ClaimType de c
 
 Crea una notificación de cadena a partir del parámetro de entrada proporcionado en la directiva.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 |----- | ----------------------- | --------- | ----- |
 | InputParameter | value | string | La cadena que va a establecerse. |
 | OutputClaim | createdClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones, con el valor especificado en el parámetro de entrada. |
@@ -153,7 +153,7 @@ Use que esta transformación de notificaciones para establecer un valor de Claim
 
 Determine si una notificación de cadena es igual a otra. El resultado es un nuevo ClaimType booleano con un valor de `true` o `false`.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo de la primera notificación, que se va a comparar. |
 | InputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
@@ -194,7 +194,7 @@ Use esta transformación de notificaciones para comprobar si una notificación e
 
 Determina si un valor de notificación es igual al valor del parámetro de entrada.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo de la notificación, que se va a comparar. |
 | InputParameter | operator | string | Valores posibles: `EQUAL` o `NOT EQUAL`. |
@@ -234,7 +234,7 @@ Puede usar esta transformación de notificaciones para comprobar si una notifica
 
 Crea una cadena aleatoria mediante el generador de números aleatorios. Si el generador de números aleatorios es de tipo `integer`, opcionalmente se pueden proporcionar un parámetro de inicialización y un número máximo. Un parámetro de formato de cadena opcional permite que la salida tenga ese formato, y un parámetro de base64 opcional especifica si la salida randomGeneratorType [guid, integer] outputClaim (String) está codificada en base64 .
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | string | Especifica el valor aleatorio que se genera, `GUID` (identificador único global) o `INTEGER` (un número). |
 | InputParameter | stringFormat | string | [Opcional] Formato del valor aleatorio. |
@@ -293,7 +293,7 @@ El ejemplo siguiente genera un valor entero aleatorio entre 0 y 1000. El valor p
 
 Da formato a una notificación de acuerdo con la cadena de formato proporcionada. Esta transformación usa el método `String.Format` de C#.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |ClaimType que actúa como el parámetro {0} de formato de cadena. |
 | InputParameter | stringFormat | string | El formato de cadena, incluido el parámetro {0}. |
@@ -328,7 +328,7 @@ Use esta transformación de notificaciones para dar formato a cualquier cadena c
 
 Da formato a dos notificaciones de acuerdo con la cadena de formato proporcionada. Esta transformación usa el método de C# **String.Format**.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | ClaimType que actúa como el parámetro {0} de formato de cadena. |
 | InputClaim | inputClaim | string | ClaimType que actúa como el parámetro {1} de formato de cadena. |
@@ -366,7 +366,7 @@ Use esta transformación de notificaciones para dar formato a cualquier cadena c
 
 Buscar un elemento en una colección **Restriction** de notificaciones.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | mapFromClaim | string | La notificación que contiene el texto que se va a buscar en las notificaciones **restrictionValueClaim** con la colección **Restriction**.  |
 | OutputClaim | restrictionValueClaim | string | La notificación que contiene la colección **Restriction**. Una vez que se ha invocado la transformación de notificaciones, el valor de esta notificación contiene el valor del elemento seleccionado. |
@@ -379,7 +379,7 @@ En el ejemplo siguiente se busca la descripción del mensaje de error según la 
   <DataType>string</DataType>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
@@ -403,13 +403,13 @@ La transformación de notificaciones busca el texto del elemento y devuelve su v
 - Notificaciones de entrada:
     - **mapFromClaim**: B2C_V1_90001
 - Notificaciones de salida:
-    - **restrictionValueClaim**: You cant sign in because you are a minor.
+    - **restrictionValueClaim**: No puede iniciar sesión porque es menor de edad.
 
 ## <a name="lookupvalue"></a>LookupValue
 
 Buscar un valor de notificación en una lista de valores en función del valor de otra notificación.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | string | La notificación que contiene el valor de búsqueda. |
 | InputParameter | |string | Colección de inputParameters. |
@@ -451,7 +451,7 @@ En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones 
 
 Limpiar el valor de una notificación determinada.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | claim_to_null | string | La notificación cambia su valor a null. |
 
@@ -474,7 +474,7 @@ Use esta transformación de notificaciones para quitar datos innecesarios de la 
 
 Obtiene la parte de dominio de una dirección de correo electrónico.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | string | ClaimType que contiene la dirección de correo electrónico. |
 | OutputClaim | dominio | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones: el dominio. |
@@ -503,7 +503,7 @@ Use esta transformación de notificaciones para analizar el nombre de dominio de
 
 Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` son iguales, y establece las notificaciones de salida con el valor presente en los parámetros de entrada `stringMatchMsg` y `stringMatchMsgCode`, junto con la notificación de salida del resultado de la comparación, que debe establecerse en `true` o `false` según el resultado de la comparación.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Tipo de la notificación que se va a comparar. |
 | InputParameter | matchTo | string | Cadena que se va a comparar con `inputClaim`. |
@@ -552,7 +552,7 @@ Puede usar esta transformación de notificaciones para comprobar si una notifica
 
 Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` son iguales, y establece las notificaciones de salida con el valor presente en el parámetro de entrada `outputClaimIfMatched`, junto con la notificación de salida del resultado de la comparación, que debe establecerse en `true` o `false` según el resultado de la comparación.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | Tipo de la notificación que se va a comparar. |
 | InputParameter | matchTo | string | Cadena que se va a comparar con inputClaim. |

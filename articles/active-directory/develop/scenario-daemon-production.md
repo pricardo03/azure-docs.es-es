@@ -1,5 +1,5 @@
 ---
-title: 'Paso a producción de una aplicación de demonio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+title: 'Paso a producción de una aplicación de demonio que llama a las API web: plataforma de identidad de Microsoft'
 description: Aprenda a pasar a producción una aplicación de demonio que llama a las API web.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,24 +15,23 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962600"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775217"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplicación de demonio que llama a las API web: paso a producción
 
 Ahora que sabe cómo adquirir y usar un token para una llamada de servicio a servicio, aprenda a pasar la aplicación a producción.
 
-## <a name="deployment---case-of-multi-tenant-daemon-apps"></a>Implementación: caso de aplicaciones de demonio de varios inquilinos
+## <a name="deployment---multitenant-daemon-apps"></a>Implementación: aplicaciones de demonio multiinquilino
 
-Si es un ISV que desea crear una aplicación de demonio que se pueda ejecutar en varios inquilinos, deberá asegurarse de que los administradores de los inquilinos:
+Si es un ISV que crea una aplicación de demonio que se pueda ejecutar en varios inquilinos, deberá asegurarse de que el administrador del inquilino:
 
-- Aprovisionen una entidad de servicio para la aplicación.
-- Den su consentimiento a la aplicación.
+- Aprovisione una entidad de servicio para la aplicación.
+- Dé su consentimiento a la aplicación.
 
 Deberá explicar a sus clientes cómo realizar estas operaciones. Para más información, consulte [Solicitud de consentimiento para un inquilino al completo](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -40,24 +39,24 @@ Deberá explicar a sus clientes cómo realizar estas operaciones. Para más info
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-A continuación, se proporcionan algunos vínculos con más información:
+Estos son algunos vínculos para ayudarle a obtener más información:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-- Si aún no lo ha hecho, pruebe el artículo de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola mediante la identidad de la aplicación](./quickstart-v2-netcore-daemon.md).
+- Inicio rápido: [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola mediante la identidad de la aplicación](./quickstart-v2-netcore-daemon.md)
 - Documentación de referencia para:
-  - Creación de instancias de [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)
-  - Llamada a [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder)
+  - Creación de instancias de [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
+  - Llamada a [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Otros ejemplos y tutoriales:
   - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) incluye una sencilla aplicación de consola de demonio de .NET Core que muestra los usuarios de un inquilino que consultan Microsoft Graph.
 
-    ![Topología](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![Ejemplo de topología de aplicación de demonio](media/scenario-daemon-app/daemon-app-sample.svg)
 
-    El ejemplo también ilustra la variación con certificados.
+    El ejemplo también ilustra una variación con certificados:
 
-    ![Topología](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![Ejemplo de topología de aplicación de demonio: certificados](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
-  - [microsoft-identity-platform-aspnet-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) incluye aplicación web de ASP.NET MVC que sincroniza datos de Microsoft Graph mediante la identidad de la aplicación, en lugar hacerlo en nombre de un usuario. El ejemplo también ilustra el proceso de consentimiento del administrador.
+  - [microsoft-identity-platform-aspnet-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) incluye una aplicación web de ASP.NET MVC que sincroniza los datos de Microsoft Graph mediante la identidad de la aplicación, en lugar hacerlo en nombre de un usuario. El ejemplo también ilustra el proceso de consentimiento del administrador.
 
     ![Topología](media/scenario-daemon-app/damon-app-sample-web.svg)
 

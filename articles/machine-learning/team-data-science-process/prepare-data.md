@@ -3,23 +3,23 @@ title: 'Preparación de datos para ML Studio (clásico): Proceso de ciencia de l
 description: Procesamiento previo y limpieza de los datos para prepararlos para su uso eficaz en el aprendizaje automático.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d17ca5d4bd709ec2529a771008e47ce6f1b68daf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432150"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720051"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tareas para preparar los datos para el aprendizaje automático mejorado
-El preprocesamiento y la limpieza de datos son tareas importantes que normalmente se deben llevar a cabo para que el conjunto de datos se pueda usar de forma eficaz para el aprendizaje automático. Los datos sin procesar son a menudo ruidosos no confiables y es posible que les falten valores. El uso de estos datos para el modelado puede producir resultados engañosos. Estas tareas forman parte del proceso de ciencia de datos en equipos (TDSP) y normalmente siguen una exploración inicial de un conjunto de datos que se usa para detectar y planear el procesamiento previo necesario. Para obtener instrucciones más detalladas sobre el proceso TDSP, consulte los pasos que se describen en el [proceso de ciencia de datos en equipos](overview.md).
+El preprocesamiento y la limpieza de datos son tareas importantes que se deben llevar a cabo para que un conjunto de datos se pueda usar para el entrenamiento de modelos. Los datos sin procesar son a menudo ruidosos no confiables y es posible que les falten valores. El uso de estos datos para el modelado puede producir resultados engañosos. Estas tareas forman parte del proceso de ciencia de datos en equipos (TDSP) y normalmente siguen una exploración inicial de un conjunto de datos que se usa para detectar y planear el procesamiento previo necesario. Para obtener instrucciones más detalladas sobre el proceso TDSP, consulte los pasos que se describen en el [proceso de ciencia de datos en equipos](overview.md).
 
 Las tareas de procesamiento previo y limpieza, como la tarea de exploración de datos, se pueden llevar a cabo en una amplia variedad de entornos, como SQL o Hive o Azure Machine Learning Studio (clásico), y con diversas herramientas y lenguajes, como R o Python, en función de dónde se almacenen los datos y cómo se le apliquen formato. Como TDSP es iterativo por naturaleza, estas tareas pueden tener lugar en diversos pasos del flujo de trabajo del proceso.
 
@@ -43,11 +43,11 @@ Podemos comprobar la calidad general de los datos comprobando:
 * El número de **atributos** (o **características**).
 * Los **tipos de datos** de atributo (nominales, ordinales o continuos).
 * El número de **valores que faltan**.
-* **formato correcto** de los datos.
+* Datos **con formato correcto**.
   * Si los datos se encuentran en TSV o CSV, comprueba que los separadores de columnas y los separadores de líneas siempre separen correctamente líneas y columnas.
   * Si los datos están en formato HTML o XML, compruebe si los datos tienen el formato correcto basándose en sus estándares respectivos.
   * El análisis también puede ser necesario para extraer información estructurada de datos semiestructurados o no estructurados.
-* **Registros de datos incoherentes**. Compruebe el intervalo de valores permitidos, por ejemplo. Si los datos contienen GPA de estudiante, compruebe si el GPA está en el intervalo designado, por ejemplo, 0~4.
+* **Registros de datos incoherentes**. Compruebe el intervalo de valores permitidos, por ejemplo. Por ejemplo, si los datos contienen GPA (promedio de calificaciones) de estudiantes, compruebe si el GPA está en el intervalo designado, por ejemplo, 0~4.
 
 Cuando encuentre problemas con los datos, serán necesarios los **pasos de procesamiento** que implican a menudo limpieza de los valores que faltan, normalización de datos, discretización, proceso para quitar o reemplazar caracteres incrustados que puedan afectar a la alineación de datos y tipos de datos mixtos en campos comunes, entre otros.
 
@@ -58,7 +58,7 @@ Cuando encuentre problemas con los datos, serán necesarios los **pasos de proce
 * **Transformación de datos**:  normalice los datos para reducir el ruido y las dimensiones.
 * **Reducción de datos**:  registros de datos de ejemplo o atributos para un control de datos más sencillo.
 * **Discretización de datos**:  convierta atributos continuos en atributos de categorías para facilitar su uso con determinados métodos de aprendizaje automático.
-* **Limpieza de texto**: quite caracteres incrustados que puedan ocasionar errores en la alineación de los datos, por ejemplo, pestañas incrustadas en un archivo de datos separado por tabulaciones, nuevas líneas incrustadas que pueden dividirse en registros, etc.
+* **Limpieza de texto**: quite caracteres incrustados que puedan ocasionar errores en la alineación de los datos, por ejemplo, pestañas incrustadas en un archivo de datos separado por tabulaciones o nuevas líneas incrustadas que pueden dividirse en registros.
 
 En las secciones siguientes se detallan algunos de los pasos de procesamiento de datos.
 
@@ -92,9 +92,9 @@ Existen varios métodos para reducir el tamaño de los datos para un tratamiento
 * **Agregación**: divida los datos en grupos y almacene los valores de cada grupo. Por ejemplo, los números de los ingresos diarios de una cadena de restaurantes durante los últimos 20 años se pueden agregar para ingresos mensuales con el fin de reducir el tamaño de los datos.  
 
 ## <a name="how-to-clean-text-data"></a>¿Cómo limpiar los datos de texto?
-**campos de texto en datos tabulares** pueden incluir caracteres que afectan a los límites de registros o alineación de columnas. Por ejemplo, las pestañas incrustadas en un archivo separado por tabulaciones causan un error de alineación de columnas y los caracteres de nueva línea incrustados dividen las líneas de registro. El control de codificación de texto incorrecto al escribir o leer texto lleva a la pérdida de información, a la introducción involuntaria de caracteres ilegibles; por ejemplo, valores NULL, y puede afectar también al texto de análisis. La edición y el análisis cuidadoso pueden ser necesarios para limpiar campos de texto para la alineación correcta o extraer datos estructurados de los datos de texto semiestructurados o no estructurados.
+Los **campos de texto en datos tabulares** pueden incluir caracteres que afectan a los límites de registros o alineación de columnas. Por ejemplo, las pestañas incrustadas en un archivo separado por tabulaciones causan un error de alineación de columnas y los caracteres de nueva línea incrustados dividen las líneas de registro. El control de codificación de texto incorrecto al escribir o leer texto lleva a la pérdida de información o a la introducción involuntaria de caracteres ilegibles (como valores NULL), y puede afectar también al análisis del texto. La edición y el análisis cuidadoso pueden ser necesarios para limpiar campos de texto para la alineación correcta o extraer datos estructurados de los datos de texto semiestructurados o no estructurados.
 
-**exploración de los datos** ofrece una vista anticipada de los datos. Se pueden detectar una serie de problemas de datos durante este paso y se pueden aplicar los métodos correspondientes para solucionarlos.  Es importante formular preguntas como ¿cuál es la causa del problema y cómo se ha podido producir el problema? Esto también le ayuda a decidir acerca de los pasos de procesamiento de datos que deben llevarse a cabo para resolverlos. El tipo de información que se intenta derivar de los datos también puede utilizarse para dar prioridad a los esfuerzos de procesamiento de datos.
+**exploración de los datos** ofrece una vista anticipada de los datos. Se pueden detectar una serie de problemas de datos durante este paso y se pueden aplicar los métodos correspondientes para solucionarlos.  Es importante formular preguntas como ¿cuál es la causa del problema y cómo se ha podido producir el problema? Este proceso también le ayuda a decidir acerca de los pasos de procesamiento de datos que deben llevarse a cabo para resolverlos. La identificación de los casos de uso finales y los roles también se puede usar para priorizar el esfuerzo de procesamiento de datos.
 
 ## <a name="references"></a>Referencias
 > *Minería de datos: conceptos y técnicas*, Tercera edición, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber y Jian Pei

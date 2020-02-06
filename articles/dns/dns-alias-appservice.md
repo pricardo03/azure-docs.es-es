@@ -2,17 +2,17 @@
 title: Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 description: Uso de un registro de alias de Azure DNS para hospedar aplicaciones web con equilibrio de carga en el vértice de zona
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/10/2019
-ms.author: allensu
-ms.openlocfilehash: a673a74f8f6f919e7ebb7fc3b065ee0742ab3a10
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212365"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937364"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 
@@ -26,7 +26,7 @@ En este artículo, aprenderá a crear un registro de alias para el vértice de d
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Debe tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
@@ -43,9 +43,9 @@ Cree un grupo de recursos que contenga todos los recursos usados en este artícu
 Cree dos planes web de App Service en el grupo de recursos, con la siguiente tabla para consultar la información de configuración. Para más información sobre cómo crear un plan de App Service, consulte [Administración de un plan de App Service en Azure](../app-service/app-service-plan-manage.md).
 
 
-|NOMBRE  |Sistema operativo  |Location  |Nivel de precios  |
+|Nombre  |Sistema operativo  |Location  |Nivel de precios  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|East US|D1-Shared para desarrollo/pruebas|
+|ASP-01     |Windows|Este de EE. UU.|D1-Shared para desarrollo/pruebas|
 |ASP-02     |Windows|Centro de EE. UU.|D1-Shared para desarrollo/pruebas|
 
 ## <a name="create-app-services"></a>Creación de servicios de aplicaciones
@@ -58,9 +58,9 @@ Cree dos aplicaciones web, una en cada plan de App Service.
 4. Seleccione **Crear**.
 5. Acepte los valores predeterminados y use la tabla siguiente para configurar las dos aplicaciones web:
 
-   |NOMBRE<br>(debe ser único dentro de .azurewebsites.net)|Grupo de recursos |Pila en tiempo de ejecución|Region|Plan de App Service/ubicación
+   |Nombre<br>(debe ser único dentro de .azurewebsites.net)|Grupo de recursos |Pila en tiempo de ejecución|Region|Plan de App Service/ubicación
    |---------|---------|-|-|-------|
-   |App-01|Usar existente<br>Seleccionar el grupo de recursos|.NET Core 2.2|East US|ASP-01(D1)|
+   |App-01|Usar existente<br>Seleccionar el grupo de recursos|.NET Core 2.2|Este de EE. UU.|ASP-01(D1)|
    |App-02|Usar existente<br>Seleccionar el grupo de recursos|.NET Core 2.2|Centro de EE. UU.|ASP-02(D1)|
 
 ### <a name="gather-some-details"></a>Recopilar algunos detalles
@@ -87,9 +87,9 @@ Ahora puede crear los puntos de conexión de las dos aplicaciones web.
 3. Seleccione **Agregar**.
 4. Use la tabla siguiente para configurar los puntos de conexión:
 
-   |type  |NOMBRE  |Destino  |Location  |Configuración de encabezado personalizado|
+   |Tipo  |Nombre  |Destino  |Location  |Configuración de encabezado personalizado|
    |---------|---------|---------|---------|---------|
-   |Punto de conexión externo     |End-01|Dirección IP que anotó para App-01|East US|host:\<la dirección URL que anotó para App-01\><br>Ejemplo: **host:app-01.azurewebsites.net**|
+   |Punto de conexión externo     |End-01|Dirección IP que anotó para App-01|Este de EE. UU.|host:\<la dirección URL que anotó para App-01\><br>Ejemplo: **host:app-01.azurewebsites.net**|
    |Punto de conexión externo     |End-02|Dirección IP que anotó para App-02|Centro de EE. UU.|host:\<la dirección URL que anotó para App-02\><br>Ejemplo: **host:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Creación de una zona DNS
@@ -104,7 +104,7 @@ Al agregar un nombre de host personalizado a las aplicaciones web, buscará un r
 2. Seleccione **Conjunto de registros**.
 3. Agregue el conjunto de registros con la siguiente tabla. Para el valor, use la dirección URL de la aplicación web real que registró anteriormente:
 
-   |NOMBRE  |type  |Valor|
+   |Nombre  |Tipo  |Value|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,9 +132,9 @@ Ahora cree un registro de alias para el vértice de la zona.
 2. Seleccione **Conjunto de registros**.
 3. Agregue el conjunto de registros con la siguiente tabla:
 
-   |NOMBRE  |type  |Conjunto de registros de alias  |Tipo de alias  |Recurso de Azure|
+   |Nombre  |Tipo  |Conjunto de registros de alias  |Tipo de alias  |Recurso de Azure|
    |---------|---------|---------|---------|-----|
-   |@     |Una|Sí|Recurso de Azure|Traffic Manager: su perfil|
+   |@     |Un|Sí|Recurso de Azure|Traffic Manager: su perfil|
 
 
 ## <a name="test-your-web-apps"></a>Prueba de las aplicaciones web

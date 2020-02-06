@@ -1,22 +1,22 @@
 ---
-title: 'Creación de características para los datos en un clúster de Hadoop: Proceso de ciencia de datos en equipos'
+title: 'Creación de características para los datos en un clúster de Azure HDInsight Hadoop: proceso de ciencia de datos en equipos'
 description: Ejemplos de consultas de Hive que generan características en datos almacenados en un clúster de Hadoop de HDInsight de Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982036"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721785"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive
 Este documento muestra cómo crear características para los datos almacenados en un clúster de Hadoop para HDInsight de Azure mediante consultas de Hive. Estas consultas de Hive usan funciones definidas por el usuario (UDF) insertadas, cuyos scripts se proporcionan.
@@ -144,14 +144,14 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Este parámetro asigna 4 GB de memoria al espacio de montón de Java y también hace que la ordenación sea más eficiente al asignar más memoria para él. Es buena idea jugar con estas asignaciones si no hay ningún error de trabajo relacionado con el espacio en el montón.
+    Este parámetro no solo asigna 4 GB de memoria al espacio en el montón de Java, sino que también aumenta la eficacia de la ordenación, ya que le asigna más memoria. Es buena idea jugar con estas asignaciones si no hay ningún error de trabajo relacionado con el espacio en el montón.
 
 1. **Tamaño de bloque de DFS**: Este parámetro establece la unidad más pequeña de datos que el sistema de archivos almacena. Por ejemplo, si el tamaño de bloque DFS es 128 MB, los datos que tengan un tamaño de 128 MB o inferior se almacenarán en un solo bloque. Asimismo, se asignarán bloques adicionales para los datos que tengan más de 128 MB. 
 2. Si elige un tamaño de bloque pequeño, se producirán grandes sobrecargas en Hadoop, puesto que el nodo de nombre tiene que procesar muchas más solicitudes para buscar el bloque pertinente relacionado con el archivo. Una configuración recomendada al tratar con datos de gigabytes (o mayores) es:
 
         set dfs.block.size=128m;
 
-2. **Optimización de la operación de unión en Hive**: Aunque las operaciones de unión en el marco de asignación/reducción suelen tener lugar en la fase de reducción, en ocasiones se pueden obtener ganancias enormes mediante la programación de uniones en la fase de asignación (también denominada "mapjoins"). Para indicar a Hive que haga esto siempre que sea posible, establezca lo siguiente:
+2. **Optimización de la operación de unión en Hive**: Aunque las operaciones de unión en el marco de asignación/reducción suelen tener lugar en la fase de reducción, en ocasiones se pueden obtener ganancias enormes mediante la programación de uniones en la fase de asignación (también denominada "mapjoins"). Establezca esta opción:
    
        set hive.auto.convert.join=true;
 
@@ -167,7 +167,7 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
      Como podemos ver, dado el tamaño de los datos, el ajuste de estos parámetros mediante su "configuración" nos permite optimizar el número de asignadores que se usan.
 
-4. A continuación, se mencionan algunas otras **opciones avanzadas** para optimizar el rendimiento de Hive. Estas permiten establecer la memoria asignada para asignar y reducir tareas, y pueden ser útiles para modificar el rendimiento. Tenga en cuenta que el valor de *mapreduce.reduce.memory.mb* no puede ser mayor que el tamaño de la memoria física de cada nodo de trabajo del clúster de Hadoop.
+4. A continuación, se mencionan algunas otras **opciones avanzadas** para optimizar el rendimiento de Hive. Estas opciones permiten establecer la memoria asignada para asignar y reducir tareas, y pueden ser útiles al modificar el rendimiento. Tenga en cuenta que el valor de *mapreduce.reduce.memory.mb* no puede ser mayor que el tamaño de la memoria física de cada nodo de trabajo del clúster de Hadoop.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

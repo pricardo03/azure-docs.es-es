@@ -1,6 +1,6 @@
 ---
 title: Creación de un generador de imágenes en Azure DevTest Labs | Microsoft Docs
-description: Aprenda a configurar un generador de imágenes personalizadas mediante el uso de scripts de ejemplo disponibles en el repositorio de Git.
+description: Este artículo muestra cómo configurar un generador de imágenes personalizadas mediante el uso de scripts de ejemplo disponibles en el repositorio de Git (Azure DevTest Labs).
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 7779914d9681d0f80cab9568da6a20b15e3a2eb1
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 2c5a44a9505d4a312be521cdc3219c5e4ce95a42
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560016"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759455"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creación de un generador de imágenes personalizadas en Azure DevTest Labs
 Este artículo muestra cómo configurar un generador de imágenes personalizadas mediante el uso de scripts de ejemplo disponibles en el [repositorio de Git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
@@ -43,7 +43,7 @@ Hay una [extensión de VSTS para DevTest Labs](https://marketplace.visualstudio
 
 - Creación de una imagen personalizada
 - Creación de una máquina virtual
-- Eliminación de una máquina virtual
+- Eliminación de la máquina virtual
 - Creación del entorno
 - Eliminación del entorno
 - Relleno del entorno

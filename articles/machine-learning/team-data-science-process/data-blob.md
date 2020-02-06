@@ -3,20 +3,20 @@ title: 'Proceso de datos del blob de Azure con análisis avanzado: Proceso de ci
 description: Explore los datos y genere características a partir de los datos almacenados en el Almacenamiento de blobs de Azure con análisis avanzado.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d056226ce8ade93e63d7bca49b975a6983dc126a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4c47dfb8b221b6cb4b6237669ecd17c1637107a2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492414"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721105"
 ---
 # <a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
 En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure. 
@@ -24,7 +24,7 @@ En este documento se trata la exploración de datos y generación de caracterís
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carga de los datos en una trama de datos Pandas
 Para explorar y manipular un conjunto de datos, se debe descargar desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
 
-1. Descargue los datos del blob de Azure con el siguiente código de Python de ejemplo mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos: 
+1. Descargue los datos del blob de Azure con el siguiente código de Python de ejemplo mediante Blob service. Reemplace la variable en el código siguiente por sus valores específicos: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -131,7 +131,7 @@ Para generar características discretizadas, se procede de la siguiente manera:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Azure Machine Learning
-Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Azure Machine Learning, mediante los siguientes pasos. Tenga en cuenta que también se pueden crear características adicionales en Azure Machine Learning Studio (clásico). 
+Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Azure Machine Learning, mediante los siguientes pasos. También se pueden crear características adicionales en Azure Machine Learning Studio (clásico). 
 
 1. Escriba la trama de datos en el archivo local
    

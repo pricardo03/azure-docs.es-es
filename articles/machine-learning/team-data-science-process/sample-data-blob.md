@@ -3,32 +3,32 @@ title: 'Datos de ejemplo de Azure Blob Storage: proceso de ciencia de datos en e
 description: Para muestrear datos de ejemplo en Azure Blob Storage, deben descargarse mediante programación y luego realizar un muestreo de los mismos con procedimientos escritos en Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1c455106e5faa4aa20ec56f37788e0b8c324fee1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4832762a88073f4d819925659bf9078e18f60c2d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042915"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720289"
 ---
 # <a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
 
 En este artículo se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure; para ello, se descargan mediante programación y luego se realiza un muestreo de los mismos con procedimientos escritos en Python.
 
 **¿Por qué realizar un muestreo de los datos?**
-Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
+Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. El muestreo facilita el reconocimiento y la exploración de los datos, así como el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Descarga y muestreado de datos
-1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente: 
+1. Descargue los datos del almacenamiento de blobs de Azure con Blob Service con el código de Python de ejemplo siguiente: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -61,7 +61,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Ahora se puede trabajar con el marco de datos anterior, con el ejemplo del 1 por ciento, para la generación de características y exploración más a fondo.
+Ahora se puede trabajar con el marco de datos anterior, con el ejemplo del uno por ciento, para la generación y exploración de características más a fondo.
 
 ## <a name="heading"></a>Carga de datos y lectura en Azure Machine Learning
 Puede usar el ejemplo de código siguiente para muestrear los datos y usarlos directamente en Azure Machine Learning:

@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 1b860876b0d8967a6a3f90c7bb68f20d6c442109
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: b8d0a3e60654c9d3f951c6f288ea904bb4c0d50b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513871"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900635"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -443,7 +443,7 @@ Devuelve un objeto que representa el estado de tiempo de ejecución de un recurs
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sí |string |Nombre o identificador único de un recurso. Al hacer referencia a un recurso en la plantilla actual, proporcione solo el nombre del recurso como parámetro. Al hacer referencia a un recurso implementado previamente, especifique el identificador del recurso. |
+| resourceName o resourceIdentifier |Sí |string |Nombre o identificador único de un recurso. Al hacer referencia a un recurso en la plantilla actual, proporcione solo el nombre del recurso como parámetro. Al hacer referencia a un recurso implementado anteriormente o cuando el nombre del recurso sea ambiguo, proporcione el identificador del recurso. |
 | apiVersion |No |string |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. Para conocer las versiones válidas de la API para su recurso, consulte la [referencia de la plantilla](/azure/templates/). |
 | 'Full' |No |string |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
 
@@ -460,11 +460,11 @@ Normalmente, se usa la función de **referencia** para devolver un valor determi
 ```json
 "outputs": {
     "BlobUri": {
-        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')).primaryEndpoints.blob]",
         "type" : "string"
     },
     "FQDN": {
-        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
+        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')).dnsSettings.fqdn]",
         "type" : "string"
     }
 }
@@ -476,11 +476,11 @@ Utilice `'Full'` cuando necesite valores de recurso que no forman parte del esqu
 {
   "type": "Microsoft.KeyVault/vaults",
   "properties": {
-    "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+    "tenantId": "[subscription().tenantId]",
     "accessPolicies": [
       {
-        "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
-        "objectId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.principalId]",
+        "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.tenantId]",
+        "objectId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.principalId]",
         "permissions": {
           "keys": [
             "all"
@@ -520,10 +520,10 @@ Al hacer referencia a un recurso que no esté implementado en la misma plantilla
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
 ```
 
-Para evitar la ambigüedad acerca del recurso al que hace referencia, puede proporcionar un nombre de recurso completo.
+Para evitar la ambigüedad sobre cuál es el recurso al que hace referencia, puede proporcionar un nombre de recurso completo.
 
 ```json
-"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))]"
 ```
 
 Al construir una referencia completa a un recurso, el orden para combinar los segmentos a partir del tipo y el nombre no es simplemente una concatenación de los dos. En su lugar, después del espacio de nombres, use una secuencia de pares *tipo/nombre* de menos a más específico:
@@ -534,6 +534,8 @@ Por ejemplo:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` es correcto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` no es correcto
 
+Para simplificar la creación de cualquier identificador de recurso, use las funciones `resourceId()` descritas en este documento, en lugar de la función `concat()`.
+
 ### <a name="get-managed-identity"></a>Obtención de una identidad administrada
 
 [Las identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md) son [tipos de recursos de extensión](../management/extension-resource-types.md) que se crean implícitamente para algunos recursos. Dado que la identidad administrada no se define explícitamente en la plantilla, debe hacer referencia al recurso al que se aplica la identidad. Utilice `Full` para obtener todas las propiedades, incluida la identidad creada implícitamente.
@@ -541,7 +543,7 @@ Por ejemplo:
 Por ejemplo, para obtener el identificador de inquilino de una identidad administrada que se aplica a un conjunto de escalado de máquinas virtuales, use:
 
 ```json
-"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>Ejemplo de referencia

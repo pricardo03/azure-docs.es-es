@@ -1,6 +1,6 @@
 ---
 title: Seguimiento y diagnóstico de un extremo a otro de Azure Service Bus | Microsoft Docs
-description: Información general del diagnóstico y el seguimiento de un extremo a otro del cliente de Service Bus
+description: Información general del diagnóstico y el seguimiento de un extremo a otro del cliente de Service Bus (cliente a través de todos los servicios implicados en el procesamiento).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a184e76faa89199d3e13ece3e17f94f73d995a12
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311019"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760273"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Seguimiento y correlación distribuidos del servicio de mensajería de Service Bus
 
@@ -28,12 +28,12 @@ Una parte de este problema es el seguimiento de elementos de trabajo lógicos. A
 Cuando un productor envía un mensaje a través de una cola, normalmente se produce en el ámbito de cualquier otra operación lógica que inició algún otro cliente o servicio. Igualmente, el consumidor continúa con la misma operación después de recibir un mensaje. Tanto el productor como el consumidor (y otros servicios que procesan la operación) emiten eventos de telemetría para hacer un seguimiento del flujo de la operación y su resultado. Para poder correlacionar estos eventos y realizar un seguimiento de la operación de un extremo a otro, cada servicio que notifica la telemetría debe marcar todos los eventos con un contexto de seguimiento.
 
 El servicio de mensajería de Microsoft Azure Service Bus ha definido las propiedades de carga que deben usar los productores y consumidores para poder pasar estos contextos de seguimiento.
-El protocolo se basa en el [protocolo de correlación HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
+El protocolo se basa en el [protocolo de correlación HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nombre de propiedad        | DESCRIPCIÓN                                                 |
+| Nombre de propiedad        | Descripción                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostic-Id       | Identificador único de una llamada externa del productor a la cola. Vea [Request-Id in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) (Request-Id en el protocolo HTTP) para obtener el razonamiento, las consideraciones y el formato. |
-|  Correlation-Context | Contexto de la operación, que se propaga a través de todos los servicios que intervienen en el proceso de la operación. Para obtener más información, vea [Correlation-Context in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) (Correlation-Context en el protocolo HTTP). |
+|  Diagnostic-Id       | Identificador único de una llamada externa del productor a la cola. Vea [Request-Id in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) (Request-Id en el protocolo HTTP) para obtener el razonamiento, las consideraciones y el formato. |
+|  Correlation-Context | Contexto de la operación, que se propaga a través de todos los servicios que intervienen en el proceso de la operación. Para obtener más información, vea [Correlation-Context in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) (Correlation-Context en el protocolo HTTP). |
 
 ## <a name="service-bus-net-client-auto-tracing"></a>Seguimiento automático del cliente .NET de Service Bus
 

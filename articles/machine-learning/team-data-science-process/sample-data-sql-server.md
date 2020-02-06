@@ -3,20 +3,20 @@ title: 'Datos de ejemplo en SQL Server en Azure: Team Data Science Process'
 description: Datos de ejemplo almacenados en SQL Server en Azure con SQL o el lenguaje de programación Python y su traslado a Azure Machine Learning.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043427"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717649"
 ---
 # <a name="heading"></a>Muestreo de datos en SQL Server en Azure
 
@@ -30,7 +30,7 @@ El muestreo de Python usa la biblioteca ODBC [pyodbc](https://code.google.com/p/
 > 
 
 **¿Por qué realizar un muestreo de los datos?**
-Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
+Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. El muestreo facilita el reconocimiento y la exploración de los datos, así como el diseño de características. Su rol en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
@@ -48,7 +48,7 @@ Los dos elementos siguientes muestran cómo utilizar `newid` en SQL Server para 
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample se puede usar igualmente para el muestreo de datos. Podría ser un enfoque preferible si el tamaño de los datos es grande (suponiendo que los datos de las distintas páginas no están correlacionados) y para que la consulta se complete en un tiempo razonable.
+Tablesample se puede usar igualmente para el muestreo de datos. Esta opción podría ser un enfoque preferible si el tamaño de los datos es grande (suponiendo que los datos de las distintas páginas no están correlacionados) y para que la consulta se complete en un tiempo razonable.
 
     SELECT *
     FROM <table_name> 
@@ -60,7 +60,7 @@ Tablesample se puede usar igualmente para el muestreo de datos. Podría ser un e
 > 
 
 ### <a name="sql-aml"></a>Conexión con Azure Machine Learning
-Puede utilizar directamente las consultas de ejemplo anteriores en el módulo [Importar datos][import-data] de Azure Machine Learning para reducir los datos sobre la marcha y usarlos en un experimento de Azure Machine Learning. Aquí se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
+Puede utilizar directamente las consultas de ejemplo anteriores en el módulo para [importar datos][import-data] de Azure Machine Learning para reducir los datos sobre la marcha y usarlos en un experimento de Azure Machine Learning. Aquí se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
 
 ![lector sql][1]
 
@@ -81,7 +81,7 @@ La biblioteca [Pandas](https://pandas.pydata.org/) en Python ofrece un amplio co
 Ahora puede trabajar con los datos de muestreo en la trama de datos de Pandas. 
 
 ### <a name="python-aml"></a>Conexión con Azure Machine Learning
-Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Azure Machine Learning mediante el módulo [Importar datos][import-data]. Los pasos son los siguientes: 
+Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Azure Machine Learning mediante el módulo de [importar datos][import-data]. Los pasos son los siguientes: 
 
 1. Escribir la trama de datos de Pandas en un archivo local
    
@@ -107,7 +107,7 @@ Puede usar el siguiente código de ejemplo para guardar los datos muestreados re
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Leer datos de un blob de Azure mediante el módulo [Importar datos][import-data] de Azure Machine Learning, como se muestra en la captura de pantalla siguiente:
+3. Leer datos de un blob de Azure mediante el módulo de [importar datos][import-data] de Azure Machine Learning, como se muestra en la captura de pantalla siguiente:
 
 ![lector de blobs][2]
 

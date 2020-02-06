@@ -3,7 +3,7 @@ title: Administrar perfiles del Azure Traffic Manager | Microsoft Docs
 description: La información contenida en este artículo le ayuda a crear, deshabilitar, habilitar y eliminar un perfil de Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 manager: twooley
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
-ms.author: allensu
-ms.openlocfilehash: 8ec30a4d3f02505e764cd6f8dcec42c56d11ed27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: adfe7d117d2329832a5b5e9e782a9029a682ff3b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071096"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938609"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Administrar un perfil de Azure Traffic Manager
 
@@ -37,7 +37,7 @@ Puede crear un perfil de Traffic Manager mediante el portal de Azure. Después d
     3. En **Suscripción**, seleccione la suscripción en la que desea crear este perfil.
     4. En **Grupo de recursos**, cree un grupo de recursos nuevo en el cual colocar este perfil.
     5. En **Ubicación del grupo de recursos**, seleccione la ubicación del grupo de recursos. Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.
-    6. Haga clic en **Create**(Crear).
+    6. Haga clic en **Crear**.
     7. Una vez que se complete la implementación global del perfil de Traffic Manager, aparece en el grupo de recursos respectivo como uno de los recursos.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Deshabilitar, habilitar o eliminar un perfil

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/14/2019
+ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 4cdc2fff05270a296d9c4c9151f73cadeb2a1cfc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ddf6c9238cabedfbdeeb8056864072edc543c342
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754388"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712620"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Unión de una máquina virtual CoreOS a un dominio administrado de Azure AD Domain Services
 
@@ -24,7 +24,7 @@ Para que los usuarios puedan iniciar sesión en máquinas virtuales (VM) en Azur
 
 Este artículo muestra cómo unir una máquina virtual CoreOS a un dominio administrado de Azure AD DS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -63,13 +63,13 @@ sudo vi /etc/hosts
 
 En el archivo *hosts*, actualice la dirección *localhost*. En el ejemplo siguiente:
 
-* *contoso.com* es el nombre de dominio DNS del dominio administrado de Azure AD DS.
+* *aadds.contoso.com* es el nombre de dominio DNS del dominio administrado de Azure AD DS.
 * *coreos* es el nombre de host de la máquina virtual CoreOS que se va a unir al dominio administrado.
 
 Actualice estos nombres con sus propios valores:
 
 ```console
-127.0.0.1 coreos coreos.contoso.com
+127.0.0.1 coreos coreos.aadds.contoso.com
 ```
 
 Cuando haya terminado, guarde y salga del archivo *hosts* mediante el comando `:wq` del editor.
@@ -85,7 +85,7 @@ sudo vi /etc/sssd/sssd.conf
 Especifique su propio nombre de dominio administrado de Azure AD DS para los siguientes parámetros:
 
 * *domains* con TODAS LAS LETRAS EN MAYÚSCULAS
-* *[domain/CONTOSO]* donde CONTOSO tiene TODAS LAS LETRAS EN MAYÚSCULAS
+* *[domain/AADDS]* donde AADDS está CON TODAS LAS LETRAS EN MAYÚSCULAS
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -95,15 +95,15 @@ Especifique su propio nombre de dominio administrado de Azure AD DS para los s
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = CONTOSO.COM
+domains = AADDS.CONTOSO.COM
 
-[domain/CONTOSO.COM]
+[domain/AADDS.CONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
 
-ldap_uri = ldap://contoso.com
-ldap_search_base = dc=contoso,dc=com
+ldap_uri = ldap://aadds.contoso.com
+ldap_search_base = dc=aadds.contoso,dc=com
 ldap_schema = rfc2307bis
 ldap_sasl_mech = GSSAPI
 ldap_user_object_class = user
@@ -114,32 +114,32 @@ ldap_account_expire_policy = ad
 ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
-krb5_server = contoso.com
-krb5_realm = CONTOSO.COM
+krb5_server = aadds.contoso.com
+krb5_realm = AADDS.CONTOSO.COM
 ```
 
 ## <a name="join-the-vm-to-the-managed-domain"></a>Unión de la máquina virtual al dominio administrado
 
 Con el archivo de configuración de SSSD actualizado, una la máquina virtual al dominio administrado.
 
-1. En primer lugar, use el comando `adcli info` para comprobar que puede ver información sobre el dominio administrado de Azure AD DS. En el ejemplo siguiente se obtiene información para el dominio *CONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
+1. En primer lugar, use el comando `adcli info` para comprobar que puede ver información sobre el dominio administrado de Azure AD DS. En el ejemplo siguiente se obtiene información para el dominio *AADDS.CONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
 
     ```console
-    sudo adcli info CONTOSO.COM
+    sudo adcli info AADDS.CONTOSO.COM
     ```
 
    Si el comando `adcli info` no se puede encontrar en el dominio administrado de Azure AD DS, repase los siguientes pasos de solución de problemas:
 
-    * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping contoso.com` para ver si se devuelve una respuesta positiva.
+    * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping aadds.contoso.com` para ver si se devuelve una respuesta positiva.
     * Compruebe que la máquina virtual se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado de Azure AD DS está disponible.
     * Confirme que se ha actualizado la configuración del servidor DNS de la red virtual para que apunte a los controladores de dominio del dominio administrado de Azure AD DS.
 
 1. Ahora, una la máquina virtual al dominio administrado de Azure AD DS con el comando `adcli join`. Especifique un usuario que pertenezca al grupo *Administradores del controlador de dominio de AAD*. Si es necesario, [agregue una cuenta de usuario a un grupo en Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Una vez más, el nombre del dominio administrado de Azure AD DS se debe escribir CON TODAS LAS LETRAS EN MAYÚSCULAS. En el ejemplo siguiente, la cuenta denominada `contosoadmin@contoso.com` se usa para inicializar Kerberos. Escriba su propia cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*.
+    Una vez más, el nombre del dominio administrado de Azure AD DS se debe escribir CON TODAS LAS LETRAS EN MAYÚSCULAS. En el ejemplo siguiente, la cuenta denominada `contosoadmin@aadds.contoso.com` se usa para inicializar Kerberos. Escriba su propia cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*.
 
     ```console
-    sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
+    sudo adcli join -D AADDS.CONTOSO.COM -U contosoadmin@AADDS.CONTOSO.COM -K /etc/krb5.keytab -H coreos.aadds.contoso.com -N coreos
     ```
 
     El comando `adcli join` no devuelve ninguna información cuando la máquina virtual se ha unido correctamente al dominio administrado de Azure AD DS.
@@ -154,10 +154,10 @@ Con el archivo de configuración de SSSD actualizado, una la máquina virtual al
 
 Para comprobar que la máquina virtual se ha unido correctamente al dominio administrado de Azure AD DS, inicie una nueva conexión SSH con una cuenta de usuario de dominio. Confirme que se ha creado un directorio particular y que se ha aplicado la pertenencia a grupos del dominio.
 
-1. Cree una nueva conexión SSH desde la consola. Use una cuenta de dominio que pertenezca al dominio administrado mediante el comando `ssh -l` como, por ejemplo, `contosoadmin@contoso.com` y, a continuación, escriba la dirección de la máquina virtual, por ejemplo: *coreos.contoso.com*. Si usa Azure Cloud Shell, use la dirección IP pública de la máquina virtual en lugar del nombre DNS interno.
+1. Cree una nueva conexión SSH desde la consola. Use una cuenta de dominio que pertenezca al dominio administrado mediante el comando `ssh -l` como, por ejemplo, `contosoadmin@aadds.contoso.com` y, a continuación, escriba la dirección de la máquina virtual, por ejemplo: *coreos.aadds.contoso.com*. Si usa Azure Cloud Shell, use la dirección IP pública de la máquina virtual en lugar del nombre DNS interno.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com coreos.contoso.com
+    ssh -l contosoadmin@AADDS.CONTOSO.com coreos.aadds.contoso.com
     ```
 
 1. Ahora, compruebe que las pertenencias a grupos se están resolviendo correctamente:

@@ -2,34 +2,35 @@
 title: 'Plataformas y herramientas para proyectos de ciencia de datos: proceso de ciencia de datos en equipo'
 description: Detalla y describe los recursos de datos y análisis disponibles para las empresas y que están normalizados en el proceso de ciencia de datos en equipo.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e3297319c67ad2b7c94371356cde49113c7ef737
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978516"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718895"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
-Microsoft proporciona un amplio espectro de servicios de datos y análisis, así como recursos para plataformas locales y en la nube. Se pueden implementar para que la ejecución de los proyectos de ciencia de datos sean eficaces y escalables. El [proceso de ciencia de datos en equipo](overview.md) (TDSP) sirve de guía a los equipos que implementan proyectos de ciencia de datos con seguimiento, con control de versiones y en colaboración.  En [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md) dispone de un esquema de los roles profesionales y las tareas asociadas de las que se ocupa un equipo de ciencia de datos que sigue este proceso como estándar.
+Microsoft proporciona un amplio espectro de recursos de análisis para plataformas locales y en la nube. Se pueden implementar para que la ejecución de los proyectos de ciencia de datos sean eficaces y escalables. El [proceso de ciencia de datos en equipo](overview.md) (TDSP) sirve de guía a los equipos que implementan proyectos de ciencia de datos con seguimiento, con control de versiones y en colaboración.  En [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md) dispone de un esquema de los roles profesionales y las tareas asociadas de las que se ocupa un equipo de ciencia de datos que sigue este proceso como estándar.
 
-Los servicios de datos y análisis a disposición de los equipos de ciencia de datos que siguen el proceso de ciencia de datos en equipo son:
+Los recursos de análisis a disposición de los equipos de ciencia de datos que siguen el proceso de ciencia de datos en equipo incluyen:
 
 - Data Science Virtual Machine (tanto Windows como Linux CentOS)
 - Clústeres de HDInsight Spark
-- SQL Data Warehouse
+- Synapse Analytics
 - Azure Data Lake
 - Clústeres de HDInsight Hive
 - Azure File Storage
-- SQL Server 2016 R Services
+- Servicios R y Python para SQL Server 2019
+- Azure Databricks
 
 En este documento, se describen brevemente los recursos y se proporcionan vínculos a tutoriales que los equipos del proceso de ciencia de datos en equipo han publicado. Aprenderá a usarlos paso a paso y podrá comenzar a usarlos para compilar las aplicaciones inteligentes. Podrá encontrar más información sobre estos recursos en las páginas de producto. 
 
@@ -48,9 +49,9 @@ También incluye **herramientas de ML e IA**, como xgboost, mxnet y Vowpal Wabbi
 
 Actualmente, la máquina virtual de ciencia de datos está disponible con los sistemas operativos **Windows** y **CentOS Linux**. Elija el tamaño de la máquina virtual de ciencia de datos (número de núcleos de CPU y cantidad de memoria) en función de los proyectos de ciencia de datos que se vayan a ejecutar en ella. 
 
-Para más información sobre las ediciones de Windows de máquina virtual de ciencias de datos, consulte [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) en Azure Marketplace. Para la edición Linux de la máquina virtual de ciencia de datos, consulte [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Para más información sobre la edición de Windows de DSVM, consulte [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) en Azure Marketplace. Para la edición Linux de la máquina virtual de ciencia de datos, consulte [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-Para obtener información sobre cómo ejecutar de forma eficaz alguna de las tareas comunes de ciencia de datos en la máquina virtual de ciencia de datos, consulte [Ten things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md) (Diez cosas que puede hacer en la máquina virtual de ciencia de datos).
+Para aprender a ejecutar de forma eficaz algunas de las tareas comunes de ciencia de datos en DSVM, consulte [Diez cosas que puede hacer en Windows Data Science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md).
 
 
 ## <a name="azure-hdinsight-spark-clusters"></a>Clústeres de Azure HDInsight Spark
@@ -71,7 +72,7 @@ Para más información sobre Azure SQL Data Warehouse, consulte el sitio web de 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake
 
-Azure Data Lake es un repositorio empresarial donde se recopila todo tipo de datos en una única ubicación antes de aplicar requisitos o esquemas formales. Esta flexibilidad permite conservar cualquier tipo de datos en Data Lake, con independencia del tamaño, la estructura o la velocidad de ingestión. Las organizaciones pueden usar después Hadoop o análisis avanzado para buscar patrones en estos Data Lake. Data Lake también sirve de repositorio para una preparación de los datos más económica antes de su mantenimiento y transferencia a un almacenamiento de datos.
+Azure Data Lake es un repositorio empresarial de todos los tipos de datos recopilados en una única ubicación antes de la aplicación de requisitos o esquemas formales. Esta flexibilidad permite conservar cualquier tipo de datos en Data Lake, con independencia del tamaño, la estructura o la velocidad de ingestión. Las organizaciones pueden usar después Hadoop o análisis avanzado para buscar patrones en estos Data Lake. Data Lake también sirve de repositorio para una preparación de los datos más económica antes de su mantenimiento y transferencia a un almacenamiento de datos.
 
 Para más información sobre Azure Data Lake, consulte la entrada de blob [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/) (Introducción a Azure Data Lake). Para obtener información sobre cómo crear una solución de ciencia de datos completa y escalable con Azure Data Lake, consulte [Ciencia de datos escalable con Azure Data Lake: tutorial completo](data-lake-walkthrough.md)
 
@@ -94,11 +95,11 @@ Azure File Storage es un servicio que ofrece recursos compartidos de archivos en
 Especialmente útil para los proyectos de ciencia de datos es la capacidad para crear un almacén de archivos de Azure como el lugar para compartir datos del proyecto con los miembros del equipo de proyecto. Cada uno de ellos tiene acceso entonces a la misma copia de los datos en el almacenamiento de archivos de Azure. También puede utilizar este almacenamiento de archivos para compartir conjuntos de características generados durante la ejecución del proyecto. Si el proyecto es una interacción con los clientes, estos pueden crear un almacenamiento de archivos de Azure en su propia suscripción de Azure para compartir los datos de proyecto y las características con el usuario. De esta manera, el cliente tiene control total sobre los recursos de datos del proyecto. Para más información sobre Azure File Storage, consulte [Introducción a Azure File Storage en Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) o [Uso de Azure File Storage con Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Services
+## <a name="sql-server-2019-r-and-python-services"></a>R y Python Services para SQL Server 2019
 
-R Services (en base de datos) proporciona una plataforma para desarrollar e implementar aplicaciones inteligentes que pueden descubrir nuevas perspectivas. Puede usar el completo y eficaz lenguaje R, incluidos los numerosos paquetes proporcionados por la comunidad R, para crear modelos y generar predicciones con sus datos de SQL Server. Como R Services (en base de datos) integra el lenguaje R con SQL Server, los análisis se mantienen cerca de los datos, lo que elimina los costos y los riesgos de seguridad asociados con el movimiento de datos.
+R Services (En base de datos) proporciona una plataforma para desarrollar e implementar aplicaciones inteligentes que pueden destapar nueva información. Puede usar el completo y eficaz lenguaje R, incluidos los numerosos paquetes proporcionados por la comunidad R, para crear modelos y generar predicciones con sus datos de SQL Server. Dado que R Services (En base de datos) integra el lenguaje R con SQL Server, los análisis se mantienen cerca de los datos, lo que elimina los costos y los riesgos de seguridad asociados al movimiento de datos.
 
-R Services (en base de datos) admite el lenguaje R de código abierto con un completo conjunto de tecnologías y herramientas de SQL Server. Ofrece un rendimiento superior, seguridad, confiabilidad y facilidad de uso. Puede implementar soluciones en R con herramientas conocidas y convenientes. Las aplicaciones de producción pueden llamar al entorno en tiempo de ejecución de R y recuperar las predicciones y los objetos visuales mediante Transact-SQL. También puede usar las bibliotecas de ScaleR para mejorar la escalabilidad y el rendimiento de las soluciones de R. Para más información, consulte [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+R Services (En base de datos) admite el lenguaje R de código abierto con un completo conjunto de tecnologías y herramientas de SQL Server. Ofrece un rendimiento superior, seguridad, confiabilidad y facilidad de uso. Puede implementar soluciones en R con herramientas conocidas y convenientes. Las aplicaciones de producción pueden llamar al entorno en tiempo de ejecución de R y recuperar las predicciones y los objetos visuales mediante Transact-SQL. También puede usar las bibliotecas de ScaleR para mejorar la escalabilidad y el rendimiento de las soluciones de R. Para más información, consulte [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
 
 El equipo del proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos que muestran cómo crear soluciones de ciencia de datos en SQL Server 2016 R Services, uno para los programadores de R y otro para desarrolladores de SQL. Para los **programadores de R**, consulte el [tutorial completo de ciencia de datos](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para los **desarrolladores de SQL**, consulte [Análisis de R en bases de datos para desarrolladores de SQL (tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
@@ -135,7 +136,7 @@ Si se usan máquinas Linux (CentOS) para ejecutar los comandos de GIT, tendrá q
 
 1. Copie la clave ssh completa, incluido *ssh-rsa*. 
 1. Inicie sesión en Azure DevOps Services. 
-1. Haga clic en **<Su nombre\>** en la esquina superior derecha de la página y haga clic en **Seguridad**. 
+1. Haga clic en **<Su nombre\>** en la esquina superior derecha de la página y luego en **Seguridad**. 
     
    ![Haga clic en el nombre y luego haga clic en Seguridad.](./media/platforms-and-tools/resources-2-user-setting.png)
 
@@ -143,7 +144,7 @@ Si se usan máquinas Linux (CentOS) para ejecutar los comandos de GIT, tendrá q
 
    ![Haga clic en Claves públicas de SSH y, luego, haga clic en +Agregar.](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-1. Pegue la clave SSH que acaba de copiar en el cuadro de texto y guárdela.
+1. Pegue la clave SSH copiada en el cuadro de texto y haga clic en Guardar.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

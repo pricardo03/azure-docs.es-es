@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 06b54c3038e8b4f5879a93b696920534c2199008
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414593"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748983"
 ---
 En este artículo proporciona una visión general de las características de disponibilidad de las máquinas virtuales (VM) de Azure.
 
@@ -62,7 +62,7 @@ Los conjuntos de escalado de máquinas virtuales permiten especificar el modo de
 
 **Dominios de error y dominios de actualización**
 
-Los conjuntos de escalado de máquinas virtuales simplifican el diseño para lograr alta disponibilidad al alinear los dominios de error y los dominios de actualización. Solo tendrá que definir el número de dominios de error del conjunto de escalado. El número de dominios de error disponibles para los conjuntos de escalado puede variar en función de la región. Consulte [Número de dominios de error por región](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region).
+Los conjuntos de escalado de máquinas virtuales simplifican el diseño para lograr alta disponibilidad al alinear los dominios de error y los dominios de actualización. Solo tendrá que definir el número de dominios de error del conjunto de escalado. El número de dominios de error disponibles para los conjuntos de escalado puede variar en función de la región. Consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad

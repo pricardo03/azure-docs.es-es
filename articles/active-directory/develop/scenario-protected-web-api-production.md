@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4111945d11fd9b42ae8a7daba9ec993a875a5fd0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 229f49255fbc72f74f07b1e7098417d136f35c27
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423711"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775171"
 ---
 # <a name="protected-web-api---move-to-production"></a>API web protegida: pasar a producción
 
@@ -31,14 +30,12 @@ Ahora que sabe cómo proteger su API web, le mostramos cómo puede moverla a pro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo llamar a las API de bajada:
+Aprenda a llamar a una API de bajada.
 
 > [!div class="nextstepaction"]
 > [Escenario: la API web llama a las API de bajada](scenario-web-api-call-api-overview.md)
 
-
-Obtenga más información con tutoriales y ejemplos:
-
+Más información con tutoriales y ejemplos.
 
 > [!div class="nextstepaction"]
 > [Llamada a una API protegida mediante un demonio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)

@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979693"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715431"
 ---
 # <a name="payout-reporting"></a>Informes de pago
 
@@ -46,7 +46,7 @@ Si vende ofertas en Azure Marketplace, también verá información sobre los **p
 
 | | Cloud Partner Portal | Centro de partners |
 |---------|---------|---------|
-| Vínculos | https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory y https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| Vínculos | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) y [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navegación | Informes de pago proporcionados en Insights Payout | Informes de pago proporcionados en el Centro de Partners: icono de pago |
 | Ámbito | <ul> <li>Transacción por artículo de línea visible, para cobros en curso, realizados y pagados. </li> <li>Informes: se muestran todos los artículos de línea una vez creado el pedido de compra, incluidos los cobros y la facturación en curso; también se muestran el estado de cobro y los artículos de línea que aún no son válidos para su pago. </li> </ul> | <ul> <li>Muestra los artículos de línea una vez que se consideran ganancias válidas.</li> <li>Los clientes pagan primero a Microsoft y entonces los ISV pueden ver que se inicia el informe de pago.</li> <li>El informe de pago no muestra ni el cobro ni la facturación en curso.  </li> </ul>  |
 | La transacción no está lista para el pago | Facturación en curso | Siguiente pago estimado: El estado del pago es sin procesar.  |

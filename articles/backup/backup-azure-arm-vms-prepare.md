@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Reco
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: e5ff3a00d8cb3bf0c5fa3cb4929b7c22d92c7834
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513820"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705554"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -189,16 +189,11 @@ Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure inst
 **Linux** | Realice la instalación con un paquete de RPM o DEB del repositorio de paquetes de su distribución. Este es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y actualice los archivos binarios.
 
 >[!NOTE]
-> Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure.
+> **Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure.**
 >
 >En la actualidad, Azure Backup admite la copia de seguridad de todos los discos (sistema operativo y datos) en una máquina virtual junto con la solución de copia de seguridad de máquinas virtuales. Con la funcionalidad de exclusión de disco, tiene la opción de realizar una copia de seguridad de uno o de varios de los múltiples discos de datos de una máquina virtual. Esto proporciona una solución eficaz y rentable para sus necesidades de copia de seguridad y restauración. Cada punto de recuperación contiene datos de los discos incluidos en la operación de copia de seguridad, lo que permite además tener un subconjunto de discos restaurados desde el punto de recuperación determinado durante la operación de restauración. Esto se aplica a la restauración tanto desde la instantánea como desde el almacén.
 >
-> Esta solución es especialmente útil en los escenarios siguientes:
->  
->1. Tiene datos críticos de los que se va a realizar una copia de seguridad en un solo disco y no desea realizar copias de seguridad del resto de los discos conectados a una máquina virtual. Esto minimiza los costos de almacenamiento de copia de seguridad.  
->2. Tiene otras soluciones de copia de seguridad para parte de los datos de la máquina virtual. Por ejemplo, realiza una copia de seguridad de las bases de datos o los datos con una solución de copia de seguridad de carga de trabajo diferente y desea usar la copia de seguridad de nivel de máquina virtual de Azure para el resto de los discos y datos para crear un sistema eficaz y sólido con las mejores funcionalidades disponibles.
->
->Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
+>**Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

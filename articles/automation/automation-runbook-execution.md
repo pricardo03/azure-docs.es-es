@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: c97e10d2785b7dc1a438c95dca9be94fcef82f94
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658124"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714847"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -71,7 +71,7 @@ else
     }
 ```
 
-### <a name="time-dependant-scripts"></a>Scripts dependientes del tiempo
+### <a name="time-dependent-scripts"></a>Scripts dependientes del tiempo
 
 Es necesario tener cuidado al crear runbooks. Como se mencionó anteriormente, los runbooks deben crearse de forma que sean sólidos y puedan gestionar errores transitorios que pueden hacer que el runbook se reinicie o produzca error. Si un runbook produce error, se vuelve a intentar. Si un runbook se ejecuta con normalidad dentro de una restricción de tiempo, se debe implementar en él una lógica para comprobar el tiempo de ejecución y garantizar que operaciones como inicio, apagado o escalado horizontal se ejecutan únicamente en momentos específicos.
 

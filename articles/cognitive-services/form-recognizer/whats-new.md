@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: pafarley
-ms.openlocfilehash: cb5639dcf0e13ea03d34604816b3939085674c2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2109d25d3962063c711dcab491855d9ebf1cf694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453319"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901884"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
@@ -24,9 +24,6 @@ En este artículo se resaltan los principales cambios que acompañan a las nueva
 > Los inicios rápidos y las guías de este conjunto de documentos usan siempre la versión más reciente de la API, a menos que se especifique lo contrario.
 
 ## <a name="form-recognizer-20-preview"></a>Form Recognizer 2.0 (versión preliminar)
-
-> [!IMPORTANT]
-> Actualmente, Form Recognizer 2.0 está disponible para las suscripciones en las regiones `West US 2` y `West Europe`. Si su suscripción no está en esta región, use la API 1.0. Los inicios rápidos para el entrenamiento y el uso de un modelo personalizado están disponibles para la versión 1.0 y 2.0.
 
 ### <a name="new-features"></a>Nuevas características
 

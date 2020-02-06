@@ -4,12 +4,12 @@ description: Azure Policy es un servicio de Azure que se usa para crear, asignar
 ms.date: 11/25/2019
 ms.topic: overview
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9babfd52071ed7d033761802f696c3b6021287af
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e886f37a8d7f1395b5c831e81e600ecc6e2dd20f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846052"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937833"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -24,7 +24,7 @@ Por ejemplo, puede haber una directiva que permita solo un tamaño de SKU concre
 > [!IMPORTANT]
 > La evaluación de cumplimiento de Azure Policy se ofrece ahora para todas las asignaciones independientemente del nivel de precios. Si las asignaciones no muestran los datos de cumplimiento, asegúrese de que la suscripción está registrada con el proveedor de recursos Microsoft.PolicyInsights.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>¿En qué se diferencia de RBAC?
 

@@ -3,20 +3,20 @@ title: 'Exploración de datos en Azure Blob Storage con Pandas: Proceso de cienc
 description: Cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python Pandas.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99e041b41c5c569a2329bb2fc6f33e8f5a05c385
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 29011760a94a05020150ceddeba4303b87c2f610
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981999"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722193"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en el almacenamiento de blobs de Azure con Pandas
 
@@ -33,7 +33,7 @@ En este artículo se supone que ha:
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carga de los datos en DataFraim de Pandas
 Para explorar y manipular un conjunto de datos, primero se debe descargar desde el origen de blob en un archivo local que, a continuación, se pueda cargar en un elemento DataFrame de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
 
-1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos:
+1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante Blob service. Reemplace la variable en el código siguiente por sus valores específicos:
 
 ```python
 from azure.storage.blob import BlockBlobService

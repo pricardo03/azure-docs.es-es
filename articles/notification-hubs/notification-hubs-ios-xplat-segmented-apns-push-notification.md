@@ -16,12 +16,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 0cf593ce4ab9e0ba299d10b34422ee30661f38a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228161"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774886"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a dispositivos iOS concretos mediante Azure Notification Hubs
 
@@ -41,7 +41,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Envío de notificaciones desde el dispositivo
 > * Ejecución de la aplicación y generación de notificaciones
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tema se basa en la aplicación que creó en el [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs][get-started]. Antes de comenzar este tutorial, debe haber completado el [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs][get-started].
 
@@ -159,7 +159,7 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 9. En el método `didRegisterForRemoteNotificationsWithDeviceToken` en `AppDelegate.m`, reemplace el código en el método por el código siguiente para pasar el token del dispositivo a la clase `notifications`. La clase `notifications` realiza el registro para las notificaciones con las categorías. Si el usuario cambia las selecciones de categoría, llamamos al método `subscribeWithCategories` en respuesta al botón **subscribe** para actualizarlas.
 
     > [!NOTE]
-    > Puesto que el token del dispositivo asignado por el Servicio de notificaciones de inserción de Apple (APNS) puede cambiar en cualquier momento, debe registrar las notificaciones con frecuencia para evitar errores de notificación. En este ejemplo se registra la notificación cada vez que se inicia la aplicación. En las aplicaciones que se ejecutan con frecuencia, más de una vez al día, es posible que pueda omitir el registro para conservar el ancho de banda si pasa menos de un día del registro previo.
+    > Puesto que el token del dispositivo asignado por Apple Push Notification Service (APNS) puede cambiar en cualquier momento, debe registrar las notificaciones con frecuencia para evitar errores de notificación. En este ejemplo se registra la notificación cada vez que se inicia la aplicación. En las aplicaciones que se ejecutan con frecuencia, más de una vez al día, es posible que pueda omitir el registro para conservar el ancho de banda si pasa menos de un día del registro previo.
 
     ```objc
     self.notifications.deviceToken = deviceToken;

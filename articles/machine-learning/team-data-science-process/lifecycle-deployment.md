@@ -3,20 +3,20 @@ title: Fase de implementación del ciclo de vida del proceso de ciencia de datos
 description: Los objetivos, las tareas y los resultados de la fase de implementación de los proyectos de ciencia de datos.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 156f2e95913dffd88de0b4669b13a5af5fc9605c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684688"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720493"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implementación del ciclo de vida del proceso de ciencia de datos en equipos
 

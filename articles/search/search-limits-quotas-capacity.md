@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 690a9751111ca4c86ebb34825f2845ea59d6f186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462497"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846285"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
@@ -78,9 +78,9 @@ Si el portal indica un límite de documentos, el servicio se creó antes de fina
 
 + Este de Australia
 + Asia oriental
-+ India Central
-+ Oeste de Japón
-+ Centro occidental de EE.UU.
++ Centro de la India
++ Japón Occidental
++ Centro-Oeste de EE. UU.
 
 A los servicios sujetos a límites de documento se les aplican los límites máximos siguientes:
 
@@ -117,7 +117,7 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 | Tiempo de ejecución máximo <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
 | Tiempo de ejecución máximo para conocimientos adicionales de búsqueda cognitiva o indización de blobs con análisis de imágenes <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |2 horas |2 horas |
 | Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4&nbsp;millones |4&nbsp;millones |4&nbsp;millones |N/D |4&nbsp;millones |4&nbsp;millones |
+| Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4&nbsp;millones |8&nbsp;millones |16&nbsp;millones |N/D |4&nbsp;millones |4&nbsp;millones |
 
 <sup>1</sup> Los servicios gratuitos tienen un tiempo de ejecución máximo del indexador de 3 minutos para servicios de blob y de 1 minuto para todos los demás orígenes de datos. Para la indexación de IA que llama a Cognitive Services, los servicios gratuitos se limitan a 20 transacciones gratuitas por día, donde una transacción se define como un documento que pasa correctamente a través de la canalización enriquecimiento.
 
@@ -151,7 +151,7 @@ En el caso de los niveles de Almacenamiento optimizado, debe esperar un rendimie
 
 ## <a name="data-limits-ai-enrichment"></a>Límites de datos (enriquecimiento de inteligencia artificial)
 
-Una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento](cognitive-search-skill-sentiment.md) y la [detección de idioma](cognitive-search-skill-language-detection.md) está sujeta a los límites de datos. El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
+Una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento](cognitive-search-skill-sentiment.md), la [detección de idioma](cognitive-search-skill-language-detection.md) y la [detección de PII](cognitive-search-skill-pii-detection.md) está sujeta a límites de datos. El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limitaciones
 

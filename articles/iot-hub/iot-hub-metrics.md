@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 20a1ec4b8eb88f5914ce6b27acc8a472e58f5d29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457081"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705741"
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprender las métricas de IoT Hub
 
@@ -47,10 +47,10 @@ IoT Hub proporciona varias métricas para ofrecerle una visión general del esta
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Intentos de envío de mensajes de telemetría|Count|Total|Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub|None|
 |d2c.telemetry.ingress.success|Mensajes de telemetría enviados|Count|Total|Número de mensajes de telemetría de dispositivo a la nube enviados correctamente a IoT Hub|None|
-|c2d.commands.egress.complete.success|Entregas de mensajes de C2D completadas|Count|Total|Número de entregas de mensajes de la nube al dispositivo que el dispositivo ha completado correctamente|None|
-|c2d.commands.egress.abandon.success|Mensajes de C2D abandonados|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha abandonado|None|
-|c2d.commands.egress.reject.success|Mensajes de C2D rechazados|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha rechazado|None|
-|C2DMessagesExpired|Mensajes de C2D expirados (versión preliminar)|Count|Total|Número de mensajes de la nube al dispositivo expirados|None|
+|c2d.commands.egress.complete.success|C2D message deliveries completed (Entregas de mensajes de C2D completadas)|Count|Total|Número de entregas de mensajes de la nube al dispositivo que el dispositivo ha completado correctamente.|None|
+|c2d.commands.egress.abandon.success|C2D messages abandoned (Mensajes de C2D abandonados)|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha abandonado.|None|
+|c2d.commands.egress.reject.success|C2D messages rejected (Mensajes de C2D rechazados)|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha rechazado.|None|
+|C2DMessagesExpired|C2D Messages Expired (preview) [Mensajes de C2D expirados (versión preliminar)]|Count|Total|Número de mensajes de la nube al dispositivo expirados|None|
 |devices.totalDevices|Total de dispositivos (en desuso)|Count|Total|Número de dispositivos registrados en IoT Hub|None|
 |devices.connectedDevices.allProtocol|Dispositivos conectados (en desuso) |Count|Total|Número de dispositivos conectados a IoT Hub|None|
 |d2c.telemetry.egress.success|Enrutamiento: mensajes de telemetría entregados|Count|Total|Número de veces que los mensajes se han entregado correctamente a todos los puntos de conexión mediante el enrutamiento de IoT Hub. Si un mensaje se enruta a varios puntos de conexión, este valor aumenta en uno por cada entrega correcta. Si un mensaje se enruta al mismo punto de conexión varias veces, este valor aumenta en uno por cada entrega correcta.|None|
@@ -70,7 +70,7 @@ IoT Hub proporciona varias métricas para ofrecerle una visión general del esta
 |d2c.endpoints.latency.storage|Enrutamiento: latencia de mensajes para almacenamiento|Milisegundos|Average|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría a un punto de conexión de almacenamiento.|None|
 |d2c.endpoints.egress.storage.bytes|Enrutamiento: datos entregados al almacenamiento|Bytes|Total|Cantidad de datos (bytes) que el enrutamiento de IoT Hub ha entregado a los punto de conexión de almacenamiento.|None|
 |d2c.endpoints.egress.storage.blobs|Enrutamiento: blobs entregados al almacenamiento|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado blobs a los puntos de conexión de almacenamiento.|None|
-|EventGridDeliveries|Entregas de Event Grid (versión preliminar)|Count|Total|El número de eventos de IoT Hub publicados en Event Grid. Use la dimensión de resultado para ver el número de solicitudes correctas e incorrectas. La dimensión EventType muestra el tipo de evento (https://aka.ms/ioteventgrid).|ResourceId,<br/>Result,<br/>EventType|
+|EventGridDeliveries|Event Grid deliveries(preview) [Entregas de Event Grid (versión preliminar)]|Count|Total|El número de eventos de IoT Hub publicados en Event Grid. Use la dimensión de resultado para ver el número de solicitudes correctas e incorrectas. La dimensión EventType muestra el tipo de evento (https://aka.ms/ioteventgrid).|ResourceId,<br/>Result,<br/>EventType|
 |EventGridLatency|Latencia de Event Grid (versión preliminar)|Milisegundos|Average|La latencia media (milisegundos) desde el momento en que se generó el evento de IoT Hub hasta el momento en que se publicó el evento en Event Grid. Este número es un promedio entre todos los tipos de evento. Use la dimensión EventType para ver la latencia de un tipo específico de evento.|ResourceId,<br/>EventType|
 |d2c.twin.read.success|Lecturas gemelas correctas de los dispositivos|Count|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el dispositivo.|None|
 |d2c.twin.read.failure|Lecturas gemelas con error de los dispositivos|Count|Total|El recuento de todas las lecturas gemelas con error iniciadas por el dispositivo.|None|
@@ -115,7 +115,7 @@ IoT Hub proporciona varias métricas para ofrecerle una visión general del esta
 
 Ahora que ha visto la información general sobre las métricas de IoT Hub, siga este vínculo para más información sobre la administración de IoT Hub de Azure:
 
-* [Supervisión de operaciones](iot-hub-operations-monitoring.md)
+* [Configuración de registros de diagnósticos](iot-hub-monitor-resource-health.md)
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 

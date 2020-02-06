@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 908f02807d5a3f7c2c1391c3c59a54fc88bbd831
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 26309bb9a7b9785dbac7f42b0c20de99bca10a17
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884149"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769242"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de creación de certificados
 
@@ -41,10 +41,10 @@ Las siguientes descripciones se corresponden con los pasos indicados con letras 
 Las siguientes descripciones se corresponden con los pasos indicados con letras verdes del diagrama anterior.
 
 1. En el diagrama anterior, la aplicación crea un certificado que comienza con la creación interna de una clave en el almacén de claves.
-2. Key Vault envía una solicitud de certificado SSL a la entidad de certificación.
+2. Key Vault envía una solicitud de certificado TLS/SSL a la entidad de certificación.
 3. La aplicación sondea, en proceso de bucle y espera, que Key Vault termine el certificado. La creación del certificado se completa cuando Key Vault recibe la respuesta de la entidad de certificación con el certificado X.509.
-4. La entidad de certificación responde a la solicitud de certificado SSL de Key Vault con un certificado SSL X.509.
-5. La creación del certificado se completa con la combinación del certificado X.509 para la entidad de certificación.
+4. La entidad de certificación responde a la solicitud de certificado TLS/SSL de Key Vault con un certificado TLS/SSL X.509.
+5. La creación del certificado se completa con la combinación del certificado TLS/SSL X.509 de la entidad de certificación.
 
 ## <a name="asynchronous-process"></a>Proceso asincrónico
 La creación de certificados KV es un proceso asincrónico. Esta operación crea una solicitud de certificado KV y devuelve un código de estado http de 202 (Aceptado). Puede realizar el seguimiento del estado de la solicitud por sondeo en el objeto pendiente que crea esta operación. En el encabezado LOCATION se devuelve el URI completo del objeto pendiente.  
@@ -90,6 +90,6 @@ Tenga en cuenta que cuando se realiza un pedido al emisor, puede respetar o reem
 
  Autorización: se requiere el permiso certificates/create.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
  - [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)
  - [Supervisión y administración de la creación de certificados](create-certificate-scenarios.md)

@@ -3,18 +3,18 @@ title: Representación de datos personalizados en un mapa de trama | Microsoft A
 description: En este artículo, aprenderá a representar datos personalizados en un mapa de trama mediante el servicio de imagen estática de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/29/2019
+ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c052ae1f7bab902dcd22b3cc081907468874b35c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911471"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766019"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -43,7 +43,7 @@ Para representar los marcadores con etiquetas y una imagen personalizada, siga e
 
 1. Cree una colección en la que vaya a almacenar las solicitudes. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección). Asigne un nombre a la colección y seleccione el botón **Create** (Crear). 
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** para los marcadores, seleccione la colección que creó en el paso anterior como la ubicación en la que se va a guardar la solicitud y, a continuación, seleccione **Save** (Guardar).
+2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para los marcadores. Seleccione la colección que creó en el paso anterior como la ubicación en la que se va a guardar la solicitud y, a continuación, seleccione **Save** (Guardar).
     
     ![Creación de una solicitud en Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -142,7 +142,7 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Copie el URI de estado y anéxele el parámetro de clave de suscripción, cuyo valor es la clave de suscripción de la cuenta de Azure Maps que usó para cargar los datos. El formato del URI de estado debe ser similar al siguiente:
+5. Copie el identificador URI de estado y anéxele un parámetro subscription-key, cuyo valor sea la clave de suscripción de la cuenta de Azure Maps. Use la misma clave de suscripción de la cuenta que usó para cargar los datos. El formato del URI de estado debe ser similar al siguiente:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -156,7 +156,7 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
    }
    ```
 
-7. Use el valor de `udId` recibido de la API de carga de datos para representar las características en el mapa. Para ello, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método GET HTTP en la pestaña del generador y escriba esta dirección URL para realizar una solicitud GET:
+7. Use el valor de `udId` recibido de la API de carga de datos para representar las características en el mapa. Para ello, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método GET HTTP en la pestaña Builder, reemplace {subscription-Key} y {udId} por sus valores y escriba esta dirección URL para realizar una solicitud GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -192,7 +192,7 @@ Puede modificar la apariencia de un polígono mediante el uso de modificadores d
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa S1.
 
 
-Puede aumentar o reducir el tamaño de los marcadores y sus etiquetas con el modificador de estilo de escala `sc`. Este modificador toma un valor que es mayor que cero. Un valor de 1 es la escala estándar. Los valores mayores que 1 aumentarán el tamaño de los marcadores, mientras que los valores menores que 1 reducirán su tamaño. Para más información sobre los modificadores de estilo, consulte los [parámetros path del servicio de imagen estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Puede aplicar modificadores de estilo para modificar la apariencia de los marcadores. Por ejemplo, para hacer que los marcadores y sus etiquetas sean mayores o menores, use el modificador "estilo de escala" `sc`. Este modificador toma un valor que es mayor que cero. Un valor de 1 es la escala estándar. Los valores mayores que 1 aumentarán el tamaño de los marcadores, mientras que los valores menores que 1 reducirán su tamaño. Para más información sobre los modificadores de estilo, consulte los [parámetros path del servicio de imagen estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Siga estos pasos para representar un círculo y marcadores con etiquetas personalizadas:
@@ -206,6 +206,18 @@ Siga estos pasos para representar un círculo y marcadores con etiquetas persona
     Esta es la imagen de respuesta:
 
     ![Representación de un círculo con marcadores personalizados](./media/how-to-render-custom-data/circle-custom-pins.png)
+
+2. Para cambiar el color de los marcadores del último paso, cambie el modificador de estilo "co". Observe `pins=default|la15+50|al0.66|lc003C62|co002D62|`; el color actual se especificaría como #002D62 en CSS. Supongamos que desea cambiarlo a #41d42a. Escriba el nuevo valor de color después del especificador "co", así: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Realice una nueva solicitud GET:
+
+    ```HTTP
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    ```
+
+    Esta es la imagen de respuesta después de cambiar los colores de los marcadores:
+
+    ![Representación de un círculo con marcadores actualizados](./media/how-to-render-custom-data/circle-updated-pins.png)
+
+Del mismo modo, puede cambiar, agregar y quitar otros modificadores de estilo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

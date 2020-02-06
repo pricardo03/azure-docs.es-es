@@ -3,12 +3,12 @@ title: Uso de PowerShell para hacer una copia de seguridad de Windows Server en 
 description: En este artículo aprenderá  usar PowerShell para configurar Azure Backup en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 54cfbb4a550ff14705d8d02b0589ee023cf9c225
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ef5571e6a059eedeba169765785bb0f840c8f256
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689189"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710867"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 
@@ -101,7 +101,7 @@ Para ver la lista de programas instalados, vaya a **Panel de Control** > **Progr
 
 ![Agente instalado](./media/backup-client-automation/installed-agent-listing.png)
 
-### <a name="installation-options"></a>Opciones de instalación
+### <a name="installation-options"></a>Opción de instalación
 
 Para ver todas las opciones disponibles a través de la línea de comandos, use el siguiente comando:
 
@@ -405,7 +405,7 @@ PolicyState     : Valid
 
 En esta sección se describe el comando de PowerShell para configurar el estado del sistema en el agente de MABS.
 
-### <a name="schedule"></a>Schedule
+### <a name="schedule"></a>Programación
 
 ```powershell
 $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00

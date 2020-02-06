@@ -1,6 +1,6 @@
 ---
 title: Identidades administradas para recursos de Azure con Service Bus
-description: Uso de identidades administradas para recursos de Azure con Azure Service Bus
+description: En este artículo se describe cómo usar identidades administradas para obtener acceso a entidades de Azure Service Bus (colas, temas y suscripciones).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 57c52640262854037420c1679804f611394230ef
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793151"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756290"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus
 [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) es una característica de Azure que permite crear una identidad segura asociada a la implementación en la que se ejecuta el código de la aplicación. A continuación, puede asociar esa identidad con los roles de control de acceso que conceden permisos personalizados para acceder a recursos específicos de Azure que la aplicación necesita.
@@ -31,7 +31,7 @@ Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta
  1. En primer lugar, se autentica la identidad de la entidad de seguridad y se devuelve un token de OAuth 2.0. El nombre del recurso para solicitar un token es `https://servicebus.azure.net`.
  1. Luego, el token se pasa como parte de una solicitud al servicio Service Bus para autorizar el acceso al recurso especificado.
 
-El paso de autenticación exige que una solicitud de aplicación contenga un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se está ejecutando dentro de una entidad de Azure, como puede ser una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una identidad administrada para acceder a los recursos. 
+El paso de autenticación exige que una solicitud de aplicación contenga un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se está ejecutando dentro de una entidad de Azure, como puede ser una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una identidad administrada para acceder a los recursos. 
 
 El paso de autorización exige que se asignen uno o varios roles RBAC a la entidad de seguridad. Azure Service Bus proporciona roles RBAC que abarcan conjuntos de permisos para recursos de Service Bus. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de RBAC a Azure Service Bus, consulte [Roles RBAC integrados para Azure Service Bus](#built-in-rbac-roles-for-azure-service-bus). 
 
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos pro
 
 Cuando un rol RBAC se asigna a una entidad de seguridad de Azure AD, Azure concede acceso a esos recursos a esa entidad de seguridad. El acceso puede tener como ámbito el nivel de suscripción, el grupo de recursos o el espacio de nombres de Service Bus. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una identidad de servicio administrada para recursos de Azure.
 
-## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Roles de RBAC integrados para Azure Service Bus
+## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Roles RBAC integrados para Azure Service Bus
 Para Azure Service Bus, la administración de los espacios de nombres y de todos los recursos relacionados mediante Azure Portal y la API de administración de recursos de Azure, ya se ha protegido mediante el modelo de *control de acceso basado en rol* (RBAC). Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso a un espacio de nombres de Service Bus:
 
 - [Propietario de los datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): permite el acceso a datos en el espacio de nombres de Service Bus y sus entidades (colas, temas, suscripciones y filtros).
@@ -81,7 +81,7 @@ Para poder usar identidades administradas para recursos de Azure a fin de autori
 - [Plantilla de Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas cliente de Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permisos a una identidad administrada en Azure AD
+## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Concesión de permisos a una identidad administrada en Azure AD
 Para autorizar una solicitud al servicio Service Bus desde una identidad administrada de la aplicación, primero configure los valores del control de acceso basado en roles (RBAC) de esa identidad administrada. Azure Service Bus define roles RBAC que abarcan los permisos para enviar y leer desde Service Bus. Cuando el rol RBAC se asigna a una identidad administrada, a esta se le concede acceso a las entidades de Service Bus en el ámbito adecuado.
 
 Para más información sobre la asignación de roles RBAC, consulte [Autenticación y autorización con Azure Active Directory para el acceso a recursos de Service Bus](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus).
@@ -124,7 +124,7 @@ Para asignar un rol a un espacio de nombres de Service Bus, vaya al espacio de n
 
 Una vez que haya asignado el rol, la aplicación web tendrá acceso a las entidades de Service Bus en el ámbito definido. 
 
-### <a name="run-the-app"></a>Ejecución de la aplicación
+### <a name="run-the-app"></a>Ejecución la aplicación
 
 Ahora, modifique la página predeterminada de la aplicación de ASP.NET que ha creado. Puede utilizar el código de la aplicación web de [este repositorio de GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 

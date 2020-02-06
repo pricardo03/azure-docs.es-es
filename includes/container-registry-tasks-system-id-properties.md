@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5cca18b881250ce99df35d681bec6091ea4a27b9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 94adac6ba232f8931d00083432c027ddccb2ce64
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641533"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842508"
 ---
 En la salida del comando, la sección `identity` muestra que en la tarea se establece una identidad de tipo `SystemAssigned`. `principalId` es el identificador de entidad de servicio de la identidad:
 
@@ -28,10 +28,10 @@ En la salida del comando, la sección `identity` muestra que en la tarea se esta
   "location": "eastus",
 [...]
 ``` 
-Use el comando [az acr task show][az-acr-task-show] para almacenar principalId en una variable, para su uso en comandos posteriores:
+Use el comando [az acr task show][az-acr-task-show] para almacenar principalId en una variable, para su uso en comandos posteriores. Sustituya el nombre de la tarea y el registro en el siguiente comando:
 
 ```azurecli
-principalID=$(az acr task show --name dockerhubtask --registry myregistry --query identity.principalId --output tsv)
+principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)
 ```
 
 <!-- LINKS - Internal -->

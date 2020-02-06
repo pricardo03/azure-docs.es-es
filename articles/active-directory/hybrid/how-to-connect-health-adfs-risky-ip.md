@@ -7,6 +7,7 @@ ms.reviewer: zhiweiwangmsft
 author: billmath
 manager: daveba
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: defdf8118f1b07f8d6ddc4d232cda0fc423ef9f6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350582"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897259"
 ---
 # <a name="risky-ip-report-public-preview"></a>Informe de direcciones IP de riesgo (versión preliminar pública)
 Los clientes de AD FS pueden exponer puntos de conexión de autenticación de contraseña en Internet para proporcionar servicios de autenticación para que los usuarios finales tengan acceso a aplicaciones de SaaS, como Office 365. En este caso, es posible que un actor no deseado intente inicios de sesión en el sistema de AD FS para adivinar la contraseña de usuario final y acceder a los recursos de la aplicación. AD FS proporciona la funcionalidad de bloqueo de cuenta de extranet para evitar estos tipos de ataques desde AD FS en Windows Server 2012 R2. Si se encuentra en una versión anterior, se recomienda que actualice el sistema de AD FS a Windows Server 2016. <br />
@@ -40,7 +41,7 @@ Además, es posible que una única dirección IP intente varios inicios de sesi�
 ## <a name="what-is-in-the-report"></a>Contenido del informe
 Las direcciones IP del cliente de la actividad de inicio de sesión con error se agregan mediante los servidores proxy de aplicación web. Cada elemento del informe de direcciones IP de riesgo muestra información agregada sobre las actividades de inicio de sesión de AD FS con errores que sobrepasan el umbral designado. Este ofrece la siguiente información: ![Portal de Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
-| Elemento de informe | DESCRIPCIÓN |
+| Elemento de informe | Descripción |
 | ------- | ----------- |
 | Marca de tiempo | Muestra la marca de tiempo según la hora local de Azure Portal cuando se inicia la ventana de tiempo de detección.<br /> Todos los eventos diarios se generan a media noche hora UTC. <br />Los eventos por hora tienen la marca de tiempo redondeada al principio de la hora. Puede encontrar la primera hora de inicio de actividad en "firstAuditTimestamp" en el archivo exportado. |
 | Tipo de desencadenador | Muestra el tipo de ventana de tiempo de detección. Los tipos de desencadenador de agregación son por hora o por día. Esto resulta útil para detecciones de ataques por fuerza bruta de alta frecuencia frente a un ataque lento en el que el número de intentos se distribuye a lo largo del día. |
@@ -67,7 +68,7 @@ La instancia agregada de Load Balancer no pudo iniciar la sesión de las activid
 ## <a name="download-risky-ip-report"></a>Descarga del informe de direcciones IP de riesgo 
 Mediante la funcionalidad **Descargar**, se puede exportar la lista de direcciones IP de riesgo completa de los últimos 30 días desde el portal de Connect Health. El resultado de la exportación incluirá todas las actividades de inicio de sesión de AD FS con error en cada ventana de tiempo de detección para que pueda personalizar el filtrado después de la exportación. Además de las agregaciones resaltadas en el portal, el resultado de la exportación también muestra más detalles sobre las actividades de inicio de sesión con error por dirección IP:
 
-|  Elemento de informe  |  DESCRIPCIÓN  | 
+|  Elemento de informe  |  Descripción  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | Muestra la primera marca de tiempo en la que se iniciaron las actividades con errores durante la ventana de tiempo de detección.  | 
 | lastAuditTimestamp | Muestra la última marca de tiempo en la que finalizaron las actividades con errores durante la ventana de tiempo de detección.  | 
@@ -82,7 +83,7 @@ El umbral de alerta se puede actualizar mediante las Opciones del umbral. De for
 
 ![portal de Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
-| Elemento del umbral | DESCRIPCIÓN |
+| Elemento del umbral | Descripción |
 | --- | --- |
 | Usuario y contraseña incorrectos y bloqueos de extranet por día  | Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de contraseñas erróneas más el número de bloqueos de extranet se ha superado por **día**. |
 | Usuario y contraseña incorrectos y bloqueos de extranet por hora | Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de contraseñas erróneas más el número de bloqueos de extranet se ha superado por **hora**. |

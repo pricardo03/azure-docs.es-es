@@ -12,14 +12,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/15/2019
+ms.date: 01/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 56fcd5a8a02e292fdf43f9d22f3987813bce0743
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ce3582539d6130e13ef205806d780164ba70c4fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029830"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842544"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -143,6 +143,67 @@ Para autenticarse con una entidad de servicio, debe asignar un RBAC a la aplicac
 La aplicación debe aparecer ahora en la configuración de control de acceso con un rol RBAC asignado.
 
 ![Asignación de un rol RBAC a la aplicación](./media/batch-aad-auth/app-rbac-role.png)
+
+### <a name="assign-a-custom-role"></a>Asignación de un rol personalizado
+
+Un rol personalizado concede permisos específicos a un usuario para enviar trabajos, tareas, etc. De esta forma, se evita la posibilidad de que los usuarios realicen operaciones que afecten al costo, como crear grupos o modificar nodos.
+
+Puede usar un rol personalizado para conceder permisos a un usuario, grupo o entidad de servicio de Azure AD para las siguientes operaciones RBAC:
+
+- Microsoft.Batch/batchAccounts/pools/write
+- Microsoft.Batch/batchAccounts/pools/delete
+- Microsoft.Batch/batchAccounts/pools/read
+- Microsoft.Batch/batchAccounts/jobSchedules/write
+- Microsoft.Batch/batchAccounts/jobSchedules/delete
+- Microsoft.Batch/batchAccounts/jobSchedules/read
+- Microsoft.Batch/batchAccounts/jobs/write
+- Microsoft.Batch/batchAccounts/jobs/delete
+- Microsoft.Batch/batchAccounts/jobs/read
+- Microsoft.Batch/batchAccounts/certificates/write
+- Microsoft.Batch/batchAccounts/certificates/delete
+- Microsoft.Batch/batchAccounts/certificates/read
+- Microsoft.Batch/batchAccounts/read (para cualquier operación de lectura)
+- Microsoft.Batch/batchAccounts/listKeys/action (para cualquier operación)
+
+Los roles personalizados son para usuarios autenticados mediante Azure AD, no con las credenciales de la cuenta de Batch (clave compartida). Tenga en cuenta que las credenciales de la cuenta de Batch proporcionan el permiso completo para la cuenta de Batch. Tenga en cuenta también que los trabajos que usan AutoPool requieren permisos de nivel de grupo.
+
+A continuación se muestra un ejemplo de una definición de rol personalizada:
+
+```json
+{
+ "properties":{
+    "roleName":"Azure Batch Custom Job Submitter",
+    "type":"CustomRole",
+    "description":"Allows a user to submit jobs to Azure Batch but not manage pools",
+    "assignableScopes":[
+      "/subscriptions/88888888-8888-8888-8888-888888888888"
+    ],
+    "permissions":[
+      {
+        "actions":[
+          "Microsoft.Batch/*/read",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*",
+          "Microsoft.Insights/alertRules/*"
+        ],
+        "notActions":[
+
+        ],
+        "dataActions":[
+          "Microsoft.Batch/batchAccounts/jobs/*",
+          "Microsoft.Batch/batchAccounts/jobSchedules/*"
+        ],
+        "notDataActions":[
+
+        ]
+      }
+    ]
+  }
+}
+```
+
+Para información general sobre la creación de un rol personalizado, consulte [Roles personalizados para recursos de Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Obtención del identificador de inquilino para Azure Active Directory
 

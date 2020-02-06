@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/23/2020
 ms.author: raynew
-ms.openlocfilehash: e5fdf0a14586a0a2ea97d222f4be481e8fe31e51
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754505"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759813"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -146,7 +146,7 @@ Tenga en cuenta que los detalles sobre los requisitos de conectividad de red se 
 **Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Storage.\<nombre-región>
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Active Directory (Azure AD).<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de destino. | EventsHub.\<nombre-región>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Site Recovery.  | AzureSiteRecovery
 
@@ -155,7 +155,7 @@ Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure 
 **Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Storage.\<nombre-región>
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure AD.<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure AD  | AzureActiveDirectory
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de origen. | EventsHub.\<nombre-región>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Site Recovery.  | AzureSiteRecovery
 

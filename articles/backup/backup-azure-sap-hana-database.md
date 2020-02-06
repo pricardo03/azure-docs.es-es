@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c5df198d009f0d4a9f37a68d6b21386f06842722
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dd4c6fc0e018f3fc8f2a2029ef8a90cdc305e2c2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753970"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765526"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -23,6 +23,10 @@ En este artículo, aprenderá a:
 > * Detectar bases de datos.
 > * Configuración de copias de seguridad
 > * Ejecutar un trabajo de copia de seguridad a petición.
+
+>[!NOTE]
+>**La eliminación temporal de SQL Server en máquinas virtuales de Azure y la eliminación temporal de SAP HANA en cargas de trabajo de máquinas virtuales de Azure** están ahora disponible en versión preliminar.<br>
+>Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
 
 ## <a name="prerequisites"></a>Prerequisites
 

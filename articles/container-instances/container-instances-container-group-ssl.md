@@ -3,12 +3,12 @@ title: Habilitación de SSL en un grupo de contenedores
 description: Crear un punto de conexión SSL o TLS para un grupo de contenedores que se ejecute en Azure Container Instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 7578ad6f8c451694a90dde00b74bf2e8c6c61109
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 541d53a9a9530f7ac80227dbae598b3da2691301
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483478"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773071"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Habilitar un punto de conexión SSL en un grupo de contenedores
 
@@ -18,7 +18,7 @@ Va a configurar un grupo de contenedores formado por dos contenedores:
 * Un contenedor de aplicaciones que ejecute una aplicación web sencilla mediante la imagen pública [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) de Microsoft. 
 * Un contenedor sidecar que ejecute la imagen pública [Nginx](https://hub.docker.com/_/nginx), configurada para usar SSL. 
 
-En este ejemplo, el grupo de contenedores solo expone el puerto 443 para Nginx con su dirección IP pública. Nginx enruta las solicitudes HTTPS a la aplicación web complementaria, que escucha internamente en el puerto 80. Puede adaptar el ejemplo para las aplicaciones de contenedor que escuchan en otros puertos.
+En este ejemplo, el grupo de contenedores solo expone el puerto 443 para Nginx con su dirección IP pública. Nginx enruta las solicitudes HTTPS a la aplicación web complementaria, que escucha internamente en el puerto 80. Puede adaptar el ejemplo para las aplicaciones de contenedor que escuchan en otros puertos. Consulte [Pasos siguientes](#next-steps) para conocer otros enfoques para habilitar SSL en un grupo de contenedores.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -235,4 +235,10 @@ En este artículo hemos hablado de cómo configurar un contenedor Nginx para hab
 
 Aunque en este artículo se usa Nginx en sidecar, puede usar otro proveedor de SSL, como [Caddy](https://caddyserver.com/).
 
-Otra opción para habilitar SSL en un grupo de contenedores es implementar el grupo en una [red virtual de Azure](container-instances-vnet.md) con una [puerta de enlace de aplicación de Azure](../application-gateway/overview.md). La puerta de enlace se puede configurar como punto de conexión SSL. Vea un ejemplo de [plantilla de implementación](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) que puede adaptar para habilitar la terminación de SSL en la puerta de enlace.
+Si implementa el grupo de contenedores en una [red virtual de Azure](container-instances-vnet.md), hay otras opciones para habilitar un punto de conexión SSL para una instancia de contenedor de back-end, entre ellas:
+
+* [Azure Functions Proxies](../azure-functions/functions-proxies.md)
+* [Azure API Management](../api-management/api-management-key-concepts.md)
+* [Introducción a Puerta de enlace de aplicaciones](../application-gateway/overview.md)
+
+Para utilizar una puerta de enlace de aplicaciones, consulte un ejemplo de [plantilla de implementación](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

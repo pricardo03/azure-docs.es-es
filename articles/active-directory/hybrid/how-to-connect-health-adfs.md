@@ -9,6 +9,7 @@ manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +18,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350479"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897284"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Supervisión de AD FS mediante Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de la infraestructura de AD FS con Azure AD Connect Health. Para más información sobre la supervisión de Azure AD Connect (Sync) con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health para sincronización](how-to-connect-health-sync.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -50,7 +51,7 @@ Para seleccionar otras métricas, especifique un intervalo de tiempo. Para cambi
 
 |Agrupar por | ¿Qué significa la agrupación y por qué es útil? |
 | --- | --- |
-| Todo | Muestra el recuento del número total de solicitudes procesadas por todos los servidores de AD FS.|
+| All | Muestra el recuento del número total de solicitudes procesadas por todos los servidores de AD FS.|
 | Application | Agrupa el número total de solicitudes en función del usuario de confianza de destino. Esta agrupación es útil para comprender qué aplicación está recibiendo tráfico y qué porcentaje del tráfico total recibe. |
 |  Server |Agrupa el número total de solicitudes según el servidor que procesó la solicitud. Esta agrupación es útil para comprender la distribución de la carga de tráfico total.
 | Unión al área de trabajo |Agrupa el número total de solicitudes en función de si las solicitudes proceden o no de dispositivos que están unidos al área de trabajo (conocidos). Esta agrupación es útil para comprender si el acceso a sus recursos se realiza con dispositivos que son desconocidos para la infraestructura de identidades. |
@@ -71,7 +72,7 @@ Para seleccionar otras métricas, especifique un intervalo de tiempo. Para cambi
 
 |Agrupar por | ¿Qué significa la agrupación y por qué es útil? |
 | --- | --- |
-|Todo |Esta métrica proporciona un recuento del número medio de usuarios mediante el servicio de federación en el intervalo de tiempo seleccionado. Los usuarios no están agrupados. <br>El promedio depende del intervalo de tiempo seleccionado. |
+|All |Esta métrica proporciona un recuento del número medio de usuarios mediante el servicio de federación en el intervalo de tiempo seleccionado. Los usuarios no están agrupados. <br>El promedio depende del intervalo de tiempo seleccionado. |
 | Application |Agrupa el número medio de usuarios en función de la aplicación de destino (usuario de confianza). Esta agrupación es útil para comprender cuántos usuarios utilizan una aplicación y determinar qué aplicación. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Supervisión del rendimiento de AD FS
@@ -107,7 +108,7 @@ El gráfico ofrece la siguiente información:
 
 El informe ofrece la siguiente información:
 
-| Elemento de informe | DESCRIPCIÓN |
+| Elemento de informe | Descripción |
 | --- | --- |
 | Id. de usuario |Muestra el identificador de usuario que se usó. Este valor es lo que el usuario escribió, que en algunos casos es el identificador de usuario equivocado que se va a utilizar. |
 | Intentos con error |Muestra el número total de intentos con error para ese identificador de usuario específico. La tabla está ordenada por el mayor número de intentos con error en orden descendente. |

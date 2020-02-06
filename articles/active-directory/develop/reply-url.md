@@ -10,17 +10,22 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702528"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983102"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta
 
 Un URI de redireccionamiento, o URL de respuesta, es la ubicación a la que el servidor de autorización enviará al usuario una vez que se haya autorizado correctamente a la aplicación y se haya concedido un código de autorización o token de acceso. El código o token se encuentra en el URI de redireccionamiento o token de respuesta, por lo que es importante que registre la ubicación correcta como parte del proceso de registro de la aplicación.
 
+ Las siguientes restricciones se aplican a las direcciones URL de respuesta:
+
+    * La dirección URL de respuesta debe comenzar con el esquema `https`.
+    * La dirección URL de respuesta distingue mayúsculas de minúsculas. Sus mayúsculas o minúsculas deben coincidir con las de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en la dirección URL de respuesta. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
+    
 ## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URI de redireccionamiento
 
 En la tabla siguiente se muestra el número máximo de URI de redireccionamiento que se pueden agregar al registrar la aplicación.

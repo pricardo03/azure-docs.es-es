@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 933217b2ad86535d45f6674165ee162f263a8cd7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882891"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712179"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Aprovisionamiento de aplicaciones en el estado de cuarentena
 
@@ -63,7 +63,7 @@ En primer lugar, resuelva el problema que provocó que la aplicación se pusiera
 
 - Compruebe la configuración de aprovisionamiento de la aplicación para asegurarse de que ha [escrito las credenciales de administrador válidas](configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD debe ser capaz de establecer una relación de confianza con la aplicación de destino. Asegúrese de que ha especificado las credenciales válidas y de que su cuenta tiene los permisos necesarios.
 
-- Revise los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para investigar más a fondo qué errores están causando la cuarentena y así poder solucionarlos. Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**.
+- Revise los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para investigar más a fondo qué errores están causando la cuarentena y así poder solucionarlos. Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**.
 
 Una vez resuelto el problema, reinicie el trabajo de aprovisionamiento. Algunos cambios en la configuración de aprovisionamiento de la aplicación, como asignaciones de atributos o filtros de ámbito, reiniciarán automáticamente el proceso aprovisionamiento. La barra de progreso en la página **Provisioning** (Aprovisionamiento) de la aplicación indica cuándo comenzó el aprovisionamiento por última vez. Si necesita reiniciar el trabajo de aprovisionamiento manualmente, use uno de los métodos siguientes:  
 

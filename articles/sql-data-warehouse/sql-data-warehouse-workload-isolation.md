@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 85987ca1ff7d2dd204d0a501367efffc8277f138
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 86390132be0440b197b680803e5b6032670a7d1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939927"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721037"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Aislamiento de grupos de cargas de trabajo de SQL Data Warehouse (versión preliminar)
 
@@ -32,7 +32,7 @@ En las secciones siguientes se resaltará el modo en que los grupos de cargas de
 
 El aislamiento de la carga de trabajo significa que los recursos se reservan, de forma exclusiva, para un grupo de cargas de trabajo.  El aislamiento de la carga de trabajo se logra al configurar el parámetro MIN_PERCENTAGE_RESOURCE en un valor mayor que cero en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  En el caso de las cargas de trabajo de ejecución continua que necesiten cumplir con acuerdos de nivel de servicio estrictos, el aislamiento garantiza que los recursos siempre estén disponibles para el grupo de cargas de trabajo. 
 
-La configuración del aislamiento de cargas de trabajo define implícitamente un nivel garantizado de simultaneidad. Con un valor MIN_PERCENTAGE_RESOURCE establecido en 30 % y REQUEST_MIN_RESOURCE_GRANT_PERCENT establecido en 2 %, se garantiza un nivel de simultaneidad de 15 para el grupo de cargas de trabajo.  Considere el método siguiente para determinar la simultaneidad garantizada:
+La configuración del aislamiento de cargas de trabajo define implícitamente un nivel garantizado de simultaneidad. Por ejemplo, un grupo de cargas de trabajo con `MIN_PERCENTAGE_RESOURCE` establecido en el 30 % y `REQUEST_MIN_RESOURCE_GRANT_PERCENT` en el 2 % garantiza una simultaneidad de 15.  El nivel de simultaneidad está garantizado, ya que 15 ranuras de recursos del 2 % están reservadas en el grupo de cargas de trabajo en todo momento (independientemente de la configuración de `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT`).  Si `REQUEST_MAX_RESOURCE_GRANT_PERCENT` es mayor que `REQUEST_MIN_RESOURCE_GRANT_PERCENT` y `CAP_PERCENTAGE_RESOURCE` es mayor que `MIN_PERCENTAGE_RESOURCE` se agregan recursos adicionales cuando se soliciten.  Si `REQUEST_MAX_RESOURCE_GRANT_PERCENT` y `REQUEST_MIN_RESOURCE_GRANT_PERCENT` son iguales y `CAP_PERCENTAGE_RESOURCE` es mayor que `MIN_PERCENTAGE_RESOURCE`, es posible que haya más simultaneidad.  Considere el método siguiente para determinar la simultaneidad garantizada:
 
 [Simultaneidad garantizada] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 

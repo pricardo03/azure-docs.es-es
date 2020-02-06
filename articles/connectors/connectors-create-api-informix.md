@@ -9,12 +9,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: ebedb68f8826642437f53e5c5fa8cd0843e7c20e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665868"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757975"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Administración de recursos de base de datos Informix de IBM mediante Azure Logic Apps
 
@@ -117,7 +117,7 @@ Este tema le muestra cómo usar el conector en una aplicación lógica para proc
 
 1. Para ver las entradas, en **Vínculo de entradas**, seleccione el vínculo de dirección URL. Para ver las salidas, en **Vínculo de salidas**, seleccione el vínculo de dirección URL. A continuación, se incluyen algunas salidas de ejemplo:
 
-   * **Obtener tablas** muestra una lista de tablas:
+   * **Get_tables** muestra una lista de tablas:
 
      ![Salidas de la acción "Obtener tablas"](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 

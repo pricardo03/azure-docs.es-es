@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 01/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ca4b9fe3c40b7bf49d86464858747642e3cb5a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685385"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768827"
 ---
 # <a name="azure-sql-data-warehouse-workload-classification"></a>Clasificación de carga de trabajo de Azure SQL Data Warehouse
 
@@ -36,14 +36,24 @@ No todas las instrucciones se clasifican, ya que no requieren recursos ni necesi
 
 ## <a name="classification-process"></a>Proceso de clasificación
 
-Hoy en día, la clasificación en SQL Data Warehouse se logra al asignar usuarios a un rol que tiene una clase de recursos correspondiente asignada mediante [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Con esta funcionalidad, se limita la capacidad para caracterizar las consultas más allá de un inicio de sesión en una clase de recursos. Ahora hay un método más completo disponible para la clasificación mediante la sintaxis [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql).  Con esta sintaxis, los usuarios de SQL Data Warehouse pueden asignar una importancia y clase de recursos a las solicitudes.  
+Hoy en día, la clasificación en SQL Data Warehouse se logra al asignar usuarios a un rol que tiene una clase de recursos correspondiente asignada mediante [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Con esta funcionalidad, se limita la capacidad para caracterizar las consultas más allá de un inicio de sesión en una clase de recursos. Ahora hay un método más completo disponible para la clasificación mediante la sintaxis [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql).  Con esta sintaxis, los usuarios de SQL Data Warehouse pueden asignar importancia y el número de recursos del sistema se que asignan a una solicitud a través del parámetro `workload_group`. 
 
 > [!NOTE]
 > La clasificación se evalúa en función de la solicitud. Varias solicitudes en una única sesión se pueden clasificar de forma diferente.
 
-## <a name="classification-precedence"></a>Prioridad de clasificación
+## <a name="classification-weighting"></a>Ponderación de la clasificación
 
-Como parte del proceso de clasificación, la prioridad se aplica para determinar qué clase de recursos se asigna. La clasificación basada en un usuario de base de datos tiene prioridad sobre pertenencia a roles. Si crea un clasificador que asigna el usuario de base de datos UserA a la clase de recursos mediumrc. Luego, se asigna el rol de base de datos RoleA (al que pertenece UserA) a la clase de recursos largerc. El clasificador que asigna el usuario de base de datos a la clase de recursos mediumrc tendrá prioridad sobre el clasificador que se asigna el rol de base de datos RoleA a la clase de recursos largerc.
+Como parte del proceso de clasificación, la ponderación se aplica para determinar qué grupo de cargas de trabajo se asigna.  La ponderación es como se indica a continuación:
+
+|Parámetro clasificador |Peso   |
+|---------------------|---------|
+|MEMBERNAME:USER      |64       |
+|MEMBERNAME:ROLE      |32       |
+|WLM_LABEL            |16       |
+|WLM_CONTEXT          |8        |
+|START_TIME/END_TIME  |4        |
+
+El parámetro `membername` es obligatorio.  Sin embargo, si el membername especificado es un usuario de base de datos, en lugar de un rol de base de datos, la ponderación del usuario es mayor y, por consiguiente, se elige ese clasificador.
 
 Si un usuario es miembro de varios roles con diferentes clases de recursos asignadas o que coinciden con varios clasificadores, el usuario tendrá la asignación de clase de recursos más alta.  Este comportamiento es coherente con el comportamiento de asignación de clases de recursos existente.
 
@@ -59,7 +69,7 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 
 Los clasificadores del sistema que se crean en nombre del usuario proporcionan una ruta sencilla para migrar a la clasificación de la carga de trabajo. El uso de asignaciones de rol de clase de recursos con prioridad de clasificación puede resultar en clasificaciones incorrectas cuando empiece a crear nuevas clasificadores con importancia.
 
-Considere el siguiente escenario:
+Considere el caso siguiente:
 
 - Un almacenamiento de datos existente tiene un usuario de base de datos DBAUser asignado al rol de clase de recursos largerc. La asignación de la clase de recursos se realizaba mediante sp_addrolemember.
 - El almacenamiento de datos se habrá actualizado con la administración de cargas de trabajo.

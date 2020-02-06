@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ee2b3a35b6f1817b89541a31d0bde4adf00ade2a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991849"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841836"
 ---
 # <a name="rest-api"></a>API DE REST
 En este artículo se describen las API REST de Azure Event Grid en IoT Edge
@@ -183,6 +183,7 @@ En los ejemplos de esta sección se usa `EndpointType=Webhook;`. Los ejemplos de
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "persistencePolicy": "true",
         "destination":
         {
             "endpointType": "WebHook",
@@ -686,3 +687,93 @@ SasKey:
 TopicName:
 - Si Subscription.EventDeliverySchema está establecido en EventGridSchema, el valor de este campo se coloca en el campo de tema de cada evento antes de reenviarse a Event Grid en la nube.
 - Si Subscription.EventDeliverySchema está establecido en CustomEventSchema, esta propiedad se omite y la carga del evento personalizado se reenvía exactamente como se recibió.
+
+## <a name="set-up-event-hubs-as-a-destination"></a>Configuración de Event Hubs como destino
+
+Para realizar la publicación en un centro de eventos, configure `endpointType` como `eventHub` y proporcione:
+
+* connectionString: cadena de conexión para el centro de eventos específico que se va a usar como destino generado mediante una directiva de acceso compartido.
+
+    >[!NOTE]
+    > La cadena de conexión debe ser específica de la entidad. El uso de una cadena de conexión de espacio de nombres no funcionará. Para generar una cadena de conexión específica de la entidad, en Azure Portal, vaya al centro de eventos en el que desea realizar la publicación y haga clic en **Directivas de acceso compartido** para generar una cadena de conexión específica de la entidad.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "eventHub",
+              "properties": {
+                "connectionString": "<your-event-hub-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-queues-as-a-destination"></a>Configuración de colas de Service Bus como destino
+
+Para realizar la publicación en una cola de Service Bus, configure `endpointType` como `serviceBusQueue` y proporcione:
+
+* connectionString: cadena de conexión para la cola de Service Bus específica que se va a usar como destino generada mediante una directiva de acceso compartido.
+
+    >[!NOTE]
+    > La cadena de conexión debe ser específica de la entidad. El uso de una cadena de conexión de espacio de nombres no funcionará. Para generar una cadena de conexión específica de la entidad, en Azure Portal, vaya a la cola de Service Bus en el que desea realizar la publicación y haga clic en **Directivas de acceso compartido** para generar una cadena de conexión específica de la entidad.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusQueue",
+              "properties": {
+                "connectionString": "<your-service-bus-queue-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-topics-as-a-destination"></a>Configuración de temas de Service Bus como destino
+
+Para realizar la publicación en un tema de Service Bus, configure `endpointType` como `serviceBusTopic` y proporcione:
+
+* connectionString: cadena de conexión para el tema de Service Bus específico que se va a usar como destino generado mediante una directiva de acceso compartido.
+
+    >[!NOTE]
+    > La cadena de conexión debe ser específica de la entidad. El uso de una cadena de conexión de espacio de nombres no funcionará. Para generar una cadena de conexión específica de la entidad, en Azure Portal, vaya al tema de Service Bus en el que desea realizar la publicación y haga clic en **Directivas de acceso compartido** para generar una cadena de conexión específica de la entidad.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusTopic",
+              "properties": {
+                "connectionString": "<your-service-bus-topic-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-storage-queues-as-a-destination"></a>Configuración de colas de almacenamiento como destino
+
+Para realizar la publicación en una cola de almacenamiento, configure `endpointType` como `storageQueue` y proporcione:
+
+* queueName: nombre de la cola de almacenamiento en la que va a realizar la publicación.
+* connectionString: cadena de conexión de la cuenta de almacenamiento en la que se encuentra la cola de almacenamiento.
+
+    >[!NOTE]
+    > Event Hubs en línea, colas de Service Bus y temas de Service Bus: la cadena de conexión usada para las colas de almacenamiento no es específica de la entidad. En su lugar, debe ser la cadena de conexión de la cuenta de almacenamiento.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "storageQueue",
+              "properties": {
+                "queueName": "<your-storage-queue-name>",
+                "connectionString": "<your-storage-account-connection-string>"
+              }
+            }
+          }
+        }
+    ```

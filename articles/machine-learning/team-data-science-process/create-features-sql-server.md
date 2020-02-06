@@ -3,20 +3,20 @@ title: 'Creación de características de SQL Server con SQL y Python: proceso de
 description: Generar características para los datos almacenados en una máquina virtual de SQL Server en Azure con SQL y Python; parte del proceso de ciencia de datos en equipos.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982056"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721751"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creación de características para datos de SQL Server con SQL y Python
 En este documento se muestra cómo generar características para los datos almacenados en una VM de SQL Server en Azure que ayudan a los algoritmos a aprender de forma eficaz de los datos. Puede utilizar SQL o un lenguaje de programación como Python para realizar esta tarea. Ambos enfoques se muestran aquí.
@@ -37,9 +37,9 @@ En este artículo se supone que ha:
 ## <a name="sql-featuregen"></a>Generación de características con SQL
 En esta sección, se describen formas de generar características mediante SQL:  
 
-1. [Generación de características basadas en recuentos](#sql-countfeature)
-2. [Generación de características de discretización](#sql-binningfeature)
-3. [Implementación de las características de una sola columna](#sql-featurerollout)
+* [Generación de características basadas en recuentos](#sql-countfeature)
+* [Generación de características de discretización](#sql-binningfeature)
+* [Implementación de las características de una sola columna](#sql-featurerollout)
 
 > [!NOTE]
 > Cuando genere características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar con la tabla original.
@@ -47,7 +47,7 @@ En esta sección, se describen formas de generar características mediante SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Generación de características basadas en recuentos
-En este documento se muestran dos maneras de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estos pueden entonces combinarse con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
+En este documento se muestran dos maneras de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estas características nuevas se pueden combinar con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -55,7 +55,7 @@ En este documento se muestran dos maneras de generar características de recuent
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
 ### <a name="sql-binningfeature"></a>Generación de características de discretización
-En el ejemplo siguiente se muestra cómo generar características discretizadas mediante la discretización (con 5 discretizaciones) de una columna numérica que puede usarse en su lugar como una característica:
+En el ejemplo siguiente se muestra cómo generar características discretizadas mediante la discretización (con cinco discretizaciones) de una columna numérica que puede usarse en su lugar como una característica:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
@@ -74,9 +74,9 @@ Aquí se incluye un breve manual sobre los datos de ubicación de latitud y long
 * La tercera posición decimal tiene un valor de hasta 110 m: puede identificar un campo agrícola extenso o campus universitario.
 * La cuarta posición decimal tiene un valor de hasta 11 m: puede identificar una parcela de tierra. Es comparable a la precisión típica de una unidad GPS sin corregir y sin interferencias.
 * La quinta posición decimal tiene un valor de hasta 1,1 m: puede distinguir entre distintos árboles. Solo es posible conseguir una precisión de este nivel con unidades GPS comerciales con corrección diferencial.
-* La sexta posición decimal tiene un valor de hasta 0,11 m: puede usarse para diseñar estructuras en detalle, para el diseño de paisajes o la construcción de carreteras. Debería ser más que suficiente para realizar el seguimiento de los movimientos de glaciares y ríos. Esto se consigue al tomar medidas meticulosas con GPS, como GPS corregido de forma diferencial.
+* La sexta posición decimal tiene un valor de hasta 0,11 m: este nivel se puede usar para diseñar estructuras de forma detallada para el diseño de paisajes o la construcción de carreteras. Debería ser más que suficiente para realizar el seguimiento de los movimientos de glaciares y ríos. Para lograr este objetivo hay que tomar medidas meticulosas con GPS, como GPS con corrección diferencial.
 
-La información de ubicación se puede caracterizar diferenciando entre la información de región, ubicación y ciudad. Tenga en cuenta que también es posible llamar a un extremo de REST, como la API de mapas de Bing disponible en `https://msdn.microsoft.com/library/ff701710.aspx` para obtener la información de la región o el distrito.
+La información de ubicación se puede caracterizar diferenciando entre la información de región, ubicación y ciudad. Una vez también puede llamar a un punto de conexión de REST, como Bing Maps API (consulte `https://msdn.microsoft.com/library/ff701710.aspx` para obtener la información de la región o el distrito).
 
     select
         <location_columnname>
@@ -89,7 +89,7 @@ La información de ubicación se puede caracterizar diferenciando entre la infor
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Estas características basadas en la ubicación se pueden desarrollar más para generar características de recuento adicionales, tal y como se describió anteriormente.
+Estas características basadas en ubicación se pueden usar aún más para generar características de recuento adicionales, tal y como se describió anteriormente.
 
 > [!TIP]
 > Puede insertar mediante programación los registros con el lenguaje que prefiera. Debe insertar los datos en fragmentos para mejorar la eficacia de la escritura. [Este es un ejemplo de cómo realizar esa tarea con los pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).

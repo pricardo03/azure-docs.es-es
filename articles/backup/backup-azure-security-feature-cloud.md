@@ -3,26 +3,38 @@ title: Características de seguridad para proteger cargas de trabajo en la nube
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 20cf322dec0827c00b15a62bf4f7695fc4ed0992
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028210"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705503"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
 
-Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen los datos de las copias de seguridad incluso después de su eliminación. Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un individuo malintencionado elimine la copia de seguridad de una máquina virtual (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea costo alguno para el cliente. Azure cifra también todos los datos en reposo con copia de seguridad mediante [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger aún más los datos.
+Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen los datos de las copias de seguridad incluso después de su eliminación.
+
+Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un individuo malintencionado elimine la copia de seguridad de una máquina virtual (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea costo alguno para el cliente. Azure cifra también todos los datos en reposo con copia de seguridad mediante [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger aún más los datos.
+
+La protección de eliminación temporal para máquinas virtuales de Azure está disponible con carácter general.
+
+>[!NOTE]
+>La eliminación temporal de SQL Server en máquinas virtuales de Azure y la eliminación temporal de SAP HANA en cargas de trabajo de máquinas virtuales de Azure están ahora disponible en versión preliminar.<br>
+>Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
+
+## <a name="soft-delete"></a>Eliminación temporal
+
+### <a name="soft-delete-for-vms"></a>Eliminación temporal para máquinas virtuales
+
+La eliminación temporal de máquinas virtuales protege las copias de seguridad de las máquinas virtuales de una eliminación imprevista. Incluso después de que se eliminen las copias de seguridad, se conservan en estado de eliminación temporal durante 14 días adicionales.
 
 > [!NOTE]
 > La eliminación temporal solo protege los datos de copia de seguridad eliminados. Si se elimina una máquina virtual sin una copia de seguridad, la característica de eliminación temporal no conservará los datos. Todos los recursos deben protegerse con Azure Backup para garantizar una resistencia total.
 >
 
-## <a name="soft-delete"></a>Eliminación temporal
-
 ### <a name="supported-regions"></a>Regiones admitidas
 
-La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia Oriental, Centro de Canadá, Este de Canadá, Centro de Francia, Sur de Francia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Oeste de Reino Unido, Este de Australia, Sudeste de Australia, Norte de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Sudeste Asiático, Centro-norte de EE. UU., Centro-sur de EE. UU., Este de Japón, Oeste de Japón, Sur de India, Centro de la India, India occidental, Este de EE. UU. 2, Norte de Suiza, Oeste de Suiza y todas las regiones nacionales.
+La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia Oriental, Centro de Canadá, Este de Canadá, Centro de Francia, Sur de Francia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Oeste de Reino Unido, Este de Australia, Sudeste de Australia, Norte de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Sudeste Asiático, Centro-norte de EE. UU., Centro-sur de EE. UU., Japón Oriental, Japón Occidental, Sur de India, Centro de la India, India occidental, Este de EE. UU. 2, Norte de Suiza, Oeste de Suiza y todas las regiones nacionales.
 
 ### <a name="soft-delete-for-vms-using-azure-portal"></a>Eliminación temporal para máquinas virtuales con Azure Portal
 

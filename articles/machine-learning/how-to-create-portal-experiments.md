@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894022"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720408"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -153,9 +153,15 @@ Curtosis| La medida de la cantidad de datos en cola de esta columna se compara c
 
 <a name="preprocess"></a>
 
-## <a name="advanced-preprocessing-options"></a>Opciones de preprocesamiento avanzado
+## <a name="advanced-featurization-options"></a>Opciones avanzadas de caracterización
 
-Al configurar los experimentos, puede habilitar la configuración avanzada `Preprocess`. Si lo hace, como parte del preprocesamiento los siguientes pasos de caracterización y protección se realizarán automáticamente.
+Al configurar los experimentos, puede habilitar la configuración avanzada `feauturization`. 
+
+|Configuración de la caracterización | Descripción |
+| ------------- | ------------- |
+|"feauturization" = 'FeaturizationConfig'| Indica que se debe usar un paso personalizado de caracterización. [Aprenda a personalizar la caracterización](how-to-configure-auto-train.md#customize-feature-engineering).|
+|"feauturization" = 'off'| Indica que el paso de caracterización no debe realizarse automáticamente.|
+|"feauturization" = 'auto'| Indica que, como parte del preprocesamiento, los siguientes pasos de caracterización y protección se realizarán automáticamente.|
 
 |Pasos de&nbsp;preprocesamiento| Descripción |
 | ------------- | ------------- |

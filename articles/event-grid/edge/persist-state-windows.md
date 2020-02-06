@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 485c6d4a92539a2ba67aece319c68d31649e8045
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991765"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844622"
 ---
 # <a name="persist-state-in-windows"></a>Conservación del estado en Windows
 
-Los temas y las suscripciones creadas en el módulo de Event Grid se almacenan de forma predeterminada en el sistema de archivos de contenedor. Sin persistencia, si se vuelve a implementar el módulo, se perderán todos los metadatos creados. Para conservar los datos en las implementaciones, debe conservar los datos fuera del sistema de archivos de contenedor. Actualmente solo se conservan los metadatos. Los eventos se almacenan en la memoria. Si el módulo de Event Grid se vuelve a implementar o se reinicia, se perderán todos los eventos no entregados.
+Los temas y las suscripciones creados en el módulo de Event Grid se almacenan de forma predeterminada en el sistema de archivos de contenedor. Sin persistencia, si se vuelve a implementar el módulo, se perderán todos los metadatos creados. Para conservar los datos en las implementaciones y reinicios, debe conservar los datos fuera del sistema de archivos de contenedor. 
+
+De forma predeterminada, solo se conservan los metadatos y los eventos todavía se almacenan en memoria para mejorar el rendimiento. Siga la sección Conservación de eventos para habilitar también la conservación de eventos.
 
 En este artículo se proporcionan los pasos necesarios para implementar el módulo de Event Grid con persistencia en las implementaciones de Windows.
 
@@ -27,7 +29,7 @@ En este artículo se proporcionan los pasos necesarios para implementar el módu
 
 ## <a name="persistence-via-volume-mount"></a>Persistencia a través del montaje del volumen
 
-[Los volúmenes de Docker](https://docs.docker.com/storage/volumes/) se usan para conservar los datos en las implementaciones. Para montar un volumen, debe crearlo con los comandos de Docker, conceder permisos para que el contenedor pueda leer y escribir en él y, a continuación, implementar el módulo. No hay ninguna provisión para crear automáticamente un volumen con los permisos necesarios en Windows. Debe crearse antes de la implementación.
+[Los volúmenes de Docker](https://docs.docker.com/storage/volumes/) se usan para conservar los datos en las implementaciones. Para montar un volumen, debe crearlo con los comandos de Docker, conceder permisos para que el contenedor pueda leer y escribir en él y, a continuación, implementar el módulo.
 
 1. Cree un volumen mediante la ejecución del siguiente comando:
 
@@ -82,17 +84,17 @@ En este artículo se proporcionan los pasos necesarios para implementar el módu
     ```json
         {
               "Env": [
-                "inbound:serverAuth:tlsPolicy=strict",
-                "inbound:serverAuth:serverCert:source=IoTEdge",
-                "inbound:clientAuth:sasKeys:enabled=false",
-                "inbound:clientAuth:clientCert:enabled=true",
-                "inbound:clientAuth:clientCert:source=IoTEdge",
-                "inbound:clientAuth:clientCert:allowUnknownCA=true",
-                "outbound:clientAuth:clientCert:enabled=true",
-                "outbound:clientAuth:clientCert:source=IoTEdge",
-                "outbound:webhook:httpsOnly=true",
-                "outbound:webhook:skipServerCertValidation=false",
-                "outbound:webhook:allowUnknownCA=true"
+                "inbound__serverAuth__tlsPolicy=strict",
+                "inbound__serverAuth__serverCert__source=IoTEdge",
+                "inbound__clientAuth__sasKeys__enabled=false",
+                "inbound__clientAuth__clientCert__enabled=true",
+                "inbound__clientAuth__clientCert__source=IoTEdge",
+                "inbound__clientAuth__clientCert__allowUnknownCA=true",
+                "outbound__clientAuth__clientCert__enabled=true",
+                "outbound__clientAuth__clientCert__source=IoTEdge",
+                "outbound__webhook__httpsOnly=true",
+                "outbound__webhook__skipServerCertValidation=false",
+                "outbound__webhook__allowUnknownCA=true"
               ],
               "HostConfig": {
                 "Binds": [
@@ -118,21 +120,22 @@ En este artículo se proporcionan los pasos necesarios para implementar el módu
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "myeventgridvol:C:\\app\\metadataDb"
+                "myeventgridvol:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -147,7 +150,7 @@ En este artículo se proporcionan los pasos necesarios para implementar el módu
 
 ## <a name="persistence-via-host-directory-mount"></a>Persistencia mediante el montaje de directorios de host
 
-Como alternativa, puede optar por crear un directorio en el sistema host y montar ese directorio.
+En lugar de montar un volumen, puede crear un directorio en el sistema host y montar ese directorio.
 
 1. En el sistema de archivos host, cree un directorio ejecutando el comando siguiente.
 
@@ -180,21 +183,22 @@ Como alternativa, puede optar por crear un directorio en el sistema host y monta
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "C:\\myhostdir:C:\\app\\metadataDb"
+                "C:\\myhostdir:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -206,3 +210,30 @@ Como alternativa, puede optar por crear un directorio en el sistema host y monta
          }
     }
     ```
+## <a name="persist-events"></a>Conservación de eventos
+
+Para habilitar la conservación de eventos, primero debe habilitar la conservación de metadatos mediante el montaje de volúmenes o el montaje de directorios de host, siguiendo las secciones anteriores.
+
+Aspectos importantes que se deben tener en cuenta sobre la conservación de eventos:
+
+* La conservación de eventos se habilita en cada suscripción de evento y puede activarse una vez que se ha montado un volumen o directorio.
+* La conservación de eventos se configura en una suscripción de eventos en el momento de su creación y no se puede modificar una vez creada la suscripción de eventos. Para cambiar la conservación de eventos, debe eliminar y volver a crear la suscripción de eventos.
+* La conservación de eventos casi siempre es más lenta que en las operaciones de memoria; sin embargo, la diferencia de velocidad depende en gran medida de las características de la unidad. El equilibrio entre la velocidad y la confiabilidad es inherente a todos los sistemas de mensajería, aunque solo es obvio a gran escala.
+
+Para habilitar la conservación de eventos en una suscripción de eventos, establezca `persistencePolicy` en `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

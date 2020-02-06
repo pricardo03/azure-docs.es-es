@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289533"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772030"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -131,7 +131,7 @@ Si esto no funciona y está detectando servidores VMware:
 
 ## <a name="vm-data-not-in-portal"></a>Datos de VM que no están en el portal
 
-Si las máquinas virtuales detectadas no aparecen en el portal, espere unos minutos. Los datos detectados tardan hasta treinta minutos en aparecer en el portal. Si no hay datos después de treinta minutos, intente actualizar, como se indica a continuación:
+Si las máquinas virtuales detectadas no aparecen en el portal o si los datos de estas están obsoletos, espere unos minutos. Los cambios realizados en los datos de configuración de las máquinas virtuales detectadas tardan 30 minutos, como máximo, en aparecer en el portal. Los cambios en los datos de las aplicaciones pueden tardar pocas horas en aparecer. Si no hay datos después de ese tiempo, intente actualizar como se indica a continuación
 
 1. En **Servidores** > **Azure Migrate Server Assessment**, seleccione **Información general**.
 2. En **Administrar**, seleccione **Agent Health**.
@@ -166,7 +166,8 @@ Los errores de detección de aplicaciones típicos se resumen en la tabla.
 9009: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Puede producirse si la configuración del Control de cuentas de usuario (UAC) de Windows en el servidor es restrictiva e impide la detección de las aplicaciones instaladas. | Busque la configuración "Control de cuentas de usuario" en el servidor y configure la opción de UAC del servidor en uno de los dos niveles inferiores.
 9010: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Podría ser un error interno.  | Si el problema no se resuelve en un plazo de veinticuatro horas, póngase en contacto con el soporte técnico.
 8084: "No se pueden detectar las aplicaciones debido a un error de VMware: <Exception from VMware>" | El dispositivo de Azure Migrate usa las API de VMware para detectar aplicaciones. Este problema puede producirse si vCenter Server inicia una excepción al intentar detectar las aplicaciones. El mensaje de error de VMware se muestra en el mensaje de error que aparece en el portal. | Busque el mensaje en la [documentación de VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html) y siga los pasos para solucionarlo. Si no lo puede solucionar, póngase en contacto con el soporte técnico de Microsoft.
-
+9012: "No se pueden detectar las aplicaciones instaladas en el servidor" | El problema puede producirse debido a un error interno.  | Si el problema no se resuelve en un plazo de 24 horas, póngase en contacto con el soporte técnico.
+9013: "No se pueden detectar las aplicaciones instaladas en el servidor" | Cada vez que se produce un inicio de sesión en la máquina virtual, se crea un nuevo perfil temporal.  | Asegúrese de que no se crea un perfil temporal para el usuario invitado especificado.
 
 
 

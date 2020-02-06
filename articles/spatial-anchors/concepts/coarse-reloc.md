@@ -1,6 +1,6 @@
 ---
 title: Relocalización general
-description: Guía de inicio rápido de la relocalización general.
+description: Aprenda a usar la relocalización general para buscar delimitadores cercanos.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356351"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844401"
 ---
 # <a name="coarse-relocalization"></a>Relocalización general
 

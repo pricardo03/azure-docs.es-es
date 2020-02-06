@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: ee5acc97e4b05a0e93f4ceee8c04b400da211b49
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552141"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769494"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -156,7 +156,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 | Suposiciones de Data Flow: tiempo de ejecución = 10 min + TTL de 10 minutos | 10 \* 16 núcleos de proceso general con TTL de 10 |
 | Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 2 registros de ejecución de supervisión reintentados (1 para la ejecución de la canalización y 1 para la ejecución de la actividad) |
 
-**Precio total del escenario: 0,3011 USD**
+**Precio total del escenario: 1,4631 USD**
 
 - Operaciones de Data Factory = **0,0001 $**
   - Lectura y escritura = 10\*00001 = 0,0001 $ [1 L/E = 0,50 $/50000 = 0,00001]

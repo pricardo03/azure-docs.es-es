@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822653"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842669"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creación y uso de la replicación geográfica activa
 
-La replicación geográfica activa es la característica de Azure SQL Database que permite crear bases de datos secundarias legibles de bases de datos individuales en un servidor de SQL Database en el mismo centro de datos u otro diferente (región).
+La replicación geográfica activa es una característica de Azure SQL Database que permite crear bases de datos secundarias legibles de bases de datos individuales en un servidor de SQL Database en el mismo centro de datos u otro diferente (región).
 
 > [!NOTE]
 > La replicación geográfica activa no es compatible con Instancia administrada. Para la conmutación por error geográfica de las instancias administradas, use [Grupos de conmutación por error automática](sql-database-auto-failover-group.md).
@@ -124,6 +124,79 @@ Si decide crear la base de datos secundaria con un tamaño de proceso más bajo,
 
 Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](sql-database-purchase-models.md)
 
+## <a name="cross-subscription-geo-replication"></a>Replicación geográfica entre suscripciones
+
+Para configurar la replicación geográfica activa entre dos bases de datos que pertenecen a distintas suscripciones (ya sea en el mismo inquilino o en otro), debe seguir el procedimiento especial descrito en esta sección.  El procedimiento se basa en comandos SQL y requiere: 
+
+- La creación de un inicio de sesión con privilegios en ambos servidores.
+- La adición de la dirección IP a la lista de permitidos del cliente que realiza el cambio en ambos servidores (como la dirección IP del host que ejecuta SQL Server Management Studio). 
+
+El cliente que realiza los cambios necesita acceso de red al servidor principal. Aunque se debe agregar la misma dirección IP del cliente a la lista de permitidos en el servidor secundario, la conectividad de red con el servidor secundario no es estrictamente necesaria. 
+
+### <a name="on-the-master-of-the-primary-server"></a>En la base de datos maestra del servidor principal
+
+1. Agregue la dirección IP a la lista de permitidos del cliente que realiza los cambios (para más información, consulte [Configuración del firewall](sql-database-firewall-configure.md)). 
+1. Cree un inicio de sesión dedicado para configurar la replicación geográfica activa (y ajuste las credenciales según sea necesario):
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01'
+   ```
+
+1. Cree un usuario correspondiente y asígnele el rol dbmanager: 
+
+   ```sql
+   create user geodrsetup for login gedrsetup
+   alter role geodrsetup dbmanager add member geodrsetup
+   ```
+
+1. Anote el SID del nuevo inicio de sesión con esta consulta: 
+
+   ```sql
+   select sid from sys.sql_logins where name = 'geodrsetup'
+   ```
+
+### <a name="on-the-source-database-on-the-primary-server"></a>En la base de datos de origen del servidor principal
+
+1. Cree un usuario para el mismo inicio de sesión:
+
+   ```sql
+   create user geodrsetup for login geodrsetup
+   ```
+
+1. Agregue el usuario al rol db_owner:
+
+   ```sql
+   alter role db_owner add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-secondary-server"></a>En la base de datos maestra del servidor secundario 
+
+1. Agregue la dirección IP a la lista de permitidos del cliente que realiza los cambios. Debe ser exactamente la misma dirección IP del servidor principal. 
+1. Cree el mismo inicio de sesión que en el servidor principal, con el mismo nombre de usuario, contraseña y SID: 
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E
+   ```
+
+1. Cree un usuario correspondiente y asígnele el rol dbmanager:
+
+   ```sql
+   create user geodrsetup for login geodrsetup;
+   alter role dbmanager add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-primary-server"></a>En la base de datos maestra del servidor principal
+
+1. Inicie sesión en la base de datos maestra del servidor principal con el nuevo inicio de sesión. 
+1. Cree una réplica secundaria de la base de datos de origen en el servidor secundario (ajuste el nombre de la base de datos y del servidor según sea necesario):
+
+   ```sql
+   alter database dbrep add secondary on server <servername>
+   ```
+
+Tras la configuración inicial, se pueden quitar los usuarios, los inicios de sesión y las reglas de firewall creados. 
+
+
 ## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Mantenimiento de las credenciales y las reglas de firewall sincronizadas
 
 Se recomienda usar [reglas de firewall de direcciones IP de nivel de base de datos](sql-database-firewall-configure.md) para las bases de datos con replicación geográfica. Así, estas reglas se pueden replicar con la base de datos para garantizar que todas las bases de datos secundarias tengan las mismas reglas de firewall que la principal. Este enfoque elimina la necesidad de que los clientes configuren y mantengan manualmente las reglas de firewall en los servidores que hospedan tanto la base de datos principal como las secundarias. Igualmente, la utilización de [usuarios de base de datos independiente](sql-database-manage-logins.md) para el acceso a los datos garantiza que la base de datos principal y las secundarias tengan siempre las mismas credenciales de usuario. Por tanto, durante una conmutación por error, no hay interrupciones debidas a discrepancias en los inicios de sesión y las contraseñas. Con la adición de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), los clientes pueden administrar el acceso de usuarios a la base de datos principal y a las secundarias, por lo que ya no es necesario administrar credenciales en las bases de datos.
@@ -167,7 +240,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 > [!IMPORTANT]
 > Estos comandos de Transact-SQL solo se aplican a la replicación geográfica activa, no a los grupos de conmutación por error. Por lo tanto, tampoco se aplican a las instancias administradas, ya que solo admiten grupos de conmutación por error.
 
-| Get-Help | DESCRIPCIÓN |
+| Get-Help | Descripción |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Se utiliza el argumento ADD SECONDARY ON SERVER a fin de crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Se utiliza FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error. |
@@ -182,9 +255,9 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
-| Cmdlet | DESCRIPCIÓN |
+| Cmdlet | Descripción |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Obtiene una o más bases de datos. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Crea una base de datos secundaria para una base de datos existente e inicia la replicación de datos. |
@@ -198,7 +271,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: Administración de la conmutación por error de bases de datos únicas y agrupadas
 
-| API | DESCRIPCIÓN |
+| API | Descripción |
 | --- | --- |
 | [Crear o actualizar base de datos (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Crea, actualiza o restaura una base de datos principal o secundaria. |
 | [Obtener el estado de creación o actualización de la base de datos](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Devuelve el estado durante una operación de creación. |

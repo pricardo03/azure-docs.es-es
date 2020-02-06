@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 45b0c012ec8b8d70c1fad99db40f38fb92daf8a0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 01/24/2020
+ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770652"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759916"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migración de Oracle a Azure Database for PostgreSQL en línea mediante DMS (versión preliminar)
 
@@ -49,7 +49,7 @@ Para completar este tutorial, necesita:
 
 * Descargue e instale [Oracle 11g Release 2 (Standard Editionde Standard Edition One o Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
 * Descargue la base de datos de ejemplo **HR**[aquí](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002).
-* Descargue e instale ora2pg en [Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf) o [Linux](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Linux.pdf).
+* Descargue e [instale ora2pg en Windows o Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf).
 * [Creación de una instancia en Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Conéctese a la instancia y cree una base de datos con las instrucciones de este [documento](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
 * Cree una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](https://docs.microsoft.com/azure/virtual-network/)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
@@ -198,7 +198,7 @@ Para configurar y ejecutar ora2pg para la conversión del esquema, vea la secci�
 
 Puede optar por convertir esquemas de tabla, procedimientos almacenados, paquetes y otros objetos de base de datos de Oracle para que sean compatibles con Postgres mediante ora2pg antes de iniciar una canalización de migración en Azure Database Migration Service. Consulte los vínculos siguientes para ver cómo trabajar con ora2pg:
 
-* [Instalación de ora2pg en Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf)
+* [Instalación de ora2pg en Windows](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
 * [Oracle to Azure PostgreSQL Migration Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf) (Instrucciones de migración de Oracle a Azure PostgreSQL)
 
 Azure Database Migration Service también puede crear el esquema de tabla en PostgreSQL. El servicio accede al esquema de tabla del origen de Oracle conectado y crea un esquema de tabla compatible en Azure Database for PostgreSQL. Asegúrese de validar y comprobar el formato del esquema en Azure Database for PostgreSQL cuando Azure Database Migration Service haya terminado de crear el esquema y mover los datos.

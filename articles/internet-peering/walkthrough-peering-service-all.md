@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 28aa9f921de64fcc838935cf65b64a63280ddf16
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d626d98613bd5d988b599d0980c885d7f73bb958
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75773767"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720255"
 ---
 # <a name="peering-service-partner-walkthrough"></a>Tutorial para asociados de Peering Service
 
@@ -25,7 +25,7 @@ Los proveedores de servicios pueden ampliar su alcance geográfico mediante la c
 1. Siga las instrucciones de [Creación o modificación de un emparejamiento directo mediante el portal](howto-direct-portal.md). Asegúrese de que cumple el requisito de alta disponibilidad.
 1. A continuación, siga los pasos de [Habilitación de Peering Service en un emparejamiento directo mediante el portal](howto-peering-service-portal.md).
 
-## <a name="use-legacy-direct-peering-conection-for-peering-service"></a>Usar una conexión de emparejamiento directo heredada para Peering Service
+## <a name="use-legacy-direct-peering-connection-for-peering-service"></a>Uso de una conexión de emparejamiento directo heredada para Peering Service
 Si tiene el emparejamiento directo heredado que desea usar para la compatibilidad con Peering Service:
 1. Asóciese al servicio Peering Service si todavía no lo ha hecho.
 1. Siga las instrucciones de [Conversión de un emparejamiento directo heredado en un recurso de Azure mediante el portal](howto-legacy-direct-portal.md). Si es necesario, solicite circuitos adicionales para satisfacer el requisito de alta disponibilidad.

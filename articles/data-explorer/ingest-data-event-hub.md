@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: e622abd16f900ca811385ddada187f3c96e7d758
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779965"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773929"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingesta de datos del centro de eventos a Azure Data Explorer
 
@@ -118,6 +118,7 @@ Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se
     | Centro de eventos | *test-hub* | El centro de eventos que creó. |
     | Grupo de consumidores | *test-group* | Grupo de consumidores de eventos definido en el centro de eventos que creó. |
     | Propiedades del sistema de eventos | Seleccione las propiedades pertinentes. | [Propiedades del sistema del centro de eventos](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Si hay varios registros por cada mensaje de evento, las propiedades del sistema se agregarán al primero de ellos. Cuando agregue las propiedades del sistema, [cree](/azure/kusto/management/tables#create-table) o [actualice](/azure/kusto/management/tables#alter-table-and-alter-merge-table) el esquema de tabla y la [asignación](/azure/kusto/management/mappings) para incluir las propiedades seleccionadas. |
+    | Compresión | *None* | Tipo de compresión de la carga de mensajes del centro de eventos. Tipos de compresión admitidos: *Ninguno, GZip*.|
     | | |
 
     **Table de destino:**
@@ -128,15 +129,15 @@ Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
     | Tabla | *TestTable* | La tabla que creó en **TestDatabase**. |
-    | Formato de datos | *JSON* | Los formatos admitidos son Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE y TXT. Opciones de compresión admitidas: GZip |
-    | Asignación de columnas | *TestMapping* | [Asignación](/azure/kusto/management/mappings) que creó en **TestDatabase**, que asigna los datos JSON entrantes a los nombres de columnas y tipos de datos de **TestTable**. Se requiere para JSON, MULTILINE JSON o AVRO, y es opcional para otros formatos.|
+    | Formato de datos | *JSON* | Los formatos admitidos son Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC y PARQUET. |
+    | Asignación de columnas | *TestMapping* | [Asignación](/azure/kusto/management/mappings) que creó en **TestDatabase**, que asigna los datos JSON entrantes a los nombres de columnas y tipos de datos de **TestTable**. Se requiere para JSON o MULTILINE JSON y es opcional para otros formatos.|
     | | |
 
     > [!NOTE]
     > * Seleccione **My data includes routing info** (Mis datos incluyen información de enrutamiento) para usar el enrutamiento dinámico, donde los datos incluyen la información de enrutamiento necesaria, tal como se muestra en los comentarios de la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si se establecen propiedades estáticas y dinámicas, las propiedades dinámicas reemplazan a las estáticas. 
     > * Solamente se ingieren los eventos en cola después de crear la conexión de datos.
-    > * Abra una [solicitud de soporte técnico en Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para habilitar la compresión GZip para el enrutamiento estático. Habilite la compresión GZip para el enrutamiento dinámico tal como se muestra en la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
-    > * Las propiedades del sistema de eventos y el formato Avro no se admiten en la carga de compresión.
+    > * También puede establecer el tipo de compresión a través de propiedades dinámicas, tal como se muestra en la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest).
+    > * Los formatos Avro, ORC y PARQUET, así como las propiedades del sistema de eventos, no se admiten en la carga de compresión GZip.
 
 [!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 

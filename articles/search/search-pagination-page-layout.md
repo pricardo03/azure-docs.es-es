@@ -7,20 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 31af550d4f499b4b4440a27037dc210bfdf0cb6f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 01/24/2020
+ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793451"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721581"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search
 Este artículo contiene instrucciones para implementar los elementos estándar de una página de resultados de búsqueda, como los recuentos totales, la recuperación de documentos, los criterios de ordenación y la funcionalidad de navegación. Las opciones relacionadas con la página que aportan datos o información a los resultados de búsqueda se especifican mediante las solicitudes [Buscar documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) que se envían al servicio Azure Cognitive Search. 
 
 En la API REST, las solicitudes incluyen un comando GET, una ruta de acceso y parámetros de consulta que informan al servicio de lo que se está solicitando y de cómo formular la respuesta. En el SDK de .NET, la API equivalente es la [clase DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
-Algunos ejemplos de código contienen una interfaz de front-end web. Puede consultar aquí estos ejemplos: [aplicación de demostración de trabajos de la ciudad de Nueva York](https://azjobsdemo.azurewebsites.net/) y [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Para generar rápidamente una página de búsqueda para el cliente, explore estas opciones:
+
++ Use el [generador de aplicaciones](search-create-app-portal.md) del portal para crear una página HTML con una barra de búsqueda, navegación por facetas y área de resultados.
++ Siga el tutorial [Creación de la primera aplicación en C#](tutorial-csharp-create-first-app.md) para crear un cliente funcional.
+
+Varios ejemplos de código que puede encontrar aquí incluyen una interfaz de front-end web: [Aplicación de demostración de trabajos de la ciudad de Nueva York](https://azjobsdemo.azurewebsites.net/), [código de ejemplo de JavaScript con un sitio de demostración activo](https://github.com/liamca/azure-search-javascript-samples) y [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Una solicitud válida incluye una serie de elementos, como una dirección URL del servicio y la ruta de acceso, el verbo HTTP, `api-version`, etc. Para mayor brevedad, hemos acortado los ejemplos para resaltar solo la sintaxis que resulta relevante para la paginación. Para más información sobre la sintaxis de las solicitudes, consulte [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice).
@@ -88,6 +93,22 @@ Deberá crear un método que acepte la opción de ordenación seleccionada como 
 > Aunque la puntuación predeterminada es suficiente para muchos escenarios, se recomienda basar la relevancia en un perfil de puntuación personalizado. Un perfil personalizado de puntuación le ofrece una forma de aumentar los elementos que son más útiles para su negocio. Para más información, consulte [Incorporación de perfiles de puntuación](index-add-scoring-profiles.md).
 >
 
+## <a name="hit-highlighting"></a>Resaltado de referencias
+
+Puede aplicar formato a los términos coincidentes de los resultados de búsqueda, lo que facilita la detección de la coincidencia. Se proporcionan instrucciones de resaltado de referencias en la [solicitud de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+
+El formato se aplica a las consultas de términos completos. Las consultas sobre términos parciales, como la búsqueda aproximada o la búsqueda con caracteres comodín, que dan como resultado la expansión de la consulta en el motor, no pueden usar el resaltado de referencias.
+
+```http
+POST /indexes/hotels/docs/search?api-version=2019-05-06 
+    {  
+      "search": "something",  
+      "highlight": "Description"  
+    }
+```
+
+
+
 ## <a name="faceted-navigation"></a>Navegación por facetas
 
 La navegación de búsqueda es habitual en una página de resultados; a menudo se encuentra en un lado o en la parte superior de una página. En Azure Cognitive Search, la navegación por facetas proporciona una búsqueda autodirigida basada en filtros predefinidos. Consulte [Navegación por facetas en Azure Cognitive Search](search-faceted-navigation.md) para más información.
@@ -102,7 +123,7 @@ Puede enviar un filtro con o sin expresión de búsqueda. Por ejemplo, la siguie
 
 Consulte [Búsqueda de documentos (API de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para más información sobre las expresiones `$filter`.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice)
 - [Operaciones de índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)

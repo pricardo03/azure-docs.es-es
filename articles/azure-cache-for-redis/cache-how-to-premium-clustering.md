@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: ddb44a064090a108f77d6a6f9a270fab8c55ec90
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433430"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714467"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Azure Cache for Redis de nivel Prémium.
@@ -58,12 +58,7 @@ Para obtener el código de ejemplo sobre el trabajo con clústeres con el client
 <a name="cluster-size"></a>
 
 ## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>Cambio del tamaño del clúster en una caché premium en ejecución
-Para cambiar el tamaño del clúster de una caché premium en ejecución con la agrupación en clústeres habilitada, haga clic en **Tamaño del clúster en Redis** desde el **menú Recursos**.
-
-> [!NOTE]
-> A pesar de que el nivel Prémium de Azure Cache for Redis se publicó con disponibilidad general, la característica Tamaño del clúster en Redis está actualmente en la versión preliminar.
-> 
-> 
+Para cambiar el tamaño del clúster de una caché premium en ejecución con la agrupación en clústeres habilitada, haga clic en **Tamaño del clúster** desde el **menú Recursos**.
 
 ![Tamaño del Clúster en Redis][redis-cache-redis-cluster-size]
 

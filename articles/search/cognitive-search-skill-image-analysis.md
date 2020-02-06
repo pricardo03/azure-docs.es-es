@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4819f34e16efebcdab734270988382e086c44e36
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 106f83e4c8fdf33ac8752e5942dbb22a2df78693
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479715"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840509"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
 La aptitud de **Análisis de imágenes** extrae un amplio conjunto de características visuales en función del contenido de la imagen. Por ejemplo, puede generar una leyenda a partir de una imagen, generar etiquetas o identificar celebridades y lugares de referencia. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) en Cognitive Services. 
 
 > [!NOTE]
-> Los volúmenes pequeños (menos de 20 transacciones) se pueden ejecutar gratis en Búsqueda cognitiva de Azure, pero las cargas de trabajo más grandes requieren la [asociación de un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Se acumulan cargos cuando se llama a las API de Cognitive Services y en la extracción de imágenes como parte de la fase de descifrado de documentos de Búsqueda cognitiva de Azure. No hay ningún cargo por la extracción de texto de documentos.
+> Los volúmenes pequeños (menos de 20 transacciones) se pueden ejecutar gratis en Búsqueda cognitiva de Azure, pero las cargas de trabajo más grandes requieren la [asociación de un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
 > La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -28,19 +28,19 @@ La aptitud de **Análisis de imágenes** extrae un amplio conjunto de caracterí
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
-## <a name="skill-parameters"></a>Parámetros de las aptitudes
+## <a name="skill-parameters"></a>Parámetros de la aptitud
 
 Los parámetros distinguen mayúsculas de minúsculas.
 
-| Nombre de parámetro     | DESCRIPCIÓN |
+| Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| defaultLanguageCode   |  Cadena que indica el idioma que se devolverá. Este servicio devuelve los resultados de reconocimiento en un idioma concreto. Si esta no se especifica este parámetro, se usa el valor predeterminado "en". <br/><br/>Estos son los idiomas admitidos: <br/>*en*: inglés (predeterminado) <br/> *zh*: chino simplificado|
-|visualFeatures |   Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li> *categories*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación de Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li><li>*description*: describe el contenido de la imagen con una oración completa en inglés.</li><li>*faces*: detecta si hay caras presentes. Si hay caras, indica las coordenadas, el sexo y la edad.</li><li>    *ImageType*: detecta si la imagen está prediseñada o si es un dibujo lineal.</li><li>  *color*: determina el color de énfasis, el color dominante y si la imagen está en blanco y negro.</li><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual). También se detecta contenido provocativo.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas.|
-| details   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*celebrities*: identifica celebridades si se detectan en la imagen.</li><li>*landmarks*: identifica puntos de referencia si se detectan en la imagen. </li></ul> |
+| defaultLanguageCode   |  Cadena que indica el idioma que se devolverá. Este servicio devuelve los resultados de reconocimiento en un idioma concreto. Si esta no se especifica este parámetro, se usa el valor predeterminado "en". <br/><br/>Estos son los idiomas admitidos: <br/>*en*: inglés (predeterminado) <br/> *es*: español <br/> *ja*: japonés <br/> *pt*: portugués <br/> *zh*: chino simplificado|
+| visualFeatures |  Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual) o cruenta (muestra sangre o violencia extrema). También se detecta contenido provocativo (esto es, contenido subido de tono).</li><li>*brands*: detecta varias marcas en una imagen, incluida la ubicación aproximada. La característica visual *brands* solo está disponible en inglés.</li><li> *categories*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación de Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li> *color*: determina el color de énfasis, el color dominante y si la imagen está en blanco y negro.</li><li>*description*: describe el contenido de la imagen con una oración completa en los idiomas que se admiten.</li><li>*faces*: detecta si hay caras presentes. Si las hay, indica las coordenadas, el género y la edad.</li><li>  *ImageType*: detecta si la imagen está prediseñada o si es un dibujo lineal.</li><li>  *objects*: detecta varios objetos en una imagen, incluida la ubicación aproximada. La característica visual *objects* solo está disponible en inglés.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas.|
+| detalles   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*celebrities*: identifica celebridades si se detectan en la imagen.</li><li>*landmarks*: identifica puntos de referencia si se detectan en la imagen. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
-| Nombre de entrada      | DESCRIPCIÓN                                          |
+| Nombre de entrada      | Descripción                                          |
 |---------------|------------------------------------------------------|
 | imagen         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
 
@@ -353,138 +353,163 @@ Puede definir asignaciones de campos de salida para propiedades de nivel inferio
 
 ```json
 {
-    "values": [
-        {
-            "recordId": "1",
-            "data": {
-                "categories": [
-                    {
-                        "name": "abstract_",
-                        "score": 0.00390625
-                    },
-                    {
-                        "name": "people_",
-                        "score": 0.83984375,
-                        "detail": {
-                            "celebrities": [
-                                {
-                                    "name": "Satya Nadella",
-                                    "faceBoundingBox": [
-                                        {
-                                            "x": 273,
-                                            "y": 309
-                                        },
-                                        {
-                                            "x": 395,
-                                            "y": 309
-                                        },
-                                        {
-                                            "x": 395,
-                                            "y": 431
-                                        },
-                                        {
-                                            "x": 273,
-                                            "y": 431
-                                        }
-                                    ],
-                                    "confidence": 0.999028444
-                                }
-                            ],
-                            "landmarks": [
-                                {
-                                    "name": "Forbidden City",
-                                    "confidence": 0.9978346
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "adult": {
-                    "isAdultContent": false,
-                    "isRacyContent": false,
-                    "adultScore": 0.0934349000453949,
-                    "racyScore": 0.068613491952419281
-                },
-                "tags": [
-                    {
-                        "name": "person",
-                        "confidence": 0.98979085683822632
-                    },
-                    {
-                        "name": "man",
-                        "confidence": 0.94493889808654785
-                    },
-                    {
-                        "name": "outdoor",
-                        "confidence": 0.938492476940155
-                    },
-                    {
-                        "name": "window",
-                        "confidence": 0.89513939619064331
-                    }
-                ],
-                "description": {
-                    "tags": [
-                        "person",
-                        "man",
-                        "outdoor",
-                        "window",
-                        "glasses"
-                    ],
-                    "captions": [
+  "values": [
+    {
+      "recordId": "1",
+      "data": {
+        "categories": [
+          {
+            "name": "abstract_",
+            "score": 0.00390625
+          },
+          {
+            "name": "people_",
+            "score": 0.83984375,
+            "detail": {
+              "celebrities": [
+                {
+                  "name": "Satya Nadella",
+                  "faceBoundingBox": [
                         {
-                            "text": "Satya Nadella sitting on a bench",
-                            "confidence": 0.48293603002174407
+                            "x": 273,
+                            "y": 309
+                        },
+                        {
+                            "x": 395,
+                            "y": 309
+                        },
+                        {
+                            "x": 395,
+                            "y": 431
+                        },
+                        {
+                            "x": 273,
+                            "y": 431
                         }
-                    ]
-                },
-                "requestId": "0dbec5ad-a3d3-4f7e-96b4-dfd57efe967d",
-                "metadata": {
-                    "width": 1500,
-                    "height": 1000,
-                    "format": "Jpeg"
-                },
-                "faces": [
-                    {
-                        "age": 44,
-                        "gender": "Male",
-                        "faceBoundingBox": [
-                            {
-                                "x": 1601,
-                                "y": 395
-                            },
-                            {
-                                "x": 1653,
-                                "y": 395
-                            },
-                            {
-                                "x": 1653,
-                                "y": 447
-                            },
-                            {
-                                "x": 1601,
-                                "y": 447
-                            }
-                        ]
-                    }
-                ],
-                "color": {
-                    "dominantColorForeground": "Brown",
-                    "dominantColorBackground": "Brown",
-                    "dominantColors": [
-                        "Brown",
-                        "Black"
                     ],
-                    "accentColor": "873B59",
-                    "isBwImg": false
-                    },
-                "imageType": {
-                    "clipArtType": 0,
-                    "lineDrawingType": 0
+                  "confidence": 0.999028444
                 }
+              ],
+              "landmarks": [
+                {
+                  "name": "Forbidden City",
+                  "confidence": 0.9978346
+                }
+              ]
             }
-        }
-    ]
+          }
+        ],
+        "adult": {
+          "isAdultContent": false,
+          "isRacyContent": false,
+          "isGoryContent": false,
+          "adultScore": 0.0934349000453949,
+          "racyScore": 0.068613491952419281,
+          "goreScore": 0.08928389008070282
+        },
+        "tags": [
+          {
+            "name": "person",
+            "confidence": 0.98979085683822632
+          },
+          {
+            "name": "man",
+            "confidence": 0.94493889808654785
+          },
+          {
+            "name": "outdoor",
+            "confidence": 0.938492476940155
+          },
+          {
+            "name": "window",
+            "confidence": 0.89513939619064331
+          }
+        ],
+        "description": {
+          "tags": [
+            "person",
+            "man",
+            "outdoor",
+            "window",
+            "glasses"
+          ],
+          "captions": [
+            {
+              "text": "Satya Nadella sitting on a bench",
+              "confidence": 0.48293603002174407
+            }
+          ]
+        },
+        "requestId": "0dbec5ad-a3d3-4f7e-96b4-dfd57efe967d",
+        "metadata": {
+          "width": 1500,
+          "height": 1000,
+          "format": "Jpeg"
+        },
+        "faces": [
+          {
+            "age": 44,
+            "gender": "Male",
+            "faceBoundingBox": [
+                {
+                    "x": 1601,
+                    "y": 395
+                },
+                {
+                    "x": 1653,
+                    "y": 395
+                },
+                {
+                    "x": 1653,
+                    "y": 447
+                },
+                {
+                    "x": 1601,
+                    "y": 447
+                }
+            ]
+          }
+        ],
+        "color": {
+          "dominantColorForeground": "Brown",
+          "dominantColorBackground": "Brown",
+          "dominantColors": [
+            "Brown",
+            "Black"
+          ],
+          "accentColor": "873B59",
+          "isBwImg": false
+        },
+        "imageType": {
+          "clipArtType": 0,
+          "lineDrawingType": 0
+        },
+        "objects": [
+          {
+            "rectangle": {
+              "x": 25,
+              "y": 43,
+              "w": 172,
+              "h": 140
+            },
+            "object": "person",
+            "confidence": 0.931
+          }
+        ],
+        "brands":[  
+           {  
+              "name":"Microsoft",
+              "rectangle":{  
+                 "x":20,
+                 "y":97,
+                 "w":62,
+                 "h":52
+              }
+           }
+        ]
+      }
+    }
+  ]
 }
 ```
 
@@ -492,7 +517,7 @@ Puede definir asignaciones de campos de salida para propiedades de nivel inferio
 ## <a name="error-cases"></a>Casos de error
 En los siguientes casos de error, no se extrae ningún elemento.
 
-| Código de error | DESCRIPCIÓN |
+| Código de error | Descripción |
 |------------|-------------|
 | NotSupportedLanguage | El idioma proporcionado no se admite. |
 | InvalidImageUrl | La dirección URL de la imagen tiene un formato que no se admite o no es accesible.|
@@ -518,7 +543,7 @@ Si recibe el error similar a `"One or more skills are invalid. Details: Error in
             ]
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

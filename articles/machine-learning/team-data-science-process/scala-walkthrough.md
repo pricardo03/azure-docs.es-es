@@ -3,20 +3,20 @@ title: 'Ciencia de datos con Scala y Spark en Azure: Proceso de ciencia de datos
 description: Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automático supervisado con los paquetes MLlib escalable y ML de Spark en un clúster de Spark de HDInsight de Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b22d461d327e595908ea8cc18dd0d507fdc83ecd
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907709"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716767"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciencia de datos mediante Scala y Spark en Azure
 Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automático supervisado con los paquetes MLlib escalable y ML de Spark en un clúster de Spark en HDInsight de Azure. Además, se explican cuáles son las tareas que constituyen el [proceso de ciencia de datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos en el artículo incluyen regresión logística y lineal, bosques aleatorios y árboles incrementados de degradado (GBTs), además de dos tareas habituales de aprendizaje automático supervisado:
@@ -39,7 +39,7 @@ Los pasos de instalación y el código de este artículo están diseñados para 
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * Debe tener una suscripción de Azure. Si aún no tiene una, [consiga una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Necesita un clúster de Spark 1.6 con HDInsight de Azure 3.4 para completar los procedimientos siguientes. Para crear un clúster, consulte las instrucciones que aparecen en el artículo sobre la [creación de Apache Spark en Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Establezca el tipo de clúster y la versión en el menú **Seleccionar tipo de clúster** .
 
@@ -66,7 +66,7 @@ Puede cargar el cuaderno directamente desde GitHub en el servidor de Jupyter Not
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Instalación: contextos preestablecidos de Spark y Hive, instrucciones mágicas de Spark y bibliotecas de Spark
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuración: contextos preestablecidos de Spark y Hive, instrucciones mágicas de Spark y bibliotecas de Spark
 ### <a name="preset-spark-and-hive-contexts"></a>Contextos preestablecidos de Spark y Hive
     # SET THE START TIME
     import java.util.Calendar
@@ -254,13 +254,13 @@ Ahora, consulte la tabla para obtener datos de tarifas, pasajeros y propinas, fi
 |        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualización y exploración de datos
-Una vez incorporados los datos en Spark, el siguiente paso del proceso de la ciencia de los datos es conocer mejor los datos mediante la exploración y la visualización. En esta sección se examinan los datos de taxi mediante consultas SQL. Tras ello, se importan los resultados en una trama de datos para trazar las variables de destino y las posibles características para inspeccionarlas de manera visual mediante la funcionalidad de visualización automática de Jupyter.
+Una vez incorporados los datos en Spark, el siguiente paso del proceso de la ciencia de los datos es conocer mejor los datos mediante la exploración y la visualización. En esta sección se examinan los datos de taxi mediante consultas SQL. Después, se importan los resultados en una trama de datos para trazar las variables de destino y las posibles características para inspeccionarlas de manera visual mediante la característica de visualización automática de Jupyter.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Uso de instrucciones mágicas de SQL y locales para trazar datos
 De forma predeterminada, el resultado de cualquier fragmento de código que se ejecuta desde un cuaderno de Jupyter Notebook está disponible en el contexto de la sesión que se conserva en los nodos de trabajo. Si quiere guardar una carrera en los nodos de trabajo de cada cálculo y todos los datos que necesita para dichos cálculos están disponibles de forma local en el nodo del servidor de Jupyter (el nodo principal), puede utilizar la instrucción mágica `%%local` para ejecutar el fragmento de código en el servidor de Jupyter.
 
-* **Instrucciones mágicas SQL** (`%%sql`). El kernel de Spark en HDInsight admite consultas sencillas de HiveQL en línea en SQLContext. El argumento (`-o VARIABLE_NAME`) conserva la salida de la consulta SQL como una trama de datos de Pandas en el servidor de Jupyter. Esto significa que estará disponible en el modo local.
-* **Instrucciones mágicas**`%%local` Las instrucciones mágicas `%%local` se utilizan para ejecutar código de forma local en el servidor de Jupyter, que es el nodo principal del clúster de HDInsight. Normalmente, se utilizan juntas las instrucciones mágicas `%%local` y `%%sql` con el parámetro `-o`. El parámetro `-o` conservaría la salida de la consulta SQL localmente y luego la instrucción mágica `%%local` desencadenaría el siguiente conjunto de fragmento de código para ejecutarse localmente en la salida de las consultas SQL que se conserva localmente.
+* **Instrucciones mágicas SQL** (`%%sql`). El kernel de Spark en HDInsight admite consultas sencillas de HiveQL en línea en SQLContext. El argumento (`-o VARIABLE_NAME`) conserva la salida de la consulta SQL como una trama de datos de Pandas en el servidor de Jupyter. Este valor significa que el resultado estará disponible en el modo local.
+* `%%local` **Instrucciones mágicas** Las instrucciones mágicas `%%local` se utilizan para ejecutar código de forma local en el servidor de Jupyter, que es el nodo principal del clúster de HDInsight. Normalmente, se utilizan juntas las instrucciones mágicas `%%local` y `%%sql` con el parámetro `-o`. El parámetro `-o` conservaría la salida de la consulta SQL localmente y luego la instrucción mágica `%%local` desencadenaría el siguiente conjunto de fragmento de código para ejecutarse localmente en la salida de las consultas SQL que se conserva localmente.
 
 ### <a name="query-the-data-by-using-sql"></a>Consulta de datos mediante SQL
 Esta consulta recupera carreras de taxi por importe de la tarifa, número de pasajeros y propina.
@@ -292,7 +292,7 @@ Se pueden trazar datos con código Python cuando la trama de datos esté en el c
 * Tabla
 * Circular
 * Línea
-* Ámbito
+* Área
 * Barra
 
 Este es el código para trazar los datos:
@@ -539,7 +539,7 @@ En esta sección, crearemos tres tipos de modelos de clasificación binaria para
 * Un **modelo de clasificación de bosque aleatorio** con la función `RandomForestClassifier()` del aprendizaje automático de Spark
 * Un **modelo de clasificación de árboles impulsados por gradientes** con la función `GradientBoostedTrees()` de MLlib
 
-### <a name="create-a-logistic-regression-model"></a>Creación de un modelo de regresión logística
+### <a name="create-a-logistic-regression-model"></a>Crear un modelo de regresión logística
 Ahora, cree un modelo de regresión logística utilizando la función `LogisticRegression()` del aprendizaje automático de Spark. El código de creación del modelo se genera en varios pasos:
 
 1. **Entrenamiento de datos del modelo** con un conjunto de parámetros.
@@ -853,7 +853,7 @@ Creación de trazados con matplotlib de Python.
 ### <a name="create-a-gbt-regression-model"></a>Creación de un modelo de regresión GBT
 Cree un modelo de clasificación de bosque aleatorio mediante la función `GBTRegressor()` del aprendizaje automático de Spark y evalúe el modelo con los datos de prueba.
 
-[árboles impulsados por gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) son conjuntos de árboles de decisión. Los GBT entrenan árboles de decisión de forma iterativa para minimizar una función de pérdida. Puede usar GBT para la clasificación y regresión. Permiten controlar características categóricas, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. También se pueden usar en una configuración de clasificación multiclase.
+Los [árboles de potenciación del gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) son conjuntos de árboles de decisión. Los GBT entrenan árboles de decisión de forma iterativa para minimizar una función de pérdida y se pueden usar para la clasificación y regresión. Permiten controlar características categóricas, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. También se pueden usar en una configuración de clasificación multiclase.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

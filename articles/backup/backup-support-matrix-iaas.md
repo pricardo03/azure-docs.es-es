@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales 
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: c57f625e7f44dc5de6a801ec93bad5433e9a9a66
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 8475e90e247aa2a0c081d25486c4ada0854a9e89
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294293"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705401"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -33,16 +33,11 @@ Copia de seguridad de una máquina virtual de Azure en un servidor de copia de s
 Más información sobre la copia de seguridad [mediante un servidor de copias de seguridad](backup-architecture.md#architecture-back-up-to-dpmmabs) y sobre los [requisitos de compatibilidad](backup-support-matrix-mabs-dpm.md).
 
 >[!NOTE]
-> Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure.
+> **Azure Backup ahora admite la copia de seguridad y restauración selectivas de discos mediante la solución de copia de seguridad de máquinas virtuales de Azure.**
 >
 >En la actualidad, Azure Backup admite la copia de seguridad de todos los discos (sistema operativo y datos) en una máquina virtual junto con la solución de copia de seguridad de máquinas virtuales. Con la funcionalidad de exclusión de disco, tiene la opción de realizar una copia de seguridad de uno o de varios de los múltiples discos de datos de una máquina virtual. Esto proporciona una solución eficaz y rentable para sus necesidades de copia de seguridad y restauración. Cada punto de recuperación contiene datos de los discos incluidos en la operación de copia de seguridad, lo que permite además tener un subconjunto de discos restaurados desde el punto de recuperación determinado durante la operación de restauración. Esto se aplica a la restauración tanto desde la instantánea como desde el almacén.
 >
-> Esta solución es especialmente útil en los escenarios siguientes:
->  
->1. Tiene datos críticos de los que se va a realizar una copia de seguridad en un solo disco y no desea realizar copias de seguridad del resto de los discos conectados a una máquina virtual. Esto minimiza los costos de almacenamiento de copia de seguridad.  
->2. Tiene otras soluciones de copia de seguridad para parte de los datos de la máquina virtual. Por ejemplo, realiza una copia de seguridad de las bases de datos o los datos con una solución de copia de seguridad de carga de trabajo diferente y desea usar la copia de seguridad de nivel de máquina virtual de Azure para el resto de los discos y datos para crear un sistema eficaz y sólido con las mejores funcionalidades disponibles.
->
->Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
+>**Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com**
 
 ## <a name="supported-backup-actions"></a>Acciones de copia de seguridad admitidas
 

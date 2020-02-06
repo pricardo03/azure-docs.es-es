@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: efef578f5c62bef4ae33b98b568fd6d5c1389c4a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672244"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715116"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -24,14 +24,14 @@ Azure App Service incluye compatibilidad con autenticación y autorización para
 Para proteger la autenticación y la autorización es necesario entender perfectamente la seguridad, incluida la federación, el cifrado, la administración de [JSON Web Token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), los [tipos de concesión](https://oauth.net/2/grant-types/), etc. App Service proporciona estas utilidades para que pueda dedicar más tiempo y energía a proporcionar un valor empresarial a su cliente.
 
 > [!IMPORTANT]
-> No es necesario que use App Service para AuthN/AuthO. Muchos marcos web están incluidos en las características de seguridad y puede usarlos si lo desea. Si necesita más flexibilidad de la que App Service proporciona, también puede escribir sus propias utilidades.  
+> No es necesario que use App Service para AuthN/AuthO. Puede usar las características de seguridad agrupadas en el marco de trabajo web de su elección o puede escribir sus propias utilidades. Sin embargo, tenga en cuenta que [Chrome 80 realiza cambios importantes en su implementación de cookies de SameSite](https://www.chromestatus.com/feature/5088147346030592) (la fecha de lanzamiento es aproximadamente marzo de 2020) y la autenticación remota personalizada u otros escenarios que se basen en la publicación de cookies en todos los sitios se puede interrumpir cuando se actualizan los exploradores Chrome cliente. La solución alternativa es compleja porque necesita admitir distintos comportamientos de SameSite para exploradores diferentes. 
 >
-> Sin embargo, si usa cualquiera de las opciones que no son de App Service para la autenticación remota, tenga en cuenta que [Chrome 80 realiza cambios importantes en su implementación de SameSite para las cookies](https://www.chromestatus.com/feature/5088147346030592) (la fecha de lanzamiento es aproximadamente marzo de 2020) y el mecanismo de autenticación de la aplicación se puede interrumpir cuando se actualizan los exploradores cliente. En la documentación de ASP.NET Core se ofrece información sobre cómo abordar esto en la aplicación, en [HTTP: Los cambios de SameSite en los exploradores afectan a la autenticación](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). Contiene una guía útil para probar este cambio importante en los principales exploradores, independientemente de si se usa ASP.NET Core o no.
+> Las versiones ASP.NET Core 2.1 y posteriores hospedadas por App Service ya se han revisado para este cambio importante y administran los exploradores Chrome 80 y anteriores adecuadamente. Además, la misma revisión para ASP.NET Framework 4.7.2 se está implementando en las instancias de App Service a lo largo de enero de 2020. Para más información, incluido cómo saber si la aplicación ha recibido la revisión, consulte [Actualización de cookies de Azure App Service SameSite](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 Para información específica de aplicaciones móviles nativas, consulte [Autenticación y autorización en Azure Mobile Apps](../app-service-mobile/app-service-mobile-auth.md).
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 El módulo de autenticación y autorización se ejecuta en el mismo espacio aislado que el código de aplicación. Cuando está habilitado, cada solicitud HTTP entrante pasa a través de él antes de que el código de aplicación lo controle.
 
@@ -145,7 +145,7 @@ Guías de procedimientos específicas del proveedor:
 * [Configuración de la aplicación para usar el inicio de sesión de Google][Google]
 * [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft][MSA]
 * [Configuración de la aplicación para usar el inicio de sesión de Twitter][Twitter]
-* [Uso de Uso de la autenticación personalizada en una aplicación][custom-auth]
+* [Cómo: Uso de la autenticación personalizada en una aplicación][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ba7ba4be103beb494c31a844d1871c22c25b8c6
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422354"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756307"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -84,6 +84,8 @@ Esta versión corrige un error en el que algunos servidores que se actualizaron 
 ### <a name="fixed-issues"></a>Problemas corregidos
 
 En determinadas circunstancias, los servidores que se actualizaron automáticamente a la versión 1.4.18.0 no volvieron a habilitar el autoservicio de restablecimiento de contraseña y la escritura diferida de contraseñas de autoservicio una vez completada la actualización. Esta versión de actualización automática corrige el problema y vuelve a habilitar el autoservicio de restablecimiento de contraseña y la escritura diferida de contraseñas.
+
+Se corrigió un error en la utilidad de compresión de errores de sincronización que no estaba utilizando los caracteres suplentes correctamente.
 
 ## <a name="14180"></a>1.4.18.0
 

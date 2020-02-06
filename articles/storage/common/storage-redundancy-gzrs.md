@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c102941920d2b8746a49be47ef4c5613fa0bc281
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973375"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719082"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creación de aplicaciones de Azure Storage de alta disponibilidad en almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)
 
@@ -32,9 +32,10 @@ GZRS y RA-GZRS están disponibles actualmente en las versiones preliminares de l
 - Sudeste de Asia
 - Norte de Europa
 - Oeste de Europa
+- Japón Oriental
 - Sur de Reino Unido 2
 - Este de EE. UU.
-- Este de EE. UU. - 2
+- Este de EE. UU. 2
 - Centro de EE. UU.
 
 Microsoft sigue habilitando GZRS y RA-GZRS en otras regiones de Azure. Revise periódicamente la página [Actualizaciones de servicios Azure](https://azure.microsoft.com/updates/) para información sobre las regiones admitidas.
@@ -129,6 +130,7 @@ Una vez completada la migración, la configuración de replicación de la cuenta
 Tenga en cuenta las siguientes restricciones en la migración en vivo:
 
 - Si bien Microsoft controla la solicitud de migración en vivo rápidamente, no hay ninguna garantía respecto de cuándo se completará una migración en vivo. Si necesita migrar los datos a GZRS o RA-GZRS en una fecha dada, Microsoft recomienda que, en su lugar, realice una migración manual. En general, cuantos más datos tenga en su cuenta, más tiempo se tardará en migrar esos datos.
+- La migración en vivo se admite solo en las cuentas de almacenamiento que utilizan la replicación GRS o RA-GRS. Si la cuenta usa LRS, debe cambiar primero el tipo de replicación a GRS o RA-GRS antes de continuar. Este paso intermedio agrega el punto de conexión secundario proporcionado por GRS/RA-GRS.
 - La cuenta debe tener datos.
 - Solo puede migrar datos en la misma región.
 - Solo los tipos de cuenta de almacenamiento estándar admiten la migración en vivo. Las cuentas de Premium Storage deben migrarse manualmente.

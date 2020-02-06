@@ -2,20 +2,20 @@
 title: 'Implementación de modelos en producción: proceso de ciencia de datos en equipos'
 description: La implementación de modelos en producción les permite desempeñar un papel activo en la toma de decisiones empresariales.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ed48ab9f85d28bec926120fea87a5ccf8bb6f9af
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75526777"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722244"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implementación de modelos en producción para desempeñar un papel activo en la toma de decisiones empresariales
 
@@ -39,7 +39,7 @@ Hay varios enfoques y plataformas para poner los modelos en producción. Estas s
 
 ## <a name="ab-testing"></a>Pruebas A/B
 
-Cuando hay varios modelos en producción, puede resultar útil realizar [pruebas A/B](https://en.wikipedia.org/wiki/A/B_testing) para comparar el rendimiento de los modelos. 
+Si hay varios modelos en producción, se pueden usar [pruebas A/B](https://en.wikipedia.org/wiki/A/B_testing) para comparar su rendimiento. 
  
 ## <a name="next-steps"></a>Pasos siguientes
 

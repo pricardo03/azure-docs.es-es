@@ -3,24 +3,24 @@ title: Consideraciones de rendimiento de Azure Traffic Manager | Microsoft Docs
 description: Descripción del rendimiento en el Administrador de tráfico y cómo probar el rendimiento de su sitio web al usar el Administrador de tráfico
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: 315165677bd3186bb3bdc87ed688c426776569fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071049"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938536"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Consideraciones de rendimiento sobre el Administrador de tráfico
 
-En esta página se explican las consideraciones de rendimiento relacionadas con el uso de Administrador de tráfico. Considere el siguiente escenario:
+En esta página se explican las consideraciones de rendimiento relacionadas con el uso de Administrador de tráfico. Considere el caso siguiente:
 
 Tiene instancias de su sitio web en las regiones Oeste de EE. UU. y Este de Asia. Una de ellas no ha superado la comprobación de estado para el sondeo de Traffic Manager. El tráfico de aplicaciones se dirige a la región en buen estado. Se esperaba esta conmutación por error, pero el rendimiento puede ser un problema en función de la latencia del tráfico que ahora se desplaza a una región lejana.
 

@@ -1,18 +1,18 @@
 ---
 title: Migración de las alertas clásicas en Azure Monitor mediante la herramienta de migración voluntaria
 description: Obtenga información sobre cómo usar la herramienta de migración voluntaria para migrar las reglas de alertas clásicas.
-author: snehithm
+author: yanivlavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 0c8aa00d069ae54584d8e828dab35c22048f1876
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c4ebb2e9572f1dcc9ade548a55fc44d7441e5a79
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295539"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705588"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Uso de la herramienta de migración voluntaria para migrar las reglas de alertas clásicas
 
@@ -53,7 +53,7 @@ Para desencadenar la migración de las reglas de alertas clásicas en Azure Port
 
 1. Seleccione **Migrar a las nuevas reglas** para ir a la página de inicio de la migración. Esta página muestra una lista de todas las suscripciones y su estado de migración:
 
-    ![inicio de la migración](media/alerts-migration/migration-landing.png "Migrar reglas")
+    ![migration-landing](media/alerts-migration/migration-landing.png "Migración de reglas")
 
     Todas las suscripciones que se pueden migrar mediante la herramienta están marcadas como **Listo para migrar**.
 
@@ -64,7 +64,7 @@ Para desencadenar la migración de las reglas de alertas clásicas en Azure Port
 
     La página resultante muestra los detalles de las reglas de alertas clásicas que se migrarán para una suscripción cada vez. También puede seleccionar **Descargar los detalles de la migración de esta suscripción** para obtener los detalles en un formato CSV.
 
-    ![vista previa de la migración](media/alerts-migration/migration-preview.png "Obtener una vista previa de la migración")
+    ![migration-preview](media/alerts-migration/migration-preview.png "Vista previa de la migración")
 
 1. Especifique una o varias direcciones de correo electrónico para recibir una notificación del estado de la migración. Recibirá un correo electrónico una vez completada la migración o si es necesaria alguna acción por parte del usuario.
 
@@ -73,7 +73,7 @@ Para desencadenar la migración de las reglas de alertas clásicas en Azure Port
     > [!IMPORTANT]
     > Después de iniciar la migración de una suscripción, no podrá editar o crear reglas de alertas clásicas para esa suscripción. Esta restricción garantiza que no se pierde ningún cambio en las reglas de alertas clásicas durante la migración a las nuevas reglas. Aunque no podrá cambiar las reglas de alertas clásicas, estas aún seguirán en ejecución y proporcionarán alertas hasta que se hayan migrado. Una vez completada la migración de su suscripción, ya no podrá usar más las reglas de alertas clásicas.
 
-    ![Confirmar la migración](media/alerts-migration/migration-confirm.png "Confirmar el inicio de la migración")
+    ![migration-confirm](media/alerts-migration/migration-confirm.png "Configuración del inicio de la migración")
 
 1. Recibirá un correo electrónico en las direcciones que proporcionó anteriormente cuando se complete la migración o si es necesaria alguna acción por su parte. También puede comprobar periódicamente el estado en la página de inicio de la migración en el portal.
 

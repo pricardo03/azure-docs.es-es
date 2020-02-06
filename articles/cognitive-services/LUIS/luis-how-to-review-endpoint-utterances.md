@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: b04a17c893f748670eb1c79f0ada879c0d5c401f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381722"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775104"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Cómo mejorar la aplicación LUIS revisando las expresiones de punto de conexión
 
@@ -27,6 +27,22 @@ El proceso de revisión de las expresiones de punto de conexión para obtener pr
 ## <a name="enable-active-learning"></a>Habilitación del aprendizaje activo
 
 Para habilitar el aprendizaje activo, debe registrar las consultas de usuario. Esto se consigue llamando a la [consulta de punto de conexión](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con el parámetro y el valor de la cadena de consulta `log=true`.
+
+Use el portal de LUIS para construir la consulta de punto de conexión correcta.
+
+1. En el [portal de LUIS en versión preliminar](https://preview.luis.ai/), seleccione la aplicación en la lista de aplicaciones.
+1. Vaya a la sección **Administrar** y seleccione **Recursos de Azure**.
+1. En el recurso de predicción asignado, seleccione la opción de **cambiar parámetros de consulta**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use el portal de LUIS para guardar los registros, que es necesario para el aprendizaje activo.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Active la opción **Guardar registros** y, a continuación, guárdelos con **Listo**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use el portal de LUIS para guardar los registros, que es necesario para el aprendizaje activo.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     Esta acción cambia la dirección URL, ya que agrega el parámetro QueryString `log=true`. Copie y utilice la dirección URL de consulta de ejemplo modificada al realizar consultas de predicción en el punto de conexión del entorno de ejecución.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Corregir las predicciones de intención para alinear expresiones
 

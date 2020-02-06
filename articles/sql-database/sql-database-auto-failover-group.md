@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 73314cb2d3ac77347e0de720a6a3ab0084181218
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9b838edea4b5f47fe57305c593944ef5fa93a63c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732423"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768661"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -71,6 +71,13 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 - **Incorporación de bases de datos de un grupo elástico a un grupo de conmutación por error**
 
   Puede poner varias bases de datos en el mismo grupo elástico e incluirlas en el mismo grupo de conmutación por error. Si la base de datos principal está en un grupo elástico, la base de datos secundaria se creará automáticamente en un grupo elástico con el mismo nombre (grupo secundario). Debe asegurarse de que el servidor secundario contiene un grupo elástico con el mismo nombre exacto y suficiente capacidad libre para hospedar las bases de datos secundarias que va a crear el grupo de conmutación por error. Si agrega una base de datos en un grupo que ya tiene una base de datos secundaria en el grupo secundario, el grupo heredará el vínculo de replicación geográfica. Cuando se agrega una base de datos que ya tiene una base de datos secundaria en un servidor que no forma parte del grupo de conmutación por error, se crea otra base de datos secundaria en el grupo secundario.
+  
+- **Propagación inicial** 
+
+  Al agregar bases de datos, grupos elásticos o instancias administradas a un grupo de conmutación por error, hay una fase de propagación inicial antes de que se inicie la replicación de datos. Esta fase de propagación inicial es la operación más larga y costosa. Una vez completada, se sincronizan los datos y, luego, solo se replican los cambios de datos posteriores. El tiempo que tarda en completarse la propagación inicial depende del tamaño de los datos, del número de bases de datos replicadas y de la velocidad del vínculo entre las entidades del grupo de conmutación por error. En circunstancias normales, la velocidad de propagación típica es de 50 a 500 GB por hora para una sola base de datos o un grupo elástico, y de 18 a 35 GB por hora en el caso de una instancia administrada. La propagación se realiza en paralelo para todas las bases de datos. Puede usar la velocidad de propagación indicada, junto con el número de bases de datos y el tamaño total de los datos para calcular cuánto tiempo tardará la fase de propagación inicial antes de que se inicie la replicación de los datos.
+
+  En el caso de las instancias administradas, al estimar el tiempo de la fase de propagación inicial también se debe tener en cuenta la velocidad del vínculo de ExpressRoute entre las dos instancias. Si la velocidad del vínculo entre las dos instancias es más lenta de lo necesario, es probable que el tiempo de propagación resulte muy afectado. Puede usar la velocidad de propagación indicada, el número de bases de datos, el tamaño total de los datos y la velocidad del vínculo para calcular cuánto tardará la fase de propagación inicial antes de que se inicie la replicación de los datos. Por ejemplo, en el caso de una sola base de datos de 100 GB, la fase de propagación inicial tardaría entre 2,8 y 5,5 horas si el vínculo es capaz de insertar 35 GB por hora. Si el vínculo solo puede transferir 10 GB por hora, la propagación de una base de datos de 100 GB tardará aproximadamente 10 horas. Si hay que replicar varias bases de datos, la propagación se ejecutará en paralelo y, cuando se combina con una velocidad de vínculo baja, la fase de propagación inicial puede tardar mucho más tiempo, en especial si la propagación paralela de los datos de todas las bases de datos supera el ancho de banda de vínculo disponible. Si el ancho de banda de red entre dos instancias es limitado y va a agregar varias instancias administradas a un grupo de conmutación por error, considere la posibilidad de hacerlo de manera secuencial, una por una.
+
   
 - **Zona DNS**
 
@@ -319,8 +326,8 @@ Si usa [reglas y puntos de conexión de servicio Virtual Network](sql-database-v
 Si el plan de continuidad empresarial requiere el uso de un proceso de conmutación por error mediante grupos con conmutación por error, puede restringir el acceso a la base de datos SQL usando las reglas de firewall tradicionales. Para admitir la conmutación por error automática, siga estos pasos:
 
 1. [Cree una dirección IP pública](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address).
-2. [Cree un equilibrador de carga público](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) y asígnele la dirección IP pública.
-3. [Cree una red virtual y las máquinas virtuales](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) para los componentes de front-end.
+2. [Cree un equilibrador de carga público](../load-balancer/quickstart-load-balancer-standard-public-portal.md) y asígnele la dirección IP pública.
+3. [Cree una red virtual y las máquinas virtuales](../load-balancer/quickstart-load-balancer-standard-public-portal.md) para los componentes de front-end.
 4. [Cree un grupo de seguridad de red](../virtual-network/security-overview.md) y configure las conexiones entrantes.
 5. Asegúrese de que las conexiones salientes están abiertas para la base de datos de Azure SQL usando 'Sql' [etiqueta de servicio](../virtual-network/security-overview.md#service-tags).
 6. Cree una [regla de firewall de base de datos SQL](sql-database-firewall-configure.md) para permitir el tráfico entrante desde la dirección IP pública que se crea en el paso 1.

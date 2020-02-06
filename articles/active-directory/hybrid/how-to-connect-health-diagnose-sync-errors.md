@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: maheshu
 editor: billmath
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1fd5f9746299d72ed58a3209013822505b19b56
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702550"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897196"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnóstico y solución de errores de sincronización de atributos duplicados
 
@@ -108,7 +109,7 @@ Para el **escenario de objeto huérfano**, el usuario individual **Joe Johnson**
 Esta pregunta comprueba el usuario entrante en conflicto y el objeto de usuario existente en Azure AD para ver si pertenecen al mismo usuario.  
 1. El objeto en conflicto acaba de sincronizarse con Azure Active Directory. Comparar los atributos de los objetos:  
    - Display Name (Nombre para mostrar)
-   - Nombre principal de usuario
+   - Nombre principal del usuario
    - Id. de objeto
 2. Si Azure AD no puede compararlos, compruebe si Active Directory contiene objetos con los valores de **UserPrincipalNames** proporcionados. Respuesta **No** si encuentra ambos.
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934479"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720742"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de asignaciones de roles con RBAC de Azure y Azure Portal
 
@@ -52,7 +52,7 @@ Los usuarios que se han asignado al rol de [propietario](built-in-roles.md#owner
 
 1. Haga clic en la suscripción de la que quiera mostrar los propietarios.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
 
@@ -66,7 +66,7 @@ Los usuarios que se han asignado al rol de [propietario](built-in-roles.md#owner
 
 1. Haga clic en el recurso específico.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
@@ -82,7 +82,7 @@ Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad adm
 
 1. Haga clic en el recurso específico.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Comprobar acceso**.
 
@@ -125,6 +125,16 @@ Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad adm
     ![Asignaciones de roles para una identidad administrada asignada por el sistema](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. Para cambiar la suscripción, haga clic en la lista **Suscripciones**.
+
+## <a name="list-number-of-role-assignments"></a>Enumeración del número de asignaciones de roles
+
+Puede tener hasta **2000** asignaciones de roles en cada suscripción. Para ayudarle a realizar un seguimiento de estos límites, la pestaña **Asignaciones de roles** incluye un gráfico que muestra el número actual de asignaciones de roles.
+
+![Cuadro de control de acceso: número de asignaciones de roles](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+Si está cerca del número máximo e intenta agregar más asignaciones de roles, verá una advertencia en el panel **Agregar asignación de roles**. Puede reducir el número de asignaciones de roles eliminando las asignaciones de roles que ya no son necesarias o asignando roles a grupos en lugar de a usuarios individuales.
+
+![Advertencia de control de acceso - agregar asignación de roles](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

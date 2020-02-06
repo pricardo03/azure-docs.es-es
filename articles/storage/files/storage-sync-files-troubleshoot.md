@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545048"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842723"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -298,6 +298,15 @@ Tenga en cuenta que si ha realizado cambios directamente en el recurso compartid
 Si el valor de PerItemErrorCount en el servidor o el recuento de Archivos que no se están sincronizando en el portal es superior a 0 para una sesión de sincronización determinada, significa que algunos elementos no se sincronizan. Los archivos y las carpetas pueden tener características que impiden su sincronización. Estas características pueden ser persistentes y requieren una acción explícita para reanudar la sincronización, por ejemplo, quitar los caracteres no admitidos del nombre de archivo o carpeta. También pueden ser transitorias, lo que significa que el archivo o la carpeta reanudarán automáticamente la sincronización; por ejemplo, archivos con identificadores abiertos reanudarán automáticamente la sincronización cuando se cierre el archivo. Cuando el motor Azure File Sync detecta tal problema, se produce un registro de errores que se puede analizar para enumerar los elementos que no se están sincronizando correctamente.
 
 Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.ps1** (ubicado en el directorio de instalación del agente de Azure File Sync) para identificar los archivos que no se sincronizaron debido a identificadores abiertos, caracteres no admitidos u otros problemas. El campo ItemPath indica la ubicación del archivo en relación con el directorio de sincronización raíz. Consulte la lista de errores de sincronización más abajo para conocer los pasos de corrección.
+
+> [!Note]  
+> Si el script FileSyncErrorsReport.ps1 indica que no se encontraron errores de archivo o no muestra los errores por elemento del grupo de sincronización, hay dos causas posibles:
+>
+>- Causa 1: La última sesión de sincronización completada no tenía errores por elemento. El portal debe actualizarse pronto para mostrar 0 archivos sin sincronizarse. 
+>   - Consulte el [identificador de evento 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) en el registro de eventos de telemetría para confirmar que PerItemErrorCount es 0. 
+>
+>- Causa 2: El registro de eventos ItemResults en el servidor se ajustó debido a un número excesivo de errores por elemento y el registro de eventos ya no contiene errores para este grupo de sincronización.
+>   - Para evitar este problema, aumente el tamaño del registro de eventos ItemResults. El registro de eventos ItemResults se puede encontrar en "Registros de aplicaciones y servicios\Microsoft\FileSync\Agent" en el Visor de eventos. 
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solución de errores de sincronización de archivo o directorio
 **Registro de ItemResults: errores de sincronización por elemento**  
@@ -1075,7 +1084,35 @@ Si no se pueden apilar archivos en Azure Files:
        - En un símbolo del sistema con privilegios elevados, ejecute `fltmc`. Compruebe que aparecen los controladores de filtro del sistema de archivos StorageSync.sys y StorageSyncGuard.sys.
 
 > [!NOTE]
-> El identificador de evento 9003 se registra una vez por hora en el registro de eventos de telemetría si el archivo no se clasifica en niveles (se registra un evento por cada código de error). Se deben utilizar los registros de eventos operativos y de diagnóstico si se necesita información adicional para diagnosticar un problema.
+> El identificador de evento 9003 se registra una vez por hora en el registro de eventos de telemetría si el archivo no se clasifica en niveles (se registra un evento por cada código de error). Consulte la sección [Establecimiento en capas de errores y corrección](#tiering-errors-and-remediation) para ver si se muestran los pasos de corrección del código de error.
+
+### <a name="tiering-errors-and-remediation"></a>Establecimiento en capas de errores y corrección
+
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | No se pudo establecer en capas el archivo porque está en uso. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando ya no esté en uso. |
+| 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | No se pudo establecer en capas el archivo porque se ha excluido de la sincronización. | No es necesaria ninguna acción. Los archivos de la lista de exclusión de sincronización no se pueden establecer en capas. |
+| 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | No se pudo establecer en capas el archivo porque no se encontró en el servidor. | No es necesaria ninguna acción. Si el error persiste, compruebe si el archivo existe en el servidor. |
+| 0x80c83053 | -2134364077 | ECS_E_CREATE_SV_FILE_DELETED | No se pudo establecer en capas el archivo porque se eliminó en el recurso compartido de archivos de Azure. | No es necesaria ninguna acción. El archivo debe eliminarse del servidor cuando se ejecute la siguiente sesión de sincronización de descarga. |
+| 0x80c8600e | -2134351858 | ECS_E_AZURE_SERVER_BUSY | No se pudo establecer en capas el archivo debido a una incidencia en la red. | No es necesaria ninguna acción. Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |
+| 0x80072EE7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | No se pudo establecer en capas el archivo debido a una incidencia en la red. | No es necesaria ninguna acción. Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | No se pudo establecer en capas el archivo debido a un error de acceso denegado. Este error puede producirse si el archivo se encuentra en una carpeta de replicación de solo lectura de DFS-R. | Azure Files Sync no admite puntos de conexión de servidor en carpetas de replicación de solo lectura de DFS-R. Vea la [guía de planeamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para más información. |
+| 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | No se pudo establecer en capas el archivo debido a una incidencia en la red. | No es necesaria ninguna acción. Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | No se pudo establecer en capas el archivo porque el tamaño del archivo es menor que el tamaño admitido. | Si la versión del agente es inferior a 9.0, el tamaño mínimo de archivo admitido es 64 KB. Si la versión del agente es 9.0 y más reciente, el tamaño mínimo de archivo admitido se basa en el tamaño del clúster del sistema de archivos (tamaño doble del clúster del sistema de archivos). Por ejemplo, si el tamaño del clúster del sistema de archivos es 4 Kb, el tamaño mínimo de archivo será de 8 Kb. |
+| 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | No se pudo establecer en capas el archivo debido a un problema de Azure Storage. | Si el problema continúa, abra una solicitud de soporte técnico. |
+| 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | No se pudo establecer en capas el archivo porque se recuperó al mismo tiempo. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando la recuperación se complete y el archivo ya no esté en uso. |
+| 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | No se pudo establecer en capas el archivo porque no se ha sincronizado con el recurso compartido de archivos de Azure. | No es necesaria ninguna acción. El archivo se establecerá en capas una vez que se haya sincronizado con el recurso compartido de archivos de Azure. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | No se pudo establecer en capas el archivo debido a que el controlador de filtro de la nube por niveles (storagesync.sys) no se está ejecutando. | Para resolver este problema, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando: fltmc load storagesync. <br>Si el controlador de filtro storagesync no se carga al ejecutar el comando fltmc, desinstale el agente de Azure File Sync, reinicie el servidor y vuelva a instalar el agente de Azure File Sync. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | No se pudo establecer en capas el archivo debido a que no hay suficiente espacio en disco en el volumen en el que se encuentra el punto de conexión de servidor. | Para solucionar este problema, libere al menos 100 MB de espacio en disco en el volumen en el que se encuentra el punto de conexión de servidor. |
+| 0x80070490 | -2147023728 | ERROR_NOT_FOUND | No se pudo establecer en capas el archivo porque no se ha sincronizado con el recurso compartido de archivos de Azure. | No es necesaria ninguna acción. El archivo se establecerá en capas una vez que se haya sincronizado con el recurso compartido de archivos de Azure. |
+| 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | No se pudo establecer en capas el archivo porque es un punto de reanálisis no admitido. | Si el archivo es un punto de reanálisis de desduplicación de datos, siga los pasos descritos en la [guía de planeamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) para habilitar la compatibilidad con la desduplicación de datos. Los archivos con puntos de reanálisis distintos de la desduplicación de datos no se admiten y no se establecerán en capas.  |
+| 0x80c83052 | -2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | No se pudo establecer en capas el archivo porque se ha modificado. | No es necesaria ninguna acción. El archivo se establecerá en capas una vez que el archivo modificado se haya sincronizado con el recurso compartido de archivos de Azure. |
+| 0x80c80269 | -2134375831 | ECS_E_GHOSTING_REPLICA_NOT_FOUND | No se pudo establecer en capas el archivo porque no se ha sincronizado con el recurso compartido de archivos de Azure. | No es necesaria ninguna acción. El archivo se establecerá en capas una vez que se haya sincronizado con el recurso compartido de archivos de Azure. |
+| 0x80072EE2 | -2147012894 | WININET_E_TIMEOUT | No se pudo establecer en capas el archivo debido a una incidencia en la red. | No es necesaria ninguna acción. Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | No se pudo establecer en capas el archivo porque se ha modificado. | No es necesaria ninguna acción. El archivo se establecerá en capas una vez que el archivo modificado se haya sincronizado con el recurso compartido de archivos de Azure. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | No se pudo establecer en capas el archivo porque no hay suficientes recursos en el sistema. | Si el error no desaparece, investigue qué aplicación o controlador del modo kernel está agotando los recursos del sistema. |
+
+
 
 ### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Solución de problemas de archivos que no se pueden recuperar  
 Si no se pueden recuperar archivos:

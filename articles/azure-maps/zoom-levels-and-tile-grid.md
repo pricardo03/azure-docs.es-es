@@ -3,24 +3,24 @@ title: Niveles de zoom y cuadrícula de mosaico | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre los niveles de zoom y la cuadrícula de mosaico en Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6ee697ac9b7849a0231d9916c6fa8bc73ef7f9b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910767"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765835"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 
-Azure Maps usa el sistema de coordenadas de la proyección de Mercator esférica (EPSG: 3857). Una proyección es el modelo matemático que se usa para transformar el globo terráqueo en un mapa plano. La proyección de Mercator esférica estira el mapa en los polos para crear un mapa cuadrado. Esto distorsiona significativamente la escala y el área del mapa, pero tiene dos propiedades importantes que superan esta distorsión:
+Azure Maps usa el sistema de coordenadas de la proyección de Mercator esférica (EPSG: 3857). Una proyección es el modelo matemático que se usa para transformar el globo terráqueo en un mapa plano. La proyección de Mercator esférica estira el mapa en los polos para crear un mapa cuadrado. Esta proyección distorsiona mucho la escala y el área del mapa, pero tiene dos propiedades importantes que compensan esta distorsión:
 
-- Se trata de una proyección conforme, lo que significa que conserva la forma de los objetos relativamente pequeños. Esto es especialmente importante cuando se muestran imágenes aéreas, ya que se quiere evitar distorsionar la forma de los edificios. Los edificios cuadrados deben aparecer cuadrados, no rectangulares.
-- Se trata de una proyección cilíndrica, lo que significa que norte y sur están siempre directamente arriba y abajo, y oeste y este están siempre directamente a la izquierda y a la derecha. 
+- Se trata de una proyección conforme, lo que significa que conserva la forma de los objetos relativamente pequeños. Conservar la forma de los objetos pequeños es especialmente importante cuando se muestra una imagen aérea. Por ejemplo, queremos evitar la distorsión de la forma de los edificios. Los edificios cuadrados deben aparecer cuadrados, no rectangulares.
+- Se trata de una proyección cilíndrica. El norte y el sur siempre están activados, y oeste y este siempre están a la izquierda y a la derecha. 
 
 Para optimizar el rendimiento de la recuperación y visualización del mapa, este se divide en mosaicos cuadrados. Los SDK de Azure Maps usan mosaicos con un tamaño de 512×512 píxeles para los mapas de carreteras, y más pequeños, 256×256 píxeles, para las imágenes satelitales. Azure Maps proporciona mosaicos de trama y vectoriales para 23 niveles de zoom, numerados de 0 a 22. En el nivel de zoom 0, todo el mundo cabe en un solo mosaico:
 
@@ -70,7 +70,7 @@ En la tabla siguiente se proporciona la lista completa de valores para los nivel
 
 ## <a name="pixel-coordinates"></a>Coordenadas de píxeles
 
-Tras elegir la proyección y la escala que se usarán en cada nivel de zoom, se pueden convertir las coordenadas geográficas en coordenadas de píxeles. El ancho y la altura de píxel completos de una imagen de mapa del mundo para un nivel de zoom determinado se pueden calcular como:
+Tras elegir la proyección y la escala que se usarán en cada nivel de zoom, se pueden convertir las coordenadas geográficas en coordenadas de píxeles. El ancho y la altura de píxel completos de una imagen de mapa del mundo para un nivel de zoom determinado se calcula como:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -82,9 +82,11 @@ Dado que el ancho y la altura del mapa son diferentes en cada nivel de zoom, tam
 
 <center>
 
-![Mapa que muestra las dimensiones de píxeles](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+![Mapa que muestra las dimensiones de píxeles](media/zoom-levels-and-tile-grid/map-width-height.png)
 
-Dada la latitud y la longitud en grados y el nivel de detalle, las coordenadas XY de los píxeles se pueden calcular de la manera siguiente:
+</center>
+
+Dada la latitud y la longitud en grados y el nivel de detalle, las coordenadas XY de los píxeles se calcula de la manera siguiente:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -94,11 +96,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-Se supone que los valores de latitud y longitud se encuentran en el datum WGS 84. Aunque Azure Maps usa una proyección esférica, es importante convertir todas las coordenadas geográficas en un datum común, y se eligió WGS 84 como ese datum. Se supone que el valor de longitud oscila entre -180 y +180 grados, y el valor de latitud debe recortarse para variar entre -85,05112878 y 85,05112878. Esto evita una singularidad en los polos y hace que el mapa proyectado sea cuadrado.
+Se supone que los valores de latitud y longitud se encuentran en el datum WGS 84. Aunque Azure Maps usa una proyección esférica, es importante convertir todas las coordenadas geográficas en un dato común. WGS 84 es el dato de referencia elegido. Se supone que el valor de longitud oscila entre -180 y +180 grados, y el valor de latitud debe recortarse para variar entre -85,05112878 y 85,05112878. La adhesión a estos valores evita una singularidad en los polos y garantiza que el mapa proyectado tenga una forma cuadrada.
 
 ## <a name="tile-coordinates"></a>Coordenadas de mosaicos
 
-Para optimizar el rendimiento de la recuperación y visualización del mapa, el mapa representado se corta en mosaicos. Dado que el número de píxeles difiere en cada nivel de zoom, también lo hace el número de mosaicos:
+Para optimizar el rendimiento de la recuperación y visualización del mapa, el mapa representado se corta en mosaicos. El número de píxeles y el número de mosaicos difieren en cada nivel de zoom:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -120,9 +122,9 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-Los mosaicos se denominan según las coordenadas x e y, y el nivel de zoom, correspondientes a la posición del mosaico en la cuadrícula para ese nivel de zoom.
+El nivel de zoom determina los mosaicos. Las coordenadas x e y se corresponden con la posición del mosaico en la cuadrícula para ese nivel de zoom.
 
-Al determinar qué nivel de zoom se usará, recuerde que cada ubicación está en una posición fija en su mosaico. Esto significa que el número de mosaicos necesarios para mostrar una extensión determinada del territorio depende de la ubicación específica de la cuadrícula de zoom en el mundo. Por ejemplo, si hay dos puntos separados 900 metros, *puede* que al mostrar una ruta entre ellos en el nivel de zoom 17, solo ocupen tres mosaicos. Sin embargo, si el punto occidental está a la derecha de su mosaico y el punto oriental a la izquierda, puede ocupar cuatro mosaicos:
+Al determinar qué nivel de zoom se usará, recuerde que cada ubicación está en una posición fija en su mosaico. Como resultado, el número de mosaicos necesarios para mostrar una extensión determinada del territorio depende de la ubicación específica de la cuadrícula de zoom en el mundo. Por ejemplo, si hay dos puntos separados 900 metros, *puede* que al mostrar una ruta entre ellos en el nivel de zoom 17, solo ocupen tres mosaicos. Sin embargo, si el punto occidental está a la derecha de su mosaico y el punto oriental a la izquierda, puede ocupar cuatro mosaicos:
 
 <center>
 

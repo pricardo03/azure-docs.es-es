@@ -4,12 +4,12 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 21e5ae82fc8274874e97d5e91a140b811b36c05e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 7cf437c6b20ea6b688e8e93e401cf71ef0260888
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293834"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705435"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -112,14 +112,13 @@ El nuevo modelo no permite eliminar el punto de restauración (nivel 2), a menos
 
 Si el punto de recuperación tiene instantáneas y que es el más reciente disponible, se conserva hasta el momento en que se realice la copia de seguridad siguiente correctamente. Esto atiende a lo estipulado en el diseño de la actual directiva de "recolección de elementos no utilizados" (GC), que exige que haya al menos un punto de recuperación siempre presente en caso de que se produzca un error en todas las copias de seguridad por un problema en la VM. En escenarios normales, los puntos de recuperación se eliminan en un máximo de 24 horas después de su expiración.
 
+### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>No necesito la característica de restauración instantánea. ¿Se puede deshabilitar?
+
+La característica de restauración instantánea está habilitada para todos los usuarios y no se puede deshabilitar. Puede reducir la retención de instantáneas a un mínimo de un día.
+
 >[!NOTE]
-> Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure.
+> **Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure.**
 >
 >En la actualidad, Azure Backup admite la copia de seguridad de todos los discos (sistema operativo y datos) en una máquina virtual junto con la solución de copia de seguridad de máquinas virtuales. Con la funcionalidad de exclusión de disco, tiene la opción de realizar una copia de seguridad de uno o de varios de los múltiples discos de datos de una máquina virtual. Esto proporciona una solución eficaz y rentable para sus necesidades de copia de seguridad y restauración. Cada punto de recuperación contiene datos de los discos incluidos en la operación de copia de seguridad, lo que permite además tener un subconjunto de discos restaurados desde el punto de recuperación determinado durante la operación de restauración. Esto se aplica a la restauración tanto desde la instantánea como desde el almacén.
 >
-> Esta solución es especialmente útil en los escenarios siguientes:
->  
->1. Tiene datos críticos de los que se va a realizar una copia de seguridad en un solo disco y no desea realizar copias de seguridad del resto de los discos conectados a una máquina virtual. Esto minimiza los costos de almacenamiento de copia de seguridad.  
->2. Tiene otras soluciones de copia de seguridad para parte de los datos de la máquina virtual. Por ejemplo, realiza una copia de seguridad de las bases de datos o los datos con una solución de copia de seguridad de carga de trabajo diferente y desea usar la copia de seguridad de nivel de máquina virtual de Azure para el resto de los discos y datos para crear un sistema eficaz y sólido con las mejores funcionalidades disponibles.
->
->Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
+>**Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com** .

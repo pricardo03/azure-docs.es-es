@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8d5377f7ec8de14f3d7d55bc109f6be731991051
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543042"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775261"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual 
 <a name="network-service-tags"></a>
@@ -64,7 +64,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* Esta etiqueta tiene dependencia en las etiquetas **AzureActiveDirectory** y **AzureFrontDoor.Frontend**. También incluya en la lista de permitidos las direcciones IP siguientes (esta dependencia se quitará pronto): 13.107.6.181 y 13.107.9.181. | Salida | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Salida | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tiene dependencia en la etiqueta **AzureActiveDirectory**. | Salida | Sí | Sí |
-| **AzureLoadBalancer** | Equilibrador de carga de la infraestructura de Azure. La etiqueta se traduce en la [dirección IP virtual del host](security-overview.md#azure-platform-considerations) (168.63.129.16) donde se originan los sondeos de mantenimiento de Azure. Si no usa Azure Load Balancer, puede reemplazar esta regla. | Ambos | No | No |
+| **AzureLoadBalancer** | Equilibrador de carga de la infraestructura de Azure. La etiqueta se traduce en la [dirección IP virtual del host](security-overview.md#azure-platform-considerations) (168.63.129.16) donde se originan los sondeos de mantenimiento de Azure. Esto no incluye el tráfico al recurso de Azure Load Balancer. Si no usa Azure Load Balancer, puede reemplazar esta regla. | Ambos | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Ambos | No | Sí |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon y métricas personalizadas (puntos de conexión GiG).<br/><br/>*Nota:* Para Log Analytics, esta etiqueta tiene dependencia en la etiqueta **Storage**. | Salida | No | Sí |
 | **AzurePlatformDNS** | El servicio DNS de infraestructura básica (predeterminado).<br/><br>Puede usar esta etiqueta para deshabilitar el DNS predeterminado. Tenga cuidado al usar esta etiqueta. Se recomienda leer las [consideraciones sobre la plataforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). También se recomienda realizar pruebas antes de usar esta etiqueta. | Salida | No | No |
@@ -79,11 +79,11 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **ElasticAFD** | Azure Front Door elástico. | Ambos | No | No |
 | **EventHub** | Azure Event Hubs. | Salida | Sí | Sí |
 | **GatewayManager** | Tráfico de administración para implementaciones dedicadas a Azure VPN Gateway y Application Gateway. | Entrada | No | No |
-| **GuestAndHybridManagement** | Azure Automation y Configuración de invitado | Ambos | No | Sí |
+| **GuestAndHybridManagement** | Azure Automation y Configuración de invitado | Salida | No | Sí |
 | **HDInsight** | HDInsight de Azure. | Entrada | Sí | No |
 | **Internet** | Espacio de direcciones IP que se encuentra fuera de la red virtual y es accesible a través de la red pública de Internet.<br/><br/>El intervalo de direcciones incluye el [espacio de direcciones IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Ambos | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Salida | No | No |
-| **MicrosoftContainerRegistry** | Azure Container Registry. | Salida | Sí | Sí |
+| **MicrosoftContainerRegistry** | Registro de contenedor para imágenes de contenedor de Microsoft. <br/><br/>*Nota:* También incluya en la lista blanca la dirección IP (esta dependencia se quitará pronto): 204.79.197.219. | Salida | Sí | Sí |
 | **Service Bus** | Tráfico de Azure Service Bus que usa el nivel de servicio Premium. | Salida | Sí | Sí |
 | **ServiceFabric** | Azure Service Fabric. | Salida | No | No |
 | **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL y Azure SQL Data Warehouse.<br/><br/>*Nota:* Esta etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de un servidor o base de datos SQL específicos. | Salida | Sí | Sí |

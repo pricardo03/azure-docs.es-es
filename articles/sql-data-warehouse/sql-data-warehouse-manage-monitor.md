@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b71d3b4824d8c1c73f40c8c6d87db315aabd423b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 14c4bb843a93fe6d235354f24475b9974142db79
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555488"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721156"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
 En este artículo se describe cómo usar vistas de administración dinámica (DMV) para supervisar la carga de trabajo. Esto incluye la investigación de la ejecución de consultas en Azure SQL Data Warehouse.
@@ -28,7 +28,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## <a name="monitor-connections"></a>Supervisión de conexiones
-Todos los inicios de sesión en SQL Data Warehouse se registran en [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Esta DMV contiene los 10.000 últimos inicios de sesión.  El campo session_id es la clave principal y se asigna de forma secuencial para cada nuevo inicio de sesión.
+Todos los inicios de sesión en SQL Data Warehouse se registran en [sys.dm_pdw_exec_sessions](https://msdn.microsoft.com/library/mt203883.aspx).  Esta DMV contiene los 10.000 últimos inicios de sesión.  El campo session_id es la clave principal y se asigna de forma secuencial para cada nuevo inicio de sesión.
 
 ```sql
 -- Other Active Connections
@@ -36,7 +36,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## <a name="monitor-query-execution"></a>Supervisión de ejecuciones de consultas
-Todas las consultas ejecutadas en SQL Data Warehouse se registran en [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Esta DMV contiene las últimas 10.000 consultas ejecutadas.  El campo request_id identifica cada consulta de forma única y es la clave principal de esta DMV.  Este campo se asigna de forma secuencial para cada nueva consulta y lleva el prefijo QID, que representa el identificador de consulta.  Al consultar en esta DMV sobre un campo session_id determinado, se muestran todas las consultas de un inicio de sesión concreto.
+Todas las consultas ejecutadas en SQL Data Warehouse se registran en [sys.dm_pdw_exec_requests](https://msdn.microsoft.com/library/mt203887.aspx).  Esta DMV contiene las últimas 10.000 consultas ejecutadas.  El campo request_id identifica cada consulta de forma única y es la clave principal de esta DMV.  Este campo se asigna de forma secuencial para cada nueva consulta y lleva el prefijo QID, que representa el identificador de consulta.  Al consultar en esta DMV sobre un campo session_id determinado, se muestran todas las consultas de un inicio de sesión concreto.
 
 > [!NOTE]
 > Los procedimientos almacenados utilizan varios identificadores de solicitud.  Los identificadores de solicitud se asignan en orden secuencial. 
@@ -63,9 +63,9 @@ ORDER BY total_elapsed_time DESC;
 
 En los resultados de la consulta anterior, **fíjese en el id. de solicitud** de la consulta que quiere investigar.
 
-Las consultas en estado **suspendido** se pueden poner en cola si hay un gran número de consultas activas en ejecución. Estas consultas también aparecen en la consulta [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) con un tipo de UserConcurrencyResourceType. Para obtener información sobre los límites de simultaneidad, consulte [Límites de memoria y simultaneidad para Azure SQL Data Warehouse](memory-concurrency-limits.md) o [Clases de recursos para administración de carga de trabajo](resource-classes-for-workload-management.md). Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Investigating queries waiting for resources] más adelante en este artículo.
+Las consultas en estado **suspendido** se pueden poner en cola si hay un gran número de consultas activas en ejecución. Estas consultas también aparecen en la consulta [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) con un tipo de UserConcurrencyResourceType. Para obtener información sobre los límites de simultaneidad, consulte [Límites de memoria y simultaneidad para Azure SQL Data Warehouse](memory-concurrency-limits.md) o [Clases de recursos para administración de carga de trabajo](resource-classes-for-workload-management.md). Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera](#monitor-waiting-queries) más adelante en este artículo.
 
-Para simplificar la búsqueda de una consulta en la tabla [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql), use [LABEL][LABEL] para asignar un comentario a la consulta que se pueda buscar en la vista sys.dm_pdw_exec_requests.
+Para simplificar la búsqueda de una consulta en la tabla [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql), use [LABEL](https://msdn.microsoft.com/library/ms190322.aspx) para asignar un comentario a la consulta que se pueda buscar en la vista sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -82,7 +82,7 @@ WHERE   [label] = 'My Query';
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>PASO 2: Investigar el plan de consulta
-Use el identificador de solicitud para recuperar el plan de SQL distribuido (DSQL) de la consulta desde [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
+Use el identificador de solicitud para recuperar el plan de SQL distribuido (DSQL) de la consulta desde [sys.dm_pdw_request_steps](https://msdn.microsoft.com/library/mt203913.aspx).
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -93,7 +93,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Si un plan DSQL tarda más de lo esperado, es posible que sea un plan complejo con muchos pasos DSQL o con un solo paso que tarda mucho tiempo.  Si el plan tiene muchos pasos con varias operaciones de movimiento, considere la posibilidad de optimizar las distribuciones de la tabla para reducir el movimiento de datos. El artículo [Distribución de tablas][Table distribution] explica por qué los datos se deben mover para resolver una consulta y describe algunas estrategias de distribución para minimizar el movimiento de datos.
+Si un plan DSQL tarda más de lo esperado, es posible que sea un plan complejo con muchos pasos DSQL o con un solo paso que tarda mucho tiempo.  Si el plan tiene muchos pasos con varias operaciones de movimiento, considere la posibilidad de optimizar las distribuciones de la tabla para reducir el movimiento de datos. En el artículo [Distribución de tablas](sql-data-warehouse-tables-distribute.md) se explica por qué los datos deben moverse para resolver una consulta. En el artículo también se explican algunas estrategias de distribución para minimizar el movimiento de datos.
 
 Para investigar más detalles acerca de un solo paso, compruebe la columna *operation_type* del paso de consulta de larga ejecución y anote el valor de **Índice de pasos**:
 
@@ -101,7 +101,7 @@ Para investigar más detalles acerca de un solo paso, compruebe la columna *oper
 * Vaya al paso 3b para **operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASO 3a: Investigar SQL en las bases de datos distribuidas
-Use el identificador de solicitud y el índice de pasos para recuperar información de [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], que contiene detalles sobre la ejecución del paso de la consulta en todas las instancias distribuidas.
+Use el identificador de solicitud y el índice de pasos para recuperar información de [sys.dm_pdw_sql_requests](https://msdn.microsoft.com/library/mt203889.aspx), que contiene detalles sobre la ejecución del paso de la consulta en todas las instancias distribuidas.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -111,7 +111,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Si la consulta se está ejecutando, se puede utilizar [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] para recuperar el plan estimado de SQL Server de la caché de planes de SQL Server para el paso que se está ejecutando en una distribución particular.
+Si la consulta se está ejecutando, se puede utilizar [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) para recuperar el plan estimado de SQL Server de la caché de planes de SQL Server para el paso que se está ejecutando en una distribución particular.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -121,7 +121,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
 ### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>PASO 3b: Investigar el movimiento de datos en las bases de datos distribuidas
-Use el identificador de solicitud y el índice de paso para recuperar información sobre el paso de movimiento de datos que se ejecuta en cada distribución desde [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
+Use el identificador de solicitud y el índice de paso para recuperar información sobre el paso de movimiento de datos que se ejecuta en cada distribución desde [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx).
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -134,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * Compruebe la columna *total_elapsed_time* para ver si una distribución determinada tarda bastante más que otras en el movimiento de datos.
 * Para la distribución de larga ejecución, compruebe la columna *rows_processed* para ver si el número de filas que se mueven desde esa distribución es mucho mayor que para las demás. En ese caso, este hallazgo puede indicar un sesgo de los datos subyacentes.
 
-Si la consulta se está ejecutando, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] se puede utilizar para recuperar el plan estimado de SQL Server de la caché de planes de SQL Server para el paso de SQL que se está ejecutando en una distribución particular.
+Si la consulta se está ejecutando, puede usar [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) para recuperar el plan estimado de SQL Server de la caché de planes de SQL Server para el paso de SQL que se está ejecutando actualmente en una distribución particular.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -290,23 +290,4 @@ ORDER BY
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de las DMV, consulte [Vistas del sistema][System views].
-
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
-
-<!--MSDN references-->
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: https://msdn.microsoft.com/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+Para más información acerca de las DMV, consulte [Vistas del sistema](./sql-data-warehouse-reference-tsql-system-views.md).

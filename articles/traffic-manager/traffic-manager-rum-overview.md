@@ -3,21 +3,21 @@ title: Mediciones de usuario reales en Azure Traffic Manager
 description: En esta introducción, aprenderá cómo funcionan las Mediciones de usuario reales de Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: allensu
+ms.author: rohink
 ms.custom: ''
-ms.openlocfilehash: 1cb3bd1f4a665da4422d296641b193b1e45e45a2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037951"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938434"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Introducción a Real User Measurements en Traffic Manager
 
@@ -27,7 +27,7 @@ Real User Measurements le permite medir la latencia de red de regiones de Azure 
 
 ## <a name="how-real-user-measurements-work"></a>Cómo funciona Real User Measurements
 
-Mediciones de usuario reales funciona haciendo que las aplicaciones cliente midan la latencia de las regiones de Azure tal como se ve desde las redes de usuario final en las que se utilizan. Por ejemplo, si tiene una página web a la que tienen acceso usuarios de distintas ubicaciones (por ejemplo, en las regiones de América del Norte), puede usar Mediciones de usuario reales con el método de enrutamiento de rendimiento para dirigirlos a la mejor de las regiones de Azure en las que la aplicación está hospedada.
+Mediciones de usuario reales funciona haciendo que las aplicaciones cliente midan la latencia de las regiones de Azure tal como se ve desde las redes de usuario final en las que se utilizan. Por ejemplo, si tiene una página web a la que tienen acceso usuarios de distintas ubicaciones (por ejemplo, en las regiones de Norteamérica), puede usar Mediciones de usuario reales con el método de enrutamiento de rendimiento para dirigirlos a la mejor de las regiones de Azure en las que la aplicación está hospedada.
 
 Se comienza por insertar un código JavaScript proporcionado por Azure (que contiene una clave única) en las páginas web. Una vez hecho, siempre que un usuario visita la página web, el código JavaScript consulta a Traffic Manager para obtener información acerca de las regiones de Azure que debe medir. El servicio devuelve un conjunto de puntos de conexión al script que, a continuación, mide estas regiones consecutivamente mediante la descarga de una imagen de un solo píxel hospedada en esas regiones de Azure y anotando la latencia entre el momento en el que se envió la solicitud y la hora a la que se recibió el primer byte. Estas mediciones, a continuación, se notifican de vuelta al servicio Traffic Manager.
 

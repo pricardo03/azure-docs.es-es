@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425482"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840118"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación en Azure Active Directory B2C
 
-Para que sus [aplicaciones](active-directory-b2c-apps.md) puedan interactuar con Azure Active Directory B2C (Azure AD B2C), deben estar registradas en un inquilino que administre. En este tutorial se muestra cómo registrar una aplicación web mediante Azure Portal.
+Para que sus [aplicaciones](application-types.md) puedan interactuar con Azure Active Directory B2C (Azure AD B2C), deben estar registradas en un inquilino que administre. En este tutorial se muestra cómo registrar una aplicación web mediante Azure Portal.
 
 En este artículo aprenderá a:
 
@@ -88,7 +88,7 @@ Una vez completado el registro de la aplicación, habilite el flujo de concesió
 
 ## <a name="create-a-client-secret"></a>Creación de un secreto de cliente
 
-Si la aplicación intercambia un código para un token, deberá crear un secreto de aplicación.
+Si la aplicación intercambia un código de autorización para un token de acceso, debe crear un secreto de aplicación.
 
 #### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 

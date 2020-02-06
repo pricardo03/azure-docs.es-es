@@ -6,17 +6,18 @@ author: martincoetzer
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/19/2018
+ms.date: 01/29/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478cccb3a8235291a4c4f0566cd130b4b75dbe6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208550"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908741"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -122,8 +123,8 @@ Una directiva de acceso condicional de contingencia es una **directiva deshabili
   * Si la organización usa Microsoft Cloud App Security, considere la posibilidad de recurrir a una directiva que interactúe con MCAS y después MCAS permita acceso de solo lectura, pero no cargas.
 * Ponga nombre a las directivas para encontrarlas con facilidad durante una interrupción. Incluya los siguientes elementos en el nombre de la directiva:
   * Un *número de etiqueta* para la directiva.
-  * Texto para mostrar, esta directiva es solo para casos de emergencia. Por ejemplo:  **HABILITAR EN CASO DE EMERGENCIA**
-  * La *interrupción* a la que se aplica. Por ejemplo:  **Durante una interrupción de MFA**
+  * Texto para mostrar, esta directiva es solo para casos de emergencia. Por ejemplo: **HABILITAR EN CASO DE EMERGENCIA**
+  * La *interrupción* a la que se aplica. Por ejemplo: **Durante una interrupción de MFA**
   * Un *número de secuencia* para mostrar el orden en que debe activar las directivas.
   * Las *aplicaciones* a las que se aplica.
   * Los *controles* que aplicará.

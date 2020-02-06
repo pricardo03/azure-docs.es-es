@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2019
-ms.openlocfilehash: 2c015db828bcbfa8b26f519b3a4707b5ec69b8f3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b452cb986e6f662aeb33c2a475f18695ebc75745
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982507"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846078"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Cifrado de disco mediante claves administradas por el cliente
 
@@ -79,7 +79,7 @@ HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de
 
     b. En **Seleccionar entidad de seguridad**, elija la identidad administrada asignada por el usuario que creó.
 
-    ![Establecimiento de la entidad de seguridad para la directiva de acceso de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-select-principal.png)
+    ![Establecimiento de la entidad de seguridad para la directiva de acceso de Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
     c. Establezca los **Permisos de clave** en **Obtener**, **Desencapsular clave** y **Encapsular clave**.
 
@@ -100,6 +100,8 @@ Ya está listo para crear un clúster de HDInsight. La clave administrada por el
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
 Durante la creación del clúster, proporcione la dirección URL completa de la clave, de forma que incluya también la versión de la clave. Por ejemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. También deberá asignar la identidad administrada al clúster y proporcionar el URI de la clave.
+
+![Creación de un clúster](./media/disk-encryption/create-cluster-portal.png)
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 

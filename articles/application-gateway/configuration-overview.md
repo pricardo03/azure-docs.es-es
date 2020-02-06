@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658345"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714858"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -53,7 +53,7 @@ Los grupos de seguridad se admiten en Application Gateway. Pero hay algunas rest
 - No puede bloquearse la conectividad saliente de Internet. Las reglas de salida predeterminadas del grupo de seguridad de red permiten la conectividad a Internet. Se recomienda que:
 
   - No elimine las reglas de salida predeterminadas.
-  - No cree otras reglas de salida que denieguen la conectividad saliente de Internet.
+  - No cree otras reglas de salida que denieguen toda la conectividad saliente.
 
 - Se debe permitir el tráfico de la etiqueta **AzureLoadBalancer**.
 

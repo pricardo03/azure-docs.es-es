@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 3b98975df194af4625087e1beb556efb2a347f43
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 58e8767de786ed2ae92d19c01287aa05c8b63fbb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872067"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767992"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 
@@ -346,7 +346,7 @@ Las [actualizaciones de las directivas de indexación](index-policy.md#modifying
 
 Los contenedores de Azure Cosmos almacenan su directiva de indexación en forma de documento JSON que Azure Portal permite editar directamente.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Cree una cuenta de Azure Cosmos DB o seleccione una ya existente.
 
@@ -607,9 +607,9 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## <a name="use-the-python-sdk"></a>Uso del SDK de Python
+## <a name="use-the-python-sdk-v3"></a>Uso del SDK de Python V3
 
-Cuando se usa el [SDK de Python](https://pypi.org/project/azure-cosmos/) (consulte [este inicio rápido](create-sql-api-python.md) para saber cómo se usa), la configuración del contenedor se administra como un diccionario. Desde este diccionario es posible acceder a la directiva de indexación y a todos sus atributos.
+Cuando se usa el [SDK de Python V3](https://pypi.org/project/azure-cosmos/) (consulte [este inicio rápido](create-sql-api-python.md) para saber cómo se usa), la configuración del contenedor se administra como un diccionario. Desde este diccionario es posible acceder a la directiva de indexación y a todos sus atributos.
 
 Recuperar los detalles del contenedor
 
@@ -669,6 +669,72 @@ Actualizar el contenedor con cambios
 
 ```python
 response = client.ReplaceContainer(containerPath, container)
+```
+
+## <a name="use-the-python-sdk-v4"></a>Uso del SDK de Python V4
+
+Cuando se usa el [SDK de Python V4](https://pypi.org/project/azure-cosmos/), la configuración del contenedor se administra como un diccionario. Desde este diccionario es posible acceder a la directiva de indexación y a todos sus atributos.
+
+Recuperar los detalles del contenedor
+
+```python
+database_client = cosmos_client.get_database_client('database')
+container_client = database_client.get_container_client('container')
+container = container_client.read()
+```
+
+Establecer el modo de indexación en coherente
+
+```python
+indexingPolicy = {
+    'indexingMode': 'consistent'
+}
+```
+
+Definir una directiva de indexación con una ruta de acceso incluida y un índice espacial
+
+```python
+indexingPolicy = {
+    "indexingMode":"consistent",
+    "spatialIndexes":[
+        {"path":"/location/*","types":["Point"]}
+    ],
+    "includedPaths":[{"path":"/age/*","indexes":[]}],
+    "excludedPaths":[{"path":"/*"}]
+}
+```
+
+Definir una directiva de indexación con una ruta de acceso excluida
+
+```python
+indexingPolicy = {
+    "indexingMode":"consistent",
+    "includedPaths":[{"path":"/*","indexes":[]}],
+    "excludedPaths":[{"path":"/name/*"}]
+}
+```
+
+Agregar un índice compuesto
+
+```python
+indexingPolicy['compositeIndexes'] = [
+    [
+        {
+            "path": "/name",
+            "order": "ascending"
+        },
+        {
+            "path": "/age",
+            "order": "descending"
+        }
+    ]
+]
+```
+
+Actualizar el contenedor con cambios
+
+```python
+response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c49782a6e1e86320b508875e2bf931cc1cc19b4e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964777"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768103"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicación web que inicia sesión de usuarios: Paso a producción
 
@@ -30,6 +29,13 @@ Ahora que sabe cómo obtener un token para llamar a las API web, obtenga informa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+### <a name="same-site"></a>Mismo sitio
+
+Asegúrese de que comprende los posibles problemas de las nuevas versiones del explorador Chrome.
+
+> [!div class="nextstepaction"]
+> [Control de los cambios de cookies de SameSite en el explorador Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
 ### <a name="scenario-for-calling-web-apis"></a>Escenario para llamar a API web
 
 Una vez que la aplicación web inicie la sesión de los usuarios, puede llamar a las API web en nombre de los usuarios con sesión iniciada. Las llamadas a las API web desde la aplicación web es el objeto del escenario siguiente:
@@ -37,7 +43,7 @@ Una vez que la aplicación web inicie la sesión de los usuarios, puede llamar a
 > [!div class="nextstepaction"]
 > [Aplicación web que llama a las API web](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>En profundidad: Tutorial de una aplicación web de ASP.NET Core
+## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>En profundidad: Tutorial de una aplicación web de ASP.NET Core
 
 Obtenga información sobre otras maneras de iniciar la sesión de los usuarios con este tutorial de ASP.NET Core: 
 
@@ -52,7 +58,7 @@ Este tutorial progresivo incluye código listo para producción para una aplicac
 - [Azure AD B2C](https://aka.ms/aadb2c)
 - Nubes nacionales
 
-### <a name="sample-code-java-web-app"></a>Ejemplo de código: Aplicaciones web de Java
+## <a name="sample-code-java-web-app"></a>Ejemplo de código: Aplicaciones web de Java
 
 Obtenga más información sobre la aplicación web de Java en el ejemplo de GitHub: 
 

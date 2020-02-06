@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8d4ff3e833dcbe92802845796e3b826735b68ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39459267919747ed49e9fa3f05746294eaf741dc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465650"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906829"
 ---
 # <a name="develop-video-player-applications"></a>Desarrollo de aplicaciones para reproductor de vídeo
 ## <a name="overview"></a>Información general
@@ -39,7 +39,7 @@ Para obtener más información:
 * [Documentación de Azure Media Player](https://aka.ms/ampdocs) 
 * [Blog de introducción a Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 * [Suscríbase para mantenerse al día con la versión más reciente de Azure Media Player](https://aka.ms/ampsignup)
-* [Agregue nuevas solicitudes, ideas y comentarios](https://aka.ms/ampuservoice) 
+* [Agregue nuevas solicitudes, ideas, comentarios](https://aka.ms/ampuservoice) 
 
 ## <a name="other-tools-for-creating-player-applications"></a>Otras herramientas para crear aplicaciones del reproductor
 También puede usar algunos de los SDK siguientes:
@@ -50,7 +50,7 @@ También puede usar algunos de los SDK siguientes:
 * [Documentación de HTML5 Player Framework](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Complemento Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licencias de kit de migración de cliente de Microsoft® Smooth Streaming](https://aka.ms/sspk) 
-* [Desarrollo de aplicaciones de vídeo de XBOX](https://xbox.create.msdn.com/) 
+* [Desarrollo de aplicaciones de vídeo de XBOX](https://www.xbox.com/en-US/developers) 
 
 ## <a name="advertising"></a>Publicidad
 Azure Media Services admite la inserción de anuncios mediante la plataforma de Windows Media: Player Frameworks. Player framework con compatibilidad con anuncios está disponible para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada marco de trabajo de reproductor contiene código de ejemplo que muestra cómo implementar una aplicación de reproductor. Hay tres tipos diferentes de anuncios que se pueden insertar en el archivo multimedia:
@@ -71,7 +71,7 @@ Para obtener información sobre la compatibilidad con anuncios y subtítulos en 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Incrustación de un vídeo de transmisión por secuencias adaptativa MPEG-DASH en una aplicación HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)

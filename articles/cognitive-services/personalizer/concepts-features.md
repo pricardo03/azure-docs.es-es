@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490787"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760834"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -56,7 +56,7 @@ Personalizer toma las características organizadas en espacios de nombres. El us
 A continuación encontrará ejemplos de espacios de nombres de características usados por las aplicaciones:
 
 * User_Profile_from_CRM
-* Hora
+* Time
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -107,6 +107,7 @@ La cadena que se utiliza para asignar nombres al espacio de nombres debe seguir 
 * No puede ser unicode.
 * Puede usar algunos de los símbolos imprimibles con códigos < 256 para los nombres de los espacios de nombres. 
 * No puede usar símbolos con códigos < 32 (no imprimibles), 32 (espacio), 58 (dos puntos), 124 (canalización) y 126 – 140.
+* No debe comenzar con un carácter de subrayado "_" o la característica se omitirá.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Cómo hacer que los conjuntos de características sean más eficaces para Personalizer
 
@@ -178,7 +179,7 @@ Las acciones que envíe a la API Rank dependerán de lo que intente personalizar
 
 Estos son algunos ejemplos:
 
-|Propósito|.|
+|Propósito|Acción|
 |--|--|
 |Personalizar qué artículo está resaltado en un sitio web de noticias.|Cada acción es una potencial noticia.|
 |Optimizar la colocación de anuncios en un sitio web.|Cada acción será un diseño o reglas para crear un diseño para los anuncios (por ejemplo, en la parte superior, a la derecha, imágenes pequeñas, imágenes grandes).|

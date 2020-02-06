@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098680"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844707"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Tutorial: Reenviar eventos a IoTHub
 
@@ -28,7 +28,7 @@ Para completar este tutorial, debe conocer los siguientes requisitos previos:
 - [Conceptos sobre la cuadrícula de eventos](concepts.md)
 - [Centro de IoT Edge](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 
@@ -62,7 +62,7 @@ Como publicador de un evento, debe crear un tema de Event Grid. El tema hace ref
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
 
-   Salida de ejemplo:
+   Salida del ejemplo:
 
    ```json
         [
@@ -81,6 +81,8 @@ Como publicador de un evento, debe crear un tema de Event Grid. El tema hace ref
 ## <a name="create-event-subscription"></a>Creación de la suscripción de eventos
 
 Los suscriptores pueden registrarse en eventos publicados en un tema. Para recibir cualquier evento, deberán crear una suscripción de Event Grid a un tema de interés.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Cree subscription4.json con el contenido siguiente. Para más información sobre la carga, consulte nuestra [documentación de API](api.md).
 
@@ -110,7 +112,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
     ```
 
-    Salida de ejemplo:
+    Salida del ejemplo:
 
    ```json
         {
@@ -212,3 +214,4 @@ En este tutorial, ha creado un tema de Event Grid y una suscripción de centro d
 * Configure la persistencia del módulo de Event Grid en [Linux](persist-state-linux.md) o [Windows](persist-state-windows.md)
 * Siga la [documentación](configure-client-auth.md) para configurar la autenticación de cliente
 * Reenvíe eventos a Azure Event Grid en la nube siguiendo este [tutorial](forward-events-event-grid-cloud.md)
+* [Supervisión de temas y suscripciones en el perímetro](monitor-topics-subscriptions.md)

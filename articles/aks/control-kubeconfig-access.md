@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/28/2020
 ms.author: mlearned
-ms.openlocfilehash: cbc653b86ed83f9d6a7348d39f51dc7cd49c6892
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d1fdd17b0f6b8ed91d4496f7e9e5a578e53556fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615666"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845233"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Uso de los controles de acceso basados en roles de Azure para definir el acceso al archivo de configuración de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -35,21 +35,25 @@ El comando [az aks get-credentials][az-aks-get-credentials] permite obtener las 
 Los dos roles integrados son:
 
 * **Rol de administrador de clúster de Azure Kubernetes Service**  
-    * Permite el acceso a la llamada API *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action*. Esta llamada API [enumera las credenciales de administrador de clúster][api-cluster-admin].
-    * Descarga el archivo *kubeconfig* para el rol *clusterAdmin*.
+  * Permite el acceso a la llamada API *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action*. Esta llamada API [enumera las credenciales de administrador de clúster][api-cluster-admin].
+  * Descarga el archivo *kubeconfig* para el rol *clusterAdmin*.
 * **Rol de usuario de clúster de Azure Kubernetes Service**
-    * Permite el acceso a la llamada API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Esta llamada API [enumera las credenciales de usuario de clúster][api-cluster-user].
-    * Descarga *kubeconfig* para el rol *clusterUser*.
+  * Permite el acceso a la llamada API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Esta llamada API [enumera las credenciales de usuario de clúster][api-cluster-user].
+  * Descarga *kubeconfig* para el rol *clusterUser*.
 
 Estos roles RBAC pueden aplicarse a un grupo o usuario de Azure Active Directory (AD).
+
+> [NOTA] En clústeres que usan Azure AD, los usuarios con el rol *clusterUser* tienen un archivo *kubeconfig* vacío que solicita un inicio de sesión. Tras iniciar sesión, los usuarios tendrán acceso en función de la configuración de usuarios o grupos de Azure AD. Los usuarios con el rol *clusterAdmin* tienen acceso de administrador.
+>
+> Los clústeres que no usan Azure AD solo utilizan el rol *clusterAdmin*.
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>Asignación de permisos de rol a un usuario o un grupo
 
 Para asignar uno de los roles disponibles, debe obtener el identificador de recurso del clúster de AKS y el del grupo o de la cuenta de usuario de Azure AD. Los siguientes comandos de ejemplo:
 
 * Obtienen el identificador de recurso del clúster mediante el comando [az aks show][az-aks-show] para el clúster denominado *myAKSCluster* del grupo de recursos *myResourceGroup*. Proporcione los nombres de su propio clúster y grupo de recursos según proceda.
-* Usa los comandos [az account show][az-account-show] y [az ad user show][az-ad-user-show] para obtener el identificador de usuario.
-* Por último, asigna un rol mediante el comando [az role assignment create][az-role-assignment-create].
+* Usan los comandos [az account show][az-account-show] y [az ad user show][az-ad-user-show] para obtener el identificador de usuario.
+* Por último, asignan un rol mediante el comando [az role assignment create][az-role-assignment-create].
 
 En el ejemplo siguiente se asigna el *rol de administrador de clústeres de Azure Kubernetes Service* a una cuenta de usuario individual:
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 08d1f69294c4e330db79a1b5fecdb259dffe33cb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 730ff3c274fd93e6344cec688ba2db212d285baf
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186495"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758958"
 ---
 Haga que su aplicación sea excelente:
 

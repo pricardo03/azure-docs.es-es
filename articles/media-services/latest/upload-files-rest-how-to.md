@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779168"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705775"
 ---
-# <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST
+# <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Carga de archivos en una cuenta de Media Services v3 mediante REST
 
 En Media Services, cargue los archivos digitales en un contenedor de blobs asociado con un recurso. La entidad [Recurso](https://docs.microsoft.com/rest/api/media/operations/asset) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos). Una vez cargados los archivos en el contenedor del recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 

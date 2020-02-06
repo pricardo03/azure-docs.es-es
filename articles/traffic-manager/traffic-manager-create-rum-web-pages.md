@@ -3,7 +3,7 @@ title: 'Mediciones de usuario reales con páginas web: Azure Traffic Manager'
 description: En este artículo, aprenderá a configurar las páginas web para enviar Mediciones de usuario reales a Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: allensu
+ms.author: rohink
 ms.custom: ''
-ms.openlocfilehash: 6e3cf5af5aaa894b1595d67c0056073a458b0a88
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 927d774ee30a291607a8a47fc2fd6878c1bc6fee
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040294"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938698"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Envío de medidas de usuarios reales a Azure Traffic Manager mediante páginas web
 
@@ -26,7 +26,7 @@ Para configurar las páginas web para enviar medidas de usuarios reales a Traffi
 
 ## <a name="obtain-a-real-user-measurements-key"></a>Obtención de una clave de Real User Measurements
 
-El servicio identifica las medidas que realiza y envía a Traffic Manager desde su aplicación cliente mediante una cadena única, llamada **Real User Measurements (RUM)**. Puede obtener una clave RUM mediante Azure Portal, una API de REST o por medio de PowerShell o la CLI de Azure.
+El servicio identifica las medidas que realiza y envía a Traffic Manager desde su aplicación cliente mediante una cadena única, llamada **Real User Measurements (RUM)** . Puede obtener una clave RUM mediante Azure Portal, una API de REST o por medio de PowerShell o la CLI de Azure.
 
 Para obtener la clave RUM con Azure Portal:
 1. En un explorador, inicie sesión en Azure Portal. Si aún no tiene una cuenta, puede registrarse para disfrutar de una evaluación gratuita de un mes.

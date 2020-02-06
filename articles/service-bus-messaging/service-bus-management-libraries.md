@@ -1,6 +1,6 @@
 ---
 title: Bibliotecas de administración de Azure Service Bus | Microsoft Docs
-description: Administración de espacios de nombres y entidades de mensajería de Service Bus desde .NET
+description: En este artículo se explica cómo usar las bibliotecas de administración de Azure Service Bus para aprovisionar dinámicamente las entidades y los espacios de nombres de Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816082"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756273"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de administración de Service Bus
 
@@ -32,7 +32,7 @@ Las bibliotecas de administración de Azure Service Bus pueden aprovisionar din�
 * Creación, actualización y eliminación de temas
 * Creación, actualización y eliminación de suscripciones
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para comenzar a usar las bibliotecas de administración de Service Bus, debe autenticarse con el servicio Azure Active Directory (Azure AAD). Azure AAD requiere que se autentique como una entidad de servicio que proporciona acceso a los recursos de Azure. Para más información sobre cómo crear una entidad de servicio, consulte uno de los siguientes artículos:  
 

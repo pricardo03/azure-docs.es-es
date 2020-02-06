@@ -2,17 +2,17 @@
 title: 'Inicio rápido: Creación de una zona DNS privada de Azure mediante la CLI de Azure'
 description: En este inicio rápido se crean y se prueban una zona DNS privada y un registro en Azure DNS. Esta es una guía detallada para crear y administrar la primera zona DNS privada y el primer registro mediante la CLI de Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
-ms.author: allensu
-ms.openlocfilehash: 3c580eebd19eb2f2028768059140731fa24f4664
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 34a9858ffbec2360a347b8c765d53551fd2d9fc0
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210917"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935424"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Inicio rápido: Creación de una zona DNS privada de Azure mediante la CLI de Azure
 

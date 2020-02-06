@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7f8d3bb6452ee3260e5a89feb37c374418fc6943
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c83bfc4a3ec8d1163669f28dfde64c63e7c6ff89
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312166"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775069"
 ---
 # <a name="export-data-module"></a>Módulo Exportación de datos
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para guardar los resultados, los datos intermedios y los datos de trabajo de las canalizaciones en los destinos de almacenamiento en la nube fuera de Azure Machine Learning. 
 
@@ -29,7 +29,7 @@ Este módulo admite la exportación de los datos a los siguientes servicios de d
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Antes de exportar los datos, debe registrar un almacén de datos en el área de trabajo de Azure Machine Learning. Para obtener más información, consulte [Cómo acceder a datos](../how-to-access-data.md).
+Antes de exportar los datos, debe registrar un almacén de datos en el área de trabajo de Azure Machine Learning. Para más información, consulte [Acceso a los datos en los servicios de almacenamiento de Azure](../how-to-access-data.md).
 
 ## <a name="how-to-configure-export-data"></a>Procedimiento para configurar la exportación de datos
 
@@ -39,7 +39,7 @@ Antes de exportar los datos, debe registrar un almacén de datos en el área de 
 
 1. Seleccione **Exportación de datos** para abrir el panel **Propiedades**.
 
-1. En **Almacén de datos**, seleccione un almacén de datos existente en la lista desplegable. También puede crear un nuevo almacén de datos. Para ver cómo, visite [how-to-access-data](../how-to-access-data.md)
+1. En **Almacén de datos**, seleccione un almacén de datos existente en la lista desplegable. También puede crear un nuevo almacén de datos. Para ver cómo, consulte [Acceso a los datos en los servicios de almacenamiento de Azure](../how-to-access-data.md).
 
 1. Defina la ruta del almacén de datos en el que se van a escribir los datos. 
 

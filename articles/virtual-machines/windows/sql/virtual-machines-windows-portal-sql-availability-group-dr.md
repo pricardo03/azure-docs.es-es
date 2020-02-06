@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 96b7c3cf59f947d1476ad840ae81695356d869b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cd27e581aaca241fc15886f9f72546f92391b744
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037549"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772686"
 ---
 # <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Configuración de un grupo de disponibilidad en máquinas virtuales de Azure SQL Server en distintas regiones
 
@@ -93,9 +93,26 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
 
 1. [Agregue el nuevo servidor SQL Server al clúster de conmutación por error de Windows Server](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
-1. Cree un recurso de dirección IP en el clúster.
+1. Agregue un recurso de dirección IP al clúster.
 
-   Puede crear el recurso de dirección IP en el Administrador de clústeres de conmutación por error. Haga clic con el botón derecho en el rol de grupo de disponibilidad, haga clic en **Agregar recurso**, en **Más recursos** y en **Dirección IP**.
+   Puede crear el recurso de dirección IP en el Administrador de clústeres de conmutación por error. Seleccione el nombre del clúster y, después, haga clic en él con el botón derecho en **Recursos principales de clúster** y seleccione **Propiedades**: 
+
+   ![Propiedades de clúster](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-name-properties.png)
+
+   En el cuadro de diálogo **Propiedades**, seleccione **Agregar** en **Dirección IP** y, después, agregue la dirección IP del nombre de clúster de la región de red remota. Seleccione **Aceptar** en el cuadro de diálogo **Dirección IP** y, después, seleccione de nuevo **Aceptar** en el cuadro de diálogo **Propiedades de clúster** para guardar la nueva dirección IP. 
+
+   ![Adición de una dirección IP al clúster](./media/virtual-machines-windows-portal-sql-availability-group-dr/add-cluster-ip-address.png)
+
+
+1. Agregue la dirección IP como una dependencia al nombre del clúster principal.
+
+   Abra las propiedades del clúster una vez más y seleccione la pestaña **Dependencias**. Configure una dependencia OR para las dos direcciones IP: 
+
+   ![Propiedades de clúster](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-ip-dependencies.png)
+
+1. Agregue un recurso de dirección IP al rol del grupo de disponibilidad en el clúster. 
+
+   Haga clic con el botón derecho en el rol de grupo de disponibilidad en Administrador de clústeres de conmutación por error, seleccione **Agregar recurso**, **Más recursos** y seleccione **Dirección IP**.
 
    ![Crear dirección IP](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
@@ -103,16 +120,6 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
 
    - Use la red del centro de datos remoto.
    - Asigne la dirección IP del nuevo equilibrador de carga de Azure. 
-
-1. En el nuevo servidor SQL Server, en el Administrador de configuración de SQL Server, [habilite grupos de disponibilidad AlwaysOn](https://msdn.microsoft.com/library/ff878259.aspx).
-
-1. [Abra los puertos de firewall en el nuevo servidor SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
-
-   Los números de puerto que debe abrir dependerán del entorno. Abra puertos para el punto de conexión de creación de reflejo y el sondeo de estado del equilibrador de carga de Azure.
-
-1. [Agregue una réplica al grupo de disponibilidad en el nuevo servidor SQL Server](https://msdn.microsoft.com/library/hh213239.aspx).
-
-   Para una réplica en una región remota de Azure, establézcala en replicación asincrónica con conmutación por error manual.  
 
 1. Agregue el recurso de dirección IP como una dependencia para el clúster (nombre de red) de punto de acceso cliente del agente de escucha.
 
@@ -123,7 +130,7 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
    >[!IMPORTANT]
    >El grupo de recursos de clúster incluye ambas direcciones IP. Las dos direcciones IP son dependencias para el punto de acceso cliente del agente de escucha. Use el operador **OR** en la configuración de la dependencia de clúster.
 
-1. [Establezca los parámetros de clúster en PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
+1. [Establecer los parámetros de clúster en PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
 Ejecute el script de PowerShell con el nombre de red del clúster, la dirección IP y el puerto de sondeo que configuró en el equilibrador de carga en la nueva región.
 
@@ -138,6 +145,17 @@ Ejecute el script de PowerShell con el nombre de red del clúster, la dirección
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+1. En el nuevo servidor SQL Server, en el Administrador de configuración de SQL Server, [habilite grupos de disponibilidad AlwaysOn](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
+
+1. [Abra los puertos de firewall en el nuevo servidor SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
+
+   Los números de puerto que debe abrir dependerán del entorno. Abra puertos para el punto de conexión de creación de reflejo y el sondeo de estado del equilibrador de carga de Azure.
+
+
+1. [Agregue una réplica al grupo de disponibilidad en el nuevo servidor SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
+
+   Para una réplica en una región remota de Azure, establézcala en replicación asincrónica con conmutación por error manual.  
+
 ## <a name="set-connection-for-multiple-subnets"></a>Configuración de conexión para varias subredes
 
 La réplica en el centro de datos remoto forma parte del grupo de disponibilidad pero está en una subred diferente. Si esta réplica se convierte en la réplica principal, pueden producirse tiempos de espera de conexión de la aplicación. Este comportamiento es el mismo que el de un grupo de disponibilidad local en una implementación con varias subredes. Para permitir conexiones de aplicaciones de cliente, actualice la conexión de cliente o configure el almacenamiento en caché de la resolución de nombres en el recurso de nombres de red del clúster.
@@ -148,7 +166,7 @@ Si no puede modificar las cadenas de conexión, puede configurar el almacenamien
 
 ## <a name="fail-over-to-remote-region"></a>Conmutación por error a una región remota
 
-Para probar la conectividad del agente de escucha con la región remota, puede conmutar por error a la réplica de la región remota. Aunque la réplica sea asincrónica, la conmutación por error es vulnerable a posibles pérdidas de datos. Para conmutar por error sin pérdida de datos, cambie el modo de disponibilidad a sincrónico y establezca el modo de conmutación por error en automático. Para ello, siga los pasos que se describen a continuación:
+Para probar la conectividad del agente de escucha con la región remota, puede conmutar por error a la réplica de la región remota. Aunque la réplica sea asincrónica, la conmutación por error es vulnerable a posibles pérdidas de datos. Para conmutar por error sin pérdida de datos, cambie el modo de disponibilidad a sincrónico y establezca el modo de conmutación por error en automático. Siga estos pasos:
 
 1. En el **Explorador de objetos**, conéctese a la instancia de SQL Server que hospeda la réplica principal.
 1. En **Grupos de disponibilidad de AlwaysOn**, **Grupos de disponibilidad**, haga clic con el botón derecho en el grupo de disponibilidad y haga clic en **Propiedades**.
@@ -166,14 +184,14 @@ Después de probar la conectividad, mueva la réplica principal de nuevo a su ce
 
 | Location | Instancia del servidor | Role | Modo de disponibilidad | Modo de conmutación por error
 | ----- | ----- | ----- | ----- | -----
-| Centro de datos principal | SQL-1 | Principal | Sincrónico | Automático
-| Centro de datos principal | SQL-2 | Secundario | Sincrónico | Automático
-| Centro de datos secundario o remoto | SQL-3 | Secundario | Asincrónico | Manual
+| Centro de datos principal | SQL-1 | Principal | Sincrónica | Automático
+| Centro de datos principal | SQL-2 | Secundario | Sincrónica | Automático
+| Centro de datos secundario o remoto | SQL-3 | Secundario | Asincrónica | Manual
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Más información acerca de la conmutación por error manual planeada y forzada
 
-Para obtener más información, consulte los temas siguientes:
+Para obtener más información, vea los temas siguientes:
 
 - [Realizar una conmutación por error manual planeada de un grupo de disponibilidad (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Realizar una conmutación por error manual forzada de un grupo de disponibilidad (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
@@ -181,6 +199,6 @@ Para obtener más información, consulte los temas siguientes:
 ## <a name="additional-links"></a>Vínculos adicionales
 
 * [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Equilibradores de carga de Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Conjuntos de disponibilidad de Azure](../manage-availability.md)

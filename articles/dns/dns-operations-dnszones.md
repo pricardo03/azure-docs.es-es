@@ -3,7 +3,7 @@ title: Administración de zonas DNS en Azure DNS - PowerShell | Microsoft Docs
 description: Puede administrar zonas DNS con Azure Powershell. Este artículo describe cómo actualizar, eliminar y crear zonas DNS en Azure DNS
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: timlt
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: allensu
-ms.openlocfilehash: 7a838f10d44f3be0af79bba5d303467884159cbf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 0120501aab7f0a63721126bfb5b3d04d9deb42fb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211707"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936803"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Cómo administrar zonas DNS con PowerShell
 
@@ -125,7 +125,7 @@ Al usar `Set-AzureRmDnsZone` con un objeto $zone, se utilizan las [comprobacione
 Las zonas DNS se pueden eliminar mediante el cmdlet `Remove-AzureRmDnsZone`.
 
 > [!NOTE]
-> Si se elimina una zona DNS, también se eliminan todos los registros DNS dentro de la zona. Esta operación no se puede deshacer. Si la zona DNS está en uso, los servicios con la zona provocarán un error cuando se elimina la zona.
+> Si se elimina una zona DNS, también se eliminan todos los registros DNS dentro de la zona. No se puede deshacer esta operación. Si la zona DNS está en uso, los servicios con la zona provocarán un error cuando se elimina la zona.
 >
 >Para protegerse contra la eliminación accidental de zona, consulte [Proteger registros y zonas DNS](dns-protect-zones-recordsets.md).
 

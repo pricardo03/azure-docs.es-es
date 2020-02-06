@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 3401ed08a9332d4bb2735e536df33c201b28ca0e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778352"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841955"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -52,7 +52,7 @@ Cada usuario o grupo que procesa el servicio de aprovisionamiento de Azure AD se
 
 Por ejemplo, teniendo en cuenta el siguiente filtro de ámbito:
 
-![Filtro de ámbito](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Filtro de ámbito](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 Según este filtro de ámbito, los usuarios deben cumplir los siguientes criterios para ser aprovisionados:
 
@@ -94,7 +94,12 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
    g. **REGEX MATCH**. La cláusula devuelve "true" si el atributo que se evalúa coincide con el patrón de una expresión regular. Ejemplo: ([1-9][0-9]) coincide con cualquier número entre 10 y 99.
 
    h. **NOT REGEX MATCH**. La cláusula devuelve "true" si el atributo que se evalúa no coincide con el patrón de una expresión regular.
- 
+   
+   i. **Greater_Than.** La cláusula devuelve "true" si el atributo evaluado es mayor que el valor. El valor especificado en el filtro de ámbito debe ser un entero y el atributo del usuario debe ser un entero [0, 1, 2,...]. 
+   
+   j. **Greater_Than_OR_EQUALS.** La cláusula devuelve "true" si el atributo evaluado es mayor o igual que el valor. El valor especificado en el filtro de ámbito debe ser un entero y el atributo del usuario debe ser un entero [0, 1, 2,...]. 
+
+
 >[!IMPORTANT] 
 > No se admiten los filtros Includes e IsMemberOf. Pronto se quitarán de la interfaz de usuario.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d56504c96c5e039f2563a1bfee577fe9b15e8563
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513749"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715568"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -37,9 +37,7 @@ Tras iniciar la transmisión de los datos del sensor, puede comenzar el proceso 
  - Secreto del cliente
  - Cadena de conexión de EventHub
 
-El integrador de sistemas le proporciona la información anterior. Si tiene algún problema al habilitar las integraciones de dispositivos, póngase en contacto con él.
-
-También puede generar las credenciales mediante la ejecución de este script desde Azure Cloud Shell. Siga estos pasos.
+Para generar la información anterior siga estos pasos: (Tenga en cuenta que estos pasos se deben realizar en Azure, por lo que necesitará acceso a la suscripción de Azure en la que se implementó FarmBeats)
 
 1. Descargue el [archivo zip](https://aka.ms/farmbeatspartnerscriptv2) y extráigalo en la unidad local. Habrá un archivo dentro del archivo ZIP.
 2. Inicie sesión en https://portal.azure.com/ y vaya a Azure Active Directory> Registros de aplicaciones.
@@ -74,13 +72,16 @@ También puede generar las credenciales mediante la ejecución de este script de
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integración de los datos de los dispositivos con las credenciales generadas
 
-Vaya al portal de asociados de dispositivo para vincular FarmBeats con el conjunto de credenciales que generó en la sección anterior:
-
+Ahora tiene la siguiente información generada desde la sección anterior.
  - Punto de conexión de API
  - Cadena de conexión de EventHub
  - Id. de cliente
  - Secreto del cliente
  - Id. de inquilino
+ 
+Deberá proporcionar esta información a su asociado de dispositivo para la vinculación con FarmBeats. Vaya al portal de asociados de dispositivos para hacer lo mismo. Por ejemplo, en caso de que use dispositivos de Davis Instruments, vaya a la página siguiente:
+
+[Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
 
  El proveedor del dispositivo confirma una integración correcta. Tras la confirmación, puede ver todos los dispositivos y sensores en Azure FarmBeats.
 

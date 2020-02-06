@@ -13,13 +13,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1c6d89af1d88be9a241c94462b17edf0c93de2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e85a768d8e4f11ca3637bc8f0b394cfb1ea9744a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843196"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697479"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opciones de ayuda y soporte técnico para desarrolladores
 
@@ -48,7 +47,7 @@ Donde *{Your Search Terms}* son sus palabras clave de búsqueda.
 
 ## <a name="use-the-development-support-tools"></a>Uso de las herramientas de soporte técnico de desarrollo
 
-| Herramienta  | DESCRIPCIÓN  |
+| Herramienta  | Descripción  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Pegue un identificador o un token de acceso para descodificar los valores y nombres de notificaciones. |
 | [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Esta herramienta le permite realizar las solicitudes y ver las respuestas en Microsoft Graph API. |

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756552"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757873"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos del sistema de Azure Data Box Edge
 
@@ -36,7 +36,7 @@ Los requisitos del sistema de Data Box Edge incluyen:
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-storage-types"></a>Tipos de almacenamiento admitidos
+## <a name="supported-storage-types"></a>Tipos de almacenamiento compatibles
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
@@ -123,10 +123,10 @@ Para comprender y ajustar el rendimiento de la solución, puede usar:
 - Las métricas de proceso disponibles en Azure Portal. Vaya al recurso Data Box Edge y, después, a **Supervisión > Métricas**. Examine **Proceso perimetral > Uso de la memoria** y **Proceso perimetral > Porcentaje de CPU** para entender los recursos disponibles y cómo se consumen los recursos.
 - Los comandos de supervisión disponibles a través de la interfaz de PowerShell del dispositivo, como:
 
-    - Estadísticas de `dkr` para obtener una transmisión en vivo de las estadísticas del uso de recursos de los contenedores. El comando es compatible con las métricas de CPU, uso de memoria, límite de memoria y E/S de red.
-    - `dkr system df` para obtener información relacionada con la cantidad de espacio en disco utilizado. 
-    - `dkr image [prune]` para limpiar las imágenes no utilizadas y liberar espacio.
-    - `dkr ps --size` para ver el tamaño aproximado de un contenedor en ejecución. 
+    - `dkrdbe stats` para obtener un streaming en vivo de las estadísticas de uso de recursos de los contenedores. El comando es compatible con las métricas de CPU, uso de memoria, límite de memoria y E/S de red.
+    - `dkrdbe system df` para obtener información relacionada con la cantidad de espacio en disco utilizado. 
+    - `dkrdbe image prune` para limpiar las imágenes no utilizadas y liberar espacio.
+    - `dkrdbe ps --size` para ver el tamaño aproximado de un contenedor en ejecución. 
 
     Para obtener más información sobre los comandos disponibles, vaya a [Supervisar y solucionar problemas de los módulos de proceso](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 

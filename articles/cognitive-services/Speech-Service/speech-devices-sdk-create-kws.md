@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: dapine
-ms.openlocfilehash: 5bd7352230d4d9daaed219f654be51dc528bea8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 46e9f8e660c3fd62807d630481e6b3057d2351a5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380191"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717014"
 ---
 # <a name="create-a-custom-keyword-using-speech-studio"></a>Creación de una palabra clave personalizada mediante Speech Studio
 
@@ -49,7 +49,7 @@ Antes de poder usar una palabra clave personalizada, deberá crear una palabra c
 
     ![Revisión de la palabra clave](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
-1. El modelo puede tardar hasta diez minutos en generarse. La lista de palabras clave cambiará de **Procesando** a **Correcto** cuando el modelo esté completo. Luego puede descargar el archivo.
+1. El modelo puede tardar hasta treinta minutos en generarse. La lista de palabras clave cambiará de **Procesando** a **Correcto** cuando el modelo esté completo. Luego puede descargar el archivo.
 
     ![Revisión de la palabra clave](media/custom-keyword/custom-kws-portal-download-model.png)
 

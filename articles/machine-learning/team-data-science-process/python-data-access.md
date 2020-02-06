@@ -3,20 +3,20 @@ title: 'Acceso a conjuntos de datos con la biblioteca de cliente de Python: proc
 description: Instale y use la biblioteca de cliente de Python para tener acceso y administrar datos de Azure Machine Learning de forma segura desde un entorno local de Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 241f804b0519fd744e8b980b2d311a72680aafad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427383"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720986"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -43,7 +43,7 @@ Tiene una dependencia en los siguientes paquetes:
 Se recomienda utilizar una distribución de Python como [Anaconda](http://continuum.io/downloads#all) o [Canopy](https://store.enthought.com/downloads/), incluidas con Python, IPython y los tres paquetes instalados enumerados anteriormente. Aunque IPython no es estrictamente necesario, es un excelente entorno para manipular y visualizar datos de forma interactiva.
 
 ### <a name="installation"></a>Cómo instalar la biblioteca de cliente de Python de Azure Machine Learning
-La biblioteca cliente de Python de Azure Machine Learning también debe instalarse para completar las tareas descritas en este tema. Está disponible desde el [Índice de paquetes de Python](https://pypi.python.org/pypi/azureml). Para instalarlo en su entorno de Python, ejecute el siguiente comando desde el entorno de Python local:
+Instale la biblioteca cliente de Python de Azure Machine Learning para completar las tareas descritas en este tema. Esta biblioteca está disponible desde el [índice de paquetes de Python](https://pypi.python.org/pypi/azureml). Para instalarlo en su entorno de Python, ejecute el siguiente comando desde el entorno de Python local:
 
     pip install azureml
 
@@ -70,13 +70,13 @@ Por motivos de seguridad, la funcionalidad de fragmento de código solo está di
 
 Si su rol no está establecido como **Propietario**, puede solicitar que se le vuelva a invitar como propietario o pedir al propietario del área de trabajo que le proporcione el fragmento de código.
 
-Para obtener el token de autorización, puede realizar una de las acciones siguientes:
+Para obtener el token de autorización, puede elegir una de estas opciones:
 
 * Solicite un token a un propietario. Los propietarios pueden acceder a sus tokens de autorización desde la página de configuración de su área de trabajo en Azure Machine Learning Studio (clásico). Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens primarios y secundarios. Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
 
    ![Tokens de autorización](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Pida que le amplíen al rol de propietario. Para ello, un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
+* Pida que le promuevan al rol de propietario: un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
 
 Cuando los desarrolladores hayan obtenido el identificador de área de trabajo y el token de autorización, podrán acceder al área de trabajo con el fragmento de código independientemente de su rol.
 
@@ -100,7 +100,7 @@ Después de ejecutar un experimento en Machine Learning Studio (clásico), es po
 
 El acceso a los conjuntos de datos intermedios es posible siempre que el formato de los datos sea compatible con la biblioteca de cliente de Python.
 
-Se admiten los siguientes formatos (sus constantes están en la clase `azureml.DataTypeIds` ):
+Se admiten los siguientes formatos (sus constantes están en la clase `azureml.DataTypeIds`):
 
 * PlainText
 * GenericCSV
@@ -124,7 +124,7 @@ Los pasos siguientes muestran un ejemplo que crea un experimento, lo ejecuta y t
 2. Inserte un módulo **Conjunto de datos de clasificación binaria de ingresos en el censo de adultos** .
 3. Inserte un módulo [División][split] y conecte su entrada a la salida del módulo del conjunto de datos.
 4. Inserte un módulo [Convertir en CSV][convert-to-csv] y conecte su entrada a una de las salidas del módulo [División][split].
-5. Guarde el experimento, ejecútelo y espere a que finalice su ejecución.
+5. Guarde el experimento, ejecútelo y espere a que finalice la ejecución del trabajo.
 6. Haga clic en el nodo de salida del módulo [Convertir en CSV][convert-to-csv].
 7. Cuando aparezca el menú contextual, seleccione **Generar código de acceso a datos**.
    

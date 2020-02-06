@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f91960eaac92047e76275e63b1feaf471de3bac3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 892d4642d700949d1d1169c69926021c751cef67
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692789"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721292"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -34,15 +34,15 @@ En este tutorial se usa Azure Machine Learning para crear un modelo de aprendiza
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
-Para seguir paso a paso este tutorial, necesita:
+## <a name="prerequisites"></a>Prerequisites
+Para realizar este tutorial, necesita:
 
-* Una instancia de SQL Data Warehouse con la base de datos de ejemplo AdventureWorksDW previamente cargada. Para aprovisionarla, consulte [Creación de una instancia de Azure SQL Data Warehouse][Create a SQL Data Warehouse] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][load sample data manually].
+* Una instancia de SQL Data Warehouse con la base de datos de ejemplo AdventureWorksDW previamente cargada. Para aprovisionarla, consulte [Creación de una instancia de Azure SQL Data Warehouse](create-data-warehouse-portal.md) y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo](sql-data-warehouse-load-sample-databases.md).
 
 ## <a name="1-get-the-data"></a>1. Obtener los datos
 Los datos están en la vista dbo.vTargetMail en la base de datos AdventureWorksDW. Para leer estos datos:
 
-1. Inicie sesión en [Azure Machine Learning Studio][Azure Machine Learning studio] y haga clic en mis experimentos.
+1. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/) y haga clic en mis experimentos.
 2. Haga clic en **+ NUEVO** en la parte inferior izquierda de la pantalla y seleccione **Experimento en blanco**.
 3. Escriba un nombre para el experimento: Marketing dirigido.
 4. Arrastre el módulo **Importar datos** de **Entrada y salida de datos** desde el panel de módulos hasta el lienzo.
@@ -70,75 +70,65 @@ FROM [dbo].[vTargetMail]
 ```
 
 Para ejecutar el experimento, haga clic en **Ejecutar** en el lienzo de experimentos.
-![Ejecutar el experimento][1]
+
+![Ejecución del experimento](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png)
 
 Cuando el experimento haya terminado de ejecutarse correctamente, haga clic en el puerto de salida en la parte inferior del módulo del lector y seleccione **Visualizar** para ver los datos importados.
-![Ver los datos importados][3]
+
+![Ver datos importados](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png)
 
 ## <a name="2-clean-the-data"></a>2. Limpiar los datos
 Para limpiar los datos, se quitarán algunas columnas que no son relevantes para el modelo. Para ello, siga estos pasos:
 
 1. Arrastre el módulo **Seleccionar columnas en el conjunto de datos** bajo la opción **Transformación de datos < Manipulación** en el lienzo. Conecte este módulo al módulo **Importar datos**.
 2. Haga clic en **Iniciar selector de columnas** en el panel Propiedades para especificar las columnas que desea quitar.
-   ![Columnas del proyecto][4]
+
+   ![Columnas del proyecto](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png)
 3. Excluya dos columnas: CustomerAlternateKey y GeographyKey.
-   ![Quitar las columnas innecesariass][5]
+
+   ![Quitar las columnas innecesarias](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png)
 
 ## <a name="3-build-the-model"></a>3. Generar el modelo
 Dividiremos los datos en 80-20: 80 % para entrenar un modelo de aprendizaje automático y un 20 % para probar el modelo. Usaremos los algoritmos de "dos clases" para este problema de clasificación binaria.
 
 1. Arrastre el módulo **Dividir** al lienzo.
 2. En el panel de propiedades, escriba 0,8 en la fracción de filas del primer conjunto de datos de salida.
-   ![Dividir los datos en conjunto de entrenamiento y prueba][6]
+
+   ![Dividir los datos en conjunto de entrenamiento y prueba](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png)
 3. Arrastre el módulo **Árbol de decisión aumentado de dos clases** al lienzo.
 4. Arrastre el módulo **Modelo de entrenamiento** al lienzo y especifique las entradas conectándolo a los módulos **Árbol de decisiones mejorado de dos clases** (algoritmo ML) y **Dividir** (datos para entrenar el algoritmo). 
-     ![Conectar el módulo Entrenar modelo][7]
+
+     ![Conectar el módulo Entrenar modelo](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png)
 5. Luego, haga clic en **Iniciar el selector de columnas** en el panel Propiedades. Seleccione la columna **BikeBuyer** como columna de predicción.
-   ![Seleccionar columna de predicción][8]
+
+   ![Seleccionar la columna de predicción](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png)
 
 ## <a name="4-score-the-model"></a>4. Puntuación del modelo
 Ahora, probaremos cómo funciona el modelo con datos de prueba. Compararemos el algoritmo que elijamos con otro algoritmo para comprobar cuál funciona mejor.
 
 1. Arrastre el módulo **Modelo de puntuación** al lienzo y conéctelo a los módulos **Modelo de entrenamiento** y **Datos divididos**.
-   ![Puntuación del modelo][9]
+
+   ![Puntuación del modelo](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png)
 2. Arrastre **Máquina del punto de Bayes de dos clases** al lienzo del experimento. Compararemos cómo funciona este algoritmo en comparación con el Árbol de decisión aumentado de dos clases.
 3. Copie y pegue los módulos Entrenar modelo y Puntuar modelo en el lienzo.
 4. Arrastre el módulo **Evaluar modelo** al lienzo para comparar los dos algoritmos.
 5. **Ejecute** el experimento.
-   ![Ejecutar el experimento][10]
+
+   ![Ejecución del experimento](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png)
 6. Haga clic en el puerto de salida en la parte inferior del módulo Evaluar modelo y haga clic en Visualizar.
-   ![Visualizar los resultados de evaluación][11]
+
+   ![Visualizar los resultados de evaluación](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png)
 
 Las métricas proporcionadas son la curva ROC, el diagrama de retirada-precisión y la curva de elevación. Al mirar estas métricas, podemos ver que el primer modelo funciona mejor que el segundo. Para ver lo que ha predicho el primer modelo, haga clic en el puerto de salida de Puntuar modelo y haga clic en Visualizar.
-![Visualizar los resultados de puntuación][12]
+
+![Visualizar los resultados de puntuación](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png)
 
 Verá dos columnas más agregadas al conjunto de datos de prueba.
 
 * Probabilidades puntuadas: la probabilidad de que un cliente sea comprador de bicicletas.
 * Etiquetas puntuadas: la clasificación realizada por el modelo – comprador de bicicletas (1) o no (0). Este umbral de probabilidad para etiquetar se establece en 50% y se puede ajustar.
 
-Comparación de la columna BikeBuyer (real) con las etiquetas puntuadas (predicción), puede ver cómo ha funcionado el modelo. Como pasos siguientes, puede usar este modelo para realizar predicciones para los nuevos clientes y publicar este modelo como un servicio web o volver a escribir los resultados en SQL Data Warehouse.
+Comparación de la columna BikeBuyer (real) con las etiquetas puntuadas (predicción), puede ver cómo ha funcionado el modelo. A continuación, puede usar este modelo para realizar predicciones para los nuevos clientes y publicarlo como un servicio web, o bien volver a escribir los resultados en SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre la creación de modelos de aprendizaje automático predictivo, consulte [Introducción a Machine Learning en Azure][Introduction to Machine Learning on Azure].
-
-<!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png
-[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2-visualize-new.png
-[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png
-[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png
-[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png
-[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png
-[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png
-[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
-[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
-[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png
-[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
-
-
-<!--Article references-->
-[Azure Machine Learning studio]:https://studio.azureml.net/
-[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[load sample data manually]: sql-data-warehouse-load-sample-databases.md
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+Para obtener más información sobre la creación de modelos de aprendizaje automático predictivo, consulte [Introducción a Machine Learning en Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

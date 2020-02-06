@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7dc032d52a8cb3c5c54cf57c7ae7bf697796b5cc
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 2d800dc401b0d85b26a71817a1a70d66539203ae
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910600"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902129"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante C#
 
@@ -28,7 +28,7 @@ Azure Data Explorer es un servicio de análisis de datos rápido y totalmente ad
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Si no tiene Visual Studio 2019 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
+* Si no tiene Visual Studio 2019 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="install-c-nuget"></a>Instalación de NuGet C#
@@ -97,10 +97,13 @@ Si el resultado contiene `ProvisioningState` con el valor `Succeeded`, significa
     var hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
     var softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
     var databaseName = "mykustodatabase";
-    var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
+    var database = new ReadWriteDatabase(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
 
     await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
+
+        [!NOTE]
+        If you are using C# version 2.0.0 or below, use Database instead of ReadWriteDatabase.
 
    |**Configuración** | **Valor sugerido** | **Descripción del campo**|
    |---|---|---|
@@ -113,7 +116,7 @@ Si el resultado contiene `ProvisioningState` con el valor `Succeeded`, significa
 2. Ejecute el siguiente comando para ver la base de datos que ha creado:
 
     ```csharp
-    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
+    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName) as ReadWriteDatabase;
     ```
 
 Ahora cuenta con un clúster y una base de datos.

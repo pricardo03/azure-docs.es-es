@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a crear almacenes de Recovery Service
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 6a880f84d5e8626d36ac3f4b440436b479ec5f6d
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 682bf26c1485bd9e2ae288a6947e9ad573463069
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708547"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705469"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -90,7 +90,8 @@ En este proceso hay implicaciones de precios, ya que se encuentra en el nivel de
 >- Revise la [matriz de compatibilidad](backup-support-matrix.md#cross-region-restore) para obtener una lista de regiones y tipos administrados compatibles.
 >- La característica Restauración entre regiones (CRR) solo está disponible actualmente en la región WCUS.
 >- CRR es una característica opcional de nivel de almacén para cualquier almacén GRS (está desactivada de forma predeterminada).
->- Use *"featureName": "CrossRegionRestore"* para incorporar su suscripción a esta característica.
+>- Use el siguiente comando para incorporar la suscripción para esta característica:<br>
+>  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
 >- Si se incorpora a esta característica durante la versión preliminar limitada pública, el correo electrónico de aprobación de la revisión incluirá los detalles de la directiva de precios.
 >- Tras la incorporación, los elementos de copia de seguridad pueden tardar hasta 48 horas en estar disponibles en las regiones secundarias.
 >- Actualmente, solo se admite CRR para el tipo de administración de copias de seguridad de VM de Azure de ARM (VM de Azure clásica no se admitirá).  Si otros tipos de administración admiten CRR, se inscribirán **automáticamente**.

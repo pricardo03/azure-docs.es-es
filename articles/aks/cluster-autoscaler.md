@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 033cf88e29ba4a9f7ce9397fe216f7380e70be07
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885781"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713403"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -41,7 +41,7 @@ Para adaptarse a las cambiantes necesidades de las aplicaciones, como detallar l
 
 Tanto Horizontal Pod Autoscaler como Cluster Autoscaler pueden reducir el número de pods y nodos según sea necesario. El escalado automático de clústeres reduce el número de nodos cuando no se usa toda la capacidad durante un período de tiempo. Los pods de un nodo que quitará el escalado automático de clústeres se programan con seguridad en otra parte del clúster. El escalado automático de clústeres no se puede reducir verticalmente si no se pueden mover los pods, tal como se detalla en las situaciones siguientes:
 
-* Un pod creado directamente y que no lo respalde un objeto de controlador, como una implementación o un conjunto de réplicas.
+* Un pod se crea directamente y no lo respalda un objeto de controlador, como una implementación o un conjunto de réplicas.
 * Un presupuesto de interrupciones de pods (PDB) es demasiado restrictivo y no permite que la cantidad de pods sea menor que el umbral definido.
 * Un pod usa selectores de nodo o antiafinidad que no se pueden respetar si se programan en un nodo diferente.
 

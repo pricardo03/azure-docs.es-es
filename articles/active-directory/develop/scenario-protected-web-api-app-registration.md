@@ -16,90 +16,101 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86c36661dd8b5d43417ca1d845eef5cdb146f1e9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2d9e5d051f101288b8528b47fa88b4783a040950
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962532"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775161"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
 
 En este artículo se explican los detalles específicos de registro de la aplicación para una API web protegida.
 
-Consulte [Quickstart: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md) para obtener información sobre los pasos comunes para registrar una aplicación.
+Para conocer los pasos comunes para registrar una aplicación, consulte [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md).
 
 ## <a name="accepted-token-version"></a>Versión del token aceptada
 
-El punto de conexión de la plataforma de identidad de Microsoft puede emitir dos tipos de tokens: v1.0 y v2.0. Para obtener más información sobre estos tokens, consulte [Tokens de acceso](access-tokens.md). La versión del token aceptada depende de los **Tipos de cuentas admitidos** que eligió al crear la aplicación:
+El punto de conexión de la plataforma de identidad de Microsoft puede emitir tokens v1.0 y v2.0. Para obtener más información sobre estos tokens, consulte [Tokens de acceso](access-tokens.md).
 
-- Si el valor de **tipos de cuentas admitidos** es **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio organizativo y cuentas Microsoft personales) como, por ejemplo, Skype, Xbox y Outlook.com, la versión del token será v2.0.
+La versión del token aceptada depende del valor de **Supported account types** (Tipos de cuentas compatibles) que eligió al crear la aplicación.
+
+- Si el valor de **Supported account types** (Tipos de cuenta compatibles) es **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** , la versión del token aceptada será v2.0.
 - En caso contrario, la versión del token aceptada será v1.0.
 
 Después de crear la aplicación, puede determinar o cambiar la versión del token aceptada siguiendo estos pasos:
 
-1. En Azure Portal, seleccione la aplicación y, a continuación, seleccione el **Manifiesto** para la aplicación.
-2. En el manifiesto, busque **"accessTokenAcceptedVersion"** . Observe que su valor es **2**. Esta propiedad especifica a Azure Active Directory (Azure AD) que la API web acepta tokens v2.0. Si el valor es **null**, la versión del token aceptada es v1.0.
-3. Si ha cambiado la versión de token, seleccione **Guardar**.
+1. En Azure Portal, seleccione la aplicación y, luego, seleccione **Manifiesto**.
+1. Busque la propiedad **accessTokenAcceptedVersion** en el manifiesto. El valor predeterminado de la propiedad es 2.
+1. El valor especifica a Azure Active Directory (Azure AD) qué versión del token acepta la API web.
+    - Si el valor es 2, la API web acepta tokens v 2.0.
+    - Si el valor es **NULL**, la API web acepta tokens v1.0.
+1. Si ha cambiado la versión del token, seleccione **Guardar**.
 
 > [!NOTE]
-> La API web especifica qué versión del token (v1.0 o v2.0) acepta. Cuando los clientes solicitan un token para la API web desde el punto de conexión de la plataforma de identidad de Microsoft (v2.0), reciben un token que indica qué versión acepta la API web.
+> La API web especifica qué versión del token acepta. Cuando un cliente solicita un token para la API web desde el punto de conexión de la plataforma de identidad de Microsoft (v2.0), el cliente obtiene un token que indica qué versión del token acepta la API web.
 
 ## <a name="no-redirect-uri"></a>URI sin redireccionamiento
 
-Las API web no necesitan registrar ningún URI de redireccionamiento porque no hay ningún usuario con la sesión iniciada de forma interactiva.
+Las API web no necesitan registrar ningún URI de redirección porque no hay ningún usuario con la sesión iniciada de forma interactiva.
 
-## <a name="expose-an-api"></a>Exponer una API
+## <a name="exposed-api"></a>API expuesta
 
-Otra configuración específica para las API web es la API expuesta y los ámbitos expuestos.
+Otra configuración específica de las API web es la API expuesta y los ámbitos expuestos.
 
-### <a name="resource-uri-and-scopes"></a>Ámbitos y URI de recursos
+### <a name="application-id-uri-and-scopes"></a>URI y ámbitos del identificador de aplicación
 
-Normalmente, los ámbitos tienen el formato `resourceURI/scopeName`. Para Microsoft Graph, los ámbitos tienen accesos directos, como `User.Read`. Esta cadena es un acceso directo para `https://graph.microsoft.com/user.read`.
+Normalmente, los ámbitos tienen el formato `resourceURI/scopeName`. En Microsoft Graph, los ámbitos tienen accesos directos. Por ejemplo, `User.Read` es un acceso directo de `https://graph.microsoft.com/user.read`.
 
 Durante el registro de la aplicación, debe definir estos parámetros:
 
-- URI del recurso. De forma predeterminada, el portal de registro de aplicación recomienda utilizar `api://{clientId}`. Este URI de recurso es único, pero los humanos no lo pueden leer. Puede cambiarlo, pero asegúrese de que el nuevo valor sea único.
-- Uno o varios *ámbitos*. (Para las aplicaciones cliente, se mostrarán como *permisos delegados* para su API web).
-- Uno o varios *roles de aplicación*. (Para las aplicaciones cliente, se mostrarán como *permisos de aplicación* para su API web).
+- URI del recurso
+- Uno o varios ámbitos
+- Uno o varios roles de aplicación
 
-Los ámbitos también se muestran en la pantalla de consentimiento que se presenta a los usuarios finales de la aplicación. Por lo que deberá proporcionar las cadenas correspondientes que describen el ámbito:
+De forma predeterminada, el portal de registro de aplicación recomienda usar el URI de recurso `api://{clientId}`. Este URI es único pero no es legible para los humanos. Si cambia el URI, asegúrese de que el nuevo valor sea único.
 
-- Como las ve el usuario final.
-- Como las ve el administrador del inquilino, que puede otorgar el consentimiento del administrador.
+Para las aplicaciones cliente, los ámbitos se muestran como *permisos delegados* y los roles de aplicación se muestran como *permisos de aplicación* para la API web.
+
+También aparecen ámbitos en la ventana de consentimiento que se presenta a los usuarios de la aplicación. Por lo tanto, deberá proporcionar las cadenas correspondientes que describen el ámbito:
+
+- Como las ve un usuario.
+- Como las ve un administrador de inquilinos, que puede otorgar consentimiento de administrador.
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Exponer permisos delegados (ámbitos)
 
-1. Seleccione la sección **Exponer una API** en el registro de aplicación.
+1. Seleccione **Exponer una API** en el registro de la aplicación.
 1. Seleccione **Agregar un ámbito**.
-1. Si se le pide, acepte el URI de identificador de aplicación propuesto (`api://{clientId}`) seleccionando **Guardar y continuar**.
-1. Especifique estos parámetros:
-      - Para **Nombre de ámbito**, use **access_as_user**.
-      - Para **¿Quién puede dar el consentimiento?** , asegúrese de que esté seleccionada la opción **Administradores y usuarios**.
-      - En **Nombre para mostrar del consentimiento del administrador**, escriba **Access TodoListService as a user**.
-      - En **Descripción del consentimiento del administrador**, escriba **Accesses the TodoListService Web API as a user**.
-      - En **Nombre para mostrar del consentimiento del usuario** , escriba **Access TodoListService as a user**.
-      - En **Descripción del consentimiento del administrador**, escriba **Accesses the TodoListService Web API as a user**.
-      - Deje el **Estado** establecido en **Habilitado**.
-      - Seleccione **Agregar ámbito**.
+1. Si se le pregunta, seleccione **Guardar y continuar** para aceptar el URI de identificador de aplicación propuesto (`api://{clientId}`).
+1. Especifique estos valores:
+    - Seleccione **Nombre de ámbito** y escriba **access_as_user**.
+    - Seleccione **¿Quién puede dar el consentimiento?** y asegúrese de que esté seleccionado **Administradores y usuarios**.
+    - En **Nombre para mostrar del consentimiento del administrador**, escriba **Access TodoListService as a user** (Acceder a TodoListService como usuario).
+    - Seleccione **Descripción del consentimiento del administrador** y escriba **Accesses the TodoListService Web API as a user** (Accede a la API web de TodoListService como usuario).
+    - Seleccione **Nombre para mostrar del consentimiento del usuario**  y escriba **Access TodoListService as a user** (Accede a TodoListService como usuario).
+    - En **Descripción del consentimiento del usuario**, escriba **Accesses the TodoListService Web API as a user** (Accede a la API web de TodoListService como usuario).
+    - Mantenga el valor de **Estado** establecido en **Habilitado**.
+ 1. Seleccione la opción **Agregar un ámbito**.
 
 ### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>Si una aplicación de demonio llama a la API web
 
 En esta sección, aprenderá a registrar su API web protegida para que las aplicaciones de demonio puedan invocarla de forma segura.
 
-- Deberá exponer los *permisos de aplicación*. Solo declarará permisos de aplicación porque las aplicaciones de demonio no interactúan con los usuarios, de modo que los permisos delegados no tendrían sentido.
-- Los administradores de inquilinos pueden requerir que Azure Active Directory (Azure AD) emita tokens para la API web solo para las aplicaciones que se han registrado para tener acceso a uno de los permisos de aplicación de la API web.
+- Solo se declaran y exponen *permisos de aplicación* ya que las aplicaciones de demonio no interactúan con los usuarios. Los permisos delegados no tendrían sentido.
+- Los administradores de inquilinos pueden exigir que Azure AD emita tokens de API web solo para las aplicaciones que se han registrado para acceder a uno de los permisos de aplicación de la API.
 
 #### <a name="exposing-application-permissions-app-roles"></a>Exposición de permisos de aplicación (roles de aplicación)
 
 Para exponer permisos de aplicación, debe editar el manifiesto.
 
 1. En el registro de aplicación para la aplicación, seleccione **Manifiesto**.
-1. Localice la opción de configuración `appRoles` y agregue uno o varios roles de aplicación para editar el manifiesto. En el siguiente bloque de JSON de ejemplo se proporciona la definición del rol. Deje `allowedMemberTypes` establecido solo en `"Application"`. Asegúrese de que `id` es un GUID único y de que `displayName` y `value` no contienen espacios.
+1. Para editar el manifiesto, busque el valor `appRoles` y agregue roles de aplicación. En el siguiente bloque JSON de ejemplo se proporcionan las definiciones del rol.
+1. Deje `allowedMemberTypes` establecido solo en `"Application"`.
+1. Asegúrese de que `id` sea un GUID único.
+1. Asegúrese de que `displayName` y `value` no contengan espacios.
 1. Guarde el manifiesto.
 
-En el ejemplo siguiente se muestra el contenido de `appRoles`. (`id` puede ser cualquier GUID único).
+En el ejemplo siguiente se muestra el contenido de `appRoles`, donde el valor de `id` puede ser cualquier GUID único.
 
 ```JSon
 "appRoles": [
@@ -118,22 +129,27 @@ En el ejemplo siguiente se muestra el contenido de `appRoles`. (`id` puede ser c
 
 #### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>Asegurarse de que Azure AD emite tokens para la API web solo para los clientes permitidos
 
-La API web comprueba el rol de aplicación. Es la manera que tiene el desarrollador de exponer los permisos de aplicación. Pero también puede configurar Azure AD para emitir un token para la API web solo para las aplicaciones que ha aprobado el administrador de inquilinos para que accedan a la API. Para agregar esta seguridad mejorada:
+La API web comprueba el rol de aplicación. Este rol es una manera de que un desarrollador de software exponga permisos de aplicación. También puede configurar Azure AD para que emita tokens de API solo a las aplicaciones que el administrador de inquilinos apruebe para el acceso a API.
 
-1. En la página **Introducción** de la aplicación para el registro de la aplicación, seleccione el vínculo con el nombre de la aplicación en **Aplicación administrada en directorio local**. Es posible que el título de este campo se muestre truncado. Por ejemplo, puede que vea **Aplicación administrada en...**
+Para agregar esta seguridad mejorada:
+
+1. Vaya a la página **Información general** del registro de aplicaciones.
+1. En **Aplicación administrada en directorio local**, seleccione el vínculo con el nombre de la aplicación. Puede que la etiqueta de esta selección esté truncada. Por ejemplo, puede que vea **Aplicación administrada en...**
 
    > [!NOTE]
    >
-   > Al seleccionar este vínculo, se le dirigirá a la página de **Introducción a la aplicación empresarial** asociada con la entidad de servicio para la aplicación en el inquilino donde la creó. Para volver a la página de registro de la aplicación, use el botón Atrás del explorador.
+   > Al seleccionar este vínculo, irá a la página de **información general sobre aplicaciones empresariales**. Esta página está asociada a la entidad de servicio de la aplicación del inquilino en el que la creó. Para volver a la página de registro de aplicaciones, use el botón Atrás del explorador.
 
 1. Seleccione la página **Propiedades** de la sección **Administrar** de las páginas de la aplicación empresarial.
 1. Para que Azure AD permita el acceso a la API web solo desde determinados clientes, establezca **¿Asignación de usuarios?** en **Sí**.
 
    > [!IMPORTANT]
    >
-   > Si establece la opción **¿Asignación de usuarios?**  en **Sí**, Azure AD comprobará las asignaciones de roles de aplicación de los clientes cuando soliciten un token de acceso para la API web. Si el cliente no está asignado a ningún rol de aplicación, Azure AD devolverá el error `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`.
+   > Si establece **¿Asignación de usuarios?** en **Sí**, Azure AD comprueba las asignaciones de roles de aplicación de un cliente cuando solicita un token de acceso a la API web. Si el cliente no tiene asignado ningún rol de aplicación, Azure AD devolverá el mensaje de error "invalid_client: AADSTS501051: La aplicación \<nombre de aplicación\> no tiene asignado un rol para la \<API web\>".
    >
-   > Si define **¿Asignación de usuarios?** como **No**, *Azure AD no comprobará las asignaciones de rol de la aplicación cuando un cliente solicite un token de acceso para la API web*. Cualquier cliente de demonio (es decir, cualquier cliente que use el flujo de credenciales de cliente) podrá obtener un token de acceso para la API, simplemente, especificando su público. Cualquier aplicación podrá acceder a la API sin tener que solicitar permiso. Pero la API web siempre puede, como se explica en la sección anterior, comprobar que la aplicación tiene el rol correcto (autorizado por el administrador de inquilinos). Para realizar esta verificación, la API valida que el token de acceso tiene una notificación de roles con un valor correcto. (En nuestro caso, el valor es `access_as_application`).
+   > Si mantiene **¿Asignación de usuarios?** establecido en **No**, Azure AD no comprobará las asignaciones de rol de la aplicación cuando un cliente solicite un token de acceso para la API web. Cualquier cliente de demonio (es decir, cualquier cliente que use el flujo de credenciales de cliente) puede obtener un token de acceso para la API con solo especificar su público. Cualquier aplicación puede acceder a la API sin tener que solicitar permiso para ello.
+   >
+   > Sin embargo, como se ha explicado en la sección anterior, la API web siempre puede comprobar que la aplicación tenga el rol correcto, que esté autorizado por el administrador de inquilinos. Para realizar esta verificación, la API valida que el token de acceso tiene una notificación de roles con un valor correcto. En el ejemplo JSON anterior, el valor es `access_as_application`.
 
 1. Seleccione **Guardar**.
 

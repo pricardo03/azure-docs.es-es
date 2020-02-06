@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790887"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760800"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceptos de conjunto de aptitudes y composición de consultas en Azure Cognitive Search
 
@@ -37,7 +37,7 @@ Los conjuntos de aptitudes se crean en JSON. Puede compilar conjuntos de aptitud
 ### <a name="enrichment-tree"></a>Árbol de enriquecimiento
 
 Para imaginar cómo un conjunto de aptitudes enriquece gradualmente el documento, veremos primero el aspecto del documento antes de cualquier enriquecimiento. La salida del descifrado de documentos depende del origen de datos y del modo de análisis específico seleccionado. Este es también el estado del documento desde el que las [asignaciones de campo](search-indexer-field-mappings.md) pueden originar contenido al agregar datos al índice de búsqueda.
-![Almacén de conocimiento en un diagrama de canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KAlmacén de conocimiento en un diagrama de canalización")
+![Almacén de conocimiento en un diagrama de canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Almacén de conocimiento en un diagrama de canalización")
 
 Una vez que un documento se encuentra en la canalización de enriquecimiento, se representa como un árbol de contenido y enriquecimientos asociados. Como salida del descifrado de documentos, se crea una instancia de este árbol. El formato de árbol de enriquecimiento permite que la canalización de enriquecimiento adjunte metadatos incluso a tipos de datos primitivos; no es un objeto JSON válido, pero se puede proyectar en un formato JSON válido. En la tabla siguiente se muestra el estado de un documento que entra en la canalización de enriquecimiento:
 
@@ -100,7 +100,7 @@ El nodo raíz de todos los enriquecimientos es `"/document"`. Al trabajar con in
 
 ### <a name="skill-2-language-detection"></a>Aptitud 2: detección de idioma
  Aunque la aptitud de detección de idioma es la tercera (aptitud 3) definida en el conjunto de aptitudes, es la siguiente aptitud que se ejecuta. Dado que no se bloquea al no requerir entradas, se ejecutará en paralelo con la aptitud anterior. Al igual que la aptitud de división que la precedía, la aptitud de detección de idioma también se invoca una vez para cada documento. El árbol de enriquecimiento tiene ahora un nuevo nodo para Language.
- ![Árbol de enriquecimiento después de la aptitud 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enárbol completo después de que se ejecute el #2 de conocimientos ")
+ ![Árbol de enriquecimiento después de la aptitud 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Árbol de enriquecimiento después de la ejecución de la aptitud 2")
  
  ### <a name="skill-3-key-phrases-skill"></a>Aptitud 3: aptitud de frases clave 
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: e4050dedeb48b19b6848a95fc904f7f37fb5b04a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349386"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722567"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Ejemplos de manifiesto de servicio y de aplicación con varios contenedores
 A continuación se muestran ejemplos de manifiestos de servicio y de aplicación para una aplicación de Service Fabric de varios contenedores. El propósito de estos ejemplos es mostrar qué opciones están disponibles y cómo usarlas. Estos manifiestos de aplicación y de servicio se basan en los manifiestos del [ejemplo de contenedor de Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
@@ -342,7 +342,7 @@ El archivo ejecutable especificado por EntryPoint suele ser el host de servicios
  Para más información, consulte [Elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-El repositorio y la imagen de https://hub.docker.com o Azure Container Registry. Para más información, consulte [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+El repositorio y la imagen de [https://hub.docker.com](https://hub.docker.com) o Azure Container Registry. Para más información, consulte [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="environmentvariables-element"></a>Elemento EnvironmentVariables
 Pase variables de entorno al contenedor o exe.  Para más información, consulte [Elemento EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -386,7 +386,7 @@ El archivo ejecutable especificado por EntryPoint suele ser el host de servicios
 Para más información, consulte [Elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-El repositorio y la imagen de https://hub.docker.com o Azure Container Registry. Para más información, consulte [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+El repositorio y la imagen de [https://hub.docker.com](https://hub.docker.com) o Azure Container Registry. Para más información, consulte [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="commands-element"></a>Elemento Commands
 Pase una lista de comandos delimitados por comas al contenedor. Para más información, consulte [Elemento Commands](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

@@ -1,10 +1,9 @@
 ---
 title: Introducción a la integración de Azure Service Bus en Event Grid | Microsoft Docs
-description: Descripción de la integración de la mensajería de Service Bus y Event Grid
+description: En este artículo se proporciona una descripción de cómo se integra la mensajería de Azure Service Bus con Azure Event Grid.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 5d4ece6b631882200c6f98f6de5daa543fdf7ce4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072135"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773470"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Introducción a la integración de Azure Service Bus en Event Grid
 

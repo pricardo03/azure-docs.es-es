@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c1ebedcf93d66c01c80f7f40171a7aa27441488d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277984"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722159"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -187,11 +187,11 @@ La métrica principal determina la métrica que se utilizará durante el entrena
 
 Obtenga información acerca de las definiciones específicas de estas métricas en [Descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 
-### <a name="data-preprocessing--featurization"></a>Caracterización y preprocesamiento de datos
+### <a name="data-featurization"></a>Caracterización de datos
 
-En cada experimento de aprendizaje automático automatizado, los datos se [escalan y se normalizan automáticamente](concept-automated-ml.md#preprocess) para ayudar a *determinados* algoritmos que dependen de características que se encuentran en diferentes escalas.  Sin embargo, también puede habilitar el preprocesamiento o la caracterización adicionales, como la atribución de valores que faltan, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#preprocess).
+En cada experimento de aprendizaje automático automatizado, los datos se [escalan y se normalizan automáticamente](concept-automated-ml.md#preprocess) para ayudar a *determinados* algoritmos que dependen de características que se encuentran en diferentes escalas.  Sin embargo, también puede habilitar la caracterización adicional, como la atribución de valores que faltan, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#preprocess).
 
-Para habilitar la caracterización, especifique `"preprocess": True` para la clase [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Para habilitar la caracterización, especifique `"featurization": 'auto'` para la clase [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 > [!NOTE]
 > Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se utiliza el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
@@ -324,7 +324,7 @@ Puede ver los resultados del entrenamiento en un widget o en línea si se encuen
 ## <a name="understand-automated-ml-models"></a>Descripción de los modelos de ML automatizado
 
 Cualquier modelo generado mediante ML automatizado incluye los siguientes pasos:
-+ Ingeniería de características automatizada (si preprocess=True)
++ Diseño de características automatizadas (si `"featurization": 'auto'`)
 + Escalado o normalización y algoritmo con valores de hiperparámetro
 
 Se obtiene de manera clara esta información a partir de la salida del modelo fitted_model de ML automatizado.
@@ -337,7 +337,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Diseño de características automatizadas
 
-Consulte la lista de preprocesamiento y del [diseño de características automatizadas](concept-automated-ml.md#preprocess) que ocurre cuando feauturization = auto.
+Consulte la lista de preprocesamiento y del [diseño de características automatizadas](concept-automated-ml.md#preprocess) que ocurre cuando `"featurization": 'auto'`.
 
 En este ejemplo:
 + Hay cuatro características de entrada: A (numérico), B (numérico), C (numérico), D (fecha y hora)

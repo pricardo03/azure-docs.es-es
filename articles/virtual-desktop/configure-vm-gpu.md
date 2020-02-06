@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953945"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719762"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
@@ -37,9 +37,9 @@ También debe configurar un grupo de aplicaciones o usar el grupo de aplicacione
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalación de los controladores de gráficos admitidos en la máquina virtual
 
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure en Windows Virtual Desktop, es preciso instalar los controladores de gráficos NVIDIA. Siga las instrucciones de [Instalación de controladores de GPU NVIDIA en máquinas virtuales de la serie N que ejecutan Windows](/azure/virtual-machines/windows/n-series-driver-setup) para instalar controladores, ya sea manualmente o mediante la [extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure en Windows Virtual Desktop, es preciso instalar los controladores de gráficos adecuados. Siga las instrucciones que se indican en [Sistemas operativos y controladores compatibles](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) para instalar los controladores del proveedor de gráficos adecuado, ya sea manualmente o mediante una extensión de máquina virtual de Azure.
 
-Tenga en cuenta que Windows Virtual Desktop solo se admiten los [controladores GRID de NVIDIA](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distribuidos por Azure.
+Solo se admiten los controladores distribuidos por Azure para Windows Virtual Desktop. Además, para las máquinas virtuales de Azure con GPU de NVIDIA, solo se admiten [controladores de NVIDIA GRID](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) para Windows Virtual Desktop.
 
 Tras instalar los controladores, es necesario reiniciar la máquina virtual. Utilice los pasos de comprobación en las instrucciones anteriores para confirmar que los controladores de gráficos se han instalado correctamente.
 
@@ -74,7 +74,7 @@ El Escritorio remoto codifica todos los gráficos que representan las aplicacion
 
 Para comprobar que las aplicaciones usan la GPU para la representación, lleve a cabo cualquiera de las siguientes acciones:
 
-* Use la utilidad `nvidia-smi` tal y como se describe en [Comprobar la instalación del controlador](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para comprobar la utilización de la GPU al ejecutar las aplicaciones.
+* Para las máquinas virtuales de Azure y GPU de NVIDIA, use la utilidad `nvidia-smi` tal y como se describe en [Comprobar la instalación del controlador](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para comprobar la utilización de la GPU al ejecutar las aplicaciones.
 * En las versiones de sistema operativo admitidas, puede usar el Administrador de tareas para comprobar la utilización de la GPU. Seleccione la GPU en la pestaña "Rendimiento" para ver si las aplicaciones usan la GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Comprobación de la codificación de marcos de aceleración por GPU
@@ -82,7 +82,7 @@ Para comprobar que las aplicaciones usan la GPU para la representación, lleve a
 Para comprobar que Escritorio remoto utiliza la codificación de aceleración por GPU:
 
 1. Conéctese al escritorio de la máquina virtual mediante el cliente de Windows Virtual Desktop.
-2. Inicie el Visor de eventos y vaya hasta el siguiente nodo: **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** >  **Operativo**
+2. Inicie el Visor de eventos y vaya hasta el siguiente nodo: **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **Operativo**
 3. Para determinar si se utiliza la codificación de aceleración por GPU, busque el id. de evento 170. Si ve "Codificador de hardware AVC habilitado: 1", significa que se usa la codificación por GPU.
 4. Para determinar si se usa el modo de AVC 444, busque el id. de evento 162. Si ve "AVC disponible: 1 perfil inicial: 2048", significa que se usa AVC 444.
 
@@ -90,5 +90,5 @@ Para comprobar que Escritorio remoto utiliza la codificación de aceleración po
 
 Con estas instrucciones debería poder configurar y ejecutar la aceleración por GPU en una máquina virtual de un host de sesión. A continuación se indican algunas consideraciones adicionales para habilitar la aceleración por GPU en un grupo host más grande:
 
-* Considere la posibilidad de usar la [Extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para simplificar la instalación de controladores y las actualizaciones en múltiples máquinas virtuales.
+* Considere la posibilidad de usar la [extensión de máquina virtual](/azure/virtual-machines/extensions/overview) para simplificar la instalación de controladores y las actualizaciones en múltiples máquinas virtuales. Use la [extensión de controlador de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para las máquinas virtuales con GPU NVIDIA y use la extensión de controlador de GPU AMD (próximamente) para las máquinas virtuales con GPU AMD.
 * Considere la posibilidad de usar la directivas de Active Directory para simplificar la configuración de directivas de grupo en varias máquinas virtuales. Para obtener información sobre cómo implementar la directiva de grupo en el dominio de Active Directory, consulte [Trabajar con objetos de directiva de grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).

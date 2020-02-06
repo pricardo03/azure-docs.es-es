@@ -3,12 +3,12 @@ title: Desarrollo de Azure Functions con Visual Studio Code
 description: Aprenda a desarrollar y probar Azure Functions mediante la extensión de Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547428"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845415"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -65,11 +65,13 @@ La extensión de Functions le permite crear un proyecto de aplicación de funcio
 
 1. Seleccione la carpeta para el proyecto de aplicación de funciones y, a continuación, **seleccione un lenguaje para el proyecto de función**.
 
+1. Si aún no ha instalado las herramientas principales, se le pedirá que **seleccione una versión** de estas para instalar. Elija la versión 2.x o una posterior. 
+
 1. Seleccione la plantilla de función del **desencadenador HTTP** o bien puede seleccionar **Omitir por ahora** para crear un proyecto sin una función. Siempre puede [agregar una función al proyecto](#add-a-function-to-your-project) en otro momento.
 
     ![Elegir la plantilla del desencadenador HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Escriba **HTTPTrigger** como nombre de la función, seleccione ENTRAR y, después, seleccione la autorización de la **función**. Este nivel de autorización requiere que proporcione un valor para la [clave de función](functions-bindings-http-webhook.md#authorization-keys) al llamar al punto de conexión de la función.
+1. Escriba **HttpExample** como nombre de la función, seleccione Entrar y, después, seleccione la autorización de **Función**. Este nivel de autorización requiere que proporcione un valor para la [clave de función](functions-bindings-http-webhook.md#authorization-keys) al llamar al punto de conexión de la función.
 
     ![Selección de la autorización de función](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -189,6 +191,8 @@ Para más información, consulte la referencia sobre [enlace de salida de Queue 
 ---
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 ## <a name="publish-to-azure"></a>Publicación en Azure
 

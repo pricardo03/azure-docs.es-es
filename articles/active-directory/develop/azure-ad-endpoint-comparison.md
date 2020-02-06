@@ -12,13 +12,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 882b4a8bfe951212d2d1fe081d16b25641dfa4d4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a05db11f48811f5ad6163447fae1dbb4ea31842c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843893"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712447"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)
 
@@ -114,7 +113,7 @@ Estos ámbitos le permiten codificar la aplicación en un modo de divulgación m
 El punto de conexión de la Plataforma de identidad de Microsoft emite un conjunto más pequeño de notificaciones en sus tokens de manera predeterminada para mantener el tamaño reducido de las cargas. Si tiene aplicaciones y servicios que tienen una dependencia de una notificación concreta en un token de v1.0 que ya no se proporciona de manera predeterminada en un token de la Plataforma de identidad de Microsoft, considere el uso de la característica [notificaciones opcionales](active-directory-optional-claims.md) para incluir esa notificación.
 
 > [!IMPORTANT]
-> Los puntos de conexión de las versiones v1.0 y v2.0 pueden emitir tokens v1.0 y v2.0. Los tokens id_tokens *siempre* coinciden con el punto de conexión desde el que se los solicita, y los tokens de acceso *siempre* coinciden con el formato que espera la API web a la que el cliente llamará mediante ese token.  Por lo tanto, si la aplicación usa el punto de conexión v2.0 para obtener un token para llamar a Microsoft Graph, el cual espera tokens de acceso de formato v1.0, la aplicación recibirá un token con el formato v1.0.  
+> Los puntos de conexión de las versiones v1.0 y v2.0 pueden emitir tokens v1.0 y v2.0. Los tokens id_tokens *siempre* coinciden con el punto de conexión desde el que se los solicita, y los tokens de acceso *siempre* coinciden con el formato que espera la API web a la que el cliente llamará mediante ese token.  Por lo tanto, si la aplicación usa el punto de conexión v2.0 para obtener un token para llamar a Microsoft Graph, el cual espera tokens de acceso de formato v1.0, la aplicación recibirá un token con el formato v1.0.  
 
 ## <a name="limitations"></a>Limitaciones
 

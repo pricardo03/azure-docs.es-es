@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure DevTest Labs para desarrolladores | Microsoft Docs
-description: Aprenda a usar Azure DevTest Labs para escenarios de desarrollo.
+description: Aprenderá acerca de las diversas características de Azure DevTest Labs que se pueden utilizar para cumplir los requisitos del desarrollador y los pasos detallados que puede seguir para configurar un laboratorio.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 5a293946e4672e7737f912f42511ad0907ba4a81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61294006"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760154"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Uso de Azure DevTest Labs para desarrolladores
 Se puede utilizar Azure DevTest Labs para implementar numerosos escenarios clave pero uno de los principales escenarios implica el uso de DevTest Labs para máquinas de desarrollo host para desarrolladores. En este escenario, DevTest Labs ofrece estas ventajas:
 
 - Los desarrolladores pueden aprovisionar rápidamente las máquinas de desarrollo a petición.
 - Los desarrolladores pueden personalizar fácilmente las máquinas de desarrollo, siempre que sea necesario.
-- Los administradores pueden controlar los costos al garantizar que:
+- Los administradores pueden controlar los costos garantizando que:
   - Los desarrolladores no puedan obtener más máquinas virtuales de las que necesitan para el desarrollo.
   - Las máquinas virtuales se apaguen cuando no estén en uso. 
 
@@ -102,7 +102,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
 
 1. **Incorporación de una red virtual a una máquina virtual** 
    
-    DevTest Labs crea una nueva red virtual (VNET) cada vez que se crea un laboratorio. Si ha configurado su propia red virtual, por ejemplo, mediante el uso de VPN de sitio a sitio o ExpressRoute: puede agregar esta red virtual a la configuración de red virtual de su laboratorio para que esté disponible al crear máquinas virtuales.
+    DevTest Labs crea una red virtual (VNET) cada vez que se crea un laboratorio. Si ha configurado su propia red virtual (por ejemplo, mediante el uso de VPN de sitio a sitio o ExpressRoute), puede agregar esta red virtual a la configuración de red virtual de su laboratorio para que esté disponible al crear máquinas virtuales.
 
     Además, hay un artefacto de unión a un dominio de Azure Active Directory disponible que unirá una máquina virtual a un dominio cuando se crea la máquina virtual. 
    
@@ -114,7 +114,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
 
 6. **Uso compartido del laboratorio con cada desarrollador**
    
-    Se puede acceder directamente a los laboratorios mediante un vínculo que puede compartir con los desarrolladores. Ni siquiera es necesario que tengan una cuenta de Azure, siempre que dispongan de una [cuenta Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Los desarrolladores no pueden ver las máquinas virtuales creadas por otros desarrolladores.  
+    Se puede acceder directamente a los laboratorios mediante un vínculo que puede compartir con los desarrolladores. Ni siquiera es necesario que tengan una cuenta de Azure, siempre y cuando dispongan de una [cuenta de Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Los desarrolladores no pueden ver las máquinas virtuales creadas por otros desarrolladores.  
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    

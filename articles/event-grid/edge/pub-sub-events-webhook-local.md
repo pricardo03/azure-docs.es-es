@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098637"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844565"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: Publicación de eventos y suscripción a ellos de forma local
 
@@ -23,7 +23,7 @@ Este artículo le guía por todos los pasos necesarios para publicar eventos y s
 > [!NOTE]
 > Para información sobre los temas y las suscripciones de Azure Event Grid, consulte [Conceptos de Event Grid](concepts.md).
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 
@@ -52,18 +52,20 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 ### <a name="add-modules"></a>Adición de módulos
 
 1. En la sección **Módulos de implementación**, seleccione **Agregar**.
-1. En los tipos de módulos de la lista desplegable, seleccione **Módulo IoT Edge**.
+1. En los tipos de módulos de la lista desplegable, seleccione **Módulo IoT Edge**
 1. Proporcione el nombre, la imagen y las opciones de creación del contenedor:
 
    * **Nombre**: eventgridmodule
    * **URI de imagen**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opciones de creación del contenedor**:
 
+   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -90,16 +92,16 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 En esta sección se muestra cómo implementar el módulo de IoT para Azure Functions, que funcionará como suscriptor de Event Grid al que se pueden entregar eventos.
 
 >[!IMPORTANT]
->Implementará un módulo de suscripción de ejemplo basado en Azure Functions. Se puede usar desde luego cualquier módulo de IoT personalizado que pueda escuchar solicitudes HTTP POST.
+>En esta sección, implementará un módulo de suscripción de ejemplo basado en Azure Functions. Se puede usar desde luego cualquier módulo de IoT personalizado que pueda escuchar solicitudes HTTP POST.
 
 
 ### <a name="add-modules"></a>Adición de módulos
 
-1. En la sección **Módulos de implementación** de la página, seleccione de nuevo **Agregar**. 
-1. En los tipos de módulos de la lista desplegable, seleccione **Módulo IoT Edge**.
+1. En la sección **Módulos de implementación**, seleccione de nuevo **Agregar**. 
+1. En los tipos de módulos de la lista desplegable, seleccione **Módulo IoT Edge**
 1. Proporcione el nombre, la imagen y las opciones de creación del contenedor:
 
-   * **Nombre**: el suscriptor.
+   * **Nombre**: suscriptor
    * **URI de imagen**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
    * **Opciones de creación del contenedor**:
 
@@ -118,7 +120,7 @@ En esta sección se muestra cómo implementar el módulo de IoT para Azure Funct
        ```
 
 1. Haga clic en **Guardar**
-1. Seleccione **Siguiente** para ir a la sección de rutas.
+1. Seleccione **Siguiente** para ir a la sección de rutas
 
  ### <a name="setup-routes"></a>Configuración de rutas
 
@@ -153,13 +155,13 @@ Como publicador de un evento, debe crear un tema de Event Grid. En Azure Event G
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-1. Ejecute el siguiente comando para comprobar que se creó el tema correctamente: Se devolverá el código de estado HTTP "200 - Correcto".
+1. Use el siguiente comando para comprobar que se creó el tema correctamente. Se devolverá el código de estado HTTP "200 - Correcto".
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-   Salida de ejemplo:
+   Salida del ejemplo:
 
    ```json
         [
@@ -179,7 +181,9 @@ Como publicador de un evento, debe crear un tema de Event Grid. En Azure Event G
 
 Los suscriptores pueden registrarse en eventos publicados en un tema. Para recibir cualquier evento, deberá crear una suscripción de Event Grid para un tema de interés.
 
-1. Cree el archivo subscription.json con el siguiente contenido. Para más información sobre la carga, consulte nuestra [documentación de API](api.md).
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+
+1. Cree el archivo subscription.json con el siguiente contenido. Para más información sobre la carga, consulte la [Documentación de API](api.md)
 
     ```json
         {
@@ -207,7 +211,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
 
-    Salida de ejemplo:
+    Salida del ejemplo:
 
    ```json
         {
@@ -268,7 +272,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
     sudo docker logs subscriber
     ```
 
-    Salida de ejemplo:
+    Salida del ejemplo:
 
     ```sh
         Received event data [
@@ -301,10 +305,11 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un tema y una suscripción de Event Grid y ha publicado eventos. Ahora que conoce los pasos básicos, consulte los siguientes artículos: 
 
-- Para solucionar problemas relacionados con el uso de Azure Event Grid en IoT Edge, consulte la [guía de solución de problemas](troubleshoot.md).
+- Para solucionar problemas relacionados con el uso de Azure Event Grid en IoT Edge, consulte la [Guía de solución de problemas](troubleshoot.md).
 - Cree o actualice una suscripción con [filtros](advanced-filtering.md).
 - Habilite la persistencia del módulo de Event Grid en [Linux](persist-state-linux.md) o [Windows](persist-state-windows.md).
 - Siga la [documentación](configure-client-auth.md) para configurar la autenticación de cliente
 - Reenvíe eventos a Azure Functions en la nube siguiendo este [tutorial](pub-sub-events-webhook-cloud.md).
 - [Reacción a eventos de Blob Storage en IoT Edge](react-blob-storage-events-locally.md)
+- [Supervisión de temas y suscripciones en el perímetro](monitor-topics-subscriptions.md)
 

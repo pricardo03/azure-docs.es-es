@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: 5e031354d4695a1d7eb6f199e23e74b796273230
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/24/2020
+ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770227"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768961"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Cree y administre mediante Azure Portal réplicas de lectura en el servicio Azure Database for PostgreSQL: servidor único.
 
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en el servicio Azure Database for PostgreSQL mediante Azure Portal. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md) que se usará como servidor maestro.
 
 ## <a name="prepare-the-master-server"></a>Preparación del servidor maestro
@@ -27,6 +27,9 @@ Estos pasos se deben utilizar para preparar un servidor maestro en los niveles d
 1. En Azure Portal, seleccione el servidor de Azure Database for PostgreSQL existente para utilizar como servidor maestro.
 
 2. En la barra lateral del servidor, en **CONFIGURACIÓN**, seleccione **Replicación**.
+
+> [!NOTE] 
+> Si ve que la opción **Deshabilitar compatibilidad con la replicación** está atenuada, significa que la configuración de replicación ya está establecida en el servidor de forma predeterminada. Puede omitir los pasos siguientes y pasar a crear una réplica de lectura. 
 
 3. Seleccione **Habilitar compatibilidad con la replicación**. 
 
@@ -71,7 +74,7 @@ Para crear una réplica de lectura, siga estos pasos:
 
 6. Seleccione **Aceptar** para confirmar la creación de la réplica.
 
-Se crea una réplica con la misma configuración de proceso y almacenamiento que la maestra. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
 
 > [!IMPORTANT]
 > Antes de actualizar la configuración de un servidor maestro a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
@@ -179,4 +182,4 @@ La métrica **Replica Lag** (Retraso entre réplicas) muestra el tiempo desde la
  
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre las [réplicas de lectura en Azure Database for PostgreSQL](concepts-read-replicas.md).
-* Aprenda a [crear y administrar réplicas de lectura en la CLI de Azure y con API REST](howto-read-replicas-cli.md).
+* Aprenda a [crear y administrar réplicas de lectura en la CLI de Azure y con API REST](howto-read-replicas-cli.md).

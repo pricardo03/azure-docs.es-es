@@ -2,13 +2,13 @@
 title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 4eb163376f1a0b8d8194defed4445578975976f2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/23/2020
+ms.openlocfilehash: e17e6a996f54d6211f87ec20765d3fde782b7d6d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982220"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715605"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -127,6 +127,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.RemoteApp](#microsoftremoteapp)
@@ -160,6 +161,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
@@ -277,6 +279,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | policySetDefinitions | No | No |
 > | providerOperations | No | No |
 > | roleAssignments | No | No |
+> | roleAssignmentsUsageMetrics | No | No |
 > | roleDefinitions | No | No |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
@@ -361,6 +364,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/billingProfiles/billingSubscriptions | No | No |
 > | billingAccounts/billingProfiles/createBillingRoleAssignment | No | No |
 > | billingAccounts/billingProfiles/customers | No | No |
+> | billingAccounts / billingProfiles / instructions | No | No |
 > | billingAccounts/billingProfiles/invoices | No | No |
 > | billingAccounts/billingProfiles/invoices/pricesheet | No | No |
 > | billingAccounts/billingProfiles/invoiceSections | No | No |
@@ -488,6 +492,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | appliedReservations | No | No |
+> | autoQuotaIncrease | No | No |
 > | calculateExchange | No | No |
 > | calculatePrice | No | No |
 > | calculatePurchasePrice | No | No |
@@ -504,6 +509,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | reservationOrders/split | No | No |
 > | reservationOrders/swap | No | No |
 > | reservations | No | No |
+> | resourceProviders | No | No |
 > | resources | No | No |
 > | validateReservationOrder | No | No |
 
@@ -801,6 +807,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | workspaces | Sí | No |
+> | workspaces / dbWorkspaces | No | No |
+> | workspaces / storageEncryption | No | No |
 > | workspaces/virtualNetworkPeerings | No | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -878,6 +886,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | servers | Sí | Sí |
 > | servers/advisors | No | No |
+> | servers/keys | No | No |
 > | servers/privateEndpointConnectionProxies | No | No |
 > | servers/privateEndpointConnections | No | No |
 > | servers/privateLinkResources | No | No |
@@ -894,6 +903,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | servers | Sí | Sí |
 > | servers/advisors | No | No |
+> | servers/keys | No | No |
 > | servers/privateEndpointConnectionProxies | No | No |
 > | servers/privateEndpointConnections | No | No |
 > | servers/privateLinkResources | No | No |
@@ -956,8 +966,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | ElasticPools | Sí | Sí |
 > | ElasticPools/IotHubTenants | Sí | Sí |
+> | ElasticPools / IotHubTenants / securitySettings | No | No |
 > | IotHubs | Sí | Sí |
 > | IotHubs/eventGridFilters | No | No |
+> | IotHubs / securitySettings | No | No |
 > | ProvisioningServices | Sí | Sí |
 > | usages | No | No |
 
@@ -1031,6 +1043,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | domains/topics | No | No |
 > | eventSubscriptions | No | No |
 > | extensionTopics | No | No |
+> | partnerNamespaces | Sí | Sí |
+> | partnerNamespaces / eventChannels | No | No |
+> | partnerRegistrations | Sí | Sí |
+> | partnerTopics | Sí | Sí |
+> | systemTopics | Sí | Sí |
+> | systemTopics / eventSubscriptions | No | No |
 > | topics | Sí | Sí |
 > | topicTypes | No | No |
 
@@ -1086,6 +1104,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
+> | autoManagedAccounts | Sí | Sí |
+> | autoManagedVmConfigurationProfiles | Sí | Sí |
 > | configurationProfileAssignments | No | No |
 > | guestConfigurationAssignments | No | No |
 > | software | No | No |
@@ -1197,6 +1217,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | clusters/databases | No | No |
 > | clusters/databases/dataconnections | No | No |
 > | clusters/databases/eventhubconnections | No | No |
+> | clusters / databases / principalassignments | No | No |
+> | clusters / principalassignments | No | No |
 > | clusters/sharedidentities | No | No |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
@@ -1287,6 +1309,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | offerTypes/publishers/offers/plans/configs | No | No |
 > | offerTypes/publishers/offers/plans/configs/importImage | No | No |
 > | privategalleryitems | No | No |
+> | privateStoreClient | No | No |
 > | products | No | No |
 > | publishers | No | No |
 > | publishers/offers | No | No |
@@ -1345,6 +1368,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | assessmentProjects | Sí | Sí |
 > | migrateprojects | Sí | Sí |
+> | moveCollections | Sí | Sí |
 > | projects | Sí | Sí |
 
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
@@ -1494,8 +1518,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | linkTargets | No | No |
 > | storageInsightConfigs | No | No |
 > | workspaces | Sí | Sí |
+> | workspaces / dataExports | No | No |
 > | workspaces/dataSources | No | No |
 > | workspaces/linkedServices | No | No |
+> | workspaces / privateEndpointConnectionProxies | No | No |
+> | workspaces / privateEndpointConnections | No | No |
+> | workspaces / privateLinkResources | No | No |
 > | workspaces/query | No | No |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
@@ -1553,6 +1581,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | capacities | Sí | Sí |
 
+## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | accounts | Sí | Sí |
+
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
@@ -1604,6 +1639,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | availabilityStatuses | No | No |
 > | childAvailabilityStatuses | No | No |
 > | childResources | No | No |
+> | emergingissues | No | No |
 > | events | No | No |
 > | impactedResources | No | No |
 > | metadata | No | No |
@@ -1811,7 +1847,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Sí | Sí |
-> | managedInstances/databases | No | No |
+> | managedInstances/databases | Yes (see [note below](#sqlnote)) | Sí |
 > | managedInstances/databases/backupShortTermRetentionPolicies | No | No |
 > | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No | No |
 > | managedInstances/databases/vulnerabilityAssessments | No | No |
@@ -1960,6 +1996,16 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | dedicatedCloudServices | Sí | Sí |
 > | virtualMachines | Sí | Sí |
 
+## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | devices | Sí | Sí |
+> | vendors | No | No |
+> | vendors / skus | No | No |
+> | vnfs | Sí | Sí |
+
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
@@ -1981,8 +2027,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | connections | Sí | Sí |
 > | customApis | Sí | Sí |
 > | deletedSites | No | No |
-> | functions | No | No |
 > | hostingEnvironments | Sí | Sí |
+> | hostingEnvironments / eventGridFilters | No | No |
 > | hostingEnvironments/multiRolePools | No | No |
 > | hostingEnvironments/workerPools | No | No |
 > | publishingUsers | No | No |
@@ -2002,6 +2048,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | sites/slots/hostNameBindings | No | No |
 > | sites/slots/networkConfig | No | No |
 > | sourceControls | No | No |
+> | staticSites | Sí | Sí |
 > | validate | No | No |
 > | verifyHostingEnvironmentVnet | No | No |
 

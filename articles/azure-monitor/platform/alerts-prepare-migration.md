@@ -1,22 +1,22 @@
 ---
 title: Preparar la migración de las alertas clásicas de Azure Monitor mediante la actualización de las aplicaciones lógicas y runbooks
+author: yanivlavi
 description: Obtenga información sobre cómo modificar los webhooks, las aplicaciones lógicas y los runbooks para preparar la migración voluntaria.
-author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827393"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705571"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar las aplicaciones lógicas y los runbooks para la migración de las reglas de alertas clásicas
 
-Tal como se [anunció anteriormente](monitoring-classic-retirement.md), las alertas clásicas de Azure Monitor se retirarán en septiembre de 2019 (la fecha original era julio de 2019). En Azure Portal, está disponible una herramienta de migración para los clientes que usan reglas de alertas clásicas y que desean desencadenar la migración ellos mismos.
+Tal como se [anunció anteriormente](monitoring-classic-retirement.md), las alertas clásicas de Azure Monitor se retirarán en septiembre de 2019 (la fecha original era julio de 2019). Hay disponible una herramienta de migración en Azure Portal para los clientes que usan reglas de alertas clásicas y que desean desencadenar la migración ellos mismos.
 
 > [!NOTE]
 > Debido a un retraso en la implementación de la herramienta de migración, la fecha de retirada para la migración de alertas clásicas se ha ampliado hasta el 31 de agosto de 2019, desde la fecha anunciada originalmente del 30 de junio de 2019.
@@ -32,7 +32,7 @@ La tabla siguiente es una referencia a las interfaces de programación para las 
 |         |Alertas clásicas  |Nuevas alertas de métricas |
 |---------|---------|---------|
 |API DE REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|CLI de Azure     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referencia](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referencia](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Plantilla del Administrador de recursos de Azure | [Para alertas clásicas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para nuevas alertas de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
@@ -166,4 +166,4 @@ Si usa una integración de asociados que no aparece aquí, confirme con el prove
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Uso de la herramienta de migración](alerts-using-migration-tool.md)
-- [Descripción de la herramienta de migración](alerts-understand-migration.md)
+- [Descripción del funcionamiento de la herramienta de migración](alerts-understand-migration.md)

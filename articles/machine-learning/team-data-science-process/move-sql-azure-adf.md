@@ -3,20 +3,20 @@ title: 'Datos de SQL Server en SQL Azure con Azure Data Factory: proceso de cien
 description: Configure una canalización de ADF que componga dos actividades de migración de datos que se combinen para mover datos diariamente entre bases de datos locales y de nube.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b64aa6c0e6e0e3bf449d44996df3223b12a69923
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982409"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722499"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory
 
@@ -32,12 +32,12 @@ Con la ADF, los servicios de procesamiento de datos existentes se pueden compone
 Considere el uso de ADF en estos casos:
 
 * Cuando los datos deban migrarse continuamente en un escenario híbrido que tiene acceso a recursos locales y en la nube.
-* cuando los datos se transfieren o deben modificarse o tener lógica empresarial agregada mientras se migran.
+* Cuando los datos requieran transformaciones o tengan una lógica empresarial agregada mientras se migran.
 
 La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas. Para obtener más información sobre la ADF, vea la documentación de [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Escenario
-Configuramos una canalización ADF que se compone de dos actividades de migración de datos. En conjunto, mueven datos a diario entre una base de datos SQL local y una base de datos de Azure SQL en la nube. Las dos actividades son:
+Configuramos una canalización ADF que se compone de dos actividades de migración de datos. En conjunto, mueven datos a diario entre una instancia de SQL Database local y una base de datos de Azure SQL Database en la nube. Las dos actividades son:
 
 * copiar datos de una base de datos SQL Server local a una cuenta de Azure Blob Storage.
 * copiar datos de la cuenta de Azure Blob Storage a una base de datos de Azure SQL.
@@ -136,7 +136,7 @@ La definición de tabla de SQL Server local se especifica en el siguiente archiv
 }
 ```
 
-Los nombres de columna no se incluyeron aquí. Puede subseleccionar los nombres de columna incluyéndolos aquí (para obtener detalles, vea la [documentación de ADF](../../data-factory/copy-activity-overview.md) ).
+Los nombres de columna no se incluyeron aquí. Puede subseleccionar los nombres de columna incluyéndolos aquí (para obtener detalles, vea la [documentación de ADF](../../data-factory/copy-activity-overview.md)).
 
 Copie la definición de JSON de la tabla en un archivo denominado *onpremtabledef.json* y guarde el archivo en una ubicación conocida (aquí se supone que es *C:\temp\onpremtabledef.json*). Cree la tabla en ADF con el siguiente cmdlet de Azure PowerShell:
 
@@ -302,4 +302,4 @@ Los valores de los parámetros *startdate* y *enddate* deben reemplazarse por la
 
 Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen en el contenedor seleccionado para el blob, en este caso, un archivo por día.
 
-Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para más información sobre cómo hacer esto y sobre otras funcionalidades que proporciona ADF, consulte la [documentación de ADF](https://azure.microsoft.com/services/data-factory/).
+No hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para más información sobre cómo hacer esto y sobre otras funcionalidades que proporciona ADF, consulte la [documentación de ADF](https://azure.microsoft.com/services/data-factory/).

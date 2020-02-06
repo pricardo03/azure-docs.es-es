@@ -9,12 +9,12 @@ ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 48abf95e65b6185f5c95a1f5d942091ed0f33122
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 3fb51a9dc3f607d89934f6962588195e0f5c83f5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044184"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715773"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Supervisión del uso y costos estimados en Azure Monitor
 
@@ -71,7 +71,7 @@ Desde aquí, puede profundizar en este resumen de costos acumulados para obtener
 Puede consultar más detalles sobre el uso mediante la [descarga del uso desde Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). En la hoja de cálculo descargada puede ver el uso por recurso de Azure al día. En esta hoja de cálculo de Excel, el uso de los recursos de Application Insights se puede encontrar filtrando, en primer lugar, la columna "Categoría de medición" para mostrar "Application Insights" y "Log Analytics" y, a continuación, agregando un filtro en la columna "Id. de instancia", que es "contiene microsoft.insights/components".  La mayor parte del uso de Application Insights se muestra en medidores con la Categoría de medición de Log Analytics, ya que hay un back-end de registros único para todos los componentes de Azure Monitor.  Con una Categoría de medición de Application Insights, solo se muestran recursos de Application Insights de los planes de tarifa heredados y las pruebas web de varios pasos.  El uso se muestra en la columna "Cantidad consumida" y la unidad de cada entrada se muestra en la columna "Unidad de medida".  Hay más detalles disponibles para ayudarle a [entender la factura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 > [!NOTE]
-> El uso de **Cost Management** en el centro de **Azure Cost Management y facturación** es el método preferido para comprender de forma general los costos de supervisión.  Las experiencias de **Uso y costos estimados** de [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) y [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) proporcionan información más detallada sobre cada una de las partes de Azure Monitor.
+> El uso de **Cost Management** en el centro de **Administración de costos y facturación de Azure** es el mejor método para comprender de forma general los costos de supervisión.  Las experiencias de **Uso y costos estimados** de [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) y [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) proporcionan información más detallada sobre cada una de las partes de Azure Monitor.
 
 Otra opción para ver el uso de Azure Monitor es la página de **Uso y costos estimados** en el centro de supervisión. Esto muestra el uso de características de supervisión principales como [alertas, métricas, notificaciones](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) y [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Para los clientes en los planes de precios disponibles antes de abril de 2018, esto también incluye el uso de Log Analytics adquirido a través de la oferta Insights y Analytics.
 

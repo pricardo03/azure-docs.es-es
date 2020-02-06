@@ -1,6 +1,6 @@
 ---
 title: Marcas de tiempo y secuenciación de mensajes de Azure Service Bus | Microsoft Docs
-description: Conserve el orden y la secuencia de los mensajes de Service Bus con marcas de tiempo.
+description: En este artículo se explica cómo conservar la secuenciación y el orden (con marcas de tiempo) de los mensajes de Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 8665d0a1fccecf5521a553a894e2a55e52384ec3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402725"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756324"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Secuenciación y marcas de tiempo de los mensajes
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 7c7e1ca8c27ba9b5d7558a75106cf6d3f3e2172e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 55ed849b6083435e70d0943a359c83793ca0842d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513106"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705911"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
+# <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming de Widevine sin conexión para Android con Media Services v3
 
 Además de proteger el contenido del streaming en línea, la suscripción de contenido multimedia y los servicios de alquiler ofrecen contenido descargable que funciona cuando no hay conexión a Internet. Tendrá que descargar el contenido en su teléfono o tableta para reproducirlo en modo de avión al volar sin conexión a la red. Estos son otros escenarios en los que la descarga de contenido podría resultarle útil:
 

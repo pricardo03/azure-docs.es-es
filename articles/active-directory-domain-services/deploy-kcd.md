@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8860f2bea2877e7775db20be79181352d8cd55c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6737b75a955bb12072722f274ac589cb6d525ffb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705277"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772537"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configuración de la delegación restringida de Kerberos (KCD) en Azure Active Directory Domain Services
 
@@ -24,7 +24,7 @@ A medida que se ejecutan las aplicaciones, puede haber una necesidad de que acce
 
 En este artículo se muestra cómo configurar la delegación restringida de Kerberos basada en recursos en un dominio administrado de Azure AD DS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este artículo, necesita los siguientes recursos:
 
@@ -32,7 +32,7 @@ Para completar este artículo, necesita los siguientes recursos:
     * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
-* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
+* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una máquina virtual de administración de Windows Server que esté unida al dominio administrado de Azure AD DS.
     * Si es necesario, realice el tutorial para [crear una máquina virtual de Windows Server y unirla a un dominio administrado][create-join-windows-vm] y luego [instalar las herramientas de administración de AD DS][tutorial-create-management-vm].

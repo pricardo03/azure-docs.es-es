@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921008"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844979"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -21,13 +21,15 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name-for-azure-search"></a>Nuevo nombre del servicio Azure Search
+## <a name="new-service-name"></a>Nuevo nombre de servicio
 
-Azure Search se llama ahora **Azure Cognitive Search** para reflejar el uso ampliado de las aptitudes cognitivas y el procesamiento de inteligencia artificial en las operaciones principales. Aunque las aptitudes cognitivas agregan nuevas funcionalidades, el uso de la inteligencia artificial es estrictamente opcional. Puede seguir usando Azure Cognitive Search sin ella para crear soluciones de búsqueda de texto completo enriquecidas a través de contenido heterogéneo y privado en un índice que se cree y administre en la nube. 
-
-Las versiones de API, los paquetes Nuget, los espacios de nombres y los puntos de conexión permanecen sin cambios. Las soluciones de búsqueda existentes no se ven afectadas por el cambio de nombre del servicio.
+Azure Search se llama ahora **Azure Cognitive Search** para reflejar el uso ampliado (aunque opcional) de las aptitudes cognitivas y el procesamiento de inteligencia artificial en las operaciones principales. Las versiones de API, los paquetes NuGet, los espacios de nombres y los puntos de conexión permanecen sin cambios. Las soluciones de búsqueda nuevas y las existentes no se ven afectadas por el cambio de nombre del servicio.
 
 ## <a name="feature-announcements"></a>Anuncios de características
+
+### <a name="february-2020"></a>Febrero de 2020
+
++ La [detección de PII](cognitive-search-skill-pii-detection.md) es una aptitud cognitiva utilizada durante la indexación que extrae información de identificación personal de un texto de entrada y le ofrece la opción de enmascararla a partir de ese texto de varias maneras.
 
 ### <a name="january-2020"></a>Enero de 2020
 
@@ -54,7 +56,7 @@ Las versiones de API, los paquetes Nuget, los espacios de nombres y los puntos d
 
 + La [extracción de documentos (versión preliminar)](cognitive-search-skill-document-extraction.md) es una aptitud cognitiva que se usa durante la indexación y que permite extraer el contenido de un archivo de un conjunto de aptitudes. Antes, el descifrado de documentos solo tenía lugar antes de la ejecución del conjunto de aptitudes. Con la incorporación de esta aptitud, también puede realizar esta operación dentro de la ejecución del conjunto de aptitudes.
 
-+ La [traducción de texto (versión preliminar)](cognitive-search-skill-text-translation.md) es una aptitud cognitiva que se usa durante la indexación que evalúa el texto y devuelve en todos los registros el texto traducido al idioma de destino especificado.
++ La [traducción de texto](cognitive-search-skill-text-translation.md) es una aptitud cognitiva usada durante la indexación que evalúa el texto y devuelve para cada registro el texto traducido al idioma de destino especificado.
 
 + Las [plantillas de Power BI](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) pueden impulsar las visualizaciones y el análisis de contenido enriquecido en un almacén de conocimiento en Power BI Desktop. Esta plantilla está diseñada para las proyecciones de tablas de Azure creadas mediante el [Asistente para importar datos](knowledge-store-create-portal.md).
 

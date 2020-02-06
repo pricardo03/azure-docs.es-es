@@ -1,26 +1,26 @@
 ---
 title: Inicio de sesión sin contraseña de Azure Active Directory (versión preliminar)
-description: Inicio de sesión sin contraseña en Azure AD con claves de seguridad FIDO2 o la aplicación Microsoft Authenticator (versión preliminar)
+description: Conozca las opciones para el inicio de sesión sin contraseña en Azure Active Directory con las claves de seguridad FIDO2 o la aplicación Microsoft Authenticator.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d4dd3f0d4432930d62bb499fe72533b79d2a08
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a0d426fb743e6b1ce5d279544f12bcb490d529f9
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848738"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756800"
 ---
 # <a name="passwordless-authentication-options"></a>Opciones de autenticación sin contraseña
 
-La autenticación multifactor (MFA) es una excelente manera de proteger la organización, aunque los usuarios se frustran con el paso que se suma a tener que recordar sus contraseñas. Los métodos de autenticación sin contraseña resultan más cómodos, ya que la contraseña se quita y se reemplaza por algo que se tiene más algo que se es o se sabe.
+La autenticación multifactor (MFA) es una excelente manera de proteger la organización, aunque los usuarios se frustran a menudo con el paso de seguridad que se suma a tener que recordar sus contraseñas. Los métodos de autenticación sin contraseña resultan más cómodos, ya que la contraseña se quita y se reemplaza por algo que se tiene más algo que se es o se sabe.
 
 |   | Algo que se tiene | Algo que se es o se sabe |
 | --- | --- | --- |
@@ -36,23 +36,23 @@ Cada organización tiene diferentes necesidades en cuanto a la autenticación. M
 
 ## <a name="windows-hello-for-business"></a>Windows Hello para empresas
 
-Windows Hello para empresas resulta muy conveniente para los trabajadores de la información que tienen su propio PC con Windows designado. La información biométrica y el PIN están directamente asociados al equipo del usuario, lo que impide el acceso a cualquier otra persona que no sea el propietario. Con la integración de PKI y la compatibilidad integrada con el inicio de sesión único (SSO), Windows Hello para empresas ofrece un método sencillo y práctico de acceder completamente a los recursos corporativos del entorno local y la nube.
+Windows Hello para empresas resulta muy conveniente para los trabajadores de la información que tienen su propio PC con Windows designado. La información biométrica y el PIN están directamente asociados al equipo del usuario, lo que impide el acceso a cualquier otra persona que no sea el propietario. Con la integración de la infraestructura de clave pública (PKI) y la compatibilidad integrada con el inicio de sesión único (SSO), Windows Hello para empresas ofrece un método sencillo y práctico de acceder completamente a los recursos corporativos del entorno local y la nube.
 
 La [guía de planeamiento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) de Windows Hello para empresas se puede usar para ayudarle a tomar decisiones sobre el tipo de implementación y las opciones que es necesario tener en cuenta.
 
 ## <a name="microsoft-authenticator-app"></a>Aplicación Microsoft Authenticator
 
-Permita que el teléfono del empleado se convierta en un método de autenticación sin contraseña. Es posible que ya esté usando la aplicación Microsoft Authenticator como una opción de autenticación multifactor cómoda sumada a una contraseña. Pero ahora está disponible como una opción sin contraseña.
+Permita que el teléfono del empleado se convierta en un método de autenticación sin contraseña. Es posible que ya esté usando la aplicación Microsoft Authenticator como una opción de autenticación multifactor cómoda sumada a una contraseña. También puede usar la aplicación Authenticator como una opción sin contraseña.
 
 ![Inicio de sesión en Microsoft Edge con la aplicación Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-Convierte cualquier teléfono iOS o Android en una credencial sin contraseña segura al permitir a los usuarios iniciar sesión en cualquier plataforma o explorador mediante la recepción de una notificación en su teléfono, la coincidencia de un número que aparece en la pantalla con el de su teléfono y luego el uso de su biométrica (toque o cara) o PIN para confirmar.
+La aplicación Authenticator convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Los usuarios pueden iniciar sesión en cualquier plataforma o explorador con este proceso: reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos (reconocimiento táctil o facial) o el PIN para confirmarlo.
 
 ## <a name="fido2-security-keys"></a>Claves de seguridad FIDO2
 
-Las claves de seguridad FIDO2 son un método de autenticación sin contraseña basado en estándares que no permite la suplantación de identidad y que puede venir en cualquier factor de forma. Fast Identity Online (FIDO) es un estándar abierto para la autenticación sin contraseña. Permite a los usuarios y a las organizaciones aprovechar el estándar para iniciar sesión en sus recursos sin un nombre de usuario o una contraseña mediante una clave de seguridad externa o una clave de plataforma integrada en un dispositivo.
+Las claves de seguridad FIDO2 son un método de autenticación sin contraseña basado en estándares que no permite la suplantación de identidad y que puede venir en cualquier factor de forma. Fast Identity Online (FIDO) es un estándar abierto para la autenticación sin contraseña. FIDO permite a los usuarios y a las organizaciones aprovechar el estándar para iniciar sesión en sus recursos sin un nombre de usuario o una contraseña mediante una clave de seguridad externa o una clave de plataforma integrada en un dispositivo.
 
-En la versión preliminar pública, los empleados pueden usar claves de seguridad para iniciar sesión en sus dispositivos Windows 10 unidos a Azure AD y lograr el inicio de sesión único en sus recursos de nube y locales. También pueden iniciar sesión en exploradores compatibles.
+En la versión preliminar pública, los empleados pueden usar claves de seguridad para iniciar sesión en sus dispositivos Windows 10 unidos a Azure AD y lograr el inicio de sesión único en sus recursos de nube y locales. Los usuarios también pueden iniciar sesión en exploradores compatibles. Las claves de seguridad FIDO2 son una excelente opción para las empresas que son muy conscientes de la seguridad o tienen escenarios o empleados que no quieren o no pueden usar su teléfono como un segundo factor.
 
 ![Inicio de sesión en Microsoft Edge con una clave de seguridad](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -67,7 +67,7 @@ Una clave de seguridad **DEBE** implementar las siguientes extensiones y caracte
 | 3 | hmac-secret | Esta extensión garantiza que pueda iniciar sesión en el dispositivo cuando está sin conexión o en modo avión. |
 | 4 | Varias cuentas por RP | Esta característica garantiza que pueda usar la misma clave de seguridad en varios servicios, como Microsoft Account y Azure Active Directory. |
 
-Los siguientes proveedores ofrecen claves de seguridad FIDO2 o diferentes factores de forma que permiten iniciar sesión sin contraseña. Microsoft anima a los clientes a evaluar las propiedades de seguridad de estas claves al ponerse en contacto con el proveedor y con FIDO Alliance.
+Los siguientes proveedores ofrecen claves de seguridad FIDO2 o diferentes factores de forma que permiten iniciar sesión sin contraseña. Animamos a los clientes a evaluar las propiedades de seguridad de estas claves poniéndose en contacto con el proveedor y con FIDO Alliance.
 
 | Proveedor | Contacto |
 | --- | --- |
@@ -79,11 +79,9 @@ Los siguientes proveedores ofrecen claves de seguridad FIDO2 o diferentes factor
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 
 > [!NOTE]
-> Si adquiere y planea usar claves de seguridad basadas en NFC, necesita un lector NFC compatible.
+> Si adquiere y planea usar claves de seguridad basadas en NFC, necesita un lector NFC compatible para la clave de seguridad. El lector NFC no es un requisito o limitación de Azure. Consulte al proveedor de la clave de seguridad basada en NFC para obtener una lista de lectores de NFC admitidos.
 
-Si es proveedor y quiere que su dispositivo aparezca en esta lista, póngase en contacto con [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
-
-Las claves de seguridad FIDO2 son una excelente opción para las empresas que son muy conscientes de la seguridad o tienen escenarios o empleados que no quieren o no pueden usar su teléfono como un segundo factor.
+Si es proveedor y quiere que su dispositivo aparezca en esta lista de dispositivos compatibles, póngase en contacto con [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
 
 ## <a name="what-scenarios-work-with-the-preview"></a>¿Qué escenarios funcionan con la versión preliminar?
 
@@ -91,8 +89,8 @@ Las claves de seguridad FIDO2 son una excelente opción para las empresas que so
 - Los administradores pueden establecer como destino a todos los usuarios o seleccionar usuarios o grupos dentro de su inquilino para cada método
 - Los usuarios finales pueden registrar y administrar estos métodos de autenticación sin contraseña en el portal de la cuenta
 - Los usuarios finales pueden iniciar sesión con estos métodos de autenticación sin contraseña
-   - Aplicación Microsoft Authenticator: funciona en los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración rápida (OOBE) de Windows 10 y con aplicaciones móviles integradas en cualquier sistema operativo.
-   - Claves de seguridad: funcionan en la pantalla de bloqueo de Windows 10 e Internet en exploradores compatibles como Microsoft Edge.
+   - Aplicación Microsoft Authenticator: Funciona en los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración rápida (OOBE) de Windows 10 y con aplicaciones móviles integradas en cualquier sistema operativo.
+   - Claves de seguridad: Funcionan en la pantalla de bloqueo de Windows 10 e Internet en exploradores compatibles como Microsoft Edge.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
