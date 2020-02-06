@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 3ab02f0522ab52870d24f667ff91665e8aa0a4eb
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 59c38423f771685dc79a8be12a383cfdec6a0266
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281332"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031533"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Creación y administración de Private Link para Azure Database for MySQL (versión preliminar) mediante la CLI
 
@@ -114,7 +114,7 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
 #Create DNS records 
 az network private-dns record-set a create --name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
@@ -185,4 +185,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información sobre [qué es un punto de conexión privado de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- Más información sobre [Qué es un punto de conexión privado de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

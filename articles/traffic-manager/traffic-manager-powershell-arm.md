@@ -3,20 +3,20 @@ title: Uso de PowerShell para administrar Traffic Manager en Azure
 description: Con esta ruta de aprendizaje, empiece por el uso de Azure PowerShell para Traffic Manager.
 services: traffic-manager
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: f8dd01f22dec58c3345798b391c1c37c968d1025
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038117"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938512"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso de PowerShell para administrar Traffic Manager
 
@@ -38,7 +38,7 @@ Cada perfil de Traffic Manager se representa mediante un recurso de tipo "Traffi
 
 En estas instrucciones se usa PowerShell para Microsoft Azure. En el siguiente artículo se explica cómo instalar y configurar Azure PowerShell.
 
-* [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview)
+* [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 
 En los ejemplos de este artículo se da por supuesto que ya tiene un grupo de recursos. Puede crear uno mediante el siguiente comando:
 
@@ -59,9 +59,9 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 
 En la siguiente tabla se describen los parámetros:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
-| NOMBRE |Nombre del recurso del perfil de Traffic Manager. Los perfiles del mismo grupo de recursos deben tener nombres únicos. Este nombre es independiente del nombre DNS que se utiliza para las consultas de DNS. |
+| Nombre |Nombre del recurso del perfil de Traffic Manager. Los perfiles del mismo grupo de recursos deben tener nombres únicos. Este nombre es independiente del nombre DNS que se utiliza para las consultas de DNS. |
 | ResourceGroupName |Nombre del grupo de recursos que contiene el recurso de perfil. |
 | TrafficRoutingMethod |Especifica el método de enrutamiento del tráfico que se usa para determinar qué punto de conexión se devuelve en respuesta a una consulta de DNS. Los valores posibles son "Performance", "Weighted" o "Priority". |
 | RelativeDnsName |Especifica la parte correspondiente al nombre de host del nombre DNS proporcionado por este perfil de Traffic Manager. Este valor se combina con el nombre de dominio DNS usado por Azure Traffic Manager para formar el nombre de dominio completo (FQDN) del perfil. Por ejemplo, con el valor "contoso", se obtiene "contoso.trafficmanager.net". |

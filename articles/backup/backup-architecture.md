@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450189"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963944"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -101,6 +101,23 @@ Ejecución de copia de seguridad incremental |![Sí][green] |![Sí][green] |![S�
 Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br/> Solo para servidores DPM o MABS implementados en el entorno local.
 
 ![Clave de tabla](./media/backup-architecture/table-key.png)
+
+## <a name="backup-policy-essentials"></a>Fundamentos de la directiva de copia de seguridad
+
+- Se crea una directiva de copia de seguridad por almacén.
+- Se puede crear una directiva de copia de seguridad para la copia de seguridad de las cargas de trabajo siguientes:
+  - Azure VM
+  - SQL en Azure VM
+  - Recurso compartido de archivos de Azure
+- Una directiva puede asignarse a muchos recursos. Una directiva de copia de seguridad de Azure VM puede usarse para proteger varias máquinas virtuales de Azure.
+- Una directiva consta de dos componentes:
+  - Programación: cuándo realizar la copia de seguridad
+  - Retención: cuánto tiempo debe retenerse cada copia de seguridad.
+- La programación puede definirse como "diaria" o "semanal" con un punto específico en el tiempo.
+- La retención puede definirse para los puntos de copia de seguridad "diarios", "semanal", "mensual" o "anual" .
+- "Semanal" se refiere a una copia de seguridad en un determinado día de la semana, "mensual" significa una copia de seguridad en un determinado día del mes y "anual" a una copia de seguridad en un determinado día del año.
+- La retención de los puntos de copia de seguridad "anuales", y "mensuales" se conoce como "LongTermRetention".
+- Cuando se crea un almacén, también se crea una directiva para las copias de seguridad de máquinas virtuales de Azure denominada "DefaultPolicy" que se puede usar para dichas copias de seguridad.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitectura: Copia de seguridad integrada de máquina virtual de Azure
 

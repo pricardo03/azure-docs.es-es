@@ -4,15 +4,15 @@ description: En este artículo, se proporciona información sobre cómo conectar
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 4dbc830ea106dee7ef21a28eb3aee63c94680be2
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: a4b8e1ca245d90018647577f338ed0833cbaf324
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664853"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990290"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](../../azure-monitor/platform/itsmc-overview.md).

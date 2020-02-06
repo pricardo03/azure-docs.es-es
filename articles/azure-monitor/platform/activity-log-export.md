@@ -5,20 +5,21 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969658"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845467"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs
 
-> [!WARNING]
-> Ahora puede recopilar el Registro de actividad en un área de trabajo Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-legacy.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
+> [!IMPORTANT]
+> El método para enviar el registro de actividad de Azure a Azure Storage y Azure Event Hubs ha cambiado a [configuración de diagnóstico](diagnostic-settings.md). En este artículo se describe el método heredado que está en proceso de quedarse en desuso. Consulte la actualización en [Recopilación del registro de actividad de Azure con configuración heredada](diagnostic-settings-legacy.md) para ver una comparativa.
+
 
 El [registro de actividad de Azure](platform-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Además de ver el registro de actividades en Azure Portal o copiarlo en un área de trabajo de Log Analytics donde se puede analizar con otros datos recopilados por Azure Monitor, puede crear un perfil de registro para archivar el registro de actividad en una cuenta de almacenamiento de Azure o transmitirlo a un centro de eventos.
 
@@ -35,9 +36,10 @@ El archivo del registro de actividad en una cuenta de almacenamiento es útil si
 ### <a name="storage-account"></a>Cuenta de almacenamiento
 Si va a archivar el registro de actividad, deberá [crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md) si aún no tiene una. No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas y los registros en una cuenta de almacenamiento, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.
 
-La cuenta de almacenamiento no tiene que estar en la misma suscripción que la que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
-> [!NOTE]
->  Actualmente no puede archivar datos en una cuenta de almacenamiento que está detrás de una red virtual protegida.
+La cuenta de almacenamiento no tiene que estar en la misma suscripción que la que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones. 
+
+> [!TIP]
+> Consulte [Configuración de firewalls y redes virtuales de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para proporcionar acceso a una cuenta de almacenamiento detrás de una red virtual protegida.
 
 ### <a name="event-hubs"></a>Event Hubs
 Si va a enviar el registro de actividad a un centro de eventos, deberá [crear un centro de eventos](../../event-hubs/event-hubs-create.md) si aún no tiene uno. Si anteriormente transmitió los eventos del registro de actividad a este espacio de nombres de Event Hubs, se reutilizará ese centro de eventos.
@@ -72,9 +74,14 @@ Si se establecen directivas de retención, pero el almacenamiento de registros e
 
 Cree o edite un perfil de registro con la opción **Exportar a Centro de eventos**  de Azure Portal.
 
-1. En el menú **Monitor** de Azure Portal, seleccione **Exportar a Centro de eventos** .
+1. En el menú **Azure Monitor** de Azure Portal, seleccione **Registro de actividad**.
+3. Haga clic en **Configuración de diagnóstico**.
 
-    ![Botón Exportar en el portal](media/activity-log-export/portal-export.png)
+   ![Configuración de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Haga clic en el banner de color púrpura de la experiencia heredada.
+
+    ![Experiencia heredada](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. En la hoja que aparece, especifique lo siguiente:
    * Regiones con los eventos para exportar. Debe seleccionar todas las regiones para asegurarse de no perderse eventos clave, ya que el registro de actividad es un registro global (no regional) y, por lo tanto, la mayoría de los eventos no tienen una región asociada.

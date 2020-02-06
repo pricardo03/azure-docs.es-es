@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 446784155cf6f72cfaa80523ed3913eacc7e5cfc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f513aaf113ef4bd6e75e5c4b31e0f0252d45f10
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510377"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988097"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Conexión a un conjunto de escalado de máquinas virtuales mediante Azure Bastion
 
@@ -35,7 +35,7 @@ Asegúrese de haber configurado un host de Azure Bastion para la red virtual don
    ![Pestaña Bastion](./media/bastion-connect-vm-scale-set/3.png)
 4. En la pestaña Bastion, escriba el nombre de usuario y la contraseña del conjunto de escalado de máquinas virtuales y, luego, seleccione **Conectar**.
 
-   ![conectarse](./media/bastion-connect-vm-scale-set/4.png)
+   ![conectar](./media/bastion-connect-vm-scale-set/4.png)
 5. La conexión RDP con esta máquina virtual a través de Bastion se abrirá directamente en Azure Portal (a través de HTML5) mediante el puerto 443 y el servicio Bastion.
 
 ## <a name="next-steps"></a>Pasos siguientes

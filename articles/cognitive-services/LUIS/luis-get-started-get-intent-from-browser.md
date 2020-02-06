@@ -9,44 +9,44 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/17/2019
+ms.date: 02/03/2020
 ms.author: diberry
-ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76165742"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987961"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Inicio rápido: Obtención de la intención con un explorador
 
-Para entender lo que devuelve un punto de conexión de predicción de LUIS, vea un resultado de predicción en un explorador web. 
+Para entender lo que devuelve un punto de conexión de predicción de LUIS, vea un resultado de predicción en un explorador web.
 
 ## <a name="prerequisites"></a>Prerequisites
 
 Para consultar una aplicación pública, necesita:
 
-* Su propia clave de creación o predicción de Language Understanding (LUIS) que puede obtener en [el portal de LUIS (versión preliminar)](https://preview.luis.ai/). Si aún no tiene una suscripción para crear una clave, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
-* El identificador de la aplicación pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
+* Su propia clave de creación o predicción de Language Understanding (LUIS) que puede obtener en [el portal de LUIS (versión preliminar)](https://preview.luis.ai/). Si aún no tiene una suscripción para crear una clave, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
+* El identificador de la aplicación pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
 
 ## <a name="use-the-browser-to-see-predictions"></a>Uso del explorador para ver las predicciones
 
-1. Abra un explorador web. 
+1. Abra un explorador web.
 1. Use las direcciones URL completas que se indican a continuación y reemplace `YOUR-KEY` por su propia clave de creación o de predicción de LUIS. Las solicitudes son solicitudes GET e incluyen la autorización, con la clave de creación o predicción de LUIS, como parámetro de la cadena de consulta.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[Solicitud de predicción de V3](#tab/V3-1-1)
-    
-    
+
+
     El formato de la dirección URL de V3 para una solicitud de punto de conexión (por ranuras) **GET** es:
-    
+
     `
     https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
     #### <a name="v2-prediction-requesttabv2-1-2"></a>[Solicitud de predicción de V2](#tab/V2-1-2)
-    
+
     El formato de la dirección URL de V2 para una solicitud de punto de conexión **GET** es:
-    
+
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
     `
@@ -97,7 +97,7 @@ Para consultar una aplicación pública, necesita:
 
     * * *
 
-1. Para ver todas las intenciones, agregue el parámetro de cadena de consulta adecuado. 
+1. Para ver todas las intenciones, agregue el parámetro de cadena de consulta adecuado.
 
     #### <a name="v3-prediction-endpointtabv3-3-1"></a>[Punto de conexión de predicción de V3](#tab/V3-3-1)
 
@@ -174,7 +174,7 @@ Para consultar una aplicación pública, necesita:
     ```
 
 
-<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->   
+<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->
 
 ## <a name="next-steps"></a>Pasos siguientes
 

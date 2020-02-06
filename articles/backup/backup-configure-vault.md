@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas Windows con el agente de MARS
 description: Use el agente de Microsoft Recovery Services (MARS) de Azure Backup para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: c6e5ea1ed1ec9dd922793dfc6834238c431ddc38
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 990929cc95d1c25117873ca39415d33370456b91
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "76290876"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025544"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Copia de seguridad de máquinas Windows con el agente de MARS de Azure Backup
 
@@ -215,10 +215,10 @@ Cree una directiva de la siguiente manera:
         -   Las copias de seguridad tomadas el sábado de la última semana del mes a medianoche y a las 6:00 p. m. se conservan durante 12 meses.
         -   Las copias de seguridad tomadas el sábado de la última semana de marzo se conservan durante 10 años.
 
-    ![Ejemplo de retención](./media/backup-configure-vault/retention-example.png)
+        ![Ejemplo de retención](./media/backup-configure-vault/retention-example.png)
 
 
-11. En **Elija el tipo de copia de seguridad inicial** decida si desea realizar la copia de seguridad inicial a través de la red o si usar la copia de seguridad sin conexión (para más información sobre la copia de seguridad sin conexión, consulte este [artículo](backup-azure-backup-import-export.md)). Para realizar la copia de seguridad inicial a través de la red, seleccione **Automáticamente por encima de la red** y haga clic en **Siguiente**.
+11. En **Elija el tipo de copia de seguridad inicial** decida si desea realizar la copia de seguridad inicial a través de la red o si usar la copia de seguridad sin conexión (para más información sobre la copia de seguridad sin conexión, consulte este [artículo](offline-backup-azure-data-box.md)). Para realizar la copia de seguridad inicial a través de la red, seleccione **Automáticamente por encima de la red** y haga clic en **Siguiente**.
 
     ![Tipo de copia de seguridad inicial](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
@@ -245,7 +245,7 @@ Puede ejecutar una copia de seguridad inicial automáticamente a través de la r
 5. En el centro de datos, los datos de los discos se copian en una cuenta de almacenamiento de Azure.
 6. Azure Backup copia los datos de la cuenta de almacenamiento en el almacén y se programan copias de seguridad incrementales.
 
-[Más información](backup-azure-backup-import-export.md) sobre la propagación sin conexión.
+[Más información](offline-backup-azure-data-box.md) sobre la propagación sin conexión.
 
 ### <a name="enable-network-throttling"></a>Habilitación de la limitación de la red
 

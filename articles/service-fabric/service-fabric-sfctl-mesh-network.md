@@ -3,14 +3,14 @@ title: 'CLI de Azure Service Fabric: sfctl mesh network'
 description: Obtenga información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para obtener y eliminar los recursos de red de Service Fabric Mesh.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 2d9d86d41dc031cca2730011c2322e9feb30c827
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646133"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906000"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Obtiene y elimina recursos de mesh network.

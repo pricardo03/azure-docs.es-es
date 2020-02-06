@@ -3,18 +3,18 @@ title: Invalidación de la subred de Azure Traffic Manager mediante la CLI de 
 description: Este artículo lo ayudará a entender cómo la invalidación de la subred de Traffic Manager se puede usar para reemplazar el método de enrutamiento de un perfil de Traffic Manager para dirigir el tráfico a un punto de conexión en función de la dirección IP del usuario final a través de un intervalo IP predefinido a las asignaciones de punto de conexión.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.topic: article
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: allensu
-ms.openlocfilehash: d285db22ef92128e025a677ea7f86d623dfe130c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.author: rohink
+ms.openlocfilehash: 818b692884bd9d31efd08663a582ebcfec2032e9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351184"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938472"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Invalidación de la subred de Traffic Manager mediante la CLI de Azure
 
@@ -35,7 +35,7 @@ Hay dos tipos de perfiles de enrutamiento que admiten invalidaciones de subred:
 
 Para crear una invalidación de subred de Traffic Manager, puede usar la CLI de Azure para agregar las subredes para la invalidación al punto de conexión de Traffic Manager.
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

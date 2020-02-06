@@ -5,25 +5,25 @@ description: Siga este ejemplo de clasificación para predecir la renovación co
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: sgilley
 ms.date: 12/25/2019
-ms.openlocfilehash: 88f688608a0ae3d435699362f9326c7c02d494a4
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 701bf186080ef627ef4621e959b281fd58aa4132
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311123"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963380"
 ---
 # <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Uso de un árbol de decisión ampliado para predecir la renovación con el diseñador de Azure Machine Learning
 
-**Ejemplo de diseñador 5**
+**Ejemplo 5 del diseñador (versión preliminar)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Aprenda a crear una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador.
+Obtenga información sobre cómo compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar).
 
 Esta canalización entrena 2 clasificadores de **árbol de decisión de dos clases** para predecir las tareas comunes de los sistemas de administración de relaciones con clientes (CRM): deserción de clientes. Los valores de los datos y las etiquetas se dividen en múltiples orígenes de datos y se codifican para anonimizar la información del cliente, sin embargo, todavía podemos usar al diseñador para combinar conjuntos de datos y entrenar un modelo con los valores ocultos.
 
