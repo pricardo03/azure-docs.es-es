@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0e6b87ff34d6555fda50518198f9ae3839aa56e6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895192"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719099"
 ---
 # <a name="build-highly-available-applications-with-zone-redundant-storage-zrs"></a>Creación de aplicaciones de alta disponibilidad con el almacenamiento con redundancia de zona (ZRS)
 
@@ -33,11 +33,12 @@ Para las cuentas de uso general v2 estándar, ZRS está disponible con carácter
 - Norte de Europa
 - Oeste de Europa
 - Centro de Francia
-- Este de Japón
+- Japón Oriental
+- Norte de Sudáfrica
 - Sur de Reino Unido 2
 - Centro de EE. UU.
 - Este de EE. UU.
-- Este de EE. UU. - 2
+- Este de EE. UU. 2
 - Oeste de EE. UU. 2
 
 En el caso de las cuentas de FileStorage (recursos compartidos premium) y de BlockBlobStorage (blobs en bloques premium), ZRS está disponible con carácter general en las regiones siguientes:
@@ -88,7 +89,7 @@ Durante una migración en vivo, puede usar la cuenta de almacenamiento mientras 
 Tenga en cuenta las siguientes restricciones en la migración en vivo:
 
 - Si bien Microsoft controla la solicitud de migración en vivo rápidamente, no hay ninguna garantía respecto de cuándo se completará una migración en vivo. Si necesita migrar los datos a ZRS en una fecha concreta, Microsoft recomienda que, en su lugar, realice una migración manual. En general, cuantos más datos tenga en su cuenta, más tiempo se tardará en migrar esos datos. 
-- La migración en vivo se admite solo para las cuentas de almacenamiento que utilizan la replicación de LRS o GRS. Si su cuenta usa RA-GRS, debe cambiar primero el tipo de replicación de la cuenta a LRS o GRS antes de continuar. Este paso intermedio quita el punto de conexión de solo lectura secundario proporcionado por RA-GRS antes de la migración.
+- La migración en vivo solo se admite para las cuentas de almacenamiento que utilizan la replicación de LRS. Si su cuenta usa GRS o RA-GRS, debe cambiar primero el tipo de replicación a LRS antes de continuar. Este paso intermedio quita el punto de conexión secundario proporcionado por GRS/RA-GRS.
 - La cuenta debe tener datos.
 - Solo puede migrar datos en la misma región. Si quiere migrar los datos a una cuenta de ZRS ubicada en una región distinta de la región de la cuenta de origen, debe hacer una migración manual.
 - Solo los tipos de cuenta de almacenamiento estándar admiten la migración en vivo. Las cuentas de Premium Storage deben migrarse manualmente.
@@ -130,9 +131,9 @@ Una vez finalizada la migración, el tipo de replicación de las cuentas cambia 
 
 ZRS solo admite cuentas de uso general v2, por lo que antes de enviar una solicitud para una migración en vivo a ZRS, asegúrese de actualizar las cuentas a uso general v2. Consulte [Información general acerca de la cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview) y [Actualización a una cuenta de almacenamiento de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para más información.
 
-**¿Se puede solicitar una migración en vivo de mis cuentas de almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) a ZRS?**
+**¿Puedo solicitar una migración en vivo de mis cuentas de almacenamiento con redundancia geográfica o con redundancia geográfica de acceso de lectura (GRS/RA-GRS) a ZRS?**
 
-Antes de enviar una solicitud para una migración en vivo a ZRS, asegúrese de que sus aplicaciones o cargas de trabajo ya no requieran acceso al punto de conexión de solo lectura secundario, y no olvide cambiar el tipo de replicación de las cuentas de almacenamiento a almacenamiento con redundancia geográfica (GRS). Consulte [Cambio de estrategia de replicación](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) para más información.
+La migración en vivo solo se admite para las cuentas de almacenamiento que utilizan la replicación de LRS. Si su cuenta usa GRS o RA-GRS, debe cambiar primero el tipo de replicación a LRS antes de continuar. Este paso intermedio quita el punto de conexión secundario proporcionado por GRS/RA-GRS. Además, antes de enviar una solicitud para una migración en vivo a ZRS, asegúrese de que las aplicaciones o cargas de trabajo ya no requieren acceso al punto de conexión de solo lectura secundario y cambie el tipo de replicación de las cuentas de almacenamiento a almacenamiento con redundancia local (LRS). Consulte [Cambio de estrategia de replicación](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) para más información.
 
 **¿Se puede solicitar una migración en vivo de mis cuentas de almacenamiento a ZRS en otra región?**
 

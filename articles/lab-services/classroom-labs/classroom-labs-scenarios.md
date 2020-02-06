@@ -1,6 +1,6 @@
 ---
-title: Uso de laboratorios educativos con fines de aprendizaje - Azure Lab Services | Microsoft Docs
-description: Aprenda a usar Azure DevTest Labs para escenarios de entrenamiento.
+title: 'Uso de laboratorios educativos con fines de aprendizaje: Azure Lab Services'
+description: En este artículo se describe cómo usar Azure DevTest Labs para crear laboratorios en Azure para escenarios de aprendizaje.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60695290"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717985"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Uso de laboratorios educativos con fines de aprendizaje
 Puede configurar un laboratorio con fines de aprendizaje. Los laboratorios educativos de Azure Lab Services permiten crear un laboratorio para el aprendizaje donde cada aprendiz usa entornos idénticos y aislados para tal fin. Puede aplicar directivas para garantizar que los entornos de entrenamiento estarán disponibles para cada aprendiz solo cuando sea necesario y cuando contengan los suficientes recursos necesarios como, por ejemplo, máquinas virtuales, para el entrenamiento. 

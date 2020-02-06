@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: azure-app-configuration
-author: yegu
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 12/04/2019
-ms.author: yegu
+ms.date: 1/31/2020
+ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: 711b807372404815e5ba57b95def91429a1925dc
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3eb77799b1845112e9f7e5ca0b65d790625fd529
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875394"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961605"
 ---
 Si tiene pensado continuar con el siguiente tutorial, conserve los recursos que creó en este inicio rápido para que pueda volver a usarlos.
 

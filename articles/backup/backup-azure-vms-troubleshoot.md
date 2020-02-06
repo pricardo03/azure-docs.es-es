@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 6baf878a1afac011997800b78f059e254e3f2a06
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9dbb76b3c0bb6c0ff1f4fb51fbf4846b74a3a1f3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845532"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019102"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -278,6 +278,6 @@ La copia de seguridad de máquinas virtuales se basa en la emisión de comandos 
 DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de máquinas virtuales de IaaS funcione. Si necesita una dirección IP privada estática, configúrela mediante Azure Portal o PowerShell. Asegúrese de que la opción DHCP dentro de la máquina virtual esté habilitada.
 Obtenga más información sobre cómo configurar una dirección IP estática con PowerShell:
 
-* [Incorporación de una dirección IP interna estática a una máquina virtual existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Incorporación de una dirección IP interna estática a una máquina virtual existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * [Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 

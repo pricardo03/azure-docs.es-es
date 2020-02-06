@@ -2,7 +2,7 @@
 title: 'Guía de inicio rápido: creación de un perfil de alta disponibilidad de aplicaciones - Azure Portal - Azure Traffic Manager'
 description: Este artículo de guía de inicio rápido describe cómo crear un perfil de Traffic Manager para crear aplicaciones web de alta disponibilidad.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: allensu
-ms.openlocfilehash: b2163b76dc3a301359cf3474789c5b473f9e4552
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.author: rohink
+ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483673"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934765"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Inicio rápido: Creación de un perfil de Traffic Manager mediante Azure Portal
 
@@ -29,11 +29,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Esta guía de inicio rápido requiere que haya implementado dos instancias de una aplicación web en dos regiones de Azure distintas (*Este de EE. UU.* y *Europa Occidental*). Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic Manager.
+Esta guía de inicio rápido requiere que haya implementado dos instancias de una aplicación web en dos regiones de Azure distintas (*Este de EE. UU.* y *Oeste de Europa*). Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic Manager.
 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Web** > **Aplicación web**.
 
@@ -63,45 +63,45 @@ Cree un perfil de Traffic Manager que dirija el tráfico de los usuarios según 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione estos valores:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | --------| ----- |
-    | NOMBRE | Escriba un nombre único para el perfil de Traffic Manager.|
+    | Nombre | Escriba un nombre único para el perfil de Traffic Manager.|
     | Método de enrutamiento | Seleccione **Prioridad**.|
     | Subscription | Seleccione la suscripción en la que desea aplicar el perfil de Traffic Manager. |
-    | Grupos de recursos | Seleccione *myResourceGroupTM1*.|
-    | Ubicación |Este valor hace referencia a la ubicación del grupo de recursos. No tiene ningún efecto sobre el perfil de Traffic Manager que se implementará globalmente.|
+    | Resource group | Seleccione *myResourceGroupTM1*.|
+    | Location |Este valor hace referencia a la ubicación del grupo de recursos. No tiene ningún efecto sobre el perfil de Traffic Manager que se implementará globalmente.|
 
 3. Seleccione **Crear**.
 
 ## <a name="add-traffic-manager-endpoints"></a>Incorporación de puntos de conexión de Traffic Manager
 
-Agregue el sitio web en la región *Este de EE. UU.* como punto de conexión principal para enrutar todo el tráfico de usuario. Agregue el sitio web de *Europa Occidental* como un punto de conexión de conmutación por error. Cuando el punto de conexión principal no está disponible, el tráfico se enruta automáticamente al punto de conexión de conmutación por error.
+Agregue el sitio web en la región *Este de EE. UU.* como punto de conexión principal para enrutar todo el tráfico de usuario. Agregue el sitio web de *Oeste de Europa* como un punto de conexión de conmutación por error. Cuando el punto de conexión principal no está disponible, el tráfico se enruta automáticamente al punto de conexión de conmutación por error.
 
 1. En la barra de búsqueda del portal, escriba el nombre del perfil de Traffic Manager que creó en la sección anterior.
 2. Seleccione el perfil en los resultados de la búsqueda.
 3. En **Perfil de Traffic Manager**, en la sección **Configuración**, seleccione **Puntos de conexión** y, a continuación, seleccione **Agregar**.
 4. Escriba o seleccione estas opciones:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ------|
-    | Escriba | Seleccione **Punto de conexión de Azure**. |
-    | NOMBRE | Escriba *myPrimaryEndpoint*. |
+    | Tipo | Seleccione **Punto de conexión de Azure**. |
+    | Nombre | Escriba *myPrimaryEndpoint*. |
     | Tipo de recurso de destino | Seleccione **App Service**. |
     | Recurso de destino | Seleccione **Elegir un servicio de aplicaciones** > **Este de EE. UU.** |
-    | Prioridad | Seleccione **1**. Todo el tráfico se dirige a este punto de conexión cuando está en buen estado. |
+    | Priority | Seleccione **1**. Todo el tráfico se dirige a este punto de conexión cuando está en buen estado. |
 
     ![Captura de pantalla de la adición de un punto de conexión al perfil de Traffic Manager.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
 
 5. Seleccione **Aceptar**.
 6. Para crear un punto de conexión de conmutación por error para la segunda región de Azure, repita los pasos 3 y 4 con esta configuración:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ------|
-    | Escriba | Seleccione **Punto de conexión de Azure**. |
-    | NOMBRE | Escriba *myFailoverEndpoint*. |
+    | Tipo | Seleccione **Punto de conexión de Azure**. |
+    | Nombre | Escriba *myFailoverEndpoint*. |
     | Tipo de recurso de destino | Seleccione **App Service**. |
-    | Recurso de destino | Seleccione **Elegir un servicio de aplicaciones** > **Europa Occidental**. |
-    | Prioridad | Seleccione **2**. Todo el tráfico se dirige a este punto de conexión de conmutación por error si el punto de conexión principal no está en estado correcto. |
+    | Recurso de destino | Seleccione **Elegir un servicio de aplicaciones** > **Oeste de Europa**. |
+    | Priority | Seleccione **2**. Todo el tráfico se dirige a este punto de conexión de conmutación por error si el punto de conexión principal no está en estado correcto. |
 
 7. Seleccione **Aceptar**.
 

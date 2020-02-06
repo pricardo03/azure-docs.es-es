@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 6ff7500712f57d7cf2adad1fc73f68a29f3afc20
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 40cd3467c7a4377427bb8db437e1047382933b1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412829"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714879"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Configuración de la persistencia de datos en el nivel Prémium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con redes virtuales. En este artículo, se describe cómo se configura la persistencia de una instancia de Azure Cache for Redis del nivel Prémium.
@@ -26,7 +26,13 @@ Azure Cache for Redis proporciona la persistencia de Redis utilizando los modelo
 * **Persistencia de RDB**: cuando se configura la persistencia de RDB (base de datos de Redis), Azure Cache for Redis conserva en el disco una instantánea de la caché en un formato binario de Redis con una frecuencia de copia de seguridad que se puede configurar. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con la instantánea más reciente. Más información sobre las [ventajas](https://redis.io/topics/persistence#rdb-advantages) y [desventajas](https://redis.io/topics/persistence#rdb-disadvantages) de la persistencia de RDB.
 * **Persistencia de AOF**: cuando la persistencia de AOF (archivo de solo anexión) está configurada, Azure Cache for Redis almacena cada operación de escritura en un registro que se guarda al menos una vez por segundo en una cuenta de Azure Storage. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con las operaciones de escritura almacenadas. Más información sobre las [ventajas](https://redis.io/topics/persistence#aof-advantages) y [desventajas](https://redis.io/topics/persistence#aof-disadvantages) de la persistencia de AOF.
 
-La persistencia se configura en la hoja **New Azure Cache for Redis** (Nueva instancia de Azure Cache for Redis) durante la creación de la caché y en el **menú Recurso** de las cachés existentes del nivel Prémium.
+La persistencia escribe los datos de Redis en una cuenta de Azure Storage que posea y administre. Puede configurarla en la hoja **New Azure Cache for Redis** (Nueva instancia de Azure Cache for Redis) durante la creación de la caché y en el **menú Recurso** de las cachés existentes del nivel Premium.
+
+> [!NOTE]
+> 
+> Azure Storage cifra automáticamente los datos cuando se conservan. Puede usar sus propias claves para el cifrado. Para más información, consulte [Claves administradas por el cliente con Azure Key Vault](/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#customer-managed-keys-with-azure-key-vault).
+> 
+> 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -38,7 +44,7 @@ Los pasos de la siguiente sección explican cómo configurar la persistencia de 
 
 ## <a name="enable-redis-persistence"></a>Habilitación de la persistencia de Redis
 
-La persistencia de Redis se habilita en la hoja **Persistencia de los datos en Redis** al seleccionar la persistencia **RDB** o **AOF**. Para nuevas caché, a esta hoja se obtiene acceso durante el proceso de creación de la caché, como se describe en la sección anterior. Para las memorias caché existentes, a la hoja **Redis data persistence** (Persistencia de datos de Redis) se accede desde el **menú Recursos** de la caché.
+La persistencia de Redis se habilita en la hoja **Persistencia de los datos**, seleccionando la persistencia **RDB** o **AOF**. Para nuevas caché, a esta hoja se obtiene acceso durante el proceso de creación de la caché, como se describe en la sección anterior. Para las memorias caché existentes, a la hoja **Persistencia de los datos** se accede desde el **menú Recursos** de la caché.
 
 ![Configuración de Redis][redis-cache-settings]
 
@@ -125,7 +131,7 @@ Para la persistencia de RDB y AOF:
 * Si ha escalado a un tamaño menor y no hay suficiente espacio en el tamaño más pequeño para contener todos los datos desde la última copia de seguridad, las claves se expulsarán durante el proceso de restauración, normalmente mediante el uso de la directiva de expulsión [allkeys-lru](https://redis.io/topics/lru-cache) .
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>¿Puedo cambiar la frecuencia de copia de seguridad de RDB después de crear la memoria caché?
-Sí, puede cambiar la frecuencia de copia de seguridad de la persistencia de RDB en la hoja **Persistencia de los datos en Redis**. Para ver las instrucciones, consulte Configurar la persistencia de Redis.
+Sí, puede cambiar la frecuencia de copia de seguridad de la persistencia de RDB en la hoja **Persistencia de los datos**. Para ver las instrucciones, consulte Configurar la persistencia de Redis.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>¿Por qué si tengo una frecuencia de copia de seguridad de RDB de 60 minutos hay más de 60 minutos entre las copias de seguridad?
 El intervalo de frecuencia de copia de seguridad de la persistencia de RDB no se inicia hasta que el proceso de copia de seguridad anterior se ha completado correctamente. Si la frecuencia de copia de seguridad es de 60 minutos y realiza un proceso de copia de seguridad en 15 minutos para completarse correctamente, la siguiente copia de seguridad no se iniciará hasta pasados 75 minutos de la hora de inicio de la copia de seguridad anterior.

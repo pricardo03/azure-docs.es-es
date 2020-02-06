@@ -2,7 +2,7 @@
 title: Habilitación del registro de diagnóstico en Azure Traffic Manager
 description: Aprenda a habilitar el registro de diagnóstico para su perfil de Traffic Manager y acceda a los archivos de registro que se crean como resultado.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: allensu
-ms.openlocfilehash: b2ebeb41e69b7edfd43c38cc3b828069a1b3401a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071244"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938670"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Habilitación del registro de diagnóstico en Azure Traffic Manager
 
@@ -55,7 +55,7 @@ Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azur
       Asegúrese de que todas las categorías de registro asociadas con el recurso del perfil de Traffic Manager se muestran como habilitadas. También, compruebe que la cuenta de almacenamiento está configurada correctamente.
 
 ## <a name="access-log-files"></a>Acceso a los archivos de registro
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 1. Vaya a la cuenta de Azure Storage en el portal.
 2. En la página **Información general** de su cuenta de Azure Storage, en **Servicios**, seleccione **Blobs**.
 3. En **Contenedores**, seleccione **insights-logs-probehealthstatusevents** y vaya al archivo PT1H.json y haga clic en **Descargar** para descargar y guardar una copia de este archivo de registro.
@@ -72,8 +72,8 @@ En la tabla siguiente se incluye el esquema de registros específico del recurso
 |||||
 |----|----|---|---|
 |**Nombre del campo**|**Tipo de campo**|**Definición**|**Ejemplo**|
-|EndpointName|Cadena|El nombre del punto de conexión de Traffic Manager cuyo mantenimiento se está registrando.|*myPrimaryEndpoint*|
-|Status|Cadena|El estado de mantenimiento del punto de conexión de Traffic Manager que se sondeó. El estado puede ser **Up** (Arriba) o **Down** (Abajo).|**Up** (Arriba)|
+|EndpointName|String|El nombre del punto de conexión de Traffic Manager cuyo mantenimiento se está registrando.|*myPrimaryEndpoint*|
+|Status|String|El estado de mantenimiento del punto de conexión de Traffic Manager que se sondeó. El estado puede ser **Up** (Arriba) o **Down** (Abajo).|**Up** (Arriba)|
 |||||
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2d35c31e23da7addcf0b4c341c6925f258d5c232
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c73fb55e485d0c92d27eac2ac197a81337b9d5e1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688258"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016806"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configuración de PHP en Azure App Service
 
@@ -21,7 +21,7 @@ ms.locfileid: "74688258"
 
 En esta guía, se explica cómo se configura el tiempo de ejecución de PHP integrado con aplicaciones web, back-ends para dispositivos móviles y aplicaciones de API de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714); cómo se proporciona un tiempo de ejecución de PHP personalizado, y cómo se habilitan las extensiones. Para utilizar App Service, regístrese para obtener acceso a la [evaluación gratuita]. Para sacar el máximo partido a esta guía, primero debe crear una aplicación PHP en App Service.
 
-## <a name="how-to-change-the-built-in-php-version"></a>Procedimientos para: Cambiar la versión de PHP integrada
+## <a name="how-to-change-the-built-in-php-version"></a>Procedimientos: Cambiar la versión de PHP integrada
 
 PHP 5.6 está instalado de forma predeterminada y está disponible para que lo use de inmediato cuando cree una aplicación de App Service. La mejor forma de ver la revisión publicada disponible, su configuración predeterminada y las extensiones habilitadas es implementando un script que llame a la función [phpinfo()] .
 
@@ -35,21 +35,7 @@ También están disponibles las versiones PHP 7.0 y PHP 7.2, pero no habilitadas
 
 3. Haga clic en el botón **Guardar** de la parte superior de la hoja **Configuración general**.
 
-### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-1. Abra Azure PowerShell e inicie sesión en su cuenta:
-
-        PS C:\> Connect-AzAccount
-2. Establezca la versión PHP de la aplicación.
-
-        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
-3. La versión de PHP ya está configurada. Puede confirmar esta configuración:
-
-        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
-
-### <a name="azure-cli"></a>CLI de Azure 
+### <a name="azure-cli"></a>Azure CLI 
 
 Para usar la interfaz de la línea de comandos de Azure, debe [instalar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en el equipo.
 
@@ -69,7 +55,7 @@ Para usar la interfaz de la línea de comandos de Azure, debe [instalar la CLI d
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Procedimientos para: Cambiar las configuraciones de PHP integradas
+## <a name="how-to-change-the-built-in-php-configurations"></a>Procedimientos: Cambiar las configuraciones de PHP integradas
 
 En todos los tiempos de ejecución de PHP integrados es posible cambiar las opciones de configuración siguiendo los pasos que se indican a continuación. (Para obtener información acerca de las directivas, consulte la [lista de directivas de php.ini]).
 
@@ -100,7 +86,7 @@ Como alternativa al uso de un archivo `.user.ini`, puede usar la función [ini_s
         wincache.maxfilesize=512
 1. Para volver a cargar los cambios, reinicie la aplicación.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Procedimientos para: Habilitar las extensiones en el tiempo de ejecución predeterminado de PHP
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Procedimientos: Habilitar las extensiones en el tiempo de ejecución predeterminado de PHP
 
 Como se ha mencionado en la sección anterior, la mejor forma de ver la versión de PHP predeterminada, su configuración predeterminada y las extensiones habilitadas es implementar un script que llame a la función [phpinfo()]. Para habilitar extensiones adicionales, siga los pasos que se detallan a continuación:
 
@@ -129,7 +115,7 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 
 También se pueden usar las extensiones Zend mediante una clave **PHP_ZENDEXTENSIONS**. Para habilitar varias extensiones, incluya una lista separada por comas de los archivos `.dll` como valor de configuración de aplicaciones.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Procedimientos para: Usar un tiempo de ejecución de PHP personalizado
+## <a name="how-to-use-a-custom-php-runtime"></a>Procedimientos: Usar un tiempo de ejecución de PHP personalizado
 
 En lugar del tiempo de ejecución de PHP, App Service puede usar un tiempo de ejecución de PHP facilitado por el usuario para ejecutar scripts PHP. El tiempo de ejecución que facilita se puede configurar mediante un archivo `php.ini` que también usted facilita. Para usar un tiempo de ejecución de PHP personalizado con App Service, siga estos pasos.
 
@@ -146,7 +132,7 @@ En lugar del tiempo de ejecución de PHP, App Service puede usar un tiempo de ej
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Procedimientos para: Habilitar la automatización de Composer en Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Procedimientos: Habilitar la automatización de Composer en Azure
 
 De forma predeterminada, App Service no responde con composer.json, si tiene uno en el proyecto PHP. Si usa la [implementación de Git](deploy-local-git.md), puede habilitar el procesamiento de composer.json durante `git push` mediante la habilitación de la extensión de Composer.
 

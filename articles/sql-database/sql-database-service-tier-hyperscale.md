@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 9cce221946a16103e706875e179c677190f32af1
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 226ed1fcc72eada399c0a9a9eb4225d79cd83dd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940808"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845889"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -72,7 +72,7 @@ El nivel de servicio Hiperescala solo está disponible en el [modelo de núcleo 
 
 - **Almacenamiento**:
 
-  No es necesario especificar el tamaño máximo de datos al configurar una base de datos Hiperescala. En el nivel Hiperescala, se le cobra por el almacenamiento de su base de datos según el uso real. El almacenamiento se asigna automáticamente entre 10 GB y 100 TB, en incrementos que se ajustan dinámicamente entre 10 GB y 40 GB.  
+  No es necesario especificar el tamaño máximo de datos al configurar una base de datos Hiperescala. En el nivel Hiperescala, se le cobra por el almacenamiento de su base de datos según la asignación real. El almacenamiento se asigna automáticamente entre 40 GB y 100 TB, en incrementos de 10 GB. Si es necesario, pueden crecer simultáneamente varios archivos de datos. Se crea una base de datos de Hiperescala con un tamaño inicial de 10 GB y empieza a crecer 10 GB cada 10 minutos, hasta que alcanza el tamaño de 40 GB.
 
 Para más información sobre los precios de Hiperescala, consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -110,15 +110,15 @@ Las copias de seguridad están basadas en instantáneas de archivos y, por tanto
 
 Con la capacidad de aumentar o disminuir rápidamente los nodos de ejecución adicionales de solo lectura, la arquitectura de Hiperescala permite obtener importantes funcionalidades de escalado de lectura y también puede liberar el nodo de ejecución principal para atender más solicitudes de escritura. Además, los nodos de ejecución se pueden escalar o reducir verticalmente rápidamente debido a la arquitectura de almacenamiento compartido de la arquitectura de Hiperescala.
 
-## <a name="create-a-hyperscale-database"></a>¿Qué es una base de datos de Hiperescala?
+## <a name="create-a-hyperscale-database"></a>Creación de una base de datos de Hiperescala
 
-Puede crearse una base de datos de Hiperescala mediante [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles con el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
+Las bases de datos de Hiperescala se pueden crear desde [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles cuando se usa el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
 El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`. Consulte los [límites de recursos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) para obtener una lista de los objetivos de servicio válidos.
 
 ```sql
--- Create a HyperScale Database
-CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Create a Hyperscale Database
+CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 Esto creará una base de datos Hiperescala en el hardware de Gen5 con 4 núcleos.
@@ -130,14 +130,14 @@ Puede mover las bases de datos de Azure SQL existentes a Hiperescala con [Azure 
 El siguiente comando de T-SQL traslada una base de datos al nivel de servicio Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `ALTER DATABASE`.
 
 ```sql
--- Alter a database to make it a HyperScale Database
-ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Alter a database to make it a Hyperscale Database
+ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Conexión a una réplica de escalado de lectura de una base de datos de Hiperescala
 
-En las bases de datos de Hiperescala, el argumento `ApplicationIntent` de la cadena de conexión proporcionado por el cliente dictamina si la conexión se enruta a la réplica de escritura o a una réplica de solo lectura secundaria. Si el argumento `ApplicationIntent` establecido en `READONLY` y la base de datos no tienen una réplica secundaria, la conexión se enrutará a la réplica principal y de forma predeterminada es el comportamiento `ReadWrite`.
+En las bases de datos de Hiperescala, el argumento `ApplicationIntent` de la cadena de conexión que proporciona el cliente dictamina si la conexión se enruta a la réplica de escritura o a una réplica de solo lectura secundaria. Si el argumento `ApplicationIntent` establecido en `READONLY` y la base de datos no tienen una réplica secundaria, la conexión se enrutará a la réplica principal y de forma predeterminada es el comportamiento `ReadWrite`.
 
 ```cmd
 -- Connection string with application intent
@@ -160,7 +160,7 @@ Si necesita restaurar una base de datos Hiperescala de Azure SQL Database en una
 2. Siga las instrucciones del tema [Restauración geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) de la página dedicada a la restauración de bases de datos de Azure SQL a partir de copias de seguridad automáticas.
 
 > [!NOTE]
-> Dado que el origen y el destino están en regiones distintas, la base de datos no puede compartir el almacenamiento de instantáneas con la base de datos de origen como en las restauraciones no geográficas, que se completan muy rápidamente.  En el caso de una restauración geográfica de una base de datos Hiperescala, será una operación de tamaño de datos, incluso si el destino está en la región emparejada del almacenamiento con replicación geográfica.  Esto significa que la duración de una restauración geográfica será proporcional al tamaño de la base de datos que se está restaurando.  Si el destino se encuentra en la región emparejada, la copia estará dentro de un centro de datos, que será mucho más rápido que una copia de larga distancia a través de Internet, aunque de todos modos se copiarán todos los bits.
+> Dado que el origen y el destino están en regiones distintas, la base de datos no puede compartir el almacenamiento de instantáneas con la base de datos de origen como en las restauraciones no geográficas, que se completan muy rápidamente. En el caso de una restauración geográfica de una base de datos Hiperescala, será una operación de tamaño de datos, incluso si el destino está en la región emparejada del almacenamiento con replicación geográfica.  Esto significa que la duración de una restauración geográfica será proporcional al tamaño de la base de datos que se está restaurando.  Si el destino se encuentra en la región emparejada, la copia estará dentro de una región, lo que será mucho más rápido que una copia entre regiones, pero aun así será una operación del tamaño de los datos.
 
 ## <a name=regions></a>Regiones disponibles
 
@@ -174,21 +174,21 @@ El nivel Hiperescala de Azure SQL Database está disponible actualmente en las r
 - Este de China 2
 - Norte de China 2
 - Asia oriental
-- East US
+- Este de EE. UU.
 - Este de EE. UU. 2
 - Centro de Francia
-- Este de Japón
-- Oeste de Japón
-- Corea Central
+- Japón Oriental
+- Japón Occidental
+- Centro de Corea del Sur
 - Corea del Sur
 - Centro-Norte de EE. UU
-- Europa del Norte
+- Norte de Europa
 - Norte de Sudáfrica
-- Centro-Sur de EE. UU
+- Centro-sur de EE. UU.
 - Sudeste asiático
 - Sur de Reino Unido 2
 - Oeste de Reino Unido
-- Europa occidental
+- Oeste de Europa
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
 

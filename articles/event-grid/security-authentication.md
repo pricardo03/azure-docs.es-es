@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169569"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846291"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -85,9 +85,9 @@ Para comprobar la propiedad del punto de conexión, devuelva el código de valid
 }
 ```
 
-Debe devolver un código de estado de respuesta HTTP 200 OK. HTTP 202 Aceptado no se reconoce como una respuesta válida de validación de suscripción a Event Grid. La solicitud HTTP debe completarse en 30 segundos. Si la operación no finaliza en 30 segundos, se cancelará y puede que se vuelva a intentar pasados 5 segundos. Si se producen errores en todos los intentos, se tratará como un error de protocolo de enlace de validación.
+Debe devolver un código de estado de respuesta HTTP 200 OK. HTTP 202 Aceptado no se reconoce como una respuesta válida de validación de suscripción a Event Grid. La solicitud http debe completarse en 30 segundos. Si la operación no finaliza en 30 segundos, se cancelará y puede que se vuelva a intentar pasados 5 segundos. Si se producen errores en todos los intentos, se tratará como un error de protocolo de enlace de validación.
 
-O bien, puede enviar una solicitud GET a la dirección URL de validación para validar la suscripción manualmente. La suscripción a eventos permanece en estado pendiente hasta que se valida. La dirección URL de validación usa el puerto 553. Si las reglas de firewall bloquean el puerto 553, puede que sea necesario actualizarlas para aplicar el protocolo de enlace manual de forma satisfactoria.
+O bien, puede enviar una solicitud GET a la dirección URL de validación para validar la suscripción manualmente. La suscripción a eventos permanece en estado pendiente hasta que se valida. La dirección URL de validación usa el puerto 553. Si las reglas de firewall bloquean el puerto 553, puede que sea necesario actualizarlas para aplicar el protocolo de enlace manual de forma satisfactoria.
 
 Para ver un ejemplo del tratamiento del protocolo de enlace de validación de suscripción, consulte un [ejemplo de C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
@@ -95,7 +95,7 @@ Para ver un ejemplo del tratamiento del protocolo de enlace de validación de su
 
 Durante la creación de la suscripción a eventos, si ve un mensaje de error, parecido a "Error al intentar validar el punto de conexión proporcionado https:\//your-endpoint-here failed. Para más información, visite https:\//aka.ms/esvalidation", indica que hay un error en el protocolo de enlace de validación. Para resolver este error, compruebe los siguientes aspectos:
 
-* ¿Tiene control sobre el código de aplicación en punto de conexión de destino? Por ejemplo, si está escribiendo un desencadenador HTTP basado en Azure Function, ¿tiene acceso al código de aplicación para realizar cambios en él?
+* ¿Controla el código de aplicación que se ejecuta en el punto de conexión de destino? Por ejemplo, si está escribiendo un desencadenador HTTP basado en Azure Function, ¿tiene acceso al código de aplicación para realizar cambios en él?
 * Si tiene acceso al código de aplicación, implemente el mecanismo del protocolo de enlace basado en ValidationCode como se muestra en el ejemplo anterior.
 
 * Si no tiene acceso al código de aplicación (por ejemplo, si usa un servicio de terceros que admita webhooks), puede usar el mecanismo del protocolo de enlace manual. Asegúrese de que usa la versión de la API 2018-05-01-preview o posterior (instale la extensión de la CLI de Azure Event Grid) para recibir la propiedad validationUrl en el evento de validación. Para completar el protocolo de enlace de validación manual, obtenga el valor de la propiedad `validationUrl` y visite esa dirección URL en el explorador web. Si la validación es correcta, verá un mensaje en el explorador web que lo indica. Verá que el valor provisioningState de la suscripción del evento es "Succeeded". 
@@ -348,6 +348,10 @@ Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a
 ```
 
 Puede crear roles personalizados con [PowerShell](../role-based-access-control/custom-roles-powershell.md), la [CLI de Azure](../role-based-access-control/custom-roles-cli.md) o [REST](../role-based-access-control/custom-roles-rest.md).
+
+## <a name="encryption-at-rest"></a>Cifrado en reposo
+
+Todos los eventos o datos escritos en el disco por el servicio Event Grid se cifran mediante una clave administrada por Microsoft, lo que garantiza que se cifren en reposo. Además, el período máximo que se conservan los eventos o los datos es de 24 horas, conforme a la [directiva de reintentos de Event Grid](delivery-and-retry.md). Event Grid elimina automáticamente todos los eventos o datos tras 24 horas, o el período de vida del evento, lo que sea menor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

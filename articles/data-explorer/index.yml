@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentación sobre el Explorador de datos de Azure
 metadata:
-  title: 'Documentación sobre Azure Data Explorer: guías de inicio rápido, tutoriales y lenguaje y referencias de API'
+  title: 'Inicios rápidos, tutoriales y documentación de lenguaje/API: Azure Data Explorer'
   description: El Explorador de datos de Azure es una plataforma en la nube de análisis de registros optimizada para consultas de macrodatos ad hoc.
   author: orspod
   ms.author: orspodek
@@ -21,7 +21,7 @@ abstract:
     href: 'https://youtu.be/D_AJk2lAepw'
     width: 250
 sections:
-  - title: Inicio rápido en 5 minutos
+  - title: Guías de inicio rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Aprenda a aprovisionar y usar instancias del Explorador de datos de Azure:'
@@ -48,7 +48,7 @@ sections:
               src: /azure/data-explorer/media/index/logo-python.svg
             text: Consulta de datos con Python
             href: /azure/data-explorer/python-query-data
-  - title: Tutoriales detallados
+  - title: Tutoriales paso a paso
     items:
       - type: paragraph
         text: 'Aprenda a compilar soluciones globales:'

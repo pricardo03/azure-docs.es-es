@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100655"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844724"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: Reenviar eventos a la nube de Event Grid
 
@@ -23,9 +23,9 @@ Este artículo le guía a través de todos los pasos necesarios para reenviar ev
 * Reaccione a los eventos perimetrales en la nube.
 * Reenvíe eventos a Event Grid en la nube y use las colas de Event Hubs o Azure Storage de Azure para almacenar en búfer los eventos antes de procesarlos en la nube.
 
-Para completar este tutorial, necesita comprender los conceptos de Event Grid sobre [perimetral](concepts.md) y de [Azure](../concepts.md).
+ Para completar este tutorial, necesita comprender los conceptos de Event Grid sobre [perimetral](concepts.md) y de [Azure](../concepts.md). Para obtener más tipos de destino, consulte [Controladores de eventos](event-handlers.md). 
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 
@@ -65,7 +65,7 @@ Por ejemplo, si creó un tema denominado `testegcloudtopic` en el oeste de EE. 
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
 
-   Salida de ejemplo:
+   Salida del ejemplo:
 
    ```json
         [
@@ -83,6 +83,7 @@ Por ejemplo, si creó un tema denominado `testegcloudtopic` en el oeste de EE. 
   
 ## <a name="create-event-grid-subscription-at-the-edge"></a>Creación de una suscripción de Event Grid en el perímetro
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Cree subscription3.json con el siguiente contenido. Para más información sobre la carga, consulte nuestra [documentación de API](api.md).
 
@@ -133,7 +134,7 @@ Por ejemplo, si creó un tema denominado `testegcloudtopic` en el oeste de EE. 
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
     ```
 
-    Salida de ejemplo:
+    Salida del ejemplo:
 
     ```json
          {
@@ -201,3 +202,4 @@ En este tutorial, ha publicado un evento en el perímetro y lo ha reenviado a Ev
 * Para solucionar problemas relacionados con el uso de Azure Event Grid en IoT Edge, consulte la [Guía de solución de problemas](troubleshoot.md).
 * Reenvíe eventos a IoTHub siguiendo este [tutorial](forward-events-iothub.md)
 * Reenvíe eventos a Webhook en la nube siguiendo este [tutorial](pub-sub-events-webhook-cloud.md)
+* [Supervisión de temas y suscripciones en el perímetro](monitor-topics-subscriptions.md)

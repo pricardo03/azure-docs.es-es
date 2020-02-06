@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 158faaba1525e162c40c44179f30f7c3cea83b38
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770295"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025918"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -26,7 +26,6 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - Tener acceso a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el [formulario de solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess). Recibirá un mensaje de correo electrónico con un vínculo para crear un recurso de Form Recognizer.
-- Acceso a la herramienta de etiquetado de ejemplo Form Recognizer. Para obtener acceso, rellene y envíe el [formulario de solicitud de la herramienta de etiquetado Form Recognizer](https://aka.ms/LabelToolRequestAccess). Recibirá un correo electrónico con instrucciones sobre cómo obtener las credenciales y acceder al registro de contenedor privado. 
 - Un conjunto de al menos seis formularios del mismo tipo. Usará estos datos para entrenar el modelo y probar un formulario. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configuración de la herramienta de etiquetado de ejemplo
@@ -38,18 +37,13 @@ Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo.
     |:--|:--|:--|
     |Herramienta de etiquetado de ejemplo|2 núcleos, 4 GB de memoria|4 núcleos, 8 GB de memoria|
     
-1. A continuación, necesitará la [interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Instálela en la máquina si aún no lo ha hecho.
-1. Después, escriba el siguiente comando en un símbolo del sistema. Los valores de `<username>` y `<password>` se encuentran en el correo electrónico de bienvenida de Form Recognizer.
-    ```
-    docker login containerpreview.azurecr.io -u <username> -p <password>
-    ```
 1. Obtenga el contenedor de la herramienta de etiquetado de ejemplo con el comando `docker pull`.
     ```
-    docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
 1. Ahora ya está listo para ejecutar el contenedor con `docker run`.
     ```
-    docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
    Este comando hará que la herramienta de etiquetado de ejemplo esté disponible mediante un explorador web. Vaya a [http://localhost:3000](http://localhost:3000).

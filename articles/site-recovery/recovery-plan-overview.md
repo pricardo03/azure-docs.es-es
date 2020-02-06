@@ -2,25 +2,27 @@
 title: Acerca de los planes de recuperación en Azure Site Recovery
 description: Obtenga información acerca de los planes de recuperación en Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 1dd83be03c5b412708e89058ce7667a2ddfef530
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 01/23/2020
+ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497897"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705860"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 
 En este artículo se proporciona información general sobre los planes de recuperación de [Azure Site Recovery](site-recovery-overview.md).
 
-Un plan de recuperación agrupa máquinas en grupos de recuperación. Un plan de recuperación ayudar a definir un proceso de recuperación sistemático mediante la creación de unidades pequeñas e independientes que puede conmutar por error. Normalmente, una unidad representa una aplicación en el entorno.
+Un plan de recuperación agrupa máquinas en grupos de recuperación, para la conmutación por error. Un plan de recuperación ayudar a definir un proceso de recuperación sistemático mediante la creación de unidades pequeñas e independientes que puede conmutar por error. Normalmente, una unidad representa una aplicación en el entorno.
 
 - Un plan de recuperación define cómo conmutan por error las máquinas y la secuencia en la que se inician después de la conmutación por error.
+- Los planes de recuperación se usan para la conmutación por error en Azure, pero no se pueden usar para la conmutación por recuperación desde Azure.
 - Se pueden agregar hasta 100 instancias protegidas a un plan de recuperación.
 - Puede personalizar un plan agregándole un orden, instrucciones y tareas.
 - Cuando un plan está definido, puede ejecutar una conmutación por error en él.
 - Se puede hacer referencia a las máquinas en varios planes de recuperación; de este modo, los planes posteriores omiten la implementación o inicio de una máquina si se implementó anteriormente a través de otro plan de recuperación.
+
 
 
 ### <a name="why-use-a-recovery-plan"></a>¿Por qué usar un plan de recuperación?

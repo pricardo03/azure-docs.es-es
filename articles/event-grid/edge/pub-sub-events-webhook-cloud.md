@@ -9,20 +9,20 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100321"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844603"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: Publicación de eventos y suscripción a ellos en la nube
 
-Este artículo le guía por todos los pasos necesarios para publicar eventos y suscribirse a ellos mediante Event Grid en IoT Edge.
+Este artículo le guía por todos los pasos necesarios para publicar eventos y suscribirse a ellos mediante Event Grid en IoT Edge. En este tutorial se usa Azure Functions como controlador de eventos. Para obtener más tipos de destino, consulte [Controladores de eventos](event-handlers.md).
 
 Antes de continuar, consulte [Conceptos de Event Grid](concepts.md) para entender qué es un tema y una suscripción de Event Grid.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 
@@ -77,18 +77,18 @@ Como publicador de un evento, debe crear un tema de Event Grid. El tema hace ref
           }
         }
     ```
-1. Para crear el tema, ejecute el siguiente comando: Se devolverá el código de estado HTTP "200 - Correcto".
+1. Para crear el tema, ejecute el siguiente comando. Se devolverá el código de estado HTTP "200 - Correcto".
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
-1. Ejecute el siguiente comando para comprobar que se creó el tema correctamente: Se devolverá el código de estado HTTP "200 - Correcto".
+1. Use el siguiente comando para comprobar que se creó el tema correctamente. Se devolverá el código de estado HTTP "200 - Correcto".
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
 
-   Salida de ejemplo:
+   Salida del ejemplo:
 
    ```json
         [
@@ -108,6 +108,8 @@ Como publicador de un evento, debe crear un tema de Event Grid. El tema hace ref
 
 Los suscriptores pueden registrarse en eventos publicados en un tema. Para recibir cualquier evento, los suscriptores deberán crear una suscripción a Event Grid en un tema de interés.
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+
 1. Cree el archivo subscription2.json con el siguiente contenido. Para más información sobre la carga, consulte nuestra [documentación de API](api.md).
 
     ```json
@@ -125,7 +127,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
 
    >[!NOTE]
    > La propiedad **endpointType** especifica que el suscriptor es un webhook.  La propiedad **endpointUrl** especifica la dirección URL en la que el suscriptor escucha los eventos. Esta dirección URL corresponde al ejemplo de Azure Functions que configuró anteriormente.
-2. Ejecute el siguiente comando para crear la suscripción: Se devolverá el código de estado HTTP "200 - Correcto".
+2. Ejecute el siguiente comando para crear la suscripción. Se devolverá el código de estado HTTP "200 - Correcto".
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
@@ -136,7 +138,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
     ```
 
-    Salida de ejemplo:
+    Salida del ejemplo:
 
    ```json
         {
@@ -186,7 +188,7 @@ Puede ver el evento entregado en Azure Portal en la opción **Monitor** de la fu
 
 ## <a name="cleanup-resources"></a>Limpieza de recursos
 
-* Ejecute el siguiente comando para eliminar el tema y todas sus suscripciones.
+* Ejecute el siguiente comando para eliminar el tema y todas sus suscripciones
 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
@@ -198,8 +200,9 @@ Puede ver el evento entregado en Azure Portal en la opción **Monitor** de la fu
 
 En este tutorial, ha creado un tema y una suscripción de Event Grid y ha publicado eventos. Ahora que conoce los pasos básicos, consulte los siguientes artículos:
 
-* Para solucionar problemas relacionados con el uso de Azure Event Grid en IoT Edge, consulte la [guía de solución de problemas](troubleshoot.md).
+* Para solucionar problemas relacionados con el uso de Azure Event Grid en IoT Edge, consulte la [Guía de solución de problemas](troubleshoot.md).
 * Cree o actualice una suscripción con [filtros](advanced-filtering.md).
-* Configure la persistencia del módulo de Event Grid en [Linux](persist-state-linux.md) o [Windows](persist-state-windows.md).
+* Configure la persistencia del módulo de Event Grid en [Linux](persist-state-linux.md) o [Windows](persist-state-windows.md)
 * Siga la [documentación](configure-client-auth.md) para configurar la autenticación de cliente
-* Reenvíe eventos a Azure Event Grid en la nube siguiendo este [tutorial](forward-events-event-grid-cloud.md).
+* Reenvíe eventos a Azure Event Grid en la nube siguiendo este [tutorial](forward-events-event-grid-cloud.md)
+* [Supervisión de temas y suscripciones en el perímetro](monitor-topics-subscriptions.md)

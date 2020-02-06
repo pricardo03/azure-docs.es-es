@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 01/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55872d48dcf2a85812e1627e4e85bcd98b25d576
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 3c609c659d99ce6eca0326a5a14cbbb67099e686
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271321"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840475"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -121,6 +121,7 @@ Para obtener información sobre la integración de servicios de Azure en los com
 
 ## <a name="change-log"></a>Registro de cambios
 
+- 28/01/2020: Cambio en la [alta disponibilidad de SAP HANA en máquinas virtuales de Azure en RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) para alinear los tiempos de espera de los recursos de clúster de SAP HANA con las recomendaciones de tiempo de espera de Red Hat.
 - 17/01/2020: Cambio en los [grupos de selección de ubicación de proximidad de Azure para conseguir una latencia de red óptima con aplicaciones SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) para cambiar la sección del movimiento de las máquinas virtuales existentes a un grupo de selección de ubicación de proximidad.
 - 17/01/2020: Cambio en las [configuraciones de carga de trabajo de SAP con Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) para que apunten al procedimiento que automatiza las mediciones de latencia entre zonas de disponibilidad
 - 16/01/2020: Cambio en la [instalación y configuración de SAP HANA (instancias grandes) en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) para adaptar las versiones del sistema operativo al directorio de hardware de IaaS de HANA

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 4c3d2352467a1ed8e7979acac403908303ba3bc4
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 3f0f3528a59c721fe6926dd4c8c5039b680e1588
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834552"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025765"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 
@@ -156,4 +156,4 @@ Add-AzVirtualNetworkPeering `
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información acerca de las [restricciones y comportamientos importantes del emparejamiento de redes virtuales](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints), así como la [configuración del emparejamiento de redes virtuales](../virtual-network/virtual-network-manage-peering.md#create-a-peering) antes de crear uno para usarlo en un entorno de producción.
-* Aprenda a [crear una topología del tipo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con emparejamiento de redes virtuales y tránsito de la puerta de enlace.
+* Aprenda a [crear una topología del tipo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) con emparejamiento de redes virtuales y tránsito de la puerta de enlace.

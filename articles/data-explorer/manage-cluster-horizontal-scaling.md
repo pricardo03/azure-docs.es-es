@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942246"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833301"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Administración del escalado horizontal de clústeres en Azure Data Explorer para ajustarse a los cambios en la demanda
 
@@ -58,9 +58,10 @@ El escalado automático optimizado empieza a funcionar. Sus acciones ahora está
 Cuando el clúster se acerca a un estado de sobreutilización, escale horizontalmente para mantener un rendimiento óptimo. La escalabilidad horizontal se producirá cuando:
 * El número de instancias de clúster esté por debajo del número máximo de instancias definido por el usuario.
 * La utilización de la memoria caché sea alta durante más de una hora.
+* La utilización de la CPU sea alta durante más de una hora.
 
 > [!NOTE]
-> La lógica de la escalabilidad horizontal no tiene en cuenta actualmente las métricas de la CPU y el uso de la ingesta. Si esas métricas son importantes para su caso de uso, utilice el [escalado automático personalizado](#custom-autoscale).
+> La lógica de la escalabilidad horizontal no tiene en cuenta actualmente las métricas de uso de la ingesta. Si esas métricas son importantes para su caso de uso, utilice la [escalabilidad automática personalizada](#custom-autoscale).
 
 **Reducción horizontal**
 

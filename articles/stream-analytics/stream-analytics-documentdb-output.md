@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: cf6b94418516f681bf6c782fe02f3434faa5374e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426279"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986995"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
 Azure Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida JSON, lo que permite el archivo de datos y las consultas de latencia baja en datos JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
@@ -97,7 +97,7 @@ La tasa de eventos entrantes de Event Hubs es dos veces mayor que la configurada
 
 Con el nivel 1.2, Stream Analytics es más inteligente al utilizar el 100 % del rendimiento disponible en Azure Cosmos DB, con muy pocos reenvíos por limitación o limitación de velocidad. Esto proporciona una mejor experiencia para otras cargas de trabajo, como los contenedores que se ejecutan en la colección al mismo tiempo. Si desea ver cómo Stream Analytics realiza el escalado horizontal con Azure Cosmos DB como un receptor de 1000 a 10 000 mensajes por segundo, pruebe [este proyecto de ejemplo de Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
 
-El rendimiento de salida de Azure Cosmos DB es idéntico con los niveles 1.0 y 1.1. Dado que el nivel 1.2 no es actualmente el nivel predeterminado, puede [establecer el nivel de compatibilidad](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) de un trabajo de Stream Analytics desde el portal o con la [llamada a la API de REST para crear un trabajo de Stream Analytics](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Se *recomienda encarecidamente* que use el nivel de compatibilidad 1.2 en Stream Analytics con Azure Cosmos DB.
+El rendimiento de salida de Azure Cosmos DB es idéntico con los niveles 1.0 y 1.1. Se *recomienda encarecidamente* que use el nivel de compatibilidad 1.2 en Stream Analytics con Azure Cosmos DB.
 
 ## <a name="azure-cosmos-db-settings-for-json-output"></a>Configuración de Cosmos DB para la salida JSON
 

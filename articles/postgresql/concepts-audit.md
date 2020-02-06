@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/28/2020
+ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747341"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842476"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registro de auditoría en Azure Database for PostgreSQL con un único servidor
 
@@ -65,10 +65,8 @@ pgAudit le permite configurar el registro de auditoría de objeto o sesión. [El
 Una vez que haya [instalado pgAudit](#installing-pgaudit), puede configurar sus parámetros para iniciar el registro. La [documentación de pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) proporciona la definición de cada parámetro. Pruebe primero los parámetros y confirme que obtiene el comportamiento esperado.
 
 > [!NOTE]
-> Al establecer `pgaudit.log_client` en ON, se redirigirán los registros a un proceso de cliente (como psql), en lugar de escribirse en el archivo. Por lo general, esta configuración se debe dejar deshabilitada.
-
-> [!NOTE]
-> `pgaudit.log_level` solo se habilita cuando `pgaudit.log_client` está activado. Además, en Azure Portal, actualmente hay un error con `pgaudit.log_level`: se muestra un cuadro combinado, lo que implica que se pueden seleccionar varios niveles. Sin embargo, solo se debe seleccionar un nivel. 
+> Al establecer `pgaudit.log_client` en ON, se redirigirán los registros a un proceso de cliente (como psql), en lugar de escribirse en el archivo. Por lo general, esta configuración se debe dejar deshabilitada. <br> <br>
+> `pgaudit.log_level` solo se habilita cuando `pgaudit.log_client` está activado.
 
 > [!NOTE]
 > En Azure Database for PostgreSQL, `pgaudit.log` no se puede establecer con un acceso directo de signo `-` (menos) como se describe en la documentación de pgAudit. Todas las clases de instrucción necesarias (lectura, escritura, etc.) deben especificarse individualmente.
@@ -87,6 +85,22 @@ Para obtener más información acerca de `log_line_prefix`, visite la [documenta
 ### <a name="getting-started"></a>Introducción
 Para empezar a trabajar rápidamente, establezca `pgaudit.log` en `WRITE` y abra los registros para revisar la salida. 
 
+## <a name="viewing-audit-logs"></a>Visualización de registros de auditoría
+Si usa archivos .log, los registros de auditoría se incluirán en el mismo archivo que los registros de errores de PostgreSQL. Puede descargar archivos de registro de [Azure Portal](howto-configure-server-logs-in-portal.md) o de la [CLI](howto-configure-server-logs-using-cli.md). 
+
+Si usa el registro de diagnósticos de Azure, la forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs-collect-storage.md). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+
+Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics**, por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+Puede usar esta consulta para comenzar. Puede configurar alertas basadas en las consultas.
+
+Buscar todos los registros de Postgres de un servidor determinado del último día
+```
+AzureDiagnostics
+| where LogicalServerName_s == "myservername"
+| where TimeGenerated > ago(1d) 
+| where Message contains "AUDIT:"
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Obtener información sobre el registro en Azure Database for PostgreSQL](concepts-server-logs.md)

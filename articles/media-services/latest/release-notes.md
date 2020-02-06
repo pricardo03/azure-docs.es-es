@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514493"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719847"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -130,7 +130,7 @@ Ver ejemplos:
 
 ### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Soporte técnico de Azure Monitor para las métricas y los registros de diagnóstico de Media Services
 
-Ahora puede usar a Azure Monitor para ver los datos de telemetría por emitidos por Media Services.
+Ya se puede usar Azure Monitor para ver los datos de telemetría emitidos por Media Services.
 
 * Use los registros de diagnóstico de Azure Monitor para supervisar las solicitudes enviadas por el punto de conexión de la entrega de claves de Media Services. 
 * Supervise las métricas emitidas por los [punto de conexión de streaming](streaming-endpoint-concept.md) de Media Services.   

@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: 1c5b2879659305e55bb01e4cfab27c7a1b343155
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c35afe6e3d6ec74e8fc7cd134f533d1e618c820e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894865"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845746"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Supervisión de Azure Machine Learning
 
@@ -32,7 +32,7 @@ En este artículo se describen los datos de supervisión generados por Azure Mac
 
 Azure Machine Learning registra los datos de supervisión mediante Azure Monitor, que es un servicio de supervisión de pila completo en Azure. Azure Monitor proporciona un conjunto completo de características para supervisar los recursos de Azure. También puede supervisar los recursos de otras nubes y de forma local.
 
-Empiece con el artículo [Introducción a Azure Monitor](/azure/azure-monitor/overview), que proporciona información general sobre las capacidades de supervisión. Las secciones siguientes se basan en esta información proporcionando características específicas a través de Azure Monitor con Azure Machine Learning.
+Empiece con el artículo [Introducción a Azure Monitor](/azure/azure-monitor/overview), que proporciona información general sobre las capacidades de supervisión. Las secciones siguientes se basan en esta información al proporcionar aspectos específicos de uso de Azure Monitor con Azure Machine Learning.
 
 Para comprender los costos asociados a Azure Monitor, consulte [Uso y costos estimados](/azure/azure-monitor/platform/usage-estimated-costs). Para comprender el tiempo necesario para que los datos aparezcan en Azure Monitor, consulte [Tiempo de ingesta de datos de registro](/azure/azure-monitor/platform/data-ingestion-time).
 

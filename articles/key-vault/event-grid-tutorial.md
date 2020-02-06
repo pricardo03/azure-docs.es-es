@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5c959dc7fa36fb41307d286b1e7d0b475d5b56c6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981608"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988471"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Recibir notificaciones del almacén de claves y responder con Azure Event Grid (versión preliminar)
 
@@ -119,8 +119,6 @@ Cree un webhook para desencadenar el runbook que acaba de crear.
 ## <a name="create-an-event-grid-subscription"></a>Creación de una suscripción de Event Grid
 
 Cree una suscripción de Event Grid con [Azure Portal](https://portal.azure.com).
-
-1.  Abra [Azure Portal](https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
 1.  Vaya al almacén de claves y seleccione la pestaña **Eventos**. Si no lo ve, asegúrese de estar usando la [versión preliminar del portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 

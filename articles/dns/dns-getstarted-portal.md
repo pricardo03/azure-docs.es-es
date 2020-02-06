@@ -3,17 +3,17 @@ title: 'Inicio rápido: Creación de un registro y una zona DNS: Azure Portal'
 titleSuffix: Azure DNS
 description: Utilice esta guía de inicio rápido paso a paso para aprender a crear una zona Azure DNS y registrarla con Azure Portal.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: cb81b0ec2b5283ba242dd7c2dd549c330e230f0a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rohink
+ms.openlocfilehash: 26e5386f1c9730f1600e59a002ea7845b82ffe06
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082918"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937127"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Inicio rápido: Creación de una zona y un registro Azure DNS mediante Azure Portal
 
@@ -42,7 +42,7 @@ Una zona DNS contiene las entradas de DNS para un dominio. Para iniciar el hospe
 
 1. En la página **Crear zona DNS**, escriba o seleccione los siguientes valores:
 
-   - **Nombre**: escriba *contoso.xyz* en este ejemplo de inicio rápido. El nombre de la zona DNS puede ser cualquier valor que no esté ya configurado en los servidores de Azure DNS. Un valor del mundo real sería un dominio que haya comprado a un registrador de nombres de dominio.
+   - **Name**: escriba *contoso.xyz* en este ejemplo de inicio rápido. El nombre de la zona DNS puede ser cualquier valor que no esté ya configurado en los servidores de Azure DNS. Un valor del mundo real sería un dominio que haya comprado a un registrador de nombres de dominio.
    - **Grupo de recursos**: Seleccione **Crear nuevo**, escriba *MyResourceGroup* y seleccione **Aceptar**. El nombre del grupo de recursos debe ser único dentro de la suscripción de Azure. 
 
 1. Seleccione **Crear**.
@@ -63,13 +63,13 @@ Cree entradas o registros DNS para su dominio dentro de la zona DNS. Cree un nue
 
 1. En la página **Agregar conjunto de registros**, escriba o seleccione los siguientes valores:
 
-   - **Nombre**: escriba *www*. El nombre de registro es el nombre de host que desea resolver en la dirección IP especificada.
+   - **Name**: escriba *www*. El nombre de registro es el nombre de host que desea resolver en la dirección IP especificada.
    - **Tipo**: seleccione **A**. Los registros "A" son las más comunes, pero hay otros tipos de registros para los servidores de correo (MX), las direcciones IP v6 (AAAA), etc. 
    - **TTL**: escriba *1*. El *período de vida* de la solicitud DNS especifica cuánto tiempo pueden los clientes y servidores DNS almacenar en caché una respuesta.
    - **Unidad de TTL**: seleccione **Horas**. Esta es la unidad de tiempo para el valor **TTL**. 
    - **Dirección IP**: para este ejemplo de inicio rápido, escriba *10.10.10.10*. Este valor es la dirección IP en la que se resuelve el nombre de registro. En un escenario del mundo real, tendría que escribir la dirección IP pública del servidor web.
 
-Como este inicio rápido tiene solamente fines de prueba rápida, no es necesario configurar los servidores de nombres de Azure DNS en un registrador de nombres de dominio. Con un dominio real de producción, normalmente querrá que todos los usuarios de Internet pudieran resolver el nombre de host para conectarse al servidor o aplicación web. Visitará su registrador de nombres de dominio para reemplazar los registros del servidor de nombres con los servidores de nombres de Azure DNS. Para más información, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+Como este inicio rápido tiene solamente fines de prueba rápida, no es necesario configurar los servidores de nombres de Azure DNS en un registrador de nombres de dominio. Con un dominio real de producción, normalmente querrá que todos los usuarios de Internet pudieran resolver el nombre de host para conectarse al servidor o aplicación web. Visitará su registrador de nombres de dominio para reemplazar los registros del servidor de nombres con los servidores de nombres de Azure DNS. Para más información, consulte el [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="test-the-name-resolution"></a>Probar la resolución de nombres
 

@@ -2,17 +2,17 @@
 title: 'Tutorial: Hospedaje del dominio y los subdominios en Azure DNS'
 description: En este artículo aprenderá a configurar Azure DNS para hospedar las zonas DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: 062a5beaec30d510d37af436e00f4d57785245cd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212193"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937316"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospedaje del dominio en Azure DNS
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Tiene que tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
@@ -52,7 +52,7 @@ El dominio en el ejemplo que se usa en este tutorial es contoso.net, pero debe u
    |**Nombre**|[el nombre de dominio] |El nombre de dominio que compró. Este tutorial usa como ejemplo contoso.net.|
    |**Suscripción**|[Su suscripción]|Seleccione una suscripción en la que crear la zona.|
    |**Grupos de recursos**|**Crear nuevo:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción que ha seleccionado.<br>La ubicación del grupo de recursos no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.|
-   |**Ubicación**|East US||
+   |**Ubicación**|Este de EE. UU.||
 
 ## <a name="retrieve-name-servers"></a>Recuperación de los servidores de nombres
 

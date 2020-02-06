@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 22f7c0ba98390b391a79a121f120b8ab6172cfb9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845365"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019407"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -101,8 +101,8 @@ Dado que este enlace de encabezado de host se aplica a través del archivo csdef
 
 Para asegurarse de que la dirección IP pública de un servicio en la nube (también conocida como VIP) nunca cambie de modo que algunos clientes específicos puedan incluirla en la lista de elementos permitidos, se recomienda asociarle una dirección IP reservada. En caso contrario, la dirección IP virtual proporcionada por Azure se desasigna de su suscripción, si elimina la implementación. Para que la operación de intercambio de VIP sea correcta, necesita direcciones IP reservadas individuales tanto para las ranuras de almacenamiento provisional como para producción. Sin ellas, se produce un error en la operación de intercambio. Para reservar una dirección IP y asociarla a un servicio en la nube, consulte estos artículos:
 
-- [Reserva de la dirección IP de un servicio en la nube existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+- [Reserva de la dirección IP de un servicio en la nube existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+- [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 Si tiene más de una instancia para los roles, la asociación de RIP al servicio en la nube no debería provocar ningún tiempo de inactividad. Como alternativa, puede agregar el intervalo de direcciones IP de su centro de datos de Azure a una lista de permitidas. Puede encontrar todos los intervalos de direcciones IP de Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 

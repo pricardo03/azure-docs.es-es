@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530704"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988182"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Asociados de desarrollo de aplicaciones y migración NoSQL de Azure Cosmos DB
 
@@ -21,7 +21,6 @@ Desde la migración NoSQL hasta el desarrollo de aplicaciones, puede elegir entr
 
 |**Asociado**  |**Funcionalidades y experiencia**  |**Países y regiones admitidos**  |**Contacto**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | Migración de datos de MongoDB a Azure Cosmos DB. <br/> Imanis Data permite a las empresas globales migrar rápida y fácilmente sus bases de datos de MongoDB locales o en la nube a Azure Cosmos DB. Imanis Data proporciona un enfoque de migración a la nube sin agente y siempre incremental para almacenes de datos de MongoDB que simplifica la migración y reduce considerablemente el tiempo de inactividad.|  EE. UU.  |   [Sitio web](https://www.cohesity.com/products/imanis-data/)      |
 |![Striim][2]    |  [Movimiento de datos en tiempo real a Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) desde una amplia variedad de orígenes de datos. <br/> Striim simplifica la recopilación y el movimiento de datos en tiempo real desde una amplia variedad de orígenes locales, como bases de datos de documentos de empresa y relacionales, sensores y archivos de registro hacia Azure Cosmos DB. |   EE. UU.   |  [Sitio web](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Asociados integradores de sistemas
@@ -32,7 +31,7 @@ Desde la migración NoSQL hasta el desarrollo de aplicaciones, puede elegir entr
 |![Altoros Development LLC][3]    |  Migración NoSQL, <br/> innovación de aplicaciones (aplicaciones existentes), <br/> desarrollo de nuevas aplicaciones |   Estados Unidos, Noruega, Finlandia, Belarús, Argentina |  [Sitio web](https://www.altoros.com/)     |
 |![Attunix Redapt][4]     |   Migración NoSQL, <br/> innovación de aplicaciones (aplicaciones existentes), <br/> desarrollo de nuevas aplicaciones      |    EE. UU.     |  [Sitio web](https://www.attunix.com/)       |
 | ![Avanade][26] | desarrollo de nuevas aplicaciones, <br/> innovación de aplicaciones (aplicaciones existentes) | Austria, Alemania, Suiza, Italia, Noruega, España, Reino Unido | [Sitio web](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  Migración NoSQL, <br/> innovación de aplicaciones (aplicaciones existentes), <br/> desarrollo de nuevas aplicaciones       |    Estados Unidos, Asia Pacífico     |  [Sitio web](https://www.bluemetal.com/)       |
+|![Bluemetal Architects][5]     |  Migración NoSQL, <br/> innovación de aplicaciones (aplicaciones existentes), <br/> desarrollo de nuevas aplicaciones       |    Norteamérica, Asia Pacífico     |  [Sitio web](https://www.bluemetal.com/)       |
 |![Capax Global LLC][6]     |  Migración NoSQL, <br/> innovación de aplicaciones (aplicaciones existentes), <br/> desarrollo de nuevas aplicaciones       |    EE. UU.     |  [Sitio web](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | Migración NoSQL, innovación de aplicaciones (aplicaciones existentes), desarrollo de nuevas aplicaciones | Estados Unidos, Francia, Reino Unido, Países Bajos, Finlandia  | [Sitio web](https://www.capgemini.com/) | 
 |![Coeo][7]     |   innovación de aplicaciones (aplicaciones existentes), <br/> desarrollo de nuevas aplicaciones |    Reino Unido     |  [Sitio web](https://www.coeo.com/)       |
@@ -59,7 +58,6 @@ Desde la migración NoSQL hasta el desarrollo de aplicaciones, puede elegir entr
 Para obtener más información sobre algunos de los demás asociados de Microsoft, vea el [sitio de asociados de Microsoft](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
-[1]: ./media/partners-migration-cosmosdb/imanisdata_logo.png
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png

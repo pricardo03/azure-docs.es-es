@@ -7,21 +7,21 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.subservice: pim
 ms.date: 11/12/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e69bad41391be5153eca0fb1930ffc59da453b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3261e30d024cedba5885019a62cba1e296c1c00d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429918"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025561"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprobación o rechazo de solicitudes para los roles de Azure AD en Privileged Identity Management
 
@@ -37,54 +37,6 @@ Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Ma
     ![Nueva versión de roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 Siga los pasos que se describen en este artículo para aprobar o denegar solicitudes para los roles de Azure AD.
-
-# <a name="previous-versiontabprevious"></a>[Versión anterior](#tab/previous)
-
-## <a name="view-pending-requests"></a>Ver solicitudes en espera
-
-Como aprobador delegado, recibirá una notificación por correo electrónico cuando una solicitud de rol de Azure AD está pendiente de su aprobación. Puede ver estas solicitudes pendientes en Privileged Identity Management.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-
-1. Abra **Azure AD Privileged Identity Management**.
-
-1. Haga clic en **Roles de Azure AD**.
-
-1. Haga clic en **Aprobar solicitudes**.
-
-    ![Roles de Azure AD: Aprobar solicitudes](./media/azure-ad-pim-approval-workflow/approve-requests.png)
-
-    Verá una lista de solicitudes pendientes de su aprobación.
-
-## <a name="approve-requests"></a>Aprobar solicitudes
-
-1. Seleccione las solicitudes que quiera aprobar y luego haga clic en **Aprobar** para abrir el panel Aprobar las solicitudes seleccionadas.
-
-    ![Lista de Aprobar solicitudes con la opción Aprobar resaltada](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
-
-1. En el cuadro **Razón de la aprobación**, escriba una razón.
-
-    ![Panel de Aprobar las solicitudes seleccionadas con una razón de la aprobación](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
-
-1. Haga clic en **Approve** (Aprobar).
-
-    El símbolo de estado se actualizará con la aprobación.
-
-    ![Panel de Aprobar las solicitudes seleccionadas tras hacer clic en el botón Aprobar](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
-
-## <a name="deny-requests"></a>Denegar solicitudes
-
-1. Seleccione las solicitudes que quiera denegar y luego haga clic en **Denegar** para abrir el panel Denegar las solicitudes seleccionadas.
-
-    ![Lista de Aprobar solicitudes con la opción Denegar resaltada](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
-
-1. En el cuadro **Razón de la denegación**, escriba una razón.
-
-    ![Panel de Aprobar las solicitudes seleccionadas con una razón de la denegación](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
-
-1. Haga clic en **Denegar**.
-
-    El símbolo de estado se actualizará con la denegación.
 
 # <a name="new-versiontabnew"></a>[Nueva versión](#tab/new)
 
@@ -135,6 +87,54 @@ A continuación proporcionamos información sobre las notificaciones de flujo de
 
 >[!NOTE]
 >Un administrador de recursos que cree que un usuario aprobado no debe estar activo puede quitar la asignación de roles activa en Privileged Identity Management. Aunque los administradores de recursos no reciben notificaciones de solicitudes pendientes a menos que sean aprobadores, pueden ver y cancelar solicitudes pendientes para todos los usuarios viendo solicitudes pendientes en Privileged Identity Management.
+
+# <a name="previous-versiontabprevious"></a>[Versión anterior](#tab/previous)
+
+## <a name="view-pending-requests"></a>Ver solicitudes en espera
+
+Como aprobador delegado, recibirá una notificación por correo electrónico cuando una solicitud de rol de Azure AD está pendiente de su aprobación. Puede ver estas solicitudes pendientes en Privileged Identity Management.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+
+1. Abra **Azure AD Privileged Identity Management**.
+
+1. Haga clic en **Roles de Azure AD**.
+
+1. Haga clic en **Aprobar solicitudes**.
+
+    ![Roles de Azure AD: Aprobar solicitudes](./media/azure-ad-pim-approval-workflow/approve-requests.png)
+
+    Verá una lista de solicitudes pendientes de su aprobación.
+
+## <a name="approve-requests"></a>Aprobar solicitudes
+
+1. Seleccione las solicitudes que quiera aprobar y luego haga clic en **Aprobar** para abrir el panel Aprobar las solicitudes seleccionadas.
+
+    ![Lista de Aprobar solicitudes con la opción Aprobar resaltada](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+
+1. En el cuadro **Razón de la aprobación**, escriba una razón.
+
+    ![Panel de Aprobar las solicitudes seleccionadas con una razón de la aprobación](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Haga clic en **Approve** (Aprobar).
+
+    El símbolo de estado se actualizará con la aprobación.
+
+    ![Panel de Aprobar las solicitudes seleccionadas tras hacer clic en el botón Aprobar](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>Denegar solicitudes
+
+1. Seleccione las solicitudes que quiera denegar y luego haga clic en **Denegar** para abrir el panel Denegar las solicitudes seleccionadas.
+
+    ![Lista de Aprobar solicitudes con la opción Denegar resaltada](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. En el cuadro **Razón de la denegación**, escriba una razón.
+
+    ![Panel de Aprobar las solicitudes seleccionadas con una razón de la denegación](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Haga clic en **Denegar**.
+
+    El símbolo de estado se actualizará con la denegación.
 
 ---
 

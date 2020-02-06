@@ -2,20 +2,20 @@
 title: Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
 description: Un tutorial detallado de las tareas de un responsable de proyecto en un equipo de proceso de ciencia de datos en equipo
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a94a2ae5298bbee8bb1c9c0fa044eb3189147be
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244356"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714414"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
 
@@ -36,7 +36,7 @@ Para el Paso 6: Configuración del control de seguridad del repositorio del proy
 > [!NOTE] 
 > En este artículo se utiliza Azure Repos para configurar un proyecto de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de hospedaje de código, las tareas del responsable de proyecto son las mismas, pero la manera de realizarlas puede ser diferente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este tutorial se da por supuesto que el [administrador del grupo](group-manager-tasks.md) y el [responsable de equipo](team-lead-tasks.md) han configurado los siguientes recursos y permisos:
 
@@ -45,9 +45,9 @@ En este tutorial se da por supuesto que el [administrador del grupo](group-manag
 - Plantillas de equipo y **repositorios** de utilidades
 - **Permisos** en la cuenta de la organización para que pueda crear y editar repositorios para el proyecto
 
-Para clonar los repositorios y modificar el contenido en la máquina local o en Data Science Virtual Machine (DSVM), o configurar el almacenamiento de Azure File Storage y montarlo en la DSVM, también necesita lo siguiente:
+Para clonar los repositorios y modificar el contenido en la máquina local o en Data Science Virtual Machine (DSVM), o configurar el almacenamiento de Azure File Storage y montarlo en la DSVM, también necesita tener en cuenta esta lista de comprobación:
 
-- Una suscripción de Azure.
+- Suscripción a Azure.
 - Git instalado en la máquina. Si usa una DSVM, GIT está preinstalado. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).
 - Si desea usar la DSVM, la DSVM de Windows o Linux creada y configurada en Azure. Para más información e instrucciones, consulte la [documentación de Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
 - Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md*, desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 

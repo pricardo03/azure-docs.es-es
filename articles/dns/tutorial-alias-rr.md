@@ -3,17 +3,17 @@ title: 'Tutorial: Creación de un registro de alias para hacer referencia a un r
 titleSuffix: Azure DNS
 description: Este tutorial muestra cómo configurar un registro de alias de Azure DNS para hacer referencia a un registro de recursos dentro de la zona.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: allensu
-ms.openlocfilehash: 59ffe9781d97880044da5eedbdf84181bf1b2fa1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rohink
+ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082893"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939249"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutorial: Creación de un registro de alias para hacer referencia a un registro de recursos de zona
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Debe tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
 Para obtener instrucciones sobre cómo hospedar el dominio en Azure DNS, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
@@ -57,7 +57,7 @@ Cree un registro de alias que apunta a un registro de recursos en la zona.
 
 ## <a name="test-the-alias-record"></a>Probar el registro de alias
 
-1. Inicie su herramienta nslookup favorita. Una opción es ir a [ https://network-tools.com/nslook ](https://network-tools.com/nslook).
+1. Inicie su herramienta nslookup favorita. Una opción es ir a [https://network-tools.com/nslook](https://network-tools.com/nslook).
 2. Establezca el tipo de consulta para los registros A y busque **test.\<su nombre de dominio\>** . La respuesta es **10.10.10.10**.
 3. En Azure Portal, cambie el registro A **server** a **10.11.11.11**.
 4. Espere unos minutos y, después, utilice de nuevo nslookup para el registro **test**. La respuesta es **10.11.11.11**.

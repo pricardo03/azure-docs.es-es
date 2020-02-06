@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0912316d1c41f46e5dba74b58017f4fd5e8ed529
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973444"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909140"
 ---
 ### <a name="portal"></a>Portal
 
@@ -77,6 +77,7 @@ Dos notificaciones deberían aparecer y completarse correctamente. Esto le permi
 Ahora que ha creado y configurado el almacén de claves y el conjunto de cifrado de disco, puede implementar una VM mediante el cifrado.
 El proceso de implementación de VM es similar al proceso de implementación estándar, las únicas diferencias son que debe implementar la VM en la misma región que los demás recursos y optar por usar una clave administrada por el cliente.
 
+1. Abra el [vínculo de conjuntos de cifrado de disco](https://aka.ms/diskencryptionsets).
 1. Busque **Máquinas virtuales** y seleccione **+Agregar** para crear una VM.
 1. En la pestaña **Básico**, seleccione la misma región que el conjunto de cifrado de disco y Azure Key Vault.
 1. Rellene los demás valores en la pestaña **Básico** como desee.
@@ -96,6 +97,7 @@ Para administrar y configurar el cifrado de disco en los discos existentes, debe
 > [!CAUTION]
 > Para habilitar el cifrado de disco en todos los discos conectados a una VM, será necesario detener la VM.
 
+1. Abra el [vínculo de conjuntos de cifrado de disco](https://aka.ms/diskencryptionsets).
 1. Vaya a una VM que esté en la misma región que uno de los conjuntos de cifrado de disco.
 1. Abra la VM y seleccione **Detener**.
 

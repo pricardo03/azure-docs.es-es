@@ -2,17 +2,17 @@
 title: 'Escenarios de zonas privadas: Azure DNS'
 description: En este artículo, obtendrá información sobre los escenarios comunes de uso de Azure DNS Private Zones.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
-ms.author: allensu
-ms.openlocfilehash: 2eb7e9e4df5bdf0f8eb047cc8594bd862245770d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: ab850adb2e9a25778d5f44ba711eb0762fe562c8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210454"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939340"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Escenarios de zonas privadas de Azure DNS
 

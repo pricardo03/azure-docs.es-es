@@ -2,18 +2,18 @@
 title: 'Tutorial: Enrutamiento del tráfico a puntos de conexión ponderados (Azure Traffic Manager)'
 description: En este artículo tutorial se describe cómo enrutar el tráfico a puntos de conexión ponderados con Traffic Manager.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
-ms.author: allensu
-ms.openlocfilehash: 45ece08599722e04c4e6799fa5c3589cba1fca42
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: a4738b2e36786cd627f53af3e36bd8f1e3fbc375
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037911"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939476"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Control del enrutamiento del tráfico con puntos de conexión ponderados mediante Traffic Manager
 
@@ -31,22 +31,22 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para ver a Traffic Manager en acción, implemente los siguientes elementos para este tutorial:
 
-- Dos instancias de sitios web básicos que se ejecuten en diferentes regiones de Azure: Este de EE. UU. y Europa Occidental.
-- Dos máquinas virtuales de prueba para probar Traffic Manager: una en Este de EE. UU. y la segunda en Europa Occidental. Las máquinas virtuales de prueba se usan para ilustrar cómo Traffic Manager enruta el tráfico de usuario a un sitio web que tiene un peso mayor asignado a su punto de conexión.
+- Dos instancias de sitios web básicos que se ejecuten en diferentes regiones de Azure: Este de EE. UU. y Oeste de Europa.
+- Dos máquinas virtuales de prueba para probar Traffic Manager: una en Este de EE. UU. y la segunda en Oeste de Europa. Las máquinas virtuales de prueba se usan para ilustrar cómo Traffic Manager enruta el tráfico de usuario a un sitio web que tiene un peso mayor asignado a su punto de conexión.
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Creación de sitios web
 
 En esta sección, creará dos instancias de sitio web que proporcionan los puntos de conexión de servicio para el perfil de Traffic Manager en dos regiones de Azure. Para crear los dos sitios web, realice los siguientes pasos:
 
-1. Cree dos máquinas virtuales para ejecutar un sitio web básico: una en Este de EE. UU. y otra en Europa Occidental.
+1. Cree dos máquinas virtuales para ejecutar un sitio web básico: una en Este de EE. UU. y otra en Oeste de Europa.
 2. Instale un servidor IIS en cada máquina virtual. Actualice la página predeterminada del sitio web que describe el nombre de la máquina virtual a la que un usuario se conecta cuando visita el sitio web.
 
 #### <a name="create-vms-for-running-websites"></a>Creación de máquinas virtuales para ejecutar sitios web
@@ -137,9 +137,9 @@ Cree un perfil de Traffic Manager basado en el método de enrutamiento **Pondera
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione la siguiente información. Para las demás opciones, conserve los valores predeterminados y, a continuación, seleccione **Crear**.
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | NOMBRE                   | Escriba un nombre único en la zona trafficmanager.net. Se produce el nombre DNS trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
+    | Nombre                   | Escriba un nombre único en la zona trafficmanager.net. Se produce el nombre DNS trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Ponderado**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
     | Resource group          | Seleccione **Usar existente** y después seleccione **myResourceGroupTM1**. |
@@ -155,10 +155,10 @@ Agregue las dos máquinas virtuales que ejecutan los servidores IIS, myIISVMEast
 2. En **Perfil de Traffic Manager**, en la sección **Configuración**, seleccione **Puntos de conexión** > **Agregar**.
 3. Escriba o seleccione la siguiente información. Para las demás opciones, conserve los valores predeterminados y, a continuación, seleccione **Aceptar**.
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | type                    | Escriba el punto de conexión de Azure.                                   |
-    | NOMBRE           | Escriba **myEastUSEndpoint**.                                        |
+    | Tipo                    | Escriba el punto de conexión de Azure.                                   |
+    | Nombre           | Escriba **myEastUSEndpoint**.                                        |
     | Tipo de recurso de destino           | Seleccione **Dirección IP pública**.                          |
     | Recurso de destino          | Elija una dirección IP pública para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada **myIISVMEastUS-ip**. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|
     |  Peso      | Escriba **100**.        |

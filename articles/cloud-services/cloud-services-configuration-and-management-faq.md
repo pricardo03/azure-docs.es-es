@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 50dd6e2387abbf5b24adcee708dd2ff387e33261
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4ca8c18d448297cc2d2e2249a1dbbe04ecccd092
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845381"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019424"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -174,11 +174,11 @@ Consulte [Nuevo: Tiempo de espera de inactividad configurable para Azure Load Ba
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>¿Cómo se asocia una dirección IP estática a un servicio en la nube?
 Para configurar una dirección IP estática, tiene que crear una dirección IP reservada. Esta dirección IP reservada se puede asociar a un nuevo servicio en la nube o a una implementación existente. Consulte los siguientes documentos para más información:
-* [Cómo crear una dirección IP reservada](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Reserva de la dirección IP de un servicio en la nube existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Asociación de una dirección IP reservada a un nuevo servicio en la nube](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Asociación de una dirección IP reservada a una implementación en ejecución](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [Cómo crear una dirección IP reservada](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#manage-reserved-vips)
+* [Reserva de la dirección IP de un servicio en la nube existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Asociación de una dirección IP reservada a un nuevo servicio en la nube](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Asociación de una dirección IP reservada a una implementación en ejecución](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
+* [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>¿Cuáles son las características y funcionalidades que proporcionan los IPS/IDS y DDoS básicos de Azure?
 Azure tiene IPS/IDS básicos en los servidores físicos de los centros de datos para la defensa contra amenazas. Además, los clientes pueden implementar soluciones de seguridad de terceros, como firewalls de aplicación web, firewalls de red, antimalware, detección de intrusiones, sistemas de prevención (IDS/IPS) y mucho más. Para más información, consulte ///[Protect your data and assets and comply with global security standards](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity) (Protección de datos y recursos y cumplimiento de los estándares de seguridad global).

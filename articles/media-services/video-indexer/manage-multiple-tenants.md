@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949474"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990511"
 ---
 # <a name="manage-multiple-tenants"></a>Administración de varios inquilinos
 
@@ -45,7 +45,7 @@ Cuando se usa esta arquitectura, se crea una cuenta de Video Indexer para cada i
 * Más difícil de administrar debido a las múltiples cuentas de Video Indexer (y las instancias de Media Services asociadas) por cada inquilino.
 
 > [!TIP]
-> Cree un usuario administrador para el sistema en el [Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/) y use la API de autorización para proporcionar a los inquilinos el correspondiente [token de acceso de la cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+> Cree un usuario administrador para el sistema en el [Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/) y use la API de autorización para proporcionar a los inquilinos el correspondiente [token de acceso de la cuenta](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token).
 
 ## <a name="single-video-indexer-account-for-all-users"></a>Una única cuenta de Video Indexer para todos los usuarios
 

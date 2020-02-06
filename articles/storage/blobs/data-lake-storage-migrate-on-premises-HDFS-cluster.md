@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3360209e9de54d6011a2a430cd2c1fb54a315c43
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e82c325ad5ad91e6b4503949e6534b054023f1f2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327597"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990970"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migración de un almacén HDFS local a Azure Storage con Azure Data Box
 
@@ -27,7 +27,7 @@ En este artículo le ayudamos a completar estas tareas:
 > * Devolver el dispositivo a Microsoft.
 > * Mover los datos a Data Lake Storage Gen2.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Necesita lo siguiente para completar la migración.
 
@@ -77,7 +77,7 @@ Siga estos pasos para copiar los datos mediante las API REST de Blob Storage o d
 
     Ejemplos:
 
-    `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar``azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
+    `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar` `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 
 5. Cree el contenedor de almacenamiento que quiere usar para la copia de los datos. También debe especificar un directorio de destino como parte de este comando. En este momento, podría ser un directorio de destino ficticio.
 
@@ -282,7 +282,7 @@ Antes de mover los datos a un dispositivo Data Box, deberá descargar algunos sc
    sudo apt-get install jq
    ```
 
-3. Instale el paquete de Python [Requests](http://docs.python-requests.org/en/master/).
+3. Instale el paquete de Python [Requests](https://2.python-requests.org/en/master/).
 
    ```bash
    

@@ -6,16 +6,16 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 12/20/2019
-ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/21/2020
+ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977565"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715843"
 ---
-# <a name="collect-azure-activity-log-with-legacy-settings"></a>Recopilación del registro de actividad de Azure con configuración heredada
-El [Registro de actividad de Azure](platform-logs-overview.md) es un [registro de plataforma](platform-logs-overview.md) que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. Hasta ahora, ha creado un perfil de registro para enviar las entradas del registro de actividad a [un centro de eventos o una cuenta de almacenamiento](activity-log-export.md), y ha usado un conector para recopilarlos en un [área de trabajo Log Analytics](activity-log-collect.md). En este artículo se describe la diferencia entre los métodos, cómo trabajar con la configuración heredada existente y cómo borrar la configuración heredada como preparación para la configuración de diagnóstico.
+# <a name="update-to-azure-activity-log-collection-and-export"></a>Actualización de la recopilación del registro de actividad de Azure y exportación
+El [Registro de actividad de Azure](platform-logs-overview.md) es un [registro de plataforma](platform-logs-overview.md) que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. El método para enviar entradas del registro de actividad a [un centro de eventos o una cuenta de almacenamiento](activity-log-export.md) o a un [área de trabajo de Log Analytics](activity-log-collect.md) ha cambiado para usar la [configuración de diagnóstico](diagnostic-settings.md). En este artículo se describe la diferencia entre los métodos y cómo borrar la configuración heredada como preparación para la configuración de diagnóstico.
 
 
 ## <a name="differences-between-methods"></a>Diferencias entre los métodos
@@ -39,14 +39,16 @@ Tenga en cuenta los detalles siguientes de la recopilación del registro de acti
 ### <a name="differences-in-data"></a>Diferencias en los datos
 La configuración de diagnóstico recopila los mismos datos que los métodos anteriores usados para recopilar el registro de actividad con las siguientes diferencias actuales:
 
-Se han quitado las propiedades siguientes:
+Se han quitado las siguientes columnas. Las columnas de reemplazo están en un formato diferente de las anteriores, por lo que es posible que tenga que modificar las consultas de registro que las utilizan. Todavía puede ver las columnas eliminadas en el esquema, pero no se rellenarán con datos.
 
-- ActivityStatus
-- ActivitySubstatus
-- OperationName
-- ResourceProvider
+| Columna quitada | Columna de reemplazo |
+|:---|:---|
+| ActivityStatus    | ActivityStatusValue    |
+| ActivitySubstatus | ActivitySubstatusValue |
+| OperationName     | OperationNameValue     |
+| ResourceProvider  | ResourceProviderValue  |
 
-Se han agregado las propiedades siguientes:
+Se han agregado las siguientes columnas:
 
 - Authorization_d
 - Claims_d

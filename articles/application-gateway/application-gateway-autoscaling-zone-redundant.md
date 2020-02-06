@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668141"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031567"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -64,7 +64,7 @@ La siguiente tabla muestra precios de ejemplo y solo tiene fines ilustrativos.
 | Standard_v2                                       |    0,20             | 0,0080                          |
 | WAF_v2                                            |    0,36             | 0,0144                          |
 
-Para obtener mas información de precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/application-gateway/). La facturación está programada para que comience el 1 de julio de 2019.
+Para obtener mas información de precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
 **Ejemplo 1**
 
@@ -75,7 +75,7 @@ Unidades de capacidad = 744 (horas) * 10 unidades de capacidad por cada instanci
 
 Precio total: 148,8 $ + 297,6 $ = 446,4 $
 
-**Ejemplo 2**
+**Ejemplo 2**
 
 Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cero instancias, y en este tiempo recibe 25 nuevas conexiones SSL por segundo, un promedio de transferencia de datos de 8,88 Mbps. Suponiendo que las conexiones tienen una duración breve, el precio sería:
 

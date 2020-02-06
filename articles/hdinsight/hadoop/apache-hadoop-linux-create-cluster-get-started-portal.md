@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 09/25/2019
-ms.openlocfilehash: cab46c4fe2ff0bd1f86c6d98a3b37efb3547a3ce
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 35dc4938760ca83a6781d5791c746ee2f74310ab
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044585"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031600"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Hadoop en Azure HDInsight mediante Azure Portal
 
@@ -38,7 +38,7 @@ En esta sección, crea un clúster de Hadoop en HDInsight con Azure Portal.
 
 1. En **Aspectos básicos**, escriba o seleccione los siguientes valores:
 
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |Subscription    |  Seleccione su suscripción a Azure. |
     |Resource group     | Cree un grupo de recursos o seleccione uno existente.  Un grupo de recursos es un contenedor de componentes de Azure.  En este caso, el grupo de recursos contiene el clúster de HDInsight y la cuenta de Azure Storage dependiente. |
@@ -56,14 +56,14 @@ En esta sección, crea un clúster de Hadoop en HDInsight con Azure Portal.
 
 1. En la pestaña **Almacenamiento**, proporcione los valores siguientes:
 
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |Tipo de almacenamiento principal|Use el valor predeterminado **Azure Storage**.|
     |Método de selección|Use el valor predeterminado **Seleccionar de la lista**.|
     |Cuenta de almacenamiento principal|Utilice la lista desplegable para seleccionar una cuenta de almacenamiento existente o bien elija **Crear nuevo**. Si crea una cuenta nueva, el nombre debe tener una longitud de entre 3 y 24 caracteres y solo puede contener números y letras minúsculas.|
     |Contenedor|Use el valor que se rellena automáticamente.|
 
-    ![HDInsight Linux: introducción a la especificación de valores de almacenamiento en clúster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage-blank.png "Especificación de valores de almacenamiento para crear un clúster de HDInsight")
+    ![HDInsight Linux: introducción a la especificación de valores de almacenamiento en clúster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png "Especificación de valores de almacenamiento para crear un clúster de HDInsight")
 
     Seleccione la pestaña **Revisar y crear**.
 

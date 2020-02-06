@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 02/28/2020
 ms.author: ellacroi
-ms.openlocfilehash: 0b12e122cef3a05af7a09918ba434d103e33a1a2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 54ad3049789a737ffb29519b6546973acda9b4ae
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822951"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843844"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidad geográfica y soporte técnico de moneda
 
@@ -49,6 +49,7 @@ Se pueden comprar ofertas de Azure Marketplace y AppSource en 141 ubicaciones g
 | Cabo Verde                          | CV        | USD          |
 | Islas Caimán                      | KY        | USD          |
 | Chile                               | CL        | USD          |
+| China\**                            | CN        | N/D          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -113,7 +114,7 @@ Se pueden comprar ofertas de Azure Marketplace y AppSource en 141 ubicaciones g
 | Nicaragua                           | NI        | USD          |
 | Nueva Zelanda                         | NZ        | NZD          |
 | Nigeria                             | NG        | USD          |
-| Noruega                              | NO        | NOK          |
+| Noruega                              | No        | NOK          |
 | Omán                                | OM        | USD          |
 | Pakistán                            | PK        | USD          |
 | Autoridad palestina               | PS        | USD          |
@@ -165,3 +166,5 @@ Se pueden comprar ofertas de Azure Marketplace y AppSource en 141 ubicaciones g
 |   |   |   |
 
 \* Para los clientes de Brasil, Marketplace a través de Proveedores de soluciones en la nube (CSP) usa USD.
+
+\** Solo imágenes de máquina virtual con licencias Gratis y BYOL.

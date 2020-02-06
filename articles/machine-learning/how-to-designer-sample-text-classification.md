@@ -5,25 +5,25 @@ description: Compile un clasificador de regresión logística multiclase para pr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311054"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963248"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Compile un clasificador para predecir la categoría de la empresa con el diseñador de Azure Machine Learning.
 
-**Ejemplo de diseñador 7**
+**Ejemplo 7 del diseñador (versión preliminar)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este ejemplo se muestra cómo usar los módulos de análisis de texto para compilar una canalización de clasificación de texto en el diseñador de Azure Machine Learning.
+En este ejemplo se muestra cómo usar los módulos de análisis de texto para compilar una canalización de clasificación de texto en el diseñador de Azure Machine Learning (versión preliminar).
 
 El objetivo de la clasificación de texto es asignar parte de un texto a una o varias clases o categorías predefinidas. El fragmento de texto puede ser un documento, un artículo de noticias, una consulta de búsqueda, un correo electrónico, un tweet, vales de soporte técnico, comentarios de cliente, reseñas de productos de usuario, etc. Entre las aplicaciones de clasificación de texto se incluye la categorización de artículos de periódicos y el contenido de las noticias en temas, la organización de páginas web en categorías jerárquicas, el filtrado de correo electrónico no deseado, el análisis de opiniones, la predicción de la intención del usuario a partir de las consultas de búsqueda, enrutamiento de las incidencias de soporte técnico y análisis de los comentarios de los clientes. 
 

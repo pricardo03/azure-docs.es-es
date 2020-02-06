@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4f662df6692e03cf3eb948b0d8e2ae51002e815d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 793258b572fdcf2487d4b20fa07fb4ef5524b149
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113010"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846273"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
 
@@ -134,14 +134,14 @@ En función de la [configuración del indizador](#PartsOfBlobToIndex), el indiza
 * Se extrae el contenido textual en un campo de cadena denominado "`content`".
 
 > [!NOTE]
-> Azure Cognitive Search limita la cantidad de texto que extrae según el plan de tarifa: 32 000 caracteres para el nivel Gratis, 64 000 para Básico y 4 millones para Estándar, Estándar S2 y Estándar S3. Se incluye una advertencia en la respuesta de estado del indexador para documentos truncados.  
+> Azure Cognitive Search limita la cantidad de texto que extrae según el plan de tarifa: 32 000 caracteres en el nivel Gratis, 64 000 en Básico, 4 millones en Estándar, 8 millones en Estándar S2 y 16 millones en Estándar S3. Se incluye una advertencia en la respuesta de estado del indexador para documentos truncados.  
 
 * Las propiedades de metadatos especificadas por el usuario en el blob, si las hubiera, se extraen textualmente.
 * Las propiedades de metadatos de blob estándar se extraen en los campos siguientes:
 
   * **metadata\_storage\_name** (Edm.String): Nombre de archivo del blob. Por ejemplo, si tiene un blob /my-container/my-folder/subfolder/resume.pdf, el valor de este campo es `resume.pdf`.
-  * **metadata\_storage\_path**: El identificador URI completo del blob, incluida la cuenta de almacenamiento. Por ejemplo, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String): Tipo de contenido tal como especifica el código que usó para cargar el blob. Por ejemplo: `application/octet-stream`.
+  * **metadata\_storage\_path**: El identificador URI completo del blob, incluida la cuenta de almacenamiento. Por ejemplo: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_content\_type** (Edm.String): Tipo de contenido tal como especifica el código que usó para cargar el blob. Por ejemplo, `application/octet-stream`.
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): La última marca de tiempo modificada para el blob. Azure Cognitive Search emplea esta marca de tiempo para identificar los blobs modificados a fin de evitar volver a indexar todo después de la indexación inicial.
   * **metadata\_storage\_size** (Edm.Int64): Tamaño del blob en bytes.
   * **metadata\_storage\_content\_md5** (Edm.String): Hash MD5 del contenido del blob, si está disponible.
@@ -162,8 +162,8 @@ En Azure Cognitive Search, la clave del documento identifica de forma exclusiva 
 
 Debe considerar detenidamente qué campo extraído se debe asignar al campo de clave para el índice. Los candidatos son:
 
-* **metadata\_storage\_name**: Este podría ser un candidato conveniente, pero tenga en cuenta que 1) los nombres podrían no ser exclusivos, ya que puede que tenga blobs con el mismo nombre en carpetas diferentes y 2) el nombre puede contener caracteres que no son válidos para las claves de documento, como los guiones. Puede trabajar con caracteres no válidos mediante la [función de asignación de campos](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`; si lo hace, no olvide codificar las claves de documento al transferirlas en llamadas API, tal como las búsquedas. (Por ejemplo, en .NET puede usar el [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para ese fin).
-* **metadata\_storage\_path**: El uso de la ruta de acceso completa garantiza la exclusividad, pero la ruta de acceso contiene siempre caracteres `/` que [no son válidos en una clave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como anteriormente, tiene la opción de codificar las claves mediante la [función](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
+* **metadata\_storage\_name**: Este podría ser un candidato conveniente, pero tenga en cuenta que 1) los nombres podrían no ser exclusivos, ya que puede que tenga blobs con el mismo nombre en carpetas diferentes y 2) el nombre puede contener caracteres que no son válidos para las claves de documento, como los guiones. Para trabajar con caracteres no válidos, utilice la [función de asignación de campos](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`; si lo hace, no olvide codificar las claves de documento al usarlas en llamadas a API, como Lookup. (Por ejemplo, en .NET puede usar el [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para ese fin).
+* **metadata\_storage\_path**: El uso de la ruta de acceso completa garantiza la exclusividad, pero la ruta de acceso contiene siempre caracteres `/` que [no son válidos en una clave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como anteriormente, tiene la opción de codificar las claves mediante la [función](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`.
 * Si ninguna de las opciones anteriores le sirve, puede agregar una propiedad de metadatos personalizada a los blobs. De todas formas, esta opción requiere que el proceso de carga de blob agregue dicha propiedad de metadatos a todos los blobs. Dado que la clave es una propiedad obligatoria, todos los blobs que no tengan esa propiedad no se indexarán.
 
 > [!IMPORTANT]
@@ -253,7 +253,7 @@ Por ejemplo, para indizar solo los metadatos de almacenamiento, use lo siguiente
 
 Los parámetros de configuración que se han descrito anteriormente se aplican a todos los blobs. En ocasiones, puede que desee para controlar cómo indizar *blobs concretos*. Puede hacerlo agregando los siguientes valores y propiedades de metadatos de blobs:
 
-| Nombre de propiedad | Valor de la propiedad | Explicación |
+| Nombre de propiedad | Valor de propiedad | Explicación |
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |Indica al indizador de blob que pase completamente el blob. No se trata de realizar la extracción de metadatos ni del contenido. Esto es útil cuando se produce un error repetidamente y se interrumpe el proceso de indización de un blob determinado. |
 | AzureSearch_SkipContent |"true" |Esto es equivalente a la configuración `"dataToExtract" : "allMetadata"` descrita [anteriormente](#PartsOfBlobToIndex) en el ámbito de un blob determinado. |

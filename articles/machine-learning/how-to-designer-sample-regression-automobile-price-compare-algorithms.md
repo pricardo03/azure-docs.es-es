@@ -5,25 +5,25 @@ description: Cree y compare varios modelos de regresión de Machine Learning par
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: b2511feefbe419223f355509ecb435518ce8382e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 189b36c8d9a7c1d1e247bb2cb34795dc4e3595ce
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311060"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963349"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Entrenamiento y comparación de varios modelos de regresión para predecir los precios de automóviles con el diseñador de Azure Machine Learning
 
-**Ejemplo de diseñador 2**
+**Ejemplo 2 del diseñador (versión preliminar)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Aprenda a compilar una canalización de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador. En este ejemplo se entrenan y se comparan varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas. Le mostraremos la justificación de las opciones elegidas en esta canalización de manera que pueda superar los problemas de aprendizaje automático que se le presenten.
+Obtenga más información sobre compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar). En este ejemplo se entrenan y se comparan varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas. Le mostraremos la justificación de las opciones elegidas en esta canalización de manera que pueda superar los problemas de aprendizaje automático que se le presenten.
 
 Si acaba de empezar a trabajar con el aprendizaje automático, eche un vistazo a la [versión básica](how-to-designer-sample-regression-automobile-price-basic.md) de esta canalización.
 

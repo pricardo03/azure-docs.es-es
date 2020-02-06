@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/31/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 008f0b1b83e8ba856fae2fe40b026dcc645e46ab
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 20b99cfffdaa0d942ccd4d954909810342cbfcb8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845337"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935341"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Compatibilidad con idiomas y regiones para el servicio de voz
 
@@ -240,8 +240,10 @@ La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `
 | Hmong Daw      | `mww`          |
 | Húngaro      | `hu`          |
 | Indonesio      | `id`          |
+| Irlandés      | `ga`          |
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
+| Canarés      | `kn`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
@@ -250,11 +252,14 @@ La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `
 | Lituano      | `lt`          |
 | Malgache      | `mg`          |
 | Malayo      | `ms`          |
+| Malayalam      | `ml`          |
 | Maltés      | `mt`          |
 | Noruego      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
-| Portugués      | `pt`          |
+| Portugués (Brasil)      | `pt-br`          |
+| Portugués (Portugal)      | `pt-pt`          |
+| Punjabi      | `pa`          |
 | Otomí Querétaro      | `otq`          |
 | Rumano      | `ro`          |
 | Ruso      | `ru`          |

@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 885ddd5c25a36e2b12379ea7639956c1c4ca5437
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534676"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904287"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Creación de flujos de trabajo de aprendizaje automático controlados por eventos (versión preliminar)
 
@@ -32,21 +32,6 @@ Use Event Grid para habilitar escenarios comunes, como:
 
 * Acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
 * Selección de un punto de conexión de controlador de eventos, como un webhook o un centro de eventos. Para más información, vea [Controladores de eventos](https://docs.microsoft.com/azure/event-grid/event-handlers). 
-
-## <a name="register-resource-providers"></a>Registro de proveedores de recursos
-
-Si ha usado Azure Event Grid o Machine Learning antes del 1 de noviembre de 2019, es posible que tenga que volver a registrar los proveedores de recursos para poder seguir los pasos descritos en este documento. Para volver a registrar los proveedores, siga estos pasos:
-
-1. Vaya a Azure Portal y seleccione __Suscripciones__. Seleccione la suscripción con la que quiera trabajar.
-1. Seleccione __Proveedores de recursos__ y, después, busque __EventGrid__.
-1. Seleccione la entrada __Microsoft.EventGrid__ y después __Volver a registrar__.
-
-    ![re-register-resource-provider](./media/how-to-use-event-grid/re-register-resource-provider.png)
-
-1. Busque __MachineLearningServices__, seleccione la entrada y después __Volver a registrar__.
-
-> [!TIP]
-> Si no tiene permisos para completar estos pasos, pida al administrador de la suscripción que los ejecute.
 
 ## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Configuración de eventos de aprendizaje automático mediante Azure Portal
 

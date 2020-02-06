@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e6c490ee9d8b6f7f07f52e70ceb8c7c49d699b6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096134"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897030"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -34,7 +35,7 @@ Para cambiar entre distintos inquilinos de Azure AD, seleccione el **nombre de u
 
 En la tabla siguiente se enumeran los roles y las versiones de sistema operativo compatibles.
 
-|Rol| Sistema operativo/versión|
+|Role| Sistema operativo/versión|
 |--|--|
 |Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 |Azure AD Connect | Versión 1.0.9125 o posterior.|
@@ -67,10 +68,10 @@ Azure AD Connect Health no se admite en la nube de Alemania, excepto para la [ca
 
 | Roles | Características | Se admite en la nube de Alemania |
 | ------ | --------------- | --- |
-| Connect Health para sincronización | Supervisión / Información / Alertas / análisis | Sin |
+| Connect Health para sincronización | Supervisión / Información / Alertas / análisis | No |
 |  | Informe de error de sincronización | Sí |
-| Connect Health para ADFS | Supervisión / Información / Alertas / análisis | Sin |
-| Connect Health para ADDS | Supervisión / Información / Alertas / análisis | Sin |
+| Connect Health para ADFS | Supervisión / Información / Alertas / análisis | No |
+| Connect Health para ADDS | Supervisión / Información / Alertas / análisis | No |
 
 Para garantizar la conectividad del agente de Connect Health para la sincronización, configure el [requisito de instalación](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) según corresponda.
 

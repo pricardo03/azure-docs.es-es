@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 93cdea453050df8899abf9233991715ae237bcd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: feab221c24034fe29df420b4f9eb6d84e06a90b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257238"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719343"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
 En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
@@ -25,7 +25,7 @@ Después de completar este tutorial, podrá responder a las siguientes preguntas
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 > [!TIP]
 > Aunque en este tutorial no se exige experiencia con plantillas de Azure Resource Manager o JSON, si quiere modificar las plantillas o las opciones de implementación a las que se hace referencia, entonces sí es necesario tener conocimientos sobre cada una de estas áreas.
 > 
@@ -56,7 +56,7 @@ Ahora vamos a implementar su primera plantilla.
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment3.png)
 4. Haga clic en **Editar parámetros**, proporcione valores para cada uno de los parámetros obligatorios y haga clic en **Aceptar**.  Los parámetros son los siguientes:
    
-   1. SITENAME: especifica el nombre de la aplicación web de App Service y se usa para crear la dirección URL que se emplea para el acceso a la aplicación web (por ejemplo, si especifica "mydemodocdbwebsite", la dirección URL mediante la que tiene acceso a la aplicación web es mydemodocdbwebsite.azurewebsites.net).
+   1. SITENAME: especifica el nombre de la aplicación web de App Service y se usa para crear la dirección URL que se emplea para el acceso a la aplicación web (por ejemplo, si especifica "mydemodocdbwebapp", la dirección URL mediante la que tiene acceso a la aplicación web es `mydemodocdbwebapp.azurewebsites.net`).
    2. HOSTINGPLANNAME: especifica el nombre del plan de hospedaje de App Service que se creará.
    3. LOCATION: especifica la ubicación de Azure en la que se crearán los recursos de Azure Cosmos DB y de la aplicación web.
    4. DATABASEACCOUNTNAME: especifica el nombre de la cuenta de Azure Cosmos DB que se creará.   
@@ -106,7 +106,7 @@ Ahora implementaremos su segunda plantilla.  Esta plantilla resulta útil para m
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment6.png)
 7. Cuando finalice la implementación, se abre el panel Grupo de recursos.
    ![Captura de pantalla del panel Grupo de recursos](./media/create-website/TemplateDeployment7.png)  
-8. Haga clic en el recurso Web App en la lista Recursos y luego haga clic en **Configuración de la aplicación**![Captura de pantalla del grupo de recursos](./media/create-website/TemplateDeployment9.png)  
+8. Haga clic en el recurso Web App en la lista Recursos y luego haga clic en **Configuración de la aplicación** ![Captura de pantalla del grupo de recursos](./media/create-website/TemplateDeployment9.png)  
 9. Observe que existen valores de configuración de la aplicación para el punto de conexión de Azure Cosmos DB y para cada una de las claves maestras de Azure Cosmos DB.
 
     ![Captura de pantalla de configuración de la aplicación](./media/create-website/TemplateDeployment10.png)  

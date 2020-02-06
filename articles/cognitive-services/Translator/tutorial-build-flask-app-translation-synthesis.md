@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e19e4247e58135c6a9bb7c6cc327cb566d294df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0075862e198ce67cc7367efe94d624ad18e6eb3b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978465"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984174"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Compilación de una aplicación de Flask con Azure Cognitive Services
 
 En este tutorial, compilará una aplicación web de Flask que usa Azure Cognitive Services para traducir texto, realizar análisis de opinión y sintetizar texto traducido a voz. Aunque se prestará especial atención al código de Python y las rutas de Flask que habilitan nuestra aplicación, también se verá el código HTML y JavaScript que conforma la aplicación. Si experimenta algún problema, utilice el botón de comentarios de la parte inferior para informarnos.
 
-Esta tutorial abarca lo siguiente:
+Este tutorial abarca lo siguiente:
 
 > [!div class="checklist"]
 > * Obtención de las claves de suscripción a Azure
@@ -37,14 +37,14 @@ Esta tutorial abarca lo siguiente:
 
 ## <a name="what-is-flask"></a>¿Qué es Flask?
 
-Flask es un marco minimalista para crear aplicaciones web. Esto significa que Flask proporciona las herramientas, bibliotecas y tecnologías necesarias para compilar una aplicación web. Dicha aplicación web puede ser un conjunto de páginas web, un blog, una wiki o incluso una aplicación de calendario basada en web o un sitio web comercial.
+Flask es un micromarco para crear aplicaciones web. Esto significa que Flask proporciona las herramientas, bibliotecas y tecnologías necesarias para compilar una aplicación web. Dicha aplicación web puede ser un conjunto de páginas web, un blog, una wiki o incluso una aplicación de calendario basada en web o un sitio web comercial.
 
 Si desea obtener información detallada después de este tutorial, consulte estos vínculos útiles:
 
 * [Documentación de Flask](http://flask.pocoo.org/)
 * [Guía de Flask para principiantes](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para este tutorial, se necesita el software y las claves de suscripción siguientes.
 
@@ -53,8 +53,8 @@ Para este tutorial, se necesita el software y las claves de suscripción siguien
 * Un editor de texto o IDE, como [Visual Studio Code](https://code.visualstudio.com/) o [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) o [Firefox](https://www.mozilla.org/firefox)
 * Una clave de suscripción de **Translator Text** (no es obligatorio seleccionar una región)
-* Una clave de suscripción de **Text Analytics** en la región **Oeste de EE. UU.**
-* Una clave de suscripción de **Speech Services** en la región **Oeste de EE. UU.**
+* Una clave de suscripción de **Text Analytics** en la región **Oeste de EE. UU.**
+* Una clave de suscripción de **Speech Services** en la región **Oeste de EE. UU.**
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Creación de una cuenta y suscripción a recursos
 
@@ -66,7 +66,7 @@ Como se ha indicado anteriormente, se necesitarán tres claves de suscripción p
 Use [Creación de una cuenta de Cognitive Services en Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obtener instrucciones paso a paso para crear recursos.
 
 > [!IMPORTANT]
-> Para este tutorial, cree los recursos en la región Oeste de EE. UU. Si usa una región distinta, deberá ajustar la URL base en cada uno de los archivos de Python.
+> Para este tutorial, cree los recursos en la región Oeste de EE. UU. Si usa una región distinta, deberá ajustar la URL base en cada uno de los archivos de Python.
 
 ## <a name="set-up-your-dev-environment"></a>Configuración del entorno de desarrollo
 
@@ -74,12 +74,12 @@ Antes de compilar la aplicación web de Flask, deberá crear un directorio de tr
 
 ### <a name="create-a-working-directory"></a>Creación de un directorio de trabajo
 
-1. Abra terminal (macOS o Linux) o la línea de comandos (Windows). A continuación, cree un directorio de trabajo y los subdirectorios para el proyecto:  
+1. Abra un terminal (macOS o Linux) o la línea de comandos (Windows). A continuación, cree un directorio de trabajo y los subdirectorios para el proyecto:  
 
    ```
    mkdir -p flask-cog-services/static/scripts && mkdir flask-cog-services/templates
    ```
-2. Cámbielo al directorio de trabajo del proyecto:  
+2. Cambie al directorio de trabajo del proyecto:  
 
    ```
    cd flask-cog-services
@@ -112,7 +112,7 @@ Ahora creará un entorno virtual para la aplicación de Flask con `virtualenv`. 
 
    Después de ejecutar este comando, la sesión de línea de comandos o terminal debe ir precedida por `venv`.
 
-3. Puede desactivar la sesión en cualquier momento escribiendo lo siguiente en la línea de comandos o terminal: `deactivate`.
+3. Puede desactivar la sesión en cualquier momento escribiendo lo siguiente en la línea de comandos o el terminal: `deactivate`.
 
 > [!NOTE]
 > Python cuenta con una amplia documentación para crear y administrar entornos virtuales; consulte [virtualenv](https://virtualenv.pypa.io/en/latest/).
@@ -128,7 +128,7 @@ Requests es un módulo popular que se usa para enviar solicitudes HTTP 1.1. No e
    ```
 
 > [!NOTE]
-> Si desea más información sobre Requests, consulte [Requests: HTTP for Humans](http://docs.python-requests.org/en/master/) (Requests: HTTP para humanos).
+> Si desea más información sobre Requests, consulte [Requests: HTTP for Humans](https://2.python-requests.org/en/master/) (Requests: HTTP para humanos).
 
 ### <a name="install-and-configure-flask"></a>Instalación y configuración de Flask
 
@@ -142,9 +142,9 @@ A continuación, se debe instalar Flask. Flask controla el enrutamiento de nuest
    ```
    flask --version
    ```
-   La versión se debe imprimir en terminal. Si no es así, algo no ha funcionado.
+   La versión se debe imprimir en el terminal. Si no es así, algo no ha funcionado.
 
-2. Para ejecutar la aplicación de Flask, puede usar el comando flask o modificador -m de Python con Flask. Antes de eso, es necesario indicar a terminal con qué aplicación trabajar mediante la exportación de la variable de entorno `FLASK_APP`:
+2. Para ejecutar la aplicación de Flask, puede usar el comando flask o el modificador -m de Python con Flask. Antes de eso, es necesario indicar al terminal con qué aplicación trabajar mediante la exportación de la variable de entorno `FLASK_APP`:
 
    **macOS/Linux**:
    ```
@@ -182,7 +182,7 @@ Este código garantiza que cuando un usuario navega a `http://your-web-app.com/a
 
 Aunque estos ejemplos ilustran cómo representar páginas HTML para un usuario, también se pueden usar rutas para llamar a API al presionar un botón o para realizar una serie de acciones sin necesidad de salir de la página principal. Cuando cree rutas para traducción, opinión y síntesis de voz verá un ejemplo de esto en acción.
 
-### <a name="get-started"></a>Primeros pasos
+### <a name="get-started"></a>Introducción
 
 1. Abra el proyecto en el entorno de desarrollo integrado y, después, cree un archivo denominado `app.py` en la raíz de su directorio de trabajo. A continuación, copie este código en `app.py` y guarde:
 
@@ -233,7 +233,7 @@ Aunque estos ejemplos ilustran cómo representar páginas HTML para un usuario, 
    </html>
    ```
 
-3. Vamos a probar la aplicación de Flask. Desde terminal, ejecute:
+3. Vamos a probar la aplicación de Flask. Desde el terminal, ejecute:
 
    ```
    flask run

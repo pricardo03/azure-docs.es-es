@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: d9daefaec33c435ae9f8eceec370c83de4535f8b
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830384"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720357"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Preguntas más frecuentes
 
@@ -233,7 +233,7 @@ Para más información sobre la configuración y ejecución de un trabajo Cron, 
 ### <a name="why-is-llap-available-on-spark-esp-clusters"></a>¿Por qué LLAP está disponible en los clústeres de Spark para ESP?
 En los clústeres de Spark para ESP, LLAP está habilitado por motivos de seguridad (es decir, Apache Ranger), no por el rendimiento. Debe usar máquinas virtuales con nodos de mayor tamaño para integrar el uso de recursos de LLAP (por ejemplo, D13V2 como mínimo). 
 
-### <a name="how-can-i-add-addional-aad-groups-after-creating-an-esp-cluster"></a>¿Cómo puedo agregar grupos de AAD adicionales después de crear un clúster de ESP?
+### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>¿Cómo puedo agregar grupos de AAD adicionales después de crear un clúster de ESP?
 Hay dos formas de lograrlo: 1. Puede volver a crear el clúster y agregar el grupo adicional en el momento de la creación del clúster. Si usa la sincronización con ámbito en AAD-DS, asegúrese de que el grupo B está incluido en la sincronización con ámbito.
 2\. Agregue el grupo como un subgrupo anidado del grupo anterior que se usó para crear el clúster de ESP. Por ejemplo, si creó un clúster de ESP con el grupo `A`, puede agregar más adelante al grupo `B` como un subgrupo anidado de `A` y, después de aproximadamente una hora, se sincronizará y estará disponible en el clúster automáticamente. 
 

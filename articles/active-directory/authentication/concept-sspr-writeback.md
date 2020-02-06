@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ddd7160a56a4529ee31c111f0e202ca235c71af
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 70d3e17a007e8cfa7eed299659d4cff114f72158
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544028"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023130"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -164,7 +164,7 @@ Las contraseñas *no* se escriben en diferido en ninguna de las situaciones sigu
    * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 
 > [!WARNING]
-> El uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory se admite como característica en versión preliminar de Azure AD Connect. Para obtener más información, consulte el artículo [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon).
+> El uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory se admite como característica en versión preliminar de Azure AD Connect. Para obtener más información, consulte el artículo [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

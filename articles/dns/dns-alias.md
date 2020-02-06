@@ -2,17 +2,17 @@
 title: 'Introducción a los registros de alias: Azure DNS'
 description: En este artículo, obtendrá información sobre la compatibilidad de los registros de alias en Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
-ms.author: allensu
-ms.openlocfilehash: da396d3e3db4acd1a9843977b8b3e3d51c33f021
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 085e5fc20a6b5356e012eb2f674fafc00cef828f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212340"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937336"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -20,7 +20,7 @@ Los registros de alias de Azure DNS son calificaciones en un conjunto de registr
 
 Un conjunto de registros de alias se admite para los siguientes tipos de registros en una zona de Azure DNS: 
 
-- Una
+- Un
 - AAAA
 - CNAME
 

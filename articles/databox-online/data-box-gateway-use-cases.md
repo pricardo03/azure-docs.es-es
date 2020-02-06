@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754186"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022688"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso de Azure Data Box Gateway
 
@@ -51,7 +51,7 @@ Antes de comenzar, asegúrese de que tiene un dispositivo de Data Box Gateway en
     - Si va a usar Azure PowerShell, siga estos [pasos](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) para mover los datos al nivel de archivo.
     - Si va a usar la administración del ciclo de vida de Azure, siga estos pasos para mover los datos al nivel de archivo.
         - [Regístrese](/azure/storage/common/storage-lifecycle-management-concepts) en la versión preliminar del servicio de administración del ciclo de vida de los blobs para usar el nivel de archivo.
-        - Use la siguiente directiva para el [archivado de datos en la ingesta](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
+        - Use la siguiente directiva para el [archivado de datos en la ingesta](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
 - Una vez que los blobs se marcan como pertenecientes al nivel de archivo, la puerta de enlace ya no puede modificarlos a menos que se trasladen a un nivel de acceso frecuente o a uno de acceso poco frecuente. Si el archivo está en el almacenamiento local, ningún cambio que se realice en la copia local (incluidas las eliminaciones) se cargará en el nivel de archivo.
 - Para leer los datos del almacenamiento de archivos, este se debe rehidratar cambiando el nivel de blob a un nivel de acceso frecuente o a otro de acceso poco frecuente. La [actualización del recurso compartido](data-box-gateway-manage-shares.md#refresh-shares) en la puerta de enlace no rehidratará el blob.
 

@@ -3,12 +3,12 @@ title: Creación de una regla de Azure Load Balancer para un clúster
 description: Configure una instancia de Azure Load Balancer para abrir puertos para el clúster de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351481"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025391"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir puertos para un clúster de Service Fabric
 
@@ -60,7 +60,7 @@ El comando de la CLI de Azure tiene unos parámetros que se describen en la tabl
 
 
 >[!NOTE]
->Para obtener más información sobre cómo crear un equilibrador de carga con la CLI de Azure, consulte [Creación de un equilibrador de carga interno mediante la CLI de Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+>Para obtener más información sobre cómo crear un equilibrador de carga con la CLI de Azure, consulte [Creación de un equilibrador de carga interno mediante la CLI de Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 Con respecto al comando `New-AzLoadBalancerRuleConfig`, `-FrontendPort` representa el puerto que el equilibrador de carga expone para las conexiones externas, y `-BackendPort` representa el puerto en que está escuchando la aplicación de Service Fabric.
 
 >[!NOTE]
->Para obtener más información sobre cómo crear un equilibrador de carga con PowerShell, consulte [Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+>Para obtener más información sobre cómo crear un equilibrador de carga con PowerShell, consulte [Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

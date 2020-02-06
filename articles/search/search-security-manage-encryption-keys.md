@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c7be7d92cae992e54ca6e9f50dda6342c57856b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945714"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899949"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado en reposo de contenido de Azure Cognitive Search mediante claves administradas por el cliente en Azure Key Vault
 
@@ -26,13 +26,13 @@ El cifrado con claves administradas por el cliente se configura a nivel de índi
 No es necesario que las claves estén en el mismo Key Vault. Un solo servicio de búsqueda puede hospedar varios índices o mapas de sinónimos cifrados cada uno con sus propias claves de cifrado administradas por el cliente almacenadas en almacenes de claves diferentes.  También puede tener índices y mapas de sinónimos en el mismo servicio que no estén cifrados mediante claves administradas por el cliente. 
 
 > [!IMPORTANT] 
-> Esta característica está disponible en la [API de REST, versión 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) y el [SDK de .NET, versión 8.0-preview](search-dotnet-sdk-migration-version-9.md). Actualmente no se admite la configuración de claves de cifrado administradas por el cliente en Azure Portal.
+> Esta característica está disponible en la [API de REST, versión 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) y el [SDK de .NET, versión 8.0-preview](search-dotnet-sdk-migration-version-9.md). Actualmente no se admite la configuración de claves de cifrado administradas por el cliente en Azure Portal. El servicio de búsqueda debe crearse después de enero de 2019 y no puede ser un servicio gratuito (compartido).
 
 ## <a name="prerequisites"></a>Prerequisites
 
 En este ejemplo se usan los servicios siguientes. 
 
-+ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. El servicio de búsqueda debe crearse después de enero de 2019 y no puede ser un servicio gratuito (compartido).
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. 
 
 + [Cree un recurso de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o busque un almacén existente en su suscripción.
 

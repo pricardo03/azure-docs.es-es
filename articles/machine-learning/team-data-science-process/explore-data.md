@@ -3,20 +3,20 @@ title: Exploración de datos en el proceso de ciencia de datos en equipos
 description: Exploración de datos en diferentes entornos de almacenamiento usados normalmente en el proceso de ciencia de datos en equipos.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d4d2bc3292926144f13508780885e082f2b1fdc3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca993fd6a449b2655b13da337875fa3f9f27cade
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303628"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721275"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Exploración de datos en el proceso de ciencia de datos en equipos
 
@@ -28,4 +28,4 @@ En los artículos siguientes se describe cómo explorar datos en tres entornos d
 * Explore los datos de [SQL Server](explore-data-sql-server.md) mediante SQL y un lenguaje de programación como Python.
 * Explore los datos de las [tablas de Hive](explore-data-hive-tables.md) mediante consultas de Hive.
 
-Además, el vídeo, [Preprocessing Data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) (Preprocesamiento de datos en Azure Machine Learning Studio), describe los módulos más usados para la limpieza y la transformación de datos en Azure Machine Learning Studio.
+Además, el vídeo, [Preprocesamiento de datos en Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), describe los módulos más usados para la limpieza y la transformación de datos en Azure Machine Learning Studio.

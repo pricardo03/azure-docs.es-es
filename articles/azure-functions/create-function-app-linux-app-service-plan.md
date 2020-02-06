@@ -3,12 +3,12 @@ title: Creación de una aplicación de funciones en Linux desde Azure Portal
 description: Obtenga información sobre cómo crear su primera función de Azure para su ejecución sin servidor mediante Azure Portal.
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.openlocfilehash: 7689b24a4f9bf17d495917bbf4078d6e5fe4fcff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971445"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963842"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creación de una aplicación de función en Linux en un plan de Azure App Service
 
@@ -44,7 +44,7 @@ Debe tener una aplicación de función para hospedar la ejecución de las funcio
     | **[Plan de hospedaje](functions-scale.md)** | Plan de App Service | Plan de hospedaje que define cómo se asignan los recursos a la Function App. Si usa un plan de App Service, puede controlar el [escalado de la aplicación de función](functions-scale.md).  |
     | **Plan de App Service/ubicación** | Creación del plan | Elija **Crear nuevo** y proporcionar un nombre para **Plan de App Service**. Elija una **ubicación** en una [región](https://azure.microsoft.com/regions/) próxima a usted o a otros servicios a los que accedan las funciones. Elija su **[plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/linux/)** deseado. <br/>No puede ejecutar aplicaciones de función de Windows y Linux en el mismo plan de App Service. |
     | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Elija **.NET** para funciones de C# y F#. |
-    | **[Storage](../storage/common/storage-account-create.md)** |  Nombre único globalmente |  Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](functions-scale.md#storage-account-requirements). |
+    | **[Storage](../storage/common/storage-account-create.md)** |  Nombre único globalmente |  Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](storage-considerations.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | habilitado | Application Insights está deshabilitado de forma predeterminada. Se recomienda habilitar la integración de Application Insights ahora y elegir una ubicación de hospedaje cerca de la ubicación del plan de App Service. Si quiere hacer esto más tarde, consulte [Supervisión de Azure Functions](functions-monitoring.md).  |
 
 3. Seleccione **Crear** para aprovisionar e implementar la aplicación de función.

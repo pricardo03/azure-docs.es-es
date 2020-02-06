@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359974"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887824"
 ---
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
@@ -145,28 +145,20 @@ Las imágenes de generación 1 solo pueden usar particiones GPT en discos de da
 
 SSD Premium, SSD estándar y HDD estándar admiten instantáneas. En estos tres tipos de discos, las instantáneas se admiten en todos los tamaños de disco (incluidos los discos de hasta 32 TiB). Los discos Ultra no admiten instantáneas.
 
-### <a name="disk-reservation"></a>Reserva de discos
+**¿Qué son las reservas de discos de Azure?**
+La reserva de discos es la opción de adquirir de antemano un año de almacenamiento en discos, lo que reduce los costos totales. Para más información sobre las reservas de discos de Azure, consulte nuestro artículo sobre el tema: [Aplicación del descuento por reserva a Azure Disk](../articles/cost-management-billing/reservations/understand-disk-reservations.md)
 
-**¿Qué es la reserva de discos de Azure?**
-La reserva de discos es la opción de adquirir de antemano un año de almacenamiento en discos, lo que reduce los costos totales.
-
-**¿Qué opciones ofrece la reserva de discos de Azure?**
-La reserva de discos de Azure ofrece la opción de comprar SSD Premium en las SKU especificadas de P30 (1 TiB) hasta P80 (32 TiB) durante un año. No hay ninguna limitación en la cantidad mínima de discos necesarios para comprar una reserva de discos. Además, puede pagar realizando un solo pago inicial o mediante pagos mensuales. No hay ningún costo transaccional adicional aplicado en Managed Disks de SSD Premium.
+**¿Qué opciones ofrece la reserva de discos de Azure?** La reserva de discos de Azure ofrece la opción de comprar SSD Premium en las SKU especificadas de P30 (1 TiB) hasta P80 (32 TiB) durante un año. No hay ninguna limitación en la cantidad mínima de discos necesarios para comprar una reserva de discos. Además, puede pagar realizando un solo pago inicial o mediante pagos mensuales. No hay ningún costo transaccional adicional aplicado en Managed Disks de SSD Premium. 
 
 Las reservas se realizan en forma de discos y no de capacidad. En otras palabras, cuando se reserva un disco de P80 (32 TiB), se obtiene un solo disco de P80, no se puede dividir esa reserva específica en dos discos de P70 más pequeños (16 TiB). Por supuesto, puede reservar el número de discos que quiera, incluidos dos discos de P70 independientes (16 TiB).
 
-**¿Cómo se me cobrará la reserva de discos de Azure?**
-- Los clientes con Contrato Enterprise (EA) pueden usar primero el compromiso monetario de Azure para comprar reservas de discos de Azure. Además, aunque los clientes con Contrato Enterprise hayan usado todo su compromiso monetario, pueden comprar reservas de discos, y el importe correspondiente se cobrará en la próxima factura de uso por encima del límite.
+**¿Cómo se aplica la reserva de discos de Azure?**  
+La reserva de discos sigue un modelo similar a las instancias reservadas de máquina virtual (VM). La diferencia es que una reserva de discos no se puede aplicar a diferentes SKU, mientras que una instancia de VM sí puede. Consulte [Ahorro de costos con Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) para obtener más información sobre las instancias de VM.    
 
-- En cuanto a los clientes que compren a través de Azure.com, se cargará a la tarjeta de crédito registrada el pago inicial completo (o los pagos fijos mensuales) de la reserva de discos de Azure en el momento de la compra.
+**¿Puedo usar mi almacenamiento de datos adquirido mediante la reserva de discos de Azure en varias regiones?**     
+La reserva de discos de Azure se compra para una región específica y una SKU (como P30 en el Este de EE. UU. 2) y, por lo tanto, no se puede usar fuera de estas áreas. Siempre puede adquirir una reserva de discos de Azure adicional en función de las necesidades de almacenamiento en disco que tenga en otras regiones o SKU. 
 
-**¿Cómo se aplica la reserva de discos de Azure?**
-La reserva de discos sigue un modelo similar a las instancias reservadas de máquina virtual (VM). La diferencia es que una reserva de discos no se puede aplicar a diferentes SKU, mientras que una instancia de VM sí puede. Consulte [Ahorro de costos con Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) para obtener más información sobre las instancias de VM. 
-
-**¿Puedo usar mi almacenamiento de datos adquirido a través de la reserva de discos de Azure en varias regiones?**
-La reserva de discos de Azure se compra para una región específica y una SKU (como P30 en el Este de EE. UU. 2) y, por lo tanto, no se puede usar fuera de estas áreas. Siempre puede adquirir una reserva de discos de Azure adicional en función de las necesidades de almacenamiento en disco que tenga en otras regiones o SKU.
-
-**¿Qué ocurre cuando expira la reserva de discos Azure?**
+**¿Qué ocurre cuando expira la reserva de discos Azure?**    
 Recibirá notificaciones por correo electrónico 30 días antes de la expiración y también en la fecha de expiración. Una vez que expire la reserva, los discos implementadas seguirán ejecutándose y se facturarán mediante una [cuota de pago por uso](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="ultra-disks"></a>Discos Ultra

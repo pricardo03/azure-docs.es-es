@@ -8,22 +8,22 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 288894705e1108d6dd511b60cd2bc3bcee4c6d41
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78f35042678aa7c30cebf73796df3e5d564b4502
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704350"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717003"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Implementación y ejecución de un contenedor en Azure Container Instance
 
-Con los pasos siguientes, escale las aplicaciones de Azure Cognitive Services en la nube fácilmente con Azure [Container Instance](https://docs.microsoft.com/azure/container-instances/). Esto le permite centrarse en crear sus aplicaciones en lugar de administrar la infraestructura.
+Con los pasos siguientes, escale aplicaciones de Azure Cognitive Services en la nube fácilmente con [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). La creación de contenedores permite centrarse en la compilación de aplicaciones en lugar de en la administración de la infraestructura. Para más información sobre el uso de contenedores, consulte [Características y ventajas](../cognitive-services-container-support.md#features-and-benefits).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Esta solución funciona con cualquier contenedor de Cognitive Services. El recurso de Cognitive Services debe crearse en Azure Portal antes de usar esta fórmula. Todos los servicios de Cognitive Services que admiten contenedores tienen un documento del "Procedimiento de instalación" específico para instalar y configurar el servicio de un contenedor. Dado que algunos servicios requieren un archivo o un conjunto de archivos como entrada para el contenedor, es importante que entienda el funcionamiento del contenedor y que lo haya usado correctamente antes de usar esta solución.
+La fórmula funciona con cualquier contenedor de Cognitive Services. El recurso de Cognitive Services debe crearse en Azure Portal antes de usar la fórmula. Todos los servicios de Cognitive Services que admiten contenedores tienen un documento del "Procedimiento de instalación" específico para instalar y configurar el servicio de un contenedor. Algunos servicios requieren un archivo o un conjunto de archivos como entrada para el contenedor, así que es importante que entienda y haya usado el contenedor correctamente antes de usar esta solución.
 
 * Un recurso de Cognitive Services, creado en Azure Portal.
 * **Dirección URL del punto de conexión** de Cognitive Services: revise el "Procedimiento de instalación" de su servicio específico para el contenedor. Así, encontrará el origen de la dirección URL del punto de conexión dentro de Azure Portal y el aspecto de un ejemplo correcto de la dirección URL. El formato exacto puede cambiar para cada servicio.
@@ -31,7 +31,7 @@ Esta solución funciona con cualquier contenedor de Cognitive Services. El recur
 * Un solo contenedor de Cognitive Services en su host local (su equipo). Asegúrese de que puede hacer lo siguiente:
   * Descargar la imagen con un comando `docker pull`.
   * Ejecutar el contenedor local correctamente con todos los valores de configuración necesarios mediante un comando `docker run`.
-  * Llamar al punto de conexión del contenedor para obtener una respuesta 2xx y una respuesta JSON.
+  * Llamar al punto de conexión del contenedor para obtener una respuesta de HTTP 2xx y una respuesta JSON.
 
 Todas las variables en corchetes angulares, `<>`, deben reemplazarse por sus propios valores. Este reemplazo incluye los corchetes angulares.
 

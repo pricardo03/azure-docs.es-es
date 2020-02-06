@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b4cf5dc53c0fe256c9ecab5a844300224b860e44
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 365330aa445bcf8e5b1aec575d5e646d533ceaf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926745"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901329"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf
 
@@ -21,7 +21,7 @@ Mediante Azure Monitor, puede recopilar métricas personalizadas a través de lo
 
 ## <a name="influxdata-telegraf-agent"></a>Agente de InfluxData Telegraf 
 
-[Telegraf](https://docs.influxdata.com/telegraf/v1.7/) es un agente controlado por complemento que habilita la recopilación de métricas más de 150 orígenes diferentes. Según las cargas de trabajo que se ejecuten en la máquina virtual, puede configurar al agente para aprovechar los complementos de entrada especializados para recopilar métricas. Algunos ejemplos son MySQL, NGINX y Apache. Mediante el uso de complementos de salida, el agente, a continuación, puede escribir en los destinos que elija. El agente de Telegraf se integra directamente con la API REST de métricas personalizadas de Azure Monitor. Admite un complemento de salida de Azure Monitor. Mediante este complemento, el agente puede recopilar métricas específicas de la carga de trabajo de la máquina virtual Linux y enviarlas como métricas personalizadas a Azure Monitor. 
+[Telegraf](https://docs.influxdata.com/telegraf/) es un agente controlado por complemento que habilita la recopilación de métricas más de 150 orígenes diferentes. Según las cargas de trabajo que se ejecuten en la máquina virtual, puede configurar al agente para aprovechar los complementos de entrada especializados para recopilar métricas. Algunos ejemplos son MySQL, NGINX y Apache. Mediante el uso de complementos de salida, el agente, a continuación, puede escribir en los destinos que elija. El agente de Telegraf se integra directamente con la API REST de métricas personalizadas de Azure Monitor. Admite un complemento de salida de Azure Monitor. Mediante este complemento, el agente puede recopilar métricas específicas de la carga de trabajo de la máquina virtual Linux y enviarlas como métricas personalizadas a Azure Monitor. 
 
  ![Información general del agente de Telegraf](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
@@ -29,7 +29,7 @@ Mediante Azure Monitor, puede recopilar métricas personalizadas a través de lo
 
 En este tutorial, implementamos una máquina virtual Linux que ejecuta el sistema operativo Ubuntu 16.04 LTS. El agente de Telegraf es compatible con la mayoría de los sistemas operativos Linux. En el [portal de descarga de InfluxData](https://portal.influxdata.com/downloads) están disponibles los paquetes Debian y RPM, además de los archivos binarios de Linux sin empaquetar. Consulte esta [guía de instalación de Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para conocer instrucciones y opciones de instalación adicionales. 
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 Cree una nueva máquina virtual Linux: 
 
@@ -39,7 +39,7 @@ Cree una nueva máquina virtual Linux:
 1. Especifique un nombre de máquina virtual como **MyTelegrafVM**.  
 1. Deje el tipo de disco como **SSD**. A continuación, proporcione un **Nombre de usuario**, por ejemplo, **usuarioAzure**. 
 1. En **Tipo de autenticación**, seleccione **Contraseña**. A continuación, escriba una contraseña que utilizará más adelante para conectarse mediante SSH a la máquina virtual. 
-1. Elija **Crear nuevo grupo de recursos**. A continuación, indique un nombre, como **miGrupoDeRecursos**. Elija su **Ubicación**. Después seleccione **Aceptar**. 
+1. Elija **Crear nuevo grupo de recursos**. A continuación, indique un nombre, como **miGrupoDeRecursos**. Elija su **Ubicación**. Después, seleccione **Aceptar**. 
 
     ![Creación de una máquina virtual de Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 

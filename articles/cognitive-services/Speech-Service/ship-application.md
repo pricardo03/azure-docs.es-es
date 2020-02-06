@@ -3,20 +3,20 @@ title: 'Desarrollo de aplicaciones con el SDK de Voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo implementar una aplicación que usa el SDK de Voz en plataformas compatibles.
 services: cognitive-services
-author: jhakulin
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 01/30/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: f4200a0a43507a335f0e4e59e5a794d2bc4d6142
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 4f75adba27c8173f918fa1afbd44f307d50eb995
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816555"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902014"
 ---
 # <a name="ship-an-application"></a>Distribuir una aplicación
 
@@ -39,7 +39,7 @@ Para la entrada de micrófono, las bibliotecas de Media Foundation deben estar i
 
 Los archivos necesarios del SDK de Voz se pueden implementar en el mismo directorio que la aplicación. De esta forma la aplicación puede acceder directamente a las bibliotecas. Asegúrese de seleccionar la versión correcta (Win32/x64) que coincida con la aplicación.
 
-| NOMBRE | Función |
+| Nombre | Función |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | SDK básico, necesario para la implementación nativa y administrada |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necesario para la implementación administrada                      |

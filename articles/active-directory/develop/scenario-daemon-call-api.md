@@ -15,19 +15,18 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46f1676ab1bdcf2b23907824bb9bf543b5f28ce6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 338b638d6b33bcbbb5cf377643a96c71b0d314bd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962617"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775190"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplicación de demonio que llama a las API web: llamada a una API web desde la aplicación
 
-Una aplicación de demonio puede llamar a una API web desde una aplicación de demonio de .NET o llamar a varias API web aprobadas previamente.
+Las aplicaciones de demonio de .NET pueden llamar a una API web. Las aplicaciones de demonio de .NET también pueden llamar a varias API web aprobadas previamente.
 
-## <a name="calling-a-web-api-daemon-application"></a>Llamada a una aplicación de demonio de API web
+## <a name="calling-a-web-api-from-a-daemon-application"></a>Llamada a una API web desde una aplicación de demonio
 
 Aquí se muestra cómo usar el token para llamar a una API:
 
@@ -68,7 +67,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Llamada a varias API
 
-Para las aplicaciones de demonio, las API web a las que llame deben estar aprobadas previamente. No habrá ningún consentimiento incremental con las aplicaciones de demonio (no hay ninguna interacción del usuario). El administrador de inquilinos debe dar el consentimiento previo a la aplicación y a todos los permisos de la API. Si quiere llamar a varias API, deberá adquirir un token para cada recurso, cada vez llamando a `AcquireTokenForClient`. MSAL usará la caché de tokens de aplicación para evitar las llamadas de servicio innecesarias.
+Para las aplicaciones de demonio, las API web a las que llame deben estar aprobadas previamente. No hay ningún consentimiento incremental con las aplicaciones de demonio. (No hay interacción del usuario). El administrador de inquilinos debe dar el consentimiento previo a la aplicación y a todos los permisos de la API. Si quiere llamar a varias API, debe adquirir un token para cada recurso, cada vez llamando a `AcquireTokenForClient`. MSAL usará la caché de tokens de aplicación para evitar las llamadas de servicio innecesarias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

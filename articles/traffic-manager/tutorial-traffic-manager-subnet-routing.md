@@ -3,20 +3,20 @@ title: 'Tutorial: Configuración del enrutamiento del tráfico de subred con Azu
 description: En este tutorial se explica cómo configurar Traffic Manager para enrutar el tráfico de las subredes de los usuarios a puntos de conexión concretos.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: allensu
-ms.openlocfilehash: 00bc453ebb0e467f48bd886fc7c6b6c422693864
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: b00bc1c95e2f593523c584c4abfe9381e5697f79
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420261"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939453"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
@@ -36,12 +36,12 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para ver a Traffic Manager en acción, este tutorial requiere que implemente lo siguiente:
 
-- Dos sitios web básicos que se ejecutan en regiones de Azure diferentes: **Este de EE. UU.** (actúa como sitio web interno) y **Europa Occidental** (actúa como sitio web de producción).
-- Dos máquinas virtuales para probar Traffic Manager (una máquina virtual en **Este de EE. UU.** y la segunda máquina virtual en **Europa Occidental**).
+- Dos sitios web básicos que se ejecutan en regiones de Azure diferentes: **Este de EE. UU.** (actúa como sitio web interno) y **Oeste de Europa** (actúa como sitio web de producción).
+- Dos máquinas virtuales para probar Traffic Manager (una máquina virtual en **Este de EE. UU.** y la segunda máquina virtual en **Oeste de Europa**).
 
 Las máquinas virtuales de prueba se usan para ilustrar cómo enruta Traffic Manager el tráfico de usuario al sitio web interno o al sitio web de producción según la subred desde donde se origina la consulta del usuario.
 
@@ -53,14 +53,14 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 En esta sección, creará dos instancias de sitio web que proporcionan los puntos de conexión de servicio para el perfil de Traffic Manager en dos regiones de Azure. La creación de los dos sitios web incluye los pasos siguientes:
 
-1. Crear dos máquinas virtuales para ejecutar un sitio web básico: una en **Este de EE. UU.** y otra en **Europa Occidental**.
+1. Crear dos máquinas virtuales para ejecutar un sitio web básico: una en **Este de EE. UU.** y otra en **Oeste de Europa**.
 2. Instale un servidor IIS en cada máquina virtual y actualice la página del sitio web predeterminada que describe el nombre de la máquina virtual a la que un usuario se conecta cuando visita el sitio web.
 
 #### <a name="create-vms-for-running-websites"></a>Creación de máquinas virtuales para ejecutar sitios web
 
 En esta sección, creará dos máquinas virtuales *myIISVMEastUS* y *myIISVMWestEurope* en las regiones de Azure **Este de EE. UU.** y **Oeste de Europa**.
 
-1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Proceso** > **Windows Server 2019 Datacenter**.
+1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Proceso** > **Windows Server 2019 Datacenter**.
 2. En **Crear una máquina virtual**, escriba o seleccione los valores siguientes en la pestaña **Básico**:
 
    - **Suscripción** > **Grupo de recursos**: Seleccione **Crear nuevo** y, a continuación, escriba **myResourceGroupTM1**.
@@ -128,7 +128,7 @@ Traffic Manager enruta el tráfico de usuario basándose en el nombre DNS de los
 
 En esta sección, creará una máquina virtual (*myVMEastUS* y *myVMWestEurope*) en cada región de Azure (**Este de EE. UU.** y **Oeste de Europa**). Se usarán estas máquinas virtuales para probar cómo Traffic Manager enruta el tráfico del usuario basado en la subred de la consulta del usuario.
 
-1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Proceso** > **Windows Server 2019 Datacenter**.
+1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Proceso** > **Windows Server 2019 Datacenter**.
 2. En **Crear una máquina virtual**, escriba o seleccione los valores siguientes en la pestaña **Básico**:
 
    - **Suscripción** > **Grupo de recursos**: Seleccione **myResourceGroupTM1**.
@@ -152,9 +152,9 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
+    | Nombre                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Subred**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
     | Resource group          | Haga clic en **Existente** y escriba *myResourceGroupTM1*. |
@@ -171,10 +171,10 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 2. En **perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión** y, a continuación, haga clic en **Agregar**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | type                    | Punto de conexión de Azure                                   |
-    | NOMBRE           | myInternalWebSiteEndpoint                                        |
+    | Tipo                    | Punto de conexión de Azure                                   |
+    | Nombre           | myInternalWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Dirección IP pública                          |
     | Recurso de destino          | **Elija una dirección IP pública** para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada *myIISVMEastUS-ip*. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|
     |  Configuración de enrutamiento de subred    |   Agregue la dirección IP de la máquina virtual de prueba *myVMEastUS*. Cualquier consulta de usuario que se origine en esta máquina virtual se dirigirá a *myInternalWebSiteEndpoint*.    |
@@ -212,7 +212,7 @@ En esta sección, puede ver a Traffic Manager en acción.
 5. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe la advertencia, seleccione **Sí** o **Continuar** para continuar con la conexión.
 6. En un explorador web, escriba la máquina virtual *myVMEastUS*, escriba el nombre DNS del perfil de Traffic Manager para ver el sitio web. Dado que la dirección IP de la máquina virtual *myVMEastUS* está asociada al punto de conexión *myInternalWebsiteEndpoint*, el explorador web inicia el servidor del sitio web de prueba *myIISVMEastUS*.
 
-7. A continuación, conéctese a la máquina virtual *myVMWestEurope* ubicada en **Europa Occidental** mediante los pasos 1-5 y vaya al nombre de dominio del perfil de Traffic Manager de esta máquina virtual. Dado que la dirección IP de la máquina virtual *myVMWestEurope* está asociada al punto de conexión *myProductionWebsiteEndpoint*, el explorador web inicia el servidor del sitio web de prueba *myIISVMWestEurope*.
+7. A continuación, conéctese a la máquina virtual *myVMWestEurope* ubicada en **Oeste de Europa** mediante los pasos 1-5 y vaya al nombre de dominio del perfil de Traffic Manager de esta máquina virtual. Dado que la dirección IP de la máquina virtual *myVMWestEurope* está asociada al punto de conexión *myProductionWebsiteEndpoint*, el explorador web inicia el servidor del sitio web de prueba *myIISVMWestEurope*.
 
 ## <a name="delete-the-traffic-manager-profile"></a>Eliminar el perfil de Traffic Manager
 
@@ -220,6 +220,6 @@ Cuando ya no los necesite, elimine los grupos de recursos (**ResourceGroupTM1** 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre el [método de enrutamiento del tráfico ponderado](traffic-manager-configure-weighted-routing-method.md).
+- Información sobre el [método de enrutamiento de tráfico ponderado](traffic-manager-configure-weighted-routing-method.md).
 - Sepa cómo funciona el [método de enrutamiento por prioridad](traffic-manager-configure-priority-routing-method.md).
 - Información sobre el [método de enrutamiento geográfico](traffic-manager-configure-geographic-routing-method.md).

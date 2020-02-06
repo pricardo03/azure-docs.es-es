@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 98d75f75a985fca3448becab216ad6570d948468
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514262"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772228"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -21,7 +21,7 @@ Si experimenta problemas al ejecutar Azure IoT Edge en el entorno, use este art�
 
 ## <a name="run-the-iotedge-check-command"></a>Ejecutar el comando 'check' de iotedge
 
-El primer paso a la hora de solucionar problemas de IoT Edge debe ser usar el comando `check`, que lleva a cabo una serie de pruebas de configuración y conectividad para problemas comunes. El comando `check` está disponible en la [versión 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) y posteriores.
+El primer paso a la hora de solucionar problemas de IoT Edge debe ser usar el comando `check`, que ejecuta una serie de pruebas de configuración y conectividad para problemas comunes. El comando `check` está disponible en la [versión 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) y posteriores.
 
 Puede ejecutar el comando `check` como se indica a continuación, o bien incluir la marca `--help` para ver una lista completa de opciones:
 
@@ -265,7 +265,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 
 **Causa principal**
 
-El tiempo de ejecución de IoT Edge solo puede admitir los nombres de host que tienen menos de 64 caracteres. Las máquinas físicas no suelen tener nombres de host largos, pero el problema es más común en una máquina virtual. Los nombres de host generados automáticamente para las máquinas virtuales Windows hospedadas en Azure, en particular, suelen ser largos. 
+El tiempo de ejecución de IoT Edge solo puede admitir los nombres de host que tienen menos de 64 caracteres. Las máquinas físicas no suelen tener nombres de host largos, pero el problema es más común en una máquina virtual. Los nombres de host generados automáticamente para las máquinas virtuales Windows hospedadas en Azure, en particular, suelen ser largos.
 
 **Resolución**
 
@@ -302,7 +302,7 @@ El centro de IoT Edge, que forma parte del runtime de IoT Edge, está optimizado
 
 **Resolución**
 
-En el centro de IoT Edge, establezca una variable de entorno **OptimizeForPerformance** en **false**. Existen dos formas de hacerlo:
+En el centro de IoT Edge, establezca una variable de entorno **OptimizeForPerformance** en **false**. Hay dos maneras de establecer variables de entorno:
 
 En Azure Portal:
 
@@ -340,7 +340,7 @@ El comando de PowerShell `Get-WinEvent` se basa en que esté presente una entrad
 
 Establezca una entrada del registro para el demonio de IoT Edge. Cree un archivo **iotedge.reg** con el siguiente contenido e impórtelo en el Registro de Windows haciendo doble clic en él o mediante el comando `reg import iotedge.reg`:
 
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
@@ -351,10 +351,10 @@ Windows Registry Editor Version 5.00
 
 ## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>El módulo de IoT Edge no puede enviar un mensaje a edgeHub y se produce el error 404
 
-El módulo de IoT Edge personalizado no puede enviar un mensaje a edgeHub y se produce el error 404 `Module not found`. El demonio de IoT Edge imprime el mensaje siguiente en los registros: 
+El módulo de IoT Edge personalizado no puede enviar un mensaje a edgeHub y se produce el error 404 `Module not found`. El demonio de IoT Edge imprime el mensaje siguiente en los registros:
 
 ```output
-Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
 ```
 
 **Causa principal**
@@ -401,7 +401,7 @@ Especifique el servidor DNS del entorno en la configuración del motor de conten
 
 El ejemplo anterior establece el servidor DNS en un servicio DNS accesible públicamente. Si el dispositivo de Edge no puede acceder a esta dirección IP desde su entorno, reemplácela por una dirección de servidor DNS que sea accesible.
 
-Coloque `daemon.json` en la ubicación correcta para la plataforma: 
+Coloque `daemon.json` en la ubicación correcta para la plataforma:
 
 | Plataforma | Location |
 | --------- | -------- |
@@ -410,7 +410,7 @@ Coloque `daemon.json` en la ubicación correcta para la plataforma:
 
 Si la ubicación ya contiene el archivo `daemon.json`, agréguele la clave **dns** y guarde el archivo.
 
-*Reinicie el motor de contenedor para que las actualizaciones se apliquen*
+Reinicie el motor de contenedor para que las actualizaciones se apliquen.
 
 | Plataforma | Get-Help |
 | --------- | -------- |
@@ -431,7 +431,7 @@ Puede establecer el servidor DNS para el elemento *createOptions* de cada módul
 }
 ```
 
-Asegúrese de establecerlo también para los módulos *edgeAgent* y *edgeHub*.
+Asegúrese de establecer esta configuración también para los módulos *edgeAgent* y *edgeHub*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

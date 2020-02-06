@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: b6347765f8d2e21c352834dc8d28b65c28f99758
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 36016e462e3f4906c4dfe8c58501c82fd554f3bd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671447"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720595"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Creación de una imagen y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage 
 
 El generador de imágenes de Azure admite el uso de scripts o la copia de archivos desde varias ubicaciones, como GitHub, Azure Storage, etc. Para utilizarlos, el generador de imágenes de Azure debe haber podido acceder externamente a ellos, pero puede proteger los blobs de Azure Storage mediante tokens de SAS.
 
-En este artículo se muestra cómo crear una imagen personalizada mediante el generador de imágenes de máquina virtual de Azure, en que el servicio usará una [identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para acceder a los archivos de Azure Storage para personalizar la imagen, sin tener que dar acceso público a los archivos ni configurar tokens de SAS.
+En este artículo se muestra cómo crear una imagen personalizada mediante Azure VM Image Builder, donde el servicio usará una [identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para acceder a los archivos de Azure Storage para la personalización de la imagen, sin tener que dar acceso público a los archivos ni configurar tokens de SAS.
 
 En el ejemplo siguiente, creará dos grupos de recursos: uno se utilizará para la imagen personalizada y el otro hospedará una cuenta de Azure Storage, que contiene un archivo de script. Esto simula un escenario real, en que puede tener los artefactos de compilación o los archivos de imagen en diferentes cuentas de almacenamiento, al margen del generador de imágenes. Creará una identidad asignada por el usuario y, a continuación, concederá permisos de lectura en el archivo de script, pero no establecerá ningún acceso público a ese archivo. Después, usará el personalizador de shell para descargar y ejecutar ese script desde la cuenta de almacenamiento.
 

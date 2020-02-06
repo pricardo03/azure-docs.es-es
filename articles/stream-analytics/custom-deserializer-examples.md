@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/30/2019
-ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 1/28/2020
+ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553025"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845265"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lectura de entradas en cualquier formato mediante deserializadores personalizados
 
@@ -80,7 +80,7 @@ El parámetro `stream` es la secuencia que contiene el objeto serializado. `Dese
 
 ## <a name="deserializer-examples"></a>Ejemplos de deserializador
 
-En esta sección se muestra cómo codificar deserializadores personalizados para Protobuf y CSV. Para obtener más ejemplos, visite [Azure Stream Analytics en GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+En esta sección se muestra cómo codificar deserializadores personalizados para Protobuf y CSV. Para ver ejemplos adicionales, como el formato AVRO para la captura de centros de eventos, visite [Azure Stream Analytics en GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
 ### <a name="protocol-buffer-protobuf-format"></a>Formato de búfer de protocolo (Protobuf)
 
@@ -225,12 +225,12 @@ El siguiente código de JavaScript es un ejemplo del formato de serialización d
 
 Esta característica está disponible en las siguientes regiones:
 
-* Centro occidental de EE.UU.
-* Europa del Norte
-* East US
+* Centro-Oeste de EE. UU.
+* Norte de Europa
+* Este de EE. UU.
 * Oeste de EE. UU.
 * Este de EE. UU. 2
-* Europa occidental
+* Oeste de Europa
 
 Puede [solicitar al soporte técnico](https://aka.ms/ccodereqregion) que agreguen regiones adicionales.
 

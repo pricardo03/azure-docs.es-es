@@ -3,7 +3,7 @@ title: 'Configuración del enrutamiento del tráfico de subred: Azure Traffic Ma
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico desde subredes concretas.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: allensu
-ms.openlocfilehash: d3751a14e8c317d6a4f23c1aa051b7e13305acf5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.author: rohink
+ms.openlocfilehash: 60cddce610d223433d0ffe1f6b9234625aca9881
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014608"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938750"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
@@ -27,10 +27,10 @@ En el escenario que se trata en este artículo, con la subred de enrutamiento, s
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para ver a Traffic Manager en acción, este tutorial requiere que implemente lo siguiente:
-- Dos sitios web básicos que se ejecutan en regiones de Azure diferentes: **Este de EE. UU.** (actúa como sitio web interno) y **Europa Occidental** (actúa como sitio web de producción).
-- Dos máquinas virtuales para probar Traffic Manager (una máquina virtual en **Este de EE. UU.** y la segunda máquina virtual en **Europa Occidental**).
+- Dos sitios web básicos que se ejecutan en regiones de Azure diferentes: **Este de EE. UU.** (actúa como sitio web interno) y **Oeste de Europa** (actúa como sitio web de producción).
+- Dos máquinas virtuales para probar Traffic Manager (una máquina virtual en **Este de EE. UU.** y la segunda máquina virtual en **Oeste de Europa**).
 
 Las máquinas virtuales de prueba se usan para ilustrar cómo enruta Traffic Manager el tráfico de usuario al sitio web interno o al sitio web de producción según la subred desde donde se origina la consulta del usuario.
 
@@ -41,20 +41,20 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 ### <a name="create-websites"></a>Creación de sitios web
 
 En esta sección, creará dos instancias de sitio web que proporcionan los puntos de conexión de servicio para el perfil de Traffic Manager en dos regiones de Azure. La creación de los dos sitios web incluye los pasos siguientes:
-1. Crear dos máquinas virtuales para ejecutar un sitio web básico: una en **Este de EE. UU.** y otra en **Europa Occidental**.
+1. Crear dos máquinas virtuales para ejecutar un sitio web básico: una en **Este de EE. UU.** y otra en **Oeste de Europa**.
 2. Instale un servidor IIS en cada máquina virtual y actualice la página del sitio web predeterminada que describe el nombre de la máquina virtual a la que un usuario se conecta cuando visita el sitio web.
 
 #### <a name="create-vms-for-running-websites"></a>Creación de máquinas virtuales para ejecutar sitios web
-En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndpointVMWEurope* en las regiones de Azure **Este de EE. UU.** y **Europa Occidental**.
+En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndpointVMWEurope* en las regiones de Azure **Este de EE. UU.** y **Oeste de Europa**.
 
 1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Compute** > **Windows Server 2016 VM** (VM de Windows Server 2016).
 2. Escriba o seleccione la siguiente información para **Aspectos básicos**, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Crear**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
-    |NOMBRE|myIISVMEastUS|
+    |Nombre|myIISVMEastUS|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resource group| Seleccione **Nuevo** y luego escriba *myResourceGroupTM1*.|
     |Location| Seleccione **Este de EE. UU**.|
     |||
@@ -62,7 +62,7 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
 5. Seleccione los valores siguientes en **Configuración** y, después, seleccione **Aceptar**:
     
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Virtual network| Seleccione **Red virtual**, en **Crear red virtual**, para **Nombre**, escriba *myVNet1*, para cada subred, escriba *mySubnet*.|
     |Grupo de seguridad de red (NSG)|Seleccione **Básico** y, en la lista desplegable **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP** |
@@ -73,10 +73,10 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
 
 7. Complete de nuevo los pasos del 1 al 6, con los cambios siguientes:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Resource group | Seleccione **Nuevo** y, a continuación, escriba *myResourceGroupTM2*|
-    |Location|Europa occidental|
+    |Location|Oeste de Europa|
     |Nombre de la máquina virtual | myIISVMWEurope|
     |Virtual network | Seleccione **Red virtual**, en **Crear red virtual**, para **Nombre**, escriba *myVNet2*, para cada subred, escriba *mySubnet*.|
     |||
@@ -131,23 +131,23 @@ Traffic Manager enruta el tráfico de usuario basándose en el nombre DNS de los
 
 ### <a name="create-test-vms"></a>Creación de máquinas virtuales de prueba
 
-En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*) en cada región de Azure (**Este de EE. UU.** y **Europa Occidental**. Usará estas máquinas virtuales para probar cómo Traffic Manager enruta el tráfico al servidor IIS más cercano al examinar el sitio web.
+En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*) en cada región de Azure (**Este de EE. UU.** y **Oeste de Europa**. Usará estas máquinas virtuales para probar cómo Traffic Manager enruta el tráfico al servidor IIS más cercano al examinar el sitio web.
 
 1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Compute** > **Windows Server 2016 VM** (VM de Windows Server 2016).
 2. Escriba o seleccione la siguiente información para **Aspectos básicos**, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Crear**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
-    |NOMBRE|myVMEastUS|
+    |Nombre|myVMEastUS|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resource group| Seleccione **Existente** y, a continuación, seleccione *myResourceGroupTM1*.|
     |||
 
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
 5. Seleccione los valores siguientes en **Configuración** y, después, seleccione **Aceptar**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Virtual network| Seleccione **Red virtual**, en **Crear red virtual**; en **Nombre**, escriba *myVNet3*; para cada subred, escriba *mySubnet3*.|
     |Grupo de seguridad de red (NSG)|Seleccione **Básico** y, en la lista desplegable **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP** |
@@ -158,7 +158,7 @@ En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*
 
 7. Complete de nuevo los pasos del 1 al 5, con los cambios siguientes:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Nombre de la máquina virtual | *myVMWEurope*|
     |Resource group | Seleccione **Existente** y escriba *myResourceGroupTM2*.|
@@ -173,9 +173,9 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
+    | Nombre                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Subred**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
     | Resource group          | Haga clic en **Existente** y escriba *myResourceGroupTM1*. |
@@ -192,10 +192,10 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 2. En **perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión** y, a continuación, haga clic en **Agregar**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | type                    | Punto de conexión de Azure                                   |
-    | NOMBRE           | myTestWebSiteEndpoint                                        |
+    | Tipo                    | Punto de conexión de Azure                                   |
+    | Nombre           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Dirección IP pública                          |
     | Recurso de destino          | **Elija una dirección IP pública** para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada *myIISVMEastUS-ip*. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|
     |  Configuración de enrutamiento de subred    |   Agregue la dirección IP de la máquina virtual de prueba *myVMEastUS*. Cualquier consulta de usuario que se origine en esta máquina virtual se dirigirá a *myTestWebSiteEndpoint*.    |
@@ -210,7 +210,7 @@ En esta sección, probará cómo Traffic Manager enruta el tráfico de usuario d
 1. Determine el nombre DNS del perfil de Traffic Manager.
 2. Vea a Traffic Manager en acción de la siguiente manera:
     - Desde la máquina virtual de prueba (*myVMEastUS*) que se encuentra en la región **Este de EE. UU.** , en un explorador web, busque el nombre DNS del perfil de Traffic Manager.
-    - Desde la máquina virtual de prueba (*myVMEastUS*) que se encuentra en la región **Europa Occidental**, en un explorador web, busque el nombre DNS del perfil de Traffic Manager.
+    - Desde la máquina virtual de prueba (*myVMEastUS*) que se encuentra en la región **Oeste de Europa**, en un explorador web, busque el nombre DNS del perfil de Traffic Manager.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Determinación del nombre DNS del perfil de Traffic Manager
 En este tutorial, por simplicidad, usará el nombre DNS del perfil de Traffic Manager para visitar los sitios web.
@@ -235,13 +235,13 @@ En esta sección, puede ver a Traffic Manager en acción.
 
    ![Prueba del perfil de Traffic Manager](./media/traffic-manager-subnet-routing-method/test-traffic-manager.png)
 
-2. A continuación, conéctese a la máquina virtual *myVMWestEurope* ubicada en **Europa Occidental** mediante los pasos 1-5 y vaya al nombre de dominio del perfil de Traffic Manager de esta máquina virtual. Dado que la dirección IP de la máquina virtual *myVMWestEurope* está asociada al punto de conexión *myIISVMEastUS*, el explorador web inicia el servidor del sitio web de prueba *myIISVMWEurope*.
+2. A continuación, conéctese a la máquina virtual *myVMWestEurope* ubicada en **Oeste de Europa** mediante los pasos 1-5 y vaya al nombre de dominio del perfil de Traffic Manager de esta máquina virtual. Dado que la dirección IP de la máquina virtual *myVMWestEurope* está asociada al punto de conexión *myIISVMEastUS*, el explorador web inicia el servidor del sitio web de prueba *myIISVMWEurope*.
 
 ## <a name="delete-the-traffic-manager-profile"></a>Eliminar el perfil de Traffic Manager
 Cuando ya no los necesite, elimine los grupos de recursos (**ResourceGroupTM1** y **ResourceGroupTM2**). Para ello, seleccione el grupo de recursos (**ResourceGroupTM1** o **ResourceGroupTM2**) y luego seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre el [método de enrutamiento del tráfico ponderado](traffic-manager-configure-weighted-routing-method.md).
+- Información sobre el [método de enrutamiento de tráfico ponderado](traffic-manager-configure-weighted-routing-method.md).
 - Sepa cómo funciona el [método de enrutamiento por prioridad](traffic-manager-configure-priority-routing-method.md).
 - Información sobre el [método de enrutamiento geográfico](traffic-manager-configure-geographic-routing-method.md).

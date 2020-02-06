@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 8b0e7d717ed5c06600adf261f7ce5b44f572adf9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6e9eddbec3cdc46c04f9c9ae78f937e20bfa8270
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774256"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901977"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Inicio rápido: Extracción de datos de recibos con API REST Form Recognizer con cURL
 
 En este inicio rápido, usará la API REST Azure Form Recognizer con cURL para extraer e identificar la información pertinente de los recibos de compras de EE. UU.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-> [!IMPORTANT]
-> Este inicio rápido utiliza la versión v2.0 de la API de Form Recognizer. Si su suscripción no está en la región `West US 2` o `West Europe`, debe usar la versión v1.0. Siga el [inicio rápido de la versión v1.0](./curl-train-extract-v1.md) en su lugar.
 
 ## <a name="prerequisites"></a>Prerequisites
 

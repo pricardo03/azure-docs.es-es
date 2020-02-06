@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6ecba85a859e902922dfa2b7563a3ceb96a9ef4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bff46c8584934ab8bcffce74763edc8363533d6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457465"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988250"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -141,13 +141,13 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-path** string Excluye estas rutas de acceso al copiar. Esta opción no permite caracteres comodín (*). Comprueba los prefijos de ruta de acceso relativa (por ejemplo: myFolder;myFolder/subDirName/file.pdf). Cuando se usa en combinación con recorrido de cuentas, las rutas de acceso no incluyen el nombre del contenedor.
 
-**--exclude-pattern** string      Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.
+**--exclude-pattern** string      Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: \*.jpg;\* .pdf; exactName.
 
 **-h, --help**                        Ayuda de sync.
 
 **--include-attributes** string   (solo Windows) Incluye solo los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
 
-**--include-pattern** string      Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.
+**--include-pattern** string      Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: \*.jpg;\* .pdf; exactName.
 
 **--log-level** string            Define el nivel de detalle del registro para el archivo de registro. Niveles disponibles: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (Valor predeterminado: "INFO"). (Valor predeterminado: "INFO").
 

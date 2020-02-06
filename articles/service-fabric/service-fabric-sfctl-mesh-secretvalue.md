@@ -3,14 +3,14 @@ title: 'CLI de Azure Service Fabric: sfctl mesh secretvalue'
 description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para obtener y eliminar los recursos de Service Fabric Mesh secretvalue.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a29d32dff9ad51942acb30dd834ad6fbd362ac65
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646116"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905961"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Obtiene y elimina recursos de mesh secretvalue.

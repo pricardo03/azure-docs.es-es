@@ -2,17 +2,17 @@
 title: 'Delegación de un subdominio: Azure DNS'
 description: Con esta ruta de aprendizaje, obtendrá información sobre cómo delegar un subdominio de Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: allensu
-ms.openlocfilehash: 462282e9674e7a253f61c96338b54174c80fb03f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: cd1443a9ca8ccf7172072078734f21d789d36194
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212387"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937434"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegación de un subdominio de Azure DNS
 
@@ -20,7 +20,7 @@ Puede usar Azure Portal para delegar un subdominio DNS. Por ejemplo, si es propi
 
 Si lo prefiere, puede delegar un subdominio usando [Azure PowerShell](delegate-subdomain-ps.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para delegar un subdominio de Azure DNS, primero debe delegar el dominio público en Azure DNS. Consulte [Delegación de un dominio en Azure DNS](./dns-delegate-domain-azure-dns.md) para obtener instrucciones sobre cómo configurar los servidores de nombres para su delegación. Una vez que el dominio se delega a la zona de Azure DNS, puede delegar el subdominio.
 
@@ -36,7 +36,7 @@ En primer lugar, cree la zona para el subdominio **ingeniería**.
 3. Seleccione **Crear**.
 4. En el panel **Crear zona DNS**, escriba **ingieniería.contoso.com** en el cuadro de texto **Nombre**.
 5. Seleccione el grupo de recursos para la zona. Es posible que desee usar el mismo grupo de recursos como zona primaria para mantener juntos los recursos similares.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 7. Una vez que la implementación se haya realizado correctamente, vaya a la nueva zona.
 
 ## <a name="note-the-name-servers"></a>Observación de los servidores de nombres

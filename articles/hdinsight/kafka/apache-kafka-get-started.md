@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/01/2019
-ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242038"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030045"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal
 
@@ -27,7 +27,7 @@ Solo los recursos dentro de la misma red virtual pueden tener acceso a la API de
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -35,7 +35,7 @@ Un cliente SSH. Para más información, consulte [Conexión a través de SSH con
 
 Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el menú de la izquierda, vaya a la opción **+ Crear un recurso** > **Analytics** > **HDInsight**.
 
@@ -43,7 +43,7 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
 1. En **Aspectos básicos**, escriba o seleccione los siguientes valores:
 
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |Subscription    |  Seleccione su suscripción a Azure. |
     |Resource group     | Cree un grupo de recursos o seleccione uno existente.  Un grupo de recursos es un contenedor de componentes de Azure.  En este caso, el grupo de recursos contiene el clúster de HDInsight y la cuenta de Azure Storage dependiente. |
@@ -65,14 +65,14 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
 1. En la pestaña **Almacenamiento**, proporcione los valores siguientes:
 
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |Tipo de almacenamiento principal|Use el valor predeterminado **Azure Storage**.|
     |Método de selección|Use el valor predeterminado **Seleccionar de la lista**.|
     |Cuenta de almacenamiento principal|Utilice la lista desplegable para seleccionar una cuenta de almacenamiento existente o bien elija **Crear nuevo**. Si crea una cuenta nueva, el nombre debe tener una longitud de entre 3 y 24 caracteres y solo puede contener números y letras minúsculas.|
     |Contenedor|Use el valor que se rellena automáticamente.|
 
-    ![Introducción a HDInsight Linux proporciona valores de almacenamiento en clúster](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Especificación de valores de almacenamiento para crear un clúster de HDInsight")
+    ![HDInsight Linux: introducción a la especificación de valores de almacenamiento en clúster](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Especificación de valores de almacenamiento para crear un clúster de HDInsight")
 
     Seleccione la pestaña **Seguridad y redes**.
 
@@ -80,7 +80,7 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
    Si desea conectar su clúster a una red virtual, seleccione una red virtual desde la lista desplegable **Red virtual**.
 
-   ![Incorporación de un clúster a una red virtual](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
+   ![Incorporación de un clúster a una red virtual](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
     Seleccione la pestaña **Configuration + pricing** (Configuración y precios).
 
@@ -98,7 +98,7 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
     Un clúster puede tardar hasta 20 minutos en crearse.
 
-## <a name="connect-to-the-cluster"></a>Conexión al clúster
+## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
 1. Para conectarse con el nodo principal del clúster de Apache Kafka, use el siguiente comando. Reemplace `sshuser` por el nombre de usuario de SSH. Reemplace `mykafka` por el nombre del clúster de Apache Kafka.
 
@@ -144,7 +144,7 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
     sudo apt -y install jq
     ```
 
-1. Configure una variable de contraseña. Reemplace `PASSWORD` por la contraseña de inicio de sesión del clúster y, luego, escriba el comando:
+1. Configure una variable de contraseña. Reemplace `PASSWORD` por la contraseña de inicio de sesión del clúster y, después, escriba el comando:
 
     ```bash
     export password='PASSWORD'
@@ -166,7 +166,7 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
     ```
 
     > [!Note]  
-    > Este comando requiere acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute este comando desde un equipo que pueda acceder a Ambari. 
+    > Este comando requiere acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute este comando desde una máquina que pueda acceder a Ambari. 
 
 1. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 
@@ -185,7 +185,7 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
     ```
 
     > [!Note]  
-    > Este comando requiere acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute este comando desde un equipo que pueda acceder a Ambari. 
+    > Este comando requiere acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute este comando desde una máquina que pueda acceder a Ambari. 
 
 1. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 

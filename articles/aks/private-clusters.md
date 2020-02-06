@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 1/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 2344e2189d6b0f02e7fed1aab25d32551c1fedcf
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a477c2011ff3c6cf1987ed80ef5c19c26abc40f0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154348"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713325"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creación de un clúster privado de Azure Kubernetes Service (versión preliminar)
 
@@ -35,8 +35,8 @@ El plano de control o el servidor de la API están en una suscripción de Azure 
 * Oeste de EE. UU. 2
 * Este de EE. UU. 2
 * Centro de Canadá
-* Europa del Norte
-* Europa occidental
+* Norte de Europa
+* Oeste de Europa
 * Este de Australia
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalación de la extensión de la versión preliminar de AKS de la CLI de Azure más reciente
@@ -128,14 +128,16 @@ El punto de conexión del servidor de la API no tiene ninguna dirección IP pú
 
 ## <a name="dependencies"></a>Dependencias  
 * El servicio Azure Private Link solo se admite en Standard Azure Load Balancer. No se admite en Basic Azure Load Balancer.  
+* Para usar un servidor DNS personalizado, implemente un servidor de AD con DNS para el reenvío a la IP 168.63.129.16.
 
 ## <a name="limitations"></a>Limitaciones 
+* No se admiten actualmente zonas de disponibilidad.
 * Las [limitaciones del servicio Azure Private Link][private-link-service] se aplican a los clústeres privados, a puntos de conexión privados de Azure y a puntos de conexión del servicio de red virtual, que actualmente no se admiten en la misma red virtual.
 * No se pueden usar los nodos virtuales de un clúster privado para poner en marcha Azure Container Instances (ACI) en una red virtual de Azure privada.
 * No se admite de serie la integración de Azure DevOps con clústeres privados.
 * En el caso de los clientes que necesitan habilitar Azure Container Registry para trabajar con instancias privadas de AKS, la red virtual de Container Registry debe estar emparejada con la red virtual del clúster del agente.
 * Actualmente no hay compatibilidad con Azure Dev Spaces.
-* No se admite la conversión de clústeres de AKS existentes en clústeres privados.  
+* No se admite la conversión de clústeres de AKS existentes en clústeres privados.
 * La eliminación o modificación del punto de conexión privado en la subred del cliente hará que el clúster deje de funcionar. 
 * Actualmente no existe compatibilidad con los datos en directo de Azure Monitor para contenedores.
 * Actualmente no se admite la posibilidad de *traer el propio DNS*.

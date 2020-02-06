@@ -4,17 +4,17 @@ description: archivo de inclusión
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 02/03/2020
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 54796f0c0810afd5559af836c566bf66b430223f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f097479b67a7b48eca4a2710db3bd7eed6ddc982
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981385"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013914"
 ---
 A continuación se resumen los límites principales en la disponibilidad general.
 
@@ -40,7 +40,7 @@ Los entornos de SKU de S2 admiten muchos más eventos al mes y tienen una capaci
 | SKU  | Recuento de eventos cada mes  | Tamaño de eventos cada mes  | Recuento de eventos cada minuto | Tamaño de eventos cada minuto  |
 |---------|---------|---------|---------|---------|
 | S1     |   30 millones     |  30 GB     |  720    |  720 KB   |
- |S2     |   300 millones    |   < 300 GB   | 7200   | 7200 KB  |
+ |S2     |   300 millones    |   300 GB   | 7200   | 7200 KB  |
 
 ### <a name="property-limits"></a>Límites de propiedad
 

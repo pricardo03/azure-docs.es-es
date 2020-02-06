@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: b33366b65fed0042eb3024c2264bce1c4a1c4c1d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649560"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715677"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicaciones administradas de Azure con notificaciones
 
@@ -189,7 +189,7 @@ billingDetails | *Solo se especifica en el caso de las aplicaciones administrada
 
 ## <a name="endpoint-authentication"></a>Autenticación de punto de conexión
 Para proteger el punto de conexión del webhook y garantizar la autenticidad de la notificación:
-1. Proporcione un parámetro de consulta en la parte superior del URI del webhook, como este: https://your-endpoint.com?sig=Guid. Con cada notificación, compruebe que el parámetro de consulta `sig` tiene el valor esperado `Guid`.
+1. Proporcione un parámetro de consulta en la parte superior del URI del webhook, como este: https\://your-endpoint.com?sig=Guid. Con cada notificación, compruebe que el parámetro de consulta `sig` tiene el valor esperado `Guid`.
 2. Emita un evento GET en la instancia de la aplicación administrada con applicationId. Compruebe que el provisioningState coincide con el provisioningState de la notificación para garantizar la coherencia.
 
 ## <a name="notification-retries"></a>Reintentos de notificación

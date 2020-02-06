@@ -1,6 +1,6 @@
 ---
-title: Referencia de la sintaxis de SQLRuleAction en Azure | Microsoft Docs
-description: Obtenga más información sobre la gramática de SQLRuleAction.
+title: Referencia de la sintaxis de SQLRuleAction en Azure Service Bus
+description: En este artículo se ofrece una referencia para la sintaxis de SQLRuleAction. Las acciones se escriben con una sintaxis basada en lenguaje SQL que se realiza en un mensaje asincrónico.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60307485"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759635"
 ---
-# <a name="sqlruleaction-syntax"></a>Sintaxis de SQLRuleAction
+# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referencia de la sintaxis de SQLRuleAction para Azure Service Bus
 
 *SqlRuleAction* es una instancia de la clase [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) y representa un conjunto de acciones escritos en una sintaxis basada en el lenguaje SQL que se realizan en un objeto [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
@@ -65,13 +65,13 @@ Este artículo describe los detalles de la gramática de acción de reglas SQL.
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` o `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de [Clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario [Clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
+-   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` y `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de [Clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario [Clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
   
-### <a name="remarks"></a>Comentarios  
+### <a name="remarks"></a>Observaciones  
 
 Un intento de acceso a una propiedad de sistema que no existe es un error, mientras que uno a una propiedad de usuario inexistente, no lo es. En su lugar, una propiedad de usuario inexistente internamente se evalúa como un valor desconocido. Un valor desconocido se trata de una forma especial durante la evaluación de operador.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -119,22 +119,22 @@ Un intento de acceso a una propiedad de sistema que no existe es un error, mient
       <expression>  
 ```  
   
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
   
  `<pattern>` debe ser una expresión que se evalúa como una cadena. Se utiliza como patrón para el operador LIKE.      Puede contener los siguientes caracteres comodín:  
   
--   `%`:  cualquier cadena de cero o más caracteres.  
+-   `%`:  Cualquier cadena de cero o más caracteres.  
   
 -   `_`: Cualquier carácter individual.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
       <expression>  
 ```  
   
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
   
  `<escape_char>` debe ser una expresión que se evalúa como una cadena de longitud 1. Se utiliza como carácter de escape para el operador LIKE.  
   
@@ -176,24 +176,24 @@ Un intento de acceso a una propiedad de sistema que no existe es un error, mient
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
   
 Las constantes booleanas se representan mediante las palabras clave `TRUE` o `FALSE`. Los valores se almacenan como `System.Boolean`.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
   
 Las constantes de cadena se incluyen entre comillas simples y contienen caracteres Unicode válidos. Una comilla simple incrustada en una constante de cadena se representan como dos comillas simples.  
   
@@ -205,7 +205,7 @@ Las constantes de cadena se incluyen entre comillas simples y contienen caracter
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Comentarios  
+### <a name="remarks"></a>Observaciones  
 
 La función `newid()` devuelve un elemento **System.Guid** generado por el método `System.Guid.NewGuid()`.  
   

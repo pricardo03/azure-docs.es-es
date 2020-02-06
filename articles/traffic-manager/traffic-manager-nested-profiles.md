@@ -4,7 +4,7 @@ titleSuffix: Azure Traffic Manager
 description: En este artículo se explica la característica "Perfiles anidados" del Administrador de tráfico de Azure.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
-ms.author: allensu
-ms.openlocfilehash: a5444c05b59196f53c670a2ae782f2bda5527c54
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 282099cb274c1ea872a0df9c2753a939ef31421f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227750"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938567"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfiles anidados del Administrador de tráfico
 
@@ -30,31 +30,31 @@ Los ejemplos siguientes muestran cómo usar perfiles anidados de Traffic Manager
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Ejemplo 1: Enrutamiento de tráfico combinado: de "rendimiento" y "ponderado"
 
-Supongamos que ha implementado una aplicación en las siguientes regiones de Azure: oeste de EE. UU., Europa Occidental y Asia Oriental. Usará el método de enrutamiento de tráfico de "rendimiento" de Traffic Manager para distribuir el tráfico a la región más cercana al usuario.
+Supongamos que ha implementado una aplicación en las siguientes regiones de Azure: Oeste de EE. UU., Oeste de Europa y Asia Oriental. Usará el método de enrutamiento de tráfico de "rendimiento" de Traffic Manager para distribuir el tráfico a la región más cercana al usuario.
 
 ![Perfil único del Administrador de tráfico][4]
 
-Ahora, suponga que desea probar una actualización de su servicio antes de implementarla más ampliamente. Desea usar el método de enrutamiento de tráfico "ponderado", que puede dirigir un porcentaje pequeño del tráfico a la implementación de prueba. Configure la implementación de prueba junto con la implementación de producción existente en Europa occidental.
+Ahora, suponga que desea probar una actualización de su servicio antes de implementarla más ampliamente. Desea usar el método de enrutamiento de tráfico "ponderado", que puede dirigir un porcentaje pequeño del tráfico a la implementación de prueba. Configure la implementación de prueba junto con la implementación de producción existente en Oeste de Europa.
 
-No puede combinar ambos métodos de enrutamiento en un solo perfil. Para este escenario, debe crear un perfil de Traffic Manager mediante los dos puntos de conexión de Europa Occidental y el método de enrutamiento del tráfico "ponderado". A continuación, agregue este perfil "secundario" como punto de conexión al perfil "primario". El perfil primario aún utiliza el método de enrutamiento de tráfico de rendimiento y contiene las otras implementaciones globales como puntos de conexión.
+No puede combinar ambos métodos de enrutamiento en un solo perfil. Para este escenario, debe crear un perfil de Traffic Manager mediante los dos puntos de conexión de Oeste de Europa y el método de enrutamiento del tráfico "ponderado". A continuación, agregue este perfil "secundario" como punto de conexión al perfil "primario". El perfil primario aún utiliza el método de enrutamiento de tráfico de rendimiento y contiene las otras implementaciones globales como puntos de conexión.
 
 En el siguiente diagrama, se ilustra este concepto:
 
 ![Perfiles anidados del Administrador de tráfico][2]
 
-En esta configuración, el tráfico dirigido mediante el perfil primario distribuye el tráfico entre las regiones normalmente. En Europa Occidental, el perfil anidado distribuye el tráfico a los puntos de conexión de prueba y producción según las ponderaciones asignadas.
+En esta configuración, el tráfico dirigido mediante el perfil primario distribuye el tráfico entre las regiones normalmente. En Oeste de Europa, el perfil anidado distribuye el tráfico a los puntos de conexión de prueba y producción según las ponderaciones asignadas.
 
 Cuando el perfil primario utiliza el método de enrutamiento de tráfico de "rendimiento", se debe asignar una ubicación a cada punto de conexión. La ubicación se asigna al configurar el punto de conexión. Elija la región de Azure más cercana a su implementación. Las regiones de Azure son los valores de ubicación compatibles con la tabla de latencia de Internet. Para más información, consulte [Método de enrutamiento de tráfico de rendimiento de Traffic Manager](traffic-manager-routing-methods.md#performance).
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Ejemplo 2: Supervisión de puntos de conexión en perfiles anidados
 
-El Administrador de tráfico supervisa activamente el estado de cada punto de conexión de servicio. Si un punto de conexión es incorrecto, Traffic Manager dirige a los usuarios a puntos de conexión alternativos para mantener la disponibilidad del servicio. Este comportamiento de conmutación por error y supervisión de los puntos de conexión se aplica a todos los métodos de enrutamiento de tráfico. Para más información, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md). La supervisión de puntos de conexión funciona de manera diferente para perfiles anidados. Con perfiles anidados, el perfil primario no realiza comprobaciones de estado en el perfil secundario directamente. En su lugar, el estado de los puntos de conexión del perfil secundario se usa para calcular el estado general del perfil secundario. Esta información de estado se propaga hacia arriba en la jerarquía de perfil anidado. El perfil primario usa este estado agregado para determinar si se debe dirigir el tráfico al perfil secundario. Consulte la sección de [preguntas más frecuentes](traffic-manager-FAQs.md#traffic-manager-nested-profiles) para obtener todos los detalles sobre la supervisión del estado de los perfiles anidados.
+El Administrador de tráfico supervisa activamente el estado de cada punto de conexión de servicio. Si un punto de conexión es incorrecto, Traffic Manager dirige a los usuarios a puntos de conexión alternativos para mantener la disponibilidad del servicio. Este comportamiento de conmutación por error y supervisión de los puntos de conexión se aplica a todos los métodos de enrutamiento de tráfico. Para más información, consulte [Acerca de la supervisión de Traffic Manager](traffic-manager-monitoring.md). La supervisión de puntos de conexión funciona de manera diferente para perfiles anidados. Con perfiles anidados, el perfil primario no realiza comprobaciones de estado en el perfil secundario directamente. En su lugar, el estado de los puntos de conexión del perfil secundario se usa para calcular el estado general del perfil secundario. Esta información de estado se propaga hacia arriba en la jerarquía de perfil anidado. El perfil primario usa este estado agregado para determinar si se debe dirigir el tráfico al perfil secundario. Consulte la sección de [preguntas más frecuentes](traffic-manager-FAQs.md#traffic-manager-nested-profiles) para obtener todos los detalles sobre la supervisión del estado de los perfiles anidados.
 
-Volviendo al ejemplo anterior, supongamos que la implementación de producción en Europa Occidental no funciona. De forma predeterminada, el perfil "secundario" dirigirá todo el tráfico a la implementación de prueba. Si la implementación de prueba tampoco funciona, el perfil primario determinará que el perfil secundario no debe recibir tráfico ya que todos los puntos de conexión secundarios tienen un estado incorrecto. A continuación, el perfil primario distribuirá el tráfico a las demás regiones.
+Volviendo al ejemplo anterior, supongamos que la implementación de producción en Oeste de Europa no funciona. De forma predeterminada, el perfil "secundario" dirigirá todo el tráfico a la implementación de prueba. Si la implementación de prueba tampoco funciona, el perfil primario determinará que el perfil secundario no debe recibir tráfico ya que todos los puntos de conexión secundarios tienen un estado incorrecto. A continuación, el perfil primario distribuirá el tráfico a las demás regiones.
 
 ![Conmutación por error de perfil anidado (comportamiento predeterminado)][3]
 
-Puede que esta solución le satisfaga. O puede que le preocupe que todo el tráfico de Europa Occidental va ahora a la implementación de prueba en lugar de un tráfico de subconjunto limitado. Independientemente del estado de la implementación de prueba, puede que desee conmutar por error a las demás regiones cuando se produzca un error en la implementación de producción de Europa Occidental. Para habilitar esta conmutación por error, puede especificar el parámetro 'MinChildEndpoints' al configurar el perfil secundario como un punto de conexión del perfil primario. El parámetro determina el número mínimo de puntos de conexión disponibles en el perfil secundario. El valor predeterminado es 1. En este escenario, debe establecer el valor de MinChildEndpoints en 2. Por debajo de este umbral, el perfil primario considerará que todo el perfil secundario no está disponible y dirigirá el tráfico a los otros puntos de conexión.
+Puede que esta solución le satisfaga. O puede que le preocupe que todo el tráfico de Oeste de Europa va ahora a la implementación de prueba en lugar de un tráfico de subconjunto limitado. Independientemente del estado de la implementación de prueba, puede que desee conmutar por error a las demás regiones cuando se produzca un error en la implementación de producción de Oeste de Europa. Para habilitar esta conmutación por error, puede especificar el parámetro 'MinChildEndpoints' al configurar el perfil secundario como un punto de conexión del perfil primario. El parámetro determina el número mínimo de puntos de conexión disponibles en el perfil secundario. El valor predeterminado es 1. En este escenario, debe establecer el valor de MinChildEndpoints en 2. Por debajo de este umbral, el perfil primario considerará que todo el perfil secundario no está disponible y dirigirá el tráfico a los otros puntos de conexión.
 
 En la siguiente ilustración, se muestra esta configuración:
 
@@ -67,11 +67,11 @@ En la siguiente ilustración, se muestra esta configuración:
 
 El comportamiento predeterminado para el método de enrutamiento de tráfico de "rendimiento" es que, cuando tenga puntos de conexión en diferentes ubicaciones geográficas, se dirija a los usuarios finales al punto de conexión "más cercano" según la latencia de red más baja.
 
-Sin embargo, suponga que prefiere que el tráfico de Europa Occidental conmute por error a la región oeste de EE. UU. y únicamente dirigirlo a otras regiones si ambos puntos de conexión no están disponibles. Puede crear esta solución mediante un perfil secundario con el método de enrutamiento de tráfico por "prioridad".
+Sin embargo, suponga que prefiere que el tráfico de Oeste de Europa conmute por error a la región Oeste de EE. UU. y únicamente dirigirlo a otras regiones si ambos puntos de conexión no están disponibles. Puede crear esta solución mediante un perfil secundario con el método de enrutamiento de tráfico por "prioridad".
 
 ![Enrutamiento de tráfico de "rendimiento" con conmutación por error preferencial][6]
 
-Dado que el punto de conexión de Europa Occidental tiene una mayor prioridad que el punto de conexión del oeste de EE. UU., todo el tráfico se enviará al primero cuando ambos puntos de conexión estén en línea. Si Europa Occidental no funciona, su tráfico se dirige a Oeste de EE. UU. Con el perfil anidado, el tráfico se dirigirá a Asia Oriental solo si Europa Occidental y oeste de EE. UU. dan error.
+Dado que el punto de conexión de Oeste de Europa tiene una mayor prioridad que el punto de conexión del Oeste de EE. UU., todo el tráfico se enviará al primero cuando ambos puntos de conexión estén en línea. Si Oeste de Europa no funciona, su tráfico se dirige a Oeste de EE. UU. Con el perfil anidado, el tráfico se dirigirá a Asia Oriental solo si Oeste de Europa y Oeste de EE. UU. dan error.
 
 Puede repetir este patrón con todas las regiones. Reemplace los tres puntos de conexión del perfil primario por tres perfiles secundarios, cada uno proporcionando una secuencia de conmutación por error ordenada por orden de prioridad.
 
@@ -81,7 +81,7 @@ Suponga que el método de enrutamiento de tráfico de "rendimiento" se usa en un
 
 ![Enrutamiento de tráfico de "rendimiento" con distribución del tráfico en la región (comportamiento predeterminado)][7]
 
-En lugar de agregar varios puntos de conexión en Europa Occidental, esos puntos de conexión se incluyen en un perfil secundario independiente. El perfil secundario se agrega al elemento primario como el único punto de conexión en Europa Occidental. La configuración en el perfil secundario puede controlar la distribución del tráfico en Europa Occidental y permitir en esa región el enrutamiento de tráfico ponderado o basado en la prioridad.
+En lugar de agregar varios puntos de conexión en Oeste de Europa, esos puntos de conexión se incluyen en un perfil secundario independiente. El perfil secundario se agrega al elemento primario como el único punto de conexión en Oeste de Europa. La configuración en el perfil secundario puede controlar la distribución del tráfico en Oeste de Europa y permitir en esa región el enrutamiento de tráfico ponderado o basado en la prioridad.
 
 ![Enrutamiento de tráfico de "rendimiento" con distribución personalizada del tráfico en la región][8]
 

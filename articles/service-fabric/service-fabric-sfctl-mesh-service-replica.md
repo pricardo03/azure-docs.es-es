@@ -3,14 +3,14 @@ title: 'CLI de Azure Service Fabric: sfctl mesh service-replica'
 description: Obtenga información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para obtener los detalles de la réplica de los recursos de una aplicación.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 219a691dd1b74ec2214c156018e6e3f62366f523
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ac604ec0a854964746ef34627b054e853662265f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645334"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905942"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 Obtiene los detalles de la réplica y muestra las réplicas de un servicio determinado en un recurso de aplicación.

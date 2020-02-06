@@ -3,7 +3,7 @@ title: Uso de servicios de equilibrio de carga en Azure | Microsoft Docs
 description: 'En este tutorial se muestra cómo crear un escenario al usar la cartera de equilibrio de carga de Azure: Traffic Manager, Application Gateway y Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: allensu
-ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227783"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939225"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso de servicios de equilibrio de carga en Azure
 
@@ -68,7 +68,7 @@ En el siguiente diagrama se muestra la arquitectura de este escenario:
 1. En Azure Portal, haga clic en **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. Escriba la información básica siguiente:
 
-   * **Nombre**: Escriba un nombre de prefijo DNS para el perfil de Traffic Manager.
+   * **Name**: Escriba un nombre de prefijo DNS para el perfil de Traffic Manager.
    * **Método de enrutamiento**: Seleccione la directiva del método de enrutamiento del tráfico. Para más información sobre los métodos de enrutamiento del tráfico, consulte [Métodos de enrutamiento de tráfico de Traffic Manager](traffic-manager-routing-methods.md).
    * **Suscripción**: Seleccione la suscripción que contiene el perfil.
    * **Grupo de recursos**: Seleccione el grupo de recursos que contiene el perfil. Puede ser un grupo de recursos nuevo o existente.
@@ -83,7 +83,7 @@ En el siguiente diagrama se muestra la arquitectura de este escenario:
 1. En Azure Portal, vaya al panel izquierdo y haga clic en **Crear un recurso** > **Redes** > **Application Gateway**.
 2. Rellene la información básica de la puerta de enlace de aplicaciones:
 
-   * **Nombre**: Nombre de la puerta de enlace de aplicaciones.
+   * **Name**: Nombre de la puerta de enlace de aplicaciones.
    * **Tamaño de la SKU**: El tamaño de la puerta de enlace de aplicaciones, disponible como Pequeño, Mediano o Grande.
    * **Recuento de instancias**: El número de instancias, un valor de entre 2 y 10.
    * **Grupo de recursos**: El grupo de recursos que contiene la puerta de enlace de aplicaciones. Puede ser un grupo de recursos existente o uno nuevo.
@@ -114,20 +114,20 @@ Cuando elige un grupo de back-end, una puerta de enlace de aplicaciones configur
 
    Configuración básica:
 
-   + **Nombre**: Nombre descriptivo de la regla a la que se puede acceder en el portal.
+   + **Name**: Nombre descriptivo de la regla a la que se puede acceder en el portal.
    + **Agente de escucha**: Agente de escucha que se usa para la regla.
    + **Grupo de back-end predeterminado**: El grupo de back-end que se usará con la regla predeterminada.
    + **Configuración de HTTP predeterminada**: La configuración de HTTP que se usará con la regla predeterminada.
 
    Reglas basadas en ruta de acceso:
 
-   + **Nombre**: El nombre descriptivo de la regla basada en la ruta de acceso.
+   + **Name**: El nombre descriptivo de la regla basada en la ruta de acceso.
    + **Rutas de acceso**: La regla de ruta de acceso que se usa para reenviar el tráfico.
    + **Grupo de back-end**: El grupo de back-end que se usará con esta regla.
    + **Configuración de HTTP**: La configuración de HTTP que se usará con esta regla.
 
    > [!IMPORTANT]
-   > Rutas de acceso: Las rutas de acceso válidas deben comenzar por "/". El carácter comodín "\*" solo se permite al final. Algunos ejemplos válidos son /xyz, /xyz\* o /xyz/\*.
+   > Rutas de acceso: Las rutas de acceso válidas deben comenzar por "/". El carácter comodín "\*" solo se permite al final. Algunos ejemplos válidos son /xyz, /xyz\*, o /xyz/\*.
 
    ![Hoja "Add path-based rule" (Agregar regla basada en ruta de acceso) para Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
@@ -143,7 +143,7 @@ En este escenario, Traffic Manager está conectado a las puertas de enlace de ap
 3. Para crear un punto de conexión, escriba la información siguiente:
 
    * **Tipo**: Seleccione el tipo de punto de conexión para el equilibrio de carga. En este escenario, seleccione **Punto de conexión de Azure** porque vamos a conectarlo a las instancias de puerta de enlace de aplicaciones que se configuraron anteriormente.
-   * **Nombre**: Escriba el nombre del punto de conexión.
+   * **Name**: Escriba el nombre del punto de conexión.
    * **Tipo de recurso de destino**: Seleccione **Dirección IP pública** y, en **Recurso de destino**, seleccione la dirección IP pública de la instancia de Application Gateway configurada antes.
 
    !["Add endpoint" (Agregar punto de conexión) en Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)

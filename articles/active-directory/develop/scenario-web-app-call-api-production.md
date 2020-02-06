@@ -1,6 +1,6 @@
 ---
-title: 'Paso a producción de una aplicación web que llama a las API web: Plataforma de identidad de Microsoft | Azure'
-description: Aprenda a pasar a producción una aplicación web que llama a las API web.
+title: 'Traslado a producción de una aplicación web que llama a API web: Plataforma de identidad de Microsoft | Azure'
+description: Obtenga información sobre cómo migrar a producción una aplicación web que llama a API web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,29 +14,28 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e40920b7045dad6f64b5699bc3c4c560eb399f2a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b1307df8f6dfb0457719b13c9e5cd0bf28660caa
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964963"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758959"
 ---
-# <a name="web-app-that-calls-web-apis---move-to-production"></a>Aplicación web que llama a las API web: paso a producción
+# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Una aplicación web que llama a API web: Paso a producción
 
-Ahora que sabe cómo adquirir un token para llamar a las API web, obtenga información sobre cómo pasar a producción.
+Ahora que sabe cómo adquirir un token para llamar a las API web, conozca cómo pasarlo a producción.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información con el tutorial progresivo completo de la aplicación web de ASP.NET Core, que muestra:
+Para más información, pruebe el tutorial completo y progresivo de aplicaciones web de ASP.NET Core. Este tutorial:
 
-- Cómo iniciar sesión en los usuarios con varios públicos, nubes nacionales o identidades de redes sociales
-- Llama a Microsoft Graph
-- Llama a varias API de Microsoft
-- Controla el consentimiento incremental
-- Llama a sus propias API web
+- Muestra cómo iniciar la sesión de los usuarios en varias audiencias o nubes nacionales, o con identidades sociales.
+- Llama a Microsoft Graph.
+- Llama a varias API de Microsoft.
+- Controla el consentimiento incremental.
+- Llama a sus propias API web.
 
 > [!div class="nextstepaction"]
 > [Tutorial de una aplicación web de ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
