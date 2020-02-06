@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965337"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772594"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines
 
@@ -77,13 +77,15 @@ Antes de completar los pasos de este artículo, ya debe tener:
 
 - Una suscripción de Microsoft Azure.
 - Un dominio de Windows en máquinas virtuales de Azure.
-- Una cuenta que tenga permisos para crear objetos en máquinas virtuales de Azure y en Active Directory.
+- Una cuenta de usuario de dominio que tenga permisos para crear objetos en máquinas virtuales de Azure y en Active Directory.
+- Una cuenta de usuario de dominio para ejecutar el servicio de SQL Server y que pueda iniciar sesión en la máquina virtual al montar el recurso compartido de archivos.  
 - Una red virtual de Azure y una subred con espacio de direcciones IP suficiente para estos componentes:
    - Dos máquinas virtuales.
    - La dirección IP del clúster de conmutación por error.
    - Una dirección IP para cada FCI.
 - DNS configurado en la red de Azure que señala a los controladores de dominio.
-- Un [recurso compartido de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) basado en la cuota de almacenamiento de la base de datos para los archivos de datos.
+- Un [recurso compartido de archivos premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) que se usará como unidad en clúster, en función de la cuota de almacenamiento de la base de datos de los archivos de datos.
+- Si usa Windows Server 2012 R2 y versiones anteriores, necesitará otro recurso compartido de archivos para usarlo como testigo de recurso compartido de archivos, ya que se admiten testigos en la nube para Windows 2016 y versiones más recientes. Puede usar otro recurso compartido de archivos de Azure o puede usar un recurso compartido de archivos de una máquina virtual distinta. Si va a usar otro recurso compartido de archivos de Azure, puede montarlo con el mismo proceso que para el recurso compartido de archivos premium que se usa para la unidad en clúster. 
 
 Una vez que cumpla los requisitos previos, puede comenzar la creación de un clúster de conmutación por error. El primer paso es crear las máquinas virtuales.
 
@@ -180,7 +182,8 @@ Después de crear y configurar las máquinas virtuales, puede configurar el recu
 1. Repita estos pasos en cada VM con SQL Server que participará en el clúster.
 
   > [!IMPORTANT]
-  > Considere la posibilidad de usar un recurso compartido de archivos independiente para los archivos de copia de seguridad a fin de ahorrar la capacidad de IOPS y espacio de este recurso compartido para usarla para el archivo de registro y de datos. Puede usar un recurso compartido de archivos Premium o Estándar para los archivos de copia de seguridad.
+  > - Considere la posibilidad de usar un recurso compartido de archivos independiente para los archivos de copia de seguridad a fin de ahorrar la capacidad de IOPS y espacio de este recurso compartido para usarla para el archivo de registro y de datos. Puede usar un recurso compartido de archivos Premium o Estándar para los archivos de copia de seguridad.
+  > - Si tiene Windows 2012 R2 y versiones anteriores, siga estos mismos pasos para montar el recurso compartido de archivos que va a usar como testigo de recurso compartido de archivos. 
 
 ## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>Paso 3: Configuración del clúster de conmutación por error con el recurso compartido de archivos
 
@@ -189,7 +192,7 @@ El siguiente paso es configurar el clúster de conmutación por error. En este p
 1. Adición de la característica de clústeres de conmutación por error de Windows Server.
 1. Validación del clúster.
 1. Creación del clúster de conmutación por error.
-1. Creación del testigo en la nube.
+1. Cree el testigo en la nube (para Windows Server 2016 y versiones más recientes) o el testigo de recurso compartido de archivos (para Windows Server 2012 R2 y versiones anteriores).
 
 
 ### <a name="add-windows-server-failover-clustering"></a>Agregar Clústeres de conmutación por error de Windows Server
@@ -263,9 +266,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### <a name="create-a-cloud-witness"></a>Creación de un testigo en la nube
+### <a name="create-a-cloud-witness-win-2016-"></a>Creación de un testigo en la nube (Win 2016+)
 
-Testigo en la nube es un nuevo tipo de testigo de quórum de clúster que está almacenado en una instancia de Azure Storage Blob. Esto elimina la necesidad de que una máquina virtual independiente hospede un recurso compartido testigo.
+Si usa Windows Server 2016 y versiones posteriores, deberá crear un testigo en la nube. Testigo en la nube es un nuevo tipo de testigo de quórum de clúster que está almacenado en una instancia de Azure Storage Blob. Esto elimina la necesidad de una máquina virtual independiente que hospede un recurso compartido de testigo o que use un recurso compartido de archivos diferente.
 
 1. [Cree un testigo en la nube para el clúster de conmutación por error](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -273,7 +276,11 @@ Testigo en la nube es un nuevo tipo de testigo de quórum de clúster que está 
 
 1. Guarde las claves de acceso y la dirección URL del contenedor.
 
-1. Configure el testigo de cuórum de clúster de conmutación por error. Consulte [Configurar el testigo de cuórum en la interfaz de usuario](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+### <a name="configure-quorum"></a>Configuración de un cuórum 
+
+En Windows Server 2016 y versiones posteriores, configure el clúster para usar el testigo en la nube que acaba de crear. Siga todos los pasos que se indican en [Configuración del testigo de cuórum en la interfaz de usuario](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+
+En Windows Server 2012 R2 y versiones anteriores, siga los mismos pasos que se indican en [Configuración del testigo de cuórum en la interfaz de usuario](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) pero, en la página **Seleccionar testigo de quórum**, seleccione la opción **Configurar un testigo de recurso compartido de archivos**. Especifique el recurso compartido de archivos que asignó como testigo de recurso compartido de archivos, tanto si lo configuró en una máquina virtual independiente o lo montó desde Azure. 
 
 
 ## <a name="step-4-test-cluster-failover"></a>Paso 4: Conmutación por error del clúster de prueba
@@ -296,7 +303,7 @@ Después de haber configurado el clúster de conmutación por error, puede crear
 
 1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar la FCI de SQL Server.
 
-   Es preciso que los directorios de datos de FCI estén en el recurso compartido de archivos premium. Escriba la ruta de acceso completa del recurso compartido,con este formato `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Aparecerá una advertencia que le notificará que ha especificado un servidor de archivos como directorio de datos. Se espera esta advertencia. Asegúrese de que la cuenta en la que se conserva el recurso compartido de archivos es la misma que usa el servicio SQL Server para evitar posibles errores.
+   Es preciso que los directorios de datos de FCI estén en el recurso compartido de archivos premium. Escriba la ruta de acceso completa del recurso compartido,con este formato `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Aparecerá una advertencia que le notificará que ha especificado un servidor de archivos como directorio de datos. Se espera esta advertencia. Para evitar posibles errores, asegúrese de que la cuenta de usuario con la que se conectó a la máquina virtual mediante RDP cuando conservó el recurso compartido de archivos sea la misma que usa el servicio SQL Server.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Uso del recurso compartido de archivos como directorios de datos SQL":::
 

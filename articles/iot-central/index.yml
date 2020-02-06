@@ -10,72 +10,72 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f43c21d483bbb43bb270a7a70c4de6be1fb90f35
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: ab2843a4076e4700b584a1e09c0c58271cf61328
+  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73890758"
+  ms.lasthandoff: 02/05/2020
+  ms.locfileid: "77021260"
 highlightedContent:
   items:
   - title: ¿Qué es IoT Central?
     itemType: overview
-    url: ./preview/overview-iot-central.md
+    url: ./core/overview-iot-central.md
   - title: ¿Qué son las plantillas de aplicación?
     itemType: concept
     url: ./core/concepts-app-templates.md
   - title: Arquitectura de Azure IoT Central
     itemType: architecture
-    url: ./preview/concepts-architecture.md
+    url: ./core/concepts-architecture.md
   - title: Creación de una aplicación
     itemType: quickstart
-    url: ./preview/quick-deploy-iot-central.md
+    url: ./core/quick-deploy-iot-central.md
   - title: Definición de un tipo de dispositivo y adición de un dispositivo
     itemType: tutorial
-    url: ./preview/howto-set-up-template.md
+    url: ./core/howto-set-up-template.md
   - title: Supervisión de los dispositivos
     itemType: tutorial
-    url: ./preview/tutorial-create-telemetry-rules.md
+    url: ./core/tutorial-create-telemetry-rules.md
 conceptualContent:
   items:
-  - title: Obtención de conexión (características de vista previa)
+  - title: Obtención de conexión
     links:
-    - url: ./preview/howto-set-up-template.md
+    - url: ./core/howto-set-up-template.md
       itemType: how-to-guide
       text: Configuración de una plantilla de dispositivo
-    - url: ./preview/tutorial-connect-pnp-device.md
+    - url: ./core/tutorial-connect-pnp-device.md
       itemType: tutorial
-      text: Conexión de un dispositivo IoT Plug and Play
+      text: Conexión de un dispositivo IoT Plug and Play (versión preliminar)
     footerLink:
-      url: ./preview/index.yml
+      url: ./core/index.yml
       text: Ver más
-  - title: Mantenimiento de la conexión (características de vista previa)
+  - title: Mantenimiento de la conexión
     links:
-    - url: ./preview/tutorial-use-device-groups.md
+    - url: ./core/tutorial-use-device-groups.md
       itemType: how-to-guide
       text: Uso de grupos de dispositivos
-    - url: ./preview/howto-manage-devices.md
+    - url: ./core/howto-manage-devices.md
       itemType: how-to-guide
       text: Administración de los dispositivos
     - url: ./core/howto-run-a-job.md
       itemType: concept
       text: Ejecución de un trabajo
-    - url: ./preview/howto-create-analytics.md
+    - url: ./core/howto-create-analytics.md
       itemType: how-to-guide
       text: Analizar los datos del dispositivo
     footerLink:
-      url: ./preview/index.yml
+      url: ./core/index.yml
       text: Ver más
-  - title: Transformación (características en versión preliminar)
+  - title: Transformación
     links:
-    - url: ./preview/tutorial-create-telemetry-rules.md
+    - url: ./core/tutorial-create-telemetry-rules.md
       itemType: how-to-guide
       text: Creación de una regla de telemetría
-    - url: ./preview/howto-export-data.md
+    - url: ./core/howto-export-data.md
       itemType: how-to-guide
       text: Configuración de la exportación continua de datos
     footerLink:
-      url: ./preview/index.yml
+      url: ./core/index.yml
       text: Ver más
 productDirectory:
   title: Introducción a la creación de plantillas de aplicación del sector

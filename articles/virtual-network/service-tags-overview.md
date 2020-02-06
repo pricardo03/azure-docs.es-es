@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 8d5377f7ec8de14f3d7d55bc109f6be731991051
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1fec2778ce8c839c5bac0c1d74085db0f8b283ce
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775261"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903006"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual 
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | Etiqueta | Propósito | ¿Se puede usar para tráfico entrante o saliente? | ¿Puede ser regional? | ¿Se puede usar con Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Tráfico de administración para implementaciones dedicadas de Azure API Management. | Ambos | No | Sí |
-| **ApplicationInsightsAvailability** | Disponibilidad de Application Insights. | Ambos | No | No |
+| **ApplicationInsightsAvailability** | Disponibilidad de Application Insights. | Entrada | No | No |
 | **AppService**    | Azure App Service. Esta etiqueta se recomienda para reglas de seguridad de salida a front-ends de aplicaciones web. | Salida | Sí | Sí |
 | **AppServiceManagement** | Tráfico de administración para las implementaciones dedicadas a App Service Environment. | Ambos | No | Sí |
 | **AzureActiveDirectory** | Azure Active Directory. | Salida | No | Sí |

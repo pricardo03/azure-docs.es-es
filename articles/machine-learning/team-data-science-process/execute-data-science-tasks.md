@@ -2,24 +2,24 @@
 title: 'Ejecución de tareas de ciencia de datos: proceso de ciencia de datos en equipo'
 description: Describe cómo un científico de datos puede ejecutar un proyecto de ciencia de datos de forma controlada por versiones, de colaboración y cuyo seguimiento se puede realizar.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 984b03288b8dae644fc04a2cd78fb03a2e027f62
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772285"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722210"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Ejecutar tareas de ciencia de datos: exploración, modelado e implementación
 
-Entre las tareas de ciencia de datos habituales se incluyen la implementación, el modelado y la exploración de datos. En este artículo se muestra cómo usar las utilidades **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** y **Automated Modeling and Reporting (AMAR)** para completar varias tareas de ciencia de datos comunes como la exploración interactiva de datos, el análisis de datos, la creación de informes y la creación de modelos. Asimismo, se describen las opciones existentes para implementar un modelo en un entorno de producción mediante diversos kits de herramientas y plataformas de datos, como los siguientes:
+Entre las tareas de ciencia de datos habituales se incluyen la implementación, el modelado y la exploración de datos. En este artículo se muestra cómo usar las utilidades **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** y **Automated Modeling and Reporting (AMAR)** para completar varias tareas de ciencia de datos comunes como la exploración interactiva de datos, el análisis de datos, la creación de informes y la creación de modelos. Las opciones para implementar un modelo en un entorno de producción pueden incluir:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server con servicios de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)

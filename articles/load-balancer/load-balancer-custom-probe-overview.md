@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690403"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769170"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -200,7 +200,7 @@ Load Balancer es un servicio intermedio (no termina las conexiones TCP) y el flu
 
 Los datagramas UDP se entregarán a los puntos de conexión de back-end correctos.
 
-UDP no tiene conexión y no hay ningún estado de flujo que realice el seguimiento para UDP. Si se produce un error en el sondeo de estado de un punto de conexión de back-end, los flujos UDP existentes se pueden mover a otra instancia en buen estado del grupo de back-end.
+UDP no tiene conexión y no hay ningún estado de flujo que realice el seguimiento para UDP. Si se produce un error en el sondeo de estado de un punto de conexión de back-end, los flujos UDP existentes se mueven a otra instancia en buen estado del grupo de back-end.
 
 Si se produce un error en todos los sondeos de todas las instancias de un grupo de back-end, los flujos UDP terminarán para las instancias de Basic Load Balancer y Standard Load Balancer.
 

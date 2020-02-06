@@ -10,44 +10,41 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/15/2020
+ms.date: 01/24/2020
 ms.author: raiye
-ms.openlocfilehash: 85029b5f819a59ffc4934d245778044a94a18d5e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 89fd16b6afadee75678b76381739c12a31dc1a07
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122141"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765375"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
 ## <a name="january-2020-guest-os"></a>Sistema operativo invitado de enero de 2020
 
->[!NOTE]
->El sistema operativo invitado de enero se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de enero. Esta lista está sujeta a cambios.
-
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-01  |  [4532960]  |  Seguridad de Windows  | 2.94 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534251]  |  Internet Explorer  | 2.94 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534314]  |  Seguridad de Windows  | 2.94 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4532958]  |  Seguridad de Windows  | 3,81 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4532963]  |  Seguridad de Windows  | 3,81 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534251]  |  Internet Explorer  | 3,81 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534288]  |  Seguridad de Windows  | 3,81 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4532961]  |  Seguridad de Windows  | 4.74 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4532962]  |  Seguridad de Windows  | 4.74 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534251]  |  Internet Explorer  | 4.74 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534309]  |  Seguridad de Windows  | 4.74 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4494175]  |  Microcódigo v3  | 5.39 | 29 de agosto de 2019 |
-|  Versión 20-01  |  [4534271]  |  LCU  | 5.39 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4494174]  |  Microcódigo v4  | 6.15 | 29 de agosto de 2019 |
-|  Versión 20-01  |  [4532947]  |  Seguridad de Windows  | 6.15 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534273]  |  LCU  | 6.15 | 14 de enero de 2020 |
-|  Versión 20-01  |  [4530734]  |  No relacionada con la seguridad  | 2.94 | 10 de diciembre de 2019 |
-|  Versión 20-01  |  [4530691]  |  No relacionada con la seguridad   | 3,81 | 10 de diciembre de 2019 |
-|  Versión 20-01  |  [4530702]  |  No relacionada con la seguridad  | 4.74 | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4532960]  |  Seguridad de Windows  | [2.94] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534314]  |  Seguridad de Windows  | [2.94] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4532958]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4532963]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534288]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4532961]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4532962]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534309]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4494175]  |  Microcódigo v3  | [5.39] | 29 de agosto de 2019 |
+|  Versión 20-01  |  [4534271]  |  LCU  | [5.39] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4494174]  |  Microcódigo v4  | [6.15] | 29 de agosto de 2019 |
+|  Versión 20-01  |  [4532947]  |  Seguridad de Windows  | [6.15] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534273]  |  LCU  | [6.15] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4530734]  |  No relacionada con la seguridad  | [2.94] | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4530691]  |  No relacionada con la seguridad   | [3.81] | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4530702]  |  No relacionada con la seguridad  | [4.74] | 10 de diciembre de 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251
@@ -68,6 +65,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4530734]: https://support.microsoft.com/kb/4530734
 [4530691]: https://support.microsoft.com/kb/4530691
 [4530702]: https://support.microsoft.com/kb/4530702
+[6.15]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.39]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.74]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.94]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="december-2019-guest-os"></a>SO invitado de diciembre de 2019

@@ -4,12 +4,12 @@ description: Aprenda a implementar grupos de contenedores en una red virtual de 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887963"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845180"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -32,7 +32,8 @@ Los grupos de contenedores implementados en una red virtual de Azure permiten es
 Se aplican ciertas limitaciones al implementar grupos de contenedores en una red virtual.
 
 * Para implementar grupos de contenedores en una subred, la subred no puede contener otros tipos de recursos. Quite todos los recursos existentes de una subred existente antes de implementar grupos de contenedores en ella o crear una nueva subred.
-* Actualmente no puede usar una [identidad administrada](container-instances-managed-identity.md) en un grupo de contenedores que se implementa en una red virtual.
+* No puede usar una [identidad administrada](container-instances-managed-identity.md) en un grupo de contenedores implementado en una red virtual.
+* No puede habilitar un [sondeo de ejecución](container-instances-liveness-probe.md) o un [sondeo de preparación](container-instances-readiness-probe.md) en un grupo de contenedores implementado en una red virtual.
 * Debido a los recursos de red adicionales implicados, la implementación de un grupo de contenedores en una red virtual suele ser más lenta que la de una instancia de contenedor estándar.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
@@ -261,7 +262,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Si recibe un error al intentar eliminar el perfil de red, espere de 2 a 3 días para que la plataforma mitigue de forma automática el problema y vuelva a intentar la eliminación. Si todavía tiene problemas para eliminar el perfil de red, [abra una solicitud de soporte técnico](https://azure.microsoft.com/support/create-ticket/).
+> Si recibe un error al intentar eliminar el perfil de red, espere de 3 a 4 días a que la plataforma mitigue de forma automática el problema y vuelva a intentar la eliminación. Si necesita eliminar un perfil de red inmediatamente, [abra una solicitud de soporte técnico](https://azure.microsoft.com/support/create-ticket/) que haga referencia al servicio de Azure Container Instances.
 
 Actualmente, esta característica necesita varios comandos adicionales para eliminar los recursos de red que ha creado antes. Si ha usado los comandos de ejemplo en las secciones anteriores de este artículo para crear la red virtual y la subred, puede usar el siguiente script para eliminar esos recursos de red.
 

@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452119"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774474"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descripción de un clúster de Service Fabric con Cluster Resource Manager
 La característica Cluster Resource Manager de Azure Service Fabric proporciona varios mecanismos para describir un clúster:
@@ -472,7 +472,7 @@ En primer lugar, hay es asegurarse de que las máquinas no estén sobrecargadas.
 
 En segundo lugar, hay equilibrio y optimización, que son esenciales para que la ejecución funcione de forma eficaz. Las ofertas de servicios que tienen en cuenta en rendimiento o la rentabilidad no pueden permitir que algunos nodos se activen cuando otros estén inactivos. Los nodos activos provocan la contención de recursos y un rendimiento deficiente. Por otro lado, los nodos inactivos representan recursos desperdiciados y mayores costos. 
 
-Service Fabric representa los recursos como *Métricas*. Las métricas son cualquier recurso físico o lógico que desee describir a Service Fabric. Algunos ejemplos de métricas son elementos como "WorkQueueDepth" o "MemoryInMb". Para obtener información acerca de los recursos físicos que puede administrar Service Fabric en los nodos, vea la [gobernanza de recursos](service-fabric-resource-governance.md). Para obtener información sobre la configuración de métricas personalizadas y sus usos, vea [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric representa los recursos como *Métricas*. Las métricas son cualquier recurso físico o lógico que desee describir a Service Fabric. Algunos ejemplos de métricas son elementos como "WorkQueueDepth" o "MemoryInMb". Para obtener información acerca de los recursos físicos que puede administrar Service Fabric en los nodos, vea la [gobernanza de recursos](service-fabric-resource-governance.md). Para información sobre las métricas predeterminadas que se usan en Cluster Resource Manager y cómo configurar las métricas personalizadas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 
 Las métricas se diferencian de las restricciones de ubicación y de las propiedades de nodo. Las propiedades de nodo son descriptores estáticos de los nodos por sí mismos. Las métricas describen recursos que tienen nodos y que los servicios usan cuando se ejecutan en un nodo. Una propiedad de nodo podría ser **HasSSD** y tener un valor de True o False. La cantidad de espacio disponible en ese SSD y la cantidad consumida por los servicios sería una métrica como "DriveSpaceInMb". 
 

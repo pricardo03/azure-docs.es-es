@@ -44,6 +44,8 @@
           href: ./ag/application-gateway-waf-configuration.md
         - name: Introducción a la directiva del firewall de aplicaciones web
           href: ./ag/policy-overview.md
+        - name: Información general sobre la protección contra bots
+          href: ./ag/bot-protection-overview.md
     - name: Front Door
       items:
         - name: Reglas personalizadas

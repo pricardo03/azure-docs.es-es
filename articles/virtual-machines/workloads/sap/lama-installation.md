@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2df0bfe8041216e207193832c8f7ca48967c4e5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978070"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842442"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 

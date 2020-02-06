@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b606566fa2b8154eb9ac8fda97d3c3ae81cd3447
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4b5ac2e899de33614fa30b1f4baf0e85efec26bb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767417"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898857"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -194,7 +194,7 @@ No debe usarse. Este rol se asigna automáticamente al servicio de Azure AD Conn
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[Escritores de directorios](#directory-writers-permissions)
 
-es un rol heredado que se asigna a las aplicaciones que no admiten el [marco de consentimiento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). No se debe asignar a ningún usuario.
+es un rol heredado que se asigna a las aplicaciones que no admiten el [marco de consentimiento](../develop/quickstart-register-app.md). No se debe asignar a ningún usuario.
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Administrador de Dynamics 365/administrador de CRM](#crm-service-administrator-permissions)
 

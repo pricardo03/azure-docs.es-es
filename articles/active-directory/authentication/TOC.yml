@@ -4,16 +4,13 @@
   items:
     - name: ¿Qué es la autenticación?
       href: overview-authentication.md
-- name: Guía de inicio rápido
-  items:
-    - name: Configuración del restablecimiento de contraseña
-      href: quickstart-sspr.md
 - name: Tutoriales
+  expanded: true
   items:
-    - name: 1 Habilitar MFA para aplicaciones
+    - name: Habilitar el autoservicio de restablecimiento de contraseña
+      href: tutorial-enable-sspr.md
+    - name: Habilitar MFA para aplicaciones
       href: tutorial-mfa-applications.md
-    - name: 2 Habilitar piloto de SSPR
-      href: tutorial-sspr-pilot.md
     - name: Habilitar integración local de SSPR
       href: tutorial-enable-writeback.md
     - name: Integración de Azure Identity Protection

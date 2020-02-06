@@ -20,7 +20,7 @@
           href: cloud-services-sizes-specs.md
         - name: Actualizaciones
           href: cloud-services-update-azure-service.md
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Creación de roles web y de trabajo para PHP
           href: ../cloud-services-php-create-web-role.md
@@ -137,6 +137,8 @@
               href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
         - name: Error de asignación de servicio en la nube
           href: cloud-services-allocation-failures.md
+        - name: Las aplicaciones no admiten TLS 1.2
+          href: applications-dont-support-TLS-1-2.md
         - name: Causas comunes del reciclaje de roles del servicio en la nube
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
         - name: El tamaño de la carpeta TEMP predeterminada es demasiado pequeño para el rol

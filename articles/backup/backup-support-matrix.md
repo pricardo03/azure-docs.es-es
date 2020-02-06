@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de Azure Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: c424b905f44d6fd3a80a08ef925df4d0a06dd7d8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705384"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936251"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -19,6 +19,8 @@ Otras matrices de compatibilidad están disponibles:
 - Matriz de compatibilidad de la [copia de seguridad de máquinas virtuales de Azure](backup-support-matrix-iaas.md)
 - Matriz de compatibilidad para la copia de seguridad mediante [System Center Data Protection Manager (DPM) o Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
 - Matriz de compatibilidad para la copia de seguridad con el [agente de Microsoft Azure Recovery Services (MARS)](backup-support-matrix-mars-agent.md)
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="vault-support"></a>Compatibilidad con almacenes
 

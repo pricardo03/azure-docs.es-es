@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7fadd974fdc572dddb403c25e90246fd92b1989
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 61d7227c57422cfe2228002750ec29bffa385d44
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763239"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756780"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -63,8 +63,7 @@ Para acceder a la página donde puede ver y administrar los estados de usuario, 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
 2. Busque y seleccione *Azure Active Directory*. Seleccione **Usuarios** > **Todos los usuarios**.
-3. Seleccione **Multi-Factor Authentication**.
-   Seleccione ![Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
+3. Seleccione **Multi-Factor Authentication**. Es posible que tenga que desplazarse hacia la derecha para ver esta opción de menú. Seleccione la siguiente captura de pantalla de ejemplo para ver la ventana de Azure Portal completa y la ubicación del menú: [![](media/howto-mfa-userstates/selectmfa-cropped.png "Selección de Multi-Factor Authentication desde la ventana Usuarios en Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
 4. Se abre una nueva página que muestra los estados de usuario.
    ![Estado de usuario de Multi-Factor Authentication (captura de pantalla)](./media/howto-mfa-userstates/userstate1.png)
 

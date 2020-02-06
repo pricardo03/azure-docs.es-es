@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 8cbc067326bf77648d242cadaf91b491f50c3848
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 68771ee3d2ae2d43245bd217bedcf59b987786f1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294276"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716723"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow 
 
@@ -717,7 +717,7 @@ Convierte un tipo de datos primitivo en una cadena. Para los números y la fecha
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Convierte una cadena en una marca de tiempo dado un formato de marca de tiempo opcional. Consulte el formato SimpleDateFormat de Java para ver todos los formatos posibles. Si la marca de tiempo se omite, se usa el patrón predeterminado aaaa-[M]M-[d]d hh:mm:ss[.f...]. Puede usar una zona horaria opcional con el formato "GMT", "PST", "UTC", "America/Cayman". La marca de tiempo admite una precisión de hasta milisegundos con un valor de 999. Consulte en SimpleDateFormat de Java los formatos disponibles https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
+Convierte una cadena en una marca de tiempo dado un formato de marca de tiempo opcional. Consulte el formato SimpleDateFormat de Java para ver todos los formatos posibles. Si la marca de tiempo se omite, se usa el patrón predeterminado aaaa-[M]M-[d]d hh:mm:ss[.f...]. Puede usar una zona horaria opcional con el formato "GMT", "PST", "UTC", "America/Cayman". La marca de tiempo admite una precisión de hasta milisegundos con un valor de 999. Consulte en SimpleDateFormat de Java los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``
 * ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
