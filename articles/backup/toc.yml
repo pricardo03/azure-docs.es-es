@@ -252,9 +252,13 @@
           href: backup-azure-backup-cloud-as-tape.md
     - name: Copia de seguridad sin conexión
       items:
-        - name: Configuración de copias de seguridad sin conexión
+        - name: Información general
+          href: offline-backup-overview.md
+        - name: Copia de seguridad sin conexión con Azure Data Box
+          href: offline-backup-azure-data-box.md
+        - name: Copia de seguridad sin conexión con Import/Export (MARS)
           href: backup-azure-backup-import-export.md
-        - name: Copia de seguridad sin conexión para DPM y Azure Backup Server
+        - name: Copia de seguridad sin conexión con Import/Export (DPM/MABS)
           href: backup-azure-backup-server-import-export-.md
     - name: Supervisión y alertas
       items:

@@ -161,6 +161,8 @@
         - name: 'Implementación: API REST'
           displayName: deployment
           href: deploy-rest.md
+        - name: Implementación desde GitHub
+          href: deploy-to-azure-button.md
         - name: Implementación de tipo "y si"
           href: template-deploy-what-if.md
         - name: Nueva implementación si se produce un error
