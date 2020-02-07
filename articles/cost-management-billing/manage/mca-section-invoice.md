@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: c170a6a1a731a648c16e0081e760947256df8a0e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f3a5232f8c5bfbf3f2e81ba52607406f8a038b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985372"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76843895"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organización de costos mediante la personalización de la cuenta de facturación
 
@@ -59,13 +59,13 @@ En esta sección se describen escenarios comunes para la organización de los co
 
 |Escenario  |Estructura  |
 |---------|---------|
-|Contoso es una pequeña organización que necesita una sola factura mensual, pero agrupa los costos por sus departamentos (de marketing y finanzas).  | Un perfil de facturación para Contoso y una sección de factura para los departamentos de marketing y finanzas. |
+|Contoso es una pequeña organización que necesita una sola factura mensual, pero agrupa los costos por sus departamentos (de marketing e ingeniería).  | Un perfil de facturación para Contoso y una sección de factura para los departamentos de marketing e ingeniería. |
 
 ![Gráfico de información para un escenario de facturación simple](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Escenario  |Estructura  |
 |---------|---------|
-|Fabrikam es una organización mediana que necesita facturas independientes para sus departamentos de ingeniería y marketing. En cuanto al departamento de ingeniería, quiere agrupar los costos por los entornos de producción y desarrollo.  | Un perfil de facturación para los departamentos de marketing y finanzas. Para el departamento de marketing, una sección de factura para el entorno de producción y desarrollo. |
+|Fabrikam es una organización mediana que necesita facturas independientes para sus departamentos de ingeniería y marketing. En cuanto al departamento de ingeniería, quiere agrupar los costos por los entornos de producción y desarrollo.  | Un perfil de facturación para los departamentos de marketing e ingeniería. Para el departamento de ingeniería, una sección de factura para el entorno de producción y desarrollo. |
 
 ![Gráfico de información para un escenario de facturación simple](./media/mca-section-invoice/organize-billing-scenario3.png)
 

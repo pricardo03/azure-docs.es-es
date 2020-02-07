@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/16/2020
+ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: aparnag
+ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293919"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76842425"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -100,9 +100,9 @@ Los asociados pueden usar el ámbito para conciliar las facturas. Además, usan 
 
 ### <a name="customer-scope"></a>Ámbito del cliente
 
-Los asociados usan el ámbito para administrar los costos relacionados con los clientes que se incorporan al contrato de cliente de Microsoft. El ámbito permite a los asociados ver los costos antes de los impuestos de un cliente específico. También se pueden ver los costos antes de los impuestos de una suscripción, un grupos de recursos o un recurso específicos.
+Los asociados usan el ámbito para administrar los costos relacionados con los clientes que se incorporan al contrato de cliente de Microsoft. El ámbito permite a los partners ver los costos antes de los impuestos de un cliente específico en una moneda de facturación. También se pueden ver los costos antes de los impuestos de una suscripción, un grupos de recursos o un recurso específicos.
 
-El ámbito del cliente no incluye a los clientes que se encuentran en la oferta de CSP actual. El ámbito solo incluye a los clientes que tienen un contrato de cliente de Microsoft. Los costos de derechos, no los del uso de Azure, de la oferta de CSP actual están disponibles en los ámbitos de la cuenta de facturación y del perfil de facturación cuando se aplica el filtro de cliente.
+El ámbito del cliente no incluye a los clientes que se encuentran en la oferta de CSP actual. El ámbito solo incluye a los clientes que tienen un contrato de cliente de Microsoft. Los costos de derechos, no los del uso de Azure, de la oferta de CSP actual están disponibles en los ámbitos de la cuenta de facturación y del perfil de facturación cuando se aplica el filtro de cliente. Los presupuestos establecidos en este ámbito se encuentran en la moneda de facturación.
 
 ## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Acceso de los asociados a los ámbitos de facturación en Cost Management
 
@@ -189,7 +189,7 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 | productID | Identificador del producto que ha acumulado cargos por consumo o compra. Es la clave concatenada de productID y SKuID, como se muestra en el Centro de partners. | Identificador del producto. |
 | product | Nombre del producto que ha acumulado cargos por consumo o compra, como se muestra en la factura. | Nombre del producto del catálogo. |
 | serviceFamily | Muestra la familia de servicios del producto comprado o cargado. Por ejemplo, Storage o Compute. | N/D |
-| productOrderID | Identificador del recurso o nombre del plan de Azure al que pertenece la suscripción. Por ejemplo, plan de Azure. | N/D |
+| productOrderID | Identificador del recurso o nombre del plan de Azure al que pertenece la suscripción. Por ejemplo, plan de Azure. | CommerceSubscriptionID |
 | productOrderName | Nombre del plan de Azure al que pertenece la suscripción. Por ejemplo, plan de Azure. | N/D|
 | consumedService | Servicio consumido (taxonomía heredada) tal como se usa en los detalles de uso de EA heredados. | Servicio mostrado en el Centro de partners. Por ejemplo, Microsoft.Storage, Microsoft.Compute y Microsoft.operationalinsights. |
 | meterID | Identificador medido para el consumo medido. | Identificador del medidor utilizado. |
@@ -197,7 +197,7 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 | meterCategory | Identifica el servicio de nivel superior para el uso. | Identifica el servicio de nivel superior para el uso. |
 | meterSubCategory | Define el tipo o subcategoría de servicio de Azure que puede afectar a la tarifa. | Tipo de servicio de Azure que puede afectar a la tarifa.|
 | meterRegion | Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos. | Ubicación regional de un centro de datos para servicios, cuando se indiquen y sea aplicable. |
-| Id. de suscripción | Identificador único generado por Microsoft para la suscripción de Azure. | N/D |
+| Id. de suscripción | Identificador único generado por Microsoft para la suscripción de Azure. | EntitlementID |
 | subscriptionName | Nombre de la suscripción de Azure. | N/D |
 | Término | Muestra el plazo de validez de la oferta. Por ejemplo, las instancias reservadas muestran 12 meses de un plazo anual de la instancia reservada. Para compras de una sola vez o compras periódicas, el término muestra un mes para SaaS, Azure Marketplace y soporte técnico. Esto no se aplica al consumo de Azure. | N/D |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Tipo de anunciante que identifica al anunciante como primera entidad, revendedor de terceros o agencia de terceros. | N/D |

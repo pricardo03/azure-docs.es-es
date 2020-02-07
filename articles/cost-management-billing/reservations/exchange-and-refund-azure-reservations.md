@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2020
+ms.date: 01/24/2020
 ms.author: banders
-ms.openlocfilehash: ea545919436201524a1c77b27e9b187f3b1c3b64
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314052"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773880"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
@@ -29,14 +29,14 @@ Debe tener acceso de propietario en el pedido de reserva para realizar un cambio
 
 Puede cambiar la reserva con tres pasos rápidos en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-1. Seleccione las reservas que quiere devolver y haga clic en **Intercambiar**.  
+1. Seleccione las reservas para las que quiera obtener un reembolso y seleccione **Intercambiar**.  
     ![Imagen de ejemplo que muestra las reservas para devolver](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)
 2. Seleccione el producto de máquina virtual que quiere comprar y escriba la cantidad. Asegúrese de que el nuevo total de compra es mayor que el total de devolución. [Determine el tamaño adecuado antes de la compra](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Imagen de ejemplo que muestra el producto de la máquina virtual para comprar con un intercambio](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)
 3. Revise y finalice la transacción.  
     ![Imagen de ejemplo que muestra el producto de la máquina virtual para comprar con un intercambio, completando la devolución](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)
 
-Para devolver una reserva, vaya a **Detalles de la reserva** y haga clic en **Devolver**.
+Para obtener el reembolso de una reserva, vaya a **Detalles de la reserva** y haga clic en **Reembolso**.
 
 ## <a name="how-transactions-are-processed"></a>Procesamiento de las transacciones
 
@@ -66,7 +66,7 @@ Azure tiene estas directivas en caso de cancelaciones, intercambios y reembolsos
 - Solo los propietarios de una reserva pueden procesar un intercambio. [Obtenga información sobre cómo agregar o cambiar los usuarios que pueden administrar una reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Un intercambio se procesa como un reembolso y una recompra: se crean diferentes transacciones para la cancelación y la nueva compra. El importe de la reserva prorrateada se reembolsa por las reservas que canjee. Se le cobrará por completo la nueva compra. El importe de la reserva prorrateada es el valor residual prorrateado diario de la reserva que se devuelve.
 - Puede intercambiar o reembolsar reservas incluso si el contrato Enterprise utilizado para comprar la reserva ha expirado y se ha renovado como un nuevo contrato.
-- Puede cambiar cualquier propiedad de reserva, como el tamaño, la región, la cantidad y el plazo, con un intercambio.
+- Puede cambiar una propiedad de la reserva, como la familia, la serie, la versión, la SKU, la región, la cantidad y el plazo, con un intercambio.
 - El nuevo total de compra debe igual o mayor que la cantidad devuelta.
 - La nueva reserva comprada en el marco del intercambio tiene un nuevo plazo a partir del momento del intercambio.
 - No hay ninguna penalización ni límites anuales para los intercambios.
@@ -81,7 +81,7 @@ Azure tiene estas directivas en caso de cancelaciones, intercambios y reembolsos
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Intercambio de almacenamiento no premium por almacenamiento premium
 
-Puede intercambiar una reserva comprada para un tamaño de máquina virtual que no es compatible con el almacenamiento premium por un tamaño de máquina virtual que sí lo es. Por ejemplo, un _F1_ por un _F1s_. Para hacer el intercambio, vaya a los detalles de la reserva y haga clic en **Intercambiar**. El intercambio no restablece el plazo de la instancia reservada ni crea una nueva transacción.
+Puede intercambiar una reserva comprada para un tamaño de máquina virtual que no es compatible con el almacenamiento premium por un tamaño de máquina virtual que sí lo es. Por ejemplo, un _F1_ por un _F1s_. Para hacer el intercambio, vaya a los detalles de la reserva y seleccione **Intercambiar**. El intercambio no restablece el plazo de la instancia reservada ni crea una nueva transacción.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

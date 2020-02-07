@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: banders
-ms.openlocfilehash: 2fadd0b6eb0951031a9d577b2fd3a3d497076dd8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: dfee9218f1e65189117c3d37808a303cf7568cd7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985080"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76846231"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tareas de administrador de cuenta en Azure Portal
 
@@ -29,13 +29,18 @@ Debe ser el administrador de cuenta para realizar cualquiera de estas tareas.
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Ir a los métodos de pago de la suscripción
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta. 
+
 1. Busque **Administración de costos + facturación**.
     
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En **Mis suscripciones**, seleccione la suscripción a la que quiere agregar la tarjeta de crédito.
-    ![Captura de pantalla que muestra la cuadrícula Mis suscripciones en información general](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+1. En **Mis suscripciones**, seleccione la suscripción a la que quiere agregar la tarjeta de crédito. 
+   
+   ![Captura de pantalla que muestra la cuadrícula Mis suscripciones en información general](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   
+   > [!NOTE]
+   > Si no ve aquí alguna de sus suscripciones, puede deberse a que haya cambiado el directorio de suscripción en algún momento. Para estas suscripciones, debe cambiar el directorio al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2. 
 
 1. Seleccione **Métodos de pago**.
 
@@ -119,10 +124,13 @@ El límite de gasto no está disponible para las suscripciones con planes de com
 
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En la lista **Mis suscripciones**, seleccione su suscripción de Visual Studio Enterprise.
-    
-    ![Captura de pantalla que muestra la cuadrícula Mis suscripciones en información general](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+1. En la lista **Mis suscripciones**, seleccione su suscripción de Visual Studio Enterprise. 
 
+   ![Captura de pantalla que muestra la cuadrícula Mis suscripciones en información general](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Si no ve aquí alguna de sus suscripciones a Visual Studio, puede deberse a que haya cambiado el directorio de suscripción en algún momento. Para estas suscripciones, debe cambiar el directorio al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2.
+    
 1. En la información general de la suscripción, haga clic en el banner naranja para quitar el límite de gasto.
     
     ![Captura de pantalla que muestra el banner quitar el límite de gasto](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
@@ -144,10 +152,13 @@ Si tiene una suscripción a Azure bajo licencia Open, puede agregar créditos a 
 
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En la lista **Mis suscripciones**, seleccione su suscripción de Azure bajo licencia Open.
-   
+1. En la lista **Mis suscripciones**, seleccione su suscripción de Azure bajo licencia Open. 
+
     ![Captura de pantalla que muestra la cuadrícula Mis suscripciones en información general](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
+   > [!NOTE]
+   > Si no ve aquí su suscripción, puede deberse a que haya cambiado el directorio en algún momento. Debe cambiar el directorio de la suscripción al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2.
+    
 1. Seleccione **Historial de crédito**.
     
     ![Captura de pantalla que muestra el historial de crédito](./media/account-admin-tasks/aio-credit-history-blade.png)

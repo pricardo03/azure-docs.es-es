@@ -4,117 +4,147 @@ description: En este artículo se explica cómo administrar y actuar en su factu
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/21/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 7cb2966c94485d0a05febf3085ab367fcba97434
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 2a75972d00733d23df7f4a59b2d5010404df8dc3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514364"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023402"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
-En este artículo se explica cómo administrar y actuar en su factura de Azure Enterprise. La factura es únicamente una representación, por lo que debe revisarla para comprobar que sea precisa. También debe familiarizarse con otras tareas que podrían ser necesarias para administrar la factura.
+En este artículo se explica cómo administrar y actuar en su factura de Contrato Enterprise de Azure (Azure EA). La factura es una representación del recibo. Revise que esté correcta. También debe familiarizarse con otras tareas que podrían ser necesarias para administrar la factura.
 
 ## <a name="change-a-po-number-for-an-overage-invoice"></a>Cambio de un número de pedido de compra para una factura de uso por encima del límite
 
-El portal del Contrato Enterprise de Azure genera automáticamente un número de pedido de compra predeterminado, a menos que el administrador del Contrato Enterprise establezca uno antes de la fecha de la factura. Un administrador del Contrato Enterprise puede actualizar el número de pedido de compra hasta siete días después de recibir un correo electrónico de notificación de factura automática.
+Azure Enterprise Portal genera automáticamente un número de pedido de compra predeterminado, a menos que el administrador de empresa defina uno antes de la fecha de la factura. Un administrador de empresa puede actualizar el número de pedido de compra hasta siete días después de recibir un correo electrónico de notificación de factura automática.
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>Para actualizar el número de pedido de compra de los servicios de Azure:
 
-1. En Azure EA Portal, haga clic en **Report** (Informe) y, a continuación, en **Usage Summary** (Resumen de uso).
-1. Seleccione **Edit PO Numbers** (Editar números de pedido de compra) en la esquina superior derecha.
+1. En Azure Enterprise Portal, seleccione **Informes** > **Resumen de uso**.
+1. Seleccione **Edit PO Numbers** (Editar números de pedidos de compra) en la esquina superior derecha.
 1. Seleccione el botón de radio **Azure Services** (Servicios de Azure).
-1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas. Los números de pedido de compra pueden editarse hasta siete días después de la notificación de la factura o hasta que se pague la factura, lo que suceda primero.
-1. Escriba el nuevo número de pedido de compra en el campo **PO Number** (Número de pedido de compra).
-1. Haga clic en **Save** (Guardar) para enviar el cambio.
+1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.
 
-### <a name="to-update-the-marketplace-purchase-order-number"></a>Para actualizar el número de pedido de compra de Marketplace:
+   Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
+1. Escriba el nuevo número de pedido de compra en el campo **Número de pedido de compra** .
+1. Seleccione  **Guardar**  para enviar el cambio.
 
-1. En Azure EA Portal, haga clic en **Report** (Informe) y, a continuación, en **Usage Summary** (Resumen de uso).
-1. Seleccione **Edit PO Numbers** (Editar números de pedido de compra) en la esquina superior derecha.
+### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Para actualizar el número de pedido de compra de Azure Marketplace:
+
+1. En Azure Enterprise Portal, seleccione **Informes** > **Resumen de uso**.
+1. Seleccione **Edit PO Numbers** (Editar números de pedidos de compra) en la esquina superior derecha.
 1. Seleccione el botón de radio **Marketplace**.
-1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas. Los números de pedido de compra pueden editarse hasta siete días después de la notificación de la factura o hasta que se pague la factura, lo que suceda primero.
-1. Escriba el nuevo número de pedido de compra en el campo **PO Number** (Número de pedido de compra).
-1. Haga clic en **Save** (Guardar) para enviar el cambio.
+1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.
 
-## <a name="cadence-of-azure-ea-billing"></a>Cadencia de facturación de EA de Azure
+   Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
+1. Escriba el nuevo número de pedido de compra en el campo **Número de pedido de compra** .
+1. Seleccione  **Guardar**  para enviar el cambio.
+
+## <a name="cadence-of-azure-enterprise-billing"></a>Cadencia de facturación de Azure Enterprise
+
+Microsoft factura anualmente en la fecha de entrada en vigor de la inscripción las compras de compromiso de los servicios de Microsoft Azure. Microsoft factura como atrasado el uso que supere las cantidades de compromiso.
+
+- Las tarifas de compromiso se ofrecen a razón de una tarifa mensual y se facturan anualmente por adelantado.
+- Las tarifas de uso por encima del límite se calculan cada mes y se facturan a período vencido al final del período de facturación.
 
 ### <a name="billing-intervals"></a>Intervalos de facturación
 
-Microsoft facturará anualmente en la fecha de entrada en vigor de la inscripción cualquier compra de compromiso de los servicios de Microsoft Azure y a período vencido cualquier uso que exceda los importes del compromiso. Las tarifas de compromiso se ofrecen a razón de una tarifa mensual y se facturan anualmente por adelantado. Las tarifas de uso por encima del límite se calculan cada mes y se facturan a período vencido al final del período de facturación.
+El intervalo de facturación depende de cómo decida hacer sus compras de compromisos. Su compromiso anual coincidente con una de las siguientes:
 
-En función de cómo decida realizar las compras de compromiso, el compromiso anual coincidirá con la fecha del aniversario de la inscripción o con la fecha de entrada en vigor de la suscripción de enmienda de un año.
+- La fecha de aniversario de la inscripción
+- La fecha efectiva de la suscripción de modificación de un año.
 
-Recibirá su factura de uso por encima del límite en función de la fecha de inicio de su inscripción y de su configuración.
+La fecha en que reciba la factura de uso por encima del límite depende de la fecha de inicio de su inscripción y de su configuración:
 
-**Inscripciones directas con una fecha de inicio anterior al 1 de mayo de 2018**: Los clientes directos de Enterprise Azure (EA) tienen configurado un ciclo de facturación anual para los servicios de Azure (excepto los servicios de Marketplace). El ciclo de facturación se basa en la fecha de aniversario. La fecha de aniversario es la fecha en la que el contrato entró en vigor. Para recibir la primera factura de uso por encima del límite de un servicio de Azure, debe superar el 150 % del umbral de compromiso monetario.  Una vez que el consumo de servicio total supere el 150 % del umbral de compromiso monetario, se convertirá automáticamente en un ciclo de facturación trimestral basado en la fecha de aniversario.  Si no supera el 150% del umbral de compromiso monetario, la inscripción permanecerá en un ciclo de facturación anual y la factura de uso por encima del límite se recibirá al final del año de compromiso.
+- **Inscripciones directas con una fecha de inicio anterior al 1 de mayo de 2018**:
+  - En el caso de un Contrato Enterprise (EA) directo, se encuentra en un período de facturación anual para los servicios de Azure, excepto los servicios de Azure Marketplace. El período de facturación se basa en la fecha de aniversario, la fecha en la que el contrato entró en vigor.
+  - Si supera el 150 % del umbral de su compromiso monetario de EA, se convertirá automáticamente en un período de facturación trimestral basado en la fecha de su aniversario. También recibirá una factura por uso por encima del límite de los servicios de Azure.
+  - Si no supera el 150 % del umbral del compromiso monetario, la inscripción permanecerá en un período de facturación anual. La factura de uso por encima del límite se recibirá al final del año del compromiso.
 
-**Inscripciones directas con una fecha de inicio posterior al 1 de mayo de 2018**: Las facturas de consumo y cargos de Azure del cliente facturados por separado tendrán se realizarán en un ciclo de facturación mensual.  Los cargos que no estén incluidos en el compromiso monetario de Azure se deberán abonar como un pago por uso por encima del límite.  
+- **Inscripciones directas con una fecha de inicio posterior al 1 de mayo de 2018**:
+  - Las facturas de consumo y cargos de Azure facturados por separado tendrán un período de facturación mensual.
+  - Los cargos que no cubra el compromiso monetario se deben como pago de uso por encima del límite.  
 
-**Inscripciones indirectas con una inscripción iniciada antes del 1 de mayo de 2018**: Los clientes indirectos de Enterprise Azure (EA) tienen configurado un ciclo de facturación trimestral.  El partner de canal (CP) facturará al cliente directamente.  
+- **Inscripciones indirectas con una inscripción iniciada antes del 1 de mayo de 2018**:
+  
+  Si es cliente de un Contrato Enterprise (EA) indirecto con una fecha de inicio anterior al 1 de mayo de 2018, se encuentra en un período de facturación trimestral. El partner de canal (CP) le factura directamente.  
 
-**Inscripciones indirectas con una fecha de inicio posterior al 1 de mayo de 2018**: Cualquier contrato indirecto con una fecha de inicio posterior o igual al 1 de mayo de 2018 se facturará mensualmente.  
+- **Inscripciones indirectas con una fecha de inicio posterior al 1 de mayo de 2018**:
+  
+  Se encuentra en un período de facturación mensual.  
 
-### <a name="increasing-commitment"></a>Aumento del compromiso
+### <a name="increase-your-monetary-commitment"></a>Aumentar el compromiso monetario
 
-El compromiso se puede aumentar en cualquier momento y se le facturará el número de meses restantes durante el período de compromiso de ese año. Por ejemplo, si realiza una suscripción de enmienda de un año y aumenta su compromiso durante el sexto mes, se le facturarán los seis meses restantes de ese período. Las cantidades de compromiso se actualizarán durante los últimos seis meses del período de compromiso para determinar los cargos por uso por encima del límite.
+Puede aumentar su compromiso en cualquier momento. Se le facturará el número de meses restantes en el período de compromiso de ese año. Por ejemplo, si se registra en una suscripción de enmienda de un año y aumenta el compromiso durante el sexto mes, se le facturarán los seis meses restantes de ese período. Las cantidades de compromiso se actualizarán durante los últimos seis meses del período de compromiso. Estas nuevas cantidades se usarán para determinar los cargos por uso por encima del límite.
 
 ### <a name="overage"></a>Superávit
 
-Por uso por encima del límite, se le facturará el uso o las reservas que superen su compromiso durante el período de facturación. Para ver un desglose del cálculo de las cantidades de uso por encima del límite de elementos individuales, consulte el informe de resumen de uso o póngase en contacto con su partner de canal.
+En el caso del uso por encima del límite, se le facturará el uso o las reservas que superen su compromiso durante el período de facturación. Para ver un desglose del cálculo de las cantidades de uso por encima del límite de elementos individuales, consulte el informe de resumen de uso o póngase en contacto con su partner de canal.
 
-Para cada elemento de la factura, verá los cargos totales (cantidad extendida), la cantidad de compromiso usada para cubrir los cargos (uso del compromiso) y la cantidad de cargos que superan el compromiso (importe neto).  Los impuestos aplicables se calculan solo sobre el importe neto que supera el compromiso.
+Para cada elemento de la factura, verá:
 
-La facturación de uso por encima del límite está automatizada.  La temporización de las notificaciones y las facturas depende de la fecha de finalización del período de facturación del cliente.  La notificación de uso por encima del límite se envía normalmente siete días después de la fecha de finalización de facturación del cliente, período durante el cual los clientes pueden entrar en el portal, revisar sus cargos y actualizar los números de pedidos de compra generados por el sistema (que también se pueden actualizar en cualquier momento antes de que se emita la notificación de uso por encima del límite).  Las facturas de uso por encima del límite se enviarán entre 7 y 9 días después.
+- **Extended Amount** (Importe extendido): El total de cargos.
+- **Commitment Usage** (Uso del compromiso): El importe del compromiso usado para cubrir los cargos.
+- **Net Amount** (Importe neto): Los cargos que superan su compromiso.
+
+Los impuestos correspondientes se calculan solo sobre el importe neto que supera el compromiso.
+
+La facturación de uso por encima del límite está automatizada. Los plazos para las notificaciones y las facturas dependen de la fecha de finalización del período de facturación.
+
+- Normalmente, la notificación de uso por encima del límite se envía siete días después de la fecha de finalización de la facturación.
+- Las facturas de uso por encima del límite se envían de siete a nueve días después de la notificación.
+- Puede revisar los cargos y actualizar los números de pedido de compra generados por el sistema durante los siete días entre la notificación de uso por encima del límite y la facturación.
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
-A partir del ciclo de facturación de abril de 2019, los clientes comenzarán a recibir una sola factura de Azure, ya que hemos combinado todos los cargos de Azure y Azure Marketplace en una sola factura en lugar de dos facturas independientes. (Este cambio no afecta a los clientes de Australia, Japón o Singapur). Durante la transición a una factura consolidada, recibirá una factura de Marketplace parcial. Esta factura final independiente mostrará los cargos de Marketplace antes de la fecha de la actualización de la facturación. Los cargos de Marketplace después de esa fecha aparecerán en la factura de Azure. Después del período de transición, verá todos los cargos de Azure y Marketplace en la factura consolidada.  
+A partir del período de facturación de abril de 2019, los clientes comenzaron a recibir una sola factura de Azure, que combina todos los cargos de Azure y Azure Marketplace en una sola factura, en lugar de dos facturas independientes. Este cambio no afecta a los clientes de Australia, Japón ni Singapur.
 
-### <a name="purchase-order-numbers"></a>Números de pedido de compra
-
-El valor predeterminado de un pedido de compra es un número generado por el sistema. Para actualizar el número de pedido de compra, los usuarios deben iniciar sesión en Enterprise Portal como administrador de empresa e ir a la sección Reports (Informes). En la esquina superior derecha de la ventana, hay un cuadro de número de pedido de compra que permite al administrador de empresa editar dicho número haciendo clic en el icono de lápiz.
+Durante la transición a una factura combinada, recibirá una factura parcial de Azure Marketplace. Esta factura final independiente mostrará los cargos de Azure Marketplace antes de la fecha de la actualización de la facturación. Los cargos de Azure Marketplace en los que incurra después de esa fecha aparecerán en la factura de Azure. Después del período de transición, verá todos los cargos de Azure y Azure Marketplace en la factura combinada.  
 
 ## <a name="adjust-billing-frequency"></a>Ajuste de la frecuencia de facturación
 
 La frecuencia de facturación de un cliente es anual, trimestral o mensual. El período de facturación se determina cuando un cliente firma su contrato. La facturación mensual es el intervalo de facturación más pequeño.
 
-Es necesaria la aprobación del administrador de empresa para cambiar un período de facturación de anual a trimestral para las inscripciones directas. Es necesaria la aprobación de un administrador de asociados para las inscripciones indirectas. El cambio se hace efectivo al final del trimestre de facturación actual.
+- Es necesaria la **aprobación** del administrador de empresa para cambiar un período de facturación de anual a trimestral para las inscripciones directas. Es necesaria la aprobación de un administrador del partner para las inscripciones indirectas. El cambio se hace efectivo al final del trimestre de facturación actual.
+- Es necesaria una **modificación** para cambiar un período de facturación de anual o trimestral a mensual.  Cualquier cambio en el período de facturación de una inscripción existente requiere la aprobación de un administrador de empresa o del usuario identificado como "contacto de facturación".
+- **Envíe** la aprobación a [soporte técnico de Azure Enterprise Portal](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Seleccione la categoría del problema: **Billing and Invoicing** (Facturación).
 
-Para cambiar un período de facturación anual o trimestral a mensualmente, se requiere una enmienda del contrato.  Cualquier cambio en el período de facturación de inscripción existente requiere la aprobación de un administrador de empresa o del usuario identificado como _contacto de facturación_ en el contrato. Puede enviar la aprobación en el [soporte técnico del portal del Contrato Enterprise de Azure](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c) y, después, seleccionar la categoría de problema de **facturación**.  El cambio se hace efectivo al final del trimestre de facturación actual.
+El cambio se hace efectivo al final del trimestre de facturación actual.
 
 Si se firma una enmienda M503, puede pasar cualquier contrato de cualquier frecuencia a la facturación mensual. 
 
 ## <a name="credits-and-adjustments"></a>Créditos y ajustes
 
-Todos los créditos o ajustes que se aplican a la inscripción están visibles en [https://ea.azure.com](https://ea.azure.com) en la sección **Informes**.
+Puede ver todos los créditos o ajustes aplicados a su inscripción en la sección **Informes** de [Azure Enterprise Portal](https://ea.azure.com).
 
-Para ver los créditos, siga los pasos siguientes:
+Para ver los créditos:
 
-1. Seleccione la sección **Reports** (Informes).
-1. Haga clic en **Usage Summary** (Resumen de uso).
-1. En la esquina superior derecha, cambie de la vista _M_ a la _C_.
+1. En [Azure Enterprise Portal](https://ea.azure.com), seleccione la sección **Informes**.
+1. Seleccione **Resumen de uso**.
+1. En la esquina superior derecha, cambie de la vista **M** a la **C**.
 1. Amplíe el campo de ajustes de la tabla de compromisos de servicio de Azure.
-1. En esta línea verá los créditos aplicados a su inscripción y una breve explicación, por ejemplo: Crédito de Acuerdo de Nivel de Servicio.
+1. Verá los créditos aplicados a su inscripción y una explicación breve. Por ejemplo: Crédito de Acuerdo de Nivel de Servicio.
 
 ## <a name="request-an-invoice-copy"></a>Solicitud de una copia de la factura
 
 Para solicitar una copia de la factura, póngase en contacto con su asociado.
 
-## <a name="overage-offset-by-customers"></a>Desplazamiento del uso por encima del límite por los clientes
+## <a name="overage-offset"></a>Compensación de uso por encima del límite
 
-Si el cliente tiene usos por encima del límite que desea usar con compromiso monetario, se deben cumplir los siguientes criterios:
+Para aplicar su compromiso monetario a usos por encima del límite, debe cumplir los siguientes criterios:
 
-- El cliente debe tener cargos por uso por encima del límite que se han incurrido pero que no se han pagado y están en el plazo de un año de la fecha de finalización del servicio facturado.
-- El importe de compromiso monetario disponible debe cubrir el número total de cargos incurridos, incluidas todas las facturas de Azure no pagadas.
-- El término de facturación que se solicita completar debe cerrarse completamente. La facturación se cierra por completo después del quinto día de cada mes.
-- El período de facturación que se solicita para el desplazamiento debe estar totalmente cerrado.
-- El descuento de ACD se basa en el nuevo compromiso real menos los fondos planeados para el consumo anterior. Este requisito solo se aplica a los cargos incurridos por uso por encima del límite. Esto solo funciona para los servicios que consumen el compromiso monetario, por lo que no puede cubrir los cargos de Marketplace. Los cargos de Marketplace se facturan por separado.
-- Si un cliente desea completar un desplazamiento del uso por encima del límite, puede abrir una solicitud de soporte técnico. O bien, el equipo de cuentas puede abrir la solicitud de soporte técnico. Para completar el proceso, se requiere la aprobación por correo electrónico del administrador del Contrato Enterprise del cliente o el contacto de facturación.
+- Haber incurrido en cargos de uso por encima del límite que no se han pagado y están en el plazo de un año de la fecha de finalización del servicio facturado.
+- El importe del compromiso monetario disponible cubre el número total de cargos incurridos, incluidas todas las facturas de Azure pasadas no pagadas.
+- El plazo de facturación que quiere completar debe estar cerrado por completo. La facturación se cierra por completo después del quinto día de cada mes.
+- El período de facturación que quiere compensar debe estar cerrado por completo.
+- El descuento del compromiso de Azure (ACD) se basa en el nuevo compromiso real menos los fondos planeados para el consumo anterior. Este requisito solo se aplica a los cargos incurridos por uso por encima del límite. Esto solo es válido para los servicios que consumen el compromiso monetario, así que no se aplica a los cargos de Azure Marketplace. Los cargos de Azure Marketplace se facturan por separado.
+
+Para completar una compensación de uso por encima del límite, usted o el equipo de cuentas pueden abrir una solicitud de soporte técnico. Se requiere una aprobación por correo electrónico del administrador de empresa o del contacto de facturación.
 
 ## <a name="view-price-sheet-information"></a>Visualización de la información de la hoja de precios
 
@@ -122,88 +152,99 @@ Los administradores de empresa pueden ver la lista de precios asociada a su insc
 
 Para ver la hoja de precios actual:
 
-1. En el portal del Contrato Enterprise de Azure, haga clic en **Reports** (Informes) y después haga clic en **Price Sheet** (Hoja de precios).
-2. Vea la hoja de precios o haga clic en **Descargar**.
+1. En Azure Enterprise Portal, seleccione **Informes** y, a continuación, seleccione **Hoja de precios**.
+2. Vea la hoja de precios o seleccione **Descargar**.
 
 ![Ejemplo que muestra la información de la hoja de precios](./media/ea-portal-enrollment-invoices/ea-create-view-price-sheet-information.png)
 
 Para descargar una lista de precios histórica:
 
-1. En el portal del Contrato Enterprise de Azure, haga clic en **Reports** (Informes) y luego en **Download usage** (Descargar uso).
+1. En Azure Enterprise Portal, seleccione **Informes** y, a continuación, seleccione **Descargar uso**.
 2. Descargue la hoja de precios.
 
 ![Ejemplo que muestra dónde descargar una hoja de precios anterior](./media/ea-portal-enrollment-invoices/create-ea-view-price-sheet-download-historical-price-list.png)
 
-Si tiene alguna pregunta sobre por qué hay una discrepancia en los precios, algunas de las razones incluyen:
+Algunos motivos para las diferencias de precios:
 
-Los precios pueden haber cambiado entre la inscripción anterior y la nueva inscripción. Los cambios de precio se producen porque el precio es contractual para la inscripción específica desde la fecha de inicio hasta la fecha de finalización de un contrato. Cuando se transfiere una inscripción a una nueva, sigue los precios de un nuevo contrato. Los precios se definen en la hoja de precios del cliente. Por lo tanto, es posible que los precios sean más altos en la nueva inscripción.
-
-Si una inscripción entra en un período extendido, los precios también cambian. Los precios cambian a las tarifas de pago por uso.
+- Los precios pueden haber cambiado entre la inscripción anterior y la nueva inscripción. Los cambios de precio pueden producirse porque el precio es contractual para la inscripción específica desde la fecha de inicio hasta la fecha de finalización de un contrato.
+- Cuando se transfiere a una nueva inscripción, los precios cambian con el nuevo contrato. Los precios se definen por la hoja de precios, que podrían ser más altos en la nueva inscripción.
+- Si una inscripción entra en un período extendido, los precios también cambian. Los precios cambian a las tarifas de pago por uso.
 
 ## <a name="request-detailed-usage-information"></a>Solicitud de información de uso detallada
 
-Los administradores de empresa pueden ver un resumen de los datos de uso, el compromiso monetario consumido y los cargos asociados con el uso adicional en el portal del Contrato Enterprise de Azure. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
+Los administradores de empresa pueden ver un resumen de sus datos de uso, el compromiso monetario consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
 
-Para ver el uso detallado en cuentas específicas, puede descargar el informe de detalles de uso yendo a **Informes** > **Descargar uso**. El informe no incluye ningún impuesto aplicable. Puede haber una latencia de hasta ocho horas desde el momento en que se incurrió en el uso hasta el momento en que se refleja en el informe.
+Para ver el uso detallado en cuentas específicas, descargue el informe de detalles de uso en **Informes** > **Descargar uso**.
+
+> [!NOTE]
+> El informe de detalles de uso no incluye ningún impuesto aplicable. Puede haber una latencia de hasta ocho horas desde el momento en que se incurrió en el uso hasta el momento en que este se ve reflejado en el informe.
 
 En el caso de inscripciones indirectas, el asociado debe habilitar la función de incremento antes de que pueda ver cualquier información relacionada con el costo.
 
 ## <a name="reports"></a>Informes
 
-Los administradores de empresa pueden ver un resumen de sus datos de uso, el compromiso monetario consumido y los cargos asociados con el uso adicional en Enterprise Portal. Los cargos se presentarán en el nivel de resumen en todas las cuentas y suscripciones.
+Los administradores de empresa pueden ver un resumen de sus datos de uso, el compromiso monetario consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
 
-**Informes de EA**
+### <a name="azure-enterprise-reports"></a>Informes de Azure Enterprise
 
 - Resumen de uso y gráficos
 - Informe de uso de servicio
 - Informe de saldo y cargos
 - Informe de detalles de uso
-- Informe de cargos de Marketplace
+- Informe de cargos de Azure Marketplace
 - Hoja de precios
 - Descarga de informes avanzada
 - Formato de informe CSV
 
-**Para ver los informes y gráficos de resumen de uso**
+### <a name="to-view-the-usage-summary-reports-and-graphs"></a>Para ver los informes y gráficos del resumen de uso:
 
-1. En Azure EA Portal, en el panel de navegación izquierdo, haga clic en **Reports** (Informes) y vea la pestaña **Usage Summary** (Resumen de uso).
-1. Seleccione el período de compromiso deseado en el menú desplegable de intervalos de fechas en la parte superior izquierda.
-1. Seleccione el período o mes deseado en el gráfico para ver detalles adicionales.
-1. El gráfico muestra el uso mes a mes con un desglose del uso realizado, el cargo extra por los servicios, los cargos facturados por separado y cargos por Marketplace.
-1. En el mes seleccionado, filtre por departamentos, cuentas y suscripciones debajo del gráfico.
-1. Cambie entre los desgloses Charge by Services (Cargo por servicios) y Charge by Hierarchy (Cargo por jerarquía).
-1. Vea los servicios de Azure, los cargos facturados por separado y los cargos de Azure Marketplace en detalle.
+1. Vaya a Azure Enterprise Portal.
+1. Seleccione **Informes** en el panel izquierdo.
+1. Seleccione la pestaña **Resumen de uso**.
+1. Seleccione el período de compromiso en el menú de rangos de fechas en la parte superior izquierda.
+1. Seleccione un periodo o el mes en el gráfico para ver detalles adicionales.
+1. En esta pestaña, puede:
+   - Ver un gráfico del uso mes a mes con un desglose del uso, el cargo extra por los servicios, los cargos facturados por separado y cargos de Azure Marketplace.
+   - Filtrar por departamentos, cuentas y suscripciones debajo del gráfico.
+   - Cambiar entre los desgloses **Charge by Services** (Cargo por servicios) y **Charge by Hierarchy** (Cargo por jerarquía).
+   - Ver los detalles de los servicios de Azure, los cargos facturados por separado y los cargos de Azure Marketplace.
 
 ## <a name="service-usage-report"></a>Informe de uso de servicio
 
-La página de informe de uso de servicio permite a los administradores de empresa ver un resumen de sus datos de uso de servicio. Aunque el uso se presentará en el nivel de resumen de todas las cuentas y suscripciones, también puede filtrar el informe por cuentas o suscripciones para ver el uso detallado.
+La página de informe de uso de los servicios permite a los administradores de empresa ver un resumen de sus datos de uso de servicio. El uso se presenta en el nivel de resumen en todas las cuentas y suscripciones. Para ver el uso detallado, puede filtrar el informe por cuentas o suscripciones.
 
-Tenga en cuenta que también puede haber una latencia de hasta cinco días entre la fecha en que se realizó el uso y el momento en que el uso se muestra en este informe.
+> [!NOTE]
+> Puede haber una latencia de hasta cinco días entre la fecha en que se realizó el uso y el momento en que el uso se muestra en este informe.
 
 ### <a name="to-view-the-report"></a>Para ver el informe:
 
-1. Inicie sesión en Enterprise Portal.
-1. En el panel de navegación izquierdo, haga clic en **Reports** (Informes).
-1. Haga clic en la pestaña **Usage Summary** (Resumen de uso).
-1. Haga clic en el intervalo de fechas que desee.
+1. Inicie sesión en Azure Enterprise Portal.
+1. Seleccione **Informes** en el panel de navegación izquierdo.
+1. Seleccione la pestaña **Resumen de uso**.
+1. Seleccione el rango de fechas.
 1. Elija qué cuentas o suscripciones desea ver.
-1. Cambie la vista de Charge by Services (Cargo por servicios) o Charge by Hierarchy (Cargo por jerarquía) para mostrar distintos desgloses.
-1. Vea los detalles, incluidos el nombre del servicio, la unidad de medida, las unidades consumidas, la tasa efectiva y el costo extendido.
+1. Como alternativa, puede:
+   - Cambiar la vista entre **Charge by Services** (Cargo por servicios) y **Charge by Hierarchy** (Cargo por jerarquía) para mostrar distintos desgloses.
+   - Ver los detalles, incluidos el nombre del servicio, la unidad de medida, las unidades consumidas, la tasa efectiva y el costo ampliado.
 
 ## <a name="download-csv-reports"></a>Descarga de informes CSV
 
-La página de descarga de informes mensuales permite a los administradores de empresa descargar varios informes como archivos. csv, incluido un informe de saldo y cargos, un informe de detalles de uso, un informe de cargos de Marketplace y una hoja de precios.
+La página de descarga de informes mensuales permite a los administradores de empresa descargar varios informes como archivos CSV. Entre los informes que se pueden descargar se incluyen:
 
-## <a name="to-download-reports"></a>Para descargar informes:
+- Informe de saldo y cargos
+- Informe de detalles de uso
+- Informe de cargos de Azure Marketplace
+- Hoja de precios
 
-1. En Azure EA Portal, haga clic en **Report** (Informe).
+### <a name="to-download-reports"></a>Para descargar informes:
+
+1. En Azure Enterprise Portal, seleccione **Informes**.
 1. Seleccione **Usage Download** (Descarga de uso) en la cinta de opciones superior.
 1. Seleccione **Download** (Descargar) junto al informe del mes correspondiente.
 
+### <a name="csv-report-formatting-issues"></a>Problemas de formato de los informes CSV
 
-
-## <a name="csv-report-formatting"></a>Formato de informe CSV
-
-Los clientes que ven los informes CSV de Azure EA Portal en euros pueden tener problemas de formato relacionados con las comas y los puntos.
+Los clientes que ven los informes CSV de Azure Enterprise Portal en euros pueden tener problemas de formato relacionados con las comas y los puntos.
 
 Por ejemplo, es posible que vea lo siguiente:
 
@@ -217,152 +258,160 @@ Debería ver lo siguiente:
 | --- | --- | --- | --- |
 | Horas | 24 | 0,0535960591133005 | 1,2863054187192120000000 |
 
-### <a name="root-cause"></a>Causa principal
+Este problema de formato se debe a la configuración predeterminada de la funcionalidad de importación de Excel. Excel importa todos los campos como texto "General" y supone que un número está separado con el estándar matemático. Por ejemplo: "1,000.00".
 
-Excel importa todos los campos como texto "general" y supone que un número está separado con el estándar matemático: "1,000.00".  Por lo tanto, una moneda europea que use un punto (.) como separador de miles y una coma (,) como separador de decimales —"1.000, 00"— se mostrará incorrectamente. Esto puede variar en función de la configuración regional del idioma.
+Si una moneda europea use un punto (.) como separador de miles y una coma (,) como separador de decimales, se mostrará incorrectamente. Por ejemplo: "1.000,00". Los resultados de la importación pueden variar en función de la configuración regional del idioma.
 
-### <a name="when-importing-the-csv-use-the-following-steps"></a>Al importar el archivo CSV, siga estos pasos:
+### <a name="to-import-the-csv-file-without-formatting-issues"></a>Para importar el archivo CSV sin problemas de formato:
 
-1.    Abra Excel y vaya a Archivo > Abrir.
-1.    Aparecerá el Asistente para importar texto.
-1.    En Tipo de los datos originales, elija _Delimitados_.  El valor predeterminado es _De ancho fijo_.
-1.    Presione **Siguiente**.
-1.    En Delimitadores, active la casilla de Coma. El valor predeterminado es "Tabulación" (desactive esta casilla).
-1.    Presione **Siguiente**.
-1.    Desplácese a las columnas "ResourceRate" y "ExtendedCost".
-1.    Seleccione la columna "ResourceRate" (aparecerá resaltada en negro).
-9.    En la sección Formato de los datos en columnas, seleccione "Texto" en lugar de "General".  Verá que el encabezado de columna cambia de "General" a "Texto".
-10. Repita los pasos 8 y 9 en la columna "Extended Cost". Seleccione **Finalizar**.
+1. En Microsoft Excel, vaya a **Archivo** > **Abrir**.
+   Aparecerá el Asistente para importar texto.
+1. En **Tipo de los datos originales**, elija **Delimitado**.  El valor predeterminado es **De ancho fijo**.
+1. Seleccione **Next** (Siguiente).
+1. En Delimitadores, active la casilla de **Coma**. Desactive **Tabulación** si está seleccionada.
+1. Seleccione **Next** (Siguiente).
+1. Desplácese a las columnas **Tasa de recursos** y **Coste ampliado**.
+1. Seleccione la columna **Tasa de recursos**. Aparece resaltada en negro.
+1. En la sección **Formato de los datos en columnas**, seleccione **Texto** en lugar de **General**. El encabezado de columna cambiará de **General** a **Texto**.
+1. Repita los pasos 8 y 9 en la columna **Coste ampliado** y seleccione **Finalizar**.
 
-Si tiene Excel asociado para abrir automáticamente archivos \*.csv, debe usar la función "Abrir" en Excel en su lugar. Abra Excel y vaya a Archivo > Abrir.
+> [!TIP]
+> Si ha establecido que los archivos CSV se abran automáticamente en Excel, debe usar la función **Abrir** en Excel en su lugar. En Excel, vaya a **Archivo** > **Abrir**.
 
 ## <a name="balance-and-charge-report"></a>Informe de saldo y cargos
 
-El informe de saldo y cargos ofrece un resumen mensual de información sobre saldos, nuevas compras, gastos de servicios en Azure Marketplace, ajustes y gastos por de uso por encima del límite. Todas las filas de la tabla de resumen del compromiso de servicio de Azure permanecerán estáticas mes a mes, mientras que los detalles de todas las compras y ajustes se mostrarán en las secciones New Purchase Details (Detalles de nuevas compras) y Adjustment Details (Detalles de ajustes).
+El informe de saldo y cargos ofrece un resumen mensual de información sobre saldos, nuevas compras, gastos de servicios en Azure Marketplace, ajustes y gastos por de uso por encima del límite.
+
+Todas las filas de la tabla de resumen Compromiso de servicio de Azure siguen siendo estáticas mes a mes. Encontrará detalles de todas las compras y los ajustes en las secciones **New Purchase Details** (Detalles de nuevas compras) y **Adjustment Details** (Detalles de ajustes).
 
 ### <a name="download-the-balance-and-charge-report"></a>Descarga del informe de saldo y cargos
 
-1. Inicie sesión en Azure EA Portal como administrador de empresa.
-1. En el panel de navegación izquierdo, haga clic en **Reports** (Informes).
-1. Haga clic en la pestaña **Report Download** (Descarga de informes).
-1. Seleccione el mes correspondiente en la columna _Balance and Charge_ (Saldo y cargos) y haga clic para descargar el informe.
+1. Inicie sesión en Azure Enterprise Portal como administrador de empresa.
+1. Seleccione **Informes** en el panel izquierdo.
+1. Seleccione la pestaña **Descargar informe**.
+1. Seleccione el mes correspondiente en la columna **Balance and Charge** (Saldo y cargos) y seleccione para descargar el informe.
 
 ## <a name="usage-detail-report"></a>Informe de detalles de uso
 
-El informe de detalles de uso ofrece un resumen mensual de los servicios y cantidades consumidos por una inscripción, incluida información sobre los nombres de los medidores, los tipos de medidores y las cantidades consumidas.
+El informe de detalles de uso ofrece un resumen mensual del consumo de servicios y cantidades de una inscripción. Incluye información sobre los nombres de medidores, los tipos de medidores y las cantidades consumidas.
 
 ### <a name="download-the-usage-detail-report"></a>Descarga del informe de detalles de uso.
 
-1. Inicie sesión en Azure EA Portal como administrador de empresa.
-1. En el panel de navegación izquierdo, haga clic en **Reports** (Informes).
-1. Haga clic en la pestaña **Download Usage** (Descarga de uso).
-1. Seleccione el mes correspondiente en la columna _Usage Detail_ (Detalles de uso) y haga clic para descargar el informe.
+1. Inicie sesión en Azure Enterprise Portal como administrador de empresa.
+1. Seleccione **Informes** en el panel de navegación izquierdo.
+1. Seleccione la pestaña **Descargar uso**.
+1. Seleccione el mes correspondiente en la columna **Usage Detail** (Detalles de uso) y seleccione para descargar el informe.
 
-## <a name="marketplace-charges-in-azure-ea-portal-reports"></a>Informes de cargos de Marketplace en Azure EA Portal
+## <a name="azure-marketplace-charges-in-azure-enterprise-portal-reports"></a>Cargos de Azure Marketplace en informes de Azure Enterprise Portal
 
-Puede encontrar información adicional sobre cargos de Marketplace [aquí](https://azure.microsoft.com/marketplace/faq/).
-
-Existen dos tipos de cargos de Marketplace:
+Existen dos tipos de cargos de Azure Marketplace:
 
 - **Basado en uso:** productos medidos en unidades transaccionales.  Por ejemplo, las máquinas virtuales se cobran por hora, mientras que las búsquedas de Bing API se cobran según el número de búsquedas.
-- **Precio mensual:** se factura mensualmente según el uso y el acceso.
+- **Precio mensual**: Se factura mensualmente según el uso o el acceso.
 
-Para ver los distintos cargos en Enterprise Portal:
+Para más información sobre los cargos de Azure Marketplace, consulte las [preguntas más frecuentes sobre Azure Marketplace](https://azure.microsoft.com/marketplace/faq/).
 
-1. **Informe de resumen de uso:** muestra **tanto** los cargos de Marketplace de tarifa mensual como los basados en el uso.
-1. **Informe de cargos de Marketplace**: muestra **solo** los cargos de Marketplace basados en el uso.  No se muestran las tarifas puntuales.
+Para ver los distintos cargos en Azure Enterprise Portal:
 
-Tenga en cuenta que Azure Marketplace no está disponible para inscripciones de MPSA.
+- **Usage summary report** (Informe de resumen de uso): Muestra **tanto** los cargos de Azure Marketplace de tarifa mensual como los basados en el uso.
+- **Marketplace charges report** (Informe de cargos de Marketplace): Muestra **solo** los cargos de Azure Marketplace basados en el uso.  No se muestran las tarifas puntuales.
+
+> [!NOTE]
+> Azure Marketplace no está disponible para inscripciones de MPSA.
 
 ## <a name="advanced-report-download"></a>Descarga de informes avanzada
 
-Para los informes de cuentas o intervalos de fechas específicos, se puede usar la descarga de informes avanzados. A partir del 30 de agosto de 2016, el formato del archivo de salida cambia de .xlsx a .csv para alojar conjuntos de registros mayores.
+Para los informes de cuentas o rangos de fechas específicos, puede usar la descarga de informes avanzados. A partir del 30 de agosto de 2016, el formato del archivo de salida es CSV para alojar conjuntos de registros mayores.
 
-1. Seleccione **Advanced Report Download** (Descarga de informes avanzada).
+1. En Azure Enterprise Portal, seleccione **Descarga de informes avanzada**.
 1. Seleccione **Appropriate Date Range** (Intervalo de fechas adecuado).
 1. Seleccione **Appropriate Accounts** (Cuentas adecuadas).
 1. Seleccione **Request Usage Data** (Solicitar datos de uso).
-1. Seleccione el botón **Refresh** (Actualizar) hasta que el estado del informe se actualice a "Download" (Descargar).
+1. Seleccione el botón **Actualizar** hasta que el estado del informe se actualice a **Descargar**.
 1. Descargue el informe.
 
 ## <a name="reporting-for-non-enterprise-administrators"></a>Informes para administradores que no son de empresa
 
-Los administradores de empresa pueden habilitar el acceso para ver los costos de los administradores de departamento y los propietarios de cuenta de una inscripción. Una vez habilitado, un propietario de cuenta puede descargar informes .csv específicos de su cuenta y sus suscripciones, y ver la información visualmente en la sección de informes de Enterprise Portal.
+Los administradores de empresa pueden conceder a los administradores de departamento (DA) y propietarios de cuenta (AO) permisos para ver los cargos en una inscripción. Los propietarios de cuenta con acceso pueden descargar los informes CSV específicos de su cuenta y sus suscripciones. También pueden ver la información de forma visual en la sección de informes de Azure Enterprise Portal.
 
 ### <a name="to-enable-access"></a>Para habilitar el acceso:
 
- 1. Inicie sesión como administrador de empresa.
- 1. Haga clic en **Manage** (Administrar) en el panel de navegación izquierdo.
- 1. Haga clic en la pestaña **Inscripción**.
- 1. En la sección Enrollment Detail (Detalles de inscripción), seleccione el icono de lápiz situado junto a:
-    - DA View Charges (El administrador del departamento ve los cargos)
-    - AO View Charges (El propietario de la cuenta ve los cargos)
+ 1. Inicie sesión en Azure Enterprise Portal como administrador de empresa.
+ 1. Seleccione **Administrar** en el panel de navegación izquierdo.
+ 1. Seleccione la pestaña **Inscripción**.
+ 1. En la sección **Enrollment Detail** (Detalles de inscripción), seleccione el icono de lápiz situado junto a **DA View Charges** (El administrador del departamento ve los cargos) o **AO View Charges** (El propietario de la cuenta ve los cargos).
  1. Seleccione **Habilitado**.
- 1. Haga clic en **Save**(Guardar).
+ 1. Seleccione **Guardar**.
 
 ### <a name="to-view-reports"></a>Para ver informes:
 
-1. Inicie sesión en Azure EA Portal como administrador de departamento o como propietario de cuenta.
-1. En el panel de navegación izquierdo, haga clic en **Reports** (Informes).
-1. Haga clic en la pestaña **Usage Summary** (Resumen de uso) para ver la información de la cuenta y la suscripción visualmente.
-1. Haga clic en **Usage Download** (Descarga de uso) para ver los informes .csv.
+1. Inicie sesión en Azure Enterprise Portal como administrador de departamento o como propietario de cuenta.
+1. Seleccione **Informes** en el panel de navegación izquierdo.
+1. Seleccione la pestaña **Usage Summary** (Resumen de uso) para ver la información de la cuenta y la suscripción visualmente.
+1. Seleccione **Usage Download** (Descarga de uso) para ver los informes CSV.
 
-Los administradores de departamento y los propietarios de cuenta no pueden ver los cargos al usar la función _Advanced Report Download_ (Descarga de informes avanzada). Los costos se muestran como $0.
+Los administradores de departamento y los propietarios de cuenta no pueden ver los cargos al usar la función **Advanced Report Download** (Descarga de informes avanzada). Los costos se muestran como $0.
 
-AO View Charges (El propietario de la cuenta ve los cargos) se extiende a los propietarios de cuenta y a todos los usuarios que tienen permisos en las suscripciones asociadas. Si es un cliente indirecto, el partner de canal debe habilitar las características de costos.
+Los permisos del propietario de la cuenta para ver los cargos se extienden a los propietarios de cuenta y a todos los usuarios que tienen permisos en las suscripciones asociadas. Si es un cliente indirecto, el partner de canal debe habilitar las características de costos.
 
 ## <a name="move-usage-data-to-another-enrollment"></a>Traslado de los datos de uso a otra inscripción
 
 Los datos de uso solo se trasladan cuando se atrasa una transferencia. Hay dos opciones para trasladar los datos de uso de una inscripción a otra:
 
 - Transferencia de cuentas desde una inscripción a otra
-- Transferencia de inscripciones de una inscripción a otra
+- Transferencias de inscripciones de una inscripción a otra
 
 Para cualquiera de las opciones, debe enviar [una solicitud de soporte técnico](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c) al equipo de soporte técnico del Contrato Enterprise para obtener ayuda. 
 
 ## <a name="azure-ea-pricing-overview"></a>Introducción a los precios de Azure EA
 
-En este documento se proporcionan detalles sobre cómo se calcula el uso y se responden muchas de las preguntas más frecuentes sobre los precios de los distintos servicios de Azure en los programas empresariales, donde los cálculos son más complejos.
+En esta sección se proporcionan detalles sobre cómo se calcula el uso. Responde a muchas de las preguntas más frecuentes sobre los cargos de varios servicios de Azure en una Contrato Enterprise, donde los cálculos son más complejos.
 
 ### <a name="price-protection"></a>Protección de precios
 
-Se garantiza que los clientes y los partners de canal (en el caso de los canales indirectos) recibirán precios iguales o inferiores a los indicados en su hoja de precios del cliente o el precio en vigor en la fecha efectiva de su compra de Azure. Este precio se denomina precio base de referencia. En el caso de los servicios introducidos después de esa compra, se trata del precio en vigor en el descuento de nivel aplicable cuando se introdujo el servicio por primera vez. Esta protección de precios es aplicable durante la vigencia del período de compromiso, que puede ser de uno o de tres años, en función del programa empresarial.
+Como cliente o partner de canal, tiene la garantía de recibir precios a los precios que figuran en la hoja de precios del cliente (CPS), o menos, o al precio vigente en la fecha de vigor de la compra de Azure. Este precio se denomina "precio base de referencia". En el caso de los servicios introducidos después de la compra de Azure, se le cobra el precio vigente en el descuento de nivel aplicable cuando se introduce el servicio por primera vez. Esta protección de precios es aplicable durante la vigencia del período de compromiso, de uno o tres años, en función del Contrato Enterprise.
 
 ### <a name="price-changes"></a>Cambios en los precios
 
-Microsoft puede reducir el precio del programa empresarial actual para servicios individuales de Azure durante el período de una inscripción.  Estas tarifas reducidas se extenderán a los clientes existentes, mientras el precio reducido sigue en vigor.  Si posteriormente se aumentan estas tarifas, el precio de la inscripción de un servicio no aumentará más allá del límite superior de la protección de precios del cliente, tal y como se definió anteriormente, pero puede aumentar con respecto al precio reducido anterior.  En cualquier caso, Microsoft informará a los clientes y a los partners de canal indirectos de los próximos cambios en los precios mediante un correo electrónico a los administradores empresariales y de asociados relacionados con la inscripción.
+Microsoft puede reducir el precio del Contrato Enterprise actual para servicios individuales de Azure durante la vigencia de una inscripción. Estas tarifas reducidas se extenderán a los clientes existentes, mientras el precio reducido siga vigente. Si estas tarifas aumentan más adelante, el precio de su inscripción para un servicio no aumentará más allá del límite superior de la protección de precios, tal como se definió anteriormente. Sin embargo, la tasa podría aumentar en relación con el precio reducido anterior. En cualquier caso, informaremos a los clientes y a los partners de canal indirectos de los próximos cambios en los precios mediante un correo electrónico a los administradores de empresa y de partners asociados con la inscripción.
 
 ### <a name="current-effective-pricing"></a>Precios vigentes actuales
 
-Para ver los precios actuales de una inscripción, los clientes y asociados de canal pueden iniciar sesión en [Azure Enterprise Portal](https://ea.azure.com/) y navegar a la página de la hoja de precios de esa inscripción.  Si adquiere Azure indirectamente a través de uno de nuestros partners de canal, deberá obtener las actualizaciones de precios de su partner de canal si este no ha habilitado el marcado de precios para su inscripción.
+Para ver los precios actuales de una inscripción, los clientes y partner de canal pueden iniciar sesión en [Azure Enterprise Portal](https://ea.azure.com/) e ir a la página de la hoja de precios de esa inscripción. Si adquiere Azure indirectamente a través de uno de nuestros partners de canal, deberá obtener las actualizaciones de precios de su partner de canal, a menos que este haya habilitado el marcado de precios para su inscripción.
 
 ### <a name="introduction-of-new-azure-services"></a>Introducción de nuevos servicios de Azure
 
-Estamos mejorando continuamente Azure y agregamos periódicamente nuevos servicios que tienen un precio independiente de los servicios existentes.  Algunos servicios en versión preliminar están disponibles automáticamente, mientras que otros requieren una acción del cliente en el [Portal de cuentas de Azure](https://account.windowsazure.com/PreviewFeatures). Tenga en cuenta también que al pasar los servicios de la versión preliminar a disponibilidad general, los precios pueden aumentar a medida que se aplican acuerdos de nivel de servicio de rendimiento y confiabilidad completos. Por último, algunos servicios se proporcionan con precios promocionales en vigor cuando se introducen por primera vez, que pueden aumentar con posterioridad. Los incrementos de precios promocionales o de versión preliminar a precios de disponibilidad general no están restringidos por la protección de precios base de referencia normal y, en adelante, se aplicarán al uso de esos servicios. Los clientes pueden evitar los cargos relacionados con estos servicios si eligen no usar el nuevo servicio.
+Estamos mejorando continuamente Azure y agregamos periódicamente nuevos servicios que tienen un precio independiente de los servicios existentes. Algunos servicios en versión preliminar están disponibles automáticamente, mientras que otros requieren una acción del cliente en el [portal de cuentas de Azure](https://account.windowsazure.com/PreviewFeatures).
+
+Algunos servicios se proporcionan con precios promocionales en vigor cuando se introducen por primera vez, y pueden aumentar con posterioridad.
+
+A medida que los servicios pasen de la versión preliminar a disponibilidad general (GA), los precios pueden aumentar a medida que se aplican acuerdos de nivel de servicio de rendimiento y confiabilidad completos. Este aumento no está limitado por la protección de precios base normal. El uso de esos servicios se cobra a la tarifa aumentada. Para evitar cargos relacionados con estos nuevos servicios, tendrá que dejar de usarlos.
 
 ### <a name="introduction-of-regional-pricing"></a>Introducción de precios regionales
 
-Además de la introducción de nuevos servicios, los servicios también cambian periódicamente de un único modelo global a otro más regional, a medida que la compatibilidad regional para esos servicios aumenta. Cuando se introduce la regionalización de un servicio por primera vez, se aplica la protección de precios para esas nuevas regiones en comparación con el anterior precio global vigente para la inscripción. Sin embargo, las regiones adicionales introducidas con posterioridad para ese mismo servicio se consideran nuevos servicios y se ofrecen con sus propias tarifas individuales independientes de la protección de precios base de referencia.
+Además de la introducción de nuevos servicios, los servicios también cambian periódicamente de un único modelo global a otro más regional, a medida que aumenta la compatibilidad regional para esos servicios.
 
-### <a name="enterprise-msdn-devtest"></a>Enterprise MSDN para desarrollo y pruebas
+Cuando se introduce la regionalización de un servicio por primera vez, se aplica la protección de precios base para esas nuevas regiones. Sin embargo, si posteriormente se introducen regiones adicionales para ese mismo servicio, se consideran nuevos servicios y se ofrecen con sus propias tarifas individuales independientes de la protección de precios base.
 
-Los administradores de empresa pueden permitir que los propietarios de cuenta creen suscripciones basadas en la oferta de EA MSDN para desarrollo y pruebas. Para que esto funcione correctamente, el propietario de la cuenta tendrá que configurar las suscripciones de EA MSDN para desarrollo y pruebas necesarias para los suscriptores de MSDN subyacentes. Esto permite a los suscriptores activos de MSDN ejecutar cargas de trabajo de desarrollo y pruebas en Azure a tarifas especiales de desarrollo y pruebas. Para más información, consulte [EA MSDN para desarrollo y pruebas](https://azure.microsoft.com/offers/ms-azr-0148p/).
+### <a name="enterprise-devtest"></a>Desarrollo/pruebas - Enterprise
 
-### <a name="enterprise-program-usage-calculation-guidelines"></a>Directrices de cálculo de uso de programas empresariales
+Los administradores de empresa pueden permitir que los propietarios de cuenta creen suscripciones basadas en la oferta Desarrollo/pruebas - Enterprise. El propietario de la cuenta debe configurar las suscripciones de Desarrollo/pruebas - Enterprise necesarias para los suscriptores subyacentes. Esta configuración permite a los suscriptores activos de Visual Studio ejecutar cargas de trabajo de desarrollo y pruebas en Azure a tarifas especiales de Desarrollo/pruebas - Enterprise. Para más información, consulte [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
-Consulte [Servicios de Azure](https://azure.microsoft.com/services/) y [Precios de Azure](https://azure.microsoft.com/pricing/) para ver información pública básica, unidades de medida, preguntas frecuentes y directrices de informes de uso para cada servicio individual. Además, al calcular el uso del servicio, deben usarse las siguientes directrices de programas empresariales.
+## <a name="enterprise-agreement-usage-calculations"></a>Cálculos de uso de Contratos Enterprise
 
-### <a name="enterprise-program-units-of-measure"></a>Unidades de medida de programas empresariales
+Consulte [Servicios de Azure](https://azure.microsoft.com/services/) y [Precios de Azure](https://azure.microsoft.com/pricing/) para obtener información pública básica sobre precios, unidades de medida, preguntas frecuentes y directrices de informes de uso para cada servicio individual. Puede encontrar más información sobre los cálculos de EA en las secciones a continuación.
 
-Las unidades de medida de los programas empresariales suelen ser diferentes de las que se muestran en nuestros otros programas, como el programa del contrato de Microsoft Online Services (MOSA). Esto significa que, para una serie de servicios, se agrega la unidad de medida para proporcionar los precios normalizados. La unidad de medida que se muestra en la vista del resumen de uso de Enterprise Portal siempre es la medida empresarial. En [Nombres descriptivos de servicios](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx), se proporciona una lista completa de las unidades de medida y conversiones actuales de cada servicio.
+### <a name="enterprise-agreement-units-of-measure"></a>Unidades de medida de Contratos Enterprise
+
+Las unidades de medida de los Contratos Enterprise suelen ser diferentes de las que se ven en nuestros otros programas, como el programa del Contrato Microsoft Online Subscription (MOSA). Esta disparidad significa que, para una serie de servicios, se agrega la unidad de medida para proporcionar los precios normalizados. La unidad de medida que se muestra en la vista del resumen de uso de Azure Enterprise Portal siempre es la medida empresarial. En el archivo de Excel [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx), se proporciona una lista completa de las unidades de medida y conversiones actuales de cada servicio.
 
 ### <a name="rounding-rules"></a>Reglas de redondeo
 
-El redondeo en Enterprise Portal utiliza la lógica de redondeo bancario o redondeo gaussiano del estándar IEEE. Esta lógica redondea al dígito par más cercano para los valores de medio dígito, donde las funciones de redondeo hacia arriba típicas siempre redondean los valores medios al siguiente dígito más alto. Este método proporciona una suma total más precisa sobre el grupo en comparación con la lógica de Excel estándar.
+Azure Enterprise Portal sigue la lógica de redondeo bancario o redondeo gaussiano del estándar IEEE. Esta lógica redondea los números a la cifra par más cercana para los valores de medio dígito. La lógica de redondeo más habitual de redondeo de mitad hacia arriba siempre redondea los medios dígitos hacia arriba hasta la siguiente cifra más alta. El método de Azure Enterprise Portal proporciona una suma total más precisa sobre el grupo en comparación con la lógica de Excel estándar.
 
-Cuando el primer dígito que se va a quitar es 5 y después no hay más dígitos o los dígitos siguientes son ceros, el dígito que le precede se convierte en par (es decir, se redondea al dígito par más cercano). Por ejemplo, tanto 2,315 como 2,325 darán 2,32 al redondearse a la centésima más cercana.
+Para ilustrar esto: cuando la primera cifra que se quitará es un 5 y no le sigue ninguna otra cifra o las cifras siguientes son ceros, se redondea a la cifra par más cercana. Por ejemplo: tanto 2,315 como 2,325 redondeados a la centésima más cercana se convierten en 2,32.
 
-Como referencia, al usar Excel para modelar las reglas de redondeo y conversión utilizadas en Enterprise Portal, se deben usar las fórmulas de REDOND.MULT, tal como se muestra a continuación.
+Como referencia, en la tabla siguiente se muestran las fórmulas de Excel que puede usar para modelar las reglas de Azure Enterprise Portal para el redondeo y la conversión:
 
 | Escenario | Fórmula de lógica bancaria |
 | --- | --- |
@@ -370,35 +419,36 @@ Como referencia, al usar Excel para modelar las reglas de redondeo y conversión
 | Redondeo de precios (2 decimales) | =REDOND.MULT({_source_}, 0.02) |
 | Redondeo de precios (0 decimales) | =REDOND.MULT({_source_}, 2) |
 
-**Tabla** **2** **: Conversión de horas de servicios en la nube y máquina virtual**
+### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversión entre el informe de detalles de uso y la página de resumen de uso
 
-### <a name="conversion-between-download-usage-file-and-usage-summary-portal-view"></a>Conversión entre la vista del archivo de uso de descarga y el portal de resumen de uso
+En el informe de descarga de datos de uso, puede ver el uso de recursos sin procesar hasta seis lugares decimales. Sin embargo, los datos de uso que se muestran en Azure Enterprise Portal se redondean hasta cuatro posiciones decimales para las unidades de compromiso y se truncan en cero decimales para las unidades de uso por encima del límite. Los datos de uso sin procesar se redondean primero a cuatro cifras antes de la conversión a las unidades usadas en Azure Enterprise Portal. A continuación, las unidades de Enterprise convertidas se redondean de nuevo a cuatro cifras. Solo puede ver el consumo de horas real antes de la conversión en el informe de uso descargado y no en Azure Enterprise Portal mismo.
 
-Los datos de uso de recursos sin procesar se detallan hasta un máximo de seis posiciones decimales, tal como se puede observar en el informe de datos de uso de descarga. Sin embargo, Azure Enterprise Portal redondea el uso a cuatro posiciones decimales para las unidades de compromiso y trunca a cero decimales para las unidades de uso por encima del límite. El uso sin procesar se redondea primero a cuatro dígitos antes de la conversión a unidad de medida empresarial y las unidades empresariales resultantes se redondean de nuevo a cuatro dígitos. El consumo de horas real antes de la conversión solo se muestra en el informe de uso de descarga y no en la propia interfaz de usuario.
+Por ejemplo: Si se notifican 694,533404 horas reales de SQL Server en el informe de detalles de uso. Estas unidades se convierten en 6,94533404 unidades de 100 horas de proceso, y luego se redondean a 6,9453 y se muestran en Azure Enterprise Portal.
 
-Por ejemplo, supongamos que se notifican 694,533404 horas de SQL Server reales en el informe de uso de descarga. Estas unidades se convierten a continuación en 6,94533404 unidades de 100 horas de proceso que se redondean a 6,9453 para que se muestren en Enterprise Portal.
-
-A continuación, estas unidades simplemente se multiplican por el precio de la unidad de compromiso y el resultado se trunca a dos decimales para determinar el importe de facturación extendido. En el caso del yen japonés (JPY) y el won coreano (KRW), el importe extendido se redondea a cero decimales.
-
-Para este mismo ejemplo de uso por encima del límite, las unidades facturables se truncarían a seis y, a continuación, se multiplicarían por el precio unitario de uso por encima del límite para determinar el importe de facturación extendido. Para la facturación de proveedores de servicios administrados (MSP), todo el uso asociado a un departamento marcado como MSP se trunca a cero decimales después de la conversión a la unidad de medida de EA, al igual que para los informes de uso por encima del límite. Como resultado, la suma de este uso podría ser menor que la suma total de todo el uso indicado en la interfaz de usuario en función de si el MSP todavía se encuentra dentro de su saldo de compromiso monetario o si ya está en uso por encima del límite.
+- Para determinar el importe de facturación ampliado, las unidades mostradas se multiplican por el precio de la unidad de compromiso y el resultado se trunca a dos decimales. En el caso del yen japonés (JPY) y el won coreano (KRW), el importe extendido se redondea a cero decimales.
+- Para el uso por encima del límite, las unidades de facturación se truncarían en seis cifras y, a continuación, se multiplicarían por el precio unitario de uso por encima del límite para determinar el importe de facturación ampliado.
+- Para la facturación de proveedores de servicios administrados (MSP), todo el uso asociado a un departamento marcado como MSP se trunca a cero decimales después de la conversión a la unidad de medida de EA. Como resultado, la suma de este uso podría ser menor que la suma total de todo el uso notificado en Azure Enterprise Portal. Depende de si el MSP está dentro de su saldo de compromiso monetario o está en uso por encima del límite.
 
 ### <a name="graduated-pricing"></a>Precios escalonados
 
-Los precios de los programas empresariales no incluyen precios escalonados (cuando el precio por unidad disminuye a medida que aumenta el uso). Al pasar de un programa MOSA con precios escalonados a un programa empresarial, los precios se establecen de forma acorde con el nivel de base para ese servicio, después de ajustarse a los descuentos del programa empresarial, si procede.
+Los precios de los Contratos Enterprise no incluyen precios escalonados, donde los cargos por unidad disminuyen a medida que aumenta el uso. Al pasar de un programa MOSA con precios graduados a un Contrato Enterprise, los precios se establecen en proporción con el nivel base del servicio menos los ajustes correspondientes para los descuentos del Contrato Enterprise.
 
 ### <a name="partial-hour-billing"></a>Facturación por horas parciales
 
-Todo el uso se factura basándose en minutos convertidos a horas parciales, en lugar de incrementos de horas completas.  Las tarifas empresariales que se muestran como por horas se aplican simplemente al total de horas, incluidas todas las horas parciales.
+Todo el uso facturado se basa en minutos convertidos a horas parciales, y no en incrementos de horas completas. Las tarifas de Enterprise por hora enumeradas se aplican a las horas totales más las horas parciales.
 
 ### <a name="average-daily-consumption"></a>Consumo diario medio
 
-Cuando un servicio tiene un precio mensual, pero el uso se registra diariamente, este uso se evalúa una vez al día, dividiéndose entre 31 y sumándose al número de días del mes de facturación. Esto da como resultado tarifas que nunca son mayores de lo previsto para ningún mes y que son ligeramente inferiores para los meses con menos de 31 días.
+Algunos servicios tienen un precio mensual, pero el uso se informa diariamente. En estos casos, el uso se evalúa una vez al día, se divide entre 31 y se suma según el número de días de ese mes de facturación. Por lo tanto, las tarifas nunca son superiores a lo previsto para ningún mes y son ligeramente inferiores para los meses con menos de 31 días.
 
 ### <a name="compute-hours-conversion"></a>Conversión de horas de proceso
 
-Antes, todo el uso de máquinas virtuales y servicios en la nube básicos y estándar A0, A2, A3 y A4 se emitía en fracciones (para A0) o múltiplos (para A2, A3 y A4) de los minutos del medidor para las máquinas virtuales A1. Esto producía cierta confusión entre nuestros clientes, por lo que se está implementando un cambio para asignar el uso por minuto a medidores dedicados para A0, A2, A3 y A4.
+Antes del 28 de enero de 2016, el uso de servicios en la nube y máquinas virtuales de nivel Básico y Estándar A0, A2, A3 y A4 se emitía como minutos del medidor para las máquinas virtuales A1. Las VM A0 se contaban como fracciones de minutos de VM A1, mientras que las A2, A3 y A4 se convertían en múltiplos. Debido a que esta directiva provocaba cierta confusión entre nuestros clientes, implementamos un cambio para asignar el uso por minuto a medidores dedicados para A0, A2, A3 y A4.
 
-La nueva medición entrará en vigor entre el 27 de enero y el 28 de enero de 2016. En el archivo .csv descargado para la implementación durante este período de transición, observará dos elementos de línea: Uno para el uso emitido en el medidor A1 y otro para el uso emitido en el nuevo medidor dedicado correspondiente al tamaño de la implementación.
+La nueva medición entró en vigor entre el 27 y el 28 de enero de 2016. En la descarga del archivo CSV que muestra el uso durante este período de transición, puede ver ambas:
+
+- Uso emitido en el medidor A1
+- Uso emitido en el nuevo medidor dedicado correspondiente al tamaño de la implementación.
 
 | **Tamaño de la implementación** | **Uso emitido como múltiplo de A1 hasta el 26 de enero de 2016** | **Uso emitido conforme a una medida dedicada a partir del 27 de enero de 2016** |
 | --- | --- | --- |
@@ -409,33 +459,31 @@ La nueva medición entrará en vigor entre el 27 de enero y el 28 de enero de 20
 
 ### <a name="regions"></a>Regions
 
-En el caso de los servicios en los que la zona y la región afectan a los precios, en la tabla siguiente se muestra la asignación de regiones y zonas geográficas:
+En el caso de los servicios en los que la zona y la región afectan a los precios, consulte la tabla siguiente para ver un mapa de las regiones y zonas geográficas:
 
 | Geoárea | Regiones de transferencia de datos | Regiones de CDN |
 | --- | --- | --- |
-| Zona 1 | Norte de Europa <br> Oeste de Europa <br> Oeste de EE. UU. <br> Este de EE. UU. <br> Centro y norte de EE. UU. <br> Centro y Sur de EE. UU. <br> Este de EE. UU. - 2 <br> Centro de EE. UU. | Norteamérica <br> Europa |
-| Zona 2 | Este de Asia Pacífico <br> Sudeste de Asia Pacífico <br> Este de Japón <br> Oeste de Japón <br> Este de Australia <br> Sudeste de Australia | Asia Pacífico <br> Japón <br> América Latina <br> Oriente Medio y África <br> Este de Australia <br> Sudeste de Australia |
+| Zona 1 | Norte de Europa <br> Oeste de Europa <br> Oeste de EE. UU. <br> Este de EE. UU. <br> Centro y norte de EE. UU. <br> Centro y Sur de EE. UU. <br> Este de EE. UU. 2 <br> Centro de EE. UU. | Norteamérica <br> Europa |
+| Zona 2 | Este de Asia Pacífico <br> Sudeste de Asia Pacífico <br> Japón Oriental <br> Japón Occidental <br> Este de Australia <br> Sudeste de Australia | Asia Pacífico <br> Japón <br> América Latina <br> Oriente Medio y África <br> Este de Australia <br> Sudeste de Australia |
 | Zona 3 | Sur de Brasil |   |
 
-**Tabla** **4**  **: Regiones de transferencia de datos**
-
-No hay cargos por la salida de datos entre servicios (por ejemplo, O365 y Azure) hospedados en el mismo centro de datos.
+No hay cargos por la salida de datos entre servicios hospedados en el mismo centro de datos. Por ejemplo, Office 365 y Azure.
 
 ### <a name="monetary-commitment-and-unbilled-usage"></a>Compromiso monetario y uso no facturado
 
-El compromiso monetario de Azure es un importe pagado por adelantado para los servicios de Azure. El compromiso monetario se consume a medida que se usan los servicios. Los servicios propios de Azure utilizan el compromiso monetario. Sin embargo, hay excepciones para los cargos facturados por separado y los servicios de Marketplace.
+El compromiso monetario de Azure es un importe pagado por adelantado para los servicios de Azure. El compromiso monetario se consume a medida que se usan los servicios. La facturación de los servicios propios de Azure utiliza el compromiso monetario. Sin embargo, algunos cargos se facturan por separado, y los servicios de Azure Marketplace no consumen el compromiso monetario.
 
 ### <a name="charges-billed-separately"></a>Gastos facturados por separado
 
-Algunos productos y servicios proporcionados por orígenes de terceros no consumen compromiso monetario de Azure. En su lugar, estos elementos se facturarán por separado como parte de la factura de uso por encima del límite del ciclo de facturación estándar.
+Algunos productos y servicios proporcionados por orígenes de terceros no consumen compromiso monetario de Azure. En su lugar, estos elementos se facturan por separado como parte de la factura de uso por encima del límite del período de facturación estándar.
 
-Hemos combinado todos los cargos de Azure y Marketplace en una sola factura alineada con el ciclo de facturación de la inscripción. (Esto no afecta a los clientes de Australia, Japón o Singapur).
+Hemos combinado todos los cargos de Azure y Azure Marketplace en una sola factura alineada con el período de facturación de la inscripción. La factura combinada no se aplica a los clientes en Australia, Japón ni Singapur.
 
-La factura consolidada mostrará en primer lugar el uso de Azure, seguido de todos los cargos de Marketplace. Los clientes de Australia, Japón o Singapur seguirán viendo los cargos de Marketplace en una factura independiente.
+La factura combinada muestra el uso de Azure en primer lugar, seguido de los cargos de Azure Marketplace. Los clientes de Australia, Japón o Singapur ven los cargos de Azure Marketplace en una factura independiente.
 
-Si no hay uso por encima del límite al final del ciclo de facturación estándar, los cargos independientes se facturarán por separado. (Aplicable a clientes de Australia, Japón y Singapur)
+Si no hay uso por encima del límite al final del período de facturación estándar, los cargos independientes se facturan por separado. Este proceso se aplica a los clientes de Australia, Japón y Singapur.
 
-**Entre los servicios facturados por separado se incluyen los siguientes:**
+Los servicios siguientes se facturan por separado:
 
 - Canonical
 - Citrix XenApp Essentials
@@ -450,223 +498,234 @@ Si no hay uso por encima del límite al final del ciclo de facturación estánda
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace para clientes de EA
 
-Para los clientes directos, los cargos de Marketplace están visibles en Azure EA Portal. Las compras y el consumo de Marketplace se facturarán fuera del compromiso monetario y trimestralmente o mensualmente a pago vencido.
+Para los clientes directos, los cargos de Azure Marketplace se pueden ver en Azure Enterprise Portal. Las compras y los consumos de Azure Marketplace se facturan fuera del compromiso monetario, en plazos mensuales o trimestrales a pago vencido.
 
-Los clientes indirectos pueden encontrar sus suscripciones de Azure Marketplace en la página "Manage Subscriptions" (Administrar suscripciones) de Azure EA Portal, pero no se muestran los precios. Los clientes deben ponerse en contacto con su LSP para obtener información sobre los gastos en Marketplace.
+Los clientes indirectos pueden encontrar sus suscripciones a Azure Marketplace en la página **Administrar suscripciones** de Azure Enterprise Portal, pero no se muestran los precios. Los clientes deben ponerse en contacto con su Proveedor de soluciones de licencia (LSP) para obtener información sobre los cargos en Azure Marketplace.
 
-Por las nuevas compras de Marketplace periódicas, mensuales o anuales, se facturará la cantidad total del período en el que se compraron los artículos de Marketplace. Estos artículos se renovarán automáticamente en el siguiente período el mismo día de la compra original.
+Las nuevas compras periódicas mensuales o anuales de Azure Marketplace se facturan por completo durante el período en que se compran los elementos de Azure Marketplace. Estos artículos se renovarán automáticamente en el siguiente período el mismo día de la compra original.
 
-Esto no afectará a los cargos periódicos actuales de Marketplace. Los cargos periódicos mensuales continuarán renovándose el primer día de cada mes natural y los cargos anuales se renovarán en el aniversario de la fecha de compra.
+Los cargos periódicos mensuales existentes se seguirán renovando el primero de cada mes calendario. Los cargos anuales se renovarán en el aniversario de la fecha de compra.
 
-Algunos servicios de terceros revendedores disponibles en Azure Marketplace ahora consumen el saldo del compromiso monetario del Contrato Enterprise. Antes, estos servicios se facturaban por separado, fuera del compromiso monetario de EA. El compromiso monetario de EA para estos servicios de Marketplace simplifica las compras para los clientes y la administración de los pagos. Para ver una lista completa de los servicios que actualmente consumen compromiso monetario, consulte el [sitio web de Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/?WT.mc_id=azurebg_email_Trans_33771_1695_Release_Direct_Tier2_March14).
+Algunos servicios de terceros revendedores disponibles en Azure Marketplace ahora consumen el saldo del compromiso monetario del Contrato Enterprise (EA). Antes, estos servicios se facturaban por separado, fuera del compromiso monetario de EA. El compromiso monetario de EA para estos servicios de Azure Marketplace simplifica las compras y la administración de los pagos para los clientes. Para ver una lista completa de los servicios que actualmente consumen compromiso monetario, consulte la [actualización del 6 de marzo de 2018 en el sitio web de Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 ### <a name="partners"></a>Asociados
 
-Los LSP pueden descargar una lista de precios específica de Marketplace. Para ello, vaya a la hoja de precios en Azure EA Portal y haga clic en el vínculo **Marketplace Price list** (Lista de precios de Marketplace) en la esquina superior derecha. La lista de precios de Marketplace reflejará todos los servicios disponibles y sus precios.
+Los LSP pueden descargar una lista de precios de Azure Marketplace en la página de la hoja de precios en Azure Enterprise Portal. Seleccione el vínculo **Lista de precios de Marketplace** en la esquina superior derecha. La lista de precios de Azure Marketplace muestra todos los servicios disponibles y sus precios.
 
-**Para descargar la lista de precios, siga estos pasos:**
+Para descargar la hoja de precios:
 
-1. Vaya a Reports > Price Sheet (Informes > Hoja de precios).
+1. En Azure Enterprise Portal, vaya a **Informes** > **Hoja de precios**.
 1. En la esquina superior derecha, busque el vínculo a la lista de precios de Azure Marketplace debajo de su nombre de usuario.
-1. Haga clic con el botón derecho en el vínculo y, después, en **Guardar destino como**.
-1. En la ventana Guardar, cambie el título del documento a _AzureMarketplacePricelist.zip_, que cambiará el archivo de xlsx a un archivo zip.
-1. Una vez completada la descarga, tendrá un archivo zip con listas de precios específicas del país.
-1. Los LSP deben hacer referencia al archivo individual del país para obtener los precios específicos del país. Los LSP deben usar la pestaña "Notifications" (Notificaciones) para ver las SKU nuevas netas de Marketplace, así como las SKU que se han quitado.
-1. Los cambios en los precios no serán frecuentes pero, cuando se produzcan, se notificará a los LSP los aumentos en los precios y los cambios en las características con 30 días de antelación por correo electrónico.
-1. Los LSP recibirán una factura por inscripción, por ISV y por trimestre.
+1. Haga clic con el botón derecho en el vínculo y seleccione **Guardar destino como**.
+1. En la ventana **Guardar**, cambie el título del documento a `AzureMarketplacePricelist.zip`, que cambiará el archivo de .xlsx a .zip.
+1. Después de completada la descarga, tendrá un archivo ZIP con listas de precios específicas del país.
+1. Los LSP deben hacer referencia al archivo individual del país para obtener los precios específicos del país. Los LSP pueden usar la pestaña **Notificaciones** para estar al tanto de las SKU que son nuevas o retiradas.
+1. Los cambios de precio son poco frecuentes. Los LSP reciben notificaciones por correo electrónico de los aumentos de precios y las variaciones en los tipos de cambio (FX) con 30 días de antelación.
+1. Los LSP reciben una factura por inscripción, por ISV y por trimestre.
 
-### <a name="enabling-marketplace-purchases"></a>Habilitar compras en Marketplace
+### <a name="enabling-azure-marketplace-purchases"></a>Habilitación de compras en Azure Marketplace
 
-Los administradores de empresas tienen la capacidad de "deshabilitar" o "habilitar" las compras de Marketplace para todas las suscripciones de Azure de la inscripción. Si el administrador de empresa deshabilita las compras y hay suscripciones de Azure que ya tienen suscripciones a Marketplace, esas suscripciones a Marketplace no se cancelarán ni se verán afectadas.
+Los administradores de empresa pueden deshabilitar o habilitar las compras de Azure Marketplace para todas las suscripciones de Azure en su inscripción. Si el administrador de empresa deshabilita las compras, y hay suscripciones de Azure que ya tienen suscripciones a Azure Marketplace, esas suscripciones a Azure Marketplace no se cancelarán ni se verán afectadas.
 
-Aunque los clientes pueden convertir sus suscripciones de Azure directas a EA asociándolas a su inscripción en Azure EA Portal, esta acción no convierte automáticamente las suscripciones de Marketplace secundarias.
+Aunque los clientes pueden convertir sus suscripciones de Azure directas en Azure EA si las asocian a su inscripción en Azure Enterprise Portal, esta acción no convierte automáticamente las suscripciones secundarias.
 
-**Para habilitar compras en Marketplace:**
+Para habilitar compras en Azure Marketplace:
 
-1. Inicie sesión en Azure EA Portal como administrador de empresa.
-1. Vaya a _Manage_ (Administrar).
-1. En _Enrollment Detail_ (Detalles de la inscripción), haga clic en el icono de lápiz situado junto al elemento de línea _Azure Marketplace_
-1. Cambie entre _Enabled/Disabled_ (Habilitado/deshabilitado) o _BYOL Free SKUs Only\*_ (Solo SKU BYOL o libres), según corresponda.
-1. Haga clic en **Save**(Guardar).
+1. Inicie sesión en Azure Enterprise Portal como administrador de empresa.
+1. Vaya a **Administrar**.
+1. En **Enrollment Detail** (Detalles de la inscripción), seleccione el icono de lápiz situado junto al elemento de línea **Azure Marketplace**.
+1. Cambie entre **Habilitado/Deshabilitado** o **Solo SKU BYOL o libres**, según corresponda.
+1. Seleccione **Guardar**.
 
-### <a name="marketplace-charges-in-azure-ea-portal-reports"></a>Informes de cargos de Marketplace en Azure EA Portal
+> [!NOTE]
+> Las opciones BYOL (traiga su propia licencia) y solo gratis limitan la compra y adquisición de SKU de Azure Marketplace a solo SKU BYOL y gratuitas.
 
-Puede encontrar información adicional sobre cargos de Marketplace [aquí](https://azure.microsoft.com/marketplace/faq/).
+Obtenga más información sobre [Cargos de Azure Marketplace en informes de Azure Enterprise Portal](#azure-marketplace-charges-in-azure-enterprise-portal-reports).
 
-Existen dos tipos de cargos de Marketplace:
+### <a name="services-billed-hourly-for-azure-ea"></a>Servicios facturados por horas para Azure EA
 
-- **Basados en el uso:** los productos se miden en unidades transaccionales.  Por ejemplo, las máquinas virtuales se cobran por hora, mientras que las búsquedas de Bing API se cobran según el número de búsquedas.
-- **No basados en el uso:** cargo único o tarifa mensual periódica independiente del uso.
+Los siguientes servicios se facturan por horas en un Contrato Enterprise, en lugar de la tarifa mensual de MOSP:
 
-Tanto los cargos basados en el uso como los no basados en el uso se recogerán en el informe de cargos de Marketplace.
+- Red de entrega de aplicaciones
+- Firewall de aplicaciones web
 
-Tenga en cuenta que Azure Marketplace no está disponible para inscripciones de MPSA.
+### <a name="azure-remoteapp"></a>Azure RemoteApp
 
-\*Las opciones BYOL (traiga su propia licencia) y solo gratis limitarían la compra y adquisición de SKU de Azure Marketplace a BYOL y solo SKU gratuitas.
+Si tiene un Contrato Enterprise, paga por Azure RemoteApp según el nivel de precios del Contrato Enterprise. No existen cargos adicionales. El precio estándar incluye 40 horas iniciales. El precio ilimitado cubre 80 horas iniciales. RemoteApp deja de emitir el uso por encima de las 80 horas.
 
-### <a name="services-billed-hourly-for-ea"></a>Servicios facturados por horas para EA
+## <a name="azure-marketplace-faq"></a>P+F sobre Azure Marketplace
 
-La red de entrega de aplicaciones y el firewall de aplicaciones web se facturan por horas para EA, frente a la tarifa mensual en MOSP.
+En esta sección se explica cómo se puede aplicar su compromiso monetario de Azure a algunos servicios de terceros revendedores en Azure Marketplace.
 
-### <a name="remote-app"></a>Aplicación remota
+### <a name="what-changed-with-azure-marketplace-services-and-ea-monetary-commitment"></a>¿Qué ha cambiado con los servicios de Azure Marketplace y el compromiso monetario de EA?
 
-Los clientes de EA pagan por la aplicación remota en función de su nivel de precios de EA y no se les cobra adicionalmente. El precio estándar incluye 40 horas iniciales, mientras que el precio ilimitado cubre 80 horas iniciales. La aplicación remota deja de emitir uso más allá de 80 horas.
+A partir del 1 de marzo de 2018, algunos servicios de terceros revendedores consumen el compromiso monetario (MC) de EA. A excepción de las instancias reservadas (RI) de VM de Azure, los servicios se facturaban antes fuera del compromiso monetario de EA y se facturaban por separado.
 
-## <a name="azure-marketplace-faq"></a>Preguntas frecuentes sobre Azure Marketplace
+Ampliamos el uso del compromiso monetario para incluir ahora algunos de los servicios de Azure Marketplace publicados por terceros que se compran con más frecuencia. El compromiso monetario de EA para estos servicios de Azure Marketplace simplifica las compras y la administración de los pagos.
 
-En este documento de preguntas frecuentes se revisan las actualizaciones de la aplicación del compromiso monetario de Azure a algunos servicios de terceros publicados en Azure Marketplace.
+### <a name="why-did-we-make-this-change"></a>¿Por qué hemos realizado este cambio?
 
-### <a name="what-are-we-changing-with-respect-to-marketplace-services-and-azure-monetary-commitment"></a>¿Qué se está cambiando con respecto a los servicios de Marketplace y al compromiso monetario de Azure?
+Los clientes buscan continuamente otras formas de aprovechar el pago por adelantado de MC. Los clientes solicitaron este cambio a menudo, y afectó a una gran parte de los clientes de Azure Marketplace.
 
-Además de las instancias reservadas de máquina virtual de Azure, los clientes reciben una factura independiente por todos los servicios que compran en Azure Marketplace. Estamos expandiendo el uso del compromiso monetario de Azure para incluir ahora algunos de los servicios de Azure Marketplace publicados por terceros que los clientes compran con más frecuencia.
+### <a name="how-do-you-benefit"></a>¿En qué se beneficia?
 
-### <a name="why-are-we-making-this-change"></a>¿Por qué se realiza este cambio?
+Obtiene una experiencia de facturación más sencilla y podrá gastar mejor su compromiso monetario de EA. Dado que estos servicios se incluyen en el compromiso monetario de prepago, el compromiso monetario de EA es más valioso.
 
-Los clientes buscan continuamente nuevas maneras de aprovechar el pago por adelantado que han realizado en forma de compromiso monetario de Azure.  Abordamos una solicitud frecuente de los clientes, que atañe a una gran parte de nuestros clientes de Azure Marketplace al expandir el compromiso monetario a estos servicios.
+### <a name="what-azure-marketplace-services-use-ea-monetary-commitment-and-how-do-i-know"></a>¿Qué servicios de Azure Marketplace usan el compromiso monetario de EA y cómo lo averiguo?
 
-### <a name="what-is-the-customer-benefit"></a>¿Cuál es la ventaja para el cliente?
+Cuando compra un servicio que usa compromiso monetario, Azure Marketplace presenta una declinación de responsabilidades. Se admiten algunos servicios publicados por Red Hat, SUSE, Autodesk y Oracle. Actualmente, los servicios con el mismo nombre publicados por otros terceros no se deducen del compromiso monetario. Al final de esta sección de preguntas frecuentes encontrará una lista completa.
 
-Los clientes obtienen una experiencia de facturación más sencilla y la capacidad de asegurarse de que emplean su compromiso monetario de Azure.  Mediante la adición de esta ventaja para el compromiso monetario prepagado y las instancias reservadas de máquina virtual que usan el compromiso monetario, el compromiso monetario de Azure cobra aún más valor.
+### <a name="what-if-my-ea-monetary-commitment-runs-out"></a>¿Qué ocurre si se agota mi compromiso monetario de EA?
 
-### <a name="what-services-will-deduct-from-azure-monetary-commitment-and-how-will-my-customer-know"></a>¿Qué servicios se deducirán del compromiso monetario de Azure y cómo lo sabrá mi cliente?
+Si consume todo su compromiso monetario y pasa a uso por encima del límite, los cargos relacionados con estos servicios aparecerán en la próxima factura de uso por encima del límite, junto con cualquier otro servicio de consumo. Antes del cambio del 1 de marzo de 2018, estos cargos se facturaban con otros servicios de Azure Marketplace.
 
-Durante la experiencia de compra de Azure Marketplace, se distinguirá cada servicio que utilizará compromiso monetario con un aviso. Entre los editores admitidos actualmente se incluyen determinados servicios publicados por Red Hat, SUSE, Autodesk y Oracle. Los servicios que tienen convenciones de nomenclatura similares pero que publican otras partes no identificadas anteriormente no se deducirán del compromiso monetario. Al final de esta sección de preguntas frecuentes encontrará una lista completa.
+### <a name="why-dont-all-azure-marketplaces-consume-ea-monetary-commitment"></a>¿Por qué no todas las instancias de Azure Marketplace consumen compromiso monetario de EA?
 
-### <a name="what-if-my-customer-runs-out-of-monetary-commitment"></a>¿Qué ocurre si mi cliente se queda sin compromiso monetario?
-
-En el caso de los clientes que hayan consumido todo su compromiso monetario y ahora estén en uso por encima del límite, los cargos relacionados con estos servicios aparecerán en la próxima factura de uso por encima del límite junto con cualquier otro servicio de consumo.  Esto supone un cambio, ya que anteriormente se habrían facturado estos cargos en su propia factura con otras ofertas de Azure Marketplace.
-
-### <a name="why-are-we-not-enabling-azure-monetary-commitment-for-all-marketplace-purchases"></a>¿Por qué no se habilita el compromiso monetario de Azure para todas las compras de Marketplace?
-
-Trabajamos con frecuencia para ofrecer la mejor experiencia de cliente relacionada con el compromiso monetario de Azure. Este cambio afectará a un gran número de clientes y a una parte importante del gasto total en Azure Marketplace. Es posible que se agreguen otros servicios en el futuro.
+Hacemos lo posible por ofrecer la mejor experiencia de cliente relacionada con el compromiso monetario de EA. Este cambio afectó un gran número de clientes y a una parte importante del gasto total en Azure Marketplace. Es posible que se agreguen otros servicios en el futuro.
 
 ### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>¿Cómo afecta esto a la inscripción indirecta y los asociados?
 
-Nuestros asociados o clientes de inscripciones indirectas no se verán afectados. Estos servicios están sujetos a las mismas funcionalidades de marcado de asociados que otros servicios de consumo. El único cambio será la factura en la que aparecen y el pago de los cargos con compromiso monetario.
+Nuestros asociados o clientes de inscripciones indirectas no se verán afectados. Estos servicios están sujetos a las mismas funcionalidades de marcado de asociados que otros servicios de consumo. El único cambio es que los cargos aparecen en una factura diferente, y el pago de los cargos queda fuera del compromiso monetario de EA del cliente.
 
-### <a name="list-of-services-that-will-deduct-from-azure-monetary-commitment"></a>Lista de servicios que se deducirán del compromiso monetario de Azure
+### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-ea-monetary-commitment"></a>¿Hay una lista de servicios de Azure Marketplace que consumen compromiso monetario de EA?
 
-Algunas ofertas específicas de Azure Marketplace pueden usar fondos de un compromiso monetario. Vea el [compromiso monetario de Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) para obtener una lista completa de productos que participan en este programa.
-
-## <a name="additional-information"></a>Información adicional
-
-Para más información, consulte estas fuentes adicionales. Estos archivos se actualizan dos veces al mes, los días 6 y 20. Los detalles de cada archivo son los siguientes:
-
-| Título del apéndice | Descripción | Convención de nomenclatura de URL |
-| --- | --- | --- |
-| [**Nombres descriptivos de servicios**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Proporciona una lista de todos los servicios activos con la categoría de servicio, el nombre descriptivo del servicio, el nombre del compromiso y el número de artículo, el nombre de consumo y el número de artículo, las unidades de medida y los factores de conversión entre el uso indicado y el uso mostrado en Enterprise Portal. | Friendly\_Service\_Names.xlsx |
-| [**Campos de descarga de servicio**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta hoja de cálculo proporciona una lista de todas las posibles combinaciones de campos relacionados con el servicio del informe de descarga de uso. | Service\_Download\_Fields.xlsx |
-
-**Table** **5** **: Fuentes de información adicionales**
+Algunas ofertas específicas de Azure Marketplace pueden usar fondos del compromiso monetario. Consulte los [servicios de terceros que usan compromiso monetario](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) para obtener una lista completa de productos que participan en este programa.
 
 ## <a name="power-bi-reporting"></a>Informes de Power BI
 
+Los informes de Power BI están disponibles para clientes directos, asociados e indirectos de Contrato Enterprise que tengan acceso a la información de facturación.
+
 ### <a name="power-bi-pro"></a>Power BI Pro
 
-Power BI Pro ahora está disponible para los clientes de EA. Con Power BI Pro, puede generar y compartir informes para administrar de forma eficaz datos de costos, con características adicionales de colaboración y actualización de datos. Power BI Pro ofrece mayor capacidad de datos y límites de streaming de datos. Próximamente se incluirán nuevas características de administración de costos para los clientes de Azure Enterprise.
+Power BI Pro está disponible para los clientes de EA. Con Power BI Pro, puede generar y compartir informes para administrar de forma eficaz datos de costos. También tiene características adicionales de colaboración y de actualización de datos. Power BI Pro ofrece mayor capacidad de datos y límites de streaming de datos.
 
-Los actuales usuarios de Power BI Free que tengan el paquete de contenido de Microsoft Azure Consumption Insights pueden usar la versión de evaluación gratuita de 60 días de Power BI Pro. Si desea seguir usando Power BI Pro después de la evaluación gratuita, puede agregar una licencia para ello.
+<!--We plan to add new cost management features for Azure Enterprise customers.
 
-Para suscribirse a la evaluación gratuita, vaya al icono de engranaje y seleccione **Administrar almacenamiento personal**. A continuación, seleccione **Probar Power BI Pro gratis** a la derecha. Consulte [Registro de autoservicio en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-self-service-signup-for-power-bi/#power-bi-pro-60-day-trial) para obtener más información sobre la evaluación gratuita de Power BI Pro.
+Current Power BI (free) users who use the Microsoft Azure Consumption Insights content pack can get a 60-day free trial of Power BI Pro. After the trial is over, you can continue using Power BI Pro by adding a license.
 
-### <a name="microsoft-azure-ea-power-bi-pro-trial-terms"></a>Términos y condiciones de la prueba de Power BI Pro de Microsoft Azure EA
+To sign up for the free Power BI Pro trial:
 
-- **Uso general**: la versión extendida de Power BI Pro para la oferta de evaluación del paquete de contenido "Microsoft Azure Enterprise" (la "Oferta") está disponible para los usuarios cualificados existentes durante el período de la Oferta, para permitirles acceder a cierta información relacionada con el consumo de Microsoft Azure mediante el uso de un paquete de contenido de Power BI específico.
-- **Requisitos**: los usuarios con un Contrato Enterprise (EA) pueden participar en la Oferta si tienen una función relacionada con la facturación, el servicio o la administración de costos de Microsoft Azure de su organización.
-- **Exclusiones**:
-  - los usuarios que ya participan en la evaluación de Power BI Pro extendida seguirán incluyéndose en la oferta existente anteriormente y no podrán optar a la oferta de evaluación de Power BI Pro de Azure EA.
-  - Los usuarios que participan en la oferta solo pueden usar Power BI Pro con el paquete de contenido de Microsoft Azure Enterprise. Se prohíbe cualquier otro uso de Power BI Pro.
-  - Vigencia: la Oferta comenzará el 1 de junio de 2017 y terminará el 31 de mayo de 2018.  La aceptación puede producirse en cualquier momento durante el período de 12 meses, aunque la oferta terminará el 31 de mayo de 2018 para todos los usuarios, independientemente de en qué momento hayan aceptado la Oferta.
+1. From the gear icon in Power BI, select **Manage personal storage**.
+1. Select **Try Pro for free** on the right.
 
-### <a name="to-access-the-microsoft-azure-consumption-insights-content-pack"></a>Para acceder al paquete de contenido de Microsoft Azure Consumption Insights:
+See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/powerbi-service-self-service-signup-for-power-bi/#power-bi-pro-60-day-trial) for more information on the Power BI Pro free trial.
 
-1. Vaya a [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Haga clic en **Obtenerlo ahora**.
-1. Proporcione el número de inscripción y el número de meses. Haga clic en **Next**.
-1. Proporcione la clave de acceso de la API para conectarse. Puede encontrar la clave de la inscripción en [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Haga clic en **Iniciar sesión**.
-1. El proceso de importación se iniciará automáticamente. Cuando haya finalizado, aparecerá un nuevo panel, informe y modelo en el panel de navegación. Haga clic en el panel para ver los datos importados.
+### Azure EA Power BI Pro trial terms
 
-Para más información sobre cómo generar la clave de API para su inscripción, visite el archivo de ayuda de API Reports en [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Para más información sobre el nuevo paquete de contenido, consulte [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
+- **General purpose**: The extended Power BI Pro for the "Microsoft Azure Enterprise" content pack trial offer (the "Offer") is available to existing qualified users during the term of the Offer, to allow them to access certain insights related to their Azure consumption through the use of a specific Power BI content pack.
+- **Eligibility**: Users under an Enterprise Agreement (EA) can participate in the Offer if they have a function related to their organization's Azure billing, service, or cost management.
+- **Exclusions**:
+  - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
+  - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
+  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
+  -->
+
+### <a name="to-access-microsoft-azure-consumption-insights"></a>Para acceder a Microsoft Azure Consumption Insights:
+
+1. Vaya a [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Seleccione **Obtenerla ahora**.
+1. Proporcione un número de inscripción y el número de meses y, a continuación, seleccione **Siguiente**.
+1. Proporcione la clave de acceso de la API para conectarse. Puede encontrar la clave para la inscripción en [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Seleccione **Iniciar sesión** para iniciar automáticamente el proceso de importación.
+1. Cuando haya finalizado, aparecerán un nuevo panel de información, un informe y un modelo en el panel de navegación. Seleccione el panel de información para ver los datos importados.
+
+> [!TIP]
+> 
+> - Para obtener más información sobre cómo generar la clave de API para su inscripción, consulte el archivo de ayuda de API Reports en [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+> - Para obtener más información sobre cómo conectar Power BI al consumo de Azure, consulte [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 
 ### <a name="to-access-the-legacy-power-bi-ea-content-pack"></a>Para acceder al paquete de contenido de EA de Power BI heredado:
 
- 1. Vaya al [sitio web de Power BI](https://app.powerbi.com/getdata/services/azure-enterprise).
- 1. Inicie sesión con una cuenta profesional o educativa válida.
-    - La cuenta profesional o educativa puede ser la misma o distinta de la que se usa para acceder a la inscripción mediante Azure EA Portal.
- 1. En el panel de servicios, seleccione **Microsoft Azure Enterprise** y haga clic en **Conectar**.
- 1. En la pantalla "Conectar con Azure Enterprise", elija:
-    - Dirección URL del entorno de Azure: [https://ea.azure.com](https://ea.azure.com/).
-    - Número de meses: elija entre 1 y 36.
-    - Número de inscripción: escriba el número de inscripción.
-    - Haga clic en **Next**.
- 1. Escriba la clave de API en el cuadro Clave de autenticación. Puede obtener la clave de API aquí en Azure Enterprise Portal en la pestaña "Download Usage" (Descargar uso) de arriba; para ello, haga clic en "API Access Key" (Clave de acceso de la API).
-    - Copie y pegue la clave en el cuadro "Clave de cuenta".
- 1. Los datos tardarán aproximadamente de 5 a 30 minutos en cargarse en Power BI, según el tamaño de los conjuntos de datos.
+1. Vaya al [sitio web de Power BI](https://app.powerbi.com/getdata/services/azure-enterprise).
+1. Inicie sesión con una cuenta profesional o educativa válida.
 
-Los informes de Power BI están disponibles para clientes directos, asociados e indirectos de Contrato Enterprise que tengan acceso a la información de facturación.
+   La cuenta profesional o educativa puede ser la misma o distinta de la que usa para tener acceso a la inscripción mediante Azure Enterprise Portal.
+1. En el panel de servicios, seleccione **Microsoft Azure Enterprise** y, luego, **Conectar**.
+1. En la pantalla **Conectar con Azure Enterprise**, rellene los campos:
+    - Dirección URL del entorno de Azure: [https://ea.azure.com](https://ea.azure.com/)
+    - Número de meses: de 1 a 36
+    - Número de inscripción: el número de inscripción
+1. Seleccione **Next** (Siguiente).
+1. En el cuadro **Clave de autenticación**, escriba la clave de API.
 
-## <a name="report-faq"></a>Preguntas frecuentes sobre informes
+    Puede obtener la clave de API en Azure Enterprise Portal, en la pestaña **Descargar uso**. Seleccione **API Access Key** (Clave de acceso de la API) y, a continuación, pegue la clave en el cuadro **Clave de cuenta**.
+1. Los datos tardarán aproximadamente de 5 a 30 minutos en cargarse en Power BI, según el tamaño de los conjuntos de datos.
 
-En esta sección del artículo se responden preguntas frecuentes relacionadas con la interpretación de informes.
+## <a name="reports-faq"></a>Preguntas más frecuentes sobre informes
+
+En esta sección se tratan las preguntas comunes sobre los informes.
 
 ### <a name="why-is-my-cost-showing-as-0"></a>¿Por qué se muestra el costo como $0?
 
-**Inscripción directa** Si es propietario de cuenta o administrador de departamento, póngase en contacto con su administrador de EA para habilitar la característica de precios:
+Por los clientes de **inscripción directa**, los administradores de empresa pueden proporcionar a los propietarios de la cuenta y administradores de departamento acceso a la información de costos y precios en los informes de uso. Siga estos pasos:
 
-1. Haga clic en **Manage** (Administrar) en el panel de navegación izquierdo.
-1. Haga clic en el lápiz azul que hay junto a DA View Charges (El administrador del departamento ve los cargos).
+1. En Azure Enterprise Portal, seleccione **Administrar** en el panel de navegación izquierdo.
+1. Seleccione el lápiz azul que hay junto a DA View Charges (El administrador del departamento ve los cargos).
 1. Seleccione **Enabled** (Habilitado) y guarde.
-1. Haga clic en el lápiz azul que hay junto a AO View Charges (El propietario de la cuenta ve los cargos).
+1. Seleccione el lápiz azul que hay junto a AO View Charges (El propietario de la cuenta ve los cargos).
 1. Seleccione **Enabled** (Habilitado) y guarde.
 
-Esta acción proporcionará a los propietarios de cuenta y administradores de departamento acceso a la información de costos y precios en los informes de uso.
+> [!NOTE]
+> Si es propietario de la cuenta o administrador de departamento, póngase en contacto con su administrador de empresa para habilitar la característica de precios.
 
-**Inscripción indirecta** Consulte con su asociado que haya habilitado la característica de precios. Esto solo puede hacerlo el asociado y, una vez que haya activado la característica, podrá ver el costo y los precios de la inscripción como administrador de EA.
+Para los clientes de **inscripción indirecta**, consulte con su partner para comprobar que haya habilitado la característica de precios por usted. Esto solo lo puede realizar el partner. Una vez habilitado, puede ver los costos y los precios de su inscripción como administrador de empresa.
 
-Si desea habilitar la característica de visualización de cargos para sus propietarios de cuenta y administradores de departamento, siga los pasos anteriores que se indican en **Inscripción directa**.
+Si un partner desea habilitar la característica para ver los cargos para un administrador de la cuenta o administrador de departamento, debe seguir los pasos descritos en **inscripción directa**.
 
-### <a name="there-is-no-sku-information-on-the-usage-detail-report"></a>No hay información de SKU en el informe de detalles de uso
+### <a name="why-is-there-no-sku-information-on-my-usage-detail-report"></a>¿Por qué no hay información de SKU en el informe de detalles de uso?
 
-El informe de detalles de uso no tiene información de SKU; sin embargo, podrá ver la información de servicio utilizada en el informe. Después, puede descargar el informe de la hoja de precios para obtener la información de SKU.
+El informe de detalles de uso no contiene información de SKU. Sin embargo, el informe sí contiene información de uso para que pueda descargar el informe de la hoja de precios para obtener la información de las SKU.
 
-### <a name="the-total-amount-on-marketplace-does-not-match-on-usage-summary-and-csv-report"></a>El importe total en Marketplace no coincide en el resumen de uso y en el informe de CSV
+### <a name="why-doesnt-the-total-amount-on-azure-marketplace-match-the-reports-for-usage-summary-and-detail"></a>¿Por qué la cantidad total en Azure Marketplace no coincide con los informes de resumen y detalles de uso?
 
-El informe de cargos de Marketplace muestra solo los cargos de Marketplace basados en el uso. No se muestran las tarifas puntuales. Puede consultar la página de resumen de uso para ver los usos más actualizados de los cargos basados en el uso y las tarifas puntuales.
+El informe de cargos de Azure Marketplace muestra solo los cargos basados en el uso. No se muestran las tarifas puntuales. Consulte la página de resumen de uso para ver los cargos más actualizados basados en el uso y las tarifas puntuales.
 
-### <a name="there-is-no-information-on-my-api-report"></a>El informe de API no tiene información
+### <a name="why-is-there-no-information-on-my-api-report"></a>¿Por qué no hay información en el informe de la API?
 
-Las claves de API expiran cada seis meses. Genere una nueva clave de API si está experimentando un problema. También es importante solicitar al administrador de EA que genere las nuevas claves de API y siga los pasos que se describen en las preguntas frecuentes sobre informes de API.
+Las claves de API expiran cada seis meses. Si tiene algún problema, un administrador de empresa debe generar una nueva clave de API. Recuerde seguir los pasos descritos en las preguntas más frecuentes sobre informes de API.
 
-### <a name="my-power-bi-report-isnt-working"></a>Mi informe de Power BI no funciona
+### <a name="why-isnt-my-power-bi-report-working"></a>¿Por qué mi informe de Power BI no funciona?
 
-Si tiene algún problema con Power BI, registre un vale de soporte técnico con el equipo de Power BI en [https://support.powerbi.com](https://support.powerbi.com)para que el equipo pueda ayudarle.
+Si tiene problemas con Power BI, registre un vale en el [equipo de Soporte técnico de Power BI](https://support.powerbi.com).
 
-### <a name="my-resource-tags-arent-showing-up-on-my-reports"></a>Mis etiquetas de recursos no aparecen en mis informes
+### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>¿Por qué las etiquetas de recursos no aparecen en mis informes?
 
-Las etiquetas de recursos se administran en Azure Portal. Puede ponerse en contacto con el equipo de suscripciones de Azure en [https://portal.azure.com](https://portal.azure.com). Siga los pasos descritos en [este vínculo](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) sobre cómo generar una solicitud de soporte técnico.
+Las etiquetas de recursos se administran en Azure Portal. Puede ponerse en contacto con el equipo de suscripciones de Azure en [Azure Portal](https://portal.azure.com). Siga los pasos descritos en el artículo [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ### <a name="why-does-my-resource-rate-change-every-day"></a>¿Por qué cambia la tasa de recursos cada día?
 
-La tasa de recursos del informe de uso detallado es un valor calculado y representa la tasa media mensual que se cobra por un servicio. Esta tarifa se calcula usando el promedio del compromiso mensual y los cargos mensuales por uso por encima del límite de una unidad de servicio. La parte del uso que se aplica a las tarifas de uso por encima del límite y al compromiso cambiará hasta el día en que se cierre el mes. Por este motivo, la tasa de recursos también cambiará durante el mes. La tasa de recursos se bloquea al quinto día después del final del mes.
+La tasa de recursos que se muestra en el informe de detalles de uso es un valor calculado. Representa la tasa mensual media que se cargó por el servicio. Esta tasa de recursos se calcula a partir del promedio del compromiso mensual y los cargos mensuales de uso por encima del límite de una unidad de servicio. La parte del uso que se aplica a las tasas de uso por encima del límite y al compromiso cambia hasta el día en que se cierre el mes. Por lo tanto, la tasa de recursos que se enumera también cambia durante el mes. La tasa de recursos se bloquea al quinto día después del final del mes.
 
 ### <a name="glossary-of-processes-for-calculating-the-resource-rate"></a>Glosario de procesos para calcular la tasa de recursos
 
-**Total de unidades sin procesar:** cantidad consumida en el informe de uso detallado.
-**Recurso de MOCP por unidad:** sistema de uso ascendente que emite los usos de cada servicio en distintas unidades. (Valor predeterminado) **Consumo por unidad:** unidad de medida de EA. (Valor predeterminado) **Precio:** precio unitario de Azure EA Portal.
-**Costo total:** costo total del informe de uso detallado o del uso del compromiso + uso por encima del límite de Azure EA Portal.
+- **Total de unidades sin procesar:** Cantidad consumida en el informe de uso detallado.
+- **Recurso de MOCP por unidad:** Sistema de uso ascendente que emite los usos de cada servicio en distintas unidades. (Valor preestablecido)
+- **Consumo por unidad:** Unidad de medida de Azure Enterprise. (Valor preestablecido)
+- **Precio:** Precio unitario de Azure Enterprise Portal.
+- **Costo total:** Costo ampliado del informe de uso detallado o del uso del compromiso más el uso por encima del límite de Azure Enterprise Portal.
 
+### <a name="charges-calculations"></a>Cálculos de los cargos
 
-### <a name="charges-calculation"></a>Cálculo de cargos
+- **Convertir a recursos de MOCP consumidos** = `ROUND(Total RAW Units * MOCP Resource Per Unit,4)`
+- **Convertir a unidades consumidas** = `Consumed MOCP Resources / Consumption per Unit`
+- **Calcular costo total** = `Consumed Units * Price`
 
-**Conversión en recurso de MOCP por unidad** = ROUND(total de unidades sin procesar * recurso de MOCP por unidad, 4) **Conversión en unidades** = unidades después de conversión en recurso de MOCP por unidad/consumo por unidad **Costo total** = unidades * precio
+### <a name="logic-in-the-usage-calculation-logic"></a>Lógica del cálculo de uso
 
-### <a name="download-usage-calculation-logic"></a>Lógica de cálculo de uso de descarga
+**Tasa de recursos** = `Total Cost /(Total RAW Units / MOCP Resource Per Unit)`
 
-**Tasa de recursos** = costo total/(total de unidades sin procesar/recurso de MOCP por unidad)
+La tasa de recursos se obtiene en función de los cargos. Podría no coincidir con el precio unitario real que aparece en la hoja de precios.
 
-La tasa de recursos se deriva de los cargos y, a menudo, no coincide con el precio unitario real de la hoja de precios.
-
-Para el cálculo de los cargos de uso por encima del límite, los datos de uso de recursos sin procesar se detallan hasta un máximo de seis posiciones decimales, tal como se puede observar en el informe de datos de uso de descarga. Sin embargo, Azure EA Portal redondea el uso a cuatro posiciones decimales para las unidades de compromiso y trunca a cero decimales para las unidades de uso por encima del límite. Esto significa que, en Azure EA Portal, para todo el uso que se cobra como uso por encima del límite, solo se cobran las unidades completas. Habrá una gran diferencia entre el precio unitario y la tasa de recursos para el uso que se cobra como uso por encima del límite o en meses mixtos.
+En el informe de descarga de datos de uso, puede ver el uso de recursos sin procesar hasta seis lugares decimales. Estos datos se usan para el cálculo de los cargos de uso por encima del límite. Sin embargo, los datos de uso que se muestran en Azure Enterprise Portal se redondean hasta cuatro posiciones decimales para las unidades de compromiso y se truncan en cero decimales para las unidades de uso por encima del límite. En Azure Enterprise Portal, todo el uso por encima del límite se cobra por las unidades completas únicamente. Puede que vea una gran diferencia entre el precio unitario y la tasa de recursos para el uso que se cobra como uso por encima del límite o en meses mixtos.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+- Los siguientes archivos de Excel proporcionan detalles sobre los servicios de Azure y se actualizan los días 6 y 20 de cada mes:
+
+   | Título | Descripción | Nombre de archivo |
+   | --- | --- | --- |
+   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Enumera todos los servicios activos e incluye: <br>  <ul><li>categoría del servicio</li>   <li>nombre descriptivo del servicio</li>   <li>nombre del compromiso y número de pieza</li> <li>nombre del consumo y número de pieza</li>   <li>unidad de medida</li>   <li>factores de conversión entre el uso informado y el uso de Enterprise Portal que se muestra</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta hoja de cálculo proporciona una lista de todas las posibles combinaciones de campos relacionados con el servicio del informe de descarga de uso. | Service\_Download\_Fields.xlsx |
+
 - Para más información sobre la facturación y los cargos, consulte [Descripción de la factura de Azure Enterprise](../understand/review-enterprise-agreement-bill.md).
-- Para empezar a usar el portal del Contrato Enterprise de Azure, consulte [Introducción al portal del Contrato Enterprise de Azure](ea-portal-get-started.md).
+- Para empezar a usar Azure Enterprise Portal, consulte [Introducción al portal del Contrato Enterprise de Azure](ea-portal-get-started.md).

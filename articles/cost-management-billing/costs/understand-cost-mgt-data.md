@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/13/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 75d414756d8818bd4e29fc0507af73eccf0e0e01
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 156684676758d777231d3b159ba7bc4749b8582a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986204"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901766"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -25,7 +25,7 @@ Cost Management incluye todo el uso y todas las compras, incluidas reservas y of
 
 ## <a name="supported-microsoft-azure-offers"></a>Ofertas compatibles de Microsoft Azure
 
-La siguiente información muestra las [ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) compatibles actualmente con Azure Cost Management. Una oferta de Azure es el tipo de la suscripción a Azure que tiene. Los datos están disponibles en Cost Management a partir de la fecha **Datos disponibles desde**. Si una suscripción cambia las ofertas, los costos anteriores a la fecha de cambio de la oferta no estarán disponibles.
+La siguiente información muestra las [ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) compatibles actualmente con Azure Cost Management. Una oferta de Azure es el tipo de la suscripción a Azure que tiene. Los datos están disponibles en Cost Management a partir de la fecha **Datos disponibles desde**. Si una suscripción cambia las ofertas, los costos anteriores a la fecha de cambio de la oferta no están disponibles.
 
 | **Categoría**  | **Nombre de la oferta** | **Identificador de la cuota** | **Número de la oferta** | **Datos disponibles desde** |
 | --- | --- | --- | --- | --- |
@@ -77,13 +77,13 @@ Las siguientes ofertas todavía no se admiten:
 | **Planes de soporte técnico** | Soporte técnico para desarrolladores de Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 ## <a name="determine-your-offer-type"></a>Determinación del tipo de oferta
-Si no ve los datos de una suscripción y desea determinar si tal suscripción se encuentra entre las ofertas admitidas, puede comprobar si realmente se admite. Para ello, inicie sesión en [Azure Portal](https://portal.azure.com). Luego, seleccione **Todos los servicios** en el panel del menú izquierdo. En la lista de servicios, seleccione **Suscripciones**. En el menú de la lista de suscripciones, elija la suscripción que desee comprobar. La suscripción se muestra en la pestaña Información general y puede ver la **Oferta** y el **Id. de oferta**. En la imagen siguiente se muestra un ejemplo:
+Si no ve los datos de una suscripción y desea determinar si tal suscripción se encuentra entre las ofertas admitidas, puede comprobar si realmente se admite. Para validar que se admite una suscripción a Azure, inicie sesión en [Azure Portal](https://portal.azure.com). Luego, seleccione **Todos los servicios** en el panel del menú izquierdo. En la lista de servicios, seleccione **Suscripciones**. En el menú de la lista de suscripciones, seleccione la suscripción que desee comprobar. La suscripción se muestra en la pestaña Información general y puede ver la **Oferta** y el **Id. de oferta**. En la imagen siguiente se muestra un ejemplo:
 
 ![Ejemplo de la pestaña Información general de la suscripción mostrando la Oferta y el Id. de oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
 ## <a name="costs-included-in-cost-management"></a>Costos incluidos en Cost Management
 
-Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cost Management. Todos los costos se calculan hasta que se genera una factura. Los costos que se muestran no incluyen los créditos gratis ni los pagados por adelantado.
+Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cost Management. Todos los costos se calculan hasta que se genera una factura. Los costos que se muestran no incluyen los créditos gratuitos ni los pagados por adelantado.
 
 **Datos de costo y uso**
 
@@ -108,6 +108,10 @@ _<sup>**7**</sup> En este momento, las compras de reserva solo están disponible
 | Etiquetas de recurso<sup>8</sup> | Etiquetas de grupos de recursos |
 
 _<sup>**8**</sup> Las etiquetas de recursos se aplican mientras se transmite el uso de cada servicio y no están disponibles con carácter retroactivo para el historial del uso._
+
+**Actualización de evaluación gratuita a pago por uso**
+
+Los clientes con una oferta de evaluación gratuita (044P) que se convierte en oferta de pago por uso (003P) pueden ver su uso durante el período de evaluación gratuita. Sin embargo, pierden visibilidad del uso de la evaluación gratuita después de la conversión. Con posterioridad, en Cost Management solo se muestran el uso y los costos de pago por uso.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Programación de actualización de datos de uso valorados
 
@@ -139,7 +143,7 @@ Algunos servicios transmiten la utilización con más frecuencia que otros. Por 
 
 ## <a name="historical-data-might-not-match-invoice"></a>Los datos históricos pueden no coincidir con la factura
 
-Es posible que los datos históricos de las ofertas basadas en crédito y pagadas por adelantado no coincidan con la factura. Algunas ofertas de pago por uso, MSDN y Visual Studio para Azure pueden tener créditos de Azure y pagos por adelantado aplicados en la factura. Sin embargo, los datos históricos que se muestran en Cost Management se basan solo en los cargos de consumo calculados. Los datos históricos de Cost Management no incluyen pagos ni créditos. Como resultado, es posible que los datos históricos que se muestran para estas ofertas no coincidan exactamente con la factura.
+Es posible que los datos históricos de las ofertas basadas en crédito y pagadas por adelantado no coincidan con la factura. Algunas ofertas de pago por uso, MSDN y Visual Studio para Azure pueden tener créditos de Azure y pagos por adelantado aplicados en la factura. Sin embargo, los datos históricos que se muestran en Cost Management se basan solo en los cargos de consumo calculados. Los datos históricos de Cost Management no incluyen pagos ni créditos. Por tanto, es posible que los datos históricos que se muestran para estas ofertas no coincidan exactamente con la factura.
 
 - Azure for Students (MS-AZR-0170P)
 - Azure bajo licencia Open (MS-AZR-0111P)

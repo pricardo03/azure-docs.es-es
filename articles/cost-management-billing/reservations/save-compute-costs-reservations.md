@@ -7,16 +7,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: 2e8c477aea7a11eefa606ab9cd084ca3ed9f400f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986784"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76841887"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
-Con Azure Reservations ahorrará gastos al confirmar los planes de un año o tres para las máquinas virtuales, la capacidad de proceso de SQL Database, Azure Blob Storage o Azure Data Lake Storage Gen2, el rendimiento de Azure Cosmos DB u otros recursos de Azure. La confirmación le permite obtener un descuento en los recursos que utiliza. Reservations puede reducir significativamente los costos de los recursos hasta un 72 % en los precios de pago por uso. Reservations ofrece un descuento en la facturación y no afecta al estado del entorno de ejecución de los recursos.
+Con Azure Reservations ahorrará gastos al confirmar los planes de un año o tres para las máquinas virtuales, la capacidad de proceso de SQL Database, Azure Blob Storage o Azure Data Lake Storage Gen2, Azure Disk Storage, el rendimiento de Azure Cosmos DB u otros recursos de Azure. La confirmación le permite obtener un descuento en los recursos que utiliza. Reservations puede reducir significativamente los costos de los recursos hasta un 72 % en los precios de pago por uso. Reservations ofrece un descuento en la facturación y no afecta al estado del entorno de ejecución de los recursos.
 
 Puede pagar una reserva por adelantado o mensualmente. El costo total de las reservas por adelantado y mensuales es el mismo y no se pagan cargos adicionales por elegir el pago mensual. El pago mensual está disponible para las reservas de Azure, no para los productos de terceros.
 
@@ -32,6 +32,7 @@ Planes de servicio:
 
 - **Instancia reservada de máquina virtual**: una reserva solo cubre el costo de proceso de máquina virtual. No cubre cargos por software adicional, administración de redes ni almacenamiento.
 - **Capacidad reservada de Azure Storage**: una reserva cubre la capacidad de almacenamiento de las cuentas de almacenamiento estándar para el almacenamiento de blobs o el almacenamiento de Azure Data Lake Gen2. La reserva no cubre las tasas de ancho de banda o de transacción.
+- **Reservas de Azure Disk Storage**: Una reserva solo cubre las SSD Premium de tamaño P30 o superior. No cubre ningún otro tipo de disco ni tamaños menores que P30.
 - **Capacidad reservada de Azure Cosmos DB**: una reserva abarca el rendimiento aprovisionado de los recursos. No cubre los cargos de almacenamiento y redes.
 - **Núcleo virtual reservado de SQL Database**: solo se incluyen con una reserva los costos de proceso. La licencia se factura por separado.
 - **SQL Data Warehouse**: una reserva cubre el uso de cDWU. No cubre los cargos de almacenamiento o de red asociados con el uso de SQL Data Warehouse.
@@ -40,7 +41,6 @@ Planes de servicio:
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 - Explorador de datos de Azure
-- Discos administrados SSD Premium
 
 
 Para las máquinas virtuales de Windows y SQL Database, puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).

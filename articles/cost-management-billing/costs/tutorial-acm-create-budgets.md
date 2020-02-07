@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/12/2019
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 12735a9575328e404f5723fa305448eb21ca85b2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bb02c4903348a3b8c1d129f02be64109ec0f48eb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986216"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769790"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -87,6 +87,18 @@ Después de crear un presupuesto, se muestra en el análisis de costos. Ver el p
 ![Presupuesto y gasto de ejemplo que se muestra en el análisis de costos](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 En el ejemplo anterior, creó un presupuesto para una suscripción. Sin embargo, también puede crear un presupuesto para un grupo de recursos. Si quiere crear un presupuesto para un grupo de recursos, vaya a **Cost Management + Billing** &gt; **Suscripciones** &gt; seleccione una suscripción > **Grupos de recursos** > seleccione un grupo de recursos > **Presupuestos** > y **Agregar** un presupuesto.
+
+## <a name="costs-in-budget-evaluations"></a>Costos de las evaluaciones de presupuesto
+
+Las evaluaciones de costos del presupuesto ahora incluyen datos de instancias reservadas y de compras. Si se le aplican cargos, es posible que reciba alertas a medida que se incorporen cargos a las evaluaciones. Se recomienda iniciar sesión en [Azure Portal](https://portal.azure.com) para verificar que los umbrales del presupuesto estén configurados correctamente para tener en cuenta los nuevos costos. Los cargos facturados de Azure no cambian. Los presupuestos ahora se evalúan frente a un conjunto más completo de costos. Si no se le aplican los cargos, el comportamiento del presupuesto permanece inalterado.
+
+Si desea filtrar los nuevos costos de modo que los presupuestos se evalúen únicamente frente a los cargos de consumo propio de Azure, agregue los siguientes filtros al presupuesto:
+
+- Tipo de publicador: Azure
+- Tipo de cargo: Uso
+
+Las evaluaciones de los costos del presupuesto se basan en el costo real. No incluyen la amortización. Para obtener más información sobre las opciones de filtrado disponibles en los presupuestos, consulte [Descripción de las opciones de agrupación y filtrado](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
+
 
 ## <a name="trigger-an-action-group"></a>Activación de un grupo de acciones
 

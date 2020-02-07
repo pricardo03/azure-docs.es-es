@@ -38,7 +38,7 @@ Para completar este tutorial:
 
 [!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
 
-## <a name="create-an-azure-functions-project">Creación del proyecto local</a> 
+## <a name="create-an-azure-functions-project"></a>Creación del proyecto local 
 
 En esta sección se usa Visual Studio Code para crear un proyecto local en Azure Functions. 
 

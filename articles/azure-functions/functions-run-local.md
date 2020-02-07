@@ -224,7 +224,7 @@ Esta configuración de la aplicación de función también se puede leer en el c
 
 Cuando no se establece ninguna cadena de conexión de almacenamiento válida para [`AzureWebJobsStorage`] y no se usa el emulador, se muestra el siguiente mensaje de error:
 
-> Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json (Puede ejecutar "func azure functionapp fetch-app-settings <functionAppName>" o especificar una cadena de conexión en local.settings.json).
+> Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. Puede ejecutar "FUNC Azure functionapp fetch-App-Settings \<functionAppName\>" o especificar una cadena de conexión en local. Settings. JSON.
 
 ### <a name="get-your-storage-connection-strings"></a>Obtención de las cadenas de conexión de almacenamiento
 
