@@ -5,10 +5,10 @@
   items:
     - name: ¿Qué es la administración de aplicaciones en la nube y el inicio de sesión único?
       href: what-is-application-management.md
-    - name: ¿Qué es el aprovisionamiento de aplicaciones?
-      href: user-provisioning.md
     - name: ¿Qué es Application Proxy para aplicaciones locales?
       href: what-is-application-proxy.md
+    - name: ¿Qué es el aprovisionamiento de aplicaciones?
+      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Guías de inicio rápido
   items:
     - name: Incorporación de una aplicación en la nube desde la galería
@@ -72,16 +72,6 @@
               href: howto-saml-token-encryption.md
             - name: Portales de usuario final
               href: end-user-experiences.md
-    - name: Aprovisionamiento de aplicaciones (SCIM)
-      items:
-        - name: Funcionamiento del aprovisionamiento
-          href: how-provisioning-works.md
-        - name: Planeamiento de una implementación del aprovisionamiento automático de usuarios
-          href: plan-auto-user-provisioning.md
-    - name: "Aprovisionamiento de RR.\_HH. en la nube"
-      items:
-        - name: "Planeamiento de una implementación del aprovisionamiento de usuarios de RR.\_HH. en la nube"
-          href: plan-cloud-hr-provision.md
     - name: Application Proxy para aplicaciones locales
       items:
         - name: Proxy de aplicación
@@ -237,60 +227,6 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Error al usar el acceso de autoservicio a las aplicaciones
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Aprovisionamiento de aplicaciones (SCIM)
-      items:
-        - name: Configuración del aprovisionamiento en una aplicación de la galería
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Compilación de un punto de conexión de SCIM y configuración del aprovisionamiento
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Edición de las asignaciones de atributos
-          items:
-            - name: Personalización de asignaciones de atributos
-              href: Customize-application-attributes.md
-            - name: Escritura de expresiones para la asignación de atributos
-              href: functions-for-customizing-application-data.md
-        - name: Inclusión o exclusión de usuarios y grupos del ámbito
-          items:
-            - name: Asignación de ámbito a los usuarios o grupos que se van a aprovisionar
-              href: define-conditional-rules-for-provisioning-user-accounts.md
-            - name: Omisión de la eliminación de los usuarios fuera del ámbito
-              href: skip-out-of-scope-deletions.md
-        - name: Supervisión y creación de informes sobre el aprovisionamiento
-          items:
-            - name: Supervisión del rendimiento y estado del aprovisionamiento
-              href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Generación de informes acerca del aprovisionamiento de aplicaciones
-              href: check-status-user-account-provisioning.md
-            - name: Exportación e importación de una configuración
-              href: export-import-provisioning-configuration.md
-        - name: Automatización de la configuración mediante MS Graph
-          href: application-provisioning-configure-api.md
-        - name: Solución de problemas de aprovisionamiento de usuarios
-          items:
-            - name: Solución de problemas de aprovisionamiento de aplicaciones
-              href: application-provisioning-config-problem.md
-            - name: Estado de cuarentena
-              href: application-provisioning-quarantine-status.md
-            - name: Registros de aprovisionamiento
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: 'Sincronización de un atributo para la asignación: aplicación de la galería'
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: 'Tarda horas: aplicación de la galería'
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Incidencia de autorización (no se pueden guardar las credenciales de administrador)
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Los usuarios no están aprovisionados
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Se han aprovisionado usuarios incorrectos
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
-            - name: Trabajo de aprovisionamiento en cuarentena
-              href: application-provisioning-quarantine-status.md
-            - name: Falta atributo de origen
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: El trabajo de aprovisionamiento es lento
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Registros de aprovisionamiento
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Application Proxy para aplicaciones locales
       items:
         - name: Configuración de conectores
@@ -391,28 +327,10 @@
           href: secure-hybrid-access.md
 - name: Referencia
   items:
-    - name: Aprovisionamiento de aplicaciones (SCIM)
-      items:
-        - name: Escritura de expresiones para la asignación de atributos
-          href: functions-for-customizing-application-data.md
-        - name: Elección de un método de aprovisionamiento
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-    - name: "Aprovisionamiento de RR.\_HH. en la nube"
-      items:
-        - name: Referencia de atributos de SuccessFactors
-          href: sap-successfactors-attribute-reference.md
-        - name: Referencia de atributos de Workday
-          href: workday-attribute-reference.md
-    - name: "Agente de aprovisionamiento de Microsoft\_Azure\_AD\_Connect"
-      items:
-        - name: Historial de versiones del agente de aprovisionamiento
-          href: provisioning-agent-release-version-history.md
-    - name: Application Proxy para aplicaciones locales
-      items:
-        - name: Preguntas frecuentes acerca de Application Proxy
-          href: application-proxy-faq.md
-        - name: Historial de versiones de Application Proxy
-          href: application-proxy-release-version-history.md
+    - name: Preguntas frecuentes acerca de Application Proxy
+      href: application-proxy-faq.md
+    - name: Historial de versiones de Application Proxy
+      href: application-proxy-release-version-history.md
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico para desarrolladores
