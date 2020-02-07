@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: daveba
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245427"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897211"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Supervisión de Azure AD Connect sync con Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de sincronización de Azure AD Connect (Sync) con Azure AD Connect Health.  Para obtener información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -80,7 +81,7 @@ Esta característica proporciona un informe sobre los errores de sincronización
 ### <a name="categorization-of-errors"></a>Categorización de errores
 El informe clasifica los errores de sincronización existentes en las siguientes categorías:
 
-| Categoría | DESCRIPCIÓN |
+| Category | Descripción |
 | --- | --- |
 | Atributo duplicado |Errores que se producen cuando Azure AD Connect intenta crear o actualizar objetos con valores duplicados de uno o más atributos en Azure AD que deben ser únicos en un inquilino como, por ejemplo, proxyAddresses o UserPrincipalName. |
 | Error de coincidencia de datos |Errores que se producen cuando la coincidencia parcial no coincide con objetos, lo que da lugar a errores de sincronización. |

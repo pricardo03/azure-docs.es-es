@@ -3,12 +3,12 @@ title: Estimación de los costos del plan de consumo en Azure Functions
 description: Obtenga información sobre cómo estimar mejor los costos que se pueden producir al ejecutar la aplicación de funciones en un plan de consumo de Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a68069ab9af54c1c8cfaf6c20727181e48ba1ec
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890314"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963995"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimación de los costos según el plan de consumo
 
@@ -47,7 +47,7 @@ Al calcular los costos generales de la aplicación de funciones y los servicios 
 
 | Costo relacionado | Descripción |
 | ------------ | ----------- |
-| **Cuenta de almacenamiento** | Cada aplicación de funciones requiere que tenga una [cuenta de almacenamiento de Azure](../storage/common/storage-introduction.md#types-of-storage-accounts) de uso general asociada, que se [factura por separado](https://azure.microsoft.com/pricing/details/storage/). El tiempo de ejecución de Functions usa esta cuenta internamente, pero también se puede usar para los desencadenadores y enlaces de almacenamiento. Si no tiene una cuenta de almacenamiento, se crea una automáticamente cuando se crea la aplicación de funciones. Para más información, consulte [Requisitos de la cuenta de almacenamiento](functions-scale.md#storage-account-requirements).|
+| **Cuenta de almacenamiento** | Cada aplicación de funciones requiere que tenga una [cuenta de almacenamiento de Azure](../storage/common/storage-introduction.md#types-of-storage-accounts) de uso general asociada, que se [factura por separado](https://azure.microsoft.com/pricing/details/storage/). El tiempo de ejecución de Functions usa esta cuenta internamente, pero también se puede usar para los desencadenadores y enlaces de almacenamiento. Si no tiene una cuenta de almacenamiento, se crea una automáticamente cuando se crea la aplicación de funciones. Para más información, consulte [Requisitos de la cuenta de almacenamiento](storage-considerations.md#storage-account-requirements).|
 | **Application Insights** | Functions se basa en [Application Insights](../azure-monitor/app/app-insights-overview.md) para proporcionar una experiencia de supervisión de alto rendimiento para las aplicaciones de funciones. Aunque no es necesario, debe [habilitar la integración de Application Insights](functions-monitoring.md#enable-application-insights-integration). Cada mes se incluye una concesión gratuita de datos de telemetría. Para más información, consulte la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). |
 | **Ancho de banda de la red** | No tiene que pagar por las transferencias de datos entre los servicios de Azure de la misma región. Sin embargo, puede incurrir en costos de transferencia de datos de salida a otra región o fuera de Azure. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/). |
 
