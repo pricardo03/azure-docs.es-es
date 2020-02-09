@@ -463,6 +463,8 @@
                       href: saas-multitenantdb-schema-management.md
                     - name: 'Extracción, transformación y carga de datos para Analytics'
                       href: saas-multitenantdb-tenant-analytics.md
+        - name: Solicitud de aumento de cuota
+          href: quota-increase-request.md
 - name: Bases de datos SQL
   items:
     - name: Documentación sobre instancias de SQL Database
