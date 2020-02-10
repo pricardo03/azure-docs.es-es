@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentación para el aprovisionamiento de aplicaciones y de RR. HH
+summary: El aprovisionamiento de aplicaciones de Azure Active Directory permite crear y administrar automáticamente identidades de usuario en las aplicaciones en la nube (SaaS). Azure AD también ofrece aprovisionamiento con aplicaciones de recursos humanos (RR. HH) en la nube. Aprenda a administrar e implementar el aprovisionamiento de aplicaciones y de RR.HH. en la nube con nuestros inicios rápidos, tutoriales e instrucciones.
+metadata:
+  title: Documentación para el aprovisionamiento de aplicaciones
+  description: El aprovisionamiento de aplicaciones de Azure Active Directory permite crear y administrar automáticamente identidades de usuario en las aplicaciones en la nube (SaaS). Azure AD también ofrece aprovisionamiento con aplicaciones de recursos humanos (RR. HH) en la nube. Aprenda a administrar e implementar el aprovisionamiento de aplicaciones y de RR. HH en la nube con nuestros inicios rápidos, tutoriales e instrucciones.
+  ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 02/06/2020
+  author: msmimart
+  ms.author: mimart
+  manager: celested
+  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77065508"
+landingContent:
+- title: Aprovisionamiento de usuarios y grupos en una aplicación en la nube
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es el aprovisionamiento de aplicaciones?
+      url: user-provisioning.md
+    - text: Funcionamiento del aprovisionamiento
+      url: how-provisioning-works.md
+  - linkListType: tutorial
+    links:
+    - text: Aprovisionamiento de SAP Cloud Platform Identity Authentication
+      url: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Aprovisionamiento de Oracle Fusion ERP
+      url: /azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Aprovisionamiento de Atlassian Cloud
+      url: /azure/active-directory/saas-apps/atlassian-cloud-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+  - linkListType: how-to-guide
+    links:
+    - text: ¿Desea agregar una aplicación de galería? Configuración del aprovisionamiento en la aplicación
+      url: configure-automatic-user-provisioning-portal.md
+    - text: Personalización de asignaciones de atributos
+      url: customize-application-attributes.md
+    - text: Uso de filtros de ámbito
+      url: define-conditional-rules-for-provisioning-user-accounts.md
+- title: Desarrollo de una aplicación en la que se usa SCIM para el aprovisionamiento
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Aprovisionamiento con SCIM (blog Identity Standards)
+      url: https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010
+  - linkListType: how-to-guide
+    links:
+    - text: ¿Desea desarrollar una aplicación? Uso de SCIM de aprovisionamiento automático
+      url: use-scim-to-provision-users-and-groups.md
+- title: Administración de entrada de RR. HH en la nube
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Planeamiento de la implementación del aprovisionamiento de usuarios de RR. HH en la nube
+      url: plan-cloud-hr-provision.md
+  - linkListType: tutorial
+    links:
+    - text: Aprovisionamiento de Workday
+      url: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Aprovisionamiento de SAP SuccessFactors
+      url: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context

@@ -25,6 +25,9 @@
         - name: Creación de un experimento de ML automatizado
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+        - name: Previsión de la demanda con aprendizaje automático automatizado (datos del recurso compartido de bicicletas)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-automated-ml-forecast.md
     - name: SDK de Python
       items:
         - name: Creación del primer experimento de Machine Learning

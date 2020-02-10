@@ -39,6 +39,8 @@
           href: ./hdinsight-component-versioning.md
         - name: Componentes de alta disponibilidad
           href: ./hdinsight-high-availability-components.md
+        - name: Apache Ambari en Azure HDInsight
+          href: ./apache-ambari-usage.md
         - name: Aprendizaje automático en HDInsight
           href: ./hdinsight-machine-learning-overview.md
         - name: Streaming a escala en HDInsight
