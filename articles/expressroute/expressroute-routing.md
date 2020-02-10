@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083307"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901583"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -147,7 +147,7 @@ Esta sección proporciona información general de cómo se usarán las comunidad
 
 Si se conecta a Microsoft a través de ExpressRoute en cualquier ubicación de configuración de pares dentro de una región geopolítica, tendrá acceso a todos los servicios en la nube de Microsoft en todas las regiones que se encuentren dentro de los límites geopolíticos. 
 
-Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en Europa del Norte y Europa occidental. 
+Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en Norte de Europa y Oeste de Europa. 
 
 Consulte la página [Partners de ExpressRoute de Azure y ubicaciones de emparejamiento](expressroute-locations.md) para obtener una lista detallada de las regiones geopolíticas, regiones de Azure asociadas y las ubicaciones de emparejamiento de ExpressRoute correspondientes.
 
@@ -156,31 +156,37 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | **Región de Microsoft Azure** | **Comunidad de BGP regional** | **Comunidad de BGP para Storage** | **Comunidad de BGP para SQL** | **Comunidad de BGP para Cosmos DB** |
 | --- | --- | --- | --- | --- |
 | **Norteamérica** | |
-| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| Este de EE. UU. | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
 | Este de EE. UU. 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | Oeste de EE. UU. | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
 | Oeste de EE. UU. 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
-| Centro occidental de EE.UU. | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
+| Centro-Oeste de EE. UU. | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
 | Centro-Norte de EE. UU | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| Centro-Sur de EE. UU | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| Centro-sur de EE. UU. | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
 | Centro de EE. UU. | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
 | Centro de Canadá | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
 | Este de Canadá | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **Sudamérica** | |
 | Sur de Brasil | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
-| Europa del Norte | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| Europa occidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Norte de Europa | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Oeste de Europa | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Sur de Reino Unido 2 | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Oeste de Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | Centro de Francia | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sur de Francia | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
+| Norte de Suiza | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Oeste de Suiza | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Norte de Alemania | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Centro-oeste de Alemania | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Este de Noruega | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
+| Oeste de Noruega | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Asia Pacífico** | |
 | Asia oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sudeste asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japón** | |
-| Este de Japón | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
-| Oeste de Japón | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
+| Japón Oriental | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
+| Japón Occidental | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **Australia** | |
 | Este de Australia | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
 | Sudeste de Australia | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
@@ -193,7 +199,7 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | India central | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Corea** | |
 | Corea del Sur | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
-| Corea Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| Centro de Corea del Sur | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **Sudáfrica**| |
 | Norte de Sudáfrica | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
 | Oeste de Sudáfrica | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
@@ -234,18 +240,18 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 | **Nubes nacionales Región de Azure**| **Valor de comunidad de BGP** |
 | --- | --- |
-| **Gobierno de Estados Unidos** |  |
-| Gobierno de EE. UU.: Arizona | 12076:51106 |
+| **US Gov** |  |
+| US Gov: Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
-| Gobierno de EE. UU. - Virginia | 12076:51105 |
-| Gobierno de EE. UU.: Texas | 12076:51108 |
-| Departamento de Defensa de EE. UU. Centro | 12076:51209 |
-| Departamento de Defensa de EE. UU. Este | 12076:51205 |
+| US Gov - Virginia | 12076:51105 |
+| US Gov Texas | 12076:51108 |
+| US DoD (centro) | 12076:51209 |
+| US DoD (este) | 12076:51205 |
 
 
 | **Servicios en nubes nacionales** | **Valor de comunidad de BGP** |
 | --- | --- |
-| **Gobierno de Estados Unidos** |  |
+| **US Gov** |  |
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype Empresarial Online |12076:5130 |
