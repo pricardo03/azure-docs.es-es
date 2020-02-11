@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772594"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906790"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines
 
@@ -185,7 +185,7 @@ Después de crear y configurar las máquinas virtuales, puede configurar el recu
   > - Considere la posibilidad de usar un recurso compartido de archivos independiente para los archivos de copia de seguridad a fin de ahorrar la capacidad de IOPS y espacio de este recurso compartido para usarla para el archivo de registro y de datos. Puede usar un recurso compartido de archivos Premium o Estándar para los archivos de copia de seguridad.
   > - Si tiene Windows 2012 R2 y versiones anteriores, siga estos mismos pasos para montar el recurso compartido de archivos que va a usar como testigo de recurso compartido de archivos. 
 
-## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>Paso 3: Configuración del clúster de conmutación por error con el recurso compartido de archivos
+## <a name="step-3-configure-the-failover-cluster"></a>Paso 3: Configuración del clúster de conmutación por error
 
 El siguiente paso es configurar el clúster de conmutación por error. En este paso, completará los siguientes pasos secundarios:
 
