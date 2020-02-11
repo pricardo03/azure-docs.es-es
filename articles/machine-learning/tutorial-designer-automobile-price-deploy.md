@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 470e633b2c64283db9b6a5b1cd777a6a054dad16
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6fc6479ccda77bff84319d3244b2bd4a0599dc47
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719796"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933986"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,6 +38,8 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 ### <a name="create-a-real-time-inference-pipeline"></a>Crear una canalización de inferencia en tiempo real
 
 1. Seleccione, encima del lienzo de la canalización, **Create inference pipeline** > **Real-time inference pipeline** (Crear canalización de inferencia > Canalización de inferencia en tiempo real).
+
+    ![Captura de pantalla que muestra dónde encontrar el botón Crear canalización](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
 
     La canalización debería tener este aspecto: 
 

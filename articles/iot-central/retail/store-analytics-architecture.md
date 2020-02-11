@@ -9,18 +9,18 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 728c5dcbf94e030e860a222add6498824c66930d
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6c2514bd078cc3feee4bd2802cf314079b824311
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615398"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022127"
 ---
 # <a name="in-store-analytics-architecture"></a>Arquitectura de análisis en tienda
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Las soluciones de análisis en tienda permiten supervisar diversas condiciones dentro del entorno de comercio minorista. Estas soluciones se pueden compilar aprovechando una de las plantillas de aplicación de IoT Central y la arquitectura siguiente como guía.
+
+Las soluciones de análisis en tienda permiten supervisar diversas condiciones dentro del entorno de comercio minorista. Estas soluciones se pueden compilar mediante una de las plantillas de aplicación de IoT Central y la arquitectura siguiente como guía.
 
 
 ![Análisis de tienda de Azure IoT Central](./media/architecture/store-analytics-architecture-frame.png)
@@ -35,7 +35,7 @@ Echemos un vistazo a los componentes clave que generalmente desempeñan un papel
 
 ## <a name="condition-monitoring-sensors"></a>Sensores de supervisión del estado
 
-Una solución de IoT comienza con un conjunto de sensores que capturan señales significativas desde dentro de un entorno de comercio minorista. Se refleja en diversos sensores en el extremo izquierdo del diagrama de arquitectura anterior.
+Una solución de IoT comienza con un conjunto de sensores que capturan señales significativas desde dentro de un entorno de comercio minorista. Se refleja en diferentes tipos de sensores en el extremo izquierdo del diagrama de arquitectura anterior.
 
 ## <a name="gateway-devices"></a>Dispositivos de puerta de enlace
 
@@ -43,7 +43,7 @@ Muchos sensores de IoT pueden alimentar señales sin procesar directamente en la
 
 ## <a name="iot-central-application"></a>Aplicación de IoT Central
 
-La aplicación de Azure IoT Central ingiere datos de diversos sensores de IoT, así como dispositivos de puerta de enlace, en el entorno de comercio minorista y genera un conjunto de conclusiones significativas.
+La aplicación de Azure IoT Central ingiere datos de distintos tipos sensores de IoT, así como dispositivos de puerta de enlace, en el entorno de comercio minorista y genera un conjunto de conclusiones significativas.
 
 Azure IoT Central también ofrece una experiencia personalizada para el operador de tienda que le permite supervisar y administrar de forma remota los dispositivos de infraestructura.
 
@@ -51,8 +51,8 @@ Azure IoT Central también ofrece una experiencia personalizada para el operad
 Puede configurarse la aplicación de Azure IoT Central dentro de una solución para exportar conclusiones sin procesar o agregadas a un conjunto de servicios de plataforma como servicio (PaaS) de Azure que pueden realizar manipulación de datos y enriquecer estas conclusiones antes de colocarlas en una aplicación empresarial. 
 
 ## <a name="business-application"></a>Aplicación empresarial
-Los datos de IoT se pueden usar para potenciar diversas aplicaciones empresariales implementadas en un entorno minorista. El administrador o un miembro del personal de la tienda minorista puede utilizar estas aplicaciones para visualizar conclusiones empresariales y tomar medidas significativas en tiempo real. Para obtener información sobre cómo crear un panel de Power BI en tiempo real para el equipo comercial, siga el [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
+Los datos de IoT se pueden usar para potenciar diferentes tipos de aplicaciones empresariales implementadas en un entorno minorista. El administrador o un miembro del personal de la tienda minorista pueden usar estas aplicaciones para visualizar información empresariales y tomar medidas significativas en tiempo real. Para obtener información sobre cómo crear un panel de Power BI en tiempo real para el equipo comercial, consulte el [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Empiece a trabajar con las plantillas de aplicación [Análisis en tienda: finalización de la compra](https://aka.ms/checkouttemplate) y [Análisis en tienda: supervisión de condiciones](https://aka.ms/conditiontemplate). 
-* Eche un vistazo al [tutorial completo](https://aka.ms/storeanalytics-tutorial) que le guía en la compilación de una solución que aprovecha una de las plantillas de aplicación de análisis en tienda.
+* Eche un vistazo al [tutorial completo](https://aka.ms/storeanalytics-tutorial) que le guía en la compilación de una solución que usa una de las plantillas de la aplicación In-Store Analytics.

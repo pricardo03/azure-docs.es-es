@@ -3,14 +3,14 @@ title: 'CLI de Azure Service Fabric: sfctl node'
 description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar nodos de clúster.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 43b242d6c7c41b6198b8f909ab5ae056f0982307
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645300"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905880"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Administre los nodos que forman un clúster.
@@ -19,17 +19,44 @@ Administre los nodos que forman un clúster.
 
 |Get-Help|Descripción|
 | --- | --- |
+| add-configuration-parameter-overrides | Agrega la lista de invalidaciones de configuración en el nodo especificado. |
 | disable | Desactive un nodo de clúster de Service Fabric con la intención de desactivación especificada. |
 | enable | Active un nodo de clúster de Service Fabric, que está actualmente desactivado. |
+| get-configuration-overrides | Obtiene la lista de invalidaciones de configuración en el nodo especificado. |
 | health | Obtiene el estado de un nodo de Service Fabric. |
 | info | Obtiene la información sobre un nodo específico en el clúster de Service Fabric. |
 | list | Obtiene la lista de nodos del clúster de Service Fabric. |
 | load | Obtiene la información de carga de un nodo de Service Fabric. |
+| remove-configuration-overrides | Quita las invalidaciones de configuración en el nodo especificado. |
 | remove-state | Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente. |
 | report-health | Envía un informe de estado sobre el nodo de Service Fabric. |
 | restart | Reinicia un nodo de clúster de Service Fabric. |
 | transition | Inicia o detiene un nodo de clúster. |
 | transition-status | Obtiene el progreso de una operación iniciada mediante StartNodeTransition. |
+
+## <a name="sfctl-node-add-configuration-parameter-overrides"></a>sfctl node add-configuration-parameter-overrides
+Agrega la lista de invalidaciones de configuración en el nodo especificado.
+
+Esta API permite agregar todas las invalidaciones de configuración existentes en el nodo especificado.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descripción|
+| --- | --- |
+| --config-parameter-override-list [obligatorio] | Descripción para agregar una lista de invalidaciones de configuración. |
+| --node-name                      [obligatorio] | El nombre del nodo. |
+| --force | Fuerza la adición de invalidaciones de configuración en nodos especificados. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globales
+
+|Argumento|Descripción|
+| --- | --- |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-node-disable"></a>sfctl node disable
 Desactive un nodo de clúster de Service Fabric con la intención de desactivación especificada.
@@ -58,6 +85,28 @@ Desactive un nodo de clúster de Service Fabric con la intención de desactivaci
 Active un nodo de clúster de Service Fabric, que está actualmente desactivado.
 
 Active un nodo de clúster de Service Fabric, que está actualmente desactivado. Una vez activado, el nodo volverá a convertirse en un destino viable para colocar las nuevas réplicas, y se volverán a activar las réplicas desactivadas restantes en el nodo.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descripción|
+| --- | --- |
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globales
+
+|Argumento|Descripción|
+| --- | --- |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
+## <a name="sfctl-node-get-configuration-overrides"></a>sfctl node get-configuration-overrides
+Obtiene la lista de invalidaciones de configuración en el nodo especificado.
+
+Esta API permite obtener todas las invalidaciones de configuración existentes en el nodo especificado.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -167,10 +216,32 @@ Recupera la información de carga de un nodo de Service Fabric para todas las m�
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
+## <a name="sfctl-node-remove-configuration-overrides"></a>sfctl node remove-configuration-overrides
+Quita las invalidaciones de configuración en el nodo especificado.
+
+Esta API permite quitar todas las invalidaciones de configuración existentes en el nodo especificado.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descripción|
+| --- | --- |
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globales
+
+|Argumento|Descripción|
+| --- | --- |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
 ## <a name="sfctl-node-remove-state"></a>sfctl node remove-state
 Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente.
 
-Esto implica que no es posible recuperar el estado persistente de ese nodo. Por lo general, esto ocurre si se borró un disco duro, o si se bloquea un disco duro. El nodo debe estar inactivo para que esta operación se realice correctamente. Esta operación permite a Service Fabric saber que las réplicas en ese nodo ya no existen, y que Service Fabric debe dejar de esperar a que esas réplicas vuelvan a activarse. No ejecute este cmdlet si no se ha quitado el estado en el nodo y el nodo puede recuperarse con su estado intacto. A partir de Service Fabric 6.5, para poder usar esta API para los nodos de inicialización, cambie los nodos de inicialización a nodos regulares (no de inicialización) y, después, invoque esta API para quitar el estado del nodo. Si el clúster se está ejecutando en Azure, después de que el nodo de inicialización deje de funcionar, Service Fabric intentará cambiarlo automáticamente a un nodo que no sea de inicialización. Para conseguirlo, asegúrese de que el número de nodos que no son de inicialización en el tipo de nodo principal no sea inferior al número de nodos de inicialización inactivos. Si es necesario, agregue más nodos al tipo de nodo principal. Para un clúster independiente, si no se espera que el nodo de inicialización inactivo vuelva con su estado intacto, quite el nodo del clúster, vea https\://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
+Esto implica que no es posible recuperar el estado persistente de ese nodo. Por lo general, esto ocurre si se borró un disco duro, o si se bloquea un disco duro. El nodo debe estar inactivo para que esta operación se realice correctamente. Esta operación permite a Service Fabric saber que las réplicas en ese nodo ya no existen, y que Service Fabric debe dejar de esperar a que esas réplicas vuelvan a activarse. No ejecute este cmdlet si no se ha quitado el estado en el nodo y el nodo puede recuperarse con su estado intacto. A partir de Service Fabric 6.5, para poder usar esta API para los nodos de inicialización, cambie los nodos de inicialización a nodos regulares (no de inicialización) y, después, invoque esta API para quitar el estado del nodo. Si el clúster se está ejecutando en Azure, después de que el nodo de inicialización deje de funcionar, Service Fabric intentará cambiarlo automáticamente a un nodo que no sea de inicialización. Para conseguirlo, asegúrese de que el número de nodos que no son de inicialización en el tipo de nodo principal no sea inferior al número de nodos de inicialización inactivos. Si es necesario, agregue más nodos al tipo de nodo principal. En clústeres independientes, si no se espera que el nodo de inicialización inactivo vuelva con su estado intacto, quite el nodo del clúster. Consulte https\://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -207,7 +278,7 @@ Informa del estado de mantenimiento del nodo de Service Fabric especificado. El 
 | --remove-when-expired | Valor que indica si el informe se quita del almacén de estado cuando expire. <br><br> Si se establece en true, el informe se quita del almacén de estado una vez que expire. Si se establece en false, el informe se trata como un error cuando expire. El valor de esta propiedad es false de forma predeterminada. Cuando los clientes notifican periódicamente, deben establecer RemoveWhenExpired en false (valor predeterminado). De esta manera, si el notificador tiene problemas (por ejemplo, un interbloqueo) y no puede informar, la entidad se evalúa al llegar el error cuando expira el informe de mantenimiento. De este modo, se marca que la entidad está en estado de mantenimiento Error. |
 | --sequence-number | El número de secuencia para este informe de estado como una cadena numérica. <br><br> El número de secuencia del informe se usa por el almacén de estado para detectar informes obsoletos. Si no se especifica, se genera automáticamente un número de secuencia por el cliente de estado cuando se agrega un informe. |
 | --timeout -t | Valor predeterminado\: 60. |
-| --ttl | La duración durante la cual este informe de mantenimiento es válido. Este campo usa el formato ISO8601 para especificar la duración. <br><br> Cuando los clientes notifican periódicamente, deben enviar informes con una frecuencia mayor que el período de vida. Si los clientes informan en la transición, pueden establecer el período de vida en infinito. Cuando expira el período de vida, el evento de estado que contiene la información de estado se quita del almacén de estado, si RemoveWhenExpired es true, o se evalúa en el error, si RemoveWhenExpired es false. Si no se especifica, el período de vida se establece de forma predeterminada en un valor infinito. |
+| --ttl | La duración durante la cual este informe de mantenimiento es válido. Este campo usa el formato ISO8601 para especificar la duración. <br><br> Cuando los clientes notifican periódicamente, deben enviar informes con una frecuencia mayor que el período de vida. Si los clientes notifican en transición, pueden establecer el período de vida en Infinito. Cuando expira el período de vida, el evento de estado que contiene la información de estado se quita del almacén de estado, si RemoveWhenExpired es true, o se evalúa en el error, si RemoveWhenExpired es false. Si no se especifica, el período de vida se establece de forma predeterminada en un valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

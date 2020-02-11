@@ -6,39 +6,29 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 01/28/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 193fe96d3e98b2917d9228784b93a9335406283f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2a303070b7240bddfd4803ed3d4d796fa52fdef5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771758"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906645"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Inicio rápido: Análisis de datos en Azure Data Lake Storage Gen2 con Azure Databricks
+# <a name="quickstart-analyze-data-with-databricks"></a>Inicio rápido: Análisis de datos con Databricks
 
-Este inicio rápido muestra cómo ejecutar un trabajo de Apache Spark mediante Azure Databricks para realizar el análisis de los datos almacenados en una cuenta de almacenamiento que tiene habilitado Azure Data Lake Storage Gen2.
-
-Como parte del trabajo de Spark, analizará los datos de la suscripción a un canal de radio para obtener información detallada acerca del uso gratis o de pago basado en datos demográficos.
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+En este inicio rápido, va a ejecutar un trabajo de Apache Spark con Azure Databricks para realizar análisis de datos almacenados en una cuenta de almacenamiento. Como parte del trabajo de Spark, analizará los datos de la suscripción a un canal de radio para obtener información detallada acerca del uso gratis o de pago basado en datos demográficos.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Cree una cuenta de almacenamiento de Data Lake Gen2. Consulte [Quickstart: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  Pegue el nombre de la cuenta de almacenamiento en un archivo de texto. Lo necesitará pronto.
+* El nombre de la cuenta de almacenamiento de Azure Data Lake Gen2. [Creación de una cuenta de Azure Storage](data-lake-storage-quickstart-create-account.md).
 
-* Crear una entidad de servicio. Consulte [Cómo: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-  Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
-
-  :heavy_check_mark: Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar el rol de **Colaborador de datos de blobs de almacenamiento** a la entidad de servicio.
+* El identificador de inquilino, el identificador de aplicación y la contraseña de una entidad de servicio de Azure con un rol asignado de **colaborador de datos de blobs de almacenamiento**. [Cree una entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   > [!IMPORTANT]
-  > Asegúrese de asignar el rol en el ámbito de la cuenta de almacenamiento de Data Lake Storage Gen2. Puede asignar un rol al grupo de recursos o suscripción primario, pero recibirá errores relacionados con los permisos hasta que esas asignaciones de roles se propaguen a la cuenta de almacenamiento.
-
-  :heavy_check_mark: Al realizar los pasos de la sección [Obtención de valores para iniciar sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue los valores de identificador de inquilino, identificador de aplicación y contraseña en un archivo de texto, ya que los necesitará pronto.
+  > Asigne el rol en el ámbito de la cuenta de almacenamiento de Data Lake Storage Gen2. Puede asignar un rol al grupo de recursos o suscripción primario, pero recibirá errores relacionados con los permisos hasta que esas asignaciones de roles se propaguen a la cuenta de almacenamiento.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creación de un área de trabajo de Azure Databricks
 

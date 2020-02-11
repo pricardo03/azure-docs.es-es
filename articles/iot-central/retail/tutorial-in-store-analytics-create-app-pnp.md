@@ -11,16 +11,16 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 145aa87841c6334f7fa12535103b5e97db9c6918
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6b89b667855d827acfb7c181da014cd0d0b4bfc4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702022"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022110"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de análisis en tienda en Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 En el tutorial se muestran generadores de soluciones para crear una aplicación de análisis en tienda de Azure IoT Central. La aplicación de ejemplo es para una tienda de venta al por menor. Es una solución para la necesidad empresarial común de supervisar y adaptarse a la ocupación y las condiciones ambientales.
 
@@ -42,14 +42,14 @@ En este tutorial, aprenderá a:
 > * Conectar dispositivos a la aplicación
 > * Agregar reglas y acciones para supervisar las condiciones
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta serie de tutoriales, necesitará lo siguiente:
 * Se recomienda una suscripción de Azure. Opcionalmente, puede usar una evaluación gratuita de 7 días. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
 * Acceso a un dispositivo de puerta de enlace y dos sensores ambientales (opcionalmente, puede usar dispositivos simulados como se describe en el tutorial).
 * Plantillas de dispositivo para los dispositivos que use (se proporcionan plantillas para todos los dispositivos usados en el tutorial).
 
-## <a name="create-an-application"></a>Creación de una aplicación
+## <a name="create-an-application"></a>Crear una aplicación
 En esta sección, creará una nueva aplicación de Azure IoT Central a partir de una plantilla. Usará esta aplicación a lo largo de la serie de tutoriales para crear una solución completa.
 
 Para crear una nueva aplicación de Azure IoT Central:
@@ -64,7 +64,7 @@ Para crear una nueva aplicación de Azure IoT Central:
 
 1. Seleccione **Retail** (Comercio minorista).  En la página de comercio minorista se muestran varias plantillas de aplicación de venta al por menor.
 
-Para crear una nueva aplicación de finalización de la compra de análisis en tienda que usa las características de la versión preliminar:  
+Para crear una nueva aplicación de análisis en tienda de finalización de la compra:  
 
 1. Seleccione la plantilla de aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra). Esta plantilla incluye plantillas de dispositivo para todos los dispositivos usados en el tutorial, excepto los sensores RuuviTag. La plantilla también proporciona un panel del operador para la supervisión de la zona de cajas, las condiciones ambientales y el estado del dispositivo. 
 
@@ -75,13 +75,16 @@ Para crear una nueva aplicación de finalización de la compra de análisis en t
 
 1. Si tiene una suscripción de Azure, escriba el *directorio, la suscripción de Azure y la región*. Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.  
 
-    Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../preview/quick-deploy-iot-central.md).
+    Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../core/quick-deploy-iot-central.md).
 
 1. Seleccione **Crear**.
 
     ![Página de creación de una aplicación de Azure IoT Central](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template.png)
 
+    ![Página de información de facturación de la creación de una aplicación de Azure IoT Central](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template-billinginfo.png)
+
 ## <a name="customize-application-settings"></a>Personalización de la configuración de la aplicación
+
 Como creador, puede cambiar varias opciones de configuración para personalizar la experiencia del usuario en la aplicación. En esta sección, seleccionará un tema de aplicación predefinido. Opcionalmente, aprenderá a crear un tema personalizado y a actualizar la imagen de la aplicación. Un tema personalizado le permite establecer los colores del explorador de la aplicación, el icono del explorador y el logotipo de la aplicación que aparece en la cabecera.
 
 Para seleccionar un tema de aplicación predefinido:
@@ -160,7 +163,7 @@ En segundo lugar, puede personalizar las plantillas de dispositivo mediante la a
 
 En tercer lugar, puede personalizar las plantillas de dispositivo mediante la creación de vistas personalizadas. Las vistas proporcionan una manera para que los operadores visualicen los datos de telemetría y los metadatos de los dispositivos, como las métricas del dispositivo y el estado.
 
-Aquí se usan los dos primeros métodos para personalizar la plantilla de dispositivo de los sensores RuuviTag. Para obtener información sobre la creación de vistas para los sensores, consulte la guía de inicio rápido [Adición de un dispositivo simulado a la aplicación de IoT Central](../preview/quick-create-pnp-device.md).
+Aquí se usan los dos primeros métodos para personalizar la plantilla de dispositivo de los sensores RuuviTag. Para obtener información sobre la creación de vistas para los sensores, consulte la guía de inicio rápido [Adición de un dispositivo simulado a la aplicación de IoT Central](../core/quick-create-pnp-device.md).
 
 Para personalizar las interfaces integradas de la plantilla del dispositivo RuuviTag:
 
@@ -227,8 +230,8 @@ En este tutorial, se usa el siguiente conjunto de dispositivos reales y simulado
 
 Complete los pasos de los dos artículos siguientes para conectar una puerta de enlace Rigado real y sensores RuuviTag. Cuando haya terminado, vuelva a este tutorial. Dado que ya ha creado las plantillas de dispositivo en este tutorial, no es necesario crearlas de nuevo en el siguiente conjunto de instrucciones.
 
-- Para conectar una puerta de enlace Rigado, consulte [Conexión de una puerta de enlace Rigado Cascade 500 a la aplicación de Azure IoT Central](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Para conectar sensores RuuviTag, consulte [Conexión de un sensor RuuviTag a la aplicación de Azure IoT Central](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). También puede usar estas instrucciones para crear dos sensores simulados, si es necesario.
+- Para conectar una puerta de enlace Rigado, consulte [Conexión de una puerta de enlace Rigado Cascade 500 a la aplicación de Azure IoT Central](../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+- Para conectar sensores RuuviTag, consulte [Conexión de un sensor RuuviTag a la aplicación de Azure IoT Central](../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). También puede usar estas instrucciones para crear dos sensores simulados, si es necesario.
 
 ## <a name="add-rules-and-actions"></a>Adición de reglas y acciones
 Como parte del uso de sensores en la aplicación de Azure IoT Central para supervisar las condiciones, puede crear reglas para ejecutar acciones cuando se cumplan determinadas condiciones. Una regla está asociada a una plantilla de dispositivo y a uno o varios dispositivos y contiene condiciones que deben cumplirse en función de los eventos o los datos de telemetría del dispositivo. Una regla también tiene una o más acciones asociadas. Las acciones pueden incluir el envío de notificaciones por correo electrónico o el desencadenamiento de una acción de webhook para enviar datos a otros servicios. La plantilla de aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra) incluye algunas reglas predefinidas para los dispositivos de la aplicación.
@@ -274,7 +277,7 @@ Para agregar una acción a la regla:
     En unos minutos, la cuenta de correo electrónico especificada debe empezar a recibir correos electrónicos. La aplicación envía un correo electrónico cada vez que un sensor indica que el nivel de humedad superó el valor de la condición.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 * Usar la plantilla **In-store analytics - checkout** (Análisis en tienda: finalización de la compra) de Azure IoT Central para crear una aplicación de tienda de venta al por menor
 * Personalizar la configuración de la aplicación

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 01/28/2020
 ms.author: diberry
-ms.openlocfilehash: 0ddce3e4112dfb14309878927493abb3cb6b451a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9afef07af1332910cc9e25f9d66db5930df3bd4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447363"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901662"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Creación de un bot de preguntas y respuestas con Azure Bot Service v4
 
@@ -41,7 +41,7 @@ Cree un bot como una aplicación cliente para la base de conocimiento.
 
 1. En el portal de QnA Maker, vaya a la página **Publish** (Publicar) y publique la base de conocimiento. Seleccione **Create Bot** (Crear bot).
 
-    ![En el portal de QnA Maker, vaya a la página Publish (Publicar) y publique la base de conocimiento. Seleccione Create Bot (Crear bot).](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
+    [![En el portal de QnA Maker, vaya a la página Publish (Publicar) y publique la base de conocimiento. Seleccione Create Bot (Crear bot).](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png#lightbox)
 
     Se abre Azure Portal con la configuración de la creación del bot.
 
@@ -101,8 +101,6 @@ Si no creó un grupo de recursos, deberá buscar los recursos asociados con el b
 
 ## <a name="related-to-qna-maker-bots"></a>Relacionado con los bots de QnA Maker
 
-* El bot de Ayuda de QnA Maker, utilizado en el portal de QnA Maker, está disponible como una [muestra de bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support).
-    ![El icono del bot de Ayuda de QnA Maker es un robot rojo](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
 * [Los bots para asistencia sanitaria](https://docs.microsoft.com/HealthBot/qna_model_howto) usan QnA Maker como uno de sus [modelos de idioma](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 

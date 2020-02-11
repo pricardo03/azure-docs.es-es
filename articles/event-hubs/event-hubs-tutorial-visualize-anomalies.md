@@ -8,19 +8,19 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/20/2019
-ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/15/2020
+ms.openlocfilehash: 8fa123772ae380cd000c414c63bdf3908d279751
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437144"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906389"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs
 
 Con Azure Event Hubs, puede usar Azure Stream Analytics para comprobar los datos entrantes y extraer las anomalías, que luego puede visualizar en Power BI. Supongamos que tiene miles de dispositivos que envían constantemente datos en tiempo real a un centro de eventos, lo que suma millones de eventos por segundo. ¿Cómo comprueba errores y anomalías en tantos datos? Por ejemplo, ¿y si los dispositivos envían transacciones de tarjeta de crédito y necesita capturarlas en cualquier lugar donde tenga varias transacciones en varios países o regiones dentro de un intervalo de tiempo de 5 segundos? Esto podría ocurrir si alguien roba tarjetas de crédito y luego las usa para comprar artículos en todo el mundo a la misma hora. 
 
-En este tutorial, se simula este ejemplo. Ejecutará una aplicación que crea y envía transacciones de tarjeta de crédito a un centro de eventos. A continuación, leerá el flujo de datos en tiempo real con Azure Stream Analytics, que separa las transacciones válidas de las que no lo son y, luego, usará Power BI para identificar visualmente las transacciones etiquetadas como no válidas.
+En este tutorial, se simula este ejemplo. Ejecutará una aplicación que crea y envía transacciones de tarjeta de crédito a un centro de eventos. A continuación, leerá el flujo de datos en tiempo real con Azure Stream Analytics, que separa las transacciones válidas de las que no lo son y, luego, usará Power BI para identificar visualmente las transacciones etiquetadas como no válidas.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -156,14 +156,14 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Ejecución de la aplicación para generar datos de eventos de prueba
 
-Los [ejemplos de Event Hubs en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluyen una [aplicación de detección de anomalías](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) que genera datos de prueba automáticamente. Para simular el uso de tarjetas de crédito, escribe transacciones de tarjeta de crédito en el centro de eventos, y ocasionalmente escribe varias transacciones para la misma tarjeta de crédito en varias ubicaciones para que se etiqueten como anomalías. Para ejecutar esta aplicación, siga estos pasos: 
+Los [ejemplos de Event Hubs en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluyen una aplicación de Anomaly Detector que genera datos de prueba automáticamente. Para simular el uso de tarjetas de crédito, escribe transacciones de tarjeta de crédito en el centro de eventos, y ocasionalmente escribe varias transacciones para la misma tarjeta de crédito en varias ubicaciones para que se etiqueten como anomalías. Para ejecutar esta aplicación, siga estos pasos: 
 
 1. Descargue los [ejemplos de Azure Event Hubs](https://github.com/Azure/azure-event-hubs/archive/master.zip) desde GitHub y descomprímalos localmente.
+2. Vaya a la carpeta **\azure-event-hubs-master\samples\DotNet\\** . 
+3. Vaya a la carpeta **Azure.Messaging.EventHubs\AnomalyDetector\\** y haga doble clic en **AnomalyDetector.sln** para abrir la solución en Visual Studio. 
 
-2. Vaya a la carpeta \azure-event-hubs-master\samples\DotNet\AnomalyDetector\ and double-click on AnomalyDetector.sln para abrir la solución en Visual Studio. 
-
+    Para usar la versión anterior del ejemplo que usa el paquete antiguo Microsoft.Azure.EventHubs, abra la solución desde la carpeta **Microsoft.Azure.EventHubs\AnomalyDetector**. 
 3. Abra Program.cs y reemplace la **cadena de conexión de Event Hubs** por la que guardó al ejecutar el script. 
-
 4. Reemplace el **nombre del centro de eventos** por el nombre de su centro de eventos. Presione F5 para ejecutar la aplicación. La aplicación comienza a enviar eventos al centro de eventos y continúa hasta que ha enviado 1000 eventos. Hay algunos casos en los que la aplicación debe estar en ejecución para recuperar datos. Estos casos se señalan en las instrucciones siguientes, donde sea necesario.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configuración de Azure Stream Analytics

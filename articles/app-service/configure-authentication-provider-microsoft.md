@@ -25,7 +25,7 @@ En este tema se muestra cómo configurar Azure App Service para usar AAD con el 
 
 1. Vaya a [**Registros de aplicaciones**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) en Azure Portal. Si es necesario, inicie sesión con la cuenta de Microsoft.
 1. Seleccione **Nuevo registro** y escriba el nombre de la aplicación.
-1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **	Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino) y cuentas de Microsoft personales (como Skype o Xbox)** .
+1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino) y cuentas de Microsoft personales (como Skype o Xbox)** .
 1. En **URI de redirección**, seleccione **Web** y escriba `https://<app-domain-name>/.auth/login/aad/callback`. Reemplace *\<app-domain-name>* con el nombre de dominio de su aplicación.  Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Asegúrese de usar el esquema HTTPS en la dirección URL.
 
 1. Seleccione **Registrar**.

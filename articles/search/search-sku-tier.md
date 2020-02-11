@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/30/2020
+ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427028"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899839"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
@@ -21,15 +21,20 @@ Al crear un servicio Azure Cognitive Search, [se crea un recurso](search-create-
 
 La mayoría de los clientes empiezan con el nivel Gratis para poder evaluar el servicio. Después de la evaluación, es habitual crear un segundo servicio en uno de los niveles más altos para las implementaciones de desarrollo y producción.
 
-Aunque todos los niveles, incluido el nivel Gratis, suelen ofrecer paridad de características, es posible que las cargas de trabajo más grandes necesiten niveles más altos. Por ejemplo, el [enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) tiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio gratuito, a menos que el conjunto de datos sea pequeño.
+## <a name="feature-availability-by-tier"></a>Disponibilidad de características por nivel
 
-> [!NOTE] 
-> La excepción a la paridad de características reside en los [indizadores](search-indexer-overview.md), que no están disponibles en S3 HD.
->
+Casi todas las características están disponibles en todos los niveles, incluido el nivel Gratis, pero es posible que una característica o un flujo de trabajo que use muchos recursos no funcione bien, a menos que se le proporcione capacidad suficiente. Por ejemplo, el [enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) tiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio gratuito, a menos que el conjunto de datos sea pequeño.
 
-## <a name="available-tiers"></a>Niveles disponibles
+En la tabla siguiente se describen las restricciones de características relacionadas con el nivel.
 
-Los niveles reflejan las características del hardware que hospeda el servicio (en lugar de las características) y se diferencian por:
+| Característica | Limitaciones |
+|---------|-------------|
+| [Indizadores](search-indexer-overview.md) | Los indizadores no están disponibles en S3 HD. |
+| [Claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) | No disponibles en el nivel Gratis. |
+
+## <a name="tiers-skus"></a>Niveles (SKU)
+
+Los niveles se diferencian por:
 
 + Cantidad de índices e indizadores que se pueden crear
 + Tamaño y velocidad de particiones (almacenamiento físico)
@@ -97,9 +102,9 @@ La tarifa de facturación es de una hora por unidad. Cada nivel tiene una tarifa
 
 La mayoría de los clientes solo ponen en línea una parte de la capacidad total, manteniendo el resto en la reserva. Para la facturación, el número de particiones y réplicas que tiene en línea, calculado mediante la fórmula de SU, determina lo que se paga por hora.
 
-## <a name="how-to-manage-and-reduce-costs"></a>Cómo administrar y reducir costos
+## <a name="how-to-manage-costs"></a>Cómo administrar costos
 
-Además de las sugerencias siguientes, visite [Administración de costos y facturación](https://docs.microsoft.com/azure/billing/billing-getting-started).
+Las siguientes sugerencias pueden ayudarle a reducir los costos al mínimo:
 
 - Cree todos los recursos en la misma región, o en el menor número de regiones posible, para minimizar o eliminar los cargos de ancho de banda.
 
@@ -109,7 +114,11 @@ Además de las sugerencias siguientes, visite [Administración de costos y factu
 
 - Escale verticalmente las operaciones que consumen muchos recursos, como la indización, y vuelva a ajustar hacia abajo para las cargas de trabajo de consulta normales. Comience con la configuración mínima de Azure Cognitive Search (una SU compuesta de una partición y una réplica) y luego supervise la actividad de los usuarios para identificar patrones de uso que indiquen la necesidad de más capacidad. Si hay un patrón predecible, es posible que pueda sincronizar la escala con la actividad (necesitaría escribir código para automatizar esto).
 
-No se puede apagar un servicio de búsqueda para reducir la factura. Los recursos dedicados siempre están operativos y se asignan para su uso exclusivo mientras el servicio esté vigente. En lo que respecta al propio servicio, la única manera de reducir la factura es reducir las réplicas y las particiones a un nivel que aún proporcione rendimiento aceptable y [cumplimiento del SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), o crear un servicio en un nivel inferior (las tarifas por hora de S1 son inferiores a las de S2 o S3). Supongamos que aprovisiona su servicio con la menor de las previsiones de carga; si se supera el servicio, puede crear un segundo servicio con un nivel mayor, regenerar los índices en el segundo servicio y eliminar el primero.
+Además, visite [Facturación y administración de costos](https://docs.microsoft.com/azure/billing/billing-getting-started) para ver las herramientas y características integradas relacionadas con los gastos.
+
+No es posible quitar un servicio de búsqueda de forma temporal. Los recursos dedicados siempre están operativos y se asignan para su uso exclusivo mientras el servicio esté vigente. La eliminación de un servicio es permanente y también elimina los datos asociados.
+
+En lo que respecta al propio servicio, la única manera de reducir la factura es reducir las réplicas y las particiones a un nivel que aún proporcione rendimiento aceptable y [cumplimiento del SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), o crear un servicio en un nivel inferior (las tarifas por hora de S1 son inferiores a las de S2 o S3). Supongamos que aprovisiona su servicio con la menor de las previsiones de carga; si se supera el servicio, puede crear un segundo servicio con un nivel mayor, regenerar los índices en el segundo servicio y eliminar el primero.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Cómo evaluar los requisitos de capacidad
 

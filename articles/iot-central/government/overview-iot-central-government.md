@@ -7,22 +7,22 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a862a221f9fe2db5448473bddcca2a9932716e0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464084"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016517"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Creación de soluciones gubernamentales con Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Empiece con la creación de soluciones inteligentes para la ciudad aprovechando las plantillas de la aplicación de Azure IoT Central. Empiece ahora con la **supervisión de la calidad del agua**, la **supervisión del consumo de agua** y la **administración de residuos conectados**.
+
+Empiece con la creación de soluciones inteligentes para la ciudad mediante las plantillas de aplicación de Azure IoT Central. Empiece ahora con la **supervisión de la calidad del agua**, la **supervisión del consumo de agua** y la **administración de residuos conectados**.
 
 ## <a name="what-is-water-quality-monitoring-application-template"></a>¿Qué es la plantilla de la aplicación Water Quality Monitoring?   
 
-La supervisión de la calidad del agua tradicional se basa en técnicas de muestreo manual y análisis de laboratorio de campo, lo que lleva mucho tiempo y dinero. Mediante la supervisión remota de la calidad del agua en tiempo real, se pueden administrar los problemas de calidad del agua antes de que afecten a los ciudadanos. Además, con el análisis avanzado, los servicios de agua y los organismos ambientales pueden actuar rápidamente si se aparecen problemas de calidad del agua y planear por adelantado el tratamiento que se da al agua.  
+La supervisión de la calidad del agua tradicional se basa en técnicas de muestreo manual y análisis de laboratorio de campo, lo que lleva mucho tiempo y dinero. Mediante la supervisión remota de la calidad del agua en tiempo real, se pueden administrar los problemas de calidad del agua antes de que los ciudadanos resulten afectados. Además, con el análisis avanzado, los servicios de agua y los organismos ambientales pueden actuar rápidamente si se aparecen problemas de calidad del agua y planear por adelantado el tratamiento que se da al agua.  
 
 La aplicación Water Quality Monitoring es una plantilla de aplicación de IoT Central que le ayuda a iniciar el desarrollo de su solución de IoT y permite que los servicios de agua supervisen digitalmente la calidad del agua en las ciudades inteligentes. 
 
@@ -40,7 +40,7 @@ Empiece a trabajar con el tutorial de la aplicación [Water Quality Monitoring](
 
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>¿Qué es la plantilla de la aplicación Water Consumption Monitoring? 
 
-Tradicionalmente, para realizar el seguimiento del consumo de agua las empresas distribuidoras de agua leen manualmente los contadores de consumo de agua en los sitios de medición. Cada vez más ciudades están reemplazando los contadores tradicionales por contadores inteligentes avanzados, lo que permite la supervisión remota del consumo, así como el control remoto de las válvulas que controlan el flujo de agua. La supervisión del consumo de agua, junto con el mensaje de comentarios digitales al ciudadano, pueden aumentar la concienciación y reducir el consumo de agua. 
+Tradicionalmente, para realizar el seguimiento del consumo de agua las empresas distribuidoras de agua leen manualmente los contadores de consumo de agua en los sitios de medición. Cada vez más ciudades están reemplazando los contadores tradicionales por contadores inteligentes avanzados, lo que permite la supervisión remota del consumo y el control remoto de las válvulas que controlan el flujo de agua. La supervisión del consumo de agua, junto con el mensaje de comentarios digitales al ciudadano, pueden aumentar la concienciación y reducir el consumo de agua. 
 
 
 La aplicación Water Consumption Monitoring es una plantilla de aplicación de IoT Central que le ayuda a iniciar el desarrollo de su solución de IoT para que los servicios de agua y las ciudades supervisen y controlen de forma remota el flujo de agua para reducir el consumo. 

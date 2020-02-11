@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8ad542a3614253e11331e9b49513a887aff65890
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 130cb973f2de1de0d4c4636a4752a06e22edf65b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512919"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932558"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ Al cabo de varios minutos, la implementación se completa y devuelve informació
 
 ## <a name="install-the-kubernetes-cli"></a>Instalación de la CLI de Kubernetes
 
-Para conectarse al clúster de Kubernetes desde un equipo cliente, use [kubectl][kubectl], el cliente de la línea de comandos de Kubernetes.
+Para conectarse al clúster de Kubernetes desde su equipo local, use [kubectl][kubectl], el cliente de la línea de comandos de Kubernetes.
 
 Si usa Azure Cloud Shell, `kubectl` ya está instalado. También lo puede instalar localmente. Para ello debe usar el comando [az aks install-cli][]:
 
@@ -70,7 +70,7 @@ Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el co
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para comprobar la conexión al clúster, ejecute el comando [kubectl get nodes][kubectl-get]:
+Para comprobar la conexión al clúster, use ejecute el comando [kubectl get nodes][kubectl-get] para devolver una lista de los nodos del clúster:
 
 ```
 $ kubectl get nodes

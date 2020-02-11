@@ -6,24 +6,37 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 37249cc560d4493c34dd4be6139de03f9c152a08
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 23ac98f91c989c9bedb6b91e6a7ce26dc164ac5a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414476"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987810"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 3.6](https://www.python.org/downloads/) o versiones posteriores.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Identificador de la aplicación pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## <a name="get-luis-key"></a>Obtención de la clave de LUIS
+## <a name="create-luis-runtime-key-for-predictions"></a>Creación de una clave de tiempo de ejecución de LUIS para predicciones
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Haga clic en [Crear **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
+1. Establezca todas las opciones de configuración necesarias para la clave de **tiempo de ejecución**:
+
+    |Configuración|Value|
+    |--|--|
+    |Nombre|Nombre que quiera (2-64 caracteres).|
+    |Subscription|Seleccione una suscripción adecuada.|
+    |Location|Seleccione cualquier ubicación disponible cercana.|
+    |Nivel de precios|`F0`: el plan de tarifa mínimo.|
+    |Grupo de recursos|Seleccione un grupo de recursos disponible.|
+
+1. Haga clic en **Crear** y espere a que el recurso se cree. Una vez creado, vaya a la página de recursos.
+1. Recopile el elemento `endpoint` configurado y una `key`.
 
 ## <a name="get-intent-from-the-prediction-endpoint"></a>Obtención de la intención desde el punto de conexión de predicción
 
@@ -34,17 +47,17 @@ Use Python para consultar el [punto de conexión de predicción](https://aka.ms/
     ```python
     ########### Python 3.6 #############
     import requests
-    
+
     try:
-    
-        key = 'YOUR-KEY'
-        endpoint = 'YOUR-ENDPOINT' # such as 'westus2.api.cognitive.microsoft.com' 
+
+        key = 'YOUR-KEY' # your Runtime key
+        endpoint = 'YOUR-ENDPOINT' # such as 'your-resource-name.api.cognitive.microsoft.com'
         appId = 'df67dcdb-c37d-46af-88e1-8b97951ca1c2'
         utterance = 'turn on all lights'
-    
+
         headers = {
         }
-    
+
         params ={
             'query': utterance,
             'timezoneOffset': '0',
@@ -54,18 +67,20 @@ Use Python para consultar el [punto de conexión de predicción](https://aka.ms/
             'staging': 'false',
             'subscription-key': key
         }
-    
+
         r = requests.get(f'https://{endpoint}/luis/prediction/v3.0/apps/{appId}/slots/production/predict',headers=headers, params=params)
         print(r.json())
-    
+
     except Exception as e:
         print(f'{e}')
     ```
 
-1. Reemplace los valores siguientes:
+1. Reemplace los valores `YOUR-KEY` y `YOUR-ENDPOINT` por su propia clave y punto de conexión del **tiempo de ejecución** de la predicción.
 
-    * `YOUR-KEY` por la clave de inicio.
-    * `YOUR-ENDPOINT` por el punto de conexión. Por ejemplo, `westus2.api.cognitive.microsoft.com`.
+    |Information|Propósito|
+    |--|--|
+    |`YOUR-KEY`|La clave de **tiempo de ejecución** de predicción de 32 caracteres.|
+    |`YOUR-ENDPOINT`| El punto de conexión de la dirección URL de predicción. Por ejemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. Instale la dependencia `requests`. Se utiliza para realizar solicitudes HTTP:
 
@@ -77,7 +92,7 @@ Use Python para consultar el [punto de conexión de predicción](https://aka.ms/
 
     ```console
     python predict.py
-    ``` 
+    ```
 
 1. Revise la respuesta de la predicción, que se devuelve como JSON:
 
@@ -85,7 +100,7 @@ Use Python para consultar el [punto de conexión de predicción](https://aka.ms/
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    A continuación se incluye la respuesta JSON con formato para mejorar la legibilidad: 
+    A continuación se incluye la respuesta JSON con formato para mejorar la legibilidad:
 
     ```JSON
     {
@@ -128,13 +143,9 @@ Use Python para consultar el [punto de conexión de predicción](https://aka.ms/
     }
     ```
 
-## <a name="luis-keys"></a>Claves de LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya terminado con este inicio rápido, elimine el archivo del sistema de archivos. 
+Cuando haya terminado con este inicio rápido, elimine el archivo del sistema de archivos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

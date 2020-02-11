@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 860577938eab0f7561e9b66d0f58c9fc0d077b26
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4a4e9d8d1d100fe2e8c35053cea31c55b0f030d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704160"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023164"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Inicio rápido: Configuración de un inquilino
 
@@ -57,7 +57,7 @@ Si no tiene un inquilino existente asociado a la cuenta, verá un GUID bajo el n
 
 ### <a name="create-a-new-azure-ad-tenant"></a>Creación de un nuevo inquilino de Azure AD
 
-Si aún no tiene un inquilino de Azure AD o si desea crear uno nuevo para su desarrollo, siga la [experiencia de creación de directorio](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Tendrá que proporcionar la información siguiente para crear el nuevo inquilino:
+Si aún no tiene un inquilino de Azure AD o si desea crear uno nuevo para su desarrollo, consulte el [inicio rápido](../fundamentals/active-directory-access-create-new-tenant.md) o simplemente siga la [experiencia de creación de directorio](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Tendrá que proporcionar la información siguiente para crear el nuevo inquilino:
 
 - **Nombre de la organización**
 - **Dominio inicial**: formará parte de *.onmicrosoft.com. El dominio se puede personalizar más adelante.

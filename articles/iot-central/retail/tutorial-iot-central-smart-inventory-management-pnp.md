@@ -7,16 +7,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: d72636265ff3ac654faba91d1420b502b35d3192
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5632d98d9d853d9a4b0882c28cad1836bb6f3cef
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888996"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025476"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: implementación y recorrido de la plantilla de aplicación de administración inteligente
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 En este tutorial se muestra cómo implementar una plantilla de aplicación de **Smart Inventory Management** de IoT Central. Aprenderá cómo implementar la plantilla, qué elementos se incluyen de fábrica y qué podría hacer a continuación.
 
@@ -24,32 +24,38 @@ En este tutorial, aprenderá lo siguiente:
 * Creación de una aplicación de administración inteligente de inventario. 
 * Recorrido por la aplicación. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
+
 * No se necesitan requisitos previos específicos para implementar esta aplicación.
 * Se recomienda tener una suscripción de Azure, aunque puede probar las opciones sin ella.
 
 ## <a name="create-smart-inventory-management-application-template"></a>Creación de una plantilla de aplicación de administración inteligente de inventario.
 
 Puede crear una aplicación mediante los pasos siguientes.
+
 1. Vaya al sitio web del administrador de aplicaciones de Azure IoT Central. Seleccione **Crear** en la barra de navegación de la izquierda y, a continuación, haga clic en la pestaña **Venta al por menor**.
 
-> [!div class="mx-imgBorder"]
-> ![Panel de Smart Inventory Management](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Panel de Smart Inventory Management](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
 
-2. Seleccione la pestaña **Venta minorista** y seleccione **Crear aplicación** en **Smart Inventory Management**.
+2. Seleccione la pestaña **Venta al por menor** y, después, seleccione **Crear aplicación** en **Administración inteligente de inventarios**
 
 3. **Crear aplicación** abrirá el formulario de Nueva aplicación y rellenará los detalles solicitados como se muestra a continuación.
    **Nombre de la aplicación**: puede usar el nombre sugerido predeterminado o escribir el nombre descriptivo de la aplicación.
-   **URL**: puede usar la dirección URL predeterminada sugerida o escribir una dirección URL única, descriptiva y fácil de recordar. A continuación, se recomienda la configuración predeterminada si ya tiene una suscripción a Azure. De lo contrario, puede comenzar con una evaluación gratuita de siete días y optar por cambiarla al modo de pago por uso en cualquier momento antes de la expiración de la evaluación gratuita.
+   **URL**: puede usar la dirección URL predeterminada sugerida o escribir una dirección URL única, descriptiva y fácil de recordar. Después, se recomienda la configuración predeterminada si ya tiene una suscripción a Azure. Puede empezar con un plan de precios de evaluación gratuita de siete días y elegir convertirlo a un plan de precios estándar en cualquier momento antes de que expire la evaluación gratuita.
    **Información de facturación**: Los detalles del directorio, la suscripción a Azure y la región son necesarios para aprovisionar los recursos.
    **Crear**: Seleccione Crear en la parte inferior de la página para implementar la aplicación.
 
-> [!div class="mx-imgBorder"]
-> ![Panel de Smart Inventory Management](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Panel de Smart Inventory Management](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Información de facturación de Smart Inventory Management](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
 
 ## <a name="walk-through-the-application"></a>Recorrido por la aplicación. 
 
-### <a name="dashboard"></a>panel 
+### <a name="dashboard"></a>Panel 
+
 Después de implementar correctamente la plantilla de la aplicación, el panel predeterminado es un portal centrado en la administración inteligente de inventarios. Northwind Traders es un proveedor ficticio de inventarios inteligentes que administra el almacenamiento con Bluetooth de baja energía (BLE) y la tienda de venta minorista con la identificación por radiofrecuencia (RFID). En este panel, se mostrarán dos puertas de enlace diferentes que proporcionan datos de telemetría sobre el inventario, junto con comandos, trabajos y acciones asociadas que puede realizar. Este panel está preconfigurado para mostrar la actividad crítica de las operaciones de administración inteligente del inventario.
 El panel se divide lógicamente entre dos operaciones diferentes de administración de dispositivos de la puerta de enlace. 
    * El almacén se implementa con una puerta de enlace BLE fija y etiquetas BLE en los palés para realizar un seguimiento y localizar el inventario en instalaciones más grandes.
@@ -69,7 +75,7 @@ El panel se divide lógicamente entre dos operaciones diferentes de administraci
 ## <a name="device-template"></a>Plantilla de dispositivo
 Haga clic en la pestaña Plantillas de dispositivo y verá el modelo de funcionalidad de la puerta de enlace. Un modelo de funcionalidad está estructurado en torno a dos interfaces diferentes **Telemetría y propiedad de puerta de enlace** y **Comandos de puerta de enlace**.
 
-**Telemetría y propiedades de puerta de enlace**: esta interfaz representa toda la telemetría relacionada con los sensores, la ubicación y la información del dispositivo, así como las funcionalidades de las propiedades de dispositivo gemelo, tales como los umbrales de puerta de enlace y los intervalos de actualización.
+**Telemetría y propiedades de puerta de enlace**: esta interfaz representa todos los datos de telemetría relacionados con los sensores, la ubicación y la información del dispositivo, así como las funcionalidades de las propiedades de dispositivo gemelo, tales como los umbrales de puerta de enlace y los intervalos de actualización.
 
 > [!div class="mx-imgBorder"]
 > ![Panel de Smart Inventory Management](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
@@ -83,15 +89,15 @@ Haga clic en la pestaña Plantillas de dispositivo y verá el modelo de funciona
 ## <a name="rules"></a>Reglas
 Seleccione la pestaña Reglas para ver dos reglas diferentes que existen en esta plantilla de aplicación. Estas reglas se configuran para enviar notificaciones por correo electrónico a los operadores para realizar más investigaciones.
 
-**Puerta de enlace sin conexión**: Esta regla se desencadenará si la puerta de enlace no se comunica con la nube durante un período prolongado. La puerta de enlace podría no responder debido al modo de batería baja, la pérdida de conectividad o el estado del dispositivo.
+**Puerta de enlace sin conexión**: Esta regla se desencadenará si la puerta de enlace no se comunica con la nube durante un período prolongado. La puerta de enlace podría no responder porque está en modo de batería baja, ha perdido la conectividad o debido al estado del dispositivo.
 
-**Etiquetas desconocidas**: Es fundamental realizar el seguimiento de todas las etiquetas RFID y BLE asociadas a un recurso. Si la puerta de enlace está detectando demasiadas etiquetas desconocidas, esto indica que hay problemas de sincronización con las aplicaciones que emiten las etiquetas.
+**Etiquetas desconocidas**: Es fundamental realizar el seguimiento de todas las etiquetas RFID y BLE asociadas a un recurso. Si la puerta de enlace detecta demasiadas etiquetas desconocidas, es un claro indicador de que hay problemas de sincronización con las aplicaciones que generan etiquetas.
 
 > [!div class="mx-imgBorder"]
 > ![Panel de Smart Inventory Management](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## <a name="jobs"></a>Trabajos
-Seleccione la pestaña Trabajos para ver cinco trabajos diferentes que existen como parte de esta plantilla de aplicación: Puede aprovechar la característica de trabajos para realizar operaciones en toda la solución. Aquí los trabajos de administración del inventario usan los comandos de dispositivo y la funcionalidad de gemelo para realizar tareas como las siguientes.
+Seleccione la pestaña Trabajos para ver cinco trabajos diferentes que existen como parte de esta plantilla de aplicación: Puede aprovechar la característica de trabajos para realizar operaciones en toda la solución. Aquí los trabajos de administración del inventario usan los comandos del dispositivo y la funcionalidad de gemelo para realizar tareas como:
    * Deshabilitación de los lectores en todas las puertas de enlace.
    * Modificación del umbral de telemetría intermedio. 
    * Realización de un análisis de inventario a petición en toda la solución.
@@ -109,4 +115,4 @@ Si no va a seguir usando esta aplicación, elimine la plantilla de la aplicació
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre el [concepto de administración inteligente del inventario](./architecture-smart-inventory-management-pnp.md).
 * Más información sobre otras [plantillas de venta minorista de IoT Central](./overview-iot-central-retail-pnp.md).
-* Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../preview/overview-iot-central.md).
+* Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).

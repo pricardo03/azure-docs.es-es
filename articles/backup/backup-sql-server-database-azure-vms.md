@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a realizar copias de seguridad de bas
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 8125f6d98151f91faaccef512e4bcfd2946fcdd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 10f55bb4c5c488975f075aa0382296f808a9a5b1
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773112"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029578"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -109,6 +109,9 @@ Evite el uso de los elementos siguientes en los nombres de las bases de datos:
 * Barra diagonal '/'
 
 El establecimiento de alias está permitido para los caracteres no admitidos, pero se recomienda evitarlos. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+
+>[!NOTE]
+>La operación **Configurar protección** no se admite en las bases de datos con caracteres especiales como "+" o "&" en su nombre. Puede cambiar el nombre de la base de datos o habilitar la opción **Auto Protection** (Protección automática), que le permitirá proteger correctamente estas bases de datos.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

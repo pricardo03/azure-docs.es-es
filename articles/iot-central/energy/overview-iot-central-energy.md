@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c7d2481fe3ef361386bacc652d87744c1c790bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581495"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016569"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Creación de soluciones de energía con IoT Central 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 Los paneles solares y los medidores inteligentes desempeñan un papel importante en la transformación del sector energético. Los medidores inteligentes proporcionan más controles e información en tiempo real sobre los consumos energéticos, y el aumento de los paneles solares está impulsando un gran avance en la generación de energía renovable. Las aplicaciones de supervisión de paneles solares y medidores inteligentes son plantillas de ejemplo que muestran distintas funcionalidades. Los asociados pueden aprovechar estas plantillas para crear soluciones energéticas con IoT Central que satisfagan sus necesidades específicas. No se requiere ningún nuevo código ni costo adicional para implementar y usar estas aplicaciones. Obtenga más información acerca de las plantillas de aplicaciones energéticas y sus funcionalidades.

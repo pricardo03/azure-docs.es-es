@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 12/06/2019
-ms.openlocfilehash: 4d32980e825f12c76b5c8bf8df0673fa82065751
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/03/2020
+ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460431"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984596"
 ---
 1. En [Azure Portal](https://ms.portal.azure.com/), seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 
@@ -34,18 +34,30 @@ ms.locfileid: "75460431"
 
 1. En la hoja **Autenticación** se especifican valores de configuración de autenticación importantes. 
 
+    1. Seleccione **+ Agregar una plataforma** para agregar valores de **URI de redirección** y configurar la opción **Tokens de acceso**.
+
+    1. Determine si la aplicación es un **cliente público** o no seleccionando **Sí** o **No**.
+
+    1. Compruebe qué cuentas e inquilinos se admiten.
+
+    [![Configuración de concesión implícita](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+
+1. Después de seleccionar la plataforma adecuada, configure las opciones de **URI de redirección** y **Tokens de acceso** en el panel lateral a la derecha de la interfaz de usuario.
+
     1. El valor de **URI de redirección** debe coincidir con la dirección proporcionada en la solicitud de autenticación:
 
-        * Si se trata de aplicaciones hospedadas en un entorno de desarrollo local, seleccione **Cliente público (móvil y escritorio)** . Asegúrese de establecer el **tipo de cliente predeterminado** en Sí.
-        * Si son aplicaciones de página única hospedadas en Azure App Service, seleccione **Web**.
+        * Si se trata de aplicaciones hospedadas en un entorno de desarrollo local, seleccione **Cliente público (móvil y escritorio)** . Asegúrese de establecer el **cliente público** en **Sí**.
+        * En el caso de aplicaciones de página única hospedadas en Azure App Service, seleccione **Web**.
+
+    1. Determine si procede agregar una **URL de cierre de sesión**.
 
     1. Marque **Tokens de acceso** o **Tokens de id.** para habilitar el flujo de concesión implícita.
 
-   [![Crear identificadores URI de redirección y configurar concesión implícita](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+    [![Creación de URI de redirección](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png)](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png#lightbox)
 
-   Haga clic en **Save**(Guardar).
+    Haga clic en **Configurar** y, a continuación, en **Guardar**.
 
-1. Seleccione **Certificados y secretos** y, después, haga clic en **Nuevo secreto de cliente** para crear una contraseña de aplicación que el cliente puede usar para demostrar su identidad.
+1. Seleccione **Certificados y secretos** y, después, **Nuevo secreto de cliente** para crear una contraseña de aplicación que la aplicación cliente pueda usar para demostrar su identidad.
 
    [![Creación de un secreto de cliente](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 

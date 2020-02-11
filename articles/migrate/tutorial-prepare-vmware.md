@@ -1,18 +1,15 @@
 ---
 title: Preparación de máquinas virtuales de VMware para la evaluación y migración con Azure Migrate
 description: Aprenda a prepararse para la evaluación y migración de máquinas virtuales de VMware con Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f00d5ba4841427098b0ab79ad1930e357008b6e0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028912"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030802"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparación de máquinas virtuales de VMware para la evaluación y migración a Azure
 
@@ -41,8 +38,12 @@ Necesita estos permisos.
 **Task** | **Permisos**
 --- | ---
 **Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos para crear un proyecto.
-**Registrar el dispositivo de Azure Migrate** | Azure Migrate usa un dispositivo de Azure Migrate ligero para evaluar las máquinas virtuales de VMware con Azure Migrate Server Assessment y para ejecutar [migración sin agente](server-migrate-overview.md) de máquinas virtuales de VMware con la migración de Azure Migrate Server. Este dispositivo realiza la detección de máquinas virtuales y envía sus metadatos y sus datos de rendimiento a Azure Migrate.<br/><br/>Durante el registro, Azure Migrate crea dos aplicaciones de Azure Active Directory (Azure AD) que identifican de forma única al dispositivo y necesita permisos para crearlas.<br/> - La primera aplicación se comunica con los puntos de conexión de servicio de Azure Migrate.<br/> - La segunda aplicación accede a un almacén de Azure Key Vault creado durante el registro para almacenar la información de la aplicación de Azure AD y los valores de configuración del dispositivo.
+**Registrar el dispositivo de Azure Migrate** | Azure Migrate usa un dispositivo de Azure Migrate ligero para evaluar las máquinas virtuales de VMware con Azure Migrate Server Assessment y para ejecutar [migración sin agente](server-migrate-overview.md) de máquinas virtuales de VMware con la migración de Azure Migrate Server. Este dispositivo realiza la detección de máquinas virtuales y envía sus metadatos y sus datos de rendimiento a Azure Migrate.<br/><br/>Durante el registro del dispositivo, los siguientes proveedores de recursos se registran con la suscripción elegida en el dispositivo: Microsoft.OffAzure, Microsoft.Migrate y Microsoft.KeyVault. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. Para registrar los proveedores de recursos debe tener el rol colaborador o propietario de la suscripción.<br/><br/> Como parte del proceso de incorporación, Azure Migrate crea dos aplicaciones de Azure Active Directory (Azure AD):<br/> - La primera aplicación se usa para la comunicación (autenticación y autorización) entre los agentes que se ejecutan en el dispositivo con sus servicios respectivos que se ejecutan en Azure. Esta aplicación no tiene privilegios para realizar llamadas a ARM ni acceso RBAC en ningún recurso.<br/> - La segunda aplicación se usa exclusivamente para acceder a la instancia de KeyVault creada en la suscripción del usuario para la migración sin agente. Se proporciona con un acceso RBAC a Azure Key Vault (la instancia creada en el inquilino del cliente) cuando se inicia la detección desde el dispositivo.
 **Crear un almacén de claves** | Cuando se migran máquinas virtuales de VMware con Azure Migrate Server Migration, Azure Migrate crea un almacén de claves para administrar las claves de acceso a la cuenta de almacenamiento de replicación de la suscripción. Para crear el almacén, necesita permisos de asignación de roles en el grupo de recursos en el que reside el proyecto de Azure Migrate.
+
+
+
+
 
 
 ### <a name="assign-permissions-to-create-project"></a>Asignación de permisos para crear un proyecto
@@ -80,9 +81,9 @@ El administrador de inquilinos o administrador global puede conceder permisos co
 
 El administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-### <a name="assign-role-assignment-permissions"></a>Asignación de permisos de asignación de roles
+### <a name="assign-permissions-to-create-a-key-vault"></a>Asignación de permisos para crear un almacén de claves
 
-Para habilitar Azure Migrate para crear un almacén de claves, asigne los permisos de asignación de roles de la siguiente manera:
+Para habilitar Azure Migrate para crear un almacén de claves, asigne los permisos de la siguiente manera:
 
 1. En el grupo de recursos de Azure Portal, seleccione **Control de acceso (IAM**).
 2. En **Comprobar acceso**, busque la cuenta correspondiente y haga clic en ella para ver los permisos.

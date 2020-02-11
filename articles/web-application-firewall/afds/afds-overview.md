@@ -5,20 +5,22 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 11/23/2019
+ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406194"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934716"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicaciones web en Azure en Azure Front Door
 
-Firewall de aplicaciones web (WAF) de Azure en Azure Front Door proporciona protección centralizada para las aplicaciones web que se entregan globalmente con Azure Front Door. Está diseñado para proteger los servicios web frente a ataques y vulnerabilidades comunes y mantener el servicio de alta disponibilidad para los usuarios, además de ayudar a cumplir los requisitos de cumplimiento.
+Firewall de aplicaciones web (WAF) en Azure Front Door proporciona protección centralizada para las aplicaciones web. WAF defiende los servicios web frente a vulnerabilidades comunes. Mantiene su servicio de alta disponibilidad para los usuarios y le ayuda a cumplir los requisitos de cumplimiento.
 
-WAF en Front Door es una solución global y centralizada. Se implementa en las ubicaciones perimetrales de red de Azure en todo el mundo y se inspeccionan en el perímetro de red todas las solicitudes entrantes para una aplicación web con WAF habilitado que entregue Front Door. Esto permite a WAF evitar ataques malintencionados cerca de los orígenes de los ataques antes de que entren en la red virtual. Además, ofrece una protección global a escala sin sacrificar el rendimiento. Una directiva de WAF se puede vincular fácilmente con cualquier perfil de Front Door de su suscripción y se pueden implementar reglas nuevas en cuestión de minutos, lo que le permite responder rápidamente a los patrones de amenazas cambiantes.
+WAF en Front Door es una solución global y centralizada. Está implementado en ubicaciones de perímetro de red de Azure de todo el mundo. Las aplicaciones web habilitadas para WAF inspeccionan todas las solicitudes entrantes entregadas por Front Door en el perímetro de red. 
+
+WAF evita los ataques malintencionados cerca de los orígenes de ataques antes de que entren en la red virtual. El usuario obtiene protección a gran escala sin sacrificar el rendimiento. Una directiva WAF se vincula fácilmente a cualquier perfil de Front Door de la suscripción. Las nuevas reglas se implementan en cuestión de minutos, por lo que puede responder rápidamente a los cambios en los patrones de amenazas.
 
 ![Firewall de aplicaciones web de Azure](../media/overview/wafoverview.png)
 
@@ -32,17 +34,17 @@ Puede configurar una directiva de WAF y asociarla con uno o varios servidores fr
 
 Cuando ambos están presentes, las reglas personalizadas se procesan antes de procesar las reglas de un conjunto de reglas administrado. Una regla está formada por una condición de coincidencia, una prioridad y una acción. Los tipos de acción que se admiten son los siguientes: ALLOW, BLOCK, LOG y REDIRECT. Puede crear una directiva totalmente personalizada que cumpla sus requisitos específicos de protección de aplicaciones al combinar reglas personalizadas y administradas.
 
-Las reglas de una directiva se procesan de forma ordenada por prioridad, donde la prioridad es un entero único que define el orden en el que se procesan las reglas. El valor entero más pequeño indica una prioridad más alta y estas se evalúan antes que las reglas con un valor entero más alto. Una vez que una regla coincide, la acción correspondiente que se ha definido en la regla se aplica a la solicitud. Una vez que se procesa esa coincidencia, no se procesan más reglas con prioridades inferiores.
+Las reglas de una directiva se procesan en un orden de prioridad. La prioridad es un entero único que describe el orden de las reglas que se van a procesar. El valor entero más pequeño indica una prioridad más alta y estas reglas se evalúan antes que las reglas con un valor entero más alto. Una vez que una regla coincide, la acción correspondiente que se ha definido en la regla se aplica a la solicitud. Cuando se procesa esa coincidencia, ya no se procesan más reglas con prioridades inferiores.
 
 Una aplicación web entregada por Front Door solo puede tener una directiva de WAF asociada a la vez. En cambio, puede tener una configuración de Front Door sin ninguna directiva de WAF asociada con ella. Si una directiva de WAF está presente, se replica a todas nuestras ubicaciones perimetrales para garantizar que haya coherencia en las directivas de seguridad en todo el mundo.
 
 ## <a name="waf-modes"></a>Modos de WAF
 
-La directiva de WAF se puede configurar para ejecutarse en los siguientes dos modos:
+La directiva WAF se puede configurar para ejecutarse en los siguientes dos modos:
 
-- **Modo de detección:** cuando se ejecuta en el modo de detección, WAF no realiza ninguna acción que no sea supervisar y registrar la solicitud y sus reglas de WAF coincidentes en los registros de WAF. Puede activar el registro de diagnósticos de Front Door (para hacerlo desde el portal, vaya a la sección **Diagnósticos** de Azure Portal).
+- **Modo de detección:** cuando se ejecuta en el modo de detección, WAF no realiza ninguna acción que no sea supervisar y registrar la solicitud y sus reglas de WAF coincidentes en los registros de WAF. Puede activar los diagnósticos de registro para Front Door. Vaya a la sección **Diagnostics** del portal.
 
-- **Modo de prevención:** cuando se configura para ejecutarse en el modo de prevención, WAF realiza la acción especificada si una solicitud coincide con una regla y, si se encuentra una coincidencia, no se evalúa ninguna otra regla con prioridad más baja. Todas las solicitudes coincidentes también se registran en los registros de WAF.
+- **Modo de prevención:** En el modo de prevención, WAF realiza la acción especificada si una solicitud coincide con una regla. Si se encuentra una coincidencia, no se evalúa ninguna otra regla con prioridad más baja. Todas las solicitudes coincidentes también se registran en los registros de WAF.
 
 ## <a name="waf-actions"></a>Acciones de WAF
 
@@ -61,17 +63,17 @@ Una directiva de WAF puede constar de dos tipos de reglas de seguridad: reglas p
 
 Puede configurar reglas personalizadas de WAF de la siguiente forma:
 
-- **Listas de direcciones IP permitidas y denegadas:** puede configurar reglas personalizadas para controlar el acceso a las aplicaciones web en función de una lista de direcciones IP de cliente o intervalos de direcciones IP. Se admiten los tipos de direcciones IPv4 e IPv6. Esta lista puede configurarse para bloquear o permitir esas solicitudes en las que la IP de origen coincide con una IP de la lista.
+- **Listas de direcciones IP permitidas y denegadas:** puede controlar el acceso a las aplicaciones web en función de una lista de direcciones IP de cliente o intervalos de direcciones IP. Se admiten los tipos de direcciones IPv4 e IPv6. Esta lista puede configurarse para bloquear o permitir esas solicitudes en las que la IP de origen coincide con una IP de la lista.
 
-- **Control de acceso basado en la ubicación geográfica:** puede configurar reglas personalizadas para controlar el acceso a las aplicaciones web en función del código de país asociado con la dirección IP de un cliente.
+- **Control de acceso basado en la ubicación geográfica:** puede controlar el acceso a las aplicaciones web en función del código de país asociado con la dirección IP de un cliente.
 
-- **Control de acceso basado en los parámetros HTTP:** puede configurar reglas personalizadas basadas en la cadena que coincida con los parámetros de solicitud HTTP/HTTPS, como las cadenas de consulta, los argumentos POST, el URI de solicitud, el encabezado de la solicitud y el cuerpo de la solicitud.
+- **Control de acceso basado en los parámetros HTTP:** puede basar las reglas en coincidencias de cadenas en los parámetros de solicitud HTTP/HTTPS.  Por ejemplo, las cadenas de consulta, los argumentos POST, el URI de solicitud, el encabezado de solicitud y el cuerpo de la solicitud.
 
-- **Control de acceso basado en el método de solicitud:** puede configurar reglas personalizadas basadas en el método de solicitud HTTP de la solicitud, como GET, PUT o HEAD.
+- **Control de acceso basado en el método de solicitud:** puede basar las reglas en el método de solicitud HTTP de la solicitud. Por ejemplo, GET, PUT o HEAD.
 
-- **Restricción del tamaño:** puede configurar reglas personalizadas basadas en las longitudes de determinadas partes de una solicitud, como la cadena de consulta, el URI o el cuerpo de la solicitud.
+- **Restricción del tamaño:** puede basar las reglas en las longitudes de determinadas partes de una solicitud, como la cadena de consulta, el URI o el cuerpo de la solicitud.
 
-- **Reglas de limitación de frecuencia:** Las reglas de control de frecuencia están diseñadas para limitar el tráfico anormalmente alto procedente de cualquier dirección IP de cliente. Puede configurar un umbral en función del número de solicitudes web que se permiten de una dirección IP de cliente durante un minuto. Esto no es lo mismo que una regla personalizada de permiso o bloqueo basada en la lista de IP que permita o bloquee todas las solicitudes de una IP de cliente. La limitación de frecuencia se puede combinar con otras condiciones de coincidencia (por ejemplo, la coincidencia de parámetros HTTP(S) para el control granular de la frecuencia).
+- **Reglas de limitación de frecuencia:** Las reglas de control de frecuencia están diseñadas para limitar el tráfico anormalmente alto procedente de cualquier dirección IP de cliente. Puede configurar un umbral en función del número de solicitudes web que se permiten de una dirección IP de cliente durante un minuto. Esta regla es distinta de la regla personalizada de permiso o bloqueo basada en la lista de IP que permita o bloquee todas las solicitudes de una IP de cliente. La limitación de velocidad puede combinarse con condiciones de coincidencia adicionales, como la coincidencia de parámetros HTTP(S) para un control granular de la velocidad.
 
 ### <a name="azure-managed-rule-sets"></a>Conjuntos de reglas administrados por Azure
 
@@ -87,14 +89,24 @@ Los conjuntos de reglas administrados por Azure proporcionan una forma fácil de
 - Protección contra la inyección de código SQL
 - Atacantes de protocolo
 
-El número de versión del conjunto de reglas predeterminado se incrementará cuando se agreguen nuevas firmas de ataque al conjunto de reglas.
-El conjunto de reglas predeterminado está habilitado de forma predeterminada en el modo de detección de las directivas de WAF. Puede deshabilitar o habilitar reglas individuales en el conjunto de reglas predeterminado para satisfacer los requisitos de su aplicación. También puede establecer acciones específicas (ALLOW/BLOCK/REDIRECT/LOG) por regla. La acción predeterminada es BLOCK. Además, las reglas personalizadas pueden configurarse en la misma directiva de WAF si quiere omitir cualquiera de las reglas previamente configuradas en el conjunto de reglas predeterminado.
-Las reglas personalizadas se aplican siempre antes de que se evalúen las reglas del conjunto de reglas predeterminado. Si una solicitud coincide con una regla personalizada, se aplica la acción de regla correspondiente y la solicitud se bloquea o pasa por el servidor back-end, sin invocar ninguna otra regla personalizada ni las reglas del conjunto de reglas predeterminado. Además, tiene la opción de quitar el conjunto de reglas predeterminado de las directivas de WAF.
+El número de versión del conjunto de reglas predeterminado se incrementa cuando se agreguen nuevas firmas de ataque al conjunto de reglas.
+El conjunto de reglas predeterminado está habilitado de forma predeterminada en el modo de detección de las directivas de WAF. Puede deshabilitar o habilitar reglas individuales en el conjunto de reglas predeterminado para satisfacer los requisitos de su aplicación. También puede establecer acciones específicas (ALLOW/BLOCK/REDIRECT/LOG) por regla.
 
+La acción predeterminada es bloquear (BLOCK). Además, las reglas personalizadas pueden configurarse en la misma directiva de WAF si quiere omitir cualquiera de las reglas previamente configuradas en el conjunto de reglas predeterminado.
+
+Las reglas personalizadas se aplican siempre antes de que se evalúen las reglas del conjunto de reglas predeterminado. Si una solicitud coincide con una regla personalizada, se aplica la acción de la regla correspondiente. La solicitud se bloquea o se pasa por el back-end. No se procesa ninguna otra regla personalizada ni las reglas del conjunto de reglas predeterminado. También puede quitar el conjunto de reglas predeterminado de las directivas de WAF.
 
 ### <a name="bot-protection-rule-set-preview"></a>Conjunto de reglas de protección contra bots (versión preliminar)
 
-Se puede habilitar un conjunto administrado de reglas de protección contra bots para que WAF realice acciones personalizadas en las solicitudes de categorías de bots conocidas. Se admiten tres categorías de bot: bots defectuosos, bots correctos y bots desconocidos. La plataforma WAF administra y actualiza dinámicamente las firmas de bots. Las direcciones IP malintencionadas de los bots defectuosos proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la Inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center. Los bots correctos incluyen motores de búsqueda validados. Las categorías desconocidas incluyen grupos de bots adicionales. Puede establecer acciones personalizadas para bloquear, permitir, registrar o redirigir los distintos tipos de bots.
+Se puede habilitar un conjunto administrado de reglas de protección contra bots realizar acciones personalizadas en las solicitudes de categorías de bots conocidas. 
+
+Se admiten tres categorías de bot: Defectuosos, correctos y desconocidos La plataforma WAF administra y actualiza dinámicamente las firmas de bots.
+
+Los bots defectuosos incluyen bots de direcciones IP malintencionadas y bots que han falsificado sus identidades. Las direcciones IP malintencionadas proceden de la fuente de inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la Inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.
+
+Los bots correctos incluyen motores de búsqueda validados. Entre las categorías desconocidas se incluyen los grupos de bot adicionales que se identificaron a sí mismos como bots. Por ejemplo, analizadores de mercado, recopiladores de fuentes y agentes de recopilación de datos. 
+
+Los bots desconocidos se clasifican mediante agentes de usuario publicados sin una validación adicional. Puede establecer acciones personalizadas para bloquear, permitir, registrar o redirigir los distintos tipos de bots.
 
 ![Conjunto de reglas de protección contra bots](../media/afds-overview/botprotect2.png)
 
@@ -105,7 +117,7 @@ Si la protección contra bots está habilitada, las solicitudes entrantes que co
 
 ## <a name="configuration"></a>Configuración
 
-La configuración e implementación de todos los tipos de reglas de WAF es compatible con Azure Portal, las API REST, las plantillas de Azure Resource Manager y Azure PowerShell.
+Puede configurar e implementar todos los tipos de reglas de WAF mediante Azure Portal, las API REST, las plantillas de Azure Resource Manager y Azure PowerShell.
 
 ## <a name="monitoring"></a>Supervisión
 

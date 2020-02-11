@@ -4,16 +4,16 @@ description: Uso de implementaciones automáticas en Azure IoT Edge para adminis
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/12/2019
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 406830add1891a058e9b43fccb8435aa4d339ed0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548686"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76895971"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
 
@@ -61,7 +61,7 @@ La condición de destino se evalúa continuamente durante la vigencia de la impl
 
 Por ejemplo, tiene una implementación con una condición de destino tags.environment = "prod". Al comenzar la implementación, hay diez dispositivos de producción. Los módulos se instalarán correctamente en estos 10 dispositivos. El estado del agente de IoT Edge se muestra con 10 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 0 respuestas pendientes. Ahora agregue cinco dispositivos más con tags.environment = 'prod'. El servicio detecta el cambio y el estado del agente de IoT Edge pasará a incluir 15 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 5 respuestas pendientes al intentar implementar los cinco nuevos dispositivos.
 
-Use cualquier condición booleana en las etiquetas de los dispositivos gemelos o deviceId para seleccionar los dispositivos de destino. Si desea usar una condición con etiquetas, debe agregar la sección "etiquetas":{} en el dispositivo gemelo en el mismo nivel que las propiedades. [Más información acerca de las etiquetas en dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md)
+Use cualquier condición booleana en las etiquetas de dispositivos gemelos, propiedades notificadas de dispositivos gemelos o valores de deviceId para seleccionar los dispositivos de destino. Si desea usar una condición con etiquetas, debe agregar la sección "etiquetas":{} en el dispositivo gemelo en el mismo nivel que las propiedades. [Más información acerca de las etiquetas en dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Ejemplos de condiciones de destino:
 
@@ -70,10 +70,11 @@ Ejemplos de condiciones de destino:
 * tags.environment = 'prod' AND tags.location = 'westus'
 * tags.environment = 'prod' OR tags.location = 'westus'
 * tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+* properties.reported.devicemodel = '4000x'
 
-Estas son algunas limitaciones a la hora de construir una condición de destino:
+Tenga en cuenta estas restricciones cuando construya una condición de destino:
 
-* En dispositivos gemelos, solo puede crear una condición de destino mediante etiquetas o deviceId.
+* En dispositivos gemelos, solo puede crear una condición de destino mediante etiquetas, propiedades notificadas o valores de deviceId.
 * No se permiten las comillas dobles en ninguna porción de la condición de destino. Use comillas simples.
 * Las comillas simples representan los valores de la condición de destino. Por lo tanto, deberá agregar una comilla simple a otra comilla simple si esta ya forma parte del nombre del dispositivo. Por ejemplo, para dirigirse a un dispositivo llamado `operator'sDevice`, escriba `deviceId='operator''sDevice'`.
 * Se permiten números, letras y los siguientes caracteres en los valores de la condición de destino: `-:.+%_#*?!(),=@;$`.
@@ -92,8 +93,8 @@ De forma predeterminada, todas las implementaciones informan sobre cuatro métri
 
 * **Destino** muestra los dispositivos IoT Edge que coinciden con la condición de destino de implementación.
 * **Aplicado** muestra los dispositivos IoT Edge de destino que no están destinados a otra implementación de mayor prioridad.
-* **Informe correcto** muestra los dispositivos IoT Edge que han informado al servicio que los módulos se han implementado correctamente.
-* **Error de informe** muestra los dispositivos IoT Edge que han informado al servicio que uno o más módulos no se han implementado correctamente. Para investigar más el error, conéctese de forma remota a esos dispositivos para examinar los archivos de registros.
+* **Informe correcto** muestra los dispositivos IoT Edge que han informado de que los módulos se han implementado correctamente.
+* **Error en el informe** muestra los dispositivos IoT Edge que han informado de que uno o más módulos no se han implementado correctamente. Para investigar más el error, conéctese de forma remota a esos dispositivos para examinar los archivos de registros.
 
 Además, puede definir sus propias métricas personalizadas para ayudar a supervisar y administrar la implementación.
 
@@ -112,7 +113,7 @@ Las implementaciones superpuestas son implementaciones automáticas que se puede
 
 Las implementaciones superpuestas tienen los mismos componentes básicos que cualquier implementación automática. Su objetivo son dispositivos en función de las etiquetas de los dispositivos gemelos y proporcionan la misma función en torno a las etiquetas, las métricas y los informes de estado. Las implementaciones superpuestas también tienen prioridades asignadas, pero en lugar de usar la prioridad para determinar qué implementación se aplica a un dispositivo, la prioridad determina cómo se clasifican varias implementaciones en un dispositivo. Por ejemplo, si dos implementaciones superpuestas tienen un módulo o una ruta con el mismo nombre, se aplicará la implementación superpuesta con la prioridad más alta mientras se sobrescribe la prioridad inferior.
 
-Los módulos en tiempo de ejecución del sistema, edgeAgent y edgeHub no se configuran como parte de una implementación superpuesta. Cualquier dispositivo IoT Edge de destino de una implementación superpuesta necesita una implementación automática estándar aplicada primero para proporcionar la base sobre la que se pueden agregar implementaciones superpuestas.
+Los módulos en tiempo de ejecución del sistema, edgeAgent y edgeHub no se configuran como parte de una implementación superpuesta. Cualquier dispositivo IoT Edge que tenga como destino una implementación superpuesta necesita tener aplicada primero una implementación automática estándar. La implementación automática proporciona la base sobre la que se pueden agregar implementaciones superpuestas.
 
 Un dispositivo IoT Edge puede aplicar solo una implementación automática estándar, pero puede aplicar varias implementaciones automáticas superpuestas. Cualquier implementación superpuesta que tenga como destino un dispositivo debe tener una prioridad superior a la implementación automática de ese dispositivo.
 
@@ -141,7 +142,7 @@ Por ejemplo, en una implementación estándar puede agregar el módulo de sensor
 }
 ```
 
-En una implementación superpuesta que tiene como destino los mismos dispositivos, o un subconjunto de los mismos dispositivos, es posible que desee agregar una propiedad adicional que indique al sensor simulado que envíe 1000 mensajes y que posteriormente se detenga. No desea sobrescribir las propiedades existentes, por lo que debe crear una nueva sección dentro de las propiedades deseadas llamada `layeredProperties` que contenga la nueva propiedad:
+En una implementación superpuesta dirigida a algunos o todos los mismos dispositivos, podría agregar una propiedad que indique al sensor simulado que envíe 1000 mensajes y que luego se detenga. No desea sobrescribir las propiedades existentes, por lo que debe crear una nueva sección dentro de las propiedades deseadas llamada `layeredProperties` que contenga la nueva propiedad:
 
 ```json
 "SimulatedTemperatureSensor": {

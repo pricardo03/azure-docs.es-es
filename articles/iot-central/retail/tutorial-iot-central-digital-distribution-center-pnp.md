@@ -7,16 +7,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890672"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025493"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: implementación y recorrido por la plantilla de aplicación del centro de distribución digital
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 En este tutorial se muestra cómo implementar una plantilla de aplicación de **digital distribution center** de IoT Central. Aprenderá cómo implementar la plantilla, qué elementos se incluyen de fábrica y qué podría hacer a continuación.
 
@@ -24,29 +24,32 @@ En este tutorial, aprenderá lo siguiente:
 * Creación de una aplicación del centro de distribución digital. 
 * Recorrido por la aplicación. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * No se necesitan requisitos previos específicos para implementar esta aplicación.
 * Se recomienda tener una suscripción de Azure, aunque puede probar las opciones sin ella.
 
 ## <a name="create-digital-distribution-center-application-template"></a>Creación de una plantilla de aplicación del centro de distribución digital
 
-Puede crear una aplicación mediante los pasos siguientes:
+Puede crear una aplicación mediante los pasos siguientes.
 
 1. Vaya al sitio web del administrador de aplicaciones de Azure IoT Central. Seleccione **Crear** en la barra de navegación de la izquierda y, a continuación, haga clic en la pestaña **Venta al por menor**.
 
-> [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Centro de distribución digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
-2. Seleccione la pestaña **Venta al por menor** y seleccione **Crear aplicación** en **digital distribution center**.
+2. Seleccione la pestaña **Venta al por menor** y seleccione **Crear aplicación** en la aplicación **Centro de distribución digital**.
 
 3. **Crear aplicación** abrirá el formulario de Nueva aplicación y rellenará los detalles solicitados como se muestra a continuación.
    **Nombre de la aplicación**: puede usar el nombre sugerido predeterminado o escribir el nombre descriptivo de la aplicación.
-   **URL**: puede usar la dirección URL predeterminada sugerida o escribir una dirección URL única, descriptiva y fácil de recordar. Después, se recomienda la configuración predeterminada si ya tiene una suscripción a Azure. De lo contrario, puede comenzar con una evaluación gratuita de siete días y optar por convertirla en una de pago por uso en cualquier momento anterior a la expiración de la evaluación gratuita.
+   **URL**: puede usar la dirección URL predeterminada sugerida o escribir una dirección URL única, descriptiva y fácil de recordar. Después, se recomienda la configuración predeterminada si ya tiene una suscripción a Azure. Puede empezar con un plan de precios de evaluación gratuita de siete días y elegir convertirlo a un plan de precios estándar en cualquier momento antes de que expire la evaluación gratuita.
    **Información de facturación**: Los detalles del directorio, la suscripción a Azure y la región son necesarios para aprovisionar los recursos.
    **Crear**: Seleccione Crear en la parte inferior de la página para implementar la aplicación.
 
-> [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-create.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Información de facturación del centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Recorrido por el panel de la aplicación 
 
@@ -113,4 +116,4 @@ Si no va a seguir usando esta aplicación, elimine la plantilla de la aplicació
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre el [concepto del centro de distribución digital](./architecture-digital-distribution-center-pnp.md) de la arquitectura de la solución del centro de distribución digital.
 * Más información sobre otras [plantillas de venta minorista de IoT Central](./overview-iot-central-retail-pnp.md).
-* Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../preview/overview-iot-central.md).
+* Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).

@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 02/02/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f803bcafb1966e32e894b4caeaa8fafb5f73e8e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186279"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988369"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Análisis de vídeos con Media Services v3
 
@@ -38,7 +38,11 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
+ 
+Como recordatorio importante, debe cumplir todas las leyes aplicables, en el uso de Video Indexer, y no puede usar este ni ningún otro servicio de Azure de forma que infrinja los derechos de otros o que puedan ser perjudiciales para otros usuarios. Antes de cargar los vídeos, incluidos los datos biométricos, al servicio Video Indexer para su procesamiento y almacenamiento, debe tener todos los permisos adecuados, incluidos todos los consentimientos pertinentes de las personas que aparecen en el vídeo. Para más información sobre el cumplimiento, la privacidad y la seguridad en Video Indexer, consulte los [términos de Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Puede encontrar información adicional sobre la privacidad, incluida la retención, eliminación o destrucción de datos, en los términos de Online Services y [aquí](../video-indexer/faq.md). Mediante el uso de Video Indexer, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
+
+## <a name="prerequisites"></a>Prerequisites
 
 - Si no tiene Visual Studio instalado, obtenga [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
@@ -166,7 +170,7 @@ Ejecute el siguiente comando de la CLI:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="multithreading"></a>Multithreading
+## <a name="multithreading"></a>Subprocesamiento múltiple
 
 Los SDK de Azure Media Services v3 no son seguros para subprocesos. Al trabajar con una aplicación que admite multithreading, debe generar un nuevo objeto AzureMediaServicesClient por subproceso.
 

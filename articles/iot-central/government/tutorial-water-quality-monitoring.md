@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7014882e7da9eb7ab7df65cd20403982a46018a3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112604"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016381"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de supervisión de la calidad del agua en Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial le guía por los pasos de creación de una aplicación de supervisión de la calidad del agua en Azure IoT Central. La aplicación se crea con la plantilla de aplicación **Water quality monitoring** de Azure IoT Central.
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Configurar trabajos
 > * Realizar la personalización de marca de la aplicación mediante etiquetado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Se recomienda tener una suscripción a Azure para realizar este tutorial. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
 
@@ -63,6 +63,8 @@ En esta sección, usará la plantilla **Water quality monitoring** de Azure IoT 
 1. Seleccione el botón **Create** (Crear) en la parte inferior izquierda de la página.
 
     ![Página de nueva aplicación de Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
+
+    ![Información de facturación de nueva aplicación de Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png)
 
 Ahora ha creado una aplicación de supervisión de la calidad del agua mediante la plantilla **Water quality monitoring** de Azure IoT Central.
 
@@ -160,7 +162,7 @@ Si realiza algún cambio, asegúrese de seleccionar **Publish** (Publicar) para 
 1. Seleccione **+ New** (+ Nueva) para crear una plantilla de dispositivo y siga el proceso de creación.
 1. Cree una plantilla de dispositivo personalizada o elija una del catálogo de dispositivos Azure IoT.
 
-## <a name="explore-simulated-devices"></a>Exploración de los dispositivos simulados
+## <a name="explore-simulated-devices"></a>Explorar los dispositivos simulados
 
 La aplicación de supervisión de la calidad del agua que creó con la plantilla de aplicación tiene dos dispositivos simulados. Estos dispositivos se asignan a la plantilla de dispositivo de supervisión de la calidad del agua.
 

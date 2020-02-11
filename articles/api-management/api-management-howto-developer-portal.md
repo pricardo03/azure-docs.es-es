@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045580"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898836"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
@@ -213,6 +213,18 @@ Este error se muestra cuando se produce un error en una llamada `GET` a `https:/
 Si el servicio API Management se encuentra en una red virtual, consulte la pregunta de conectividad de la red virtual anterior.
 
 El error de llamada también puede deberse a un certificado SSL, que se asigna a un dominio personalizado y no es de confianza para el explorador. Como medida de mitigación, puede quitar el dominio personalizado del punto de conexión de administración (API Management revertirá al punto de conexión predeterminado con un certificado de confianza).
+
+### <a name="whats-the-browser-support-for-the-portal"></a>¿Cuál es la compatibilidad del explorador con el portal?
+
+| Browser                     | Compatible       |
+|-----------------------------|-----------------|
+| Apple Safari                | Sí<sup>1</sup> |
+| Google Chrome               | Sí<sup>1</sup> |
+| Microsoft Edge              | Sí<sup>1</sup> |
+| Microsoft Internet Explorer | No              |
+| Mozilla Firefox             | Sí<sup>1</sup> |
+
+ <small><sup>1</sup> Se admite en las dos últimas versiones de producción.</small>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

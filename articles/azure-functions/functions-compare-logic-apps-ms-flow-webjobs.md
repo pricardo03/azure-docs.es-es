@@ -4,13 +4,17 @@ description: 'Comparativa de los servicios en la nube de Microsoft optimizados p
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bd9f3bfe1578b632707382cfe422f19514e7ce48
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409831"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988114"
 ---
+> [!NOTE]
+> Microsoft Flow es ahora Power Automate. Para más información, consulte [este blog](https://aka.ms/flow-now-pa).
+> 
+> En los próximos días, este contenido se actualizará para reflejar este cambio de marca.
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Elección de los servicios de integración y automatización adecuados en Azure
 
 En este artículo se comparan los siguientes servicios en la nube de Microsoft:
@@ -36,12 +40,12 @@ La tabla siguiente le ayuda a determinar qué es lo mejor para una integración 
 
 |  | Microsoft Flow | Logic Apps |
 | --- | --- | --- |
-| Usuarios |Administrativos, usuarios empresariales, administradores de SharePoint |Integradores profesionales y desarrolladores, profesionales de TI |
-| Escenarios |Autoservicio |Integraciones avanzadas |
-| Herramienta de diseño |En el explorador y aplicación móvil, solo UI |En el explorador y [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [visualización del código](../logic-apps/logic-apps-author-definitions.md) disponible |
-| Administración del ciclo de vida de las aplicaciones (ALM) |Diseño y pruebas en entornos no destinados a producción, paso a producción cuando proceda |Azure DevOps: control de código fuente, pruebas, soporte técnico, automatización y capacidad de administración en [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Experiencia del administrador |Administración de directivas de prevención de pérdida de datos (DLP) y entornos de flujo de Microsoft Flow, seguimiento de licencias: [Centro de administración de Microsoft Flow](https://admin.flow.microsoft.com) |Administración de grupos de recursos, conexiones, administración de acceso y registro: [Azure Portal](https://portal.azure.com) |
-| Seguridad |Registros de auditoría de Seguridad y cumplimiento de Office 365, DLP, [cifrado en reposo](https://wikipedia.org/wiki/Data_at_rest#Encryption) para datos confidenciales |Garantía de seguridad de Azure: [Seguridad de Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [registros de auditoría](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Usuarios** |Administrativos, usuarios empresariales, administradores de SharePoint |Integradores profesionales y desarrolladores, profesionales de TI |
+| **Escenarios** |Autoservicio |Integraciones avanzadas |
+| **Herramienta de diseño** |En el explorador y aplicación móvil, solo UI |En el explorador y [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [visualización del código](../logic-apps/logic-apps-author-definitions.md) disponible |
+| **Administración del ciclo de vida de las aplicaciones (ALM)** |Diseño y pruebas en entornos no destinados a producción, paso a producción cuando proceda |Azure DevOps: control de código fuente, pruebas, soporte técnico, automatización y capacidad de administración en [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| **Experiencia del administrador** |Administración de directivas de prevención de pérdida de datos (DLP) y entornos de flujo de Microsoft Flow, seguimiento de licencias: [Centro de administración de Microsoft Flow](https://admin.flow.microsoft.com) |Administración de grupos de recursos, conexiones, administración de acceso y registro: [Azure Portal](https://portal.azure.com) |
+| **Seguridad** |Registros de auditoría de Seguridad y cumplimiento de Office 365, DLP, [cifrado en reposo](https://wikipedia.org/wiki/Data_at_rest#Encryption) para datos confidenciales |Garantía de seguridad de Azure: [Seguridad de Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [registros de auditoría](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Comparativa entre Azure Functions y Azure Logic Apps
 
@@ -53,12 +57,12 @@ Puede mezclar y combinar servicios cuando crea una orquestación, puede llamar a
 
 |  | Funciones duraderas | Logic Apps |
 | --- | --- | --- |
-| Desarrollo | Orientado a código (imperativo) | Orientado al diseñador (declarativo) |
-| Conectividad | [Con una docena de tipos de enlaces integrados](functions-triggers-bindings.md#supported-bindings), puede escribir código para los enlaces personalizados | [Gran colección de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para escenarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [creación de conectores personalizados](../logic-apps/custom-connector-overview.md) |
-| Acciones | Cada actividad es una función de Azure; puede escribir código para las funciones de actividad |[Gran colección de acciones listas para usar](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Supervisión | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [registros de Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| Administración | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
-| Contexto de ejecución | Se puede ejecutar [localmente](functions-runtime-overview.md) o en la nube | Solo se ejecuta en la nube|
+| **Desarrollo** | Orientado a código (imperativo) | Orientado al diseñador (declarativo) |
+| **Conectividad** | [Con una docena de tipos de enlaces integrados](functions-triggers-bindings.md#supported-bindings), puede escribir código para los enlaces personalizados | [Gran colección de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para escenarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [creación de conectores personalizados](../logic-apps/custom-connector-overview.md) |
+| **Acciones** | Cada actividad es una función de Azure; puede escribir código para las funciones de actividad |[Gran colección de acciones listas para usar](../logic-apps/logic-apps-workflow-actions-triggers.md)|
+| **Supervisión** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [registros de Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| **Administración** | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| **Contexto de ejecución** | Se puede ejecutar [localmente](functions-runtime-overview.md) o en la nube | Solo se ejecuta en la nube|
 
 <a name="function"></a>
 

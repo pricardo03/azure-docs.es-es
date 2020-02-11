@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7336260d7565697b0559419ae502848bcff9424c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1e5ccc9d427755ea4274e836e81e3e324fffa39d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892862"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937809"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Inicio rápido: Carga, descarga y enumeración de blobs con Azure Portal
 
 En esta guía de inicio rápido, aprenderá a usar [Azure Portal](https://portal.azure.com/) para crear un contenedor en Azure Storage y para cargar y descargar los blobs en bloques en ese contenedor.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -45,13 +45,14 @@ Para cargar un blob en bloques en el nuevo contenedor en Azure Portal, siga esto
 
 1. En Azure Portal, vaya al contenedor que creó en la sección anterior.
 2. Seleccione el contenedor para mostrar una lista de los blobs que contiene. Como este contenedor es nuevo, aún no contiene ningún blob.
-3. Haga clic en el botón **Cargar** para cargar un blob en el contenedor.
-4. Examine el sistema de archivos local para buscar un archivo que cargar como un blob en bloques y seleccione **Cargar**.
+3. Seleccione el botón **Cargar** para abrir la hoja Cargar.
+4. Examine el sistema de archivos local para buscar un archivo que cargar como un blob en bloques.
      
     ![Captura de pantalla que muestra cómo cargar un blob desde la unidad local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Seleccione el **tipo de autenticación**. El valor predeterminado es **SAS**.
-6. Cargue tantos blobs como desee de esta manera. Verá que ahora aparecen los nuevos blobs dentro del contenedor.
+5. Opcionalmente, expanda la sección de opciones avanzadas para definir otra configuración, como el tipo de autenticación, el nivel de acceso o la ruta de acceso de la carpeta virtual.
+6. Seleccione el botón **Cargar** para confirmar la carga.
+7. Cargue tantos blobs como desee de esta manera. Verá que ahora aparecen los nuevos blobs dentro del contenedor.
 
 ## <a name="download-a-block-blob"></a>Descarga de un blob en bloques
 

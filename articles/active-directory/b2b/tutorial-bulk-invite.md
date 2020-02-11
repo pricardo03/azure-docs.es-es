@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425036"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908843"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: Invitación en bloque a usuarios de colaboración B2B de Azure AD (versión preliminar)
 
@@ -27,6 +27,7 @@ ms.locfileid: "75425036"
 
 > [!NOTE]
 > Desde el 22/12/2019, la característica de usuarios de invitación masiva (versión preliminar) se ha deshabilitado temporalmente.
+> Actualmente no hay ninguna fecha conocida para una nueva habilitación de esta característica. 
 
 Si usas la colaboración de Azure Active Directory (Azure AD) B2B para trabajar con asociados externos, puede invitar a varios usuarios a su organización al mismo tiempo. En este tutorial aprenderá a usar Azure Portal para enviar invitaciones de forma masiva a usuarios externos. En particular, haga lo siguiente:
 

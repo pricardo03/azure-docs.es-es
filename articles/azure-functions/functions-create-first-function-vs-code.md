@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 0540c7b01d693975f34515c7d13f0477ac74d4a1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 26313c68305f4d7e6411d31fa12366442ce4bd38
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842263"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964178"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Inicio rápido: Creación de un proyecto de Azure Functions en Visual Studio Code
 
@@ -18,31 +18,39 @@ En este artículo se usa Visual Studio Code para crear una función que respond
 
 También hay una [versión basada en la CLI](functions-create-first-azure-function-azure-cli.md) de este artículo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="configure-your-environment"></a>Configurar su entorno
 
-+ [Visual Studio Code](https://code.visualstudio.com/) en una de las [plataformas admitidas](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
-::: zone pivot="programming-language-csharp"
-+ La [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para Visual Studio Code.
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ Versiones de [Node.js](https://nodejs.org/), Active LTS y Maintenance LTS (se recomiendan 8.11.1 y 10.14.1).
-::: zone-end
+Antes de empezar, asegúrese de que cumple los siguientes requisitos:
+
++ Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
++ [Node.js](https://nodejs.org/), requerido por Windows para npm. Solo las [versiones Active LTS y Maintenance LTS ](https://nodejs.org/about/releases/). Use el comando `npm --version` para comprobar la versión.
+    No se requiere para el desarrollo local en MacOS y Linux.   
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
++ Node.js [, las versiones Active LTS](https://nodejs.org/) y Maintenance LTS (se recomienda la 10.14.1). Use el comando `npm --version` para comprobar la versión.
+::: zone-end 
 ::: zone pivot="programming-language-python"
 + [Python 3.7](https://www.python.org/downloads/release/python-375/) o [Python 3.6](https://www.python.org/downloads/release/python-368/), que admite Azure Functions. Python 3.8 todavía no se admite. 
-
-+ La [extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para Visual Studio Code
-::: zone-end
+::: zone-end   
 ::: zone pivot="programming-language-powershell"
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ El [SDK de .NET Core 2.2+](https://www.microsoft.com/net/download)
-
-+ La [extensión de PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) para Visual Studio Code 
-::: zone-end
++ El [SDK de .NET Core 2.2+](https://www.microsoft.com/net/download)  
+::: zone-end  
++ [Visual Studio Code](https://code.visualstudio.com/) en una de las [plataformas admitidas](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
+::: zone pivot="programming-language-csharp"  
++ La [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para Visual Studio Code.  
+::: zone-end  
+::: zone pivot="programming-language-python"
++ La [extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para Visual Studio Code  
+::: zone-end  
+::: zone pivot="programming-language-powershell"
++ La [extensión de PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) para Visual Studio Code  
+::: zone-end  
 
 + La [extensión de Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code. 
-
-+ Una [cuenta de Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) con una suscripción activa. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
 ## <a name="create-an-azure-functions-project"></a>Creación del proyecto local 
 
@@ -60,111 +68,36 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 1. Escriba la siguiente información cuando se le indique:
 
     ::: zone pivot="programming-language-csharp"
-
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Seleccione un lenguaje para el proyecto de funciones. | C# |
-    | Seleccione una versión. | Azure Functions v2 | 
-    | Seleccionar una plantilla para la primera función de su proyecto | Desencadenador HTTP | 
-    | Proporcionar un nombre de función | HttpExample | 
-    | Proporcionar un espacio de nombres | My.Functions | 
-    | Nivel de autorización | Anónimas | 
-    | Seleccionar cómo desea que se abra el proyecto | Agregar a área de trabajo |
-
+    + **Seleccione un lenguaje para el proyecto de funciones**: Elija `C#`.
     ::: zone-end
-
     ::: zone pivot="programming-language-javascript"
-
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Seleccione un lenguaje para el proyecto de funciones. | JavaScript | 
-    | Seleccione una versión. | Azure Functions v2 | 
-    | Seleccionar una plantilla para la primera función de su proyecto | Desencadenador HTTP | 
-    | Proporcionar un nombre de función | HttpExample | 
-    | Nivel de autorización | Anónimas | 
-    | Seleccionar cómo desea que se abra el proyecto | Agregar a área de trabajo |
-
+    + **Seleccione un lenguaje para el proyecto de funciones**: Elija `JavaScript`.
     ::: zone-end
-
     ::: zone pivot="programming-language-typescript"
-
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Seleccione un lenguaje para el proyecto de funciones. | TypeScript | 
-    | Seleccione una versión. | Azure Functions v2 | 
-    | Seleccionar una plantilla para la primera función de su proyecto | Desencadenador HTTP | 
-    | Proporcionar un nombre de función | HttpExample | 
-    | Nivel de autorización | Anónimas | 
-    | Seleccionar cómo desea que se abra el proyecto | Agregar a área de trabajo |
-
+    + **Seleccione un lenguaje para el proyecto de funciones**: Elija `TypeScript`.
     ::: zone-end
-
     ::: zone pivot="programming-language-powershell"
-
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Seleccione un lenguaje para el proyecto de funciones. | PowerShell | 
-    | Seleccione una versión. | Azure Functions v2 | 
-    | Seleccionar una plantilla para la primera función de su proyecto | Desencadenador HTTP | 
-    | Proporcionar un nombre de función | HttpExample | 
-    | Nivel de autorización | Anónimas | 
-    | Seleccionar cómo desea que se abra el proyecto | Agregar a área de trabajo |
-
+    + **Seleccione un lenguaje para el proyecto de funciones**: Elija `PowerShell`.
     ::: zone-end
-
     ::: zone pivot="programming-language-python"
+    + **Seleccione un lenguaje para el proyecto de funciones**: Elija `Python`.
 
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Seleccione un lenguaje para el proyecto de funciones. | Python | 
-    | Seleccione una versión. | Azure Functions v2 | 
-    | Seleccione un alias de Python para crear un entorno virtual. | Alias de Python | 
-    | Seleccionar una plantilla para la primera función de su proyecto | Desencadenador HTTP | 
-    | Proporcionar un nombre de función | HttpExample | 
-    | Nivel de autorización | Anónimas | 
-    | Seleccionar cómo desea que se abra el proyecto | Agregar a área de trabajo | 
-
+    + **Seleccione un alias de Python para crear un entorno virtual**: Elija la ubicación del intérprete de Python. Si no se muestra la ubicación, escriba la ruta de acceso completa al archivo binario de Python.  
     ::: zone-end
 
-1. Visual Studio Code hace lo siguiente:
-
-    + Crea un proyecto de Azure Functions en una nueva área de trabajo, que contiene los archivos de configuración [host.json](functions-host-json.md) y [local.settings.json](functions-run-local.md#local-settings-file). 
-
+    + **Seleccione una plantilla para la primera función del proyecto**: Elija `HTTP trigger`.
+    
+    + **Especifique un nombre de función**: Escriba `HttpExample`.
+    
     ::: zone pivot="programming-language-csharp"
+    + **Especifique un espacio de nombres**: Escriba `My.Functions`. 
+    ::: zone-end
 
-    + Crea un [archivo de biblioteca de clases de HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) que implementa la función.
+    + **Nivel de autorización**: Elija `Anonymous`, que permite que cualquier llame al punto de conexión de la función. Para obtener información sobre el nivel de autorización, consulte [Claves de autorización](functions-bindings-http-webhook.md#authorization-keys).
 
-    ::: zone-end
-        
-    ::: zone pivot="programming-language-javascript"
-    
-    + Crea un archivo package.json en la carpeta raíz.
+    + **Seleccione cómo desea que se abra el proyecto**: Elija `Add to workspace`.
 
-    + Crea una carpeta HttpExample que contiene el [archivo de definición function.json](functions-reference-node.md#folder-structure) y el [archivo index.js](functions-reference-node.md#exporting-a-function), un archivo Node.js que contiene el código de función.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-typescript"
-    
-    + Crea un archivo package.json y un archivo tsconfig.json en la carpeta raíz.
-
-    + Crea una carpeta HttpExample que contiene el [archivo de definición function.json](functions-reference-node.md#folder-structure) y el [archivo index.js](functions-reference-node.md#typescript), un archivo TypeScript que contiene el código de función.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-powershell"
-    
-    + Crea una carpeta HttpExample que contiene el [archivo de definición function.json](functions-reference-python.md#programming-model) y el archivo run.ps1 que contiene el código de función.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-python"
-    
-    + Crea un archivo requirements.txt de nivel de proyecto que muestra los paquetes que requieren las funciones.
-    
-    + Crea una carpeta HttpExample que contiene el [archivo de definición function.json](functions-reference-python.md#programming-model) y el archivo \_\_init\_\_.py que contiene el código de función.
-    
-    ::: zone-end
+1. Con esta información, Visual Studio Code genera un proyecto de Azure Functions con un desencadenador HTTP. Los archivos del proyecto locales se pueden ver en Explorer. Para obtener más información sobre los archivos que se crean, consulte [Archivos del proyecto generados](functions-develop-vs-code.md#generated-project-files). 
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
@@ -186,13 +119,15 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 
 ## <a name="run-the-function-in-azure"></a>Ejecución de la función en Azure
 
-1. Copie la dirección URL del desencadenador HTTP del panel **Salida**. De nuevo, agregue la cadena de consulta `name` como `?name=<yourname>` al final de esta dirección URL y ejecute la solicitud.
+1. Vuelva al área **Azure: Functions** en la barra lateral y expanda la aplicación de funciones nueva en la suscripción. Expanda **Funciones**, haga clic con el botón derecho (Windows) o presione Ctrl + clic (MacOS) en **HttpExample** y, a continuación, elija **Copy function URL** (Copiar la dirección URL de la función).
 
-    La dirección URL que llama a la función desencadenada por HTTP debería tener el formato siguiente:
+    ![Copia de la dirección URL de la función para el nuevo desencadenador HTTP](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 
-        http://<functionappname>.azurewebsites.net/api/httpexample?name=<yourname> 
+1. Pegue esta dirección URL de la solicitud HTTP en la barra de dirección del navegador, agregue la `name` cadena de consulta como `?name=Functions` al final de la dirección URL y, después, ejecute la solicitud. La dirección URL que llama a la función desencadenada por HTTP debería tener el formato siguiente:
 
-1. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. En el siguiente ejemplo se muestra la respuesta en el explorador para la solicitud GET remota devuelta por la función: 
+        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+        
+    En el siguiente ejemplo se muestra la respuesta en el explorador para la solicitud GET remota devuelta por la función: 
 
     ![Respuesta de la función en el explorador](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 

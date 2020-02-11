@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330f3100858d517666ac14fa8c206b4c06998c4f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274202"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896903"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiencias de usuario final para aplicaciones en Azure Active Directory
 
@@ -36,7 +36,7 @@ El Panel de acceso de https://myapps.microsoft.com es un portal basado en web qu
 
 ![Captura de pantalla que muestra el portal Panel de acceso de Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-De forma predeterminada, todas las aplicaciones se muestran juntas en una sola página. Sin embargo, puede usar áreas de trabajo para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar áreas de trabajo para crear agrupaciones lógicas de aplicaciones para roles de trabajo específicos, tareas, proyectos, etc. Para obtener información, consulte [Cómo usar áreas de trabajo Aplicaciones para personalizar paneles de acceso para usuarios (versión preliminar)](access-panel-workspaces.md). 
+De forma predeterminada, todas las aplicaciones se muestran juntas en una sola página. Sin embargo, puede usar colecciones para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar colecciones para crear agrupaciones lógicas de aplicaciones para roles de trabajo específicos, tareas, proyectos, etc. Para obtener información, vea [Cómo usar colecciones de Aplicaciones para personalizar paneles de acceso de usuario](access-panel-collections.md). 
 
 El Panel de acceso es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure u Office 365.
 

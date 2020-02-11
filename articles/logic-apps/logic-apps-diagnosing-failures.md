@@ -5,108 +5,83 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 10/15/2017
-ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.date: 01/31/2020
+ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666812"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904978"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solución de problemas y diagnóstico de errores de flujo de trabajo en Azure Logic Apps
 
 La aplicación lógica genera información que puede ayudarle a diagnosticar y depurar los problemas de la aplicación. Puede diagnosticar una aplicación lógica revisando cada paso del flujo de trabajo a través de Azure Portal. O bien, puede agregar algunos pasos a un flujo de trabajo para la depuración en tiempo de ejecución.
 
-## <a name="review-trigger-history"></a>Revisión del historial de desencadenadores
+<a name="check-trigger-history"></a>
 
-Cada aplicación lógica se inicia con un desencadenador. Si no se activa el desencadenador, compruebe primero el historial de desencadenadores. Este historial muestra todos los intentos del desencadenador realizados por la aplicación lógica y describe las entradas y salidas de cada intento del desencadenador.
+## <a name="check-trigger-history"></a>Comprobación del historial de desencadenadores
 
-1. Para comprobar si se activa el desencadenador, en el menú de aplicación lógica, elija **Introducción**. En **Historial de desencadenadores**, seleccione el evento del desencadenador.
+Cada ejecución de una aplicación lógica comienza con el intento de un desencadenador. Por lo tanto, si no se activa el desencadenador, siga estos pasos:
 
-   > [!TIP]
-   > Si no ve el menú de la aplicación lógica, intente volver al panel de Azure y vuelva a abrir la aplicación lógica.
+1. [Compruebe el historial de desencadenadores](../logic-apps/monitor-logic-apps.md#review-trigger-history) para confirmar el estado del desencadenador. Para ver más información sobre el intento del desencadenador, seleccione ese evento de desencadenador, por ejemplo:
 
-   ![Revisión del historial de desencadenadores](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
+   ![Visualización del estado del desencadenador y el historial de desencadenadores](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-   > [!TIP]
-   > * Si no encuentra los datos previstos, elija **Actualizar** en la barra de herramientas.
-   > * Si la lista muestra muchos intentos del desencadenador, y no se puede encontrar la entrada deseada, pruebe a filtrar la lista.
+1. Compruebe las entradas del desencadenador para confirmar que aparecen según lo esperado. En **Vínculos de entrada**, seleccione el vínculo, que muestra el panel **Entradas**.
 
-   Estos son los estados posibles de un intento de desencadenador:
+   Las entradas del desencadenador incluyen los datos que el desencadenador espera y necesita para iniciar el flujo de trabajo. Revisar estas entradas puede ayudarle a determinar si son correctas y si se ha cumplido la condición para que el flujo de trabajo pueda continuar.
 
-   | Status | Descripción | 
-   | ------ | ----------- | 
-   | **Correcto** | El desencadenador comprueba el punto de conexión y encuentra datos disponibles. Por lo general, un estado "activado" también aparece junto a este estado. Si no es así, la definición del desencadenador puede tener una condición o un comando `SplitOn` que no se ha cumplido. <p>Este estado puede aplicarse a un desencadenador manual, uno de periodicidad o uno de sondeo. Un desencadenador se puede ejecutar correctamente, pero la misma ejecución podría fallar cuando las acciones generan errores no controlados. | 
-   | **Omitido** | El desencadenador comprueba el punto de conexión, pero no ha encontrado datos. | 
-   | **Erróneo** | Se produjo un error. Para revisar los mensajes de error generado para un desencadenador con error, seleccione el intento de desencadenador y elija **Salidas**. Por ejemplo, podría encontrar entradas que no son válidas. | 
-   ||| 
+   Por ejemplo, la propiedad `feedUrl` tiene aquí un valor de fuente RSS incorrecto:
 
-   Es posible que tenga varias entradas de desencadenador con la misma fecha y hora, lo que sucede cuando la aplicación lógica busca varios elementos. 
-   Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica para ejecutar el flujo de trabajo. De forma predeterminada, cada instancia se ejecuta en paralelo para que ningún flujo de trabajo tenga que esperar antes de iniciar una ejecución.
+   ![Revisión de errores de las entradas del desencadenador](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
+
+1. Compruebe las salidas del desencadenador, si las hay, para confirmar que aparecen según lo esperado. En **Vínculo de salidas**, seleccione el vínculo, que muestra el panel **Salidas**.
+
+   Entre las salidas del desencadenador se incluyen los datos que el desencadenador pasa al siguiente paso del flujo de trabajo. Revisar estas salidas puede ayudarle a determinar si los valores correctos o esperados se han pasado al siguiente paso del flujo de trabajo, por ejemplo:
+
+   ![Revisión de errores de las salidas del desencadenador](./media/logic-apps-diagnosing-failures/review-trigger-outputs-for-errors.png)
 
    > [!TIP]
-   > Puede volver a comprobar el desencadenador sin esperar a la siguiente repetición. En la barra de herramientas de introducción, elija **Ejecutar desencadenador** y seleccione el desencadenador, lo que fuerza una comprobación. O bien, seleccione **Ejecutar** en la barra de herramientas del Diseñador de aplicaciones lógicas.
+   > Si encuentra algún contenido que no reconozca, aprenda más sobre los [diferentes tipos de contenido](../logic-apps/logic-apps-content-type.md) en Azure Logic Apps.
 
-3. Para examinar los detalles de un intento de desencadenador, en **Historial de desencadenadores**, seleccione dicho intento del desencadenador. 
+<a name="check-runs-history"></a>
 
-   ![Selección de un intento de desencadenador](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
+## <a name="check-runs-history"></a>Comprobación del historial de ejecuciones
 
-4. Revise las entradas y cualquier salida generada por el desencadenador. Las salidas del desencadenador muestran los datos que se han recibido del desencadenador. Estas salidas pueden ayudarle a determinar si se devolvieron todas las propiedades según lo previsto.
+Cada vez que el desencadenador se activa por un elemento o un evento, el motor de Logic Apps crea y ejecuta una instancia distinta del flujo de trabajo para cada uno. Si una ejecución produce errores, siga estos pasos para ver lo que ha ocurrido durante la ejecución, incluido el estado de cada paso del flujo de trabajo, además de las entradas y salidas de cada paso.
 
-   > [!NOTE]
-   > Si encuentra cualquier contenido que no conozca, aprenda cómo Azure Logic Apps [administra distintos tipos de contenido](../logic-apps/logic-apps-content-type.md).
+1. [Compruebe el historial de ejecuciones](../logic-apps/monitor-logic-apps.md#review-runs-history) para confirmar el estado de ejecución del flujo de trabajo. Para ver más información sobre una ejecución con errores, incluidos todos los pasos de esa ejecución y su estado, selecciónela.
 
-   ![Salidas del desencadenador](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
+   ![Visualización del historial de ejecuciones y selección de la ejecución con errores](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
-## <a name="review-run-history"></a>Revisar el historial de ejecución.
+1. Después de que aparezcan todos los pasos de la ejecución, expanda el primer paso con errores.
 
-Cada desencadenador activado inicia una ejecución de flujo de trabajo. Puede revisar lo que ha ocurrido durante la ejecución, incluido el estado de cada paso en el flujo de trabajo, además de las entradas y salidas de cada paso.
+   ![Expansión del primer paso con errores](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
 
-1. En el menú de la aplicación lógica, elija **Introducción**. En **Historial de ejecuciones**, revise la ejecución del desencadenador activado.
+1. Compruebe las entradas del paso con errores para confirmar que aparecen según lo esperado.
 
-   > [!TIP]
-   > Si no ve el menú de la aplicación lógica, intente volver al panel de Azure y vuelva a abrir la aplicación lógica.
+1. Revise los detalles de cada paso de una ejecución específica. En **Historial de ejecuciones**, seleccione la ejecución que desea examinar.
 
-   ![Revisión del historial de ejecuciones](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
-
-   > [!TIP]
-   > * Si no encuentra los datos previstos, elija **Actualizar** en la barra de herramientas.
-   > * Si la lista muestra varias ejecuciones, y no se puede encontrar la entrada deseada, pruebe a filtrar la lista.
-
-   Estos son los estados posibles de una ejecución:
-
-   | Status | Descripción | 
-   | ------ | ----------- | 
-   | **Correcto** | Todas las acciones correctas. <p>Si se han producido errores en una acción específica, la acción siguiente en el flujo de trabajo es la que controla ese error. | 
-   | **Erróneo** | Error en al menos una acción y ninguna de las acciones posteriores en el flujo de trabajo se ha configurado para controlar el error. | 
-   | **Cancelado** | El flujo de trabajo se estaba ejecutando pero recibió una solicitud de cancelación. | 
-   | **Ejecución** | El flujo de trabajo se ejecuta actualmente. <p>Este estado puede ocurrir en flujos de trabajo con limitaciones o a causa del plan de precios actual. Para más información, consulte [los límites de acción en la página de precios](https://azure.microsoft.com/pricing/details/logic-apps/). Si se configura un [registro de diagnósticos](../logic-apps/logic-apps-monitor-your-logic-apps.md), también se puede obtener información acerca de los eventos de limitación que se producen. | 
-   ||| 
-
-2. Revise los detalles de cada paso de una ejecución específica. En **Historial de ejecuciones**, seleccione la ejecución que desea examinar.
-
-   ![Revisión del historial de ejecuciones](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
-
-   Si la ejecución se realizó correctamente o produjo un error, la vista de detalles de la ejecución muestra cada paso y si se ha realizado correctamente o no.
+   ![Revisión del historial de ejecuciones](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
    ![Visualización de los detalles de una ejecución de aplicación lógica](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Para examinar las entradas, salidas y los mensajes de error de un paso específico, seleccione ese paso para que la forma se expanda y muestre los detalles. Por ejemplo:
+1. Para examinar las entradas, salidas y los mensajes de error de un paso específico, seleccione ese paso para que la forma se expanda y muestre los detalles. Por ejemplo:
 
    ![Visualización de los detalles del paso](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 
 ## <a name="perform-runtime-debugging"></a>Ejecución de la depuración en tiempo de ejecución
 
-Para ayudar con la depuración, puede agregar pasos de diagnóstico a un flujo de trabajo, además de revisar el historial de desencadenadores y ejecuciones. Por ejemplo, puede agregar pasos que utilicen el servicio [Webhook Tester](https://webhook.site/) para poder inspeccionar las solicitudes HTTP y determinar su tamaño, forma y formato exactos.
+Para ayudar con la depuración, puede agregar pasos de diagnóstico a un flujo de trabajo de aplicación lógica, además de revisar el historial de desencadenadores y ejecuciones. Por ejemplo, puede agregar pasos que utilicen el servicio [Webhook Tester](https://webhook.site/) para poder inspeccionar las solicitudes HTTP y determinar su tamaño, forma y formato exactos.
 
-1. Visite [Webhook Tester](https://webhook.site/) y copie la dirección URL única creada
+1. Vaya al sitio de [comprobación de webhooks](https://webhook.site/) y copie la dirección URL única generada.
 
-2. En la aplicación lógica, añada una acción HTTP POST junto con el contenido del cuerpo que desee probar, como una expresión, la salida de otro paso.
+1. En la aplicación lógica, agregue una acción HTTP POST junto con el contenido del cuerpo que quiere probar, como una expresión o la salida de otro paso.
 
-3. Pegue la dirección URL de Webhook Tester en la acción HTTP POST.
+1. Pegue la dirección URL que se ha generado en este sitio en la acción HTTP POST.
 
-4. Para examinar cómo se forma una solicitud cuando se genera desde el motor de Logic Apps, ejecute la aplicación lógica y consulte Webhook Tester para más información.
+1. Para examinar cómo se forma una solicitud cuando se genera desde el motor de Logic Apps, ejecute la aplicación lógica y visite de nuevo el sitio de comprobación de webhooks para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Supervisión de la aplicación lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Supervisión de la aplicación lógica](../logic-apps/monitor-logic-apps.md)

@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666829"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905112"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creación de flujos de trabajo de aplicaciones lógicas a partir de plantillas precompiladas
 
@@ -50,7 +50,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
    | **Suscripción** | *your-Azure-subscription-name* | Seleccione la suscripción de Azure que quiera usar. | 
    | **Grupos de recursos** | *your-Azure-resource-group-name* | Cree o seleccione un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) para esta aplicación lógica y organice todos los recursos asociados a esta aplicación. | 
    | **Ubicación** | *your-Azure-datacenter-region* | Seleccione la región del centro de datos para implementar la aplicación lógica, por ejemplo, Oeste de EE.UU. | 
-   | **Log Analytics** | **Off** (Desactivar) (valor predeterminado) o **On** (Activar) | Activar el [registro de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para la aplicación lógica a través de los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Es necesario que ya tenga un área de trabajo de Log Analytics. | 
+   | **Log Analytics** | **Off** (Desactivar) (valor predeterminado) o **On** (Activar) | Configure el [registro de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para su aplicación lógica mediante los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Es necesario que ya tenga un área de trabajo de Log Analytics. | 
    |||| 
 
 4. Cuando esté listo, elija **Anclar al panel**. De este modo, la aplicación lógica aparecerá automáticamente en el panel de Azure y se abrirá después de la implementación. Seleccione **Create**.

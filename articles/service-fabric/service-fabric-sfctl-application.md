@@ -3,14 +3,14 @@ title: 'CLI de Azure Service Fabric: aplicación de sfctl'
 description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar aplicaciones.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645419"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906195"
 ---
 # <a name="sfctl-application"></a>aplicación de sfctl
 Cree, elimine y administre aplicaciones y tipos de aplicaciones.
@@ -529,10 +529,13 @@ Opcionalmente, se muestra el progreso de carga de cada archivo en el paquete. El
 
 |Argumento|Descripción|
 | --- | --- |
-| --path   [Obligatorio] | Ruta de acceso al paquete de aplicación local. |
+| --path     [obligatorio] | Ruta de acceso al paquete de aplicación local. |
+| --compress | Solo está disponible para paquetes de aplicación de Service Fabric. Cree una carpeta que contenga el paquete de aplicación comprimido en la ubicación predeterminada o en la ubicación especificada por el parámetro de ubicación comprimido y, luego, cargue la carpeta recién creada. <br><br> Si ya hay un archivo comprimido generado mediante sfctl, se sobrescribirá si se establece esta marca. Si el directorio no es un paquete de aplicación, se devolverá un error. Si ya es un paquete de aplicación comprimido, la carpeta se copiará tal cual. De forma predeterminada, el paquete de aplicación comprimido recién creado se eliminará después de una carga correcta. Si la carga no se realiza correctamente, limpie manualmente el paquete comprimido según sea necesario. La eliminación no quita los directorios vacíos que puedan haberse creado si el parámetro de ubicación comprimida hace referencia a directorios que no existen. |
+| --compressed-location | Ubicación en la que se va a colocar el paquete de aplicación comprimido. <br><br> Si no se proporciona ninguna ubicación, el paquete comprimido se colocará en una carpeta recién creada llamada sfctl_compressed_temp en el directorio principal especificado en el argumento de ruta de acceso. Por ejemplo, si el argumento de ruta de acceso tiene el valor C\:/FolderA/AppPkg, el paquete comprimido se agregará a C\:/FolderA/sfctl_compressed_temp/AppPkg. |
 | --imagestore-string | Almacén de imágenes de destino en el que cargar el paquete de aplicación.  Predeterminado\: fabric\:ImageStore. <br><br> Para la carga en una ubicación de archivo, inicie este parámetro con "file\:". De lo contrario, el valor debe ser la cadena de conexión del almacén de imágenes, como el valor predeterminado. |
+| --keep-compressed | Indica si se debe mantener el paquete comprimido generado tras la finalización correcta de la carga. <br><br> Si no se establece, cuando la carga finalice correctamente, se eliminarán los paquetes de aplicación comprimidos. Si la carga no se realiza correctamente, el paquete de aplicación siempre se conservará en el directorio de salida para volver a cargarlo. |
 | --show-progress | Muestra el progreso de la carga de archivos para paquetes grandes. |
-| --timeout -t | Tiempo de espera total en segundos. La carga no se realizará correctamente y devolverá un error una vez transcurrido el tiempo de espera de carga. Este tiempo de espera se aplica a todo el paquete de la aplicación y los tiempos de espera de archivos individuales serán iguales a la duración del tiempo de espera restante.  Valor predeterminado\: 300 |
+| --timeout -t | Tiempo de espera total en segundos. La carga no se realizará correctamente y devolverá un error una vez transcurrido el tiempo de espera de carga. Este tiempo de espera se aplica a todo el paquete de la aplicación y los tiempos de espera de archivos individuales serán iguales a la duración del tiempo de espera restante. El tiempo de espera no incluye el tiempo necesario para comprimir el paquete de aplicación.  Valor predeterminado\: 300 |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

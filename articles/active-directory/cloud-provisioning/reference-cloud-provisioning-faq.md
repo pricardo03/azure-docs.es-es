@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3c4a943f24ba1f987aa1daf513b9e05ada65a7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310006"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020767"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -31,6 +31,10 @@ El aprovisionamiento en la nube está programado para ejecutarse cada 2 minutos.
 **P: Aparecen errores de sincronización del hash de contraseñas en la primera ejecución. ¿Por qué?**
 
 Se espera que esto sea así. Los errores se deben a que el objeto de usuario no está presente en Azure AD. Una vez que el usuario se aprovisiona en Azure AD, los hashes de contraseña deben aprovisionarse en la ejecución posterior. Espere un par de ejecuciones y confirme que la sincronización de los hashes de contraseña no genera los errores.
+
+**P: ¿Qué ocurre si la instancia de Active Directory tiene atributos que no son compatibles con el aprovisionamiento en la nube (por ejemplo, las extensiones de directorio)?**
+
+El aprovisionamiento en la nube se ejecutará y aprovisionará los atributos admitidos. Los atributos no admitidos no se aprovisionarán para Azure AD. Revise las extensiones de directorio en Active Directory y asegúrese de que no necesita que esos atributos fluyan a Azure AD. Si se requieren uno o varios atributos, considere la posibilidad de usar la sincronización de Azure AD Connect o mover la información necesaria a uno de los atributos admitidos (por ejemplo, los atributos de extensión 1-15).
 
 **P: ¿En qué se diferencian la sincronización de Azure AD Connect y el aprovisionamiento en la nube?**
 

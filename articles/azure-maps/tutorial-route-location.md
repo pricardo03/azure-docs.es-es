@@ -3,18 +3,18 @@ title: 'Tutorial: Búsqueda de la ruta a una ubicación | Microsoft Azure Maps'
 description: En este tutorial se muestra cómo representar la ruta a una ubicación (punto de interés) en un mapa mediante el servicio de enrutamiento de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 3fedb045773cb975d37e2d866862e7863a6232e3
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910846"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989644"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: Ruta a un punto de interés mediante Azure Maps
 
@@ -27,7 +27,7 @@ En este tutorial se muestra cómo usar la cuenta de Azure Maps y el SDK de Route
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Antes de continuar, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
+Antes de continuar, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps), necesitará una suscripción en el plan de tarifa S1. Siga los pasos descritos en [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -139,7 +139,7 @@ En este tutorial, se representará una ruta simple mediante un icono de símbolo
     });
     ```
     
-    En el controlador de eventos `ready` de los mapas, se crea un origen de datos para almacenar las líneas de las rutas, así como los puntos inicial y final. Se crea una capa de línea y se asocia al origen de datos para definir cómo se representará la línea de la ruta. La línea de ruta tendrá una bonita tonalidad azul con un ancho de 5 píxeles y uniones de líneas y extremos redondeados. Al agregar la capa al mapa, se pasa un segundo parámetro con el valor `'labels'` que especifica que esta capa se debe representar por debajo de las etiquetas del mapa. Esto garantiza que la línea de ruta no cubrirá las etiquetas de la carretera. Se crea una capa de símbolos y se asocia al origen de datos. Esta capa especifica cómo se representarán los puntos inicial y final. En este caso, se han agregado expresiones para recuperar la imagen del icono y la información de la etiqueta de texto a partir de las propiedades de cada objeto de punto. 
+    En el controlador de eventos `ready` de los mapas, se crea un origen de datos para almacenar la línea de ruta y los puntos inicial y final. Se crea una capa de línea y se asocia al origen de datos para definir cómo se representará la línea de la ruta. La línea de ruta se representará como un tono azul. Tendrá un ancho de cinco píxeles, uniones de líneas redondeadas y límites. Al agregar la capa al mapa, se pasa un segundo parámetro con el valor `'labels'` que especifica que esta capa se debe representar por debajo de las etiquetas del mapa. Esto garantiza que la línea de ruta no cubrirá las etiquetas de la carretera. Se crea una capa de símbolos y se asocia al origen de datos. Esta capa especifica cómo se representan los puntos inicial y final. En este caso, se han agregado expresiones para recuperar la imagen del icono y la información de la etiqueta de texto a partir de las propiedades de cada objeto de punto. 
     
 2. En este tutorial, establezca como punto inicial Microsoft y como punto final una gasolinera de Seattle. En el controlador de eventos `ready` de los mapas, agregue el código siguiente.
 
@@ -164,7 +164,7 @@ En este tutorial, se representará una ruta simple mediante un icono de símbolo
     });
     ```
 
-    Este código crea dos [objetos de punto de GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar los puntos inicial y final de la ruta y agrega estos puntos al origen de datos. Se agrega una propiedad `title` y `icon` a cada punto. El último bloque establece la vista de la cámara con la información de latitud y longitud de los puntos inicial y final, mediante la propiedad [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) del mapa.
+    Este código crea dos [objetos de punto de GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar los puntos inicial y final de la ruta y agrega estos puntos al origen de datos. Se agrega una propiedad `title` y `icon` a cada punto. El último bloque establece la vista de la cámara con la latitud y longitud de los puntos inicial y final, mediante la propiedad [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) del mapa.
 
 3. Guarde el archivo **MapRoute.html** y actualice el explorador. Ahora el mapa se centra en Seattle, y puede ver como la chincheta azul marca el punto inicial y otra chincheta azul redonda, el punto final.
 
@@ -174,7 +174,7 @@ En este tutorial, se representará una ruta simple mediante un icono de símbolo
 
 ## <a name="get-directions"></a>Obtención de las direcciones
 
-En esta sección, se muestra cómo usar Route Service API de Azure Maps para buscar la ruta desde un punto inicial determinado hasta el punto final. El servicio de ruta proporciona las API para planear la ruta *más rápida*, *más corta*, *ecológica* o *emocionante* entre dos ubicaciones. También permite a los usuarios planear rutas futuras mediante el uso de bases de datos que contienen un historial amplio del tráfico y la predicción de duraciones de una ruta en cualquier día y a cualquier hora. Para más información, consulte [Obtención de direcciones de ruta](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Todas las funcionalidades siguientes deben agregarse **dentro del elemento eventListener preparado para mapas** para asegurarse de que se cargan cuando ya se puede acceder a los recursos del mapa.
+En esta sección se muestra cómo usar la API del servicio de rutas de Azure Maps. La API del servicio de rutas encuentra la ruta desde un punto de inicio determinado a un punto final. En este servicio, existen diversas API para planear la ruta *más rápida*, *más corta*, *ecológica* o *emocionante* entre dos ubicaciones. Este servicio también permite a los usuarios planear rutas futuras mediante el uso de bases de datos de Azure que contienen un historial amplio del tráfico. Los usuarios pueden ver la predicción de la duración de la ruta en cualquier día y hora elegidos. Para más información, consulte [Obtención de direcciones de ruta](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Todas las funcionalidades siguientes deben agregarse **dentro del elemento eventListener preparado para mapas** para asegurarse de que se cargan cuando ya se puede acceder a los recursos del mapa.
 
 1. En la función GetMap, agregue lo siguiente al código JavaScript.
 

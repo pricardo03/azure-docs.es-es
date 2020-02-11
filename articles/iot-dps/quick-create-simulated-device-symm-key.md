@@ -194,7 +194,7 @@ En esta sección, actualizará el código de ejemplo para enviar la secuencia de
     Press enter key to exit:
     ```
 
-9. En el portal, vaya al centro de IoT al que se ha asignado el dispositivo simulado y seleccione la pestaña **Dispositivos IoT**. Si el dispositivo simulado se aprovisiona correctamente en el centro, su identificador de dispositivo aparecerá en la hoja **Dispositivos de IoT** con el *ESTADO***habilitado**. Es posible que tenga que pulsar el botón **Actualizar** en la parte superior. 
+9. En el portal, vaya al centro de IoT al que se ha asignado el dispositivo simulado y seleccione la pestaña **Dispositivos IoT**. Si el dispositivo simulado se aprovisiona correctamente en el centro, su identificador de dispositivo aparecerá en la hoja **Dispositivos de IoT** con el *ESTADO* **habilitado**. Es posible que tenga que pulsar el botón **Actualizar** en la parte superior. 
 
     ![El dispositivo se registra con el centro de IoT](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 

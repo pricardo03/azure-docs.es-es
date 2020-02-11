@@ -8,18 +8,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 639a61cddde27b0d989e5a3dd4c599c353182a73
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720198"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982626"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este tutorial de dos partes aprenderá a usar el diseñador de Azure Machine Learning para desarrollar e implementar una solución de análisis predictivo que prediga el precio de cualquier automóvil.
+En este tutorial de dos partes aprenderá a usar el diseñador de Azure Machine Learning para entrenar e implementar un modelo de Machine Learning que predice el precio de cualquier automóvil. El diseñador es una herramienta de arrastrar y colocar que le permite crear modelos de Machine Learning sin una sola línea de código.
 
 En la primera parte del tutorial, aprenderá a:
 
@@ -45,13 +45,15 @@ Para crear una canalización de Azure Machine Learning, necesita un área de tra
 
 ### <a name="create-a-new-workspace"></a>Crear un área de trabajo
 
+Para usar el diseñador, primero necesita un área de trabajo de Azure Machine Learning. El área de trabajo es el recurso de nivel superior de Azure Machine Learning y proporciona un lugar centralizado para trabajar con todos los artefactos que crea con Azure Machine Learning.
+
 Si tiene un área de trabajo de Azure Machine Learning con una edición Enterprise, [vaya a la siguiente sección](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Creación de la canalización
 
-1. Inicie sesión en [ml.azure.com](https://ml.azure.com) y seleccione el área de trabajo con la que quiere trabajar.
+1. Inicie sesión en <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a> y seleccione el área de trabajo con la que quiere trabajar.
 
 1. Seleccione **Diseñador**.
 
@@ -60,6 +62,30 @@ Si tiene un área de trabajo de Azure Machine Learning con una edición Enterpri
 1. Seleccione **Easy-to-use prebuilt modules** (Módulos precompilados fáciles de usar).
 
 1. En la parte superior del lienzo, seleccione el nombre predeterminado de la canalización, **Pipeline-Created-on** (Canalización creada el). Cambie el nombre a *Automobile price prediction* (Predicción del precio de automóviles). No es necesario que el nombre sea único.
+
+## <a name="set-the-default-compute-target"></a>Configuración del destino de proceso predeterminado
+
+Una canalización se ejecuta en un destino de proceso que es un recurso de proceso asociado al área de trabajo. Después de crear un destino de proceso, puede volver a usarlo para futuras ejecuciones.
+
+Puede establecer un **destino de proceso predeterminado** para toda la canalización. Este indicará a cada módulo que debe usar el mismo destino de proceso de forma predeterminada. Sin embargo, puede especificar destinos de proceso por módulo.
+
+1. Junto al nombre de la canalización, seleccione el **icono de engranaje** ![Captura de pantalla del icono de engranaje](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) en la parte superior del lienzo para abrir el panel de **configuración**.
+
+1. En el panel de **configuración** situado a la derecha del lienzo, elija **Selección de destino de proceso**.
+
+    Si ya tiene un destino de proceso disponible, puede seleccionarlo para ejecutar esta canalización.
+
+    > [!NOTE]
+    > El diseñador solo puede ejecutar experimentos en destino de proceso de Azure Machine Learning. Otros destinos de proceso no aparecerán.
+
+1. Escriba un nombre para el recurso de proceso.
+
+1. Seleccione **Guardar**.
+
+    > [!NOTE]
+    > La creación de un recurso de proceso tarda aproximadamente cinco minutos. Una vez creado el recurso, puede volver a usarlo y eliminar este tiempo de espera en futuras ejecuciones.
+    >
+    > El recurso de proceso se escala automáticamente a cero nodos cuando está inactivo para ahorrar costes. Cuando se vuelve a usar después de un retraso, es posible que experimente aproximadamente cinco minutos de tiempo de espera mientras se escala la copia de seguridad.
 
 ## <a name="import-data"></a>Importar datos
 
@@ -77,7 +103,7 @@ Puede visualizar los datos para comprender el conjunto de datos que va a usar.
 
 1. Seleccione el módulo **Automobile price data (RAW)** .
 
-1. En el panel de propiedades a la derecha del lienzo, seleccione **Outputs** (Salidas).
+1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs** (Salidas).
 
 1. Seleccione el icono de gráfico para visualizar los datos.
 
@@ -95,7 +121,7 @@ Los conjuntos de datos suelen necesitar algún procesamiento previo antes del an
 
 Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conjunto de datos, faltan muchos valores en la columna **normalized-losses**, por lo que excluiremos toda esa columna del modelo.
 
-1. Escriba **Select** en el cuadro de búsqueda de la parte superior de la paleta para buscar el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
+1. En la paleta de módulos que se encuentra a la izquierda del lienzo, expanda la sección **Transformación de datos** y busque el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
 
 1. Haga clic y arrastre el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos) al lienzo. Coloque el módulo bajo el módulo del conjunto de datos.
 
@@ -109,11 +135,13 @@ Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conj
 
 1. Seleccione el módulo **Select Columns in Dataset**.
 
-1. En el panel de propiedades de la derecha del lienzo, seleccione **All columns** (Todas las columnas).
+1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Editar columna**.
+
+1. Expanda la lista desplegable **Nombres de columna** situada junto a **Incluir** y seleccione **Todas las columnas**.
 
 1. Seleccione el signo **+** para agregar una nueva regla.
 
-1. En el menú desplegable, seleccione **Exclude** (Excluir) y **Column names** (Nombres de columna).
+1. En los menús desplegables, seleccione **Excluir** y **Nombres de columna**.
     
 1. Escriba *normalized-losses* en el cuadro de texto.
 
@@ -123,7 +151,7 @@ Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conj
 
 1. Seleccione el módulo **Select Columns in Dataset**. 
 
-1. En el panel de propiedades, seleccione el cuadro de texto **Comment** (Comentario) y escriba *Exclude normalized losses* (Excluir pérdidas normalizadas).
+1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione el cuadro de texto **Comentario** y escriba *Exclude normalized losses* (Excluir normalized-losses).
 
     Los comentarios aparecerán en el gráfico para ayudarle a organizar la canalización.
 
@@ -134,13 +162,15 @@ Después de quitar la columna **normalized-losses**, aún faltan valores en el c
 > [!TIP]
 > Un requisito previo para usar la mayoría de los módulos del diseñador es limpiar los valores que faltan.
 
-1. Escriba **Clean** en el cuadro de búsqueda para encontrar el módulo **Clean Missing Data** (Limpiar datos que faltan).
+1. En la paleta de módulos que se encuentra a la izquierda del lienzo, expanda la sección **Transformación de datos** y busque el módulo **Clean Missing Data** (Limpiar datos que faltan).
 
 1. Arrastre el módulo **Clean Missing Data** (Limpiar datos que faltan) al lienzo de la canalización. Conéctelo al módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos). 
 
-1. En el panel de propiedades, seleccione **Remove entire row** (Quitar toda la fila) en **Cleaning mode** (Modo de limpieza).
+1. Seleccione el módulo **Clean Missing Data** (Limpiar datos que faltan).
 
-1. En el cuadro **Comment** (Comentario) del panel de propiedades, escriba *Remove missing value rows* (Quitar filas de valores que faltan). 
+1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione **Remove entire row** (Quitar toda la fila) en **Cleaning mode** (Modo de limpieza).
+
+1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione el cuadro **Comentario** y escriba *Remove missing value rows* (Quitar filas de valores que faltan). 
 
     La canalización debe parecerse a esta:
     
@@ -156,26 +186,28 @@ Como lo que se desea es predecir un precio, que es un número, se puede usar un 
 
 La división de los datos es una tarea común en el aprendizaje automático. Dividirá los datos en dos conjuntos independientes. Uno de ellos entrenará el modelo, mientras que el otro probará su funcionamiento.
 
-1. Escriba **split data** en el cuadro de búsqueda para buscar el módulo **Split Data** (Dividir datos). Conecte al puerto izquierdo del módulo **Clean Missing Data**(Limpiar datos que faltan) al módulo **Split Data** (Dividir datos).
+1. En la paleta de módulos, expanda la sección **Transformación de datos** y busque el módulo **Split Data** (Dividir datos).
+
+1. Arrastre el módulo **Split Data** (Dividir datos) al lienzo de la canalización.
+
+1. Conecte al puerto izquierdo del módulo **Clean Missing Data**(Limpiar datos que faltan) al módulo **Split Data** (Dividir datos).
 
     > [!IMPORTANT]
     > Asegúrese de que el puerto de salida izquierdo de **Clean Missing Data** (Limpiar datos que faltan) se conecta a **Split Data** (Dividir datos). El puerto izquierdo contiene los datos limpios. El puerto izquierdo contiene los datos descartados.
 
 1. Seleccione el módulo **Split Data** (Dividir datos).
 
-1. En el panel de propiedades, establezca el valor de **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) en 0,7.
+1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, establezca la opción **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) en 0,7.
 
     De este modo divide los datos: el 70 % para entrenar el modelo y el 30 % para probarlo. Al conjunto de datos del 70 % se podrá acceder a través del puerto de salida de la izquierda. Los restantes datos estarán disponibles a través del puerto de salida derecho.
 
-1. En el cuadro **Comment** (Comentario) del panel de propiedades, escriba *Split the dataset into training set (0.7) and test set (0.3)* (Dividir el conjunto de datos en conjunto de entrenamiento [0,7] y conjunto de pruebas [0,3]).
+1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione el cuadro **Comentario** y escriba *Split the dataset into training set (0.7) and test set (0.3)* (Dividir el conjunto de datos en conjunto de entrenamiento [0,7] y conjunto de pruebas [0,3]).
 
 ### <a name="train-the-model"></a>Entrenamiento del modelo
 
 Para entrenar el modelo, proporciónele un conjunto de datos que incluya el precio. El algoritmo construye un modelo que explica la relación entre las características y el precio presentado por los datos de entrenamiento.
 
-1. Para seleccionar el algoritmo de aprendizaje, borre e el cuadro de búsqueda de la paleta de módulos.
-
-1. Expanda **Machine Learning Algorithms** (Algoritmos de aprendizaje automático).
+1. En la paleta de módulos expanda **Machine Learning Algorithms** (Algoritmos de aprendizaje automático).
     
     Esta opción muestra varias categorías de módulos que se pueden usar para inicializar algoritmos de aprendizaje.
 
@@ -192,9 +224,11 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
     ![Captura de pantalla que muestra la configuración correcta del módulo Train Model (Entrenar modelo). El módulo Linear Regression (Regresión lineal) se conecta al puerto izquierdo del módulo Train Model (Entrenar modelo) y el módulo Split Data (Dividir datos) se conecta al puerto derecho de Train Model (Entrenar modelo)](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
+1. En la paleta de módulos, expanda la sección **Entrenamiento de módulos** y arrastre el módulo **Train Model** (Entrenar modelo) al lienzo.
+
 1. Seleccione el módulo **Train Model** (Entrenar modelo).
 
-1. En el panel de propiedades, seleccione **Edit column** (Editar columna).
+1. En el panel de detalles del módulo, situado a la derecha del lienzo, elija el selector **Editar columna**.
 
 1. En el cuadro de diálogo **Label column** (Columna de etiqueta), expanda el menú desplegable y seleccione **Column names** (Nombres de columna). 
 
@@ -204,7 +238,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
     ![Captura de pantalla que muestra la configuración correcta de la canalización después de agregar el módulo Entrenar modelo.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
-## <a name="score-a-machine-learning-model"></a>Puntuación de un modelo de Machine Learning
+### <a name="add-the-score-model-module"></a>Adición del módulo Score Model (Puntuar modelo)
 
 Después de entrenar el modelo con el 70 % de los datos, puede usarlo para puntuar el otro 30 % y ver si el modelo funciona correctamente.
 
@@ -212,7 +246,7 @@ Después de entrenar el modelo con el 70 % de los datos, puede usarlo para punt
 
 1. Conecte la salida del módulo **Train Model** (Entrenar modelo) al puerto de entrada izquierdo de **Score Model** (Entrenar modelo). Conecte la salida de los datos de prueba (puerto derecho) del módulo **Split Data** al puerto de entrada derecho de **Score Model**.
 
-## <a name="evaluate-a-machine-learning-model"></a>Evaluar un modelo de Machine Learning
+### <a name="add-the-evaluate-model-module"></a>Agregar el módulo Evaluate Model (Evaluar modelo)
 
 Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación que dio el modelo al conjunto de datos de prueba.
 
@@ -226,7 +260,20 @@ Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación q
 
 ## <a name="run-the-pipeline"></a>Ejecución de la canalización
 
-[!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
+Ahora que ya ha configurado la canalización, puede enviar una ejecución de canalización.
+
+1. En la parte superior del lienzo, seleccione **Ejecutar**.
+
+1. En el cuadro de diálogo **Configurar ejecución de canalización**, seleccione **+ Nuevo experimento** para **Experimento**.
+
+    > [!NOTE]
+    > Los experimentos agrupan ejecuciones de canalización. Si ejecuta una canalización varias veces, puede seleccionar el mismo experimento para ejecuciones sucesivas.
+
+    1. Escriba un nombre descriptivo para **Nombre del experimento**.
+
+    1. Seleccione **Run** (Ejecutar).
+    
+    Puede ver el estado y los detalles de la ejecución en la parte superior derecha del lienzo.
 
 ### <a name="view-scored-labels"></a>Visualización de etiquetas con puntuación
 
@@ -234,7 +281,7 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
 1. Seleccione el módulo **Score Model** (Puntuar modelo) para ver su salida.
 
-1. En el panel de propiedades, seleccione **Outputs** (Salidas) > icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
+1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, seleccione **Salidas** > icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
@@ -246,7 +293,7 @@ Use **Evaluate Model** (Evaluar modelo) para ver el rendimiento del modelo entre
 
 1. Seleccione el módulo **Evaluate Model** (Evaluar modelo) para ver su salida.
 
-1. En el panel de propiedades, seleccione **Output** (Salida) > icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
+1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, seleccione **Salida** > icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
 
 Se muestran las siguientes estadísticas de su modelo:
 
@@ -260,16 +307,11 @@ Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
+Omita esta sección si desea continuar con la parte 2 del tutorial sobre la [implementación de modelos](tutorial-designer-automobile-price-deploy.md).
+
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-En la primera parte de este tutorial completó las siguientes tareas:
-
-* Crear una canalización
-* Preparación de los datos
-* Entrenamiento del modelo
-* Puntuar y evaluar el modelo
 
 En la segunda parte, aprenderá a implementar el modelo como un punto de conexión en tiempo real.
 

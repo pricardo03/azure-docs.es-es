@@ -3,22 +3,22 @@ title: 'Tutorial: Búsqueda de varias rutas por forma de viajar | Microsoft Azur
 description: En este tutorial aprenderá a buscar rutas para distintas formas de viajar con Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910861"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989661"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
-En este tutorial se muestra cómo usar la cuenta de Azure Maps y servicio de rutas para buscar la ruta al punto de interés, con una prioridad establecida según el modo de desplazamiento. Se muestran dos rutas distintas en el mapa, una para automóviles y otra para camiones que podrían tener restricciones de ruta debido a la altura, el peso o una carga peligrosa. En este tutorial, aprenderá a:
+En este tutorial se muestra cómo usar la cuenta y el servicio de rutas de Azure Maps. El servicio de rutas puede encontrar la ruta al punto de interés, con una prioridad establecida según el modo de desplazamiento. Puede mostrar dos rutas diferentes en el mapa, una para automóviles y otra para camiones. El servicio de rutas tiene en cuenta las limitaciones debidas al alto y el peso del vehículo o bien si el vehículo transporta una carga peligrosa. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una nueva página web con Map Control API
@@ -27,7 +27,7 @@ En este tutorial se muestra cómo usar la cuenta de Azure Maps y servicio de rut
 > * Mostrar varias rutas en el mapa
 
 ## <a name="prerequisites"></a>Prerequisites
-Antes de continuar, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
+Antes de continuar, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) y seleccione el plan de tarifa S1. Siga los pasos descritos en [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Creación de un nuevo mapa
 
@@ -123,7 +123,7 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
 
 ## <a name="define-how-the-route-will-be-rendered"></a>Definición de cómo se representará la ruta
 
-En este tutorial, se calcularán y se representarán dos rutas en el mapa. Una ruta con carreteras accesibles para los coches y otra accesible para camiones. Cuando se representen, aparecerá un icono de inicio y otro de fin de ruta, y diferentes líneas de colores para cada ruta.
+En este tutorial, se calcularán y se representarán dos rutas en el mapa. Una ruta con carreteras accesibles para los coches y otra accesible para camiones. Cuando se representen, aparecerá un icono con el símbolo de inicio y otro de fin de ruta y diferentes líneas de colores para cada ruta.
 
 1. Después de inicializar el mapa, agregue el siguiente código JavaScript en el controlador de eventos `ready` de los mapas.
 
@@ -158,7 +158,7 @@ En este tutorial, se calcularán y se representarán dos rutas en el mapa. Una r
     });
     ```
     
-    En el controlador de eventos `ready` de los mapas, se crea un origen de datos para almacenar las líneas de las rutas, así como los puntos inicial y final. Se crea una capa de línea y se asocia al origen de datos para definir cómo se representará la línea de la ruta. Las expresiones se usan para recuperar la anchura y el color de línea desde las propiedades de la característica de línea de ruta. Al agregar la capa al mapa, se pasa un segundo parámetro con el valor `'labels'` que especifica que esta capa se debe representar por debajo de las etiquetas del mapa. Esto garantiza que la línea de ruta no cubrirá las etiquetas de la carretera. Se crea una capa de símbolos y se asocia al origen de datos. Esta capa especifica cómo se representarán los puntos inicial y final. En este caso, se han agregado expresiones para recuperar la imagen del icono y la información de la etiqueta de texto a partir de las propiedades de cada objeto de punto. 
+    En el controlador de eventos `ready` de los mapas, se crea un origen de datos para almacenar las líneas de ruta y los puntos inicial y final. Se crea una capa de línea y se asocia al origen de datos para definir cómo se representará la línea de la ruta. Las expresiones se usan para recuperar la anchura y el color de línea desde las propiedades de la característica de línea de ruta. Al agregar la capa al mapa, se pasa un segundo parámetro con el valor `'labels'` que especifica que esta capa se debe representar por debajo de las etiquetas del mapa. Esto garantiza que la línea de ruta no cubrirá las etiquetas de la carretera. Se crea una capa de símbolos y se asocia al origen de datos. Esta capa especifica cómo se representarán los puntos inicial y final. En este caso, se han agregado expresiones para recuperar la imagen del icono y la información de la etiqueta de texto a partir de las propiedades de cada objeto de punto. 
     
 2. Para este tutorial, establezca el punto inicial como una compañía ficticia en Seattle llamada Fabrikam y el punto de destino como una oficina de Microsoft. En el controlador de eventos `ready` de los mapas, agregue el código siguiente.
 
@@ -192,7 +192,7 @@ En este tutorial, se calcularán y se representarán dos rutas en el mapa. Una r
 
     Los puntos inicial y final se agregan al origen de datos. El rectángulo delimitador de los puntos inicial y final se calcula utilizando la función `atlas.data.BoundingBox.fromData`. Este rectángulo delimitador se usa para establecer la vista de las cámaras del mapa sobre la ruta completa mediante la función `map.setCamera`. Se agrega un relleno para compensar las dimensiones de píxeles de los iconos de símbolos.
 
-4. Guarde el archivo y actualice el explorador para ver los anclajes en el mapa. Ahora el mapa se centra en Seattle, y puede ver como la chincheta azul redonda marca el punto de inicio y otra chincheta azul el punto de fin.
+4. Guarde el archivo y actualice el explorador para ver los anclajes en el mapa. Ahora el mapa se centra en Seattle. Puede ver como la chincheta azul redonda marca el punto de inicio y otra chincheta azul el punto de fin.
 
    ![Visualización del mapa con los puntos de inicio y fin](./media/tutorial-prioritized-routes/pins-map.png)
 
@@ -244,7 +244,7 @@ En esta sección se explica cómo usar Route Service API de Maps para buscar var
     });
     ```
 
-    Este fragmento de código anterior consulta el servicio de enrutamiento de Azure Maps con el método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). A continuación, se extrae la línea de ruta de la colección de características de GeoJSON de la respuesta extraída con el método `geojson.getFeatures()`. La línea de ruta se agrega entonces al origen de datos. También agrega un índice de 0 para asegurarse de que se representa antes que otras líneas en el origen de datos. Esto se hace ya que, a menudo, el cálculo de la ruta del camión será más lento que el de la ruta de un coche, y si la línea de ruta del camión se agrega al origen de datos después de la ruta del coche, esta se representará por encima. Se agregan dos propiedades a la línea de ruta del camión, una pincelada con un agradable tono azul y una pincelada de nueve píxeles de ancho.
+    Este fragmento de código anterior consulta el servicio de enrutamiento de Azure Maps con el método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). A continuación, se extrae la línea de ruta de la colección de características de GeoJSON de la respuesta extraída con el método `geojson.getFeatures()`. La línea de ruta se agrega entonces al origen de datos. Un índice de 0 garantiza que se representa antes que otras líneas del origen de datos. Esto se hace ya que, a menudo, el cálculo de la ruta del camión será más lento que el de la ruta de un coche, y si la línea de ruta del camión se agrega al origen de datos después de la ruta del coche, esta se representará por encima. Se agregan dos propiedades a la línea de ruta del camión, una pincelada con un agradable tono azul y una pincelada de nueve píxeles de ancho.
 
 3. Agregue el siguiente código JavaScript para construir una ruta para un automóvil y mostrar los resultados.
 

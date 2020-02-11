@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/30/2019
-ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.date: 01/29/2020
+ms.openlocfilehash: b75b760704511627c74301ae3fff82c24a262e17
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563480"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904891"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Inicio rápido: Creación de un almacén de conocimiento de Azure Cognitive Search en Azure Portal
 
@@ -81,7 +81,7 @@ En la página de información general del servicio de búsqueda, haga clic en **
 En este paso del asistente, creará un conjunto de aptitudes con enriquecimientos de aptitudes cognitivas. Los datos de origen se componen de revisiones de clientes en varios idiomas. Las aptitudes pertinentes para este conjunto de datos incluyen la extracción de frases clave, la detección de opiniones y la traducción de texto. En un paso posterior, estos enriquecimientos se "proyectarán" en un almacén de conocimiento como tablas de Azure.
 
 1. Expanda **Adjuntar Cognitive Services**. De forma predeterminada, está seleccionada la opción **Gratis (enriquecimientos limitados)** . Puede usar este recurso porque el número de registros de HotelReviews-Free.csv es 19 y este recurso gratuito permite hasta 20 transacciones al día.
-1. Expanda **Agregar conocimientos cognitivos**.
+1. Expanda **Agregar enriquecimientos**.
 1. En **Nombre del conjunto de aptitudes**, escriba `hotel-reviews-ss`.
 1. En el campo **Datos de origen**, seleccione **reviews_text**.
 1. En **Nivel de granularidad de enriquecimiento**, seleccione **Páginas (fragmentos de 5 000 caracteres)** .
@@ -93,11 +93,11 @@ En este paso del asistente, creará un conjunto de aptitudes con enriquecimiento
       ![Creación de un conjunto de aptitudes](media/knowledge-store-create-portal/hotel-reviews-ss.png "Creación de un conjunto de aptitudes")
 
 1. Expanda **Guardar enriquecimientos en el almacén de conocimiento**.
-1. Escriba la **Cadena de conexión de la cuenta de almacenamiento** que guardó en un paso anterior.
 1. Seleccione estas **Proyecciones de tabla de Azure**:
     + **Documentos**
     + **Páginas**
     + **Frases clave**
+1. Escriba la **Cadena de conexión de la cuenta de almacenamiento** que guardó en un paso anterior.
 
     ![Configuración del almacén de conocimiento](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configuración del almacén de conocimiento")
 

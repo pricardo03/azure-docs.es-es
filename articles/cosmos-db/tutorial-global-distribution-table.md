@@ -6,14 +6,14 @@ ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 148e17edbb8be566db611216f444fedad514e638
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76770605"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900178"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configuración de la distribución global de Azure Cosmos DB con Table API
 
@@ -28,19 +28,17 @@ En este artículo se tratan las tareas siguientes:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Conexión a una región de preferencia con Table API
 
-Para aprovechar las ventajas de la [distribución global](distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Puede hacerlo al establecer la propiedad [TableConnectionPolicy.PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet). El SDK de Table API de Azure Cosmos DB elige el mejor punto de conexión para comunicarse en función de la configuración de la cuenta, la disponibilidad regional actual y la lista de preferencias proporcionada.
+Para aprovechar las ventajas de la [distribución global](distribute-data-globally.md), las aplicaciones cliente deben especificar la ubicación actual en la que se ejecuta la aplicación. Esto se hace mediante el establecimiento de la propiedad `CosmosExecutorConfiguration.CurrentRegion`. La propiedad `CurrentRegion` debe contener una sola ubicación. Cada instancia de cliente puede especificar su propia región para lecturas de baja latencia. Se debe asignar un nombre a la región con su [nombre para mostrar](https://msdn.microsoft.com/library/azure/gg441293.aspx), como "Oeste de EE. UU.". 
 
-PreferredLocations debe contener una lista separada por comas de las ubicaciones preferidas (hospedaje múltiple) para las lecturas. Cada instancia de cliente puede especificar un subconjunto de estas regiones en el orden de preferencia para las lecturas de latencia baja. Estas regiones se deben denominar según sus [nombres para mostrar](https://msdn.microsoft.com/library/azure/gg441293.aspx), por ejemplo, `West US`.
+El SDK de Table API de Azure Cosmos DB elige automáticamente el mejor punto de conexión para comunicarse en función de la configuración de la cuenta y la disponibilidad regional actual. Prioriza la región más cercana para proporcionar una mejor latencia a los clientes. Después de establecer la propiedad `CurrentRegion` actual, las solicitudes de lectura y escritura se dirigen de la siguiente manera:
 
-Todas las lecturas se envían a la primera región disponible en la lista de PreferredLocations. Si se produce un error en la solicitud, el cliente pasará a la siguiente región de la lista y así sucesivamente.
+* **Solicitudes de lectura:** Todas las solicitudes de lectura se envían al valor de `CurrentRegion` configurado. En función de la proximidad, el SDK selecciona automáticamente una región con replicación geográfica de reserva para lograr la alta disponibilidad.
 
-El SDK intenta leer desde las regiones especificadas en PreferredLocations. Así que, por ejemplo, si la cuenta de base de datos está disponible en tres regiones, pero el cliente solo especifica dos de las regiones de no escritura para PreferredLocations, no se atenderá ninguna lectura desde la región de escritura, incluso en caso de conmutación por error.
+* **Solicitudes de escritura:** El SDK envía automáticamente todas las solicitudes de escritura a la región de escritura actual. En una cuenta de varios maestros, la región actual también atenderá las solicitudes de escritura. En función de la proximidad, el SDK selecciona automáticamente una región con replicación geográfica de reserva para lograr la alta disponibilidad.
 
-El SDK envía automáticamente todas las escrituras a la región de escritura actual.
+Si no se especifica la propiedad `CurrentRegion`, el SDK usa la región de escritura actual para todas las operaciones.
 
-Si la propiedad PreferredLocations no está establecida, atenderá todas las solicitudes procedentes de la región de escritura actual.
-
-De este modo finaliza este tutorial. Para información sobre cómo administrar la coherencia de la cuenta replicada globalmente, lea [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md). Para más información sobre cómo funciona la replicación global de bases de datos en Azure Cosmos DB, consulte [Distribución global de datos con Azure Cosmos DB](distribute-data-globally.md).
+Por ejemplo, una cuenta de Azure Cosmos se encuentra en las regiones "Oeste de EE. UU." y "Este de EE. UU.". "Oeste de EE. UU." es la región de escritura y la aplicación está presente en "Este de EE. UU.". Si no se configura la propiedad CurrentRegion, todas las solicitudes de lectura y escritura siempre se dirigen a la región "Oeste de EE. UU.". Si se configura la propiedad CurrentRegion, todas las solicitudes de lectura se sirven desde la región "Este de EE. UU.".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

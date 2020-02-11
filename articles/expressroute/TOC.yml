@@ -70,6 +70,8 @@
       items:
         - name: Emparejamiento privado
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+        - name: Uso de una red privada virtual como copia de seguridad
+          href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: Guías paso a paso
   items:
     - name: Creación y modificación de un circuito

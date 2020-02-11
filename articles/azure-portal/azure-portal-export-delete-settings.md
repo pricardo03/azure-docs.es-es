@@ -1,21 +1,21 @@
 ---
-title: Exportar o eliminar la configuración de Azure Portal| Microsoft Docs
+title: Exportación o eliminación de la configuración de Azure portal
 description: Obtenga información sobre cómo exportar o eliminar la configuración de usuario, los paneles privados y la configuración personalizada en Azure Portal.
 services: azure-portal
 keywords: ''
 author: santhoshsomayajula
-ms.date: 04/08/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.author: mblythe
-ms.openlocfilehash: f033af37985077f4d8df9d541b55764df0c75eda
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: accdfbd939fad73ca7d008450c358d366e7f8b70
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640183"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900754"
 ---
 # <a name="export-or-delete-user-settings"></a>Exportación o eliminación de la configuración de usuario
 
@@ -32,28 +32,26 @@ Es una buena idea exportar y revisar la configuración antes de eliminarla. Volv
 ## <a name="export-or-delete-your-portal-settings"></a>Exportación o eliminación de la configuración del portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En la parte superior del portal, seleccione **Configuración**.
 
-    ![Captura de pantalla que muestra el engranaje de configuración del portal](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
+1. En el encabezado del portal, seleccione ![icono de configuración](media/azure-portal-export-delete-settings/settings-icon.png) **Configuración**.
 
-3. Seleccione **Exportar todas las opciones de configuración** o **Eliminar todas las opciones de configuración y los paneles privados**.
+1. Seleccione **Exportar todas las opciones de configuración** o **Eliminar todas las opciones de configuración y los paneles privados**.
 
-    ![Captura de pantalla que muestra la configuración de exportación y eliminación del portal](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
+    ![Opciones de configuración y configuración de Azure Portal](media/azure-portal-export-delete-settings/azure-portal-settings-with-export-delete.png)
 
       En la siguiente tabla se describen estas acciones.
 
       | Acción | Descripción |
       | --- | --- |
-      | **Exportar todas las opciones de configuración** | Crea un archivo .json que contiene la configuración de usuario, como el tema de color, los favoritos y los paneles privados.|
+      | **Exportar todas las opciones de configuración** | Crea un archivo *.json* que contiene la configuración de usuario, como el tema de color, los favoritos y los paneles privados.|
       | **Eliminar todas las opciones de configuración y los paneles privados** | Elimina todos los vínculos a paneles privados y otras configuraciones personalizadas que haya realizado en el portal. |
 
 > [!NOTE]
-> Debido a la naturaleza dinámica de la configuración de usuario y el riesgo de daños en los datos, no se puede importar la configuración desde el archivo .json.
+> Debido a la naturaleza dinámica de la configuración de usuario y el riesgo de daños en los datos, no se puede importar la configuración desde el archivo *.json*.
 >
 >
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación y uso compartido de paneles de Azure](azure-portal-dashboard-share-access.md)
-* [Adición, eliminación y ordenación de favoritos](azure-portal-add-remove-sort-favorites.md)
+* [Uso compartido de paneles de Azure mediante el control de acceso basado en rol](azure-portal-dashboard-share-access.md)
+* [Agregar, quitar y reorganizar favoritos](azure-portal-add-remove-sort-favorites.md)

@@ -1,26 +1,21 @@
 ---
-title: 'Inicio rápido: Síntesis de voz en un archivo de audio: servicio de voz'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-ms.openlocfilehash: 9b13d8fc3b77426a59dea5399223b79c4bb4b1a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: cd8da5eb9313685361ca56b56c024c2dfb37276e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468168"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961469"
 ---
-En este inicio rápido, usará el SDK de [Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para convertir texto en voz sintetizada en un archivo de audio. Una vez que se cumplen los requisitos previos, la síntesis de voz en un archivo solo necesita realizar estos cinco pasos:
+En este inicio rápido, usará el SDK de [Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para convertir texto en voz sintetizada en un archivo de audio. El servicio de conversión de texto a voz proporciona numerosas opciones para voces sintetizadas que puede encontrar en [compatibilidad con el lenguaje de conversión de texto a voz](../../../language-support.md#text-to-speech). Una vez que se cumplen los requisitos previos, la síntesis de voz en un archivo solo necesita realizar estos cinco pasos:
 > [!div class="checklist"]
-> * Cree un objeto ````SpeechConfig```` a partir de la clave y la región de suscripción.
+> * Cree un objeto `SpeechConfig` a partir de la clave y la región de suscripción.
 > * Cree un objeto de configuración de audio que especifique el nombre del archivo .WAV.
-> * Cree un objeto ````SpeechSynthesizer```` con los objetos de configuración anteriores.
-> * Con el objeto ````SpeechSynthesizer````, convierta el texto en voz sintetizada y guárdelo en el archivo de audio especificado.
-> * Inspeccione el objeto ````SpeechSynthesizer```` devuelto en caso de errores.
+> * Cree un objeto `SpeechSynthesizer` con los objetos de configuración anteriores.
+> * Con el objeto `SpeechSynthesizer`, convierta el texto en voz sintetizada y guárdelo en el archivo de audio especificado.
+> * Inspeccione el objeto `SpeechSynthesizer` devuelto en caso de errores.

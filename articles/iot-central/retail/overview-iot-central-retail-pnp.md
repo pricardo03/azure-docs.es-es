@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773046"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022144"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Creación de soluciones de comercio minorista con Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Azure IoT Central es una plataforma de aplicaciones de IoT que reduce la carga y el costo asociado con el desarrollo, la administración y el mantenimiento de soluciones de IoT de nivel empresarial. La elección de compilar con Azure IoT Central ofrece la oportunidad de centrar su tiempo, dinero y energía en transformar su negocio con datos de IoT, en lugar de simplemente mantener y actualizar una infraestructura de IoT compleja y continuamente en constante evolución.
 
@@ -78,7 +78,7 @@ Para más información, consulte el tutorial para [implementar y recorrer la pla
 
 Para muchos minoristas, las condiciones ambientales dentro de sus almacenes son un diferenciador clave de sus competidores. Los minoristas quieren mantener condiciones agradables en sus almacenes para el beneficio de sus clientes.  
 
-Como creador de soluciones, puede usar la plantilla de aplicación de supervisión de la condición del análisis en el almacén de IoT Central para crear una solución integral. La plantilla de aplicación le permite conectarse digitalmente al entorno de un comercio minorista, y a supervisarlo, mediante varios dispositivos sensores. Estos dispositivos sensores generan telemetría que se puede convertir en información empresarial, lo que ayuda al minorista a reducir los costos operativos y crear una gran experiencia para sus clientes.
+Como creador de soluciones, puede usar la plantilla de aplicación de supervisión de la condición del análisis en el almacén de IoT Central para crear una solución integral. La plantilla de aplicación le permite conectarse digitalmente al entorno de un comercio minorista, y a supervisarlo, mediante diferentes tipos de dispositivos sensores. Estos dispositivos sensores generan telemetría que se puede convertir en información empresarial, lo que ayuda al minorista a reducir los costos operativos y crear una gran experiencia para sus clientes.
 
 Utilice la plantilla de aplicación para:
 
@@ -149,8 +149,8 @@ La plantilla de aplicación del centro de micrologística de IoT Central permite
 
 La plantilla de aplicación le permite: 
 
-- Conectar sin problemas varios sensores de IoT como robots o sensores de supervisión de condiciones a una instancia de la aplicación IoT Central.
-- Supervisar y administrar el estado de la red de sensores, así como los dispositivos de puerta de enlace del entorno.
+- Conectar sin problemas diferentes tipos de sensores de IoT como robots o sensores de supervisión de condiciones a una instancia de la aplicación IoT Central.
+- Supervisar y administrar el estado de la red de sensores, y los dispositivos de puerta de enlace del entorno.
 - Crear reglas personalizadas basadas en las condiciones ambientales en un centro logístico para desencadenar las alertas apropiadas.
 - Transformar las condiciones ambientales en el centro logístico en información que el equipo del almacén minorista pueda aprovechar.
 - Exportar la información agregada a aplicaciones empresariales nuevas o existentes en beneficio de los miembros del personal del comercio minorista.

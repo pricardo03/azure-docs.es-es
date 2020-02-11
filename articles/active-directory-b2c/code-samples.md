@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 01/23/2018
+ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5db3b978193ab51fc60f1bcb97d83b4d24037b54
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 69e6b7beecb95c0e89b60640353155fc7802a881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66511398"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982949"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Ejemplos de código de Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ En las tablas siguientes se proporcionan vínculos a ejemplos para aplicaciones 
 
 ## <a name="mobile-and-desktop-apps"></a>Aplicaciones móviles y de escritorio
 
-| Muestra | DESCRIPCIÓN |
+| Muestra | Descripción |
 |--------| ----------- |
 | [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | Un ejemplo de iOS en Swift que autentica a los usuarios de Azure AD B2C y llama a una API mediante OAuth 2.0 |
 | [android-native-msal](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | Una aplicación Android sencilla que muestra cómo usar MSAL para autenticar a los usuarios mediante Azure Active Directory B2C y acceder a una API web con los tokens resultantes. |
@@ -34,17 +34,18 @@ En las tablas siguientes se proporcionan vínculos a ejemplos para aplicaciones 
 
 ## <a name="web-apps-and-apis"></a>Web Apps y API
 
-| Muestra | DESCRIPCIÓN |
+| Muestra | Descripción |
 |--------| ----------- |
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | Un ejemplo combinado de una aplicación web .NET que llama a una API web. NET, ambas protegidas mediante Azure AD B2C. |
 | [dotnetcore-webapp](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | Una aplicación web ASP.NET Core que puede iniciar la sesión de un usuario mediante Azure AD B2C, obtener un token de acceso mediante MSAL.NET y llamar a una API. |
 | [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | Una aplicación Node.js que proporciona una manera rápida y sencilla de configurar una aplicación web con Express mediante OpenID Connect. |
 | [javascript-nodejs-webapp](https://github.com/AzureADQuickStarts/active-directory-b2c-javascript-nodejs-webapp) | Un servidor node.js que proporciona una manera rápida y sencilla de configurar un servicio API REST mediante el protocolo OAuth2. |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | Una pequeña API web node.js para Azure AD B2C que muestra cómo proteger la API web y aceptar tokens de acceso B2C mediante passport.js. |
+| [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Se muestra cómo integrar B2C de la Plataforma de identidad de Microsoft con una aplicación web en Python.  |
 
 ## <a name="single-page-apps"></a>Aplicaciones de una sola página
 
-| Muestra | DESCRIPCIÓN |
+| Muestra | Descripción |
 |--------| ----------- |
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Una aplicación de una sola página (SPA) que llama a una API web. La autenticación se realiza con Azure AD B2C aprovechando MSAL.js. | 
 | [javascript-hellojs-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp) | Una aplicación de una sola página, implementada con un back-end de ASP.NET Web API, que realiza la suscripción de los usuarios e inicia su sesión mediante Azure AD B2C y llama a la API web mediante tokens de acceso de OAuth 2.0. |

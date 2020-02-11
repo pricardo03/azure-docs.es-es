@@ -5,29 +5,29 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: cd3db902d713910de5a8199df85089d62569f9d7
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757569"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906620"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # <a name="tutorial-host-a-static-website-on-blob-storage"></a>Tutorial: Hospedaje de un sitio web estático en Blob Storage
 
-Este tutorial es la primera parte de una serie. En él, aprenderá a crear e implementar un sitio web estático para Azure Storage. Cuando haya terminado, tendrá un sitio web estático al que los usuarios podrán acceder públicamente. 
+En este tutorial, aprenderá a crear e implementar un sitio web estático para Azure Storage. Cuando haya terminado, tendrá un sitio web estático al que los usuarios podrán acceder públicamente. 
 
-En la primera parte de la serie, se aprende a:
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar el hospedaje del sitio web estático
 > * Implementar un sitio web de Hola mundo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -101,7 +101,7 @@ Ha completado el tutorial correctamente y ha implementado un sitio web estático
 
 En la primera parte de este tutorial, ha aprendido cómo configurar la cuenta de Azure Storage para el hospedaje estático de sitios web y cómo crear e implementar un sitio web estático en un punto de conexión de Azure.
 
-Ahora avance a la segunda parte, donde va a configurar un dominio personalizado con SSL para el sitio web estático con Azure CDN.
+A continuación, aprenda a configurar un dominio personalizado con el sitio web estático.
 
 > [!div class="nextstepaction"]
-> [Uso de Azure CDN para habilitar un dominio personalizado con SSL para un sitio web estático](storage-blob-static-website-custom-domain.md)
+> [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)

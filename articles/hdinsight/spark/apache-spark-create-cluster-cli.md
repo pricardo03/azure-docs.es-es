@@ -2,17 +2,17 @@
 title: 'Inicio rápido: Clústeres de Apache Spark con la CLI de Azure: Azure HDInsight'
 description: En este inicio rápido se muestra cómo usar la CLI de Azure para crear un clúster de Apache Spark en Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 06/12/2019
-ms.author: hrasheed
-ms.openlocfilehash: 71b5e9f0ece79633673b183ca7288852f42ca3c0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 02/03/2020
+ms.openlocfilehash: ac937519ca3fa9381fe4970f2e4336fe4a0a9227
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494720"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989338"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Inicio rápido: Creación de un clúster de Apache Spark en Azure HDInsight mediante la CLI de Azure
 
@@ -20,7 +20,7 @@ En este inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 CLI de Azure. Si no tiene instalada la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) los pasos que debe seguir.
 
@@ -28,7 +28,7 @@ CLI de Azure. Si no tiene instalada la CLI de Azure, consulte [Instalación de l
 
 ## <a name="create-an-apache-spark-cluster"></a>Creación de un clúster de Apache Spark
 
-1. Inicie sesión en la suscripción de Azure. Si va a usar Azure Cloud Shell, simplemente seleccione **Probar** en la esquina superior derecha del bloque de código. En caso contrario, escriba el siguiente comando:
+1. Inicie sesión en la suscripción de Azure. Si planea usar Azure Cloud Shell, seleccione **Probar** en la esquina superior derecha del bloque de código. En caso contrario, escriba el siguiente comando:
 
     ```azurecli-interactive
     az login
@@ -103,18 +103,18 @@ CLI de Azure. Si no tiene instalada la CLI de Azure, consulte [Instalación de l
         --http-password $httpCredential \
         --http-user admin \
         --location $location \
-        --size $clusterSizeInNodes \
+        --workernode-count $clusterSizeInNodes \
         --ssh-password $sshCredentials \
         --ssh-user sshuser \
         --storage-account $AZURE_STORAGE_ACCOUNT \
         --storage-account-key $AZURE_STORAGE_KEY \
-        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --storage-container $AZURE_STORAGE_CONTAINER \
         --version $clusterVersion
     ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Después de completar el inicio rápido, puede ser conveniente eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando.
+Después de completar el inicio rápido, puede ser conveniente eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. Los clústeres de HDInsight se cobran aunque no se estén usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se usen.
 
 Escriba todos o algunos de los siguientes comandos para quitar recursos:
 

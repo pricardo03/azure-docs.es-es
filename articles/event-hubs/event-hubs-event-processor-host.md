@@ -12,16 +12,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 07/16/2019
+ms.date: 01/10/2020
 ms.author: shvija
-ms.openlocfilehash: 312800482405530d57ce7b0b1e77b91c2ad069ce
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 7533c2a4d5ef2bb3e6f66e116d3ff3937ddd77b3
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772158"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899971"
 ---
 # <a name="event-processor-host"></a>Host del procesador de eventos
+> [!NOTE]
+> Este artículo se aplica a la versión anterior del SDK de Azure Event Hubs. Para aprender a migrar el código a la versión más reciente del SDK, consulte estas guías de migración. 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md)
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
+> - [Script de Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
+>
+> Consulte también [Equilibrio de la carga de particiones entre varias instancias de la aplicación](event-processor-balance-partition-load.md).
 
 Azure Event Hubs es un eficaz servicio de ingesta de telemetría que se puede usar para hacer streaming de millones de eventos a un bajo costo. En este artículo se describe cómo usar eventos ingeridos mediante el *host del procesador de eventos* (EPH), un agente de consumidor inteligente que simplifica la administración de la creación de puntos de comprobación, la concesión y los lectores de eventos paralelos.  
 

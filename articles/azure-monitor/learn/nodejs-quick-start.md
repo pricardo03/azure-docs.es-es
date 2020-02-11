@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Supervisión de Node.js con Application Insights de Azure Monitor'
-description: Proporciona instrucciones para configurar rápidamente una aplicación web de Node.js para la supervisión con Application Insights de Azure Monitor
+description: Proporciona instrucciones para configurar rápidamente una aplicación web de Node.js para realizar labores de supervisión con Application Insights de Azure Monitor
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,38 +8,31 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1f42dd50ee70d42b5209e186b8af63c820a9a85e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6d6d70336badeaa86c9982dfa977ea389ed5402
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398776"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963536"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Inicio rápido: Empiece a supervisar su aplicación web creada con Node.js con Azure Application Insights
 
-Esta guía de inicio rápido le ayudará a agregar la versión 0.22 del SDK de Application Insights a una aplicación web Node.js existente.
+En este inicio rápido, se agrega la versión 0.22 del SDK de Application Insights para Node.js a una aplicación web de Node.js existente.
 
 Con Azure Application Insights puede supervisar fácilmente la disponibilidad, el rendimiento y el uso de su aplicación web. También puede identificar y diagnosticar errores en la aplicación rápidamente sin tener que esperar a que un usuario informe de ellos. Con la versión 0.20 del SDK y posteriores, puede supervisar los paquetes externos comunes, como MongoDB, MySQL y Redis.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Para completar esta guía de inicio rápido:
-
-- Necesitará una suscripción de Azure y una aplicación web Node.js existente.
-
-Si no tiene una aplicación web Node.js, puede crear una siguiendo la [guía de creación de una aplicación web Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs).
-
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Una aplicación de Node.js en funcionamiento.
 
 ## <a name="enable-application-insights"></a>Habilitación de Application Insights
 
-Application Insights recopila datos de telemetría desde cualquier aplicación conectada a Internet, independientemente de si se está ejecutando localmente o en la nube. Siga estos pasos para empezar a ver los datos.
+Application Insights puede recopilar datos de telemetría de cualquier aplicación conectada a Internet, independientemente de que se ejecute en un entorno local o en la nube. Siga estos pasos para empezar a ver los datos.
 
-1. Seleccione **Crear un recurso** > **Herramientas de desarrollo** > **Application Insights**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+
+2. Seleccione **Crear un recurso** > **Herramientas de desarrollo** > **Application Insights**.
 
    ![Incorporación de un recurso de Azure Application Insights](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
@@ -50,13 +43,13 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
     | Configuración        | Value           | Descripción  |
    | ------------- |:-------------|:-----|
-   | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
-   | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospedará los datos de Application Insights. puede crear un grupo de recursos o use uno existente. |
-   | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
+   | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que está supervisando. |
+   | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospedará los datos de AppInsights. puede crear un grupo de recursos o use uno existente. |
+   | **Ubicación** | Este de EE. UU. | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-2. Seleccione **Crear**.
+3. Seleccione **Crear**.
 
-## <a name="configure-app-insights-sdk"></a>Configuración del SDK de Application Insights
+## <a name="configure-appinsights-sdk"></a>Configuración del SDK de AppInsights
 
 1. Seleccione **Información general** y copie la **clave de instrumentación** de la aplicación.
 
@@ -68,7 +61,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
    npm install applicationinsights --save
    ```
 
-3. Edite el primer archivo .js de la aplicación y agregue las dos líneas siguientes a la parte superior del script. Si usa la [aplicación de inicio rápido de Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), se modificará el archivo index.js. Reemplace &lt;instrumentation_key&gt; con la clave de instrumentación de la aplicación. 
+3. Edite el primer archivo *.js* de la aplicación y agregue las dos líneas siguientes al principio del script. Si usa la [aplicación del inicio rápido de Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), se modificará el archivo *index.js*. Reemplace `<instrumentation_key>` por la clave de instrumentación de la aplicación. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -90,7 +83,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    ![Mapa de aplicación de Application Insights](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Seleccione el icono **App Analytics**![icono de Mapa de Aplicación](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Ver en Analytics**.  Se abrirá **Application Insights Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
+3. Seleccione el icono **App Analytics**![icono de Mapa de Aplicación](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Ver en Analytics**.  Esta acción abre **Application Insights Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
 
    ![Gráficos de análisis de Application Insights](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
@@ -124,11 +117,11 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    ![Gráficos de métricas del servidor de Application Insights](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Para más información sobre la supervisión de Node.js, visite la [documentación adicional de Node.js con Application Insights](../../azure-monitor/app/nodejs.md).
+Para más información sobre la supervisión de Node.js, consulte la [documentación adicional de Node.js con Application Insights](../../azure-monitor/app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya realizado las pruebas, puede eliminar el grupo de recursos y todos los recursos relacionados. Para ello, siga estos pasos.
+Cuando haya finalizado las pruebas, puede eliminar el grupo de recursos y todos los recursos relacionados. Para ello, siga estos pasos.
 
 > [!NOTE]
 > Si ha usado un grupo de recursos existente, las instrucciones siguientes no funcionarán y solo necesitará eliminar el recurso individual de Application Insights. Tenga esto en cuenta que cada vez que se elimina un grupo de recursos, se eliminarán todos los recursos de subyacente que sean miembros de ese grupo.

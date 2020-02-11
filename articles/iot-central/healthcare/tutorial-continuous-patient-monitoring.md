@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 97a215d8f111753c8fcc857fe4c48956c1236b3b
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027439"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021294"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implementación y tutorial de una plantilla de aplicación de supervisión continua de pacientes
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-En este tutorial se muestra cómo puede, como creador de soluciones, empezar a implementar una plantilla de aplicación de supervisión continua de pacientes de IoT Central. Aprenderá a implementar la plantilla, qué elementos se incluyen de fábrica y qué podría hacer a continuación.
+
+En este tutorial se muestra cómo puede, como creador de soluciones, empezar a implementar una plantilla de aplicación de supervisión continua de pacientes de IoT Central. Aprenderá a implementar la plantilla, qué elementos se incluyen de fábrica y qué puede hacer a continuación.
 
 En este tutorial, aprenderá a:
 
@@ -34,16 +34,17 @@ Vaya al [sitio web del administrador de aplicaciones de Azure IoT Central](https
 >[!div class="mx-imgBorder"] 
 >![Administrador de aplicaciones de asistencia sanitaria](media/app-manager-health.png)
 
-Haga clic en el botón **Crear aplicación** para empezar a crear la aplicación y, a continuación, inicie sesión con una cuenta personal, profesional o educativa de Microsoft. De este modo, ira a la página **Nueva aplicación**.
+Haga clic en el botón **Crear aplicación** para empezar a crear la aplicación y, a continuación, inicie sesión con una cuenta personal, profesional o educativa de Microsoft. Esto le llevará a la página **Nueva aplicación**.
 
->[!div class="mx-imgBorder"] 
->![Crear aplicación de asistencia sanitaria](media/app-manager-health-create.png)
+![Crear aplicación de asistencia sanitaria](media/app-manager-health-create.png)
+
+![Crear información de facturación de una aplicación de asistencia sanitaria](media/app-manager-health-create-billinginfo.png)
 
 Para crear la aplicación:
 
 1. Azure IoT Central sugiere automáticamente un nombre de aplicación basado en la plantilla que haya seleccionado. Puede aceptar este nombre o escribir su propio nombre descriptivo de aplicación, como **Supervisión continua de pacientes**. Azure IoT Central también genera un prefijo de dirección URL único, en función del nombre de la aplicación. Cambiar si lo desea este prefijo de dirección URL por algo más fácil de recordar.
 
-2. Puede seleccionar si desea crear una aplicación de **evaluación gratuita** o una aplicación de **pago por uso**. Las aplicaciones de **evaluación** son gratuitas durante siete días y luego expiran, y permiten hasta cinco dispositivos gratuitos. Se pueden convertir a pago por uso en cualquier momento antes. Si crea una aplicación de evaluación gratuita, deberá escribir la información de contacto y elegir si desea recibir información y sugerencias de Microsoft. **Las aplicaciones de pago por uso** admiten hasta dos dispositivos gratuitos y requieren que se incluya la información de suscripción de Azure.
+2. Puede elegir si desea crear la aplicación mediante el plan de precios *gratuito* o mediante uno de los planes de precios *estándar*. Las aplicaciones que crea mediante el plan de precios gratuito no tienen costo alguno durante siete días y luego expiran, y permiten hasta cinco dispositivos gratuitos. Puede cambiar una aplicación del plan de precios gratuito a un plan estándar en cualquier momento antes de que expire. Si elige el plan de precios gratuito, debe escribir su información de contacto y elegir si desea recibir información y sugerencias de Microsoft. Las aplicaciones que crea mediante un plan de tarifa estándar admiten hasta dos dispositivos gratuitos y requieren que se incluya la información de suscripción de Azure para la facturación.
 
 3. Seleccione **Crear** en la parte inferior de la página para implementar la aplicación.
 
@@ -51,7 +52,7 @@ Para crear la aplicación:
 
 ### <a name="dashboards"></a>Paneles
 
-Después de implementar la plantilla de la aplicación, en primer lugar llega al **panel de supervisión de pacientes in situ Lamna**. Lamna Healthcare es un sistema hospitalario ficticio que contiene dos hospitales: de Woodgrove y de Burkville. En este panel de operador del hospital de Woodgrove, verá información y telemetría sobre los dispositivos de esta plantilla junto con un conjunto de comandos, trabajos y acciones que puede realizar. Desde el panel se puede:
+Después de implementar la plantilla de la aplicación, irá en primer lugar al **panel de supervisión de pacientes in situ de Lamna**. Lamna Healthcare es un sistema hospitalario ficticio que contiene dos hospitales: de Woodgrove y de Burkville. En este panel del operador del hospital de Woodgrove podrá ver información y telemetría sobre los dispositivos de esta plantilla junto con un conjunto de comandos, trabajos y acciones que puede realizar. Desde el panel se puede:
 
 * Consultar la telemetría de los dispositivos y propiedades como el **nivel de batería** del dispositivo o su estado de **conectividad**.
 
@@ -71,13 +72,13 @@ También puede hacer clic en **Go to remote patient dashboard** (Ir al panel de 
 >[!div class="mx-imgBorder"] 
 >![Lamna remoto](media/lamna-remote.png)
 
-En ambos paneles siempre puede volver a vincular esta documentación.
+Siempre puede volver a vincular esta documentación en ambos paneles.
 
 ### <a name="device-templates"></a>Plantillas de dispositivo
 
 Si hace clic en la pestaña **Plantillas de dispositivo**, verá que hay dos tipos de dispositivo diferentes que forman parte de la plantilla:
 
-* **Smart Vitals Patch** (Revisión inteligente de constantes vitales): este dispositivo representa una revisión que mide diversos signos de constantes vitales que podrían usarse para supervisar el estado de los pacientes dentro y fuera del hospital. Si hace clic en la plantilla, verá que, además de enviar datos del dispositivo, como el nivel de batería y la temperatura del dispositivo, la revisión también envía datos del estado de los pacientes, como la frecuencia respiratoria y la presión arterial.
+* **Smart Vitals Patch** (Revisión inteligente de constantes vitales): Este dispositivo realiza una revisión que mide distintos tipos de constantes vitales. Se puede usar para supervisar pacientes dentro y fuera del hospital. Si hace clic en la plantilla, verá que, además de enviar datos del dispositivo, como el nivel de batería y la temperatura del dispositivo, la revisión también envía datos del estado de los pacientes, como la frecuencia respiratoria y la presión arterial.
 
 * **Smart Knee Brace** (Rodillera inteligente): este dispositivo representa una rodillera que los pacientes pueden usar al recuperarse de una cirugía de reemplazo de una rodilla. Si hace clic en esta plantilla, verá funcionalidades como el intervalo de movimiento y la aceleración, además de los datos del dispositivo.
 
@@ -101,7 +102,7 @@ Al saltar a la pestaña de reglas, verá tres reglas que existen en la plantilla
 
 ### <a name="devices"></a>Dispositivos
 
-Haga clic en la pestaña **Dispositivos**  y, a continuación, seleccione una instancia de la **Smart Knee Brace** (Rodillera inteligente). Verá que hay tres vistas para poder explorar la información sobre el dispositivo concreto que ha seleccionado. Estas vistas se crean y publican al compilar la plantilla de dispositivo para el dispositivo. Esto significa que serán coherentes en todos los dispositivos que se conecten o simulen.
+Haga clic en la pestaña **Dispositivos**  y, a continuación, seleccione una instancia de la **Smart Knee Brace** (Rodillera inteligente). Verá que hay tres vistas para explorar la información sobre el dispositivo concreto que ha seleccionado. Estas vistas se crean y publican al compilar la plantilla del dispositivo, lo que significa que serán coherentes en todos los dispositivos que se conecten o simulen.
 
 La vista **Panel** ofrece información general sobre la telemetría y las propiedades que proceden del dispositivo que está orientada a los operadores.
 

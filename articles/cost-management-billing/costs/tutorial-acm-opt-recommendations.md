@@ -79,7 +79,7 @@ En los detalles de la VM, compruebe el uso de la máquina virtual para confirmar
 
 Anote el tamaño actual de la máquina virtual. Después de comprobar que debe cambiarse el tamaño de la máquina virtual, cierre los detalles de la VM para ver la lista de máquinas virtuales.
 
-En la lista de candidatos para apagar o cambiar el tamaño, seleccione **Resize *&lt;FromVirtualMachineSKU&gt;* to *&lt;ToVirtualMachineSKU&gt;*** (**Cambiar tamaño de FromVirtualMachineSKU a *ToVirtualMachineSKU***).
+En la lista de candidatos para apagar o cambiar el tamaño, seleccione **Resize *&lt;FromVirtualMachineSKU&gt;* to *&lt;ToVirtualMachineSKU&gt;*** (**Cambiar tamaño de FromVirtualMachineSKU a _ToVirtualMachineSKU_**).
 ![Recomendaciones de ejemplo con la opción de cambiar el tamaño de la máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 A continuación, se le presentará una lista de opciones de cambio de tamaño disponibles. Elija la que ofrezca el mejor rendimiento y rentabilidad para su escenario. En el ejemplo siguiente, la opción elegida cambia el tamaño de **Standard_D8s_v3** a **Standard_D2s_v3**.

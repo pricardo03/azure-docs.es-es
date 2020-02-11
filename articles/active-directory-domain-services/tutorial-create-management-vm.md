@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 73402420bdfee7fecbd7901deefe7f4314a76d51
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703646"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931585"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -40,9 +40,9 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
-    * Si es necesario, el primer tutorial [crea y configura una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si es necesario, consulte el primer tutorial sobre [Creación y configuración de una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una máquina virtual Windows Server que esté unida al dominio administrado con Azure AD DS.
-    * Si es necesario, el tutorial anterior [crea una máquina virtual Windows Server y la une a un dominio administrado][create-join-windows-vm].
+    * Si es necesario, consulte el tutorial anterior sobre [Creación de una máquina virtual con Windows Server y su unión a un dominio administrado][create-join-windows-vm].
 * Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
@@ -114,7 +114,7 @@ Para instalar las herramientas de administración de Active Directory en la má
     ![Instalación de las herramientas AD DS y AD LDS en la página de características](./media/tutorial-create-management-vm/install-features.png)
 
 1. En la página **Confirmación**, seleccione **Instalar**. Puede tardar un minuto o dos en instalar las herramientas administrativas.
-1. Cuando finalice la instalación de las características, seleccione **Cerrar** para salir del Asistente para **Agregar roles y características**.
+1. Cuando finalice la instalación de la característica, haga clic en **Cerrar** para salir del Asistente para **Agregar roles y características**.
 
 ## <a name="use-active-directory-administrative-tools"></a>Herramientas administrativas de Active Directory
 
@@ -143,7 +143,7 @@ También puede usar el *módulo de Active Directory para Windows PowerShell*, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Usar las tareas administrativas disponibles en un dominio administrado de Azure AD DS

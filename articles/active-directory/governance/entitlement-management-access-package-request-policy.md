@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 493ba6396a7ceb11b917fbda5dd6c37c070f2fee
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174667"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897620"
 ---
 # <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de la solicitud y aprobación para un paquete de acceso en la administración de derechos de Azure AD
 
@@ -42,6 +42,9 @@ Para especificar quién puede solicitar un paquete de acceso, debe usar una dire
 | Deseo permitir que los usuarios de mi directorio y también los de fuera de mi directorio soliciten un paquete de acceso | Múltiple |
 | Deseo especificar una configuración de aprobación diferente para algunos usuarios | Múltiple |
 | Quiero que algunos usuarios accedan a las asignaciones de paquetes que van a expirar mientras que otros usuarios puedan extender su acceso | Múltiple |
+
+Para información sobre la lógica de prioridad que se usa cuando se aplican varias directivas, consulte [Varias directivas](entitlement-management-troubleshoot.md#multiple-policies
+).
 
 ### <a name="open-an-existing-policy-of-request-and-approval-settings"></a>Apertura de una directiva existente de configuración de solicitudes y aprobación
 

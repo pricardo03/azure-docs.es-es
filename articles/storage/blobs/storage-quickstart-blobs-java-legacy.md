@@ -3,38 +3,26 @@ title: 'Inicio rápido: Biblioteca cliente de Azure Blob Storage v8 para Java'
 description: Cree una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, use la biblioteca cliente de Azure Storage v8 para Java a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/05/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: a6c4380e44d705e551bc96746a809c57aa02ac5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 373875aee836485bb994d81e0945cec3a9b088eb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825371"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906493"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v8-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v8 para Java
+# <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Java v8
 
-Introducción a la biblioteca cliente de Azure Blob Storage v8 para Java. Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Siga los pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados.
+En este inicio rápido, se aprende a administrar blobs mediante Java. Los blobs son objetos que pueden contener grandes cantidades de datos de texto o binarios, como imágenes, documentos, elementos multimedia de streaming y datos de archivo. Va a cargar, descargar y enumerar blobs. También va a crear y eliminar contenedores y a establecer sus permisos.
 
-Use la biblioteca cliente de Azure Blob Storage para Java para:
+## <a name="prerequisites"></a>Prerequisites
 
-* Crear un contenedor
-* Establecer los permisos en un contenedor
-* Crear un blob en Azure Storage
-* Descargar el blob en el equipo local
-* Enumerar todos los blobs de un contenedor
-* Eliminación de un contenedor
-
-## <a name="prerequisites"></a>Requisitos previos
-
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Un IDE que tenga la integración de Maven.
-* También puede instalar y configurar Maven para que funcione desde la línea de comandos.
-
-En esta guía se usa [Eclipse](https://www.eclipse.org/downloads/) con la configuración del "IDE de Eclipse para desarrolladores de Java".
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
+- Un IDE que tenga la integración de Maven. En esta guía se usa [Eclipse](https://www.eclipse.org/downloads/) con la configuración del "IDE de Eclipse para desarrolladores de Java".
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
 
@@ -48,7 +36,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 
 Este comando clona el repositorio en la carpeta git local. Para abrir el proyecto, inicie Eclipse y cierre la pantalla de bienvenida. Seleccione **File** (Archivo) y después **Open Projects from File System** (Abrir proyectos desde el sistema de archivos). Asegúrese de la casilla **Detect and configure project natures** (Detectar y configurar los tipos de proyecto) está activada. Seleccione **Directory** (Directorio) y vaya a donde se haya almacenado el repositorio clonado. En el repositorio clonado, seleccione la carpeta **blobAzureApp**. Asegúrese de que el proyecto **blobAzureApp** aparece como un proyecto de Eclipse y, después, seleccione **Finish** (Finalizar).
 
-Cuando se termine de importar el proyecto, abra **AzureApp.java** (ubicado en **blobQuickstart.blobAzureApp** dentro de **src/principal/java**) y reemplace `accountname` y `accountkey` dentro de la cadena `storageConnectionString`. Después, ejecute la aplicación. Las instrucciones concretas para completar estas tareas se describen en las secciones siguientes.
+Cuando se termine de importar el proyecto, abra **AzureApp.java** (ubicado en **blobQuickstart.blobAzureApp** dentro de **src/main/java**) y reemplace `accountname` y `accountkey` dentro de la cadena `storageConnectionString`. Después, ejecute la aplicación. Las instrucciones concretas para completar estas tareas se describen en las secciones siguientes.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 

@@ -3,41 +3,33 @@ title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12: JavaScript'
 description: En esta guía de inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Blob Storage versión 12 para JavaScript a fin de crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/19/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c8473bff3b6e7d2079bb202befc23e1ada3791eb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eabfefbf28b54e4a0a025698f8da48518e7df9bf
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970267"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906451"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para JavaScript
+# <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en Node.js
 
-Introducción a la biblioteca cliente de Azure Blob Storage v12 para JavaScript. Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Siga los pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados.
-
-> [!NOTE]
-> Para empezar a trabajar con la versión anterior del SDK, consulte [Inicio rápido: Biblioteca cliente de Azure Blob Storage para JavaScript](storage-quickstart-blobs-nodejs-legacy.md).
-
-Use la biblioteca cliente de Azure Blob Storage v12 para JavaScript para:
-
-* Crear un contenedor
-* Cargar un blob en Azure Storage
-* Enumerar todos los blobs de un contenedor
-* Descargar el blob en el equipo local
-* Eliminación de un contenedor
+En este inicio rápido, aprenderá a administrar blobs mediante Node.js. Los blobs son objetos que pueden contener grandes cantidades de texto o datos binarios, como imágenes, documentos, medios de transmisión y datos de archivo. Cargará, descargará y enumerará los blobs, y creará y eliminará los contenedores.
 
 [Documentación de referencia de API](/javascript/api/@azure/storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Paquete (administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-blob) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [Node.js](https://nodejs.org/en/download/) actual del sistema operativo.
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
+- [Node.js](https://nodejs.org/en/download/).
+
+> [!NOTE]
+> Para empezar a trabajar con la versión anterior del SDK, consulte [Inicio rápido: Administración de blobs con el SDK de JavaScript v10 en Node.js](storage-quickstart-blobs-nodejs-legacy.md)
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Instalación
 
@@ -96,7 +88,7 @@ Desde el directorio del proyecto:
 
 1. Abra otro nuevo archivo de texto en el editor de código.
 1. Agregue llamadas `require` para cargar los módulos de Azure y Node.js.
-1. Cree la estructura del programa, incluido un control de excepciones muy básico.
+1. Cree la estructura del programa, incluido un control de excepciones básico.
 
     Este es el código:
 

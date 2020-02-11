@@ -5,18 +5,20 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: cbfa6f8b85814f0f77234e014ade0ff757a4c4b8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/29/2020
+ms.openlocfilehash: ac06521df38bdc91ca717d888c73cd541576014d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720085"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905450"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Análisis de datos JSON y AVRO en Azure Stream Analytics
 
 Azure Stream Analytics admite eventos de procesamiento en formatos de datos CSV, JSON y Avro. Tanto los datos JSON como los datos Avro se pueden estructurar y contener algunos tipos complejos, tales como objetos anidados (registros) y matrices. 
 
+>[!NOTE]
+>Los archivos de AVRO creados mediante la captura del centro de eventos usan un formato específico que requiere que se utilice la característica *deserializador personalizado*. Para más información, consulte [Lectura de entradas en cualquier formato mediante deserializadores personalizados de .NET](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
 
 
 
@@ -46,7 +48,6 @@ Los tipos de datos de registro se utilizan para representar las matrices JSON y 
 }
 ```
 
-
 ### <a name="access-nested-fields-in-known-schema"></a>Acceso a campos anidados en un esquema conocido
 Use la notación de punto (.) para acceder fácilmente a los campos anidados directamente desde la consulta. Por ejemplo, esta consulta selecciona las coordenadas de latitud y longitud de la propiedad Location en los datos JSON anteriores. La notación de punto se puede usar para navegar por varios niveles, como se muestra a continuación.
 
@@ -55,56 +56,82 @@ SELECT
     DeviceID,
     Location.Lat,
     Location.Long,
+    SensorReadings.Temperature,
     SensorReadings.SensorMetadata.Version
-FROM input
-```
-
-### <a name="select-all-properties"></a>Selección de todas las propiedades
-Puede seleccionar todas las propiedades de un registro anidado usando el comodín "*". Considere el ejemplo siguiente:
-
-```SQL
-SELECT input.Location.*
 FROM input
 ```
 
 El resultado es el siguiente:
 
-```json
-{
-    "Lat" : 47,
-    "Long" : 122
-}
+|DeviceID|Lat|long|Temperatura|Versión|
+|-|-|-|-|-|
+|12345|47|122|80|1.2.45|
+
+
+### <a name="select-all-properties"></a>Selección de todas las propiedades
+Puede seleccionar todas las propiedades de un registro anidado usando el comodín "*". Considere el ejemplo siguiente:
+
+```SQL
+SELECT
+    DeviceID,
+    Location.*
+FROM input
 ```
+
+El resultado es el siguiente:
+
+|DeviceID|Lat|long|
+|-|-|-|
+|12345|47|122|
 
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Acceso a los campos anidados cuando el nombre de la propiedad es una variable
-Use la función [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) si el nombre de la propiedad es una variable. 
 
-Por ejemplo, imagine que un flujo de datos de ejemplo tiene que combinarse con los datos de referencia que contienen los umbrales para cada sensor de dispositivo. A continuación se muestra un fragmento de código de tales datos de referencia.
+Use la función [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) si el nombre de la propiedad es una variable. De esta manera, podrá crear consultas dinámicas sin codificar los nombres de propiedad.
+
+Por ejemplo, imagine que el flujo de datos de ejemplo tiene que **combinarse con datos de referencia** que contienen los umbrales de cada sensor de dispositivo. A continuación se muestra un fragmento de código de tales datos de referencia.
 
 ```json
 {
     "DeviceId" : "12345",
     "SensorName" : "Temperature",
-    "Value" : 75
+    "Value" : 85
+},
+{
+    "DeviceId" : "12345",
+    "SensorName" : "Humidity",
+    "Value" : 65
 }
 ```
+
+El objetivo aquí es combinar el conjunto de datos de ejemplo de la parte superior del artículo con el de los datos de referencia y generar un evento para cada medida de sensor que sobrepase su umbral. Esto significa que, gracias a la combinación, el evento anterior puede generar varios eventos de salida si varios sensores están por encima de sus respectivos umbrales. Para conseguir resultados similares sin una combinación, consulte la sección siguiente.
 
 ```SQL
 SELECT
     input.DeviceID,
-    thresholds.SensorName
+    thresholds.SensorName,
+    "Alert : Sensor above threshold" AS AlertMessage
 FROM input      -- stream input
 JOIN thresholds -- reference data input
 ON
     input.DeviceId = thresholds.DeviceId
 WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
-    -- the where statement selects the property value coming from the reference data
 ```
 
+**GetRecordPropertyValue** selecciona la propiedad en *SensorReadings*, cuyo nombre coincide con el nombre de la propiedad que procede de los datos de referencia. Luego, se extrae el valor asociado de *SensorReadings*.
+
+El resultado es el siguiente:
+
+|DeviceID|SensorName|AlertMessage|
+|-|-|-|
+|12345|Humedad|Alerta: sensor por encima del umbral|
+
 ### <a name="convert-record-fields-into-separate-events"></a>Conversión de campos de registro en eventos independientes
-Para convertir los campos de registro en eventos independientes, use el operador [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) con la función [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics). Por ejemplo, si el ejemplo anterior tenía varios registros para SensorReading, la consulta siguiente se podría utilizar para extraerlos en eventos diferentes:
+
+Para convertir los campos de registro en eventos independientes, use el operador [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) con la función [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics).
+
+Con los datos de ejemplo originales, se podría usar la siguiente consulta para extraer propiedades en distintos eventos.
 
 ```SQL
 SELECT
@@ -115,42 +142,158 @@ FROM input as event
 CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 ```
 
+El resultado es el siguiente:
 
+|DeviceID|SensorName|AlertMessage|
+|-|-|-|
+|12345|Temperatura|80|
+|12345|Humedad|70|
+|12345|CustomSensor01|5|
+|12345|CustomSensor02|99|
+|12345|SensorMetadata|[object Object]|
+
+Mediante [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics), es posible enrutar esos eventos a diferentes destinos:
+
+```SQL
+WITH Stage0 AS
+(
+    SELECT
+        event.DeviceID,
+        sensorReading.PropertyName,
+        sensorReading.PropertyValue
+    FROM input as event
+    CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
+)
+
+SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0 WHERE PropertyName = 'Temperature'
+SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
+```
 
 ## <a name="array-data-types"></a>Tipos de datos de matriz
 
-Los tipos de datos de matriz son una colección ordenada de valores. A continuación se detallan algunas operaciones típicas en valores de matriz. En estos ejemplos se supone que los eventos de entrada tienen una propiedad denominada "arrayField" que es un tipo de datos de matriz.
+Los tipos de datos de matriz son una colección ordenada de valores. A continuación se detallan algunas operaciones típicas en valores de matriz. Estos ejemplos utilizan las funciones [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics) y el operador [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics).
 
-Estos ejemplos utilizan las funciones [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics) y el operador [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics).
+Este es el ejemplo de un solo evento. Tanto `CustomSensor03` como `SensorMetadata` son de tipo **matriz**:
+
+```json
+{
+    "DeviceId" : "12345",
+    "SensorReadings" :
+    {
+        "Temperature" : 80,
+        "Humidity" : 70,
+        "CustomSensor01" : 5,
+        "CustomSensor02" : 99,
+        "CustomSensor03": [12,-5,0]
+     },
+    "SensorMetadata":[
+        {          
+            "smKey":"Manufacturer",
+            "smValue":"ABC"                
+        },
+        {
+            "smKey":"Version",
+            "smValue":"1.2.45"
+        }
+    ]
+}
+```
 
 ### <a name="working-with-a-specific-array-element"></a>Trabajo con un elemento de matriz específico
+
 Selección del elemento de matriz en un índice especificado (seleccionando el primer elemento de matriz):
 
 ```SQL
 SELECT
-    GetArrayElement(arrayField, 0) AS firstElement
+    GetArrayElement(SensorReadings.CustomSensor03, 0) AS firstElement
 FROM input
 ```
+
+El resultado es el siguiente:
+
+|firstElement|
+|-|
+|12|
 
 ### <a name="select-array-length"></a>Selección de la longitud de matriz
 
 ```SQL
 SELECT
-    GetArrayLength(arrayField) AS arrayLength
+    GetArrayLength(SensorReadings.CustomSensor03) AS arrayLength
 FROM input
 ```
 
+El resultado es el siguiente:
+
+|arrayLength|
+|-|
+|3|
+
 ### <a name="convert-array-elements-into-separate-events"></a>Conversión de los elementos de matriz en eventos independientes
+
 Selección de todos los elemento de matriz como eventos individuales. El operador [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) junto con la función integrada [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) extrae todos los elementos de matriz como eventos individuales:
 
 ```SQL
 SELECT
-    arrayElement.ArrayIndex,
-    arrayElement.ArrayValue
-FROM input as event
-CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement
+    DeviceId,
+    CustomSensor03Record.ArrayIndex,
+    CustomSensor03Record.ArrayValue
+FROM input
+CROSS APPLY GetArrayElements(SensorReadings.CustomSensor03) AS CustomSensor03Record
+
 ```
 
+El resultado es el siguiente:
+
+|deviceId|ArrayIndex|ArrayValue|
+|-|-|-|
+|12345|0|12|
+|12345|1|-5|
+|12345|2|0|
+
+```SQL
+SELECT   
+    i.DeviceId, 
+    SensorMetadataRecords.ArrayValue.smKey as smKey,
+    SensorMetadataRecords.ArrayValue.smValue as smValue
+FROM input i
+CROSS APPLY GetArrayElements(SensorMetadata) AS SensorMetadataRecords
+ ```
+ 
+El resultado es el siguiente:
+
+|deviceId|smKey|smValue|
+|-|-|-|
+|12345|Fabricante|ABC|
+|12345|Versión|1.2.45|
+
+Si los campos extraídos deben aparecer en columnas, es posible dinamizar el conjunto de datos mediante la sintaxis [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) además de la operación [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics). Esa combinación requerirá una condición de [límite de tiempo](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) que impida la duplicación:
+
+```SQL
+WITH DynamicCTE AS (
+    SELECT   
+        i.DeviceId,
+        SensorMetadataRecords.ArrayValue.smKey as smKey,
+        SensorMetadataRecords.ArrayValue.smValue as smValue
+    FROM input i
+    CROSS APPLY GetArrayElements(SensorMetadata) AS SensorMetadataRecords 
+)
+
+SELECT
+    i.DeviceId,
+    i.Location.*,
+    V.smValue AS 'smVersion',
+    M.smValue AS 'smManufacturer'
+FROM input i
+LEFT JOIN DynamicCTE V ON V.smKey = 'Version' and V.DeviceId = i.DeviceId AND DATEDIFF(minute,i,V) BETWEEN 0 AND 0 
+LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId AND DATEDIFF(minute,i,M) BETWEEN 0 AND 0
+```
+
+El resultado es el siguiente:
+
+|deviceId|Lat|long|smVersion|smManufacturer|
+|-|-|-|-|-|
+|12345|47|122|1.2.45|ABC|
 
 ## <a name="see-also"></a>Consulte también
 [Tipos de datos en Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)

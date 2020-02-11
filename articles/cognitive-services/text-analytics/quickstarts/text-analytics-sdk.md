@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente v3 de Text Analytics | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido, detectará el idioma con la API de Text Analytics desde Azure Cognitive Services.
+description: Use este inicio rápido para conectar las aplicaciones a API Text Analytics desde Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,46 +10,79 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/23/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 89680ad61296cd225bb87d2d6b46259586304da2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+zone_pivot_groups: programming-languages-text-analytics
+ms.openlocfilehash: 87cf5f226a8b2d1efcc0ee967d84f6e0002cb03d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774101"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987934"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-v3"></a>Inicio rápido: Uso de la biblioteca cliente v3 de Text Analytics
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics
 
 Comience a trabajar con la biblioteca cliente de Text Analytics. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
-Use la versión de la biblioteca cliente `3.0-preview` de Text Analytics para realizar las siguientes operaciones:
+La biblioteca cliente de Text Analytics se puede usar para realizar las siguientes operaciones:
 
-* Análisis de sentimiento (versión preliminar pública)
+* análisis de opiniones
 * Detección de idiomas
-* Reconocimiento de entidades con nombre (versión preliminar pública)
+* Reconocimiento de entidades
 * Extracción de la frase clave
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/v3/csharp.md)]
+> [!IMPORTANT]
+> * La versión preliminar más reciente de Text Analytics API es `3.0-preview`, la cual incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). La versión estable más reciente es `2.1`.
+>    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
+> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
+
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
+> [!IMPORTANT]
+> * La versión preliminar más reciente de Text Analytics API es `3.0-preview`, la cual incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). La versión estable más reciente es `2.1`.
+>    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
+> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia. 
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
+> [!IMPORTANT]
+> * Este inicio rápido es solo para la versión `3.0-preview` de la biblioteca cliente de Text Analytics, que incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+>    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
+> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
+
+[!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
+> [!IMPORTANT]
+> * La versión preliminar más reciente de Text Analytics API es `3.0-preview`, la cual incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). La versión estable más reciente es `2.1`.
+>    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
+> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
+
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-other"
+
+## <a name="additional-language-support"></a>Compatibilidad para lenguajes adicionales
+
+Si ha hecho clic en esta pestaña, es probable que no vea un inicio rápido en su lenguaje de programación favorito. No se preocupe, tenemos inicios rápidos adicionales disponibles. Use la tabla para encontrar el ejemplo correcto para su lenguaje de programación.
+
+| Idioma | Versión disponible | 
+|----------|------------------------|
+| Ruby     | [Versión 2.1](ruby-sdk.md)          | 
+| Go       | [Versión 2.1](go-sdk.md)          | 
 
 ::: zone-end
 

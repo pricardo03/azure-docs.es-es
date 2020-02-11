@@ -11,16 +11,15 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: f9624f516d5f38f1db02c6a103c40d01f8dc26ca
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702688"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022178"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial:  Personalización del panel del operador y administración de dispositivos en Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 En este tutorial, dirigido a desarrolladores, se muestra cómo personalizar el panel del operador en una aplicación de análisis en tienda de Azure IoT Central. Los operadores de la aplicación pueden usar el panel personalizado para ejecutar la aplicación y administrar los dispositivos conectados.
 
@@ -33,14 +32,14 @@ En este tutorial, aprenderá a:
 > * Agregar iconos de propiedades para mostrar detalles del dispositivo
 > * Agregar iconos de comandos para ejecutar comandos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Antes de comenzar este tutorial, el desarrollador debe realizar el primer tutorial para crear la aplicación de análisis en tienda de Azure IoT Central y agregar dispositivos:
+El desarrollador debe realizar el primer tutorial para crear la aplicación de análisis en tienda de Azure IoT Central y agregar dispositivos:
 
 * [Creación de una aplicación de análisis en tienda en Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (requerido)
 
 ## <a name="change-the-dashboard-name"></a>Cambiar el nombre del panel
-Para personalizar el panel del operador, edite el panel predeterminado en la aplicación. Opcionalmente, puede crear nuevos paneles adicionales. El primer paso para personalizar el panel en la aplicación es cambiar el nombre.
+Para personalizar el panel del operador, tiene que editar el panel predeterminado en la aplicación. También puede crear nuevos paneles adicionales. El primer paso para personalizar el panel en la aplicación es cambiar el nombre.
 
 1. Vaya al sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral).
 
@@ -54,7 +53,7 @@ Para personalizar el panel del operador, edite el panel predeterminado en la apl
 
 1. Escriba un nombre descriptivo para el panel en **Dashboard name** (Nombre del panel). En este tutorial se utiliza una compañía ficticia llamada Contoso y el nombre del panel de ejemplo es *Contoso dashboard*. 
 
-1. Seleccione **Guardar**. Al hacerlo, se guardarán los cambios en el panel y se deshabilitará el modo de edición.
+1. Seleccione **Guardar**. Los cambios se guardan en el panel y el modo de edición está deshabilitado.
 
     ![Cambio de nombre del panel de Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
@@ -248,7 +247,7 @@ Para agregar un icono de comando para reiniciar la puerta de enlace:
 1. Opcionalmente, seleccione el icono **Reboot** (Reiniciar) para ejecutar el comando de reinicio en la puerta de enlace.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 * Cambiar el nombre del panel
 * Personalizar iconos de imagen en el panel

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfe569fde8f290c9272520630c2e903e770f223
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6828db6bcb4c7e68d508acc249d9a82024083a00
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293715"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983643"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Concur
 
@@ -45,7 +45,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Concur admite el inicio de sesión único iniciado por **SP**.
 * Concur admite el aprovisionamiento de usuarios **Just-In-Time**
-* Una vez configurado Concur, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado Concur, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-concur-from-the-gallery"></a>Agregar Concur desde la galería
 
@@ -156,5 +156,3 @@ Al hacer clic en el icono de Concur en el panel de acceso y debería iniciar ses
 - [Prueba de Concur con Azure AD](https://aad.portal.azure.com)
 
 - [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Protección de Concur con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

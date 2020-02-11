@@ -8,29 +8,33 @@ ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 12/02/2019
-ms.openlocfilehash: 5f463434261dd782bb180f55986cc0f05c71cbe9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18a61c215f6c10bb399beaa83ec53ad2ebc62970
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770754"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938982"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de Java para conectarse y consultar datos en Azure Database for MySQL
 
-En esta guía de inicio rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de Java y el controlador JDBC [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha usado Azure Database for MySQL.
+En este inicio rápido, va a conectar una instancia de Azure Database for MySQL mediante una aplicación de Java y el controlador JDBC MariaDB Connector/J. Puede usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos de la base de datos en las plataformas Mac, Ubuntu Linux y Windows. 
 
-## <a name="prerequisites"></a>Requisitos previos
-1. En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
-   - [Create an Azure Database for MySQL server using Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creación de un servidor de Azure Database for MySQL mediante Azure Portal)
-   - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
+En este tema se da por hecho que está familiarizado con el desarrollo mediante Java, pero nunca ha trabajado con Azure Database for MySQL.
 
-2. Asegurarse de que se configura la seguridad de conexión de Azure Database for MySQL con el firewall abierto y la configuración de SSL correcta conectar la aplicación.
+## <a name="prerequisites"></a>Prerequisites
 
-3. Obtenga el conector MariaDB Connector/J mediante uno de los métodos siguientes:
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un servidor de Azure Database for MySQL. [Creación de un servidor de Azure Database for MySQL mediante Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+- La seguridad de conexión de Azure Database for MySQL se configura con el firewall abierto y la configuración de la conexión SSL preparada para la aplicación.
+
+## <a name="obtain-the-mariadb-connector"></a>Obtención del conector de MariaDB
+
+Obtenga el conector [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/) mediante uno de los métodos siguientes:
    - Use el paquete de Maven [mariadb-java-client](https://search.maven.org/search?q=a:mariadb-java-client) para incluir la [dependencia mariadb-java-client](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) en el archivo POM del proyecto.
-   - Descargue el controlador JDBC [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) e incluya el archivo .jar de JDBC (por ejemplo, mariadb-java-client-2.4.3.jar) en la ruta de clase de la aplicación. Si tiene problemas con las rutas de clase, consulte la documentación del entorno para obtener los detalles de la ruta de clase, como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) o [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html).
+   - Descargue el controlador JDBC [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) e incluya el archivo .jar de JDBC (por ejemplo, mariadb-java-client-2.4.3.jar) en la ruta de acceso de la clase de la aplicación. Consulte la documentación del entorno para obtener los detalles de la ruta de acceso de la clase, como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) o [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html).
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
+
 Obtenga la información de conexión necesaria para conectarse a Azure Database for MySQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
@@ -40,6 +44,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
  ![Nombre del servidor de Azure Database for MySQL](./media/connect-java/azure-database-mysql-server-name.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Conexión, creación de una tabla e inserción de datos
+
 Use el código siguiente para conectarse y cargar los datos mediante la función con una instrucción SQL **INSERT**. Para la conexión a MySQL se utiliza el método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager). Los métodos [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) y execute() sirven para colocar y crear la tabla. El objeto prepareStatement sirve para generar los comandos insert, con setString() y setInt() para enlazar los valores de los parámetros. El método executeUpdate() ejecuta el comando para insertar los valores en cada conjunto de parámetros. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -142,6 +147,7 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>Lectura de datos
+
 Use el código siguiente para leer los datos con una instrucción SQL **SELECT**. Para la conexión a MySQL se utiliza el método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager). Los métodos [crateStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) y executeQuery() se usan para la conexión y la ejecución de la instrucción seleccionada. Los resultados se procesan mediante un objeto ResultSet. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -229,6 +235,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Actualización de datos
+
 Use el código siguiente para cambiar los datos con una instrucción SQL **UPDATE**. Para la conexión a MySQL se utiliza el método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager). Los métodos [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) y executeUpdate() se usan para la conexión y la ejecución de la instrucción update. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -311,6 +318,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Eliminación de datos
+
 Use el código siguiente para quitar datos con una instrucción SQL **DELETE**. Para la conexión a MySQL se utiliza el método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager).  Los métodos [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) y executeUpdate() se usan para la conexión y la ejecución de la instrucción delete. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.

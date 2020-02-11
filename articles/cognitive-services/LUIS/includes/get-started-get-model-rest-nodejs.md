@@ -6,22 +6,22 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 056b2d2b1951b6630b61bbd6fd8a8c38b272900a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748892"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966759"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
-* Clave de inicio.
+* Azure Language Understanding: creación de una clave de 32 caracteres y de la dirección URL del punto de conexión de creación. Cree con [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o con la [CLI de Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importe la aplicación [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) desde el repositorio de GitHub cognitive-services-language-understanding.
 * El identificador de LUIS de la aplicación TravelAgent importada. El identificador de aplicación se muestra en el panel de la aplicación.
 * El identificador de versión dentro de la aplicación que recibe las expresiones. El id. predeterminado es "0.1".
-* Lenguaje de programación [Node.js](https://nodejs.org/) 
+* Lenguaje de programación [Node.js](https://nodejs.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Archivo JSON de expresiones de ejemplo
@@ -29,27 +29,26 @@ ms.locfileid: "76748892"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 
-## <a name="get-luis-key"></a>Obtención de la clave de LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## <a name="change-model-programmatically"></a>Cambio de modelo mediante programación
 
-Use Go para agregar una [API](https://aka.ms/luis-apim-v3-authoring) de entidad de aprendizaje automático a la aplicación. 
+Use Go para agregar una [API](https://aka.ms/luis-apim-v3-authoring) de entidad de aprendizaje automático a la aplicación.
 
 1. Cree un nuevo archivo llamado `model.js`. Agregue el siguiente código:
 
     ```javascript
     var request = require('request');
     var requestpromise = require('request-promise');
-    
+
+    // 32 character key value
     const LUIS_authoringKey = "YOUR-KEY";
+
+    // endpoint example: your-resource-name.api.cognitive.microsoft.com
     const LUIS_endpoint = "YOUR-ENDPOINT";
     const LUIS_appId = "YOUR-APP-ID";
     const LUIS_versionId = "0.1";
     const addUtterancesURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/examples`;
     const addTrainURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/train`;
-    
+
     const utterances = [
             {
               'text': 'go to Seattle today',
@@ -68,17 +67,17 @@ Use Go para agregar una [API](https://aka.ms/luis-apim-v3-authoring) de entidad 
                 'entityLabels': []
             }
           ];
-    
+
     const main = async() =>{
-    
-    
+
+
         await addUtterance();
         await train("POST");
         await trainStatus("GET");
-    
+
     }
     const addUtterance = async () => {
-    
+
         const options = {
             uri: addUtterancesURI,
             method: 'POST',
@@ -88,48 +87,49 @@ Use Go para agregar una [API](https://aka.ms/luis-apim-v3-authoring) de entidad 
             json: true,
             body: utterances
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
     const train = async (verb) => {
-    
+
         const options = {
             uri: addTrainURI,
-            method: verb, 
+            method: verb,
             headers: {
                 'Ocp-Apim-Subscription-Key': LUIS_authoringKey
             },
             json: true,
             body: null // The body can be empty for a training request
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
-    
+
     // MAIN
     main().then(() => console.log("done")).catch((err)=> console.log(err returned));
     ```
-1. Reemplace los siguientes valores:
 
-    * `YOUR-KEY` por la clave de inicio.
-    * `YOUR-ENDPOINT` por el punto de conexión, por ejemplo, `westus2.api.cognitive.microsoft.com`.
-    * `YOUR-APP-ID` por el identificador de la aplicación.
+1. Reemplace los valores a partir de `YOUR-` por sus propios valores.
+
+    |Information|Propósito|
+    |--|--|
+    |`YOUR-KEY`|La clave de creación de 32 caracteres.|
+    |`YOUR-ENDPOINT`| El punto de conexión de la dirección URL de creación. Por ejemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. El nombre del recurso se establece al crear el recurso.|
+    |`YOUR-APP-ID`| El identificador de la aplicación de LUIS. |
+
+    Las claves y recursos asignados son visibles en el portal de LUIS, en la sección Administrar de la página de **recursos de Azure**. El identificador de la aplicación está disponible en la misma sección Administrar, en la página **Configuración de la aplicación**.
 
 1. Con un símbolo del sistema en el mismo directorio que donde creó el archivo, escriba el siguiente comando para ejecutar el archivo:
 
     ```console
     node model.js
-    ```  
-
-## <a name="luis-keys"></a>Claves de LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
+    ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya terminado con este inicio rápido, elimine el archivo del sistema de archivos. 
+Cuando haya terminado con este inicio rápido, elimine el archivo del sistema de archivos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

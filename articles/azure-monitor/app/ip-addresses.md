@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: c571a4f36372b250a05564182b240bc4007240a1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 02f1e5e3f3252ffa026d8dffe9fe83c9e5abe65b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977806"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899118"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
 El servicio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
@@ -56,6 +56,14 @@ Configuración del Monitor de estado; solo lo necesitará en caso de que tenga q
 
 ## <a name="availability-tests"></a>Pruebas de disponibilidad
 Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) . Si quiere ejecutar pruebas web en su aplicación, pero su servidor web está restringido atender únicamente las solicitudes de clientes específicos, tendrá que permitir el tráfico entrante de nuestros servidores de pruebas de disponibilidad.
+
+Si usa grupos de seguridad de red de Azure, basta con agregar una **regla de puerto de entrada** para permitir el tráfico de las pruebas de disponibilidad de Application Insights. Para ello, seleccione **Etiqueta de servicio** como **Origen** y **ApplicationInsightsAvailability** como **Etiqueta de servicio de origen**.
+
+>[!div class="mx-imgBorder"]
+>![En Configuración, seleccione Reglas de seguridad de entrada y luego Agregar en la parte superior de la pestaña ](./media/ip-addresses/add-inbound-security-rule.png)
+
+>[!div class="mx-imgBorder"]
+>![Pestaña para agregar regla de seguridad de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Abra los puertos 80 (http) y 443 (https) para asumir el tráfico entrante de estas direcciones (las IP se agrupan por ubicación):
 

@@ -53,6 +53,9 @@
             - name: Puntuación por lotes de un modelo de clasificación
               displayName: pipelines
               href: tutorial-pipeline-batch-scoring-classification.md
+        - name: Paso de la experimentación a la producción
+          displayName: 'mlops, mlopspython, production'
+          href: tutorial-convert-ml-experiment-to-production.md
     - name: SDK de R
       items:
         - name: Creación del primer experimento de Machine Learning (R)
@@ -125,6 +128,8 @@
               href: how-to-enable-virtual-network.md
             - name: Protección de servicios web con SSL
               href: how-to-secure-web-service.md
+            - name: "Uso de la identidad de Azure\_AD en implementaciones de AKS"
+              href: how-to-use-azure-ad-identity.md
             - name: Nueva generación de las claves de acceso de almacenamiento
               href: how-to-change-storage-access-key.md
         - name: Configuración de la autenticación
@@ -348,6 +353,8 @@
           href: how-to-create-your-first-pipeline.md
         - name: Programación de una canalización (Python)
           href: how-to-schedule-pipelines.md
+        - name: Desencadenar una canalización
+          href: how-to-trigger-published-pipeline.md
         - name: Depuración y solución de problemas de canalizaciones
           href: how-to-debug-pipelines.md
         - name: Depuración de canalizaciones en Application Insights

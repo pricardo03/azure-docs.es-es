@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 5e10c0905237f3cc28dd0ac113dfaf844e781bac
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c16ff8fed19340811578ccb39cbac7242b7c5861
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646666"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905749"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Linux en Azure
 En este artículo se describen los tamaños y las opciones disponibles para las máquinas virtuales de Azure que puede usar para ejecutar las aplicaciones y cargas de trabajo de Linux. También ofrece consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos. Este artículo también está disponible para [máquinas virtuales Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -67,7 +67,7 @@ Obtenga más información sobre los diferentes tamaños de máquina virtual que 
 - [Almacenamiento optimizado](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
-- Consulte la página [Generación anterior](sizes-previous-gen.md) para las series A estándar, Dv1 (D1-4 y D11-14 v1) y las series A8-A11
+- Consulte la página [Generación anterior](sizes-previous-gen.md) para las series A Basic y Standard, High Performance A8-A11, D/DSv1 (D1-4 and D11-14 v1), F/Fsv1, G/GS, Lsv1, y NVv2.
 
 
 

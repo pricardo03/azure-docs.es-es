@@ -11,16 +11,16 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: b85dd8d899a7e5d7d9f9d41ad7e2872249ee29c5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9dcb185ab8375d46c75a12e6adaeeae2358c13ac
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702018"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022093"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportación de datos desde Azure IoT Central y visualización de información en Power BI
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 En los dos tutoriales anteriores, ha creado y personalizado una aplicación de IoT Central con la plantilla de aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra). En este tutorial, configurará la aplicación de IoT Central para que exporte los datos de telemetría recopilados de los dispositivos. A continuación, usará Power BI para crear un panel personalizado para que el administrador de la tienda visualice la información derivada de la telemetría.
 
@@ -30,19 +30,19 @@ En este tutorial, aprenderá a:
 > * Usar Logic Apps para enviar datos de un centro de eventos a un conjunto de datos de streaming de Power BI.
 > * Crear un panel de Power BI para visualizar los datos del conjunto de datos de streaming.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
 * Completar los dos tutoriales anteriores, [Creación de una aplicación de análisis en tienda en Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) y [Personalización del panel del operador y administración de dispositivos en Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard-pnp.md).
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Una cuenta de Power BI Si no tiene una cuenta de Power BI, regístrese para obtener una [evaluación gratuita de Power BI Pro](https://app.powerbi.com/signupredirect?pbi_source=web) antes de empezar.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Antes de crear el centro de eventos y la aplicación lógica, debe crear un grupo de recursos para administrarlos. El grupo de recursos debe estar en la misma ubicación que la aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra) de IoT Central. Para crear un grupo de recursos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En el panel de navegación izquierdo, seleccione **Grupos de recursos**. A continuación, seleccione **Agregar**.
 1. En **Suscripción**, seleccione el nombre de la suscripción de Azure que usó para crear la aplicación de IoT Central.
 1. En el nombre del **Grupo de recursos**, escriba _retail-store-analysis_*.
@@ -66,7 +66,7 @@ Antes de poder configurar la aplicación de supervisión de venta al por menor p
     * Seleccione el grupo de recursos **retail-store-analysis**.
     * Seleccione la misma ubicación que usó para la aplicación de IoT Central.
     * Seleccione **Crear**. Puede que tenga que esperar unos minutos hasta que el sistema aprovisione los recursos.
-1. En el portal, vaya al grupo de recursos **retail-store-analysis**. Espere a que finalice la implementación. Es posible que tenga que seleccionar **Actualizar** para actualizar el estado de la implementación. También puede comprobar el estado de la creación del espacio de nombres del centro de eventos en **Notificaciones**.
+1. En el portal, vaya al grupo de recursos **retail-store-analysis**. Espere a que la implementación se complete. Es posible que tenga que seleccionar **Actualizar** para actualizar el estado de la implementación. También puede comprobar el estado de la creación del espacio de nombres del centro de eventos en **Notificaciones**.
 1. En el grupo de recursos **retail-store-analysis**, seleccione el **Espacio de nombres de Event Hubs**. Puede ver la página principal del **espacio de nombres de Event Hubs** en el portal.
 
 Ahora que tiene un **espacio de nombres de Event Hubs**, puede crear un **centro de eventos** para usarlo con la aplicación de IoT Central:
@@ -477,7 +477,7 @@ Agregue cuatro iconos de tarjeta para mostrar la longitud de la cola y el tiempo
 | Dataset | Sensor de ocupación | Sensor de ocupación | Sensor de ocupación | Sensor de ocupación |
 | Tipo de visualización | Gráfico de columnas agrupadas | Gráfico de columnas agrupadas | Indicador | Indicador |
 | Eje    | Timestamp | Timestamp | N/D | N/D |
-| Valor | Dwell Time 1 | Dwell Time 2 | Queue Length 1 | Queue Length 2 |
+| Value | Dwell Time 1 | Dwell Time 2 | Queue Length 1 | Queue Length 2 |
 | Período de tiempo | 60 minutos | 60 minutos |  N/D | N/D |
 | Título | Tiempo de permanencia | Tiempo de permanencia | Longitud de la cola | Longitud de la cola |
 | Subtítulo | Zona de cajas 1 | Zona de cajas 2 | Zona de cajas 1 | Zona de cajas 2 |

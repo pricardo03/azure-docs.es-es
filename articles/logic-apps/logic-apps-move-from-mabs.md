@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666659"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905436"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migre sus aplicaciones y soluciones de BizTalk Services a Azure Logic Apps
 
@@ -125,7 +125,7 @@ A diferencia de BizTalk Services, estas acciones se separan de los protocolos de
 
 ## <a name="manage-and-monitor"></a>Administración y supervisión
 
-En BizTalk Services, un portal dedicado ofrecía funciones de seguimiento para supervisar y solucionar problemas. Logic Apps ofrece funcionalidades más avanzadas de seguimiento y supervisión a través de [Azure Portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), e incluye una aplicación móvil para supervisión cuando esté en movimiento.
+En BizTalk Services, un portal dedicado ofrecía funciones de seguimiento para supervisar y solucionar problemas. Logic Apps ofrece funcionalidades más completas de seguimiento y supervisión para [supervisar las aplicaciones lógicas en Azure Portal](../logic-apps/monitor-logic-apps.md), e incluye una aplicación móvil para que pueda vigilar las cosas cuando esté en movimiento.
 
 ## <a name="high-availability"></a>Alta disponibilidad
 

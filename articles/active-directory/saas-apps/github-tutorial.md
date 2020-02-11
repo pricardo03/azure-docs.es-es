@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c61ab2279592c93fa22c1bb5102c868f3e13e473
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 4ddc2622a67979f989c030d615c402387e7762d5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289891"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983496"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub
 
@@ -46,7 +46,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 * GitHub admite el inicio de sesión único iniciado por **SP**
 
 * GitHub admite el [**aprovisionamiento de usuarios** automático](github-provisioning-tutorial.md)
-* Una vez configurado GitHub, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado GitHub, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-github-from-the-gallery"></a>Adición de GitHub desde la galería
 
@@ -221,5 +221,3 @@ Al hacer clic en el icono de GitHub del panel de acceso, debería iniciar sesió
 - [Pruebe GitHub con Azure AD](https://aad.portal.azure.com/)
 
 - [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Protección de GitHub con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

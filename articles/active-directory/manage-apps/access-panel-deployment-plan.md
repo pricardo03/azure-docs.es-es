@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512858"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897074"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planeamiento de la implementación del Panel de acceso de Azure Active Directory
 
@@ -227,9 +227,9 @@ Planee el orden en el que va a agregar las aplicaciones al iniciador de la pági
 
 Se puede agregar cualquier aplicación habilitada para el inicio de sesión único de Azure AD al panel Aplicaciones. Otras aplicaciones se agregan mediante la opción de inicio de sesión único vinculado. Puede configurar un icono de la aplicación que se vincule a la dirección URL de la aplicación web existente. El inicio de sesión único vinculado le permite empezar a dirigir a los usuarios al portal Aplicaciones sin migrar todas las aplicaciones al inicio de sesión único de Azure AD. Puede moverse gradualmente a aplicaciones configuradas con inicio de sesión único de Azure AD sin interrumpir la experiencia de los usuarios.
 
-#### <a name="use-my-apps-workspaces-preview"></a>Uso de áreas de trabajo Aplicaciones (versión preliminar)
+#### <a name="use-my-apps-collections"></a>Empleo de colecciones de Aplicaciones
 
-De forma predeterminada, todas las aplicaciones se muestran juntas en una sola página. Sin embargo, puede usar áreas de trabajo para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar áreas de trabajo para crear agrupaciones lógicas de aplicaciones para roles de trabajo específicos, tareas, proyectos, etc. Para obtener información, consulte [Cómo usar áreas de trabajo Aplicaciones para personalizar paneles de acceso para usuarios (versión preliminar)](access-panel-workspaces.md). 
+De forma predeterminada, todas las aplicaciones se muestran juntas en una sola página. Sin embargo, puede usar colecciones para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar colecciones para crear agrupaciones lógicas de aplicaciones para roles de trabajo específicos, tareas, proyectos, etc. Para obtener información, vea [Cómo usar colecciones de Aplicaciones para personalizar paneles de acceso de usuario](access-panel-collections.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Decidir si utilizar Aplicaciones o un portal ya existente
 

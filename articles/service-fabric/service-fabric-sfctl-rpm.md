@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI- sfctl rpm
 description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para el servicio del administrador de reparaciones.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639095"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904949"
 ---
 # <a name="sfctl-rpm"></a>rpm de sfctl
 Consulte y envíe comandos al servicio del administrador de reparaciones.
@@ -77,7 +77,7 @@ Esta API es compatible con la plataforma Service Fabric; no está diseñada para
 |Argumento|Descripción|
 | --- | --- |
 | --executor-filter | El nombre del ejecutar de reparación cuyas tareas notificadas deben incluirse en la lista. |
-| --state-filter | Una operación OR bit a bit de los siguientes valores, especificando qué estados de tareas deben incluirse en la lista de resultados. <br> 1\. Creado <br>2\. Notificado  <br>4\. Preparando  <br>8\. Aprobado  <br>16. Ejecutando  <br>32. Restaurando  <br>64. Completado |
+| --state-filter | Una operación OR bit a bit de los siguientes valores, especificando qué estados de tareas deben incluirse en la lista de resultados. <ul><li>1\. Creado</li><li>2\. Notificado</li><li>4\. Preparando</li><li>8\. Aprobado</li><li>16. Ejecutando</li><li>32. Restaurando</li><li>64. Completado</li></ul>
 | --task-id-filter | El prefijo del identificador de tarea de reparación que debe coincidir. |
 
 ### <a name="global-arguments"></a>Argumentos globales

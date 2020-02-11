@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605580"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020036"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
 
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Ejecución de la oferta de Azure Marketplace para aprovisionar un nuevo grupo de hosts
 
@@ -55,7 +55,7 @@ En la hoja **Aspectos básicos**, haga lo siguiente:
 3. Escriba una lista separada por comas de los usuarios que pueden iniciar sesión en los clientes de Windows Virtual Desktop y acceder a un escritorio una vez finalizada la oferta de Azure Marketplace. Por ejemplo, si quiere asignar acceso a user1@contoso.com y user2@contoso.com, escriba "user1@contoso.com,user2@contoso.com."
 4. Seleccione **Crear nuevo** y escriba un nombre para el nuevo grupo de recursos.
 5. En **Ubicación**, seleccione la misma ubicación que la red virtual que tenga conectividad con el servidor de Active Directory.
-6. Seleccione **Aceptar**.
+6. Seleccione **Siguiente: Configuración de máquinas virtuales >** .
 
 >[!IMPORTANT]
 >Si va a usar una solución pura de Azure Active Directory Domain Services y Azure Active Directory, asegúrese de implementar el grupo host en la misma región que Azure Active Directory Domain Services para evitar los errores de unión al dominio y de credenciales.
@@ -66,21 +66,21 @@ En la hoja **Configuración de las máquinas virtuales**:
 
 1. Acepte los valores predeterminados o personalice el número y tamaño de las máquinas virtuales.
 2. Escriba un prefijo para los nombres de las máquinas virtuales. Por ejemplo, si escribe el nombre "prefijo", las máquinas virtuales se llamarán "prefijo-0", "prefijo-1" y así sucesivamente.
-3. Seleccione **Aceptar**.
+3. Seleccione **Siguiente: Configuración de máquina virtual**.
 
 ### <a name="virtual-machine-settings"></a>Configuración de máquina virtual
 
 En la hoja **Configuración de la máquina virtual**:
 
 >[!NOTE]
-> Si va a unir las máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que el usuario de unión a un dominio sea miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+> Si va a unir las máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que el usuario de unión a un dominio es miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 >
 > La cuenta también debe formar parte del dominio administrado de Azure AD DS o del inquilino de Azure AD, ya que las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio. 
 
 1. En **Origen de la imagen**, seleccione el origen y escriba la información adecuada para encontrarla y almacenarla. Si decide no usar discos administrados, seleccione la cuenta de almacenamiento que contiene el archivo .vhd.
 2. Escriba el nombre principal de usuario y la contraseña de la cuenta de dominio que unirá las máquinas virtuales al dominio de Active Directory. Este mismo nombre de usuario y contraseña se creará en las máquinas virtuales como una cuenta local. Puede restablecer estas cuentas locales más adelante.
 3. Seleccione la red virtual que tenga conectividad con el servidor de Active Directory y, después, elija la subred donde se hospedarán las máquinas virtuales.
-4. Seleccione **Aceptar**.
+4. Seleccione **Siguiente: Información de Windows Virtual Desktop**.
 
 ### <a name="windows-virtual-desktop-tenant-information"></a>Información del inquilino de Windows Virtual Desktop
 
@@ -90,15 +90,14 @@ En la hoja **Información del inquilino de Windows Virtual Desktop**:
 2. En **Nombre de inquilino de Windows Virtual Desktop**, escriba el nombre del inquilino donde se creará este grupo de hosts.
 3. Especificar el tipo de credenciales que desea usar para autenticarse como propietario de RDS del inquilino de Windows Virtual Desktop. Si completó el [tutorial Creación de entidades de servicio y asignaciones de roles con PowerShell](./create-service-principal-role-powershell.md), seleccione **serviceprincipal**. Cuando aparece **Identificador de inquilino de Azure AD**, escriba el identificador de la instancia de Azure Active Directory que contiene la entidad de servicio.
 4. Escriba las credenciales de la cuenta de administrador del inquilino. Solo se admiten entidades de servicio con credenciales de contraseña.
-5. Seleccione **Aceptar**.
+5. Seleccione **Siguiente: Review + create** (Revisar y crear).
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Finalización de la instalación y creación de la máquina virtual
 
 En las dos últimas hojas:
 
-1. En la hoja **Resumen**, revise la información de configuración. Si necesita cambiar algo, vuelva a la hoja correspondiente y realice el cambio antes de continuar. Si la información es correcta, seleccione **Aceptar**.
-2. En la hoja **Comprar**, revise la información adicional sobre la compra en Azure Marketplace.
-3. Seleccione **Crear** para implementar el grupo de hosts.
+1. En la hoja **Revisar y crear**, revise la información de configuración. Si necesita cambiar algo, vuelva a la hoja correspondiente y realice el cambio antes de continuar. Si la información es correcta, seleccione **Aceptar**.
+2. Seleccione **Crear** para implementar el grupo de hosts.
 
 Según cuántas máquinas virtuales esté creando, este proceso puede tardar 30 minutos o más en completarse.
 

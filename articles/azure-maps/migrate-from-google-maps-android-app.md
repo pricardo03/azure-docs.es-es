@@ -9,30 +9,30 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 643d48cb931bcec1a8a3385d2ec24a394660c368
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6e54d8ea44b6c322f311cc1baeb6ca3ab6715aee
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75909186"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989967"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migración de una aplicación Android desde Google Maps
 
-Android SDK de Azure Maps tiene una interfaz API muy similar al SDK web. Si ha desarrollado con uno de estos SDK, se aplican muchos de los mismos conceptos, procedimientos recomendados y arquitecturas, y debería poder transferir con facilidad su conocimiento de uno a otro.
+Android SDK de Azure Maps tiene una interfaz API similar al SDK web. Si ha realizado desarrollos con uno de estos SDK, se aplican muchos de los mismos conceptos, procedimientos recomendados y arquitecturas. Debería poder transferir fácilmente sus conocimientos de uno a otro.
 
 Android SDK de Azure Maps admite una versión mínima para Android de la API 21: Android 5.0.0 (Lollipop).
 
 Todos los ejemplos se proporcionan en Java, pero también se puede usar Kotlin con Android SDK de Azure Maps.
 
-Vea también las [guías paso a paso de Android SDK para Azure Maps](how-to-use-android-map-control-library.md) para obtener más información sobre el desarrollo con este SDK.
+Consulte [Guías paso a paso de Android SDK de Azure Maps](how-to-use-android-map-control-library.md) para más información sobre el desarrollo con este SDK.
 
 ## <a name="load-a-map"></a>Carga de un mapa
 
-La carga de un mapa en una aplicación Android con Google Maps o Azure Maps consta de muchos de los mismos pasos. Al usar cualquier SDK debe hacer lo siguiente:
+La carga de un mapa en una aplicación Android con Google Maps o Azure Maps consta de muchos de los mismos pasos. Al usar cualquier SDK, debe hacer lo siguiente:
 
 - Obtener una API o clave de suscripción para acceder a cualquiera de las plataformas.
 - Agregar código XML a una actividad para especificar dónde se debe representar el mapa y cómo se debe diseñar.
-- Reenviar todos los métodos de ciclo de vida de la actividad que contienen la vista del mapa a los correspondientes en la clase de mapa. En concreto, debe reenviar los métodos siguientes:
+- Reenviar todos los métodos de ciclo de vida de la actividad que contienen la vista del mapa a los correspondientes en la clase de mapa. En particular, debe reemplazar los métodos siguientes:
     - `onCreate(Bundle)`
     - `onStart()`
     - `onResume()`
@@ -67,7 +67,7 @@ Para mostrar un mapa mediante el SDK de Google Maps para Android, debe seguir es
             android:layout_height="match_parent"/>
     ```
 
-1.  En el archivo **MainActivity.java** tendrá que agregar importaciones para el SDK de Google Maps. Reenvíe todos los métodos de ciclo de vida de la actividad que contienen la vista del mapa a los correspondientes en la clase de mapa. Se puede recuperar una instancia de `MapView` desde el fragmento de mapa mediante el método `getMapAsync(OnMapReadyCallback)`. `MapView` inicializa de forma automática el sistema de mapas y la vista. Edite el **MainActivity.java** como sigue:
+1.  En el archivo MainActivity.java, tendrá que agregar importaciones para el SDK de Google Maps. Reenvíe todos los métodos de ciclo de vida de la actividad que contienen la vista del mapa a los correspondientes en la clase de mapa. Se puede recuperar una instancia de `MapView` desde el fragmento de mapa mediante el método `getMapAsync(OnMapReadyCallback)`. `MapView` inicializa de forma automática el sistema de mapas y la vista. Edite el **MainActivity.java** como sigue:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -142,7 +142,7 @@ Para mostrar un mapa mediante el SDK de Google Maps para Android, debe seguir es
     }
     ```
 
-Cuando se ejecuta en una aplicación, el control de mapa se cargará como se indica a continuación.
+Cuando se ejecuta en una aplicación, el control de mapa se carga como se indica a continuación.
 
 <center>
 
@@ -152,9 +152,9 @@ Cuando se ejecuta en una aplicación, el control de mapa se cargará como se ind
 
 Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir estos pasos:
 
-1. Abra el archivo**build.gradle** de nivel superior y agregue el siguiente código a la sección de bloques **all projects**, **repositories** (todos los proyectos, repositorios):
+1. Abra el archivo**build.gradle** de nivel superior y agregue el siguiente código a la sección de bloques **all projects** (todos los proyectos):
 
-    ```
+    ```JAVA
     maven {
             url "https://atlas.microsoft.com/sdk/android"
     }
@@ -166,7 +166,7 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
 
     2. Agregue el siguiente código a la sección Android:
 
-        ```
+        ```JAVA
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
@@ -174,15 +174,15 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
         ```
     3. Actualice el bloque de dependencias y agregue una nueva línea de dependencia de implementación para el Android SDK de Azure Maps más reciente:
 
-        ```
+        ```JAVA
         implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
         > [!Note]
-        > El Android SDK de Azure Maps se actualiza y mejora periódicamente. Puede ver la documentación de [introducción al control de mapa de Android](how-to-use-android-map-control-library.md) para obtener el número de versión de implementación más reciente de Azure Maps. Además, puede establecer el número de versión "0.2" en "0+" para que apunte siempre a la versión más reciente.
+        > El Android SDK de Azure Maps se actualiza y mejora periódicamente. Puede consultar la documentación [Introducción al control de mapa de Android](how-to-use-android-map-control-library.md) para obtener el número de versión más reciente de Azure Maps. Además, puede establecer el número de versión de "0.2" en "0+" para que el código apunte siempre a la versión más reciente.
     
     4. Vaya a **Archivo** en la barra de herramientas y haga clic en **Sincronizar proyecto con archivos de Gradle**.
-3. Agregue un fragmento de mapa a la actividad principal (recurso \> diseño \> activity\_main.xml):
+3. Agregue un fragmento de mapa a la actividad principal (resources \> layout \> activity\_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -201,7 +201,7 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
     </FrameLayout>
     ```
 
-4. En el archivo **MainActivity.java** tendrá que hacer lo siguiente:
+4. En el archivo **MainActivity.java**, tendrá que hacer lo siguiente:
     
     * agregar las importaciones del SDK de Azure Maps
     * establecer la información de autenticación de Azure Maps
@@ -209,7 +209,7 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
 
     La configuración de la información de autenticación en la clase `AzureMaps` de forma global mediante los métodos `setSubscriptionKey` o `setAadProperties` hace que no tenga que agregar la información de autenticación en cada vista. 
 
-    El control de mapa contiene sus propios métodos de ciclo de vida para administrar el ciclo de vida de OpenGL de Android, al que debe llamarse directamente desde la actividad que lo contiene. Para que la aplicación funcione correctamente al llamar a los métodos de ciclo de vida del control de mapa, debe anular los siguientes métodos de ciclo de vida en la actividad que contiene el control de mapa y llamar al método de control de mapa correspondiente. 
+    El control de mapa contiene sus propios métodos de ciclo de vida para administrar el ciclo de vida de OpenGL de Android, al que debe llamarse directamente desde la actividad que lo contiene. Para llamar correctamente a los métodos de ciclo de vida del control de mapa, debe invalidar los siguientes métodos de ciclo de vida en la actividad que contiene el control de mapa y llamar al método del control de mapa correspondiente. 
 
     * `onCreate(Bundle)` 
     * `onStart()` 
@@ -310,15 +310,15 @@ Si ejecuta la aplicación, el control de mapa se cargará como se indica a conti
 Tenga en cuenta que el control de Azure Maps permite alejar más y proporciona una mayor vista mundial.
 
 > [!TIP]
-> Si usa un emulador de Android en Windows, es posible que el mapa no se represente debido a conflictos con OpenGL y la representación de gráficos acelerada mediante hardware. Algunos usuarios han utilizado lo siguiente para resolver este problema. Abra el administrador de AVD y seleccione el dispositivo virtual que se va a editar. En la sección **Emulated Performance** (Rendimiento emulado,) establezca la opción **Graphics** (Gráficos) en **Hardware**.
+> Si usa un emulador de Android en Windows, es posible que el mapa no se represente debido a conflictos con OpenGL y la representación de gráficos acelerada mediante hardware. Algunos usuarios han utilizado lo siguiente para resolver este problema. Abra el administrador de AVD y seleccione el dispositivo virtual que se va a editar. Desplácese hacia abajo en el panel **Verify Configuration** (Comprobar configuración). En la sección **Emulated Performance** (Rendimiento emulado,) establezca la opción **Graphics** (Gráficos) en **Hardware**.
 
 ## <a name="localizing-the-map"></a>Localización del mapa
 
 Si el público está distribuido entre varios países o habla distintos idiomas, la localización es importante.
 
-**Antes: Google Maps**
+**Antes: Google Maps**
 
-El idioma del mapa se puede establecer en el método `onCreate` de la actividad principal si se agrega el código siguiente antes de establecer la vista de contexto del mapa. Lo siguiente limita el idioma al francés mediante el código de idioma "fr".
+El idioma del mapa se puede establecer en el método `onCreate` de la actividad principal mediante la adición del código siguiente. El código se debe agregar antes de establecer la vista de contexto del mapa. Lo siguiente limita el idioma al francés mediante el código de idioma "fr".
 
 ```java
 String languageToLoad = "fr";
@@ -365,7 +365,7 @@ La segunda opción es usar la información de idioma y de la vista en el XML del
     />
 ```
 
-La tercera opción consiste en establecer mediante programación el idioma y la vista regional del mapa mediante el método `setStyle` de Maps. Esta opción puede realizarse en cualquier momento para cambiar el idioma y la vista regional del mapa.
+La tercera opción consiste en establecer mediante programación el idioma y la vista regional del mapa mediante el método `setStyle` de Maps. Esta opción se puede establecer en cualquier momento para cambiar el idioma y la vista regional del mapa.
 
 ```java
 mapControl.onReady(map -> {
@@ -387,9 +387,9 @@ Este es un ejemplo de Azure Maps con el idioma establecido en "fr-FR".
 Los mapas dinámicos en Azure Maps y Google Maps se pueden mover mediante programación a nuevas ubicaciones geográficas mediante la llamada a los métodos adecuados. En los ejemplos siguientes se muestra cómo hacer que el mapa muestre las imágenes aéreas de satélite, se centre sobre una ubicación con coordenadas (latitud: 35,0272, longitud: -111,0225) y cambie el nivel de zoom a 15 en Google Maps.
 
 > [!NOTE]
-> En Google Maps se usan iconos de 256 píxeles de tamaño mientras que en Azure Maps se usa un icono mayor de 512 píxeles. Esto reduce el número de solicitudes de red que Azure Maps necesita para cargar la misma área del mapa que Google Maps. Pero debido al funcionamiento de las pirámides de iconos en los controles de mapa, que los iconos de Azure Maps sean mayores significa que, para conseguir esa misma área visible como mapa en Google Maps, debe restar uno al nivel de zoom que se usa en Google Maps cuando utilice Azure Maps.
+> En Google Maps se usan iconos de 256 píxeles de tamaño mientras que en Azure Maps se usa un icono mayor de 512 píxeles. Esto reduce el número de solicitudes de red que Azure Maps necesita para cargar la misma área del mapa que Google Maps. Pero debido al funcionamiento de las pirámides de iconos en los controles de mapa, que los iconos de Azure Maps sean mayores significa que, para conseguir esa misma área visible como mapa en Google Maps, debe restar uno al nivel de zoom que se usa en Google Maps cuando utilice Azure Maps. 
 
-**Antes: Google Maps**
+**Antes: Google Maps**
 
 La cámara del control de mapa de Google Maps se puede mover mediante programación con el método `moveCamera`, que permite especificar el centro del mapa y un nivel de zoom. Se puede usar el método `setMapType` para cambiar el tipo de mapa que se muestra.
 
@@ -466,9 +466,9 @@ public void onMapReady(GoogleMap googleMap) {
 
 ![Marcador de Google Maps](media/migrate-google-maps-android-app/google-maps-marker.png)</center>
 
-**Después: Azure Maps**
+**Después: Azure Maps**
 
-En Azure Maps, los datos de punto se pueden representar en el mapa si primero se agregan los datos a un origen de datos y, después, se conecta ese origen de datos a una capa de símbolos. El origen de datos optimiza la administración de datos espaciales en el control de mapa y la capa de símbolos especifica cómo representar los datos de punto mediante una imagen o texto.
+En Azure Maps, los datos de punto se pueden representar en el mapa si primero se agregan los datos a un origen de datos. A continuación, debe conectar el origen de datos a una capa de símbolos. El origen de datos optimiza la administración de los datos espaciales del control de mapa. La capa de símbolos especifica cómo representar los datos de punto como una imagen y/o un texto.
 
 ```java
 mapControl.onReady(map -> {
@@ -486,22 +486,22 @@ mapControl.onReady(map -> {
 
 <center>
 
-![Marcador de Azure Maps](media/migrate-google-maps-android-app/azure-maps-marker.png)</center>
+![Marcador de Azure Maps](media/migrate-google-maps-android-app/azure-maps-marker.png)</center>
 
 ## <a name="adding-a-custom-marker"></a>Adición de un marcador personalizado
 
-Se pueden usar imágenes personalizadas para representar puntos en un mapa. En los ejemplos siguientes se usa una imagen personalizada para mostrar un punto en el mapa en (latitud: 51,5, longitud: -0,2) y desplaza la posición del marcador de modo que el punto del icono de marcador se alinee con la posición correcta en el mapa.
+Se pueden usar imágenes personalizadas para representar puntos en un mapa. El mapa de los ejemplos siguientes utiliza una imagen personalizada para mostrar un punto en el mapa. El punto se encuentra en latitud: 51,5 y longitud: -0,2. El mapa desplaza la posición del marcador de modo que el punto del icono de chincheta se alinee con la posición correcta en el mapa.
 
 <center>
 
 ![imagen de marcador amarillo](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
 ylw\_pushpin.png</center>
 
-En ambos ejemplos, la imagen anterior se agrega a la carpeta drawable de los recursos de aplicaciones.
+En ambos ejemplos, la imagen anterior se agrega a la carpeta drawable de los recursos de las aplicaciones.
 
-**Antes: Google Maps**
+**Antes: Google Maps**
 
-Con Google Maps, se pueden usar imágenes personalizadas para los marcadores si se cargan a través de la opción `icon` del marcador. Para alinear el punto de la imagen con la coordenada, se puede usar la opción `anchor`. El delimitador es relativo a las dimensiones de la imagen, en este caso 0,2 unidades de ancho y 1 unidad de alto.
+Con Google Maps, se pueden usar imágenes personalizadas para los marcadores. Puede cargar imágenes personalizadas mediante la opción `icon` del marcador. Para alinear el punto de la imagen con la coordenada, utilice la opción `anchor`. El delimitador es relativo a las dimensiones de la imagen, en este caso 0,2 unidades de ancho y 1 unidad de alto.
 
 ```java
 @Override
@@ -518,9 +518,9 @@ public void onMapReady(GoogleMap googleMap) {
 
 ![Marcador personalizado de Google Maps](media/migrate-google-maps-android-app/google-maps-custom-marker.png)</center>
 
-**Después: Azure Maps**
+**Después: Azure Maps**
 
-Las capas de símbolos de Azure Maps también admiten imágenes personalizadas, pero primero se debe cargar la imagen en los recursos del mapa y debe tener asignado un identificador único. Después, la capa de símbolos puede hacer referencia a este identificador. El símbolo se puede desplazar para alinearse con el punto correcto de la imagen mediante la opción `iconOffset`. Tenga en cuenta que el desplazamiento del icono se realiza en píxeles. De forma predeterminada, el desplazamiento es relativo al centro inferior de la imagen, pero se puede ajustar mediante la opción `iconAnchor`. En este ejemplo se establece la opción `iconAnchor` en `"center"` y se usa un desplazamiento de icono para mover la imagen 5 píxeles a la derecha y 15 píxeles hacia arriba hasta alinearla con el punto de la imagen del marcador.
+Las capas de símbolos de Azure Maps admiten imágenes personalizadas, pero primero se debe cargar la imagen en los recursos del mapa y debe tener asignado un identificador único. Después, la capa de símbolos puede hacer referencia a este identificador. Desplace el símbolo para que se alinee con el punto correcto de la imagen mediante la opción `iconOffset`. El desplazamiento del icono se realiza en píxeles. De forma predeterminada, el desplazamiento es relativo al centro inferior de la imagen, pero este valor de desplazamiento se puede ajustar mediante la opción `iconAnchor`. En este ejemplo se establece la opción `iconAnchor` en `"center"` y se usa un desplazamiento de icono para mover la imagen 5 píxeles a la derecha y 15 píxeles hacia arriba hasta alinearla con el punto de la imagen del marcador.
 
 ```java
 mapControl.onReady(map -> {
@@ -578,9 +578,9 @@ public void onMapReady(GoogleMap googleMap) {
 
 ![Polilínea de Google Maps](media/migrate-google-maps-android-app/google-maps-polyline.png)</center>
 
-**Después: Azure Maps**
+**Después: Azure Maps**
 
-En Azure Maps, las polilíneas se llaman objetos LineString o MultiLineString. Estos objetos se pueden agregar a un origen de datos y se representan mediante una capa de línea. Tenga en cuenta que las unidades de "píxel" de ancho de trazo y de matriz de guiones se alinean con el SDK web de Azure Maps y en los dos SDK se usan los mismos valores para producir los mismos resultados.
+En Azure Maps, las polilíneas se llaman objetos `LineString` o `MultiLineString`. Estos objetos se pueden agregar a un origen de datos y se representan mediante una capa de línea. Las unidades de "píxel" de ancho de trazo y de matriz de guiones se alinean con el SDK web de Azure Maps y en ambos SDK se usan los mismos valores para producir los mismos resultados.
 
 ```java
 mapControl.onReady(map -> {
@@ -607,7 +607,7 @@ mapControl.onReady(map -> {
 
 <center>
 
-![Polilínea de Azure Maps](media/migrate-google-maps-android-app/azure-maps-polyline.png)</center>
+![Polilínea de Azure Maps](media/migrate-google-maps-android-app/azure-maps-polyline.png)</center>
 
 ## <a name="adding-a-polygon"></a>Adición de un polígono
 
@@ -641,9 +641,9 @@ public void onMapReady(GoogleMap googleMap) {
 
 ![Polígono de Google Maps](media/migrate-google-maps-android-app/google-maps-polygon.png)</center>
 
-**Después: Azure Maps**
+**Después: Azure Maps**
 
-En Azure Maps, se pueden agregar los objetos Polygon y MultiPolygon a un origen de datos y se representan en el mapa mediante capas. El área de un polígono se puede representar en una capa de polígono. El contorno de un polígono se puede representar con una capa de línea. Tenga en cuenta que las unidades de "píxel" de ancho de trazo y de matriz de guiones se alinean con el SDK web de Azure Maps y en los dos SDK se usan los mismos valores para producir los mismos resultados.
+En Azure Maps, se pueden agregar objetos `Polygon` y `MultiPolygon` a un origen de datos y se representan en el mapa mediante capas. El área de un polígono se puede representar en una capa de polígono. El contorno de un polígono se puede representar con una capa de línea. Las unidades de "píxel" de ancho de trazo y de matriz de guiones se alinean con el SDK web de Azure Maps y en ambos SDK se usan los mismos valores para producir los mismos resultados.
 
 ```java
 mapControl.onReady(map -> {
@@ -677,11 +677,11 @@ mapControl.onReady(map -> {
 
 ![Polígono de Azure Maps](media/migrate-google-maps-android-app/azure-maps-polygon.png)</center>
 
-## <a name="overlay-a-tile-layer"></a>Superposición de una capa de icono
+## <a name="overlay-a-tile-layer"></a>Superposición de una capa de mosaicos
 
-Las capas de icono, también conocidas como superposiciones de imagen en Google Maps, permiten superponer imágenes de capas que se han dividido en imágenes de icono más pequeñas que se alinean con el sistema de iconos de los mapas. Se trata de una manera común de superponer imágenes de capas o conjuntos de datos muy grandes.
+ Las capas de mosaicos permiten superponer imágenes de capas que se han dividido en imágenes en mosaico más pequeñas y que se alinean con el sistema de mosaicos de los mapas. Este enfoque es una manera común de superponer imágenes de capas o conjuntos de datos muy grandes. Las capas de mosaicos se conocen como superposiciones de imágenes en Google Maps.
 
-En los ejemplos siguientes se superpone una capa de icono de radar meteorológico de Iowa Environmental Mesonet of Iowa State University. Los iconos tienen un tamaño de 256 píxeles.
+En los ejemplos siguientes se superpone una capa de mosaicos de radar meteorológico de Iowa Environmental Mesonet of Iowa State University. Los iconos tienen un tamaño de 256 píxeles.
 
 **Antes: Google Maps**
 
@@ -716,9 +716,9 @@ public void onMapReady(GoogleMap googleMap) {
 
 ![Capa de icono de Google Maps](media/migrate-google-maps-android-app/google-maps-tile-layer.png)</center>
 
-**Después: Azure Maps**
+**Después: Azure Maps**
 
-En Azure Maps, se puede agregar una capa de icono al mapa de la misma manera que cualquier otra. Una dirección URL con formato que tiene marcadores de posición X, Y y zoom (`{x}`, `{y}`, `{z}` respectivamente) se usa para indicar a la capa dónde acceder a los iconos. Las capas de icono en Azure Maps también admiten los marcadores de posición `{quadkey}`, `{bbox-epsg-3857}` y `{subdomain}`. Para que la capa de icono sea semitransparente, se usa un valor de opacidad de 0,8. Tenga en cuenta que la opacidad y la transparencia, aunque son similares, usan valores invertidos. Para realizar la conversión entre ellos simplemente reste su valor del número uno.
+Se puede agregar una capa de mosaicos al mapa de manera similar a cualquier otra capa. Una dirección URL con formato que tiene marcadores de posición X, Y y zoom (`{x}`, `{y}`, `{z}` respectivamente) se usa para indicar a la capa dónde acceder a los iconos. Las capas de mosaicos en Azure Maps también admiten los marcadores de posición `{quadkey}`, `{bbox-epsg-3857}` y `{subdomain}`. Para que la capa de icono sea semitransparente, se usa un valor de opacidad de 0,8. La opacidad y la transparencia, aunque son similares, usan valores invertidos. Para realizar la conversión entre ellos, reste su valor del número uno.
 
 > [!TIP]
 > En Azure Maps las capas se pueden representar fácilmente bajo otras capas, incluidas las capas base del mapa. A menudo es conveniente representar las capas de mosaicos debajo de las etiquetas del mapa para que resulten fáciles de leer. El método `map.layers.add` toma un segundo parámetro que es el identificador de la capa en la que se va a insertar la siguiente capa nueva. Para insertar una capa de mosaicos debajo de las etiquetas del mapa se puede usar el código siguiente: `map.layers.add(myTileLayer, "labels");`
@@ -761,7 +761,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Después: Azure Maps**
 
-Azure Maps proporciona varias opciones diferentes para mostrar el tráfico. Los incidentes de tráfico, como los cierres de carreteras y los accidentes, se pueden mostrar como iconos en el mapa. El flujo de tráfico o las carreteras codificadas mediante colores se pueden superponer en el mapa y los colores se pueden modificar para que se basen en el límite de velocidad registrado, el retraso normal esperado o el retraso absoluto. Los datos de incidentes en Azure Maps se actualizan cada minuto y el flujo de datos se produce cada dos minutos.
+Azure Maps proporciona varias opciones diferentes para mostrar el tráfico. Los incidentes de tráfico, como los cierres de carreteras y los accidentes, se pueden mostrar como iconos en el mapa. El flujo de tráfico y los caminos codificados en colores se pueden superponer en el mapa. Los colores se pueden modificar para que aparezcan en relación con el límite de velocidad registrado, en relación con el retraso normal esperado o con el retraso absoluto. Los datos de incidentes en Azure Maps se actualizan cada minuto y los datos de flujo se actualizan cada dos minutos.
 
 ```java
 mapControl.onReady(map -> {

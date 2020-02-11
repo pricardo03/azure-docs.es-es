@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 01/13/2020
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1f3d442ea7cf6d95427aaa9c072410119e2735af
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941553"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989814"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Inicio rápido: Suscripción y carga del primer vídeo
 
@@ -49,15 +49,17 @@ Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media
 
     Cuando Video Indexer ha terminado de analizar, recibirá una notificación con un vínculo a su vídeo y una breve descripción de lo que se ha encontrado en el vídeo. Por ejemplo: personas, temas u OCR.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 Consulte [Carga e indexación de los vídeos](upload-index-videos.md) para más detalles.
 
 Tras la carga e indexación de un vídeo, puede empezar a usar el [sitio web de Video Indexer](video-indexer-view-edit.md) o el [Portal para desarrolladores de Video Indexer](video-indexer-use-apis.md) para ver la información detallada de este. 
 
-## <a name="see-also"></a>Consulte también
-
-[Introducción a Video Indexer](video-indexer-overview.md)
-
 [Comience a usar las API](video-indexer-use-apis.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener una introducción detallada, visite nuestro [laboratorio introductorio](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md). 
+
+Al final del taller, tendrá un buen conocimiento del tipo de información que se puede extraer del contenido de vídeo y audio, estará mejor preparado para identificar las oportunidades relacionadas con la inteligencia de contenidos, el tono de IA del vídeo en Azure y la demostración de varios escenarios en Video Indexer.
 

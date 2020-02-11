@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 895b26fc7f35303cbef6c9df543c87ca435c2290
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326723"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984360"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer
 
@@ -31,9 +31,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-cluster"></a>Creación de un clúster
+## <a name="create-a-cluster"></a>Crear un clúster
 
 Creará un clúster de Azure Data Explorer con un conjunto definido de recursos de proceso y de almacenamiento en un grupo de recursos de Azure.
 

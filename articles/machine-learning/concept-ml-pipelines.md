@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: c93c936664f65e7846f6c4ad82d9aead973fa129
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772608"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905720"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
@@ -203,6 +203,20 @@ Las ventajas clave de usar canalizaciones para los flujos de trabajo de aprendiz
 |**Seguimiento y control de versiones**|En lugar de hacer un seguimiento manual de los datos y los resultados conforme itera, use el SDK de canalizaciones para asignar de forma explícita un nombre y una versión a los orígenes de datos, las entradas y las salidas. También puede administrar scripts y datos por separado para aumentar la productividad.|
 | **Modularidad** | Separar las áreas de preocupación y aislar los cambios permite que el software evolucione más rápidamente con una mayor calidad. | 
 |**Colaboración**|Las canalizaciones permiten que los científicos de datos colaboren en todas las áreas del proceso de diseño de aprendizaje automático, a la vez que pueden trabajar de manera simultánea en los pasos de la canalización.|
+
+## <a name="modules"></a>Módulos
+
+Aunque los pasos de canalización permiten la reutilización de los resultados de una ejecución anterior, en muchos casos, se supone que en la construcción del paso los scripts y los archivos dependientes necesarios deben estar disponibles localmente. Si un científico de datos desea basarse en el código existente, con frecuencia se deben clonar los scripts y las dependencias desde un repositorio independiente.
+
+Los módulos son de uso similar a los pasos de canalización, pero proporcionan control de versiones facilitado mediante el área de trabajo, lo que permite la colaboración y la reutilización a gran escala. Los módulos están diseñados para reutilizarse en varias canalizaciones y pueden evolucionar para adaptar un cálculo específico a diferentes casos de uso. Los usuarios pueden realizar las siguientes tareas mediante el área de trabajo, sin usar repositorios externos:
+
+* Creación de módulos y publicación de nuevas versiones de módulos existentes
+* Desuso de versiones existentes
+* Marcado de las versiones como deshabilitadas para impedir que los consumidores usen esa versión
+* Designación de versiones predeterminadas
+* Recuperación de módulos por versión del área de trabajo para garantizar que los equipos usen el mismo código
+
+Consulte el [cuaderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) para ver ejemplos de código sobre cómo crear, conectar y usar módulos en canalizaciones de Azure Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

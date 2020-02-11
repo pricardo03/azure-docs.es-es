@@ -1,25 +1,23 @@
 ---
 title: Esquemas de seguimiento personalizados para mensajes B2B
-description: Cree esquemas de seguimiento que supervisen los mensajes B2B en cuentas de integración para Azure Logic Apps con Enterprise Integration Pack
+description: Creación de esquemas de seguimiento personalizados para supervisar mensajes B2B en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
-ms.openlocfilehash: 7d7c5ef9e9a86c8b061a56fe41c0c8bbfc5ddbb3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/01/2020
+ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792799"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903058"
 ---
-# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Creación de esquemas de seguimiento personalizado que supervisen los flujos de trabajo completos en Azure Logic Apps
+# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Creación de esquemas de seguimiento personalizado que supervisen los flujos de trabajo de un extremo a otro en Azure Logic Apps
 
-Hay disponible una característica de seguimiento integrada que puede habilitar para las distintas partes de su flujo de trabajo de negocio a negocio, por ejemplo, para realizar un seguimiento de mensajes AS2 o X12. Cuando cree flujos de trabajo que incluyan una lógica de aplicación, BizTalk Server, SQL Server o cualquier otra capa, podrá habilitar el seguimiento personalizado que registre los eventos desde el principio hasta el final del flujo de trabajo. 
-
-En este artículo se proporciona un código personalizado que puede usar en las capas externas de la aplicación lógica. 
+Azure Logic Apps tiene seguimiento integrado que se puede habilitar para las partes del flujo de trabajo. Sin embargo, puede configurar un seguimiento personalizado que registre los eventos desde el principio hasta el fin del flujo de trabajo, por ejemplo, flujos de trabajo que incluyan una aplicación lógica, BizTalk Server, SQL Server y cualquier otra capa. En este artículo se proporciona un código personalizado que puede usar en las capas externas de la aplicación lógica.
 
 ## <a name="custom-tracking-schema"></a>Esquema de seguimiento personalizado
 
@@ -36,7 +34,7 @@ En este artículo se proporciona un código personalizado que puede usar en las 
       "operation": {
          "operationName": "",
          "repeatItemScopeName": "",
-         "repeatItemIndex": "",
+         "repeatItemIndex": ,
          "trackingId": "",
          "correlationId": "",
          "clientRequestId": ""
@@ -47,39 +45,37 @@ En este artículo se proporciona un código personalizado que puede usar en las 
          "eventLevel": "",
          "eventTime": "",
          "recordType": "",
-         "record": {                
-         }
+         "record": {}
       }
    ]
 }
 ```
 
-| Propiedad | Obligatorio | type | DESCRIPCIÓN |
-| --- | --- | --- | --- |
-| sourceType | Sí |   | Tipo del origen de ejecución. Los valores permitidos son **Microsoft.Logic/workflows** y **custom**. |
-| source | Sí |   | Si el tipo de origen es **Microsoft.Logic/workflows**, la información de origen tiene que ir detrás de este esquema. Si el tipo de origen es **custom**, el esquema es un JToken |
-| systemId | Sí | String | Id. de sistema de aplicación lógica. |
-| runId | Sí | String | Id. de ejecución de aplicación lógica. |
-| operationName | Sí | String | Nombre de la operación (por ejemplo, acción o desencadenador). |
-| repeatItemScopeName | Sí | String | Repita el nombre del elemento si la acción se encuentra dentro de un bucle `foreach`/`until`. |
-| repeatItemIndex | Sí | Integer | Si la acción se encuentra dentro de un bucle `foreach`/`until`. Indica el índice del elemento repetido. |
-| trackingId | Sin | String | Id. de seguimiento para correlacionar los mensajes. |
-| correlationId | Sin | String | Id. de correlación para correlacionar los mensajes. |
-| clientRequestId | Sin | String | El cliente puede rellenarlo para correlacionar mensajes. |
-| eventLevel | Sí |   | Nivel del evento. |
-| eventTime | Sí |   | Hora del evento, en formato UTC: AAAA-MM-DDTHH:MM:SS.00000Z. |
-| recordType | Sí |   | Tipo del registro. El valor permitido es **custom**. |
-| record | Sí |   | Tipo de registro personalizado. El formato permitido es JToken. |
-||||
+| Propiedad | Obligatorio | Tipo | Descripción |
+|----------|----------|------|-------------|
+| sourceType | Sí | String | Tipo del origen de ejecución con estos valores permitidos: `Microsoft.Logic/workflows`, `custom` |
+| source | Sí | String o JToken | Si el tipo de origen es `Microsoft.Logic/workflows`, la información de origen debe seguir este esquema. Si el tipo de origen es `custom`, el esquema es un JToken. |
+| systemId | Sí | String | Identificador del sistema de la aplicación lógica |
+| runId | Sí | String | Identificador de ejecución de la aplicación lógica |
+| operationName | Sí | String | Nombre de la operación (por ejemplo, acción o desencadenador) |
+| repeatItemScopeName | Sí | String | Repita el nombre del elemento si la acción se encuentra dentro de un bucle `foreach` o `until`. |
+| repeatItemIndex | Sí | Entero | Indica que la acción está dentro de un bucle `foreach` o `until` y es el número de índice del elemento repetido. |
+| trackingId | No | String | Identificador de seguimiento para correlacionar los mensajes |
+| correlationId | No | String | Identificador de correlación para correlacionar los mensajes |
+| clientRequestId | No | String | El cliente puede rellenar esta propiedad para correlacionar los mensajes |
+| eventLevel | Sí | String | Nivel del evento |
+| eventTime | Sí | DateTime | Hora del evento en formato UTC: *AAAA-MM-DDTHH:MM:SS.00000Z* |
+| recordType | Sí | String | Tipo de registro de seguimiento con solo este valor permitido: `custom` |
+| registro | Sí | JToken | Tipo de registro personalizado solo con formato JToken |
+|||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de seguimiento de protocolos B2B
 
 Para obtener información sobre los esquemas de seguimiento de protocolos B2B, consulte:
 
-* [Esquemas de seguimiento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)   
+* [Esquemas de seguimiento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Esquemas de seguimiento de X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre la [supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md)
-* Obtenga información sobre el [seguimiento de mensajes B2B en registros de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Más información sobre la [supervisión de mensajes B2B con registros de Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)

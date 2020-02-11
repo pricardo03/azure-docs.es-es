@@ -45,7 +45,7 @@ A continuación se describen con más detalle ambas directivas de retención de 
 
 - **Purgar datos antiguos** es la configuración predeterminada para los entornos de Azure Time Series Insights.  
 - **Purgar datos antiguos** es la opción preferida cuando los usuarios quieren tener siempre los *datos más recientes* de su entorno de Time Series Insights.
-- La configuración **Purgar datos antiguos***purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
+- La configuración **Purgar datos antiguos** *purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
 - Los datos ingeridos hace más tiempo se purgan primero (enfoque "primero en entrar, primero en salir").
 
 ### <a name="example-one"></a>Ejemplo 1

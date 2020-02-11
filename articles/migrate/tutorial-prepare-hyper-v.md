@@ -4,12 +4,12 @@ description: Aprenda a prepararse para la evaluación y migración de máquinas 
 ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: 6140d9689dafe8a97ae77346ea2212846e964cdc
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1d327f558806e0205540c183c56b92ba31e33cb7
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028926"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031227"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparación de la evaluación y migración de máquinas virtuales de Hyper-V a Azure
 
@@ -39,10 +39,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Necesita configurar permisos para la implementación de Azure Migrate.
 
-- Permisos para crear un proyecto de Azure Migrate en la cuenta de Azure.
-- Permisos en la cuenta de Azure para registrar el dispositivo de Azure Migrate. El dispositivo se usa para detectar y evaluar las máquinas virtuales de Hyper-V que se migran. Durante el registro del dispositivo, Azure Migrate crea dos aplicaciones Azure Active Directory (Azure AD) que identifican de forma única al dispositivo:
-    - La primera aplicación se comunica con los puntos de conexión de servicio de Azure Migrate.
-    - La segunda aplicación accede a un almacén de Azure Key Vault creado durante el registro para almacenar la información de la aplicación de Azure AD y los valores de configuración del dispositivo.
+**Task** | **Permisos**
+--- | ---
+**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos para crear un proyecto.
+**Registrar el dispositivo de Azure Migrate** | Azure Migrate usa un dispositivo ligero para detectar y evaluar máquinas virtuales de Hyper-V con Azure Migrate Server Assessment. Este dispositivo realiza la detección de máquinas virtuales y envía sus metadatos y sus datos de rendimiento a Azure Migrate.<br/><br/>Durante el registro del dispositivo, los siguientes proveedores de recursos se registran con la suscripción elegida en el dispositivo: Microsoft.OffAzure, Microsoft.Migrate y Microsoft.KeyVault. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. Para registrar los proveedores de recursos debe tener el rol colaborador o propietario de la suscripción.<br/><br/> Como parte del proceso de incorporación, Azure Migrate crea una aplicación de Azure Active Directory (Azure AD):<br/> Esta aplicación se usa para la comunicación (autenticación y autorización) entre los agentes que se ejecutan en el dispositivo con sus servicios respectivos que se ejecutan en Azure. Esta aplicación no tiene privilegios para realizar llamadas a ARM ni acceso RBAC en ningún recurso.
 
 
 
@@ -64,10 +64,9 @@ Puede asignar permisos para Azure Migrate con el fin de crear las aplicaciones d
 - Un administrador de inquilinos o administrador global puede conceder permisos a los usuarios del inquilino para crear y registrar aplicaciones de Azure AD.
 - Un administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones (que tiene los permisos) a la cuenta.
 
-Merece la pena mencionar que:
-
-- Las aplicaciones no tienen otros permisos de acceso en la suscripción distintos de los descritos anteriormente.
-- Solo necesita estos permisos al registrar un nuevo dispositivo. Puede quitar los permisos una vez configurado el dispositivo.
+> [!NOTE]
+> - Las aplicaciones no tienen otros permisos de acceso en la suscripción distintos de los descritos anteriormente.
+> - Solo necesita estos permisos al registrar un nuevo dispositivo. Puede quitar los permisos una vez configurado el dispositivo.
 
 
 #### <a name="grant-account-permissions"></a>Concesión de permisos de cuenta

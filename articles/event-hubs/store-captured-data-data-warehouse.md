@@ -6,15 +6,15 @@ author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a83d65e497688fa97fbb2bdb5a4a72c6d29d81ae
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718889"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905692"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migración de datos de Event Hubs capturados a SQL Data Warehouse mediante Event Grid y Azure Functions
 
@@ -35,14 +35,16 @@ En este tutorial realizará lo siguiente:
 > * Hacer streaming de los datos de ejemplo de en un a instancia de Event Hubs. 
 > * Comprobar los datos capturados en SQL Data Warehouse
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs/). Asegúrese de que instala las siguientes con cargas de trabajo: desarrollo de escritorio de .NET, desarrollo de Azure, desarrollo web y de ASP.NET, desarrollo de Node.js y desarrollo de Python
-- Descargue el [Git de ejemplo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). La solución de ejemplo contiene los siguientes componentes:
+- Descarga del [Ejemplo de Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) La solución de ejemplo contiene los siguientes componentes:
     - *WindTurbineDataGenerator* : un publicador simple que envía datos de turbina eólica de ejemplo a un centro de eventos con la función Capture habilitada
     - *FunctionDWDumper* : una función de Azure que recibe una notificación de Event Grid cuando se captura un archivo Avro en el blob de Azure Storage. Recibe la ruta de acceso, del identificador URI del blob, lee su contenido y envía estos datos a SQL Data Warehouse.
+
+    En este ejemplo se usa el paquete Azure.Messaging.EventHubs más reciente. Puede encontrar el ejemplo anterior que usa el paquete Microsoft.Azure.EventHubs [aquí](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
 
 ### <a name="deploy-the-infrastructure"></a>Implementar la infraestructura
 Use Azure PowerShell o la CLI de Azure para implementar la infraestructura necesaria para este tutorial con este [plantilla de Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Esta plantilla crea los siguientes recursos:
@@ -68,7 +70,7 @@ Las secciones siguientes proporcionan comandos de CLI de Azure y Azure PowerShel
 
 Estos scripts tardan algún tiempo en crear todos los artefactos de Azure. Espere hasta que el script se complete antes de continuar. Si la implementación no se realiza por alguna razón, elimine el grupo de recursos, corrija el problema notificado y vuelva a ejecutar el comando. 
 
-#### <a name="azure-cli"></a>CLI de Azure
+#### <a name="azure-cli"></a>Azure CLI
 Para implementar la plantilla mediante la CLI de Azure, use los siguientes comandos:
 
 ```azurecli-interactive
@@ -139,7 +141,7 @@ Después de publicar la función, estará listo para suscribirse al evento de ca
 
 1. Seleccione **Incorporación de una suscripción de Event Grid**.
 
-   ![Agregar suscripción](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
+   ![Agregar una suscripción](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
 1. Escriba un nombre para la suscripción de Event Grid. Use **Espacios de nombres de Event Hubs** como el tipo de evento. Proporcione los valores para seleccionar la instancia del espacio de nombres de Event Hubs. Deje el punto de conexión de suscriptor con el valor proporcionado. Seleccione **Crear**.
 

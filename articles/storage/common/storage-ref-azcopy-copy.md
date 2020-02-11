@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029997"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905503"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -61,7 +61,7 @@ azcopy copy [source] [destination] [flags]
 
 ## <a name="examples"></a>Ejemplos
 
-Carga de un solo archivo mediante la autenticación de OAuth. Si aún no ha iniciado sesión en AzCopy, use el comando de inicio de sesión azcopy antes de ejecutar el comando siguiente.
+Carga de un solo archivo mediante la autenticación de OAuth. Si aún no ha iniciado sesión en AzCopy, use el comando azcopy login antes de ejecutar el comando siguiente.
 
 - azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 
@@ -81,7 +81,7 @@ Carga de un directorio completo mediante un token de SAS:
   
 - azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 
-o
+or
 
 - azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --put-md5
 
@@ -177,7 +177,7 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--cache-control** string                 Establece el encabezado cache-control. Devuelto al descargar.
 
-**--check-length**                         Comprueba la longitud de un archivo en el destino después de la transferencia. Si hay una discrepancia entre el origen y el destino, la transferencia se marca como errónea. (el valor predeterminado es true)
+**--check-length**                         Comprueba la longitud de un archivo en el destino después de la transferencia. Si hay una discrepancia entre el origen y el destino, la transferencia se marca como errónea. (El valor predeterminado es true)
 
 **--check-md5** string                     Especifica qué tan estrictamente se deben validar los hashes MD5 al descargarse. Solo está disponible al descargar. Opciones disponibles: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (el valor predeterminado es "FailIfDifferent")
 
@@ -191,7 +191,7 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--decompress**                           Descomprime automáticamente los archivos al realizar la descarga, si el encabezado content-encoding indica que están comprimidos. Los valores de content-encoding son "gzip" y "deflate". Las extensiones de archivo de ".gz"/".gzip" o ".zz" no son necesarias, pero se quitarán si existen.
 
-**--exclude-attributes** string            (solo Windows) Excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo:  A;S;R
+**--exclude-attributes** string            (solo Windows) Excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
 
 **--exclude-blob-type** string             Opcionalmente, especifica el tipo de blob (BlockBlob/PageBlob/AppendBlob) que se va a excluir al copiar blobs desde el contenedor o la cuenta. El uso de esta marca no es aplicable para copiar datos desde un servicio que no es de Azure a otro que sí lo es. Si hay más de un blob deberían separarse mediante ";".
 
@@ -205,7 +205,7 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **-h, --help**                                 Ayuda de copy.
 
-**--include-attributes** string            (solo Windows) Incluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo:  A;S;R
+**--include-attributes** string            (solo Windows) Incluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
 
 **--include-path** string                  Incluye solo estas rutas de acceso al copiar. Esta opción no permite caracteres comodín (*). Comprueba los prefijos de ruta de acceso relativa (por ejemplo: myFolder;myFolder/subDirName/file.pdf).
 
@@ -217,7 +217,7 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--no-guess-mime-type**                   Impide que AzCopy detecte el tipo de contenido en función de la extensión o el contenido del archivo.
 
-**--overwrite** string                     Sobrescribe los archivos y blobs en conflicto en el destino si esta marca está establecida en true. Los valores posibles son "true", "false" y "prompt". (el valor predeterminado es "true")
+**--overwrite** string                     Sobrescribe los archivos y blobs en conflicto en el destino si esta marca está establecida en true. Los valores posibles son "true", "false", "ifSourceNewer" y "prompt". (el valor predeterminado es "true")
 
 **--page-blob-tier** string                Carga un blob en páginas en Azure Storage con este nivel de blobs. (el valor predeterminado es "None")
 
@@ -241,6 +241,6 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--output-type** string   Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text". (Valor predeterminado: "text").
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [azcopy](storage-ref-azcopy.md)

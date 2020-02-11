@@ -1,20 +1,20 @@
 ---
 title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - Portal
-description: Aprenda rápidamente a ejecutar un trabajo de Batch con Azure Portal.
+description: Aprenda a utilizar Azure Portal para crear una cuenta de Batch, un grupo de nodos de proceso y un trabajo que ejecute tareas básicas en el grupo.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 294d1658559dd426245cf66a47a8791f8b370533
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8d725834cb2dd86163909b2ae598e61026ae4bb9
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029415"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024116"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: Ejecución del primer trabajo de Batch en Azure Portal
 

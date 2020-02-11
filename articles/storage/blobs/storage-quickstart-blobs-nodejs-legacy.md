@@ -3,24 +3,26 @@ title: 'Inicio rápido: Biblioteca cliente de Azure Blob Storage v10 para JavaSc
 description: Creación, carga y eliminación de blobs y contenedores de Node.js con la biblioteca cliente de Azure Storage v10 para JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/24/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: dd59dec65f75a17c35750140349101c600a92636
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862856"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906474"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v10 para JavaScript
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Inicio rápido: Administración de blobs con el SDK de JavaScript v10 en Node.js
 
-En esta guía de inicio rápido aprenderá a usar la versión [v10 del SDK de Azure Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js) en Node.js para cargar, descargar, enumerar y eliminar blobs, y administrar contenedores.
+En este inicio rápido, aprenderá a administrar blobs mediante Node.js. Los blobs son objetos que pueden contener grandes cantidades de texto o datos binarios, como imágenes, documentos, medios de transmisión y datos de archivo. Podrá cargar, descargar, enumerar y eliminar blobs, y podrá administrar los contenedores.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
 

@@ -8,38 +8,38 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 0b100e0bebc7c5b26449e396650da5434334075d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1bad4ab6320e757ac766776a95b8dbe6ebaa3259
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112625"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016432"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Tutorial: Creación de una aplicación de supervisión del consumo de agua en IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial le guía por los pasos para crear una aplicación de supervisión del consumo de agua de Azure IoT Central a partir de la plantilla de aplicación Supervisión del consumo de agua de IoT Central. 
 
-En este tutorial aprenderá a: 
+En este tutorial, aprenderá a: 
 
 > [!div class="checklist"]
 > * Usar la plantilla **Supervisión del consumo de agua** de Azure IoT Central para crear la aplicación de supervisión del consumo de agua.
 > * Explorar y personalizar el panel del operador 
-> * Explorar las plantillas de dispositivo
+> * Exploración de las plantillas de dispositivo
 > * Explorar los dispositivos simulados
-> * Explorar y configurar reglas
+> * Exploración y configuración de reglas
 > * Trabajos de configuración
 > * Realizar la personalización de marca de la aplicación mediante etiquetado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para realizar este tutorial, necesita:
+Para completar este tutorial, necesita:
 -  Se recomienda una suscripción de Azure. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-water-consumption-monitoring-app-in-iot-central"></a>Creación de una aplicación de supervisión del consumo de agua en IoT Central
 
-En esta sección, se usará la plantilla **Water consumption monitoring template** de Azure IoT Central para crear la aplicación de supervisión del consumo de agua en IoT Central.
+En esta sección, usará la plantilla **Water consumption monitoring template** de Azure IoT Central para crear la aplicación de supervisión del consumo de agua en IoT Central.
 
 Para crear una aplicación de supervisión del consumo de agua de Azure IoT Central, siga estos pasos:  
 
@@ -60,11 +60,13 @@ Para crear una aplicación de supervisión del consumo de agua de Azure IoT Cent
     * **URL**: IoT Central genera automáticamente una dirección URL basada en el nombre de la aplicación. Puede optar por actualizar la dirección URL a su gusto. También puede cambiarla más adelante. 
     * Si tiene una suscripción de Azure, escriba el *directorio, la suscripción de Azure y la región*. Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.  
 
-    Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../preview/quick-deploy-iot-central.md).
+    Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../core/quick-deploy-iot-central.md).
 
 5. En la parte inferior de la página, haga clic en **Create** (Crear). 
 
     ![Página de creación de una aplicación de Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
+
+    ![Página de información de facturación de la creación de una aplicación de Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
 
 6. Ahora ha creado una aplicación de supervisión del consumo de agua mediante la plantilla **Water consumption monitoring** de Azure IoT Central.
 
@@ -77,7 +79,7 @@ Felicidades. Acaba de terminar de crear la aplicación de supervisión del consu
 
 Como es su aplicación, puede modificarla en cualquier momento. Ahora, explore la aplicación y realice algunas personalizaciones.  
 
-## <a name="explore-and-customize-operator-dashboard"></a>Exploración y personalización del panel del operador 
+## <a name="explore-and-customize-operator-dashboard"></a>Explorar y personalizar el panel del operador 
 Después de crear la aplicación, llegará al panel del operador de ejemplo denominado **Wide World water consumption monitoring dashboard**.
 
    ![Panel de supervisión del consumo de agua](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboardfull.png)
@@ -93,7 +95,7 @@ El panel consta de diferentes tipos de iconos:
 
 * **Icono de KPI de Average water flow**: el icono de KPI está configurado para mostrar como ejemplo *el caudal medio en los últimos 30 minutos*. Puede personalizar los iconos de KPI y establecerlos en un tipo y un intervalo de tiempo diferentes.
 
-* Después, a la derecha del panel están los iconos de *comando de dispositivo* **Close valve**, **Open valve** o **Set valve position**. Al hacer clic en los comandos, irá a la página de comando del dispositivo simulado. En IoT Central un *comando* es un tipo de *funcionalidad de dispositivo* que se examinará más adelante en la **sección de plantillas de dispositivo** de este tutorial.
+* Después, a la derecha del panel están los iconos de *comando de dispositivo***Close valve**, **Open valve** o **Set valve position**. Al hacer clic en los comandos, irá a la página de comando del dispositivo simulado. En IoT Central un *comando* es un tipo de *funcionalidad de dispositivo* que puede examinar más adelante en la **sección de plantillas de dispositivo** de este tutorial.
 
 *  **Water distribution area map**: el mapa usa Azure Maps, que puede configurar directamente en Azure IoT Central. El icono de mapa muestra la ubicación del dispositivo. Intente mantener el puntero sobre el mapa y pruebe los controles: *acercar*, *alejar* o *ampliar*. 
 
@@ -105,7 +107,7 @@ El panel consta de diferentes tipos de iconos:
 
 * **Icono de contenido Reset alert threshold**: puede incluir iconos de contenido de llamada a la acción que insertan el vínculo a una página de acción. En este caso, el icono le llevará a la opción **Jobs** (Trabajos) de la aplicación, donde puede ejecutar actualizaciones de las propiedades del dispositivo, que se examinarán más adelante en la sección **Configuración de trabajos** de este tutorial.
 
-* **Iconos de propiedades**: el panel muestra **Valve operational info**, **Flow alert thresholds** y **Maintenance info**, que son propiedades del dispositivo.  
+* **Iconos de propiedades**: el panel muestra **Valve operational info**, **Flow alert thresholds** y **Maintenance info**. 
 
 
 ### <a name="customize-dashboard"></a>Personalización del panel 
@@ -146,7 +148,7 @@ Pruebe a personalizar lo siguiente:
 ### <a name="add-a-cloud-property"></a>Adición de una propiedad de la nube 
 1. Vaya a **Cloud property** (Propiedad de la nube) en el menú de la plantilla de dispositivo.
 2. Haga clic en **+ Add Cloud Property** (+ Agregar propiedad de la nube). 
-    En IoT Central, puede agregar una propiedad que sea pertinente para el dispositivo. Por ejemplo, una propiedad de la nube podría ser un umbral de alerta específico del área de instalación, información de recursos o información de mantenimiento. 
+    En IoT Central, puede agregar una propiedad que sea pertinente para el dispositivo. Por ejemplo, una propiedad de la nube podría ser un umbral de alerta específico del área de instalación, información de recursos u otra información de mantenimiento. 
 3. Haga clic en **Save** (Guardar) para guardar los cambios. 
  
 ### <a name="views"></a>Vistas 
@@ -155,12 +157,12 @@ La plantilla de dispositivo de supervisión del consumo de agua incluye vistas p
   ![Vistas de la plantilla de dispositivo](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
 
 ### <a name="publish"></a>Publicar 
-Si realizó algún cambio, seleccione **Publish** (Publicar) para publicar la plantilla de dispositivo. 
+Si realizó algún cambio, seleccione **Publicar** para publicar la plantilla de dispositivo. 
 
 ### <a name="create-a-new-device-template"></a>Creación de una nueva plantilla de dispositivo 
 - Seleccione **+ New** (+ Nueva) para crear una plantilla de dispositivo y siga el proceso de creación. Podrá crear una plantilla de dispositivo personalizada desde el principio o elegir una del catálogo de dispositivos de Azure. 
 
-## <a name="explore-simulated-devices"></a>Exploración de los dispositivos simulados
+## <a name="explore-simulated-devices"></a>Explorar los dispositivos simulados
 En IoT Central, puede crear dispositivos simulados para probar la aplicación y la plantilla de dispositivo. La aplicación **Water consumption monitoring** tiene dos dispositivos simulados asignados a las plantillas de dispositivo *Flow meter* (Medidor de caudal) y *Smart Valve* (Válvula inteligente). 
 
 ### <a name="to-view-the-devices"></a>Para ver los dispositivos, siga estos pasos:
@@ -196,7 +198,7 @@ La aplicación **Supervisión del consumo de agua** que ha creado tiene tres reg
 
      ![High pH Alert](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    La regla `High flow alert` está configurada para compararse con la condición `Acidity (pH)` es `greater than` `Max flow threshold`. El umbral de caudal máximo es una propiedad de la nube definida en la plantilla de dispositivo *Smart Valve* (Válvula inteligente). El valor de `Max flow threshold` se establece por instancia de dispositivo. 
+    La regla `High flow alert` está configurada para compararse con la condición `Acidity (pH)` es `greater than``Max flow threshold`. El umbral de caudal máximo es una propiedad de la nube definida en la plantilla de dispositivo *Smart Valve* (Válvula inteligente). El valor de `Max flow threshold` se establece por instancia de dispositivo. 
 
 Ahora, se creará una acción de correo electrónico.
 

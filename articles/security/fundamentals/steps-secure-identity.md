@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973910"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903576"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -28,8 +28,8 @@ Esta lista de comprobación le ayudará a implementar rápidamente las acciones 
 * Reforzar las credenciales.
 * Reducir el área de la superficie de ataque.
 * Automatizar la respuesta frente a amenazas.
-* Aumentar el reconocimiento de la utilidad de las auditorías y supervisiones.
-* Habilitar un método de seguridad para el usuario final que sea más predecible y completo, y que cuente con autoayuda.
+* Usar Cloud Intelligence.
+* Habilitar el autoservicio del usuario final.
 
 Asegúrese de realizar un seguimiento de las características y los pasos que se han completado al leer esta lista de comprobación.
 
@@ -116,7 +116,7 @@ Al usar los recursos de vulneración de seguridad, debe reducir el impacto de la
 
 Es importante comprender las distintas [experiencias de consentimiento de la aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), los [tipos de permisos y consentimiento](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent), y sus implicaciones en la postura de seguridad de la organización. De forma predeterminada, todos los usuarios de Azure AD pueden conceder acceso a los datos de su organización a las aplicaciones que utilizan la Plataforma de identidad de Microsoft. Aunque permitir que los usuarios den su consentimiento por su cuenta les permite adquirir fácilmente aplicaciones útiles que se integran con Microsoft 365, Azure y otros servicios, puede representar un riesgo si no se utiliza y supervisa con precaución.
 
-Microsoft recomienda [deshabilitar las operaciones futuras de consentimiento del usuario](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) para ayudar a reducir el área expuesta y a mitigar este riesgo. Si el consentimiento del usuario final se deshabilita, se seguirán respetando las concesiones de consentimiento anteriores, pero todas las operaciones de consentimiento futuras tendrá que realizarlas un administrador. Los usuarios pueden solicitar el consentimiento del administrador a través de un [flujo de trabajo de solicitud de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) integrado o a través de sus propios procesos de soporte técnico. Antes de deshabilitar esta funcionalidad, se recomienda revisar el registro de auditoría para comprender qué aplicaciones consienten los usuarios y planear el cambio en consecuencia. En el caso de las aplicaciones a las que desea permitir el acceso a todos los usuarios, considere la posibilidad de [conceder consentimiento en nombre de todos los usuarios](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent) y asegúrese de que los usuarios que todavía no hayan dado su consentimiento de forma individual podrán acceder a la aplicación. Si no desea que estas aplicaciones estén disponibles para todos los usuarios en todos los escenarios, use [asignación de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) y [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) para restringir el acceso de los usuarios a las aplicaciones.
+Microsoft recomienda [deshabilitar las operaciones futuras de consentimiento del usuario](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) para ayudar a reducir el área expuesta y a mitigar este riesgo. Si el consentimiento del usuario final se deshabilita, se seguirán respetando las concesiones de consentimiento anteriores, pero todas las operaciones de consentimiento futuras tendrá que realizarlas un administrador. Los usuarios pueden solicitar el consentimiento del administrador a través de un [flujo de trabajo de solicitud de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) integrado o a través de sus propios procesos de soporte técnico. Antes de deshabilitar el consentimiento del usuario final, use nuestras [recomendaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) para planear este cambio en su organización. En el caso de las aplicaciones a las que desea permitir el acceso a todos los usuarios, considere la posibilidad de [conceder consentimiento en nombre de todos los usuarios](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent) y asegúrese de que los usuarios que todavía no hayan dado su consentimiento de forma individual podrán acceder a la aplicación. Si no desea que estas aplicaciones estén disponibles para todos los usuarios en todos los escenarios, use [asignación de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) y [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) para restringir el acceso de los usuarios a las aplicaciones.
 
 Asegúrese de que los usuarios pueden solicitar la aprobación del administrador para las nuevas aplicaciones a fin de reducir la fricción del usuario, minimizar el volumen de soporte técnico y evitar que los usuarios se registren en las aplicaciones con credenciales que no sean de Azure AD. Una vez que haya regulado las operaciones de consentimiento, los administradores deben auditar los permisos de la aplicación y consentidos con regularidad.
 
@@ -134,7 +134,7 @@ Otro efecto de la "suposición de vulneración de seguridad", es la necesidad de
 
 Habilite Azure AD PIM, consulte a qué usuarios se les asignaron roles administrativos y elimine las cuentas innecesarias de esos roles. En cuanto a los usuarios con privilegios restantes, cambie su estado de "permanentes" a "válidos". Finalmente, establezca las directivas apropiadas para asegurarse de que, cuando necesiten obtener acceso a esos roles con privilegios, puedan hacerlo de forma segura con el control de cambios necesario.
 
-Como parte del proceso de implementación de la cuenta con privilegios, siga los [procedimientos recomendados para crear al menos dos cuentas de emergencia](../../active-directory/users-groups-roles/directory-admin-roles-secure.md), y así para asegurarse de obtener acceso a Azure AD si se bloquea su cuenta.
+Como parte del proceso de implementación de la cuenta con privilegios, siga los [procedimientos recomendados para crear al menos dos cuentas de emergencia](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) y así asegurarse de que aún tiene acceso a Azure AD si se bloquea su cuenta.
 
 ## <a name="step-3---automate-threat-response"></a>Paso 3: automatizar la respuesta a amenazas
 
@@ -152,7 +152,7 @@ El riesgo de inicio de sesión es la probabilidad de que alguien que no sea el p
 
 ![Iniciar sesión desde direcciones IP anónimas](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
-## <a name="step-4---increase-your-awareness"></a>Paso 4: aumentar la concienciación
+## <a name="step-4---utilize-cloud-intelligence"></a>Paso 4: Uso de Cloud Intelligence
 
 La auditoría, el registro de eventos y las alertas relacionados con la seguridad son componentes importantes en una estrategia de protección de datos eficaz. Los registros e informes de seguridad proporcionan un registro electrónico de actividades sospechosas y le ayudan a detectar patrones que puedan indicar un acceso externo a la red, así como ataques internos. Puede usar la auditoría para supervisar la actividad del usuario y el cumplimiento normativo de documentos, realizar análisis forenses y mucho más. Además, las alertas le proporcionarán notificaciones acerca de eventos de seguridad.
 
@@ -180,7 +180,7 @@ Azure AD Identity Protection dispone de dos informes importantes que debe superv
 
 Es posible que los usuarios sean víctimas de un engaño y sean conducidos a aplicaciones o sitios web comprometidos que podrían obtener acceso a la información de perfil y los datos del usuario, como el correo electrónico. Un individuo malintencionado podría usar los permisos consentidos que ha recibido para cifrar el contenido del buzón y pedir un rescate para recuperar los datos. [Los administradores deben revisar y auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) los permisos proporcionados por los usuarios o deshabilitar la capacidad de los usuarios de dar su consentimiento de forma predeterminada.
 
-Además de auditar los permisos concedidos por los usuarios, puede ayudar a probar y, en concreto, a [localizar aplicaciones OAuth de riesgo o no deseadas](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), que es una funcionalidad disponible para los entornos prémium.
+Además de auditar los permisos proporcionados por los usuarios, puede [encontrar aplicaciones de OAuth peligrosas o no deseadas](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) en entornos Premium.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Paso 5: habilitar la autoayuda del usuario final
 
@@ -192,11 +192,11 @@ El [autoservicio de restablecimiento de contraseña (SSPR)](../../active-directo
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementar el acceso a grupos y aplicaciones de autoservicio
 
-Azure AD proporciona la posibilidad de que los usuarios que no son administradores administren el acceso a los recursos mediante grupos de seguridad, grupos de Office 365, roles de aplicación y catálogos de paquetes de acceso.  [La administración de grupos de autoservicio](../../active-directory/users-groups-roles/groups-self-service-management.md) permite a los propietarios de grupos administrar sus propios grupos, sin necesidad de tener asignado un rol como administrador. Los usuarios también pueden crear y administrar grupos de Office 365 sin depender de los administradores para administrar sus solicitudes y los grupos no usados expiran automáticamente.  [La administración de derechos de Azure AD](../../active-directory/governance/entitlement-management-overview.md) habilita la delegación y visibilidad, con flujos de trabajo de solicitud de acceso completos y la expiración automática.  Puede delegar a los usuarios que no son administradores la capacidad de configurar sus propios paquetes de acceso para grupos, equipos, aplicaciones y sitios de SharePoint Online de su propiedad, con directivas personalizadas para quien se necesita aprobar el acceso, incluido el establecimiento, como aprobadores, de los administradores de los empleados y los patrocinadores socios comerciales.
+Azure AD ofrece la posibilidad de que los usuarios que no son administradores administren el acceso a los recursos mediante grupos de seguridad, grupos de Office 365, roles de aplicación y catálogos de paquetes de acceso.  [La administración de grupos de autoservicio](../../active-directory/users-groups-roles/groups-self-service-management.md) permite a los propietarios de grupos administrar sus propios grupos, sin necesidad de tener asignado un rol como administrador. Los usuarios también pueden crear y administrar grupos de Office 365 sin depender de los administradores para administrar sus solicitudes y los grupos no usados expiran automáticamente.  [La administración de derechos de Azure AD](../../active-directory/governance/entitlement-management-overview.md) habilita la delegación y visibilidad, con flujos de trabajo de solicitud de acceso completos y la expiración automática.  Puede delegar a los usuarios que no son administradores la capacidad de configurar sus propios paquetes de acceso para grupos, equipos, aplicaciones y sitios de SharePoint Online de su propiedad, con directivas personalizadas para quien se necesita aprobar el acceso, incluido el establecimiento, como aprobadores, de los administradores de los empleados y los patrocinadores socios comerciales.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementar revisiones de acceso de Azure AD
 
-Gracias a las [revisiones de acceso de Azure AD](../../active-directory/governance/access-reviews-overview.md), puede administrar la pertenencia a paquete de acceso y grupos, obtener acceso a las aplicaciones de la empresa y asignar funciones con privilegios para asegurarse de mantener un estándar de seguridad.  La supervisión habitual por parte de los usuarios, los propietarios de recursos y otros revisores garantizan que los usuarios no conservan el acceso durante períodos de tiempo prolongados cuando ya no lo necesitan.
+Gracias a las [revisiones de acceso de Azure AD](../../active-directory/governance/access-reviews-overview.md), puede administrar la pertenencia a paquete de acceso y grupos, obtener acceso a las aplicaciones de la empresa y asignar funciones con privilegios para asegurarse de mantener un estándar de seguridad.  La supervisión habitual por parte de los usuarios, los propietarios de recursos y otros revisores garantiza que los usuarios no conservan el acceso durante períodos de tiempo prolongados cuando ya no lo necesitan.
 
 ## <a name="summary"></a>Resumen
 
@@ -205,7 +205,7 @@ Existen muchos aspectos en una infraestructura de identidad segura, pero esta li
 * Reforzar las credenciales.
 * Reducir el área de la superficie de ataque.
 * Automatizar la respuesta frente a amenazas.
-* Aumentar el reconocimiento de la utilidad de las auditorías y supervisiones.
+* Usar Cloud Intelligence.
 * Habilitar un método de seguridad para el usuario final que sea más predecible y completo, y que cuente con autoayuda.
 
 Le agradecemos todo el esfuerzo que ha dedicado en mejorar la seguridad de la identidad, y esperamos que este documento sea una hoja de ruta útil para conseguir mejorar la seguridad de su organización.
@@ -214,4 +214,4 @@ Le agradecemos todo el esfuerzo que ha dedicado en mejorar la seguridad de la id
 
 Si necesita ayuda para planificar e implementar las recomendaciones, consulte los [planes de implementación del proyecto de Azure AD](https://aka.ms/deploymentplans) para obtener ayuda.
 
-Si está seguro de que se han completado todos estos pasos, use la [puntuación de seguridad de la identidad](../../active-directory/fundamentals/identity-secure-score.md) de Microsoft, que le permitirá mantenerse al día de las [últimas prácticas recomendadas](identity-management-best-practices.md) y las amenazas de seguridad.
+Si está seguro de que se han completado todos estos pasos, use la [puntuación de seguridad de la identidad](../../active-directory/fundamentals/identity-secure-score.md) de Microsoft, que le permitirá mantenerse al día con los [últimos procedimientos recomendados](identity-management-best-practices.md) y las amenazas de seguridad.

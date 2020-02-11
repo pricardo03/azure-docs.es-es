@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
-ms.openlocfilehash: 686b8bedfeb4ae5e1b2b7bf3b750b51074677990
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3c0fb29c5a4dd73135aa8352c97df29474c36caf
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288989"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904135"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 
@@ -32,9 +32,10 @@ La puntuación segura se basa en el número de recomendaciones de Security Cente
 |Recomendación|Descripción y directiva relacionada|severity|¿Está habilitada la corrección rápida? ([Más información](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Tipo de recurso|
 |----|----|----|----|----|
 |**El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales**|Aplique el control de acceso de máquina virtual (VM) Just-In-Time (JIT) para bloquear de forma permanente el acceso a los puertos seleccionados y permitir que los usuarios autorizados los abran mediante JIT y solo durante una periodo de tiempo limitado.<br>(Directiva relacionada: El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales).|Alto|N|Máquina virtual|
-|**Se deben habilitar los grupos de seguridad de red en el nivel de subred**|Habilite los grupos de seguridad de red para controlar el acceso a la red de los recursos implementados en las subredes.<br>(Directiva relacionada: Las subredes deben estar asociadas con un grupo de seguridad de red).|Alta, media|N|Subnet|
-|**Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red**|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.<br>(Directiva relacionada: Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red).|Alta, media|N|Máquina virtual|
-|**Se debe restringir el acceso a los grupos de seguridad de red permisivos con VM accesibles desde Internet**|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.<br>(Directiva relacionada: Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet).|Alto|N|Máquina virtual|
+|**Se deben habilitar los grupos de seguridad de red en el nivel de subred**|Habilite los grupos de seguridad de red para controlar el acceso a la red de los recursos implementados en las subredes.<br>(Directiva relacionada: las subredes deben estar asociadas con un grupo de seguridad de red.<br>Esta directiva está deshabilitada de forma predeterminada)|Alta, media|N|Subnet|
+|**Las máquinas virtuales accesibles desde Internet deben estar protegidas con grupos de seguridad de red**|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.<br>(Directiva relacionada: las máquinas virtuales accesibles desde Internet deben estar protegidas con grupos de seguridad de red)|Alta, media|N|Máquina virtual|
+|**Todos los puertos de red deben estar restringidos en el NSG asociado a la máquina virtual**|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.<br>Esta recomendación se desencadena cuando se abre un puerto para *todos* los orígenes (excepto los puertos 22, 3389, 5985, 5986, 80 y 1443).<br>(Directiva relacionada: debe restringirse el acceso a través de un punto de conexión accesible desde Internet)|Alto|N|Máquina virtual|
+|**Las recomendaciones de protección de red adaptable se deben aplicar en máquinas virtuales accesibles desde Internet**|Los clientes del plan de tarifa estándar verán esta recomendación cuando la característica de protección de red adaptable encuentre una regla de NSG demasiado permisiva.<br>(Directiva relacionada: Las recomendaciones de protección de red adaptable se deben aplicar en las máquinas virtuales accesibles desde Internet.|Alto|N|Máquina virtual|
 |**Se deben proteger las reglas de las aplicaciones web en los NSG de IaaS**|Proteja el grupo de seguridad de red (NSG) de las máquinas virtuales que ejecutan aplicaciones web con reglas de NSG que son demasiado permisivas con respecto a los puertos de la aplicación web.<br>(Directiva relacionada: Se deben proteger las reglas de NSG para las aplicaciones web en IaaS).|Alto|N|Máquina virtual|
 |**Se debe restringir el acceso a App Services**|Cambie la configuración de red para restringir el acceso a App Services y denegar el tráfico entrante desde intervalos demasiado amplios.<br>(Directiva relacionada [versión preliminar]: Se debe restringir el acceso a App Services).|Alto|N|App Service|
 |**Se deben cerrar los puertos de administración en las máquinas virtuales**|Proteja el grupo de seguridad de red de las máquinas virtuales para restringir el acceso a los puertos de administración.<br>(Directiva relacionada: Se deben cerrar los puertos de administración en las máquinas virtuales).|Alto|N|Máquina virtual|

@@ -1,32 +1,31 @@
 ---
-title: Uso de Java para enviar datos a y desde Azure Event Hubs
-description: En este artículo se ofrece un tutorial para crear una aplicación de Java que envía eventos a Azure Event Hubs.
+title: Envío o recepción de eventos desde Azure Event Hubs mediante Java (heredados)
+description: Este artículo es un tutorial para crear una aplicación de Java que envíe eventos a Azure Event Hubs, o los reciba de él, mediante el anterior paquete azure-eventhubs.
 services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.date: 04/15/2019
-ms.author: shvija
-ms.openlocfilehash: be9919950f24dbee7fb8a3f901767c298105bf53
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.topic: quickstart
+ms.date: 01/15/2020
+ms.author: spelluru
+ms.openlocfilehash: a2cce90b5aa28dac6ff945ac48f70bfd319683b9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325469"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029901"
 ---
-# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Uso de Java para enviar o recibir eventos en Azure Event Hubs
+# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Use Java para enviar eventos a Azure Event Hubs o recibir eventos de él (azure-eventhubs)
 
 En este tutorial se muestra cómo crear aplicaciones de Java para enviar o recibir eventos de Azure Event Hubs.
 
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte Introducción a Event Hubs y Características de Event Hubs.
 
-> [!NOTE]
-> Puede descargar esta guía de inicio rápido como un ejemplo desde [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), reemplazar las cadenas `EventHubConnectionString` y `EventHubName` por los valores del centro de eventos, y ejecutarlo. También puede seguir los pasos de este tutorial para crear el suyo propio.
+> [!WARNING]
+> En este inicio rápido se usan los anteriores paquetes **azure-eventhubs** y **azure-eventhubs-eph**. Se recomienda [migrar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) el código a fin de usar el paquete [azure-messaging-eventhubs](get-started-java-send-v2.md) más reciente. 
 
-## <a name="prerequisites"></a>Requisitos previos
+
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
@@ -36,6 +35,9 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 ## <a name="send-events"></a>Envío de eventos 
 En esta sección se muestra cómo crear una aplicación de Java para enviar eventos a un centro de eventos. 
+
+> [!NOTE]
+> Puede descargar esta guía de inicio rápido como un ejemplo desde [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), reemplazar las cadenas `EventHubConnectionString` y `EventHubName` por los valores del centro de eventos, y ejecutarlo. También puede seguir los pasos de este tutorial para crear el suyo propio.
 
 ### <a name="add-reference-to-azure-event-hubs-library"></a>Incorporación de una referencia a la biblioteca de Azure Event Hubs
 

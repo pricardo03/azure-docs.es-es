@@ -1,6 +1,6 @@
 ---
-title: Supervisión de sitios web con Azure Monitor Application Insights
-description: Proporciona instrucciones para configurar rápidamente la supervisión de sitios web del cliente o explorador con Application Insights de Azure Monitor
+title: 'Inicio rápido: Supervisión de sitios web con Azure Monitor Application Insights'
+description: Proporciona instrucciones para configurar la supervisión de sitios web en el lado cliente/explorador con Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,36 +8,30 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 54bd12db9a85cf237d6c22ad63e6f20f7d2b713a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 408b24c83c5b3d795a86d1ad0275d732bb54a6db
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770227"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963626"
 ---
-# <a name="start-monitoring-your-website"></a>Inicio de la supervisión del sitio web
+# <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Inicio rápido: Empezar a supervisar un sitio web con Azure Monitor Application Insights
 
-Con Application Insights de Azure Monitor puede supervisar fácilmente la disponibilidad, el rendimiento y el uso del sitio web. También puede identificar y diagnosticar errores en la aplicación rápidamente sin tener que esperar a que un usuario informe de ellos. Application Insights proporciona tanto la supervisión del lado servidor como las funcionalidades de supervisión del lado cliente o explorador.
+En este inicio rápido, aprenderá a agregar el SDK de JavaScript para Application Insights de código abierto a un sitio web. También aprenderá a conocer mejor la experiencia de lado cliente/explorador de los visitantes de su sitio web.
 
-Esta guía de inicio rápido ayudará mediante la adición del [SDK de JavaScript de Application Insights de código abierto](https://github.com/Microsoft/ApplicationInsights-JS), que le permite comprender la experiencia del cliente o explorador para los visitantes del sitio web.
+Con Application Insights de Azure Monitor puede supervisar fácilmente la disponibilidad, el rendimiento y el uso del sitio web. También puede identificar y diagnosticar errores en la aplicación rápidamente sin tener que esperar a que un usuario informe de ellos. Application Insights proporciona funcionalidades de supervisión tanto del lado servidor como del lado cliente/explorador.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Para completar esta guía de inicio rápido:
-
-- Necesita una suscripción de Azure.
-
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Un sitio web al que puede agregar el SDK de JavaScript para Application Insights.
 
 ## <a name="enable-application-insights"></a>Habilitación de Application Insights
 
 Application Insights recopila datos de telemetría desde cualquier aplicación conectada a Internet, mediante la ejecución local o en la nube. Siga estos pasos para empezar a ver los datos.
 
-1. Seleccione **Crear un recurso** > **Herramientas de administración** > **Application Insights**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Seleccione **Crear un recurso** > **Herramientas de administración** > **Application Insights**.
 
    > [!NOTE]
    >Si esta es la primera vez que crea un recurso de Application Insights, puede obtener más información en el artículo [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
@@ -46,11 +40,11 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
     | Configuración        | Value           | Descripción  |
    | ------------- |:-------------|:-----|
-   | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
-   | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospedará los datos de Application Insights. puede crear un grupo de recursos o use uno existente. |
-   | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
+   | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que está supervisando. |
+   | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospeda los datos de Application Insights. Puede crear un grupo de recursos o usar uno existente. |
+   | **Ubicación** | Este de EE. UU. | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-2. Haga clic en **Crear**.
+3. Haga clic en **Crear**.
 
 ## <a name="create-an-html-file"></a>Creación de un archivo HTML
 
@@ -70,11 +64,11 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
     </html>
     ```
 
-## <a name="configure-app-insights-sdk"></a>Configuración del SDK de Application Insights
+## <a name="configure-application-insights-sdk"></a>Configuración del SDK de Application Insights
 
 1. Seleccione **Introducción** > **Información esencial** > copie la **clave de instrumentación** de la aplicación.
 
-   ![Formulario de nuevo recurso de Application Insights](media/website-monitoring/instrumentation-key-001.png)
+   ![Formulario Nuevo recurso de Application Insights](media/website-monitoring/instrumentation-key-001.png)
 
 2. Agregue el siguiente script en ``hello_world.html`` antes de la etiqueta de cierre ``</head>``:
 
@@ -90,13 +84,13 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
 3. Modifique ``hello_world.html`` y agregue la clave de instrumentación.
 
-4. Abra ``hello_world.html`` en una sesión de explorador local. Esto creará una vista de página única. Puede actualizar el explorador para generar varias vistas de páginas de prueba.
+4. Abra ``hello_world.html`` en una sesión de explorador local. Esta acción crea una vista de página individual. Puede actualizar el explorador para generar varias vistas de páginas de prueba.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Inicio de la supervisión en Azure Portal
 
-1. Ahora puede volver a abrir la página **Introducción** de Application Insights en Azure Portal; para ello, de donde recuperó la clave de instrumentación, para ver los detalles de la aplicación en ejecución. Los cuatro gráficos predeterminados de la página de introducción se extienden a los datos de la aplicación del lado servidor. Dado que estamos instrumentando las interacciones del cliente o explorador con el SDK de JavaScript, esta vista en particular no se aplica a menos que también tengamos instalado un SDK del lado servidor.
+1. Ya puede volver a abrir la página de **información general** de Application Insights en Azure Portal para ver los detalles de la aplicación en ejecución. La página de **información general** es donde ha recuperado la clave de instrumentación. Los cuatro gráficos predeterminados de la página de introducción se extienden a los datos de la aplicación del lado servidor. Dado que estamos instrumentando las interacciones del lado cliente/explorador con el SDK de JavaScript, esta vista concreta no se aplica, salvo que también tengamos instalado un SDK del lado servidor.
 
-2. Haga clic en el ![icono Mapa de aplicación](media/website-monitoring/006.png) **Analytics**.  Se abrirá **Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. Para ver los datos relacionados con las solicitudes de explorador del lado cliente, ejecute la siguiente consulta:
+2. Haga clic en el ![icono Mapa de aplicación](media/website-monitoring/006.png) **Analytics**.  Esta acción abre **Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. Para ver los datos relacionados con las solicitudes de explorador del lado cliente, ejecute la siguiente consulta:
 
     ```kusto
     // average pageView duration by name
@@ -115,11 +109,11 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    ![Gráfico de Analytics con las solicitudes de usuario durante un período de tiempo](./media/website-monitoring/analytics-query.png)
 
-3. Vuelva a la página **Introducción**. Haga clic en **Explorador** en el encabezado **Investigar** y, después, seleccione **Rendimiento**. Aquí encontrará las métricas relacionadas con el rendimiento del sitio web. También hay una vista para analizar los errores y excepciones en su sitio web correspondiente. Puede hacer clic en **Ejemplos** para profundizar en los detalles de cada transacción. Desde aquí, puede tener acceso a la experiencia de los [detalles de la transacción de un extremo a otro](../../azure-monitor/app/transaction-diagnostics.md).
+3. Vuelva a la página **Introducción**. Haga clic en **Explorador** en el encabezado **Investigar** y, después, seleccione **Rendimiento**. Aquí encontrará las métricas relacionadas con el rendimiento del sitio web. También hay una vista correspondiente para analizar los errores y excepciones de su sitio web. Puede hacer clic en **Ejemplos** para profundizar en los detalles de cada transacción. Desde aquí, puede tener acceso a la experiencia de los [detalles de la transacción de un extremo a otro](../../azure-monitor/app/transaction-diagnostics.md).
 
    ![Gráfico de las métricas del servidor](./media/website-monitoring/browser-performance.png)
 
-4. Para comenzar a explorar las [herramientas de análisis del comportamiento del usuario](../../azure-monitor/app/usage-overview.md), en el menú principal de Application Insights seleccione [**Usuarios**](../../azure-monitor/app/usage-segmentation.md) bajo el encabezado **Uso**. Como estamos probando desde una sola máquina, solo se verán los datos de un usuario. Para un sitio web en vivo, la distribución de los usuarios podría tener el aspecto siguiente:
+4. Para comenzar a explorar las [herramientas de análisis del comportamiento del usuario](../../azure-monitor/app/usage-overview.md), en el menú principal de Application Insights seleccione [**Usuarios**](../../azure-monitor/app/usage-segmentation.md) bajo el encabezado **Uso**. Como las pruebas se realizan desde una sola máquina, solo se verán los datos de un usuario. Para un sitio web en vivo, la distribución de los usuarios podría tener el aspecto siguiente:
 
      ![Gráfico de usuario](./media/website-monitoring/usage-users.png)
 
@@ -131,7 +125,7 @@ Para obtener configuraciones más avanzadas para supervisar sitios web, consulte
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. En caso contrario, si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal.
+Si planea realizar otros inicios rápidos o tutoriales, no limpie los recursos creados en este inicio rápido. Sin embargo, si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal.
 
 > [!NOTE]
 > Si ha usado un grupo de recursos existente, las instrucciones siguientes no funcionarán y solo necesitará eliminar el recurso individual de Application Insights. Tenga esto en cuenta que cada vez que se elimina un grupo de recursos, se eliminarán todos los recursos de subyacente que sean miembros de ese grupo.

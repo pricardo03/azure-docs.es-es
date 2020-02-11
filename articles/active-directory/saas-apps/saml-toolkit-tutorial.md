@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e5790a036a93c947a79bc2848e7be6febf30b6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122037"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983897"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Azure AD SAML Toolkit
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderás a integrar Azure AD SAML Toolkit en Azure Active D
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -76,17 +76,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Azure AD SAML Toolkit**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración. Puede recuperar la configuración mediante la página SAML Configuration (Configuración de SAML) de SAML Toolkit. 
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la página **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://samltoolkit.azurewebsites.net/`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
 
     b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL: `https://samltoolkit.azurewebsites.net`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL: `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -106,7 +106,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -136,7 +136,7 @@ En esta sección, vas a permitir que B. Simon use el inicio de sesión único d
 
     ![Configurar SAML de Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/saml-configure.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
     ![Crear SSO de Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/createsso.png)
 
@@ -152,7 +152,7 @@ En esta sección, vas a permitir que B. Simon use el inicio de sesión único d
 
     1. Haga clic en **Choose File** (Elegir archivo) para cargar el archivo de **Certificate (Raw)** (Certificado [sin procesar]) que ha descargado desde Azure Portal.
 
-    1. Haga clic en **Create**(Crear).
+    1. Haga clic en **Crear**.
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Crear un usuario de prueba de Azure AD SAML Toolkit
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e3154b9635da889ed7f0484fc04c565c27e9241b
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699500"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031516"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Extensión de servidores de archivos de Windows con Azure File Sync
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparación del entorno
 
@@ -136,7 +136,7 @@ Ya ha creado una nueva máquina virtual y ha conectado un disco de datos. Despu�
 
 En el caso del servidor de Windows Server 2016 Datacenter, deshabilite Configuración de seguridad mejorada de Internet Explorer. Este paso solo es necesario para el registro inicial del servidor. Se puede volver a habilitar una vez registrado el servidor.
 
-En la máquina virtual con Windows Server 2016 Datacenter, el Administrador del servidor se abre automáticamente.  Si el Administrador del servidor no se abre de forma predeterminada, búsquelo en el Explorador de archivos.
+En la máquina virtual con Windows Server 2016 Datacenter, el Administrador del servidor se abre automáticamente.  Si el Administrador del servidor no se abre de forma predeterminada, búsquelo en el menú Inicio.
 
 1. En el **Administrador del servidor**, seleccione **Servidor local**.
 
@@ -159,7 +159,7 @@ Ya puede agregar el disco de datos a la máquina virtual.
     ![Disco de datos](media/storage-sync-files-extend-servers/your-disk.png)
 
 1. Haga clic con el botón derecho en el disco de 1 GB llamado **Msft Virtual Disk** y seleccione **New volume** (Volumen nuevo).
-1. Realice los pasos del asistente. Use la configuración predeterminada y tome nota de la letra de unidad asignada.
+1. Finalice el asistente. Use la configuración predeterminada y tome nota de la letra de unidad asignada.
 1. Seleccione **Crear**.
 1. Seleccione **Cerrar**.
 
@@ -217,12 +217,12 @@ Para implementar Azure File Sync, en primer lugar coloque un recurso del **servi
 
    En el panel que se abre, escriba la siguiente información:
 
-   | Valor | DESCRIPCIÓN |
+   | Value | Descripción |
    | ----- | ----- |
    | **Nombre** | Un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.<br><br>Use _afssyncservice02_ para este tutorial. |
    | **Suscripción** | La suscripción de Azure que utiliza para este tutorial. |
    | **Grupos de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento.<br><br>Use _afsresgroup101918_ para este tutorial. |
-   | **Ubicación** | East US |
+   | **Ubicación** | Este de EE. UU. |
 
 1. Cuando haya terminado, seleccione **Crear** para implementar el **servicio de sincronización de almacenamiento**.
 1. Seleccione la pestaña **Notificaciones** > **Ir al recurso**.
@@ -263,7 +263,7 @@ Tras la instalación del agente de Azure File Sync, la interfaz de usuario de Re
 
    | | |
    | ----- | ----- |
-   | Valor | DESCRIPCIÓN |
+   | Value | Descripción |
    | **Suscripción de Azure** | La suscripción que contiene el servicio de sincronización de almacenamiento de este tutorial. |
    | **Grupo de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento. Use _afsresgroup101918_ para este tutorial. |
    | **Servicio de sincronización de almacenamiento** | El nombre del servicio de sincronización de almacenamiento. Use _afssyncservice02_ para este tutorial. |
@@ -282,7 +282,7 @@ Un grupo de sincronización define la topología de sincronización de un conjun
 
 1. Escriba la siguiente información para crear un grupo de sincronización con un punto de conexión en la nube:
 
-   | Valor | DESCRIPCIÓN |
+   | Value | Descripción |
    | ----- | ----- |
    | **Nombre del grupo de sincronización** | Este nombre debe ser único dentro del servicio de sincronización de almacenamiento, pero puede ser cualquier nombre que considere lógico. Use *afssyncgroup* para este tutorial.|
    | **Suscripción** | La suscripción en la que se ha implementado el servicio de sincronización de almacenamiento de este tutorial. |
@@ -305,7 +305,7 @@ Un punto de conexión del servidor representa una ubicación concreta en un serv
 
    | | |
    | ----- | ----- |
-   | Valor | DESCRIPCIÓN |
+   | Value | Descripción |
    | **Servidor registrado** | El nombre del servidor que ha creado. Use *afsvm101918* para este tutorial. |
    | **Path** | La ruta de acceso del servidor de Windows Server a la unidad que ha creado. Use *f:\filestosync* en este tutorial. |
    | **Nube por niveles** | Déjelo deshabilitado para este tutorial. |

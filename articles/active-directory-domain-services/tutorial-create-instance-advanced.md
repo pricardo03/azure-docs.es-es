@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 46764fdae89d5af4c9dedf4037d07dc48d1cda83
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e969ed4f525d0b3d17339b9f9a6111ad81b0125
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703674"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931637"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -46,7 +46,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 Aunque no es necesario para Azure AD DS, se recomienda [configurar el autoservicio de restablecimiento de contraseña (SSPR) ][configure-sspr] para el inquilino de Azure AD. Los usuarios pueden cambiar su contraseña sin SSPR, pero este les ayuda si olvidan la contraseña y necesitan restablecerla.
 
 > [!IMPORTANT]
-> Después de crear un dominio administrado de Azure AD DS, no puede trasladar la instancia a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar la instancia de Azure AD DS.
+> Después de crear un dominio administrado de Azure AD DS, no puede trasladar la instancia a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar la instancia de Azure AD DS.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -94,6 +94,9 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
 
     No es necesario realizar ninguna configuración para que Azure AD DS se distribuya entre zonas. La plataforma Azure controla automáticamente la distribución en zonas de los recursos. Para más información y consulta de la disponibilidad en las regiones, consulte [¿Qué son las zonas de disponibilidad en Azure?][availability-zones]
 
+1. La **SKU** determina el rendimiento, la frecuencia de la copia de seguridad y el número máximo de confianzas de bosque que se pueden crear. Puede cambiar la SKU una vez creado el dominio administrado si cambian sus necesidades o requisitos empresariales. Para más información, consulte [Conceptos de las SKU de Azure AD DS][concepts-sku].
+
+    Para este tutorial, seleccione la SKU *Estándar*.
 1. Un *bosque* es una construcción lógica que Active Directory Domain Services utiliza para agrupar uno o más dominios. De forma predeterminada, un dominio administrado de Azure AD DS se crea como un bosque de *Usuario*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
 
     En este tutorial, elija crear un bosque de *Usuario*.
@@ -102,9 +105,9 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
 
 1. Para configurar manualmente opciones adicionales, elija **Siguiente - Redes**. En caso contrario, seleccione **Revisión y creación** para aceptar las opciones de configuración predeterminadas y, luego, vaya a la sección [Deploy your managed domain](#deploy-the-managed-domain) (Implementar un dominio administrado). Los siguientes valores predeterminados se configuran al elegir esta opción de creación:
 
-* Crea una red virtual llamada *aadds-vnet* que usa el intervalo de direcciones IP *10.0.1.0/24*.
-* Crea una subred denominada *aadds-subnet* mediante el intervalo de direcciones IP *10.0.1.0/24*.
-* Sincroniza *Todos* los usuarios de Azure AD con el dominio administrado de Azure AD DS.
+    * Crea una red virtual llamada *aadds-vnet* que usa el intervalo de direcciones IP *10.0.1.0/24*.
+    * Crea una subred denominada *aadds-subnet* mediante el intervalo de direcciones IP *10.0.1.0/24*.
+    * Sincroniza *Todos* los usuarios de Azure AD con el dominio administrado de Azure AD DS.
 
 ## <a name="create-and-configure-the-virtual-network"></a>Creación y configuración de la red virtual
 
@@ -125,7 +128,7 @@ Complete los campos de la ventana *Red* de la siguiente manera:
     1. Si elige crear una red virtual, escriba un nombre para ella, por ejemplo, *myVnet* y, después, proporcione un intervalo de direcciones, como *10.0.1.0/24*.
     1. Cree una subred dedicada con un nombre claro, por ejemplo *DomainServices*. Indique un intervalo de direcciones, como *10.0.1.0/24*.
 
-    ![Creación de una red virtual y una subred para su uso con Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)
+    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Asegúrese de seleccionar un intervalo de direcciones que se encuentre dentro de su intervalo de direcciones IP privadas. Los intervalos de direcciones IP que no son de su propiedad y que se encuentran en el espacio de direcciones públicas provocan errores en Azure AD DS.
 
@@ -223,7 +226,7 @@ Tras el cambio, la nueva contraseña tarda unos minutos en poder usarse en Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Configuración de DNS y los parámetros de red virtual para un dominio administrado
@@ -248,5 +251,6 @@ Para ver este dominio administrado en acción, cree una máquina virtual y únal
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->

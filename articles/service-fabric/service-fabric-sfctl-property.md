@@ -3,14 +3,14 @@ title: 'CLI de Azure Service Fabric: sfctl property'
 description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para almacenar y consultar propiedades.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639112"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905833"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Almacene y consulte las propiedades con nombres de Service Fabric.
@@ -105,7 +105,7 @@ Crea o actualiza la propiedad de Service Fabric especificada con un nombre concr
 | --- | --- |
 | --name-id       [obligatorio] | Nombre de Service Fabric, sin el esquema de URI "fabric\:". |
 | --property-name [obligatorio] | El nombre de la propiedad de Service Fabric. |
-| --value         [obligatorio] | Describe un valor de propiedad de Service Fabric. Se trata de una cadena JSON. <br><br> La cadena json tiene dos campos, el "tipo" de los datos y el "valor" de los datos. El valor de "tipo" debe ser el primer elemento en aparecer en la cadena JSON, y puede ser "Binary", "Int64", "Double", "String" o "Guid". El valor debe poder compatible con la serialización para los tipos especificados. Los valores de "tipo" y "datos" deben proporcionarse como cadenas. |
+| --value         [obligatorio] | Describe un valor de propiedad de Service Fabric. Se trata de una cadena JSON. <br><br> La cadena JSON tiene dos campos: "Kind", el tipo de los datos y "Data", el valor de los datos. El valor de "tipo" debe ser el primer elemento en aparecer en la cadena JSON, y puede ser "Binary", "Int64", "Double", "String" o "Guid". El valor debe poder compatible con la serialización para los tipos especificados. Los valores de "tipo" y "datos" deben proporcionarse como cadenas. |
 | --custom-id-type | El identificador del tipo personalizado de la propiedad. Con esta propiedad, el usuario es capaz de etiquetar el tipo del valor de la propiedad. |
 | --timeout -t | Valor predeterminado\: 60. |
 

@@ -1,20 +1,20 @@
 ---
-title: Introducción a Azure Portal | Microsoft Docs
+title: Introducción al Centro de inicio rápido de Azure
 description: Uso de la experiencia guiada del Centro de inicio rápido de Azure para empezar a trabajar con Azure. Aprenda a configurar, migrar e innovar.
 services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 09/13/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 624be4cca4fd274fdc5d2b2c374b87b3e0974888
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 21dd43b5179d0752699bb56b51a2c08976aa037b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310545"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900690"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Introducción al Centro de inicio rápido de Azure
 
@@ -24,17 +24,19 @@ El Centro de inicio rápido de Azure es una experiencia guiada en Azure Portal d
 
 El Centro de inicio rápido de Azure tiene tres opciones para empezar:
 
-* **Guías de configuración**: Diseñadas para el administrador de TI y el arquitecto de la nube, nuestras guías presentan conceptos clave para la adopción de Azure. Los pasos estructurados le ayudan a tomar medidas mientras aprende, aplicando los procedimientos recomendados de Microsoft. La guía de migración le ayudará a evaluar la preparación y a realizar el planeamiento del cambio a Azure.
+* **Guías de configuración**: Diseñadas para el administrador de TI y el arquitecto de la nube, nuestras guías presentan conceptos clave para la adopción de Azure. Los pasos estructurados le ayudan a tomar medidas mientras aprende, con la aplicación de los procedimientos recomendados de Microsoft. La guía de migración le ayuda a evaluar la preparación y a realizar el planeamiento del cambio a Azure.
 
-* **Iniciar un proyecto**: Si está listo para crear un recurso, esta sección le permite obtener más información sobre las opciones de las que dispone antes de confirmar una opción de servicio. Podrá obtener más información sobre el servicio y por qué debe usarlo, explorar los costos e identificar los requisitos previos. Después de realizar la elección, puede pasar directamente a crear.
+* **Iniciar un proyecto**: si está listo para crear un recurso, esta sección le permite aprender más sobre las opciones de las que dispone antes de confirmar una opción de servicio. Descubrirá más cosas sobre el servicio y por qué debe usarlo, explorará los costos e identificará los requisitos previos. Después de realizar la elección, puede pasar directamente a crear.
 
 * **Aprendizaje en línea**: En esta sección del Centro de inicio rápido de Azure se destacan los módulos de los cursos introductorios gratuitos de Microsoft Learn. Seleccione un icono para iniciar un curso y obtener más información sobre los conceptos de la nube y la administración de recursos en Azure.
 
 ## <a name="how-to-use-azure-quickstart-center"></a>Uso del Centro de inicio rápido de Azure
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione **Todos los servicios** en la parte superior de la barra lateral.
-1. Seleccione **General** > **Centro de inicio rápido**. Seleccione el icono de estrella para guardar en **Favoritos**.
+
+1. Seleccione **Todos los servicios** en el menú de Azure Portal.
+
+1. Seleccione **General** > **Centro de inicio rápido**.
 
 Para obtener una visión detallada de lo que puede hacer el Centro de inicio rápido de Azure, consulte este vídeo:
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]

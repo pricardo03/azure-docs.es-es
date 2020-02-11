@@ -9,18 +9,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35f99abaf5e0142c29d6dd43c968b66b21a28a50
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f752c77a6a62b9b259a8bb1869ca03ff6a19b1f5
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898530"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020886"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Arquitectura del centro de micrologística
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
-
-Las soluciones del centro de micrologística le permiten conectar, supervisar y administrar de forma digital todos los aspectos de un centro de logística totalmente automatizado para reducir los costos eliminando el tiempo de inactividad y aumentando la seguridad y la eficiencia general. Estas soluciones se pueden compilar aprovechando una de las plantillas de aplicación de IoT Central y la arquitectura siguiente como guía.
+Las soluciones del centro de micrologística le permiten conectar, supervisar y administrar de forma digital todos los aspectos de un centro de logística totalmente automatizado para reducir los costos eliminando el tiempo de inactividad y aumentando la seguridad y la eficiencia general. Estas soluciones se pueden compilar mediante una de las plantillas de aplicación de IoT Central y la arquitectura siguiente como guía.
 
 ![Análisis de tienda de Azure IoT Central](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
@@ -34,11 +32,11 @@ Echemos un vistazo a los componentes clave que generalmente desempeñan algún p
 
 ## <a name="robotic-carriers"></a>Operadores robóticos
 
-Es probable que una solución de centro de micrologística tenga un gran conjunto de operadores robóticos que generen una variedad de señales de telemetría. Estas señales se pueden ingerir mediante un dispositivo de puerta de enlace, agregar y enviar a IoT Central como se refleja en el lado izquierdo del diagrama de la arquitectura.  
+Es probable que una solución de centro de micrologística tenga un gran conjunto de operadores robóticos que generen diferentes tipos de señales de telemetría. Estas señales se pueden ingerir mediante un dispositivo de puerta de enlace, agregar y enviar a IoT Central como se refleja en el lado izquierdo del diagrama de la arquitectura.  
 
 ## <a name="condition-monitoring-sensors"></a>Sensores de supervisión del estado
 
-Una solución de IoT comienza con un conjunto de sensores que capturan señales significativas desde dentro del centro de logística. Se refleja en diversos sensores en el extremo izquierdo del diagrama de arquitectura anterior.
+Una solución de IoT comienza con un conjunto de sensores que capturan señales significativas desde dentro del centro de logística. Se refleja en diferentes tipos de sensores en el extremo izquierdo del diagrama de arquitectura anterior.
 
 ## <a name="gateway-devices"></a>Dispositivos de puerta de enlace
 
@@ -46,7 +44,7 @@ Muchos sensores de IoT pueden alimentar señales sin procesar directamente en la
 
 ## <a name="iot-central-application"></a>Aplicación de IoT Central
 
-La aplicación de Azure IoT Central ingiere datos de diversos sensores de IoT, robots, así como dispositivos de puerta de enlace, en el entorno del centro de logística y genera un conjunto de conclusiones significativas.
+La aplicación de Azure IoT Central ingiere datos de diferentes tipos de sensores de IoT, robots, así como dispositivos de puerta de enlace, en el entorno del centro de logística y genera un conjunto de conclusiones significativas.
 
 Azure IoT Central también ofrece una experiencia personalizada para el operador de tienda que le permite supervisar y administrar de forma remota los dispositivos de infraestructura.
 
@@ -54,8 +52,8 @@ Azure IoT Central también ofrece una experiencia personalizada para el operad
 Puede configurarse la aplicación de Azure IoT Central dentro de una solución para exportar conclusiones sin procesar o agregadas a un conjunto de servicios de plataforma como servicio (PaaS) de Azure que pueden realizar manipulación de datos y enriquecer estas conclusiones antes de colocarlas en una aplicación empresarial. 
 
 ## <a name="business-application"></a>Aplicación empresarial
-Los datos de IoT se pueden usar para potenciar diversas aplicaciones empresariales implementadas en un entorno minorista. El administrador del centro de logística o un empleado pueden utilizar estas aplicaciones para visualizar conclusiones empresariales y tomar medidas significativas en tiempo real. Para obtener información sobre cómo crear un panel de Power BI en tiempo real para el equipo comercial, consulte el [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
+Los datos de IoT se pueden usar para potenciar diferentes tipos de aplicaciones empresariales implementadas en un entorno minorista. El administrador del centro de logística o un empleado pueden utilizar estas aplicaciones para visualizar conclusiones empresariales y tomar medidas significativas en tiempo real. Para obtener información sobre cómo crear un panel de Power BI en tiempo real para el equipo comercial, consulte el [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Introducción a la plantilla de aplicación del [centro de micrologística](https://aka.ms/checkouttemplate). 
-* Eche un vistazo al [tutorial](https://aka.ms/mfc-tutorial) que le guía en la creación de una solución que aprovecha la plantilla de aplicación del centro de micrologística.
+* Eche un vistazo al [tutorial](https://aka.ms/mfc-tutorial) que le guía en la creación de una solución mediante la plantilla de aplicación del centro de micrologística.

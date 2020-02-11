@@ -30,7 +30,7 @@ ms.locfileid: "75773907"
     > [!div class="mx-imgBorder"]
     > ![Vista de recurso de emparejamiento](../media/setup-direct-get-overview.png)
 
-1. A la izquierda, haga clic en **ASN Information** (Información de ASN)** para ver la información enviada durante la creación de PeerAsn.
+1. A la izquierda, haga clic en **ASN Information** (Información de ASN) para ver la información enviada durante la creación de PeerAsn.
 
     > [!div class="mx-imgBorder"]
     > ![Vista de recurso de emparejamiento](../media/setup-direct-get-asninfo.png)

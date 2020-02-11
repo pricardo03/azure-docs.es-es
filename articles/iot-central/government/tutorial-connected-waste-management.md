@@ -7,33 +7,34 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 38da444779a56f39d4119f3797ddb5bd2f31aeae
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112646"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016500"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Creación de una aplicación de administración de residuos conectada en IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial le guía por los pasos para crear una aplicación de administración de residuos conectada con la plantilla de aplicación **Administración de residuos conectada** de Azure IoT Central. 
 
-En este tutorial aprenderá a: 
+En este tutorial, aprenderá a: 
 
 > [!div class="checklist"]
+
 > * Usar la plantilla **Administración de residuos conectada** de Azure IoT Central para crear la aplicación de administración de residuos conectada
 > * Explorar y personalizar el panel del operador 
 > * Explorar la plantilla de dispositivo de cubo de basura conectado
 > * Explorar los dispositivos simulados
-> * Explorar y configurar reglas
+> * Exploración y configuración de reglas
 > * Trabajos de configuración
 > * Realizar la personalización de marca de la aplicación mediante etiquetado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para realizar este tutorial, necesita:
+Para completar este tutorial, necesita:
 -  Se recomienda una suscripción de Azure. Opcionalmente, puede usar una evaluación gratuita de 7 días. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-connected-waste-management-app-in-iot-central"></a>Creación de una aplicación de administración de residuos conectada en IoT Central
@@ -59,12 +60,15 @@ Para crear una aplicación de administración de residuos conectada de Azure IoT
     * **URL**: tiene la opción de elegir la dirección URL que prefiera. También puede cambiarla más adelante. 
     * Si tiene una suscripción de Azure, escriba el *directorio, la suscripción de Azure y la región*. Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.  
 
-    Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../preview/quick-deploy-iot-central.md).
+    Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../core/quick-deploy-iot-central.md).
 
 5. En la parte inferior de la página, haga clic en **Create** (Crear). 
 
     ![Página de creación de una aplicación de residuos conectados de Azure IoT Central](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
+    
+    ![Página de información de facturación de la creación de una aplicación conectada de Azure IoT Central](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
+ 
 6. Ahora ha creado una aplicación de administración de residuos conectados mediante la plantilla **Connected waste management** de Azure IoT Central. 
 
 Felicidades. La aplicación recién creada incluye la siguiente configuración:
@@ -149,7 +153,7 @@ Pruebe a personalizar lo siguiente:
 ### <a name="add-a-cloud-property"></a>Adición de una propiedad de la nube 
 
 1. Vaya a **Cloud property** (Propiedad de la nube) en el menú de la plantilla de dispositivo.
-2. Haga clic en **+ Add Cloud Property** (+ Agregar propiedad de la nube). En IoT Central, puede agregar a un dispositivo una propiedad que sea pertinente, aunque no se espera que la envíe el dispositivo. Por ejemplo, una propiedad de la nube podría ser un umbral de alerta específico del área de instalación, información de recursos o información de mantenimiento. 
+2. Haga clic en **+ Add Cloud Property** (+ Agregar propiedad de la nube). En IoT Central, puede agregar a un dispositivo una propiedad que sea pertinente, aunque no se espera que la envíe el dispositivo. Por ejemplo, una propiedad de la nube podría ser un umbral de alerta específico del área de instalación, información de recursos o información de mantenimiento, etc. 
 3. Haga clic en **Save** (Guardar) para guardar los cambios. 
  
 ### <a name="views"></a>Vistas 

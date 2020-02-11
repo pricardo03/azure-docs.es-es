@@ -4,14 +4,14 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: d76338ccd4dcdf7a9a9a96baa1fb47ed5272d5ff
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8a8619da831dfa5b240bd93d3a046c49cc30affa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72822035"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901424"
 ---
-| Resource | Recursos compartidos de archivos estándar | Recursos compartidos de archivos Premium |
+| Resource | Recursos compartidos de archivos estándar | Recursos compartidos de archivos Prémium |
 |----------|---------------|------------------------------------------|
 | Tamaño máximo de un recurso compartido de archivos | Sin mínimo; pago por uso | 100 GiB; aprovisionado |
 | Tamaño máximo de un recurso compartido de archivos | 100 TiB*, 5 TiB | 100 TiB |
@@ -27,4 +27,4 @@ ms.locfileid: "72822035"
 | Longitud máxima del nombre de objeto (archivos y directorios) | 2048 caracteres | 2048 caracteres |
 | Número máximo de componentes de la ruta de acceso (en la ruta de acceso \A\B\C\D, cada letra es un componente) | 255 caracteres | 255 caracteres |
 
-\* No disponible en todas las regiones, consulte [Disponibilidad regional](../articles/storage/files/storage-files-planning.md#regional-availability) para ver una lista de las regiones disponibles.
+\* Disponible en la mayoría de las regiones. Consulte [Disponibilidad regional](../articles/storage/files/storage-files-planning.md#regional-availability) para más información al respecto.

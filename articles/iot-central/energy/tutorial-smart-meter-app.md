@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a73f4d75811a384eb822d1f8594a22506509d560
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112544"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016007"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Creación y recorrido de la plantilla de aplicación de supervisión de medidores inteligentes 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial le guía por el proceso de creación de la aplicación de supervisión de medidores inteligentes, que incluye un modelo de dispositivo de ejemplo con datos simulados. En este tutorial, aprenderá a:
 
@@ -29,7 +29,7 @@ Este tutorial le guía por el proceso de creación de la aplicación de supervis
 
 Si no tiene ninguna suscripción, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 - None
 - Le recomendamos que use una suscripción a Azure para la aprueba, aunque no es obligatorio.
 
@@ -42,7 +42,7 @@ Puede crear esta aplicación en tres sencillos pasos:
 2. Seleccione la pestaña **Energía** y haga clic en **Crear aplicación** en el icono de la aplicación **Supervisión de medidores inteligentes**.
 
     > [!div class="mx-imgBorder"]
-    > ![Compilar la aplicación](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
+    > ![Compilar una aplicación](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
 3. Con la opción **Crear aplicación** se abrirá el formulario **Nueva aplicación**. Rellene los detalles solicitados tal como se muestra en la ilustración siguiente:
@@ -50,9 +50,11 @@ Puede crear esta aplicación en tres sencillos pasos:
     * **URL**: elija una dirección URL de IoT Central y la plataforma verificará su unicidad.
     * **Prueba gratuita de 7 días**: si ya tiene una suscripción a Azure, se recomienda la configuración predeterminada. Si no tiene ninguna, inicie una evaluación gratuita.
     * **Información de facturación**: la aplicación es gratuita. Los detalles del directorio, la suscripción a Azure y la región son necesarios para aprovisionar los recursos de la aplicación.
-    * Haga clic en el botón **Crear** en la parte inferior de la página y la aplicación se creará en un minuto aproximadamente.     
-        > [!div class="mx-imgBorder"]
-        > ![Formulario de nueva aplicación](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+    * Haga clic en el botón **Crear** en la parte inferior de la página y la aplicación se creará en un minuto aproximadamente.
+
+        ![Formulario de nueva aplicación](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+
+        ![Información de facturación de un formulario de nueva aplicación](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verificación de la aplicación y los datos simulados

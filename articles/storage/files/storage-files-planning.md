@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771622"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906276"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -201,49 +201,14 @@ Esta sección solo se aplica a los recursos compartidos de archivos estándar. T
 
 ### <a name="regional-availability"></a>Disponibilidad regional
 
-Los recursos compartidos de archivos estándar están disponibles en todas las regiones hasta 5 TiB. En determinadas regiones, están disponible con un límite de 100 TiB. Esas regiones se muestran en la tabla siguiente:
+Están disponibles recursos compartidos de archivos estándar con el límite de capacidad de 100 TiB a nivel global en todas las regiones de Azure.
 
-|Region |Redundancia admitida |
-|-------|---------|
-|Centro de Australia    |LRS     |
-|Centro de Australia 2    |LRS     |
-|Este de Australia |LRS     |
-|Sudeste de Australia|LRS |
-|Sur de Brasil    |LRS     |
-|Centro de Canadá  |LRS     |
-|Este de Canadá     |LRS     |
-|India Central  |LRS     |
-|Centro de EE. UU.*   |LRS, ZRS    |
-|Asia oriental      |LRS     |
-|Este de EE. UU.*        |LRS, ZRS|
-|Este de EE. UU. 2*      |LRS, ZRS     |
-|Centro de Francia |LRS, ZRS|
-|Sur de Francia   |LRS     |
-|Este de Japón     |LRS     |
-|Oeste de Japón     |LRS     |
-|Corea Central  |LRS     |
-|Corea del Sur    |LRS     |
-|Centro-Norte de EE. UU |LRS   |
-|Europa del Norte   |LRS     |
-|Sur de la India    |LRS     |
-|Centro-Sur de EE. UU |LRS     |
-|Sudeste asiático |LRS, ZRS|
-|Norte de Suiza    |LRS     |
-|Oeste de Suiza    |LRS     |
-|Centro de Emiratos Árabes Unidos    |LRS     |
-|Norte de Emiratos Árabes Unidos    |LRS     |
-|Norte del Reino Unido   |LRS, ZRS    |
-|Sur de Reino Unido 2    |LRS     |
-|Oeste de Reino Unido    |LRS     |
-|Centro occidental de EE.UU.|LRS     |
-|Oeste de Europa*    |LRS, ZRS|
-|Oeste de la India   |LRS     |
-|Oeste de EE. UU.        |LRS     |
-|Oeste de EE. UU. 2      |LRS, ZRS|
+- LRS: todas las regiones, excepto Norte de Sudáfrica y Oeste de Sudáfrica.
+   - Las nubes nacionales (Government, Alemania, China) se admiten mediante PowerShell y la interfaz de la línea de comandos (CLI) de Azure. Sin compatibilidad con el portal. 
+   - Este de EE. UU., Este de EE. UU. 2, Oeste de Europa: Se admiten todas las cuentas nuevas. Un número pequeño de cuentas existentes no ha completado el proceso de actualización. Puede comprobar si las cuentas de almacenamiento existentes han completado el proceso de actualización si intenta [habilitar los recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
 
-\* Compatible con cuentas nuevas, no todas las cuentas existentes han completado el proceso de actualización. Puede comprobar si las cuentas de almacenamiento existentes han completado el proceso de actualización si intenta [habilitar los recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
-
-Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características, rellene esta [encuesta](https://aka.ms/azurefilesatscalesurvey).
+- ZRS: todas las regiones, excepto Japón Oriental, Europa del Norte, Norte de Sudáfrica.
+- GRS/GZRS: No compatible.
 
 ### <a name="enable-and-create-larger-file-shares"></a>Habilitación y creación de recursos compartidos de archivos de mayor tamaño
 

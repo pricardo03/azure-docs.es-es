@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 12/02/2019
 ms.author: swmachan
-ms.openlocfilehash: 62c101751e07d8ee31789191ad45fbdd33a1bc4b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2ec8d389c99ad96e59bf49d4345855fa44d6c7aa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707958"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902006"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -40,79 +40,87 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 > [!NOTE]
 > Actualmente, un subconjunto de los idiomas neuronales está disponible en Traductor personalizado y agregamos otros adicionales de forma gradual. [Vea los idiomas disponibles actualmente en Traductor personalizado](#customization).
 
-|Idioma|  Código de idioma|  API V2| API V3|
-|:-----|:-----:|:-----|:-----|
-|Afrikáans| `af`    |Solo estadísticas|  Neuronal|
-|Árabe|    `ar`    |Traducción neuronal disponible|  Neuronal|
-|Bengalí|    `bn`    |Traducción neuronal disponible|  Neuronal|
-|Bosnio (latino)|   `bs`    |Traducción neuronal disponible|  Neuronal|
-|Búlgaro| `bg`    |Traducción neuronal disponible|  Neuronal|
-|Cantonés (tradicional)|   `yue`   |Solo estadísticas|  Estadística|
-|Catalán|   `ca`    |Solo estadísticas|  Estadística|
-|Chino simplificado|    `zh-Hans`   |Neuronal como sistema predeterminado |Neuronal|
-|Chino tradicional|   `zh-Hant`   |Neuronal como sistema predeterminado |Neuronal|
-|Croata|  `hr`    |Traducción neuronal disponible|  Neuronal|
-|Checo| `cs`    |Traducción neuronal disponible|  Neuronal|
-|Danés|    `da`    |Traducción neuronal disponible   |Neuronal|
-|Neerlandés| `nl`    |Traducción neuronal disponible|  Neuronal|
-|English|   `en`    |Traducción neuronal disponible|  Neuronal|
-|Estonio|  `et`    |Traducción neuronal disponible|  Neuronal|
-|Fiyiano|    `fj`    |Solo estadísticas|  Estadística|
-|Filipino|  `fil`   |Solo estadísticas|  Estadística|
-|Finés|   `fi`    |Traducción neuronal disponible|  Neuronal|
-|Francés|    `fr`    |Traducción neuronal disponible|  Neuronal|
-|Alemán|    `de`    |Traducción neuronal disponible|  Neuronal|
-|Griego| `el`    |Traducción neuronal disponible|  Neuronal|
-|Criollo haitiano|    `ht`    |Solo estadísticas   |Estadística|
-|Hebreo |`he`   |Traducción neuronal disponible   |Neuronal|
-|Hindi| `hi`    |Neuronal como sistema predeterminado|    Neuronal|
-|Hmong Daw| `mww`   |Solo estadísticas|  Estadística|
-|Húngaro| `hu`    |Traducción neuronal disponible|  Neuronal|
-|Islandés| `is`    |Solo neuronal|   Neuronal|
-|Indonesio|    `id`    |Solo estadísticas|  Estadística|
-|Italiano|   `it`    |Traducción neuronal disponible|  Neuronal|
-|Japonés|  `ja`    |Traducción neuronal disponible|  Neuronal|
-|Kiswahili| `sw`    |Solo estadísticas|  Estadística|
-|Klingon|   `tlh`   |Solo estadísticas|  Estadística|
-|Klingon (plqaD)|   `tlh-Qaak`  |Solo estadísticas|  Estadística|
-|Coreano |`ko`   |Traducción neuronal disponible|  Neuronal|
-|Letón|   `lv`    |Traducción neuronal disponible|  Neuronal|
-|Lituano|    `lt`    |Traducción neuronal disponible|  Neuronal|
-|Malgache|  `mg`    |Solo estadísticas|  Estadística|
-|Malayo| `ms`    |Solo estadísticas   |Estadística|
-|Maltés|   `mt`    |Solo estadísticas|  Estadística|
-|Maori| `mi`  |Solo neuronal| Neuronal|
-|Noruego| `nb`    |Traducción neuronal disponible|  Neuronal|
-|Persa|   `fa`    |Traducción neuronal disponible|  Neuronal|
-|Polaco|    `pl`    |Traducción neuronal disponible|  Neuronal|
-|Portugués|    `pt`    |Traducción neuronal disponible|  Neuronal|
-|Otomí Querétaro|   `otq`   |Solo estadísticas|  Estadística|
-|Rumano|  `ro`    |Traducción neuronal disponible|  Neuronal|
-|Ruso|   `ru`    |Traducción neuronal disponible|  Neuronal|
-|Samoano|    `sm`    |Solo estadísticas|  Estadística|
-|Serbio (cirílico)|    `sr-Cyrl`   |Solo estadísticas|  Estadística|
-|Serbio (latino)|   `sr-Latn`   |Solo estadísticas   |Estadística|
-|Eslovaco|    `sk`    |Traducción neuronal disponible|  Neuronal|
-|Esloveno| `sl`    |Traducción neuronal disponible|  Neuronal|
-|Español|   `es`    |Traducción neuronal disponible|  Neuronal|
-|Sueco|   `sv`    |Traducción neuronal disponible   |Neuronal|
-|Tahitiano|  `ty`    |Solo estadísticas|  Estadística|
-|Tamil| `ta`    |Traducción neuronal disponible | Neuronal|
-|Telugu|    `te`    |Solo neuronal|   Neuronal|
-|Tailandés|  `th`    |Traducción neuronal disponible|  Neuronal|
-|Tongano|    `to`    |Solo estadísticas|  Estadística|
-|Turco|   `tr`    |Traducción neuronal disponible   |Neuronal|
-|Ucraniano| `uk`    |Traducción neuronal disponible|  Neuronal|
-|Urdu|  `ur`    |Solo estadísticas|  Estadística|
-|Vietnamita|    `vi`    |Traducción neuronal disponible|  Neuronal|
-|Galés| `cy`    |Traducción neuronal disponible|  Neuronal|
-|Maya Yucateco|  `yua`   |Solo estadísticas|  Estadística|
+|Idioma|  Código de lenguaje|  API V3|
+|:-----|:-----:|:-----|
+|Afrikáans| `af`|   Neuronal|
+|Árabe|    `ar`    |   Neuronal|
+|Bengalí|    `bn`    |   Neuronal|
+|Bosnio (latino)|   `bs`    |   Neuronal|
+|Búlgaro| `bg`    |   Neuronal|
+|Cantonés (tradicional)|   `yue`|  Estadística|
+|Catalán|   `ca`    |   Estadística|
+|Chino simplificado|    `zh-Hans`|Neuronal|
+|Chino tradicional|   `zh-Hant`       |Neuronal|
+|Croata|  `hr`    |Neuronal|
+|Checo| `cs`    |   Neuronal|
+|Danés|    `da`        |Neuronal|
+|Neerlandés| `nl`|   Neuronal|
+|Inglés|   `en`    |   Neuronal|
+|Estonio|  `et`    |   Neuronal|
+|Fiyiano|    `fj`    |   Estadística|
+|Filipino|  `fil`   |   Estadística|
+|Finés|   `fi`    |   Neuronal|
+|Francés|    `fr`    |   Neuronal|
+|Alemán|    `de`    |   Neuronal|
+|Griego| `el`    |   Neuronal|
+|Criollo haitiano|    `ht`        |Estadística|
+|Hebreo |`he`   |Neuronal
+|Hindi| `hi`    |   Neuronal|
+|Hmong Daw| `mww`   |   Estadística|
+|Húngaro| `hu`    |   Neuronal|
+|Islandés| `is`    |   Neuronal|
+|Indonesio|    `id`    |   Estadística|
+|Irlandés | `ga`| Neuronal
+|Italiano|   `it`    |   Neuronal|
+|Japonés|  `ja`    |   Neuronal|
+|Canarés|`kn`| Neuronal
+|Kiswahili| `sw`    |   Estadística|
+|Klingon|   `tlh`   |   Estadística|
+|Klingon (plqaD)|   `tlh-Qaak`  |   Estadística|
+|Coreano |`ko`   |   Neuronal|
+|Letón|   `lv`    |   Neuronal|
+|Lituano|    `lt`    |   Neuronal|
+|Malgache|  `mg`    |   Estadística|
+|Malayo| `ms`        |Estadística|
+|Malayalam| `ml` | Neuronal
+|Maltés|   `mt`    |   Estadística|
+|Maori| `mi`  | Neuronal|
+|Noruego| `nb`    |   Neuronal|
+|Persa|   `fa`    |   Neuronal|
+|Polaco|    `pl`    |   Neuronal|
+|Portugués (Brasil)|   `pt-br` |   Neuronal|
+|Portugués (Portugal)| `pt-pt` | Neuronal
+|Punjabi|`pa`|Neuronal
+|Otomí Querétaro|   `otq`   |   Estadística|
+|Rumano|  `ro`    |   Neuronal|
+|Ruso|   `ru`    |   Neuronal|
+|Samoano|    `sm`    |   Estadística|
+|Serbio (cirílico)|    `sr-Cyrl`|  Estadística|
+|Serbio (latino)|   `sr-Latn`       |Estadística|
+|Eslovaco|    `sk`    |   Neuronal|
+|Esloveno| `sl`    |   Neuronal|
+|Español|   `es`    |   Neuronal|
+|Sueco|   `sv`    |Neuronal|
+|Tahitiano|  `ty`    |Estadística|
+|Tamil| `ta`    |   Neuronal|
+|Telugu|    `te`    |   Neuronal|
+|Tailandés|  `th`    |   Neuronal|
+|Tongano|    `to`    |   Estadística|
+|Turco|   `tr`        |Neuronal|
+|Ucraniano| `uk`    |   Neuronal|
+|Urdu|  `ur`    |   Estadística|
+|Vietnamita|    `vi`    |   Neuronal|
+|Galés| `cy`    |   Neuronal|
+|Maya Yucateco|  `yua`   |   Estadística|
+
+> [!NOTE]
+> El código de idioma `pt` se establece de forma predeterminada en `pt-br`, Portugués (Brasil).
 
 ## <a name="transliteration"></a>Transliteración
 
 El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->" indica que el idioma se puede transliterar hacia o desde cualquiera de los alfabetos enumerados. "-->" indica que el idioma solo se puede transliterar de un idioma al otro.
 
-| Idioma    | Código de idioma | Script | Hacia/Desde | Script|
+| Idioma    | Código de lenguaje | Script | Hacia/Desde | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latino `Latn` |
 |Bengalí  | `bn` | Bengalí `Beng` | <--> | Latino `Latn` |
@@ -139,7 +147,7 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 
 El diccionario admite los siguientes idiomas desde o hacia el inglés con los métodos Lookup y Examples.
 
-| Idioma    | Código de idioma |
+| Idioma    | Código de lenguaje |
 |:----------- |:-------------:|
 | Afrikáans      | `af`          |
 | Árabe       | `ar`          |
@@ -176,7 +184,7 @@ El diccionario admite los siguientes idiomas desde o hacia el inglés con los m�
 | Noruego      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
-| Portugués      | `pt`          |
+| Portugués (Brasil)     | `pt-br`          |
 | Rumano      | `ro`          |
 | Ruso      | `ru`          |
 | Serbio (latino)      | `sr-Latn`          |
@@ -207,7 +215,7 @@ Puede recuperar una lista de los idiomas admitidos por Translator Text API v3.0 
 
 Los siguientes idiomas están disponibles para personalización al y del inglés mediante [Traductor personalizado](https://aka.ms/CustomTranslator).
 
-| Idioma    | Código de idioma |
+| Idioma    | Código de lenguaje |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Bengalí      | `bn`          |
@@ -219,7 +227,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Checo      | `cs`          |
 | Danés      | `da`          |
 | Neerlandés      | `nl`          |
-| English    | `en`     |
+| Inglés    | `en`     |
 | Estonio      | `et`          |
 | Finés      | `fi`          |
 | Francés      | `fr`          |
@@ -233,19 +241,19 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Irlandés | `ga`  |
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
-|Kiswahili| `sw`    |
+| Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Letón      | `lv`          |
 | Lituano      | `lt`          |
-|Malgache|  `mg`    |
-|Maori| `mi`  |
+| Malgache| `mg`    |
+| Maori| `mi`  |
 | Noruego      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
-| Portugués      | `pt`          |
+| Portugués (Brasil) | `pt-br` |
 | Rumano      | `ro`          |
 | Ruso      | `ru`          |
-|Samoano|    `sm`    |
+| Samoano|   `sm`    |
 | Serbio (latino)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |

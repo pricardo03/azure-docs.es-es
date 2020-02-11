@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a88f03adab3beaea75ec2fa9a1c6f59b09739025
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153159"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899218"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -174,7 +174,7 @@ Una vez instalada la aplicación Postman, siga estos pasos para cargar la geoval
 
 En esta sección, crearemos un controlador de eventos que recibe notificaciones. Este controlador de eventos debe notificar al responsable de operaciones los eventos de entrada y salida de cualquier equipo.
 
-Se crearán dos servicios de [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) para controlar eventos de entrada y salida. Cuando se desencadenen los eventos de Logic Apps, se desencadenarán más eventos en secuencia. La idea es enviar alertas, en este caso mensajes de correo electrónico, al responsable de operaciones. La siguiente ilustración muestra la creación de una aplicación lógica para el evento de entrada de la geovalla. De forma similar, puede crear otro para el evento de salida. Para más información, puede ver todos los [controladores de eventos admitidos](https://docs.microsoft.com/azure/event-grid/event-handlers).
+Se crearán dos servicios de [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) para controlar los eventos de entrada y salida. Cuando se desencadenen los eventos de Logic Apps, se desencadenarán más eventos en secuencia. La idea es enviar alertas, en este caso mensajes de correo electrónico, al responsable de operaciones. La siguiente ilustración muestra la creación de una aplicación lógica para el evento de entrada de la geovalla. De forma similar, puede crear otro para el evento de salida. Para más información, puede ver todos los [controladores de eventos admitidos](https://docs.microsoft.com/azure/event-grid/event-handlers).
 
 1. Creación de una aplicación lógica en Azure Portal
 
@@ -194,7 +194,7 @@ Se crearán dos servicios de [Logic Apps](https://docs.microsoft.com/azure/event
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Creación de una suscripción a eventos de Azure Maps
 
-Azure Maps admite tres tipos de eventos. Puede echar un vistazo a los tipos de eventos de Azure Maps admitidos aquí (https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps ). Necesitamos dos suscripciones de eventos diferentes, una para el evento de entrada y otra para los eventos de salida.
+Azure Maps admite tres tipos de eventos. Puede echar un vistazo a los tipos de eventos de Azure Maps admitidos [aquí](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Necesitamos dos suscripciones de eventos diferentes, una para el evento de entrada y otra para los eventos de salida.
 
 Siga estos pasos para crear una suscripción de eventos para los eventos de entrada de la geovalla. Puede suscribirse a eventos de salida de la geovalla de forma similar.
 

@@ -1,28 +1,24 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz, intenciones y entidades en Java: servicio de voz'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5d70bba32df5940d929482e37317d40bd496676
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a6bf8bb558e82fefbbe6ff306f628a4b449a4e83
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761391"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900327"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar:
 
-* Si este es su primer proyecto en Java (JRE), use esta guía para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">crear un proyecto de ejemplo vacío</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Instale el SDK de Voz de su entorno de desarrollo</a>.
+* Si este es su primer proyecto en Java (JRE), use esta guía para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">crear un proyecto de ejemplo vacío <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Instale el SDK de Voz de su entorno de desarrollo <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creación de una aplicación de LUIS para el reconocimiento de la intención
 
@@ -96,7 +92,7 @@ Es importante liberar los recursos de voz cuando haya terminado de usarlos. Inse
 
 ## <a name="check-your-code"></a>Comprobación del código
 
-En este momento, el código debe tener esta apariencia:  
+En este momento, el código debe tener esta apariencia:
 
 > [!NOTE]
 > Se han agregado algunos comentarios a esta versión.
@@ -105,7 +101,7 @@ En este momento, el código debe tener esta apariencia:
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 
-Presione F11, o seleccione **Run (Ejecutar)**  > **Debug (Depurar)** .
+Presione <kbd>F11</kbd>, o seleccione **Ejecutar** > **Depurar**.
 Los próximos 15 segundos de la entrada de voz del micrófono se reconocen y se registran en la ventana de consola.
 
 ## <a name="next-steps"></a>Pasos siguientes

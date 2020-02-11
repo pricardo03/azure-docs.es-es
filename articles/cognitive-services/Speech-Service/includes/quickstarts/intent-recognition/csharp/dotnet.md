@@ -1,28 +1,24 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz, intenciones y entidades en C#: servicio de voz'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e2cb4f81e3de5e22bae3029e42ec2f67dae55424
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 353e849332aa04d26774cda22508b6f1c269df7e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761419"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900330"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar:
 
-* Si este es su primer proyecto en C#, use esta guía para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">crear un proyecto de ejemplo vacío</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Instale el SDK de Voz de su entorno de desarrollo</a>.
+* Si este es su primer proyecto en C#, use esta guía para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">crear un proyecto de ejemplo vacío <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Instale el SDK de Voz de su entorno de desarrollo <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creación de una aplicación de LUIS para el reconocimiento de la intención
 
@@ -92,7 +88,7 @@ Dentro de la instrucción using, debajo de `RecognizeOnceAsync()`, agregue este 
 
 ## <a name="check-your-code"></a>Comprobación del código
 
-En este momento, el código debe tener esta apariencia:  
+En este momento, el código debe tener esta apariencia:
 
 > [!NOTE]
 > Se han agregado algunos comentarios a esta versión.
@@ -104,7 +100,7 @@ En este momento, el código debe tener esta apariencia:
 Ya está listo para compilar la aplicación y probar el reconocimiento de voz con el servicio Voz.
 
 1. **Compile el código**: en la barra de menús de Visual Studio, elija **Compilar** > **Compilar solución**.
-2. **Inicie la aplicación**: en la barra de menús, elija **Depurar** > **Iniciar depuración** o presione **F5**.
+2. **Inicie la aplicación**: en la barra de menús, elija **Depurar** > **Iniciar depuración** o presione <kbd>F5</kbd>.
 3. **Inicie el reconocimiento**: se le pedirá que diga una frase en inglés. La voz se envía al servicio Voz, se transcribe como texto y se representa en la consola.
 
 ## <a name="next-steps"></a>Pasos siguientes

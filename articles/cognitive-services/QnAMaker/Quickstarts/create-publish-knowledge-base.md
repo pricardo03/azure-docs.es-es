@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/29/2020
 ms.author: diberry
-ms.openlocfilehash: 26c7996d6a955a183121a59254131dcb1dc6706f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a3bdc118be96630ebcf3bf63a2948976dc9b4261
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844269"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901680"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Inicio rápido: Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
@@ -39,7 +39,7 @@ Incluya una personalidad de charla para hacer que sus conocimientos sean más at
 1. En la página **Create** (Crear), seleccione **Create a QnA service** (Crear un servicio QnA). Se le dirigirá a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar un servicio QnA Maker en la suscripción.
 
 1. Cree el recurso en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre de recurso de QnA que seleccionó al crear el recurso.
-1. Vuelva al portal de QnA Maker y actualice la página web en el portal para continuar con la creación de la base de conocimiento.
+1. Vuelva al portal de QnA Maker y actualice la página web en el portal para continuar con la creación de la base de conocimiento. Seleccione un inquilino existente, una suscripción y el nuevo recurso. Seleccione el idioma. Este será el idioma que se utilice para todas las bases de conocimiento de este servicio QnA Maker.
 
    ![Captura de pantalla de la selección de una base de conocimiento del servicio QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 

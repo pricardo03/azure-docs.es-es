@@ -7,16 +7,16 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d979c4210c7de4588338c8e3c30b179056102d0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3a64ca5b0c2a092f895873e097ea6beb9a235a37
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498801"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017707"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Arquitectura de referencia de supervisión del consumo de agua 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Las soluciones de supervisión del consumo de agua se pueden crear con la **plantilla de aplicación de Azure IoT Central** como una aplicación de IoT de inicio rápido. En este artículo se proporciona una guía de arquitectura de referencia de alto nivel sobre la creación de una solución de un extremo a otro. 
 
@@ -32,9 +32,9 @@ Conceptos:
 Echemos un vistazo a los componentes clave que generalmente desempeñan un papel en una solución de supervisión del consumo de agua.
 
 ## <a name="devices-and-connectivity"></a>Dispositivos y conectividad 
-En esta sección, nos referiremos a los dispositivos usados en las soluciones para instalaciones de aguas inteligentes, como la supervisión de la calidad del agua o la supervisión del consumo de agua, generalmente como dispositivos de agua inteligentes. Los dispositivos de agua inteligentes pueden ser medidores de flujo, monitores de la calidad del agua, válvulas inteligentes, detectores de fugas, etc.
+En esta sección se hace referencia a los dispositivos usados en las soluciones inteligentes de control de agua, como aquellos para la supervisión de la calidad del agua o la supervisión del consumo de agua, generalmente como dispositivos inteligentes de supervisión del agua. Los dispositivos de agua inteligentes pueden ser medidores de flujo, monitores de la calidad del agua, válvulas inteligentes, detectores de fugas, etc.
 
-Los dispositivos que se usan en las soluciones inteligentes para el agua normalmente se conectan mediante redes de área extensa de bajo consumo (LPWAN) a través de un operador de red de terceros. Para estos tipos de dispositivos, puede aprovechar el [Puente de dispositivos de Azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) para enviar los datos del dispositivo a la aplicación de IoT en Azure IoT Central. Como alternativa, puede tener puertas de enlace de dispositivo que sean compatibles con IP y puedan conectarse directamente a IoT Central.
+Los dispositivos que se usan en las soluciones inteligentes para el agua normalmente se conectan mediante redes de área extensa de bajo consumo (LPWAN) mediante un operador de red de terceros. Para estos tipos de dispositivos, puede usar el [Puente de dispositivos de Azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) para enviar los datos del dispositivo a la aplicación de IoT en Azure IoT Central. Como alternativa, puede tener puertas de enlace de dispositivo que sean compatibles con IP y puedan conectarse directamente a IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central es una plataforma de aplicaciones de IoT que le ayuda a empezar a trabajar con su solución IoT rápidamente. Puede utilizar su marca, personalizar e integrar la solución con servicios de terceros.
@@ -48,10 +48,10 @@ Puede ampliar su aplicación de IoT en IoT Central y, si lo desea:
 * Acceder mediante programación a la aplicación IoT de IoT Central mediante las API de IoT Central.
 
 ## <a name="business-applications"></a>Aplicaciones empresariales 
-Los datos de IoT se pueden usar para potenciar una variedad de aplicaciones empresariales en una instalación de aguas. Para obtener información sobre cómo conectar la aplicación de supervisión del consumo de agua de IoT Central con los servicios de campo, siga el tutorial sobre [cómo integrar con los servicios de campo de Dynamics 365](./how-to-configure-connected-field-services.md). 
+Los datos de IoT se pueden usar para potenciar diversos tipos de aplicaciones empresariales en una instalación de aguas. Para obtener información sobre cómo conectar la aplicación de supervisión del consumo de agua de IoT Central con los servicios de campo, siga el tutorial sobre [cómo integrar con los servicios de campo de Dynamics 365](./how-to-configure-connected-field-services.md). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [crear una aplicación de IoT Central para el consumo de agua](./tutorial-water-consumption-monitoring.md).
-* Más información acerca de las [plantillas de IoT Central Government](./overview-iot-central-government.md).
+* Más información acerca de las [plantillas de IoT Central Government](./overview-iot-central-government.md)
 * Para más información acerca de IoT Central, consulte [Introducción a IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central).

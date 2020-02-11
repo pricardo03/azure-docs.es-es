@@ -1,92 +1,190 @@
 ---
-title: 'Inicio rápido: Conexión de máquinas a Azure con Azure Arc para servidores mediante el portal'
-description: En este inicio rápido aprenderá a conectar máquinas a Azure con Azure Arc para servidores desde el portal
+title: Conexión de máquinas híbridas a Azure desde Azure Portal
+description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante Azure Arc para servidores (versión preliminar) desde Azure Portal.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
-author: bobbytreed
-ms.author: robreed
-keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid, onboard
-ms.date: 08/25/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 26c79db956b2703bf037fc6f7790d4ee13874410
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 81083a9d94f782201a8eb765ac1f88093c0337c4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834244"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024099"
 ---
-# <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>Inicio rápido: Conexión de máquinas a Azure mediante Azure Arc para servidores mediante el portal
+# <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conexión de máquinas híbridas a Azure desde Azure Portal
+
+Puede habilitar Azure ARC para servidores (versión preliminar) para un número pequeño de máquinas Windows o Linux en su entorno mediante la realización de una serie de pasos manualmente. O bien, puede usar un método automatizado mediante la ejecución de un script de plantilla que le proporcionaremos. Este script automatiza la descarga e instalación de ambos agentes.
+
+Este método requiere que tenga permisos de administrador en la máquina para instalar y configurar el agente. En Linux, mediante la cuenta raíz, y en Windows, usted es miembro del grupo local de administradores.
+
+Antes de comenzar, asegúrese de revisar los [requisitos previos](overview.md#prerequisites) y compruebe que su suscripción y sus recursos los cumplen.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="generate-the-installation-script-from-the-azure-portal"></a>Generación del script de instalación desde Azure Portal
 
-Revise los clientes compatibles y la configuración de red necesaria en la [introducción de Azure Arc para servidores](overview.md).
+El script para automatizar la descarga y la instalación, y para establecer la conexión con Azure Arc, está disponible en Azure Portal. Para completar el proceso, haga lo siguiente:
 
-## <a name="generate-the-agent-install-script-using-the-azure-portal"></a>Generación del script de instalación del agente mediante Azure Portal
+1. En el explorador, vaya a [Azure Portal](https://aka.ms/hybridmachineportal).
 
-1. Inicio [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)
-1. Haga clic en **+Agregar**.
-1. Siga el asistente hasta el final.
-1. La última página tiene un script generado que puede copiar (o descargar).
+1. En la página **Máquinas: Azure Arc**, seleccione **Agregar**, en la parte superior izquierda, o la opción **Crear máquina: Azure Arc** en la parte inferior del panel central. 
 
-El script debe ejecutarse en la máquina de destino a la que desea conectarse. El script descarga el agente, lo instala y conecta la máquina en una sola operación.
+1. En la página **Seleccionar un método**, seleccione el icono **Agregar máquinas mediante un script interactivo** y, a continuación, seleccione **Generar script**.
 
-En los servidores que no son de Azure podrá administrar este proceso:
+1. En la página **Generar script**, seleccione la suscripción y el grupo de recursos en el que desea que se administre la máquina en Azure. Seleccione la ubicación de Azure en la que se almacenarán los metadatos de la máquina.
 
-1. Inicie sesión en el servidor (mediante SSH, RDP o la conexión remota con PowerShell)
-1. Inicie un shell: Bash en Linux, PowerShell como administrador en Windows
-1. Péguelo en el script desde el portal y ejecútelo en el servidor para que se conecte a Azure.
-1. La autenticación predeterminada para incorporar un servidor individual es *interactiva* mediante el "inicio de sesión del dispositivo" de Azure. Al ejecutar el script, verá un mensaje parecido al siguiente:
+    >[!NOTE]
+    >Azure Arc para servidores (versión preliminar) solo admite las siguientes regiones:
+    >- WestUS2
+    >- Oeste de Europa
+    >- WestAsia
+    >
 
-  ```none
-  To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B3V3NLWRF to authenticate.
-  ```
-  
-   Abra un explorador y escriba el código para autenticar. No es necesario que el explorador se esté ejecutando en el servidor que está incorporando, podría estar en otro equipo como, por ejemplo, en su portátil.
+1. En la página **Generar script**, en la lista desplegable **Sistema operativo**, seleccione el sistema operativo en el que se ejecutará el script.
 
-1. Si desea autenticarse de forma no interactiva, siga los pasos descritos en [Creación de una entidad de servicio](quickstart-onboard-powershell.md#create-a-service-principal-for-onboarding-at-scale) y modifique el script que se generó en el portal.
+1. Si la máquina se comunica mediante un servidor proxy para conectarse a Internet, seleccione **Siguiente: Servidor proxy**. 
+1. En la pestaña **Servidor proxy**, especifique la dirección IP del servidor proxy o el nombre y el número de puerto que usará la máquina para comunicarse con el servidor proxy. Escriba el valor con el formato `http://<proxyURL>:<proxyport>`. 
+1. Seleccione **Revisar y generar**.
+
+1. En la pestaña **Revisar y generar**, revise la información del resumen y, a continuación, seleccione **Descargar**. Si todavía necesita realizar cambios, seleccione **Anterior**.
+
+## <a name="install-and-validate-the-agent-on-windows"></a>Instalación y validación del agente en Windows
+
+### <a name="install-manually"></a>Instalación manual
+Para instalar manualmente el agente de Connected Machine, puede ejecutar el paquete de Windows Installer llamado *AzureConnectedMachineAgent.msi*. 
 
 > [!NOTE]
-> Si va a usar Internet Explorer en el servidor por primera vez para iniciar sesión, se producirá un error. Vuelva a abrir el explorador y hágalo de nuevo.
+> * Para instalar o desinstalar el agente, debe tener permisos de *administrador*.
+> * Primero debe descargar y copiar el paquete del instalador en una carpeta en el servidor de destino o desde una carpeta de red compartida. Si ejecuta el paquete del instalador sin opciones, se inicia un asistente para instalación que puede seguir para realizar la instalación del agente de forma interactiva.
 
-## <a name="execute-the-script-on-target-nodes"></a>Ejecución del script en los nodos de destino
+Si la máquina necesita comunicarse mediante un servidor proxy con el servicio, después de instalar el agente, debe ejecutar un comando que se describe más adelante en este artículo. Este permite establecer la variable de entorno del sistema del servidor proxy `https_proxy`.
 
-Inicie sesión en cada nodo y ejecute el script que generó en el portal. Una vez que el script se complete correctamente, vaya a Azure Portal y compruebe que el servidor se ha conectado correctamente.
+En la tabla siguiente se destacan los parámetros que admite el programa de instalación para el agente desde la línea de comandos.
 
-![Incorporación correcta](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
+| Parámetro | Descripción |
+|:--|:--|
+| /? | Devuelve una lista de las opciones de la línea de comandos. |
+| /S | Realiza una instalación silenciosa sin interacción del usuario. |
+
+Por ejemplo, para ejecutar el programa de instalación con el parámetro `/?`, escriba `msiexec.exe /i AzureConnectedMachineAgent.msi /?`.
+
+Los archivos del agente de Connected Machine se instalan de forma predeterminada en *C:\Archivos de programa\AzureConnectedMachineAgent*. Si el agente no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. El directorio de registro es *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+
+### <a name="install-with-the-scripted-method"></a>Instalación con el método con script
+
+1. Inicie sesión en el servidor.
+
+1. Abra un símbolo del sistema de PowerShell con privilegios elevados.
+
+1. Cambie a la carpeta o recurso compartido en el que copió el script y ejecútelo en el servidor mediante el script `./OnboardingScript.ps1`.
+
+### <a name="configure-the-agent-proxy-setting"></a>Configuración del proxy de agente
+
+Para establecer la variable de entorno del servidor proxy, ejecute el siguiente comando:
+
+```powershell
+# If a proxy server is needed, execute these commands with the proxy URL and port.
+[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
+Restart-Service -Name himds
+```
+
+>[!NOTE]
+>El agente no admite la configuración de la autenticación de proxy en esta versión preliminar.
+>
+
+### <a name="configure-agent-communication"></a>Configuración de la comunicación del agente
+
+Después de instalar el agente, debe configurarlo para que se comunique con el servicio Azure Arc mediante la ejecución del siguiente comando:
+
+`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+
+## <a name="install-and-validate-the-agent-on-linux"></a>Instalación y validación del agente en Linux
+
+El agente de Connected Machine de Linux se proporciona en el formato de paquete preferido para la distribución (.RPM o .DEB) que se hospeda en el [repositorio de paquetes](https://packages.microsoft.com/) de Microsoft. Este [ conjunto de scripts de shell `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) realiza las acciones siguientes:
+
+- Configura la máquina host para descargar el paquete del agente de packages.microsoft.com.
+- Instala el paquete del proveedor de recursos híbridos.
+
+Opcionalmente, puede configurar el agente con la información del proxy incluyendo el parámetro `--proxy "{proxy-url}:{proxy-port}"`.
+
+El script también contiene la lógica para identificar las distribuciones admitidas y no admitidas, y comprueba los permisos necesarios para realizar la instalación. 
+
+En el siguiente ejemplo se descarga el agente y se instala:
+
+```bash
+# Download the installation package.
+wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+
+# Install the connected machine agent. 
+bash ~/Install_linux_azcmagent.sh
+```
+
+Para descargar e instalar el agente, incluyendo el parámetro `--proxy` para configurar el agente para que se comunique mediante el servidor proxy, ejecute los siguientes comandos:
+
+```bash
+# Download the installation package.
+wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+
+# Install the connected machine agent. 
+bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+```
+
+### <a name="configure-the-agent-communication"></a>Configuración de la comunicación del agente
+
+Después de instalar el agente, configúrelo para que se comunique con el servicio Azure Arc mediante la ejecución del siguiente comando:
+
+`/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+
+## <a name="verify-the-connection-with-azure-arc"></a>Comprobación de la conexión con Azure Arc
+
+Después de instalar el agente y configurarlo para que se conecte a Azure Arc para servidores (versión preliminar), vaya a Azure Portal para comprobar que el servidor se ha conectado correctamente. Vea las máquinas en [Azure Portal](https://aka.ms/hybridmachineportal).
+
+![Una conexión de servidor correcta](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
 
 ## <a name="clean-up"></a>Limpieza
 
-Para desconectar una máquina de Azure Arc para servidores, debe realizar dos pasos.
+Para desconectar una máquina de Azure Arc para servidores (versión preliminar), haga lo siguiente:
 
-1. Seleccione la máquina en [Portal](https://aka.ms/hybridmachineportal), haga clic en los puntos suspensivos (`...`) y seleccione **Eliminar**.
-1. Desinstale el agente de la máquina.
+1. Abra Azure Arc para servidores (versión preliminar). Para ello, vaya a [Azure Portal](https://aka.ms/hybridmachineportal).
 
-   En Windows, puede usar el panel de control "Aplicaciones y características" para desinstalar el agente.
-  
-  ![Aplicaciones y características](./media/quickstart-onboard/apps-and-features.png)
+1. Seleccione la máquina en la lista, seleccione los puntos suspensivos ( **...** ) y, a continuación, seleccione **Eliminar**.
 
-   Si desea crear un script para la desinstalación, puede utilizar el ejemplo siguiente, que recupera el **PackageId** y desinstalar el agente mediante `msiexec /X`.
+1. Para desinstalar el agente de Windows de la máquina, haga lo siguiente:
 
-   Busque en la clave del Registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` y busque **PackageId**. A continuación, puede desinstalar el agente mediante `msiexec`.
+    a. Inicie sesión en el equipo con una cuenta que disponga de permisos de administrador.  
+    b. En **Panel de control**, seleccione **Programas y características**.  
+    c. En **Programas y características**, seleccione **Agente de Azure Connected Machine**, seleccione **Desinstalar** y, después, seleccione **Sí**.  
 
-   En el ejemplo siguiente se muestra cómo desinstalar el agente.
+    >[!NOTE]
+    > También puede ejecutar el asistente para la instalación del agente haciendo doble clic en el paquete del instalador **AzureConnectedMachineAgent.msi**.
 
-   ```powershell
-   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-   Get-ItemProperty | `
-   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
-   ```
+    Si desea crear un script para la desinstalación, puede utilizar el ejemplo siguiente, el cual permite recuperar el código de producto y desinstalar el agente mediante esta línea de comandos Msiexec.exe: `msiexec /x {Product Code}`. Para ello:  
+    
+    a. Abra el Editor del Registro.  
+    b. En la clave del Registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, busque y copie el GUID del código del producto.  
+    c. Después, puede desinstalar el agente mediante Msiexec.
 
-   En Linux, ejecute el siguiente comando para desinstalar el agente.
+    En el siguiente ejemplo se muestra cómo desinstalar el agente:
 
-   ```bash
-   sudo apt purge hybridagent
-   ```
+    ```powershell
+    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+    Get-ItemProperty | `
+    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+    ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
+    ```
+
+1. Para desinstalar el agente de Linux, ejecute el comando siguiente:
+
+      ```bash
+      sudo apt purge hybridagent
+      ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

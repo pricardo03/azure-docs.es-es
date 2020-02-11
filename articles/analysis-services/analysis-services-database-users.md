@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo administrar usuarios y roles de ba
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147001"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901499"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
@@ -42,12 +42,12 @@ Los **Grupos de seguridad** deben estar [habilitados para correo](https://docs.m
   
 4.  Seleccione uno de estos permisos:  
   
-    |Permiso|DESCRIPCIÓN|  
+    |Permiso|Descripción|  
     |----------------|-----------------|  
-    |**None**|Los miembros no pueden modificar el esquema de modelo ni tampoco consultar datos.|  
+    |**None**|Los miembros no pueden leer ni modificar el esquema de modelo ni consultar datos.|  
     |**Lectura**|Los miembros pueden consultar datos (según los filtros de fila), pero no pueden modificar el esquema de modelo.|  
     |**Lectura y proceso**|Los miembros pueden consultar datos (según los filtros de nivel de fila) y ejecutar las operaciones Procesar y Procesar todo, pero no pueden modificar el esquema de modelo.|  
-    |**Proceso**|Los modelos pueden ejecutar las operaciones Procesar y Procesar todo. No pueden modificar el esquema de modelo ni pueden consultar datos.|  
+    |**Proceso**|Los modelos pueden ejecutar las operaciones Procesar y Procesar todo. No pueden leer ni modificar el esquema de modelo ni consultar datos.|  
     |**Administrador**|Los miembros pueden modificar el esquema de modelo y consultar todos los datos.|   
   
 5.  Si el rol que crea tiene permiso de Lectura o Lectura y proceso, puede agregar filtros de fila mediante una fórmula DAX. Haga clic en la pestaña **Filtros de fila**, seleccione una tabla y, luego, haga clic en el campo **Filtro DAX** y escriba una fórmula DAX.
@@ -71,7 +71,7 @@ Para agregar roles y usuarios a una base de datos modelo implementada, debe esta
 
 3. Seleccione un permiso.
 
-   |Permiso|DESCRIPCIÓN|  
+   |Permiso|Descripción|  
    |----------------|-----------------|  
    |**Control total (administrador)**|Los miembros pueden modificar el esquema modelo, el proceso y pueden consultar todos los datos.| 
    |**Proceso de una base de datos**|Los modelos pueden ejecutar las operaciones Procesar y Procesar todo. No pueden modificar el esquema de modelo ni pueden consultar datos.|  
@@ -121,7 +121,7 @@ En este ejemplo, se agrega un grupo y un usuario externo de B2B al rol de analis
 
 El módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) proporciona cmdlets de administración de base de datos específicos de la tarea y el cmdlet Invoke-ASCmd de uso general que acepta un script o una consulta de Tabular Model Scripting Language (TMSL). Los cmdlets siguientes se usan para administrar usuarios y roles de base de datos.
   
-|Cmdlet|DESCRIPCIÓN|
+|Cmdlet|Descripción|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Agrega un miembro a un rol de base de datos.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Quita un miembro de un rol de base de datos.|   

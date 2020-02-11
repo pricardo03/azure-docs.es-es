@@ -1,27 +1,23 @@
 ---
-title: Migración de máquinas físicas locales o máquinas virtualizadas a Azure con Azure Migrate Server Migration | Microsoft Docs
-description: En este artículo se describe cómo migrar máquinas físicas locales o máquinas virtualizadas a Azure con Azure Migrate Server Migration.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migración de máquinas como servidor físico a Azure con Azure Migrate.
+description: En este artículo se describe cómo migrar máquinas físicas a Azure con Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: raynew
+ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 4a6e33770f93c365d5ccd034803c7c7f247d528a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028807"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989763"
 ---
-# <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migración de servidores físicos o virtualizados a Azure 
+# <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
-En este artículo se muestra cómo migrar servidores físicos o virtualizados a Azure. Azure Migrate Server Migration ofrece la migración de servidores físicos y virtualizados mediante la replicación basada en agente. Con esta herramienta, puede migrar una amplia gama de máquinas a Azure:
+En este artículo se indica cómo migrar máquinas como servidores físicos a Azure mediante la herramienta Azure Migrate Server Migration. La migración de máquinas tratándolas como servidores físicos es útil en varios escenarios:
 
 - Migración de servidores físicos locales.
 - Migración de máquinas virtuales virtualizadas por plataformas como Xen, KVM.
-- Migración de máquinas virtuales de VMware o Hyper-V. Esto es útil si, por alguna razón, no puede usar el flujo de migración estándar que ofrece Azure Migrate Server Migration para la migración de [Hyper-V](tutorial-migrate-hyper-v.md), la migración [sin agente de VMware](tutorial-migrate-vmware.md) o la migración [basada en agente de VMware](tutorial-migrate-vmware-agent.md).
+- Migre las máquinas virtuales de Hyper-V o VMware si, por algún motivo, no puede usar el proceso de migración estándar para la migración de [Hyper-V](tutorial-migrate-hyper-v.md) o [VMware ](server-migrate-overview.md).
 - Migración de máquinas virtuales que se ejecutan en nubes privadas.
 - Migración de máquinas virtuales que se ejecutan en nubes públicas, como Amazon Web Services (AWS) o Google Cloud Platform (GCP).
 
@@ -175,7 +171,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 
 ### <a name="download-the-replication-appliance-installer"></a>Descarga del instalador del dispositivo de replicación
 
-1. En el proyecto de Azure Migrate > **Servidores**, en ***Azure Migrate: Migración del servidor**, haga clic en **Detectar**.
+1. En el proyecto de Azure Migrate > **Servidores**, en **Azure Migrate: Migración del servidor**, haga clic en **Detectar**.
 
     ![Detectar máquinas virtuales](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -266,8 +262,7 @@ Ahora, seleccione las máquinas para la migración.
 
 2. En **Replicar** > **Configuración de origen** >  **¿Las máquinas están virtualizadas?** , seleccione **Not virtualized/Other** (No virtualizadas/Otros).
 3. En **Dispositivo local**, seleccione el nombre del dispositivo de Azure Migrate que configuró.
-4. En **vCenter Server**, especifique el nombre de la instancia de vCenter Server que administra las máquinas virtuales o la instancia de vSphere Server en el que se hospedan.
-5. En **Servidor de procesos**, seleccione el nombre del dispositivo de replicación.
+4. En **Servidor de procesos**, seleccione el nombre del dispositivo de replicación.
 6. En **Credenciales de invitado**, especifique la cuenta de administrador de máquinas virtuales que se usará para la instalación de inserción de Mobility Service. En este tutorial se va a instalar Mobility Service manualmente, por lo que puede agregar cualquier cuenta ficticia. A continuación, haga clic en **Siguiente: Máquinas virtuales**.
 
     ![Replicación de máquinas virtuales](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)

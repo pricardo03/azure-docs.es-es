@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47806fe9c5c97c1f5a9c26d4ca38fb46bdf4057c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425094"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931398"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamiento piloto en la nube para un bosque de AD sincronizado existente 
 
@@ -68,6 +68,7 @@ La sincronización de Azure AD Connect sincroniza los campos que se incluyen en
 
     **Nombre:** asigne un nombre descriptivo a la regla.<br>
     **Descripción:** agregue una descripción significativa.<br> 
+    
     **Sistema conectado:** elija el conector de AD para el que va a escribir la regla de sincronización personalizada<br>
     **Tipo de objeto de sistema conectado:** Usuario<br>
     **Tipo de objeto de metaverso:** Person<br>

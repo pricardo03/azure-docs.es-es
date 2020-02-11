@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841019"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896438"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -97,10 +97,7 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
     | Location       | Seleccione **Este de EE. UU**.                                           |
     | Resource group | Seleccione **Usar existente** y, luego, seleccione **myResourceGroup** |
 
-    La cuenta de almacenamiento tardará unos minutos en crearse. No continúe con los pasos restantes hasta que haya creado la cuenta de almacenamiento. Si va a usar una cuenta de almacenamiento existente en vez de crear una, asegúrese de seleccionar la cuenta de almacenamiento que tenga la opción **Todas las redes** (valor predeterminado) seleccionada en **Firewalls y redes virtuales**, en la **CONFIGURACIÓN** de la cuenta de almacenamiento. En cualquier caso, la cuenta de almacenamiento debe estar en la misma región que el grupo de seguridad de red.
-
-    > [!NOTE]
-    > Aunque actualmente los proveedores de Microsoft.Insight y Microsoft.Network son compatibles como Servicios de Microsoft de confianza para Azure Storage, los registros de flujo del grupo de seguridad de red aún no se han incorporado totalmente. Para habilitar el registro de Flow de NSG, debe seleccionarse **Todas las redes** hasta que esta característica esté plenamente incorporada. 
+    La cuenta de almacenamiento tardará unos minutos en crearse. No continúe con los pasos restantes hasta que haya creado la cuenta de almacenamiento. En cualquier caso, la cuenta de almacenamiento debe estar en la misma región que el grupo de seguridad de red.
 4. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 5. En **REGISTROS**, seleccione **Registro de flujos de NSG**, tal y como se muestra en la siguiente imagen:
 
@@ -114,9 +111,7 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 
 9. Seleccione la cuenta de almacenamiento que creó anteriormente en el paso 3:
    > [!NOTE]
-   > Los registros de flujos de NSG no funcionan con las cuentas de almacenamiento si:
-   > * Las cuentas de almacenamiento tienen un firewall habilitado.
-   > * Las cuentas de almacenamiento tienen habilitado un [espacio de nombres jerárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
+   > Los registros de flujo del grupo de seguridad de red no funcionan con las cuentas de almacenamiento que tienen un [espacio de nombres jerárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
 1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 10. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
 

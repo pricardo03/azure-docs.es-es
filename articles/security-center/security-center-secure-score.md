@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: bd896cbee98bd61518c9a093f86e088f0b018d73
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 79154a13722654ef5cbbe7ac99bb67d4b761fe60
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156665"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903451"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Mejora de la puntuación de seguridad de Azure Security Center
 
@@ -34,7 +34,7 @@ Con tantos servicios que ofrecen ventajas de seguridad, a menudo es difícil sab
 ## <a name="secure-score-calculation"></a>Cálculo de Puntuación segura
 
 Security Center imita el trabajo de un analista de seguridad: revisa sus recomendaciones de seguridad y aplica algoritmos avanzados para determinar la importancia de cada recomendación.
-Azure Security Center revisa constantemente las recomendaciones activas y calcula la puntuación segura basándose en ellas. La puntuación de una recomendación se deriva de su gravedad y de los procedimientos recomendados de seguridad que afectarán más a la seguridad de la carga de trabajo.
+Azure Security Center revisa constantemente las recomendaciones activas y calcula la puntuación segura en función de ellas. La puntuación de una recomendación se deriva de su gravedad y de los procedimientos recomendados de seguridad que afecten más a la seguridad de la carga de trabajo.
 
 Security Center también proporciona una **puntuación segura general**. 
 

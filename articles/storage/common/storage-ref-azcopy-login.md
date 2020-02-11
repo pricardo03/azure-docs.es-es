@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6b2fbe28aae8e8233aaeb75bc9b43a35a9ab588
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034078"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905285"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -99,8 +99,10 @@ Asegúrese de tratar/path/to/my/cert como una ruta de acceso a un archivo PEM o 
 
 ## <a name="options"></a>Opciones
 
-|Opción|DESCRIPCIÓN|
+|Opción|Descripción|
 |--|--|
+|--aad-endpoint|El punto de conexión de Azure Active Directory que se usará. El valor predeterminado (https://login.microsoftonline.com) es correcto para la nube pública de Azure. Establezca este parámetro al autenticarse en una nube nacional. Consulte [Puntos de conexión de autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+Esta marca no es necesaria para Managed Service Identity.|
 |--application-id string|Identificador de aplicación de la identidad asignada por el usuario. Se requiere para la autenticación de entidades de servicio.|
 |--certificate-path string|Ruta de acceso al certificado para la autenticación de SPN. Se requiere para la autenticación de entidades de servicio basada en certificados.|
 |-h, --help|Muestra el contenido de la ayuda para el comando login.|
@@ -113,11 +115,11 @@ Asegúrese de tratar/path/to/my/cert como una ruta de acceso a un archivo PEM o 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 
-|Opción|DESCRIPCIÓN|
+|Opción|Descripción|
 |---|---|
 |--cap-mbps uint32|Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.|
 |--output-type string|Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text".|
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [azcopy](storage-ref-azcopy.md)

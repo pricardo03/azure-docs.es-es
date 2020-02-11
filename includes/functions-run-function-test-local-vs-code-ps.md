@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/16/2020
 ms.author: glenga
-ms.openlocfilehash: c54145cf48912d3911a39e681d85cb6907be8e52
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 916aa2552e5dd004ec767df98ce7c78f7320efd0
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842323"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964149"
 ---
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
@@ -28,11 +28,17 @@ Azure Functions Core Tools se integra con Visual Studio Code para permitirle eje
     Hello PowerShell
     ```
 
-    También puede ejecutar la solicitud GET desde un explorador.
+    También puede ejecutar la solicitud GET de un explorador desde la siguiente dirección URL.
 
-    Cuando se llama al punto de conexión HttpTrigger sin pasar un parámetro `name` como un parámetro de consulta o en el cuerpo, la función devuelve un error [HttpStatusCode]::BadRequest. Al revisar el código de run.ps1, verá que este error se produce por diseño.
+    <http://localhost:7071/api/HttpExample?name=PowerShell>
 
-1. Para detener la depuración, presione Mayús + F5.
+    Cuando se llama al punto de conexión HttpTrigger sin pasar un parámetro `name` como un parámetro de consulta o en el cuerpo, la función devuelve un error `BadRequest`. Al revisar el código de run.ps1, verá que este error se produce por diseño.
+
+1. La información sobre la solicitud se muestra en el panel **Terminal**.
+
+    ![Ejecución de función en el panel Terminal](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
+
+1. Para detener la depuración, presione Ctrl + C para detener Core Tools.
 
 Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
 

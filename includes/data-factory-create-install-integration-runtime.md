@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 12c2f1bd2a3185d26eae02b5cd756392b5b87c16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533279"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989098"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
@@ -83,7 +83,8 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
 5. Copie una de las claves (sin las comillas dobles) utilizadas para registrar la instancia de Integration Runtime autohospedado que instalará en el equipo en los pasos siguientes.  
 
-## <a name="install-the-integration-runtime"></a>Instalación de Integration Runtime
+## <a name="install-the-integration-runtime-tool"></a>Instalación de la herramienta Integration Runtime
+
 1. Si ya tiene Integration Runtime en su equipo, desinstálelo utilizando **Agregar o quitar programas**. 
 
 2. [Descargar](https://www.microsoft.com/download/details.aspx?id=39717) Integration Runtime autohospedado en un equipo de Windows local. Ejecución de la instalación.
@@ -135,5 +136,4 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
     h. Para confirmar que Integration Runtime puede conectarse a SQL Server, seleccione **Probar**. Verá una marca de verificación verde si la conexión es correcta. Verá un mensaje de error si la conexión no se realiza correctamente. Solucione los problemas y asegúrese de que Integration Runtime puede conectarse a SQL Server.    
 
     > [!NOTE]
-    > Tome nota de los valores para la contraseña, el usuario, la base de datos, el servidor y el tipo de autenticación. Los usará más adelante en este tutorial. 
-    
+    > Tome nota de los valores para la contraseña, el usuario, la base de datos, el servidor y el tipo de autenticación. Los usará más adelante en este tutorial.
