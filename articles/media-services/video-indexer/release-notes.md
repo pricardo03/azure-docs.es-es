@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832310"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933858"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -29,6 +29,24 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Problemas conocidos
 * Corrección de errores
 * Funciones obsoletas
+
+## <a name="january-2020"></a>Enero de 2020
+ 
+### <a name="custom-language-support-for-additional-languages"></a>Compatibilidad con idiomas personalizados adicionales
+
+Video Indexer admite ahora modelos de lenguaje personalizados para `ar-SY`, `en-UK` y `en-AU` (solo API).
+ 
+### <a name="delete-account-timeframe-action-update"></a>Actualización del período de tiempo de la acción de eliminación de una cuenta
+
+La acción de eliminación de una cuenta ahora elimina la cuenta en un plazo de 90 días en lugar de 48 horas.
+ 
+### <a name="new-video-indexer-github-repository"></a>Nuevo repositorio de GitHub para Video Indexer
+
+Ahora hay disponible un nuevo repositorio de GitHub para Video Indexer con distintos proyectos, guías de introducción y ejemplos de código: https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### <a name="swagger-update"></a>Actualización de Swagger
+
+Video Indexer ha unificado las **autenticaciones** y **operaciones** en una [especificación de OpenAPI para Video Indexer (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Los desarrolladores pueden encontrar las API en el [Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="december-2019"></a>Diciembre de 2019
 
@@ -152,9 +170,9 @@ Los clientes pueden proporcionar los formatos de archivo VTT, SRT y TTML como en
 
 ## <a name="june-2019"></a>Junio de 2019
 
-### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer se ha implementado en el Este de Japón
+### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer se ha implementado en el Japón Oriental
 
-Ya puede crear una cuenta de pago de Video Indexer en la región del Este de Japón.
+Ya puede crear una cuenta de pago de Video Indexer en la región del Japón Oriental.
 
 ### <a name="create-and-repair-account-api-preview"></a>Crear y reparar la API de la cuenta (versión preliminar)
 
