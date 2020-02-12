@@ -1,6 +1,6 @@
 ---
-title: 'Administración de cuentas de CloudSimple: Azure'
-description: Obtenga información acerca de la administración de cuentas de CloudSimple
+title: 'Administración de cuentas de AVS: Azure'
+description: Más información sobre la administración de cuentas de AVS
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,31 +8,31 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: f00ea9590dfa81703ec76b1e866c72f7ff41176a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563201"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025119"
 ---
 # <a name="account-management-overview"></a>Información general sobre la administración de cuentas
 
-Cuando se crea el servicio CloudSimple, se crea una cuenta en CloudSimple.  La cuenta se asocia a su suscripción de Azure donde se encuentra el servicio.  Todos los usuarios con los roles **propietario** y **colaborador** en la suscripción tienen acceso al portal de CloudSimple.  El id. de suscripción de Azure y el id. de inquilino asociados con el servicio CloudSimple se encuentran en la página [Cuentas](account.md).
+Cuando se crea el servicio de AVS, se crea una cuenta en AVS. La cuenta se asocia a su suscripción de Azure donde se encuentra el servicio. Todos los usuarios con roles de **propietario** y de **colaborador** en la suscripción tienen acceso al portal de AVS. El identificador de suscripción de Azure y el identificador de inquilino asociados con el servicio de AVS se encuentran en la [página Cuentas](account.md).
 
 ## <a name="additional-alert-emails"></a>Correos electrónicos de alerta adicionales
 
-Puede configurar identificadores de correo electrónico en CloudSimple para recibir alertas:
+Puede configurar identificadores de correo electrónico en AVS para recibir alertas:
 
 * Relacionadas con el servicio
 * Para el procesamiento automático
 
-## <a name="cloudsimple-operator-access"></a>Acceso de operador de CloudSimple
+## <a name="avs-operator-access"></a>Acceso de operador de AVS
 
-Puede controlar el acceso al portal de CloudSimple para el personal de operaciones de servicio.  El personal de operaciones de servicio inicia sesión en el portal cuando le envía una incidencia de soporte técnico.  Las operaciones de servicio solucionarán los problemas notificados y las acciones realizadas estarán disponibles en los registros de auditoría.
+Puede controlar el acceso al portal de AVS para el personal de operaciones de servicio. El personal de operaciones de servicio inicia sesión en el portal cuando le envía una incidencia de soporte técnico. Las operaciones de servicio solucionarán los problemas notificados y las acciones realizadas estarán disponibles en los registros de auditoría.
 
 ## <a name="users"></a>Usuarios
 
-Todos los usuarios con los roles **propietario** y **colaborador** en la suscripción tienen acceso al portal de CloudSimple.  Al acceder al portal, se crea el usuario en la cuenta de CloudSimple.  Puede deshabilitar el acceso al portal de CloudSimple para usuarios concretos desde la página Cuentas.
+Todos los usuarios con los roles **propietario** y **colaborador** en la suscripción tienen acceso al portal de AVS. Al acceder al portal, se crea el usuario en la cuenta de AVS. Puede deshabilitar el acceso al portal de AVS para usuarios concretos desde la página Cuentas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

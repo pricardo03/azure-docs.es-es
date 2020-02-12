@@ -1,18 +1,18 @@
 ---
 title: 'Procedimientos recomendados: Azure Batch'
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
-author: ju-shim
-ms.author: jushiman
+author: LauraBrenner
+ms.author: labrenne
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
-manager: gwallace
-ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+manager: evansma
+ms.openlocfilehash: 16fb2786f180b1e28b76d9246d599a871278d00d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026149"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022739"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -152,3 +152,15 @@ Aunque es poco frecuente, se puede reintentar una tarea internamente debido a er
 ### <a name="security-isolation"></a>Aislamiento de seguridad
 
 Con respecto al aislamiento, si su escenario requiere aislar los trabajos entre sí, debe aislarlos colocándolos en grupos independientes. Un grupo es el límite de aislamiento de seguridad en Batch y, de forma predeterminada, dos grupos no son visibles ni pueden comunicarse entre sí. Evite el uso de cuentas de Batch independientes como medio de aislamiento.
+
+## <a name="moving"></a>Traslado
+
+### <a name="move-batch-account-across-regions"></a>Traslado de la cuenta de Batch entre regiones 
+
+Existen varios escenarios en los que puede que deba mover su cuenta de Batch existente existentes de una región a otra. También puede realizar el traslado a otra región como parte del planeamiento de la recuperación ante desastres.
+
+Las cuentas de Azure Batch no se pueden trasladar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de la cuenta de Batch.  Después, para preparar el recurso en otra región, puede exportar la cuenta de Batch a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región. Después de cargar la plantilla en la nueva región, tendrá que volver a crear los certificados, las programaciones de trabajos y los paquetes de aplicación. Para confirmar los cambios y completar el traslado de la cuenta de Batch, recuerde eliminar la cuenta de Batch original o el grupo de recursos.  
+
+Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+

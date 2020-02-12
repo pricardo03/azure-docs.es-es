@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/29/2020
+ms.openlocfilehash: 091ca4d632d89405d85c66e264aff9867979fcd4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844690"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905233"
 ---
 # <a name="release-notes"></a>Notas de la versión
 
@@ -68,7 +68,7 @@ No hay cambio de versión de componentes para esta versión. Aquí puede encontr
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-A partir del 24 de enero de 2020, hay un problema activo que consiste en que puede recibir un error al intentar usar un cuaderno de Jupyter Notebook. Para solucionar el problema, siga estos pasos. También puede consultar esta [publicación de MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) o esta [publicación de StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) para obtener información actualizada o formular otras preguntas. Esta página se actualizará cuando se solucione el problema.
+A partir del 29 de enero de 2020, hay un problema activo que consiste en que puede recibir un error al intentar usar un cuaderno de Jupyter Notebook. Para solucionar el problema, siga estos pasos. También puede consultar esta [publicación de MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) o esta [publicación de StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) para obtener información actualizada o formular otras preguntas. Esta página se actualizará cuando se solucione el problema.
 
 **Errores**
 
@@ -77,22 +77,26 @@ A partir del 24 de enero de 2020, hay un problema activo que consiste en que pue
 
 **Causa** 
 
-El archivo _version.py del clúster se ha actualizado a 5.x.x en lugar de a 4.4.x.##.
+El archivo _version.py del clúster se ha actualizado a 5.x.x en lugar de a 4.4.x.## o es necesario reiniciar Ambari.
 
 **Solución**
 
 Si crea un cuaderno de Jupyter Notebook y recibe uno de los errores anteriores, siga estos pasos para solucionar el problema.
 
-1. Vaya a https://CLUSTERNAME.azurehdinsight.net para abrir Ambari en un explorador web, donde CLUSTERNAME es el nombre del clúster.
+1. Vaya a `https://CLUSTERNAME.azurehdinsight.net` para abrir Ambari en un explorador web, donde CLUSTERNAME es el nombre del clúster.
 1. En Ambari, en el menú izquierdo, haga clic en **Jupyter**, luego en **Service Actions** (Acciones de servicio) y en **Stop** (Detener).
 1. Conéctese al nodo principal del clúster en el que se ejecuta el servicio Jupyter mediante SSH.
 1. Abra el siguiente archivo /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py en modo sudo.
-1. La entrada existente debería mostrar algo similar al código siguiente: 
+1. Compruebe el valor de version_info.
+1. Si el valor de version_info está establecido en: 
 
     version_info = (5, 0, 3)
 
     Modifique la entrada a: 
     
     version_info = (4, 4, 0)
-1. Guarde el archivo.
+
+    Y guarde el archivo. 
+
+    Si version_info ya está establecido en (4, 4, 0), continúe en el paso siguiente, ya que solo es necesario reiniciar Ambari y no se tiene que realizar ningún otro cambio.
 1. Vuelva a Ambari y, en **Service Actions** (Acciones de servicio), haga clic en **Restart All** (Reiniciar todo).

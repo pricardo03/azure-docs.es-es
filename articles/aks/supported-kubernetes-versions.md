@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: bba4196547bda3d3ddcf3344032de5b9286639a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996755"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026122"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -96,7 +96,7 @@ New Supported Version List
 * Para nuevas versiones **secundarias** de Kubernetes
   * Todos los usuarios son notificados públicamente de la nueva versión y de la versión que se eliminará.
   * Cuando se publica una nueva versión de revisión, la versión de revisión más antigua se quita al mismo tiempo.
-  * Los clientes tienen **60 días** desde la fecha de notificación pública para actualizar a una versión secundaria compatible.
+  * Los clientes tienen **30 días** desde la fecha de notificación pública para actualizar a una versión secundaria compatible.
 * Para nuevas versiones de **revisión** de Kubernetes
   * Se notifica a todos los usuarios la publicación de la nueva versión de revisión y la necesidad de actualizar a la versión de revisión más reciente.
   * Los usuarios tienen **30 días** para actualizar a una versión de revisión más reciente que sea compatible. Los usuarios tienen **30 días** para actualizar a una versión de revisión compatible antes de quite la más antigua.

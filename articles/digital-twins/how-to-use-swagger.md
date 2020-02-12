@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: a14f3f6c17423dd9a86cbafe477fb8148932d43c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 27874e5731bd6fb9821e7aeda9333adbdbb79099
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863536"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023300"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentación de referencia de Swagger de Azure Digital Twins
 
@@ -95,9 +95,9 @@ Los ejemplos incluyen también los códigos de error para ayudar a depurar o mej
 > [!NOTE]
 > * La entidad de seguridad de usuario que creó el recurso de Azure Digital Twins tendrá una asignación del rol Administrador de espacio y podrá crear asignaciones de roles adicionales para otros usuarios. Estos usuarios y sus roles se pueden autorizar para llamar a las API.
 
-1. Siga los pasos de [esta guía de inicio rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para crear y configurar una aplicación de Azure AD. También puede volver a usar un registro de aplicación existente.
+1. Siga los pasos de [la guía de inicio rápido](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) para crear y configurar una aplicación de Azure Active Directory. También puede volver a usar un registro de aplicación existente.
 
-1. Agregue la siguiente **dirección URL de redireccionamiento** al registro de la aplicación de Azure AD:
+1. Agregue el siguiente **URI de redirección** al registro de la aplicación de Azure Active Directory:
 
     [![Registro de la dirección URL de redireccionamiento de Swagger en AAD](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png)](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png#lightbox)
 
@@ -108,7 +108,9 @@ Los ejemplos incluyen también los códigos de error para ayudar a depurar o mej
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | La dirección URL de documentación de API REST de administración que se encuentra en el portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-1. Copie el **identificador de cliente** de la aplicación de Azure AD.
+1. Active la casilla **Concesión implícita** > **Tokens de acceso** para permitir el uso del flujo de concesión implícita de OAuth 2.0. Seleccione **Configurar** y, a continuación, **Guardar**.
+
+1. Copie el **Id. del inquilino** de la aplicación de Azure Active Directory.
 
 Después de completar el registro de Azure Active Directory:
 

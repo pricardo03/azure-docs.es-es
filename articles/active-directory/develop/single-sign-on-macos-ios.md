@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 02/03/2020
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: ecc55c0d41f552d2c29fe5c964a7c40ab9e382ba
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bfc656911abf3349e03543e6bb668db977422738
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701389"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022637"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedimientos: Configuración del inicio de sesión único en macOS e iOS
 
@@ -71,7 +71,9 @@ Para que la plataforma de identidad de Microsoft sepa qué aplicaciones pueden c
 
 El modo en que la plataforma de identidad de Microsoft indica a las aplicaciones que usen el mismo id. de aplicación son los **URI de redirección**. Cada aplicación puede tener varios URI de redirección registrados en el portal de incorporación. Cada una de las aplicaciones de su conjunto tendrá diferentes URI de redirección. Por ejemplo:
 
-URI de redirección de la aplicación 1: `msauth.com.contoso.mytestapp1://auth` URI de redirección de la aplicación 2: `msauth.com.contoso.mytestapp2://auth` URI de redirección de la aplicación 3: `msauth.com.contoso.mytestapp3://auth`
+URI de redirección de la aplicación 1: `msauth.com.contoso.mytestapp1://auth`  
+URI de redirección de la aplicación 2: `msauth.com.contoso.mytestapp2://auth`  
+URI de redirección de la aplicación 3: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > El formato de los URI de redirección debe ser compatible con el formato de MSAL, que se puede consultar en [Requisitos de formato de las URI de redireccionamiento de MSAL](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -96,6 +98,18 @@ Cuando tenga los derechos configurados correctamente, verá un archivo `entitlem
 </plist>
 ```
 
+#### <a name="add-a-new-keychain-group"></a>Agregar un nuevo grupo de cadena de claves
+
+Agregue un nuevo grupo de cadena de claves al proyecto **Capacidades**. El grupo de cadena de claves debe ser:
+* `com.microsoft.adalcache` en iOS. 
+* `com.microsoft.identity.universalstorage` en macOS.
+
+![Ejemplo de cadena de claves](media/single-sign-on-macos-ios/keychain-example.png)
+
+Para más información, consulte [Grupos de cadena de claves](howto-v2-keychain-objc.md).
+
+## <a name="configure-the-application-object"></a>Configuración del objeto de la aplicación
+
 Una vez que tenga habilitado el derecho de la cadena de claves en cada una de sus aplicaciones y esté listo para usar SSO, configure `MSALPublicClientApplication` con el grupo de acceso a la cadena de claves, tal como se indica en el ejemplo siguiente:
 
 Objective-C:
@@ -113,16 +127,14 @@ Swift:
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
 config.cacheConfig.keychainSharingGroup = "my.keychain.group"
-        
+
 do {
-    let application = try MSALPublicClientApplication(configuration: config)
-  // continue on with application          
+   let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application
 } catch let error as NSError {
   // handle error here
-}       
+}
 ```
-
-
 
 > [!WARNING]
 > Cuando se comparte una cadena de claves entre aplicaciones, cualquiera de ellas puede eliminar usuarios o eliminar todos los tokens de la aplicación.
@@ -206,7 +218,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```
-    
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre [flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md).

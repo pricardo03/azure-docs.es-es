@@ -3,7 +3,7 @@ title: 'Tutorial: Uso de la biblioteca de clientes de Azure Batch para Node.js |
 description: Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante Node.js.
 services: batch
 author: shwetams
-manager: gwallace
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
-ms.openlocfilehash: a6895773e0109aa0fb643e4fadf8a31ac5b1a33a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323397"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023657"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
 Obtenga información acerca de los conceptos básicos de la creación de un cliente de Batch con Node.js en [Microsoft Azure SDK for Node.js - Batch Service](/javascript/api/overview/azure/batch) (SDK de Microsoft Azure SDK para Node.js: servicio Batch). Vamos a describir paso a paso un escenario de aplicación por lotes y, a continuación, su configuración mediante un cliente de Node.js.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se da por hecho que tiene conocimientos prácticos de Node.js y está familiarizado con Linux. También necesitará una cuenta de Azure configurada con derechos de acceso para crear servicios de Batch y Storage.
 
 Es recomendable leer [Azure Batch Technical Overview](batch-technical-overview.md) (Información general técnica de Azure Batch) antes de seguir los pasos que se describen en este artículo.
@@ -119,7 +119,7 @@ Consulte la captura de pantalla:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>Paso 4: Creación de un grupo de Azure Batch
+### <a name="step-4-create-an-azure-batch-pool"></a>Paso 4: Creación de un grupo de Azure Batch
 Un grupo de Azure Batch consta de varias máquinas virtuales (también conocidas como nodos de Batch). El servicio Azure Batch implementa las tareas en los nodos y las administra. Puede definir los siguientes parámetros de configuración para el grupo.
 
 * Tipo de imagen de máquina virtual
@@ -254,7 +254,7 @@ A continuación se muestra un ejemplo de objeto devuelto por la función pool.ge
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>Paso 4: Envío de un trabajo a Azure Batch
+### <a name="step-4-submit-an-azure-batch-job"></a>Paso 4: Envío de un trabajo a Azure Batch
 Un trabajo de Azure Batch es un grupo lógico de tareas similares. En nuestro escenario, es "Conversión de CSV a JSON". Cada tarea aquí podría estar procesando archivos CSV presentes en cada contenedor de Azure Storage.
 
 Estas tareas se ejecutan en paralelo y se implementan a través de varios nodos, organizados por el servicio de Azure Batch.
@@ -279,7 +279,7 @@ Puede cargar el script en una cuenta de Azure Storage y generar un URI de SAS pa
 
 La tarea de preparación se especifica durante el envío de un trabajo de Azure Batch. Estos son los parámetros de configuración de la tarea de preparación:
 
-* **ID**: identificador único de la tarea de preparación.
+* **Identificador**: identificador único de la tarea de preparación.
 * **commandLine**: línea de comandos para ejecutar el ejecutable de la tarea.
 * **resourceFiles**: matriz de objetos que proporciona detalles de los archivos que se deben descargar para que la tarea se ejecute.  Las opciones son
     - blobSource: el URI de SAS del archivo.

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561961"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024643"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -37,7 +37,7 @@ Las siguientes características están disponibles para las aplicaciones de func
 
 ### <a name="pre-warmed-instances"></a>Instancias activadas previamente
 
-Si hay un día en que no tiene lugar ningún evento ni ejecución en el plan de consumo, la aplicación puede reducirse verticalmente a cero instancias. Cuando se produzcan nuevos eventos, será necesario especializar una nueva instancia con la aplicación que se ejecute en ella.  La especialización de nuevas instancias puede tardar algún tiempo dependiendo de la aplicación.  Esta latencia adicional de la primera llamada también suele denominarse "arranque en frío basado en la aplicación".
+Si hay un día en que no tiene lugar ningún evento ni ejecución en el plan de consumo, la aplicación puede reducirse horizontalmente a cero instancias. Cuando se produzcan nuevos eventos, será necesario especializar una nueva instancia con la aplicación que se ejecute en ella.  La especialización de nuevas instancias puede tardar algún tiempo dependiendo de la aplicación.  Esta latencia adicional de la primera llamada también suele denominarse "arranque en frío basado en la aplicación".
 
 En el plan Premium, puede tener la aplicación previamente activada en un número concreto de instancias hasta alcanzar el tamaño mínimo del plan.  Las instancias activadas previamente también permiten escalar una aplicación de forma anticipada antes de que llegue una carga elevada. Cuando la aplicación realiza el escalado horizontal, primero escala las instancias activadas previamente. Otras instancias seguirán preparándose y calentando motores en previsión de la nueva operación de escalado. Al contar con una serie de instancias activadas previamente, se pueden evitar eficazmente las latencias de los arranques en frío.  Las instancias activadas previamente son una característica del plan Premium que requiere que haya al menos una instancia en ejecución disponible siempre que el plan esté activo.
 
@@ -108,21 +108,21 @@ A continuación se muestran las regiones admitidas actualmente para cada SO.
 |Centro de Canadá| ✔ |  |
 |Centro de EE. UU.| ✔ |  |
 |Asia oriental| ✔ |  |
-|East US | ✔ | ✔<sup>1</sup> |
+|Este de EE. UU. | ✔ | ✔<sup>1</sup> |
 |Este de EE. UU. 2| ✔ |  |
 |Centro de Francia| ✔ |  |
 |Centro-oeste de Alemania| ✔ | |
-|Este de Japón| ✔ | ✔<sup>1</sup> |
-|Oeste de Japón| ✔ | |
-|Corea Central| ✔ |  |
+|Japón Oriental| ✔ | ✔<sup>1</sup> |
+|Japón Occidental| ✔ | |
+|Centro de Corea del Sur| ✔ |  |
 |Centro-Norte de EE. UU| ✔ |  |
-|Europa del Norte| ✔ | ✔<sup>1</sup> |
-|Centro-Sur de EE. UU| ✔ | ✔<sup>1</sup> |
-|Sur de la India | ✔ | |
+|Norte de Europa| ✔ | ✔<sup>1</sup> |
+|Centro-sur de EE. UU.| ✔ | ✔<sup>1</sup> |
+|India del Sur | ✔ | |
 |Sudeste asiático| ✔ | ✔<sup>1</sup> |
 |Sur de Reino Unido 2| ✔ | |
 |Oeste de Reino Unido| ✔ |  |
-|Europa occidental| ✔ | ✔<sup>1</sup> |
+|Oeste de Europa| ✔ | ✔<sup>1</sup> |
 |Oeste de la India| ✔ |  |
 |Oeste de EE. UU.| ✔ | ✔<sup>1</sup> |
 |Oeste de EE. UU. 2| ✔ |  |

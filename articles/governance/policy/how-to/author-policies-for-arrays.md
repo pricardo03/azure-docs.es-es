@@ -3,12 +3,12 @@ title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 915f50945e0c2520fbda09c4db1b581c9381073b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873104"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023198"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -46,7 +46,7 @@ Esta definición de directiva permite cualquier ubicación única para el parám
 
 Como **type** es _string_, solo se puede establecer un único valor al asignar la directiva. Si se asigna esta directiva, los recursos del ámbito solo se permiten en una única región de Azure. La mayoría de las definiciones de directivas deben permitir una lista de opciones aprobadas, como permitir _eastus2_, _eastus_ y _westus2_.
 
-Para crear la definición de directiva para permitir varias opciones, utilice el elemento _array_ **type**. La misma directiva se puede reescribir del siguiente modo:
+Para crear la definición de directiva a fin de permitir varias opciones, utilice el elemento **type** _array_. La misma directiva se puede reescribir del siguiente modo:
 
 ```json
 "parameters": {
@@ -96,8 +96,8 @@ El formato para el valor del parámetro es distinto cuando se usa la CLI de Azur
 Para usar esta cadena con cada SDK, use los siguientes comandos:
 
 - CLI de Azure: Comando [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) con el parámetro **params**
-- Azure PowerShell: Cmdlet [New AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con el parámetro **PolicyParameter**
-- API REST: En la operación _PUT_ [create](/rest/api/resources/policyassignments/create) como parte del cuerpo de la solicitud, como valor de la propiedad **properties.parameters**
+- Azure PowerShell: Cmdlet [New AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con el parámetro **PolicyParameter**
+- API REST: en la operación _PUT_ [create](/rest/api/resources/policyassignments/create) como parte del cuerpo de la solicitud, como el valor de la propiedad **properties.parameters**
 
 ## <a name="policy-rules-and-arrays"></a>Matrices y reglas de directiva
 
@@ -136,11 +136,12 @@ Al intentar crear esta definición de directiva a través de Azure Portal genera
 
 - "No se pudo parametrizar la directiva '{GUID}' por errores de validación. Compruebe si los parámetros de la directiva están definidos correctamente. La excepción interna 'El resultado de la evaluación de la expresión de lenguaje '[parameters('allowedLocations')]' es de tipo 'Matriz'. El tipo esperado es 'String'".
 
-El elemento **type** esperado de la condición `equals` es _string_. Puesto que **allowedLocations** se define como **type** _array_, el motor de directiva evalúa la expresión de lenguaje y emite el error. Con la condición `in` y `notIn`, el motor de directiva espera el elemento **type** _array_ en la expresión de lenguaje. Para resolver este mensaje de error, cambie `equals` a `in` o `notIn`.
+El elemento **type** esperado de la condición `equals` es _string_. Puesto que **allowedLocations** se define como **type** _array_, el motor de directiva evalúa la expresión de lenguaje y genera el error. Con la condición `in` y `notIn`, el motor de directiva espera el elemento **type** _array_ en la expresión de lenguaje. Para resolver este mensaje de error, cambie `equals` a `in` o `notIn`.
 
 ### <a name="evaluating-the--alias"></a>Evaluación del alias [*]
 
-Los alias que tienen **\[\*\]** adjuntado a sus nombres indican que **type** es una _matriz_. En lugar de evaluar el valor de toda la matriz, **\[\*\]** hace que sea posible evaluar cada elemento de la matriz. Hay tres escenarios estándar en que la evaluación por elemento es útil: Ninguno, Cualquiera y Todo. Para escenarios complejos, use [count](../concepts/definition-structure.md#count).
+Los alias que tienen **\[\*\]** adjuntado a sus nombres indican que **type** es una _matriz_. En lugar de evaluar el valor de toda la matriz, **\[\*\]** permite evaluar los elementos de la matriz individualmente, con el operador lógico AND entre ellos. Hay tres escenarios estándar en que la evaluación por elemento es útil: la coincidencia de _ninguno_, _alguno_ o _todos_ los elementos.
+Para escenarios complejos, use [count](../concepts/definition-structure.md#count).
 
 El motor de directiva desencadena **effect** en **then** solo cuando la regla **if** se evalúa como true.
 Este hecho es importante para comprender en contexto la manera en que **\[\*\]** evalúa cada elemento individual de la matriz.
@@ -183,16 +184,16 @@ Para cada ejemplo de condición siguiente, reemplace `<field>` por `"field": "Mi
 
 Los siguientes resultados se derivan de la combinación de la condición y la regla de directiva de ejemplo y la matriz de valores existentes anteriores:
 
-|Condición |Resultado |Explicación |
-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nada |Un elemento de matriz se evalúa como false (127.0.0.1 != 127.0.0.1) y otro como true (127.0.0.1 != 192.168.1.1), por lo que la condición **notEquals** es _false_ y el efecto no se desencadena. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Efecto de la directiva |Ambos elementos de matriz se evalúan como true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), por lo que la condición **notEquals** es _true_ y el efecto se desencadena. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Efecto de la directiva |Un elemento de matriz se evalúa como true (127.0.0.1 == 127.0.0.1) y otro como false (127.0.0.1 == 192.168.1.1), por lo que la condición **Equals** es _false_. El operador lógico se evalúa como true (**not** _false_), por lo que se desencadena el efecto. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Efecto de la directiva |Ambos elementos de matriz se evalúan como false (10.0.4.1 == 127.0.0.1 y 10.0.4.1 == 192.168.1.1), por lo que la condición **Equals** es _false_. El operador lógico se evalúa como true (**not** _false_), por lo que se desencadena el efecto. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Efecto de la directiva |Un elemento de matriz se evalúa como false (127.0.0.1 != 127.0.0.1) y otro como true (127.0.0.1 != 192.168.1.1), por lo que la condición **notEquals** es _false_. El operador lógico se evalúa como true (**not** _false_), por lo que se desencadena el efecto. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada |Ambos elementos de matriz se evalúan como true (10.0.4.1 != 127.0.0.1 y 10.0.4.1 != 192.168.1.1), por lo que la condición **notEquals** es _true_. El operador lógico se evalúa como false (**not** _true_), por lo que no se desencadena el efecto. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nada |Un elemento de matriz se evalúa como true (127.0.0.1 == 127.0.0.1) y otro como false (127.0.0.1 == 192.168.1.1), por lo que la condición **Equals** es _false_ y el efecto no se desencadena. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nada |Ambos elementos de matriz se evalúan como false (10.0.4.1 == 127.0.0.1 y 10.0.4.1 == 192.168.1.1), por lo que la condición **Equals** es _false_ y el efecto no se desencadena. |
+|Condición |Resultado | Escenario |Explicación |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |Nada |Ninguna coincidencia |Un elemento de matriz se evalúa como false (127.0.0.1 != 127.0.0.1) y otro como true (127.0.0.1 != 192.168.1.1), por lo que la condición **notEquals** es _false_ y el efecto no se desencadena. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Efecto de la directiva |Ninguna coincidencia |Ambos elementos de matriz se evalúan como true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), por lo que la condición **notEquals** es _true_ y el efecto se desencadena. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Efecto de la directiva |Una o más coincidencias |Un elemento de matriz se evalúa como false (127.0.0.1 != 127.0.0.1) y otro como true (127.0.0.1 != 192.168.1.1), por lo que la condición **notEquals** es _false_. El operador lógico se evalúa como true (**not** _false_), por lo que se desencadena el efecto. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada |Una o más coincidencias |Ambos elementos de matriz se evalúan como true (10.0.4.1 != 127.0.0.1 y 10.0.4.1 != 192.168.1.1), por lo que la condición **notEquals** es _true_. El operador lógico se evalúa como false (**not** _true_), por lo que no se desencadena el efecto. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Efecto de la directiva |Coincidencia parcial |Un elemento de matriz se evalúa como true (127.0.0.1 == 127.0.0.1) y otro como false (127.0.0.1 == 192.168.1.1), por lo que la condición **Equals** es _false_. El operador lógico se evalúa como true (**not** _false_), por lo que se desencadena el efecto. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Efecto de la directiva |Coincidencia parcial |Ambos elementos de matriz se evalúan como false (10.0.4.1 == 127.0.0.1 y 10.0.4.1 == 192.168.1.1), por lo que la condición **Equals** es _false_. El operador lógico se evalúa como true (**not** _false_), por lo que se desencadena el efecto. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nada |Coincidencia total |Un elemento de matriz se evalúa como true (127.0.0.1 == 127.0.0.1) y otro como false (127.0.0.1 == 192.168.1.1), por lo que la condición **Equals** es _false_ y el efecto no se desencadena. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nada |Coincidencia total |Ambos elementos de matriz se evalúan como false (10.0.4.1 == 127.0.0.1 y 10.0.4.1 == 192.168.1.1), por lo que la condición **Equals** es _false_ y el efecto no se desencadena. |
 
 ## <a name="the-append-effect-and-arrays"></a>El efecto de anexar y matrices
 
@@ -208,6 +209,6 @@ Para obtener más información, consulte [Ejemplos de append](../concepts/effect
 - Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
-- Aprenda cómo [crear directivas mediante programación](programmatically-create.md).
-- Aprenda a [corregir recursos no compatibles](remediate-resources.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
+- Obtenga información sobre cómo [corregir recursos no compatibles](remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

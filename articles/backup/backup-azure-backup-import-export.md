@@ -4,12 +4,12 @@ description: Descubra cómo Azure Backup permite enviar datos fuera de la red me
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 162d129eaea83ef6623daaa063e8a088c021e25d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997367"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022620"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 
@@ -42,7 +42,7 @@ Las características o cargas de trabajo de Azure Backup siguientes admiten el u
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
   > [!NOTE]
   > El flujo de trabajo y los requisitos previos siguientes solo se aplican a la copia de seguridad sin conexión de archivos y carpetas con el [agente MARS más reciente](https://aka.ms/azurebackup_agent). Para crear copias de seguridad sin conexión de las cargas de trabajo con System Center DPM o Azure Backup Server, consulte [este artículo](backup-azure-backup-server-import-export-.md).
@@ -75,6 +75,15 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
 
     ![Pantalla de importación](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
+2. Seleccione la opción **Transfer using my own disks** (Transferir con mis propios discos).
+
+    >[!NOTE]
+    >Se recomienda usar la opción Azure Data Box para transferir los datos de copia de seguridad iniciales sin conexión. Esta opción ahorra el esfuerzo necesario para adquirir sus propios discos compatibles con Azure, ya que ofrece dispositivos de Azure Data Box de Microsoft seguros y de prueba de manipulaciones, en los que el agente de MARS puede escribir directamente los datos de copia de seguridad.
+
+3. Haga clic en **Siguiente** y rellene cuidadosamente las entradas:
+
+    ![Escribir los detalles del disco](./media/backup-azure-backup-import-export/your-disk-details.png)
+
    La descripción de las entradas es la siguiente:
 
     * **Ubicación de almacenamiento provisional**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
@@ -85,15 +94,15 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
   
    Proporcione las entradas en la pantalla y haga clic en **Siguiente**. Guarde la *ubicación de almacenamiento provisional* y el *nombre del trabajo de importación de Azure* proporcionados, ya que esta información es necesaria para preparar los discos.
 
-2. Cuando se le solicite, inicie sesión en su suscripción de Azure. Debe iniciar sesión para que Azure Backup pueda crear la aplicación de Azure Active Directory y proporcionar los permisos necesarios para acceder al servicio Azure Import.
+4. Cuando se le solicite, inicie sesión en su suscripción de Azure. Debe iniciar sesión para que Azure Backup pueda crear la aplicación de Azure Active Directory y proporcionar los permisos necesarios para acceder al servicio Azure Import.
 
-    ![Realizar copia de seguridad ahora](./media/backup-azure-backup-import-export/azurelogin.png)
+    ![Realizar copia de seguridad ahora](./media/backup-azure-backup-import-export/azure-login.png)
 
-3. Complete el flujo de trabajo y, en la consola del agente de Azure Backup, haga clic en **Realizar copia de seguridad ahora**.
+5. Complete el flujo de trabajo y, en la consola del agente de Azure Backup, haga clic en **Realizar copia de seguridad ahora**.
 
     ![Realizar copia de seguridad ahora](./media/backup-azure-backup-import-export/backupnow.png)
 
-4. En la página de confirmación del asistente, haga clic en **Back Up** (Hacer una copia de seguridad). La copia de seguridad inicial se escribe en el área de ensayo como parte de esta configuración.
+6. En la página de confirmación del asistente, haga clic en **Back Up** (Hacer una copia de seguridad). La copia de seguridad inicial se escribe en el área de ensayo como parte de esta configuración.
 
    ![Confirmación de que está listo para hacer una copia de seguridad](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
@@ -122,7 +131,7 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | Parámetro | DESCRIPCIÓN |
+    | Parámetro | Descripción |
     | --- | --- |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; |Entrada obligatoria que se usa para proporcionar la ruta de acceso a la ubicación de ensayo especificada en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |
     | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Entrada obligatoria que se utiliza para proporcionar la ruta de acceso al archivo de **Configuración de publicación de Azure** especificado en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |
@@ -206,4 +215,3 @@ Una vez que se completa la copia de seguridad inicial, puede eliminar de manera 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Si tiene dudas acerca del flujo de trabajo de Azure Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage/common/storage-import-export-service.md).
-

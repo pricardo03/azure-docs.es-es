@@ -1,22 +1,22 @@
 ---
-title: Evento completo de eliminación de grupo de Azure Batch | Microsoft Docs
-description: Referencia del evento completo de eliminación de grupo de Batch.
+title: Evento completo de eliminación de grupo de Azure Batch
+description: Referencia del evento completo de eliminación de grupo de Batch. Este evento se genera cuando se finaliza una operación de eliminación del grupo.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: bcbfe009e2880c0155a067305cc28317678cbfa6
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: d317d7395a8246c109073a72338b55960cb50954
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026699"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023623"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de finalización de eliminación del grupo
 

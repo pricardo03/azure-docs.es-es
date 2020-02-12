@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18510bd7ace6ca87278b5bf68f79b372251ac0e1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807817"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025748"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación
 
@@ -34,6 +34,8 @@ Debe haber publicado y probado ya la aplicación con el proxy de aplicación. Si
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
 1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Todas las aplicaciones**.
 1. En la lista, seleccione la aplicación para la que desea configurar el SSO.  
+1. Seleccione **Proxy de la aplicación**. 
+1. Cambie el valor de **Tipo de preautenticación** a **Acceso directo** y seleccione **Guardar**. Más adelante podrá volver al tipo **Azure Active Directory**. 
 1. Seleccione **Inicio de sesión único**.
 
    ![Selección de inicio de sesión único desde la página de introducción de la aplicación](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
@@ -44,6 +46,17 @@ Debe haber publicado y probado ya la aplicación con el proxy de aplicación. Si
    ![Elegir inicio de sesión basado en contraseña y escribir la URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 1. Seleccione **Guardar**.
+1. Seleccione **Proxy de la aplicación**. 
+1. Cambie el valor de **Tipo de preautenticación** a **Azure Active Directory** y seleccione **Guardar**. 
+1. Seleccione **Usuarios y grupos**.
+1. Asigne usuarios a la aplicación con la selección de **Agregar usuario**. 
+1. Si desea predefinir las credenciales de un usuario, active la casilla del nombre de usuario y seleccione **Actualizar credenciales**.
+1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Todas las aplicaciones**.
+1. En la lista, seleccione la aplicación que ha configurado con el inicio de sesión único con contraseña.
+1. Seleccione la **personalización de marca**. 
+1. Actualice la **dirección URL de la página principal** con la **dirección URL de inicio de sesión** de la página de inicio de sesión único con contraseña y seleccione **Guardar**.  
+
+
 
 <!-- Need to repro?
 7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
@@ -51,7 +64,7 @@ Debe haber publicado y probado ya la aplicación con el proxy de aplicación. Si
 
 ## <a name="test-your-app"></a>Prueba de la aplicación
 
-Vaya a la dirección URL externa configurada para obtener acceso remoto a la aplicación. Inicie sesión con sus credenciales para esa aplicación (o las credenciales para la cuenta de prueba que configuró con acceso). Una vez que inicie sesión correctamente, debería poder salir de la aplicación y volver sin necesidad de volver a especificar sus credenciales.
+Vaya al portal Aplicaciones. Inicie sesión con sus credenciales (o las credenciales de una cuenta de prueba que configuró con acceso). Después de iniciar sesión correctamente, haga clic en el icono de la aplicación. Al hacerlo, podría desencadenar la instalación de la extensión del explorador para el inicio de sesión seguro de Aplicaciones. Si el usuario tenía credenciales predefinidas, la autenticación para la aplicación debería realizarse automáticamente; de lo contrario, debe especificar el nombre de usuario o la contraseña la primera vez. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

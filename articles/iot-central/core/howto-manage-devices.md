@@ -1,42 +1,43 @@
 ---
 title: Administración de dispositivos en una aplicación de Azure IoT Central | Microsoft Docs
 description: Como operador, aprenda a administrar dispositivos en la aplicación de Azure IoT Central.
-author: ellenfosborne
-ms.author: elfarber
-ms.date: 06/09/2019
+author: sarahhubbard
+ms.author: sahubbar
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: adcaa29ed894f2d61871f467369bcdd05f8cc593
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: dfbfd65223ddad5e8a20958d62ef86b5aa16af43
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601579"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023487"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
+
 
 En este artículo se describe cómo administrar dispositivos en la aplicación de Azure IoT Central como operador. Como operador, puede hacer lo siguiente:
 
 - Usar la página **Devices** (Dispositivos) para ver, agregar y eliminar los dispositivos conectados a una aplicación de Azure IoT Central.
 - Mantener un inventario actualizado de los dispositivos.
-- Mantener actualizados los metadatos del dispositivo cambiando los valores almacenados en las propiedades del dispositivo.
-- Controlar el comportamiento de los dispositivos mediante la actualización de una configuración en un dispositivo específico desde la página **Configuración**.
+- Mantener actualizados los metadatos del dispositivo cambiando los valores almacenados en las propiedades del dispositivo desde sus vistas.
+- Controlar el comportamiento de los dispositivos mediante la actualización de una configuración en un dispositivo específico desde sus vistas.
 
 ## <a name="view-your-devices"></a>Visualización de los dispositivos
 
 Para ver un dispositivo determinado:
 
-1. Elija **Dispositivos** en el panel izquierdo. Aquí verá una lista de las [plantillas de dispositivo](howto-set-up-template.md).
+1. Elija **Dispositivos** en el panel izquierdo. Verá una lista con todos los dispositivos y sus plantillas de dispositivo.
 
-1. Elija una plantilla de dispositivo de la lista de **Plantillas**.
+1. Elija una plantilla.
 
 1. En el panel derecho de la página **Devices** (Dispositivos), verá una lista de los dispositivos creados con esa plantilla. Elija un dispositivo para ver la página de detalles de ese dispositivo:
 
     ![Página Detalles del dispositivo](./media/howto-manage-devices/devicelist.png)
+
 
 ## <a name="add-a-device"></a>Agregar un dispositivo
 
@@ -48,7 +49,11 @@ Para agregar un dispositivo real a una aplicación de Azure IoT Central:
 
 1. Elija + **Nuevo**.
 
-1. Elija **Real** o **Simulado**. Un dispositivo real hace referencia a un dispositivo físico que se conecta a la aplicación de Azure IoT Central. Un dispositivo simulado tiene datos de ejemplo generados por Azure IoT Central, que los pone a su disposición.
+1. Cambie el botón de alternancia **Simulated** **On** (Activado) u **Off** (Desactivado). Un dispositivo real hace referencia a un dispositivo físico que se conecta a la aplicación de Azure IoT Central. Un dispositivo simulado tiene datos de ejemplo generados por Azure IoT Central, que los pone a su disposición.
+
+1. Haga clic en **Crear**.
+
+1. El dispositivo aparece ahora en la lista de dispositivos de esta plantilla. Selecciónelo para ver su página de detalles, que contiene todas las vistas del dispositivo.
 
 ## <a name="import-devices"></a>Importación de dispositivos
 
@@ -64,44 +69,48 @@ Para registrar dispositivos en la aplicación en bloque:
 1. En el panel izquierdo, elija la plantilla de dispositivo para la que desea crear dispositivos en bloque.
 
     > [!NOTE]
-    > Si aún no tiene una plantilla de dispositivo, puede importar dispositivos en **Unassociated devices** (Dispositivos no asociados) y registrarlos sin ninguna plantilla. Una vez que se han importado, puede asociarlos con una plantilla.
+    > Si aún no tiene una plantilla de dispositivo, puede importar dispositivos en **Todos los dispositivos** y registrarlos sin plantilla. Una vez que los dispositivos se han importado, puede migrarlos a una plantilla.
 
 1. Seleccione **Import** (Importar).
 
     ![Acción de importación](./media/howto-manage-devices/bulkimport1a.png)
 
+
 1. Seleccione el archivo CSV que tiene la lista de identificadores de dispositivo que desea importar.
 
-1. La importación de dispositivos se inicia una vez que se ha cargado el archivo. Puede realizar un seguimiento del estado de la importación en la parte superior de la cuadrícula de dispositivo.
+1. La importación de dispositivos se inicia una vez que se ha cargado el archivo. En el panel Device Operations (Operaciones de dispositivo) puede realizar un seguimiento del estado de la importación. Este panel aparece automáticamente cuando se inicia la importación, o bien se puede acceder a él a través del icono de la campana de la esquina superior derecha.
 
-1. Una vez finalizada la importación, se muestra un mensaje de confirmación en la cuadrícula de dispositivos.
+1. Una vez que la importación finalizada, se muestra un mensaje de confirmación en el panel Device Operations (Operaciones de dispositivo).
 
     ![Importación correcta](./media/howto-manage-devices/bulkimport3a.png)
 
-Si se produce un error en la operación de importación de dispositivos, aparece un mensaje de error en la cuadrícula de dispositivos. Se genera un archivo de registro descargable con todos los errores.
 
-**Asociación de dispositivos con una plantilla**
+Si se produce un error en la operación de importación de dispositivos, aparece un mensaje de error en el panel Device Operations (Operaciones de dispositivo). Se genera un archivo de registro descargable con todos los errores.
 
-Si registra dispositivos mediante la importación en **Unassociated devices** (Dispositivos no asociados), los dispositivos se crean sin asociación con una plantilla de dispositivo. Los dispositivos deben estar asociados con una plantilla para explorar los datos y otros detalles sobre ellos. Siga estos pasos para asociar dispositivos con una plantilla:
+**Migración de dispositivos a una plantilla**
+
+Si para registrar dispositivos inicia la importación en **All devices** (Todos los dispositivos), los dispositivos se crean sin asociación con ninguna plantilla. Los dispositivos deben estar asociados con una plantilla para explorar los datos y otros detalles sobre ellos. Siga estos pasos para asociar dispositivos con una plantilla:
 
 1. Elija **Dispositivos** en el panel izquierdo.
 
-1. En el panel izquierdo, elija **Unassociated devices** (Dispositivos no asociados):
+1. Elija **All devices** (Todos los servicios) en el panel izquierdo:
 
     ![Dispositivos no asociados](./media/howto-manage-devices/unassociateddevices1a.png)
 
+
+1. Use el filtro de la cuadrícula para determinar si el valor de la columna **Device Template** (Plantilla de dispositivo) es "Unassociated" (Sin asociar) en cualquiera de los dispositivos.
+
 1. Seleccione los dispositivos que quiere asociar con una plantilla:
 
-1. Seleccione **Asociar**:
+1. Seleccione **Migrate** (Migrar):
 
     ![Asociar dispositivos](./media/howto-manage-devices/unassociateddevices2a.png)
 
-1. Elija la plantilla de la lista de plantillas disponibles y seleccione **Asociar**.
+
+1. Elija la plantilla en la lista de plantillas disponibles y seleccione **Migrate** (Migrar).
 
 1. Los dispositivos seleccionados están asociados con la plantilla de dispositivo que eligió.
 
-> [!NOTE]
-> Una vez que un dispositivo se ha asociado con una plantilla, no se puede desasociar ni asociar con una plantilla diferente.
 
 ## <a name="export-devices"></a>Exportación de dispositivos
 
@@ -111,19 +120,21 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 
 1. Elija **Dispositivos** en el panel izquierdo.
 
-1. En el panel izquierdo, elija la plantilla de dispositivo para la que desea exportar los dispositivos.
+1. En el panel izquierdo, elija la plantilla de dispositivo desde la que desea exportar los dispositivos.
 
 1. Seleccione los dispositivos que desea exportar y la acción **Exportar**.
 
     ![Exportación](./media/howto-manage-devices/export1a.png)
 
-1. Se inicia el proceso de exportación. Puede realizar un seguimiento del estado en la parte superior de la cuadrícula.
+
+1. Se inicia el proceso de exportación. Para realizar un seguimiento del estado, utilice el panel Device Operations (Operaciones de dispositivo).
 
 1. Cuando la exportación finaliza, se muestra un mensaje de confirmación junto con un vínculo para descargar el archivo generado.
 
-1. Seleccione el **mensaje de operación correcta** para descargar el archivo en una carpeta local en el disco.
+1. Seleccione el vínculo **Download File** (Descargar archivo) para descargar el archivo en una carpeta local del disco.
 
     ![Exportación correcta](./media/howto-manage-devices/export2a.png)
+
 
 1. El archivo CSV exportado contiene las siguientes columnas: Id. de dispositivo, nombre del dispositivo, claves de dispositivo y huellas digitales de certificado X509:
 
@@ -134,7 +145,7 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-Consulte [Conectividad de dispositivos en Azure IoT Central](concepts-connectivity.md) para más información sobre las cadenas de conexión y la conexión de dispositivos reales a la aplicación de IoT Central.
+Para más información sobre las cadenas de conexión y la conexión de dispositivos reales a la aplicación de IoT Central, consulte [Conectividad de dispositivos en Azure IoT Central](concepts-get-connected.md).
 
 ## <a name="delete-a-device"></a>Eliminar un dispositivo
 
@@ -144,44 +155,30 @@ Para eliminar ya sea un dispositivo real o simulado de la aplicación de Azure I
 
 1. Elija la plantilla de dispositivo del dispositivo que desea eliminar.
 
-1. Active la casilla situada junto al dispositivo que desea eliminar.
+1. Use las herramientas de filtro para filtrar y buscar los dispositivos. Active la casilla situada junto al dispositivo que desea eliminar.
 
-1. Elija **Eliminar**.
-
-## <a name="change-a-device-setting"></a>Cambio de la configuración de un dispositivo
-
-La configuración controla el comportamiento de un dispositivo. En otras palabras, le permite proporcionar entradas para el dispositivo. Puede ver y actualizar la configuración del dispositivo en la página **Detalles del dispositivo**.
-
-1. Elija **Dispositivos** en el panel izquierdo.
-
-1. Elija la plantilla de dispositivo del dispositivo cuya configuración desea modificar.
-
-1. Elija la pestaña **Configuración** . Aquí verá toda la configuración que tiene el dispositivo y sus valores actuales. Para cada valor, puede ver si el dispositivo se está sincronizando todavía.
-
-1. Modifique la configuración según los valores que necesita. Puede modificar varias opciones de configuración a la vez y actualizarlas todas al mismo tiempo.
-
-1. Seleccione **Actualizar**. Los valores se envían al dispositivo. Cuando el dispositivo confirma el cambio de configuración, el estado de la configuración se cambia de nuevo a **sincronizado**.
+1. Elija **Eliminar**. Puede realizar un seguimiento del estado de la eliminación en el panel Device Operations (Operaciones de dispositivo).
 
 ## <a name="change-a-property"></a>Cambio de una propiedad
 
-Las propiedades son los metadatos de dispositivo asociados al dispositivo, como la ciudad y el número de serie. Puede ver y actualizar las propiedades en la página **Detalles del dispositivo**.
+Las propiedades de la nube son los metadatos de dispositivo asociados al dispositivo, como la ciudad y el número de serie. Las propiedades que se pueden escribir controlan el comportamiento de un dispositivo. En otras palabras, le permite proporcionar entradas para el dispositivo.  Las propiedades del dispositivo las establece el dispositivo y son de solo lectura en IoT Central. Puede ver y actualizar las propiedades en las vistas de **Detalles del dispositivo**.
 
 1. Elija **Dispositivos** en el panel izquierdo.
 
-1. Elija la plantilla de dispositivo del dispositivo cuyas propiedades desea modificar.
+1. Elija la plantilla de dispositivo del dispositivo cuyas propiedades desea modificar y seleccione el dispositivo de destino.
 
-1. Elija la pestaña **Propiedades**, donde verá todas las propiedades.
+1. Elija la vista que contiene las propiedades del dispositivo. Esta vista le permite especificar valores y seleccionar **Guardar** en la parte superior de la página. Aquí verá las propiedades del dispositivo y sus valores actuales. Tanto las propiedades de la nube como las propiedades que se pueden escribir tienen campos editables, mientras que las propiedades del dispositivo son de solo lectura. En el caso de las propiedades que se pueden escribir, puede ver su estado de sincronización en la parte inferior del campo. 
 
-1. Modifique las propiedades de la aplicación con los valores que necesite. Puede modificar varias propiedades a la vez y actualizarlas todas al mismo tiempo. Seleccione **Actualizar**.
+1. Modifique las propiedades con los valores que necesite. Puede modificar varias propiedades a la vez y actualizarlas todas al mismo tiempo.
 
-> [!NOTE]
-> No se puede cambiar el valor de las _propiedades del dispositivo_. Las propiedades del dispositivo se establecen con el dispositivo y son de solo lectura en la aplicación de Azure IoT Central.
+1. Elija **Guardar**. Si guardó las propiedades que se pueden escribir, los valores se envían al dispositivo. Cuando el dispositivo confirma el cambio de la propiedad que se puede escribir, el estado vuelve a **synced**(sincronizado). Si guardó una propiedad de la nube, el valor se actualiza.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a administrar dispositivos en la aplicación de Azure IoT Central, le sugerimos el paso siguiente:
 
 > [!div class="nextstepaction"]
-> [How to use device sets](howto-use-device-sets.md) (Uso de conjuntos de dispositivos)
+> [Uso de grupos de dispositivos](tutorial-use-device-groups.md)
 
 <!-- Next how-tos in the sequence -->

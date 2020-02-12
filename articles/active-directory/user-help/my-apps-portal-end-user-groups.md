@@ -2,22 +2,22 @@
 title: 'Actualización de la información de los grupos en el portal Mis aplicaciones: Azure AD'
 description: Aprenda a ver y actualizar la información de sus grupos, por ejemplo, ver los grupos que posee, crear otros, ver los grupos de los que es miembro y unirse a grupos de los que aún no forme parte.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704959"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022303"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Actualización de la información de los grupos en el portal Mis aplicaciones
 
@@ -98,8 +98,6 @@ Si el administrador le ha dado permiso para ver el icono **Grupos**, puede:
 
 Después de crear un grupo, puede editar sus detalles o actualizar cualquier dato existente.
 
-### <a name="to-edit-your-details"></a>Para editar los detalles
-
 1. Seleccione el grupo que desee editar en la página **Grupos** y **Editar detalles** en la página *&lt;nombre_grupo&gt;* .
 
     El cuadro **Editar detalles** aparecerá para que pueda actualizar la información que agregó al crear el grupo.
@@ -108,9 +106,7 @@ Después de crear un grupo, puede editar sus detalles o actualizar cualquier dat
 
 ## <a name="add-or-remove-a-member"></a>Incorporación o eliminación de un miembro
 
-Puede agregar miembros a cualquiera de los grupos de su propiedad o eliminarlos.
-
-### <a name="to-add-or-remove-a-member"></a>Para agregar o eliminar un miembro
+Puede agregar o quitar miembros de los grupos de su propiedad.
 
 1. Seleccione el grupo al que desea agregar miembros y **+** en la página *&lt;nombre_grupo&gt;* .
 
@@ -130,8 +126,6 @@ Puede agregar miembros a cualquiera de los grupos de su propiedad o eliminarlos.
 
 Si la organización lo permite, puede renovar un grupo de Office 365, al ampliar su fecha de expiración.
 
-### <a name="to-renew-a-group"></a>Para renovar un grupo
-
 1. Seleccione el grupo de Office 365 que desee renovar y **Renovar grupo**.
 
     ![Renovar un grupo de Office 365 ampliando la fecha de expiración](media/my-apps-portal/my-apps-portal-renew-group-link.png)
@@ -144,8 +138,6 @@ Si la organización lo permite, puede renovar un grupo de Office 365, al amplia
 
 Puede eliminar cualquiera de los grupos de su propiedad en cualquier momento. Sin embargo, si elimina un grupo por error tendrá que volver a crearlo y a agregar los miembros.
 
-### <a name="to-delete-the-group"></a>Para eliminar el grupo
-
 1. Seleccione el grupo que desee eliminar de forma permanente y **Eliminar grupo** en la página *&lt;nombre_grupo&gt;* .
 
     ![Página <nombre_grupo> con el vínculo Eliminar grupo resaltado](media/my-apps-portal/my-apps-portal-delete-group-link.png)
@@ -156,9 +148,7 @@ Puede eliminar cualquiera de los grupos de su propiedad en cualquier momento. Si
 
 ## <a name="join-an-existing-group"></a>Unión a un grupo existente
 
-Puede unirse a un grupo ya existente desde la página **Grupos**.
-
-### <a name="to-join-or-leave-a-group"></a>Para unirse a un grupo o abandonarlo
+Puede unirse a un grupo existente o abandonarlo desde la página **Grupos**.
 
 1. En la página **Grupos**, seleccione **Unirse a un grupo** desde el área **Grupos en los que estoy**.
 
@@ -172,7 +162,7 @@ Puede unirse a un grupo ya existente desde la página **Grupos**.
 
 3. Si se unió a un grupo por error o si ya no necesita formar parte de él, puede seleccionar el nombre del grupo desde la pagina **Unirse a grupos** y **Abandonar el grupo**.
 
-    ![Página Unirse a grupos con el botón Abandonar el grupo resaltado](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
+    ![Página Unirse a grupos con el botón Abandonar el grupo resaltado](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

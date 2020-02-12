@@ -1,28 +1,29 @@
 ---
-title: Actualización de clústeres de HDInsight a una versión más reciente en Azure
-description: Conozca las directrices para actualizar el clúster de Azure HDInsight a una versión más reciente.
-author: omidm1
-ms.author: omidm
+title: Migración del clúster a una versión más reciente
+titleSuffix: Azure HDInsight
+description: Conozca las directrices para migrar el clúster de Azure HDInsight a una versión más reciente.
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
-ms.openlocfilehash: 1a1d4a71786ebb1e68f59084086b3256a1c1ea40
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.date: 01/31/2020
+ms.openlocfilehash: f7198aeff5e9ef6d37e29c2336dc38e4eec0dda1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951163"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023980"
 ---
-# <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Actualización del clúster de HDInsight a una versión más reciente
+# <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migración del clúster de HDInsight a una versión más reciente
 
-Para aprovechar las ventajas de las características más recientes de HDInsight, se recomienda que los clústeres de HDInsight se actualicen a la versión más reciente. Siga las directrices que aparecen a continuación para actualizar las versiones del clúster de HDInsight.
+Para aprovechar las ventajas de las características más recientes de HDInsight, se recomienda que los clústeres de HDInsight se migren regularmente a la versión más reciente. HDInsight no admite actualizaciones locales en las que un clúster existente se actualiza a una versión más reciente del componente. Debe crear un nuevo clúster con la versión de plataforma y componente deseada y, a continuación, migrar las aplicaciones para que usen el nuevo clúster. Siga las directrices que aparecen a continuación para migrar las versiones del clúster de HDInsight.
 
 > [!NOTE]  
 > Para más información sobre las versiones admitidas de HDInsight, consulte [Versiones de los componentes de HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-## <a name="upgrade-tasks"></a>Tareas de actualización
+## <a name="migration-tasks"></a>Tareas de migración
 
 El flujo de trabajo para actualizar el clúster de HDInsight es el siguiente.
 ![Diagrama de flujo de trabajo de actualización de HDInsight](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
@@ -39,6 +40,18 @@ Cuando haya comprobado que todo funciona según lo esperado, programe el tiempo 
 1. Cree un clúster en la misma subred de red virtual con la versión de HDI más reciente (o compatible) con el mismo almacén de datos predeterminado que usaba el clúster anterior. Esto permitirá que el nuevo clúster siga trabajando con los datos de producción existentes.
 1. Importe los datos transitorios cuya copia de seguridad realizó.
 1. Inicie trabajos o continúe el procesamiento con el nuevo clúster.
+
+## <a name="workload-specific-guidance"></a>Orientación específica de la carga de trabajo
+
+En los siguientes documentos se proporcionan instrucciones sobre cómo migrar cargas de trabajo específicas:
+
+* [Migración de HBase](./hbase/apache-hbase-migrate-new-version.md)
+* [Migración de Kafka](./kafka/migrate-versions.md)
+* [Migración de Hive/Interactive Query](./interactive-query/apache-hive-migrate-workloads.md)
+
+## <a name="backup-and-restore"></a>Copia de seguridad y restauración
+
+Para más información sobre la copia de seguridad y restauración de bases de datos, consulte [Recuperación de una base de datos de Azure SQL mediante copias de seguridad de datos automatizadas](../sql-database/sql-database-recovery-using-backups.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

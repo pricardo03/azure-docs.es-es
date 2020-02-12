@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo el agente de MARS admite los escen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d558a19b3025ab1400e873f97b0ce5e5a860c75a
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 348980b840b814c09ce46627f286489d4caa9f8f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902857"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023963"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Acerca del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -58,8 +58,7 @@ El agente de MARS admite los siguientes escenarios de restauración:
 ### <a name="additional-scenarios"></a>Otros escenarios
 -   **Hacer una copia de seguridad de archivos y carpetas específicos dentro de la VM de Azure**: el método principal para hacer copias de seguridad de máquinas virtuales (VM) de Azure es mediante una extensión de Azure Backup en la VM. La extensión realiza una copia de seguridad de toda la máquina virtual. Si quiere hacer una copia de seguridad de archivos y carpetas específicos dentro de una VM, puede instalar el agente de MARS en las máquinas virtuales de Azure. Para obtener más información, consulte [Arquitectura: copia de seguridad integrada de máquina virtual de Azure](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
 
--   **Propagación sin conexión**: las copias de seguridad completas iniciales de los datos en Azure normalmente transfieren grandes cantidades de datos y requieren más ancho de banda de red. Las copias de seguridad posteriores solo transfieren los datos Delta, o incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de *propagación sin conexión*, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de la copia de seguridad sin conexión en Azure. Para obtener más información, consulte [Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
-
+-   **Propagación sin conexión**: las copias de seguridad completas iniciales de los datos en Azure normalmente transfieren grandes cantidades de datos y requieren más ancho de banda de red. Las copias de seguridad posteriores solo transfieren los datos Delta, o incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de *propagación sin conexión*, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de la copia de seguridad sin conexión en Azure. Para obtener más información, consulte [Copia de seguridad sin conexión de Azure Backup con Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Matriz de compatibilidad del agente de MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)

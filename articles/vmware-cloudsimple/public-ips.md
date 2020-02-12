@@ -1,6 +1,6 @@
 ---
-title: 'Solución de Azure VMware de CloudSimple: asignación de direcciones IP públicas'
-description: Se describe cómo asignar direcciones IP públicas para las máquinas virtuales del entorno de nube privada.
+title: 'Azure VMware Solutions (AVS): asignación de direcciones IP públicas'
+description: Describe cómo asignar direcciones IP públicas para las máquinas virtuales en el entorno de nube privada de AVS.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 87133f5efb9f096d3fdb0956aab1caac58b4bd94
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773794"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024303"
 ---
-# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Asignación de direcciones IP públicas para un entorno de nube privada
+# <a name="allocate-public-ip-addresses-for-avs-private-cloud-environment"></a>Asignación de direcciones IP públicas para el entorno de nube privada de AVS
 
-Abra la pestaña de direcciones IP públicas en la página de red para asignar direcciones IP públicas para las máquinas virtuales del entorno de nube privada.
+Abra la pestaña IP públicas en la página Red para asignar direcciones IP públicas para las máquinas virtuales del entorno de nube privada de AVS.
 
-1. [Acceda al portal de CloudSimple](access-cloudsimple-portal.md) y seleccione **Network** (Red) en el menú lateral.
+1. [Acceda al portal de AVS](access-cloudsimple-portal.md) y seleccione **Red** en el menú lateral.
 2. Seleccione **Public IPs** (Direcciones IP públicas).
 3. Haga clic en **New Public IP** (Nueva IP pública).
 

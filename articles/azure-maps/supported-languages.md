@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: eec8e47e75a6c92be8f893af893761a9ccddc650
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910429"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025442"
 ---
 # <a name="localization-support-in-azure-maps"></a>Soporte de localización en Azure Maps
 
@@ -107,7 +107,9 @@ Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla s
 >  * Marruecos
 >  * Pakistán
 >
-> Después del 1 de agosto de 2019, la configuración del parámetro **Vista** definirá el contenido del mapa devuelto para las nuevas regiones o países enumerados anteriormente. Le recomendamos que se asegure de configurar el parámetro Vista para las API de REST y los SDK que usan sus servicios.
+> Después del 1 de agosto de 2019, el parámetro **Vista** definirá el contenido del mapa devuelto para las nuevas regiones o países enumerados anteriormente. El parámetro **Vista** de Azure Maps (también denominado "parámetro de región de usuario") es un código de país ISO-3166 de dos letras que mostrará los mapas correctos para ese país o región, especificando qué conjunto de contenido disputado geopolíticamente se devuelve a través de los servicios de Azure Maps, incluidas las fronteras y las etiquetas que se muestran en el mapa. 
+
+Asegúrese de que ha configurado el parámetro **Vista** para las API de REST y los SDK que usan sus servicios.
 >  
 >
 >  **API de REST:**
@@ -135,15 +137,12 @@ Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla s
 >    
 >  **SDK**:
 >
->  Asegúrese de haber configurado el parámetro Vista según sea necesario y de tener la última versión de los SDK de Web y Android. SDK afectados:
+>  Asegúrese de haber configurado el parámetro **Vista** según sea necesario y de tener la última versión de los SDK web y de Android. SDK afectados:
 >
 >    * SDK web de Azure Maps
 >    * Android SDK para Azure Maps
 
-
-El parámetro **Vista** de Azure Maps (también denominado "parámetro de región de usuario") es un código de país ISO-3166 de dos letras que mostrará los mapas correctos para ese país o región, especificando qué conjunto de contenido disputado geopolíticamente se devuelve a través de los servicios de Azure Maps, incluidas las fronteras y las etiquetas que se muestran en el mapa. 
-
-De forma predeterminada, el parámetro Vista está establecido en **Unificado**, incluso si no lo ha definido en la solicitud. Es su responsabilidad determinar la ubicación de sus usuarios y luego establecer el parámetro Vista correctamente para esa ubicación. Como alternativa, tiene la opción de establecer "View=Auto", que devolverá los datos del mapa según la dirección IP de la solicitud.  El parámetro Vista en Azure Maps se debe usar de conformidad con las leyes aplicables, incluidas aquellas relacionadas con la asignación del país donde están disponibles los mapas, imágenes y otros datos y contenido de terceros a los que está autorizado a acceder a través de Azure Maps.
+De forma predeterminada, el parámetro Vista está establecido en **Unificado**, aunque no lo haya definido en la solicitud. Determine la ubicación de sus usuarios y luego establezca el parámetro **Vista** correctamente para esa ubicación. Como alternativa, tiene la opción de establecer "View=Auto", que devolverá los datos del mapa según la dirección IP de la solicitud.  El parámetro **Vista** de Azure Maps se debe usar de conformidad con las leyes aplicables, incluidas aquellas relacionadas con la asignación del país donde están disponibles los mapas, las imágenes y otros datos y contenido de terceros a los que está autorizado a acceder a través de Azure Maps.
 
 
 La siguiente tabla proporciona vistas compatibles.

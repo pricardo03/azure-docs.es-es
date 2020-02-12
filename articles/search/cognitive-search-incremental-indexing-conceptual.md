@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028515"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024150"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introducción al enriquecimiento incremental y al almacenamiento en caché en Azure Cognitive Search
 
@@ -26,7 +26,7 @@ El enriquecimiento incremental agrega almacenamiento en caché y disponibilidad 
 
 El enriquecimiento incremental agrega una caché a la canalización de enriquecimiento. El indizador almacena en caché los resultados del descifrado de documentos más las salidas de todas las aptitudes de todos los documentos. Cuando se actualiza un conjunto de aptitudes, solo se vuelven a ejecutar las aptitudes modificadas o descendentes. Los resultados actualizados se escriben en la caché y el documento se actualiza en el índice de búsqueda o el almacén de conocimiento.
 
-Físicamente, la caché se almacena en un contenedor de blobs en la cuenta de Azure Storage. Todos los índices de un servicio de búsqueda pueden compartir la misma cuenta de almacenamiento para la caché del indexador. A cada indizador se le asigna un identificador de caché único e inmutable al contenedor que usa.
+Físicamente, la caché se almacena en un contenedor de blobs en la cuenta de Azure Storage. La memoria caché también utiliza Table Storage para obtener un registro interno de las actualizaciones de procesamiento. Todos los índices de un servicio de búsqueda pueden compartir la misma cuenta de almacenamiento para la caché del indexador. A cada indizador se le asigna un identificador de caché único e inmutable al contenedor que usa.
 
 ## <a name="cache-configuration"></a>Configuración de la caché
 
@@ -97,7 +97,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 El propósito de la caché es evitar procesamientos innecesarios, pero imagine que realiza un cambio en una aptitud que el indizador no detecta (por ejemplo, cambiar un elemento del código externo, como una aptitud personalizada).
 
-En este caso, puede usar [Reset Skills](preview-api-resetskills.md) para forzar el reprocesamiento de una aptitud determinada, incluidos los conocimientos de nivel inferior que tengan una dependencia en la salida de esa aptitud. Esta API acepta una solicitud POST con una lista de aptitudes que se deben invalidar y marcar para volver a procesarse. Después de Reset Skills, ejecute el indizador para invocar la canalización.
+En este caso, puede usar [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) para forzar el reprocesamiento de una aptitud determinada, incluidos los conocimientos de nivel inferior que tengan una dependencia en la salida de esa aptitud. Esta API acepta una solicitud POST con una lista de aptitudes que se deben invalidar y marcar para volver a procesarse. Después de Reset Skills, ejecute el indizador para invocar la canalización.
 
 ## <a name="change-detection"></a>Detección de cambios
 
@@ -136,39 +136,27 @@ El procesamiento incremental evalúa la definición del conjunto de aptitudes y 
 * Cambios en las proyecciones del almacén de información, lo que provoca que se vuelvan a proyectar los documentos
 * Las asignaciones de campos de salida cambiadas en un indexador provocan que se vuelvan a proyectos los documentos en el índice
 
-## <a name="api-reference-content-for-incremental-enrichment"></a>Contenido de referencia de API para el enriquecimiento incremental
+## <a name="api-reference"></a>Referencia de API
 
-REST `api-version=2019-05-06-Preview` proporciona las API para el enriquecimiento incremental, con adiciones a indizadores, conjuntos de aptitudes y orígenes de datos. La [documentación de referencia oficial](https://docs.microsoft.com/rest/api/searchservice/) es para las API de disponibilidad general y no cubre las características en vista previa. En la sección siguiente se proporciona el contenido de referencia para las API afectadas.
+La versión de la API de REST `2019-05-06-Preview` proporciona enriquecimiento incremental a través de propiedades adicionales en indexadores, conjuntos de aptitudes y orígenes de datos. Además de la documentación de referencia, consulte [Configuración del almacenamiento en caché para el enriquecimiento incremental](search-howto-incremental-index.md) para más información sobre cómo llamar a las API.
 
-Puede encontrar información de uso y ejemplos en [Configuración del almacenamiento en caché para el enriquecimiento incremental](search-howto-incremental-index.md).
++ [Crear indizador (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-### <a name="indexers"></a>Indexadores
++ [Actualizar indizador (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-Las opciones [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) y [Actualizar indexador](https://docs.microsoft.com/rest/api/searchservice/update-indexer) ahora exponen nuevas propiedades relacionadas con la caché:
++ [Actualizar conjunto de aptitudes (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (nuevo parámetro URI en la solicitud)
 
-+ `StorageAccountConnectionString`: la cadena de conexión a la cuenta de almacenamiento que se usará para almacenar en caché los resultados intermedios.
++ [Restablecer aptitudes (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ `EnableReprocessing`: Establecido en `true` de forma predeterminada, si se establece en `false`, los documentos se seguirán escribiendo en la memoria caché, pero no se volverá a procesar ningún documento existente en función de los datos de la caché.
++ Indizadores de base de datos (Azure SQL, Cosmos DB). Algunos indizadores recuperan datos a través de consultas. En cuanto a las consultas que recuperan datos, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) admite un nuevo parámetro en una solicitud **ignoreResetRequirement**, que se tiene que establecer en `true` si la acción de actualización no debe invalidar la caché. 
 
-+ `ID` (solo lectura): `ID` es el identificador del contenedor de la cuenta de almacenamiento `annotationCache` que se usará como caché para este indexador. Esta caché será única para este indexador y, si el indexador se elimina y se vuelve a crear con el mismo nombre, se volverá a generar `ID`. `ID` no se puede establecer, siempre lo genera el servicio.
-
-### <a name="skillsets"></a>Conjuntos de aptitudes
-
-+ [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset) admite un nuevo parámetro en la solicitud, `disableCacheReprocessingChangeDetection`, que se debe establecer en `true` cuando no se quieren actualizar los documentos existentes en función de la acción actual.
-
-+ [Reset Skills](preview-api-resetskills.md) es una operación nueva que se usa para invalidar un conjunto de aptitudes.
-
-### <a name="datasources"></a>Orígenes de datos
-
-+ Algunos indizadores recuperan datos a través de consultas. En cuanto a las consultas que recuperan datos, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) admite un nuevo parámetro en una consulta `ignoreResetRequirement`, que se tiene que establecer en `true` si la acción de actualización no debe invalidar la caché.
-
-Use `ignoreResetRequirement` con moderación, ya que podría dar lugar a incoherencias no intencionadas en los datos que no se detectarían fácilmente.
+  Use **ignoreResetRequirement** con moderación, ya que puede dar lugar a incoherencias no intencionadas en los datos, que no se detectarán fácilmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El enriquecimiento incremental es una característica eficaz que extiende el seguimiento de cambios en conjuntos de aptitudes y el enriquecimiento con IA. Cuando los conjuntos de aptitudes evolucionan, el enriquecimiento incremental garantiza que se realiza el menor trabajo posible mientras se logra la coherencia final de los documentos.
+El enriquecimiento incremental es una característica eficaz que extiende el seguimiento de cambios en conjuntos de aptitudes y el enriquecimiento con IA. El enriquecimiento incremental permite la reutilización del contenido procesado existente mientras se realiza la iteración en el diseño del conjunto de aptitudes.
 
-Para empezar, agregue una caché a un indizador existente, o bien agregue la caché al definir un indizador nuevo.
+Para continuar, habilite el almacenamiento en caché en un indizador existente o agregue una caché al definir un indizador nuevo.
 
 > [!div class="nextstepaction"]
 > [Configuración del almacenamiento en caché para el enriquecimiento incremental](search-howto-incremental-index.md)

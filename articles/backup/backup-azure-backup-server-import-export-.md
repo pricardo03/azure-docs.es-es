@@ -3,13 +3,13 @@ title: Copia de seguridad sin conexión para DPM y Azure Backup Server
 description: Azure Backup permite enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para DPM y Azure Backup Server (MABS).
 ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 05/08/2018
-ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 1/28/2020
+ms.openlocfilehash: 6be75062ab0ce06784d8cd7c833e0070476acf60
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996330"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022586"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server
 
@@ -43,7 +43,7 @@ La copia de seguridad sin conexión es compatible con todos los modelos de imple
 > * Copia de seguridad de todas las cargas de trabajo y archivos con System Center Data Protection Manager (SC DPM).
 > * Copia de seguridad de todas las cargas de trabajo y archivos con Microsoft Azure Backup Server.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar el flujo de trabajo de copia de seguridad sin conexión:
 
@@ -56,13 +56,74 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar 
     | Estados Unidos | [Vínculo](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Vínculo](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Se ha creado una cuenta de Azure Storage con el modelo de implementación *clásica* en la suscripción desde la que descargó el archivo de configuración de publicación, tal y como se muestra a continuación:
+* Se ha creado una cuenta de Azure Storage con el modelo de implementación de *Resource Manager* en la suscripción desde la que descargó el archivo de configuración de publicación, tal y como se muestra a continuación:
 
-  ![Creación de una cuenta de almacenamiento clásica](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Creación de una cuenta de almacenamiento con el desarrollo de Resource Manager](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
 
 * Se crea una ubicación de almacenamiento provisional, que puede ser un recurso compartido de red o cualquier unidad adicional en el equipo, interna o externa, con suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB. (Se utilizará una cantidad menor gracias a la compresión).
 * Con respecto a los discos que se enviarán a Azure, asegúrese de que solo se utilizan unidades de disco duro SSD de 2,5 pulgadas o SATA II/III de 2,5 o 3,5 pulgadas internas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
 * Las unidades SATA deben estar conectadas a un equipo (llamado *equipo de copia*) desde donde se realiza la copia de los datos de copia de seguridad de la *ubicación de almacenamiento provisional* a SATA. Asegúrese de que BitLocker está habilitado en el *equipo de copia*
+
+## <a name="prepare-the-server-for-the-offline-backup-process"></a>Preparación del servidor para el proceso de copia de seguridad sin conexión
+
+>[!NOTE]
+> Si no encuentra las utilidades especificadas, como *AzureOfflineBackupCertGen.exe* en su instalación del agente de MARS, escriba a AskAzureBackupTeam@microsoft.com para obtener acceso a estas.
+
+* Abra un símbolo del sistema con privilegios elevados en el servidor y ejecute el comando siguiente:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe CreateNewApplication SubscriptionId:<Subs ID>
+    ```
+
+    La herramienta creará una aplicación de copia de seguridad sin conexión de Azure AD, si no existe ninguna.
+
+    Si ya existe una aplicación, este archivo ejecutable le pedirá que cargue manualmente el certificado en la aplicación en el inquilino. Siga los pasos que se indican a continuación en [esta sección](#manually-upload-offline-backup-certificate) para cargar el certificado manualmente en la aplicación.
+
+* La herramienta AzureOfflineBackup.exe generará un archivo OfflineApplicationParams.xml.  Copie este archivo en el servidor con MABS o DPM.
+* Instale el [agente de MARS más reciente](https://aka.ms/azurebackup_agent) en el servidor de DPM/Azure Backup (MABS).
+* Registre el servidor en Azure.
+* Ejecute el siguiente comando:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    ```
+
+* El comando anterior creará el archivo `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`.
+
+## <a name="manually-upload-offline-backup-certificate"></a>Carga manual del certificado de copia de seguridad sin conexión
+
+Siga los pasos que se indican a continuación para cargar manualmente el certificado de copia de seguridad sin conexión en una aplicación de Azure Active Directory creada anteriormente para la copia de seguridad sin conexión.
+
+1. Inicie sesión en Azure Portal.
+2. Vaya a **Azure Active Directory** > **Registros de aplicaciones**.
+3. Vaya a la pestaña **Aplicaciones propias** y busque una aplicación con el formato de nombre para mostrar `AzureOfflineBackup _<Azure User Id`, tal y como se muestra a continuación:
+
+    ![Búsqueda de aplicación en la pestaña Aplicaciones propias](./media/backup-azure-backup-import-export/owned-applications.png)
+
+4. Haga clic en la aplicación. En la pestaña **Administrar** del panel izquierdo, vaya a **Certificados y secretos**.
+5. Compruebe si hay certificados o claves públicas preexistentes. Si no hay ninguno, puede hacer clic en el botón **Eliminar** de la página **Información general** de la aplicación para eliminar la aplicación de forma segura. Después, puede volver a intentar realizar los pasos del proceso [Preparación del servidor para el proceso de copia de seguridad sin conexión](#prepare-the-server-for-the-offline-backup-process) y omitir los pasos siguientes. De lo contrario, ejecute los pasos siguientes desde el servidor DPM/Azure Backup Server (MABS) en el que desea configurar la copia de seguridad sin conexión.
+6. Abra la **aplicación de administración de certificados del equipo** > pestaña **Personal** y busque el certificado denominado `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+7. Seleccione el certificado anterior, haga clic con el botón derecho en **Todas las tareas** y, después, en **Exportar**, sin clave privada y en formato .cer.
+8. Vaya a la aplicación de copia de seguridad sin conexión de Azure en Azure Portal.
+9. Haga clic en **Administrar** ** > Certificados y secretos** > **Cargar certificado** y cargue el certificado exportado en el paso anterior.
+
+    ![Carga del certificado](./media/backup-azure-backup-import-export/upload-certificate.png)
+10. En el servidor, escriba **regedit** en la ventana Ejecutar para abrir el Registro.
+11. Vaya a la entrada del Registro *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
+12. Haga clic con el botón derecho en **CloudBackupProvider** y agregue un nuevo valor de cadena con el nombre `AzureADAppCertThumbprint_<Azure User Id>`.
+
+    >[!NOTE]
+    > Nota: Para encontrar el identificador de usuario de Azure, realice uno de los pasos siguientes:
+    >
+    >1. Desde la instancia de PowerShell conectada a Azure, ejecute el comando `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”`.
+    >2. Navegue a la ruta de acceso del Registro: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`.
+
+13. Haga clic con el botón derecho en la cadena agregada en el paso anterior y seleccione **Modificar**. En el valor, proporcione la huella digital del certificado exportado en el paso 7 y haga clic en **Aceptar**.
+14. Para obtener el valor de la huella digital, haga doble clic en el certificado y, a continuación, seleccione la pestaña **Detalles** y desplácese hacia abajo hasta que vea el campo Huella digital. Haga clic en **Huella digital** y copie el valor.
+
+    ![Copia del valor del campo Huella digital](./media/backup-azure-backup-import-export/thumbprint-field.png)
+
+15. Diríjase a la sección [Flujo de trabajo](#workflow) para continuar con el proceso de copia de seguridad sin conexión.
 
 ## <a name="workflow"></a>Flujo de trabajo
 
@@ -104,7 +165,7 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 
 La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA que se envían al centro de datos de Azure más próximo. Esta utilidad está disponible en el directorio de instalación del agente de Recovery Services en la ruta de acceso siguiente:
 
-    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
+`*\\Microsoft Azure Recovery Services Agent\Utils\*`
 
 1. Vaya al directorio y copie el directorio de **AzureOfflineBackupDiskPrep** en un equipo de copia en el que se conectarán las unidades SATA que se van a preparar. Compruebe que se cumplen los siguientes requisitos en el equipo de copia:
 
@@ -121,7 +182,7 @@ La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA 
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | Parámetro | DESCRIPCIÓN |
+    | Parámetro | Descripción |
     | --- | --- |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; |Entrada obligatoria que se utiliza para proporcionar la ruta de acceso a la ubicación de ensayo especificada en el flujo de trabajo de **inicio de la copia de seguridad sin conexión** . |
     | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Entrada obligatoria que se utiliza para proporcionar la ruta de acceso al archivo de **Configuración de publicación de Azure** especificado en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |
@@ -162,7 +223,7 @@ La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA 
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | Parámetro | DESCRIPCIÓN |
+    | Parámetro | Descripción |
     | --- | --- |
     | u: | Entrada obligatoria usada para actualizar los detalles de envío de un trabajo de importación de Azure |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; | Entrada obligatoria cuando el comando no se ejecuta en el equipo de origen. Se utiliza para proporcionar la ruta de acceso a la ubicación de almacenamiento provisional especificada en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |
@@ -218,4 +279,3 @@ En la siguiente copia de seguridad programada, Azure Backup realiza la copia de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Si tiene dudas acerca del flujo de trabajo de Azure Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage/common/storage-import-export-service.md).
-

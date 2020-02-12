@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 02/04/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021847"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026003"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementación de Azure AD Privileged Identity Management (PIM)
 
@@ -54,11 +54,11 @@ Para usar Privileged Identity Management, el directorio debe tener una de las si
 - Enterprise Mobility + Security (EMS) E5
 - Microsoft 365 M5
 
-Para obtener más información, consulte [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md).
+Para más información, consulte [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md).
 
 ### <a name="key-terminology"></a>Terminología clave
 
-| Término o concepto | DESCRIPCIÓN |
+| Término o concepto | Descripción |
 | --- | --- |
 | Apto | Asignación de roles que requiere que un usuario realice una o varias acciones para usar el rol. Si un usuario es apto para un rol, eso significa que puede activarlo cuando necesite para realizar tareas con privilegios. No hay ninguna diferencia en el acceso proporcionado de forma permanente a una persona o una asignación de roles aptos. La única diferencia es que algunas personas no necesitan ese acceso todo el tiempo. |
 | activar | Proceso de realizar una o varias acciones para usar un rol para el que es apto un usuario. Entre las acciones se puede incluir realizar una comprobación de autenticación multifactor (MFA), proporcionar una justificación de negocios o solicitar la aprobación de los aprobadores designados. |
@@ -99,7 +99,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Partes interesadas: Privileged Identity Management para roles de Azure AD
 
-| NOMBRE | Role | . |
+| Nombre | Role | Acción |
 | --- | --- | --- |
 | Nombre y correo electrónico | **Arquitecto de identidades o administrador global de Azure**<br/>Un representante del equipo de administración de identidades responsable de definir cómo este cambio se alinea con la infraestructura de administración de identidades principal de su organización. | SO/R/I |
 | Nombre y correo electrónico | **Propietario del servicio/Administrador de línea**<br/>Un representante de los propietarios de TI de un servicio o un grupo de servicios. Son fundamentales para tomar decisiones y ayudar a implementar Privileged Identity Management para su equipo. | SO/R/I |
@@ -109,7 +109,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Partes interesadas: Privileged Identity Management para roles de recursos de Azure
 
-| NOMBRE | Role | . |
+| Nombre | Role | Acción |
 | --- | --- | --- |
 | Nombre y correo electrónico | **Propietario de recurso/suscripción**<br/>Un representante de los propietarios de TI de cada suscripción o recurso para los que desea implementar Privileged Identity Management. | SO/R/I |
 | Nombre y correo electrónico | **Propietario de seguridad**<br/>Un representante del equipo de seguridad que puede aprobar que el plan cumple los requisitos de seguridad de la organización. | SO/R |
@@ -120,7 +120,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 
 Como parte del proceso de planeación, primero debe dar su consentimiento y habilitar Privileged Identity Management siguiendo nuestro artículo para [empezar a usar Privileged Identity Management](pim-getting-started.md). Al habilitar Privileged Identity Management, puede acceder a algunas características diseñadas específicamente para facilitar la implementación.
 
-Si su objetivo es implementar Privileged Identity Management para recursos de Azure, debe seguir las indicaciones del artículo [sobre la detección de recursos de Azure que se administran en Privileged Identity Management](pim-resource-roles-discover-resources.md). Solo los propietarios de cada recurso, grupo de recursos y suscripción podrán detectarlos dentro de Privileged Identity Management. Si es administrador global e intenta implementar Privileged Identity Management para los recursos de Azure, puede [elevar el acceso para administrar todas las suscripciones de Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) y tener acceso a todos los recursos de Azure en el directorio a fin de poder detectarlos. Sin embargo, se recomienda obtener la aprobación de cada uno de los propietarios de las suscripciones antes de administrar sus recursos con Privileged Identity Management.
+Si su objetivo es implementar Privileged Identity Management para recursos de Azure, debe seguir las indicaciones del artículo [sobre la detección de recursos de Azure que se administran en Privileged Identity Management](pim-resource-roles-discover-resources.md). Solo los propietarios de suscripciones y los grupos de administración pueden detectar e incorporar estos recursos en Privileged Identity Management. Una vez que se incorpora la funcionalidad de PIM, está disponible para los propietarios en todos los niveles, incluidos el grupo de administración, la suscripción, el grupo de recursos y el recurso. Si es administrador global e intenta implementar Privileged Identity Management para los recursos de Azure, puede [elevar el acceso para administrar todas las suscripciones de Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) y tener acceso a todos los recursos de Azure en el directorio a fin de poder detectarlos. Sin embargo, se recomienda obtener la aprobación de cada uno de los propietarios de las suscripciones antes de administrar sus recursos con Privileged Identity Management.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Aplicación del principio de privilegio mínimo
 
@@ -198,7 +198,7 @@ Si existen roles con usuarios invitados asignados, serán particularmente vulner
 > [!TIP]
 > :heavy_check_mark: **Microsoft recomienda** administrar todos los roles con usuarios invitados mediante Privileged Identity Management para reducir los riesgos asociados a las cuentas de usuario invitado en peligro.
 
-Los roles de lector, como lector de directorio, lector del Centro de mensajes y lector de seguridad, a veces se consideran menos importantes en comparación con otros roles porque no tienen permiso de escritura. Sin embargo, se ha observado que algunos clientes también protegen estos roles porque los atacantes que consiguen acceder a estas cuentas pueden leer información confidencial, como la información de identificación personal (DCP). También debe tener esto en cuenta al decidir si los roles de lector de la organización deben administrase con Privileged Identity Management.
+Los roles de lector, como lector de directorio, lector del Centro de mensajes y lector de seguridad, a veces se consideran menos importantes en comparación con otros roles porque no tienen permiso de escritura. Sin embargo, se ha observado que algunos clientes también protegen estos roles porque los atacantes que consiguen acceder a estas cuentas pueden leer información confidencial, como datos personales. También debe tener esto en cuenta al decidir si los roles de lector de la organización deben administrase con Privileged Identity Management.
 
 #### <a name="azure-resource-roles"></a>Roles de recursos de Azure
 
@@ -240,7 +240,7 @@ Antes de implementar la solución Privileged Identity Management, es aconsejable
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Configuración de Privileged Identity Management para roles de Azure AD
 
-| Role | Requerir MFA | Notificación | Vale de incidente | Requerir aprobación | Aprobador | Duración de la activación | Administrador permanente |
+| Role | Requerir MFA | Notification | Vale de incidente | Requerir aprobación | Aprobador | Duración de la activación | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrador global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Otros administradores globales | 1 hora | Cuentas de acceso de emergencia |
 | Administrador de Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2 horas | None |
@@ -248,7 +248,7 @@ Antes de implementar la solución Privileged Identity Management, es aconsejable
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Configuración de Privileged Identity Management para roles de recurso de Azure
 
-| Role | Requerir MFA | Notificación | Requerir aprobación | Aprobador | Duración de la activación | Administrador activo | Expiración de rol activo | Expiración de rol válido |
+| Role | Requerir MFA | Notification | Requerir aprobación | Aprobador | Duración de la activación | Administrador activo | Expiración de rol activo | Expiración de rol válido |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Propietario de las suscripciones críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Otros propietarios de la suscripción | 1 hora | None | N/D | 3 meses |
 | Administrador de acceso de usuario de suscripciones menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1 hora | None | N/D | 3 meses |
@@ -256,11 +256,11 @@ Antes de implementar la solución Privileged Identity Management, es aconsejable
 
 En la tabla siguiente se describe cada configuración.
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 | --- | --- |
 | Role | Nombre del rol para el que se define la configuración. |
 | Requerir MFA | Si el usuario apto necesita realizar MFA antes de activar el rol.<br/><br/> :heavy_check_mark: **Microsoft recomienda** aplicar MFA para todos los roles de administrador, especialmente si los roles tienen usuarios invitados. |
-| Notificación | Si se establece en true, el administrador global, el administrador de roles con privilegios y el administrador de seguridad de la organización recibirán una notificación por correo electrónico cuando un usuario apto activa el rol.<br/><br/>**Nota:** Algunas organizaciones no tienen una dirección de correo electrónico asociada a sus cuentas de administrador para obtener estas notificaciones por correo electrónico; para obtenerlas, debe establecer una dirección de correo electrónico alternativa para que los administradores reciban estos correos. |
+| Notification | Si se establece en true, el administrador global, el administrador de roles con privilegios y el administrador de seguridad de la organización recibirán una notificación por correo electrónico cuando un usuario apto activa el rol.<br/><br/>**Nota:** Algunas organizaciones no tienen una dirección de correo electrónico asociada a sus cuentas de administrador para obtener estas notificaciones por correo electrónico; para obtenerlas, debe establecer una dirección de correo electrónico alternativa para que los administradores reciban estos correos. |
 | Vale de incidente | Si el usuario apto necesita registrar un número de vale de incidente al activar el rol. Esta configuración ayuda a una organización a identificar cada activación con un número de incidente interno para mitigar las activaciones no deseadas.<br/><br/> :heavy_check_mark: **Microsoft recomienda** sacar provecho de los números de vales de incidentes para vincular Privileged Identity Management con el sistema interno. Esto es especialmente útil para los aprobadores que necesitan contexto para la activación. |
 | Requerir aprobación | Si el usuario apto necesita obtener aprobación para activar el rol.<br/><br/> :heavy_check_mark: **Microsoft recomienda** configurar la aprobación con el permiso máximo. Según los patrones de uso de todos los clientes de Privileged Identity Management, los roles de administrador global, administrador de usuarios, administrador de Exchange, administrador de seguridad y administrador de contraseñas son los más comunes con la configuración de la aprobación. |
 | Aprobador | Si se requiere aprobación para activar el rol válido, indique qué personas deben aprobar la solicitud. De forma predeterminada, Privileged Identity Management establece que el aprobador sean todos los usuarios que sean administradores de roles con privilegios, ya sean permanentes o válidos.<br/><br/>**Nota:** Si un usuario es apto para un rol de Azure AD y un aprobador del rol, no podrá realizar aprobaciones para sí mismo.<br/><br/> :heavy_check_mark: **Microsoft recomienda** elegir como aprobadores a quienes conozcan mejor el rol específico y sus usuarios frecuentes, en lugar de a un administrador global. |
@@ -350,7 +350,7 @@ Si Privileged Identity Management no funciona según lo previsto en el entorno d
 
 #### <a name="azure-ad-roles"></a>Roles de Azure AD
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Abra **Azure AD Privileged Identity Management**.
 1. Haga clic en **Roles de Azure AD** y, a continuación, haga clic en **Roles**.
 1. Para cada rol que haya configurado, haga clic en los puntos suspensivos ( **...** ) correspondientes a todos los usuarios que tengan una asignación válida.
@@ -358,7 +358,7 @@ Si Privileged Identity Management no funciona según lo previsto en el entorno d
 
 #### <a name="azure-resource-roles"></a>Roles de recursos de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Abra **Azure AD Privileged Identity Management**.
 1. Haga clic en **Recursos de Azure** y, a continuación, haga clic en una suscripción o un recurso que desee revertir.
 1. Haga clic en **Roles**.
@@ -373,7 +373,7 @@ La implementación correcta de Privileged Identity Management en producción es 
 
 Debe utilizar la funcionalidad integrada de alertas de Privileged Identity Management para proteger mejor su inquilino. Para más información, vea [Alertas de seguridad](pim-how-to-configure-security-alerts.md#security-alerts). Estas alertas se incluyen: los administradores no usan roles con privilegios, los roles se asignan fuera de Privileged Identity Management, se activan roles con demasiada frecuencia y muchas más. Para ofrecer una protección total a su organización, debe consultar regularmente la lista de alertas y corregir los problemas. Puede ver y corregir las alertas de la manera siguiente:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Abra **Azure AD Privileged Identity Management**.
 1. Haga clic en **Roles de Azure AD** y, luego, en **Alertas**.
 

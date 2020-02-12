@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 01/23/2020
-ms.openlocfilehash: fab24d55509ab315775437ca343e35fc90174f63
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: 09cc9e1475616700aa77cdf92fd7ca808cd4290c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715092"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937834"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Niveles de servicio de Azure SQL Database
 
@@ -53,7 +53,7 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 |**OLTP en memoria** | | N/D | N/D | Disponible |
 |**Réplicas de solo lectura**| | 0 integradas <br> 0 a 4 con [replicación geográfica](sql-database-active-geo-replication.md) | 0 a 4 integradas | 1 integrada, incluida en el precio <br> 0 a 4 con [replicación geográfica](sql-database-active-geo-replication.md) |
 |**Precios y facturación** | Base de datos única | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/single/) se cobran. <br/>Las IOPS no se cobran. | Se cobran los [núcleos virtuales de cada réplica y el almacenamiento usado](https://azure.microsoft.com/pricing/details/sql-database/single/). <br/>IOPS todavía no se ha cargado. | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/single/) se cobran. <br/>Las IOPS no se cobran. |
-|| de SQL DB | Se cobra el [núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/). <br/>Las IOPS no se cobran.<br/>El almacenamiento de copia de seguridad no se cobra aún. | N/D | Se cobra el [núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/). <br/>Las IOPS no se cobran.<br/>El almacenamiento de copia de seguridad no se cobra aún. | 
+|| de SQL DB | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/managed/) se cobran. <br/>Las IOPS no se cobran.| N/D | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/managed/) se cobran. <br/>Las IOPS no se cobran.| 
 |**Modelos de descuento**| | [Instancias reservadas](sql-database-reserved-capacity.md)<br/>[Ventaja híbrida de Azure](sql-database-azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Ventaja híbrida de Azure](sql-database-azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instancias reservadas](sql-database-reserved-capacity.md)<br/>[Ventaja híbrida de Azure](sql-database-azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
 Para más información, consulte las diferencias detalladas entre los niveles de servicio en las páginas de la [base de datos única (núcleo virtual)](sql-database-vcore-resource-limits-single-databases.md), los [grupos de bases de datos únicas (núcleo virtual)](sql-database-dtu-resource-limits-single-databases.md), la [base de datos única (DTU)](sql-database-dtu-resource-limits-single-databases.md), los [grupos de bases de datos únicas(DTU)](sql-database-dtu-resource-limits-single-databases.md) y de [Instancia administrada](sql-database-managed-instance-resource-limits.md).

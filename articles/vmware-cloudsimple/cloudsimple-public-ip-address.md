@@ -1,6 +1,6 @@
 ---
-title: 'Solución de Azure VMware de CloudSimple: dirección IP pública'
-description: Obtenga información sobre las direcciones IP públicas y sus ventajas en Solución de Azure VMware de CloudSimple.
+title: 'Azure VMware Solutions (AVS): direcciones IP públicas'
+description: Obtenga información sobre las direcciones IP públicas y sus ventajas en Azure VMware Solutions (AVS).
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2cb9d0e33da4447760ae0be216c1dd9868c498bd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877674"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024983"
 ---
-# <a name="cloudsimple-public-ip-address-overview"></a>Introducción a la dirección IP pública de CloudSimple
+# <a name="avs-public-ip-address-overview"></a>Introducción a la dirección IP pública de AVS
 
-Una dirección IP pública permite la comunicación entrante de los recursos de Internet en recursos de nube privada en una dirección IP privada. La dirección IP privada es una máquina virtual o un equilibrador de carga de software en el vCenter de la nube privada. La dirección IP pública le permite exponer a Internet los servicios que se ejecutan en la nube privada.
+Una dirección IP pública permite la comunicación entrante de los recursos de Internet a los recursos de nube privada de AVS en una dirección IP privada. La dirección IP privada es una máquina virtual o un equilibrador de carga de software en la instancia de vCenter de la nube privada de AVS. La dirección IP pública le permite exponer a Internet los servicios que se ejecutan en la nube privada de AVS.
 
 La dirección IP pública estará dedicada a la dirección IP privada hasta que anule su asignación. Una dirección IP pública solo puede asignarse a una dirección IP privada.
 

@@ -1,6 +1,6 @@
 ---
 title: Cobertura de representación | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre las regiones con la cobertura de representación de Microsoft Azure Maps junto con su nivel de detalles representados.
+description: Este artículo incluye información sobre las regiones con la cobertura de representación de Microsoft Azure Maps junto con su nivel de detalles representados.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910665"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025459"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de representación de Azure Maps
 
-Azure Maps usa mosaicos de trama y mosaicos vectoriales para crear mapas. En su resolución más baja, todo el mundo cabría en un solo mosaico. En su resolución más alta, un solo mosaico representa 38 metros cuadrados. A medida que acerca un mapa, puede ver cada vez más detalles sobre los continentes, regiones, ciudades y calles individuales. Para más información, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
+Azure Maps usa mosaicos de trama y mosaicos vectoriales para crear mapas. En su resolución más baja, todo el mundo cabría en un solo mosaico. En su resolución más alta, un solo mosaico representa 38 metros cuadrados. A medida que acerque la imagen, verá cada vez más detalles sobre continentes, regiones, ciudades y calles individuales. Para más información sobre los mosaicos, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
 
-Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas las regiones. Las tablas siguientes proporcionan información sobre qué nivel de representación de detalles se puede esperar de cada región.
+Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas las regiones. En las tablas siguientes se detalla el nivel de información que puede representar para cada región.
 
 ## <a name="legend"></a>Leyenda
 

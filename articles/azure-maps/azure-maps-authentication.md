@@ -1,49 +1,48 @@
 ---
 title: Métodos de autenticación | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre la autenticación de clave compartida o Azure Active Directory (Azure AD) para usar los servicios de Microsoft Azure Maps. Obtenga información sobre cómo obtener una clave de suscripción de Azure Maps.
+description: En este artículo, obtendrá información sobre la autenticación de clave compartida y de Azure Active Directory (Azure AD). Ambos métodos se usan para los servicios de Microsoft Azure Maps. Obtenga información sobre cómo obtener una clave de suscripción de Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/30/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 006adae99b2430f4c08ce5fc692598e48f45c239
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 2bcc2d4c92e903b723bffa8461a8a1a10534d3e4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911819"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025629"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
-Azure Maps admite dos formas de autenticar las solicitudes: Clave compartida y Azure Active Directory (Azure AD). En este artículo se explican estos métodos de autenticación para guiar su implementación.
+Azure Maps admite dos formas de autenticar las solicitudes: Autenticación de clave compartida y autenticación de Azure Active Directory. En este artículo se explican estos métodos de autenticación para guiar su implementación.
 
 ## <a name="shared-key-authentication"></a>Autenticación de clave compartida
 
-La autenticación de clave compartida pasa las claves generadas por una cuenta de Azure Maps con cada solicitud a Azure Maps. Cada solicitud a los servicios de Azure Maps requiere que se agregue la *clave de suscripción* como parámetro a la dirección URL. Las claves principal y secundaria se generan después de crearse la cuenta de Azure Maps. Recomendamos que use la clave principal como clave de suscripción al llamar a Azure Maps mediante la autenticación de clave compartida. La clave secundaria se puede usar, por ejemplo, para cambios de clave graduales.  
+La autenticación de clave compartida pasa las claves generadas por una cuenta de Azure Maps con cada solicitud a Azure Maps. Cada solicitud a los servicios de Azure Maps requiere que se agregue la *clave de suscripción* como parámetro a la dirección URL. Las claves principal y secundaria se generan después de crearse la cuenta de Azure Maps. Se recomienda usar la clave principal como clave de suscripción al llamar a Azure Maps mediante la autenticación de clave compartida. La clave secundaria se puede usar, por ejemplo, para cambios de clave graduales.  
 
 Para obtener información sobre cómo ver sus claves en Azure Portal, consulte [Administración de la autenticación](https://aka.ms/amauthdetails).
 
 > [!Tip]
-> Se recomienda regenerar las claves periódicamente. Como se le proporcionan dos claves, puede mantener las conexiones con una mientras se regenera la otra. Cuando regenere las claves, debe actualizar todas las aplicaciones que acceden a la cuenta para usar las nuevas claves.
+> Se recomienda regenerar las claves periódicamente. Dado que se le proporcionan dos claves, puede mantener las conexiones con una mientras se regenera la otra. Cuando regenere las claves, debe actualizar todas las aplicaciones que acceden a la cuenta con las nuevas claves.
 
 
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticación con Azure Active Directory (versión preliminar)
 
-Azure Maps ofrece ahora la integración con [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) para la autenticación de solicitudes de servicios de Azure Maps. Azure AD proporciona autenticación basada en identidad, como [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), para conceder acceso de nivel de usuario, de nivel de grupo y de nivel de aplicación a recursos de Azure Maps. Las secciones siguientes pueden ayudarle a comprender los conceptos y componentes de la integración de Azure Maps con Azure AD.
-
+Azure Maps ahora ofrece la autenticación de solicitudes de servicios de Azure Maps mediante [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Azure AD proporciona autenticación basada en identidades, que incluye el [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). RBAC se usa para conceder acceso de nivel de usuario, grupo o aplicación a recursos de Azure Maps. Las secciones siguientes pueden ayudarle a comprender los conceptos y componentes de la integración de Azure Maps con Azure AD.
 ## <a name="authentication-with-oauth-access-tokens"></a>Autenticación con tokens de acceso de OAuth
 
 Azure Maps acepta tokens de acceso de **OAuth 2.0** para inquilinos de Azure AD asociados a suscripciones de Azure que contienen una cuenta de Azure Maps. Azure Maps acepta tokens de:
 
-* Usuarios de Azure AD 
+* Usuarios de Azure AD
 * Aplicaciones de asociados que usan permisos delegados por los usuarios
-* Identidades administradas de recursos de Azure.
+* Identidades administradas de recursos de Azure
 
-Azure Maps genera un *identificador único (Id. de cliente)* para cada cuenta de Azure Maps. Cuando este identificador de cliente se combina con otros parámetros, puede solicitar tokens de Azure AD mediante la especificación de valores de la siguiente tabla, en función de su entorno de Azure.
+Azure Maps genera un *identificador único (Id. de cliente)* para cada cuenta de Azure Maps. Puede solicitar tokens de Azure AD cuando combine este identificador de cliente con otros parámetros. Para solicitar un token, debe especificar los valores de la tabla siguiente en función de su entorno de Azure.
 
 | Entorno de Azure   | Punto de conexión del token de Azure AD |
 | --------------------|-------------------------|
@@ -57,7 +56,7 @@ Para información general sobre la solicitud de tokens de Azure AD, consulte [¿
 
 ## <a name="request-azure-map-resources-with-oauth-tokens"></a>Solicitud de recursos de Azure Maps con tokens de OAuth
 
-Después de recibir un token de Azure AD, se puede enviar una solicitud a Azure Maps con los dos siguientes encabezados de solicitud requeridos establecidos:
+Después de recibir un token de Azure AD, se envía una solicitud a Azure Maps con el siguiente conjunto de encabezados de solicitud requeridos:
 
 | Encabezado de solicitud    |    Value    |
 |:------------------|:------------|
@@ -80,9 +79,7 @@ Para información sobre cómo ver el identificador de cliente, consulte [Visuali
 
 ## <a name="control-access-with-rbac"></a>Control del acceso con RBAC
 
-Azure AD le permite a que controlar el acceso a recursos protegidos mediante RBAC. Después de crear la cuenta de Azure Maps y de registrar la aplicación de Azure AD de Azure Maps dentro del inquilino de Azure AD, puede configurar RBAC para un usuario, un grupo, una aplicación o un recurso de Azure en la página del portal de cuentas de Azure Maps.
-
-Azure Maps admite control de acceso de lectura para usuarios, grupos y aplicaciones de Azure AD, y servicios de Azure individuales mediante identidades administradas para recursos de Azure.
+En Azure AD, use RBAC para controlar el acceso a los recursos protegidos. Configure su cuenta de Azure Maps y registre su inquilino de Azure AD para Azure Maps. Azure Maps admite el control de acceso de lectura para usuarios, grupos y aplicaciones de Azure AD, recursos de Azure y servicios de Azure individuales mediante identidades administradas para recursos de Azure. En la página del portal de Azure Maps, puede configurar RBAC para los roles deseados.
 
 ![Azure Maps Data Reader (versión preliminar)](./media/azure-maps-authentication/concept.png)
 
@@ -90,7 +87,7 @@ Para información sobre cómo ver la configuración de RBAC, consulte [Configura
 
 ## <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Identidades administradas para recursos de Azure y Azure Maps
 
-Las [identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) proporcionan servicios de Azure (Azure App Service, Azure Functions, Azure Virtual Machines, etc.) con una identidad administrada automáticamente a la que se puede autorizar el acceso a servicios de Azure Maps.  
+Las [identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) proporcionan a los servicios de Azure una identidad administrada automáticamente, que se puede autorizar para acceder a los servicios de Azure Maps. Algunos ejemplos de identidades administradas son: Azure App Service, Azure Functions y Azure Virtual Machines.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

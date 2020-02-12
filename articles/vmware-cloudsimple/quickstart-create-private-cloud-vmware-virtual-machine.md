@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de una máquina virtual de VMware en una nube privada'
-description: Se describe cómo crear una máquina virtual de VMware en la nube privada de CloudSimple
+title: 'Inicio rápido: Creación de una VM de VMware en la nube privada de AVS'
+description: Describe el proceso de creación de una VM de VMware en una nube privada de AVS
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,42 +8,42 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: cbe88afc4f566bad4bacb408346d4dd25a2f6c96
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972400"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020070"
 ---
-# <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creación de máquinas virtuales de VMware en la nube privada
+# <a name="create-vmware-virtual-machines-on-your-avs-private-cloud"></a>Creación de máquinas virtuales de VMware en la nube privada de AVS
 
-Para crear máquinas virtuales en una nube privada propia, primero debe acceder al portal de CloudSimple desde Azure Portal.
+Para crear máquinas virtuales en la nube privada de AVS, primero debe acceder al portal de AVS desde Azure Portal.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-cloudsimple-portal"></a>Acceso al portal de CloudSimple
+## <a name="access-the-avs-portal"></a>Acceso al portal de AVS
 
 1. Seleccione **Todos los servicios**.
-2. Busque **Servicios de CloudSimple**.
-3. Seleccione el servicio de CloudSimple en el que quiere crear la nube privada.
-4. En la página **Información general**, haga clic en **Go to the CloudSimple portal** (Ir al portal de CloudSimple) para abrir una nueva pestaña del explorador para el portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
+2. Busque **AVS Services** (Servicios de AVS).
+3. Seleccione el servicio de AVS en el que quiere crear la nube privada de AVS.
+4. En la página **Información general**, haga clic en **Go to the AVS portal** (Ir al portal de AVS) para abrir una nueva pestaña del explorador para el portal de AVS. Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure. 
 
-    ![Inicio del portal de CloudSimple](media/launch-cloudsimple-portal.png)
+    ![Iniciar el portal de AVS](media/launch-cloudsimple-portal.png)
 
 ## <a name="launch-vcenter-web-ui"></a>Inicio de la interfaz de usuario web de vCenter
 
 Ahora puede iniciar vCenter para configurar máquinas virtuales y directivas.
 
-Para acceder a vCenter, empiece desde el portal de CloudSimple. En la página principal, en **Common Tasks** (Tareas comunes), haga clic en **Launch vSphere Client** (Iniciar cliente vSphere).  Seleccione la nube privada y, después, haga clic en **Launch vSphere Client** (Iniciar cliente vSphere) en la nube privada.
+Para acceder a vCenter, empiece desde el portal de AVS. En la página principal, en **Common Tasks** (Tareas comunes), haga clic en **Launch vSphere Client** (Iniciar cliente vSphere). Seleccione la nube privada de AVS y, después, haga clic en **Iniciar el cliente de vSphere** en la nube privada de AVS.
 
    ![Inicio del cliente vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 ## <a name="upload-an-iso-or-vsphere-template"></a>Carga de una plantilla de vSphere o ISO
 
   > [!WARNING]
-  > Para las cargas de ISO, use el cliente HTML5 de vSphere.  El uso del cliente Flash puede producir un error.
+  > Para las cargas de ISO, use el cliente HTML5 de vSphere. El uso del cliente Flash puede producir un error.
 
 1. Obtenga la plantilla de vSphere o ISO que quiera cargar en vCenter para crear una máquina virtual y póngala a disposición del sistema local.
 2. En vCenter, haga clic en el icono **Disk** (Disco) y seleccione **vsanDatastore**. Haga clic en **Files** (Archivos) y después en **New Folder** (nueva carpeta).
@@ -78,7 +78,7 @@ Para acceder a vCenter, empiece desde el portal de CloudSimple. En la página pr
 8. Seleccione el SO invitado del archivo ISO para la máquina virtual que va a crear y haga clic en **Next** (Siguiente).
     ![Nueva máquina virtual](media/vcvm07.png)
 
-9. Seleccione las opciones de disco duro y de red. Para la nueva unidad de CD/DVD, seleccione **Datastore ISO file** (Archivo ISO de almacén de datos).  Si quiere permitir el tráfico entre la dirección IP pública y esta máquina virtual, seleccione la red como **vm-1**.
+9. Seleccione las opciones de disco duro y de red. Para la nueva unidad de CD/DVD, seleccione **Datastore ISO file** (Archivo ISO de almacén de datos). Si quiere permitir el tráfico entre la dirección IP pública y esta máquina virtual, seleccione la red como **vm-1**.
     ![Nueva máquina virtual](media/vcvm08.png)
 
 10. Se abrirá una ventana de selección. Seleccione el archivo que ha cargado previamente en la carpeta de archivos ISO y plantillas, y haga clic en **Aceptar**.
@@ -90,19 +90,19 @@ Para acceder a vCenter, empiece desde el portal de CloudSimple. En la página pr
 La máquina virtual se agregado ahora a los recursos de proceso de carga de trabajo y está lista para su uso. 
 ![Nueva máquina virtual](media/vcvm12.png)
 
-La configuración básica ya se ha completado. Puede empezar a usar su nube privada de la misma forma que usaría la infraestructura de máquina virtual local.
+La configuración básica ya se ha completado. Puede empezar a usar su nube privada de AVS de la misma forma que usaría la infraestructura de VM local.
 
-Las secciones siguientes contienen información opcional sobre cómo configurar servidores DNS y DHCP para cargas de trabajo de la nube privada y modificar la configuración de red predeterminada.
+Las secciones siguientes contienen información opcional sobre cómo configurar servidores DNS y DHCP para cargas de trabajo de la nube privada de AVS, y cómo modificar la configuración de redes predeterminada.
 
 ## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Adición de usuarios y orígenes de identidades a vCenter (opcional)
 
-CloudSimple asigna una cuenta de usuario de vCenter predeterminada con el nombre de usuario `cloudowner@cloudsimple.local`. Para empezar a trabajar no es necesario configurar cuentas adicionales.  CloudSimple normalmente asigna a los administradores los privilegios que necesitan para realizar las operaciones normales.  Configure la instancia local de Active Directory o Azure AD como un [origen de identidades adicional](set-vcenter-identity.md) en la nube privada.
+AVS asigna una cuenta de usuario de vCenter predeterminada con el nombre de usuario `cloudowner@AVS.local`. Para empezar a trabajar no es necesario configurar cuentas adicionales. AVS normalmente asigna a los administradores los privilegios que necesitan para realizar las operaciones normales. Configure la instancia local de Active Directory o Azure AD como un [origen de identidades adicional](set-vcenter-identity.md) en la nube privada de AVS.
 
 ## <a name="create-a-dns-and-dhcp-server-optional"></a>Creación de un servidor DNS y DHCP (opcional)
 
-Las aplicaciones y cargas de trabajo que se ejecutan en un entorno de nube privada requieren servicios de resolución de nombres y DHCP para la búsqueda y asignación de direcciones IP. Para proporcionar estos servicios se requiere una infraestructura de DHCP y DNS adecuada. Puede configurar una máquina virtual en vCenter para proporcionar estos servicios en el entorno de nube privada.
+Las aplicaciones y cargas de trabajo que se ejecutan en un entorno de nube privada de AVS requieren servicios de resolución de nombres y DHCP para la búsqueda y asignación de direcciones IP. Para proporcionar estos servicios se requiere una infraestructura de DHCP y DNS adecuada. Puede configurar una máquina virtual en vCenter para proporcionar estos servicios en el entorno de nube privada de AVS.
 
-Requisitos previos
+Prerequisites
 
 * Un grupo de puertos distribuidos con VLAN configurada
 
@@ -114,7 +114,7 @@ Los vínculos siguientes proporcionan instrucciones sobre cómo configurar los s
 
 #### <a name="linux-based-dns-server-setup"></a>Configuración del servidor DNS basado en Linux
 
-Linux ofrece diversos paquetes para la configuración de servidores DNS.  Este es un vínculo a instrucciones sobre cómo configurar un servidor DNS BIND de código abierto.
+Linux ofrece diversos paquetes para la configuración de servidores DNS. Este es un vínculo a instrucciones sobre cómo configurar un servidor DNS BIND de código abierto.
 
 [Configuración de ejemplo](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
@@ -128,11 +128,11 @@ En estos temas de Microsoft se describe cómo configurar un servidor de Windows 
 
 ## <a name="customize-networking-configuration-optional"></a>Personalización de la configuración de red (opcional)
 
-Las páginas de red del portal de CloudSimple permiten especificar la configuración de las tablas de firewall y las direcciones IP públicas para las máquinas virtuales.
+Las páginas de red del portal de AVS permiten especificar la configuración de las tablas de firewall y las direcciones IP públicas para las VM.
 
 ### <a name="allocate-public-ips"></a>Asignación de IP públicas
 
-1. Vaya a **Network > Public IP** (Red > Dirección IP pública) en el portal de CloudSimple.
+1. Vaya a **Red > IP pública** en el portal de AVS.
 2. Haga clic en **Allocate Public IP** (Asignar IP pública).
 3. Escriba un nombre para identificar la entrada de la dirección IP.
 4. Mantenga la ubicación predeterminada.
@@ -200,17 +200,17 @@ Inicie un servidor HTTP que escuche en el puerto 80.
 python2.7 -m SimpleHTTPServer 80
 ```
 
-o
+or
 
 ```
 python3 -m http.server 80
 ```
 Inicie un explorador en el escritorio y haga que apunte al puerto 80 para que la dirección IP pública examine los archivos de la máquina virtual.
 
-### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Reglas de firewall de CloudSimple predeterminadas para la dirección IP pública
+### <a name="default-avs-firewall-rules-for-public-ip"></a>Reglas de firewall de AVS predeterminadas para la dirección IP pública
 
 * Tráfico VPN: se permite todo el tráfico entre (desde y hacia) la VPN y todas las redes de carga de trabajo y la red de administración.
-* Tráfico interno de la nube privada: se permite todo el tráfico este-oeste entre (desde y hacia) las redes de carga de trabajo y la red de administración (mostrada arriba).
+* Tráfico interno de la nube privada de AVS: se permite todo el tráfico este-oeste entre (desde y hacia) las redes de carga de trabajo y la red de administración (mostrada arriba).
 * Tráfico de Internet:
   * se deniega todo el tráfico entrante desde Internet a las redes de carga de trabajo y la red de administración.
   * Se permite todo el tráfico saliente a Internet desde las redes de carga de trabajo o la red de administración.
@@ -219,7 +219,7 @@ También puede modificar la forma en que se protege el tráfico, mediante la car
 
 ## <a name="install-solutions-optional"></a>Instalación de soluciones (opcional)
 
-Puede instalar soluciones en la nube privada de CloudSimple para aprovechar al máximo el entorno de vCenter de la nube privada. Puede configurar funciones de copia de seguridad, recuperación ante desastres, replicación y otras para proteger las máquinas virtuales. Algunos ejemplos son el Administrador de recuperación de sitios de VMware (VMware SRM) y Veeam Backup & Replication.
+Puede instalar soluciones en la nube privada de AVS para aprovechar al máximo el entorno de vCenter de la nube privada de AVS. Puede configurar funciones de copia de seguridad, recuperación ante desastres, replicación y otras para proteger las máquinas virtuales. Algunos ejemplos son el Administrador de recuperación de sitios de VMware (VMware SRM) y Veeam Backup & Replication.
 
 Para instalar una solución, debe solicitar privilegios adicionales durante un período limitado. Vea [Escalado de privilegios](escalate-private-cloud-privileges.md).
 
@@ -227,4 +227,4 @@ Para instalar una solución, debe solicitar privilegios adicionales durante un p
 
 * [Uso de máquinas virtuales de VMware en Azure](quickstart-create-vmware-virtual-machine.md)
 * [Conexión a la red local mediante Azure ExpressRoute](on-premises-connection.md)
-* [Configuración de puertas de enlace de VPN en la red de CloudSimple](vpn-gateway.md)
+* [Configuración de puertas de enlace de VPN en la red de AVS](vpn-gateway.md)

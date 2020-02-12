@@ -1,17 +1,17 @@
 ---
 title: Acciones de GitHub y Azure Kubernetes Service
 services: azure-dev-spaces
-ms.date: 11/04/2019
+ms.date: 02/04/2020
 ms.topic: conceptual
 description: Revise y pruebe los cambios de una solicitud de incorporación de cambios directamente en Azure Kubernetes Service mediante acciones de GitHub y Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, acciones de GitHub, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 7d96726e829154847744d9aec07a9cb0938f75de
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771128"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026105"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Acciones de GitHub y Azure Kubernetes Service (versión preliminar)
 
@@ -58,7 +58,6 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 Guarde la salida de JSON porque se usará en un paso posterior.
 
-
 Use [az aks show][az-aks-show] para mostrar el *identificador* del clúster de AKS:
 
 ```cmd
@@ -93,7 +92,6 @@ Navegue al repositorio bifurcado y haga clic en *Configuración*. Haga clic en *
 1. *CLUSTER_NAME*: el nombre del clúster de AKS, que en este ejemplo es *MyAKS*.
 1. *CONTAINER_REGISTRY*: el *loginServer* para la instancia de ACR.
 1. *HOST*: el host del espacio de desarrollo, que adopta la forma *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , y en este ejemplo es *dev.bikesharingweb.fedcab0987.eus.azds.io*.
-1. *HOST_SUFFIX*: el sufijo de host para el espacio de desarrollo, que en este ejemplo es *fedcab0987.eus.azds.io*.
 1. *IMAGE_PULL_SECRET*: el nombre del secreto que desea usar, por ejemplo *demo-secret*.
 1. *MASTER_SPACE*: el nombre del espacio de desarrollo primario, que en este ejemplo es *dev*.
 1. *REGISTRY_USERNAME*: el *clientId* de la salida de JSON en la creación de la entidad de servicio.
@@ -101,6 +99,8 @@ Navegue al repositorio bifurcado y haga clic en *Configuración*. Haga clic en *
 
 > [!NOTE]
 > Todos estos secretos los usa la acción de GitHub y se configuran en [.github/workflows/bikes.yml][github-action-yaml].
+
+De manera opcional, si desea actualizar el espacio maestro después de la combinación de la solicitud de incorporación de cambios, agregue el secreto *GATEWAY_HOST*, que toma la forma *<ESPACIO_MAESTRO>. Gateway. <SUFIJO_DE_HOST>* , que en este ejemplo es *dev.gateway.fedcab0987.eus.azds.io*. Una vez que combine los cambios en la rama maestra de la bifurcación, se ejecutará otra acción para volver a compilar y ejecutar toda la aplicación en el espacio de desarrollo maestro. En este ejemplo, el espacio maestro es *dev*. Esta acción se configura en [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Crear una nueva rama para los cambios de código
 

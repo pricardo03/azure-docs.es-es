@@ -1,10 +1,10 @@
 ---
-title: 'Alta disponibilidad y recuperación ante desastres: Azure Batch | Microsoft Docs'
-description: Aprenda a diseñar la aplicación de Batch para una interrupción regional
+title: 'Alta disponibilidad y recuperación ante desastres: Azure Batch'
+description: Aprenda a diseñar la aplicación de Batch para una interrupción regional. Las cargas de trabajo deben conmutar por error a otra región o dividirse entre dos regiones o más.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: jushiman
-ms.openlocfilehash: f30d2d8e7d08277a5782c3fc39c10fcdff9463f2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029558"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026088"
 ---
 # <a name="design-your-application-for-high-availability"></a>Diseño de la aplicación para una alta disponibilidad
 
@@ -49,5 +49,5 @@ Tenga en cuenta lo siguiente a la hora de diseñar una solución con conmutació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información acerca de cómo crear cuentas de Batch con [Azure Portal](batch-account-create-portal.md), la [CLI de Azure](cli-samples.md), [Powershell](batch-powershell-cmdlets-get-started.md) o la [Batch management API](batch-management-dotnet.md).
+- Obtenga más información acerca de cómo crear cuentas de Batch con [Azure Portal](batch-account-create-portal.md), la [CLI de Azure](cli-samples.md), [Powershell](batch-powershell-cmdlets-get-started.md) o [Batch Management API](batch-management-dotnet.md).
 - Las cuotas predeterminadas están asociadas con las cuentas de Batch; en [este artículo](batch-quota-limit.md) se explican a detalle los valores predeterminados de cuotas y se describe el proceso para aumentarlas.

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440266"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020053"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -52,6 +52,12 @@ Una vez que haya agregado un receptor, configúrelo a través de la pestaña **R
 De forma similar a la transformación Selección, en la pestaña **Asignación** del receptor, puede decidir qué columnas de entrada se escribirán. De forma predeterminada, se asignan todas las columnas de entrada, incluidas las columnas desfasadas. Esto se conoce como **registro automático**.
 
 Cuando desactive la asignación automática, tendrá la opción de agregar asignaciones basadas en columnas o basadas en reglas. Las asignaciones basada en reglas le permiten escribir expresiones con coincidencia de patrones, mientras que la asignación fija asignará nombres de columna lógicos y físicos. Para más información sobre la asignación basada en reglas, consulte [Patrones de columna en flujos de datos de asignación](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+
+## <a name="custom-sink-ordering"></a>Ordenación de receptores personalizados
+
+De forma predeterminada, los datos se escriben en varios receptores en un orden no determinista. El motor de ejecución escribirá datos en paralelo a medida que se complete la lógica de transformación y el orden de los receptores puede variar en cada ejecución. Para especificar una ordenación de receptores exacta, habilite la opción **Custom sink ordering** (Ordenación de receptores personalizada) en la pestaña General del flujo de datos. Una vez habilitada, los receptores se escribirán secuencialmente en orden ascendente.
+
+![Ordenación de receptores personalizada](media/data-flow/custom-sink-ordering.png "Ordenación de receptores personalizados")
 
 ## <a name="data-preview-in-sink"></a>Vista previa de los datos en el receptor
 

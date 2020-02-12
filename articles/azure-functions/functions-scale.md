@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921910"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024660"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -26,7 +26,7 @@ Los planes de consumo y Prémium agregan automáticamente la capacidad de proces
 
 El plan Prémium proporciona características adicionales, como instancias de proceso prémium, la capacidad de conservar las instancias semiactivas indefinidamente y la conectividad de red virtual.
 
-El plan de App Service le permite aprovechar la infraestructura dedicada que administra. Su aplicación de funciones no se escala en función de los eventos, lo que significa que nunca se reduce verticalmente a cero. (Requiere que la configuración [Always On](#always-on) está habilitada).
+El plan de App Service le permite aprovechar la infraestructura dedicada que administra. Su aplicación de funciones no se escala en función de los eventos, lo que significa que nunca se reduce horizontalmente a cero. (Requiere que la configuración [Always On](#always-on) está habilitada).
 
 ## <a name="hosting-plan-support"></a>SKU del plan de hospedaje
 
@@ -152,7 +152,7 @@ La unidad de escala de Azure Functions es la aplicación de funciones. Al escala
 
 El escalado puede variar en función de varios factores, y realizarse de forma diferente según el desencadenador y el idioma seleccionados. Hay algunas complejidades de los comportamientos del escalado que hay que tener en cuenta:
 
-* Una aplicación de función única solo se escala verticalmente hasta un máximo de 200 instancias. Una única instancia puede procesar más de un mensaje o solicitud a la vez, por lo que no hay un límite establecido en el número de ejecuciones simultáneas.
+* Una aplicación de funciones única solo se escala horizontalmente hasta un máximo de 200 instancias. Una única instancia puede procesar más de un mensaje o solicitud a la vez, por lo que no hay un límite establecido en el número de ejecuciones simultáneas.
 * En el caso de los desencadenadores HTTP, solo se asignarán nuevas instancias como máximo una vez cada segundo.
 * Para los desencadenadores que no son HTTP, solo se asignarán nuevas instancias como máximo una vez cada 30 segundos.
 

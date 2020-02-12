@@ -3,18 +3,18 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3ad3682e301eb98d48372c3955c6ff049422c517
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978808"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024677"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
 > [!div class="op_single_selector" title1="Seleccione la versión del entorno de ejecución de Azure Functions que usa: "]
 > * [Versión 1](functions-host-json-v1.md)
-> * [Versión 2](functions-host-json.md)
+> * [Versión 2 y posteriores](functions-host-json.md)
 
 El archivo de metadatos *host.json* contiene las opciones de configuración global que afectan a todas las funciones de dicha aplicación de función. En este artículo se enumeran los valores que están disponibles a partir de la versión 2.x del entorno en tiempo de ejecución de Azure Functions.  
 
@@ -27,7 +27,7 @@ Algunas opciones de configuración de host.json solo se usan con la ejecución l
 
 ## <a name="sample-hostjson-file"></a>Archivo host.json de ejemplo
 
-El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opciones posibles (salvo aquellas que son solo para uso interno).
+El siguiente archivo *host.json* de ejemplo para la versión 2.x y posteriores tiene especificadas todas las opciones posibles (salvo aquellas que son solo para uso interno).
 
 ```json
 {
@@ -74,10 +74,10 @@ El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opcion
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
               "maxSamplingPercentage": 0.1,
-              "movingAverageRatio": 1.0
+              "movingAverageRatio": 1.0,
+              "excludedTypes" : "Dependency;Event",
+              "includedTypes" : "PageView;Trace"
             },
-            "samplingExcludedTypes" : "Dependency;Event",
-            "samplingIncludedTypes" : "PageView;Trace",
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
             "enablePerformanceCountersCollection": true,            
@@ -377,7 +377,7 @@ Opciones de configuración para el comportamiento de bloqueo Singleton. Para má
 
 ## <a name="version"></a>version
 
-La cadena de versión `"version": "2.0"` es necesaria para una aplicación de función que tenga como destino la versión v2 del entorno de ejecución.
+Este valor indica la versión de esquema de host.json. La cadena de versión `"version": "2.0"` es necesaria para una aplicación de funciones que tenga como destino la versión v2 o posterior del entorno de ejecución. No hay cambios en el esquema host.json entre las versiones 2 y 3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

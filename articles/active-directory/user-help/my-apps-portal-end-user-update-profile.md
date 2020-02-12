@@ -2,31 +2,38 @@
 title: 'Actualización del perfil y la información de cuentas en el portal Aplicaciones: Azure AD'
 description: Obtenga información sobre cómo actualizar el perfil y la información de la cuenta profesional o educativa, incluidos el cambio de contraseña, activar el restablecimiento de contraseña, actualizar los métodos de comprobación de seguridad, ver el extracto de las condiciones de uso de la organización y cerrar todas las sesiones en las que ha iniciado sesión con la cuenta profesional o educativa.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704874"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022286"
 ---
-# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Actualización de la información de perfil y cuenta en el portal Aplicaciones
+# <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Actualización de la información de perfil y cuenta en el portal Aplicaciones
 
-Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
+Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para hacer lo siguiente: 
+
+- Ver e iniciar muchas de las aplicaciones basadas en la nube de su organización.
+- Actualizar algunos de sus datos del perfil y la cuenta.
+- Ver la información de **Grupos**.
+- Realizar **revisiones de acceso** de aplicaciones y grupos. 
+
+Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
->[!Important]
->Este contenido está diseñado para usuarios. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> [!Important]
+> Este contenido está diseñado para los usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Visualización de la información de perfil relacionada con la organización
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35965f238ed5b7768dd174788453838c917adb32
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435125"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023232"
 ---
 # <a name="configure-the-application-dashboard"></a>Configuración del panel de la aplicación
 
@@ -47,7 +47,6 @@ Ahora, cuando un operador visualice el panel de la aplicación predeterminado, v
 
 > [!div class="mx-imgBorder"]
 > ![Pestaña "Panel" en la que se muestran la configuración y las propiedades del icono](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
-
 
 ## <a name="edit-tiles"></a>Edición de iconos
 
@@ -87,4 +86,4 @@ En la tabla siguiente se resume el uso de iconos en Azure IoT Central:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a configurar el panel de la aplicación predeterminada de Azure IoT Central, puede [aprender a preparar y cargar imágenes](howto-prepare-images.md).
+Ahora que ha aprendido a configurar el panel de aplicaciones predeterminado de Azure IoT Central, puede [aprender a crear un panel personal](howto-create-personal-dashboards.md).

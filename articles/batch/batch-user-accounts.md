@@ -1,9 +1,9 @@
 ---
-title: 'Ejecución de tareas en cuentas de usuario: Azure Batch | Microsoft Docs'
-description: Configure cuentas de usuario para ejecutar tareas en Azure Batch
+title: 'Ejecución de tareas en cuentas de usuario: Azure Batch'
+description: Resulta útil poder configurar la cuenta de usuario en que desea que se ejecute una tarea. Obtenga información acerca de los tipos de cuentas de usuario y cómo configurarlas.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/18/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d4975935c872f059dde6b08bcd7a4f06540c2dfd
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029605"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022790"
 ---
 > [!NOTE] 
 > Las cuentas de usuario descritas en este artículo son distintas a las que se usan con el Protocolo de escritorio remoto (RDP) o Secure Shell (SSH) por motivos seguridad. 

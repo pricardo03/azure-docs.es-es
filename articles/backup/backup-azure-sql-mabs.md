@@ -3,12 +3,12 @@ title: Copias de seguridad de SQL Server con Azure Backup Server
 description: En este artículo aprenderá los pasos de configuración de la copia de seguridad de bases de datos de SQL Server mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: d5e0c49e2cad77e42960fafec9311b31d4cf2601
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 461faa2c88b8db9c1e3b2f9af19783b7d6b7fa07
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172658"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024014"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Copia de seguridad de SQL Server en Azure con Azure Backup Server
 
@@ -51,7 +51,7 @@ Antes de comenzar, asegúrese de que ha [instalado y preparado Azure Backup Serv
    >
    >
 
-8. Haga clic en **Siguiente**
+8. Haga clic en **Siguiente**.
 
     MABS muestra el espacio de almacenamiento total disponible y el uso del espacio de disco potencial.
 
@@ -101,7 +101,7 @@ Antes de comenzar, asegúrese de que ha [instalado y preparado Azure Backup Serv
 14. Haga clic en **Siguiente** y seleccione la opción adecuada para transferir la copia de seguridad inicial a Azure. Puede elegir **Automáticamente a través de la red** o **Copia de seguridad sin conexión**.
 
     * **Automáticamente a través de la red** transferirá los datos de copia de seguridad a Azure en función de la programación seleccionada para la copia de seguridad.
-    * Se explica cómo funciona **Copia de seguridad sin conexión** en [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md).
+    * Cómo funciona **Copia de seguridad sin conexión** se explica en la [Información general sobre la copia de seguridad sin conexión](offline-backup-overview.md).
 
     Seleccione el mecanismo de transferencia correspondiente para enviar la copia de seguridad inicial a Azure y haga clic en **Siguiente**.
 15. Una vez revisados los detalles de la directiva en la pantalla **Resumen**, haga clic en el botón **Crear grupo** para completar el flujo de trabajo. Puede hacer clic en el botón **Cerrar** y supervisar el progreso del trabajo en el área de trabajo de supervisión.

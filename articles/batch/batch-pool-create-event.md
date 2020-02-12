@@ -1,22 +1,22 @@
 ---
-title: Evento de creación de grupo de Azure Batch | Microsoft Docs
-description: Referencia del evento de creación de grupo de Batch.
+title: Evento de creación de grupo de Azure Batch
+description: Referencia del evento de creación de grupo de Batch, que se emite después de crear un grupo. El contenido del registro va a exponer información general acerca del grupo.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: b804d828d276c39febf7fdd9347bce04a062676a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: dea025b274278aa5fed2900c95b4a274541ffef9
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026754"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022196"
 ---
 # <a name="pool-create-event"></a>Evento de creación del grupo
 

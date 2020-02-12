@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d861a5d1da6ebc9cedbe2dff764cd5b6e7dd04e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bd1c3d27ebedfb8479b9f30ac08d8132b2a44a04
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827398"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023470"
 ---
 # <a name="toggle-live-chat"></a>Alternancia de chat en directo
 
 En este artículo de procedimientos se muestra cómo activar y desactivar el chat en directo en la aplicación IoT Central. Puede utilizar el chat en directo para acceder a soporte técnico.
 
 > [!NOTE]
-> La opción de chat está disponible solo para las suscripciones de prueba.
+> La opción de chat solo está disponible para las aplicaciones creadas con el plan de tarifa gratis.
 
 ## <a name="chat-with-us"></a>Chatee con nosotros
 
@@ -32,13 +32,13 @@ Puede escribir una pregunta, como se muestra en la captura de pantalla siguiente
 
 ![El formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la configuración y las propiedades](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>Ocultar chat
+## <a name="hide-chat"></a>Ocultar el chat
 
 Para ocultar el chat, elija **Ocultar chat** en el panel **Ayuda**:
 
  ![Ocultar chat](media/howto-show-hide-chat/hide-chat.png)
 
-## <a name="enable-chat"></a>Habilitar chat
+## <a name="enable-chat"></a>Habilitar el chat
 
 Para mostrar el chat, elija **Mostrar chat** en el panel **Ayuda**:
 

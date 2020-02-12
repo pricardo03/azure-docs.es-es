@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 7a438a52ab69810ecf49319c148f817da974ea61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440215"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023521"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformación de origen en flujo de datos de asignación 
 
@@ -44,6 +44,8 @@ Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configu
 
 ![Pestaña de configuración de origen](media/data-flow/source1.png "Pestaña de configuración de origen")
 
+**Probar conexión:** pruebe si el servicio Spark del flujo de datos puede conectarse correctamente al servicio vinculado que se usa en el conjunto de datos de origen. El modo de depuración debe estar activado para habilitar esta característica.
+
 **Desfase de esquema:** El [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas.
 
 * Si las columnas de origen van a cambiar con frecuencia, seleccione la casilla **Allow schema drift** (Permitir el desfase de esquema). Esta opción permite que todos los campos de origen entrantes fluyan hasta el receptor a través de las transformaciones.
@@ -69,13 +71,17 @@ Al igual que los esquemas en los conjuntos de datos, la proyección de un origen
 
 ![Configuración de la pestaña de proyección](media/data-flow/source3.png "Proyección")
 
-Si el archivo de texto no tiene ningún esquema definido, seleccione **Detectar tipo de datos** para que Data Factory muestree e infiera los tipos de datos. Seleccione **Definir formato predeterminado** para detectar automáticamente los formatos de datos predeterminados. 
+Si el archivo de texto no tiene ningún esquema definido, seleccione **Detectar tipo de datos** para que Data Factory muestree e infiera los tipos de datos. Seleccione **Definir formato predeterminado** para detectar automáticamente los formatos de datos predeterminados.
+
+**Reset schema** (Restablecer esquema) restablece la proyección a la definición del conjunto de datos de referencia.
 
 Puede modificar los tipos de datos de columna en una transformación de columna derivada de un nivel inferior. Use una transformación de selección para modificar los nombres de columna.
 
 ### <a name="import-schema"></a>Importar esquema
 
-Los conjuntos de datos como Avro y CosmosDB que admiten estructuras de datos complejas no requieren que existan definiciones de esquemas en el conjunto de datos. Por lo tanto, podrá hacer clic en el botón **Importar esquema** de la pestaña **Proyección** para estos tipos de orígenes.
+El botón **Import Schema** (Importar esquema) de la pestaña **Proyección** permite usar un clúster de depuración activo para crear una proyección de esquema. Disponible en cada tipo de origen, la importación del esquema aquí invalidará la proyección definida en el conjunto de datos. El objeto del conjunto de datos no se cambiará.
+
+Resulta útil en los conjuntos de datos como Avro y CosmosDB, que admiten estructuras de datos complejas y no requieren la existencia de definiciones de esquemas en el conjunto de datos.
 
 ## <a name="optimize-the-source-transformation"></a>Optimización de la transformación de origen
 

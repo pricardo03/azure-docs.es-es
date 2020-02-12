@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 52bec8bba7bb3ddf545e3bd1866775f0964c6ad3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6e9e1d54599ab88092638762ccd7974e44c82cbf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893134"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025816"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Cosmos DB (SQL API) mediante Azure Data Factory
 
@@ -268,6 +268,18 @@ La configuración específica de Azure Comos DB está disponible en la pestaña
 **Throughput** (Capacidad de proceso): Establezca un valor opcional para el número de RU que desea aplicar a la colección de CosmosDB para cada ejecución de este flujo de datos durante la operación de lectura. El mínimo es de 400.
 
 **Preferred regions** (Regiones preferidas): elija las regiones de lectura preferidas para este proceso.
+
+#### <a name="json-settings"></a>Configuración de JSON
+
+**Documento único:** seleccione esta opción si ADF debe tratar todo el archivo como un solo documento JSON.
+
+**Nombres de columnas sin comillas:** seleccione esta opción si los nombres de columna del archivo JSON no están entre comillas.
+
+**Tiene comentarios:** use esta selección si los documentos JSON tienen comentarios en los datos.
+
+**Con comillas simples:** debe seleccionar esta opción si las columnas y los valores del documento se incluyen entre comillas simples.
+
+**Barra diagonal inversa con escape:** si usa barras diagonales inversas para el escape de caracteres en el archivo JSON, elija esta opción.
 
 ### <a name="sink-transformation"></a>Transformación de receptor
 

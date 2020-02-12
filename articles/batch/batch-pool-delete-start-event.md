@@ -1,22 +1,22 @@
 ---
-title: Evento de inicio de eliminación de grupo de Azure Batch | Microsoft Docs
-description: Referencia del evento de inicio de eliminación de grupo de Batch.
+title: Evento de inicio de eliminación de un grupo de Azure Batch
+description: Referencia del evento de inicio de eliminación de grupo de Batch. Este evento se genera cuando se inicia una operación de eliminación del grupo.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: d582e2b04d203484632a1781d1819f612de41fe7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 24a68c6656bd13f0c353d53870a51cdc940fd141
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026737"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022212"
 ---
 # <a name="pool-delete-start-event"></a>Evento de inicio de eliminación del grupo
 

@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d3a76b06c08d670cfb3ab0757e8c46dac0988c5f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833371"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025187"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -124,7 +124,7 @@ Advertencia: Si hay cuentas sincronizadas que necesiten contraseñas que no expi
 > [!NOTE]
 > Esta característica está ahora en versión preliminar pública.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>Versión preliminar pública de la sincronización de contraseñas temporales y "Forzar restablecimiento de contraseña en el siguiente inicio de sesión"
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Versión preliminar pública de la sincronización de contraseñas temporales y "Forzar cambio de contraseña en el siguiente inicio de sesión"
 
 Es habitual exigir al usuario a cambiar la contraseña durante el primer inicio de sesión, especialmente después de que se produzca un restablecimiento de la contraseña de administrador.  Normalmente se conoce como establecer una contraseña "temporal" y se completa mediante la comprobación de la marca "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en un objeto de usuario de Active Directory (AD).
   

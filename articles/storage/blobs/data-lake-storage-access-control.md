@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037241"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026139"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -33,7 +33,7 @@ Para aprender a asignar roles a las entidades de seguridad en el ámbito de la c
 
 Aunque el uso de las asignaciones de roles RBAC es un mecanismo eficaz para controlar los permisos de acceso, se trata de un mecanismo mucho más detallado en relación con las ACL. La granularidad más pequeña para RBAC es el nivel de contenedor y esto se evaluará con mayor prioridad que las listas ACL. Por lo tanto, si asigna un rol a una entidad de seguridad en el ámbito de un contenedor, esa entidad de seguridad tendrá el nivel de autorización asociado a ese rol para TODOS los directorios y archivos de ese contenedor, independientemente de las asignaciones de ACL.
 
-Cuando a una entidad de seguridad se le conceden permisos de datos RBAC mediante un [rol integrado](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues) o un rol personalizado, primero se evalúan estos permisos tras la autorización de una solicitud. Si la operación solicitada está autorizada por las asignaciones de RBAC de la entidad de seguridad, la autorización se resuelve de inmediato y no se realizan más comprobaciones de ACL. Como alternativa, si la entidad de seguridad no tiene una asignación de RBAC o la operación de la solicitud no coincide con el permiso asignado, se realizan comprobaciones de ACL para determinar si la entidad de seguridad está autorizada para realizar la operación solicitada.
+Cuando a una entidad de seguridad se le conceden permisos de datos RBAC mediante un [rol integrado](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues) o un rol personalizado, primero se evalúan estos permisos tras la autorización de una solicitud. Si la operación solicitada está autorizada por las asignaciones de RBAC de la entidad de seguridad, la autorización se resuelve de inmediato y no se realizan más comprobaciones de ACL. Como alternativa, si la entidad de seguridad no tiene una asignación RBAC, o la operación de la solicitud no coincide con el permiso asignado, se realizan comprobaciones de ACL para determinar si la entidad de seguridad está autorizada para realizar la operación solicitada.
 
 > [!NOTE]
 > Si se ha asignado a la entidad de seguridad la asignación de roles integrada de Propietario de datos de Storage Blob, a esta entidad de seguridad se le considera *superusuario* y se le concede acceso total a todas las operaciones de mutación, incluida la configuración del propietario de un directorio o archivo, así como las ACL de archivos y directorios de los que no es propietario. El acceso de superusuario es la única manera autorizada para cambiar el propietario de un recurso.
@@ -58,10 +58,15 @@ No puede usar listas de control de acceso para proporcionar un nivel de acceso q
 
 Para establecer permisos en el nivel de archivo y de directorio, consulte cualquiera de los siguientes artículos:
 
-|Si desea utilizar esta herramienta:    |Consulte este artículo:    |
+|||
 |--------|-----------|
-|Explorador de Azure Storage    |[Establecimiento de permisos en el nivel de archivo y directorio mediante el Explorador de Azure Storage con Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|API DE REST    |[Ruta de acceso: Actualización](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|Explorador de Azure Storage |[Uso del Explorador de Azure Storage para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|.NET |[Uso de .NET para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Uso de Java para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Uso de Python para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
+|PowerShell|[Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
+|Azure CLI|[Uso de la CLI de Azure para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|API DE REST |[Ruta de acceso: Actualización](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Si la entidad de seguridad es una entidad de *servicio*, es importante que utilice el identificador de objeto de la entidad de servicio en lugar del identificador de objeto del registro de aplicación relacionado. Para obtener el identificador de objeto de la entidad de servicio abra la CLI de Azure y, a continuación, use este comando: `az ad sp show --id <Your App ID> --query objectId`. No olvide reemplazar el marcador de posición `<Your App ID>` por el identificador de aplicación del registro de aplicación.
@@ -335,6 +340,6 @@ Las ACL no se heredan. Sin embargo, las ACL predeterminadas pueden usarse para e
 * [ACL de POSIX en Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso de listas de control de acceso en Linux)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Introducción a Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

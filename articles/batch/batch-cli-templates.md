@@ -1,22 +1,22 @@
 ---
-title: 'Ejecución de un extremo a otro de trabajos mediante plantillas: Azure Batch | Microsoft Docs'
-description: Cree, grupos, trabajos y tareas de Batch con archivos de plantilla y la CLI de Azure.
+title: 'Ejecución de un extremo a otro de trabajos mediante plantillas: Azure Batch'
+description: Con solo los comandos de CLI, puede crear un grupo, cargar datos de entrada, crear trabajos y tareas asociadas y descargar los datos de salida resultantes.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 2612986491268651222e51646e75cdecc95dc40c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029738"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020172"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch
 
