@@ -9,8 +9,8 @@
   items:
     - name: Habilitar el autoservicio de restablecimiento de contraseña
       href: tutorial-enable-sspr.md
-    - name: Habilitar MFA para aplicaciones
-      href: tutorial-mfa-applications.md
+    - name: Habilitación de Azure Multi-Factor Authentication
+      href: tutorial-enable-azure-mfa.md
     - name: Habilitar integración local de SSPR
       href: tutorial-enable-writeback.md
     - name: Integración de Azure Identity Protection
