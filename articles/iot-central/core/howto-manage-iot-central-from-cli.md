@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1051ea91378cc2e2facec7e34f6d303297b91ce8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8526eb50faf300892c66ac186eac25adecf62231
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454068"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019033"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Administración de IoT Central desde la CLI de Azure
 
@@ -44,34 +44,28 @@ az group create --location "East US" \
 az iotcentral app create \
   --resource-group "MyIoTCentralResourceGroup" \
   --name "myiotcentralapp" --subdomain "mysubdomain" \
-  --sku S1 --template "iotc-demo@1.0.0" \
+  --sku ST1 --template "iotc-demo@1.0.0" \
   --display-name "My Custom Display Name"
 ```
 
-Estos comandos crean en primer lugar un grupo de recursos en la ubicación Este de EE. UU. para la aplicación. En la siguiente tabla se describen los parámetros utilizados con el comando **az iotcentral app create**:
+Estos comandos crean en primer lugar un grupo de recursos en la región Este de EE. UU. para la aplicación. En la siguiente tabla se describen los parámetros utilizados con el comando **az iotcentral app create**:
 
 | Parámetro         | Descripción |
 | ----------------- | ----------- |
 | resource-group    | Grupo de recursos que contiene a la aplicación. Este grupo de recursos ya debe existir en la suscripción. |
-| ubicación          | Este comando usa de forma predeterminada la ubicación del grupo de recursos. Actualmente, puede crear una aplicación de IoT Central en las ubicaciones **Estados Unidos**, **Australia**, **Asia Pacífico** o **Europa**. |
+| ubicación          | Este comando usa de forma predeterminada la ubicación del grupo de recursos. Actualmente, se pueden crear aplicaciones de IoT Central en **Este de EE. UU.** , **Oeste de EE. UU.** , **Norte de Europa** u **Oeste de Europa**, o incluso en las regiones geográficas de **Australia** o **Asia Pacifico**. |
 | name              | Nombre de la aplicación en Azure Portal. |
 | subdomain         | Subdominio en la dirección URL de la aplicación. En el ejemplo, la dirección URL de la aplicación es https://mysubdomain.azureiotcentral.com. |
-| sku               | Actualmente, el único valor es **S1** (nivel estándar). Consulte [Precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
+| sku               | Actualmente, puede usar **ST1** o **ST2**. Consulte [Precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | template          | Plantilla de aplicación que se va a usar. Para más información, vea la tabla siguiente: |
 | display-name      | Nombre de la aplicación tal como se muestra en la interfaz de usuario. |
 
-**Plantilla de aplicación con características disponibles con carácter general**
+**Plantillas de aplicación**
 
 | Nombre de la plantilla            | Descripción |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Permite crear una aplicación vacía para que pueda rellenarla con sus propias plantillas de dispositivo y dispositivos.
-
-
-**Plantillas de aplicación con características de versión preliminar pública**
-
-| Nombre de la plantilla            | Descripción |
-| ------------------------ | ----------- |
-| iotc-pnp-preview@1.0.0   | Crea una aplicación de versión preliminar Plug and Play vacía para que la complete con sus propios dispositivos y plantillas de dispositivo. |
+| iotc-pnp-preview@1.0.0   | Crea una aplicación de Plug and Play (versión preliminar) vacía para completarla con sus propios dispositivos y plantillas de dispositivo. |
 | iotc-condition@1.0.0     | Crea una aplicación con una plantilla de supervisión de condiciones de análisis en la tienda. Use esta plantilla para conectar y supervisar el entorno del almacén. |
 | iotc-consumption@1.0.0   | Permite crear una aplicación con la plantilla de supervisión del consumo de agua. Use esta plantilla para supervisar y controlar el flujo de agua. |
 | iotc-distribution@1.0.0  | Permite crear una aplicación con una plantilla de distribución digital. Use esta plantilla para mejorar la eficacia de la salida de productos del almacén mediante la digitalización de recursos y acciones clave. |
@@ -83,9 +77,6 @@ Estos comandos crean en primer lugar un grupo de recursos en la ubicación Este 
 | iotc-quality@1.0.0       | Permite crear una aplicación con una plantilla de supervisión de la calidad del agua. Use esta plantilla para supervisar digitalmente la calidad del agua.|
 | iotc-store@1.0.0         | Permite crear una aplicación con una plantilla de análisis en tienda y finalización de la compra. Use esta plantilla para supervisar y administrar el flujo de finalización de compra en su tienda. |
 | iotc-waste@1.0.0         | Permite crear una aplicación con una plantilla de administración de desechos conectada. Use esta plantilla para supervisar contenedores de residuos y operadores de campo de distribución. |
-
-> [!NOTE]
-> Las plantillas de aplicación de versión preliminar solo están disponibles actualmente en **Europa** y **Estados Unidos**.
 
 ## <a name="view-your-applications"></a>Visualización de sus aplicaciones
 

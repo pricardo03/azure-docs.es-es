@@ -1,6 +1,6 @@
 ---
-title: 'Solución de Azure VMware de CloudSimple: administración de máquinas virtuales de nube privada de Azure'
-description: Se describe cómo administrar máquinas virtuales de la nube privada de CloudSimple en Azure Portal, por ejemplo, agregar discos, cambiar la capacidad de la máquina virtual y agregar interfaces de red.
+title: 'Azure VMware Solutions (AVS): administración de máquinas virtuales de la nube privada de AVS en Azure'
+description: Se describe cómo administrar máquinas virtuales de la nube privada de AVS en Azure Portal, por ejemplo, agregar discos, cambiar la capacidad de la máquina virtual y agregar interfaces de red.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,28 +8,28 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0cce1dc7ff3935a3174d4e96b553a5485950df73
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037466"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77015004"
 ---
-# <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Administración de las máquinas virtuales de la nube privada de CloudSimple en Azure
+# <a name="manage-your-avs-private-cloud-virtual-machines-in-azure"></a>Administración de las máquinas virtuales de la nube privada de AVS en Azure
 
-Para administrar las máquinas virtuales que [creó para la nube privada de CloudSimple](azure-create-vm.md), inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione la máquina virtual (busque en **Todos los servicios** o **Máquinas virtuales** en el menú lateral).
+Para administrar las máquinas virtuales que [creó para la nube privada de AVS](azure-create-vm.md), inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione la máquina virtual (busque en **Todos los servicios** o **Máquinas virtuales** en el menú lateral).
 
 ## <a name="control-virtual-machine-operation"></a>Control del funcionamiento de la máquina virtual
 
 Los siguientes controles están disponibles en la página **Overview** (Información general) de la máquina virtual seleccionada.
 
-| Control | DESCRIPCIÓN |
+| Control | Descripción |
 | ------------ | ------------- |
 | Conectar | Conecta a la máquina virtual especificada.  |
 | Start | Inicia la máquina virtual especificada.  |
 | Reinicio | Apaga y enciende la máquina virtual especificada.  |
 | Stop | Apaga la máquina virtual específica.  |
-| Capture | Captura una imagen de la máquina virtual especificada para que se pueda usar para crear otras máquinas virtuales. Consulte [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/classic/capture-image.md).   |
+| Capturar | Captura una imagen de la máquina virtual especificada para que se pueda usar para crear otras máquinas virtuales. Consulte [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/classic/capture-image.md).   |
 | Move | Mueve a la máquina virtual especificada.  |
 | Eliminar | Quita la máquina virtual especificada.  |
 | Actualizar | Actualiza los datos de la pantalla.  |
@@ -40,7 +40,7 @@ Los gráficos del área inferior de la página **Overview** (Información genera
 
 Se muestran los siguientes gráficos.
 
-| item | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------------ | ------------- |
 | CPU (average) (CPU [promedio]) | Porcentaje de uso promedio de la CPU durante el intervalo seleccionado.   |
 | Red | Tráfico entrante y saliente de la red (MB) durante el intervalo seleccionado.  |
@@ -51,12 +51,12 @@ Se muestran los siguientes gráficos.
 
 Para agregar un disco de máquina virtual, abra la página **Disks** (Discos) de la máquina virtual seleccionada. Para agregar un disco, haga clic en **Add disk** (Agregar disco). Para configurar cada uno de los siguientes valores, escriba o seleccione una opción insertada. Haga clic en **Save**(Guardar).
 
-   | item | DESCRIPCIÓN |
+   | Elemento | Descripción |
    | ------------ | ------------- |
-   | NOMBRE | Escriba un nombre para identificar el disco.  |
+   | Nombre | Escriba un nombre para identificar el disco.  |
    | Size | Seleccione uno de los tamaños disponibles.  |
    | SCSI Controller (Controladora SCSI) | Seleccione una controladora SCSI. Las controladoras disponibles varían según los distintos sistemas operativos admitidos.  |
-   | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios escritos en el disco se descartan cuando se apaga o restablece la máquina virtual.  Este modo le permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la [documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
+   | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios escritos en el disco se descartan cuando se apaga o restablece la máquina virtual. Este modo le permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la [documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 Para eliminar un disco, selecciónelo y haga clic en **Delete** (Eliminar).
 
@@ -64,7 +64,7 @@ Para eliminar un disco, selecciónelo y haga clic en **Delete** (Eliminar).
 
 Para cambiar la capacidad de la máquina virtual, abra la página **Size** (Tamaño) de la máquina virtual seleccionada. Especifique una de las siguientes opciones y haga clic en **Save** (Guardar).
 
-| item | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------------ | ------------- |
 | Número de núcleos | Número de núcleos asignados a la máquina virtual.  |
 | Hardware virtualization (Virtualización de hardware) | Active la casilla para exponer la virtualización de hardware al SO invitado. Consulte el artículo de VMware [Exponer la virtualización asistida por hardware de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html). |
@@ -74,10 +74,10 @@ Para cambiar la capacidad de la máquina virtual, abra la página **Size** (Tama
 
 Para agregar una interfaz, haga clic en **Add network interface** (Agregar interfaz de red). Para configurar cada uno de los siguientes valores, escriba o seleccione una opción insertada. Haga clic en **Save**(Guardar).
 
-   | Control | DESCRIPCIÓN |
+   | Control | Descripción |
    | ------------ | ------------- |
-   | NOMBRE | Escriba un nombre para identificar la interfaz.  |
-   | Red | Seleccione de la lista de redes configuradas en la nube privada de vSphere.  |
+   | Nombre | Escriba un nombre para identificar la interfaz.  |
+   | Red | Seleccione de la lista de redes configuradas en la instancia de vSphere de la nube privada de AVS.  |
    | Adapter (Adaptador) | Seleccione un adaptador de vSphere en la lista de tipos disponibles configurados para la máquina virtual. Para más información, consulte el artículo de la base de conocimiento de VMware [Elegir un adaptador de red para la máquina virtual](https://kb.vmware.com/s/article/1001805). |
    | Power on at Boot (Encender al arrancar) | Elija si quiere habilitar el hardware de NIC al arrancar la máquina virtual. El valor predeterminado es **Habilitar**. |
 

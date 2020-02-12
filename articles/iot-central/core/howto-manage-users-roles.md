@@ -1,26 +1,27 @@
 ---
 title: Administración de usuarios y roles en una aplicación de Azure IoT Central | Microsoft Docs
 description: Como administrador, aquí se indica la forma de administrar usuarios y roles en su aplicación de Azure IoT Central
-author: v-krghan
-ms.author: v-krghan
-ms.date: 07/29/2019
+author: lmasieri
+ms.author: lmasieri
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 937c4a4dbf976564cbf8dc562bdec3b328fc2bc0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+manager: corywink
+ms.openlocfilehash: 8826ec5b8876a3f9e5b613641cc0d759545f04c4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941457"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018962"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Administrar usuarios y roles en la aplicación de IoT Central
 
-En este artículo describe cómo puede agregar, editar y eliminar usuarios como administrador y cómo administrar roles en su aplicación de Azure IoT Central.
 
-Para tener acceso a la sección **Administración** y poder usarla, debe disponer del rol **Administrador** para la aplicación Azure IoT Central. Si crea una aplicación Azure IoT Central, se le asigna automáticamente el rol **Administrator** para esa aplicación.
 
+En este artículo se describe cómo los administradores pueden agregar, editar y eliminar usuarios en la aplicación de Azure IoT Central. También se describe cómo administrar roles en la aplicación de Azure IoT Central.
+
+Para tener acceso a la sección **Administración** y poder usarla, debe disponer del rol **Administrador** para la aplicación Azure IoT Central. Si crea una aplicación de Azure IoT Central, se le asigna automáticamente el rol **Administrator** para esa aplicación.
 
 ## <a name="add-users"></a>Agregar usuarios
 
@@ -29,17 +30,19 @@ Cada usuario debe tener una cuenta de usuario antes de poder iniciar sesión y a
 Para más información, consulte la [ayuda de la cuenta de Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) y la [Guía de inicio rápido: Adición de nuevos usuarios a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 1. Para agregar un usuario a una aplicación de IoT Central, vaya a la página **Usuarios** de la sección **Administración**.
-
-    ![Lista de usuarios](media/howto-administer/image1.png)
+    
+    > [!div class="mx-imgBorder"]
+    >![Administrar usuarios](media/howto-manage-users-roles/manage-users-pnp.png)
 
 1. Para agregar un usuario, en la página **Usuarios**, seleccione **+ Agregar usuario**.
 
 1. Seleccione un rol para el usuario en el menú desplegable **Rol**. Más información sobre los roles en la sección [Administración de roles](#manage-roles) de este artículo.
 
-    ![Selección de roles](media/howto-administer/image3.png)
+    > [!div class="mx-imgBorder"]
+    >![Adición de un usuario y selección de un rol](media/howto-manage-users-roles/add-user-pnp.png)
 
     > [!NOTE]
-    >  Para agregar usuarios de forma masiva, indique los identificadores de usuario de todos los usuarios que quiera agregar, separados por punto y coma. Seleccione un rol en el menú desplegable **Rol**. Después, seleccione **Guardar**.
+    > Un usuario que tenga un rol personalizado que le conceda permisos para agregar otros usuarios solo puede agregar usuarios a un rol que tenga los mismos permisos que el suyo o unos inferiores.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Modificar los roles asignados a usuarios
 
@@ -54,22 +57,210 @@ Para eliminar usuarios, seleccione una o más casillas en la página **Usuarios*
 
 ## <a name="manage-roles"></a>Administrar roles
 
-Los roles le permiten controlar qué usuarios de la organización pueden realizar varias tareas en IoT Central. Hay tres roles que se pueden asignar a los usuarios de la aplicación.
+Los roles le permiten controlar qué usuarios de la organización tienen permiso para realizar varias tareas en IoT Central. Hay tres roles integrados que se pueden asignar a los usuarios de la aplicación. También puede [crear roles personalizados](#create-a-custom-role) si necesita un control más preciso.
+
+> [!div class="mx-imgBorder"]
+> ![Administración de la selección de roles](media/howto-manage-users-roles/manage-roles-pnp.png)
 
 ### <a name="administrator"></a>Administrador
 
-Los usuarios con el rol **Administrador** tienen acceso a toda la funcionalidad de la aplicación.
+Los usuarios del rol **Administrador** pueden administrar y controlar todas las partes de la aplicación, incluida la facturación.
 
 El usuario que crea una aplicación se asigna automáticamente al rol **Administrador**. Siempre debe haber al menos un usuario en el rol **Administrador**.
 
-### <a name="application-builder"></a>Generador de aplicaciones
+### <a name="builder"></a>Generador
 
-Los usuarios con el rol **Application Builder** (Generador de aplicaciones) pueden hacerlo todo en una aplicación, excepto administrarla. Esto significa que los generadores de pueden crear, editar y eliminar plantillas de dispositivo y dispositivos, administrar conjuntos de dispositivos y ejecutar análisis y trabajos. Los generadores no tienen acceso a la sección **Administración** de la aplicación.
+Los usuarios del rol **Generador** pueden administrar todas las partes de la aplicación, pero no pueden realizar cambios en las pestañas Administración o Exportación de datos continua.
 
-### <a name="application-operator"></a>Operador de aplicaciones
+### <a name="operator"></a>Operator
 
-Los usuarios con el rol **Application Operator** (Operador de la aplicación) no puede realizar cambios en las plantillas de dispositivo ni administrar la aplicación. Esto significa que los operadores pueden agregar y eliminar dispositivos, administrar conjuntos de dispositivos y ejecutar análisis y trabajos. Los operadores no tienen acceso a las páginas **Application Builder** (Generador de aplicaciones) ni **Administración**.
+Los usuarios de rol **Operador** pueden supervisar el estado y el mantenimiento del dispositivo. No se les permite realizar cambios en las plantillas de dispositivo ni administrar la aplicación. Esto significa que los operadores pueden agregar y eliminar dispositivos, administrar conjuntos de dispositivos y ejecutar análisis y trabajos. 
+
+## <a name="create-a-custom-role"></a>Crear un rol personalizado
+
+Si la solución requiere controles de acceso más precisos, puede crear roles personalizados con conjuntos de permisos personalizados. Para crear un rol personalizado, vaya a la página **Roles** de la sección **Administration** (Administración) de la aplicación: A continuación, seleccione **+ New role** (+ Nuevo rol) y agregue un nombre y una descripción para el rol. Seleccione los permisos que necesita el rol y, luego, seleccione **Save** (Guardar).
+
+Puede agregar usuarios al rol personalizado de la misma manera que agrega usuarios a un rol integrado.
+
+> [!div class="mx-imgBorder"]
+> ![Creación de un rol personalizado](media/howto-manage-users-roles/create-custom-role-pnp.png)
+
+### <a name="custom-role-options"></a>Opciones de roles personalizados
+
+Al definir un rol personalizado, elige el conjunto de permisos que se concede a un usuario si es miembro del rol. Algunos permisos dependen de otros. Por ejemplo, si agrega a un rol el permiso **Update application dashboards** (Actualizar paneles de la aplicación), se agrega automáticamente el permiso **View application dashboards** (Ver paneles de la aplicación). En las tablas siguientes se resumen los permisos disponibles (y sus dependencias), que puede usar al crear roles personalizados.
+
+#### <a name="managing-devices"></a>Administración de dispositivos
+
+**Permisos de la plantilla de dispositivo**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Administrar | Ver <br/> Otras dependencias: Ver instancias de dispositivo  |
+| Control total | Ver, administrar <br/> Otras dependencias: Ver instancias de dispositivo |
+
+**Permisos de instancia de dispositivo**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos |
+| Actualizar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
+| Crear | Ver <br/> Otras dependencias:  Ver plantillas de dispositivo y grupos de dispositivos  |
+| Eliminar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
+| Ejecutar comandos | Actualizar, ver <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
+| Control total | Ver, actualizar, crear, eliminar y ejecutar comandos <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
+
+**Permisos de grupos de dispositivos**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None <br/> Otras dependencias: Ver plantillas de dispositivo e instancias de dispositivo |
+| Actualizar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo e instancias de dispositivo   |
+| Crear | Ver, actualizar <br/> Otras dependencias:  Ver plantillas de dispositivo e instancias de dispositivo   |
+| Eliminar | Ver <br/> Otras dependencias:  Ver plantillas de dispositivo e instancias de dispositivo   |
+| Control total | Ver, actualizar, crear, eliminar <br/> Otras dependencias: Ver plantillas de dispositivo e instancias de dispositivo |
+
+**Permisos de administración de conectividad de dispositivos**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Leer instancias | None <br/> Otras dependencias: Ver plantillas de dispositivo, grupos de dispositivos e instancias de dispositivo |
+| Administrar instancia | None |
+| Lectura global | None   |
+| Administración global | Lectura global |
+| Control total | Leer instancias, administrar instancias, lectura global, administración global. <br/> Otras dependencias: Ver plantillas de dispositivo, grupos de dispositivos e instancias de dispositivo |
+
+**Permisos de trabajos**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None <br/> Otras dependencias: Ver plantillas de dispositivo, instancias de dispositivo y grupos de dispositivos |
+| Actualizar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo, instancias de dispositivo y grupos de dispositivos |
+| Crear | Ver, actualizar <br/> Otras dependencias:  Ver plantillas de dispositivo, instancias de dispositivo y grupos de dispositivos |
+| Eliminar | Ver <br/> Otras dependencias:  Ver plantillas de dispositivo, instancias de dispositivo y grupos de dispositivos |
+| Execute | Ver <br/> Otras dependencias: Ver plantillas de dispositivo, instancias de dispositivo y los grupos de dispositivos; actualizar instancias de dispositivo; ejecutar comandos en instancias de dispositivo |
+| Control total | Ver, actualizar, crear, eliminar, ejecutar <br/> Otras dependencias:  Ver plantillas de dispositivo, instancias de dispositivo y los grupos de dispositivos; actualizar instancias de dispositivo; ejecutar comandos en instancias de dispositivo |
+
+**Permisos de reglas**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None <br/> Otras dependencias: Ver plantillas de dispositivo |
+| Actualizar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo |
+| Crear | Ver, actualizar <br/> Otras dependencias:  Ver plantillas de dispositivo |
+| Eliminar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo |
+| Control total | Ver, actualizar, crear, eliminar <br/> Otras dependencias: Ver plantillas de dispositivo |
+
+#### <a name="managing-the-app"></a>Administración de la aplicación
+
+**Permisos de configuración de la aplicación**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Actualizar | Ver   |
+| Copiar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo, instancias de dispositivo, grupos de dispositivos, paneles, exportación de datos, personalización de marca, vínculos de ayuda, roles personalizados, reglas |
+| Eliminar | Ver   |
+| Control total | Ver, actualizar, copiar, eliminar <br/> Otras dependencias: Ver plantillas de dispositivo, grupos de dispositivos, paneles de la aplicación, exportación de datos, personalización de marca, vínculos de ayuda, roles personalizados, reglas |
+
+**Permisos de exportación de plantillas de aplicación**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Exportación | Ver <br/> Otras dependencias:  Ver plantillas de dispositivo, instancias de dispositivo, grupos de dispositivos, paneles, exportación de datos, personalización de marca, vínculos de ayuda, roles personalizados, reglas |
+| Control total | Ver, exportar <br/> Otras dependencias:  Ver plantillas de dispositivo, grupos de dispositivos, paneles de la aplicación, exportación de datos, personalización de marca, vínculos de ayuda, roles personalizados, reglas |
+
+**Permisos de facturación**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Administrar | None     |
+| Control total | Administrar |
+
+#### <a name="managing-users-and-roles"></a>Administración de usuarios y roles
+
+**Permisos de roles personalizados**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None |
+| Actualizar | Ver |
+| Crear | Ver, actualizar |
+| Eliminar | Ver |
+| Control total | Ver, actualizar, crear, eliminar |
+
+**Permisos de administración de usuarios**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None <br/> Otras dependencias: Ver roles personalizados |
+| Sumar | Ver <br/> Otras dependencias:  Ver roles personalizados |
+| Eliminar | Ver <br/> Otras dependencias:  Ver roles personalizados |
+| Control total | Ver, agregar, eliminar <br/> Otras dependencias:  Ver roles personalizados |
+
+> [!NOTE]
+> Un usuario que tenga un rol personalizado que le conceda permisos para agregar otros usuarios solo puede agregar usuarios a un rol que tenga los mismos permisos que el suyo o unos inferiores.
+
+#### <a name="customizing-the-app"></a>Personalización de la aplicación
+
+**Permisos de paneles de la aplicación**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Actualizar | Ver   |
+| Crear | Ver, actualizar |
+| Eliminar | Ver   |
+| Control total | Ver, actualizar, crear, eliminar |
+
+**Permisos de paneles personales**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Actualizar | Ver   |
+| Crear | Ver, actualizar   |
+| Eliminar | Ver   |
+| Control total | Ver, actualizar, crear, eliminar |
+
+**Permisos de personalización de marca, iconos de favoritos y colores**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Actualizar | Ver   |
+| Control total | Ver, actualizar |
+
+**Permisos de vínculos de ayuda**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Actualizar | Ver   |
+| Control total | Ver, actualizar |
+
+#### <a name="extending-the-app"></a>Extensión de la aplicación
+
+**Permisos de exportación de datos**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Actualizar | Ver   |
+| Crear | Ver, actualizar  |
+| Eliminar | Ver   |
+| Control total | Ver, actualizar, crear, eliminar |
+
+**Permisos de token de API**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Crear | Ver   |
+| Eliminar | Ver   |
+| Control total | Ver, crear, eliminar |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a administrar usuarios y roles en Azure IoT Central, el siguiente paso sugerido es aprender a [ver su factura](howto-view-bill.md) en Azure IoT Central.
+Ahora que ha aprendido a administrar usuarios y roles en la aplicación de Azure IoT Central, el siguiente paso sugerido es aprender a [administrar su factura](howto-view-bill.md).

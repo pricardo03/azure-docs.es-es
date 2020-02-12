@@ -6,13 +6,13 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 472fe621fc7a95317f143ef96a1d7f8b5adfe581
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688285"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016976"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (redes virtuales) le permite colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet.  
@@ -74,7 +74,7 @@ Esta característica está en versión preliminar, pero se admite en cargas de t
 * Solo se puede acceder a las direcciones que estén en el intervalo de RFC 1918; es decir, las direcciones en los bloques de direcciones 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16.
 * No se puede tener acceso a los recursos en conexiones de emparejamiento global.
 * No se pueden establecer rutas en el tráfico procedente de la aplicación a la red virtual.
-* La característica solo está disponible en las unidades de escalado de App Service más recientes que admiten planes PremiumV2 de App Service.
+* La característica solo está disponible en las unidades de escalado de App Service más recientes que admiten planes PremiumV2 de App Service. Tenga en cuenta que esto no significa que la aplicación deba ejecutarse en una SKU de PremiumV2, solo que se debe ejecutar en un plan de App Service en el que esté disponible la opción PremiumV2 (lo que implica que se trata de una unidad de escalado más reciente donde también está disponible esta característica de integración con la red virtual).
 * La subred de integración solo se puede usar en un plan de App Service.
 * Las aplicaciones de plan Aislado que estén en un App Service Environment no pueden usar la característica.
 * La característica requiere una subred sin usar que sea un /27 con un mínimo de 32 direcciones en la red virtual de Resource Manager.
@@ -248,7 +248,7 @@ Hay tres cargos relacionados con el uso de la característica Integración con r
 * Costos de puerta de enlace de red virtual: existe un costo para la puerta de enlace de red virtual necesaria para la VPN de punto a sitio. Encontrará los detalles en la página [Precios de VPN Gateway][VNETPricing].
 
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 El que una característica sea fácil de configurar no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que desee, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a Herramientas -> Kudu. También puede tener acceso a la consola de Kudo en [sitename].scm.azurewebsites.net. Una vez que se cargue el sitio web, vaya a la pestaña Consola de depuración. Para llegar a la consola hospedada en el Portal de Azure, desde su aplicación, vaya a Herramientas -> Consola. 
 
 #### <a name="tools"></a>Herramientas

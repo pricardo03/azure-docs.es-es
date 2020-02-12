@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solution by CloudSimple: configuración de orígenes de identidad de vCenter en la nube privada'
-description: Se describe cómo configurar vCenter de la nube privada para autenticarse con Active Directory de forma que los administradores de VMware accedan a él.
+title: 'Azure VMware Solution: configuración de orígenes de identidad de vCenter en la nube privada de AVS'
+description: Se describe cómo configurar vCenter de la nube privada de AVS para autenticarse con Active Directory de forma que los administradores de VMware accedan a él.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,27 +8,27 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eeced5205b836a15a43fbccfb8c6cb60b4bec29f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ad4a7b2bc67b7d50d9e9a5f8337a09dbe77366ea
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76542872"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014222"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configuración de orígenes de identidad de vCenter para usar Active Directory
 
 ## <a name="about-vmware-vcenter-identity-sources"></a>Acerca de los orígenes de identidad de VMware vCenter
 
-VMware vCenter admite distintos orígenes de identidad para la autenticación de los usuarios que acceden a vCenter.  Se puede configurar vCenter de la nube privada de CloudSimple para autenticarse con Active Directory para que sus administradores de VMware accedan a él. Una vez completada la instalación, el usuario **cloudowner** puede agregar usuarios del origen de identidad a vCenter.  
+VMware vCenter admite distintos orígenes de identidad para la autenticación de los usuarios que acceden a vCenter. Se puede configurar vCenter de la nube privada de AVS para autenticarse con Active Directory para que sus administradores de VMware accedan a él. Una vez completada la instalación, el usuario **cloudowner** puede agregar usuarios del origen de identidad a vCenter. 
 
 Puede configurar el dominio y los controladores de dominio de Active Directory de cualquiera de las maneras siguientes:
 
 * Dominio y controladores de dominio de Active Directory que se ejecutan localmente
 * Dominio y controladores de dominio de Active Directory que se ejecutan en Azure como máquinas virtuales de la suscripción de Azure
-* Nuevos dominios y controladores de dominio de Active Directory que se ejecutan en la nube privada
+* Nuevos dominios y controladores de dominio de Active Directory que se ejecutan en la nube privada de AVS
 * Servicio de Azure Active Directory
 
-En esta guía se explican las tareas para configurar el dominio y los controladores de dominio de Active Directory que se ejecutan de forma local o como máquinas virtuales de las suscripciones.  Si quiere usar Azure AD como el origen de identidad, consulte [Uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple](azure-ad.md) para obtener instrucciones detalladas sobre cómo configurar el origen de identidad.
+En esta guía se explican las tareas para configurar el dominio y los controladores de dominio de Active Directory que se ejecutan de forma local o como máquinas virtuales de las suscripciones. Si quiere usar Azure AD como el origen de identidad, consulte [Uso de Azure AD como proveedor de identidades para vCenter en la nube privada de AVS](azure-ad.md) para obtener instrucciones detalladas sobre cómo configurar el origen de identidad.
 
 Antes de [agregar un origen de identidad](#add-an-identity-source-on-vcenter), [escale los privilegios de vCenter](escalate-private-cloud-privileges.md) temporalmente.
 
@@ -39,14 +39,14 @@ Antes de [agregar un origen de identidad](#add-an-identity-source-on-vcenter), [
 ## <a name="identity-source-options"></a>Opciones de origen de identidad
 
 * [Adición de Active Directory local como origen de identidad de inicio de sesión único](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
-* [Configuración de una nueva instancia de Active Directory en una nube privada](#set-up-new-active-directory-on-a-private-cloud)
+* [Configuración de una nueva instancia de Active Directory en una nube privada de AVS](#set-up-new-active-directory-on-an-avs-private-cloud)
 * [Configuración de Active Directory en Azure](#set-up-active-directory-on-azure)
 
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Adición de Active Directory local como origen de identidad de inicio de sesión único
 
 Para configurar la instancia de Active Directory local como un origen de identidad de inicio de sesión único, necesita lo siguiente:
 
-* [Conexión VPN de sitio a sitio](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) desde el centro de datos local hasta la nube privada.
+* [Conexión VPN de sitio a sitio](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) desde el centro de datos local hasta la nube privada de AVS.
 * Agregar la dirección IP del servidor DNS local a vCenter y al controlador de servicios de plataforma (PSC).
 
 Use la información de la tabla siguiente al configurar el dominio de Active Directory.
@@ -69,9 +69,9 @@ Cuando tenga la información de la tabla anterior, puede agregar su instancia de
 > [!TIP]
 > Encontrará más información sobre los orígenes de identidad de inicio de sesión único en la [página de documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
-## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Configuración de una nueva instancia de Active Directory en una nube privada
+## <a name="set-up-new-active-directory-on-an-avs-private-cloud"></a>Configuración de una nueva instancia de Active Directory en una nube privada de AVS
 
-Puede configurar un nuevo dominio de Active Directory en la nube privada y usarlo como origen de identidad para el inicio de sesión único.  El dominio de Active Directory puede formar parte de un bosque existente de Active Directory o se puede configurar como un bosque independiente.
+Puede configurar un nuevo dominio de Active Directory en la nube privada de AVS y usarlo como origen de identidad para el inicio de sesión único. El dominio de Active Directory puede formar parte de un bosque existente de Active Directory o se puede configurar como un bosque independiente.
 
 ### <a name="new-active-directory-forest-and-domain"></a>Nuevo bosque y dominio de Active Directory
 
@@ -100,15 +100,15 @@ Después de configurar el dominio de Active Directory, puede [agregar un origen
 
 ## <a name="set-up-active-directory-on-azure"></a>Configuración de Active Directory en Azure
 
-Active Directory en Azure es similar a Active Directory en el entorno local.  Para configurar Active Directory en Azure como un origen de identidad de inicio de sesión único en vCenter, el servidor vCenter y el PSC deben tener conectividad de red con la red virtual de Azure donde se ejecutan los servicios de Active Directory.  Puede establecer esta conectividad mediante una [conexión de Azure Virtual Network con ExpressRoute](azure-expressroute-connection.md) desde la red virtual de Azure donde se ejecutan los servicios de Active Directory hasta la nube privada de CloudSimple.
+Active Directory en Azure es similar a Active Directory en el entorno local. Para configurar Active Directory en Azure como un origen de identidad de inicio de sesión único en vCenter, el servidor vCenter y el PSC deben tener conectividad de red con la red virtual de Azure donde se ejecutan los servicios de Active Directory. Puede establecer esta conectividad mediante una [conexión de Azure Virtual Network con ExpressRoute](azure-expressroute-connection.md) desde la red virtual de Azure donde se ejecutan los servicios de Active Directory hasta la nube privada de AVS.
 
-Una vez establecida la conexión de red, siga los pasos descritos en [Incorporación de Active Directory local como un origen de identidad de inicio de sesión único](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) para agregarlo como un origen de identidad.  
+Una vez establecida la conexión de red, siga los pasos descritos en [Incorporación de Active Directory local como un origen de identidad de inicio de sesión único](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) para agregarlo como un origen de identidad. 
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Adición de un origen de identidad en vCenter
 
-1. [Escale los privilegios en la nube privada](escalate-private-cloud-privileges.md).
+1. [Escale los privilegios](escalate-private-cloud-privileges.md) en la nube privada de AVS.
 
-2. Inicie sesión en vCenter para su nube privada.
+2. Inicie sesión en vCenter para su nube privada de AVS.
 
 3. Seleccione **Home > Administration** (Inicio > Administración).
 

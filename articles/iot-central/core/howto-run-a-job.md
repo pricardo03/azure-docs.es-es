@@ -8,19 +8,17 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 2a18cfabdecf930f45ca10ae25e9be44cf3f1a5c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 68d4dbff364f8d3fda72fc2377722031e9cccc3d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942397"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018897"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crear y ejecutar trabajos en la aplicación de Azure IoT Central
 
-Puede usar Microsoft Azure IoT Central para administrar los dispositivos conectados a escala mediante trabajos. Los trabajos le permiten realizar actualizaciones masivas de los comandos, las configuraciones y propiedades de los dispositivos. Este artículo le guiará en el proceso de cómo empezar a usar trabajos en su propia aplicación.
+Puede usar Microsoft Azure IoT Central para administrar los dispositivos conectados a escala mediante trabajos. Los trabajos le permiten realizar actualizaciones masivas de los comandos y las propiedades de los dispositivos. Este artículo le guiará en el proceso de cómo empezar a usar trabajos en su propia aplicación.
 
-> [!NOTE] 
-> Los trabajos para dispositivos Azure IoT Edge no se admiten actualmente. 
 
 ## <a name="create-and-run-a-job"></a>Crear y ejecutar un trabajo
 
@@ -34,9 +32,9 @@ En esta sección se muestra cómo crear y ejecutar un trabajo. Muestra cómo aum
 
 3. Escriba un nombre y una descripción para identificar el trabajo que va a crear.
 
-4. Seleccione el conjunto de dispositivos al que desee que se aplique el trabajo. Después de seleccionar el conjunto de dispositivos, podrá ver que el lado derecho se llena con los dispositivos del conjunto de dispositivos. Si selecciona un conjunto de dispositivos roto, no se mostrará ningún dispositivo y verá un mensaje que indica que el conjunto de dispositivos está roto.
+4. Seleccione el grupo de dispositivos al que desee que se aplique el trabajo. Puede ver el número de dispositivos a los que se aplicará la configuración del trabajo en la sección Resumen. 
 
-5. Después, elija el tipo de trabajo que definir (una configuración, una propiedad o un comando). Seleccione **+** junto al tipo de trabajo seleccionado y agregue sus operaciones.
+5. Después, elija el tipo de trabajo para definir (una propiedad o un comando). Establezca la configuración del trabajo mediante la selección de la propiedad y establezca los nuevos valores o elija un comando. Es posible agregar varias propiedades a la vez.
 
     ![Configurar trabajo](./media/howto-run-a-job/configurejob.png)
 
@@ -49,13 +47,13 @@ En esta sección se muestra cómo crear y ejecutar un trabajo. Muestra cómo aum
     > [!NOTE]
     > Podrá ver el historial de los trabajos ejecutados en los últimos 30 días.
 
-8. Para ver una descripción general del trabajo, seleccione el trabajo que ver en la lista. Esta información general contiene detalles del trabajo, los dispositivos y los valores de estado del dispositivo. En esta descripción general también puede seleccionar **Descargar detalles del trabajo** para descargar un archivo .csv de los detalles del trabajo, incluidos los dispositivos y sus valores de estado. Esta información puede ser útil para solucionar problemas.
+7. Para ver una descripción general del trabajo, seleccione el trabajo que ver en la lista. Esta información general contiene detalles del trabajo, los dispositivos y los valores de estado del dispositivo. En esta descripción general también puede seleccionar **Descargar detalles del trabajo** para descargar un archivo .csv de los detalles del trabajo, incluidos los dispositivos y sus valores de estado. Esta información puede ser útil para solucionar problemas.
 
     ![Ver el estado del dispositivo](./media/howto-run-a-job/downloaddetails.png)
 
 ### <a name="stop-a-running-job"></a>Detener un trabajo en ejecución
 
-Para detener un trabajo en ejecución, selecciónelo y elija **Detener** en el panel. El estado del trabajo cambia para reflejar que el trabajo se ha detenido.
+Para detener un trabajo en ejecución, selecciónelo y elija **Detener**. El estado del trabajo cambia para reflejar que el trabajo se ha detenido.
 
    ![Detención de trabajo](./media/howto-run-a-job/stopjob.png)
 
@@ -67,7 +65,7 @@ Para ejecutar un trabajo que esté detenido actualmente, seleccione el trabajo d
 
 ## <a name="copy-a-job"></a>Copia de un trabajo
 
-Para copiar un trabajo existente que ha creado, selecciónelo en la página principal de trabajos y seleccione **Copiar**. Se abrirá una nueva copia de la configuración del trabajo para que la pueda editar. Puede guardar o ejecutar el trabajo de nuevo. Si se han realizado cambios en el conjunto de dispositivos seleccionado, se reflejarán en este trabajo copiado para que pueda realizar la edición.
+Para copiar un trabajo existente que ha creado, abra un trabajo que se haya creado y seleccione **Copiar**. Se abrirá una nueva copia de la configuración del trabajo para que la pueda editar. Puede guardar o ejecutar el trabajo de nuevo. 
 
    ![Copia de trabajo](./media/howto-run-a-job/copyjob.png)
 
@@ -87,7 +85,7 @@ El mensaje de estado va seguido de una descripción general de los dispositivos 
 
 | Mensaje de estado       | Significado de estado                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Succeeded            | El número de dispositivos en los que se ha ejecutado correctamente el trabajo.       |
+| Correcto            | El número de dispositivos en los que se ha ejecutado correctamente el trabajo.       |
 | Con error               | El número de dispositivos en los que no se ha ejecutado correctamente el trabajo.       |
 
 ### <a name="view-the-device-status"></a>Ver el estado del dispositivo
@@ -107,6 +105,5 @@ Para ver el estado del trabajo y todos los dispositivos afectados, seleccione el
 
 Ahora que ha aprendido a crear trabajos en la aplicación de Azure IoT Central, estos son algunos de los pasos siguientes:
 
-- [Uso de conjuntos de dispositivos](howto-use-device-sets.md)
 - [Administración de dispositivos](howto-manage-devices.md)
 - [Versión de la plantilla de dispositivo](howto-version-device-template.md)

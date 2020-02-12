@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fde46ddfe85ca2cd1aa4ba65c8bd93d4db328410
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867458"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019050"
 ---
 # <a name="what-are-application-templates"></a>¿Qué son las plantillas de aplicación?
 
@@ -26,33 +26,16 @@ Las plantillas de aplicación constan de:
 - Reglas y trabajos preconfigurados
 - Documentación enriquecida que incluye tutoriales y procedimientos
 
-## <a name="preview-templates"></a>Plantillas en versión preliminar
+Seleccione la plantilla de aplicación al crear la aplicación. No puede cambiar la plantilla una vez creada la aplicación.
 
-La elección de la plantilla de aplicación determina si la aplicación usa características en versión preliminar de IoT Central, como Plug and Play para dispositivos.
+## <a name="custom-templates"></a>Plantillas personalizadas
 
-Actualmente, la plantilla de aplicación que usa características _disponibles con carácter general_ es:
+Si desea crear la aplicación desde el principio, elija una de las dos plantillas de aplicación personalizadas:
 
-- Custom app (Aplicación personalizada) > Aplicación heredada
+- Aplicación personalizada
+- Aplicación personalizada (heredada)
 
-
-Actualmente, las plantillas de aplicación que usan características en _versión preliminar pública_ son:
-
-- Custom app (Aplicación personalizada) > Preview application
-- Retail (Comercio minorista) > Connected logistics
-- Retail (Comercio minorista) > Digital distribution center
-- Retail (Comercio minorista) > In-store analytics – condition monitoring
-- Retail (Comercio minorista) > In-store analytics – checkout
-- Retail (Comercio minorista) > Micro-fulfillment center (Centro de micrologística)
-- Retail (Comercio minorista) > Smart inventory management
-- Energy (Energía) > Smart meter monitoring
-- Energy (Energía) > Solar panel monitoring
-- Government (Administración Pública) > Connected waste management
-- Government (Administración Pública) > Water consumption monitoring
-- Government (Administración Pública) > Water quality monitoring
-- Healthcare (Atención sanitaria) > Continuous patient monitoring
-
-> [!NOTE]
-> Las plantillas de **aplicación heredada** están disponibles actualmente en **Estados Unidos**, **Australia**, **Asia Pacífico** y en **Europa**, mientras que otras plantillas solo están disponibles actualmente en **Europa** y **Estados Unidos**.
+Elija la plantilla de **aplicación personalizada**, a menos que tenga una razón concreta para usar la plantilla heredada.
 
 ## <a name="industry-focused-templates"></a>Plantillas centradas en el sector
 

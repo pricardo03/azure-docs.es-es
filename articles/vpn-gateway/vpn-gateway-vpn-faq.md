@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895972"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016755"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -69,12 +69,13 @@ Las puertas de enlace basadas en directivas implementan VPN basadas en directiva
 Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutamiento. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o el selector de tráfico para las VPN basadas en enrutamiento se configura como conectividad de tipo cualquiera a cualquier (o caracteres comodín).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>¿Puedo actualizar mi puerta de enlace VPN basada en directivas a una basada en el enrutamiento?
+
 No. No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
 1. Elimine también las conexiones asociadas a la puerta de enlace que se va a eliminar.
 1. Elimine la puerta de enlace:
-1. [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+   - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   - [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>¿Necesito una "GatewaySubnet"?
@@ -89,11 +90,15 @@ No.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>¿Puedo obtener mi dirección IP de puerta de enlace VPN antes de crearla?
 
-No. Tiene que crear primero la puerta de enlace para obtener la dirección IP. Si elimina y vuelve a crear la puerta de enlace VPN, la dirección IP cambiará.
+Las puertas de enlace de zona y con redundancia de zona (las SKU de puerta de enlace que tienen _AZ_ en el nombre) se basan en un recurso de IP pública de Azure de _SKU estándar_. Los recursos de IP pública de SKU estándar de Azure deben usar un método de asignación estático. Por lo tanto, tendrá la dirección IP pública para la puerta de enlace de VPN en cuanto cree el recurso de IP pública de SKU estándar que pretende usar para esta.
+
+En el caso de las puertas de enlace que no tengan redundancia de zona y que no sean de zona (las SKU de puerta de enlace que _no_ tienen _AZ_ en el nombre), no puede obtener la dirección IP de la puerta de enlace de VPN antes de crearla. Solo si elimina y vuelve a crear la puerta de enlace VPN, la dirección IP cambiará.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>¿Se puede solicitar una dirección IP pública estática para una puerta de enlace de VPN?
 
-No. Solo se admite la asignación de direcciones IP dinámicas. Sin embargo, esto no significa que la dirección IP cambia después de que se ha asignado a una puerta de enlace VPN. La única vez que cambia la dirección IP de la puerta de enlace de VPN es cuando se elimina y se vuelve a crear la puerta de enlace. La dirección IP pública de la puerta de enlace de VPN no cambia aunque se cambie el tamaño, se restablezca o se lleven a cabo actualizaciones o u operaciones de mantenimiento interno de la puerta de enlace de VPN. 
+Como se señaló antes, las puertas de enlace de zona y con redundancia de zona (las SKU de puerta de enlace que tienen _AZ_ en el nombre) se basan en un recurso de IP pública de Azure de _SKU estándar_. Los recursos de IP pública de SKU estándar de Azure deben usar un método de asignación estático.
+
+En el caso de las puertas de enlace que no tengan redundancia de zona y que no sean de zona (las SKU de puerta de enlace que _no_ tienen _AZ_ en el nombre), solo se admite la asignación de direcciones IP dinámicas. Sin embargo, esto no significa que la dirección IP cambia después de que se ha asignado a una puerta de enlace VPN. La única vez que cambia la dirección IP de la puerta de enlace de VPN es cuando se elimina y se vuelve a crear la puerta de enlace. La dirección IP pública de la puerta de enlace de VPN no cambia aunque se cambie el tamaño, se restablezca o se lleven a cabo otras operaciones de mantenimiento interno y actualizaciones de la puerta de enlace de VPN.
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>¿Cómo se autentica mi túnel VPN?
 

@@ -1,6 +1,6 @@
 ---
-title: 'Solución de VMware en Azure de CloudSimple: conexión local mediante ExpressRoute'
-description: En este artículo se describe cómo solicitar una conexión local mediante ExpressRoute desde la red de la región de CloudSimple.
+title: 'Azure VMware Solution (AVS): conexión local mediante ExpressRoute'
+description: En este artículo se describe cómo solicitar una conexión local mediante AVS desde la red de la región de AVS.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,51 +8,51 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 10a21faf2790b4c7a26d80e46bf44c8bffabf27f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910549"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019628"
 ---
-# <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conexión desde una red local a CloudSimple mediante ExpressRoute
+# <a name="connect-from-on-premises-to-avs-using-expressroute"></a>Conexión desde una red local a AVS mediante ExpressRoute
 
-Si ya tiene una conexión de Azure ExpressRoute desde una ubicación externa (por ejemplo, local) a Azure, puede conectarla a su entorno de CloudSimple. Puede hacerlo a través de una característica de Azure que permite que dos circuitos ExpressRoute se conecten entre sí. Este método establece entre los dos entornos una conexión segura, privada, de ancho de banda alto y baja latencia.
+Si ya tiene una conexión de Azure ExpressRoute desde una ubicación externa (por ejemplo, local) a Azure, puede conectarla a su entorno de AVS. Puede hacerlo a través de una característica de Azure que permite que dos circuitos ExpressRoute se conecten entre sí. Este método establece entre los dos entornos una conexión segura, privada, de ancho de banda alto y baja latencia.
 
 [![Conexión de ExpressRoute local: Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Se requiere un bloque de direcciones de red **/29** para establecer la conexión de Global Reach desde el entorno local.  El espacio de direcciones /29 se usa para la red de tránsito entre circuitos de ExpressRoute.  La red de tránsito no debe superponerse con ninguna de las redes virtuales de Azure, redes locales o redes de nube privada de CloudSimple.
+Se requiere un bloque de direcciones de red **/29** para establecer la conexión de Global Reach desde el entorno local. El espacio de direcciones /29 se usa para la red de tránsito entre circuitos de ExpressRoute. La red de tránsito no debe superponerse con ninguna de las redes virtuales de Azure, redes locales o redes de nube privada de AVS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Se requiere un circuito Azure ExpressRoute para poder establecer la conexión entre el circuito y las redes de nube privada de CloudSimple.
+* Se requiere un circuito Azure ExpressRoute para poder establecer la conexión entre el circuito y las redes de nube privada de AVS.
 * Se requiere un usuario con privilegios para crear claves de autorización en un circuito ExpressRoute.
 
 ## <a name="scenarios"></a>Escenarios
 
-El hecho de conectar la red local con la red de nube privada permite usar la nube privada de varias maneras, entre las que se incluyen los siguientes escenarios:
+El hecho de conectar la red local con la red de nube privada de AVS permite usar la nube privada de AVS de varias maneras, entre las que se incluyen los siguientes escenarios:
 
-* Acceso a la red de nube privada sin crear una conexión VPN de sitio a sitio.
-* Uso de la instancia local de Active Directory como origen de identidades en la nube privada.
-* Migración de máquinas virtuales que se ejecutan de forma local a la nube privada.
-* Uso de la nube privada como parte de una solución de recuperación ante desastres.
-* Consumo de recursos locales en las máquinas virtuales de carga de trabajo de la nube privada.
+* Acceso a la red de nube privada de AVS sin crear una conexión VPN de sitio a sitio.
+* Uso de la instancia local de Active Directory como origen de identidades en la nube privada de AVS.
+* Migración de máquinas virtuales que se ejecutan de forma local a la nube privada de AVS.
+* Uso de la nube privada de AVS como parte de una solución de recuperación ante desastres.
+* Consumo de recursos locales en las máquinas virtuales de carga de trabajo de la nube privada de AVS.
 
 ## <a name="connecting-expressroute-circuits"></a>Conexión de circuitos ExpressRoute
 
-Para establecer la conexión de ExpressRoute, debe crear una autorización en el circuito ExpressRoute y proporcionar la información de autorización a CloudSimple.
+Para establecer la conexión de ExpressRoute, debe crear una autorización en el circuito ExpressRoute y proporcionar la información de autorización a AVS.
 
 
 ### <a name="create-expressroute-authorization"></a>Creación de la autorización de ExpressRoute
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 
 2. En la barra de búsqueda superior, busque **Circuito ExpressRoute** y haga clic en **Circuitos ExpressRoute** en **Servicios**.
     [![Circuitos ExpressRoute](media/azure-expressroute-transit-search.png)](media/azure-expressroute-transit-search.png)
 
-3. Seleccione el circuito ExpressRoute que quiere conectar a la red de CloudSimple.
+3. Seleccione el circuito ExpressRoute que quiere conectar a la red de AVS.
 
 4. En la página de ExpressRoute, haga clic en **Autorizaciones**, escriba el nombre de la autorización y haga clic en **Guardar**.
     [![Autorización de circuito ExpressRoute](media/azure-expressroute-transit-authorizations.png)](media/azure-expressroute-transit-authorizations.png)
@@ -65,17 +65,17 @@ Para establecer la conexión de ExpressRoute, debe crear una autorización en el
 
 6. Abra una incidencia de <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">soporte técnico</a> para la conexión que se va a crear.
     * Tipo de problema: **Técnico**
-    * Suscripción: **Suscripción en la que se implementa el servicio CloudSimple**
-    * Servicio: **VMware Solution by CloudSimple**
+    * Suscripción: **Suscripción en la que se implementa el servicio AVS**
+    * Servicio: **VMware Solutions (AVS)**
     * Tipo de problema: **Solicitud de servicio**
     * Subtipo de problema: **Creación de una conexión de ExpressRoute a local**
     * Proporcione el identificador de recurso y la clave de autorización que copió y guardó en el panel de detalles.
     * Proporcione un espacio de direcciones de red /29 para la red de tránsito.
     * ¿Está enviando la ruta predeterminada a través de ExpressRoute?
-    * ¿Debe usar el tráfico de nube privada la ruta predeterminada enviada a través de ExpressRoute?
+    * ¿Debe usar el tráfico de nube privada de AVS la ruta predeterminada enviada a través de ExpressRoute?
 
     > [!IMPORTANT]
-    > El envío de la ruta predeterminada le permite enviar todo el tráfico de Internet desde la nube privada mediante su conexión a Internet local.  Para deshabilitar la ruta predeterminada configurada en la nube privada y usar la ruta predeterminada de la conexión local, proporcione los detalles en la incidencia de soporte técnico.
+    > El envío de la ruta predeterminada le permite enviar todo el tráfico de Internet desde la nube privada de AVS mediante su conexión a Internet local. Para deshabilitar la ruta predeterminada configurada en la nube privada de AVS y usar la ruta predeterminada de la conexión local, proporcione los detalles en la incidencia de soporte técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

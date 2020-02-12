@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: cd06d4cbf62078c2c7a5def4a0032ddce97d67f0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cbb5882950636e281d311bf0536acf5b92cf11ea
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842459"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018608"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -61,6 +61,7 @@ Un recurso de vínculo privado es el destino de un punto de conexión privado de
 |**Azure Database for PostgreSQL: servidor único** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
+|**Azure Key Vault** | Microsoft.KeyVault/vaults    | almacén |
  
 ## <a name="network-security-of-private-endpoints"></a>Seguridad de red de los puntos de conexión privados 
 Cuando se usan puntos de conexión privados para los servicios de Azure, el tráfico se protege en un recurso de vínculo privado específico. La plataforma realiza un control de acceso para validar las conexiones de red que solo alcanzan el recurso de vínculo privado especificado. Para acceder a recursos adicionales dentro del mismo servicio de Azure, se requieren puntos de conexión privados adicionales. 
@@ -118,6 +119,7 @@ En el caso de los servicios de Azure, use los nombres de zona recomendados tal y
 |Azure Database for PostgreSQL: servidor único (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
 |Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
+|Azure Key Vault (Microsoft.KeyVault/vaults)|almacén|privatelink.vaultcore.azure.net|
  
 Azure creará un registro DNS de nombre canónico (CNAME) en el DNS público para redirigir la resolución a los nombres de dominio sugeridos. Podrá invalidar la resolución con la dirección IP privada de los puntos de conexión privados. 
  
@@ -130,9 +132,7 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 
 |Limitación |Descripción |Mitigación  |
 |---------|---------|---------|
-|Las reglas de grupo de seguridad de red (NSG) y las rutas definidas por el usuario no se aplican al punto de conexión privado.    |El grupo de seguridad de red no se admite en los puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred. Las rutas de cualquier subred de cliente utilizarán un prefijo /32, lo que cambia el comportamiento de enrutamiento predeterminado requiere un UDR similar.  | Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen. Implementación de rutas individuales con un prefijo /32 para invalidar rutas de punto de conexión privado.        |
-|  No se admiten las redes virtuales emparejadas solo con puntos de conexión privados   |   No se admite la conexión a puntos de conexión privados en una red virtual emparejada sin ninguna otra carga de trabajo.       | Implemente una única máquina virtual en la red virtual emparejada para habilitar la conectividad. |
-|Las cargas de trabajo especializadas no pueden acceder a los puntos de conexión privados.    |   Los siguientes servicios implementados en la red virtual no pueden tener acceso a ningún recurso de vínculo privado mediante puntos de conexión privados:<br>Plan de servicio de aplicación</br>Azure Container Instances</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No hay mitigación durante la versión preliminar.       |
+|Las reglas de grupo de seguridad de red (NSG) y las rutas definidas por el usuario no se aplican al punto de conexión privado.    |El grupo de seguridad de red no se admite en los puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred. Las rutas de cualquier subred de cliente utilizarán un prefijo /32, lo que cambia el comportamiento de enrutamiento predeterminado requiere un UDR similar.  | Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen. Implementación de rutas individuales con un prefijo /32 para invalidar rutas de punto de conexión privado. Todavía se admiten los registros de flujo de NSG y la información de supervisión de las conexiones salientes y se pueden usar.        |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
