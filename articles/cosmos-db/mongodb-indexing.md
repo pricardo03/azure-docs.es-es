@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: e51e96c0c553bcf37284878cab11f3ec592ddd05
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c8879884cf3d882e6a6b441244ed139072bedeeb
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753390"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029476"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexación mediante la API de Azure Cosmos DB para MongoDB
 
@@ -32,6 +32,89 @@ En el caso de las cuentas que sirven a la versión 3.6 del protocolo de conexi�
 Los índices compuestos verdaderos se admiten para las cuentas que usan el protocolo de conexión 3.6. El siguiente comando creará un índice compuesto en los campos "a" y "b": `db.coll.createIndex({a:1,b:1})`
 
 Los índices compuestos se pueden usar para ordenar de forma eficaz en varios campos a la vez, por ejemplo: `db.coll.find().sort({a:1,b:1})`
+
+### <a name="track-the-index-progress"></a>Seguimiento del progreso de indexación
+
+La versión 3.6 de la API de Azure Cosmos DB para las cuentas de MongoDB admite el comando `currentOp()` para realizar un seguimiento del progreso de la indexación en una instancia de base de datos. Este comando devuelve un documento que contiene información sobre las operaciones en curso en una instancia de base de datos. El comando `currentOp` se usa para realizar un seguimiento de todas las operaciones en curso en el sistema MongoDB nativo, mientras que, en la API de Azure Cosmos DB para MongoDB, este comando solo admite el seguimiento de la operación de índice.
+
+A continuación, se incluyen algunos ejemplos que muestran cómo usar el comando `currentOp` para realizar un seguimiento del progreso del índice:
+
+• Obtener el progreso del índice de una colección:
+
+   ```shell
+   db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
+   ```
+
+• Obtener el progreso del índice de todas las colecciones de una base de datos:
+
+  ```shell
+  db.currentOp({"command.$db": <databaseName>})
+  ```
+
+• Obtener el progreso del índice de todas las bases de datos y colecciones de una cuenta de Azure Cosmos:
+
+  ```shell
+  db.currentOp({"command.createIndexes": { $exists : true } })
+  ```
+
+Los detalles del progreso del índice contienen el porcentaje del progreso de la operación de índice actual. En el ejemplo siguiente se muestra el formato del documento de salida de las diferentes fases de progreso del índice:
+
+1. Si la operación de índice de una colección "foo" y una base de datos "bar" tiene un 60 % de la indexación completada, tendrá el siguiente documento de salida. `Inprog[0].progress.total` muestra 100 como finalización de destino.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 60 %",
+                "progress" : {
+                        "done" : 60,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+        "ok" : 1
+   }
+   ```
+
+2. En el caso de una operación de índice que se acaba de iniciar en una colección "foo" y una base de datos "bar", el documento de salida puede mostrar un 0 % de progreso hasta que llegue a un nivel medible.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 0 %",
+                "progress" : {
+                        "done" : 0,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+       "ok" : 1
+   }
+   ```
+
+3. Cuando se completa la operación de índice en curso, el documento de salida muestra las operaciones en curso vacías.
+
+   ```json
+   {
+      "inprog" : [],
+      "ok" : 1
+   }
+   ```
 
 ## <a name="indexing-for-version-32"></a>Indexación para la versión 3.2
 

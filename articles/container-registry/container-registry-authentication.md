@@ -1,21 +1,33 @@
 ---
 title: Opciones de autenticación de registro
-description: Opciones de autenticación para una instancia de Azure Container Registry, incluido el inicio de sesión con una identidad de Azure Active Directory, mediante entidades de servicio y con credenciales de administrador opcionales.
+description: Opciones de autenticación de una instancia privada de Azure Container Registry, incluido el inicio de sesión con una identidad de Azure Active Directory, mediante entidades de servicio y credenciales de administrador opcionales.
 ms.topic: article
-ms.date: 12/21/2018
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fbe77dee4104e3c654aad58db82765733b2c3e1d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 01/30/2020
+ms.openlocfilehash: 384f401a986c58dc6ce63384ce3e2a43b8db27fa
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264516"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029884"
 ---
-# <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticación con un registro de contenedor privado de Docker
+# <a name="authenticate-with-an-azure-container-registry"></a>Autenticación con un registro de contenedor de Azure
 
 Hay varias maneras de autenticar con un Azure Container Registry que se pueden aplicar a uno o más escenarios de uso de registros.
 
 Entre los modos recomendados se incluyen la autenticación en un registro directamente mediante el [inicio de sesión individual](#individual-login-with-azure-ad) o los organizadores de contenedores y aplicaciones pueden realizar una autenticación desatendida, mediante la [entidad de servicio](#service-principal) de Azure Active Directory (Azure AD).
+
+## <a name="authentication-options"></a>Opciones de autenticación
+
+En la tabla siguiente se enumeran los métodos de autenticación disponibles y los escenarios recomendados. Consulte el contenido vinculado para obtener información.
+
+| Método                               | Cómo autenticarse                                           | Escenarios                                                            | RBAC                             | Limitaciones                                |
+|---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
+| [Identidad de AD individual](#individual-login-with-azure-ad)                | `az acr login` en la CLI de Azure                             | Inserción/extracción interactiva por parte de los desarrolladores y evaluadores                                    | Sí                              | El token de AD se debe renovar cada 3 horas.     |
+| [Entidad de servicio de AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` en la CLI de Azure<br/><br/> Configuración de inicio de sesión del registro en API o herramientas<br/><br/> Secreto de extracción de Kubernetes                                           | Inserción desatendida desde la canalización de CI/CD<br/><br/> Extracción desatendida a Azure o a servicios externos  | Sí                              | La expiración predeterminada de la contraseña de SP es de 1 año.       |                                                           
+| [Integración con AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Asocie un registro al crear o actualizar el clúster de AKS.  | Extracción desatendida a un clúster de AKS                                                  | No, solo acceso de extracción             | Solo disponible con el clúster de AKS            |
+| [Identidad administrada para recursos de Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` en la CLI de Azure                                       | Inserción desatendida desde la canalización de CI/CD de Azure<br/><br/> Extracción desatendida a servicios de Azure<br/><br/>   | Sí                              | Uso solo desde servicios de Azure que [admiten identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
+| [Usuario administrador](#admin-account)                            | `docker login`                                          | Inserción/extracción interactiva por parte de un desarrollador o evaluador                           | No, siempre acceso de extracción e inserción  | Una sola cuenta por registro; no se recomienda para varios usuarios.         |
+| [Token de acceso con ámbito de repositorio](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` en la CLI de Azure   | Inserción/extracción interactiva al repositorio por parte de un desarrollador o evaluador<br/><br/> Inserción/extracción desatendida al repositorio mediante un sistema individual o dispositivo externo                  | Sí                              | No se integra actualmente con la identidad de AD  |
 
 ## <a name="individual-login-with-azure-ad"></a>Inicio de sesión individual con Azure AD
 
@@ -25,11 +37,15 @@ Cuando trabaje con el registro directamente (por ejemplo, para realizar la extra
 az acr login --name <acrName>
 ```
 
-Cuando inicie sesión con `az acr login`, la CLI utiliza el token creado cuando ejecuta [az login](/cli/azure/reference-index#az-login) para autenticar sin problemas la sesión con su Registro. Una vez que haya iniciado sesión de este modo, las credenciales se almacenan en caché y los comandos `docker` posteriores de la sesión no requieren un nombre de usuario o una contraseña. 
+Cuando inicie sesión con `az acr login`, la CLI utiliza el token creado cuando ejecuta [az login](/cli/azure/reference-index#az-login) para autenticar sin problemas la sesión con su Registro. Para completar el flujo de autenticación, Docker debe estar instalado y ejecutarse en el entorno. `az acr login` usa el cliente de Docker para establecer un token de Azure Active Directory en el archivo `docker.config`. Una vez que haya iniciado sesión de este modo, las credenciales se almacenan en caché y los comandos `docker` posteriores de la sesión no requieren un nombre de usuario o una contraseña.
+
+> [!TIP]
+> Use también `az acr login` para autenticar una identidad individual cuando quiera insertar o extraer artefactos que no sean imágenes de Docker en el registro, como [artefactos OCI](container-registry-oci-artifacts.md).  
+
 
 Para acceder al registro, el token utilizado por `az acr login` es válido durante **3 horas**, por lo que se recomienda que inicie siempre la sesión en el registro antes de ejecutar un comando `docker`. Si el token expira, puede actualizarlo con el comando `az acr login` de nuevo para volver a autenticar. 
 
-El uso de `az acr login` con identidades de Azure proporciona [acceso basado en roles](../role-based-access-control/role-assignments-portal.md). En algunos escenarios, puede que quiera iniciar sesión en un registro con su propia identidad individual de Azure AD. También puede iniciar sesión con una [instancia de Managed Identities for Azure Resources](container-registry-authentication-managed-identity.md) en los escenarios entre servicios o para satisfacer las necesidades de un grupo de trabajo donde no quiere administrar el acceso individual.
+El uso de `az acr login` con identidades de Azure proporciona [acceso basado en roles](../role-based-access-control/role-assignments-portal.md). En algunos escenarios, puede que quiera iniciar sesión en un registro con su propia identidad individual de Azure AD. También puede iniciar sesión con una [identidad administrada para recursos de Azure](container-registry-authentication-managed-identity.md) en los escenarios de varios servicios o a fin de satisfacer las necesidades de un grupo de trabajo o un flujo de trabajo de desarrollo donde no quiera administrar el acceso individual.
 
 ## <a name="service-principal"></a>Entidad de servicio
 
@@ -45,7 +61,7 @@ Los roles disponibles para un Registro de contenedor incluyen:
 
 Para obtener una lista completa de roles, consulte [Roles y permisos de Azure Container Registry](container-registry-roles.md).
 
-Para que los scripts de la CLI creen una entidad de servicio para autenticarse con Azure Container Registry y ver instrucciones sobre el uso de una entidad de servicio existente, consulte [Autenticación de Azure Container Registry con entidades de servicio](container-registry-auth-service-principal.md).
+Para que los scripts de la CLI creen una entidad de servicio para la autenticación con Azure Container Registry y obtener más instrucciones, consulte [Autenticación de Azure Container Registry con entidades de servicio](container-registry-auth-service-principal.md).
 
 ## <a name="admin-account"></a>Cuenta de administrador
 

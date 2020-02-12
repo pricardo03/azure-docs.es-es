@@ -3,12 +3,12 @@ title: Dispositivo con Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: efad1c48dd2c92c0fd5f268013b4a59f34b3a766
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028813"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031670"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -32,14 +32,14 @@ Máquina física |  Azure Migrate: Server Assessment |  Detectar servidores fís
 **Vínculo de la descarga** | https://aka.ms/migrate/appliance/vmware 
 **Tamaño de la descarga** | 11,2 GB
 **License** | La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
-**Implementación** | El dispositivo se implementa como VM de VMware. Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/> La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior.<br/><br/> El dispositivo solo puede conectarse a una instancia de vCenter Server.
+**Implementación** | El dispositivo se implementa como VM de VMware. Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/> El dispositivo solo puede conectarse a una instancia de vCenter Server.
 **Hardware** | Recursos en vCenter para asignar una máquina virtual con 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo. 
 **Valor del código hash** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256: 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **vCenter Server/host** | La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior.<br/><br/> vCenter Server que ejecute la versión 5.5, 6.0, 6.5 o 6.7.
 **Proyecto de Azure Migrate** | Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Detección** | Un dispositivo puede detectar hasta 10 000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo solo puede conectarse a una instancia de vCenter Server.
 **Componentes del dispositivo** | Aplicación de administración: aplicación web del dispositivo para la entrada del usuario durante la implementación.<br/> Agente de detección: reúne los datos de configuración de la máquina.<br/> Agente de evaluación: recopila datos de rendimiento.<br/> DRA: organiza la replicación de VM y coordina la comunicación entre las máquinas y Azure.<br/> Puerta de enlace: Envía los datos replicados a Azure.<br/> Servicio de actualización automática: actualiza componentes (se ejecuta cada 24 horas).
-**VDDK (migración sin agentes)** | Si ejecuta una migración sin agentes con la migración de servidor de Azure Migrate, es necesario tener instalado el VDDK de VMware vSphere en la máquina virtual del dispositivo.
+**VDDK (migración sin agentes)** | Si va a ejecutar una migración sin agente con la migración de Azure Migrate Server, es necesario tener instalado el VDDK de VMware vSphere en la máquina virtual del dispositivo.
 
 
 ## <a name="appliance---hyper-v"></a>Dispositivo: Hyper-V
@@ -63,17 +63,15 @@ Máquina física |  Azure Migrate: Server Assessment |  Detectar servidores fís
 
 **Requisito** | **Físico** 
 --- | ---
-**Formato de la descarga** | Carpeta comprimida (con el script del instalador de PowerShell)
+**Formato de la descarga** | Carpeta comprimida (con el script del instalador basado en PowerShell)
 **Vínculo de la descarga** | [Vínculo de la descarga](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Tamaño de la descarga** | 59,7 MB
-**Hardware** | Máquina física dedicada o máquina virtual. La máquina que ejecuta el dispositivo necesita 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y un conmutador externo.<br/><br/> El dispositivo requiere una dirección IP estática o dinámica y acceso a Internet.
-**Valor del código hash** | MD5: 96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
-**Software** | La máquina del dispositivo debe ejecutar Windows Server 2016. 
+**Hardware** | Máquina física dedicada, o use una máquina virtual. La máquina que ejecuta el dispositivo necesita 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y un conmutador externo.<br/> El dispositivo requiere una dirección IP estática o dinámica y acceso a Internet.
+**Valor del código hash** | MD5: 1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**Sistema operativo** | La máquina del dispositivo debe ejecutar Windows Server 2016. 
 **Implementación del dispositivo**   |  El script del instalador del dispositivo se descarga desde el portal (en una carpeta comprimida). <br/> Descomprima la carpeta y ejecute el script de PowerShell (AzureMigrateInstaller.ps1).
 **Detección** | Un dispositivo puede detectar hasta 250 servidores físicos.
 **Componentes del dispositivo** | Aplicación de administración: aplicación web del dispositivo para la entrada del usuario durante la implementación.<br/> Agente de detección: reúne los datos de configuración de la máquina.<br/> Agente de evaluación: recopila datos de rendimiento.<br/>  Servicio de actualización automática: actualiza componentes (se ejecuta cada 24 horas).
-**Acceso a puertos** | Después de configurar el dispositivo, establezca conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del escritorio remoto al dispositivo.<br/><br/> Establezca conexiones entrantes en el puerto 44368 para acceder de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: https://<IP-o-nombre-del-dispositivo>:44368<br/><br/> Conexiones salientes en el puerto 443, 5671 y 5672 para enviar metadatos de detección y rendimiento a Azure Migrate.
-
 
 
 ## <a name="url-access"></a>acceso URL
@@ -93,9 +91,10 @@ dc.services.visualstudio.com | Cargue los registros de aplicaciones que se usan 
 *.vault.azure.net | Administre secretos en Azure Key Vault.
 aka.ms/* | Permiso de acceso a vínculos aka. Se usa para las actualizaciones del dispositivo de Azure Migrate.
 download.microsoft.com/download | Permita descargas de Microsoft.
-*.servicebus.windows.net | Se usa para la migración sin agentes de VMware.<br/><br/> Comunicación entre el dispositivo y el servicio Azure Migrate.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Se usa para la migración sin agentes de VMware.<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
-*.blob.core.windows.net |  Se usa para la migración sin agentes de VMware.<br/><br/>Cargue los datos que se deben almacenar.
+*.servicebus.windows.net | Comunicación entre el dispositivo y el servicio Azure Migrate.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Conéctese a las direcciones URL del servicio Azure Migrate.
+*.hypervrecoverymanager.windowsazure.com | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
+*.blob.core.windows.net |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración.
 
 
 

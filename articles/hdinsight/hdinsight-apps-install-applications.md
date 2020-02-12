@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 68bbe22a4a6f7697c2bfab291412aae85efc32e9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9643e1f77be400a89a8dfaecdc2f7e1205a1938b
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916996"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031326"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop de terceros en Azure HDInsight
 
@@ -23,7 +23,7 @@ Una aplicación de HDInsight es una aplicación que los usuarios pueden instalar
 
 En la lista siguiente se muestran las aplicaciones publicadas:
 
-|Application |Tipos de clúster | DESCRIPCIÓN |
+|Application |Tipos de clúster | Descripción |
 |---|---|---|
 |[Plataforma de inteligencia AtScale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop |AtScale convierte el clúster de HDInsight en un servidor OLAP de escalabilidad horizontal, lo que permite consultar miles de millones de filas de datos de forma interactiva mediante las herramientas de inteligencia empresarial que ya conoce, posee y prefiere: desde Microsoft Excel, Power BI o Tableau Software hasta QlikView. |
 |[CDAP para HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP es la primera plataforma de integración unificada para macrodatos que acelera la rentabilidad de Hadoop y permite a TI proporcionar datos de autoservicio. De código abierto y extensible, CDAP elimina las barreras para la innovación. Requisitos: 4 nodos de región, mín. D3 v2. |
@@ -43,7 +43,7 @@ En la lista siguiente se muestran las aplicaciones publicadas:
 
 Para las instrucciones proporcionadas en este artículo se usa Azure Portal. También puede exportar la plantilla de Azure Resource Manager desde el portal u obtener una copia de dicha plantilla de proveedores y usar Azure PowerShell y la CLI de Azure clásica para implementarla.  Consulte [Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Si desea instalar aplicaciones de HDInsight en un clúster de HDInsight existente, debe tener un clúster de HDInsight. Para crearlo, consulte [Crear clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). También puede instalar aplicaciones de HDInsight al crear un clúster de HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Instalación de aplicaciones en clústeres existentes
@@ -51,7 +51,7 @@ En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsig
 
 **Instalación de una aplicación HDInsight**
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Desde el menú de la izquierda, vaya a **Todos los servicios** > **Analytics** > **HDInsight clusters** (Clústeres de HDInsight).
 3. Seleccione un clúster de HDInsight de la lista.  Si no tiene ninguno, debe crearlo primero.  Consulte [Crear clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. En la categoría **Configuración**, seleccione **Aplicaciones**. Puede ver una lista de las aplicaciones instaladas en la ventana principal. 
@@ -65,14 +65,17 @@ En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsig
 En las notificaciones del portal puede ver el estado de la instalación (seleccione el icono de campana de la parte superior del portal). Una vez instalada la aplicación, aparece en la lista Aplicaciones instaladas.
 
 ## <a name="install-applications-during-cluster-creation"></a>Instalación de aplicaciones durante la creación del clúster
-Tiene la opción de instalar aplicaciones de HDInsight al crear un clúster. Durante el proceso, se instalan aplicaciones de HDInsight una vez que se haya creado el clúster y se encuentre en ejecución. Para instalar aplicaciones durante la creación del clúster mediante Azure Portal, use la opción **Personalizar** en lugar de la opción predeterminada **Creación rápida**.
+
+Tiene la opción de instalar aplicaciones de HDInsight al crear un clúster. Durante el proceso, se instalan aplicaciones de HDInsight una vez que se haya creado el clúster y se encuentre en ejecución. Para instalar aplicaciones durante la creación del clúster mediante Azure Portal, en la pestaña **Configuración y precios**, seleccione **+ Agregar aplicación**.
+
+![Aplicaciones de configuración de clústeres de Azure Portal](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Lista de las aplicaciones de HDInsight instaladas y sus propiedades
 El portal muestra una lista de las aplicaciones de HDInsight instaladas para un clúster y las propiedades de cada una.
 
 **Lista de las aplicaciones de HDInsight y visualización de sus propiedades**
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Desde el menú de la izquierda, vaya a **Todos los servicios** > **Analytics** > **HDInsight clusters** (Clústeres de HDInsight).
 3. Seleccione un clúster de HDInsight de la lista.
 4. En la categoría **Configuración**, seleccione **Aplicaciones**. Puede ver una lista de las aplicaciones instaladas en la ventana principal. 
@@ -80,13 +83,13 @@ El portal muestra una lista de las aplicaciones de HDInsight instaladas para un 
     ![Aplicaciones instaladas en aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Seleccione una de las aplicaciones instaladas para mostrar la propiedad. En la propiedad se indican los siguientes elementos:
 
-    |Propiedad | DESCRIPCIÓN |
+    |Propiedad | Descripción |
     |---|---|
     |Nombre de la aplicación |Nombre de la aplicación. |
     |Status |Estado de la aplicación. |
     |Página web |la dirección URL de la aplicación web que ha implementado en el nodo perimetral. La credencial coincide con las credenciales de usuario HTTP que ha configurado para el clúster. |
     |Punto de conexión SSH |puede usar SSH para conectarse al nodo perimetral. Las credenciales de SSH coinciden con las credenciales de usuario SSH que ha configurado para el clúster. Para más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-    |DESCRIPCIÓN | Descripción de la aplicación. |
+    |Descripción | Descripción de la aplicación. |
 
 6. Para eliminar una aplicación, haga clic con el botón derecho en ella y haga clic en **Eliminar** en el menú contextual.
 

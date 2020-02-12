@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 9a82b51083a7d31bc39c4556712c1489bad8bca0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103788"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031482"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integración de Azure Active Directory con Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ Es posible configurar Azure Kubernetes Service (AKS) para que utilice Azure Acti
 
 Los administradores del clúster pueden configurar el control de acceso basado en rol (RBAC) de Kubernetes en función de la identidad de los usuarios o su pertenencia a un grupo del directorio.
 
-En este artículo se explica cómo:
+En este artículo se explica lo siguiente:
 
 - Implemente los requisitos previos para AKS y Azure AD.
 - Implemente un clúster habilitado para Azure AD.
@@ -117,6 +117,13 @@ La segunda aplicación de Azure AD se usa cuando inicia sesión con la CLI de K
     b. Para la opción **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 
     c. Seleccione **Web** para el tipo de URI de redirección y, a continuación, escriba cualquier valor con formato URI, como *https://aksazureadclient* .
+
+    >[!NOTE]
+    >Si está creando un nuevo clúster habilitado para RBAC para admitir Azure Monitor para contenedores, agregue las dos direcciones URL de redireccionamiento adicionales que se muestran a continuación a esta lista como tipos de aplicación **web**. El primer valor de URL base debe ser `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` y el segundo, `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >Si usa esta característica en Azure China, el primer valor de dirección URL base debe ser `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` y el segundo, `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >Para obtener más información, consulte [Cómo configurar la característica de datos en directo (versión preliminar)](../azure-monitor/insights/container-insights-livedata-setup.md) de Azure Monitor para contenedores y los pasos para configurar la autenticación en la sección [Configuración de la autenticación integrada de AD](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication).
 
     d. Cuando haya finalizado, seleccione **Registro**.
 
@@ -276,7 +283,7 @@ error: You must be logged in to the server (Unauthorized)
 ```
 
 
-- Ha definido el identificador o UPN del objeto adecuado, en función de si la cuenta de usuario está en el mismo inquilino de Azure AD o no.
+- Se ha definido el identificador o UPN del objeto adecuado, en función de si la cuenta de usuario está en el mismo inquilino de Azure AD o no.
 - El usuario no es miembro de más de 200 grupos.
 - El secreto definido en el registro de aplicación del servidor coincide con el valor configurado mediante `--aad-server-app-secret`.
 

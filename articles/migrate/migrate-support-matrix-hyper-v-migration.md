@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación y migración de Hyper-V en Azure Migra
 description: Obtenga información sobre la compatibilidad con la evaluación y migración de Hyper-V en Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 96bf423f25911d0befbfd420ac2fb01ba6c8fb65
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 4ca946597417ccde0e00c8bf09c70207bc4f85b9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030939"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031653"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -26,7 +26,7 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | **Implementación**       | El host de Hyper-V puede ser independiente o implementarse en un clúster. |
 | **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. |
 | **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. |
-| **URL de acceso** | Los hosts de Hyper-V necesitan tener acceso a estas direcciones URL:<br/><br/> - login.microsoftonline.com: Control de acceso y administración de identidades mediante Active Directory.<br/><br/> - *.backup.windowsazure.com: Transferencia y coordinación de datos de replicación. Direcciones URL del servicio de migración.<br/><br/> - *.blob.core.windows.net: Cargar los datos en las cuentas de almacenamiento.<br/><br/> - dc.services.visualstudio.com: Cargar los registros de aplicaciones que se usan para la supervisión interna.<br/><br/> - time.windows.com | Verificación de la sincronización de la hora entre el sistema y la hora global.
+| **URL de acceso** | Los hosts de Hyper-V necesitan tener acceso a estas direcciones URL:<br/><br/> - login.microsoftonline.com: Control de acceso y administración de identidades mediante Active Directory.<br/><br/> - *.backup.windowsazure.com: Transferencia y coordinación de datos de replicación. Direcciones URL del servicio de migración.<br/><br/> - *.blob.core.windows.net: Cargar los datos en las cuentas de almacenamiento.<br/><br/> - dc.services.visualstudio.com: Cargue los registros de aplicaciones que se usan para la supervisión interna.<br/><br/> - time.windows.com | Verificación de la sincronización de la hora entre el sistema y la hora global.
 | **Acceso a puertos** |  Conexiones salientes en el puerto HTTPS 443 para enviar datos de replicación de VM.
 
 ## <a name="hyper-v-vms"></a>Máquinas virtuales de Hyper-V
@@ -36,7 +36,7 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
 | **Permisos**           | Necesita permisos de administrador en cada VM de Hyper-V que quiera evaluar. |
 | **Servicio de integración**       | Los [servicio de integración de Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) deben ejecutarse en las VM que evalúe, con el fin de capturar la información del sistema operativo. |
-| **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Azure Migrate hace estos cambios automáticamente en los siguientes sistemas operativos:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> En el caso de otros sistemas operativos, debe hacer los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
+| **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Debe hacer los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
 | **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si/boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
 | **Arranque UEFI**                  | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS. La máquina virtual debe estar ejecutando Windows Server 2012 o una versión posterior. El disco del sistema operativo debe tener un máximo de cinco particiones y el tamaño del disco del sistema operativo debe ser inferior a 300 GB.
   |

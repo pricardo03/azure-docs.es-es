@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 555596ba1040fcbd5c9131869fd275d749e0d734
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0930bbcfff41a667f08f5dfc5744c16476ddd8a1
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934020"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031462"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de los clústeres de Azure HDInsight mediante acciones de script en Azure
 
@@ -156,9 +156,9 @@ En esta sección se explican las distintas maneras de usar acciones de script al
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Uso de una acción de script durante la creación de un clúster desde Azure Portal
 
-1. Empiece por crear un clúster según se describe en [Creación de clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md). Durante la creación del clúster, llegará al paso 6, **Acciones de script**. Vaya a **Opcional** >  **+ Enviar nuevo**.
+1. Empiece por crear un clúster según se describe en [Creación de clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md). En la pestaña **Configuración y precios**, seleccione **+ Agregar acción de script**.
 
-    ![Acción de script de clúster en Azure Portal](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
+    ![Acción de script de clúster en Azure Portal](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
 
 1. Use la entrada __Seleccione un script__ para seleccionar un script prefabricado. Para utilizar un script personalizado, seleccione __Personalizado__. A continuación, proporcione el __nombre__ y el __URI de script de Bash__ del script.
 
@@ -180,9 +180,9 @@ En esta sección se explican las distintas maneras de usar acciones de script al
 
     ![Varias acciones de script de HDInsight](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    Cuando haya terminado de agregar scripts, seleccione el botón __Seleccionar__ y el botón __Siguiente__ para continuar en la sección __Resumen del clúster__.
+    Cuando haya terminado de agregar scripts, volverá a la pestaña **Configuración y precios**.
 
-1. Para crear el clúster, seleccione __Crear__ en la sección de __resumen del clúster__.
+1. Complete los pasos de creación del clúster restantes como de costumbre.
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Uso de una acción de script desde las plantillas de Azure Resource Manager
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2f9853c2699b69a0c9be13e6925a4b30f358f7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102019"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031363"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Consideraciones de seguridad para SQL Server en Azure Virtual Machines
 
@@ -56,6 +56,10 @@ Además de las reglas NSG para restringir el tráfico de red, también puede usa
 Si está usando puntos de conexión con el modelo de implementación clásica, quite de la máquina virtual todos los puntos de conexión que no use. Para obtener instrucciones sobre el uso de ACL con puntos de conexión, consulte [Administrar la ACL en un punto de conexión](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Esto no es necesario para las máquinas virtuales que usan Resource Manager.
 
 Por último, considere la posibilidad de habilitar conexiones cifradas para la instancia del motor de base de datos de SQL Server en la máquina virtual de Azure. Configure la instancia de SQL Server con un certificado firmado. Para más información, consulte [Habilitar conexiones cifradas en el motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) y [Sintaxis de cadena de conexión](https://msdn.microsoft.com/library/ms254500.aspx).
+
+## <a name="encryption"></a>Cifrado
+
+Los discos administrados ofrecen cifrado del lado del servidor y Azure Disk Encryption. El [cifrado del lado del servidor](/azure/virtual-machines/windows/disk-encryption) proporciona cifrado en reposo y protege sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa la tecnología BitLocker o DM-Crypt y se integra con Azure Key Vault para cifrar los discos de datos y del sistema operativo. 
 
 ## <a name="use-a-non-default-port"></a>Usar un puerto no predeterminado
 
@@ -93,9 +97,14 @@ No querrá que los atacantes adivinen fácilmente los nombres de las cuentas o l
 
   - Si tiene que usar el inicio de sesión de **SA**, habilite el inicio de sesión después del aprovisionamiento y asigne una nueva contraseña segura.
 
-## <a name="follow-on-premises-best-practices"></a>Seguir las prácticas recomendadas locales
+## <a name="additional-best-practices"></a>Procedimientos recomendados adicionales
 
-Además de los procedimientos descritos en este tema, se recomienda que revise e implemente las prácticas de seguridad local tradicionales, si procede. Para más información, vea [Consideraciones de seguridad para una instalación de SQL Server](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation).
+Además de los procedimientos descritos en este tema, le recomendamos que revise e implemente los procedimientos recomendados de seguridad, entre los que destacamos tanto los tradicionales que se relacionan con la seguridad local como los de seguridad de las máquinas virtuales. 
+
+Para obtener más información sobre los procedimientos de seguridad locales, consulte [Consideraciones de seguridad para una instalación de SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) y [Centro de seguridad](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
+
+Para obtener más información sobre la seguridad de las máquinas virtuales, consulte la [información general sobre la seguridad de las máquinas virtuales](/azure/security/fundamentals/virtual-machines-overview).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

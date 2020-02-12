@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e3d8821fc36a9ba570893ec861b949921d9fabf5
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430696"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029952"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -72,11 +72,10 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 
 ### <a name="add-an-application"></a>Adición de una aplicación
 
-1. Una vez creada la aplicación, haga clic en **Configuración**.
-2. Haga clic en **Permisos necesarios**.
-3. Haga clic en **+Agregar**.
-4. Haga clic en **Seleccionar una API**.
-5. Elija **Windows** **Azure Service Management API**.
+1. Una vez creada la aplicación, haga clic en **Permisos de API**.
+2. Haga clic en **+ Agregar un permiso**.
+4. Presione **Select Microsoft APIs** (Seleccionar API de Microsoft).
+5. Elija **Azure Service Management** (Administración de servicios de Azure).
 6. Haga clic en **Seleccionar**.
 
     ![Adición de permisos](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -173,14 +172,17 @@ La creación de una copia de seguridad es una operación de larga ejecución que
 Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia de seguridad:
 
 -   El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real**.
--   Mientras la copia de seguridad esté en curso, **evite hacer cambios en la administración del servicio**, como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
+-   Mientras la copia de seguridad esté en curso, **evite hacer cambios de administración en el servicio**, como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
 -   La restauración de una **copia de seguridad se garantiza solo durante 30 días** a partir del momento en que esta se crea.
 -   Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][azure api management rest api] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
 -   Además, los elementos siguientes no forman parte de los datos de copia de seguridad: certificados SSL de dominio personalizado y cualquier certificado intermedio o raíz cargado por el cliente, el contenido del portal para desarrolladores y la configuración de integración de Virtual Network.
 -   La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda implementar copias de seguridad habituales y realizar copias de seguridad a petición después de hacer cambios en el servicio API Management.
 -   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
--   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage. El cliente debe abrir el siguiente conjunto de direcciones IP de entrada en la cuenta de almacenamiento para la copia de seguridad. 
-    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
+-   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage. El cliente debe abrir el conjunto de [direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para la copia de seguridad. 
+
+> [!NOTE]
+> Si el firewall está habilitado en la cuenta de almacenamiento y está intentando realizar una copia de seguridad o una restauración desde un servicio de API Management en la misma región, no funcionará, ya que las solicitudes a Azure Storage no se convierten mediante SNAT a IP públicas desde el servicio Compute implementado en la misma región.
+
 ### <a name="step2"> </a>Restaurar el servicio API Management
 
 Para restaurar el servicio API Management de una copia de seguridad anterior, realice esta solicitud HTTP:
@@ -241,3 +243,4 @@ Consulte los recursos siguientes para ver distintos tutoriales del proceso de co
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips

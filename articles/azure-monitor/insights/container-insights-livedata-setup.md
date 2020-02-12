@@ -3,12 +3,12 @@ title: Configuración de datos en directo (versión preliminar) de Azure Monitor
 description: En este artículo se describe cómo configurar la vista en tiempo real de los registros de contenedor (stdout/stderr) y eventos sin usar kubectl con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404696"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030697"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Cómo configurar la característica de datos en directo (versión preliminar)
 
@@ -31,7 +31,7 @@ En este artículo se explica cómo configurar la autenticación para controlar e
 >No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico. 
 
 >[!NOTE]
->Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure Gobierno de EE. UU.
+>Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure US Gov
 
 ## <a name="authentication-model"></a>Modelo de autenticación
 
@@ -101,7 +101,7 @@ El registro del cliente de Azure AD debe volver a configurarse para permitir que
 Para más información sobre la configuración de seguridad avanzada en Kubernetes, revise la [documentación de Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
 >[!NOTE]
->Si va a crear un nuevo clúster habilitado para RBAC, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md) y siga los pasos para configurar la autenticación de Azure AD. Durante los pasos para crear la aplicación cliente, una nota en esa sección resalta las dos URL de redireccionamiento que necesita crear para Azure Monitor para contenedores. 
+>Si va a crear un nuevo clúster habilitado para RBAC, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md) y siga los pasos para configurar la autenticación de Azure AD. Durante los pasos para crear la aplicación cliente, una nota en esa sección resalta las dos URL de redireccionamiento que debe crear para Azure Monitor para los contenedores que coincidan con los que se especifican en el paso 3 que hay a continuación.
 
 ### <a name="client-registration-reconfiguration"></a>Reconfiguración del registro de cliente
 

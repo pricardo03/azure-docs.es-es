@@ -7,114 +7,64 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/04/2020
+ms.openlocfilehash: 901868da8ed859a846a507557d383db760f297c9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443946"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029527"
 ---
-# <a name="troubleshoot-azure-data-factory-data-flows"></a>Solución de problemas de flujos de datos en Azure Data Factory
+# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solución de problemas de flujos de datos en Azure Data Factory
 
 En este artículo se exploran métodos comunes de solución de problemas de flujos de datos en Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Errores habituales y mensajes
 
-### <a name="error-message-df-sys-01-shadeddatabricksorgapachehadoopfsazureazureexception-commicrosoftazurestoragestorageexception-the-specified-container-does-not-exist"></a>Mensaje de error: DF-SYS-01: shaded.databricks.org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: El contenedor especificado no existe.
+### <a name="error-code-df-executor-sourceinvalidpayload"></a>Código de error: DF-Executor-SourceInvalidPayload
+- **Mensaje**: Data preview, debug, and pipeline data flow execution failed because container does not exist (Error en la ejecución del flujo de datos de la depuración, la canalización y la vista previa de datos porque el contenedor no existe)
+- **Causas**: cuando el conjunto de datos contiene un contenedor que no existe en el almacenamiento
+- **Recomendación:** asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista o sea accesible.
 
-- **Síntomas**: error en la ejecución del flujo de datos de la vista previa de datos, depuración y canalización porque el contenedor no existe
+### <a name="error-code-df-executor-systemimplicitcartesian"></a>Código de error: DF-Executor-SystemImplicitCartesian
 
-- **Causa**: cuando el conjunto de datos contiene un contenedor que no existe en el almacenamiento
+- **Mensaje**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows. (No se admite el producto cartesiano implícito para la combinación interna; utilice la combinación cruzada en su lugar. Las columnas utilizadas en la combinación deben crear una clave única para las filas).
+- **Causas**: no se admite el producto cartesiano implícito para la combinación interna entre planes lógicos. Si las columnas usadas en la combinación crean la clave única.
+- **Recomendación:** en el caso de las combinaciones que no se basen en la igualdad, debe optar por la combinación cruzada.
 
-- **Solución:** asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista
+### <a name="error-code-df-executor-systeminvalidjson"></a>Código de error: DF-Executor-SystemInvalidJson
 
-### <a name="error-message-df-sys-01-javalangassertionerror-assertion-failed-conflicting-directory-structures-detected-suspicious-paths"></a>Mensaje de error: DF-SYS-01: java.lang.AssertionError: error de aserción: se han detectado estructuras de directorio en conflicto. Rutas de acceso sospechosas
+- **Mensaje**: JSON parsing error, unsupported encoding or multiline (Error de análisis de JSON, codificación no compatible o multilínea)
+- **Causas**: posibles problemas con el archivo JSON, como codificación no admitida, bytes dañados o se usa el origen JSON como un único documento en muchas líneas anidadas.
+- **Recomendación:** verifique que se admite la codificación del archivo JSON. En la transformación de origen que usa un conjunto de datos JSON, expanda "JSON Settings" (Configuración de JSON) y active "Documento único".
+ 
+### <a name="error-code-df-executor-broadcasttimeout"></a>Código de error: DF-Executor-BroadcastTimeout
 
-- **Síntomas**: al usar caracteres comodín en la transformación de origen con archivos Parquet
+- **Mensaje**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs (Error de tiempo de espera de combinación de difusión, asegúrese de que el flujo de difusión genera datos en un plazo de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos).
+- **Causas**: la difusión tiene un tiempo de espera predeterminado de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos. El flujo elegido para la difusión parece demasiado grande para generar datos dentro de este límite.
+- **Recomendación:** evite la difusión de flujos de datos de gran tamaño cuyo procesamiento pueda tardar más de 60 segundos. En su lugar, elija un flujo más pequeño para la difusión. Las tablas SQL/DW y los archivos de código fuente de gran tamaño suelen ser malos candidatos.
 
-- **Causa**: la sintaxis de los comodines es incorrecta o no es válida
+### <a name="error-code-df-executor-conversion"></a>Código de error: DF-Executor-Conversion
 
-- **Solución:** compruebe la sintaxis de los caracteres comodín que se usan en las opciones de transformación de origen
+- **Mensaje**: Converting to a date or time failed due to an invalid character (Error al realizar la conversión a una fecha o hora porque un carácter no es válido).
+- **Causas**: los datos no tienen el formato esperado.
+- **Recomendación:** use el tipo de datos correcto.
 
-### <a name="error-message-df-src-002-container-container-name-is-required"></a>Mensaje de error: DF-SRC-002: se requiere "container" (nombre de contenedor)
+### <a name="error-code-df-executor-invalidcolumn"></a>Código de error: DF-Executor-InvalidColumn
 
-- **Síntomas**: error en la ejecución del flujo de datos de la vista previa de datos, depuración y canalización porque el contenedor no existe
-
-- **Causa**: cuando el conjunto de datos contiene un contenedor que no existe en el almacenamiento
-
-- **Solución:** asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista
-
-### <a name="error-message-df-uni-001-primarykeyvalue-has-incompatible-types-integertype-and-stringtype"></a>Mensaje de error: DF-UNI-001: PrimaryKeyValue tiene tipos incompatibles IntegerType y StringType
-
-- **Síntomas**: error en la ejecución del flujo de datos de la vista previa de datos, depuración y canalización porque el contenedor no existe
-
-- **Causa**: tiene lugar cuando se intenta insertar un tipo de clave principal incorrecto en los receptores de base de datos
-
-- **Solución:** use una columna derivada para convertir la columna que está usando para que la clave principal del flujo de datos coincida con el tipo de datos de la base de datos de destino
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-the-tcpip-connection-to-the-host-xxxxxdatabasewindowsnet-port-1433-has-failed-error-xxxxdatabasewindowsnet-verify-the-connection-properties-make-sure-that-an-instance-of-sql-server-is-running-on-the-host-and-accepting-tcpip-connections-at-the-port-make-sure-that-tcp-connections-to-the-port-are-not-blocked-by-a-firewall"></a>Mensaje de error: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: error en la conexión TCP/IP al puerto 1433 del host xxxxx.database.windows.net. Error: "xxxx.database.windows.net. Compruebe las propiedades de conexión. Asegúrese de que se esté ejecutando una instancia de SQL Server en el host y se acepten las conexiones TCP/IP en el puerto. Asegúrese de que un firewall no bloquee las conexiones TCP al puerto."
-
-- **Síntomas**: no se puede obtener una vista previa de los datos o ejecutar la canalización con el origen de base de datos o el receptor
-
-- **Causa**: la base de datos está protegida por un firewall
-
-- **Solución:** abra el acceso del firewall a la base de datos
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-there-is-already-an-object-named-xxxxxx-in-the-database"></a>Mensaje de error: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: ya existe un objeto denominado "xxxxxx" en la base de datos.
-
-- **Síntomas**: el receptor no puede crear la tabla
-
-- **Causa**: ya existe un nombre de tabla existente en la base de datos de destino con el mismo nombre definido en el origen o en el conjunto de datos
-
-- **Solución:** cambie el nombre de la tabla que está intentando crear
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>Mensaje de error: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: Los datos binarios o de tipo cadena se truncarían. 
-
-- **Síntomas**: Al escribir datos en un receptor de SQL, el flujo de datos no puede ejecutar la canalización con un posible error de truncamiento.
-
-- **Causa**: Un campo del flujo de datos que se asigna a una columna de la base de datos SQL no es lo suficientemente ancho para almacenar el valor, lo que hace que el controlador de SQL produzca este error.
-
-- **Solución:** Puede reducir la longitud de los datos de las columnas de cadena mediante ```left()``` en una columna derivada o implementar el [patrón de "fila de error".](how-to-data-flow-error-rows.md)
-
-### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>Mensaje de error: Desde Spark 2.3, las consultas de archivos JSON o CSV sin formato no están permitidas cuando las columnas a las que se hace referencia incluyen solo la columna interna de registros incorrectos. 
-
-- **Síntomas**: se produce un error al leer desde un origen JSON.
-
-- **Causa**: al leer desde un origen JSON con un solo documento en muchas líneas anidadas, ADF, a través de Spark, no puede determinar dónde comienza un nuevo documento y dónde finaliza el documento anterior.
-
-- **Solución:** en la transformación de origen que usa un conjunto de valores JSON, expanda "JSON Settings" (Configuración de JSON) y active "Single Document" (Documento único).
-
-### <a name="error-message-duplicate-columns-found-in-join"></a>Mensaje de error: Duplicate columns found in Join (Columnas duplicadas encontradas en la combinación)
-
-- **Síntomas**: la transformación de la combinación provocó que las columnas de la izquierda y la derecha incluyan nombres de columna duplicados
-
-- **Causa**: los flujos que se combinan tienen nombres de columna comunes
-
-- **Solución:** agregue una transformación Select después de la combinación y seleccione "Remove duplicate columns" (Quitar columnas duplicadas) para la entrada y la salida.
-
-### <a name="error-message-possible-cartesian-product"></a>Mensaje de error: Posible producto cartesiano
-
-- **Síntomas**: la transformación de combinación o búsqueda ha detectado un posible producto cartesiano tras la ejecución del flujo de datos
-
-- **Causa**: si no ha redirigido explícitamente ADF para usar una combinación cruzada, puede producirse un error en el flujo de datos
-
-- **Solución:** Cambie la transformación de búsqueda o combinación a una combinación mediante una combinación cruzada personalizada y especifique la condición de búsqueda o combinación en el editor de expresiones. Si quiere generar explícitamente un producto cartesiano completo, utilice la transformación Columna derivada en cada uno de los dos flujos independientes antes de la combinación para crear una clave sintética en la que buscar coincidencias. Por ejemplo, cree una columna en la columna derivada de cada flujo denominada ```SyntheticKey``` y establézcala como igual a ```1```. A continuación, use ```a.SyntheticKey == b.SyntheticKey``` como expresión de combinación personalizada.
-
-> [!NOTE]
-> Asegúrese de incluir al menos una columna a cada lado de la relación izquierda y derecha de una combinación cruzada personalizada. La ejecución de combinaciones cruzadas con valores estáticos en lugar de columnas a cada lado produce exámenes completos de todo el conjunto de datos, lo que provoca que el flujo de datos se realice de manera deficiente.
+- **Mensaje**: Column name needs to be specified in the query, set an alias if using a SQL function (Es necesario especificar el nombre de la columna en la consulta; establezca un alias si usa una función SQL).
+- **Causas**: no se ha especificado ningún nombre de columna.
+- **Recomendación:** establezca un alias si usa una función SQL, como min()/max(), etc.
 
 ## <a name="general-troubleshooting-guidance"></a>Guía de solución de problemas generales
 
 1. Compruebe el estado de las conexiones del conjunto de datos. En cada transformación de origen y de receptor, visite el servicio vinculado para cada conjunto de datos que use y pruebe las conexiones.
-2. Compruebe el estado de las conexiones de archivos y tablas desde el diseñador de flujo de datos. Cambie al modo de depuración y haga clic en Vista previa de datos en las transformaciones de origen para asegurarse de que puede acceder a los datos.
-3. Si todo parece correcto desde la vista previa de los datos, vaya al diseñador de canalizaciones y coloque el flujo de datos en una actividad de canalización. Depure la canalización para realizar una prueba de un extremo a otro.
+1. Compruebe el estado de las conexiones de archivos y tablas desde el diseñador de flujo de datos. Cambie al modo de depuración y haga clic en Vista previa de datos en las transformaciones de origen para asegurarse de que puede acceder a los datos.
+1. Si todo parece correcto desde la vista previa de los datos, vaya al diseñador de canalizaciones y coloque el flujo de datos en una actividad de canalización. Depure la canalización para realizar una prueba de un extremo a otro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener ayuda para solucionar problemas, pruebe estos recursos:
-
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)

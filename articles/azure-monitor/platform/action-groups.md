@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 01d3edb3de9e57fa7fa8db2ede863c2aa3e100ed
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659838"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030752"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -62,7 +62,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
 ## <a name="manage-your-action-groups"></a>Administración de los grupos de acciones
 
-Después de crear un grupo de acciones, este se puede ver en la sección **Grupos de acciones** del panel **Supervisión**. Seleccione el grupo de acciones que desea administrar para:
+Después de crear un grupo de acciones, puede ver los **grupos de acciones** seleccionando **Administrar acciones** en la página de aterrizaje **Alertas** del panel **Supervisión**. Seleccione el grupo de acciones que desea administrar para:
 
 * Agregar, editar o quitar acciones.
 * Eliminar el grupo de acciones.
@@ -94,7 +94,7 @@ Envíe un correo electrónico a los miembros del rol de la suscripción.
 En un grupo de acciones puede tener un número limitado de acciones de correo electrónico. Consulte el artículo de [información sobre las limitaciones](./../../azure-monitor/platform/alerts-rate-limiting.md).
 
 ### <a name="function"></a>Función
-Las teclas de función para las aplicaciones de funciones configuradas como acciones se leen mediante Functions API, que actualmente requiere la versión 2 de las aplicaciones de funciones para poder configurar la opción de la aplicación "AzureWebJobsSecretStorageType" en "files". Para más información, consulte [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets) (Cambios en la administración de las teclas en la versión 2 de Functions).
+Llama a un punto de conexión del desencadenador HTTP existente en [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 En un grupo de acciones puede tener un número limitado de acciones de función.
 

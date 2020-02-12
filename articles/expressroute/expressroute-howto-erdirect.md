@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
-ms.openlocfilehash: c5cb8366465d5983823184c87eb54fad6aaffbd0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705928"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031619"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Cómo configurar ExpressRoute Direct
 
@@ -27,7 +27,13 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
 
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. Enumere todas las ubicaciones donde se admita ExpressRoute Direct.
+   
+2. Vuelva a registrar la suscripción a Microsoft.Network para acceder a las API expressrouteportslocation y expressrouteport.
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
+   ```   
+3. Enumere todas las ubicaciones donde se admita ExpressRoute Direct.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -60,7 +66,7 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. Determine si una ubicación enumerada anteriormente tiene ancho de banda disponible.
+4. Determine si una ubicación enumerada anteriormente tiene ancho de banda disponible.
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -82,7 +88,7 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
                           }
                         ]
    ```
-4. Cree un recurso de ExpressRoute Direct basado en la ubicación seleccionada anteriormente.
+5. Cree un recurso de ExpressRoute Direct basado en la ubicación seleccionada anteriormente.
 
    ExpressRoute Direct admite la encapsulación de tipo QinQ y Dot1Q. Si se selecciona QinQ, a cada circuito de ExpressRoute se le asignará dinámicamente una S-Tag y será único en todo el recurso de ExpressRoute Direct. Cada C-Tag del circuito debe ser única, pero no en ExpressRoute Direct.  
 

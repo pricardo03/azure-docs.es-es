@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 837d62784a56ad0f17471cca5a660819d4a83e12
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca2ea6a45bdf37f15f2ab4fd9c685f11f6d7f64
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926759"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031499"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Uso de secretos de Azure Key Vault en actividades de canalización
 
 Puede almacenar credenciales o valores de secreto en una instancia de Azure Key Vault y usarlos durante la ejecución de la canalización para pasarlos a las actividades.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Esta característica se basa en la identidad administrada de Data Factory.  Obtenga información sobre cómo funciona en [Identidad administrada de Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) y asegúrese de que la instancia de Data Factory tenga una asociada.
 
@@ -47,7 +47,7 @@ Esta característica se basa en la identidad administrada de Data Factory.  Obte
 
 4. En la canalización de Data Factory, agregue una nueva actividad web y configúrela como se indica a continuación.  
 
-    |Propiedad  |Valor  |
+    |Propiedad  |Value  |
     |---------|---------|
     |Salida segura     |True         |
     |URL     |[El valor de URI del secreto]?api-version=7.0         |
@@ -63,7 +63,7 @@ Esta característica se basa en la identidad administrada de Data Factory.  Obte
     > [!CAUTION]
     > Establezca la opción Salida segura en true para evitar que el valor de secreto se registre en texto sin formato.  Todas las actividades adicionales que consuman este valor deben tener la opción Entrada segura establecida en true.
 
-5. Para usar el valor en otra actividad, use la expresión de código siguiente **@activity("web").output.value)** .
+5. Para usar el valor en otra actividad, use la expresión de código siguiente **@activity("web").output.value**.
 
     ![Expresión de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

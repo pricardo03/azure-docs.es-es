@@ -5,24 +5,24 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 072c7bd5b5b292ca4f0e53c59fcb7e9771331a94
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645096"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031738"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Personalización de reglas del Firewall de aplicaciones web v2 en Azure Application Gateway
 
-El firewall de aplicaciones web (WAF) v2 de Azure Application Gateway viene con un conjunto de reglas preconfiguradas y administradas por la plataforma que ofrece protección frente a muchos tipos de ataques diferentes. Estos ataques incluyen scripts entre sitios, inyección de código SQL y otros. Si es un administrador de WAF, puede escribir reglas propias para aumentar las del conjunto de reglas básico (CRS). Las reglas pueden bloquear o permitir el tráfico solicitado en función de criterios de coincidencia.
+El firewall de aplicaciones web (WAF) v2 de Azure Application Gateway viene con un conjunto de reglas preconfiguradas y administradas por la plataforma que ofrece protección frente a muchos tipos de ataques diferentes. Estos ataques incluyen scripts entre sitios, inyección de código SQL y otros. Si es administrador de WAF, puede escribir sus propias reglas para aumentar las del conjunto de reglas básico (CRS). Las reglas pueden bloquear o permitir el tráfico solicitado en función de criterios de coincidencia.
 
 Las reglas personalizadas permiten crear reglas propias que se evalúan en cada solicitud que pasa por el WAF. Estas reglas tienen una prioridad mayor que el resto de las reglas de los conjuntos de reglas administrados. Las reglas personalizadas contienen un nombre de regla, la prioridad de la regla y una matriz de condiciones de coincidencia. Si estas condiciones se cumplen, se realiza una acción (para permitir o bloquear).
 
 Por ejemplo, puede bloquear todas las solicitudes de una dirección IP en el intervalo 192.168.5.4/24. En esta regla, el operador es *IPMatch*, matchValues es el intervalo de direcciones IP (192.168.5.4/24) y la acción es bloquear el tráfico. También se establecen el nombre y la prioridad de la regla.
 
-Las reglas personalizadas admiten el uso de lógica de composición para crear reglas más avanzadas que solucionen los requisitos de seguridad. Por ejemplo, (Condición 1 **y** Condición 2) **o** Condición 3).  En este ejemplo significa que si se cumplen Condición 1 **y** Condición 2, **o** si se cumple Condición 3, el WAF debe realizar la acción especificada en la regla personalizada.
+Las reglas personalizadas admiten el uso de lógica de composición para crear reglas más avanzadas que solucionen los requisitos de seguridad. Por ejemplo, (Condición 1 **y** Condición 2) **o** Condición 3). Esto significa que, si se cumplen la condición 1 **y** la condición 2, **o** si se cumple la condición 3, la solución WAF debe realizar la acción especificada en la regla personalizada.
 
 En una misma regla, las condiciones de coincidencia diferentes siempre se combinan mediante **y**. Por ejemplo, bloquear el tráfico desde una dirección IP específica, y solo si se usa un explorador determinado.
 
@@ -31,7 +31,7 @@ Si quiere aplicar **o** a dos condiciones diferentes, las dos deben estar en reg
 > [!NOTE]
 > El número máximo de reglas personalizadas de WAF es 100. Para más información sobre los límites de Application Gateway, vea [Suscripción de Azure y límites de servicio, cuotas y restricciones](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
-En las reglas personalizadas también se admiten expresiones regulares, como en los conjuntos de reglas CRS. Para obtener ejemplos, vea los ejemplos 3 y 5 en [Creación y uso de reglas personalizadas del firewall de aplicaciones web](create-custom-waf-rules.md).
+En las reglas personalizadas también se admiten expresiones regulares, como en los conjuntos de reglas CRS. Para obtener ejemplos, consulte los ejemplos 3 y 5 en [Creación y uso de reglas personalizadas del firewall de aplicaciones web](create-custom-waf-rules.md).
 
 ## <a name="allowing-vs-blocking"></a>Diferencias entre permitir y bloquear
 
@@ -92,7 +92,7 @@ Esta regla personalizada contiene un nombre, una prioridad, una acción y la mat
 
 ### <a name="name-optional"></a>Nombre [opcional]
 
-Es el nombre de la regla. Este nombre aparece en los registros.
+Nombre de la regla.  Aparece en los registros.
 
 ### <a name="priority-required"></a>Prioridad [obligatorio]
 
@@ -157,198 +157,13 @@ Lista de valores con los que se va a comparar, que se pueden considerar como com
 
 ### <a name="action-required"></a>Acción [obligatorio]
 
-- Allow: autoriza la transacción y se omiten todas las reglas siguientes. Esto significa que la solicitud especificada se agrega a la lista de permitidos y una vez que coincide, la solicitud detiene la evaluación adicional y se envía al grupo de back-end. En las reglas que están en la lista de permitidos no se evalúan más reglas administradas ni personalizadas.
+- Permitir: autoriza la transacción y se omiten todas las otras reglas. La solicitud especificada se agrega a la lista de permitidos y, una vez que coincide, detiene la evaluación adicional y se envía al grupo de back-end. En las reglas que están en la lista de permitidos no se evalúan más reglas administradas ni personalizadas.
 - Block: bloquea la transacción en función de *SecDefaultAction* (modo de detección o prevención). Como sucede con la acción Allow, una vez que la solicitud se evalúa y se agrega a la lista de bloqueadas, la evaluación se detiene y la solicitud se bloquea. Las solicitudes posteriores que cumplan las mismas condiciones no se evaluarán y simplemente se bloquearán. 
-- Log: permite que la regla escriba en el registro, pero que las reglas restantes se ejecuten para la evaluación. Las reglas personalizadas siguientes se evalúan en orden de prioridad, seguidas por las reglas administradas.
+- Log: permite que la regla escriba en el registro, pero que las reglas restantes se ejecuten para la evaluación. Las otras reglas personalizadas se evalúan por orden de prioridad, seguidas por las reglas administradas.
 
 ## <a name="geomatch-custom-rules-preview"></a>Reglas personalizadas de Geomatch (vista previa)
 
-Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Ahora puede restringir el acceso a las aplicaciones web por país o región, característica que está disponible en versión preliminar pública. Como con todas las reglas personalizadas, esta lógica se puede componer con otras reglas para satisfacer las necesidades de la aplicación. 
-
-   > [!NOTE]
-   > Las reglas personalizadas de geocoincidencia están disponibles en Centro-sur de EE. UU. y Norte de Europa. Para acceder a ellas en el portal, use [este vínculo](https://aka.ms/AppGWWAFGeoMatch) hasta que esté disponible para todos. 
-
-Si usa el operador Geomatch, los selectores pueden ser cualquiera de los siguientes códigos de país de dos dígitos. 
-
-|Código de país | Nombre del país |
-| ----- | ----- |
-| AD | Andorra |
-| AE | Emiratos Árabes Unidos|
-| AF | Afganistán|
-| AG | Antigua y Barbuda|
-| AL | Albania|
-| AM | Armenia|
-| AO | Angola|
-| AR | Argentina|
-| AS | Samoa Americana|
-| AT | Austria|
-| AU | Australia|
-| AZ | Azerbaiyán|
-| BA | Bosnia y Herzegovina|
-| BB | Barbados|
-| BD | Bangladés|
-| BE | Bélgica|
-| BF | Burkina Faso|
-| BG | Bulgaria|
-| BH | Bahréin|
-| BI | Burundi|
-| BJ | Benín|
-| BL | San Bartolomé|
-| BN | Brunéi Darussalam|
-| BO | Bolivia|
-| BR | Brasil|
-| BS | Bahamas|
-| BT | Bután|
-| BW | Botsuana|
-| BY | Belarús|
-| BZ | Belice|
-| CA | Canadá|
-| CD | República Democrática del Congo|
-| CF | República Centroafricana|
-| CH | Suiza|
-| CI | República de Côte d’Ivoire|
-| CL | Chile|
-| CM | Camerún|
-| CN | China|
-| CO | Colombia|
-| CR | Costa Rica|
-| CU | Cuba|
-| CV | Cabo Verde|
-| CY | Chipre|
-| CZ | República Checa|
-| DE | Alemania|
-| DK | Dinamarca|
-| DO | República Dominicana|
-| DZ | Argelia|
-| EC | Ecuador|
-| EE | Estonia|
-| EG | Egipto|
-| ES | España|
-| ET | Etiopía|
-| FI | Finlandia|
-| FJ | Islas Fiji|
-| FM | Micronesia, Estados Federados de|
-| VF | Francia|
-| GB | Reino Unido|
-| GE | Georgia|
-| GF | Guayana Francesa|
-| GH | Ghana|
-| GN | Guinea|
-| GP | Guadalupe|
-| GR | Grecia|
-| GT | Guatemala|
-| GY | Guayana|
-| HK | RAE de Hong Kong|
-| HN | Honduras|
-| HR | Croacia|
-| HT | Haití|
-| HU | Hungría|
-| id | Indonesia|
-| IE | Irlanda|
-| IL | Israel|
-| IN | India|
-| IQ | Iraq|
-| IR | Irán, República Islámica de|
-| IS | Islandia|
-| IT | Italia|
-| JM | Jamaica|
-| JO | Jordania|
-| JP | Japón|
-| KE | Kenia|
-| KG | Kirguistán|
-| KH | Camboya|
-| KI | Kiribati|
-| KN | San Cristóbal y Nieves|
-| KP | Corea, República Popular Democrática de|
-| KR | Corea, República de|
-| KW | Kuwait|
-| KY | Islas Caimán|
-| KZ | Kazajistán|
-| Los Ángeles | República Democrática Popular de Laos|
-| LB | Líbano|
-| LI | Liechtenstein|
-| LK | Sri Lanka|
-| LR | Liberia|
-| LS | Lesoto|
-| LT | Lituania|
-| LU | Luxemburgo|
-| LV | Letonia|
-| LY | Libia |
-| MA | Marruecos|
-| MD | Moldavia, República de|
-| MG | Madagascar|
-| MK | Macedonia del Norte|
-| ML | Malí|
-| MM | Myanmar|
-| MN | Mongolia|
-| MO | RAE de Macao|
-| MQ | Martinica|
-| MR | Mauritania|
-| MT | Malta|
-| MV | Maldivas|
-| MW | Malaui|
-| MX | México|
-| MY | Malasia|
-| MZ | Mozambique|
-| N/D | Namibia|
-| NE | Níger|
-| NG | Nigeria|
-| NI | Nicaragua|
-| NL | Países Bajos|
-| No | Noruega|
-| NP | Nepal|
-| NR | Nauru|
-| NZ | Nueva Zelanda|
-| OM | Omán|
-| PA | Panamá|
-| PE | Perú|
-| PH | Filipinas|
-| PK | Pakistán|
-| PL | Polonia|
-| PR | Puerto Rico|
-| PT | Portugal|
-| PW | Palaos|
-| PY | Paraguay|
-| QA | Qatar|
-| RE | Reunión|
-| RO | Rumanía|
-| RS | Serbia|
-| RU | Federación Rusa|
-| RW | Ruanda|
-| SA | Arabia Saudí|
-| SD | Sudán|
-| SE | Suecia|
-| SG | Singapur|
-| SI | Eslovenia|
-| SK | Eslovaquia|
-| SN | Senegal|
-| SO | Somalia|
-| SR | Surinam|
-| SS | Sudán del Sur|
-| SV | El Salvador|
-| SY | República Árabe Siria|
-| SZ | Suazilandia|
-| TC | Islas Turcas y Caicos|
-| TG | Togo|
-| TH | Tailandia|
-| TN | Túnez|
-| TR | Turquía|
-| TT | Trinidad y Tobago|
-| TW | Taiwán|
-| TZ | Tanzania, República Unida de|
-| UA | Ucrania|
-| UG | Uganda|
-| US | Estados Unidos|
-| UY | Uruguay|
-| UZ | Uzbekistán|
-| VC | San Vicente y las Granadinas|
-| VE | Venezuela|
-| VG | Islas Vírgenes Británicas|
-| VI | Islas Vírgenes de EE. UU.|
-| VN | Vietnam|
-| ZA | Sudáfrica|
-| ZM | Zambia|
-| ZW | Zimbabue|
+Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Puede restringir el acceso a las aplicaciones web por país o región. Para obtener más información, consulte [Reglas personalizadas de Geomatch (versión preliminar)](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

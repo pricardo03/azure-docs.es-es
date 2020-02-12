@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646904"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031636"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 
@@ -157,7 +157,7 @@ En el panel configuración se muestra la siguiente configuración del repositori
 
 - La integración de GitHub con las herramientas de creación visual de Data Factory solo funciona con la versión de Data Factory disponible con carácter general.
 
-- Se puede capturar un máximo de 1 000 entidades por tipo de recurso (por ejemplo, canalizaciones y conjuntos de valores) desde una sola rama de GitHub. Si se alcanza este límite, se recomienda dividir los recursos en factorías independientes.
+- Se puede capturar un máximo de 1 000 entidades por tipo de recurso (por ejemplo, canalizaciones y conjuntos de valores) desde una sola rama de GitHub. Si se alcanza este límite, se recomienda dividir los recursos en factorías independientes. GIT de Azure DevOps no presenta esta limitación.
 
 ## <a name="switch-to-a-different-git-repo"></a>Cambie a otro repositorio de Git diferente
 
@@ -249,8 +249,13 @@ Si la rama de publicación no está sincronizada con la rama principal y contien
 
 1. Quite el repositorio de Git actual.
 1. Vuelva a configurar Git con los mismos valores, pero asegúrese de que la opción **Import existing Data Factory resources to repository** (Importar recursos existentes de Data Factory en el repositorio) esté seleccionada y elija **New branch** (Nueva rama).
-1. Elimine todos los recursos de la rama de colaboración.
 1. Cree una solicitud de incorporación de cambios para combinar los cambios con la rama de colaboración. 
+
+A continuación, se muestran algunos ejemplos de situaciones que pueden provocar una rama de publicación obsoleta:
+- Un usuario tiene varias ramas. En una rama de características, eliminó un servicio vinculado que no está asociado a AKV (los servicios vinculados que no son AKV se publican inmediatamente, independientemente de si están en GIT o no) y nunca combinó la rama de características con la rama de colaboración.
+- Un usuario modificó la factoría de datos mediante el SDK o PowerShell.
+- Un usuario desplazó todos los recursos a una nueva rama e intentó publicarlos por primera vez. Los servicios vinculados se deben crear manualmente al importar los recursos.
+- Un usuario carga un servicio vinculado que no es AKV o un archivo JSON de Integration Runtime manualmente. Hace referencia a ese recurso desde otro recurso, como un conjunto de datos, un servicio vinculado o una canalización. Un servicio vinculado que no es AKV creado través de la experiencia de usuario se publica inmediatamente porque se deben cifrar las credenciales. Si carga un conjunto de datos que haga referencia a ese servicio vinculado e intenta publicarlo, la experiencia de usuario lo permitirá porque existe en el entorno de GIT. Sin embargo, se rechazará en el momento de la publicación, ya que no existe en el servicio de la factoría de datos.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 Seleccione **Comentarios** para comentar sobre las características o para notificar a Microsoft sobre los problemas con la herramienta:
