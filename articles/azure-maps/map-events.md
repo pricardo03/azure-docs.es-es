@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 06fdb9733ad9c173c88936e5502214b58f5d10ee
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911074"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985924"
 ---
 # <a name="interact-with-the-map"></a>Interacción con el mapa
 
-En este artículo se muestra cómo usar la propiedad de [map class events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) para resaltar eventos en el mapa y en distintas capas de este. También se muestra cómo usar la propiedad de eventos clase Map para resaltar los eventos cuando se interactúa con un marcador HTML.
+En este artículo se muestra cómo usar la [clase de eventos de mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). La propiedad resalta los eventos en el mapa y en diferentes capas del mapa. También puede resaltar eventos cuando se interactúa con un marcador HTML.
 
 ## <a name="interact-with-the-map"></a>Interacción con el mapa
 
-Practique con el mapa siguiente y observe los eventos del mouse correspondientes resaltados en la parte derecha. Puede hacer clic en la **pestaña JS** para ver y editar el código JavaScript. También puede hacer clic en el botón **Editar en CodePen** y modificar el código en CodePen.
+Practique con el mapa siguiente y observe los eventos del mouse correspondientes resaltados en la parte derecha. Puede hacer clic en la **pestaña JS** para ver y editar el código JavaScript. También puede hacer clic en **Editar en CodePen** para modificar el código en CodePen.
 
 <br/>
 
@@ -31,7 +31,7 @@ Practique con el mapa siguiente y observe los eventos del mouse correspondientes
 
 ## <a name="interact-with-map-layers"></a>Interacción con las capas de mapa
 
-En el código siguiente se resalta el nombre de los eventos que se activan al interactuar con la capa de símbolos. Las capas de símbolo, burbuja, línea y polígono admiten el mismo conjunto de eventos. Las capas de mapa térmico y de mosaico no admiten ninguno de estos eventos.
+En el código siguiente se resalta el evento que se activa cuando se interactúa con la capa de símbolos. Las capas de símbolo, burbuja, línea y polígono admiten el mismo conjunto de eventos. Las capas de mapa térmico y de mosaico no admiten ninguno de estos eventos.
 
 <br/>
 

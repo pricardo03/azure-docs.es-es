@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543569"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932390"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -220,17 +220,23 @@ En la tabla siguiente se describe el valor de AZUREML_MODEL_DIR en función del 
 | Modelo único | Ruta de acceso a la carpeta que contiene el modelo. |
 | Varios modelos | Ruta de acceso a la carpeta que contiene todos los modelos. Los modelos se encuentran por nombre y versión en esta carpeta (`$MODEL_NAME/$VERSION`). |
 
-Para obtener la ruta de acceso a un archivo en un modelo, combine la variable de entorno con el nombre del archivo que está buscando.
-Los nombres de archivo de los archivos de modelo se conservan durante el registro y la implementación. 
+Durante el registro y la implementación de un modelo, este se coloca en la ruta de acceso AZUREML_MODEL_DIR y se conserva su nombre de archivo original.
+
+Para obtener la ruta de acceso a un archivo de modelo en el script de entrada, combine la variable de entorno con la ruta de acceso al archivo que busca.
 
 **Ejemplo de modelo único**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **Ejemplo de varios modelos**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path

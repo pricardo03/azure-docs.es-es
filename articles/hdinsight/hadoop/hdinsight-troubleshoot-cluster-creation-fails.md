@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: ea60faf5b5689fa674095201d3db18422d3e0f1b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1e13c7ef8eae81ef2a12a8761b0596f6329f94dc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980494"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937906"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Solución de errores de creación de clústeres con Azure HDInsight
 
@@ -64,7 +64,7 @@ Si usa una instancia de ExpressRoute o su propio servidor DNS personalizado, con
 
 ## <a name="resources-locks"></a>Bloqueos de recursos  
 
-Asegúrese de que no hay [bloqueos en la red virtual ni el grupo de recursos](../../azure-resource-manager/management/lock-resources.md).  
+Asegúrese de que no hay [bloqueos en la red virtual ni el grupo de recursos](../../azure-resource-manager/management/lock-resources.md). Los clústeres no se pueden crear ni eliminar si el grupo de recursos está bloqueado. 
 
 ## <a name="unsupported-component-versions"></a>Versiones de componentes no compatibles
 
@@ -78,7 +78,7 @@ También se aplican otras restricciones de nomenclatura para la creación de cl�
 
 ## <a name="service-outages"></a>Interrupciones del servicio
 
-Compruebe en [Estado de Azure](https://status.azure.com/status) si hay interrupciones o incidencias del servicio.
+Compruebe en [Estado de Azure](https://status.azure.com) si hay interrupciones o incidencias del servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715933"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986825"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -326,6 +326,11 @@ También puede [usar Power BI](app/export-power-bi.md ) para mostrar la telemetr
 
 ### <a name="data"></a>¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?
 Eche un vistazo a [Privacidad y retención de los datos][data].
+
+### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>¿Qué ocurre con los datos de telemetría de Application Insights cuando un servidor o dispositivo pierde la conexión con Azure?
+
+Todos nuestros SDK, incluido el SDK web, incluyen "transporte confiable" o "transporte eficaz". Cuando el servidor o el dispositivo pierde la conexión con Azure, los datos de telemetría se [almacenan localmente en el sistema de archivos](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (los SDK de servidor) o en el almacenamiento de la sesión HTML5 (SDK web). El SDK volverá a intentar periódicamente enviar estos datos de telemetría hasta que nuestro servicio de ingesta los considere "obsoletos" (48 horas en el caso de los registros y 30 minutos en el caso de las métricas). Los datos de telemetría obsoletos se eliminarán. En algunos casos, como cuando el almacenamiento local está lleno, no se realizará ningún reintento.
+
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>¿Se podrían enviar datos personales en la telemetría?
 

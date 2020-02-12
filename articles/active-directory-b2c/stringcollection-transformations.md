@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fbbd7b4bdddf2b58e66cb1203414b5a63eec2f27
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951010"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982303"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformaciones de notificaciones StringCollection
 
@@ -28,7 +28,7 @@ En este artículo se proporcionan ejemplos para usar las transformaciones de not
 
 Agrega una notificación de cadena a una nueva notificación stringCollection.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Elemento ClaimType que se agregará a la notificación de salida. |
 | InputClaim | collection | stringCollection | [Opcional] Si se especifica, la transformación de notificaciones copia los elementos de esta colección y agrega el elemento al final de la notificación de la colección de salida. |
@@ -62,7 +62,7 @@ La siguiente transformación de notificaciones agrega el ClaimType **email** al 
 
 Agrega un parámetro de cadena a una nueva notificación stringCollection.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Opcional] Si se especifica, la transformación de notificaciones copia los elementos de esta colección y agrega el elemento al final de la notificación de la colección de salida. |
 | InputParameter | item | string | El valor que se agregará a la notificación de salida. |
@@ -97,9 +97,9 @@ Use esta transformación de notificaciones para agregar un valor de cadena a una
 
 Obtiene el primer elemento de la colección de la cadena proporcionada.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | Los ClaimTypes que la transformación de notificaciones usa para obtener el elemento. |
+| InputClaim | collection | stringCollection | ClaimTypes que usa la transformación de notificaciones para obtener el elemento. |
 | OutputClaim | extractedItem | string | Elementos ClaimTypes que se producen después de que se invoque este elemento ClaimsTransformation. El primer elemento de la colección. |
 
 En el ejemplo siguiente se lee la notificación **otherMails** y se devuelve el primer elemento de la notificación de **correo electrónico**.
@@ -121,4 +121,42 @@ En el ejemplo siguiente se lee la notificación **otherMails** y se devuelve el 
   - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Notificaciones de salida:
   - **extractedItem**: "someone@outlook.com"
+
+
+## <a name="stringcollectioncontains"></a>StringCollectionContains
+
+Comprueba si un tipo de notificación StringCollection contiene un elemento.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | Tipo de la notificación que se va a buscar. |
+|InputParameter|item|string|Valor que se va a buscar.|
+|InputParameter|ignoreCase|string|Especifica si la comparación distingue entre mayúsculas y minúsculas en las cadenas que se están comparando.|
+| OutputClaim | outputClaim | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. Indicador booleano si la colección contiene una cadena de este tipo. |
+
+En el siguiente ejemplo se comprueba si el tipo de notificación stringCollection `roles` contiene el valor **admin**.
+
+```XML
+<ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="item" DataType="string" Value="Admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+- Notificaciones de entrada:
+    - **inputClaim**: ["reader", "author", "admin"]
+- Parámetros de entrada:
+    - **item**: "Admin"
+    - **ignoreCase**: "true"
+- Notificaciones de salida:
+    - **outputClaim**: "true"
+
 

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 01ab09383a29db38d2ce8c7c513bed76aafcc44a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b50fcea6f1a479ac295a3a6832d1ab828e01ea3d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845946"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986400"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 * [Configure el entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning, o use una [instancia de proceso de Azure Machine Learning (versión preliminar)](concept-compute-instance.md) con el SDK ya instalado.
 
 > [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con **Centro y norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**.
+> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
 >Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar. 
 
 Empiece asociando el área de trabajo:

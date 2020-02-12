@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: dcf5276393400be864e738d89bc5713f5aac242b
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152959"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963485"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas de plataforma de Azure Monitor que pueden exportarse con la configuración de diagnóstico
 
@@ -24,6 +24,19 @@ Existen dos formas de exportar las métricas de plataforma de la canalización d
 2. Utilizando la [API REST de métricas](https://docs.microsoft.com/rest/api/monitor/metrics/list).
 
 Debido a las complejidades del back-end de Azure Monitor, no todas las métricas pueden exportarse con la configuración de diagnóstico. En la tabla siguiente, se indican las métricas que pueden y que no pueden exportarse con la configuración de diagnóstico.
+
+La tabla contiene las columnas siguientes. 
+- ¿Se puede exportar con la configuración de diagnóstico? 
+- ResourceType 
+- Métrica 
+- MetricDisplayName
+- Unidad 
+- AggregationType
+
+
+> [!NOTE]
+> La tabla siguiente puede tener una barra de desplazamiento horizontal en la parte inferior. Si cree que falta información, compruebe que la barra de desplazamiento esté a la izquierda.  
+
 
 ¿Se puede exportar con la configuración de diagnóstico? | ResourceType | Métrica | MetricDisplayName | Unidad | AggregationType
 |----|-----|------|----|----|-----|

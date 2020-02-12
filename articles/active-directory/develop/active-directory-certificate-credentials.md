@@ -14,12 +14,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 15fa6b9c7b9c84cd17b67c53dd65acd54ea63910
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7b42676fa387914bc4825e2850b3d2f032827a79
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699230"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962125"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
@@ -130,6 +130,6 @@ En el registro de aplicación de Azure para la aplicación cliente:
 ## <a name="code-sample"></a>Código de ejemplo
 
 > [!NOTE]
-> Debe calcular el encabezado X5T usando el hash del certificado y convirtiéndolo a una cadena Base64. En C#, el resultado será similar al siguiente: `System.Convert.ToBase64String(cert.GetCertHash());`
+> Debe calcular el encabezado X5T usando el hash del certificado para convertirlo a una cadena Base64. El código para realizar esta operación en C# es: `System.Convert.ToBase64String(cert.GetCertHash());`
 
 En el ejemplo de código de [Autenticación en Azure AD en aplicaciones de demonio con certificados (archivado)](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) se muestra cómo una aplicación utiliza sus propias credenciales para la autenticación. También se muestra cómo se puede [crear un certificado autofirmado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) mediante el comando de PowerShell `New-SelfSignedCertificate`. También puede usar los [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para crear los certificados, calcular la huella digital, etc.

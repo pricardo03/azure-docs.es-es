@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: a89983a9ae45f21deb7a823de049373b4ff9b935
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911809"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989066"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reaccionar a eventos de Azure Maps mediante Event Grid 
 
-Azure Maps se integra con Azure Event Grid para poder enviar notificaciones de eventos a otros servicios y desencadenar procesos de descarga. El propósito de este artículo es ayudarle a configurar las aplicaciones empresariales para escuchar eventos de Azure Maps, a fin de poder crear reacciones a eventos críticos de manera confiable, escalable y segura. Por ejemplo, compile una aplicación que realice varias acciones como, por ejemplo, actualizar una base de datos, crear un vale y enviar una notificación por correo electrónico cada vez que un dispositivo entre en una geovalla.
+Azure Maps se integra con Azure Event Grid, de forma que los usuarios pueden enviar notificaciones de eventos a otros servicios y desencadenar procesos de bajada. Este artículo tiene como objetivo ayudarle a configurar las aplicaciones empresariales para que escuchen eventos de Azure Maps. Este servicio le permite reaccionar ante eventos críticos de forma confiable, escalable y segura. Por ejemplo, los usuarios pueden compilar una aplicación para actualizar una base de datos, crear un vale y enviar una notificación por correo electrónico cada vez que un dispositivo entra en una geovalla.
 
-Azure Event Grid es un servicio de enrutamiento de eventos totalmente administrado que utiliza un modelo de publicación-suscripción. Event Grid tiene compatibilidad integrada para servicios de Azure, como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) y [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview), y puede proporcionar alertas de eventos a los servicios que no son de Azure mediante webhooks. Para obtener una lista completa de los controladores de eventos que Event Grid admite, vea [una introducción a Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Azure Event Grid es un servicio de enrutamiento de eventos totalmente administrado que usa un modelo de publicación-suscripción. Event Grid tiene compatibilidad integrada con servicios de Azure, como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) y [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Puede proporcionar alertas de eventos para servicios que no sean de Azure mediante webhooks. Para obtener una lista completa de los controladores de eventos que Event Grid admite, vea [una introducción a Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 
 ![Modelo funcional de Azure Event Grid](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -38,7 +38,7 @@ Event Grid usa las [suscripciones a eventos](https://docs.microsoft.com/azure/ev
 
 ## <a name="event-schema"></a>Esquema del evento
 
-En el ejemplo siguiente, se muestra el esquema de un evento GeofenceResult
+En el ejemplo siguiente, se muestra el esquema de GeofenceResult:
 
 ```JSON
 {   
@@ -81,7 +81,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento GeofenceResult
 Las aplicaciones que controlan los eventos de geovallas de Azure Maps deben seguir algunos procedimientos recomendados:
 
 * Se pueden configurar varias suscripciones para enrutar eventos al mismo controlador de eventos. Es importante no asumir que los eventos proceden de un origen determinado. Compruebe siempre el tema del mensaje para asegurarse de que procede del origen que está esperando.
-* Los mensajes pueden llegar desordenados o después de un retraso. Utilice el campo `X-Correlation-id` del encabezado de la respuesta para saber si la información sobre los objetos está actualizada.
+* Los mensajes pueden llegar desordenados o después de un retraso. Use el campo `X-Correlation-id` del encabezado de la respuesta para saber si la información sobre los objetos está actualizada.
 * Cuando se llama a Get y POST Geofence API con el parámetro de modo establecido en `EnterAndExit`, se genera un evento de entrada o de salida para cada geometría de la geovalla en la que se ha cambiado el estado desde la anterior llamada a Geofence API.
 
 ## <a name="next-steps"></a>Pasos siguientes

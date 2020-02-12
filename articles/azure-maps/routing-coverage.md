@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910625"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988947"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de enrutamiento en Azure Maps
 
-En este artículo se proporciona información sobre la cobertura del enrutamiento de Azure Maps. Al buscar la ruta óptima desde la ubicación A a la B, Azure Maps puede proporcionar tiempos de viaje muy precisos, información de viaje actualizada en vivo e instrucciones de ruta. La ruta tiene en cuenta otros términos de búsqueda, como el tráfico actual, el tipo de vehículo y las condiciones que se deben evitar. La posibilidad de optimizar la ruta depende de la región, puesto que Azure Maps tiene diferentes niveles de información y precisión para distintas regiones. En la tabla siguiente se enumeran las regiones y el tipo de información que se puede solicitar en cada una de ellas.
+En este artículo se proporciona información sobre la cobertura del enrutamiento de Azure Maps. En una consulta de búsqueda, Azure Maps devuelve una ruta óptima de la ubicación A a la ubicación B. Se le proporcionan tiempos de desplazamiento precisos, actualizaciones dinámicas de información de viajes e instrucciones de rutas. También puede agregar parámetros de búsqueda adicionales, como el tráfico actual, el tipo de vehículo y las condiciones que se deben evitar. La optimización de la ruta depende de la región. El motivo es que Azure Maps tiene varios niveles de información y precisión para diferentes regiones. En la tabla siguiente se enumeran las regiones y el tipo de información que se puede solicitar en cada una de ellas.
  
 Consulte la cobertura para [**Geocodificación**](geocoding-coverage.md).       
 Consulte la cobertura para [**Tráfico**](traffic-coverage.md).  

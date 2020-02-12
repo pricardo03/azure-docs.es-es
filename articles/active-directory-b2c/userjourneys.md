@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ec2d24c399e44bf973fc1ee78466dbee26f0394
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512028"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983187"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,19 +29,19 @@ Para definir los recorridos del usuario compatibles con la directiva, se agrega 
 
 El elemento **UserJourneys** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | UserJourney | 1:n | Un recorrido del usuario que define todas las construcciones necesarias para un flujo de usuario completo. | 
 
 El elemento **UserJourney** contiene los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Un identificador de un recorrido del usuario que se puede usar para hacer referencia a él desde otros elementos de la directiva. El elemento **DefaultUserJourney** de la [directiva del usuario de confianza](relyingparty.md) apunta a este atributo. |
+| Identificador | Sí | Un identificador de un recorrido del usuario que se puede usar para hacer referencia a él desde otros elementos de la directiva. El elemento **DefaultUserJourney** de la [directiva del usuario de confianza](relyingparty.md) apunta a este atributo. |
 
 El elemento **UserJourney** contiene los siguientes elementos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1:n | Una secuencia de orquestación por la que hay que pasar para lograr una transacción correcta. Cada recorrido del usuario consta de una lista ordenada de los pasos de orquestación que se ejecutan en secuencia. Si se produce un error en algún paso, la transacción no prospera. |
 
@@ -55,52 +55,52 @@ Para especificar la lista ordenada de los pasos de orquestación, se agrega un e
 
 El elemento **OrchestrationSteps** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1:n | Un paso de orquestación ordenada. | 
 
 El elemento **OrchestrationStep** contiene los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Order` | Sí | El orden de los pasos de orquestación. | 
 | `Type` | Sí | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> | 
-| ContentDefinitionReferenceId | Sin | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos: si el tipo de paso de orquestación es uno de los siguientes: `ClaimsProviderSelection` o `CombinedSignInAndSignUp`, Azure AD B2C debe mostrar la selección del proveedor de identidades sin tener ningún perfil técnico. | 
-| CpimIssuerTechnicalProfileReferenceId | Sin | El tipo de paso de orquestación es `SendClaims`. Esta propiedad define el identificador de perfil técnico del proveedor de notificaciones que emite el token del usuario de confianza.  Si no aparece, no se crea ningún token para el usuario de confianza. |
+| ContentDefinitionReferenceId | No | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos: si el tipo de paso de orquestación es uno de los siguientes: `ClaimsProviderSelection` o `CombinedSignInAndSignUp`, Azure AD B2C debe mostrar la selección del proveedor de identidades sin tener ningún perfil técnico. | 
+| CpimIssuerTechnicalProfileReferenceId | No | El tipo de paso de orquestación es `SendClaims`. Esta propiedad define el identificador de perfil técnico del proveedor de notificaciones que emite el token del usuario de confianza.  Si no aparece, no se crea ningún token para el usuario de confianza. |
 
 
 El elemento **OrchestrationStep** puede contener los siguientes elementos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- | 
 | Preconditions | 0:n | Una lista de las condiciones previas que deben cumplirse para que se ejecute el paso de orquestación. | 
 | ClaimsProviderSelections | 0:n | Una lista de las selecciones del proveedor de notificaciones para el paso de orquestación. | 
 | ClaimsExchanges | 0:n | Una lista de los intercambios de notificaciones para el paso de orquestación. | 
 
-### <a name="preconditions"></a>Condiciones previas
+### <a name="preconditions"></a>Preconditions
 
 El elemento **Preconditions** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- | 
-| Condición previa | 0:n | En función del perfil técnico que se esté utilizando, puede ser que se redireccione al cliente según la selección del proveedor de notificaciones o que se haga una llamada al servidor para intercambiar notificaciones. | 
+| Condición previa | 1:n | En función del perfil técnico que se esté utilizando, puede ser que se redireccione al cliente según la selección del proveedor de notificaciones o que se haga una llamada al servidor para intercambiar notificaciones. | 
 
 
 #### <a name="precondition"></a>Condición previa
 
 El elemento **Precondition** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Type` | Sí | El tipo de comprobación o la consulta que hay que llevar a cabo para esta condición previa. El valor puede ser **ClaimsExist**, que especifica que se deben realizar las acciones si existen las notificaciones especificadas en el conjunto de notificaciones actual del usuario, o **ClaimEquals**, que especifica que las acciones deben realizarse si existe la notificación especificada y su valor es igual al valor especificado. |
 | `ExecuteActionsIf` | Sí | Use una prueba de true o false para decidir si se deben realizar las acciones de la condición previa. | 
 
 El elemento **Precondition** contiene los siguientes elementos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| Valor | 1:n | Un valor ClaimTypeReferenceId que se va a consultar. Otro elemento de valor contiene el valor que se va a comprobar.</li></ul>|
-| . | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. Si el valor de la `Action` está establecido en `SkipThisOrchestrationStep`, el `OrchestrationStep` asociado no debe ejecutarse. | 
+| Value | 1:n | Un valor ClaimTypeReferenceId que se va a consultar. Otro elemento de valor contiene el valor que se va a comprobar.</li></ul>|
+| Acción | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. Si el valor de la `Action` está establecido en `SkipThisOrchestrationStep`, el `OrchestrationStep` asociado no debe ejecutarse. | 
 
 #### <a name="preconditions-examples"></a>Ejemplos de condiciones previas
 
@@ -162,18 +162,24 @@ Las condiciones previas pueden comprobar varias condiciones previas. En el ejemp
 
 Un paso de orquestación de tipo `ClaimsProviderSelection` o `CombinedSignInAndSignUp` puede contener una lista de proveedores de notificaciones con los que un usuario puede iniciar sesión. El orden de los elementos dentro de los elementos `ClaimsProviderSelections` controla el orden de los proveedores de identidades que se presentan al usuario.
 
-El elemento **ClaimsProviderSelection** contiene el elemento siguiente:
+El elemento **ClaimsProviderSelections** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| ClaimsProviderSelection | 0:n | Proporciona la lista de proveedores de notificaciones que se pueden seleccionar.|
+| ClaimsProviderSelection | 1:n | Proporciona la lista de proveedores de notificaciones que se pueden seleccionar.|
+
+El elemento **ClaimsProviderSelections** contiene los atributos siguientes: 
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| DisplayOption| No | Controla el comportamiento de un caso en el que solo hay disponible una selección del proveedor de notificaciones. Valores posibles: `DoNotShowSingleProvider` (valor predeterminado), el usuario se redirige inmediatamente al proveedor de identidades federadas. O `ShowSingleProvider` Azure AD B2C presenta la página de inicio de sesión con la selección del proveedor de identidades única. Para usar este atributo, la [versión de definición de contenido](page-layout.md) debe ser  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` y superior.| 
 
 El elemento **ClaimsProviderSelection** contiene los atributos siguientes: 
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Sin | El identificador del intercambio de notificaciones, que se ejecuta en el siguiente paso de orquestación de la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo ValidationClaimsExchangeId, pero no ambos. | 
-| ValidationClaimsExchangeId | Sin | El identificador del intercambio de notificaciones, que se ejecuta en el paso de orquestación actual para validar la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo TargetClaimsExchangeId, pero no ambos. |
+| TargetClaimsExchangeId | No | El identificador del intercambio de notificaciones, que se ejecuta en el siguiente paso de orquestación de la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo ValidationClaimsExchangeId, pero no ambos. | 
+| ValidationClaimsExchangeId | No | El identificador del intercambio de notificaciones, que se ejecuta en el paso de orquestación actual para validar la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo TargetClaimsExchangeId, pero no ambos. |
 
 ### <a name="claimsproviderselection-example"></a>Ejemplo de ClaimsProviderSelection
 
@@ -216,13 +222,13 @@ En el siguiente paso de orquestación, el usuario puede iniciar sesión con una 
 
 El elemento **ClaimsExchanges** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| ClaimsExchange | 0:n | En función del perfil técnico que se esté usando, puede ser que se redireccione al cliente según la selección del proveedor de notificaciones que se ha seleccionado o que se haga una llamada al servidor para intercambiar notificaciones. | 
+| ClaimsExchange | 1:n | En función del perfil técnico que se esté usando, puede ser que se redireccione al cliente según la selección del proveedor de notificaciones que se ha seleccionado o que se haga una llamada al servidor para intercambiar notificaciones. | 
 
 El elemento **ClaimsExchange** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Identificador del paso de intercambio de notificaciones. El identificador se usa para hacer referencia al intercambio de notificaciones a partir de un paso de selección del proveedor de notificaciones en la directiva. | 
+| Identificador | Sí | Identificador del paso de intercambio de notificaciones. El identificador se usa para hacer referencia al intercambio de notificaciones a partir de un paso de selección del proveedor de notificaciones en la directiva. | 
 | TechnicalProfileReferenceId | Sí | El identificador del perfil técnico que se va a ejecutar. |

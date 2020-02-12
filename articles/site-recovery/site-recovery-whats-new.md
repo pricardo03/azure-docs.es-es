@@ -2,13 +2,13 @@
 title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 4a9feff3b0bc98b5d9853268d033e60de55ea5ea
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/31/2020
+ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024833"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934933"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -24,17 +24,29 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 **Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
 --- | --- | --- | --- | --- | ---
-[Paquete acumulativo 43](https://support.microsoft.com/help/4531426/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
+[Paquete acumulativo 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [Paquete acumulativo 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [Paquete acumulativo 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [Paquete acumulativo 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Paquete acumulativo 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-        
+
 
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
 
 ## <a name="updates-january-2020"></a>Actualizaciones (enero de 2020)
+
+### <a name="update-rollup-44"></a>Paquete acumulativo de actualizaciones 44
+El [paquete acumulativo de actualizaciones 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) proporciona las siguientes actualizaciones.
+
+**Actualizar** | **Detalles**
+--- | ---
+**Mejoras y correcciones de problemas** | Varias actualizaciones de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo).
+
+### <a name="azure-vmware-disaster-recovery"></a>Recuperación ante desastres de VMware en Azure
+
+Azure Virtual Machines ahora admiten que máquinas virtuales habiliten el cifrado en reposo con claves administradas por el cliente. [Más información](azure-to-azure-how-to-enable-replication-cmk-disks.md).
+
 
 ### <a name="update-rollup-43"></a>Paquete acumulativo de actualizaciones 43
 
@@ -58,7 +70,7 @@ El [paquete acumulativo de actualizaciones 42](https://support.microsoft.com/hel
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo)
 
 
-## <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
 
 En la tabla se resumen las nuevas características de recuperación ante desastres de las máquinas virtuales de Azure.
 
@@ -153,7 +165,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-Nuevas alertas del servidor de procesos | Hemos agregado nuevas alertas del servidor de procesos. [Más información](vmware-physical-azure-monitor-process-server.md). 
+Nuevas alertas del servidor de procesos | Hemos agregado nuevas alertas del servidor de procesos. [Más información](vmware-physical-azure-monitor-process-server.md).
 
 ### <a name="hyper-v-disaster-recovery"></a>Recuperación ante desastres de Hyper-V
 
@@ -183,7 +195,7 @@ En la tabla se resumen las nuevas características de recuperación ante desastr
 **Característica** | **Detalles**
 --- | ---
 **Cifrado sin Azure AD** | Ahora se admite el cifrado sin una aplicación Azure AD para la replicación de máquinas virtuales de Azure en discos administrados que ejecutan Windows.
-**Recursos de red para conmutación por error** | Cuando se conmuta por error a otra región, ahora puede adjuntar la configuración de recursos de red (NSG, equilibrio de carga, dirección IP pública) a una máquina virtual. 
+**Recursos de red para conmutación por error** | Cuando se conmuta por error a otra región, ahora puede adjuntar la configuración de recursos de red (NSG, equilibrio de carga, dirección IP pública) a una máquina virtual.
 
 ## <a name="updates-july-2019"></a>Actualizaciones (julio de 2019)
 
@@ -255,7 +267,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-**Supervisión del servidor de procesos** | Ahora, para la recuperación ante desastres de máquinas virtuales VMware y servidores físicos en el entorno local, puede supervisar y solucionar problemas de los servidores de procesos con funcionalidad mejorada de alertas e informes sobre el estado de mantenimiento de los servidores. [Más información](vmware-physical-azure-monitor-process-server.md). 
+**Supervisión del servidor de procesos** | Ahora, para la recuperación ante desastres de máquinas virtuales VMware y servidores físicos en el entorno local, puede supervisar y solucionar problemas de los servidores de procesos con funcionalidad mejorada de alertas e informes sobre el estado de mantenimiento de los servidores. [Más información](vmware-physical-azure-monitor-process-server.md).
 
 
 
@@ -284,7 +296,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 ## <a name="updates-february-2019"></a>Actualizaciones (febrero de 2019)
 
-### <a name="update-rollup-34"></a>Paquete acumulativo de actualizaciones 34 
+### <a name="update-rollup-34"></a>Paquete acumulativo de actualizaciones 34
 
 El [Paquete acumulativo de actualizaciones 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) proporciona las siguientes actualizaciones.
 
@@ -294,7 +306,7 @@ El [Paquete acumulativo de actualizaciones 34](https://support.microsoft.com/hel
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
 
-### <a name="update-rollup-33"></a>Paquete acumulativo de actualizaciones 33 
+### <a name="update-rollup-33"></a>Paquete acumulativo de actualizaciones 33
 
 El [Paquete acumulativo de actualizaciones 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) proporciona las siguientes actualizaciones.
 
@@ -304,17 +316,19 @@ El [Paquete acumulativo de actualizaciones 33](https://support.microsoft.com/hel
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
 
-### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure 
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
+
 Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-**Asignación de red** | Para la recuperación ante desastres de VM de Azure, puede usar cualquier red de destino disponible cuando se habilite la replicación. 
+**Asignación de red** | Para la recuperación ante desastres de VM de Azure, puede usar cualquier red de destino disponible cuando se habilite la replicación.
 **SSD estándar** | Ahora puede configurar la recuperación ante desastres para VM de Azure con [discos SSD estándar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd).
 **Espacios de almacenamiento directo** | Puede configurar la recuperación ante desastres para aplicaciones que se ejecutan en aplicaciones de la VM de Azure mediante el uso de [Espacios de almacenamiento directo ](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para lograr alta disponibilidad.  Usar los Espacios de almacenamiento directo (S2D) junto con Site Recovery proporciona una protección exhaustiva de las cargas de trabajo de una VM de Azure. S2D le permite hospedar un clúster invitado en Azure. Esto es especialmente útil cuando una VM hospeda una aplicación crítica, como capa de ASCS de SAP, SQL Server o un servidor de archivos de escalabilidad horizontal.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperación ante desastres de un servidor físico/VMware
+
 Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
@@ -332,7 +346,7 @@ Redes aceleradas habilita la virtualización de E/S de raíz única (SR-IOV) en 
 
 [Más información](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
-### <a name="update-rollup-32"></a>Paquete acumulativo de actualizaciones 32 
+### <a name="update-rollup-32"></a>Paquete acumulativo de actualizaciones 32
 
 El [Paquete acumulativo de actualizaciones 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) proporciona las siguientes actualizaciones.
 
@@ -353,13 +367,13 @@ Las características que se agregaron este mes se resumen en la tabla.
 ### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>Recuperación ante desastres de servidores físicos/VM de VMware
 
 Las características que se agregaron este mes se resumen en la tabla.
- 
+
 **Característica** | **Detalles**
 --- | ---
 **Soporte técnico de Linux** | Se agregó compatibilidad con RedHat Enterprise Linux 7.6; RedHat Workstation 6/7; Oracle Linux 6.10 y Oracle Linux 7.6, además de nuevas versiones de kernel para Ubuntu, Debian y SUSE.
 
 
-### <a name="update-rollup-31"></a>Paquete acumulativo de actualizaciones 31 
+### <a name="update-rollup-31"></a>Paquete acumulativo de actualizaciones 31
 
 El [Paquete acumulativo de actualizaciones 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) proporciona las siguientes actualizaciones.
 
@@ -368,8 +382,10 @@ El [Paquete acumulativo de actualizaciones 31](https://support.microsoft.com/hel
 **Proveedores y agentes** | Actualización de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones).
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
-### <a name="vmware-vmsphysical-servers-replication"></a>Replicación de servidores físicos/VM de VMware 
+### <a name="vmware-vmsphysical-servers-replication"></a>Replicación de servidores físicos/VM de VMware
+
 Las características que se agregaron este mes se resumen en la tabla.
+
 **Característica** | **Detalles**
 --- | ---
 **Soporte técnico de Linux** |  Se ha agregado compatibilidad con Oracle Linux 6.8, Oracle Linux 6.9 y Oracle Linux 7.0 mediante Red Hat Compatible Kernel y con la versión 5 de Unbreakable Enterprise Kernel (UEK).
@@ -380,6 +396,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Compatibilidad con UEFI** | Las VM de Azure no admiten el tipo de arranque UEFI. Ahora puede migrar servidores físicos locales con UEFI a Azure con Site Recovery. Site Recovery migra el servidor mediante la conversión del tipo de arranque a BIOS antes de la migración. Antes, Site Recovery solo admitía esta conversión para VM. La compatibilidad está disponible para los servidores físicos que ejecutan Windows Server 2012 o posterior.
 
 ### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
+
 Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
@@ -411,7 +428,7 @@ La recuperación ante desastres de VM de Azure incurre en costos de licencias de
 
 ## <a name="updates-october-2018"></a>Actualizaciones (octubre de 2018)
 
-### <a name="update-rollup-30"></a>Paquete acumulativo de actualizaciones 30 
+### <a name="update-rollup-30"></a>Paquete acumulativo de actualizaciones 30
 
 El [Paquete acumulativo de actualizaciones 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) proporciona las siguientes actualizaciones.
 
@@ -431,7 +448,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Almacenamiento habilitado para firewall (PowerShell)** | Se agregó compatibilidad para [cuentas de almacenamiento habilitadas para firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Puede replicar VM de Azure con discos no administrados en cuentas de almacenamiento habilitadas mediante firewall en otra región de Azure para recuperación ante desastres.<br/><br/> También puede usar cuentas de almacenamiento habilitadas mediante firewall como cuentas de almacenamiento de destino para discos no administrados.<br/><br/> Compatible solo con PowerShell.
 
 
-### <a name="update-rollup-29"></a>Paquete acumulativo de actualizaciones 29 
+### <a name="update-rollup-29"></a>Paquete acumulativo de actualizaciones 29
 
 El [Paquete acumulativo de actualizaciones 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) proporciona las siguientes actualizaciones.
 
@@ -443,7 +460,7 @@ El [Paquete acumulativo de actualizaciones 29](https://support.microsoft.com/hel
 
 ## <a name="updates-august-2018"></a>Actualizaciones (agosto de 2018)
 
-### <a name="update-rollup-28"></a>Paquete acumulativo de actualizaciones 28 
+### <a name="update-rollup-28"></a>Paquete acumulativo de actualizaciones 28
 
 El [Paquete acumulativo de actualizaciones 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) proporciona las siguientes actualizaciones.
 
@@ -452,7 +469,7 @@ El [Paquete acumulativo de actualizaciones 28](https://support.microsoft.com/hel
 **Proveedores y agentes** | Actualización de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones).
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
-### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure 
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
 Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
@@ -461,12 +478,12 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Soporte técnico en la nube** | Compatibilidad con recuperación ante desastres para VM de Azure en la nube de Alemania.
 **Recuperación ante desastres entre suscripciones** | Se admite la replicación de VM de Azure de una región a otra de una suscripción diferente dentro del mismo inquilino de Azure Active Directory. [Más información](https://aka.ms/cross-sub-blog).
 
-### <a name="vmware-vmphysical-server-disaster-recovery"></a>Recuperación ante desastres de un servidor físico/VM de VMware 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Recuperación ante desastres de un servidor físico/VM de VMware
 Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-**Soporte técnico de Linux** | Se agregó compatibilidad para RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Ahora se admiten las máquinas virtuales Linux que usan el estilo de partición de tabla de particiones de GUID (GPT) en el modo de compatibilidad BIOS heredado. Revise las [preguntas más frecuentes de VM de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) para obtener más información. 
+**Soporte técnico de Linux** | Se agregó compatibilidad para RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Ahora se admiten las máquinas virtuales Linux que usan el estilo de partición de tabla de particiones de GUID (GPT) en el modo de compatibilidad BIOS heredado. Revise las [preguntas más frecuentes de VM de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) para obtener más información.
 **Recuperación ante desastres para VM después de la migración** | Compatibilidad para habilitar la recuperación ante desastres en una región secundaria para una VM de VMware local migrada a Azure, sin necesidad de desinstalar el servicio Mobility en la VM antes de habilitar la replicación.
 **Windows Server 2008** | Compatibilidad para migrar máquinas que ejecutan Windows Server 2008 R2/2008 de 64 bits y 32 bits.<br/><br/> Solo migración (conmutación por error y replicación). No se admite la conmutación por recuperación.
 
@@ -481,7 +498,7 @@ El [Paquete acumulativo de actualizaciones 27](https://support.microsoft.com/hel
 **Proveedores y agentes** | Actualización de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones).
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
-### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure 
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
 
 Las características que se agregaron este mes se resumen en la tabla.
 
@@ -489,7 +506,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 --- | ---
 **Soporte técnico de Linux** | Compatibilidad agregada para Red Hat Enterprise Linux 7.5.
 
-### <a name="vmware-vmphysical-server-disaster-recovery"></a>Recuperación ante desastres de un servidor físico/VM de VMware 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Recuperación ante desastres de un servidor físico/VM de VMware
 
 Las características que se agregaron este mes se resumen en la tabla.
 

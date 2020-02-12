@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863485"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984601"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -93,7 +93,7 @@ Según el **paso 3**, distinguir entre las credenciales de la aplicación y las 
 
    1. Luego el token se puede pasar en el encabezado `Authorization` cuando la aplicación llame a la API de Time Series Insights.
 
-* Como alternativa, los desarrolladores pueden optar por autenticarse con MSAL. Lea acerca de la [Migración a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) para obtener más información. 
+* Como alternativa, los desarrolladores pueden optar por autenticarse con MSAL. Obtenga información sobre cómo [migrar a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) y consulte el artículo [Administración de los datos de referencia de disponibilidad general en un entorno de Azure Time Series Insights con C#](time-series-insights-manage-reference-data-csharp.md) para más información. 
 
 ## <a name="common-headers-and-parameters"></a>Parámetros y encabezados comunes
 

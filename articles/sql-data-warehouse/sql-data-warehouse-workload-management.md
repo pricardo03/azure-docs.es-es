@@ -11,12 +11,12 @@ ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940589"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935407"
 ---
 # <a name="what-is-workload-management"></a>¿Qué es la administración de cargas de trabajo?
 
@@ -31,7 +31,7 @@ Una carga de trabajo de almacenamiento de datos hace referencia a todas las oper
 - La exportación de datos desde el almacenamiento de datos
 
 La capacidad de rendimiento de un almacén de datos viene determinada por las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md).
-- Para ver los recursos asignados para todos los perfiles de rendimiento, consulte [Memory and concurrency limits]memory-concurrency-limits.md).
+- Para ver los recursos asignados a todos los perfiles de rendimiento, consulte [Límites de memoria y concurrencia](memory-concurrency-limits.md).
 - Para ajustar la capacidad, puede [escalarla o reducirla verticalmente](quickstart-scale-compute-portal.md).
 
 

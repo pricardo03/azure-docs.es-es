@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a20f40c893c36823906d5cecadd9be21b8a4fd2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0bda94344a22f39daf104e7b95e33723187c4aa1
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836021"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983017"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -52,7 +52,7 @@ El elemento **ClaimsProvider** contiene los siguientes elementos secundarios:
 | Elemento | Repeticiones | Descripción |
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | Cadena que contiene el nombre de dominio del proveedor de notificaciones. Por ejemplo, si el proveedor de notificaciones incluye el perfil técnico de Facebook, el nombre de dominio será Facebook.com. Este nombre de dominio se utilizará con todos los perfiles técnicos definidos en el proveedor de notificaciones, a menos que se reemplace por el perfil técnico. También se puede hacer referencia al nombre de dominio en **domain_hint**. Para más información, consulte la sección **Redirección del inicio de sesión a un proveedor social** de [Configuración de inicio de sesión directo con Azure Active Directory B2C](direct-signin.md). |
-| DisplayName | 1:1 | Cadena que contiene el nombre del proveedor de notificaciones que se muestra a los usuarios. |
+| DisplayName | 1:1 | Una cadena que contiene el nombre del proveedor de notificaciones. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Conjunto de perfiles técnicos admitidos por el proveedor de notificaciones. |
 
 **ClaimsProvider** organiza la forma en que los perfiles técnicos se relacionan con el proveedor de notificaciones. En el ejemplo siguiente, se muestra el proveedor de notificaciones de Azure Active Directory con los perfiles técnicos de Azure Active Directory:

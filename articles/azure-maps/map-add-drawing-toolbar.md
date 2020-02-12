@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 553dffd14182c93a52ed076e742830c68130551b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4c89765a3bc59a37a182a2dfabf0727f95b575b8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911232"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933221"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Agregar una barra de herramientas de dibujo a un mapa
 
@@ -68,7 +68,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Adición de 
 
 ## <a name="change-drawing-rendering-style"></a>Cambiar el estilo de representación de dibujo
 
-El código siguiente obtiene las capas de representación del administrador de dibujos y modifica sus opciones para cambiar el estilo de representación del dibujo. En este caso, los puntos se representarán con un icono de marcador azul, las líneas serán de color rojo y de cuatro píxeles de ancho, los polígonos tendrán un color de relleno verde y un contorno naranja.
+El código siguiente obtiene las capas de representación del administrador de dibujos y modifica sus opciones para cambiar el estilo de representación del dibujo. En este caso, los puntos se representarán con un icono de marcador azul. Las líneas serán rojas y tendrán cuatro píxeles de ancho. Los polígonos tendrán el relleno verde y el contorno naranja.
 
 ```Javascript
 var layers = drawingManager.getLayers();

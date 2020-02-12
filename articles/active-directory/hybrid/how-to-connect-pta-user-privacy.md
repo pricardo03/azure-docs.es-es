@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242371"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931001"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidad del usuario y autenticación de paso a través de Azure Active Directory
 
@@ -73,7 +73,7 @@ Para ver los registros relacionados con el agente de autenticación de paso a tr
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Eliminación de archivos de registro de seguimiento del agente de autenticación.
 
-Debe comprobar con regularidad el contenido de <strong>%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\</strong> y eliminar el contenido de esta carpeta cada 48 horas. 
+Debe comprobar con regularidad el contenido de **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** y eliminar el contenido de esta carpeta cada 48 horas. 
 
 >[!IMPORTANT]
 >Si el servicio del agente de autenticación está en ejecución, no podrá eliminar el archivo de registro actual en la carpeta. Detenga el servicio antes de volver a intentarlo. Para evitar errores de inicio de sesión de usuario, ya debe haber configurado la autenticación de paso a través para una [alta disponibilidad](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

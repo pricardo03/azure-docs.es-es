@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f42cfd1b41ab463c3c3042987b5d0a0b3b00f67e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772132"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986196"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -89,6 +89,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |TargetReplicaSetSize |Int, el valor predeterminado es 7. |No permitida|TargetReplicaSetSize para ClusterManager. |
 |UpgradeHealthCheckInterval |Tiempo en segundos, el valor predeterminado es 60. |Dinámica|Se comprueba la frecuencia del estado de mantenimiento durante las actualizaciones de una aplicación supervisada. |
 |UpgradeStatusPollInterval |Tiempo en segundos, el valor predeterminado es 60. |Dinámica|La frecuencia de sondeo del estado de actualización de la aplicación. Este valor determina la frecuencia de actualización de cualquier llamada a GetApplicationUpgradeProgress. |
+|CompleteClientRequest | Bool, el valor predeterminado es false. |Dinámica| Complete la solicitud de cliente cuando sea aceptada por CM. |
 
 ## <a name="common"></a>Comunes
 
@@ -568,6 +569,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ValidatePlacementConstraint | Bool, el valor predeterminado es true. |Dinámica| Especifica si la expresión PlacementConstraint de un servicio se valida o no cuando se actualiza la descripción de un servicio. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, el valor predeterminado es TRUE. |Dinámica|Especifica si la expresión PlacementConstraint de un servicio se evalúa o no para la preferencia principal en la conmutación por error. |
 |VerboseHealthReportLimit | Int, el valor predeterminado es 20. | Dinámica|Define el número de veces que una réplica tiene que ir sin colocar antes de que se notifique una advertencia de mantenimiento para ella (si está habilitado el informe de mantenimiento detallado). |
+|NodeLoadsOperationalTracingEnabled | Bool, el valor predeterminado es true. |Dinámica|Configuración que habilita el seguimiento estructural operativo de la carga de nodo en el almacén de eventos. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(20) | Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo con el que se realiza el seguimiento de las cargas de nodo en el almacén de eventos para cada dominio de servicio. |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 
@@ -828,7 +831,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, el valor predeterminado es "".| estática |Nombre de red que se usará al configurar una red de contenedores.|
-|ContainerNetworkSetup|bool, el valor predeterminado es FALSE| estática |Establece si se debe configurar una red de contenedores.|
+|ContainerNetworkSetup|bool, el valor predeterminado es FALSE (Linux) y el valor predeterminado es TRUE (Windows)| estática |Establece si se debe configurar una red de contenedores.|
 |FabricDataRoot |String | No permitida |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
 |FabricLogRoot |String | No permitida |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
 |NodesToBeRemoved|string, el valor predeterminado es "".| Dinámica |Nodos que deben quitarse como parte de la actualización de la configuración. (Solo para implementaciones independientes.)|

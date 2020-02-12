@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841240"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908957"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -31,6 +31,9 @@ Hay varias maneras de personalizar la interfaz de usuario del usuario que experi
 Si usa [flujos de usuario](user-flow-overview.md), puede cambiar el aspecto de las páginas de flujo de usuario mediante *plantillas de diseño de página* o mediante su propio HTML y CSS. Ambos métodos se analizarán más adelante en este artículo.
 
 Use [Azure Portal](tutorial-customize-ui.md) para configurar la personalización de la interfaz de usuario para los flujos de usuarios.
+
+> [!TIP]
+> Si solo desea modificar el logotipo del banner, la imagen de fondo y el color de fondo de las páginas de flujo de usuario, puede probar la característica [Personalización de marca de empresa (versión preliminar)](#company-branding-preview) que se describe más adelante en este artículo.
 
 ### <a name="custom-policies"></a>Directivas personalizadas
 
@@ -149,6 +152,60 @@ En la tabla siguiente se muestran fragmentos de HTML que Azure AD B2C combina en
 | Inicio de sesión o registro unificado | Controla tanto el registro como el inicio de sesión de los clientes, los cuales pueden usar proveedores de identidades sociales como Facebook o Google, o cuentas locales. |
 | Multi-Factor Authentication | Los usuarios pueden comprobar sus números de teléfono (mediante mensajes de texto o con la voz) durante el registro o el inicio de sesión. |
 | Error | Proporciona información del error al cliente. |
+
+## <a name="company-branding-preview"></a>Personalización de marca de empresa (versión preliminar)
+
+Puede personalizar las páginas del flujo de usuario con un logotipo de banner, una imagen de fondo y un color de fondo mediante [Personalización de marca de empresa](../active-directory/fundamentals/customize-branding.md) de Azure Active Directory.
+
+Antes de personalizar las páginas del flujo de usuario, debe configurar la personalización de marca de empresa en Azure Active Directory y, a continuación, habilitarla en los diseños de página de los flujos de usuario en Azure AD B2C.
+
+[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
+
+### <a name="configure-company-branding"></a>Configuración de la personalización de marca de la compañía
+
+Empiece por establecer el logotipo del banner, la imagen de fondo y el color de fondo en **Personalización de marca de empresa**.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En **Administrar**, seleccione **Personalización de marca de empresa**.
+1. Siga los pasos de [Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización](../active-directory/fundamentals/customize-branding.md).
+
+Tenga en cuenta las siguientes cuestiones a la hora de configurar la personalización de marca de empresa en Azure AD B2C:
+
+* La personalización de marca de empresa en Azure AD B2C está actualmente limitada a la personalización de la **imagen de fondo**, el **logotipo del banner** y el **color de fondo**. Las demás propiedades del panel de personalización de marca de empresa como, por ejemplo, las incluidas en **Configuración avanzada**, *no son compatibles*.
+* En las páginas del flujo de usuario se muestra el color de fondo antes de cargar la imagen de fondo. Se recomienda elegir un color de fondo que coincida en la medida de lo posible con los colores de la imagen de fondo, para conseguir una experiencia de carga más fluida.
+* El logotipo del banner aparece en los mensajes de correo electrónico de verificación que se envían a los usuarios cuando inician un flujo de usuario de inicio de sesión.
+
+### <a name="enable-branding-in-user-flow-pages"></a>Habilitación de la personalización de marca en las páginas del flujo de usuario
+
+Después de configurar la personalización de marca de la empresa, habilítela en los flujos de usuario.
+
+1. En el menú izquierdo de Azure Portal, seleccione **Azure AD B2C**.
+1. En **Directivas**, seleccione**Flujos de usuario (directivas)** .
+1. Seleccione el flujo de usuario para el que desea habilitar la personalización de marca de empresa. La personalización de marca de la empresa **no es compatible** con los tipos de flujo de usuario *Inicio de sesión v1* y *Edición de perfiles v1*.
+1. En **Personalizar**, seleccione **Diseños de página** y, a continuación, seleccione el diseño en el que desea personalizar la marca. Por ejemplo, seleccione **Página unificada de inicio de sesión o de registro**.
+1. En **Versión de Diseño de página (versión preliminar)** , elija la versión **1.2.0** o posterior.
+1. Seleccione **Guardar**.
+
+Si desea personalizar la marca de todas las páginas del flujo de usuario, establezca la versión de cada diseño de página incluido en el flujo de usuario.
+
+![Selección del diseño de página de Azure AD B2C en Azure Portal](media/customize-ui-overview/portal-02-page-layout-select.png)
+
+Este ejemplo anotado muestra un logotipo de banner y una imagen de fondo personalizados en una página del flujo de usuario de *Registro e inicio de sesión* que usa la plantilla Azul océano:
+
+![Página de registro o inicio de sesión con personalización de marca ofrecida por Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
+
+### <a name="use-company-branding-assets-in-custom-html"></a>Uso de recursos de personalización de marca de empresa en HTML personalizado
+
+Para usar los recursos de personalización de marca de la empresa en HTML personalizado, agregue las siguientes etiquetas fuera de la etiqueta `<div id="api">`:
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
+El origen de la imagen se reemplaza con el de la imagen de fondo y el logotipo del banner. Tal como se describe en la sección [Introducción al código HTML y CSS personalizado](#get-started-with-custom-html-and-css), utilice clases CSS para aplicar estilo a los recursos y colocarlos en la página.
 
 ## <a name="localize-content"></a>Localización del contenido
 

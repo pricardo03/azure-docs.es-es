@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461117"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906787"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
@@ -33,6 +33,22 @@ Para información sobre la directiva de soporte de software de servidor de Micro
 > Las instrucciones de este artículo se aplican a:
 >1. La versión de Windows Server 2008 R2 de 64 bits y versiones posteriores de los sistemas operativos de Windows Server. Para más información sobre cómo ejecutar un sistema operativo de 32 bits en Azure, vea [Compatibilidad de sistemas operativos de 32 bits en máquinas virtuales de Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. Si se va a usar una herramienta de recuperación ante desastres para migrar la carga de trabajo, como Azure Site Recovery o Azure Migrate, sigue siendo necesario realizar este proceso y seguirlo en el sistema operativo invitado para preparar la imagen antes de la migración.
+
+## <a name="system-file-checker-sfc-command"></a>Comando Comprobador de archivos de sistema (SFC)
+
+### <a name="run-windows-system-file-checker-utility-run-sfc-scannow-on-os-prior-to-generalization-step-of-creating-customer-os-image"></a>Ejecute la utilidad Comprobador de archivos de sistema de Windows (ejecutar sfc/scannow) en el sistema operativo antes del paso de generalización de la creación de la imagen de sistema operativo del cliente.
+
+El comando Comprobador de archivos de sistema (SFC) se usa para comprobar y reemplazar los archivos del sistema de Windows.
+
+Para ejecutar el comando SFC:
+
+1. Abra un símbolo del sistema con privilegios elevados como administrador.
+1. Escriba `sfc /scannow` y seleccione **Entrar**.
+
+    ![Comprobador de archivos de sistema](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+Una vez completado el examen de SFC, intente instalar las actualizaciones de Windows y reinicie el equipo.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Conversión de un disco virtual en un disco de tamaño fijo y VHD
 

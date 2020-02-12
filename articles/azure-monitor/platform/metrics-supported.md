@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e67cd8c85d9ba85e32ef7aece402f97ab24243e5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310788"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963451"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
-Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor. Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. La siguiente lista incluye solo las métricas disponibles con la canalización de métricas consolidada de Azure Monitor. Para consultar estas métricas y acceder a ellas, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
+Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor. Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. La siguiente lista incluye solo las métricas disponibles con la canalización de métricas consolidada de Azure Monitor. Las métricas se organizan por espacio de nombres. Para obtener una lista de los servicios y los espacios de nombres que pertenecen a ellos, consulte [Proveedores de recursos para servicios de Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). Para consultar y obtener acceso a estas métricas mediante programación, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
 
 > [!NOTE]
 > Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
@@ -25,7 +25,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 > *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representará con todos los mensajes entrantes de todas las colas de Event Hub.
 >
 > Para obtener una lista de las métricas de plataforma exportables a través de la configuración de diagnóstico, consulte [este artículo](metrics-supported-export-diagnostic-settings.md).
-
 
 
 
@@ -1851,8 +1850,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |dwu_used|DWU utilizada|Count|Máxima|DWU utilizada. Solo se aplica a los almacenes de datos.|None|
 |cache_hit_percent|Porcentaje de aciertos de caché|Percent|Máxima|Porcentaje de aciertos de caché. Solo se aplica a los almacenes de datos.|None|
 |cache_used_percent|Porcentaje de caché usada|Percent|Máxima|Porcentaje de caché usada. Solo se aplica a los almacenes de datos.|None|
-|sqlserver_process_core_percent|Porcentaje de núcleos de proceso de SQL Server|Percent|Máxima|Uso de CPU como porcentaje del proceso de SQL DB. No es aplicable a los almacenes de datos.|None|
-|sqlserver_process_memory_percent|Porcentaje de memoria de proceso de SQL Server|Percent|Máxima|Uso de memoria como porcentaje del proceso de SQL DB. No es aplicable a los almacenes de datos.|None|
+|sqlserver_process_core_percent|Porcentaje de núcleos de proceso de SQL Server|Percent|Máxima|Porcentaje de uso de la CPU para el proceso de SQL Server, medido por el sistema operativo. Actualmente solo está disponible para las bases de datos sin servidor.|None|
+|sqlserver_process_memory_percent|Porcentaje de memoria de proceso de SQL Server|Percent|Máxima|Porcentaje de uso de la memoria para el proceso de SQL Server, medido por el sistema operativo. Actualmente solo está disponible para las bases de datos sin servidor.|None|
 |tempdb_data_size|Kilobytes de tamaño de archivo de datos Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de datos Tempdb. No es aplicable a los almacenes de datos.|None|
 |tempdb_log_size|Kilobytes de tamaño de archivo de registro Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de registro Tempdb. No es aplicable a los almacenes de datos.|None|
 |tempdb_log_used_percent|Porcentaje de registro de tempdb usado|Percent|Máxima|Porcentaje de registro de tempdb usado. No es aplicable a los almacenes de datos.|None|

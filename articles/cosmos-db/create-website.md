@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: feab221c24034fe29df420b4f9eb6d84e06a90b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719343"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901917"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
 En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
@@ -69,7 +69,7 @@ Ahora vamos a implementar su primera plantilla.
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment6.png)
 7. Cuando finalice la implementación, se abre el panel Grupo de recursos.
    ![Captura de pantalla del panel Grupo de recursos](./media/create-website/TemplateDeployment7.png)  
-8. Para usar la aplicación, vaya a la dirección URL de la aplicación web (en el ejemplo anterior, la dirección URL sería http://mydemodocdbwebapp.azurewebsites.net).  Verá la siguiente aplicación web:
+8. Para usar la aplicación, vaya a la dirección URL de la aplicación web (en el ejemplo anterior, sería `http://mydemodocdbwebapp.azurewebsites.net`).  Verá la siguiente aplicación web:
    
    ![Aplicación de tareas pendientes de ejemplo](./media/create-website/image2.png)
 9. Siga adelante y cree un par de tareas en la aplicación web, luego vuelva al panel Grupo de recursos en Azure Portal. Haga clic en el recurso de la cuenta de Azure Cosmos DB en la lista Recursos y, luego, en **Explorador de datos**.

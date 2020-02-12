@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 63706a3cdd34e5656f881c8668d8b88d9ac2e9ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843929"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935476"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solución de problemas de Azure Load Balancer
 
-En esta página se proporcionan soluciones de problemas para preguntas frecuentes sobre Azure Load Balancer. Cuando el equilibrador de carga no tenga conectividad, los síntomas más comunes son los siguientes: 
+En esta página se proporcionan soluciones de problemas para preguntas frecuentes sobre Azure Load Balancer Estándar y Básico. Para más información sobre Load Balancer Estándar, consulte [Introducción a Azure Load Balancer Estándar (versión preliminar)](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
+
+Cuando el equilibrador de carga no tenga conectividad, los síntomas más comunes son los siguientes: 
+
 - Las máquinas virtuales detrás del equilibrador de carga no responden a los sondeos de estado 
 - Las máquinas virtuales detrás del equilibrador de carga no responden al tráfico del puerto configurado
 
@@ -124,6 +127,10 @@ Que la aplicación hospedada en la máquina virtual de back-end del equilibrador
 Si se configura un equilibrador de carga interno dentro de una red virtual y una de las máquinas virtuales de back-end participantes intenta acceder al front-end de este, pueden producirse errores al asignar el flujo a la máquina virtual original. No se admite este escenario. Revise las [limitaciones](concepts-limitations.md#limitations) para información detallada.
 
 **Solución**: hay varias maneras para desbloquear este escenario, incluido el uso de un proxy. Evalúe Application Gateway u otros proxys de terceros (por ejemplo, nginx o haproxy). Para más información acerca de Application Gateway, consulte [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)
+
+## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Síntoma: No se puede cambiar el puerto de back-end para la regla de LB existente para un equilibrador de carga con un conjunto de escalado de máquinas virtuales implementado en el grupo de servidores back-end. 
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa: no se puede modificar el puerto de back-end para una regla de equilibrio de carga que usa un sondeo de estado para el equilibrador de carga al que el conjunto de escalado de máquinas virtuales hace referencia.
+**Resolución**: para cambiar el puerto, puede quitar el sondeo de estado mediante la actualización del conjunto de escalado de máquinas virtuales, actualizar el puerto y, a continuación, volver a configurar el sondeo de estado.
 
 ## <a name="additional-network-captures"></a>Capturas de red adicionales
 Si decide abrir un caso de soporte técnico, recopile la información siguiente para una resolución más rápida. Elija una sola máquina virtual de back-end para realizar las pruebas siguientes:

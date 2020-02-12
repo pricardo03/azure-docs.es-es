@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/31/2019
-ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/28/2020
+ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927148"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990528"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
@@ -104,10 +104,10 @@ Para más información, consulte el artículo sobre cómo crear y configurar un 
 Consulte los siguientes artículos para más información sobre Integration Runtime de SSIS de Azure: 
 
 - [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). En este artículo se proporcionan instrucciones paso a paso para crear una instancia de IR de SSIS de Azure y se usa una base de datos de Azure SQL para hospedar el catálogo de SSIS. 
-- [Instrucciones: Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). Este artículo amplía el tutorial y proporciona instrucciones acerca del uso de Instancia administrada de Azure SQL Database y cómo unir un entorno de ejecución de integración a una red virtual. 
+- [Cómo: Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). Este artículo amplía el tutorial y proporciona instrucciones acerca del uso de Instancia administrada de Azure SQL Database y cómo unir un entorno de ejecución de integración a una red virtual. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Supervisión de una instancia de Integration Runtime de SSIS de Azure). En este artículo se muestra cómo recuperar información sobre una instancia de IR de SSIS de Azure, junto con descripciones de los estados en la información devuelta. 
 - [Administración de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md). En este artículo se muestra cómo detener, iniciar o quitar una instancia de IR de SSIS de Azure. También se muestra cómo escalar horizontalmente IR de SSIS de Azure mediante la adición de más nodos a IR. 
-- [Unión de una instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md). En este artículo se ofrece información conceptual sobre cómo unir una instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual de Azure. También se proporcionan los pasos para configurar la red virtual mediante Azure Portal para que se una la instancia de Integration Runtime de SSIS de Azure. 
+- [Unión de una instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md). En este artículo se proporciona información conceptual sobre cómo unir una instancia de Integration Runtime de SSIS de Azure a una red virtual de Azure. También se proporcionan los pasos para configurar la red virtual mediante Azure Portal para que se una la instancia de Integration Runtime de SSIS de Azure. 
 
 ## <a name="integration-runtime-location"></a>Ubicación de Integration Runtime
 La ubicación de Data Factory es donde se almacenan los metadatos de la factoría de datos y desde donde se inicia el desencadenamiento de la canalización. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso. Este comportamiento se lleva a cabo a través de la instancia de [Integration Runtime disponible globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantizar el cumplimiento de los datos, la eficacia y los menores costes de salida de la red.
@@ -141,9 +141,9 @@ Cuando se utiliza para realizar el movimiento de datos, IR autohospedado extrae 
 ### <a name="azure-ssis-ir-location"></a>Ubicación de la instancia de Integration Runtime para la integración de SSIS en Azure
 Al seleccionar la ubicación adecuada para Integration Runtime de SSIS de Azure, es esencial lograr un alto rendimiento en los flujos de trabajo de extracción, transformación y carga (ETL).
 
-- La ubicación de Azure-SSIS Integration Runtime no es preciso que sea la misma que la ubicación de la factoría de datos, pero debe ser la misma que la ubicación de su propio servidor de la Instancia administrada de Azure SQL Database donde se hospedará la SSISDB. De esta manera, Integration Runtime de SSIS de Azure puede acceder fácilmente a SSISDB sin incurrir en un tráfico excesivo entre las distintas ubicaciones.
-- Si no tiene un servidor existente de Instancia administrada de Azure SQL Database para hospedar la SSISDB, pero tiene orígenes y destinos de datos locales, debe crear un nuevo servidor de Instancia administrada de Azure SQL Database en la misma ubicación de una red virtual conectada a la red local.  De esta manera, puede crear la instancia de Azure-SSIS Integration Runtime mediante el nuevo servidor de Instancia administrada o Azure SQL Database, y unirse a esa red virtual, todo en la misma ubicación, lo que minimiza de manera eficaz los movimientos de datos entre distintas ubicaciones.
-- Si la ubicación de su servidor existente de Instancia administrada de Azure SQL Database donde se hospeda la SSISDB no es la misma que la ubicación de una red virtual conectada a la red local, cree primero la instancia de Azure-SSIS Integration Runtime con un servidor existente de Instancia administrada de Azure SQL Database, únase a otra red virtual en la misma ubicación y, a continuación, configure una conexión entre redes virtuales en distintas ubicaciones.
+- La ubicación de Azure-SSIS IR no tiene que ser igual que la ubicación de la factoría de datos, pero debe ser la misma que la ubicación de su propio servidor de Azure SQL Database o Instancia administrada donde se hospedará SSISDB. De esta manera, Integration Runtime de SSIS de Azure puede acceder fácilmente a SSISDB sin incurrir en un tráfico excesivo entre las distintas ubicaciones.
+- Si no tiene un servidor de Azure SQL Database o Instancia administrada para hospedar SSISDB, pero tiene orígenes y destinos de datos locales, debe crear un nuevo servidor de Azure SQL Database o Instancia administrada en la misma ubicación de una red virtual conectada a la red local.  De esta manera, puede usar el nuevo servidor de Azure SQL Database o Instancia administrada y unirse a esa red virtual para crear su instancia de Azure-SSIS IR, todo en la misma ubicación, con lo que se reduce de manera eficaz los movimientos de datos entre distintas ubicaciones.
+- Si la ubicación de su servidor existente de Azure SQL Database o Instancia administrada donde se hospeda SSISDB no es la misma que la ubicación de una red virtual conectada a la red local, cree primero la instancia de Azure-SSIS IR con un servidor de Azure SQL Database o Instancia administrada existente, únase a otra red virtual de la misma ubicación y, luego, configure una conexión entre redes virtuales en distintas ubicaciones.
 
 En el diagrama siguiente se muestra la configuración de la ubicación de Data Factory y sus instancias de Integration Runtime:
 
@@ -163,16 +163,16 @@ Para la actividad de copia, necesita servicios vinculados de origen y receptor p
 
 La actividad Lookup y GetMetadata se ejecuta en el entorno de ejecución de integración asociado al servicio vinculado de almacén de datos.
 
-### <a name="transformation-activity"></a>Actividad de transformación
+### <a name="external-transformation-activity"></a>Actividad de transformación externa
 
-Cada actividad de transformación tiene un destino de servicio vinculado de proceso de destino, que apunta a una instancia de Integration Runtime. Esta instancia de Integration Runtime es desde donde se distribuye la actividad de transformación.
+Cada actividad de transformación externa que usa un motor de proceso externo tiene un servicio vinculado de proceso de destino, que señala a un entorno de ejecución de integración. Esta instancia de entorno de ejecución de integración determina la ubicación desde la que se envía la actividad de transformación codificada externamente.
 
 ### <a name="data-flow-activity"></a>Actividad Data Flow
 
-La actividad Data Flow se ejecuta en el entorno de ejecución de integración asociado a ella. 
+Las actividades de Data Flow se ejecutan en el entorno de ejecución de integración asociado a ella. El proceso de Spark que usan los flujos de datos viene determinado por las propiedades del flujo de datos de su instancia de Azure Integration Runtime y se administran por completo en ADF.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Cómo crear y configurar una instancia de Azure Integration Runtime](create-azure-integration-runtime.md)
 - [Crear Integration Runtime autohospedado](create-self-hosted-integration-runtime.md)

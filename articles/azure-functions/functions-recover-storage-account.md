@@ -5,33 +5,29 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 40037252ddf8e505ae7fe734813d598e7de96336
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 910b582cb40b9f8aff6a553621b4677d6b019826
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834230"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963893"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Solución de problemas de acceso a Azure Functions Runtime
 
-
-## <a name="error-text"></a>Texto del error
-Este artículo está pensado para solucionar el error siguiente que aparece en el portal de Functions.
+El objetivo de este artículo es solucionar los problemas relacionados con el mensaje de error que indica que no se puede acceder al entorno de ejecución de Azure Functions cuando este aparece en Azure Portal. Cuando se produce este error, aparece el siguiente mensaje de error en el portal.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>Resumen
-Este problema se produce cuando no se puede iniciar Azure Functions Runtime. La razón más común para que se produzca este error es que la aplicación de función pierde el acceso a su cuenta de almacenamiento. [Más información sobre los requisitos de la cuenta de almacenamiento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+Este problema se produce cuando no se puede iniciar Azure Functions Runtime. La razón más común para que se produzca este error es que la aplicación de función pierde el acceso a su cuenta de almacenamiento. Para más información, consulte [Requisitos de la cuenta de almacenamiento](storage-considerations.md#storage-account-requirements).
 
-### <a name="troubleshooting"></a>Solución de problemas
-Le guiaremos con los cuatro casos de error más comunes y le ayudaremos a identificar y resolver cada uno de ellos.
+Las demás secciones de este artículo le ayudarán a solucionar las siguientes causas del error, así como a identificar y a resolver cada caso.
 
-1. Eliminación de la cuenta de almacenamiento
-1. Eliminación de la configuración de la aplicación de la cuenta de almacenamiento
-1. Credenciales de la cuenta de almacenamiento no válidas
-1. Falta de acceso a la cuenta de almacenamiento
-1. Cuota de ejecución diaria total
-1. Aplicación detrás de un firewall
++ [Eliminación de la cuenta de almacenamiento](#storage-account-deleted)
++ [Eliminación de la configuración de la aplicación de la cuenta de almacenamiento](#storage-account-application-settings-deleted)
++ [Credenciales de la cuenta de almacenamiento no válidas](#storage-account-credentials-invalid)
++ [Falta de acceso a la cuenta de almacenamiento](#storage-account-inaccessible)
++ [Cuota de ejecución diaria superada](#daily-execution-quota-full)
++ [La aplicación está detrás de un firewall](#app-is-behind-a-firewall)
 
 
 ## <a name="storage-account-deleted"></a>Eliminación de la cuenta de almacenamiento
@@ -60,9 +56,9 @@ En el paso anterior, si no tenía una cadena de conexión de la cuenta de almace
 
 ### <a name="guidance"></a>Guía
 
-* No busque esta configuración en la configuración de las ranuras. Al intercambiar ranuras de implementación, la función se interrumpe.
-* No modifique esta configuración como parte de implementaciones automatizadas.
-* Esta configuración debe ser válida y proporcionarse en el momento de la creación. Una implementación automatizada que no contiene esta configuración genera una aplicación no funcional, aunque esta se añada después.
+* No seleccione "Configuración de ranuras" en ninguna de estas opciones. Si se intercambian las ranuras de implementación, la aplicación de funciones se interrumpe.
+* No modifique esta configuración durante las implementaciones automatizadas.
+* Esta configuración debe ser válida y proporcionarse en el momento de la creación. Si una implementación automatizada no tuviera esta configuración, la aplicación de funciones no se ejecutaría, ni siquiera aunque esta configuración se agregara más adelante.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciales de la cuenta de almacenamiento no válidas
 
@@ -70,36 +66,31 @@ Al volver a generar las claves de almacenamiento deben actualizarse las cadenas 
 
 ## <a name="storage-account-inaccessible"></a>Falta de acceso a la cuenta de almacenamiento
 
-La aplicación de función debe poder acceder a la cuenta de almacenamiento. Estos son los problemas comunes de bloqueo del acceso de Functions a la cuenta de almacenamiento:
+Es necesario que la aplicación de funciones pueda acceder a la cuenta de almacenamiento. Estos son los problemas comunes de bloqueo del acceso de Functions a la cuenta de almacenamiento:
 
-* Aplicaciones de función implementadas en entornos de App Service sin las reglas de red correctas para permitir el tráfico hacia la cuenta de almacenamiento y desde esta
-* El firewall de la cuenta de almacenamiento está habilitado y no está configurado para permitir el tráfico hacia Functions y desde aquí. [Más información sobre la configuración del firewall de la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
++ Las aplicaciones de funciones están implementadas en instancias de App Service Environment sin las reglas de red adecuadas para permitir el tráfico de entrada y salida de la cuenta de almacenamiento.
 
-## <a name="daily-execution-quota-full"></a>Cuota de ejecución diaria total
++ El firewall de la cuenta de almacenamiento está habilitado, pero no está configurado para permitir el tráfico de entrada y salida de Functions. Para más información, consulte [Configuración de redes virtuales y firewalls de Azure Storage](../storage/common/storage-network-security.md).
 
-Si tiene una cuota de ejecución diaria configurada, la instancia de Function App se deshabilitará temporalmente y muchos de los controles del portal dejarán de estar disponibles. 
+## <a name="daily-execution-quota-full"></a>Se ha alcanzado la cuota de ejecución diaria
 
-* Para comprobarlo, abra Características de la plataforma > Configuración de Function App en el portal. Verá el mensaje siguiente si supera la cuota:
-    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
-* Elimine la cuota y reinicie la aplicación para resolver el problema.
+Si tiene configurada una cuota de ejecución diaria, la aplicación de funciones se deshabilitará temporalmente y muchos de los controles del portal dejarán de estar disponibles. 
+
++ Para comprobarlo en [Azure Portal](https://portal.azure.com), abra **Características de la plataforma** > **Configuración de aplicación de funciones** en la aplicación de funciones. Si supera el valor establecido en **Cuota de uso diario**, aparecerá el siguiente mensaje:
+
+    `The function app has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+
++ Para resolver este problema, quite o aumente la cuota diaria y reinicie la aplicación. De lo contrario, la ejecución de la aplicación se bloqueará hasta el día siguiente.
 
 ## <a name="app-is-behind-a-firewall"></a>Aplicación detrás de un firewall
 
 El entorno de ejecución de la función no estará accesible si la aplicación de funciones está hospedada en una instancia de [App Service Environment con equilibro de carga interno](../app-service/environment/create-ilb-ase.md) y está configurada para bloquear el tráfico entrante de Internet o tiene [restricciones de IP de entrada](functions-networking-options.md#inbound-ip-restrictions) configuradas para bloquear el acceso a Internet. Azure Portal realiza llamadas directamente a la aplicación en ejecución para obtener la lista de funciones y también realiza llamadas HTTP a un punto de conexión de KUDU. La configuración de nivel de plataforma en la pestaña `Platform Features` seguirá estando disponible.
 
-* Para comprobar la configuración de ASE, vaya al grupo de seguridad de red de la subred donde se encuentra ASE y valide las reglas de entrada para permitir el tráfico procedente de la dirección IP pública del equipo desde el que se accede a la aplicación. También puede usar el portal desde un equipo conectado a la red virtual que ejecuta la aplicación o una máquina virtual que se ejecuta en la red virtual. [Obtenga más información sobre la configuración de reglas de entrada aquí](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
+Para comprobar la configuración de ASE, vaya al grupo de seguridad de red de la subred donde se encuentra ASE y valide las reglas de entrada para permitir el tráfico procedente de la dirección IP pública del equipo desde el que se accede a la aplicación. También puede usar el portal desde un equipo conectado a la red virtual que ejecuta la aplicación o una máquina virtual que se ejecuta en la red virtual. [Obtenga más información sobre la configuración de reglas de entrada aquí](../app-service/environment/network-info.md#network-security-groups).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que volvemos a tener la aplicación de función y funciona, veamos las guías de inicio rápido y las referencias para los desarrolladores para volver a prepararlo todo de nuevo.
+Más información sobre la supervisión de las aplicaciones de funciones:
 
-* [Creación de su primera función de Azure](functions-create-first-azure-function.md)  
-  Comience de inmediato y cree su primera función mediante el inicio rápido de Azure Functions. 
-* [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
-  Proporciona información técnica sobre el tiempo de ejecución de Azure Functions y una referencia para las funciones de codificación y la definición de enlaces y desencadenadores.
-* [Prueba de Azure Functions](functions-test-a-function.md)  
-  describe las diversas herramientas y técnicas para probar sus funciones.
-* [How to scale Azure Functions](functions-scale.md)  
-  Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado. 
-* [¿Qué es Azure App Service?](../app-service/overview.md)  
-  Azure Functions aprovecha Azure App Service para obtener una funcionalidad básica como son las implementaciones, las variables de entorno y los diagnósticos. 
+> [!div class="nextstepaction"]
+> [Monitor Azure Functions](functions-monitoring.md)

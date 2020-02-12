@@ -9,20 +9,33 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 01/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2bdd11c3b53b650e636d53942fcb94142de556b2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: cf5f89197798f95dced5bfd8817f1df050297048
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772824"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962006"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Administración de los datos de referencia de disponibilidad general en un entorno de Azure Time Series Insights con C#
 
 En este artículo se muestra cómo combinar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) y Azure Active Directory para llevar a cabo solicitudes de API de programación a la [API de administración de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) de disponibilidad general de Azure Time Series Insights.
 
-## <a name="prerequisites"></a>Prerequisites
+> [!TIP]
+> Consulte ejemplos de código C# de disponibilidad general en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+
+## <a name="summary"></a>Resumen
+
+En el código de ejemplo siguiente se muestran las siguientes características:
+
+* Adquisición de un token de acceso mediante [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
+* Las operaciones secuenciales CREATE, READ, UPDATE y DELETE en la [API de administración de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) de disponibilidad general.
+* Entre los códigos de respuesta comunes se incluyen [códigos de error comunes](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
+    
+    La API de administración de datos de referencia procesa cada elemento de forma individual y un error con un elemento no impide que los demás se completen correctamente. Por ejemplo, si la solicitud tiene 100 elementos y uno de ellos tiene un error, se escriben 99 elementos y se rechaza uno.
+
+## <a name="prerequisites-and-setup"></a>Requisitos previos y configuración
 
 Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
 
@@ -42,9 +55,6 @@ Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
 1. Edite el código de ejemplo siguiente y reemplace cada **#PLACEHOLDER#** por el identificador de entorno adecuado.
 
 1. Ejecute `dotnet run` en el directorio raíz del proyecto. Cuando se le solicite, use su perfil de usuario para iniciar sesión en Azure. 
-
-> [!TIP]
-> * Consulte otros ejemplos de código C# de disponibilidad general en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dependencias del proyecto
 
@@ -296,16 +306,6 @@ namespace CsharpTsiMsalGaSample
     }
 }
 ```
-
-## <a name="summary"></a>Resumen
-
-En el código de ejemplo anterior se muestran las siguientes características:
-
-* Adquisición de un token de acceso mediante [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Las operaciones secuenciales CREATE, READ, UPDATE y DELETE en la [API de administración de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) de disponibilidad general.
-* Entre los códigos de respuesta comunes se incluyen [códigos de error comunes](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
-    
-    La API de administración de datos de referencia procesa cada elemento de forma individual y un error con un elemento no impide que los demás se completen correctamente. Por ejemplo, si la solicitud tiene 100 elementos y uno de ellos tiene un error, se escriben 99 elementos y se rechaza uno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

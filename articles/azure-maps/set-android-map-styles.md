@@ -1,6 +1,6 @@
 ---
 title: Establecimiento de un estilo de mapa mediante Android SDK de Azure Maps | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre las funcionalidades relacionadas con el estilo de Microsoft Azure Maps para Android SDK.
+description: En este artículo, se aprenderán las funcionalidades relacionadas con el estilo de Microsoft Azure Maps para Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fe0aa662234166249433634ccb45d1931d176319
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4adb38148acc0c18ac73709efbe7628ca9497897
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910482"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988964"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Establecimiento del estilo de mapa mediante Android SDK de Azure Maps
 
@@ -59,7 +59,7 @@ El atributo `mapcontrol_style` anterior establece el estilo de mapa en **graysca
 
 ## <a name="set-map-style-in-the-activity-class"></a>Establecimiento del estilo del mapa en la clase de actividad
 
-El estilo del mapa se puede establecer en la clase de actividad. Copie el siguiente fragmento de código en el método **onCreate()** de la clase `MainActivity.java`. Esto establecerá el estilo del mapa en **satellite_road_labels**.
+El estilo del mapa se puede establecer en la clase de actividad. Copie el siguiente fragmento de código en el método **onCreate()** de la clase `MainActivity.java`. Este código establecerá el estilo del mapa en **satellite_road_labels**.
 
 ```Java
 mapControl.onReady(map -> {

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481010"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931566"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceptos de administración para cuentas de usuario, contraseñas y administración en Azure Active Directory Domain Services
 
@@ -32,9 +32,9 @@ En Azure AD DS, los controladores de dominio (DC) que contienen todos los recurs
 Las cuentas de usuario se pueden crear en Azure AD DS de varias formas. La mayoría de las cuentas de usuario se sincronizan desde Azure AD, lo que también puede incluir cuentas de usuario sincronizadas desde un entorno de AD DS local. También puede crear de forma manual cuentas directamente en Azure AD DS. Algunas características, como la directiva de contraseñas o la sincronización de contraseña inicial, se comportan de forma diferente dependiendo de cómo y dónde se crean las cuentas de usuario.
 
 * La cuenta de usuario se puede sincronizar desde Azure AD. Esto incluye las cuentas de usuario solo en la nube creadas directamente en Azure AD y las cuentas de usuario híbridas sincronizadas desde un entorno de AD DS local mediante Azure AD Connect.
-    * La mayoría de las cuentas de usuario en Azure AD se crean a través del proceso de sincronización de Azure AD.
+    * La mayoría de las cuentas de usuario en Azure AD DS se crean a través del proceso de sincronización de Azure AD.
 * La cuenta de usuario se puede crear manualmente en un dominio administrado de Azure AD DS y no existe en Azure AD.
-    * Si tiene que crear cuentas de servicio para aquellas aplicaciones que solo se ejecutan en Azure AD DS, puede crearlas manualmente en el dominio administrado. Como la sincronización es unidireccional desde Azure AD, las cuentas de usuario creadas en Azure AD DS no se vuelven a sincronizar con Azure AD.
+    * Si tiene que crear cuentas de servicio para aquellas aplicaciones que solo se ejecutan en Azure AD DS, puede crearlas manualmente en el dominio administrado. Como la sincronización desde Azure AD es unidireccional, las cuentas de usuario que se crearon en Azure AD DS no se vuelven a sincronizar con Azure AD.
 
 ## <a name="password-policy"></a>Directiva de contraseñas
 
@@ -60,19 +60,49 @@ Para los usuarios sincronizados desde un entorno de AD DS local mediante Azure A
 Una vez configurados correctamente, los hash de las contraseñas que se pueden usar se almacenan en el dominio administrado de Azure AD DS. Si elimina el dominio administrado de Azure AD DS, también se eliminarán los hash de las contraseñas que haya almacenados en ese momento. La información de credenciales sincronizada en Azure AD no se puede volver a usar si posteriormente crea un dominio administrado de Azure AD DS: debe volver a configurar la sincronización de los hash de contraseña para almacenarlos de nuevo. Los usuarios o las máquinas virtuales anteriormente unidos a un dominio no podrán autenticarse de inmediato, ya que Azure AD debe generar y almacenar los hash de contraseña en el nuevo dominio administrado de Azure AD DS. Para más información, consulte [Proceso de sincronización de hash de contraseña para Azure AD DS y Azure AD Connect][azure-ad-password-sync].
 
 > [!IMPORTANT]
-> Azure AD Connect solo se debe instalar y configurar para la sincronización con entornos de AD DS locales. No se admite la instalación de Azure AD Connect en un dominio administrado de Azure AD DS para volver a sincronizar los objetos con Azure AD.
+> Azure AD Connect solo debe instalarse y configurarse para la sincronización con entornos de AD DS locales. No se admite la instalación de Azure AD Connect en un dominio administrado de Azure AD DS para volver a sincronizar los objetos con Azure AD.
 
 ## <a name="forests-and-trusts"></a>Bosques y confianzas
 
-Un *bosque* es una construcción lógica que Active Directory Domain Services usa para agrupar uno o más *dominios*. Los dominios almacenan los objetos para los usuarios o grupos, y proporcionan servicios de autenticación.
+Un *bosque* es una construcción lógica que Active Directory Domain Services (AD DS) usa para agrupar uno o más *dominios*. Estos dominios almacenan objetos para los usuarios o grupos, y proporcionan servicios de autenticación.
 
-En Azure AD DS, el bosque solo contiene un dominio. Los bosques locales de AD DS suelen contener muchos dominios. En organizaciones de gran tamaño, especialmente después de fusiones y adquisiciones, es posible que acabe con varios bosques locales y que cada uno contenga varios dominios.
+En Azure AD DS, el bosque solo contiene un dominio. Los bosques de entornos de AD DS locales suelen contener varios dominios. En organizaciones de gran tamaño, especialmente después de fusiones y adquisiciones, es posible que acabe con varios bosques locales y que cada uno contenga varios dominios.
 
-De forma predeterminada, un dominio administrado de Azure AD DS se crea como un bosque de *usuario*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Las cuentas de usuario se pueden autenticar directamente en el dominio administrado de Azure AD DS, por ejemplo, para iniciar sesión en una máquina virtual unida a un dominio. Un bosque de usuario funciona cuando se pueden sincronizar los hash de contraseña y los usuarios no usan métodos de inicio de sesión exclusivos como la autenticación de tarjeta inteligente.
+De forma predeterminada, un dominio administrado de Azure AD DS se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Las cuentas de usuario se pueden autenticar directamente en el dominio administrado de Azure AD DS, por ejemplo, para iniciar sesión en una máquina virtual unida a un dominio. Un bosque de usuarios funciona cuando se pueden sincronizar los hash de contraseña y los usuarios no usan métodos de inicio de sesión exclusivos, como la autenticación de tarjeta inteligente.
 
-En un bosque de *recursos* de Azure AD DS, los usuarios se autentican a través de una *confianza* de bosque unidireccional de su AD DS local. Con este enfoque, los objetos de usuario y los valores hash de contraseña no se sincronizan con Azure AD DS. Los objetos de usuario y las credenciales solo existen en la instancia de AD DS local. Este enfoque permite que las empresas hospeden en Azure recursos y plataformas de aplicaciones que dependen de la autenticación clásica, como LDAPS, Kerberos o NTLM, pero se eliminan todos los problemas o las preocupaciones de autenticación. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
+En un bosque de *recursos* de Azure AD DS, los usuarios se autentican a través de una *confianza* de bosque unidireccional que procede del entorno de AD DS local. En esta estrategia, los objetos y hash de contraseña de los usuarios no se sincronizan con Azure AD DS. Los objetos y las credenciales de usuario solo existen en el entorno de AD DS local. Esto permite que las empresas hospeden en Azure recursos y plataformas de aplicaciones que dependen de la autenticación clásica, como LDAPS, Kerberos o NTLM, y que se olviden todos los problemas o las preocupaciones de autenticación. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
 
 Para obtener más información sobre los tipos de bosque de Azure AD DS, consulte [¿Qué son los bosques de recursos?][concepts-forest] y [¿Cómo funcionan las confianzas de bosque en Azure AD DS?][concepts-trust]
+
+## <a name="azure-ad-ds-skus"></a>SKU de Azure AD DS
+
+En Azure AD DS, el rendimiento y las características disponibles dependen de la SKU. Puede seleccionar la SKU al crear el dominio administrado y cambiarla después si los requisitos del negocio varían una vez implementado el dominio administrado. En la tabla siguiente, se incluyen las SKU disponibles y las diferencias entre ellas:
+
+| Nombre de SKU   | Número máximo de objetos | Frecuencia de copia de seguridad | Número máximo de relaciones de confianza entre bosques de salida |
+|------------|----------------------|------------------|----|
+| Estándar   | Sin límite            | Cada 7 días     | 0  |
+| Enterprise | Sin límite            | Cada 3 días     | 5  |
+| Premium    | Sin límite            | Diario            | 10 |
+
+Antes de utilizar estas SKU de Azure AD DS, se empleaba un modelo de facturación basado en el número de objetos (cuentas de usuario y de equipo) del dominio administrado de Azure AD DS. Este modelo de precios variables que se basaban en el número de objetos del dominio administrado ya no está disponible.
+
+Para más información, consulte la [página de precios de Azure AD DS][pricing].
+
+### <a name="managed-domain-performance"></a>Rendimiento del dominio administrado
+
+El rendimiento del dominio varía en función del modo en que la autenticación de una aplicación esté implementada. Además, puede haber otros recursos que mejoren el tiempo de respuesta de las consultas y reduzcan el tiempo de las operaciones de sincronización. A medida que el nivel de SKU aumenta, también lo hacen los recursos de proceso disponibles en el dominio administrado. Supervise el rendimiento de las aplicaciones y planee los recursos necesarios.
+
+Si el negocio o la aplicación exigen cambios y necesita más capacidad de proceso para el dominio administrado de Azure AD DS, puede cambiar a una SKU diferente.
+
+### <a name="backup-frequency"></a>Frecuencia de copia de seguridad
+
+La frecuencia de copia de seguridad determina la asiduidad con la que se toma una instantánea del dominio administrado. Las copias de seguridad son un proceso automatizado administrado por la plataforma Azure. Si se produce un problema con el dominio administrado, el Soporte técnico de Azure puede ayudarle a restaurar el sistema desde la copia de seguridad. Como la sincronización es un proceso unidireccional que se realiza *desde* Azure AD, los problemas que se produzcan en el dominio administrado de Azure AD DS no afectarán a Azure AD ni a la funcionalidad y los entornos locales de AD DS.
+
+A medida que el nivel de SKU aumente, lo hará también la frecuencia con la que se realizan instantáneas de copia de seguridad. Analice los requisitos empresariales y el objetivo de punto de recuperación (RPO) para determinar la frecuencia de copia de seguridad necesaria para el dominio administrado. Si los requisitos del negocio o de la aplicación cambian y necesita hacer copias de seguridad con mayor frecuencia, puede cambiar a una SKU diferente.
+
+### <a name="outbound-forests"></a>Bosques de salida
+
+En la sección anterior, se detallan las relaciones de confianza unidireccionales de bosques de salida entre un dominio administrado de Azure AD DS y un entorno de AD DS local (actualmente en versión preliminar). La SKU determina el número	 máximo de relaciones de confianza entre bosques que puede crear para un dominio administrado de Azure AD DS. Analice los requisitos del negocio y la aplicación para determinar cuántas relaciones de confianza necesita realmente y elija la SKU de Azure AD DS adecuada. Como siempre, si los requisitos del negocio cambian y necesita crear otras relaciones de confianza entre bosques, puede cambiar a una SKU diferente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -87,3 +117,6 @@ Para empezar, [cree un dominio administrado de Azure AD DS][create-instance].
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
+
+<!-- EXTERNAL LINKS -->
+[pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/

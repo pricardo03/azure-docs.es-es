@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 019c2f8a13a80de395803ca1782e578c049a7923
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549353"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909047"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
@@ -29,6 +29,9 @@ Se necesita lo siguiente para usar el aprovisionamiento en la nube de Azure AD 
 - Una cuenta de administrador global para el inquilino de Azure AD.
 - Un servidor local para el agente de aprovisionamiento con Windows 2012 R2 o posterior.
 - Configuraciones de firewall locales.
+
+>[!NOTE]
+>Actualmente, el agente de aprovisionamiento solo se puede instalar en servidores con el idioma inglés. La instalación de un paquete de idioma en inglés en un servidor con un idioma distinto del inglés no es una opción válida y producirá un error en la instalación del agente. 
 
 En el resto del documento se proporcionan instrucciones paso a paso para estos requisitos previos.
 

@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/21/2019
+ms.date: 01/30/2020
 ms.author: juliako
-ms.openlocfilehash: 23d546d6adcdb91b4ef4702b81fe77536fe9f3d3
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186270"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988352"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Análisis de archivos de audio y vídeo con Azure Media Services
 
@@ -27,6 +27,10 @@ Para analizar el contenido mediante los valores preestablecidos de Media Service
 
 > [!NOTE]
 > Si usa los valores preestablecidos de un analizador de audio o de vídeo, emplee Azure Portal para establecer que la cuenta tenga diez unidades reservadas de multimedia S3. Para más información, consulte [Información general del escalado de procesamiento de medios](media-reserved-units-cli-how-to.md).
+
+## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
+
+Como recordatorio importante, debe cumplir todas las leyes aplicables, en el uso de Video Indexer, y no puede usar este ni ningún otro servicio de Azure de forma que infrinja los derechos de otros o que puedan ser perjudiciales para otros usuarios. Antes de cargar los vídeos, incluidos los datos biométricos, al servicio Video Indexer para su procesamiento y almacenamiento, debe tener todos los permisos adecuados, incluidos todos los consentimientos pertinentes de las personas que aparecen en el vídeo. Para más información sobre el cumplimiento, la privacidad y la seguridad en Video Indexer, consulte los [términos de Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Puede encontrar información adicional sobre la privacidad, incluida la retención, eliminación o destrucción de datos, en los términos de Online Services y [aquí](../video-indexer/faq.md). Mediante el uso de Video Indexer, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
 
 ## <a name="built-in-presets"></a>Valores preestablecidos integrados
 
@@ -244,7 +248,7 @@ Ejemplo:
   ]
 ```
 
-### <a name="statistics"></a>statistics
+### <a name="statistics"></a>estadísticas
 
 |Nombre|Descripción|
 |---|---|
@@ -403,7 +407,7 @@ El bloque visualContentModeration contiene intervalos de tiempo en los que Video
 
 Los vídeos en los que se encuentre contenido para adultos o subido de tono podrían estar disponibles solo para visualización privada. Los usuarios pueden enviar una solicitud de revisión humana del contenido, en cuyo caso el atributo `IsAdult` contendrá el resultado de la revisión humana.
 
-|NOMBRE|Descripción|
+|Nombre|Descripción|
 |---|---|
 |id|Identificador de la moderación del contenido visual.|
 |adultScore|Puntuación de contenido para adultos (del moderador de contenido).|

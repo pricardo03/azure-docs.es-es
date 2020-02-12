@@ -3,12 +3,12 @@ title: Proveedores de recursos por servicios de Azure
 description: Se enumeran todos los espacios de nombres de proveedor de recursos para Azure Resource Manager y se muestra el servicio de Azure para ese espacio de nombres.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: cdf56c5c84f8837538c2f59b34c3bcf4265d78cb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d16c5fe148f8b6c907c897963e72cb84bc9ae2d5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644314"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984377"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
@@ -32,7 +32,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing | [Facturación](/azure/billing/) |
+| Microsoft.Billing | [Administración de costos y facturación](/azure/billing/) |
 | Microsoft.BingMaps | [Mapas de Bing](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Azure Blockchain Service](/azure/blockchain/workbench/) |
 | Microsoft.Blueprint | [Azure Blueprints](/azure/governance/blueprints/) |
@@ -150,7 +150,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.TimeSeriesInsights | [Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
-| Microsoft.VMwareCloudSimple | [Solución de VMware en Azure de CloudSimple](/azure/vmware-cloudsimple/) |
+| Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](/azure/vmware-cloudsimple/) |
 | Microsoft.Web | [App Service](../../app-service/index.yml)<br />[Funciones](../../azure-functions/index.yml) |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |

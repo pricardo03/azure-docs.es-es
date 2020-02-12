@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bde2fcad6f84e4a2df5268d1135e88a263b65ee0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b831a3175e1dc8b19395d1c923b076ac9428690c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949123"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982915"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan ejemplos para usar las transformaciones de not
 
 Comprueba que una notificación de fecha y hora (tipo de datos en cadena) es mayor que una segunda notificación de fecha y hora (tipo de datos de cadena) e inicia una excepción.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | string | Tipo de la primera notificación, que debe ser mayor que la segunda notificación. |
 | InputClaim | rightOperand | string | Tipo de la segunda notificación, que debe ser menor que la primera notificación. |
@@ -89,7 +89,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 
 Convierte un ClaimType **Date** en un ClaimType **DateTime**. La transformación de notificaciones convierte el formato de hora y agrega 12:00:00 a. m. a la fecha.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | date | ClaimType que se va a convertir. |
 | OutputClaim | outputClaim | dateTime | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
@@ -114,11 +114,40 @@ En el ejemplo siguiente se muestra la conversión de la notificación `dateOfBir
 - Notificaciones de salida:
     - **outputClaim**: 1559347200 (1 de junio de 2019 12:00:00 A.M.)
 
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim 
+
+Convierte un ClaimType **DateTime** en un ClaimType **Date**. La transformación de notificaciones quita el formato de hora de la fecha.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | dateTime | ClaimType que se va a convertir. |
+| OutputClaim | outputClaim | date | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
+
+En el ejemplo siguiente se muestra la conversión de la notificación `systemDateTime` (tipo de datos dateTime) en otra notificación `systemDate` (tipo de datos date).
+
+```XML
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+  - **inputClaim**: 1559347200 (1 de junio de 2019 12:00:00 A.M.)
+- Notificaciones de salida:
+  - **outputClaim**: 2019-06-01
+
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
 Obtenga la fecha y la hora UTC actual y agregue el valor a ClaimType.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | currentDateTime | dateTime | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
 
@@ -139,13 +168,13 @@ Obtenga la fecha y la hora UTC actual y agregue el valor a ClaimType.
 
 Determine si un valor dateTime es mayor, menor o igual que otro. El resultado es un nuevo ClaimType booleano con un valor de `true` o `false`.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | El primer valor de dateTime para comparar si es anterior o posterior al segundo valor de dateTime. Un valor nulo inicia una excepción. |
 | InputClaim | secondDateTime | dateTime | El segundo valor de dateTime para comparar si es anterior o posterior al primer valor de dateTime. El valor NULL se trata como el valor de dateTime actual. |
 | InputParameter | operator | string | Uno de los siguientes valores: same, later than o earlier than. |
 | InputParameter | timeSpanInSeconds | int | Agregue el intervalo de tiempo a la primera fecha y hora. |
-| OutputClaim | result | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
+| OutputClaim | resultado | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
 
 Use esta transformación de notificaciones para determinar si dos valores ClaimType son iguales, mayores o menores entre sí. Por ejemplo, puede almacenar la última vez que un usuario ha aceptado los términos del servicio (TOS). Después de 3 meses, puede pedir al usuario que vuelva a acceder a los TOS.
 Para ejecutar la transformación de notificaciones, primero deberá obtener el valor dateTime actual y la última vez que el usuario aceptó los TOS.

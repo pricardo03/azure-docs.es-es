@@ -5,18 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6cae6d258da2ddf0c3bfaade65ae74f1201b67b7
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c3e4c2f2bac45f2e366764473a34b0536bb4cc44
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121064"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990460"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Creación de un host Azure Bastion con Azure PowerShell
 
-En este artículo aprenderá a crear un host de Azure Bastion. Una vez que haya aprovisionado el servicio Azure Bastion en su red virtual, la experiencia fluida mediante RDP/SSH estará disponible para todas las máquinas virtuales de la misma red virtual. Esta implementación se realiza por red virtual, no por suscripción o cuenta, ni por máquina virtual.
+En este artículo se muestra cómo crear un host de Azure Bastion mediante PowerShell. Una vez que haya aprovisionado el servicio Azure Bastion en la red virtual, ya puede disponer de la completa experiencia de RDP/SSH en todas las máquinas virtuales de la misma red virtual. La implementación de Azure Bastion se realiza por red virtual, no por suscripción o cuenta, ni por máquina virtual.
+
+Opcionalmente, puede crear un host de Azure Bastion mediante [Azure Portal](bastion-create-host-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -28,7 +30,7 @@ Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede act
 
 Esta sección le ayuda a crear un nuevo recurso Azure Bastion con Azure PowerShell.
 
-1. Cree una red virtual y una subred Azure Bastion. Debe crear la subred Azure Bastion con el valor de nombre **AzureBastionSubnet**. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Debe usar una subred de al menos /27 o una subred más grande (/27, /26, etc.). Cree **AzureBastionSubnet** sin ninguna delegación ni tabla de rutas. Cuando use los grupos de seguridad de red en **AzureBastionSubnet**, consulte [Trabajar con Grupos de seguridad de red](bastion-nsg.md).
+1. Cree una red virtual y una subred Azure Bastion. Debe crear la subred Azure Bastion con el valor de nombre **AzureBastionSubnet**. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Debe usar una subred de al menos /27 o más grande (/27, /26, etc.). Cree **AzureBastionSubnet** sin ninguna delegación ni tabla de rutas. Cuando use grupos de seguridad de red en **AzureBastionSubnet**, consulte el artículo [Trabajo con grupos de seguridad de red](bastion-nsg.md).
 
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
@@ -42,7 +44,7 @@ Esta sección le ayuda a crear un nuevo recurso Azure Bastion con Azure PowerShe
    $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "westeurope" -AllocationMethod Static -Sku Standard
    ```
 
-3. Cree un nuevo recurso Azure Bastion en AzureBastionSubnet de su red virtual. El recurso de Bastion tardará aproximadamente cinco minutos en crearse e implementarse.
+3. Cree un nuevo recurso Azure Bastion en AzureBastionSubnet de su red virtual. El recurso de Bastion tarda aproximadamente cinco minutos en crearse e implementarse.
 
    ```azurepowershell-interactive
    $bastion = New-AzBastion -ResourceGroupName " myBastionRG " -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
@@ -50,4 +52,6 @@ Esta sección le ayuda a crear un nuevo recurso Azure Bastion con Azure PowerShe
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Lea el artículo sobre [preguntas frecuentes de Bastion](bastion-faq.md).
+* Para más información, lea las [P+F sobre Bastion](bastion-faq.md).
+
+* Para usar grupos de seguridad de red con la subred de Azure Bastion, consulte [Trabajo con grupos de seguridad de red](bastion-nsg.md).

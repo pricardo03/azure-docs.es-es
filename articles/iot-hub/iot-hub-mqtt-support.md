@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 150927ac05cba058d1d152ce568d7a462043d076
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890443"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937765"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -49,6 +49,24 @@ La tabla siguiente contiene vínculos a ejemplos de código para cada idioma adm
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Siempre admite MQTT de forma predeterminada |
+
+### <a name="default-keep-alive-timeout"></a>Tiempo de espera de Keep-Alive predeterminado 
+
+Para asegurarse de que una conexión cliente/IoT Hub permanece activa, tanto el servicio como el cliente se envían regularmente un ping *Keep-Alive* entre sí. El cliente que usa el SDK de IoT envía un mensaje de Keep-Alive en el intervalo definido en la tabla siguiente:
+
+|Idioma  |Intervalo de mantenimiento de conexión predeterminado  |Configurable  |
+|---------|---------|---------|
+|Node.js     |   180 Segundos      |     No    |
+|Java     |    230 Segundos     |     No    |
+|C     | 240 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
+|C#     | 300 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
+|Python (V2)   | 60 segundos |  No   |
+
+Siguiendo la [especificación de MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), el intervalo de ping de Keep-Alive de IoT Hub es 1,5 veces el valor de Keep-Alive del cliente. Sin embargo, IoT Hub limita el tiempo de espera máximo del servidor a 29,45 minutos (1 767 segundos) porque todos los servicios de Azure están enlazados al tiempo de espera de inactividad TCP del equilibrador de carga de Azure, que es de 29,45 minutos. 
+
+Por ejemplo, un dispositivo que usa el SDK de Java envía el ping de Keep-Alive y después pierde la conectividad de red. 230 segundos más tarde, el dispositivo pierde el ping de Keep-Alive porque está sin conexión. Sin embargo, IoT Hub no cierra la conexión de inmediato, espera otros `(230 * 1.5) - 230 = 115` segundos antes de desconectar el dispositivo con el error [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md). 
+
+El valor de Keep-Alive máximo del cliente que puede establecer es `1767 / 1.5 = 1177` segundos. Cualquier tráfico restablecerá el valor de Keep-Alive. Por ejemplo, una actualización correcta del token de SAS restablece el valor de Keep-Alive.
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migración de una aplicación de dispositivo de AMQP a MQTT
 
@@ -230,10 +248,6 @@ client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
 
-A continuación se indican las instrucciones de instalación de los requisitos previos.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 Para realizar la autenticación con un certificado de dispositivo, actualice el fragmento de código anterior con los cambios siguientes (consulte [Cómo obtener un certificado de entidad de certificación X.509](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) a fin de saber cómo prepararse para la autenticación basada en certificados):
 
 ```python
@@ -281,7 +295,7 @@ Para recibir mensajes de IoT Hub, un dispositivo debe suscribirse usando `device
 
 El dispositivo no recibe ningún mensaje desde IoT Hub hasta que se suscribe correctamente al punto de conexión específico del dispositivo, representado por el filtro del tema `devices/{device_id}/messages/devicebound/#`. Después de que se haya establecido una suscripción, el dispositivo recibe solo los mensajes de la nube al dispositivo que se enviaron a este después de la hora de la suscripción. Si el dispositivo se conecta con la marca **CleanSession** establecida en **0**, la suscripción se conserva entre distintas sesiones. En este caso, la próxima vez que el dispositivo se conecte con **CleanSession 0**, este recibirá los mensajes pendientes que se le han enviado mientras estaba desconectado. Si el dispositivo usa la marca **CleanSession** establecida en **1**, no recibe los mensajes de IoT Hub hasta que se suscribe al punto de conexión del dispositivo.
 
-IoT Hub entrega los mensajes con el **Nombre del tema** `devices/{device_id}/messages/devicebound/`, o `devices/{device_id}/messages/devicebound/{property_bag}` si hay propiedades de mensaje. `{property_bag}` contiene pares clave-valor con codificación URL de propiedades del mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId**) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$** ; las propiedades de aplicaciones utilizan el nombre de propiedad original sin prefijo.
+IoT Hub entrega los mensajes con el **Nombre del tema** `devices/{device_id}/messages/devicebound/` o `devices/{device_id}/messages/devicebound/{property_bag}` si hay propiedades de mensaje. `{property_bag}` contiene pares clave-valor con codificación URL de propiedades del mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId**) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$** ; las propiedades de aplicaciones utilizan el nombre de propiedad original sin prefijo.
 
 Cuando una aplicación de dispositivo se suscribe a un tema con **QoS 2**, IoT Hub concede el QoS de nivel 1 (el máximo) en el paquete **SUBACK**. Después de eso, IoT Hub envía mensajes al dispositivo con QoS 1.
 
@@ -309,7 +323,7 @@ El cuerpo de la respuesta contiene la sección de propiedades del dispositivo ge
 
 Los códigos de estado posibles son:
 
-|Status | DESCRIPCIÓN |
+|Status | Descripción |
 | ----- | ----------- |
 | 204 | Correcto (sin contenido) |
 | 429 | Demasiadas solicitudes (limitadas), según el artículo sobre [limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md) |
@@ -319,7 +333,7 @@ Para obtener más información, consulte la [guía para desarrolladores sobre di
 
 ## <a name="update-device-twins-reported-properties"></a>Actualización de las propiedades notificadas del dispositivo gemelo
 
-Para actualizar las propiedades notificadas, el dispositivo emite una solicitud a IoT Hub a través de una publicación en un tema designado de MQTT. Después de procesar la solicitud, IoT Hub responde con el estado de éxito o fracaso de la operación de actualización a través de una publicación en otro tema. El dispositivo puede suscribirse a ese tema con el fin de notificarle sobre el resultado de su solicitud de actualización gemela. Para implementar este tipo de interacción entre solicitud y respuesta en MQTT, hemos aprovechado la noción del Id. de solicitud (`$rid`) proporcionada inicialmente por el dispositivo en su solicitud de actualización. Este identificador de solicitud también se incluye en la respuesta de IoT Hub para permitir que el dispositivo correlacione la respuesta a su solicitud previa específica.
+Para actualizar las propiedades notificadas, el dispositivo emite una solicitud a IoT Hub a través de una publicación en un tema designado de MQTT. Después de procesar la solicitud, IoT Hub responde con el estado de éxito o fracaso de la operación de actualización a través de una publicación en otro tema. El dispositivo puede suscribirse a ese tema con el fin de notificarle sobre el resultado de su solicitud de actualización gemela. Para implementar este tipo de interacción entre solicitud y respuesta en MQTT, hemos aprovechado la noción de identificador de solicitud (`$rid`) proporcionada inicialmente por el dispositivo en su solicitud de actualización. Este identificador de solicitud también se incluye en la respuesta de IoT Hub para permitir que el dispositivo correlacione la respuesta a su solicitud previa específica.
 
 La secuencia siguiente describe cómo un dispositivo actualiza las propiedades notificadas en el dispositivo gemelo de IoT Hub:
 
@@ -340,7 +354,7 @@ El cuerpo del mensaje de solicitud contiene un documento JSON, que contiene los 
 
 Los códigos de estado posibles son:
 
-|Status | DESCRIPCIÓN |
+|Status | Descripción |
 | ----- | ----------- |
 | 200 | Correcto |
 | 400 | Solicitud incorrecta. JSON con formato incorrecto |

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dcebcc3e2021938f3fd3bde236ef08e4f26b8a97
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: f0d6d74271cc4ff0be4a653b389cc70ad5c56ef9
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949898"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983085"
 ---
 # <a name="boolean-claims-transformations"></a>Transformaciones de notificaciones booleanas
 
@@ -28,7 +28,7 @@ En este artículo se proporcionan ejemplos de uso de las transformaciones de not
 
 Realiza una operación And de dos inputClaims booleanos y establece el elemento outputClaim con el resultado de la operación.
 
-| item  | TransformationClaimType  | Tipo de datos  | Notas |
+| Elemento  | TransformationClaimType  | Tipo de datos  | Notas |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | El primer ClaimType que se va a evaluar. |
 | InputClaim | inputClaim2  | boolean | El segundo ClaimType que se va a evaluar. |
@@ -61,7 +61,7 @@ La siguiente transformación de notificaciones explica cómo aplicar And a dos a
 
 Comprueba que los valores booleanos de dos notificaciones son iguales y lanza una excepción si no lo son.
 
-| item | TransformationClaimType  | Tipo de datos  | Notas |
+| Elemento | TransformationClaimType  | Tipo de datos  | Notas |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | ClaimType que se va a afirmar. |
 | InputParameter |valueToCompareTo | boolean | El valor que se va a comparar (true o false). |
@@ -114,11 +114,49 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
     - **valueToCompareTo**: true
 - Resultado: aparece un error
 
+## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
+
+Comprueba que el valor booleano de una notificación es igual a `true` o `false` y que devuelve el resultado de la compresión. 
+
+| Elemento | TransformationClaimType  | Tipo de datos  | Notas |
+| ---- | ------------------------ | ---------- | ----- |
+| inputClaim | inputClaim | boolean | ClaimType que se va a afirmar. |
+| InputParameter |valueToCompareTo | boolean | El valor que se va a comparar (true o false). |
+| OutputClaim | inputClaim | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
+
+
+La siguiente transformación de notificaciones explica cómo comprobar el valor de un argumento ClaimType booleano con un valor `true`. Si el valor de ClaimType `IsAgeOver21Years` es igual a `true`, la transformación de notificación devuelve `true`. De lo contrario, `false`.
+
+```XML
+<ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="valueToCompareTo" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+      <OutputClaim  ClaimTypeReferenceId="accountEnabled" TransformationClaimType="compareResult"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **inputClaim**: false
+- Parámetros de entrada:
+    - **valueToCompareTo**: true
+- Notificaciones de salida:
+    - **compareResult**: false 
+
+
+
 ## <a name="notclaims"></a>NotClaims
 
 Realiza una operación Not del inputClaim booleano y establece el elemento outputClaim con el resultado de la operación.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | La notificación que se va a realizar. |
 | OutputClaim | outputClaim | boolean | Elementos ClaimTypes que se producen después de que se invoque este elemento ClaimsTransformation (true o false). |
@@ -146,7 +184,7 @@ Use esta transformación de notificaciones para realizar la negación lógica en
 
 Procesa una operación Or de dos inputClaims booleanos y establece el elemento outputClaim con el resultado de la operación.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | El primer ClaimType que se va a evaluar. |
 | InputClaim | inputClaim2 | boolean | El segundo ClaimType que se va a evaluar. |
@@ -174,4 +212,3 @@ La siguiente transformación de notificaciones explica cómo aplicar `Or` a dos 
     - **inputClaim2**: false
 - Notificaciones de salida:
     - **outputClaim**: true
-

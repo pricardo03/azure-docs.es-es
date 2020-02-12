@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 639277177bf63e659e5b0ea804eca5e20f956831
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 98d9730168764f0ba683a246f9ac224c13d3bf31
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948907"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982813"
 ---
 # <a name="general-claims-transformations"></a>Transformaciones de notificaciones generales
 
@@ -24,11 +24,40 @@ ms.locfileid: "74948907"
 
 En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones generales del esquema de Identity Experience Framework en Azure Active Directory B2C (Azure AD B2C). Para más información, vea [ClaimsTransformations](claimstransformations.md).
 
+## <a name="copyclaim"></a>CopyClaim
+
+Copiar el valor de una notificación en otra. Ambas notificaciones deben ser del mismo tipo.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string, int | Tipo de la notificación que se va a copiar. |
+| OutputClaim | outputClaim | string, int | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
+
+Use esta transformación de notificaciones para copiar un valor de una notificación de cadena o numérica a otra notificación. En el ejemplo siguiente se copia el valor de la notificación externalEmail a una notificación por correo electrónico.
+
+```XML
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **inputClaim**: bob@contoso.com
+- Notificaciones de salida:
+    - **outputClaim**: bob@contoso.com 
+
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
 Comprueba si el elemento **inputClaim** existe o no y establece **outputClaim** en true o false según corresponda.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Any | La notificación de entrada cuya existencia debe comprobarse. |
 | OutputClaim | outputClaim | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
@@ -57,7 +86,7 @@ Use esta transformación de notificaciones para comprobar si una notificación e
 
 Hash del texto sin formato proporcionado con el valor salt y un secreto. El algoritmo hash utilizado es SHA-256.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | string | La notificación de entrada que se va a cifrar. |
 | InputClaim | salt | string | El parámetro salt. Puede crear un valor aleatorio, utilizando la transformación de notificaciones `CreateRandomString`. |

@@ -2,13 +2,13 @@
 title: Configuración del sondeo de ejecución en la instancia de contenedor
 description: Información sobre cómo configurar los sondeos de ejecución para reiniciar contenedores incorrectos en Azure Container Instances
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 01/30/2020
+ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481687"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934158"
 ---
 # <a name="configure-liveness-probes"></a>Configuración de sondeos de ejecución
 
@@ -17,6 +17,9 @@ Las aplicaciones en contenedores pueden ejecutarse durante largos períodos de t
 En este artículo se explica cómo implementar un grupo de contenedores que incluya un sondeo de ejecución y se muestra el reinicio automático de un contenedor incorrecto simulado.
 
 Azure Container Instances también admite [sondeos de preparación](container-instances-readiness-probe.md), que se pueden configurar para asegurarse de que el tráfico llega a un contenedor solo cuando esté listo para ello.
+
+> [!NOTE]
+> Actualmente no se puede usar un sondeo de ejecución en un grupo de contenedores que se implementa en una red virtual.
 
 ## <a name="yaml-deployment"></a>Implementación de YAML
 
@@ -60,31 +63,31 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Comando de inicio
 
-La implementación define un comando de inicio que se ejecutará cuando el contenedor empiece a funcionar por primera vez, definido por la propiedad `command` que acepta una matriz de cadenas. En este ejemplo, iniciará una sesión de Bash y creará un archivo denominado `healthy` dentro del directorio `/tmp` al pasar este comando:
+La implementación incluye una propiedad `command` que define un comando de inicio que se ejecuta cuando el contenedor comienza a ejecutarse por primera vez. Esta propiedad acepta una matriz de cadenas. Este comando simula que el contenedor entra en un estado incorrecto.
+
+En primer lugar, inicia una sesión de Bash y crea un archivo denominado `healthy` dentro del directorio `/tmp`. Luego se suspenderá durante 30 segundos antes de eliminar el archivo y entrará en modo de suspensión durante 10 minutos:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Luego se suspenderá durante 30 segundos antes de eliminar el archivo y entrará en modo de suspensión durante 10 minutos.
-
 ### <a name="liveness-command"></a>Comando de ejecución
 
-Esta implementación define un `livenessProbe` que admite un comando de ejecución `exec` que actúa como comprobación de la ejecución. Si este comando finaliza con un valor distinto de cero, el contenedor se eliminará y se reiniciará para indicar que el archivo `healthy` no se encontró. Si este comando finaliza correctamente con el código de salida 0, no habrá que realizar ninguna acción.
+Esta implementación define un `livenessProbe` que admite un comando de ejecución `exec` que actúa como comprobación de la ejecución. Si este comando finaliza con un valor distinto de cero, el contenedor se eliminará y se reiniciará para indicar que el archivo `healthy` no se encontró. Si este comando finaliza correctamente con el código de salida 0, no se realizará ninguna acción.
 
 La propiedad `periodSeconds` designa que el comando de ejecución debería ejecutarse cada 5 segundos.
 
 ## <a name="verify-liveness-output"></a>Comprobación de la salida de ejecución
 
-Durante los primeros 30 segundos, el archivo `healthy` creado por el comando de inicio existe. Cuando el comando de ejecución comprueba la existencia del archivo `healthy`, el código de estado devuelve un cero, que indica que la operación se realizó correctamente y que no se producirá ningún reinicio.
+Durante los primeros 30 segundos, el archivo `healthy` creado por el comando de inicio existe. Cuando el comando de ejecución comprueba la existencia del archivo `healthy`, el código de estado devuelve un 0, que indica que la operación se realizó correctamente y que no se producirá ningún reinicio.
 
-Después de 30 segundos, el `cat /tmp/healthy` comenzará a generar errores, lo que dará lugar a eventos incorrectos y provocará su finalización.
+Después de 30 segundos, el comando `cat /tmp/healthy` comenzará a generar errores, lo que dará lugar a eventos incorrectos y provocará su finalización.
 
 Estos eventos se pueden ver desde Azure Portal o la CLI de Azure.
 
 ![Evento incorrecto del portal:][portal-unhealthy]
 
-Al ver los eventos en Azure Portal, los eventos de tipo `Unhealthy` se desencadenarán al producirse un error del comando de ejecución. El evento posterior será del tipo `Killing`, lo que significa la eliminación de un contenedor y que puede comenzar un reinicio. El recuento de reinicio del contenedor se incrementa cada vez que se produce este evento.
+Al ver los eventos en Azure Portal, se desencadenarán eventos de tipo `Unhealthy` al producirse un error del comando de ejecución. El evento posterior será del tipo `Killing`, lo que significa la eliminación de un contenedor y que puede comenzar un reinicio. El recuento de reinicio del contenedor se incrementa cada vez que se produce este evento.
 
 Los reinicios se completan en contexto para recursos como las direcciones IP públicas y se conservará el contenido específico de nodo.
 

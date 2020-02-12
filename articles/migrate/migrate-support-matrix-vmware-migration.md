@@ -3,12 +3,12 @@ title: Compatibilidad con la migración de VMware en Azure Migrate
 description: Aprenda sobre la compatibilidad con la migración de máquinas virtuales de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: e33811563063c0f8eb94b9927d07596d51cd45e4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e5a2f40611f6b358a8b5ff1dfb99cadebae4fab6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030927"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014001"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -123,7 +123,15 @@ Al configurar el dispositivo de replicación con la plantilla OVA proporcionada 
 
 - Obtenga más información sobre los [requisitos del dispositivo de replicación](migrate-replication-appliance.md#appliance-requirements) para VMware.
 - MySQL debe estar instalado en el dispositivo. Obtenga más información sobre las [opciones de instalación](migrate-replication-appliance.md#mysql-installation).
-- Obtenga más información sobre las [direcciones URL](migrate-replication-appliance.md#url-access) a las que tiene que acceder el dispositivo de replicación.
+- Más información sobre las [direcciones URL](migrate-replication-appliance.md#url-access) y los [puertos](migrate-replication-appliance.md#port-access) a los que debe acceder el dispositivo de replicación.
+
+## <a name="agent-based-ports"></a>Puertos basados en agente
+
+**Dispositivo** | **Connection**
+--- | ---
+Máquinas virtuales | El servicio de movilidad que se ejecuta en las máquinas virtuales se comunica con el dispositivo de replicación local (servidor de configuración) en el puerto HTTPS 443 entrante para la administración de la replicación.<br/><br/> Las máquinas virtuales envían datos de replicación al servidor de procesos (que se ejecuta en la máquina del servidor de configuración) en el puerto HTTPS 9443 entrante. Este puerto se puede modificar.
+Dispositivo de replicación | El dispositivo de replicación organiza la replicación con Azure a través del puerto HTTPS 443 saliente.
+Servidor de proceso | El servidor de procesos recibe los datos de la replicación, los optimiza, los cifra y los envía a Azure Storage a través del puerto 443 de salida.<br/> De forma predeterminada, el servidor de procesos se ejecuta en el dispositivo de replicación.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM de Azure
 

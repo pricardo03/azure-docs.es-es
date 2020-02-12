@@ -3,21 +3,21 @@ title: Módulo de herramientas de dibujo | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo establecer datos de opciones de dibujo mediante el SDK web de Microsoft Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 09/04/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 2f23d4d7962fc4a01ac2f9d20dc834bcd2f08be5
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6c64820cdfa03e833bfd2fbad3ba7489170b14e5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910581"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988930"
 ---
 # <a name="use-the-drawing-tools-module"></a>Uso del módulo de herramientas de dibujo
 
-El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Este módulo facilita el dibujo y la edición de formas en el mapa mediante un dispositivo de entrada, como un mouse en la pantalla táctil. La clase principal de este módulo es el [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) que proporciona todas las funcionalidades necesarias para dibujar y editar formas en el mapa. El administrador de dibujos puede usarse directamente e integrarse con una interfaz de usuario personalizada de la barra de herramientas, o se puede usar la clase [barra de herramientas de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) integrada. 
+El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Este módulo facilita el dibujo y la edición de formas en el mapa mediante un dispositivo de entrada, como un mouse o la pantalla táctil. La clase principal de este módulo es el [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). El administrador de dibujos proporciona todas las funcionalidades necesarias para dibujar y editar formas en el mapa. Se puede usar directamente y se integra con una interfaz de usuario de barra de herramientas personalizada. También puede usar la clase integrada [drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest). 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Carga del módulo de herramientas de dibujo en una página web
 
@@ -30,7 +30,7 @@ El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Est
         <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.js"></script>
         ```
 
-    - Otra alternativa es cargar localmente el módulo de herramientas de dibujo para el código fuente del SDK web de Azure Maps mediante el paquete npm [azure-maps-rest](https://www.npmjs.com/package/azure-maps-drawing-tools) y, luego, hospedarlo con la aplicación. Este paquete también incluye las definiciones de TypeScript. Use este comando:
+    - Otra alternativa es cargar localmente el módulo de herramientas de dibujo para el código fuente del SDK web de Azure Maps mediante el paquete npm [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) y, luego, hospedarlo con la aplicación. Este paquete también incluye las definiciones de TypeScript. Use este comando:
     
         > **npm install azure-maps-drawing-tools**
     
@@ -43,7 +43,7 @@ El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Est
 
 ## <a name="use-the-drawing-manager-directly"></a>Uso del administrador de dibujos directamente
 
-Ahora que el módulo de herramientas de dibujo se ha cargado en la aplicación, puede usar el [administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) para habilitar funcionalidades de dibujo y edición dentro del mapa. Puede especificar opciones para el administrador de dibujo al crear una instancia de él, o bien usar la función `drawingManager.setOptions()`.
+Una vez que el módulo de herramientas de dibujo se carga en la aplicación, puede habilitar funcionalidades de dibujo y edición mediante el [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Puede especificar opciones para el administrador de dibujo al crear una instancia de él, o bien usar la función `drawingManager.setOptions()`.
 
 ### <a name="set-the-drawing-mode"></a>Establecimiento del modo de dibujo
 
@@ -83,7 +83,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-A continuación se muestra el código de ejemplo que implementa la funcionalidad que le permite dibujar libremente en el mapa un polígono, mientras mantiene presionado el botón izquierdo del mouse y arrastra. 
+ En este ejemplo de código se implementa la funcionalidad de dibujar un polígono en el mapa. Simplemente mantenga presionado el botón primario del mouse y arrastre por donde quiera.
 
 <br/>
 

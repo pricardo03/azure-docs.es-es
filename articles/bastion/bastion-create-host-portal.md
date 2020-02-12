@@ -5,23 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 95f7d71c0de7570eee6e4c94e88fd65ff1d45ec8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f907dcb4427fd07a2c212e5de91ccce5e8198960
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973091"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990426"
 ---
 # <a name="create-an-azure-bastion-host"></a>Creación de un host de Azure Bastion
 
-En este artículo aprenderá a crear un host de Azure Bastion. Una vez que haya aprovisionado el servicio Azure Bastion en su red virtual, la experiencia fluida mediante RDP/SSH estará disponible para todas las máquinas virtuales de la misma red virtual. Esta implementación se realiza por red virtual, no por suscripción o cuenta, ni por máquina virtual.
+En este artículo se muestra cómo crear un host de Azure Bastion mediante Azure Portal. Una vez que haya aprovisionado el servicio Azure Bastion en la red virtual, ya puede disponer de la completa experiencia de RDP/SSH en todas las máquinas virtuales de la misma red virtual. La implementación de Azure Bastion se realiza por red virtual, no por suscripción o cuenta, ni por máquina virtual.
 
-Hay dos formas de crear un recurso de host de Bastion:
-
-* Crear un recurso de Bastion mediante Azure Portal.
-* Crear un recurso de Bastion en Azure Portal mediante la configuración de máquina virtual existente.
+Puede crear un recurso de host bastión en el portal mediante la especificación de todos los valores de configuración manualmente o mediante los valores de configuración que correspondan a una máquina virtual existente. Opcionalmente, puede usar [Azure PowerShell](bastion-create-host-powershell.md) para crear un host de Azure Bastion.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -29,7 +26,7 @@ Bastion está disponible en las regiones públicas de Azure siguientes:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-## <a name="createhost"></a>Creación de un host de Bastion
+## <a name="createhost"></a>Creación de un host bastión: especificación de la configuración
 
 Esta sección le ayuda a crear un recurso de Azure Bastion desde Azure Portal.
 
@@ -47,22 +44,24 @@ Esta sección le ayuda a crear un recurso de Azure Bastion desde Azure Portal.
 
     * **Suscripción**: suscripción de Azure que quiere usar para crear un recurso de Bastion.
     * **Grupo de recursos**: grupo de recursos en el que se creará el recurso de Bastion. Si no tiene un grupo de recursos existente, puede crear uno.
-    * **Nombre**: nombre del nuevo recurso de Bastion.
+    * **Name**: nombre del nuevo recurso de Bastion.
     * **Región**: región pública de Azure en la que se creará el recurso.
-    * **Red virtual**: red virtual en la que se creará el recurso de Bastion. Puede crear una red virtual en el portal durante este proceso, en caso de que no la tenga o no quiera usarla. Si usa una red virtual existente, asegúrese de que tenga suficiente espacio de direcciones libre para adaptarse a los requisitos de subred de Bastion.
-    * **Subred**: subred de la red virtual en la que se implementará el nuevo recurso de host de Bastion. Debe crear una subred con el valor de nombre **AzureBastionSubnet**. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Debe usar una subred de al menos /27 o una subred más grande (/27, /26, etc.). Cree **AzureBastionSubnet** sin ninguna delegación ni tabla de rutas. Cuando use los grupos de seguridad de red en **AzureBastionSubnet**, consulte [Trabajar con Grupos de seguridad de red](bastion-nsg.md).
+    * **Red virtual**: red virtual en la que se creará el recurso de Bastion. Puede crear una red virtual en el portal durante este proceso, o bien usar una ya existente. Si usa una red virtual existente, asegúrese de que tenga suficiente espacio de direcciones libre para adaptarse a los requisitos de subred de Bastion.
+    * **Subred**: subred de la red virtual en la que se implementará el nuevo recurso de host de Bastion. Debe crear una subred con el valor de nombre **AzureBastionSubnet**. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Debe usar una subred de al menos/27 o mayor (/27,/26, etc.).
+    
+       Cree **AzureBastionSubnet** sin ninguna delegación ni tabla de rutas. Cuando use grupos de seguridad de red en **AzureBastionSubnet**, consulte el artículo [Trabajo con grupos de seguridad de red](bastion-nsg.md).
     * **Dirección IP pública**: dirección IP pública del recurso de Bastion en la que se accederá a RDP/SSH (a través del puerto 443). Cree una dirección IP pública o use una existente. La dirección debe estar en la misma región que el recurso de Bastion que está creando.
     * **Nombre de dirección IP pública**: nombre del recurso de la dirección IP pública.
-    * **SKU de la dirección IP pública**: está rellenada previamente de forma predeterminada como **Estándar**. Azure Bastion solo usa o admite la SKU de IP pública estándar.
-    * **Asignación**: está rellenada previamente de forma predeterminada como **Estática**.
+    * **SKU de la dirección IP pública**: Esta configuración se rellena de forma predeterminada como **Estándar**. Azure Bastion solo usa o admite la SKU de IP pública estándar.
+    * **Asignación**: Esta configuración se rellena de forma predeterminada como **Estática**.
 
 1. Cuando termine de especificar la configuración, haga clic en **Revisar + Crear**. Esto valida los valores. Una vez que se apruebe la validación, podrá comenzar el proceso de creación.
-1. En la página para crear un recurso de Bastion, haga clic en **Crear**.
-1. Verá un mensaje en el que se le indica que la implementación está en curso. El estado se mostrará en esta página a medida que se creen los recursos. El recurso de Bastion tardará aproximadamente cinco minutos en crearse e implementarse.
+1. En la página **Create a bastion** (Crear un recurso de Bastion), haga clic en **Crear**.
+1. Verá un mensaje en el que se le indica que la implementación está en curso. El estado se mostrará en esta página a medida que se creen los recursos. El recurso de Bastion tarda aproximadamente cinco minutos en crearse e implementarse.
 
-## <a name="createvmset"></a>Creación de un host de Bastion con la configuración de máquina virtual
+## <a name="createvmset"></a>Creación de un host bastion: uso de la configuración de máquina virtual
 
-Si crea un host de Bastion en el portal mediante una máquina virtual existente, varias opciones de configuración tendrán automáticamente como valores predeterminados los de la máquina virtual o la red virtual.
+Si crea un host bastion en el portal mediante una máquina virtual existente, varios valores de configuración tendrán automáticamente como valores predeterminados los de la máquina virtual o la red virtual.
 
 1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual y, a continuación, haga clic en **Conectar**.
 
@@ -72,12 +71,16 @@ Si crea un host de Bastion en el portal mediante una máquina virtual existente,
    ![Bastion](./media/bastion-create-host-portal/vmbastion.png)
 1. En la página de Bastion, rellene los campos de configuración siguientes:
 
-   * **Nombre**: nombre del host de Bastion que quiere crear.
-   * **Subred**: subred de la red virtual en la que se implementará el recurso de Bastion. La subred debe crearse con el nombre **AzureBastionSubnet**. De este modo, Azure sabe en qué subred se debe implementar el recurso de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Haga clic en **Administrar configuración de subred** para crear la subred de Azure Bastion. Recomendamos encarecidamente que use al menos una subred /27 o mayor (/27, /26, etc.). Cree la subred **AzureBastionSubnet** sin grupos de seguridad de red, tablas de rutas ni delegaciones. Haga clic en **Crear** para crear la subred y, después, siga configurando los valores siguientes.
+   * **Name**: nombre del host de Bastion que quiere crear.
+   * **Subred**: subred de la red virtual en la que se implementará el recurso de Bastion. La subred debe crearse con el nombre **AzureBastionSubnet**. De este modo, Azure sabe en qué subred se debe implementar el recurso de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Debe usar una subred de al menos/27 o mayor (/27,/26, etc.). Cree la subred sin grupos de seguridad de red, tablas de rutas ni delegaciones. Si más adelante decide usar grupos de seguridad de red en **AzureBastionSubnet**, consulte [Trabajo con grupos de seguridad de red](bastion-nsg.md).
+   
+     Haga clic en **Administrar configuración de subred** para crear **AzureBastionSubnet**.  Haga clic en **Crear** para crear la subred y, después, siga configurando los valores siguientes.
    * **Dirección IP pública**: dirección IP pública del recurso de Bastion en la que se accederá a RDP/SSH (a través del puerto 443). Cree una dirección IP pública o use una existente. La dirección debe estar en la misma región que el recurso de Bastion que está creando.
    * **Nombre de dirección IP pública**: nombre del recurso de la dirección IP pública.
-1. En la pantalla de validación, haga clic en **Crear**. El recurso de Bastion tardará aproximadamente cinco minutos en crearse e implementarse.
+1. En la pantalla de validación, haga clic en **Crear**. Espere unos cinco minutos a que el recurso de Bastion se cree e implemente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Lea el artículo sobre [preguntas frecuentes de Bastion](bastion-faq.md).
+* Para más información, lea las [P+F sobre Bastion](bastion-faq.md).
+
+* Para usar grupos de seguridad de red con la subred de Azure Bastion, consulte [Trabajo con grupos de seguridad de red](bastion-nsg.md).

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b82001b8bceac620dec9f1fe6ef47f4aa81b1011
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b6c70e1a5c7e5b81157c09a794ff75e276a20d1f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425624"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982745"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -189,15 +189,16 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | No | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.showCancelButton | No | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.operatingMode | No | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`. |
+| AllowGenerationOfClaimsWithNullValues| No| Permite que se genere una notificación con un valor NULL. Por ejemplo, en caso de que un usuario no active una casilla.|
 | ContentDefinitionReferenceId | Sí | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este perfil técnico. |
 | EnforceEmailVerification | No | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. |
-| setting.showSignupLink | No | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.retryLimit | No | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
 | SignUpTarget | No | Identificador de intercambio de destinos del registro. Cuando el usuario hace clic en el botón de registro, Azure AD B2C ejecuta el identificador de intercambio especificado. |
-
+| setting.showCancelButton | No | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.showContinueButton | No | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.showSignupLink | No | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.forgotPasswordLinkLocation| No| Muestra el vínculo de contraseña olvidada. Valores posibles: `AfterInput` (valor predeterminado) el vínculo se muestra en la parte inferior de la página o `None` quita el vínculo de contraseña olvidada.| 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
 El elemento **CryptographicKeys** no se usa.

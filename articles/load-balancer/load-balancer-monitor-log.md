@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965918"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935334"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
 
@@ -156,11 +156,11 @@ Este registro solo se genera si lo habilitó para cada uno de los equilibradores
 
 El resultado JSON muestra en el campo de propiedades la información básica del estado de mantenimiento del sondeo. La propiedad *dipDownCount* muestra el número total de instancias en el back-end que no están recibiendo tráfico de red debido a las respuestas de sondeo con error.
 
-### <a name="view-and-analyze-the-audit-log"></a>Visualización y análisis del registro de auditoría
+### <a name="view-and-analyze-the-activity-log"></a>Visualización y análisis del registro de actividades
 
-Puede ver y analizar los datos del registro de auditoría mediante el uso de cualquiera de los métodos siguientes:
+Puede ver y analizar los datos del registro de actividades mediante el uso de cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure:** puede recuperar información de los registros de auditoría a través de Azure PowerShell, de la interfaz de la línea de comandos (CLI) de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
+* **Herramientas de Azure:** puede recuperar información de los registros de actividad mediante Azure PowerShell, la interfaz de la línea de comandos (CLI) de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
 * **Power BI:** si todavía no tiene una cuenta de [Power BI](https:// .microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de auditoría de Azure para Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs) puede analizar los datos con los paneles preconfigurados o puede personalizar las vistas para que se adapten a sus necesidades.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visualización y análisis del registro de eventos y de sondeos de estado

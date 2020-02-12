@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 349587063c528fef1cbdb09d84e61e82443d45d1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112133"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906732"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Escalado vertical de particiones y réplicas para agregar capacidad para cargas de trabajo de consultas e índices en Azure Cognitive Search
 
@@ -123,7 +123,7 @@ La alta disponibilidad para Azure Cognitive Search se refiere a las consultas y 
 > [!NOTE]
 > Puede agregar nuevos campos a un índice de Azure Cognitive Search sin volver a generar el índice. El valor del nuevo campo será Null en todos los documentos que estén en el índice.
 
-Para mantener la disponibilidad del índice durante una regeneración, debe contar con una segunda copia del índice con un nombre distinto en el mismo servicio, o bien una copia del índice con el mismo nombre en un servicio diferente. Luego, tendrá que proporcionar la lógica de conmutación por error o redireccionamiento en el código.
+Al recompilar el índice, habrá un período de tiempo en el que los datos se estarán agregando al nuevo índice. Si desea mantener la disponibilidad del índice antiguo durante este período de tiempo, debe contar con una copia del índice antiguo con un nombre distinto en el mismo servicio, o bien una copia del índice con el mismo nombre en un servicio diferente. Posteriormente, tendrá que proporcionar la lógica de conmutación por error o redireccionamiento en el código.
 
 ## <a name="disaster-recovery"></a>Recuperación ante desastres
 En la actualidad no hay ningún mecanismo integrado para la recuperación ante desastres. La adición de particiones o réplicas sería la estrategia equivocada para cumplir los objetivos de recuperación ante desastres. El enfoque más común es agregar redundancia en el nivel de servicio mediante la configuración de un segundo servicio de búsqueda en otra región. Al igual que con la disponibilidad durante la regeneración de índices, la lógica de conmutación por error o redireccionamiento debe proporcionarse en el código.

@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772030"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990715"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -39,14 +39,7 @@ Si recibe el error "The provided manifest file is invalid: Invalid OVF manifest 
 Esto puede ocurrir si la máquina del dispositivo está detrás de un proxy.
 
 - Asegúrese de proporcionar las credenciales de autorización en caso de que el servidor proxy las necesite.
-- Si usa un proxy de firewall basado en dirección URL para controlar la conectividad de salida, agregue estas direcciones URL a una lista de permitidos.
-
-    - [Direcciones URL para la evaluación de VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [Direcciones URL para la evaluación de Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-    - [Direcciones URL para la migración sin agente de VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [Direcciones URL para la migración basada en agente de VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [Direcciones URL para la migración de Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-
+- Si usa un proxy de firewall basado en dirección URL para controlar la conectividad de salida, agregue [estas direcciones URL](migrate-appliance.md#url-access) a una lista de permitidos.
 - Si usa un servidor proxy de interceptación para conectarse a Internet, importe el certificado del servidor proxy en la máquina virtual del dispositivo mediante [estos pasos](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ##  <a name="datetime-synchronization-error"></a>Error de sincronización de fecha y hora

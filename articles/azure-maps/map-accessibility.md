@@ -8,16 +8,16 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 739322feb8e844a197f2943f4ff050cacc0f2274
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e298aad6dc43f85f5b6c344eec56f5d8b37980d4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911296"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933297"
 ---
 # <a name="building-an-accessible-application"></a>Creación de una aplicación accesible
 
-Más del 20 % de los usuarios de Internet necesitan aplicaciones web accesibles. Por lo tanto, es importante asegurarse de que la aplicación está diseñada para que cualquier usuario pueda usarla fácilmente. En lugar de pensar en la accesibilidad como un conjunto de tareas que hay que completar, piense en ella como parte de la experiencia global del usuario. Cuanto más accesible sea su aplicación, más personas podrán usarla. 
+Más del 20 % de los usuarios de Internet necesitan aplicaciones web accesibles. Por lo tanto, es importante asegurarse de que la aplicación está diseñada de forma que cualquier usuario pueda utilizarla fácilmente. En lugar de pensar en la accesibilidad como un conjunto de tareas que hay que completar, piense en ella como parte de la experiencia global del usuario. Cuanto más accesible sea su aplicación, más personas podrán usarla. 
 
 Cuando se trata de contenido interactivo enriquecido como un mapa, algunas consideraciones de accesibilidad comunes son:
 - Ser compatible con lectores de pantalla para los usuarios que tengan dificultades para ver la aplicación web.
@@ -84,7 +84,7 @@ El mapa tiene una serie de métodos abreviados de teclado integrados que facilit
 | Signo menos, guion (`-`) o <sup>*</sup>carácter de subrayado (`_`) | Alejamiento | 
 | `Shift` + arrastre del mouse en el mapa al área de dibujo | Acercamiento al área |
 
-<sup>*</sup> Normalmente, estos métodos abreviados de teclado comparten la misma tecla en un teclado. Se agregaron para mejorar la experiencia del usuario, de modo que no importa si el usuario usa la tecla Mayús o no para estos métodos abreviados.
+<sup>*</sup> Normalmente, estos métodos abreviados de teclado comparten la misma tecla en un teclado. Estos métodos abreviados se han incorporado para mejorar la experiencia del usuario. En estos métodos abreviados, no importa si el usuario utiliza la tecla Mayús.
 
 ## <a name="screen-reader-support"></a>Compatibilidad con el lector de pantalla
 
@@ -94,9 +94,9 @@ Cualquier información adicional que se coloque en el mapa base debería tener l
 
 ## <a name="make-popups-keyboard-accessible"></a>Creación de elementos emergentes accesibles con el teclado
 
-A menudo se usa un marcador o un símbolo para representar una ubicación en el mapa. Normalmente, se muestra información adicional sobre la ubicación en un elemento emergente cuando el usuario interactúa con el marcador. En la mayoría de las aplicaciones, los elementos emergentes se muestran cuando un usuario hace clic o pulsa en un marcador; sin embargo, esto requiere que el usuario use un mouse o una pantalla táctil. Una buena práctica es hacer que los elementos emergentes sean accesibles cuando se usa un teclado. Esto puede lograrse creando un elemento emergente para cada punto de datos y agregándolo al mapa. 
+A menudo se usa un marcador o un símbolo para representar una ubicación en el mapa. Normalmente, se muestra información adicional sobre la ubicación en un elemento emergente cuando el usuario interactúa con el marcador. En la mayoría de las aplicaciones, cuando un usuario hace clic o pulsa en un marcador, aparece un elemento emergente; sin embargo, esto requiere que el usuario use un mouse o una pantalla táctil. Una buena práctica es hacer que los elementos emergentes sean accesibles cuando se usa un teclado. Esta funcionalidad puede conseguirse creando un elemento emergente en cada punto de datos y agregándolo al mapa. 
 
-En el ejemplo siguiente se cargan puntos de interés en el mapa mediante una capa de símbolos y se agrega un elemento emergente al mapa para cada punto de interés. Una referencia a cada elemento emergente se almacena en las propiedades de cada punto de datos para que también se pueda recuperar para un marcador, por ejemplo, cuando se hace clic en un marcador. Cuando está centrado en el mapa, al presionar la tecla de tabulación, el usuario podrá recorrer cada elemento emergente del mapa.
+En el ejemplo siguiente se cargan puntos de interés en el mapa mediante una capa de símbolos y se agrega un elemento emergente al mapa para cada punto de interés. En las propiedades de cada punto de datos se guarda una referencia de cada elemento emergente. También puede recuperarse en el caso de los marcadores; por ejemplo, al hacer clic en un marcador. Cuando está centrado en el mapa, al presionar la tecla de tabulación, el usuario podrá recorrer cada elemento emergente del mapa.
 
 <br/>
 
@@ -106,12 +106,12 @@ En el ejemplo siguiente se cargan puntos de interés en el mapa mediante una cap
 
 ## <a name="additional-accessibility-tips"></a>Sugerencias de accesibilidad adicionales
 
-Estas son algunas sugerencias adicionales para que la aplicación de asignación web sea más accesible.
+Estos son algunos otros consejos para que la aplicación de mapas web resulte más accesible.
 
-- Si se muestran muchos datos de puntos interactivos en el mapa, considere la posibilidad de reducir el desorden y usar la agrupación en clústeres. 
+- Si aparecen muchos datos de puntos interactivos en el mapa, considere la posibilidad de usar la agrupación en clústeres para poner un poco de orden. 
 - Asegúrese de que la relación de contraste de color entre el texto y los símbolos y los colores de fondo es de 4,5:1 o más.
 - Mantenga los mensajes del lector de pantalla (los atributos ARIA, Alt y Title) breves, descriptivos y significativos. Evite terminología y acrónimos innecesarios.
-- Intente optimizar los mensajes enviados al lector de pantalla para ofrecer información breve y significativa que sea fácil de resumir para el usuario. Por ejemplo, si desea actualizar el lector de pantalla con una frecuencia alta, como cuando se mueve el mapa, considere la posibilidad de hacer lo siguiente:
+- Intente optimizar los mensajes enviados al lector de pantalla para ofrecer información breve y significativa que sea fácil de resumir para el usuario. Por ejemplo, si desea actualizar el lector de pantalla con una frecuencia elevada (por ejemplo, cuando el mapa se esté moviendo), podría hacer lo siguiente:
     - Espere hasta que el mapa termine de moverse para actualizar el lector de pantalla.
     - Limite las actualizaciones a una vez cada pocos segundos. 
     - Combine los mensajes de manera lógica. 
@@ -120,9 +120,9 @@ Estas son algunas sugerencias adicionales para que la aplicación de asignación
     - Considere la posibilidad de usar una capa de símbolos con diferentes iconos para distintas categorías de métricas, como triángulos, estrellas y cuadrados. La capa de símbolos también admite el escalado del tamaño del icono. También se puede mostrar una etiqueta de texto.
     - Si se muestran datos de línea, el ancho se puede usar para representar el peso o el tamaño. Se puede usar un patrón de matriz de guiones para representar diferentes categorías de líneas. Se puede utilizar una capa de símbolos en combinación con una línea para superponer iconos a lo largo de la línea. El uso de un icono de flecha resulta útil para mostrar el flujo o la dirección de la línea.
     - Si se muestran datos de polígono, se puede usar un patrón, por ejemplo, franjas, como alternativa al color. 
-- Algunas visualizaciones tales como mapas térmicos, capas de mosaico y capas de imagen no son accesibles para los usuarios con discapacidades visuales. Algunas consideraciones:
+- Algunas visualizaciones, como los mapas térmicos, las capas de iconos y las capas de imágenes, no son accesibles para los usuarios con discapacidades visuales. Algunas consideraciones:
     - Haga que el lector de pantalla describa lo que la capa muestra cuando se agrega al mapa. Por ejemplo, si se muestra una capa de mosaico de radar meteorológico, haga que el lector de pantalla indique algo como "datos de radar meteorológico superpuestos en el mapa".
-- Limite la cantidad de funciones que requiere un desplazamiento del mouse. Serán inaccesibles para los usuarios que usen un teclado o un dispositivo táctil para interactuar con la aplicación. Tenga en cuenta que sigue siendo recomendable tener un estilo de desplazamiento para el contenido interactivo tales como iconos, vínculos y botones en los que se puede hacer clic.
+- Limite la cantidad de funciones que requiere un desplazamiento del mouse. Los usuarios que usen un teclado o un dispositivo táctil para interactuar con la aplicación no podrán acceder a estar funcionalidades. Tenga en cuenta que sigue siendo recomendable aplicar el mismo estilo que utiliza el mouse al situarse sobre contenido interactivo, como iconos, vínculos y botones en los que se puede hacer clic.
 - Intente navegar por la aplicación con el teclado. Asegúrese de que el orden de tabulación es lógico.
 - Si va a crear métodos abreviados de teclado, procure limitarlo a dos teclas o menos. 
 

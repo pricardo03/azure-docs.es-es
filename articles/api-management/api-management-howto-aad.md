@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df640f11e8a0e8af22c96a662a602e0de508715c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442796"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985057"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -53,10 +53,10 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 12. En **Administrar**, seleccione **Registros de aplicaciones**.
 13. Seleccione **Nuevo registro**. En la página **Registrar una aplicación**, establezca los valores de la manera siguiente:
     
-* Establezca **Nombre** en un nombre con sentido; por ejemplo, *portal-desarrollador*
-* Establezca **Tipos de cuenta admitidos** en **Solo las cuentas de este directorio organizativo**. 
-* Establezca **URI de redirección** en el valor obtenido en el paso 9. 
-* Elija **Registro**. 
+    * Establezca **Nombre** en un nombre con sentido; por ejemplo, *portal-desarrollador*
+    * Establezca **Tipos de cuenta admitidos** en **Solo las cuentas de este directorio organizativo**. 
+    * Establezca **URI de redirección** en el valor obtenido en el paso 9. 
+    * Elija **Registro**. 
 
 14.  Una vez registrada la aplicación, copie el **Id. de aplicación (cliente)** de la página **Información general**. 
 15. Vuelva a la instancia de API Management. En la ventana **Agregar proveedor de identidades**, pegue el valor de **Id. de aplicación (cliente)** en el cuadro **Id. de cliente**.
@@ -71,10 +71,10 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 
 19. La ventana **Add identity provider** (Agregar proveedor de identidades) también contiene el cuadro de texto **Allowed Tenants** (Inquilinos permitidos). Ahí, especifique los dominios de las instancias de Azure AD a las que quiere conceder acceso a las API de la instancia de servicio API Management. Puede separar varios dominios mediante nuevas líneas, espacios o comas.
 
-> [!NOTE]
-> Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Para que un usuario pueda iniciar sesión desde otro dominio distinto al dominio original donde se registró la aplicación, un administrador global de ese otro dominio debe conceder antes a la aplicación permiso de acceso a los datos del directorio. Para conceder permiso, el administrador global debe: a. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, https://contoso.portal.azure-api.net/aadadminconsent) ).
-> b. Escribir el nombre de dominio del inquilino de Azure AD al que desea dar acceso.
-> c. Seleccione **Submit** (Enviar). 
+    > [!NOTE]
+    > Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Para que un usuario pueda iniciar sesión desde otro dominio distinto al dominio original donde se registró la aplicación, un administrador global de ese otro dominio debe conceder antes a la aplicación permiso de acceso a los datos del directorio. Para conceder permiso, el administrador global debe: a. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, https://contoso.portal.azure-api.net/aadadminconsent) ).
+    > b. Escribir el nombre de dominio del inquilino de Azure AD al que desea dar acceso.
+    > c. Seleccione **Submit** (Enviar). 
 
 20.  Después de especificar la configuración deseada, seleccione **Agregar**.
 
@@ -95,7 +95,7 @@ Ahora los grupos externos de Azure AD se pueden agregan desde la pestaña **Gru
 
 1. Seleccione la pestaña **Grupos** .
 2. Seleccione el botón **Add AAD group** (Agregar grupo de AAD).
-   ![Botón "Add AAD group" (Agregar grupo de AAD)](./media/api-management-howto-aad/api-management-with-aad008.png)
+    ![Botón "Add AAD group" (Agregar grupo de AAD)](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. Seleccione el grupo que quiere agregar.
 4. Presione el botón **Select** (Seleccionar).
 
@@ -105,11 +105,11 @@ Los usuarios de la instancia de Azure AD configurada ya pueden iniciar sesión e
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Portal para desarrolladores: incorporación de autenticación de cuenta de Azure AD
 
-En el portal para desarrolladores, el inicio de sesión con AAD es posible con el widget **OAuth buttons**. El widget ya está incluido en la página de inicio de sesión del contenido predeterminado del portal para desarrolladores.
-
-![Widget de botones de AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
+En el portal para desarrolladores, se puede iniciar sesión con AAD utilizando el widget **Sign-in button OAuth** (Botón de inicio de sesión: OAuth). El widget ya está incluido en la página de inicio de sesión del contenido predeterminado del portal para desarrolladores.
 
 Aunque se creará automáticamente una nueva cuenta cada vez que un nuevo usuario inicie sesión con AAD, puede considerar la idea de agregar el mismo widget a la página de registro.
+
+El widget **Sign-up form: OAuth** (Formulario de inicio de sesión: OAuth) representa un formulario que se utiliza para registrarse con OAuth.
 
 > [!IMPORTANT]
 > Debe [volver a publicar el portal](api-management-howto-developer-portal-customize.md#publish) para que los cambios de AAD surtan efecto.

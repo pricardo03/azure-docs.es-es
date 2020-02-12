@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72b3349e0ad4fd86b91a7a02f70b2bcf1efbc271
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712856"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982764"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -499,6 +499,47 @@ Use esta transformación de notificaciones para analizar el nombre de dominio de
 - Notificaciones de salida:
     - **domain**: outlook.com
 
+## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
+
+Comprueba que una notificación de cadena `claimToMatch` y el parámetro de entrada `matchTo` son iguales, y establece las notificaciones de salida con el valor presente en el parámetro de entrada `outputClaimIfMatched`, junto con la notificación de salida del resultado de la comparación, que debe establecerse en `true` o `false` según el resultado de la comparación.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| inputClaim | claimToMatch | string | Tipo de la notificación que se va a comparar. |
+| InputParameter | matchTo | string | La expresión regular con la que debe coincidir. |
+| InputParameter | outputClaimIfMatched | string | Valor que debe establecerse si las cadenas son iguales. |
+| OutputClaim | outputClaim | string | Si la expresión regular coincide, esta notificación de salida contiene el valor del parámetro de entrada `outputClaimIfMatched`. Si no hay coincidencia, el valor es NULL. |
+| OutputClaim | regexCompareResultClaim | boolean | Tipo de la notificación de salida del resultado de la coincidencia de la expresión regular, que debe establecerse en `true` o `false` en función del resultado de la coincidencia. |
+
+Por ejemplo, comprueba si el número de teléfono indicado es válido, en función del patrón de expresión regular de número de teléfono.  
+
+```XML
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isPhone" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" TransformationClaimType="regexCompareResultClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **claimToMatch**: "64854114520"
+- Parámetros de entrada:
+    - **matchTo**: "^[0-9]{4,16}$"
+    - **outputClaimIfMatched**: "isPhone"
+- Notificaciones de salida:
+    - **outputClaim**: "isPhone"
+    - **regexCompareResultClaim**: true
+
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` son iguales, y establece las notificaciones de salida con el valor presente en los parámetros de entrada `stringMatchMsg` y `stringMatchMsgCode`, junto con la notificación de salida del resultado de la comparación, que debe establecerse en `true` o `false` según el resultado de la comparación.
@@ -592,3 +633,188 @@ Por ejemplo, la siguiente transformación de notificaciones comprueba si el valo
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: true
 
+
+## <a name="stringcontains"></a>StringContains
+
+Determina si una subcadena especificada aparece dentro de la notificación de entrada. El resultado es un nuevo ClaimType booleano con un valor de `true` o `false`. `true` si el parámetro de valor aparece dentro de esta cadena; en caso contrario, `false`.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo de la notificación que se va a buscar. |
+|InputParameter|contains|string|Valor que se va a buscar.|
+|InputParameter|ignoreCase|string|Especifica si la comparación distingue entre mayúsculas y minúsculas en las cadenas que se están comparando.|
+| OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. Indicador booleano si la subcadena aparece dentro de la notificación de entrada. |
+
+Use esta transformación de notificaciones para comprobar si un tipo de notificación de cadena contiene una subcadena. En el siguiente ejemplo se comprueba si el tipo de notificación de cadena `roles` contiene el valor **admin**.
+
+```XML
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="contains" DataType="string" Value="admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **inputClaim**: "Admin, Approver, Editor"
+- Parámetros de entrada:
+    - **contains**: "admin,"
+    - **ignoreCase**: true
+- Notificaciones de salida:
+    - **outputClaim**: true 
+
+## <a name="stringsubstring"></a>StringSubstring
+
+Extrae partes de un tipo de notificación de cadena, comenzando por el carácter que se encuentra en la posición especificada, y devuelve el número de caracteres especificado.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo de notificación que contiene la cadena. |
+| InputParameter | startIndex | int | Posición de carácter inicial de base cero de una subcadena en la instancia. |
+| InputParameter | length | int | Número de caracteres de la subcadena. |
+| OutputClaim | outputClaim | boolean | Cadena equivalente a la subcadena de longitud que comienza en el valor de startIndex de esta instancia, o bien un valor vacío si el valor de startIndex es igual a la longitud de esta instancia y length es cero. |
+
+Por ejemplo, obtiene el prefijo de país del número de teléfono.  
+
+
+```XML
+<ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="startIndex" DataType="int" Value="0" />
+  <InputParameter Id="length" DataType="int" Value="2" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phonePrefix" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **inputClaim**: "+1644114520"
+- Parámetros de entrada:
+    - **startIndex**: 0
+    - **length**:  2
+- Notificaciones de salida:
+    - **outputClaim**: "+1"
+
+## <a name="stringreplace"></a>StringReplace
+
+Busca un valor especificado en una notificación de tipo cadena y devuelve una nueva notificación de tipo cadena en la que todas las apariciones de una cadena especificada en la cadena actual se reemplazan por otra cadena especificada.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo de notificación que contiene la cadena. |
+| InputParameter | oldValue | string | Cadena que se va a buscar. |
+| InputParameter | newValue | string | Cadena que va a reemplazar todas las apariciones de `oldValue`. |
+| OutputClaim | outputClaim | boolean | Cadena que es equivalente a la cadena actual salvo en que todas las instancias de oldValue se reemplazan por el valor de newValue. Si no se encuentra el valor de oldValue en la instancia actual, el método devuelve la instancia actual sin modificar. |
+
+Por ejemplo, normaliza un número de teléfono quitando los caracteres `-`.  
+
+
+```XML
+<ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="oldValue" DataType="string" Value="-" />
+  <InputParameter Id="newValue" DataType="string" Value="" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **inputClaim**: "+164-411-452-054"
+- Parámetros de entrada:
+    - **oldValue**: "-"
+    - **length**: ""
+- Notificaciones de salida:
+    - **outputClaim**: "+164411452054"
+
+## <a name="stringjoin"></a>StringJoin
+
+Concatena los elementos de un tipo de notificación de colección de cadenas especificado, usando el separador indicado entre todos los elementos o miembros.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | Colección que contiene las cadenas que se van a concatenar. |
+| InputParameter | delimiter | string | Cadena que se va a usar como separador; por ejemplo, coma `,`. |
+| OutputClaim | outputClaim | string | Cadena que consta de los miembros de la colección de cadenas `inputClaim`, delimitadas por el parámetro de entrada `delimiter`. |
+  
+En el ejemplo siguiente se toma una colección de cadenas de funciones de usuario y se convierte en una cadena con delimitador de comas. Puede usar este método para almacenar una colección de cadenas en la cuenta de usuario de Azure AD. Más adelante, cuando lea la cuenta desde el directorio, podrá usar `StringSplit` para volver a convertir la cadena con delimitador de coma en una colección de cadenas.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
+  <InputClaims>
+   <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter DataType="string" Id="delimiter" Value="," />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="rolesCommaDelimiterConverted" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+  - **inputClaim**: [ "Admin", "Author", "Reader" ]
+- Parámetros de entrada:
+  - **delimiter**: ","
+- Notificaciones de salida:
+  - **outputClaim**: "Admin,Author,Reader"
+
+
+## <a name="stringsplit"></a>StringSplit
+
+Devuelve una matriz de cadenas que contiene las subcadenas de esta instancia que están delimitadas por elementos de una cadena especificada.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo de notificación de cadena que contiene las subcadenas que se van a dividir. |
+| InputParameter | delimiter | string | Cadena que se va a usar como separador; por ejemplo, coma `,`. |
+| OutputClaim | outputClaim | stringCollection | Colección de cadenas cuyos elementos contienen las subcadenas de esta cadena que están delimitadas por el parámetro de entrada `delimiter`. |
+  
+En el siguiente ejemplo se toma una cadena con delimitador de coma de funciones de usuario y se convierte en una colección de cadenas.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+  <InputParameter DataType="string" Id="delimiter" Value="," />
+    </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="roles" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+  - **inputClaim**: "Admin,Author,Reader"
+- Parámetros de entrada:
+  - **delimiter**: ","
+- Notificaciones de salida:
+  - **outputClaim**: [ "Admin", "Author", "Reader" ]

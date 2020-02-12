@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 462d820824ad6c53ad4b93ad5c88c66128619467
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911277"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933667"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adición de una capa de burbuja a un mapa
 
-En este artículo se explica cómo puede representar datos de punto de un origen de datos como una capa de burbuja en un mapa. Las capas de burbuja representan puntos como círculos en el mapa con un radio de píxel fijo. 
+En este artículo, se explica cómo puede representar datos de punto procedentes de un origen de datos en un mapa como una capa de burbujas. Las capas de burbuja representan puntos como círculos en el mapa con un radio de píxel fijo. 
 
 > [!TIP]
 > Las capas de burbuja de forma predeterminada representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo represente las características de geometría de puntos, configure la propiedad `filter` de la capa en `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si desea incluir también las características de MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Adición de una capa de burbuja
 
-En el código siguiente se carga una matriz de puntos en un origen de datos y se conecta a una [capa de burbuja](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). La capa de burbuja tiene opciones para representar el radio de cada burbuja en cinco píxeles, un color de relleno en blanco, un color de trazo en azul y el ancho del trazo de seis píxeles. 
+En el código siguiente, se carga una matriz de puntos en un origen de datos. A continuación, los puntos de datos se conectan a una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). La capa de burbujas representa el radio de cada burbuja en cinco píxeles, el color de relleno en blanco, el color de trazo en azul y el ancho del trazo con seis píxeles. 
 
 ```javascript
 //Add point locations.

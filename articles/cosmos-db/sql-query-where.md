@@ -1,21 +1,21 @@
 ---
 title: Cláusula WHERE en Azure Cosmos DB
 description: Obtenga información sobre la cláusula WHERE de SQL para Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 02/03/2020
+ms.author: tisande
+ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326638"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982236"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE en Azure Cosmos DB
 
-La cláusula WHERE opcional (`WHERE <filter_condition>`) especifica las condiciones que deben cumplir los elementos JSON de origen para que la consulta los incluya en los resultados. Un elemento JSON debe evaluar que las condiciones especificadas sean `true` para que se le tenga en cuenta para el resultado. La capa de índice usa la cláusula WHERE para determinar el subconjunto más pequeño de documentos de origen que puede formar parte del resultado.
+La cláusula WHERE opcional (`WHERE <filter_condition>`) especifica las condiciones que deben cumplir los elementos JSON de origen para que la consulta los incluya en los resultados. Un elemento JSON debe evaluar que las condiciones especificadas sean `true` para que se le tenga en cuenta para el resultado. La capa de índice usa la cláusula WHERE para determinar el subconjunto menor de documentos de origen que puede formar parte del resultado.
   
 ## <a name="syntax"></a>Sintaxis
   
@@ -36,7 +36,7 @@ WHERE <filter_condition>
    Expresión que representa el valor que hay que calcular. Para más información, consulte [Expresiones escalares](sql-query-scalar-expressions.md).  
   
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
   
   Para que el documento se devuelva, debe establecerse en true una expresión especificada como condición de filtro. Solo un valor booleano true cumplirá la condición, los demás valores (undefined, null, false, número, matriz u objeto) no cumplirán la condición. 
 
@@ -74,7 +74,7 @@ Puede usar los operadores binarios admitidos siguientes:
 |Bit a bit    | \|, &, ^, <<, >>, >>> (desplazamiento a la derecha con relleno de ceros) |
 |Lógicos    | AND, OR, NOT      |
 |De comparación | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|Cadena     |  \|\| (concatenar) |
+|String     |  \|\| (concatenar) |
 
 Las consultas siguientes usan operadores binarios:
 
@@ -104,10 +104,10 @@ También puede usar los operadores unarios +, -, ~ y NOT en las consultas, tal c
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Igualmente, puede usar referencias de propiedad en las consultas. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el elemento JSON que contiene la propiedad `isRegistered` con un valor igual a `true`. Cualquier otro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` o `<array>`, excluye el elemento del resultado. 
+Igualmente, puede usar referencias de propiedad en las consultas. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el elemento JSON que contiene la propiedad `isRegistered` con un valor igual a `true`. Cualquier otro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` o `<array>`, excluye el elemento del resultado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción](sql-query-getting-started.md)
-- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Palabra clave IN](sql-query-keywords.md#in)
 - [Cláusula FROM](sql-query-from.md)

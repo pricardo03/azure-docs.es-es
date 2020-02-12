@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887824"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961396"
 ---
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
@@ -429,7 +429,7 @@ Sí.
 
 **¿Cuales son los tamaños de disco más grandes que admiten Azure Backup y el servicio Azure Site Recovery?**
 
-El tamaño de disco más grande que admiten Azure Backup y el servicio Azure Site Recovery es de 4 TiB. La compatibilidad con los discos de mayor tamaño de hasta 32 TiB aún no está disponible.
+El tamaño de disco más grande que admite Azure Backup es de 32 TiB (4 TiB para discos cifrados). El tamaño de disco más grande que admite Azure Site Recovery es de 8 TiB. La compatibilidad con los discos de mayor tamaño de hasta 32 TiB aún no está disponible en Azure Site Recovery.
 
 **¿Cuáles son los tamaños de máquina virtual recomendados para los tamaños de disco mayores (> 4TiB) para discos SSD estándar y HDD estándar con la finalidad de lograr niveles optimizados de ancho de banda e IOPS del disco?**
 

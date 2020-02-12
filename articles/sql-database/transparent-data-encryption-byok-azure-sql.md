@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 11/19/2019
-ms.openlocfilehash: 4f1fe1ea031cd7831ffb24ee4302d6834a8d9976
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/03/2019
+ms.openlocfilehash: 305af8e8acd7e7a54fae8c831d36bee0aad4ad6b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981883"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990987"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 
@@ -124,7 +124,7 @@ Una vez restaurado el acceso a la clave, se necesita tiempo para volver a poner 
 
 - Si se restaura el acceso a la clave en un plazo de ocho horas, la base de datos se restablecerá automáticamente durante la próxima hora.
 
-- Si se restaura el acceso a la clave pasadas más de ocho horas, no se restablecerá la base de datos de forma automática, y la restauración manual puede llevar una cantidad considerable de tiempo en función del tamaño de la base de datos. Además, es necesario crear una incidencia de soporte técnico. Una vez que la base de datos vuelva a estar en línea, se perderán los ajustes de nivel de servidor configurados previamente, como el [grupo de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), el historial de restauración a un momento dado y las etiquetas. Por lo tanto, se recomienda implementar un sistema de notificación que le permita identificar y resolver los problemas subyacentes de acceso de las claves en un plazo de ocho horas.
+- Si se restaura el acceso a la clave transcurridas más de ocho horas, no será posible la recuperación automática de la base de datos y será necesario realizar pasos adicionales en el portal para recuperarla manualmente. Esto que puede llevar una cantidad considerable de tiempo en función del tamaño de la base de datos. Una vez que la base de datos vuelva a estar en línea, **se perderán** los ajustes de nivel de servidor configurados previamente, como el [grupo de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), el historial de restauración a un momento dado y las etiquetas. Por lo tanto, se recomienda implementar un sistema de notificación que le permita identificar y resolver los problemas subyacentes de acceso de las claves en un plazo de ocho horas.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Revocación accidental del acceso al protector de TDE
 

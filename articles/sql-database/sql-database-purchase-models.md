@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/01/2020
+ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973533"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964777"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Elija entre los modelos de compra de núcleo virtual y de DTU
 
@@ -29,7 +29,7 @@ Hay disponibles distintos modelos de compra para los diferentes modelos de imple
 
 - Las opciones de implementación de [base de datos única](sql-database-single-databases-manage.md) y [grupo elástico](sql-database-elastic-pool.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen ambas el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 - La opción de implementación de [instancia administrada](sql-database-managed-instance.md) de Azure SQL Database solo ofrece el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
-- El [nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md) solo está disponible para bases de datos únicas que usan el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
+- El [nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md) está disponible para bases de datos únicas que usan el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
 En la tabla y el gráfico siguientes se comparan y contrastan los modelos de compra basado en núcleo virtual y basado en DTU:
 
@@ -47,9 +47,9 @@ En la tabla y el gráfico siguientes se comparan y contrastan los modelos de com
 
 En el nivel de proceso aprovisionado, el costo de proceso refleja la capacidad de proceso total que se aprovisiona para la aplicación.
 
-En el nivel de servicio Crítico para la empresa, se asignan automáticamente como mínimo tres réplicas. Para reflejar esta asignación adicional de recursos de proceso, el precio del modelo de compra basado en núcleo virtual es aproximadamente 2,7 veces más elevado en el nivel de servicio Crítico para la empresa que en el nivel de servicio Uso general. De igual manera, el mayor precio de almacenamiento por GB en el nivel de servicio Crítico para la empresa refleja la E/S alta y la baja latencia del almacenamiento SSD.
+En el nivel de servicio Crítico para la empresa, se asignan automáticamente como mínimo tres réplicas. Para reflejar esta asignación adicional de recursos de proceso, el precio del modelo de compra basado en núcleo virtual es aproximadamente 2,7 veces más elevado en el nivel de servicio Crítico para la empresa que en el nivel de servicio Uso general. De igual modo, el mayor precio de almacenamiento por GB en el nivel de servicio Crítico para la empresa refleja que el almacenamiento en SSD tienen unos límites de E/S superiores y una latencia menor.
 
-El costo del almacenamiento de copia de seguridad es el mismo para el nivel de servicio Crítico para la empresa y el nivel de servicio Uso general porque ambos niveles usan un almacenamiento estándar.
+El costo del almacenamiento de copia de seguridad es el mismo para el nivel de servicio Crítico para la empresa y el nivel de servicio Uso general, ya que ambos niveles usan un almacenamiento estándar para las copias de seguridad.
 
 ### <a name="serverless-compute-costs"></a>Costos de proceso sin servidor
 
@@ -67,7 +67,7 @@ Para más información sobre los precios de almacenamiento, consulte la página 
 
 Un núcleo virtual representa la CPU lógica y le ofrece una opción para elegir entre varias generaciones de hardware y las características físicas de hardware (por ejemplo, el número de núcleos, la memoria y el tamaño de almacenamiento). El modelo de compra basado en núcleo virtual le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite elegir los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo.
 
-En el modelo de compra basado en núcleo virtual, puede elegir entre los niveles de servicio [Uso general](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) y [Crítico para la empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bases de datos únicas](sql-database-single-database-scale.md), [grupos elásticos](sql-database-elastic-pool.md) e [instancias administradas](sql-database-managed-instance.md). Para las bases de datos únicas, también puede elegir el [nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md).
+En el modelo de compra basado en núcleo virtual, puede elegir entre los niveles de servicio [Uso general](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) y [Crítico para la empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bases de datos únicas](sql-database-single-database-scale.md), [grupos elásticos](sql-database-elastic-pool.md) e [instancias administradas](sql-database-managed-instance.md). En el caso de las bases de datos únicas, también puede elegir el [nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md).
 
 El modelo de compra basado en núcleo virtual le permite elegir los recursos de proceso y de almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. En el modelo de compra basado en núcleo virtual, paga por:
 
@@ -83,8 +83,8 @@ Si la base de datos única o el grupo elástico consume más de 300 DTU, la con
 
 Para cambiar del modelo de compra basado en DTU al modelo de compra basado en núcleo virtual, seleccione el tamaño de proceso mediante las siguientes reglas generales:
 
-- Por cada 100 DTU en el nivel Estándar se requiere al menos 1 núcleo virtual en el nivel de servicio Uso general.
-- Por cada 125 DTU en el nivel Premium se requiere al menos 1 núcleo virtual en el nivel de servicio Crítico para la empresa.
+- Por cada 100 DTU en el nivel Estándar se requiere al menos un núcleo virtual en el nivel de servicio Uso general.
+- Por cada 125 DTU en el nivel Premium se requiere al menos un núcleo virtual en el nivel de servicio Crítico para la empresa.
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra basado en DTU
 
@@ -125,7 +125,19 @@ Puede agregar eDTU adicionales a un grupo existente sin que la base de datos exp
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinar el número de DTU necesarias para la carga de trabajo
 
-Si desea migrar una carga de trabajo de máquina virtual existente local o de SQL Server a Azure SQL Database, utilice la [calculadora de DTU](https://dtucalculator.azurewebsites.net/) para hacer una estimación del número aproximado de DTU que se necesitan. Con cargas de trabajo existentes de Azure SQL Database, use la [información de rendimiento de consultas](sql-database-query-performance.md) para comprender el consumo de recursos de base de datos (DTU) y obtener información más detallada para optimizar la carga de trabajo. La vista de administración dinámica (DMV) [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) le permite ver el consumo de recursos de la última hora. La vista de catálogo [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) muestra el consumo de recursos de los últimos 14 días, aunque con una fidelidad inferior media de cinco minutos.
+Si desea migrar una carga de trabajo de máquina virtual existente local o de SQL Server a Azure SQL Database, utilice la [calculadora de DTU](https://dtucalculator.azurewebsites.net/) para hacer una estimación del número aproximado de DTU que se necesitan. Con cargas de trabajo existentes de Azure SQL Database, use la [información de rendimiento de consultas](sql-database-query-performance.md) para comprender el consumo de recursos de base de datos (DTU) y obtener información más detallada para optimizar la carga de trabajo. La vista de administración dinámica (DMV) [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) permite ver el consumo de recursos de la última hora. La vista de catálogo [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) muestra el consumo de recursos de los últimos 14 días, aunque con una fidelidad inferior media de cinco minutos.
+
+### <a name="determine-dtu-utilization"></a>Determinación del uso de DTU
+
+Para determinar el porcentaje medio de uso de DTU/eDTU, en relación con el límite de DTU/eDTU de una base de datos o un grupo de bases de datos elásticas, utilice esta fórmula:
+
+`avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
+
+Los valores de entrada de esta fórmula se pueden obtener de los DMV [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) y [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database). En otras palabras, para determinar el porcentaje de uso de DTU/eDTU con respecto al límite de DTU/eDTU de una base de datos o un grupo de bases de datos elásticas, elija el valor porcentual mayor de los siguientes: `avg_cpu_percent`, `avg_data_io_percent` y `avg_log_write_percent` en un momento puntual.
+
+> [!NOTE]
+> El límite de DTU de una base de datos lo determinan la CPU, las operaciones de lectura, las operaciones de escritura y la memoria disponible para la base de datos. Sin embargo, como el motor de base de datos de SQL Server normalmente utiliza toda la memoria disponible para su caché de datos para mejorar el rendimiento, el valor de `avg_memory_usage_percent` normalmente estará cerca del 100 %, independientemente de la carga actual de la base de datos. Por consiguiente, aunque la memoria realmente influye de manera indirecta en el límite de DTU, no se utiliza en la fórmula de uso de DTU.
+>
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabajo que se benefician de un grupo elástico de recursos
 

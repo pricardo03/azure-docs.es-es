@@ -12,31 +12,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 2d588d2707c267097e25176997e58f9573017582
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: bb004d536d30d62116866581daeef9b42c23d470
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780052"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936358"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integración de Azure Container Registry con Security Center (versión preliminar)
 
 Azure Container Registry (ACR) es un servicio de registro de Docker privado y administrado que almacena y administra las imágenes de contenedor de las implementaciones de Azure en un registro central. Se basa en el registro 2.0 de Docker de código abierto.
 
-Si está en el nivel estándar de Azure Security Center, puede agregar el paquete Registros de contenedor. Esta característica opcional proporciona mayor visibilidad sobre las vulnerabilidades de las imágenes en los registros. Habilite o deshabilite el paquete en el nivel de suscripción para abarcar todos los registros de una suscripción. Esta característica se cobra por imagen, no por examen, como se muestra en la [página de precios](security-center-pricing.md). 
+Si está en el nivel estándar de Azure Security Center, puede agregar el paquete Registros de contenedor. Esta característica opcional proporciona mayor visibilidad sobre las vulnerabilidades de las imágenes en los registros basados en Azure Resource Manager. Habilite o deshabilite el paquete en el nivel de suscripción para abarcar todos los registros de una suscripción. Esta característica se cobra por imagen, no por examen, como se muestra en la [página de precios](security-center-pricing.md). 
 
 Al habilitar el paquete Registros de contenedor se asegura de que Security Center esté listo para examinar las imágenes que se inserten en el registro. Los exámenes se realizan en el nivel de la imagen: Security Center no examina el registro, sino las imágenes almacenadas en el registro. 
 
 Cada vez que se inserta una imagen en el registro, Security Center la examina de forma automática. Para desencadenar el examen de una imagen, insértela en el repositorio.
 
-
-Cuando finaliza el examen (al cabo de 10 minutos aproximadamente), los resultados están disponibles en recomendaciones de Security Center como esta:
+Cuando finaliza el examen (al cabo de 10 minutos aproximadamente), los resultados están disponibles en recomendaciones de Security Center como esta:
 
 [![Ejemplo de recomendación Azure Security Center sobre puntos vulnerables detectados en una imagen hospedada de Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Ventajas de la integración
 
-Security Center identifica los registros de ACR en su suscripción y proporciona de forma fácil lo siguiente:
+Security Center identifica los registros de ACR basados en Azure Resource Manager en su suscripción y proporciona de forma fácil lo siguiente:
 
 * **Detección de vulnerabilidades nativas de Azure** para todas las imágenes de Linux insertadas. Security Center examina la imagen con un escáner del proveedor de detección de vulnerabilidades líder del sector, Qualys. Esta solución nativa se integra sin problemas de forma predeterminada.
 

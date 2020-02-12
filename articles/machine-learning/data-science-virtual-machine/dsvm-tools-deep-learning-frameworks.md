@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 65bc11282726d9e66dbed8fa1fbb75fc1b89c1d1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3dfb2c201138a65379aa509ce1bf10894ab6819b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615327"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984717"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Marcos de aprendizaje profundo e inteligencia artificial para Azure Data Science VM
 La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
@@ -115,7 +115,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 |    |           |
 | ------------- | ------------- |
-| Versiones compatibles | 1.2.0 |
+| Versiones compatibles | 1.2.0 (Ubuntu 16.04, Windows 2016, Windows 2019), 1.4.0 (Ubuntu 18.04). |
 | Ediciones de DSVM admitidas      | Linux |
 | ¿Cómo se configura/instala en DSVM?  | Se instala en [Python 3.5](dsvm-tools-languages.md#python-linux-edition). Se incluyen cuadernos de Jupyter de ejemplo, así como ejemplos en /dsvm/samples/pytorch. |
 | Cómo ejecutarlo      | Terminal: active el entorno correcto y ejecute Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): conéctese y abra el directorio de PyTorch para obtener ejemplos.  |

@@ -4,18 +4,18 @@ description: Administración y actualización de Azure HPC Cache mediante Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867079"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988903"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Administración de la memoria caché desde Azure Portal
 
-En la página de información general de caché de Azure Portal se muestran los detalles del proyecto, el estado de la memoria caché y las estadísticas básicas de dicha memoria. También tiene controles para eliminar la memoria caché, vaciar los datos para el almacenamiento a largo plazo o actualizar el software.
+En la página de información general de caché de Azure Portal se muestran los detalles del proyecto, el estado de la memoria caché y las estadísticas básicas de dicha memoria. También contiene controles para detener o iniciar la caché, eliminar la caché, vaciar los datos para el almacenamiento a largo plazo y actualizar el software.
 
 Para abrir la página de información general, seleccione el recurso de caché en Azure Portal. Por ejemplo, cargue la página **Todos los recursos** y haga clic en el nombre de la memoria caché.
 
@@ -23,12 +23,29 @@ Para abrir la página de información general, seleccione el recurso de caché e
 
 Los botones que se encuentran en la parte superior de la página pueden ayudarlo a administrar la memoria caché:
 
+* **Iniciar** y [**Detener**](#stop-the-cache): suspende la operación de caché
 * [**Vaciar**](#flush-cached-data): escribe los datos modificados en destinos de almacenamiento
 * [**Actualizar**](#upgrade-cache-software): actualiza el software de caché
 * **Refrescar**: vuelve a cargar la página de información general
 * [**Eliminar**](#delete-the-cache): destruye permanentemente la memoria caché
 
 Lea más información sobre estas opciones a continuación.
+
+## <a name="stop-the-cache"></a>Detención de la caché
+
+Puede detener la caché para reducir los costos durante un período inactivo. Mientras la caché está detenida no se le cobra por el tiempo de actividad, sino por el almacenamiento en disco asignado de la caché. (Para más información, consulte la [página de precios](https://aka.ms/hpc-cache-pricing)).
+
+Una caché detenida no responde a las solicitudes de los clientes. Antes de detener la caché, debe desmontar los clientes.
+
+El botón **Detener** suspende una caché activa. El botón **Detener** está disponible cuando el estado de una caché es **Correcto** o **Degradado**.
+
+![captura de pantalla de los botones superiores con el botón Detener resaltado y un mensaje emergente que describe la acción de detención y pregunta si desea continuar, y los botones Sí (valor predeterminado) y No.](media/stop-cache.png)
+
+Después de hacer clic en Sí para confirmar la detención de la caché, esta vacía automáticamente su contenido en los destinos de almacenamiento. Este proceso puede tardar algún tiempo, pero garantiza la coherencia de los datos. Por último, el estado de la caché cambia a **Detenido**.
+
+Para reactivar una caché detenida, haga clic en el botón **Iniciar**. No es necesario realizar ninguna confirmación.
+
+![captura de pantalla de los botones principales con Iniciar resaltado](media/start-cache.png)
 
 ## <a name="flush-cached-data"></a>Vaciado de los datos en caché
 
@@ -68,13 +85,14 @@ Los volúmenes de almacenamiento de back-end que se usan como destinos de almace
 > [!NOTE]
 > Azure HPC Cache no escribe automáticamente los datos modificados de la caché en los sistemas de almacenamiento de back-end antes de eliminar la caché.
 >
-> Para asegurarse de que todos los datos en la caché se han escrito en un almacenamiento a largo plazo, siga estos pasos:
+> Para asegurarse de que todos los datos de la caché se han escrito en almacenamiento a largo plazo, [detenga la caché](#stop-the-cache) antes de eliminarla. Asegúrese de que muestra el estado **Detenido** antes de hacer clic en el botón Eliminar.
+<!--... written to long-term storage, follow this procedure:
 >
-> 1. [Quite](hpc-cache-edit-storage.md#remove-a-storage-target) todos los destinos de almacenamiento de Azure HPC Cache mediante el botón Eliminar de la página de destinos de almacenamiento. El sistema escribe automáticamente los datos modificados desde la caché en el sistema de almacenamiento de back-end antes de quitar el destino.
-> 1. Espere a que se quite por completo el destino de almacenamiento. El proceso puede tardar una hora o más si hay muchos datos para escribir en la caché. Cuando haya terminado, una notificación del portal indicará que la operación de eliminación se ha realizado correctamente y el destino de almacenamiento desaparecerá de la lista.
-> 1. Una vez eliminados todos los destinos de almacenamiento afectados, la caché se puede eliminar de forma segura.
+> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
+> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
+> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
 >
-> Como alternativa, puede usar la opción [flush](#flush-cached-data) para guardar los datos en caché, pero hay un pequeño riesgo de perder el trabajo si un cliente escribe un cambio en la caché una vez completado el vaciado, pero antes de que se destruya la instancia de la caché.
+> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## <a name="cache-metrics-and-monitoring"></a>Supervisión y métricas de caché
 

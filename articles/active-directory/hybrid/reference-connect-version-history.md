@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ba7ba4be103beb494c31a844d1871c22c25b8c6
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 75fdc59b9110c3bfc29fe52be917a7d6e6636b8a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756307"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963213"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -39,7 +39,7 @@ Mientras realizamos este proceso, el número de la versión se mostrará con una
 No todas las versiones de Azure AD Connect estarán disponibles para la actualización automática. El estado de lanzamiento indicará si una versión está disponible para la actualización automática o solo para la descarga. Si la actualización automática estaba habilitada en el servidor de Azure AD Connect, dicho servidor se actualizará automáticamente a la versión más reciente de Azure AD Connect que se lanza para la actualización automática. Tenga en cuenta que no todas las configuraciones de Azure AD Connect son aptas para la actualización automática. Siga este vínculo para más información acerca de la [actualización automática](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> A partir del 1 de noviembre de 2020, comenzaremos a implementar un proceso de retirada en el que las versiones de Azure AD Connect que se publicaron hace más de 18 meses dejarán de usarse. En ese momento se iniciará el proceso de retirada de todas las versiones de Azure AD Connect 1.1.751.0 (publicada el 12/4/2018) y anteriores, y se seguirá evaluando la retirada de las versiones anteriores de Azure AD Connect cada vez que se publique una nueva versión.
+> A partir del 1 de noviembre de 2020, comenzaremos a implementar un proceso de retirada en el que las versiones de Azure AD Connect que se publicaron hace más de 18 meses dejarán de usarse. En ese momento se iniciará el proceso con la retirada de todas las versiones de Azure AD Connect 1.3.20.0 (publicada el 24/4/2019) y anteriores, y se pasará a evaluar la retirada de las versiones anteriores de Azure AD Connect cada vez que se publique una nueva versión.
 >
 > Debe asegurarse de que está ejecutando una versión reciente de Azure AD Connect para lograr una experiencia de soporte técnico óptima. 
 >

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708169"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906598"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -81,22 +81,16 @@ Por ejemplo, si cambia el nivel de acceso público del contenedor **$web** de **
 
 Sin embargo, el acceso público al punto de conexión principal de Blob service `https://contosoblobaccount.blob.core.windows.net/$web/index.html` cambia de privado a público. Ahora los usuarios pueden abrir ese archivo mediante cualquiera de estos dos punto de conexión.
 
-## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Compatibilidad con Content Delivery Network (CDN) y Secure Socket Layer (SSL)
+## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Asignación de un dominio personalizado a una dirección URL de un sitio web estático
 
-Para hacer que los archivos del sitio web estático estén disponibles a través de su dominio personalizado y HTTPS, consulte [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md). Como parte de este proceso, debe apuntar su CDN al punto de conexión principal del *sitio web estático* en lugar de al punto de conexión principal de *Blob service*. Es posible que deba esperar unos minutos antes de que su contenido sea visible, ya que la configuración de CDN no se ejecuta de inmediato.
+Puede hacer que el sitio web estático esté disponible a través de un dominio personalizado. 
 
-Al actualizar el sitio web estático, asegúrese de borrar el contenido almacenado en caché de los servidores perimetrales de CDN purgando el punto de conexión de CDN. Para más información, consulte [Purgar un punto de conexión de Azure CDN](../../cdn/cdn-purge-endpoint.md).
+Es más fácil habilitar el acceso HTTP para un dominio personalizado, ya que Azure Storage lo admite de forma nativa. Para habilitar HTTPS, tendrá que usar Azure CDN porque Azure Storage no admite de forma nativa HTTPS con dominios personalizados. Para obtener instrucciones pormenorizadas, consulte [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md).
 
-> [!NOTE]
-> HTTPS se admite de forma nativa a través del punto de conexión web de la cuenta, de manera que se puede acceder al punto de conexión web a través de HTTP y HTTPS. Sin embargo, si la cuenta de almacenamiento está configurada para requerir la transferencia segura a través de HTTPS, los usuarios deben usar el punto de conexión HTTPS. Para más información, consulte [Requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md).
->
-> Actualmente, el uso de dominios personalizados a través de HTTPS requiere usar Azure CDN.
+Si la cuenta de almacenamiento está configurada para [requerir la transferencia segura](../common/storage-require-secure-transfer.md) a través de HTTPS, los usuarios deben utilizar el punto de conexión HTTPS. 
 
-## <a name="custom-domain-names"></a>Nombres de dominio personalizados
-
-Puede hacer que el sitio web estático esté disponible a través de un dominio personalizado. Para más información, consulte [Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage](storage-custom-domain-name.md).
-
-Para obtener información detallada sobre cómo hospedar su dominio en Azure, consulte [Hospedaje del dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+> [!TIP]
+> Consider la posibilidad de hospedar el dominio en Azure. Para más información, consulte [Hospedaje de un dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Precios
 
@@ -111,8 +105,7 @@ Para habilitar métricas en las páginas de su sitio web estático, consulte [En
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website-how-to.md)
-* [Uso de Azure CDN para acceder a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
-* [Configurar un nombre de dominio personalizado para el punto de conexión web o de blob](storage-custom-domain-name.md)
+* [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)
 * [Funciones de Azure](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Crear la primera aplicación web sin servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

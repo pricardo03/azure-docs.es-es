@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8c39c7b57167d65dfa639d41665f5d5b38110183
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911156"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933137"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adición de una capa de símbolo a un mapa
 
-Un símbolo puede estar conectado a un origen de datos y usarse para representar un icono o texto en un punto determinado. Las capas de símbolos se representan mediante WebGL y se pueden usar para representar grandes colecciones de puntos en el mapa. Esta capa puede representar muchos más datos de puntos en el mapa, con un buen rendimiento, que los que se pueden lograr con marcadores HTML. Sin embargo, la capa de símbolos no es compatible con los elementos CSS y HTML tradicionales para aplicar estilos.  
+Un símbolo puede estar conectado a un origen de datos y usarse para representar un icono o un texto en un punto determinado. Las capas de símbolos se representan mediante WebGL y se utilizan para representar grandes colecciones de puntos en el mapa. En comparación con los marcadores HTML, la capa de símbolos representa un gran número de datos de puntos en el mapa con un rendimiento mejorado. Sin embargo, la capa de símbolos no es compatible con los elementos CSS y HTML tradicionales para aplicar estilos.  
 
 > [!TIP]
-> De forma predeterminada, las capas de símbolo representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo represente las características de geometría de puntos, configure la propiedad `filter` de la capa en `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si desea incluir también las características de MultiPoint.
+> De forma predeterminada, las capas de símbolo representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo represente las características de la geometría de puntos, establezca la propiedad `filter` de la capa en `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`. Si lo desea, también puede incluir características de MultiPoint.
 
-El administrador de sprites de imágenes de mapas, que se usa para cargar imágenes personalizadas que utiliza la capa de símbolos, admite los formatos de imagen siguientes:
+El administrador de sprites de imágenes de mapas carga imágenes personalizadas que se utilizan en la capa de símbolos. Los formatos de imagen compatibles son los siguientes:
 
 - JPEG
 - PNG
@@ -33,7 +33,7 @@ El administrador de sprites de imágenes de mapas, que se usa para cargar imáge
 
 ## <a name="add-a-symbol-layer"></a>Adición de una capa de símbolo
 
-Para agregar una capa de símbolos a los datos del mapa y de representación, primero es necesario crear un origen de datos y agregar el mapa. Después, se puede crear una capa de símbolos y pasarla en el origen de datos para recuperar los datos. Por último, los datos deben agregarse en el origen de datos para que haya algo que representar. En el código siguiente se muestra el código que debe agregarse al mapa una vez que se ha cargado para representar un único punto en el mapa mediante una capa de símbolos. 
+Para poder agregar una capa de símbolos al mapa, debe realizar primero algunas operaciones. En primer lugar, debe crear un origen de datos y agregarlo al mapa. Después, podrá crear la capa de símbolos y pasarla al origen de datos para que recupere los datos de este origen. Por último, es necesario agregar los datos al origen de datos para que haya algo que representar. En el ejemplo siguiente, se muestra el código que debe agregarse al mapa una vez que se ha cargado. El código representa un único punto en el mapa mediante una capa de símbolos. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -50,14 +50,14 @@ map.layers.add(layer);
 dataSource.add(new atlas.data.Point([0, 0]));
 ```
 
-Hay cuatro tipos diferentes de datos de punto que se pueden agregar al mapa:
+Hay cuatro tipos diferentes de datos de puntos que se pueden agregar al mapa:
 
 - Geometría Point de GeoJSON: Este objeto solo contiene una coordenada de un punto y nada más. La clase auxiliar `atlas.data.Point` se puede usar para crear fácilmente estos objetos.
-- Geometría MultiPoint de GeoJSON: Este objeto contiene las coordenadas de varios puntos, pero nada más. La clase auxiliar `atlas.data.MultiPoint` se puede usar para crear fácilmente estos objetos.
+- Geometría MultiPoint de GeoJSON: este objeto solamente contiene las coordenadas de varios puntos; no contiene nada más. La clase auxiliar `atlas.data.MultiPoint` se puede usar para crear fácilmente estos objetos.
 - GeoJSON Feature: Este objeto se compone de cualquier geometría GeoJSON y un conjunto de propiedades que contienen metadatos asociados a la geometría. La clase auxiliar `atlas.data.Feature` se puede usar para crear fácilmente estos objetos.
-- La clase `atlas.Shape` es similar a GeoJSON Feature en que se compone de una geometría GeoJSON y un conjunto de propiedades que contienen metadatos asociados a la geometría. Sin embargo, si se agrega un objeto GeoJSON a un origen de datos, puede representarse fácilmente en una capa; no obstante, si se actualiza la propiedad coordinates de ese objeto GeoJSON, el origen de datos y el mapa no cambian, ya que no hay ningún mecanismo en el objeto JSON para desencadenar una actualización. La clase Shape proporciona funciones para actualizar los datos que contiene y, cuando se hace un cambio, se notifica al origen de datos y al mapa y se actualizan automáticamente. 
+- La clase `atlas.Shape` es similar a la característica GeoJSON. Las dos se componen de una geometría GeoJSON y de un conjunto de propiedades que contienen metadatos relacionados con la geometría. Si se agrega un objeto GeoJSON a un origen de datos, este podrá representarse fácilmente en una capa. Sin embargo, si se actualiza la propiedad de coordenadas de ese objeto GeoJSON, el origen de datos y el mapa no cambian. Esto se debe a que no hay ningún mecanismo en el objeto JSON que desencadene una actualización. La clase Shape dispone de funciones para actualizar los datos que contiene. Cuando se realiza un cambio, automáticamente se actualiza el origen de datos y el mapa, y se envían notificaciones. 
 
-En el ejemplo de código siguiente se crea una geometría Point de GeoJSON y se pasa a la clase `atlas.Shape` para facilitar su actualización. El centro del mapa se usa inicialmente para representar un símbolo. Se agrega un evento click al mapa, de modo que, cuando se activa, las coordenadas de donde se hizo clic con el mouse se usan con la función `setCoordinates` de la forma, lo que actualiza la ubicación del símbolo en el mapa.
+En el ejemplo de código siguiente se crea una geometría Point de GeoJSON y se pasa a la clase `atlas.Shape` para facilitar su actualización. En un principio, se usa el centro del mapa para representar un símbolo. Después, se agrega un evento de clic al mapa para que, cuando se active, las coordenadas del mouse se utilicen con la función `setCoordinates` de las formas. Las coordenadas del mouse se registran en el momento en que se produce el evento de clic. A continuación, `setCoordinates` actualiza la ubicación del símbolo en el mapa.
 
 <br/>
 
@@ -65,11 +65,11 @@ En el ejemplo de código siguiente se crea una geometría Point de GeoJSON y se 
 </iframe>
 
 > [!TIP]
-> De forma predeterminada, para el rendimiento, las capas de símbolos optimizan la representación de los símbolos ocultando los símbolos que se superponen. A medida que se acerca, los símbolos ocultos se hacen visibles. Para deshabilitar esta característica y representar todos los símbolos en todo momento, establezca la propiedad `allowOverlap` de las opciones `iconOptions` en `true`.
+> De forma predeterminada, las capas de símbolos optimizan la representación de los símbolos, ya que ocultan los símbolos que se superponen. A medida que se acerca el zoom, los símbolos ocultos se hacen visibles. Para deshabilitar esta característica y representar todos los símbolos en todo momento, establezca la propiedad `allowOverlap` de las opciones `iconOptions` en `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adición de un icono personalizado a una capa de símbolo
 
-Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recursos, como las imágenes de icono, se deben cargar en el contexto de WebGL. Este ejemplo muestra cómo agregar un icono personalizado a los recursos del mapa para usarlo a continuación para representar datos de punto con un símbolo personalizado en el mapa. La propiedad `textField` de la capa de símbolo requiere que se especifique una expresión. En este caso, queremos representar la propiedad de temperatura, pero puesto que es un número, debe convertirse en una cadena. Además, queremos anexarle "°F". Para hacer esto se puede usar una expresión; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recursos, como las imágenes de icono, se deben cargar en el contexto de WebGL. En este ejemplo, se muestra cómo se agrega un icono personalizado a los recursos del mapa. Este icono se usa después para representar los datos de punto en el mapa con un símbolo personalizado. La propiedad `textField` de la capa de símbolo requiere que se especifique una expresión. En este caso, queremos representar la propiedad "temperature". Como la temperatura es un número, debe convertirse en una cadena. Además, queremos anexarle "°F". Para ello, podemos utilizar la expresión `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -77,7 +77,7 @@ Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recurs
 </iframe>
 
 > [!TIP]
-> El SDK de Azure Maps para web proporciona varias plantillas de imagen personalizables que puede usar con la capa de símbolo. Para más información, consulte el documento [How to use image templates](how-to-use-image-templates-web-sdk.md) (Uso de plantillas de imagen).
+> El SDK de Azure Maps para web proporciona varias plantillas de imagen personalizables que puede usar con la capa de símbolo. Para más información, consulte el documento [Uso de plantillas de imagen](how-to-use-image-templates-web-sdk.md).
 
 ## <a name="customize-a-symbol-layer"></a>Personalización de una capa de símbolo 
 
@@ -89,7 +89,7 @@ La capa de símbolo tiene muchas opciones de estilo disponibles. Con esta herram
 </iframe>
 
 > [!TIP]
-> Si solo quiere representar texto con una capa de símbolo, puede ocultar el icono estableciendo la propiedad `image` de las opciones de icono en `'none'`.
+> Si solamente desea representar texto con una capa de símbolos, puede ocultar el icono estableciendo la propiedad `image` de las opciones del icono en `'none'`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

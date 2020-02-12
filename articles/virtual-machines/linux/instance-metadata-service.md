@@ -11,20 +11,20 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: ad3f9329ce79812e908fd15037e2054ca5a8906e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 0e04f7e190ef22fb5c2b288e478cac5ffaf89141
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045160"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962516"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
 Instance Metadata Service (IMDS) de Azure proporciona información sobre instancias de máquina virtual actualmente en ejecución y se puede usar para administrar y configurar las máquinas virtuales.
-La información proporcionada incluye los eventos de SKU, configuración de red y mantenimiento próximos. Para obtener una lista completa de los datos que están disponibles, vea [API de metadatos](#metadata-apis).
+La información proporcionada incluye los eventos de SKU, configuración de red y mantenimiento próximos. Para una lista completa de los datos que están disponibles, consulte [API de metadatos](#metadata-apis).
 
 El servicio de metadatos de instancia de Azure es un punto de conexión REST al que pueden tener acceso todas las máquinas virtuales IaaS creadas a través de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 El punto de conexión está disponible en una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede tener acceso desde dentro de la máquina virtual.
@@ -38,10 +38,10 @@ El servicio está disponible con carácter general en las regiones de Azure. Pue
 
 Regions                                        | ¿Disponibilidad?                                 | Versiones admitidas
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 02-04-2017, 01-08-2017, 01-12-2017, 01-02-2018, 02-04-2018, 01-10-2018, 01-02-2019, 11-03-2019, 30-04-2019, 01-06-2019, 04-06-2019, 01-08-2019, 15-08-2019, 01-11-2019
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 02-04-2017, 01-08-2017, 01-12-2017, 01-02-2018, 02-04-2018, 01-10-2018, 01-02-2019, 11-03-2019, 30-04-2019, 01-06-2019, 04-06-2019, 01-08-2019, 15-08-2019, 01-11-2019
-[Azure China 21Vianet](https://www.azure.cn/)                                            | Disponibilidad general | 02-04-2017, 01-08-2017, 01-12-2017, 01-02-2018, 02-04-2018, 01-10-2018, 01-02-2019, 11-03-2019, 30-04-2019, 01-06-2019, 04-06-2019, 01-08-2019, 15-08-2019, 01-11-2019
-[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 02-04-2017, 01-08-2017, 01-12-2017, 01-02-2018, 02-04-2018, 01-10-2018, 01-02-2019, 11-03-2019, 30-04-2019, 01-06-2019, 04-06-2019, 01-08-2019, 15-08-2019, 01-11-2019
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure China 21Vianet](https://www.azure.cn/)                                            | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
 
 Esta tabla cambia cuando hay actualizaciones del servicio o cuando hay nuevas versiones compatibles disponibles.
 
@@ -480,7 +480,7 @@ publisher | Publicador de la imagen de VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/management/overview.md) para su máquina virtual | 2017-08-01
 resourceId | El identificador [completo](https://docs.microsoft.com/rest/api/resources/resources/getbyid) del recurso | 2019-03-11
 sku | SKU específica de la imagen de VM | 2017-04-02
-storageProfile | Vea [Perfil de almacenamiento](#storage-profile) | 2019-06-01
+storageProfile | Consulte [Perfil de almacenamiento](#storage-profile) | 2019-06-01
 subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/management/tag-resources.md) para su máquina virtual  | 2017-08-01
 tagsList | Etiquetas con formato de matriz de JSON para facilitar el análisis mediante programación  | 2019-06-04
@@ -542,7 +542,7 @@ El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del 
 
 Los metadatos de instancia se pueden recuperar en Windows a través de la utilidad `curl` de PowerShell:
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -748,7 +748,7 @@ El campo `tags` es una cadena con las etiquetas delimitadas por puntos y coma. E
 **Solicitud**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
 ```
 
 **Respuesta**
@@ -1054,7 +1054,7 @@ Puppet | https://github.com/keirans/azuremetadata
 8. ¿Cómo puedo obtener soporte técnico para el servicio?
    * Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal en la máquina virtual en la que no obtiene respuesta de metadatos después de reintentos prolongados.
 9. ¿Por qué se agotó el tiempo de espera de solicitud para mi llamada al servicio?
-   * Se deben realizar llamadas de metadatos desde la dirección IP principal asignada a la tarjeta de red de la máquina virtual; además, en caso de que haya cambiado las rutas, debe tener una ruta para la dirección 169.254.0.0/16 desde su tarjeta de red.
+   * Se deben realizar llamadas de metadatos desde la dirección IP principal asignada a la tarjeta de red principal de la máquina virtual; además, en caso de que haya cambiado las rutas, debe tener una ruta para la dirección 169.254.0.0/16 desde su tarjeta de red.
 10. He actualizado mis etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las máquinas virtuales.
     * Actualmente, las etiquetas para ScaleSets solo se muestran a la máquina virtual durante un reinicio, restablecimiento de imagen o cambio de disco en la instancia.
 

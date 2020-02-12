@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911183"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933480"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adición de una capa de línea al mapa
 
-Una capa de línea se puede usar para representar las características `LineString` y `MultiLineString` como rutas de acceso o rutas en el mapa. También se puede usar una capa de línea para representar el contorno de las características `Polygon` y `MultiPolygon`. Un origen de datos se conecta a una capa de línea para proporcionar los datos que se van a representar. 
+Una capa de línea se puede usar para representar las características `LineString` y `MultiLineString` como rutas de acceso o rutas en el mapa. También se puede usar una capa de línea para representar el contorno de las características `Polygon` y `MultiPolygon`. Se puede conectar un origen de datos a la capa de línea para que proporcione los datos que se van a representar. 
 
 > [!TIP]
 > Las capas de línea de forma predeterminada representarán las coordenadas de los polígonos y las líneas en un origen de datos. Para limitar la capa de forma que solo represente las características de LineString, configure la propiedad `filter` de la capa en `['==', ['geometry-type'], 'LineString']` o `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` si desea incluir también las características de MultiLineString.
 
-En el código siguiente se muestra cómo crear una línea, agregarla a un origen de datos y representarla con una capa de línea mediante la clase [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest).
+En el código siguiente, se muestra cómo se crea una línea. Agregue la línea a un origen de datos y represéntela con una capa de líneas utilizando la clase [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest).
 
 ```javascript
 //Create a data source and add it to the map.
@@ -51,7 +51,7 @@ Se puede aplicar estilo a las capas de línea mediante [LineLayerOptions](/javas
 
 ## <a name="add-symbols-along-a-line"></a>Adición de símbolos a lo largo de una línea
 
-En este ejemplo se muestra cómo agregar iconos de flecha situados a lo largo de una línea en el mapa. Cuando use una capa de símbolos, establezca la opción "colocación" en "línea" para que se representan los símbolos a lo largo de la línea y se giren los iconos (0 grados = derecha).
+En este ejemplo se muestra cómo agregar iconos de flecha situados a lo largo de una línea en el mapa. Si utiliza una capa de símbolos, establezca la opción "placement" en "line". Esta opción representará los símbolos a lo largo de la línea y girará los iconos (0 grados = derecha).
 
 <br/>
 
@@ -66,7 +66,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Visualizació
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Adición de un degradado de trazo a una línea
 
-Además de poder aplicar un color de trazo único a una línea, también puede rellenar una línea con un degradado de colores para mostrar la transición de un segmento de línea al siguiente. Por ejemplo, los degradados de línea pueden utilizarse para representar cambios en el tiempo y en la distancia, o bien diferentes temperaturas a lo largo de una línea de objetos conectada. Para poder aplicar esta característica a una línea, el origen de datos debe tener la opción `lineMetrics` establecida en true; de este modo, se puede pasar una expresión de degradado a la opción `strokeColor` de la línea. La expresión de degradado del trazo tiene que hacer referencia a la expresión de datos `['line-progress']` que expone las métricas de línea calculadas a la expresión.
+Puede aplicar un color de trazo único a la línea. También puede rellenar la línea con un degradado de colores para mostrar la transición de un segmento al siguiente. Por ejemplo, los degradados de línea pueden utilizarse para representar cambios en el tiempo y en la distancia, o bien diferentes temperaturas a lo largo de una línea de objetos conectada. Para poder aplicar esta característica a una línea, el origen de datos debe tener la opción `lineMetrics` establecida en true; de este modo, se puede pasar una expresión de degradado a la opción `strokeColor` de la línea. La expresión de degradado del trazo tiene que hacer referencia a la expresión de datos `['line-progress']` que expone las métricas de línea calculadas a la expresión.
 
 <br/>
 
@@ -76,7 +76,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>Línea con de
 
 ## <a name="customize-a-line-layer"></a>Personalizar una capa de línea
 
-La capa de línea tiene varias opciones de estilo. Esta es una herramienta para probarlas.
+La capa de líneas dispone de varias opciones de estilo. Esta es una herramienta para probarlas.
 
 <br/>
 

@@ -2,14 +2,15 @@
 title: Cifrado de datos de implementación
 description: Obtenga información sobre el cifrado de datos persistentes para los recursos de instancia de contenedor y cómo cifrar los datos con una clave administrada por el cliente.
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
-ms.openlocfilehash: 146effd7f1a7ad1ddd94886d1a79e2914bd1c94b
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/17/2020
+author: dkkapur
+ms.author: dekapur
+ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903693"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934316"
 ---
 # <a name="encrypt-deployment-data"></a>Cifrado de datos de implementación
 
@@ -87,15 +88,18 @@ La directiva de acceso debe mostrarse ahora en las directivas de acceso del alma
 > [!IMPORTANT]
 > El cifrado de datos de implementación con una clave administrada por el cliente está disponible en la versión más reciente de la API (2019-12-01) que se está implementando actualmente. Especifique esta versión de API en la plantilla de implementación. Si tiene algún problema con este valor, póngase en contacto con el soporte técnico de Azure.
 
-Una vez configuradas la clave del almacén de claves y la directiva de acceso, agregue la siguiente propiedad a la plantilla de implementación de ACI. Puede obtener más información sobre la implementación de recursos de ACI con una plantilla en el [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Una vez configuradas la clave del almacén de claves y la directiva de acceso, agregue las siguientes propiedades a la plantilla de implementación de ACI. Obtenga más información sobre la implementación de recursos de ACI con una plantilla en el [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+* En `resources`, establezca `apiVersion` en `2012-12-01`.
+* En la sección Propiedades del grupo de contenedores de la plantilla de implementación, agregue un elemento `encryptionProperties` con los siguientes valores:
+  * `vaultBaseUrl`: nombre DNS del almacén de claves, que se puede encontrar en la hoja de Información general del recurso de almacén de claves en el portal.
+  * `keyName`: nombre de la clave generada anteriormente.
+  * `keyVersion`: versión actual de la clave. Para encontrar este valor, haga clic en la clave (debajo de "Claves" en la sección Configuración del recurso de almacén de claves).
+* En las propiedades del grupo de contenedores, agregue una propiedad `sku` con el valor `Standard`. La propiedad `sku` es obligatoria en la versión 2019-12-01 de la API.
 
-En concreto, en la sección Propiedades del grupo de contenedores de la plantilla de implementación, agregue un elemento "encryptionProperties" con los siguientes valores:
-* vaultBaseUrl: nombre DNS del almacén de claves, que se puede encontrar en la hoja de Información general del recurso de almacén de claves en el portal.
-* keyName: nombre de la clave generada anteriormente.
-* keyVersion: versión actual de la clave. Para encontrar este valor, haga clic en la clave (debajo de "Claves" en la sección Configuración del recurso de almacén de claves).
-
+El siguiente fragmento de plantilla muestra estas propiedades adicionales para cifrar los datos de implementación:
 
 ```json
+[...]
 "resources": [
     {
         "name": "[parameters('containerGroupName')]",
@@ -108,12 +112,107 @@ En concreto, en la sección Propiedades del grupo de contenedores de la plantill
                 "keyName": "acikey",
                 "keyVersion": "xxxxxxxxxxxxxxxx"
             },
+            "sku": "Standard",
             "containers": {
                 [...]
             }
         }
     }
 ]
+```
+
+A continuación se muestra una plantilla completa, adaptada a partir de la plantilla de [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
+  "variables": {
+    "container1name": "aci-tutorial-app",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    "container2name": "aci-tutorial-sidecar",
+    "container2image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
+  },
+  "resources": [
+    {
+      "name": "[parameters('containerGroupName')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2019-12-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "encryptionProperties": {
+            "vaultBaseUrl": "https://example.vault.azure.net",
+            "keyName": "acikey",
+            "keyVersion": "xxxxxxxxxxxxxxxx"
+        },
+        "sku": "Standard",  
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                },
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
+    }
+  }
+}
 ```
 
 ### <a name="deploy-your-resources"></a>Implementar los recursos

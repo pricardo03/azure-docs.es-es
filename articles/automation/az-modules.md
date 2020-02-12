@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c832982a5525b0296155197d89684932cebaa95
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfbf54c19aef00cbda886a4531797cda7ef3a191
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418838"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986111"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Compatibilidad con módulos de Az en Azure Automation
 
@@ -18,7 +18,7 @@ Azure Automation admite la capacidad de usar el [módulo de Az de Azure Powershe
 
 ## <a name="considerations"></a>Consideraciones
 
-Hay muchas cosas que se deben tener en cuenta al usar el módulo de Az en Azure Automation. Las soluciones de nivel superior puede usar runbooks y módulos en su cuenta de Automation. La edición de runbooks o la actualización de módulos puede causar problemas con sus runbooks. Debe probar todos los runbooks y las soluciones con cuidado en una cuenta de Automation independiente antes de importar los nuevos módulos de `Az`. Cualquier modificación en los módulos puede ser negativamente la solución de [Inicio o detención](automation-solution-vm-management.md). Se recomienda no modificar los módulos ni los runbooks en cuentas de Automation que contengan soluciones. Este comportamiento no es específico de los módulos de Az. Este comportamiento se debe tener en cuenta cuando introduzca cualquier cambio en su cuenta de Automation.
+Hay muchas cosas que se deben tener en cuenta al usar el módulo de Az en Azure Automation. Las soluciones de nivel superior puede usar runbooks y módulos en su cuenta de Automation. La edición de runbooks o la actualización de módulos puede causar problemas con sus runbooks. Debe probar todos los runbooks y las soluciones con cuidado en una cuenta de Automation independiente antes de importar los nuevos módulos de `Az`. Cualquier modificación en los módulos puede afectar negativamente la solución de [Iniciar/Detener](automation-solution-vm-management.md). No se recomienda modificar los módulos ni los runbooks en cuentas de Automation que contengan soluciones. Este comportamiento no es específico de los módulos de Az. Este comportamiento se debe tener en cuenta cuando introduzca cualquier cambio en su cuenta de Automation.
 
 Al importar un módulo de `Az` en su cuenta de Automation, dicho módulo no se importa automáticamente en la sesión de PowerShell que usan los runbooks. Los módulos se importan en la sesión de PowerShell en las situaciones siguientes:
 

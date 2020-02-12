@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890494"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934633"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -50,7 +50,7 @@ IoT Hub define un [formato común](iot-hub-devguide-messages-construct.md) para 
 
 Las propiedades del sistema ayudan a identificar el contenido y el origen de los mensajes. 
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | contentType | string | El usuario especifica el tipo de contenido del mensaje. Para permitir la consulta en el cuerpo del mensaje, este valor debe establecerse en application/JSON. |
 | contentEncoding | string | El usuario especifica el tipo de codificación del mensaje. Los valores permitidos son UTF-8, UTF-16, UTF-32, si contentType se establece en application/JSON. |
@@ -163,7 +163,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Consulta de enrutamiento de mensajes basada en un dispositivo gemelo 
 
-El enrutamiento de mensajes le permite consultar en etiquetas y propiedades de [dispositivos gemelos](iot-hub-devguide-device-twins.md), que son objetos JSON. No se admite la consulta en el módulo gemelo. A continuación se muestra un ejemplo de propiedades y etiquetas de dispositivo gemelo.
+El enrutamiento de mensajes le permite consultar en etiquetas y propiedades de [dispositivos gemelos](iot-hub-devguide-device-twins.md), que son objetos JSON. También se admite la consulta en el módulo gemelo. A continuación se muestra un ejemplo de propiedades y etiquetas de dispositivo gemelo.
 
 ```JSON
 {
@@ -196,7 +196,7 @@ El enrutamiento de mensajes le permite consultar en etiquetas y propiedades de [
 
 ### <a name="query-expressions"></a>Expresiones de consulta
 
-Una consulta al cuerpo del mensaje debe tener el prefijo `$twin`. La expresión de consulta también puede combinar referencias a propiedades o etiquetas de dispositivo gemelo con referencias al cuerpo del mensaje, a las propiedades del sistema de mensajes y a las propiedades de la aplicación de mensajes. Se recomienda usar nombres únicos en las etiquetas y propiedades ya que la consulta no distingue mayúsculas de minúsculas. También debe evitar utilizar `twin`, `$twin`, `body` o `$body` como nombres de propiedad. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas: 
+Una consulta al cuerpo del mensaje debe tener el prefijo `$twin`. La expresión de consulta también puede combinar referencias a propiedades o etiquetas de dispositivo gemelo con referencias al cuerpo del mensaje, a las propiedades del sistema de mensajes y a las propiedades de la aplicación de mensajes. Se recomienda usar nombres únicos en las etiquetas y propiedades ya que la consulta no distingue mayúsculas de minúsculas. Esto se aplica tanto a los dispositivos gemelos como a los módulo gemelos. También debe evitar utilizar `twin`, `$twin`, `body` o `$body` como nombres de propiedad. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

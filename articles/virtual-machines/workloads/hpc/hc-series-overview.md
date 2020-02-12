@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797551"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906748"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HC
 
@@ -41,7 +41,7 @@ En el siguiente diagrama se muestra la segregación de los núcleos reservados p
 
 | Especificaciones del hardware          | Máquina virtual de la serie HC                     |
 |----------------------------------|----------------------------------|
-| Núcleos                            | 40 (HT deshabilitado)                 |
+| Núcleos                            | 44 (HT deshabilitado)                 |
 | CPU                              | Intel Xeon Platinum 8168*        |
 | Frecuencia de CPU (no AVX)          | 3,7 GHz (un solo núcleo), 2,7-3,4 GHz (todos los núcleos) |
 | Memoria                           | 8 GB/núcleo (total: 352)            |
@@ -53,7 +53,7 @@ En el siguiente diagrama se muestra la segregación de los núcleos reservados p
 
 | Especificaciones de software     | Máquina virtual de la serie HC          |
 |-----------------------------|-----------------------|
-| Tamaño de trabajo de MPI máximo            | 4400 núcleos (100 conjuntos de escalado de máquinas virtuales), 8800 núcleos (200 conjuntos de escalado de máquinas virtuales) |
+| Tamaño de trabajo de MPI máximo            | 13 200 núcleos (300 máquinas virtuales en un único VMSS con singlePlacementGroup=true) |
 | Compatibilidad con MPI                 | MVAPICH2, OpenMPI, MPICH, Platform MPI, Intel MPI  |
 | Otros marcos       | Unified Communication X, libfabric, PGAS |
 | Soporte técnico para Azure Storage       | Estándar y Premium (4 discos como máximo) |

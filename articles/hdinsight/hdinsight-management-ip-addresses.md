@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 598bf677b06c5ec1f431144e7e76deee55d23f33
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 982e80f4c47a6f59b65edb06461a9d592248cc61
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435483"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929884"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 
 > [!Important]
-> Use la característica [etiqueta de servicio](hdinsight-service-tags.md) para los grupos de seguridad de red. Solo se agregarán nuevas regiones para las etiquetas de servicio y las direcciones IP estáticas quedarán en desuso.
+> En la mayoría de los casos, ahora puede usar la característica [etiqueta de servicio](hdinsight-service-tags.md) para los grupos de seguridad de red, en lugar de agregar manualmente las direcciones IP. Solo se agregarán nuevas regiones para las etiquetas de servicio y las direcciones IP estáticas quedarán en desuso.
 
 Si usa grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para controlar el tráfico entrante a su clúster de HDInsight, debe asegurarse de que el clúster pueda comunicarse con los servicios críticos de mantenimiento y administración de Azure.  Algunas de las direcciones IP de esos servicios son específicas de la región y algunas de ellas se aplican a todas las regiones de Azure. También es posible que deba permitir el tráfico desde el servicio Azure DNS si no usa DNS personalizado.
 
@@ -59,23 +59,23 @@ Permita el tráfico desde las direcciones IP enumeradas en los servicios de mant
 | &nbsp; | Este de China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
 | &nbsp; | Norte de China 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Entrada |
 | &nbsp; | Este de China 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Entrada |
-| Europa | Europa del Norte | 52.164.210.96</br>13.74.153.132 | \*:443 | Entrada |
-| &nbsp; | Europa occidental| 52.166.243.90</br>52.174.36.244 | \*:443 | Entrada |
+| Europa | Norte de Europa | 52.164.210.96</br>13.74.153.132 | \*:443 | Entrada |
+| &nbsp; | Oeste de Europa| 52.166.243.90</br>52.174.36.244 | \*:443 | Entrada |
 | Francia | Centro de Francia| 20.188.39.64</br>40.89.157.135 | \*:443 | Entrada |
 | Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
-| &nbsp; | Noreste de Alemania | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
-| India | India Central | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
-| &nbsp; | Sur de la India | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |
-| Japón | Este de Japón | 13.78.125.90</br>13.78.89.60 | \*:443 | Entrada |
-| &nbsp; | Oeste de Japón | 40.74.125.69</br>138.91.29.150 | \*:443 | Entrada |
-| Corea | Corea Central | 52.231.39.142</br>52.231.36.209 | \*:443 | Entrada |
+| &nbsp; | Nordeste de Alemania | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
+| India | Centro de la India | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
+| &nbsp; | India del Sur | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |
+| Japón | Japón Oriental | 13.78.125.90</br>13.78.89.60 | \*:443 | Entrada |
+| &nbsp; | Japón Occidental | 40.74.125.69</br>138.91.29.150 | \*:443 | Entrada |
+| Corea | Centro de Corea del Sur | 52.231.39.142</br>52.231.36.209 | \*:443 | Entrada |
 | &nbsp; | Corea del Sur | 52.231.203.16</br>52.231.205.214 | \*:443 | Entrada
 | Reino Unido | Oeste de Reino Unido | 51.141.13.110</br>51.141.7.20 | \*:443 | Entrada |
 | &nbsp; | Sur de Reino Unido 2 | 51.140.47.39</br>51.140.52.16 | \*:443 | Entrada |
 | Estados Unidos | Centro de EE. UU. | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
-| &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
+| &nbsp; | Este de EE. UU. | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
 | &nbsp; | Centro-Norte de EE. UU | 157.56.8.38</br>157.55.213.99 | \*:443 | Entrada |
-| &nbsp; | Centro occidental de EE.UU. | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
+| &nbsp; | Centro-Oeste de EE. UU. | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
 | &nbsp; | Oeste de EE. UU. | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
 | &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
 | &nbsp; | Norte de Emiratos Árabes Unidos | 65.52.252.96</br>65.52.252.97 | \*:443 | Entrada |

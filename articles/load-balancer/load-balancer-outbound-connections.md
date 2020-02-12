@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 5bdcd955919a91760f16287a62956542cfaa47c5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225280"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934554"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -40,7 +40,7 @@ Son varios los [escenarios de salida](#scenarios). Puede combinar estos escenari
 
 Cuando se usan [recursos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), se definen explícitamente Azure Load Balancer y los recursos relacionados.  Actualmente, Azure proporciona tres métodos diferentes para lograr la conectividad saliente con los recursos de Azure Resource Manager. 
 
-| SKU | Escenario | Método | Protocolos IP | DESCRIPCIÓN |
+| SKU | Escenario | Método | Protocolos IP | Descripción |
 | --- | --- | --- | --- | --- |
 | Nivel Estándar o Básico | [1. Máquina virtual con dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. Cuando se usa Standard Load Balancer, también deben usarse las [reglas de salida](load-balancer-outbound-rules-overview.md) para definir explícitamente la conectividad saliente |
 | Nivel Estándar o Básico | [2. Load Balancer público asociado a una máquina virtual (ninguna dirección IP pública en la instancia)](#lb) | SNAT con enmascaramiento de puertos (PAT) mediante los servidores front-end de Load Balancer | TCP, UDP |Azure comparte la dirección IP pública de los servidores front-end de Load Balancer público con varias direcciones IP privadas. Azure usa puertos efímeros de los servidores front-end para PAT. |
@@ -237,7 +237,7 @@ Si se escala horizontalmente al siguiente nivel de grupo de back-end de mayor ta
 
 ### <a name="idletimeout"></a>Uso de conexiones persistentes para restablecer el tiempo de espera de inactividad saliente
 
-Las conexiones salientes tienen un tiempo de espera de inactividad de 4 minutos. Este tiempo de espera no es ajustable. Sin embargo, puede usar conexiones persistentes de transporte (por ejemplo, TCP) o de capa de aplicación para actualizar un flujo de inactividad y restablecer este tiempo de espera de inactividad en caso necesario.  
+Las conexiones salientes tienen un tiempo de espera de inactividad de 4 minutos. Este tiempo de espera se ajusta desde [Reglas de salida](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Pero también puede usar conexiones persistentes de transporte (por ejemplo, TCP) o de capa de aplicación para actualizar un flujo de inactividad y restablecer este tiempo de espera de inactividad en caso necesario.  
 
 Al utilizar conexiones persistentes de TCP, es suficiente con habilitarlas en un lado de la conexión. Por ejemplo, es suficiente habilitarlas solo en el servidor para restablecer el temporizador de inactividad del flujo y no se necesita para ambos lados en conexiones persistentes de TCP iniciadas.  Existen conceptos similares existen para la capa de aplicación, incluidas las configuraciones de cliente/servidor de base de datos.  Compruebe el lado del servidor para ver qué opciones existen para conexiones persistentes específicas de la aplicación.
 

@@ -3,12 +3,12 @@ title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74840772"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938877"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -58,8 +58,8 @@ ACR Tasks admite los siguientes desencadenadores cuando establece un repositorio
 
 | Desencadenador | Habilitado de forma predeterminada |
 | ------- | ------------------ |
-| Confirmación | Sí |
-| Solicitud de incorporación de cambios | Sin |
+| Commit | Sí |
+| Solicitud de incorporación de cambios | No |
 
 Para configurar el desencadenador de actualización de código fuente, debe proporcionar un token de acceso personal (PAT) a la tarea para establecer el webhook en el repositorio de GitHub público o privado o el repositorio de Azure DevOps.
 
@@ -116,12 +116,13 @@ Aprenda más sobre las tareas de varios pasos en [Ejecución de tareas de varios
 
 En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto admitidas en ACR Tasks:
 
-| Ubicación de contexto | DESCRIPCIÓN | Ejemplo |
+| Ubicación de contexto | Descripción | Ejemplo |
 | ---------------- | ----------- | ------- |
 | Sistema de archivos local | Archivos en un directorio en el sistema de archivos local. | `/home/user/projects/myapp` |
 | Rama maestra de GitHub | Archivos dentro de la rama maestra (u otra predeterminada) de un repositorio de GitHub público o privado.  | `https://github.com/gituser/myapp-repo.git` |
 | Rama de GitHub | Rama específica de un repositorio de GitHub público o privado.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub público o privado. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Confirmación de GitHub | Confirmación específica en un repositorio de GitHub público o privado. En el ejemplo se muestra la combinación de un valor hash de confirmación (SHA) y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Subcarpeta de Azure DevOps | Archivos en una subcarpeta en un repositorio de Azure público o privado. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball remoto | Archivos en un archivo comprimido en un servidor web remoto. | `http://remoteserver/myapp.tar.gz` |
 
@@ -132,7 +133,7 @@ En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto ad
 
 De forma predeterminada, ACR Tasks compila imágenes para el sistema operativo Linux y la arquitectura AMD64. Especifique la etiqueta `--platform` para compilar imágenes de Windows o imágenes de Linux para otras arquitecturas. Especifique el sistema operativo y, opcionalmente, una arquitectura admitida en formato de arquitectura o sistema operativo (por ejemplo,`--platform Linux/arm`). En el caso de las arquitecturas ARM, especifique opcionalmente una variante en formato de sistema operativo,arquitectura o variante (por ejemplo,`--platform Linux/arm64/v8`):
 
-| SO | Arquitectura|
+| SO | Architecture|
 | --- | ------- | 
 | Linux | AMD64<br/>ARM<br/>ARM64<br/>386 |
 | Windows | AMD64 |

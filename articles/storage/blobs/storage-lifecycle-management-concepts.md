@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: fdc98991134e0857d24575d22962a52e43266cbe
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260960"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939237"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -348,9 +348,9 @@ En este ejemplo se muestra cómo realizar la transición de blobs en bloques con
 }
 ```
 
-### <a name="archive-data-at-ingest"></a>Archivado de datos en la ingesta
+### <a name="archive-data-after-ingest"></a>Archivado de datos después de la ingesta
 
-Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se accede a ellos prácticamente nunca. La siguiente directiva del ciclo de vida está configurada para archivar datos cuando se ingieran. En este ejemplo se realiza la transición de los blobs en bloques en la cuenta de almacenamiento en el contenedor `archivecontainer` a un nivel de archivo. La transición se realiza al actuar en los blobs 0 días después de la hora de la última modificación:
+Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se accede a ellos prácticamente nunca. La siguiente directiva del ciclo de vida está configurada para archivar los datos poco después de que se ingieran. En este ejemplo se realiza la transición de los blobs en bloques en la cuenta de almacenamiento en el contenedor `archivecontainer` a un nivel de archivo. La transición se realiza al actuar en los blobs 0 días después de la hora de la última modificación:
 
 > [!NOTE] 
 > Se recomienda cargar los blobs directamente en el nivel de archivo para que sea más eficaz. Puede usar el encabezado x-ms-acess-tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con la versión de REST 2018-11-09 y versiones más recientes o las bibliotecas de cliente de blob storage más recientes. 

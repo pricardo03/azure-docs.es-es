@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8cff61d547e75b186869b3ab4d57c5eb12e6e2f5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770465"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935462"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
@@ -36,7 +36,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Acuerdo de Nivel de Servicio (SLA)                | Ofrece un Acuerdo de Nivel de Servicio del 99,99 % de disponibilidad.| Hasta el 99,95 % de disponibilidad con dos o más instancias del mismo conjunto de disponibilidad.<br/><br/>El 99,9 % de disponibilidad con una máquina virtual de instancia única con Premium Storage.<br/><br/>El 99,99 % con Availability Zones con varias instancias en varios conjuntos de disponibilidad.<br/><br/>Consulte [Acuerdo de Nivel de Servicio para Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Aplicación de revisiones del sistema operativo        | Automático  | Administrado por los clientes |
 | Aplicación de revisiones de MySQL     | Automático  | Administrado por los clientes |
-| Alta disponibilidad | El modelo de alta disponibilidad se basa en los mecanismos de conmutación por error integrados cuando se produce una interrupción en el nivel de nodo. En tales casos, el servicio crea automáticamente una nueva instancia y asocia el almacenamiento a esta instancia. | Los clientes pueden diseñar, implementar, probar y mantener una alta disponibilidad. Entre las funcionalidades se incluyen los clústeres de conmutación por error Always On, la replicación de grupos Always On, el trasvase de registros o la replicación transaccional.|
+| Alta disponibilidad | El modelo de alta disponibilidad se basa en los mecanismos de conmutación por error integrados cuando se produce una interrupción en el nivel de nodo. En tales casos, el servicio crea automáticamente una nueva instancia y asocia el almacenamiento a esta instancia. | Los clientes pueden diseñar, implementar, probar y mantener una alta disponibilidad. Las funcionalidades pueden incluir agrupación en clústeres, replicación, etc.|
 | Redundancia de zona | Actualmente no se admite | Las máquinas virtuales de Azure se pueden configurar para que se ejecuten en distintas zonas de disponibilidad. En el caso de una solución local, los clientes deben crear, administrar y mantener su propio centro de datos secundario.|
 | Escenarios híbridos | Con [Replicación de datos de entrada](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication) puede sincronizar datos de una instancia externa de MySQL Server con el servicio Azure Database for MySQL. El servidor externo puede ser local, de máquinas virtuales o un servicio de base de datos hospedado por otros proveedores de nube.<br/><br/> Con la característica de [réplica de lectura](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) puede replicar los datos de un servidor maestro de Azure Database for MySQL en hasta cinco servidores de solo lectura. Las réplicas están dentro de la misma región de Azure o en varias regiones. Las réplicas de solo lectura se actualizan de forma asincrónica mediante la tecnología de replicación binlog.| Administrado por los clientes
 | Copia de seguridad y restauración | Crea automáticamente [copias de seguridad del servidor](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. El servicio realiza copias de seguridad completas, diferenciales y del registro de transacciones. | Administrado por los clientes |

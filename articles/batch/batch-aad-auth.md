@@ -1,10 +1,10 @@
 ---
-title: Uso de Azure Active Directory para autenticar soluciones de servicio de Azure Batch | Microsoft Docs
-description: Batch admite Azure AD para la autenticación desde el servicio de Batch.
+title: Autenticación de servicios de Azure Batch con Azure Active Directory
+description: Batch admite Azure AD para la autenticación desde el servicio de Batch. Aprenda cómo realizar la autenticación de dos maneras distintas.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 01/28/2020
-ms.author: jushiman
-ms.openlocfilehash: ce3582539d6130e13ef205806d780164ba70c4fe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.author: labrenne
+ms.openlocfilehash: f56c05f64086ac2e98e69d6b21fae7a0a63b5006
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842544"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019526"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 

@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de servidores físicos con Azure Migra
 description: Obtenga información sobre la compatibilidad para la evaluación de servidores físicos con Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 489f95bbbbeb261b56f1a3a86da44f5fcce0adf5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2698d0ff046147599a8c5c791a0980a54090932
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846577"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990341"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de compatibilidad para la evaluación de servidores físicos 
 
@@ -38,7 +38,7 @@ A fin de evaluar las máquinas locales para la migración a Azure con este artí
 | **Soporte técnico**                | **Detalles**               
 | :-------------------       | :------------------- |
 | **Implementación de servidor físico**       | El servidor físico puede ser independiente o implementarse en un clúster. |
-| **Permisos**           | **Windows:** Configure una cuenta de usuario local en todos los servidores de Windows que quiera incluir en la detección. Es necesario agregar la cuenta de usuario a estos grupos: Usuarios de escritorio remoto, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento. <br/> **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar. |
+| **Permisos**           | **Windows:** Configure una cuenta de usuario local o de dominio en todos los servidores Windows que quiera incluir en la detección. Es necesario agregar la cuenta de usuario a estos grupos: Usuarios de escritorio remoto, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento. <br/> **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar. |
 | **Sistema operativo** | Se admiten todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) excepto los siguientes:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 

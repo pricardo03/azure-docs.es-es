@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892692"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989780"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Uso de la API Video Indexer
 
@@ -86,7 +86,7 @@ El parámetro accountId es obligatorio en todas las llamadas a las API de operac
 
 * Use el **portal para desarrolladores de Video Indexer** para obtener mediante programación el identificador de cuenta.
 
-    Use la API [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?).
+    Use la API [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?).
 
     > [!TIP]
     > Para generar tokens de acceso para las cuentas, puede definir `generateAccessTokens=true`.
@@ -214,4 +214,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Examen detallado de la salida JSON](video-indexer-output-json-v2.md).
+- [Examen detallado de la salida JSON](video-indexer-output-json-v2.md).
+- Consulte el [código de ejemplo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) que muestra un aspecto importante de la carga y la indexación de un vídeo. Después del código, se le ofrece una buena idea de cómo usar nuestra API para las funcionalidades básicas. Asegúrese de leer los comentarios en línea y observe nuestros consejos de procedimientos recomendados.
+

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760834"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026156"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -132,6 +132,8 @@ En las secciones siguientes encontrará prácticas comunes para mejorar las cara
 Los conjuntos de características se pueden mejorar. Para ello, es preciso editarlos, con el fin de aumentar su tamaño y aumentar o reducir su densidad.
 
 Por ejemplo, una marca de tiempo ajustada al segundo es una característica muy rala. Su densidad (eficacia) podría aumentar si el tiempo se clasifica en "mañana", "mediodía" y "tarde", etc.
+
+La información de ubicación también suele beneficiarse de la creación de clasificaciones más amplias. Por ejemplo, una coordenada de latitud-longitud como Lat: 47,67402° N, Long: 122,12154° W es demasiado preciso y obliga al modelo a aprender la latitud y la longitud como dimensiones distintas. Cuando intenta personalizar según la información de ubicación, resulta de ayuda agrupar la información de ubicación en sectores más grandes. Una manera fácil de hacerlo es elegir una precisión de redondeo adecuada para los números de Lat-Long y combinar la latitud y la longitud en "áreas" convirtiéndolas en una sola cadena. Por ejemplo, una buena manera de representar 47,67402° N, Long: 122,12154° W en regiones aproximadamente de unos pocos kilómetros de ancho sería "ubicación": "34.3, 12.1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expansión de los conjuntos de características con información extrapolada

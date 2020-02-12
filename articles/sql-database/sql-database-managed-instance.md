@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d28eb6c4ee4fadf8a090a17121f6910eb34135e3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514562"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935202"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
@@ -303,7 +303,7 @@ El siguiente diagrama describe la compatibilidad de área expuesta en una instan
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Diferencias principales entre SQL Server local y una instancia administrada
 
-La opción de implementación de instancia administrada tiene la ventaja de estar siempre actualizada en la nube, lo que significa que algunas características de la instancia local de SQL Server pueden ser obsoletas, estar retiradas o presentar alternativas. Hay casos específicos en los que las herramientas deben reconocer que una característica determinada funciona de forma ligeramente diferente o que el servicio no se está ejecutando en un entorno que no controla totalmente:
+La opción de implementación de instancia administrada tiene la ventaja de estar siempre actualizada en la nube, lo que significa que algunas características de la instancia local de SQL Server pueden ser obsoletas, estar retiradas o presentar alternativas. Hay casos concretos en los que las herramientas necesitan reconocer que una característica determinada funciona de forma ligeramente diferente o que el servicio se ejecuta en un entorno que no se controla totalmente:
 
 - La alta disponibilidad está integrada y preconfigurada con tecnología similar a [Grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Copias de seguridad automatizadas y restauración a un momento dado. El cliente puede iniciar copias de seguridad `copy-only` que no interfieren con la cadena de copias de seguridad automáticas.

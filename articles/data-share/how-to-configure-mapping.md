@@ -6,16 +6,16 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 754977788c5f6e5e574500552f670ba9083cf683
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ff432c2073536448c8194ebe537c8bf8cf00663
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490621"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964250"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Configuración de una asignación de conjunto de datos para un recurso compartido recibido en Azure Data Share
 
-En este artículo se explica cómo configurar una asignación de conjunto de datos para un recurso compartido recibido en Azure Data Share. Deberá hacer esto si aceptó una invitación de un recurso compartido de datos pero seleccionó "Accept and configure later" (Aceptar y configurar más adelante). Es posible que quiera configurar una asignación de conjunto de datos si necesita cambiar el destino de los datos que se comparten con usted o si quiere recibir datos en una instancia de SQL Server. 
+En este artículo se explica cómo configurar una asignación de conjunto de datos para un recurso compartido recibido en Azure Data Share. Deberá hacer esto si aceptó una invitación de un recurso compartido de datos, pero seleccionó "Accept and configure later" (Aceptar y configurar más adelante) o si los datos se comparten en contexto. Es posible que quiera configurar una asignación de conjunto de datos si necesita cambiar el destino de los datos que se comparten con usted o si quiere recibir datos en una instancia de SQL Server. 
 
 ## <a name="navigate-to-a-received-data-share"></a>Vaya a un recurso compartido de datos recibido.
 
@@ -27,9 +27,9 @@ Active la casilla situada junto al conjunto de datos al que desearía asignar un
 
 ![Asignación a destino](./media/dataset-map-target.png "Asignar a destino") 
 
-## <a name="select-a-new-destination-store"></a>Selección de un almacén de destino nuevo
+## <a name="select-a-new-target-store"></a>Selección de un nuevo almacén de destino
 
-Seleccione un tipo de datos de destino en el que desee colocar los datos. Tenga en cuenta que todos los datos que ya existan en cualquier cuenta de almacenamiento ya asignada no se moverán automáticamente al destino nuevo.
+Seleccione un tipo de datos de destino en el que desee colocar los datos. En el uso compartido basado en instantáneas, todos los datos que ya existan en cualquier cuenta de almacenamiento ya asignada no se moverán automáticamente al almacén de destino nuevo. Para el uso compartido en contexto, seleccione un almacén de datos en la ubicación especificada. La ubicación es el centro de datos de Azure donde se encuentra el almacén de datos de origen del proveedor de datos.
 
 ![Cuenta de almacenamiento de destino](./media/dataset-map-target-sql.png "Almacenamiento de destino") 
 

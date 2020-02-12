@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cd5e543a6d5dc2b59847a78bd925be68f8cdde25
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67846850"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982864"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -43,7 +43,7 @@ Los siguientes identificadores sirven para una definición de contenido con el i
 | **forgotpassword_link** | ¿Ha olvidado la contraseña? |
 | **createaccount_intro** | ¿No tiene una cuenta? |
 | **createaccount_link** | Regístrese ahora |
-| **divider_title** | OR |
+| **divider_title** | O BIEN |
 | **cancel_message** | El usuario ha olvidado su contraseña. |
 | **button_signin** | Iniciar sesión |
 | **social_intro** | Inicie sesión con su cuenta social. |
@@ -79,7 +79,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
-## <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
+### <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
 
 | id | Valor predeterminado |
 | -- | ------------- |
@@ -88,7 +88,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 | **UserMessageIfOldPasswordUsed** | Parece que ha usado una contraseña antigua. |
 | **DefaultMessage** | Nombre de usuario o contraseña no válidos. |
 | **UserMessageIfUserAccountDisabled** | Su cuenta se ha bloqueado. Contacte con la persona responsable de soporte técnico para desbloquearla y vuelva a intentarlo. |
-| **UserMessageIfUserAccountLocked** | Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Inténtelo de nuevo más tarde. |
+| **UserMessageIfUserAccountLocked** | Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Vuelva a intentarlo más tarde. |
 | **AADRequestsThrottled** | Hay demasiadas solicitudes en este momento. Espere un poco y vuelva a intentarlo. |
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementos de la interfaz de usuario de páginas autoafirmadas o de registro
@@ -108,7 +108,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 | **verifying_blurb** | Espere mientras se procesa la información. |
 | **button_cancel** | Cancelar |
 | **ver_fail_no_retry** | Ha hecho demasiados intentos incorrectos. Inténtelo de nuevo más tarde. |
-| **month** | Mes |
+| **month** | Month |
 | **ver_success_msg** | Se ha verificado la dirección de correo electrónico. Ahora puede continuar. |
 | **months** | Enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre |
 | **ver_fail_server** | Estamos teniendo problemas para comprobar su dirección de correo electrónico. Escriba una dirección de correo electrónico válida e inténtelo de nuevo. |
@@ -120,19 +120,19 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 | **ver_incorrect_format** | Formato incorrecto. |
 | **ver_but_edit** | Cambie la dirección de correo electrónico. |
 | **ver_but_verify** | Compruebe el código. |
-| **alert_no** | Sin |
+| **alert_no** | No |
 | **ver_info_msg** | Se ha enviado el código de verificación a su bandeja de entrada. Cópielo en el siguiente cuadro de entrada de texto. |
 | **day** | Día |
 | **ver_fail_throttled** | Ha habido demasiadas solicitudes para verificar esta dirección de correo electrónico. Espere un poco y vuelva a intentarlo. |
 | **helplink_text** | ¿Qué es esto? |
-| **ver_fail_retry** | Este código no es correcto. Vuelva a intentarlo. |
+| **ver_fail_retry** | Este código no es correcto. Inténtelo de nuevo. |
 | **alert_title** | Cancele la entrada de información. |
 | **required_field** | Esta información es obligatoria. |
 | **alert_message** | ¿Confirma que quiere cancelar la introducción de información? |
 | **ver_intro_msg** | La comprobación es necesaria. Haga clic en el botón Enviar. |
 | **ver_input** | Código de verificación |
 
-## <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
+### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
 
 | id | Valor predeterminado |
 | -- | ------------- |
@@ -202,6 +202,30 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 En el ejemplo siguiente se muestra el uso de algunos de los elementos de la interfaz de usuario en la página de validación de la autenticación multifactor:
 
 ![Elementos de la experiencia de usuario al comprobar el correo electrónico en la página de registro](./media/localization-string-ids/localization-mfa2.png)
+
+## <a name="verification-display-control-user-interface-elements"></a>Elementos de la interfaz de usuario del control de pantalla de verificación
+
+Los siguientes son los identificadores de un [control de pantalla de verificación](display-control-verification.md).
+
+| id | Valor predeterminado |
+| -- | ------------- |
+|verification_control_but_change_claims |Change |
+|verification_control_fail_send_code |No se pudo enviar el código; vuelva a intentarlo más tarde. |
+|verification_control_fail_verify_code |No se pudo comprobar el código; vuelva a intentarlo más tarde. |
+|verification_control_but_send_code |Envié el código |
+|verification_control_but_send_new_code |Envíe un código nuevo. |
+|verification_control_but_verify_code |Verifique el código |
+
+## <a name="one-time-password-error-messages"></a>Mensajes de error de contraseña única
+Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de contraseña única](one-time-password-technical-profile.md).
+
+| id | Valor predeterminado |
+| -- | ------------- |
+|UserMessageIfMaxRetryAttempted |La comprobación proporcionada de la contraseña única ha superado el número máximo de intentos. |
+|UserMessageIfSessionDoesNotExist |La sesión de comprobación de contraseña única ha expirado. |
+|UserMessageIfSessionConflict |La sesión de comprobación de contraseña única presenta un conflicto. |
+|UserMessageIfInvalidCode |La contraseña única que se proporcionó para la comprobación no es correcta. |
+
 
 
 

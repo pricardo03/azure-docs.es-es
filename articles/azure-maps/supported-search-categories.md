@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: de44d07b5ebc6a898e3c098f16e553e9d4a46150
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9dbcae6e3947576a7d2bc204c2a3a6fb2e95953d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910410"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988300"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorías admitidas en Azure Maps
 
-Al realizar una [búsqueda de categoría](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) para encontrar puntos de interés, hay más de un centenar de categorías. A continuación se muestra una lista de los códigos de categoría de los nombres de categoría admitidos. Los códigos de categoría se generan para las categorías de nivel superior. Todas las subcategorías comparten el mismo código de categoría. Tenga presente que esta lista de categorías está sujeta a cambios con cada nueva versión de datos.
+Al realizar una [búsqueda de categoría](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) para encontrar puntos de interés, hay más de un centenar de categorías. A continuación se muestra una lista de los códigos de categoría de los nombres de categoría admitidos. Los códigos de categoría se generan para las categorías de nivel superior. Todas las subcategorías comparten el mismo código de categoría. Esta lista de categorías está sujeta a cambios con cada nueva versión de datos.
 
 <br/>
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: c4395628ac31dd69a4978f7f68ecc24ca1e15cfb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 225ae9d07cc6df2fa809e250083ee6007ab2f945
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453119"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932080"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Creación de un servicio Private Link mediante Azure PowerShell
 En este artículo se muestra cómo crear un servicio Private Link en Azure mediante Azure PowerShell.
@@ -109,7 +109,7 @@ Obtenga detalles sobre el servicio de vínculo privado [Get-AzPrivateLinkService
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
 ```
 
-En esta fase, el servicio Private Link se ha creado correctamente y está listo para recibir el tráfico. Tenga en cuenta que en el ejemplo anterior solo se muestra la creación de un servicio Private Link mediante PowerShell.  No hemos configurado los grupos de back-end del equilibrador de carga ni ninguna aplicación en los grupos de back-end para escuchar el tráfico. Si desea ver los flujos de tráfico de un extremo a otro, le recomendamos que configure la aplicación detrás de la instancia local del equilibrador de carga estándar. 
+En esta fase, el servicio Private Link se ha creado correctamente y está listo para recibir el tráfico. Tenga en cuenta que en el ejemplo anterior solo se muestra la creación de un servicio Private Link mediante PowerShell.  No hemos configurado los grupos de back-end del equilibrador de carga ni ninguna aplicación en los grupos de back-end para escuchar el tráfico. Si desea ver los flujos de tráfico de un extremo a otro, le recomendamos que configure la aplicación detrás de la instancia local de Standard Load Balancer. 
 
 A continuación, se mostrará cómo asignar este servicio a un punto de conexión privado en una red virtual diferente mediante PowerShell. De nuevo, el ejemplo se limita a crear el punto de conexión privado y conectarlo al servicio Private Link creado anteriormente. Puede crear máquinas virtuales en la red virtual para enviar tráfico al punto de conexión privado o recibirlo de él a fin de crear su escenario. 
 

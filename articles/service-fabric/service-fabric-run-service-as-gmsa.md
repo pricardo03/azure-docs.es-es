@@ -1,27 +1,33 @@
 ---
 title: Ejecución de un servicio de Azure Service Fabric en una cuenta gMSA
-description: Obtenga información acerca de cómo ejecutar un servicio como gMSA en un clúster independiente de Windows de Service Fabric.
+description: Obtenga información sobre cómo ejecutar un servicio como una cuenta de servicio administrada de grupo (gMSA) en un clúster independiente de Windows de Service Fabric.
 author: dkkapur
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 99d8089bd12d05e46f91e55c933d58d50baa92f5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464258"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988403"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Ejecución de un servicio como una cuenta de servicio administrada de grupo
-En un clúster independiente de Windows Server, puede ejecutar un servicio como una cuenta de servicio administrada de grupo (gMSA) mediante una directiva de RunAs.  De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. La ejecución de aplicaciones en cuentas diferentes, incluso en un entorno hospedado compartido, aumenta la seguridad entre aplicaciones. Tenga en cuenta que esto usa Active Directory local dentro del dominio y no en Azure Active Directory (Azure AD). Con una gMSA, no hay ninguna contraseña ni contraseña cifrada almacenada en el manifiesto de aplicación.  También puede ejecutar un servicio como un [grupo o usuario de Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
+
+En un clúster independiente de Windows Server, puede ejecutar un servicio *como una cuenta de servicio administrada de grupo* (gMSA) mediante una directiva de *RunAs*.  De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso `Fabric.exe`. La ejecución de aplicaciones en cuentas diferentes, incluso en un entorno hospedado compartido, aumenta la seguridad entre aplicaciones. Con una gMSA, no hay ninguna contraseña ni contraseña cifrada almacenada en el manifiesto de aplicación.  También puede ejecutar un servicio como un [grupo o usuario de Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
 
 En el ejemplo siguiente se muestra cómo crear una cuenta gMSA denominada *svc-Test$* , cómo implementar esa cuenta de servicio administrada en los nodos del clúster y cómo configurar la entidad de seguridad de usuario.
 
+> [!NOTE]
+> El uso de una gMSA con un clúster de Service Fabric independiente requiere Active Directory local dentro de su dominio (en lugar de Azure Active Directory [Azure AD]).
+
 Requisitos previos:
+
 - El dominio necesita una clave raíz KDS.
 - Debe haber al menos un controlador de dominio de Windows Server 2012 (o R2) en el dominio.
 
-1. Haga que un administrador de dominio de Active Directory cree una cuenta de servicio administrada de grupo mediante el commandlet `New-ADServiceAccount` y asegúrese de que `PrincipalsAllowedToRetrieveManagedPassword` incluya todos los nodos del clúster de Service Fabric. `AccountName`, `DnsHostName` y `ServicePrincipalName` deben ser únicos.
+1. Haga que un administrador de dominio de Active Directory cree una cuenta de servicio administrada de grupo mediante el cmdlet `New-ADServiceAccount` y asegúrese de que `PrincipalsAllowedToRetrieveManagedPassword` incluya todos los nodos del clúster de Service Fabric. `AccountName`, `DnsHostName` y `ServicePrincipalName` deben ser únicos.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
@@ -35,7 +41,7 @@ Requisitos previos:
     Test-AdServiceAccount svc-Test$
     ```
 
-3. Configure la entidad de seguridad de usuario y RunAsPolicy para que hagan referencia al usuario.
+3. Configure la entidad de seguridad de usuario y `RunAsPolicy` para que hagan referencia al [usuario](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#runas).
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -55,14 +61,14 @@ Requisitos previos:
     </ApplicationManifest>
     ```
 
-> [!NOTE] 
-> Si aplica una directiva de RunAs a un servicio y el manifiesto de servicio declara los recursos de punto de conexión con el protocolo HTTP, debe especificar **SecurityAccessPolicy**.  Para obtener más información, consulte [Assign a security access policy for HTTP and HTTPS endpoints](service-fabric-assign-policy-to-endpoint.md) (Asignación de una directiva de acceso de seguridad a los puntos de conexión HTTP y HTTPS). 
+> [!NOTE]
+> Si aplica una directiva de RunAs a un servicio y el manifiesto de servicio declara los recursos de punto de conexión con el protocolo HTTP, debe especificar **SecurityAccessPolicy**.  Para obtener más información, consulte [Assign a security access policy for HTTP and HTTPS endpoints](service-fabric-assign-policy-to-endpoint.md) (Asignación de una directiva de acceso de seguridad a los puntos de conexión HTTP y HTTPS).
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-A continuación, lea los siguientes artículos:
-* [Entender el modelo de aplicación](service-fabric-application-model.md)
-* [Especificación de los recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md)
-* [Implementar una aplicación](service-fabric-deploy-remove-applications.md)
+Los artículos siguientes lo guiarán por los próximos pasos:
+
+- [Entender el modelo de aplicación](service-fabric-application-model.md)
+- [Especificación de los recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md)
+- [Implementar una aplicación](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

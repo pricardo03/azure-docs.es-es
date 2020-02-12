@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476423"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986043"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Preguntas frecuentes
 
@@ -24,6 +24,8 @@ En este artículo se enumeran las principales consultas que pueden surgir en rel
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>¿Cómo se pueden ejecutar los flujos de trabajo de GATK4 en Microsoft Genomics?
 En el archivo config.txt del servicio Microsoft Genomics, especifique el argumento process_name en `gatk4`. Tenga en cuenta que se le cobrarán tarifas normales de facturación.
 
+## <a name="how-do-i-enable-output-compression"></a>¿Cómo habilito la compresión de salida?
+Puede comprimir el archivo vcf o gvcf de salida con un argumento opcional para la compresión de salida. Esto es equivalente a ejecutar `-bgzip` seguido de `-tabix` en la salida del archivo vcf o gvcf para generar archivos `.gz` (salida de bgzip) y `.tbi` (salida de tabix). `bgzip` comprime el archivo vcf o gvcf y `tabix` crea un índice para el archivo comprimido. El argumento es un valor booleano, que se establece en `false` de forma predeterminada para la salida de vcf y `true` de forma predeterminada para la salida de gcvf. Para usarlo en la línea de comandos, especifique `-bz` o `--bgzip-output` como `true` (ejecute bgzip y tabix) o `false`. Para usar este argumento en el archivo config.txt, agregue `bgzip_output: true` o `bgzip_output: false` al archivo.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>¿Qué es el SLA de Microsoft Genomics?
 Le garantizamos que el 99,9 % de las veces el servicio de Microsoft Genomics estará disponible para recibir las solicitudes de API del flujo de trabajo. Para más información, consulte [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).

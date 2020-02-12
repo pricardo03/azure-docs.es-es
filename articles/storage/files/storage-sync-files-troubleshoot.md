@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 887c10097187f193f55c6e301be3e739a16d6bf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842723"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906910"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -1102,7 +1102,7 @@ Si no se pueden apilar archivos en Azure Files:
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | No se pudo establecer en capas el archivo debido a un problema de Azure Storage. | Si el problema continúa, abra una solicitud de soporte técnico. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | No se pudo establecer en capas el archivo porque se recuperó al mismo tiempo. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando la recuperación se complete y el archivo ya no esté en uso. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | No se pudo establecer en capas el archivo porque no se ha sincronizado con el recurso compartido de archivos de Azure. | No es necesaria ninguna acción. El archivo se establecerá en capas una vez que se haya sincronizado con el recurso compartido de archivos de Azure. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | No se pudo establecer en capas el archivo debido a que el controlador de filtro de la nube por niveles (storagesync.sys) no se está ejecutando. | Para resolver este problema, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando: fltmc load storagesync. <br>Si el controlador de filtro storagesync no se carga al ejecutar el comando fltmc, desinstale el agente de Azure File Sync, reinicie el servidor y vuelva a instalar el agente de Azure File Sync. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | No se pudo establecer en capas el archivo debido a que el controlador de filtro de la nube por niveles (storagesync.sys) no se está ejecutando. | Para resolver este problema, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando: `fltmc load storagesync`<br>Si el controlador de filtro storagesync no se carga al ejecutar el comando fltmc, desinstale el agente de Azure File Sync, reinicie el servidor y vuelva a instalar el agente de Azure File Sync. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | No se pudo establecer en capas el archivo debido a que no hay suficiente espacio en disco en el volumen en el que se encuentra el punto de conexión de servidor. | Para solucionar este problema, libere al menos 100 MB de espacio en disco en el volumen en el que se encuentra el punto de conexión de servidor. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | No se pudo establecer en capas el archivo porque no se ha sincronizado con el recurso compartido de archivos de Azure. | No es necesaria ninguna acción. El archivo se establecerá en capas una vez que se haya sincronizado con el recurso compartido de archivos de Azure. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | No se pudo establecer en capas el archivo porque es un punto de reanálisis no admitido. | Si el archivo es un punto de reanálisis de desduplicación de datos, siga los pasos descritos en la [guía de planeamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) para habilitar la compatibilidad con la desduplicación de datos. Los archivos con puntos de reanálisis distintos de la desduplicación de datos no se admiten y no se establecerán en capas.  |

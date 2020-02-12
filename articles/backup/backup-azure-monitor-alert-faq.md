@@ -4,50 +4,49 @@ description: En este artículo, encontrará respuestas a preguntas habituales so
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172923"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989576"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Preguntas frecuentes sobre las alertas de supervisión de Azure Backup
 
-Este artículo contiene respuestas a algunas preguntas frecuentes sobre las alertas de supervisión de Azure.
+En este artículo se responde a preguntas comunes sobre la supervisión y la creación de informes de Azure Backup.
 
 ## <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>¿Cómo se comprueba si los datos de informes han empezado a fluir en una cuenta de almacenamiento?
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>¿Cómo se comprueba que los datos de informes han empezado a fluir a un área de trabajo de Log Analytics (LA)?
 
-Puede ir a la cuenta de almacenamiento configurada y seleccione Containers. Si el contenedor tiene una entrada para insights-logs-azurebackupreport, esto indica que los datos de informes han empezado a fluir.
+Vaya al área de trabajo de LA que ha configurado y desplácese hasta el elemento de menú **Logs** (Registros) y ejecute la consulta CoreAzureBackup | take 1. Si observa que se devuelve un registro, significa que los datos han empezado a fluir al área de trabajo. La inserción de datos inicial puede tardar hasta 24 horas.
 
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>¿Cuál es la frecuencia de inserción de datos en la cuenta de almacenamiento y en el paquete de contenido de Azure Backup en Power BI?
+### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>¿Cuál es la frecuencia de inserción de datos en un área de trabajo de LA?
 
-  Para los usuarios del día 0, la inserción de datos en la cuenta de almacenamiento tarda unas 24 horas aproximadamente. Cuando finalice esta inserción inicial, los datos se actualizan con la frecuencia mostrada en la ilustración siguiente.
+Los datos de diagnóstico del almacén se bombean al área de trabajo de Log Analytics con cierto retraso. Cada evento llega al área de trabajo de Log Analytics entre 20 y 30 minutos después de insertarse desde el almacén de Recovery Services. Estos son detalles adicionales sobre el retardo:
 
-* Los datos relacionados con **trabajos**, **alertas**, **elementos de copia de seguridad**, **almacenes**, **servidores protegidos** y **directivas** se insertan en la cuenta de almacenamiento del cliente cuando esta se registra.
+* En todas las soluciones, las alertas integradas del servicio de copia de seguridad se insertan en cuanto se crean. Así pues, suelen aparecer en el área de trabajo de Log Analytics tras haber transcurrido de 20 a 30 minutos.
+* En todas las soluciones, los trabajos de copia de seguridad a petición y los trabajos de restauración se insertan en cuanto finalizan.
+* En todas las soluciones salvo la copia de seguridad de SQL, los trabajos de copia de seguridad programados se insertan en cuanto finalizan.
+* En el caso de la copia de seguridad de SQL, como pueden realizarse copias de seguridad de registros cada 15 minutos, de todos los trabajos de copia de seguridad programados completados, incluidos los registros, la información se une en lotes y se inserta cada 6 horas.
+* En todas las soluciones, el resto de la información, como el elemento de copia de seguridad, la directiva, los puntos de recuperación, el almacenamiento, etc. se inserta al menos una vez al día.
+* Un cambio en la configuración de copia de seguridad (como por ejemplo un cambio de directiva o la edición de la directiva) desencadena la inserción de toda la información de copia de seguridad relacionada.
 
-* Los datos relacionados con **Storage** se insertan en la cuenta de almacenamiento del cliente cada 24 horas.
+### <a name="how-long-can-i-retain-reporting-data"></a>¿Cuánto tiempo se pueden conservar los datos de informes?
 
-    ![Frecuencia de inserción de datos de informes de Azure Backup](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+Después de crear un área de trabajo de LA, puede elegir conservar los datos durante dos años como máximo. De forma predeterminada, un área de trabajo de LA mantiene los datos durante 31 días.
 
-* Power BI tiene una [actualización programada una vez al día](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Puede realizar una actualización manual de los datos en Power BI para el paquete de contenido.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>¿Aparecerán todos los datos en los informes después de configurar el área de trabajo de LA?
 
-### <a name="how-long-can-i-retain-reports"></a>¿Cuánto tiempo se pueden conservar los informes?
-
-Al configurar una cuenta de almacenamiento, puede seleccionar un período de retención para los datos de informe en la cuenta de almacenamiento. Siga el paso 6 de la sección [Configuración de la cuenta de almacenamiento para los informes](backup-azure-configure-reports.md#configure-storage-account-for-reports). También puede [analizar informes en Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) y guardarlos durante un período de retención más prolongado, según sus necesidades.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>¿Aparecerán todos los datos en los informes después de configurar la cuenta de almacenamiento?
-
- Todos los datos generados después de configurar la cuenta de almacenamiento se insertarán en dicha cuenta y estarán disponibles en los informes. Los trabajos en curso no se insertan para los informes. Después de que el trabajo termina o se produce un error, se envía a los informes.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Si ya se ha configurado la cuenta de almacenamiento para ver los informes, ¿se puede cambiar la configuración para usar otra cuenta de almacenamiento?
-
-Sí, puede cambiar la configuración para que se remita a una cuenta de Storage distinta. Use la cuenta de almacenamiento que acaba de configurar al conectarse al paquete de contenido de Azure Backup. Además, después de configurar una cuenta de Storage distinta, los nuevos datos fluyen a esta cuenta de almacenamiento. Los datos más antiguos (antes de cambiar la configuración) permanecen aún en la cuenta de almacenamiento anterior.
+ Todos los datos generados después de configurar los valores de diagnóstico se insertan en el área de trabajo de LA y están disponible en los informes. Los trabajos en curso no se insertan para los informes. Después de que el trabajo termina o genera errores, se envía a los informes.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>¿Se pueden ver los informes en los almacenes y las suscripciones?
 
-Sí, puede configurar la misma cuenta de Storage en varios almacenes para ver los informes entre ellos. Además, puede configurar la misma cuenta de Storage para almacenes a través de las suscripciones. Después, puede usar esta cuenta de almacenamiento al conectarse al paquete de contenido de Azure Backup en Power BI para ver los informes. La cuenta de almacenamiento seleccionada debe estar en la misma región que el almacén de Recovery Services.
+Sí, puede ver informes de todos los almacenes y suscripciones, así como de todas las regiones. Los datos pueden residir en una o varias áreas de trabajo de LA.
+
+### <a name="can-i-view-reports-across-tenants"></a>¿Puedo ver informes de todos los inquilinos?
+
+Si es usuario de [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) con acceso delegado a las suscripciones o las áreas de trabajo de LA de sus clientes, puede usar informes de copia de seguridad para ver los datos de todos los inquilinos.
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>¿Cuánto tarda el estado del trabajo del agente de copia de seguridad de Azure en reflejarse en el portal?
 

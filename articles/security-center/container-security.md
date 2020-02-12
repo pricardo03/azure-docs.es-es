@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 7bd097885d629a6c8541b57195f2a2996e45ffaf
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 9886f41b25e7c1b34f9805a2c16b716c642ae90e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552668"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936289"
 ---
 # <a name="container-security-in-security-center"></a>Seguridad de los contenedores en Security Center
 
@@ -32,7 +32,7 @@ En este artículo se describe cómo mejorar, supervisar y mantener la seguridad 
 [![Pestaña de seguridad de los contenedores de Azure Security Center](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Administración de vulnerabilidades: análisis de imágenes de contenedor (versión preliminar)
-Para supervisar la instancia de Azure Container Registry, asegúrese de que está en el nivel estándar de Security Center (consulte [precios](/azure/security-center/security-center-pricing)). Luego, habilite el conjunto opcional de registros de contenedor. Cuando se inserta una nueva imagen, Security Center examina la imagen con un escáner del proveedor de detección de vulnerabilidades líder del sector, Qualys.
+Para supervisar la instancia de Azure Container Registry basada en Azure Resource Manager, asegúrese de que está en el nivel estándar de Security Center (consulte [precios](/azure/security-center/security-center-pricing)). Luego, habilite el conjunto opcional de registros de contenedor. Cuando se inserta una nueva imagen, Security Center examina la imagen con un escáner del proveedor de detección de vulnerabilidades líder del sector, Qualys.
 
 Si Qualys o Security Center encuentran problemas, recibirá una notificación en el panel de Security Center. Por cada vulnerabilidad, Security Center proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Security Center, consulte la [lista de recomendaciones de referencia](recommendations-reference.md).
 

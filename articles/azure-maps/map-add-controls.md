@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e2ad8eb181685d3ac3de8b1e0ed7ef8ddfa4e224
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911263"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933295"
 ---
 # <a name="add-controls-to-a-map"></a>Incorporación de controles a un mapa
 
-En este artículo se muestra cómo agregar controles a un mapa. También se ofrece información sobre cómo crear un mapa con todos los controles y un [selector de estilos](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+En este artículo se muestra cómo agregar controles a un mapa. También aprenderá a crear un mapa con todos los controles y un [selector de estilos](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## <a name="add-zoom-control"></a>Agregar un control de zoom
 
-Un control de zoom agrega botones para acercar y alejar el mapa. El siguiente ejemplo de código crea una instancia de la clase [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) y la agrega a la esquina inferior derecha del mapa.
+Un control de zoom agrega botones para acercar y alejar el mapa. En el siguiente ejemplo de código, se crea una instancia de la clase [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) y se agrega a la esquina inferior derecha del mapa.
 
 ```javascript
 //Construct a zoom control and add it to the map.
@@ -39,7 +39,7 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 ## <a name="add-pitch-control"></a>Agregar un control de inclinación
 
-Un control de inclinación agrega botones para inclinar el mapa con respecto al horizonte. El siguiente ejemplo de código crea una instancia de la clase [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) y la agrega a la esquina superior derecha del mapa.
+Un control de inclinación agrega botones para inclinar el mapa con respecto al horizonte. En el siguiente ejemplo de código, se crea una instancia de la clase [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol). Después, esta instancia se agrega en la esquina superior derecha del mapa.
 
 ```javascript
 //Construct a pitch control and add it to the map.

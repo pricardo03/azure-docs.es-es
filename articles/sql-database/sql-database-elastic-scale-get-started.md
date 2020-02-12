@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: b5c323bf3d5ff55c2c30961003e8c456cbe39c82
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823656"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987029"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introducción a Elastic Database Tools
 
@@ -24,7 +24,7 @@ Este documento es una introducción a la experiencia del desarrollador con la [b
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database Tools para Java
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 * Kit para desarrolladores de Java (JDK) versión 1.8 o posterior
 * [Maven](https://maven.apache.org/download.cgi)
@@ -70,7 +70,7 @@ Para agregar la biblioteca de cliente a su propio proyecto de Maven, agregue la 
 
 ## <a name="elastic-database-tools-for-net"></a>Elastic Database Tools para .NET
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 * Visual Studio 2012 o posterior con C#. Descargue una versión gratuita desde [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 o posterior. Para obtener la versión más reciente, vea [Installing NuGet (Instalación de NuGet)](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -81,7 +81,7 @@ Para instalar la biblioteca, vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Cl
 
 Para descargar y ejecutar el ejemplo, siga estos pasos: 
 
-1. Descargue el [ejemplo Elastic DB Tools for Azure SQL - Getting Started](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) (Herramientas de Elastic DB Tools para Azure SQL: Introducción) de MSDN. Descomprima el ejemplo en una ubicación de su elección.
+1. Descargue el [ejemplo Herramientas de Elastic DB Tools para Azure SQL: Introducción](https://github.com/Azure/elastic-db-tools). Descomprima el ejemplo en una ubicación de su elección.
 
 2. Para crear un proyecto, abra la solución *ElasticScaleStarterKit.sln* desde el directorio *C#* .
 
@@ -127,7 +127,7 @@ Para obtener información sobre los precios, vea [SQL Database Precios](https://
 Para más información sobre Elastic Database Tools, consulte los artículos siguientes:
 
 * Ejemplos de código: 
-  * Herramientas de Elastic Database ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * Herramientas de Elastic Database ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE) (Elastic Database Tools para Azure SQL: integración con Entity Framework)
   * [Shard Elasticity on Script Center (Elasticidad de particiones en el Centro de scripts)](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/) (Presentación del escalado elástico)

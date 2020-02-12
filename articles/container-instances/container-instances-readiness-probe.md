@@ -2,13 +2,13 @@
 title: Configuración del sondeo de preparación en la instancia de contenedor
 description: Aprenda a configurar un sondeo para asegurarse de que los contenedores de Azure Container Instances reciben solicitudes solo cuando están listos.
 ms.topic: article
-ms.date: 10/17/2019
-ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 01/30/2020
+ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533563"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935678"
 ---
 # <a name="configure-readiness-probes"></a>Configuración de sondeos de preparación
 
@@ -18,9 +18,12 @@ En este artículo se explica cómo implementar un grupo de contenedores que incl
 
 Azure Container Instances también admite [sondeos de ejecución](container-instances-liveness-probe.md), que se pueden configurar para hacer que un contenedor en mal estado se reinicie automáticamente.
 
+> [!NOTE]
+> Actualmente no se puede usar un sondeo de preparación en un grupo de contenedores que se implementa en una red virtual.
+
 ## <a name="yaml-configuration"></a>Configuración de YAML
 
-Por ejemplo, cree un archivo `readiness-probe.yaml` con el siguiente fragmento de código que incluya un sondeo de preparación. Este archivo define un grupo de contenedores que consta de un contenedor que ejecuta una aplicación web pequeña. La aplicación se implementa desde la imagen `mcr.microsoft.com/azuredocs/aci-helloworld` pública. Esta aplicación de contenedor también se muestra en inicios rápidos como [Implementación de una instancia de contenedor en Azure mediante la CLI de Azure](container-instances-quickstart.md).
+Por ejemplo, cree un archivo `readiness-probe.yaml` con el siguiente fragmento de código que incluya un sondeo de preparación. Este archivo define un grupo de contenedores que consta de un contenedor que ejecuta una aplicación web pequeña. La aplicación se implementa desde la imagen `mcr.microsoft.com/azuredocs/aci-helloworld` pública. Esta aplicación en contenedor también se muestra en [Implementación de una instancia de contenedor en Azure mediante la CLI de Azure](container-instances-quickstart.md) y otros inicios rápidos.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -60,7 +63,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>Comando de inicio
 
-El archivo YAML incluye un comando de inicio que se ejecuta cuando se inicia el contenedor, que está definido por la propiedad `command` que acepta una matriz de cadenas. Este comando simula una hora en la que se ejecuta la aplicación web, pero el contenedor no está listo. En primer lugar, inicia una sesión de shell y ejecuta un comando `node` para iniciar la aplicación web. También inicia un comando de suspensión durante 240 segundos, tras lo cual crea un archivo llamado `ready` en el directorio `/tmp`:
+La implementación incluye una propiedad `command` que define un comando de inicio que se ejecuta cuando el contenedor comienza a ejecutarse por primera vez. Esta propiedad acepta una matriz de cadenas. Este comando simula una hora en la que se ejecuta la aplicación web, pero el contenedor no está listo. 
+
+En primer lugar, inicia una sesión de shell y ejecuta un comando `node` para iniciar la aplicación web. También inicia un comando de suspensión durante 240 segundos, tras lo cual crea un archivo llamado `ready` en el directorio `/tmp`:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

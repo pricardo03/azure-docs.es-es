@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 5732df2551eafa74b81f9a918a1cb7cf5ac1395c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 8a53f1cfbde2f518848e7ef1104bf41ba4996961
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768040"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936405"
 ---
 # <a name="how-to-use-batch-transcription"></a>Uso de la transcripción por lotes
 
@@ -78,7 +78,7 @@ Los parámetros de configuración se proporcionan como JSON:
     "AddWordLevelTimestamps" : "True | False",
     "AddSentiment" : "True | False",
     "AddDiarization" : "True | False",
-    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
@@ -94,7 +94,7 @@ Utilice estas propiedades opcionales para configurar la transcripción:
 | `AddWordLevelTimestamps` | Especifica si las marcas de tiempo de nivel de palabra se deben agregar a la salida. Los valores aceptados son `true`, que permite las marcas de tiempo de nivel de palabra, y `false` (el valor predeterminado) que las deshabilita. |
 | `AddSentiment` | Especifica que la opinión se debe agregar a la expresión. Los valores aceptados son `true`, que permite la opinión por expresión y `false` (el valor predeterminado) que la deshabilita. |
 | `AddDiarization` | Especifica que el análisis de la diarización se debe llevar a cabo en la entrada que se espera sea un canal mono que contenga dos voces. Los valores aceptados son `true`, que permite la diarización, y `false` (el valor predeterminado) que la deshabilita. También requiere que `AddWordLevelTimestamps` se establezca en true.|
-|`TranscriptionResultsContainerUrl`|Token SAS opcional en un contenedor grabable de Azure. El resultado se almacenará en este contenedor.
+|`TranscriptionResultsContainerUrl`|URL opcional con [SAS de servicio](../../storage/common/storage-sas-overview.md) en un contenedor grabable de Azure. El resultado se almacenará en este contenedor.
 
 ### <a name="storage"></a>Storage
 

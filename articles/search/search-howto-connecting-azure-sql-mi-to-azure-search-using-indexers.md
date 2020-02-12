@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0f91775e0175b4b4af9b57fa96e389c3a2a22564
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863128"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964896"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configuración de una conexión desde un indexador de Búsqueda cognitiva de Azure a Instancia administrada de SQL
 
@@ -35,11 +35,14 @@ Compruebe que el grupo de seguridad de red tiene las **reglas de seguridad de en
    ![Regla de seguridad de entrada de NSG](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "Regla de seguridad de entrada de NSG")
 
 > [!NOTE]
-> Puede elegir ser más restrictivo en el acceso de entrada a la instancia de SQL administrada si reemplaza la regla actual (`public_endpoint_inbound`) por dos reglas:
+> Los indexadores siguen necesitando que la instancia administrada de SQL Database se configure con un punto de conexión público para leer los datos.
+> Sin embargo, puede elegir restringir el acceso de entrada a ese punto de conexión público reemplazando la regla actual (`public_endpoint_inbound`) por las dos reglas siguientes:
 >
-> * Permitir el acceso de entrada desde la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` ("SOURCE" = `AzureCognitiveSearch`).
+> * Permitir el acceso de entrada desde la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` ("SOURCE" = `AzureCognitiveSearch`, "NAME" = `cognitive_search_inbound`).
 >
-> * Permitir el acceso de entrada desde la dirección IP del servicio de búsqueda, que se puede obtener mediante un pin al nombre de dominio completo (por ejemplo, `<your-search-service-name>.search.windows.net`). ("SOURCE" = `IP address`)
+> * Permitir el acceso de entrada desde la dirección IP del servicio de búsqueda, que se puede obtener mediante un pin al nombre de dominio completo (por ejemplo, `<your-search-service-name>.search.windows.net`). ("SOURCE" = `IP address`, "NAME" = `search_service_inbound`)
+>
+> Para cada una de esas 2 reglas, establezca "PORT" = `3342`, "PROTOCOL" = `TCP`, "DESTINATION" = `Any`, "ACTION" = `Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Obtener cadena de conexión de punto de conexión público
 Asegúrese de usar la cadena de conexión para el **punto de conexión público** (puerto 3342, no el puerto 1433).

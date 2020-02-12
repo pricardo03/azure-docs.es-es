@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769111"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984853"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -27,7 +27,7 @@ Use una instancia de proceso como entorno de desarrollo completamente configurad
 Las instancias de proceso se usan normalmente como entornos de desarrollo.  También se pueden usar como destino de proceso para la formación y la inferencia para el desarrollo y las pruebas.  Para las tareas de gran tamaño, un[ clúster de proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
 
 > [!NOTE]
-> Actualmente, las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
+> Actualmente, las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
 >Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar. 
 
 ## <a name="why-use-a-compute-instance"></a>¿Por qué usar una instancia de proceso?

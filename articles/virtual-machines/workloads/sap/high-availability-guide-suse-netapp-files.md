@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: c2d6e3e42c581c255f207af4a5008e2d09c50a7d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 1a413ce55604ef8b5c3219e8de466fcc23d41bac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887128"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990948"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP
 
@@ -341,7 +341,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    </code></pre>
 
    > [!NOTE]
-   > No use guiones en los nombres de host de los nodos del clúster. Si lo hace, el clúster no funcionará. Esta es una limitación conocida y SUSE está trabajando en ello para encontrar una corrección. La corrección se publicará como una revisión del paquete sap-suse-cloud-connector.
+   > El problema conocido con el uso de un guion en los nombres de host se ha corregido con la versión **3.1.1** del paquete **sap-suse-cluster-connector**. Si utiliza nodos de clúster con un guion en el nombre de host, asegúrese de usar al menos la versión 3.1.1 del paquete sap-suse-cluster-connector. Si lo hace, el clúster no funcionará. 
 
    Asegúrese de que instaló la nueva versión del conector de clúster SUSE SAP. La antigua se llamaba sap_suse_cluster_connector y la nueva se llama **sap-suse-cluster-connector**.
 
@@ -449,7 +449,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    </code></pre>
    
    > [!NOTE]
-   > Asegúrese de hacer coincidir la versión del protocolo NFS de los volúmenes Azure NetApp Files al montar los volúmenes. Si los volúmenes de Azure NetApp Files se crean como volúmenes NFSv3, use la configuración de NFSv3 correspondiente. Si los volúmenes de Azure NetApp Files se crean como volúmenes NFSv4.1, siga las instrucciones para deshabilitar la asignación de identificadores y asegúrese de usar la configuración de NFSv4.1 correspondiente. En este ejemplo, los volúmenes de Azure NetApp Files se crearon como volúmenes NFSv3.  
+   > Asegúrese de hacer coincidir la versión del protocolo NFS de los volúmenes Azure NetApp Files al montar los volúmenes. Si los volúmenes de Azure NetApp Files se crean como volúmenes NFSv3, use la configuración de NFSv3 correspondiente. Si los volúmenes de Azure NetApp Files se crean como volúmenes NFSv4.1, siga las instrucciones para deshabilitar la asignación de Id. y asegúrese de usar la configuración de NFSv4.1 correspondiente. En este ejemplo, los volúmenes de Azure NetApp Files se crearon como volúmenes NFSv3.  
    
    Reinicie `autofs` para montar los recursos compartidos nuevos.
     <pre><code>

@@ -1,29 +1,28 @@
 ---
 title: Copia de seguridad de los recursos compartidos de archivos de Azure en Azure Portal
-description: Aprenda a usar Azure Portal para realizar copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services
+description: Aprenda a usar Azure Portal para realizar copias de seguridad de recursos compartidos de archivos de Azure en almacenes de Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: b2e2053857147513a95b3ae72b82d55450ebcffa
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c1dea6925bad96be178f875567077fafa4db9326
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294882"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938188"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Copia de seguridad de recursos compartidos de archivos de Azure en un almacén de Recovery Services
 
 En este artículo se explica cómo usar Azure Portal para realizar copias de seguridad de [recursos compartidos de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-En esta guía, aprenderá a:
+En este artículo, aprenderá a:
 
-* Creación de un almacén de Recovery Services
-* Detectar recursos compartidos de archivos y configurar copias de seguridad
-* Ejecutar un trabajo de copia de seguridad a petición para crear un punto de restauración
+* Cree un almacén de Recovery Services.
+* Detectar recursos compartidos de archivos y configuración de copias de seguridad.
+* Ejecutar un trabajo de copia de seguridad a petición para crear un punto de restauración.
 
 ## <a name="prerequisites"></a>Prerequisites
 
 * Identifique o cree un [almacén de Recovery Services](#create-a-recovery-services-vault) en la misma región que la cuenta de almacenamiento que hospeda el recurso compartido de archivos.
-
 * Asegúrese de que el recurso compartido de archivos se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](#limitations-for-azure-file-share-backup-during-preview).
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitaciones de la copia de seguridad de recursos compartidos de archivos de Azure en la versión preliminar
@@ -45,16 +44,15 @@ La copia de seguridad de los recursos compartidos de archivos de Azure está en 
 De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
 * Si el almacén es su mecanismo principal de copia de seguridad, le recomendamos que use GRS.
-
 * Puede usar el [almacenamiento con redundancia local (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) como opción de bajo costo.
 
-Modifique el tipo de replicación de almacenamiento como se indica a continuación:
+Para modificar el tipo de replicación de almacenamiento:
 
-1. En el nuevo almacén, haga clic en **Propiedades** en la sección **Configuración**.
+1. En la sección **Configuración** del nuevo almacén, seleccione **Propiedades**.
 
-2. En **Propiedades**, en **Configuración de copia de seguridad**, haga clic en **Actualizar**.
+1. En la hoja **Propiedades**, haga clic en **Actualizar** en la hoja **Configuración de copia de seguridad**.
 
-3. Seleccione el tipo de replicación de almacenamiento y haga clic en **Guardar**.
+1. Seleccione el tipo de replicación almacenamiento y seleccione **Guardar**.
 
     ![Actualización de la configuración de copia de seguridad](./media/backup-afs/backup-configuration.png)
 
@@ -66,68 +64,68 @@ Modifique el tipo de replicación de almacenamiento como se indica a continuaci�
 
 1. En [Azure Portal](https://portal.azure.com/), abra el almacén de Recovery Services que quiere usar para la copia de seguridad del recurso compartido de archivos.
 
-2. En el panel **Almacén de Recovery Services**, seleccione **+Copia de seguridad**.
+1. En el panel **Almacén de Recovery Services**, seleccione **+Copia de seguridad**.
 
    ![Almacén de Recovery Services](./media/backup-afs/recovery-services-vault.png)
 
-   a. En **Objetivo de Backup**, establezca **¿Dónde se ejecuta su carga de trabajo?** en **Azure**.
+    a. En **Objetivo de Backup**, establezca **¿Dónde se ejecuta su carga de trabajo?** en **Azure**.
 
-    ![Selección de Recurso compartido de archivos de Azure como objetivo de copia de seguridad](./media/backup-afs/backup-goal.png)
+    ![Selección de recurso compartido de archivos de Azure como objetivo de copia de seguridad](./media/backup-afs/backup-goal.png)
 
-    b.    En **¿De qué quiere realizar una copia de seguridad?** , seleccione **Recurso compartido de archivos de Azure** en el menú desplegable.
+    b.  En **¿De qué desea hacer una copia de seguridad?** , seleccione **Recurso compartido de archivos de Azure** en la lista desplegable.
 
-    c.    Haga clic en **Copia de seguridad** para registrar la extensión del recurso compartido de archivos de Azure en el almacén.
+    c.  Seleccione **Copia de seguridad** para registrar la extensión del recurso compartido de archivos de Azure en el almacén.
 
-      ![Clic en Copia de seguridad para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-afs/register-extension.png)
+    ![Seleccione Copia de seguridad para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-afs/register-extension.png)
 
-3. Una vez que hace clic en **Copia de seguridad**, se abre la hoja Copia de seguridad y se le pide que seleccione una cuenta de almacenamiento en una lista de cuentas de almacenamiento admitidas detectadas. Estas cuentas están asociadas a este almacén o se encuentran en la misma región que el almacén, pero aún no están asociadas a ningún almacén de Recovery Services.
+1. Después de seleccionar **Copia de seguridad**, se abre el panel **Copia de seguridad** y se le pide que seleccione una cuenta de almacenamiento en una lista de cuentas de almacenamiento admitidas detectadas. Estas cuentas están asociadas a este almacén o se encuentran en la misma región que el almacén, pero aún no están asociadas a ningún almacén de Recovery Services.
 
    ![Selección de la cuenta de almacenamiento](./media/backup-afs/select-storage-account.png)
 
-4. En la lista de cuentas de almacenamiento detectadas, seleccione una cuenta y haga clic en **Aceptar**. Azure busca en la cuenta de almacenamiento los recursos compartidos de archivos de los que se puede realizar una copia de seguridad. Si recientemente ha agregado recursos compartidos de archivos y no los ve en la lista, espere un poco para que aparezcan.
+1. En la lista de cuentas de almacenamiento detectadas, seleccione una cuenta y seleccione **Aceptar**. Azure busca en la cuenta de almacenamiento los recursos compartidos de archivos de los que se puede realizar una copia de seguridad. Si recientemente ha agregado recursos compartidos de archivos y no los ve en la lista, espere un poco para que aparezcan.
 
     ![Detección de recursos compartidos de archivos](./media/backup-afs/discovering-file-shares.png)
 
-5. En la lista **File Shares** (Recursos compartidos de archivos), seleccione uno o varios recursos compartidos de archivos de los que quiera realizar una copia de seguridad y haga clic en **OK** (Aceptar).
+1. En la lista **Recursos compartidos de archivos**, seleccione uno o varios recursos compartidos de archivos de los que quiera realizar una copia de seguridad. Seleccione **Aceptar**.
 
-6. Después de seleccionar los recursos compartidos de archivos, el menú **Copia de seguridad** cambia a **Directiva de copia de seguridad**. En este menú, seleccione una directiva de copia de seguridad existente o cree una y haga clic en **Habilitar copia de seguridad**.
+1. Después de seleccionar los recursos compartidos de archivos, el menú **Copia de seguridad** cambia a **Directiva de copia de seguridad**. En este menú, seleccione una directiva de copia de seguridad existente o cree una. Después, seleccione **Habilitar copia de seguridad**.
 
     ![Seleccionar directiva de copia de seguridad](./media/backup-afs/select-backup-policy.png)
 
-Después de establecer una directiva de copia de seguridad, se realiza una instantánea de los recursos compartidos de archivos a la hora programada y el punto de recuperación se conserva durante el período seleccionado.
+Después de establecer una directiva de copia de seguridad, se realiza una instantánea de los recursos compartidos de archivos a la hora programada. El punto de recuperación también se conserva durante el período elegido.
 
 ## <a name="create-an-on-demand-backup"></a>Creación de una copia de seguridad a petición
 
-A veces es posible que quiera generar una instantánea de copia de seguridad, o un punto de recuperación, fuera de las horas programadas en la directiva de copia de seguridad. Un motivo habitual para generar una copia de seguridad a petición es justo después de haber configurado la directiva de copia de seguridad. Según la programación de la directiva de copia de seguridad, pueden transcurrir horas y días hasta que se toma una instantánea. Para proteger los datos hasta que se aplique la directiva de copia de seguridad, inicie una copia de seguridad a petición. La creación de una copia de seguridad a petición se suele exigir antes de realizar cambios planeados en los recursos compartidos de archivos.
+En ocasiones querrá generar una instantánea de copia de seguridad o un punto de recuperación fuera de las horas programadas en la directiva de copia de seguridad. Un motivo habitual para generar una copia de seguridad a petición es justo después de haber configurado la directiva de copia de seguridad. Según la programación de la directiva de copia de seguridad, pueden transcurrir horas y días hasta que se toma una instantánea. Para proteger los datos hasta que se aplique la directiva de copia de seguridad, inicie una copia de seguridad a petición. La creación de una copia de seguridad a petición se suele exigir antes de realizar cambios planeados en los recursos compartidos de archivos.
 
-### <a name="to-create-an-on-demand-backup"></a>Para crear una copia de seguridad a petición, siga estos pasos:
+### <a name="create-a-backup-job-on-demand"></a>Creación de un trabajo de copia de seguridad a petición
 
-1. Abra el almacén de Recovery Services que ha usado para realizar la copia de seguridad del recurso compartido de archivos y haga clic en **Elementos de copia de seguridad** en la sección **Elementos protegidos** de la hoja **Información general**.
+1. Abra el almacén de Recovery Services que usó para hacer la copia de seguridad de los recursos compartidos de archivos. Haga clic en **Elementos de copia de seguridad** en la sección **Elementos protegidos** de la hoja **Información general**.
 
-   ![Clic en Elementos de copia de seguridad](./media/backup-afs/backup-items.png)
+   ![Selección de elementos de copia de seguridad](./media/backup-afs/backup-items.png)
 
-2. Una vez que hace clic en **Elementos de copia de seguridad**, se muestra una nueva hoja con una lista de **Backup Management Types** (Tipos de administración de copia de seguridad) junto a la hoja **Información general**, de la siguiente manera:
+1. Después de seleccionar **Elementos de copia de seguridad**, aparece un nuevo panel que muestra los posibles valores de **Tipo de administración de copia de seguridad** junto al panel **Información general**.
 
    ![Lista de tipos de administración de copia de seguridad](./media/backup-afs/backup-management-types.png)
 
-3. En la lista de **Backup Management Types** (Tipos de administración de copia de seguridad), seleccione **Azure Storage (Azure Files)** . Se ve una lista de todos los recursos compartidos de archivos y las cuentas de almacenamiento correspondientes cuya copia de seguridad se ha realizado mediante este almacén.
+1. En la lista **Tipo de administración de copia de seguridad**, seleccione **Azure Storage (Azure Files)** . Verá una lista de todos los recursos compartidos de archivos y las cuentas de almacenamiento correspondientes cuya copia de seguridad se ha realizado mediante este almacén.
 
    ![Elementos de copia de seguridad de Azure Storage (Azure Files)](./media/backup-afs/azure-files-backup-items.png)
 
-4. En la lista de recursos compartidos de archivos de Azure, seleccione el que desee. Aparecen los detalles de **Elemento de copia de seguridad**. En el menú **Backup Item** (Elemento de copia de seguridad), haga clic en **Backup Now** (Crear copia de seguridad ahora). Dado que se trata de un trabajo de copia de seguridad a petición, no hay ninguna directiva de retención asociada con el punto de recuperación.
+1. En la lista de recursos compartidos de archivos de Azure, seleccione el que desee. Aparecen los detalles de **Elemento de copia de seguridad**. En el menú **Copia de seguridad**, seleccione **Realizar copia de seguridad ahora**. Como se trata de un trabajo de copia de seguridad a petición, no hay ninguna directiva de retención asociada con el punto de recuperación.
 
-   ![Clic en Realizar copia de seguridad ahora](./media/backup-afs/backup-now.png)
+   ![Seleccionar Realizar copia de seguridad ahora](./media/backup-afs/backup-now.png)
 
-5. Se abre la hoja **Realizar copia de seguridad ahora**. Especifique el último día que quiere conservar el punto de recuperación. Las copias de seguridad a petición pueden tener un período de retención máximo de 10 años.
+1. Aparece el panel **Realizar copia de seguridad ahora**. Especifique el último día que quiere conservar el punto de recuperación. Las copias de seguridad a petición pueden tener un período de retención máximo de 10 años.
 
    ![Selección de la fecha de retención](./media/backup-afs/retention-date.png)
 
-6. Haga clic en **Aceptar** para confirmar la ejecución del trabajo de copia de seguridad a petición.
+1. Seleccione **Aceptar** para confirmar la ejecución del trabajo de copia de seguridad a petición.
 
-7. Supervise las notificaciones del portal para realizar un seguimiento de la finalización de la ejecución del trabajo de copia de seguridad. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**.
+1. Supervise las notificaciones del portal para realizar un seguimiento de la finalización de la ejecución del trabajo de copia de seguridad. Puede supervisar el progreso del trabajo en el panel del almacén. Seleccione **Trabajos de copia de seguridad** > **En curso**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre cómo [restaurar recursos compartidos de archivos de Azure](restore-afs.md)
-
-* Más información sobre cómo [administrar copias de seguridad de recursos compartidos de archivos de Azure](manage-afs-backup.md)
+Obtenga información sobre cómo:
+* [Restauración de recursos compartidos de archivos de Azure](restore-afs.md)
+* [Administración de copias de seguridad de recursos compartidos de archivos de Azure](manage-afs-backup.md)

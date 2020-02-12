@@ -1,24 +1,26 @@
 ---
-title: Implementación de un nuevo clúster de Service Fabric con la identidad administrada
-description: En este artículo se muestra cómo crear un nuevo clúster de Service Fabric con la identidad administrada habilitada.
+title: Configuración de la compatibilidad con la identidad administrada en un clúster nuevo de Service Fabric
+description: A continuación, se indica cómo habilitar la compatibilidad con las identidades administradas en un clúster nuevo de Azure Service Fabric
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 4893fe47de78445a7dccb4f5800498b30cd6c1f2
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.custom: sfrev
+ms.openlocfilehash: 0e35d2192fdcdb294b349105f3f0158564cec86b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614866"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930459"
 ---
-# <a name="create-a-new-azure-service-fabric-cluster-with-managed-identity-support-preview"></a>Creación de un nuevo clúster de Azure Service Fabric con compatibilidad con la identidad administrada (versión preliminar)
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster-preview"></a>Configuración de la compatibilidad con la identidad administrada en un clúster nuevo de Service Fabric (versión preliminar)
 
-Para acceder a la característica de identidad administrada para las aplicaciones de Azure Service Fabric, primero debe habilitar el servicio de token de identidad administrada en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, bajo la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService** junto a otros servicios del sistema.
+Para utilizar las [identidades administradas de los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) en las aplicaciones de Service Fabric, primero debe habilitar el *servicio de token de identidad administrada* en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, bajo la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService** junto a otros servicios del sistema.
 
 > [!NOTE]
 > Se requiere un runtime de Service Fabric versión 6.5.658.9590 o posterior para habilitar el **servicio de token de identidad administrada**.  
 
-## <a name="enable-the-managed-identity-token-service"></a>Habilitación del servicio de token de identidad administrada 
-Para habilitar el servicio de token de identidad administrada durante la creación del clúster, puede usar el siguiente fragmento de código en una plantilla de Azure Resource Manager:
+## <a name="enable-the-managed-identity-token-service"></a>Habilitación del servicio de token de identidad administrada
+
+Para habilitar el servicio de token de identidad administrada durante la creación del clúster, agregue el siguiente fragmento de código en su plantilla de Azure Resource Manager del clúster:
 
 ```json
 "fabricSettings": [
@@ -39,7 +41,6 @@ Para habilitar el servicio de token de identidad administrada durante la creaci�
 Si se produce un error en la implementación con este mensaje, significa que el clúster no está en la versión de Service Fabric necesaria (el entorno de ejecución mínimo admitido es 6.5 CU2):
 
 
-
 ```json
 {
     "code": "ParameterNotAllowed",
@@ -47,13 +48,14 @@ Si se produce un error en la implementación con este mensaje, significa que el 
 }
 ```
 
-
 ## <a name="related-articles"></a>Artículos relacionados
+
 * Revisión de la [compatibilidad con la identidad administrada](./concepts-managed-identity.md) en Azure Service Fabric
 
 * [Habilitación de la compatibilidad con la identidad administrada en un clúster de Azure Service Fabric existente](./configure-existing-cluster-enable-managed-identity-token-service.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Aprovechamiento de la identidad administrada de una aplicación de Service Fabric desde el código de servicio](./how-to-managed-identity-service-fabric-app-code.md)

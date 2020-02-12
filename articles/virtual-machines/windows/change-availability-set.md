@@ -1,32 +1,25 @@
 ---
 title: Cambio de un conjunto de disponibilidad de máquinas virtuales
-description: Aprenda a cambiar un conjunto de disponibilidad para sus máquinas virtuales mediante Azure Portal o Azure PowerShell con el modelo de implementación de Resource Manager.
-keywords: ''
-services: virtual-machines-windows
-documentationcenter: ''
+description: Aprenda a cambiar un conjunto de disponibilidad para su máquina virtual mediante Azure PowerShell.
+ms.service: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 7d03d684edfded1450043b943fc188c7aa07dc16
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039569"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964930"
 ---
-# <a name="change-the-availability-set-for-a-windows-vm"></a>Cambio del conjunto de disponibilidad de una máquina virtual Windows
+# <a name="change-the-availability-set-for-a-vm"></a>Cambiar el conjunto de disponibilidad para una máquina virtual
 En los pasos siguientes se describe cómo cambiar el conjunto de disponibilidad de una máquina virtual con Azure PowerShell. Una máquina virtual solo puede agregarse a un conjunto de disponibilidad cuando se crea. Para cambiar el conjunto de disponibilidad, debe eliminar la máquina virtual y volver a crearla. 
+
+Este artículo se aplica a las máquinas virtuales Linux y Windows.
 
 Este artículo se probó por última vez el 12/02/2019 mediante [Azure Cloud Shell](https://shell.azure.com/powershell) y la versión 1.2.0 del [módulo de PowerShell de Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
- 
 
 ## <a name="change-the-availability-set"></a>Cambio del conjunto de disponibilidad 
 
@@ -61,12 +54,13 @@ El script siguiente proporciona un ejemplo de recopilación de la información n
 # Remove the original VM
     Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName    
 
-# Create the basic configuration for the replacement VM
+# Create the basic configuration for the replacement VM. 
     $newVM = New-AzVMConfig `
        -VMName $originalVM.Name `
        -VMSize $originalVM.HardwareProfile.VmSize `
        -AvailabilitySetId $availSet.Id
-  
+ 
+# For a Linux VM, change the last parameter from -Windows to -Linux 
     Set-AzVMOSDisk `
        -VM $newVM -CreateOption Attach `
        -ManagedDiskId $originalVM.StorageProfile.OsDisk.ManagedDisk.Id `

@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7502c1c9a2e125052abf71e50273fbd9bab15cd1
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972846"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989882"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -176,6 +176,9 @@ Si la ubicación de la definición es:
 
 Use los valores **displayName** y **description** para identificar la definición de directiva y proporcionar el contexto para su uso. **displayName** tiene una longitud máxima de _128_ caracteres y **description** tiene una longitud máxima de _512_ caracteres.
 
+> [!NOTE]
+> Durante la creación o actualización de una definición de directiva, las propiedades **id**, **type** y **name** se definen mediante propiedades externas al JSON y no son necesarias en el archivo JSON. Al capturar la definición de directiva mediante el SDK, se devuelven las propiedades **id**, **type** y **name** como parte del JSON, pero cada una de ellas es información de solo lectura relacionada con la definición de directiva.
+
 ## <a name="policy-rule"></a>Regla de directiva
 
 La regla de directiva se compone de los bloques **If** y **Then**. En el bloque **If**, defina una o varias condiciones que especifican cuándo se aplica la directiva. Puede aplicar operadores lógicos a estas condiciones para definir con precisión el escenario de una directiva.
@@ -248,8 +251,7 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
 
-Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincida cualquier carácter y cualquier otro carácter para que coincida ese carácter en sí.
-**match** y **notMatch** distinguen mayúsculas de minúsculas. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincida cualquier carácter y cualquier otro carácter para que coincida ese carácter en sí. Mientras que **match** y **notMatch** distinguen mayúsculas de minúsculas, el resto de las condiciones que evalúan un elemento _stringValue_ no lo hacen. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fields
 
@@ -396,7 +398,7 @@ Con la regla de directivas revisada, `if()` comprueba la longitud del **nombre**
 
 ### <a name="count"></a>Count
 
-Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz para una expresión de condición y suma los resultados de _true_, que se comparan con el operador de la expresión.
+Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz de [\[\*\] alias](#understanding-the--alias) de una condición de expresión y suma los resultados con el valor _true_, que luego se compara con el operador de expresión.
 
 La estructura de la expresión **count** es:
 
@@ -760,10 +762,7 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 

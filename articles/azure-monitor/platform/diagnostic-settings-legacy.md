@@ -6,13 +6,13 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 01/21/2020
-ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715843"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016262"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Actualización de la recopilación del registro de actividad de Azure y exportación
 El [Registro de actividad de Azure](platform-logs-overview.md) es un [registro de plataforma](platform-logs-overview.md) que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. El método para enviar entradas del registro de actividad a [un centro de eventos o una cuenta de almacenamiento](activity-log-export.md) o a un [área de trabajo de Log Analytics](activity-log-collect.md) ha cambiado para usar la [configuración de diagnóstico](diagnostic-settings.md). En este artículo se describe la diferencia entre los métodos y cómo borrar la configuración heredada como preparación para la configuración de diagnóstico.
@@ -53,6 +53,9 @@ Se han agregado las siguientes columnas:
 - Authorization_d
 - Claims_d
 - Properties_d
+
+> [!IMPORTANT]
+> En algunos casos, los valores de estas columnas pueden estar en mayúsculas. Si tiene una consulta que incluye estas columnas, debe usar el [operador =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) para realizar una comparación sin distinguir entre mayúsculas y minúsculas.
 
 ## <a name="work-with-legacy-settings"></a>Trabajar con la configuración heredada
 La configuración heredada para recopilar el registro de actividad seguirá funcionando si no opta reemplazar por una configuración de diagnóstico. Use el método siguiente para administrar el perfil de registro de una suscripción.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: bcf100236d4a2a707a007a24e9e51105cc9ca0ac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911026"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991398"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servicios meteorológicos de Azure Maps
 
@@ -21,7 +21,7 @@ En este artículo se presentan los conceptos que se aplican a los [Servicios met
 
 ## <a name="unit-types"></a>Tipos de unidad
 
-Algunas de las API del servicio meteorológico permiten al usuario especificar si los datos se devuelven en unidades métricas o imperiales. La respuesta devuelta para estas API también incluirá unitType, un valor numérico que se puede usar para las traducciones de unidad. Consulte la tabla siguiente para interpretar estos valores.
+Algunas de las API del servicio meteorológico permiten al usuario especificar si los datos se devuelven en unidades métricas o imperiales. La respuesta devuelta para estas API también incluye unitType, un valor numérico que se puede usar para las conversiones de unidades. Consulte la tabla siguiente para interpretar estos valores.
 
 |unitType|Descripción         |
 |--------|--------------------|
@@ -52,7 +52,7 @@ Algunas de las API del servicio meteorológico permiten al usuario especificar s
 
 ## <a name="weather-icons"></a>Iconos meteorológicos
 
-Algunas de API de servicios meteorológicos devuelven códigos de icono (iconCode) en la respuesta, un valor numérico que se puede usar para definir el icono. No vincule directamente a estas imágenes desde las aplicaciones, ya que las direcciones URL pueden cambiar.
+Algunas de las API del servicio Weather devuelven `iconCode` en la respuesta. `iconCode` es un valor numérico que se usa para definir el icono. No cree vínculos directos a estas imágenes desde las aplicaciones, ya que las direcciones URL pueden cambiar.
 
 | Número de icono |Icono| Día | Noche | Texto |
 |-------------|:----:|-----|-------|------|

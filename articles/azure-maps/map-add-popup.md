@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 79bafb331cb7ad38ea7cad9e510b22886b647764
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 45d210725f7f09663b126528479655d7f4d9c19f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911148"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933355"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adición de un elemento emergente al mapa
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo agregar un elemento emergente a un punto de u
 
 ## <a name="understand-the-code"></a>Comprendiendo el código
 
-El código siguiente agrega una característica de punto, que tiene las propiedades `name` y `description`, al mapa mediante una capa de símbolo. Se crea una instancia de la [clase popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) pero no se muestra. Los eventos de mouse se agregan a la capa de símbolo para desencadenar la apertura y el cierre del elemento emergente cuando el mouse se desplaza sobre el marcador de símbolo y fuera de él. Cuando se mantiene el mouse en el símbolo del marcador, la propiedad `position` del control del elemento emergente se actualiza con la posición del marcador y la opción `content` se actualiza con código HTML que contiene las propiedades `name` y `description` de la característica de punto que se está activando. Después, se muestra el elemento emergente en el mapa mediante su función `open`.
+El código siguiente agrega una característica de punto, que tiene las propiedades `name` y `description`, al mapa mediante una capa de símbolo. Se crea una instancia de la [clase popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) pero no se muestra. Los eventos del mouse se agregan a la capa de símbolos para desencadenar la apertura y el cierre del elemento emergente. Cuando el mouse se mantiene sobre el símbolo del marcador, la propiedad `position` del elemento emergente se actualiza con la posición del marcador y la opción `content` se actualiza con el código HTML que contiene las propiedades `name` y `description` de la característica de puntos que se está activando. Después, se muestra el elemento emergente en el mapa mediante su función `open`.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -85,7 +85,7 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>Reutilizar un elemento emergente con varios puntos
 
-Cuando tiene una gran cantidad de puntos y solo desea mostrar un elemento emergente a la vez, lo mejor es crear un elemento emergente y reutilizarlo, en lugar de crear un elemento emergente para cada característica de punto. Al reutilizar el elemento emergente, el número de elementos DOM creados por la aplicación se reduce tanto que puede proporcionar un mejor rendimiento. En el ejemplo siguiente se crean tres características de punto. Si hace clic en cualquiera de ellas, se mostrará un menú emergente con el contenido de esa característica de punto.
+Si tiene una gran cantidad de puntos y solo desea mostrar un elemento emergente a la vez, lo mejor es crear un único elemento emergente y reutilizarlo. Al reutilizar el elemento emergente, el número de elementos DOM creados por la aplicación se reduce tanto que puede proporcionar un mejor rendimiento. En el ejemplo siguiente se crean tres características de punto. Si hace clic en cualquiera de ellas, se mostrará un menú emergente con el contenido de esa característica de punto.
 
 <br/>
 
@@ -94,7 +94,7 @@ Cuando tiene una gran cantidad de puntos y solo desea mostrar un elemento emerge
 
 ## <a name="customizing-a-popup"></a>Personalización de un elemento emergente
 
-De forma predeterminada, el elemento emergente tiene un fondo blanco, una flecha de puntero en la parte inferior y un botón de cierre en la esquina superior derecha. En el ejemplo siguiente se cambia el color de fondo a negro mediante la opción `fillColor` del elemento emergente. El botón de cierre se quita al establecer la opción `shoCloseButton` en false. El contenido HTML del elemento emergente usa un relleno de 10 píxeles desde los bordes del elemento emergente y el texto se pone en blanco para que se muestre correctamente en el fondo negro.  
+De forma predeterminada, el elemento emergente tiene un fondo blanco, una flecha de puntero en la parte inferior y un botón de cierre en la esquina superior derecha. En el ejemplo siguiente se cambia el color de fondo a negro mediante la opción `fillColor` del elemento emergente. El botón de cierre se quita al establecer la opción `CloseButton` en false. El contenido HTML del elemento emergente utiliza un relleno de 10 píxeles desde los bordes del elemento emergente. El texto aparece en color blanco para que pueda verse claramente sobre el fondo negro.  
 
 <br/>
 
@@ -104,7 +104,7 @@ Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen
 
 ## <a name="popup-events"></a>Eventos emergentes
 
-Los elementos emergentes se pueden abrir, cerrar y arrastrar. La clase popup proporciona eventos para que los desarrolladores de ayuda reaccionen a estas acciones. En el ejemplo siguiente se resaltan los eventos que se activan al abrir, cerrar o arrastrar el elemento emergente. 
+Los elementos emergentes se pueden abrir, cerrar y arrastrar. La clase del elemento emergente proporciona eventos que ayudan a los desarrolladores a reaccionar ante estos eventos. En el ejemplo siguiente, aparecen resaltados los eventos que se activan cuando un usuario abre, cierra o arrastra el elemento emergente. 
 
 <br/>
 

@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ca1b9854b118d359167873313f1fcb11bfecee52
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: d74a7906157eed33487a5f88082701da1b2269dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911009"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988556"
 ---
 # <a name="get-shape-data"></a>Obtención de datos de forma
 
-En este artículo se muestra cómo obtener datos de formas que se han dibujado en el mapa mediante la función [administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--) **drawingManager.getSource()** . Puede haber varios escenarios en los que desee extraer datos de GeoJSON de una forma dibujada y utilizarlos en otro lugar.  
+En este artículo se muestra cómo obtener datos de formas que se dibujan en el mapa. Usamos la función **drawingManager.getSource()** dentro del [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--). Hay varios escenarios en los que quiere extraer datos GeoJSON de una forma dibujada y utilizarlos en otro lugar.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>Obtenga datos de la forma dibujada
 
-La siguiente función obtiene los datos de origen de la forma dibujada y los muestra en la pantalla. 
+La función siguiente obtiene los datos de origen de la forma dibujada y los muestra en la pantalla. 
 
 ```Javascript
 function getDrawnShapes() {

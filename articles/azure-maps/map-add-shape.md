@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 77d952666be12d7dea780b3aa8f094cf5f70f2d3
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: bae47e2f5cd473893d97678977030643cc9949fe
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911124"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988624"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Adición de una capa de polígono al mapa
 
-En este artículo se muestra cómo representar las áreas de las geometrías de las características `Polygon` y `MultiPolygon` en el mapa con una capa de polígono. El SDK web de Azure Maps también admite la creación de geometrías de círculo tal como se define en el [esquema extendido de GeoJSON](extend-geojson.md#circle). Estos círculos se transforman en polígonos cuando se representan en el mapa. Todas las geometrías de características también se pueden actualizar fácilmente si se encapsulan con la clase [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
+En este artículo se muestra cómo representar las áreas de las geometrías de las características `Polygon` y `MultiPolygon` en el mapa con una capa de polígono. El SDK web de Azure Maps también admite la creación de geometrías de círculo tal como se define en el [esquema extendido de GeoJSON](extend-geojson.md#circle). Estos círculos se transforman en polígonos cuando se representan en el mapa. Todas las geometrías de características se pueden actualizar fácilmente si se encapsulan con la clase [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
 
 ## <a name="use-a-polygon-layer"></a>Uso de una capa de polígono 
 
-Cuando una capa de polígono se conecta a un origen de datos y se carga en el mapa, representa el área de las características `Polygon` y `MultiPolygon`. En el código siguiente se muestra cómo crear un polígono, agregarlo a un origen de datos y representarlo con una capa de polígono mediante la clase [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest).
+Cuando una capa de polígono se conecta a un origen de datos y se carga en el mapa, representa el área con las características `Polygon` y `MultiPolygon`. Para crear un polígono, agréguelo a un origen de datos y represéntelo con una capa de polígono mediante la clase [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest).
 
 ```javascript
 //Create a data source and add it to the map.
@@ -47,7 +47,7 @@ map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 }));
 ```
 
-A continuación se muestra el código de ejemplo de ejecución completo de la funcionalidad anterior.
+A continuación se muestra el ejemplo completo y en ejecución del código anterior.
 
 <br/>
 
@@ -56,14 +56,14 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 ## <a name="use-a-polygon-and-line-layer-together"></a>Uso de un polígono y una capa de línea conjuntamente
 
-Una capa de línea se puede usar para presentar el contorno de los polígonos. En el ejemplo de código siguiente se representa un polígono como en el ejemplo anterior, pero ahora se agrega una capa de línea como segunda capa conectada al origen de datos.  
+Una capa de línea se usa para representar el contorno de los polígonos. En el ejemplo de código siguiente se representa un polígono como en el ejemplo anterior, pero ahora se agrega una capa de línea. Esta capa de línea es una segunda capa conectada al origen de datos.  
 
 <iframe height='500' scrolling='no' title='Capas de polígono y línea para agregar un polígono' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen sobre <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>capas de polígono y línea para agregar un polígono</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="fill-a-polygon-with-a-pattern"></a>Relleno de un polígono con un patrón
 
-Además de rellenar un polígono con color, también se puede usar un patrón de imagen. Cargue un patrón de imagen en los recursos de sprite de la imagen de los mapas y luego haga referencia a esta imagen con la propiedad `fillPattern` de la capa de polígono.
+Además de rellenar un polígono con un color, puede usar un patrón de imágenes para rellenarlo. Cargue un patrón de imagen en los recursos de sprite de la imagen de los mapas y luego haga referencia a esta imagen con la propiedad `fillPattern` de la capa de polígono.
 
 <br/>
 
@@ -88,7 +88,7 @@ La capa de polígono solo tiene algunas opciones de estilo. Esta es una herramie
 
 ## <a name="add-a-circle-to-the-map"></a>Adición de un círculo al mapa
 
-Azure Maps usa una versión extendida del esquema GeoJSON que proporciona una definición para círculos como se indica [aquí](extend-geojson.md#circle). Un círculo puede representarse en el mapa mediante la creación de una característica `Point` que tiene una propiedad `subType` con un valor de `"Circle"` y una propiedad `radius` que tiene un número que representa el radio en metros. Por ejemplo:
+Azure Maps usa una versión ampliada del esquema GeoJSON que proporciona una definición para círculos como se indica [aquí](extend-geojson.md#circle). Un círculo se representa en el mapa mediante la creación de una característica `Point`. Esta característica `Point` tiene una propiedad `subType` con un valor de `"Circle"` y una propiedad `radius` con un número que representa el radio en metros. 
 
 ```javascript
 {
@@ -104,7 +104,7 @@ Azure Maps usa una versión extendida del esquema GeoJSON que proporciona una d
 }  
 ```
 
-El SDK web de Azure Maps convierte estas características `Point` en características `Polygon` en segundo plano y se pueden representar en el mapa con capas de polígono y línea como se muestra en el código de ejemplo siguiente.
+El SDK web de Azure Maps convierte estas características `Point` en características `Polygon`. Después, estas características se representan en el mapa con las capas de polígono y línea, tal y como se muestra en el ejemplo de código siguiente.
 
 <br/>
 
@@ -113,7 +113,7 @@ El SDK web de Azure Maps convierte estas características `Point` en caracterí
 
 ## <a name="make-a-geometry-easy-to-update"></a>Fácil actualización para geometría
 
-Una clase `Shape` encapsula un objeto [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) o [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) y simplifica su actualización y mantenimiento. Una forma se puede crear pasando una geometría y un conjunto de propiedades, o pasando una característica, tal como se muestra en el código siguiente.
+Una clase `Shape` encapsula un objeto [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) o [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) y simplifica la actualización y el mantenimiento de estas características. Para crear una instancia de una variable de forma, pase un objeto Geometry o un conjunto de propiedades al constructor de la forma.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -123,7 +123,7 @@ var shape1 = new atlas.Shape(new atlas.data.Point[0,0], { myProperty: 1 });
 var shape2 = new atlas.Shape(new atlas.data.Feature(new atlas.data.Point[0,0], { myProperty: 1 });
 ```
 
-En el ejemplo de código siguiente se muestra cómo encapsular un objeto GeoJSON de círculo con una clase de forma y actualizar fácilmente su propiedad radius mediante un control deslizante. A medida que cambia el valor de radius en la forma, la representación del círculo se actualiza automáticamente en el mapa.
+En el ejemplo de código siguiente se muestra cómo encapsular un objeto GeoJSON de círculo con una clase de forma. A medida que el valor del radio cambia en la forma, el círculo se representa automáticamente en el mapa.
 
 <br/>
 

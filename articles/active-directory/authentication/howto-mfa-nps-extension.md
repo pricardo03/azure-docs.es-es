@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712525"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908860"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Puede crear tantos servidores NPS habilitados para Azure MFA como necesite. Si i
 
 Los servidores VPN enrutan las solicitudes de autenticación, por lo que tienen que ser conscientes de los nuevos servidores NPS habilitados para MFA de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 La extensión de NPS está diseñada para funcionar con la infraestructura existente. Asegúrese de que cumple los siguientes requisitos previos antes de empezar.
 
@@ -192,6 +192,23 @@ Si ha expirado el certificado de equipo anterior y se ha generado un nuevo certi
 
 > [!NOTE]
 > Si utiliza certificados propios en lugar de generar certificados con el script de PowerShell, asegúrese de que se ajustan a la convención de nomenclatura de NPS. El nombre del firmante debe ser **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+
+### <a name="microsoft-azure-government-additional-steps"></a>Pasos adicionales de Microsoft Azure Government
+
+En el caso de los clientes que usan la nube de Azure Government, se necesitan los siguientes pasos de configuración adicionales en cada servidor NPS:
+
+1. Abra el **Editor del Registro** en el servidor NPS.
+1. Vaya a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Establezca los siguientes valores de clave:
+
+    | Clave del Registro       | Value |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Repita los dos pasos anteriores para establecer los valores de clave del Registro para cada servidor NPS.
+1. Reinicie el servicio NPS para cada servidor NPS.
+
+    Para reducir el impacto, retire cada servidor NPS de la rotación de NLB de uno en uno y espere a que se purguen todas las conexiones.
 
 ### <a name="certificate-rollover"></a>Sustitución del certificado
 

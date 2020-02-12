@@ -1,6 +1,6 @@
 ---
 title: Exploradores compatibles con el SDK web | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre los exploradores compatibles con el SDK web de Microsoft Azure Maps y cómo comprobar si un explorador es compatible.
+description: En este artículo, se aprende sobre los exploradores compatibles con el SDK web de Microsoft Azure Maps y cómo comprobar si un explorador es compatible.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 6a67a358d45ac61c955c26f495169f7cd8364074
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910447"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988794"
 ---
 # <a name="web-sdk-supported-browsers"></a>Exploradores admitidos por el SDK web
 

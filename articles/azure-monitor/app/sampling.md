@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e30c4812ad11d7b39197062da30c90b2d8b1649b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 9fda3bb0188a2030572ee686ff5a942aca61ea36
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281077"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989984"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -347,12 +347,13 @@ Los tipos de telemetría que se pueden incluir o excluir del muestreo son: `Depe
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>Configuración del muestreo de frecuencia fija para aplicaciones de Python de OpenCensus
 
-1. Instrumente la aplicación con los [exportadores de Azure Monitor de OpenCensus](../../azure-monitor/app/opencensus-python.md) más recientes.
+Instrumente la aplicación con los [exportadores de Azure Monitor de OpenCensus](../../azure-monitor/app/opencensus-python.md) más recientes.
 
 > [!NOTE]
-> El muestreo de frecuencia fija solo está disponible con el exportador de seguimiento. Esto significa que las solicitudes entrantes y salientes son los únicos tipos de telemetría en los que se puede configurar el muestreo.
+> El muestreo de frecuencia fija no está disponible para el exportador de métricas. Esto significa que las métricas personalizadas son los únicos tipos de telemetría en los que NO se puede configurar el muestreo. El exportador de métricas enviará toda la telemetría de la que realice el seguimiento.
 
-2. Puede especificar un elemento `sampler` como parte de la configuración de `Tracer`. Si no se proporciona ningún elemento sampler explícito, se usará de forma predeterminada `ProbabilitySampler`. `ProbabilitySampler` usaría una frecuencia de 1/10 000 de forma predeterminada, lo que significa que se enviará a Application Insights una de cada 10 000 solicitudes. Si desea especificar una frecuencia de muestreo, consulte a continuación.
+#### <a name="fixed-rate-sampling-for-tracing"></a>Muestreo de frecuencia fija para seguimiento ####
+Puede especificar un elemento `sampler` como parte de la configuración de `Tracer`. Si no se proporciona ningún elemento sampler explícito, se usará de forma predeterminada `ProbabilitySampler`. `ProbabilitySampler` usaría una frecuencia de 1/10 000 de forma predeterminada, lo que significa que se enviará a Application Insights una de cada 10 000 solicitudes. Si desea especificar una frecuencia de muestreo, consulte a continuación.
 
 Para especificar la frecuencia de muestreo, asegúrese de que `Tracer` especifica un elemento sampler con una frecuencia de muestreo entre 0,0 y 1,0, ambos inclusive. Una velocidad de muestreo de 1,0 representa el 100 %, lo que significa que todas las solicitudes se enviarán como datos de telemetría a Application Insights.
 
@@ -362,6 +363,16 @@ tracer = Tracer(
         instrumentation_key='00000000-0000-0000-0000-000000000000',
     ),
     sampler=ProbabilitySampler(1.0),
+)
+```
+
+#### <a name="fixed-rate-sampling-for-logs"></a>Muestreo de frecuencia fija para registros ####
+Puede configurar el muestreo de frecuencia fija para `AzureLogHandler` mediante la modificación del argumento opcional `logging_sampling_rate`. Si no se proporciona ningún argumento, se usará una frecuencia de muestreo de 1.0. Una velocidad de muestreo de 1,0 representa el 100 %, lo que significa que todas las solicitudes se enviarán como datos de telemetría a Application Insights.
+
+```python
+exporter = metrics_exporter.new_metrics_exporter(
+    instrumentation_key='00000000-0000-0000-0000-000000000000',
+    logging_sampling_rate=0.5,
 )
 ```
 
@@ -531,7 +542,7 @@ La precisión de la aproximación depende en gran medida del porcentaje de muest
 
 *Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 
-* La mejor forma de lograrlo es escribir un objeto [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) personalizado, que establece `SamplingPercentage` en 100 en el elemento de telemetría que desee retener, tal como se muestra a continuación. Cuando se garantiza que los inicializadores se ejecutan antes que los procesadores de telemetría (incluido el muestreo), se tiene la seguridad de que todas las técnicas de muestreo omitirán este elemento de cualquier consideración de muestreo.
+* La mejor forma de lograrlo es escribir un objeto [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) personalizado, que establece `SamplingPercentage` en 100 en el elemento de telemetría que desee retener, tal como se muestra a continuación. Cuando se garantiza que los inicializadores se ejecutan antes que los procesadores de telemetría (incluido el muestreo), se tiene la seguridad de que todas las técnicas de muestreo omitirán este elemento de cualquier consideración de muestreo. Se dispone de inicializadores de telemetría personalizados en el SDK de ASP.NET, el SDK de ASP.NET Core, el SDK de JavaScript y el SDK de Java. Por ejemplo, puede configurar un inicializador de telemetría mediante el SDK de ASP.NET:
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer

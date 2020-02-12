@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 8849029f59ee4eef3baa43a6027022598e12d102
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045892"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964658"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -46,7 +46,7 @@ Regions                                        | ¿Disponibilidad?              
 Esta tabla cambia cuando hay actualizaciones del servicio o cuando hay nuevas versiones compatibles disponibles.
 
 Para probar el servicio de metadatos de instancia, cree una máquina virtual desde [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o [Azure Portal](https://portal.azure.com) en las regiones anteriores, y siga los ejemplos siguientes.
-Puede encontrar más ejemplos de cómo consultar IMDS en [Ejemplos de Azure Instance Metadata](https://github.com/microsoft/azureimds)
+Puede encontrar más ejemplos de cómo consultar IMDS en [Ejemplos de Azure Instance Metadata Service](https://github.com/microsoft/azureimds)
 
 ## <a name="usage"></a>Uso
 
@@ -542,7 +542,7 @@ El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del 
 
 Los metadatos de instancia se pueden recuperar en Windows a través de la utilidad `curl` de PowerShell:
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -1055,7 +1055,7 @@ Puppet | https://github.com/keirans/azuremetadata
 8. ¿Cómo puedo obtener soporte técnico para el servicio?
    * Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal en la máquina virtual en la que no obtiene respuesta de metadatos después de reintentos prolongados.
 9. ¿Por qué se agotó el tiempo de espera de solicitud para mi llamada al servicio?
-   * Se deben realizar llamadas de metadatos desde la dirección IP principal asignada a la tarjeta de red de la máquina virtual; además, en caso de que haya cambiado las rutas, debe tener una ruta para la dirección 169.254.0.0/16 desde su tarjeta de red.
+   * Se deben realizar llamadas de metadatos desde la dirección IP principal asignada a la tarjeta de red principal de la máquina virtual; además, en caso de que haya cambiado las rutas, debe tener una ruta para la dirección 169.254.0.0/16 desde su tarjeta de red.
 10. He actualizado mis etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las máquinas virtuales.
     * Actualmente, las etiquetas para ScaleSets solo se muestran a la máquina virtual durante un reinicio, restablecimiento de imagen o cambio de disco en la instancia.
 

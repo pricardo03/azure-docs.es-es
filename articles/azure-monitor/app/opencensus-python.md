@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 87c0b62cec0b61bfc52ec31233ca7c1f947fdd98
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 091cf26a0c18aba0925ad23e61950f8622f6080b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846135"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989525"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configuración de Azure Monitor para las aplicaciones de Python (versión preliminar)
 
@@ -336,9 +336,9 @@ Estos son los exportadores que proporciona OpenCensus asignados a los tipos de t
         main()
     ```
 
-6. También puede agregar dimensiones personalizadas a los registros. Estas aparecerán como pares de clave y valor en `customDimensions` en Azure Monitor.
+6. También puede agregar propiedades personalizadas a los mensajes de registro del argumento de palabra clave *extra* mediante el campo custom_dimensions. Estas aparecerán como pares de clave y valor en `customDimensions` en Azure Monitor.
 > [!NOTE]
-> Para que esta característica funcione, debe pasar un diccionario como argumento a los registros; se omitirá cualquier otra estructura de datos. Para mantener el formato de las cadenas, almacénelas en un diccionario y páselo como argumento.
+> Para que esta característica funcione, debe pasar un diccionario al campo custom_dimensions. Si se pasan argumentos de cualquier otro tipo, el registrador los omitirá.
 
     ```python
     import logging
@@ -350,7 +350,17 @@ Estos son los exportadores que proporciona OpenCensus asignados a los tipos de t
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+
+    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+    # Use properties in logging statements
+    logger.warning('action', extra=properties)
+
+    # Use properties in exception logs
+    try:
+        result = 1 / 0  # generate a ZeroDivisionError
+    except Exception:
+    logger.exception('Captured an exception.', extra=properties)
     ```
 
 7. Para más información sobre cómo enriquecer los registros con los datos de contexto de seguimiento, vea la [integración de registros](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation) de Python para OpenCensus.

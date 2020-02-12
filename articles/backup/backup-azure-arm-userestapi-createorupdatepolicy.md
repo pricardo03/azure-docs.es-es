@@ -4,33 +4,18 @@ description: En este artículo obtendrá información sobre cómo crear y admini
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554889"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963859"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
 Los pasos para crear una directiva de copia de seguridad para un almacén de Azure Recovery Services se describen en el [documento de API REST de directiva](/rest/api/backup/protectionpolicies/createorupdate). Vamos a usar este documento como referencia para crear una directiva para la copia de seguridad de Azure VM.
 
-## <a name="backup-policy-essentials"></a>Fundamentos de la directiva de copia de seguridad
-
-- Se crea una directiva de copia de seguridad por almacén.
-- Se puede crear una directiva de copia de seguridad para la copia de seguridad de las cargas de trabajo siguientes:
-  - Azure VM
-  - SQL en Azure VM
-  - Recurso compartido de archivos de Azure
-- Una directiva puede asignarse a muchos recursos. Una directiva de copia de seguridad de Azure VM puede usarse para proteger varias máquinas virtuales de Azure.
-- Una directiva consta de dos componentes:
-  - Programación: cuándo realizar la copia de seguridad
-  - Retención: cuánto tiempo debe retenerse cada copia de seguridad.
-- La programación puede definirse como "diaria" o "semanal" con un punto específico en el tiempo.
-- La retención puede definirse para los puntos de copia de seguridad "diarios", "semanal", "mensual" o "anual" .
-- "Semanal" se refiere a una copia de seguridad en un determinado día de la semana, "mensual" significa una copia de seguridad en un determinado día del mes y "anual" a una copia de seguridad en un determinado día del año.
-- La retención de los puntos de copia de seguridad "anuales", y "mensuales" se conoce como "LongTermRetention".
-- Cuando se crea un almacén, también se crea una directiva para las copias de seguridad de máquinas virtuales de Azure denominada "DefaultPolicy" que se puede usar para dichas copias de seguridad.
+## <a name="create-or-update-a-policy"></a>Creación o actualización de una directiva
 
 Para crear o actualizar una directiva de Azure Backup, use la siguiente operación *PUT*:
 
@@ -44,7 +29,7 @@ Los valores de `{policyName}` y `{vaultName}` se proporcionan en el URI. Se prop
 
 Por ejemplo, para crear una directiva para la copia de seguridad de las máquinas virtuales de Azure, los siguientes son los componentes del cuerpo de la solicitud.
 
-|NOMBRE  |Obligatorio  |type  |DESCRIPCIÓN  |
+|Nombre  |Obligatorio  |Tipo  |Descripción  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
 |etiquetas     |         | Object        |  Etiquetas del recurso       |
@@ -152,9 +137,9 @@ La creación o actualización de las directivas de copia de seguridad es una [op
 
 Devuelve las dos respuestas: 202 - Aceptado cuando se crea otra operación y 200 - Correcto cuando se completa dicha operación.
 
-|NOMBRE  |type  |DESCRIPCIÓN  |
+|Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  Aceptar       |
 |202 - Aceptado     |         |     Accepted    |
 
 ### <a name="example-responses"></a>Respuestas de ejemplo

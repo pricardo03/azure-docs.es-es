@@ -11,12 +11,12 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d51213402f852daee8fe4a6b5dbbd473afda659
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 3170ca428b0b06f3d76bfd6037f75f345a2a466a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122464"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989678"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de la versión de Azure SQL Data Warehouse
 
@@ -38,6 +38,7 @@ Use la versión identificada para confirmar qué versión se ha aplicado a su in
 | --- | --- |
 |**Métricas del portal de administración de cargas de trabajo (versión preliminar)**|Con la publicación de la versión preliminar de [Aislamiento de cargas de trabajo](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) el pasado mes de octubre, los usuarios pueden crear sus propios [grupos de cargas de trabajo](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) para administrar eficazmente los recursos del sistema y garantizar que se cumplen los Acuerdos de Nivel de Servicio.  Como parte de las mejoras globales de la [administración de cargas de trabajo](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) de Azure Synapse Analytics, ya están disponibles nuevas [métricas de supervisión de la administración de cargas de trabajo](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor).</br> </br> La supervisión de la carga de trabajo dispone ahora de más información gracias a las siguientes métricas: </br> - Porcentaje máximo de recursos efectivo  </br> - Porcentaje mínimo de recursos efectivo </br> - Consultas activas de grupo de cargas de trabajo </br> - Asignación de grupos de cargas de trabajo por porcentaje máximo de recursos </br> - Asignación de grupos de cargas de trabajo por porcentaje del sistema </br> - Tiempos de espera de consultas de grupo de cargas de trabajo </br> - Consultas en cola del grupo de cargas de trabajo </br></br> Use estas métricas para identificar [cuellos de botella en el grupo de cargas de trabajo](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) o grupos de cargas de trabajo configurados con [aislamientos de cargas de trabajo infrautilizados](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation).  Estas métricas se pueden usar en Azure Portal ya que este permite la división por grupos de cargas de trabajo.  Filtre y ancle sus gráficos favoritos a un panel para obtener un acceso rápido a la información.|
 |**Métricas de supervisión del portal**| Las siguientes métricas se agregaron al portal para supervisar la actividad general de consultas: </br> - Consultas activas </br> - Consultas en cola </br> </br>Estas métricas se describen junto con las métricas existentes en la [documentación sobre el uso de recursos y la actividad de consultas](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity).|
+|**Nombre del producto**|En junio de 2020, el nombre del producto que devuelve SELECT @@VERSION cambiará de Microsoft Azure SQL Data Warehouse a Azure Synapse Analytics. Se publicará la programación en las notas de la versión. Este cambio es importante para los clientes que analizan el nombre del producto a partir del resultado de SELECT @@VERSION en su código de aplicación. Para evitar cambios en el código de la aplicación debido al cambio de marca del producto, use estos comandos para consultar el nombre de producto y la versión de la base de datos en SERVERPROPERTY. </br> Para devolver el número de versión XX.X.XXXXX.X de DW (sin nombre de producto), use este comando: SELECT SERVERPROPERTY('ProductVersion') </br> Para devolver la edición del motor, use este comando que devuelve 6 para Azure Synapse Analytics (antes SQL Data Warehouse): SELECT SERVERPROPERTY('EngineEdition')|
 
 ## <a name="october-2019"></a>Octubre de 2019
 
@@ -156,7 +157,7 @@ Use la versión identificada para confirmar qué versión se ha aplicado a su in
 ## <a name="more-information"></a>Más información
 
 - [Blog: Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [Blogs de Customer Advisory Team](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Blogs de Customer Advisory Team](https://docs.microsoft.com/archive/blogs/sqlcat/)
 - [Casos de éxito de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Foro Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

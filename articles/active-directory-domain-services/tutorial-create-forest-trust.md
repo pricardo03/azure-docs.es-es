@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425432"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931228"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: creación de una confianza de bosque de salida en un dominio local en Azure Active Directory Domain Services (versión preliminar)
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -45,7 +45,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Asegúrese de crear un dominio administrado de Azure AD DS con un bosque de *recursos*. La opción predeterminada crea un bosque de *usuarios*. Solo los bosques de recursos pueden crear confianzas con entornos de AD DS locales.
+    > Asegúrese de crear un dominio administrado de Azure AD DS con un bosque de *recursos*. La opción predeterminada crea un bosque de *usuarios*. Solo los bosques de recursos pueden crear confianzas con entornos de AD DS locales. También debe usar como mínimo la SKU *Enterprise* para el dominio administrado. Si es necesario, [cambie la SKU de un dominio administrado de Azure AD DS][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -220,3 +220,4 @@ Para obtener más información conceptual sobre los tipos de bosque de Azure AD 
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
+[howto-change-sku]: change-sku.md

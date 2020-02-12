@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad de Azure
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 3c4c4341286b7ee4f382192d291e08c83ff64994
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172972"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989695"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
@@ -30,7 +30,7 @@ Puede administrar copias de seguridad mediante el panel y por medio de la explor
 
 Para ver las máquinas virtuales en el panel:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú Hub, seleccione **Examinar**. En la lista de recursos, escriba **Recovery Services**. A media que escribe, la lista se filtra en función de lo que escriba. Seleccione **Almacenes de Recovery Services**.
 
     ![Creación de un almacén de Recovery Services](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -38,32 +38,32 @@ Para ver las máquinas virtuales en el panel:
 3. Para facilitar su uso, haga clic con el botón derecho en el almacén y seleccione **Anclar al panel**.
 4. Abra el panel del almacén.
 
-    ![Apertura del panel del almacén y la hoja Configuración](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+    ![Apertura del panel de almacén y el panel Configuración](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
 5. En el icono **Elementos de copia de seguridad**, seleccione **Azure Virtual Machines**.
 
     ![Apertura del menú Elementos de copia de seguridad](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. En la hoja **Elementos de copia de seguridad**, puede ver la lista de máquinas virtuales protegidas. En este ejemplo, el almacén protege una máquina virtual: demobackup.  
+6. En el panel **Elementos de copia de seguridad**, puede ver la lista de máquinas virtuales protegidas. En este ejemplo, el almacén protege una máquina virtual: demobackup.  
 
-    ![Visualización de la hoja Elementos de copia de seguridad](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Visualización del panel Elementos de copia de seguridad](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
 7. Desde el panel de elementos del almacén, puede modificar las directivas de copia de seguridad, ejecutar una copia de seguridad a petición, detener o reanudar la protección de las máquinas virtuales, eliminar los puntos de recuperación y ejecutar una restauración.
 
-    ![Panel Elementos de copia de seguridad en la hoja Configuración](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+    ![El panel Elementos de copia de seguridad y el panel Configuración](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
 ## <a name="manage-backup-policy-for-a-vm"></a>Administración de la directiva de copia de seguridad de una máquina virtual
 
 Para administrar una directiva de copia de seguridad:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/). Abra el panel del almacén.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/). Abra el panel del almacén.
 2. En el icono **Elementos de copia de seguridad**, seleccione **Azure Virtual Machines**.
 
     ![Apertura del menú Elementos de copia de seguridad](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
 3. En la hoja **Elementos de copia de seguridad**, puede ver la lista de máquinas virtuales protegidas y el estado de la última copia de seguridad con la hora de los puntos de restauración más recientes.
 
-    ![Visualización de la hoja Elementos de copia de seguridad](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Visualización del panel Elementos de copia de seguridad](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
 4. Desde el panel del elemento del almacén, puede seleccionar una directiva de copia de seguridad.
 
@@ -85,8 +85,8 @@ Para desencadenar una copia de seguridad a petición:
 
     ![La opción Crear copia de seguridad ahora](./media/backup-azure-manage-vms/backup-now-button.png)
 
-2. En **Tipo de administración de copias de seguridad**, seleccione **Azure Virtual Machine**. Aparece la hoja **Elemento de copia de seguridad (Azure Virtual Machine)** .
-3. Seleccione una máquina virtual y, después, **Crear copia de seguridad ahora** para crear una copia de seguridad a petición. Aparece la hoja **Crear copia de seguridad ahora**.
+2. En **Tipo de administración de copias de seguridad**, seleccione **Azure Virtual Machine**. Aparece el panel **Elemento de copia de seguridad (Azure Virtual Machine)** .
+3. Seleccione una máquina virtual y, después, **Crear copia de seguridad ahora** para crear una copia de seguridad a petición. Aparece el panel **Crear copia de seguridad ahora**.
 4. En el campo **Conservar copia de seguridad hasta**, especifique una fecha para la copia de seguridad que se conservará.
 
     ![Calendario de Crear copia de seguridad ahora](./media/backup-azure-manage-vms/backup-now-check.png)
@@ -128,7 +128,7 @@ Para detener la protección y eliminar los datos de una máquina virtual:
 
 ## <a name="resume-protection-of-a-vm"></a>Reanudación de la protección de una máquina virtual
 
-Si hubiera elegido la opción de [detención de la protección y conservación de los datos de copia de seguridad](#stop-protection-and-retain-backup-data) durante la detención de la protección de la máquina virtual, podría usar **Reanudar copia de seguridad**. Esta opción no está disponible si elige la opción de [detención de la protección y eliminación de los datos de copia de seguridad](#stop-protection-and-delete-backup-data) o [Eliminar datos de la copia de seguridad](#delete-backup-data).
+Si ha elegido la opción para [detener la protección y conservar los datos de copia de seguridad](#stop-protection-and-retain-backup-data) durante la detención de la protección de la máquina virtual, puede usar **Reanudar copia de seguridad**. Esta opción no está disponible si elige la opción de [detención de la protección y eliminación de los datos de copia de seguridad](#stop-protection-and-delete-backup-data) o [Eliminar datos de la copia de seguridad](#delete-backup-data).
 
 Para reanudar la protección para una máquina virtual:
 
@@ -157,6 +157,8 @@ Hay dos formas de eliminar los datos de copia de seguridad de una máquina virtu
     ![Eliminación de datos de copia de seguridad](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
   * Para eliminar los datos de copia de seguridad para el elemento, seleccione **Eliminar**. Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
+
+Para proteger los datos, Azure Backup incluye la característica de eliminación temporal. Con la eliminación temporal, incluso después de que se elimine la copia de seguridad (todos los puntos de recuperación) de una máquina virtual, los datos de copia de seguridad se conservan durante otros 14 días. Para más información, consulte la [documentación sobre eliminación temporal](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
   > [!NOTE]
   > Si elimina los datos de copia de seguridad, se eliminarán todos los puntos de recuperación asociados. No puede elegir puntos de recuperación específicos para su eliminación.

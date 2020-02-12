@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 09/11/2019
-ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895382"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964624"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemas de latido de Apache Ambari en Azure HDInsight
 
@@ -82,6 +82,21 @@ Las alertas se deben a que el agente de Ambari no se está ejecutando.
     ```
 
     Si los servicios de controlador de conmutación por error no se están ejecutando, probablemente se deba a un problema que impide que hdinsight-agent inicie el controlador de conmutación por error. Compruebe el registro de hdinsight-agent desde el archivo `/var/log/hdinsight-agent/hdinsight-agent.out`.
+
+## <a name="scenario-heartbeat-lost-for-ambari"></a>Escenario: Pérdida de latido para Ambari
+
+### <a name="issue"></a>Problema
+
+Se perdió el agente de latido de Ambari.
+
+### <a name="cause"></a>Causa
+
+Los registros de OMS están causando un uso elevado de la CPU.
+
+### <a name="resolution"></a>Solución
+
+* Deshabilite el registro de OMS mediante el módulo de PowerShell [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0). 
+* Elimine el archivo de registro `mdsd.warn`.
 
 ---
 
