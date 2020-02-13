@@ -9,19 +9,16 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: f5607c5d41a028a20a4658a67a7ce487a75f0d7c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990358"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169751"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Depuración interactiva en una instancia de proceso de Azure Machine Learning con VS Code remoto
 
 En este artículo, aprenderá a configurar Visual Studio Code remoto en una instancia de proceso de Azure Machine Learning para que pueda **depurar el código de forma interactiva** desde VS Code. 
-
-> [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
 
 + Una [instancia de proceso de Azure Machine Learning](concept-compute-instance.md) es una estación de trabajo basada en la nube totalmente administrada para científicos de datos que proporciona funciones de administración y preparación para empresas a los administradores de TI. 
 

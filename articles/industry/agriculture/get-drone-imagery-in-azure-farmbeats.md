@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a64627028ea4ecc732924d0c9fca196204f7951d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475778"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132043"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtención de imágenes con drones de asociados
 
@@ -91,4 +91,4 @@ Los archivos y las imágenes cargados por el proveedor de drones aparecen en la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a usar las [API](references-for-azure-farmbeats.md#rest-api) del centro de datos de FarmBeats para obtener las imágenes de dron.
+Aprenda a usar las [API](rest-api-in-azure-farmbeats.md) del centro de datos de FarmBeats para obtener las imágenes de dron.

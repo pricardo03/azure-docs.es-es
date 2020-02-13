@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: b6f51dee948d9e4d9e3f8594f9f7e60fb11b7057
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29816d158cf1428727b7ff17bcc2c347f402dedf
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647346"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134526"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especificación de un grupo de recursos para máquinas virtuales de laboratorio en Azure DevTest Labs
 
@@ -31,7 +31,7 @@ Como propietario de un laboratorio, puede configurar las máquinas virtuales del
 Con esta característica, puede usar un script para especificar un grupo de recursos nuevo o uno existente dentro de su suscripción de Azure para todas las máquinas virtuales del laboratorio. Actualmente, Azure DevTest Labs admite esta característica con una API.
 
 > [!NOTE]
-> Todos los límites de suscripción se aplican al crear laboratorios de DevTest Labs. Piense en un laboratorio como cualquier otro recurso en su suscripción. En el caso de los grupos de recursos, el límite es de [980 grupos de recursos por suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
+> Todos los límites de suscripción se aplican al crear laboratorios de DevTest Labs. Piense en un laboratorio como cualquier otro recurso en su suscripción. En el caso de los grupos de recursos, el límite es de [980 grupos de recursos por suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). 
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal
 Siga estos pasos para especificar un grupo de recursos para todas las máquinas virtuales creadas en el laboratorio. 

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 9a69ebaa9b7f6ffffdfc80e09fb2eec9495e2ce2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e2e13942b4ada2c6e90a056a0239bc620951638b
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838818"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168495"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Administrar iteraciones de experimentos en Azure Machine Learning Studio (clásico)
 El desarrollo de un modelo de análisis predictivo es un proceso iterativo: a medida que se modifican las diversas funciones y los parámetros de su experimento, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo. La clave de este proceso es realizar un seguimiento de las iteraciones de los parámetros de su experimento y sus configuraciones.
@@ -44,7 +44,7 @@ Por ejemplo, suponga que crea un experimento con el módulo [Regresión lineal][
 | 0,1 |9/11/2014 4:18:58 PM |
 | 0,2 |9/11/2014 4:24:33 PM |
 | 0,4 |9/11/2014 4:28:36 PM |
-| 0,5 |9/11/2014 4:33:31 PM |
+| 0.5 |9/11/2014 4:33:31 PM |
 
 Si hace clic en **VER HISTORIAL DE EJECUCIONES**, verá una lista de todas estas ejecuciones:
 

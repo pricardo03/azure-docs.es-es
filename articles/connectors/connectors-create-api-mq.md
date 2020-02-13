@@ -3,18 +3,18 @@ title: Conexión con el servidor IBM MQ
 description: Envío y recuperación de mensajes con un servidor de Azure o servidor IBM MQ local y Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: valrobb
-ms.author: valthom
-ms.reviewer: chrishou, logicappspm
+author: ChristopherHouser
+ms.author: chrishou
+ms.reviewer: valthom, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: ef9e91b526055ece58ce283572deb98cff951653
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 489f53a4f4c1c0d5bd782f42a9daf73217234793
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789583"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118051"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Conectarse a un servidor IBM MQ desde Azure Logic Apps
 
@@ -28,7 +28,7 @@ El conector IBM MQ incluye estas acciones, pero no proporciona ningún desencade
 - Recibir un lote de mensajes y eliminarlos del servidor IBM MQ
 - Enviar un único mensaje al servidor IBM MQ
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si usa un servidor MQ local, [instale la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red. El servidor donde está instalada la puerta de enlace de datos local también debe tener .NET Framework 4.6 instalado para que el conector de MQ funcione. También debe crear un recurso de Azure para la puerta de enlace de datos local. Para más información, consulte [Configuración de una conexión de puerta de enlace de datos](../logic-apps/logic-apps-gateway-connection.md).
 

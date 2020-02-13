@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff86c25de006495e3536f2ff907e1cf40a216f8e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927860"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048567"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitectura de implementación de Azure Dedicated HSM
 
@@ -29,15 +29,18 @@ HSM dedicado de Azure proporciona almacenamiento de claves criptográficas en Az
 
 Los dispositivos HSM se distribuyen entre los centros de datos de Microsoft y se pueden aprovisionar fácilmente como un par de dispositivos como la base de una solución de alta disponibilidad. También se puede implementar en las regiones para una solución resistente ante desastres. Las regiones con HSM dedicado disponibles actualmente son:
 
-* East US
+* Este de EE. UU.
 * Este de EE. UU. 2
 * Oeste de EE. UU.
-* Oeste de EE. UU. 2
-* Centro-Sur de EE. UU
-* Sudeste asiático
-* Asia oriental
-* Europa del Norte
-* Europa occidental
+* Centro-sur de EE. UU.
+* Sudeste de Asia
+* Este de Asia
+* India central
+* Sur de India
+* Japón Oriental
+* Japón Occidental
+* Norte de Europa
+* Oeste de Europa
 * Sur de Reino Unido 2
 * Oeste de Reino Unido
 * Centro de Canadá
@@ -45,7 +48,7 @@ Los dispositivos HSM se distribuyen entre los centros de datos de Microsoft y se
 * Este de Australia
 * Sudeste de Australia
 
-Cada una de estas regiones tiene bastidores HSM implementados en dos centros de datos independientes o en al menos dos zonas de disponibilidad independientes. Sudeste Asiático tiene tres zonas de disponibilidad y Este de EE. UU. 2 tiene dos. Hay un total de ocho regiones en Europa, Asia y Estados Unidos que ofrecen el servicio HSM dedicado. Para más información sobre las regiones de Azure, consulte el sitio oficial de [información de las regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+Cada una de estas regiones tiene bastidores HSM implementados en dos centros de datos independientes o en al menos dos zonas de disponibilidad independientes. Sudeste de Asia tiene tres zonas de disponibilidad y Este de EE. UU. 2 tiene dos. Hay un total de ocho regiones en Europa, Asia y Estados Unidos que ofrecen el servicio HSM dedicado. Para más información sobre las regiones de Azure, consulte el sitio oficial de [información de las regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 Algunos factores de diseño para cualquier solución basada en HSM dedicado son la ubicación y latencia, la alta disponibilidad y la compatibilidad con otras aplicaciones distribuidas.
 
 ## <a name="device-location"></a>Ubicación del dispositivo

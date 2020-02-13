@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 4e2a76e40206e1562d565571dbe22e5d9d0e930e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 3e414e40cb92f5c7e8c2e1d083419d57e06a0995
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834161"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161926"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -270,7 +270,7 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 > |resource|El URI del identificador de la aplicación del servicio web de recepción.|
 > |token_type|Indica el valor de tipo de token. El único tipo que admite Azure AD es portador. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]).|
 
-Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
+Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#get-a-token).
 
 > [!NOTE]
 > Las variables de entorno se configuran cuando el proceso se inicia por primera vez, por lo que después de habilitar una identidad administrada para la aplicación puede que necesite reiniciar la aplicación, o implementar de nuevo su código, antes de que `MSI_ENDPOINT` y `MSI_SECRET` estén disponibles en el código.

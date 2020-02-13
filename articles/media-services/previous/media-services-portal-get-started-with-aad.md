@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7962f42b4244121a67b88ef3bf789ce40f7b1e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4428187c985c1004c88f2ac20b0e5811803cce2a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719625"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162776"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introducción a la autenticación de Azure AD mediante Azure Portal
 
@@ -27,7 +27,7 @@ ms.locfileid: "64719625"
 
 Obtenga información sobre cómo usar Azure Portal para acceder a la autenticación de Azure Active Directory (Azure AD) para tener acceso a la API de Azure Media Services.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure. Si no tiene cuenta, comience con una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Una cuenta de Media Services. Para más información, vea [Creación de una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
@@ -35,11 +35,11 @@ Obtenga información sobre cómo usar Azure Portal para acceder a la autenticaci
 
 Al utilizar la autenticación de Azure AD con Azure Media Services, tiene dos opciones de autenticación:
 
-- **Autenticación de usuario**. Autenticar a una persona que está usando la aplicación para interactuar con los recursos de Media Services. La aplicación interactiva en primer lugar debe solicitar al usuario las credenciales. Un ejemplo es una aplicación de consola de administración que usan los usuarios autorizados para supervisar trabajos de codificación o streaming en vivo. 
+- **Autenticación de usuario**. Autenticar a alguien que usa la aplicación para interactuar con los recursos de Media Services. La aplicación interactiva en primer lugar debe solicitar al usuario las credenciales. Un ejemplo es una aplicación de consola de administración que usan los usuarios autorizados para supervisar trabajos de codificación o streaming en vivo. 
 - **Autenticación de entidad de servicio**. Autenticar un servicio. Las aplicaciones que normalmente utilizan este método de autenticación son aplicaciones que ejecutan servicios de demonio, servicios de nivel intermedio o trabajos programados: Web Apps, Function Apps, Logic Apps, API o un microservicio.
 
 > [!IMPORTANT]
-> Actualmente Media Services es compatible con el modelo de autenticación de Azure Access Control Service. Sin embargo, la autorización de Access Control dejará de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD.
+> Actualmente, Media Services es compatible con el modelo de autenticación de Azure Access Control Service. Sin embargo, la autorización de Access Control dejará de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD.
 
 ## <a name="select-the-authentication-method"></a>Selección del método de autenticación
 
@@ -64,7 +64,7 @@ Puede obtener los valores para estos parámetros en la página de la **API de Me
 
 Si se conecta a la API de Media Services mediante el SDK de Microsoft .NET para Media Services, los valores necesarios están disponibles como parte del SDK. Para más información, vea [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md) (Uso de la autenticación de Azure AD para acceder a la API de Azure Media Services con .NET).
 
-Si no usa el SDK del cliente .NET para Media Services, debe crear manualmente una solicitud de token de Azure AD con los parámetros descritos anteriormente. Para más información, vea [Procedimiento para usar la Biblioteca de autenticación de Azure AD para obtener el token de Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Si no usa el SDK del cliente .NET para Media Services, debe crear manualmente una solicitud de token de Azure AD con los parámetros descritos anteriormente. Para más información, vea [Procedimiento para usar la Biblioteca de autenticación de Azure AD para obtener el token de Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
 
@@ -90,7 +90,7 @@ Si no tiene permisos para crear aplicaciones de Azure AD en su dominio, no se mu
 
 Si se conecta a la API de Media Services mediante el SDK de Media Services para .NET, vea [Usar autenticación de Azure AD para acceder a la API de Azure Media Services con .NET](media-services-dotnet-get-started-with-aad.md).
 
-Si no usa el SDK del cliente .NET para Media Services, debe crear manualmente una solicitud de token de Azure AD con los parámetros descritos anteriormente. Para más información, vea [Cómo usar la biblioteca de autenticación de Azure AD para obtener el token de Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Si no usa el SDK del cliente .NET para Media Services, debe crear manualmente una solicitud de token de Azure AD con los parámetros descritos anteriormente. Para más información, vea [Procedimiento para usar la Biblioteca de autenticación de Azure AD para obtener el token de Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ### <a name="get-the-client-id-and-client-secret"></a>Obtención del identificador de cliente y del secreto de cliente
 

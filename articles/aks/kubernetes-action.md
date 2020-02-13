@@ -7,20 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: cc2d6df952b2e0aa9b9f4d4e1dcb4859a5bb3790
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 62fcdf01250728cf84726db7e9b39452a4d4e5ff
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130534"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046343"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Acciones de GitHub para la implementación en el servicio Kubernetes
 
 [Acciones de GitHub](https://help.github.com/en/articles/about-github-actions) le ofrece la flexibilidad de compilar un flujo de trabajo del ciclo de vida de desarrollo de software automatizado. La acción [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) de Kubernetes facilita las implementaciones en los clústeres de Azure Kubernetes Service. La acción establece el contexto de clúster de AKS de destino, que pueden usar otras acciones como [azure/k8s-deploy](https://github.com/Azure/k8s-deploy/tree/master), [azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) etc. o ejecute cualquier comando de kubectl.
-
-> [!IMPORTANT]
-> Acciones de GitHub está actualmente en versión beta. Primero debe [registrarse para unirse a la versión preliminar](https://github.com/features/actions) mediante su cuenta de GitHub.
-> 
 
 Un archivo YAML (.yml) define un flujo de trabajo en la ruta de acceso `/.github/workflows/` de su repositorio. En esta definición se incluyen los diversos pasos y parámetros que componen el flujo de trabajo.
 

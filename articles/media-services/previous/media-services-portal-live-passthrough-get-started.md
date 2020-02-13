@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9a8ab024443744f50482dd2ca1cfb33db43359e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a83d6ae2e3ed13f0d03e0fdc87a3b45a4119ba88
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463379"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162759"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realización de streaming en vivo con codificadores locales mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -34,12 +34,12 @@ ms.locfileid: "61463379"
 
 Este tutorial le guiará por los pasos para usar el Portal de Azure para crear un **Canal** que esté configurado para una entrega de paso a través. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Estos son los requisitos previos para completar el tutorial.
 
 * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
-* Una cámara web. Por ejemplo, el [codificador Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
+* Una cámara web. Por ejemplo, el [codificador Telestream Wirecast](media-services-configure-wirecast-live-encoder.md). 
 
 Es importante que revise los artículos siguientes:
 
@@ -150,7 +150,7 @@ Incluso después de detener y eliminar el evento, los usuarios podrán transmiti
 
 Para administrar los recursos seleccione **Configuración** y haga clic en **Recursos**.
 
-![recursos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
+![Recursos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
 ## <a name="next-step"></a>Paso siguiente
 Consulte las rutas de aprendizaje de Media Services.

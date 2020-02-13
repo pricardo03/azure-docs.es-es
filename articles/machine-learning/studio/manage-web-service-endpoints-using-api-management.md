@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 084f3a1ecc7e44dc404d63a75b4561f8d5cb57cb
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d0e9fff56949125c5fa797e0e4ef7e1183448dd0
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839805"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168586"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio (clásico) con API Management
 ## <a name="overview"></a>Información general
@@ -24,7 +24,7 @@ En esta guía, se explica cómo empezar a usar rápidamente API Management para 
 ## <a name="what-is-azure-api-management"></a>¿Qué es la Azure API Management?
 Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Consulte el [sitio de Azure API Management](https://azure.microsoft.com/services/api-management/) para más información. Para empezar a trabajar con Azure API Management, consulte [la guía de importación y publicación](/azure/api-management/import-and-publish). Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para completar a esta guía, necesita:
 
 * Una cuenta de Azure.
@@ -35,15 +35,15 @@ Para completar a esta guía, necesita:
 
 Puede administrar el servicio web Azure Machine Learning con una instancia de API Management.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **+ Crear un recurso**.
 3. En el cuadro Buscar, escriba "API management" y, a continuación, seleccione el recurso "API management".
-4. Haga clic en **Create**(Crear).
+4. Haga clic en **Crear**.
 5. El valor de **Nombre** se usará para crear una dirección URL única (en este ejemplo se utiliza "demoazureml").
 6. Seleccione los valores de **Suscripción**, **Grupo de recursos** y **Ubicación** de la instancia de servicio.
 7. Especifique el valor de **Nombre de organización** (en este ejemplo se utiliza "demoazureml").
 8. Escriba su **correo electrónico de administrador**: esta dirección de correo electrónico se utilizará para las notificaciones desde el sistema de API Management.
-9. Haga clic en **Create**(Crear).
+9. Haga clic en **Crear**.
 
 El nuevo servicio puede tardar hasta 30 minutos en crearse.
 
@@ -150,7 +150,7 @@ Se puede llamar a las operaciones directamente desde el portal para desarrollado
 
 4. En **Request parameters** (Parámetros de solicitud), especifique su área de trabajo en **workspace** y **service**, respectivamente, escriba "2.0 en **apiversion** y "true" en **details**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
-   En **Request headers** (Encabezados de solicitud), haga clic en **Add header** (Agregar encabezado) y escriba "Content-Type" y "application/json". Haga clic en **Add header** (Agregar encabezado) y escriba "Add header" y "Bearer  *\<your service API-KEY\>* " (Portador <CLAVE de API de su servicio>). La CLAVE de API se puede encontrar en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el apéndice A).
+   En **Request headers** (Encabezados de solicitud), haga clic en **Add header** (Agregar encabezado) y escriba "Content-Type" y "application/json". Haga clic en **Add header** (Agregar encabezado) y escriba "Add header" y "Bearer *\<your service API-KEY\>* " (Portador <CLAVE de API de su servicio>). La CLAVE de API se puede encontrar en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
    En **Request body** (Cuerpo de la solicitud), escriba `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 

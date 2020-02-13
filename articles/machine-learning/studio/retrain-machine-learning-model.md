@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: c24eb50688efcf220b26b5a0f352d012876dbab3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 804aeee112d060c411a4e37b5d19e4766307b0a0
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838680"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169168"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Nuevo entrenamiento e implementación de un modelo de aprendizaje automático
 

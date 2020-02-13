@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990715"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048703"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -139,7 +139,7 @@ Si elimina las máquinas virtuales y siguen apareciendo en el portal, espere tre
 
 Azure Migrate admite la detección de aplicaciones, roles y características mediante Azure Migrate: Server Assessment. Actualmente solo se admite la detección de aplicaciones para VMware. [Obtenga más información](how-to-discover-applications.md) sobre los requisitos y los pasos para configurar la detección de aplicaciones.
 
-Los errores de detección de aplicaciones típicos se resumen en la tabla.
+Los errores de detección de aplicaciones típicos se resumen en la tabla. 
 
 **Error** | **Causa** | **Acción**
 --- | --- | --- | ---

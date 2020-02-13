@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: b50fcea6f1a479ac295a3a6832d1ab828e01ea3d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 80f38f8bf323717693df70399ad982c51dda8f13
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986400"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169803"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,15 +33,11 @@ Las canalizaciones de Machine Learning usan destinos de proceso remotos para el 
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) que contendrá todos los recursos de la canalización.
 
 * [Configure el entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning, o use una [instancia de proceso de Azure Machine Learning (versión preliminar)](concept-compute-instance.md) con el SDK ya instalado.
-
-> [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar. 
 
 Empiece asociando el área de trabajo:
 

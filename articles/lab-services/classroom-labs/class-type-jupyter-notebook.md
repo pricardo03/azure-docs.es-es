@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 5bf54b6975475810650aeaee4b477e60255757bf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 695b87540178fb5c1012a095c2a86937a189ef24
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75530687"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133744"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurar un laboratorio para enseñar ciencia de datos con Python y Jupyter Notebooks
 
@@ -30,7 +30,7 @@ Para configurar este laboratorio, para empezar, necesita una suscripción a Azur
 
 ### <a name="lab-account-settings"></a>Configuración de la cuenta de laboratorio
 
-Habilite la configuración que se describe en la tabla siguiente para la cuenta de laboratorio. Para obtener más información sobre cómo habilitar imágenes de Marketplace, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
+Habilite la configuración que se describe en la tabla siguiente para la cuenta de laboratorio. Para obtener más información sobre cómo habilitar imágenes de Marketplace, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators).
 
 | Configuración de la cuenta de laboratorio | Instructions |
 | ------------------- | ------------ |

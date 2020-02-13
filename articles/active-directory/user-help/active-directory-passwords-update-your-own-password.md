@@ -2,7 +2,7 @@
 title: 'Restablecimiento de la contraseña con la información de seguridad: Azure Active Directory | Microsoft Docs'
 description: Cómo restablecer la contraseña si la olvida, mediante la información de seguridad y la verificación en dos pasos.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: ad4831cfb5b09083b4ee76b6badf3936b2256138
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: curtand
+ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263496"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062666"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Restablecimiento de la contraseña profesional o educativa con la información de seguridad
 

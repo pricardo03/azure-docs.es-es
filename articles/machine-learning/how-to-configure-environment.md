@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 56d6e8642ffd127f0982485902c466b76cbaaeed
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 32db7b19b7ec63135c3359f9685dd767dd0921f5
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986519"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169861"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ En este artículo también se proporcionan sugerencias de uso adicionales para l
 
 * [Visual Studio Code](#vscode): Si usa Visual Studio Code, la [extensión de Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) incluye un amplio soporte de lenguaje para Python, así como características para que trabajar con Azure Machine Learning sea mucho más cómodo y productivo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md). Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor de cuadernos basado en la nube](#compute-instance), una instancia de [DSVM](#dsvm) o [Azure Databricks](#aml-databricks).
 
@@ -57,10 +57,6 @@ Para instalar el entorno de SDK para el [equipo local](#local), el [servidor de 
 ## <a id="compute-instance"></a>Su propia instancia de proceso basada en la nube
 
 La [instancia de proceso (versión preliminar)](concept-compute-instance.md) de Azure Machine Learning es una estación de trabajo de Azure segura y basada en la nube que proporciona a los científicos de datos un servidor de Jupyter Notebook, JupyterLab y un entorno de ML completamente preparado.
-
-> [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar.
 
 No hay nada que instalar o configurar para una instancia de proceso.  Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 

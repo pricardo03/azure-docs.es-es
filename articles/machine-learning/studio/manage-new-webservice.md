@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2e72c8a363ee7f58630b1c0d8d0f00434c2e2b7e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 30e9e31c7b3f372ed252f1b81eeece02d2ca1f21
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838787"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168502"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio (clásico)
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
@@ -33,7 +33,7 @@ En el portal Servicios web Machine Learning, puede realizar las siguientes accio
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permisos para administrar el administrador de nuevos recursos basados en servicios web
 
-Los nuevos servicios web se implementan como recursos de Azure. Por lo tanto, debe tener los permisos correctos para implementar y administrar nuevos servicios web.  Para implementar o administrar nuevos servicios web, debe tener asignado un rol de colaborador o administrador en la suscripción en la que se implementa el servicio web. Si invita a otro usuario a un área de trabajo de Machine Learning, debe asignarle un rol de colaborador o administrador en la suscripción para que pueda implementar o administrar servicios web. 
+Los nuevos servicios web se implementan como recursos de Azure. Por lo tanto, debe tener los permisos correctos para implementar y administrar nuevos servicios web.  Para implementar o administrar nuevos servicios web, es preciso que se le haya asignado un rol de colaborador o administrador en la suscripción en la que se implementa el servicio web. Si invita a otro usuario a un área de trabajo de Machine Learning, debe asignarle un rol de colaborador o administrador en la suscripción para que pueda implementar o administrar servicios web. 
 
 Si el usuario no tiene los permisos correctos para acceder a recursos en el portal de servicios web Machine Learning de Azure, verá el siguiente error al tratar de implementar un servicio web:
 

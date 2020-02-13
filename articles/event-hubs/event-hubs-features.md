@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 568a21cee5b50a8914c603976f5951d0235dbff7
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827724"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157183"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -53,7 +53,7 @@ Event Hubs garantiza que todos los eventos que comparten un valor de clave de pa
 
 ### <a name="publisher-policy"></a>Directiva del publicador
 
-Los Centros de eventos permiten un control granular sobre los publicadores de eventos a través de las *directivas de publicador*. Las directivas de publicador son características de tiempo de ejecución diseñadas para facilitar grandes números de publicadores de eventos independientes. Con las directivas de publicador, cada publicador usa su propio identificador único al publicar los eventos en un centro de eventos mediante el mecanismo siguiente:
+Los Event Hubs permiten un control granular sobre los publicadores de eventos a través de las *directivas de publicador*. Las directivas de publicador son características de tiempo de ejecución diseñadas para facilitar grandes números de publicadores de eventos independientes. Con las directivas de publicador, cada publicador usa su propio identificador único al publicar los eventos en un centro de eventos mediante el mecanismo siguiente:
 
 ```http
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
@@ -61,7 +61,7 @@ Los Centros de eventos permiten un control granular sobre los publicadores de ev
 
 No tiene que crear nombres de publicador con antelación, pero deben coincidir con el token de SAS que se usa al publicar un evento, con el fin de garantizar las identidades de publicador independientes. Al usar directivas de publicador, el valor **PartitionKey** se establece como el nombre del publicador. Para que funcione correctamente, estos valores deben coincidir.
 
-## <a name="capture"></a>Capture
+## <a name="capture"></a>Capturar
 
 [Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de transmisión de Event Hubs y guardarlos en una cuenta de Blob Storage o en una cuenta de servicio de Azure Data Lake. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. Event Hubs Capture permite especificar una cuenta y un contenedor propios de Azure Blob Storage, o una cuenta de servicio de Azure Data Lake, uno de los cuales se usa para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
 
@@ -71,7 +71,7 @@ No tiene que crear nombres de publicador con antelación, pero deben coincidir c
 
 ## <a name="sas-tokens"></a>Tokens de SAS
 
-Event Hubs usa *firmas de acceso compartido* que están disponibles en el nivel del espacio de nombres y del centro de eventos. Un token de SAS se genera a partir de una clave de SAS y es un hash SHA de una dirección URL, codificado en un formato concreto. Con el nombre de la clave (directiva) y el token, Event Hubs puede volver a generar el hash y así autenticar al remitente. Normalmente, los tokens de SAS para publicadores de eventos se crean solo con privilegios de **envío** en un centro de eventos concreto. Este mecanismo de dirección URL del token de SAS es la base para la identificación del publicador introducida en la directiva del publicador. Para más información acerca de cómo trabajar con SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](../service-bus-messaging/service-bus-sas.md).
+Event Hubs usa *firmas de acceso compartido* que están disponibles en el nivel del espacio de nombres y del centro de eventos. Un token de SAS se genera a partir de una clave de SAS y es un hash SHA de una dirección URL, codificado en un formato concreto. Con el nombre de la clave (directiva) y el token, Event Hubs puede volver a generar el hash y así autenticar al remitente. Normalmente, los tokens de SAS para publicadores de eventos se crean solo con privilegios de **envío** en un centro de eventos concreto. Este mecanismo de dirección URL del token de SAS es la base para la identificación del publicador introducida en la directiva del publicador. Para obtener más información sobre el funcionamiento con SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](../service-bus-messaging/service-bus-sas.md).
 
 ## <a name="event-consumers"></a>Consumidores de eventos
 
@@ -99,7 +99,7 @@ La siguiente ilustración muestra la arquitectura de procesamiento del flujo de 
 
 ### <a name="stream-offsets"></a>Desplazamientos de los flujos
 
-Un *desplazamiento* es la posición de un evento dentro de una partición. Puede pensar en un desplazamiento como un cursor de lado cliente. El desplazamiento es una numeración de byte del evento. Este desplazamiento permite que un consumidor de eventos (lector) especifique un punto en el flujo de eventos desde el que quiere empezar a leer los eventos. Puede especificar el desplazamiento como una marca de tiempo o como un valor de desplazamiento. Los consumidores son responsables de almacenar sus propios valores de desplazamiento fuera del servicio de los Centros de eventos. Dentro de una partición, cada evento incluye un desplazamiento.
+Un *desplazamiento* es la posición de un evento dentro de una partición. Puede pensar en un desplazamiento como un cursor de lado cliente. El desplazamiento es una numeración de byte del evento. Este desplazamiento permite que un consumidor de eventos (lector) especifique un punto en el flujo de eventos desde el que quiere empezar a leer los eventos. Puede especificar el desplazamiento como una marca de tiempo o como un valor de desplazamiento. Los consumidores son responsables de almacenar sus propios valores de desplazamiento fuera del servicio de Event Hubs. Dentro de una partición, cada evento incluye un desplazamiento.
 
 ![Event Hubs](./media/event-hubs-features/partition_offset.png)
 
@@ -124,7 +124,7 @@ Después de abrir una sesión de AMQP 1.0 y el vínculo de una partición espec�
 Datos de evento:
 * Offset
 * Número de secuencia
-* Cuerpo
+* Body
 * Propiedades de usuario
 * Propiedades del sistema
 
@@ -134,11 +134,14 @@ Es su responsabilidad administrar el desplazamiento.
 
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 
-* Empezar a trabajar con un [tutorial de Event Hubs][Event Hubs tutorial]
+- Introducción a Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Guía de programación de Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilidad y coherencia en Event Hubs](event-hubs-availability-and-consistency.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 * [Ejemplos de Event Hubs][]
 
-[Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Ejemplos de Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples

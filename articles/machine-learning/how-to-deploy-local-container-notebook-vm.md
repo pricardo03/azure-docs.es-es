@@ -10,20 +10,16 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: c07e880ea9b3c382d3c6ecde51dfe8f4ab5c24fc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 28d176289a0b6cfe659f390feb441158c57f6533
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988437"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169936"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementación de un modelo en instancias de proceso de Azure Machine Learning
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
-> [!NOTE]
-> Las instancias de proceso (versión preliminar) solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar.  Puede implementar un modelo en una instancia de proceso o en una máquina virtual de cuadernos siguiendo los pasos descritos en este artículo.
 
 Obtenga información sobre cómo usar Azure Machine Learning para implementar un modelo como un servicio web en la instancia de proceso de Azure Machine Learning. Use las instancias de proceso si se cumple una de las condiciones siguientes:
 
@@ -33,7 +29,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para implementar un
 > [!TIP]
 > La implementación de un modelo de Jupyter Notebook de una instancia de proceso, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la instancia de proceso. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un área de trabajo de Azure Machine Learning con una instancia de proceso en ejecución. Para más información, consulte [Configuración del entorno y del área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 

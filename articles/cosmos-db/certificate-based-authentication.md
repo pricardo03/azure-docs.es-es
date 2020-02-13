@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9e9dd529edea23b27de2e3841079244558d6689a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: acdf268874b1dc1c24116ba36e2b4233a2702a5f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442096"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064502"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos DB
 
 La autenticación basada en certificados permite que una aplicación cliente se autentique mediante Azure Active Directory (Azure AD) con un certificado de cliente. Puede realizar la autenticación basada en certificados en un equipo en el que necesite una identidad, como un equipo local o una máquina virtual en Azure. A partir de ese momento, la aplicación puede leer las claves de Azure Cosmos DB sin tenerlas directamente en la aplicación. En este artículo se describe cómo crear una aplicación de Azure AD de ejemplo, configurarla para la autenticación basada en certificados, iniciar sesión en Azure mediante la nueva identidad de aplicación y, posteriormente, recuperar las claves de una cuenta de Azure Cosmos. En este artículo se usa Azure PowerShell para configurar las identidades y se proporciona una aplicación en C# de ejemplo que autentica las claves y accede a ellas desde su cuenta de Azure Cosmos.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Instale la [versión más reciente](/powershell/azure/install-az-ps) de Azure PowerShell.
 
@@ -55,7 +55,6 @@ En este paso instalará el módulo PowerShell de Azure AD. Este módulo se requi
 1. Abra Windows PowerShell ISE con derechos de administrador. Si aún no lo ha hecho, instale el módulo de PowerShell AZ y conéctese a su suscripción. Si tiene varias suscripciones, puede establecer el contexto de la suscripción actual, como se muestra en los siguientes comandos:
 
    ```powershell
-
    Install-Module -Name Az -AllowClobber
    Connect-AzAccount
 

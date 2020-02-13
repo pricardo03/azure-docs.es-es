@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 9502a81149df11ffa378bf8ffc2c377f4bb22d7f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 226c9ae1c42c85db57dab3fd1911943e167a6288
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177118"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133675"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configuración de un laboratorio para enseñar el scripting de shell en Linux
 En este artículo se muestra cómo configurar un laboratorio para enseñar el scripting de shell en Linux. El scripting es una parte útil de la administración del sistema que permite a los administradores evitar tareas repetitivas. En este escenario de ejemplo, la clase cubre scripts bash tradicionales y scripts mejorados. Los scripts mejorados son scripts que combinan comandos bash y Ruby. Este enfoque permite a Ruby pasar datos y comandos bash para interactuar con el shell. 
@@ -30,9 +30,9 @@ Para configurar este laboratorio, para empezar necesita una suscripción de Azur
 
 Después de crear la cuenta de laboratorio, habilite la siguiente configuración en ella: 
 
-| Configuración de la cuenta de laboratorio | Instrucciones |
+| Configuración de la cuenta de laboratorio | Instructions |
 | ----------- | ------------ |  
-| Imágenes de Marketplace | Habilite la imagen de [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) para su uso en la cuenta de laboratorio. Para más información, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators) | 
+| Imágenes de Marketplace | Habilite la imagen de [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) para su uso en la cuenta de laboratorio. Para más información, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators) | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para crear un laboratorio y aplique la configuración siguiente:
 

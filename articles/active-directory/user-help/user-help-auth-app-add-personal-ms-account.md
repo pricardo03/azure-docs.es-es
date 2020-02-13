@@ -2,21 +2,21 @@
 title: 'Incorporación de una cuenta personal de Microsoft a la aplicación Microsoft Authenticator: Azure AD'
 description: Agregue cuentas personales de Microsoft, como Outlook.com o Xbox LIVE, a la aplicación Microsoft Authenticator para comprobar su identidad mientras usa la verificación en dos fases.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8945f7a49f4c04b3265cb79c88c9acb287c50d10
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 289c00e28fd82b78b321732628ff85d22c64cabf
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704755"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062309"
 ---
 # <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Incorporación de cuentas personales Microsoft a la aplicación Microsoft Authenticator
 

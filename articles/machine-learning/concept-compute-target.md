@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 3d6439424f2a39bf5b5477cebd5fadb23a6370b0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984819"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169814"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning? 
 
@@ -56,10 +56,6 @@ Puede crear instancias de procesos (versión preliminar) o clústeres de proceso
 | Clúster de proceso | sí | sí | sí | sí | sí |
 
 Cuando se crean, estos recursos de proceso forman parte automáticamente del área de trabajo, a diferencia de otros tipos de destinos de proceso.
-
-> [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar. 
 
 ### <a name="compute-clusters"></a>Clústeres de proceso
 

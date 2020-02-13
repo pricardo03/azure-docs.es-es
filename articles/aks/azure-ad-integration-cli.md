@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
-ms.openlocfilehash: 5b99d76ef20c288d6ae0bd33e1e2b6a75a359d3a
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 520557c80bf2630a359188dd86ec0987e0d5326b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67616264"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158152"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integración de Azure Active Directory con Azure Kubernetes Service mediante la CLI de Azure
 
@@ -170,7 +170,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 ```
 
 > [!IMPORTANT]
-> Si el usuario al que se le concede el enlace de RBAC se encuentra en el mismo inquilino de Azure AD, asigne permisos basados en *userPrincipalName*. Si el usuario se encuentra en un inquilino distinto de Azure AD, en su lugar, consulte y use la propiedad *objectId*.
+> Si el usuario al que se le concede el enlace de RBAC se encuentra en el mismo inquilino de Azure AD, asigne permisos basados en *userPrincipalName*. Si el usuario se encuentra en un inquilino distinto de Azure AD, en su lugar, consulte y use la propiedad *objectId*.
 
 Cree un manifiesto de YAML llamado `basic-azure-ad-binding.yaml` y pegue el siguiente contenido. En la última línea, reemplace *userPrincipalName_or_objectId* por la salida del id. de objeto o de UPN del comando anterior:
 
@@ -260,7 +260,7 @@ Para ver procedimientos recomendados sobre el control de recursos e identidades,
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-ad-app-create]: /cli/azure/ad/app#az-ad-app-create
 [az-ad-app-update]: /cli/azure/ad/app#az-ad-app-update

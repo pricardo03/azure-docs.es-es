@@ -6,12 +6,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 9860ab6b16c6639581d0bcd1783d43f420f88d74
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 8f6307e37ff24d2a3f10bcf39ed989acdf3611f9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668443"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157999"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de iOS para Aplicaciones móviles de Azure
 
@@ -40,7 +40,7 @@ Por tanto, este SDK no es adecuado para dispositivos de tipo reloj o con restric
 
 En esta guía se asume que ha creado un back-end con una tabla. En esta guía se asume que la tabla tiene el mismo esquema que las tablas de dichos tutoriales. En esta guía también se supone que en el código se hace referencia a `MicrosoftAzureMobile.framework` e importa `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
-## <a name="create-client"></a>Instrucciones: Creación del cliente
+## <a name="create-client"></a>Procedimientos: Creación del cliente
 
 Para obtener acceso al back-end de Aplicaciones móviles de Azure en el proyecto, cree un `MSClient`. Reemplace `AppUrl` por la dirección URL de la aplicación. Puede dejar `gatewayURLString` y `applicationKey` vacías. Si configura una puerta de enlace para la autenticación, rellene `gatewayURLString` con la dirección URL de la puerta de enlace.
 
@@ -56,7 +56,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 let client = MSClient(applicationURLString: "AppUrl")
 ```
 
-## <a name="table-reference"></a>Instrucciones: Creación de una referencia de tabla
+## <a name="table-reference"></a>Procedimientos: Creación de una referencia de tabla
 
 Para acceder a los datos o actualizarlos, cree una referencia a la tabla de back-end. Reemplace `TodoItem` por el nombre de la tabla.
 
@@ -72,7 +72,7 @@ MSTable *table = [client tableWithName:@"TodoItem"];
 let table = client.tableWithName("TodoItem")
 ```
 
-## <a name="querying"></a>Instrucciones: Consultar datos
+## <a name="querying"></a>Procedimientos: Consultar datos
 
 Para crear una consulta de base de datos, consulte el objeto `MSTable` . La consulta siguiente obtiene todos los elementos de `TodoItem` y registra el texto de cada elemento.
 
@@ -104,7 +104,7 @@ table.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="filtering"></a>Instrucciones: Filtro de datos devueltos
+## <a name="filtering"></a>Procedimientos: Filtro de datos devueltos
 
 Para filtrar los resultados, hay muchas opciones disponibles.
 
@@ -144,7 +144,7 @@ table.readWithPredicate(predicate) { (result, error) in
 }
 ```
 
-## <a name="query-object"></a>Instrucciones: Uso de MSQuery
+## <a name="query-object"></a>Procedimientos: Uso de MSQuery
 
 Para realizar una consulta compleja (como de ordenación y paginación), cree un objeto `MSQuery` directamente o mediante un predicado:
 
@@ -173,7 +173,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 
 Ejecutar una consulta `MSQuery` llamando a `readWithCompletion` en el objeto.
 
-## <a name="sorting"></a>Instrucciones: Ordenación de datos con MSQuery
+## <a name="sorting"></a>Procedimientos: Ordenación de datos con MSQuery
 
 Para ordenar los resultados, echemos un vistazo a un ejemplo. Para ordenar por orden ascendente el campo text y, luego, por orden descendente el campo complete, invoque `MSQuery` de la siguiente manera:
 
@@ -242,7 +242,7 @@ query.parameters = @{
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-## <a name="paging"></a>Instrucciones: Configuración del tamaño de página
+## <a name="paging"></a>Procedimientos: Configuración del tamaño de página
 
 Con Azure Mobile Apps, el tamaño de página controla el número de registros que se extraen de las tablas de back-end al mismo tiempo. Luego, una llamada a los datos de `pull` enviaría dichos datos en lotes, basándose en este tamaño de página, hasta que no haya más registros para extraer.
 
@@ -279,7 +279,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 }
 ```
 
-## <a name="inserting"></a>Instrucciones: Inserción de datos
+## <a name="inserting"></a>Procedimientos: Inserción de datos
 
 Para insertar una nueva fila en la tabla, cree un elemento `NSDictionary` e invoque `table insert`. Si el [esquema dinámico] está habilitado, el back-end móvil de Azure App Service genera automáticamente columnas nuevas basadas en `NSDictionary`.
 
@@ -313,7 +313,7 @@ table.insert(newItem) { (result, error) in
 }
 ```
 
-## <a name="modifying"></a>Instrucciones: Modificación de datos
+## <a name="modifying"></a>Procedimientos: Modificación de datos
 
 Para actualizar una fila existente, modifique un elemento y llame a `update`:
 
@@ -374,7 +374,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 Como mínimo, debe establecerse el atributo `id` al realizar actualizaciones.
 
-## <a name="deleting"></a>Instrucciones: Eliminación de datos
+## <a name="deleting"></a>Procedimientos: Eliminación de datos
 
 Para eliminar un elemento, invoque `delete` con el elemento:
 
@@ -430,7 +430,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 Como mínimo, el atributo `id` debe establecerse a la hora de efectuar eliminaciones.
 
-## <a name="customapi"></a>Instrucciones: Llamada a una API personalizada
+## <a name="customapi"></a>Procedimientos: Llamada a una API personalizada
 
 Con una API personalizada, puede exponer cualquier funcionalidad de back-end. No necesita asignar a una operación de tabla. No solo obtendrá más control sobre la mensajería, también podrá leer o establecer encabezados y cambiar el formato del cuerpo de la respuesta.
 
@@ -471,7 +471,7 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-## <a name="templates"></a>Instrucciones: Registro de plantillas push para enviar notificaciones entre plataformas
+## <a name="templates"></a>Procedimientos: Registro de plantillas push para enviar notificaciones entre plataformas
 
 Para registrar plantillas, pase las plantillas con el método **client.push registerDeviceToken** en la aplicación cliente.
 
@@ -511,7 +511,7 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 Por seguridad, se eliminan todas las etiquetas de la solicitud.  Para agregar etiquetas a las instalaciones o plantillas dentro de las instalaciones, vea [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps][4].  Para enviar notificaciones mediante estas plantillas registradas, trabaje con las [API de Notification Hubs][3].
 
-## <a name="errors"></a>Instrucciones: Gestión de errores
+## <a name="errors"></a>Procedimientos: Gestión de errores
 
 Al realizar una llamada a un back-end móvil de Azure App Service, el bloque de finalización contiene un parámetro `NSError` . En caso de producirse un error, este parámetro no será nulo. En su código, debe marcar este parámetro y administrar el error según sea necesario, como se muestra en los fragmentos de código anteriores.
 
@@ -543,7 +543,7 @@ if (error.code == MSErrorPreconditionFailed) {
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>Instrucciones: Autenticación de usuarios con la biblioteca de autenticación de Active Directory
+## <a name="adal"></a>Procedimientos: Autenticación de usuarios con la biblioteca de autenticación de Active Directory
 
 Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Se prefiere la autenticación de flujo de cliente mediante un SDK de proveedor de identidades al uso del método `loginWithProvider:completion:` .  Este tipo de autenticación proporciona una experiencia de usuario más nativa y permite realizar más personalizaciones.
 
@@ -630,7 +630,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 }
 ```
 
-## <a name="facebook-sdk"></a>Instrucciones: Autenticación de usuarios con SDK de Facebook para iOS
+## <a name="facebook-sdk"></a>Procedimientos: Autenticación de usuarios con SDK de Facebook para iOS
 
 Puede usar el SDK de Facebook para iOS para que los usuarios inicien sesión en su aplicación con Facebook.  Es preferible usar la autenticación de flujo de cliente al método `loginWithProvider:completion:` .  Este tipo de autenticación proporciona una experiencia de usuario más nativa y permite realizar más personalizaciones.
 
@@ -709,11 +709,11 @@ Puede usar el SDK de Facebook para iOS para que los usuarios inicien sesión en 
     }
     ```
 
-## <a name="twitter-fabric"></a>Instrucciones: Autenticación de usuarios con Fabric de Twitter para iOS
+## <a name="twitter-fabric"></a>Procedimientos: Autenticación de usuarios con Fabric de Twitter para iOS
 
 Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicación con Twitter. La autenticación de flujo de cliente es preferible al uso del método `loginWithProvider:completion:` , ya que proporciona una experiencia de usuario más nativa y permite realizar más personalizaciones.
 
-1. Configure su back-end de aplicación móvil para el inicio de sesión en Twitter siguiendo el tutorial [Configuración de la aplicación de App Service para usar el inicio de sesión de Twitter](../app-service/configure-authentication-provider-twitter.md) .
+1. Configure su back-end de aplicación móvil para el inicio de sesión en Twitter siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Twitter](../app-service/configure-authentication-provider-twitter.md) .
 2. Agregue Fabric al proyecto siguiendo el documento [Fabric for iOS - Getting Started] y configurando TwitterKit.
 
    > [!NOTE]
@@ -791,11 +791,11 @@ Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicaci�
     }
     ```
 
-## <a name="google-sdk"></a>Instrucciones: Autenticación de usuarios con el SDK de inicio de sesión de Google para iOS
+## <a name="google-sdk"></a>Procedimientos: Autenticación de usuarios con el SDK de inicio de sesión de Google para iOS
 
 Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios inicien sesión en su aplicación con una cuenta de Google.  Google anunció recientemente cambios en sus directivas de seguridad de OAuth.  Estos cambios obligarán a usar el SDK de Google en el futuro.
 
-1. Configure su back-end de aplicación móvil para el inicio de sesión en Google siguiendo el tutorial [Configuración de la aplicación de App Service para usar el inicio de sesión de Google](../app-service/configure-authentication-provider-google.md) .
+1. Configure su back-end de aplicación móvil para el inicio de sesión en Google siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Google](../app-service/configure-authentication-provider-google.md) .
 2. Instale el SDK de Google para iOS siguiendo la documentación de [Inicio de sesión de Google para iOS: Empiece a integrar](https://developers.google.com/identity/sign-in/ios/start-integrating). Puede omitir la sección Authenticate with a Backend Server (Autenticar con un servidor back-end).
 3. Agregue el siguiente código al método `signIn:didSignInForUser:withError:` del delegado según el lenguaje que esté utilizando.
 
@@ -920,6 +920,6 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 [5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/configure-authentication-provider-aad.md
-[8]:../active-directory/develop/quickstart-v1-ios.md
+[8]:../active-directory/develop/quickstart-v2-ios.md
 [9]: ../app-service/configure-authentication-provider-facebook.md
 [10]: https://developers.facebook.com/docs/ios/getting-started

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ecb704253597bf4eb5672fe924a0dafc4c1b3fd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726532"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162886"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Uso de la autenticación de Azure AD para acceder a la API de Azure Media Services con .NET
 
@@ -27,7 +27,7 @@ ms.locfileid: "64726532"
 
 A partir de windowsazure.mediaservices 4.0.0.4, Azure Media Services admite la autenticación basada en Azure Active Directory (Azure AD). En este tema se explica cómo usar la autenticación de Azure AD para acceder a la API de Azure Media Services con Microsoft .NET.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Una cuenta de Media Services. Para más información, vea [Creación de una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
@@ -48,7 +48,7 @@ Para conectarse a la API de Azure Media Services con la autenticación de Azure 
 
 Por ejemplo, no es necesario proporcionar el URI de autoridad de Azure AD, el URI de recurso de Media Services ni los detalles de la aplicación nativa de Azure AD. Se trata de valores conocidos que ya están configurados por la clase de proveedor de tokens de acceso de Azure AD. 
 
-Si no utiliza el SDK de Azure Media Services para .NET, se recomienda que use la [biblioteca de autenticación de Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md). Para obtener los valores de los parámetros necesarios para usarlos con la biblioteca de autenticación de Azure AD, vea [Uso de Azure Portal para acceder a la configuración de autenticación de Azure AD](media-services-portal-get-started-with-aad.md).
+Si no utiliza el SDK de Azure Media Services para .NET, se recomienda que use la [biblioteca de autenticación de Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md). Para obtener los valores de los parámetros necesarios para usarlos con la biblioteca de autenticación de Azure AD, vea [Uso de Azure Portal para acceder a la configuración de autenticación de Azure AD](media-services-portal-get-started-with-aad.md).
 
 También tiene la opción de sustituir la implementación predeterminada de **AzureAdTokenProvider** por su propia implementación.
 
@@ -78,8 +78,8 @@ Para conectarse a la API de Azure Media Services mediante la opción de autentic
 
 - Punto de conexión de inquilino de Azure AD. La información del inquilino se puede recuperar desde Azure Portal. Mantenga el puntero sobre el usuario que inició sesión en la esquina superior derecha.
 - URI del recurso de Media Services.
-- Id. de cliente de aplicación de Media Services (nativo) 
-- URI de redireccionamiento de aplicación de Media Services (nativo) 
+- Id. de cliente de aplicación de Media Services (nativo). 
+- URI de redireccionamiento de aplicación de Media Services (nativo). 
 
 Los valores para estos parámetros se pueden encontrar en **AzureEnvironments.AzureCloudEnvironment**. La constante **AzureEnvironments.AzureCloudEnvironment** es un asistente del SDK para .NET para obtener la configuración adecuada de la variable de entorno para un centro de datos de Azure público. 
 
@@ -132,7 +132,7 @@ En el ejemplo siguiente se muestra cómo crear el token de Azure AD y el context
 Para conectarse a la API de Media Services mediante la opción de la entidad de servicio, la aplicación de nivel intermedio (Web API o aplicación web) necesita solicitar un token de Azure AD que tenga los parámetros siguientes:  
 
 - Punto de conexión de inquilino de Azure AD. La información del inquilino se puede recuperar desde Azure Portal. Mantenga el puntero sobre el usuario que inició sesión en la esquina superior derecha.
-- URI del recurso de Media Services
+- URI del recurso de Media Services.
 - Valores de aplicación de Azure AD: el **Id. de cliente** y el **secreto de cliente**.
 
 Los valores para los parámetros **Id. de cliente** y **secreto de cliente** pueden encontrarse en Azure Portal. Para más información, vea [Introducción a la autenticación de Azure AD mediante Azure Portal](media-services-portal-get-started-with-aad.md).

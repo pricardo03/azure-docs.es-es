@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7eeaadc80a97a96e6effdfc9e5cc76c201998f3f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c83ca0abfd17db873bec62f0a0d052703862a45
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438054"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110410"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Crear y administrar las asignaciones de roles en Azure Digital Twins
 
@@ -94,7 +94,7 @@ Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 
 Un usuario con el rol de **administrador** puede asignar el rol de administrador de espacio a un usuario mediante una solicitud HTTP POST autenticada a la dirección URL:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
@@ -116,7 +116,7 @@ Con el siguiente cuerpo JSON:
 
 Para obtener una lista de todos los roles disponibles (definiciones de roles), realice una solicitud HTTP GET autenticada a:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/system/roles
 ```
 
@@ -157,7 +157,7 @@ Una solicitud correcta devolverá una matriz JSON con entradas para cada rol que
 
 Para comprobar una asignación de roles específica, realice una solicitud HTTP GET autenticada a:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
@@ -174,7 +174,7 @@ Una solicitud correcta devolverá un valor booleano `true` o `false` para indica
 
 Para obtener todas las asignaciones de roles por ruta de acceso, realice una solicitud HTTP GET autenticada a:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
@@ -200,7 +200,7 @@ Una solicitud correcta devolverá una matriz JSON con cada asignación de roles 
 
 Para revocar un permiso de un destinatario, elimine la asignación de roles con una solicitud HTTP DELETE autenticada:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
@@ -214,7 +214,7 @@ Una solicitud DELETE correcta devolverá un estado de respuesta 204. Compruebe l
 
 Para crear una asignación de roles, realice una solicitud HTTP GET autenticada a la URL:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 

@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: a4ddcf27869ea7484f98329d14d01bfad83af219
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: a3e1c936d46e0d9b0ad3b98dafeda7df0b4a23db
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709531"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058517"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configuración de Elium para el aprovisionamiento automático de usuarios
 
 En este tutorial se muestra cómo configurar Elium y Azure Active Directory (Azure AD) para aprovisionar y desaprovisionar automáticamente usuarios o grupos en Elium.
 
 > [!NOTE]
-> En este tutorial se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio y de su funcionamiento, así como ver las preguntas más frecuentes, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+> En este tutorial se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio y de su funcionamiento, así como ver las preguntas más frecuentes, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Este conector está actualmente en versión preliminar. Para más información acerca de los términos de uso generales para las características de Azure en la versión preliminar, consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -49,7 +49,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 Se recomienda asignar primero un usuario individual de Azure AD a Elium para probar la configuración del aprovisionamiento automático de usuarios. Más tarde, se pueden asignar más usuarios y grupos.
 
-Al asignar un usuario a Elium, debe seleccionar un rol válido específico de la aplicación (si hay alguno disponible) en el cuadro de diálogo de asignación. Los usuarios que tienen el rol de **acceso predeterminado** quedan excluidos del aprovisionamiento.
+Al asignar un usuario a Elium, debe seleccionar un rol válido específico de la aplicación (si hay alguno disponible) en el cuadro de diálogo de asignación. Los usuarios que tienen el rol **Acceso predeterminado** quedan excluidos del aprovisionamiento.
 
 ## <a name="set-up-elium-for-provisioning"></a>Configuración de Elium para el aprovisionamiento
 
@@ -130,7 +130,7 @@ Para configurar el aprovisionamiento automático de usuarios para Elium en Azure
 
     ![Asignaciones de atributos entre Azure AD y Elium](media/Elium-provisioning-tutorial/userattribute.png)
 
-1. Para configurar filtros de ámbito, consulte las instrucciones del [tutorial sobre filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Para configurar filtros de ámbito, consulte las instrucciones del [tutorial sobre filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para Elium, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
@@ -144,15 +144,15 @@ Para configurar el aprovisionamiento automático de usuarios para Elium en Azure
 
     ![Botón Guardar para la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El proceso de sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Para obtener más información acerca del tiempo necesario para el aprovisionamiento, consulte [¿Cuánto tiempo se tarda en aprovisionar usuarios?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Esta operación inicia la sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El proceso de sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Para obtener más información acerca del tiempo necesario para el aprovisionamiento, consulte [¿Cuánto tiempo se tarda en aprovisionar usuarios?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Use la sección **Estado actual** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento. En el informe de actividad de aprovisionamiento se describen todas las acciones que el servicio de aprovisionamiento de Azure AD realiza en Elium. Para obtener más información, vea [Comprobación del estado de aprovisionamiento](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). Para leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
+Use la sección **Estado actual** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento. En el informe de actividad de aprovisionamiento se describen todas las acciones que el servicio de aprovisionamiento de Azure AD realiza en Elium. Para obtener más información, vea [Comprobación del estado de aprovisionamiento](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)

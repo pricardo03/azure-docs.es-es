@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0aa30c114153521258842fc5f1e9150053b766f4
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 21a11863bd2bc9882d4336f5c5d2bf1d7b7f49da
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332297"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133764"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configuración de un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural mediante Azure Lab Services
 En este artículo se muestra cómo configurar un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural (NLP) mediante Azure Lab Services. El procesamiento de lenguaje natural (NLP) es una forma de inteligencia artificial (AI) que permite a los equipos utilizar la traducción, el reconocimiento de voz y otras capacidades de comprensión de lenguajes.  
@@ -30,9 +30,9 @@ Para configurar este laboratorio, para empezar necesita una suscripción de Azur
  
 Después de crear la cuenta de laboratorio, habilite la siguiente configuración en ella: 
 
-| Configuración de la cuenta de laboratorio | Instrucciones |
+| Configuración de la cuenta de laboratorio | Instructions |
 | ----------- | ------------ |  
-| Imágenes de Marketplace | Habilite la imagen de Data Science Virtual Machine para Linux (Ubuntu) para usarla en su cuenta de laboratorio.  Para ver las instrucciones pertinentes, consulte los siguientes artículos: [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators). | 
+| Imágenes de Marketplace | Habilite la imagen de Data Science Virtual Machine para Linux (Ubuntu) para usarla en su cuenta de laboratorio.  Para ver las instrucciones pertinentes, consulte los siguientes artículos: [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators). | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para crear un laboratorio y aplique la configuración siguiente:
 

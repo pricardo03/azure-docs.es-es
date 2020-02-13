@@ -3,12 +3,12 @@ title: Recursos de etiquetado para la organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 0b2fff801b01afce0907bf86887fb110478377c1
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: c7f8d8672e205fa677bff33c8ed173c1105b26c6
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665158"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166601"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Uso de etiquetas para organizar los recursos de Azure
 
@@ -43,7 +43,7 @@ Para aplicar etiquetas a los recursos, el usuario debe tener acceso de escritura
 
 Puede usar [Azure Policy](../../governance/policy/overview.md) para aplicar reglas de etiquetado y convenciones. Mediante la creación de una directiva, evitará el escenario de recursos que se vayan a implementar en su suscripción que no cumplen con las etiquetas esperadas para su organización. En lugar de aplicar manualmente las etiquetas o buscar recursos que no son compatibles, puede crear una directiva que aplica automáticamente las etiquetas necesarias durante la implementación. También se pueden aplicar etiquetas a los recursos existentes con el nuevo efecto de [modificación](../../governance/policy/concepts/effects.md#modify) y una [tarea de corrección](../../governance/policy/how-to/remediate-resources.md). La sección siguiente muestra las directivas de ejemplo para las etiquetas.
 
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-general-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 
@@ -394,7 +394,7 @@ Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON qu
 
 ### <a name="apply-tags-from-resource-group"></a>Aplicación de etiquetas del grupo de recursos
 
-Para aplicar etiquetas desde un grupo de recursos a un recurso, use la función [resourceGroup](../templates/template-functions-resource.md#resourcegroup). Cuando obtenga el valor de la etiqueta, use la sintaxis `tags.[tag-name]` en lugar de la sintaxis `tags.tag-name`, porque algunos caracteres no se analizan correctamente en la notación de puntos.
+Para aplicar etiquetas desde un grupo de recursos a un recurso, use la función [resourceGroup](../templates/template-functions-resource.md#resourcegroup). Cuando obtenga el valor de la etiqueta, use la sintaxis `tags[tag-name]` en lugar de la sintaxis `tags.tag-name`, porque algunos caracteres no se analizan correctamente en la notación de puntos.
 
 ```json
 {

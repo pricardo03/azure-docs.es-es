@@ -3,12 +3,12 @@ title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023198"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050077"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -140,8 +140,7 @@ El elemento **type** esperado de la condición `equals` es _string_. Puesto que 
 
 ### <a name="evaluating-the--alias"></a>Evaluación del alias [*]
 
-Los alias que tienen **\[\*\]** adjuntado a sus nombres indican que **type** es una _matriz_. En lugar de evaluar el valor de toda la matriz, **\[\*\]** permite evaluar los elementos de la matriz individualmente, con el operador lógico AND entre ellos. Hay tres escenarios estándar en que la evaluación por elemento es útil: la coincidencia de _ninguno_, _alguno_ o _todos_ los elementos.
-Para escenarios complejos, use [count](../concepts/definition-structure.md#count).
+Los alias que tienen **\[\*\]** adjuntado a sus nombres indican que **type** es una _matriz_. En lugar de evaluar el valor de toda la matriz, **\[\*\]** permite evaluar los elementos de la matriz individualmente, con el operador lógico AND entre ellos. Hay tres escenarios estándar en que la evaluación por elemento es útil: la coincidencia de _ninguno_, _alguno_ o _todos_ los elementos. Para escenarios complejos, use [count](../concepts/definition-structure.md#count).
 
 El motor de directiva desencadena **effect** en **then** solo cuando la regla **if** se evalúa como true.
 Este hecho es importante para comprender en contexto la manera en que **\[\*\]** evalúa cada elemento individual de la matriz.

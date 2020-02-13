@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988231"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169963"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ En este artículo también se proporciona información detallada acerca de la *c
 > [!WARNING]
 > Microsoft no admite el uso del diseñador de Azure Machine Learning o el aprendizaje automático automatizado (desde Studio) con recursos dentro de una red virtual.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 + Un [área de trabajo](how-to-manage-workspace.md) de Azure Machine Learning.
 
@@ -124,10 +124,6 @@ Para usar las funcionalidades de experimentación de Azure Machine Learning con 
 <a id="amlcompute"></a>
 
 ## <a name="compute-instance"></a>Usar un Proceso de Machine Learning
-
-> [!NOTE]
-> Actualmente, las instancias de proceso (versión preliminar) solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** o **Sur de Reino Unido**, con compatibilidad para otras regiones disponibles próximamente.
-> Use una de estas regiones para crear una instancia de proceso que se pueda agregar a la red virtual.
 
 Para usar un clúster de proceso o una instancia de Proceso de Azure Machine Learning en una red virtual, deben cumplirse los siguientes requisitos de red:
 

@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 161c6816bbef31142c576f52fd122d9dd8af7883
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546663"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163201"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
 
@@ -42,7 +42,7 @@ Antes de usar el almacenamiento en la nube, debe registrar un almacén de datos 
 
 Después de definir los datos que desee y conectarse al origen, **[Importación de datos](./import-data.md)** deduce el tipo de datos de cada columna basándose en los valores que contiene y carga los datos en la canalización del diseñador. La salida de **Importación de datos** es un conjunto de datos que puede utilizarse con todas las canalizaciones del diseñador.
 
-Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar nuevos datos volviendo a ejecutar la [Importación de datos](./import-data.md). Sin embargo, si no desea volver a leer el origen cada vez que ejecute la canalización, establezca la opción **Use cached results** (Utilizar resultados almacenados en caché) en TRUE. Cuando se selecciona esta opción, el módulo comprueba si la canalización se ha ejecutado anteriormente con el mismo origen y las mismas opciones de entrada. Si se encuentra una ejecución anterior, se utilizan los datos de la memoria caché, en lugar de volver a cargar los datos desde el origen.
+Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar nuevos datos volviendo a ejecutar la [Importación de datos](./import-data.md).
 
 ## <a name="how-to-configure-import-data"></a>Procedimiento para configurar la importación de datos
 
@@ -60,11 +60,7 @@ Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar 
 
     ![import-data-preview](media/module/import-data.png)
 
-1. Seleccione la opción **Use cached results** (Utilizar resultados almacenados en caché) si desea almacenar en caché el conjunto de datos para su reutilización en ejecuciones sucesivas.
 
-    Suponiendo que no haya habido ningún otro cambio en los parámetros del módulo, la canalización solo carga los datos la primera vez que se ejecuta el módulo y, a partir de entonces, usa una versión almacenada en caché del conjunto de datos.
-
-    Anule la selección de esta opción si tiene que volver a cargar los datos cada vez que ejecute la canalización.
 
 1. Ejecución de la canalización
 

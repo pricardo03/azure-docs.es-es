@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 27838aae1d829598bed44a6c16f7a1d38a95b727
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: c06d1268abe8afdeb03668131c3c61cfbafa44cd
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314103"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138173"
 ---
 # <a name="score-model-module"></a>Score Model module
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para generar predicciones con un modelo entrenado de clasificación o regresión.
 
@@ -44,7 +44,7 @@ La puntuación, o el valor de predicción, puede estar en muchos formatos difere
 
 - Para los modelos de clasificación, las salidas de [Puntuar modelo](./score-model.md) dan como resultado un valor de predicción para la clase, así como la probabilidad del valor de predicción.
 - Para los modelos de regresión, [Puntuar modelo](./score-model.md) genera simplemente el valor numérico de predicción.
-- Para los modelos de clasificación de imagen, la puntuación puede ser la clase de objeto en la imagen o un valor booleano que indica si se ha encontrado una característica determinada.
+
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicar puntuaciones como servicio web
 

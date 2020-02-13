@@ -2,21 +2,21 @@
 title: 'Incorporación de cuentas que no son de Microsoft a la aplicación Microsoft Authenticator: Azure AD'
 description: Agregue cuentas que no son de Microsoft, como Google o Facebook, a la aplicación Microsoft Authenticator para comprobar su identidad mientras usa la verificación en dos fases.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: da5e2f60334148be1206ce61a9c6397a3acf85e3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8650d0170e8ff910140e2b432dd1c998d19e72d8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704772"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063958"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Incorporación de cuentas que no son de Microsoft a la aplicación Microsoft Authenticator
 

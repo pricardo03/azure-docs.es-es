@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: acd02f143fe35edd867ce26f26a4cba74bd6f10b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6439393b72eb724ca017edc17ce7a7c36c275fca
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850587"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166961"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | Usuario de confianza OAUTH1 |  |  |  | No compatible. |
 | Usuario de confianza OAUTH2 |  |  | X |  |
 | Usuario de confianza OIDC |  |  | X |  |
-| Usuario de confianza SAML | X |  |  |  |
+| Usuario de confianza SAML |  |X  |  |  |
 | Usuario de confianza WSFED | X |  |  |  |
 | API REST con autenticación básica y de certificado |  |  | X | Por ejemplo, Azure Logic Apps. |
 
@@ -85,7 +85,7 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | Subsistema de correo electrónico de Azure para la comprobación de correo electrónico |  |  | X |  |
 | Compatibilidad con varios lenguajes|  |  | X |  |
 | Validaciones de predicado |  |  | X | Por ejemplo, la complejidad de la contraseña. |
-| Uso de proveedores de servicios de correo electrónico de terceros | X |  |  |  |
+| Uso de proveedores de servicios de correo electrónico de terceros |  |X  |  |  |
 
 ### <a name="content-definition"></a>Definición de contenido
 

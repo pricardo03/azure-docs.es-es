@@ -6,21 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 248c4d38141f30016837f090ab04c64f82749f2b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a4ce383959b10836791ea065ffe8a9c243f6ad0d
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838487"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168987"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualización y eliminación de los datos de usuario integrados de Azure AI Gallery
 
-Puede ver y eliminar los datos de usuario integrados de Azure AI Gallery con la interfaz o con la API Catalog de AI Gallery. Este artículo le indica cómo.
+Puede ver y eliminar los datos de usuario integrados de Azure AI Gallery con la interfaz o con la API Catalog de AI Gallery. En este artículo se indica cómo hacerlo.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 

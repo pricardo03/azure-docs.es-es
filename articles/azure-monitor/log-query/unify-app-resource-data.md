@@ -6,13 +6,13 @@ ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 07dd4c96ba51b1ac1e0cb2807c9e26df87a6daa7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/02/2020
+ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364975"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137497"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificación de varios recursos de Application Insights de Azure Monitor 
 En este artículo se describe el proceso para consultar y ver todos los datos de registro de Application Insights en un mismo lugar (incluso si pertenecen a suscripciones a Azure distintas) como reemplazo de Application Insights Connector, que se encuentra en desuso. El número de recursos de Application Insights que se pueden incluir en una sola consulta se limita a 100.
@@ -20,12 +20,7 @@ En este artículo se describe el proceso para consultar y ver todos los datos de
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Enfoque recomendado para consultar varios recursos de Application Insights 
 Enumerar varios recursos de Application Insights en una consulta puede ser pesado y difícil de mantener. En su lugar, puede aprovechar la función para separar la lógica de consulta del ámbito de las aplicaciones.  
 
-En este ejemplo se muestra cómo puede supervisar varios recursos de Application Insights y visualizar el número de solicitudes erróneas por nombre de la aplicación. Antes de comenzar, ejecute esta consulta en el área de trabajo que está conectada a los recursos de Application Insights para obtener la lista de aplicaciones conectadas: 
-
-```
-ApplicationInsights
-| summarize by ApplicationName
-```
+En este ejemplo se muestra cómo puede supervisar varios recursos de Application Insights y visualizar el número de solicitudes erróneas por nombre de la aplicación.
 
 Cree una función mediante el operador de unión con la lista de aplicaciones y guarde la consulta como función con el alias *applicationsScoping* en el área de trabajo. 
 
@@ -61,32 +56,8 @@ La consulta usa el esquema de Application Insights, aunque la consulta se ejecut
 
 ![Ejemplo de resultados entre consultas](media/unify-app-resource-data/app-insights-query-results.png)
 
-## <a name="query-across-application-insights-resources-and-workspace-data"></a>Consulta entre recursos de Application Insights y datos del área de trabajo 
-Cuando detiene el conector y tiene que realizar consultas durante un intervalo de tiempo que se ha recortado por la retención de datos de Application Insights (90 días), deberá realizar [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) en el área de trabajo y los recursos de Application Insights durante un período intermedio. Esto es hasta que los datos de las aplicaciones se acumulen según la nueva retención de datos de Application Insights mencionada anteriormente. La consulta requiere ciertas manipulaciones, ya que los esquemas de Application Insights y del área de trabajo son diferentes. Consulte la tabla más adelante en esta sección que destaca las diferencias en los esquemas. 
-
 >[!NOTE]
 >La [consulta entre recursos](../log-query/cross-workspace-query.md) en las alertas de registro se admite en la nueva [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). De forma predeterminada, Azure Monitor usa la [API de alerta heredada de Log Analytics](../platform/api-alerts.md) para crear nuevas reglas de alerta de registro desde Azure Portal, a menos que cambie de [API de alerta de registro heredada](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Después del cambio, la nueva API se convierte en la predeterminada para las nuevas reglas de alerta en Azure Portal y le permite crear reglas de alertas de registro de consulta entre recursos. Puede crear reglas de alertas de registro de [consulta entre recursos](../log-query/cross-workspace-query.md) sin realizar el cambio mediante la [plantilla de ARM de la API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template); sin embargo, esta regla de alertas se puede administrar mediante la [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) y no desde Azure Portal.
-
-Por ejemplo, si el conector ha dejado de funcionar el 01/11/2018, al consultar los registros entre los recursos de Application Insights y los datos de aplicaciones en el área de trabajo, la consulta se podría construir de manera similar al ejemplo siguiente:
-
-```
-applicationsScoping //this brings data from Application Insights resources 
-| where timestamp between (datetime("2018-11-01") .. now()) 
-| where success == 'False' 
-| where duration > 1000 
-| union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
-    | where TimeGenerated < (datetime("2018-12-01") 
-    | where RequestSuccess == 'False' 
-    | where RequestDuration > 1000 
-    | extend duration = RequestDuration //align to Application Insights schema 
-    | extend timestamp = TimeGenerated //align to Application Insights schema 
-    | extend name = RequestName //align to Application Insights schema 
-    | extend resultCode = ResponseCode //align to Application Insights schema 
-    | project-away RequestDuration , RequestName , ResponseCode , TimeGenerated 
-) 
-| project timestamp , duration , name , resultCode 
-```
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Diferencias de esquema del área de trabajo de Log Analytics y Application Insights
 En la tabla siguiente se muestran las diferencias de esquema entre Log Analytics y Application Insights.  

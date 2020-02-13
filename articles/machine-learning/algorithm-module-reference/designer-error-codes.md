@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: cf343773695275bc5600ab59e1cd719374d65700
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311672"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152370"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer"></a>Excepciones y códigos de error para el diseñador
+# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Excepciones y códigos de error para el diseñador (versión preliminar)
 
-En este artículo se describen los mensajes de error y los códigos de excepción del diseñador de Azure Machine Learning para ayudarle a solucionar problemas de las canalizaciones de aprendizaje automático.
+En este artículo se describen los mensajes de error y los códigos de excepción en el diseñador de Azure Machine Learning (versión preliminar) para ayudarle a solucionar problemas de las canalizaciones de aprendizaje automático.
 
 Hay dos maneras de obtener el texto completo de un mensaje de error en el diseñador:  
 

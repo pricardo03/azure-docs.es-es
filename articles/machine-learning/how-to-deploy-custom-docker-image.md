@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 5d828ab59f790bab1003f0ad73fc7be1b77410bb
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 05a466d52d89fa021235c10e7187900c350b5e50
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044893"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086932"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,14 +41,14 @@ Este documento se divide en dos secciones:
 * Creación de una imagen base personalizada: proporciona información para administradores y DevOps para crear una imagen personalizada y configurar la autenticación en Azure Container Registry mediante la CLI de Azure y la CLI de Machine Learning.
 * Implementación de un modelo con una imagen base personalizada: proporciona información a los científicos de datos y DevOps/ingenieros de ML sobre el uso de imágenes personalizadas al implementar un modelo entrenado desde el SDK de Python o la CLI de ML.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un grupo de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
 * El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Una instancia de [Azure Container Registry](/azure/container-registry) u otro registro de Docker accesible en Internet.
-* En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para obtener más información, consulte la sección sobre la preparación de la implementación de [Dónde implementar y cómo](how-to-deploy-and-where.md#prepare-to-deploy).
+* En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para obtener más información, consulte la sección sobre la preparación de la implementación de [Dónde implementar y cómo](how-to-deploy-and-where.md#prepare-deployment-artifacts).
 
 ## <a name="create-a-custom-base-image"></a>Creación de una imagen base personalizada
 

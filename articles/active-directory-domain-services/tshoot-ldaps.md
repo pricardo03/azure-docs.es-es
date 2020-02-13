@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 96aa463441c9e0f21e2ef1aa27c566b94e1e5f4f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 22d1b6e2344256b52cfdbc48720a680a770a4216
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257886"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132169"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Solución de problemas de conectividad con LDAP seguro en un dominio administrado de Azure Active Directory Domain Services
 
-Las aplicaciones y los servicios que usan el Protocolo ligero de acceso a directorios (LDAP) para comunicarse con Azure Active Directory Domain Services (Azure AD DS) se pueden [configurar para usar LDAP seguro](tutorial-configure-ldaps.md). Para que LDAP seguro funcione correctamente, deben estar abiertos un certificado adecuado y los puertos de red necesarios.
+Las aplicaciones y los servicios que usan el Protocolo ligero de acceso a directorios (LDAP) para comunicarse con Azure Active Directory Domain Services (Azure AD DS) se pueden [configurar para usar LDAP seguro](tutorial-configure-ldaps.md). Para que LDAP seguro funcione correctamente, deben estar abiertos un certificado adecuado y los puertos de red necesarios.
 
 Este artículo le ayuda a solucionar problemas de acceso LDAP seguro en Azure AD DS.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898836"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108245"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
@@ -39,7 +39,7 @@ En este artículo se describen las diferencias entre las versiones autohospedada
 Puede crear su portal para desarrolladores de dos maneras:
 
 - **Versión administrada**: mediante la edición y la personalización del portal, que se integra en la instancia de API Management y es accesible a través de la dirección URL `<your-api-management-instance-name>.developer.azure-api.net`. Consulte [este artículo de la documentación](api-management-howto-developer-portal-customize.md) para aprender a acceder al portal administrado y a personalizarlo.
-- **Versión autohospedada**: mediante la implementación y autohospedaje del portal fuera de una instancia de API Management. Este enfoque le permite editar el código base del portal y ampliar la funcionalidad principal proporcionada. También debe actualizar manualmente el portal a la versión más reciente. Para información detallada e instrucciones, consulte el [repositorio de GitHub con el código fuente del portal][1] y [el tutorial para la implementación de un widget][4]. En el [tutorial de la versión administrada](api-management-howto-developer-portal-customize.md) se recorre el panel administrativo del portal, que también se incluye en la versión autohospedada.
+- **Versión autohospedada**: mediante la implementación y autohospedaje del portal fuera de una instancia de API Management. Este enfoque le permite editar el código base del portal y ampliar la funcionalidad principal proporcionada. También debe actualizar manualmente el portal a la versión más reciente. Para información detallada e instrucciones, consulte el [repositorio de GitHub con el código fuente del portal][1] y [el tutorial para la implementación de un widget][3]. En el [tutorial de la versión administrada](api-management-howto-developer-portal-customize.md) se recorre el panel administrativo del portal, que también se incluye en la versión autohospedada.
 
 ## <a name="portal-architectural-concepts"></a>Conceptos arquitectónicos del portal
 
@@ -104,7 +104,7 @@ La retirada de los portales heredados se anunciará por separado. Si tiene pregu
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>No se admite la funcionalidad que necesito en el portal
 
-Use la versión autohospedada e [implemente su propio widget][4].
+Use la versión autohospedada e [implemente su propio widget][3].
 
 ### <a name="how-can-i-automate-portal-deployments"></a>¿Cómo puedo automatizar las implementaciones del portal?
 
@@ -232,14 +232,12 @@ Más información acerca del nuevo portal para desarrolladores:
 
 - [Acceso a la versión administrada del portal para desarrolladores y su personalización](api-management-howto-developer-portal-customize.md)
 - [Configuración de la versión autohospedada del portal][2]
-- [Implementación de su propio widget][4]
+- [Implementación de su propio widget][3]
 
 Examine otros recursos:
 
 - [Repositorio de GitHub con el código fuente][1]
-- [Hoja de ruta pública del proyecto][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
-[3]: https://github.com/Azure/api-management-developer-portal/projects
-[4]: https://aka.ms/apimdevportal/extend
+[3]: https://aka.ms/apimdevportal/extend

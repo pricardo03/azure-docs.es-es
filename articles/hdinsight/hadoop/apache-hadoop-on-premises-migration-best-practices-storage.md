@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 71afbf09d563a43469689132dfce071b40d694b6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435766"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162674"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migración de clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -198,7 +198,7 @@ Todos los datos escritos en Azure Storage se cifran automáticamente con [Stora
 - [Almacenamiento con redundancia local (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Almacenamiento con redundancia de zona (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Almacenamiento con redundancia geográfica (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).](../../storage/common/storage-redundancy.md)
 
 Azure Data Lake Storage proporciona almacenamiento con redundancia local (LRS), pero también debe copiar los datos críticos a otra cuenta de Data Lake Storage en otra región con una frecuencia orientada a las necesidades del plan de recuperación ante desastres. Existen varios métodos para copiar datos, entre los que se incluyen [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html),[Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) o  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). También se recomienda aplicar directivas de acceso a la cuenta de Data Lake Storage para evitar la eliminación accidental.
 

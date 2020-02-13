@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 35c050a17219b80348857494ad41f834d3a60c85
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b7036b305b4b1041fced3be68024be29d49a4990
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397296"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086852"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -398,7 +398,7 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
   1. Repita la incorporación con las [instrucciones](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) de la línea de comandos de omsadmin.sh.
   2. En **Configuración avanzada** en Azure Portal, asegúrese de que la opción **Aplicar la configuración que aparece a continuación a mis máquinas con Linux** esté habilitada.  
 
-2. Para comprobar que el agente `omsconfig` puede comunicarse con Azure Monitor, ejecute el siguiente comando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Este comando devuelve la configuración que el agente recupera del servicio, incluida la configuración de Syslog, los contadores de rendimiento de Linux y los registros personalizados. Si se produce un error en este comando, ejecute el siguiente comando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Este comando fuerza al agente omsconfig a comunicarse con Azure Monitor y a recuperar la configuración más reciente.
+2. Para comprobar que el agente `omsconfig` puede comunicarse con Azure Monitor, ejecute el siguiente comando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Este comando devuelve la configuración que el agente recupera del servicio, incluida la configuración de Syslog, los contadores de rendimiento de Linux y los registros personalizados. Si se produce un error en este comando, ejecute el siguiente comando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. Este comando fuerza al agente omsconfig a comunicarse con Azure Monitor y a recuperar la configuración más reciente.
 
 **Información previa:** En lugar de que el agente de Log Analytics para Linux se ejecute como usuario con privilegios, `root`, el agente se ejecuta como el usuario `omsagent`. En la mayoría de los casos, se deben conceder permisos explícitos al usuario para que lea determinados archivos. Para conceder permiso al usuario `omsagent`, ejecute los siguientes comandos:
 

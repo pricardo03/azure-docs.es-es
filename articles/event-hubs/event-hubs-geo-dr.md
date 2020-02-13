@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773246"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158033"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -55,12 +55,12 @@ Los siguientes términos se utilizan en este artículo:
 ## <a name="supported-namespace-pairs"></a>Pares de espacios de nombres admitidos
 Se admiten las siguientes combinaciones de espacios de nombres principales y secundarios:  
 
-| Espacio de nombres principal | Espacio de nombres secundario | Se admiten | 
+| Espacio de nombres principal | Espacio de nombres secundario | Compatible | 
 | ----------------- | -------------------- | ---------- |
 | Estándar | Estándar | Sí | 
 | Estándar | Dedicado | Sí | 
 | Dedicado | Dedicado | Sí | 
-| Dedicado | Estándar | Sin | 
+| Dedicado | Estándar | No | 
 
 > [!NOTE]
 > No se pueden emparejar espacios de nombres que se encuentran en el mismo clúster dedicado. Puede emparejar espacios de nombres que se encuentran en clústeres independientes. 
@@ -71,13 +71,13 @@ La siguiente sección contiene información general del proceso de conmutación 
 
 ![1][]
 
-### <a name="setup"></a>Configuración
+### <a name="setup"></a>Configurar
 
 En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. Por último, debe agregar alguna supervisión para detectar si es necesario realizar una conmutación por error. En la mayoría de los casos, el servicio forma parte de un ecosistema mayor, por lo tanto las conmutaciones por error automáticas raramente son posibles, ya que a menudo las conmutaciones por error tienen que realizarse en sincronía con el subsistema o infraestructura restantes.
 
 ### <a name="example"></a>Ejemplo
 
-En un ejemplo de este escenario, se considera una solución de punto de venta (POS) que emite mensajes o eventos. Event Hubs pasa esos eventos a alguna solución de asignación o formato, que reenvía los datos asignados a otros sistema para continuar el procesamiento. En ese momento, todos estos sistemas podrían estar hospedados en la misma región de Azure. La decisión sobre cuándo y en qué parte se realizará la conmutación por error depende del flujo de datos en su infraestructura. 
+En un ejemplo de este escenario, se considera una solución de punto de venta (POS) que emite mensajes o eventos. Event Hubs pasa esos eventos a alguna solución de asignación o formato, que reenvía los datos asignados a otros sistema para continuar el procesamiento. En ese momento, todos estos sistemas se pueden hospedar en la misma región de Azure. La decisión sobre cuándo y en qué parte se realizará la conmutación por error depende del flujo de datos en su infraestructura. 
 
 Puede automatizar la conmutación por error con la supervisión de sistemas, o con soluciones de supervisión personalizadas. Sin embargo, dicha automatización necesita planeamiento y trabajo extra que se encuentran fuera del ámbito de este artículo.
 
@@ -103,7 +103,7 @@ Si ha cometido algún error; por ejemplo, ha emparejado regiones incorrectas dur
 En el [ejemplo de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) se muestra cómo configurar e iniciar una conmutación por error. En este ejemplo se demuestran los siguientes conceptos:
 
 - La configuración necesaria en Azure Active Directory para usar Azure Resource Manager con Event Hubs. 
-- Los pasos necesarios para ejecutar el código de ejemplo. 
+- Pasos necesarios para ejecutar el código de ejemplo. 
 - Envío y recepción desde el espacio de nombres principal actual. 
 
 ## <a name="considerations"></a>Consideraciones
@@ -142,7 +142,11 @@ Solo puede habilitar Availability Zones en los espacios de nombres nuevos median
 
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 
-* Empiece por un [tutorial de Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
+- Introducción a Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 * [Aplicaciones de ejemplo que usan Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

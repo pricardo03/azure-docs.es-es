@@ -3,12 +3,12 @@ title: Proveedores de recursos por servicios de Azure
 description: Se enumeran todos los espacios de nombres de proveedor de recursos para Azure Resource Manager y se muestra el servicio de Azure para ese espacio de nombres.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: d16c5fe148f8b6c907c897963e72cb84bc9ae2d5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 64c1d3c6f30a4f817abbea5001852df3eeeb9327
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984377"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109355"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
@@ -124,7 +124,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.RecoveryServices | [Recuperación de sitios](../../site-recovery/index.yml) |
 | Microsoft.Relay | [Azure Relay](../../service-bus-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph | [Azure Resource Graph](/azure/governance/resource-graph/) |
-| Microsoft.ResourceHealth | core |
+| Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml)|
 | Microsoft.Resources | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |

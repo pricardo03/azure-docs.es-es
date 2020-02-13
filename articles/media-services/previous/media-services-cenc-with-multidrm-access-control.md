@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: b0fec44a59bd70c6f1d0236861d93e81aaba033c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969452"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162997"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services 
 
@@ -215,10 +215,10 @@ La implementación incluye los siguientes pasos:
 
     | **DRM** | **Browser** | **Resultado para el usuario autorizado** | **Resultado para el usuario no autorizado** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge o Internet Explorer 11 en Windows 10 |Correcto |Fail (no superado) |
-    | **Widevine** |Chrome, Firefox, Opera |Correcto |Fail (no superado) |
-    | **FairPlay** |Safari en macOS      |Correcto |Fail (no superado) |
-    | **AES-128** |Exploradores más modernos  |Correcto |Fail (no superado) |
+    | **PlayReady** |Microsoft Edge o Internet Explorer 11 en Windows 10 |Correcto |Incorrecto |
+    | **Widevine** |Chrome, Firefox, Opera |Correcto |Incorrecto |
+    | **FairPlay** |Safari en macOS      |Correcto |Incorrecto |
+    | **AES-128** |Exploradores más modernos  |Correcto |Incorrecto |
 
 Para más información sobre cómo configurar Azure AD para una aplicación de reproductor de ASP.NET MVC, consulte [Integración de la aplicación OWIN basada en MVC de Azure Media Services con Azure Active Directory y restricción de la entrega de claves de contenido basada en notificaciones de JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -226,7 +226,7 @@ Para más información, consulte [Autenticación de token JWD en Azure Media Ser
 
 Para más información sobre Azure AD:
 
-* Puede encontrar información para desarrolladores en la [Guía para desarrolladores de Azure Active Directory](../../active-directory/develop/v1-overview.md).
+* Puede encontrar información para desarrolladores en la [Guía para desarrolladores de Azure Active Directory](../../active-directory/azuread-dev/v1-overview.md).
 * Puede encontrar información para administradores en [Administración del directorio de Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Algunos problemas de implementación
@@ -313,9 +313,9 @@ Los servicios de entrega de licencias de DRM siempre estarán buscando la clave 
 Dado que una clave se puede sustituir en cualquier momento, siempre hay más de una clave pública válida disponible en el documento de metadatos de federación. La entrega de licencias de Media Services puede utilizar cualquiera de las claves especificadas en el documento. Como una clave se puede sustituir pronto, otra podría ser su sustituta, y así sucesivamente.
 
 ### <a name="where-is-the-access-token"></a>¿Dónde está el token de acceso?
-Si observa cómo una aplicación web llama a una aplicación de API en la sección [Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 ](../../active-directory/develop/web-api.md), el flujo de autenticación tiene lugar como se indica a continuación:
+Si observa cómo una aplicación web llama a una aplicación de API en la sección [Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 ](../../active-directory/azuread-dev/web-api.md), el flujo de autenticación tiene lugar como se indica a continuación:
 
-* Un usuario inicia sesión en Azure AD en la aplicación web. Para más información, consulte la sección [Aplicación web a API web](../../active-directory/develop/web-app.md).
+* Un usuario inicia sesión en Azure AD en la aplicación web. Para más información, consulte la sección [Aplicación web a API web](../../active-directory/azuread-dev/web-app.md).
 * El punto de conexión de autorización de Azure AD redirige al agente de usuario a la aplicación cliente con un código de autorización. El agente de usuario devuelve el código de autorización al URI de redireccionamiento de la aplicación cliente.
 * La aplicación web necesita adquirir un token de acceso para poder autenticarse ante la API web y recuperar el recurso deseado. Realiza una solicitud al punto de conexión de token de Azure AD y proporciona las credenciales, el identificador del cliente y el URI del identificador de aplicación de la API web. Presenta el código de autorización para demostrar que el usuario ha dado su consentimiento.
 * Azure AD autentica la aplicación y devuelve un token de acceso de JWT que se usa para llamar a la API web.
@@ -472,7 +472,7 @@ En este documento se examina el CENC con varias DRM nativas y el control de acce
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

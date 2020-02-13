@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 84ab5da993541012fd2199a30d03f5c69e88bf2c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530041"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060055"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Tutorial: Configuración de la escritura diferida de atributos de Azure AD en SAP SuccessFactors (versión preliminar)
 El objetivo de este tutorial es mostrar los pasos que debe realizar para la escritura diferida de atributos de Azure AD en SuccessFactors Employee Central. El único atributo que se admite actualmente para la escritura diferida es el atributo de correo electrónico. 
@@ -183,8 +183,8 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Aprenda a configurar el inicio de sesión único entre SuccessFactors y Azure Active Directory](successfactors-tutorial.md)
 * [Aprenda a integrar otras aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [Aprenda a exportar e importar las configuraciones de aprovisionamiento](../manage-apps/export-import-provisioning-configuration.md)
+* [Aprenda a exportar e importar las configuraciones de aprovisionamiento](../app-provisioning/export-import-provisioning-configuration.md)
 

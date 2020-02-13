@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 06d15d66df0b2ec0049d4b2fffae6a9909b05dca
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 35cded14977988c80455a9c28a0e01e7913d58f4
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549145"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069513"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)
 
@@ -122,7 +122,7 @@ Este artículo de procedimientos recomendados se centra en la autenticación y a
 
 Para obtener más información acerca de las operaciones de clúster en AKS, consulte los siguientes procedimientos recomendados:
 
-* [Aislamiento de clúster y de multiinquilinato][aks-best-practices-scheduler]
+* [Aislamiento de clúster y de multiinquilinato][aks-best-practices-cluster-isolation]
 * [Características básicas del programador de Kubernetes][aks-best-practices-scheduler]
 * [Características avanzadas del programador de Kubernetes][aks-best-practices-advanced-scheduler]
 

@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015201"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162572"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple mediante Azure Portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API DE REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
 
@@ -43,7 +43,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 1. Conecte una cámara de vídeo a un equipo. <br/>Para obtener ideas para la configuración, consulte [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Equipo de vídeo para eventos sencillo y portátil).
 
-    Si no tiene acceso a una cámara, puede usar herramientas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para generar una fuente en directo de un archivo de vídeo.
+    Si no tiene acceso a una cámara, puede usar herramientas como [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) para generar una fuente en directo de un archivo de vídeo.
 1. Inicie y configure un codificador local en directo que pueda generar una secuencia de velocidad de bits única en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Vea también este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Producción de streaming en vivo con OBS).
 
     Este paso también puede realizarse después de crear el canal.
@@ -61,13 +61,13 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 1. Detenga el evento cuando quiera detener el streaming y el archivo del evento.
 1. Elimine el evento (y, opcionalmente, elimine el recurso).   
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los siguientes requisitos son necesarios para completar el tutorial.
 
 * Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. 
   Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte [Creación de cuenta](media-services-portal-create-account.md).
+* Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte [Creación de una cuenta](media-services-portal-create-account.md).
 * Una cámara web y un codificador que pueda enviar una secuencia en vivo de una sola velocidad de bits.
 
 ## <a name="create-a-channel"></a>Crear un canal
@@ -76,7 +76,7 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 2. Seleccione **Streaming en vivo**.
 3. Seleccione **Creación personalizada**. Esta opción le permite crear un canal habilitado para la codificación en directo.
 
-    ![Creación de un canal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+    ![Crear un canal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Haga clic en **Configuración**.
 
    1. Elija el tipo de canal **Live Encoding** . Este tipo especifica que desea crear un canal que está habilitado para la codificación en directo. Lo que significa que la secuencia entrante de velocidad de bits única se envía al canal y se codifica en una secuencia de velocidad de bits múltiple mediante la configuración del codificador directo especificado. Para más información, consulte [Streaming en vivo mediante Azure Media Services para crear transmisiones de velocidad de bits múltiple](media-services-manage-live-encoder-enabled-channels.md). Haga clic en Aceptar.

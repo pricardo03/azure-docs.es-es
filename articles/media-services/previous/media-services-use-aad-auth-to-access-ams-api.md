@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826161"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157863"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acceso a Azure Media Services API con la autenticación de Azure AD  
 
@@ -95,7 +95,7 @@ En el diagrama anterior, los números representan el flujo de las solicitudes en
 
 Para más información sobre cómo usar la autenticación de Azure AD para comunicarse con las solicitudes de REST mediante el SDK del cliente para Media Services .NET, vea [Uso de la autenticación de Azure AD para tener acceso a Media Services API con .NET](media-services-dotnet-get-started-with-aad.md). 
 
-Si no usa el SDK del cliente para Media Services .NET, debe crear manualmente una solicitud de token de acceso de Azure AD con los parámetros descritos en el paso 2. Para más información, vea [Procedimiento para usar la Biblioteca de autenticación de Azure AD para obtener el token de Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Si no usa el SDK del cliente para Media Services .NET, debe crear manualmente una solicitud de token de acceso de Azure AD con los parámetros descritos en el paso 2. Para más información, vea [Procedimiento para usar la Biblioteca de autenticación de Azure AD para obtener el token de Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
 
@@ -137,9 +137,9 @@ En la ilustración anterior, los números representan el flujo de las solicitude
 
 Para más información sobre cómo usar la autenticación de Azure AD para comunicarse con las solicitudes de REST mediante el SDK del cliente para Media Services .NET, vea [Uso de la autenticación de Azure AD para tener acceso a Media Services API con .NET](media-services-dotnet-get-started-with-aad.md). 
 
-Si no usa el SDK del cliente para Media Services .NET, debe crear manualmente una solicitud de token de acceso de Azure AD con los parámetros descritos en el paso 1. Para más información, vea [Procedimiento para usar la Biblioteca de autenticación de Azure AD para obtener el token de Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Si no usa el SDK del cliente para Media Services .NET, debe crear manualmente una solicitud de token de acceso de Azure AD con los parámetros descritos en el paso 1. Para más información, vea [Procedimiento para usar la Biblioteca de autenticación de Azure AD para obtener el token de Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Excepción: "El servidor remoto devolvió un error: (401) No autorizado".
 
