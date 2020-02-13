@@ -9,9 +9,9 @@
   expanded: true
   items:
     - name: Conexión de máquinas a Azure Arc desde Azure Portal
-      href: ./servers/quickstart-onboard-portal.md
+      href: ./servers/onboard-portal.md
     - name: Conexión de máquinas a escala mediante una entidad de servicio
-      href: ./servers/quickstart-onboard-powershell.md
+      href: ./servers/onboard-service-principal.md
 - name: Referencia
   items:
     - name: Interfaz de la CLI del agente de máquinas conectadas a Azure

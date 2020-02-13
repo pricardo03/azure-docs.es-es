@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2ad8894078a15bf37a5383cdff3721f4bf7be910
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424966"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186227"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?
 
@@ -85,18 +85,18 @@ Para más información, consulte [Configuración de directivas de acceso condici
 Dado que los empleados emplean dispositivos móviles tanto para las tareas de trabajo como para uso personal, debe tener la capacidad de proteger los datos de la empresa a los que se accede con dispositivos, incluso en el caso en el que no estén administrados por el usuario.
 Puede usar [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy) para ayudar a proteger los datos de su compañía independientes de cualquier solución de administración de dispositivos móviles (MDM).
 
-Con las aplicaciones cliente aprobadas, puede requerir que una aplicación cliente que intente obtener acceso a las aplicaciones en la nube admita [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy). Por ejemplo, puede restringir el acceso a Exchange Online para la aplicación Outlook. Una directiva de acceso condicional que requiere aplicaciones cliente aprobadas se conoce también como [directiva de acceso condicional basada en la aplicación](app-based-conditional-access.md). Para una lista de las aplicaciones cliente admitidas, consulte el [requisito de las aplicaciones cliente aprobadas](technical-reference.md#approved-client-app-requirement).
+Con las aplicaciones cliente aprobadas, puede requerir que una aplicación cliente que intente obtener acceso a las aplicaciones en la nube admita [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy). Por ejemplo, puede restringir el acceso a Exchange Online para la aplicación Outlook. Una directiva de acceso condicional que requiere aplicaciones cliente aprobadas se conoce también como [directiva de acceso condicional basada en la aplicación](app-based-conditional-access.md). Para una lista de las aplicaciones cliente admitidas, consulte el [requisito de las aplicaciones cliente aprobadas](concept-conditional-access-grant.md#require-approved-client-app).
 
 ### <a name="app-protection-policy-preview"></a>Directiva de protección de aplicaciones (versión preliminar)
 
 Dado que los empleados emplean dispositivos móviles tanto para las tareas de trabajo como para uso personal, debe tener la capacidad de proteger los datos de la empresa a los que se accede con dispositivos, incluso en el caso en el que no estén administrados por el usuario.
 Puede usar [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy) para ayudar a proteger los datos de su compañía independientes de cualquier solución de administración de dispositivos móviles (MDM).
 
-Con la directiva de protección de aplicaciones, se puede limitar el acceso a las aplicaciones cliente que han notificado a Azure AD que han recibido [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy). Por ejemplo, puede restringir el acceso de Exchange Online a la aplicación de Outlook que tenga una directiva de protección de aplicaciones de Intune. Una directiva de acceso condicional que requiere una directiva de protección de aplicaciones también se conoce como [directiva de acceso condicional basada en la protección de aplicaciones](app-protection-based-conditional-access.md). 
+Con la directiva de protección de aplicaciones, se puede limitar el acceso a las aplicaciones cliente que han notificado a Azure AD que han recibido [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy). Por ejemplo, puede restringir el acceso de Exchange Online a la aplicación de Outlook que tenga una directiva de protección de aplicaciones de Intune. Una directiva de acceso condicional que requiere una directiva de protección de aplicaciones también se conoce como [directiva de acceso condicional basada en la protección de aplicaciones](concept-conditional-access-session.md#application-enforced-restrictions). 
 
 Para que una aplicación pueda marcarse como protegida por una directiva, el dispositivo debe estar registrado en Azure AD.
 
-Para ver una lista de directiva de aplicaciones cliente protegidas por una directiva admitidas, consulte [Requisito de directiva de protección de aplicaciones](technical-reference.md#app-protection-policy-requirement).
+Para ver una lista de directiva de aplicaciones cliente protegidas por una directiva admitidas, consulte [Requisito de directiva de protección de aplicaciones](concept-conditional-access-session.md#application-enforced-restrictions).
 
 ### <a name="terms-of-use"></a>Términos de uso
 

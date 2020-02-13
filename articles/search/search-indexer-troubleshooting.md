@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5f646b4cef782b569910bdf881208c9984194589
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 1e3692920c35a6965a23c0305aeeebfc80505d85
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931118"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190930"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Solución de problemas comunes con el indizador en Azure Cognitive Search
 
@@ -112,6 +112,6 @@ Los indizadores buscan documentos de un [origen de datos](https://docs.microsoft
 
 * El documento no se ha indexado. Revise el portal para ver si el indizador se ejecutó correctamente.
 * El documento se actualizó después de la ejecución del indizador. Si el indizador sigue una [programación](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), a la larga se volverá a ejecutar y recogerá el documento.
-* La [consulta](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) especificada en el origen de datos excluye el documento. Los indizadores no pueden indexar documentos que no forman parte del origen de datos.
+* La [consulta](/rest/api/searchservice/create-data-source) especificada en el origen de datos excluye el documento. Los indizadores no pueden indexar documentos que no forman parte del origen de datos.
 * [Asignaciones de campo](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) o [enriquecimiento de inteligencia artificial](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) han cambiado el documento y tiene un aspecto distinto de lo esperado.
 * Use la [API Buscar documento](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para buscar el documento.

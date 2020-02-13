@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894530aa9624af18f2f33a061d5cde683e9f01be
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880274"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185903"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instrucciones: Planeamiento de la implementación del acceso condicional en Azure Active Directory
 
@@ -53,7 +53,7 @@ Use la siguiente plantilla de ejemplo para crear directivas de acceso condiciona
 |Intento de acceso:<br>- A una aplicación en la nube *<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>-La condición 2 (por ejemplo, las plataformas de dispositivo)|Conceder acceso con (AND):<br>- Requisito 1 (por ejemplo, autenticación multifactor)<br>- Requisito 2 (por ejemplo, cumplimiento de los dispositivos)|
 |Intento de acceso:<br>- A una aplicación en la nube *<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>-La condición 2 (por ejemplo, las plataformas de dispositivo)|Conceder acceso con (OR):<br>- Requisito 1 (por ejemplo, autenticación multifactor)<br>- Requisito 2 (por ejemplo, cumplimiento de los dispositivos)|
 
-Como mínimo, **cuando esto ocurra** define la entidad de seguridad (**quién**) que intenta acceder a una aplicación en la nube (**qué**). Si es necesario, también puede incluir el **cómo** se realiza el intento de acceso. En el acceso condicional, los elementos que definen el quién, el qué y el cómo se conocen como condiciones. Para más información, consulte [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](conditions.md) 
+Como mínimo, **cuando esto ocurra** define la entidad de seguridad (**quién**) que intenta acceder a una aplicación en la nube (**qué**). Si es necesario, también puede incluir el **cómo** se realiza el intento de acceso. En el acceso condicional, los elementos que definen el quién, el qué y el cómo se conocen como condiciones. Para más información, consulte [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](concept-conditional-access-conditions.md) 
 
 Con **se debe hacer esto otro** se define la respuesta de la directiva a una condición de acceso. En la respuesta se bloquea o se concede acceso con requisitos adicionales, por ejemplo, la autenticación multifactor (MFA). Para información general completa, consulte [¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?](controls.md)  
 
@@ -116,7 +116,7 @@ Casos de uso comunes para exigir la autenticación multifactor para el acceso:
 
 Con las directivas de acceso condicional se pueden implementar respuestas automatizadas a inicios de sesión con identidades que pueden suponer un riesgo. La probabilidad de que una cuenta esté en riesgo se expresa mediante niveles. En Identity Protection se calculan dos niveles de riesgo: riesgo de inicio de sesión o de usuario. Para implementar una respuesta ante el riesgo de inicio de sesión, tiene dos opciones:
 
-- La [condición de riesgo de inicio de sesión](conditions.md#sign-in-risk) de la directiva de acceso condicional
+- La [condición de riesgo de inicio de sesión](concept-conditional-access-conditions.md#sign-in-risk) de la directiva de acceso condicional
 - La [directiva de riesgo de inicio de sesión](../identity-protection/howto-sign-in-risk-policy.md) de identity Protection 
 
 Definir el riesgo de inicio de sesión como condición es el método de preferencia, ya que ofrece más opciones de personalización.

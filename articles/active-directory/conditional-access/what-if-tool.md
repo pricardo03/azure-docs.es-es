@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5846934a8ad8455ca375b4bc54fc46d45aba1cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379974"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185879"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solución de problemas con la herramienta What If en el acceso condicional
 
@@ -30,7 +30,7 @@ La **herramienta What If de directiva de Acceso condicional** le permite compren
 
 La herramienta **What If** también ofrece una manera de determinar rápidamente las directivas que se aplican a un usuario específico. Por ejemplo, puede usar la información si necesita solucionar un problema.    
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 En la **herramienta What If de Acceso condicional**, primero debe configurar los valores del escenario de inicio de sesión que desea simular. Esta configuración incluye:
 
@@ -72,11 +72,11 @@ La dirección IP es una dirección IPv4 única que imita la [condición de ubica
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-Esta configuración imita la [condición de plataformas de dispositivo](conditions.md#device-platforms) y representa el equivalente de **Todas las plataformas (incluidas las no admitidas)** . 
+Esta configuración imita la [condición de plataformas de dispositivo](concept-conditional-access-conditions.md#device-platforms) y representa el equivalente de **Todas las plataformas (incluidas las no admitidas)** . 
 
 ### <a name="client-apps"></a>Aplicaciones cliente
 
-Esta configuración imita la [condición de aplicaciones cliente](conditions.md#client-apps).
+Esta configuración imita la [condición de aplicaciones cliente](concept-conditional-access-conditions.md#client-apps-preview).
 De manera predeterminada, esta configuración genera una evaluación de todas las directivas con las opciones **Explorador** o **Aplicaciones móviles y clientes de escritorio** seleccionadas en conjunto o de manera individual. También detecta las directivas que aplican **Exchange ActiveSync (EAS)** . Para restringir esta configuración, seleccione:
 
 - **Explorador** para evaluar todas las directivas que tienen seleccionada al menos la opción **Explorador**. 
@@ -84,7 +84,7 @@ De manera predeterminada, esta configuración genera una evaluación de todas la
 
 ### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 
-Esta configuración imita la [condición de riesgo de inicio de sesión](conditions.md#sign-in-risk).   
+Esta configuración imita la [condición de riesgo de inicio de sesión](concept-conditional-access-conditions.md#sign-in-risk).   
 
 ## <a name="evaluation"></a>Evaluación 
 
@@ -105,5 +105,5 @@ En la lista de las directivas que no se aplican al usuario, también puede encon
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Si quiere saber cómo configurar una directiva de acceso condicional, vea [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
-- Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md). 
+- Si está listo para configurar directivas de acceso condicional para su entorno, vea [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md). 
 - Si desea migrar directivas clásicas, consulte [Migración de directivas clásicas en Azure Portal](policy-migration.md).  

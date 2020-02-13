@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4289f4870ca03657afabec07049b3333412f3899
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 75880f4c533a503852d62ff940e53d4bcc30d218
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180048"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186118"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>¿Qué es el modo de solo informe de acceso condicional?
 
@@ -25,7 +25,8 @@ Nuestros clientes usan ampliamente el acceso condicional para mantenerse seguros
 El modo de solo informe es un nuevo estado de la directiva de acceso condicional que permite a los administradores evaluar el impacto de las directivas de acceso condicional antes de habilitarlas en su entorno.  Con la versión del modo de solo informe:
 
 - Las directivas de acceso condicional se pueden habilitar en modo de solo informe.
-- Durante el inicio de sesión, las directivas en modo de solo informe se evalúan, pero no se aplican. Los resultados se registran en las pestañas **Acceso condicional** y **Solo informe (versión preliminar)** de los detalles de registro de inicio de sesión.
+- Durante el inicio de sesión, las directivas en modo de solo informe se evalúan, pero no se aplican.
+- Los resultados se registran en las pestañas **Acceso condicional** y **Solo informe (versión preliminar)** de los detalles de registro de inicio de sesión.
 - Los clientes con una suscripción de Azure Monitor pueden supervisar el impacto de sus directivas de acceso condicional  mediante el libro Conditional Access Insights.
 
 > [!WARNING]
@@ -37,7 +38,7 @@ El modo de solo informe es un nuevo estado de la directiva de acceso condicional
 
 Cuando se evalúa una directiva en modo de solo informe para un inicio de sesión especificado, hay cuatro nuevos valores de resultado posibles:
 
-| Resultado | DESCRIPCIÓN |
+| Resultado | Descripción |
 | --- | --- |
 | Solo informe: Correcto | Se cumplieron todas las condiciones de directiva configuradas, los controles de concesión no interactivos requeridos y los controles de sesión. Por ejemplo, una notificación de MFA ya presente en el token cumple un requisito de autenticación multifactor o una directiva de dispositivo compatible se cumple realizando una comprobación de dispositivo en un dispositivo compatible. |
 | Solo informe: Error | Se cumplieron todas las condiciones de directiva configuradas, pero no se cumplieron todos los controles de concesión no interactivos requeridos ni los controles de sesión. Por ejemplo, una directiva se aplica a un usuario donde se configura un control de bloqueo, o un dispositivo produce un error en una directiva de dispositivo compatible. |

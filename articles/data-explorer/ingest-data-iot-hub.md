@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 93c0b3e27156655acee24d424cd890b48bb8e4e7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 78455c90bab694b77a5e4a56d0b40518867d8d8c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064995"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188361"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>Ingesta de datos de IoT Hub en Azure Data Explorer 
 
@@ -83,7 +83,7 @@ Ahora puede conectarse a IoT Hub desde Azure Data Explorer. Una vez completada 
     | IoT Hub | Nombre de IoT Hub |
     | Directiva de acceso compartido | Nombre de la directiva de acceso compartido. Debe tener permisos de lectura. |
     | Grupo de consumidores |  Grupo de consumidores definido en el punto de conexión integrado de IoT Hub |
-    | Propiedades del sistema de eventos | [Propiedades del sistema de eventos de IoT Hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) Cuando agregue las propiedades del sistema, [cree](/azure/kusto/management/tables#create-table) o [actualice](/azure/kusto/management/tables#alter-table-and-alter-merge-table) el esquema de tabla y la [asignación](/azure/kusto/management/mappings) para incluir las propiedades seleccionadas. | | | 
+    | Propiedades del sistema de eventos | [Propiedades del sistema de eventos de IoT Hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) Cuando agregue las propiedades del sistema, [cree](/azure/kusto/management/create-table-command) o [actualice](/azure/kusto/management/alter-table-command) el esquema de tabla y la [asignación](/azure/kusto/management/mappings) para incluir las propiedades seleccionadas. | | | 
 
     > [!NOTE]
     > En el caso de una [conmutación por error manual](/azure/iot-hub/iot-hub-ha-dr#manual-failover), debe volver a crear la conexión de datos.

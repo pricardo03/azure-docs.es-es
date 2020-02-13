@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 3d741361cdeb25d6fc063f95da7bc301178f31fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 557cfeb66301650e932e5ce271080e9fc8a256d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818078"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191165"
 ---
 # <a name="storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico
 
@@ -44,7 +44,7 @@ El resumen de la oferta es una breve descripción de la oferta que aparece justo
 -   **Nombre de la oferta**: Análisis de la nube: Taller de 3 días
 -   **Resumen de la oferta**: información general de Microsoft Azure y Power BI, evaluación del entorno actual y pequeña prueba de concepto.
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 -   **Nombre de la oferta**: Azure IoT industrial: prueba de concepto de 30 días
 -   **Resumen de la oferta**: creación de un producto piloto conectado industrial para la conexión segura de equipos en el campo a una solución de Azure IoT Hub con paneles, informes y notificaciones.
@@ -71,7 +71,7 @@ Escriba la descripción de la oferta de servicios de consultoría en el cuadro *
 
 No incluya la dirección de correo electrónico ni el número de teléfono en la descripción de la oferta. Se incluye un botón **Ponerse en contacto conmigo** en la oferta que permitirá cargar los clientes potenciales en el destino de administración de clientes potenciales que identifique en la oferta.
 
-Escriba la descripción de la oferta en formato de Markdown. Si no conoce Markdown ni sabe como dar formato para HTML, consulte [Uso de Markdown para escribir documentos](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Escriba la descripción de la oferta en formato de Markdown. Si no conoce Markdown ni sabe como dar formato para HTML, consulte [Uso de Markdown para escribir documentos](/contribute/markdown-reference).
 
 Use estos formatos para asegurarse de que su oferta es fácil de leer para los clientes.
 

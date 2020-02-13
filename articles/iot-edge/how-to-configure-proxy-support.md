@@ -7,12 +7,12 @@ ms.date: 11/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12aa78d0ba7c9300fc012958660e2282e91568aa
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a8ee1e07dafac46467aa26f89b609cd499346974
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510828"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186576"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy
 
@@ -22,7 +22,7 @@ Este artículo le guiará por los cuatro pasos que se describen a continuación 
 
 1. **Instale el entorno de ejecución de Azure IoT Edge en el dispositivo.**
 
-   Los scripts de instalación de IoT Edge extraen paquetes y archivos de Internet, por lo que es necesario que la comunicación con el dispositivo pueda atravesar el servidor proxy para realizar esas solicitudes. Para obtener instrucciones detalladas, consulte la sección [Instalación del entorno de ejecución a través de un proxy](#install-the-runtime-through-a-proxy) de este artículo. En el caso de los dispositivos Windows, el script de instalación también dispone de una opción de [instalación sin conexión](how-to-install-iot-edge-windows.md#offline-installation).
+   Los scripts de instalación de IoT Edge extraen paquetes y archivos de Internet, por lo que es necesario que la comunicación con el dispositivo pueda atravesar el servidor proxy para realizar esas solicitudes. Para obtener instrucciones detalladas, consulte la sección [Instalación del entorno de ejecución a través de un proxy](#install-the-runtime-through-a-proxy) de este artículo. En el caso de los dispositivos Windows, el script de instalación también dispone de una opción de [instalación sin conexión](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation).
 
    Este paso es un proceso que solamente tiene que realizarse una vez en el dispositivo de IoT Edge al establecer la configuración inicial. Estas mismas conexiones también son necesarias para actualizar el entorno de ejecución de IoT Edge.
 

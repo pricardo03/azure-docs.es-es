@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: fa8013722376a4864ba955783dbde1f73c0d9e8a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163116"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186950"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -60,7 +60,7 @@ Como los tres tipos de aplicación comparten el entorno de tiempo de ejecución 
 
 App Service se ha diseñado teniendo en cuenta DevOps. Admite varias herramientas para la publicación y las implementaciones de integración continua. Estas herramientas incluyen webhooks de GitHub, Jenkins, Azure DevOps, TeamCity y otras.
 
-Puede migrar las aplicaciones existentes a App Service con la [herramienta de migración en línea](https://www.migratetoazure.net/).
+Puede migrar las aplicaciones existentes a App Service con la [herramienta de migración en línea](https://appmigration.microsoft.com/).
 
 > **Cuándo se debe usar**: use App Service al migrar aplicaciones web existentes a Azure y cuando necesite una plataforma de hospedaje completamente administrada para sus aplicaciones web. También puede utilizar App Service cuando necesite admitir clientes móviles o exponer API de REST con su aplicación.
 >

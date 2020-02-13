@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b31a4e40c1e9095499faf265673ab4213ad6bde0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112595"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190982"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Cómo usar Búsqueda cognitiva de Azure desde una aplicación .NET
 
@@ -462,7 +462,7 @@ Lo primero que se debe tener en cuenta es que el nombre de cada propiedad públi
 > 
 > 
 
-La segunda cuestión que debe considerarse es que cada propiedad se representa con atributos como `IsFilterable`, `IsSearchable`, `Key` y `Analyzer`. Estos atributos se asignan directamente a los [atributos de campo correspondientes de un índice de Búsqueda cognitiva de Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La clase `FieldBuilder` usa estas propiedades para construir definiciones de campo para el índice.
+La segunda cuestión que debe considerarse es que cada propiedad se representa con atributos como `IsFilterable`, `IsSearchable`, `Key` y `Analyzer`. Estos atributos se asignan directamente a los [atributos de campo correspondientes de un índice de Búsqueda cognitiva de Azure](/rest/api/searchservice/create-index). La clase `FieldBuilder` usa estas propiedades para construir definiciones de campo para el índice.
 
 La tercera cuestión importante sobre la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?`, `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en la [referencia del SDK de Búsqueda cognitiva de Azure para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). Aunque la clase `FieldBuilder` se ocupa de esta asignación, todavía puede ser útil comprenderlo por si necesitara solucionar los problemas de serialización.
 
@@ -678,7 +678,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-En este caso, buscamos en todo el índice la palabra "motel" en cualquier campo de búsqueda, y solo queremos recuperar los nombres de hotel, según lo especificado por el parámetro `Select`. Estos son los resultados:
+En este caso, buscamos en todo el índice la palabra "motel" en cualquier campo de búsqueda, y solo queremos recuperar los nombres de hotel, según lo especificado por el parámetro `Select`. He aquí los resultados:
 
     Name: Secret Point Motel
 
@@ -727,7 +727,7 @@ WriteDocuments(results);
 
 En este caso, usamos de nuevo la sintaxis de OData para especificar el parámetro `OrderBy` como `lastRenovationDate desc`. También establecemos `Top` en 2 para tener la seguridad de que solo obtenemos los dos documentos principales. Como antes, establecemos `Select` para especificar los campos que se deben devolver.
 
-Estos son los resultados:
+He aquí los resultados:
 
     Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
     Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00

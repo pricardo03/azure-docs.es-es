@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e6a3d0b533dccc3c3111382b014907d5c026ab
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9b8d20b31e96973a492355f0515d0532deea0ac9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612662"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185494"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Mensaje de error en la página de la aplicación cuando el usuario inicia sesión
 
@@ -72,7 +72,7 @@ Para agregar un atributo en la configuración de Azure AD que se enviará en la 
 
 No se puede iniciar sesión en la aplicación porque falta un atributo, como un rol, en la respuesta SAML. O bien, se produce un error porque la aplicación espera un valor o un formato diferente para el atributo **NameID** (identificador de usuario).
 
-Si usa el [aprovisionamiento automático de usuarios de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para crear, mantener y quitar usuarios de la aplicación, compruebe que el usuario se haya aprovisionado en la aplicación SaaS. Para más información, consulte [No se aprovisionan usuarios en una aplicación de la galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
+Si usa el [aprovisionamiento automático de usuarios de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para crear, mantener y quitar usuarios de la aplicación, compruebe que el usuario se haya aprovisionado en la aplicación SaaS. Para más información, consulte [No se aprovisionan usuarios en una aplicación de la galería de Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Incorporación de un atributo en la configuración de la aplicación de Azure AD
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275658"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189100"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(EN DESUSO) Lanzamiento controlado de microservicios con Vamp en un clúster de DC/OS de Azure Container Service
 
@@ -127,7 +127,7 @@ Una vez que se notifica que Elasticsearch se **está ejecutando**, puede agregar
 
 Ahora que Vamp está en funcionamiento, implemente un servicio desde un plano. 
 
-En su forma más simple, un [plano de Vamp](https://vamp.io/documentation/using-vamp/blueprints/) describe los puntos de conexión (puertas de enlace), los clústeres y los servicios que se van a implementar. Vamp usa clústeres para agrupar variantes diferentes del mismo servicio en grupos lógicos para realizar el lanzamiento controlado o realizar pruebas A/B.  
+En su forma más simple, un [plano de Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) describe los puntos de conexión (puertas de enlace), los clústeres y los servicios que se van a implementar. Vamp usa clústeres para agrupar variantes diferentes del mismo servicio en grupos lógicos para realizar el lanzamiento controlado o realizar pruebas A/B.  
 
 Este escenario usa una aplicación monolítica de ejemplo denominada [**sava**](https://github.com/magneticio/sava), que se encuentra en la versión 1.0. El monolito está empaquetado en un contenedor de Docker, que se encuentra en Docker Hub en magneticio/sava:1.0.0. Normalmente, la aplicación se ejecuta en el puerto 8080, pero desea exponerla en el puerto 9050 en este caso. Implemente la aplicación a través de Vamp con un plano simple.
 
@@ -287,9 +287,9 @@ También se han tratado algunas versátiles características de Vamp, como combi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda sobre cómo administrar las acciones de Vamp por medio de la [API de REST de Vamp](https://vamp.io/documentation/api/api-reference/).
+* Aprenda sobre cómo administrar las acciones de Vamp por medio de la [API de REST de Vamp](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Cree scripts de automatización de Vamp en Node.js y ejecútelos como [flujos de trabajo de Vamp](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
+* Cree scripts de automatización de Vamp en Node.js y ejecútelos como [flujos de trabajo de Vamp](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* Consulte más [tutoriales sobre VAMP](https://vamp.io/documentation/tutorials/).
+* Consulte más [tutoriales sobre VAMP](https://docs.vamp.io/tutorials/).
 

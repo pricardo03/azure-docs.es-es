@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: cc152460be777c30d79f783b9acfa846a4c73a72
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548332"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188023"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingesta de streaming (versión preliminar)
 
@@ -23,9 +23,9 @@ Use la ingesta clásica (masiva) en lugar de la ingesta de streaming cuando la c
 > [!NOTE]
 > La ingesta de streaming no admite las siguientes características:
 > * [Cursores de base de datos](/azure/kusto/management/databasecursor).
-> * [Asignación de datos](/azure/kusto/management/mappings). Solo se admite la asignación de datos [creada previamente](/azure/kusto/management/tables#create-ingestion-mapping). 
+> * [Asignación de datos](/azure/kusto/management/mappings). Solo se admite la asignación de datos [creada previamente](/azure/kusto/management/create-ingestion-mapping-command). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * Inicie sesión en la [interfaz de usuario web](https://dataexplorer.azure.com/).

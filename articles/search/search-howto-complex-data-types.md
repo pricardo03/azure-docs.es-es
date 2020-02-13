@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 657cded5e16897f9581bbcf365bacc2d2f1a821a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754357"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190995"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modelado de tipos de datos complejos en Azure Cognitive Search
 
@@ -125,7 +125,7 @@ Los campos deben marcarse como Recuperables en el índice, si quiere que aparezc
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filtros, facetas y orden de los campos complejos
 
-La misma [sintaxis de ruta de acceso de OData ](query-odata-filter-orderby-syntax.md) utilizada para el filtrado y las búsquedas por campos también se puede usar para ordenar y seleccionar campos en una solicitud de búsqueda, así como para definirles facetas. En el caso de los tipos complejos, se aplican reglas que rigen los campos secundarios que se pueden marcar como definibles por facetas u ordenables. Para obtener más información sobre estas reglas, vea la [referencia de la API de creación de índices](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+La misma [sintaxis de ruta de acceso de OData ](query-odata-filter-orderby-syntax.md) utilizada para el filtrado y las búsquedas por campos también se puede usar para ordenar y seleccionar campos en una solicitud de búsqueda, así como para definirles facetas. En el caso de los tipos complejos, se aplican reglas que rigen los campos secundarios que se pueden marcar como definibles por facetas u ordenables. Para obtener más información sobre estas reglas, vea la [referencia de la API de creación de índices](/rest/api/searchservice/create-index).
 
 ### <a name="faceting-sub-fields"></a>Definición de facetas de los campos secundarios
 
@@ -149,7 +149,7 @@ Para filtrar según un campo de colección complejo, puede usar una **expresión
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Al igual que con los campos simples de nivel superior, los campos secundarios simples de campos complejos solo pueden incluirse en los filtros si tienen el atributo **filtrable** establecido en `true` en la definición del índice. Para obtener más información, vea la [referencia de la API de creación de índices](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+Al igual que con los campos simples de nivel superior, los campos secundarios simples de campos complejos solo pueden incluirse en los filtros si tienen el atributo **filtrable** establecido en `true` en la definición del índice. Para obtener más información, vea la [referencia de la API de creación de índices](/rest/api/searchservice/create-index).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

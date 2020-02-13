@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: bf7e4837aaf65b0df28ea4a07fb485948309bc7c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608727"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185574"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD
 
@@ -91,7 +91,7 @@ Para asegurarse de que los usuarios ajenos a la organización puedan solicitar p
 
 ### <a name="review-your-conditional-access-policies"></a>Revisar las directivas de acceso condicional
 
-- Asegúrese de excluir los invitados de las directivas de acceso condicional que los nuevos usuarios invitados no podrán cumplir, ya que esto les impedirá que puedan iniciar sesión en su directorio. Por ejemplo, es probable que los invitados no tengan un dispositivo registrado, que no estén en una ubicación conocida y no deseen volver a registrarse para la autenticación multifactor (MFA), por lo que agregar estos requisitos en una directiva de acceso condicional impedirá que los invitados usen la administración de derechos de administración. Para más información, consulte [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](../conditional-access/conditions.md).
+- Asegúrese de excluir los invitados de las directivas de acceso condicional que los nuevos usuarios invitados no podrán cumplir, ya que esto les impedirá que puedan iniciar sesión en su directorio. Por ejemplo, es probable que los invitados no tengan un dispositivo registrado, que no estén en una ubicación conocida y no deseen volver a registrarse para la autenticación multifactor (MFA), por lo que agregar estos requisitos en una directiva de acceso condicional impedirá que los invitados usen la administración de derechos de administración. Para más información, consulte [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](../conditional-access/concept-conditional-access-conditions.md).
 
     ![Configuración de la exclusión de directiva de acceso condicional de Azure AD](./media/entitlement-management-external-users/conditional-access-exclude.png)
 

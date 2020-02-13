@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453478"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191502"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configuración de una única dirección IP para uno o varios entornos de servicio de integración en Azure Logic Apps
 
@@ -19,7 +19,7 @@ Cuando trabaja con Azure Logic Apps, puede configurar un [*entorno de servicio d
 
 En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Firewall, pero puede aplicar conceptos similares a una aplicación virtual de red, como un firewall de terceros, desde Azure Marketplace. Aunque este tema se centra en la configuración de varias instancias de ISE, también puede usar este enfoque para un solo ISE si el escenario requiere limitar el número de direcciones IP que necesitan acceso. Considere si los costos adicionales del firewall o el dispositivo de red virtual tienen sentido para su escenario. Más información acerca de los [precios de Azure Firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una instancia de Azure Firewall que se ejecuta en la misma red virtual que el ISE. Si no tiene un firewall, primero [agregue una subred](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) denominada `AzureFirewallSubnet` a la red virtual. Luego puede [crear e implementar un firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) en la red virtual.
 

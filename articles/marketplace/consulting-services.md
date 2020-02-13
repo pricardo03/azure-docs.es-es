@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825968"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191128"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
 Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
@@ -159,7 +159,7 @@ Al revisar las descripciones y los resúmenes de las ofertas, el equipo seguirá
 |**Prueba de concepto**    |    Explicar los cambios de ingeniería, los artefactos técnicos u otros que los clientes puedan esperar como resultado de la interacción     | Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda        |
 |**Taller**    |   Incluir una agenda detallada diaria, semanal o mensual, en función de la duración elegida para la oferta. Explicar cuáles son los objetivos de aprendizaje y de otro tipo del taller     |   Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda      |
 
-En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Se trata de un lenguaje de diseño ligero que le ayudará a pulir los anuncios. 
+En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](/contribute/markdown-reference). Se trata de un lenguaje de diseño ligero que le ayudará a pulir los anuncios. 
 
 **Notas de Markdown de ejemplo**
 * Agregue * al principio y al final del bloque de copia, sin espacios para usar la cursiva (p. ej.: *contenido*)

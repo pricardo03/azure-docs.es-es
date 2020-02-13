@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c43e3386886456eed0c58fefd0fb1212795db66c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475042"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185467"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definición de transformaciones de notificaciones de número de teléfono en Azure AD B2C
 
@@ -33,7 +33,7 @@ Esta notificación valida el formato del número de teléfono. Si se encuentra e
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Notificación del tipo de cadena desde el que se realiza la conversión. |
-| OutputClaim | outputClaim | string | Resultado de esta transformación de notificaciones. |
+| OutputClaim | outputClaim | phoneNumber | Resultado de esta transformación de notificaciones. |
 
 La transformación de notificaciones **ConvertStringToPhoneNumberClaim** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autoafirmado](self-asserted-technical-profile.md) o un [control de visualización](display-controls.md). Los metadatos de un perfil técnico autoafirmado **UserMessageIfClaimsTransformationInvalidPhoneNumber** controlan el mensaje de error que se presenta al usuario.
 

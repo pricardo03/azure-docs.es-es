@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: d29168f154c80eb2c66d0316f773375325ded67f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 2484de4e554d16ba049d206981a44654ede28a3f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062190"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190020"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Correcciones posibles para el mensaje de error "No se puede llegar allí desde aquí"
 
@@ -29,7 +29,7 @@ Si recibe el mensaje **No se puede llegar allí desde aquí**, que indica que in
 
 ![Mensaje de error relacionado con la compatibilidad con exploradores](media/user-help-device-remediation/browser-version.png)
 
-Para corregir este problema, debe instalar y ejecutar un explorador compatible según su sistema operativo. Si usa Windows 10, entre los exploradores compatibles se incluyen Microsoft Edge, Internet Explorer y Google Chrome. Si usa otro sistema operativo, puede consultar la lista completa de [exploradores compatibles](../conditional-access/technical-reference.md#supported-browsers).
+Para corregir este problema, debe instalar y ejecutar un explorador compatible según su sistema operativo. Si usa Windows 10, entre los exploradores compatibles se incluyen Microsoft Edge, Internet Explorer y Google Chrome. Si usa otro sistema operativo, puede consultar la lista completa de [exploradores compatibles](../conditional-access/concept-conditional-access-conditions.md#supported-browsers).
 
 ## <a name="make-sure-youre-using-a-supported-operating-system"></a>Comprobación de que usa un sistema operativo compatible
 Asegúrese de que ejecuta una versión compatible del sistema operativo, lo que incluye:

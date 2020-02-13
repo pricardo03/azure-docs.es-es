@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f4ce3cd0db20f76aa6169f15254cf36ee64151a5
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406744"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191012"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros de Azure Cognitive Search 
 
@@ -51,7 +51,7 @@ Si quiere un efecto de restricción en los resultados de búsqueda, los filtros 
 
 + El parámetro `$select` se usa para especificar qué campos se deben incluir en un conjunto de resultados, lo que recorta de forma eficaz la respuesta antes de enviarla a la aplicación que realiza la llamada. Este parámetro no refina la consulta ni reduce la colección de documentos, pero, si el objetivo es una respuesta menor, considere la opción de usar este parámetro. 
 
-Para obtener más información acerca de estos parámetros, consulte [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request) (Buscar en documentos > Solicitud > Parámetros de consulta).
+Para obtener más información acerca de estos parámetros, consulte [Search Documents > Request > Query parameters](/rest/api/searchservice/search-documents#query-parameters) (Buscar en documentos > Solicitud > Parámetros de consulta).
 
 
 ## <a name="how-filters-are-executed"></a>Cómo se ejecutan los filtros
@@ -156,7 +156,7 @@ Las cadenas de texto distinguen mayúsculas de minúsculas. Las palabras en may�
 
 ### <a name="approaches-for-filtering-on-text"></a>Enfoques para el filtrado en el texto
 
-| Enfoque | DESCRIPCIÓN | Cuándo se deben usar |
+| Enfoque | Descripción | Cuándo se usa |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Una función que coincide con un campo en una lista delimitada de cadenas. | Se recomienda para los [filtros de seguridad](search-security-trimming-for-azure-search.md) y para los filtros donde se necesita que muchos valores de texto sin formato coincidan con un campo de cadena. La función **search.in** está diseñada para acelerar el proceso y es mucho más rápida que comparar explícitamente el campo con cada cadena mediante `eq` y `or`. | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Una función que permite combinar las operaciones de búsqueda de texto completo con operaciones de filtro estrictamente booleano en la misma expresión de filtro. | Use **search.ismatch** (o su equivalente de puntuación, **search.ismatchscoring**) cuando quiera varias combinaciones de filtro de búsqueda en una sola solicitud. También puede usarla para que un filtro *contains* filtre una cadena parcial en una cadena mayor. |
@@ -195,7 +195,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Para trabajar con más ejemplos, consulte [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) (Sintaxis de expresión de filtro de OData > Ejemplos).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)
 + [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents)

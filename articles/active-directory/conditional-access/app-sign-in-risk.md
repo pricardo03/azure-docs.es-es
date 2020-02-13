@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9338c1a42737180ec5395f30060b4eed35ce5eda
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: be447b001b0b2e14999aac98ba2125f8cbfe9853
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381071"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186614"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Inicio rápido: Bloqueo del acceso cuando se detecta riesgo en una sesión con el acceso condicional de Azure Active Directory  
 
-Para mantener el entorno protegido, puede bloquear el inicio de sesión de los usuarios sospechosos. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analiza todos los inicios de sesión y calcula la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya sido el que haya realizado un intento de inicio de sesión. Dicha probabilidad (baja, media, alta) se indica en forma de un valor calculado denominado [niveles de riesgo de inicio de sesión](conditions.md#sign-in-risk). Al establecer la condición de riesgo del inicio de sesión, puede configurar una directiva de acceso condicional que responda a niveles de riesgo de inicio de sesión concretos.
+Para mantener el entorno protegido, puede bloquear el inicio de sesión de los usuarios sospechosos. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analiza todos los inicios de sesión y calcula la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya sido el que haya realizado un intento de inicio de sesión. Dicha probabilidad (baja, media, alta) se indica en forma de un valor calculado denominado [niveles de riesgo de inicio de sesión](concept-conditional-access-conditions.md#sign-in-risk). Al establecer la condición de riesgo del inicio de sesión, puede configurar una directiva de acceso condicional que responda a niveles de riesgo de inicio de sesión concretos.
 
 En este inicio rápido se muestra cómo configurar una [directiva de acceso condicional](../active-directory-conditional-access-azure-portal.md) que bloquee un inicio de sesión cuando se haya detectado un nivel de riesgo de inicio de sesión configurado.
 
@@ -28,13 +28,13 @@ En este inicio rápido se muestra cómo configurar una [directiva de acceso cond
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar el escenario de este tutorial, necesita:
 
 - **Acceso a la edición Azure AD Premium P2**: dado que el acceso condicional es una funcionalidad de Azure AD Premium P1, necesita una edición de P2, ya que el escenario de este inicio rápido requiere Identity Protection.
 - **Identity Protection**: el escenario de esta guía de inicio rápido requiere que se habilite Identity Protection. Si no sabe cómo habilitarlo, consulte [Habilitación de Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
-- **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) está diseñado para ayudarle a mantener su privacidad en Internet. Identity Protection detecta un inicio de sesión desde Tor Browser como inicios de sesión desde direcciones IP anónimas, que tienen un nivel de riesgo medio. Para más información, consulte [Eventos de riesgo de Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
+- **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) está diseñado para ayudarle a mantener su privacidad en Internet. Identity Protection detecta un inicio de sesión desde Tor Browser como inicios de sesión desde direcciones IP anónimas, que tienen un nivel de riesgo medio. Para más información, consulte [Detecciones de riesgos de Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 - **Una cuenta de prueba denominada Alain Charon**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Prueba del inicio de sesión
@@ -52,11 +52,11 @@ El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor 
 
 En esta sección se muestra cómo crear la directiva de acceso condicional necesaria. En la directiva, establezca:
 
-| Configuración | Valor |
+| Configuración | Value |
 | --- | --- |
 | Usuarios y grupos | Alain Charon  |
 | Aplicaciones de nube | Todas las aplicaciones en la nube |
-| Riesgo de inicio de sesión | Mediano |
+| Riesgo de inicio de sesión | Media |
 | Conceder | Bloquear acceso |
 
 ![Creación de directiva](./media/app-sign-in-risk/130.png)
@@ -74,11 +74,11 @@ En esta sección se muestra cómo crear la directiva de acceso condicional neces
 
 1. En la página **Acceso condicional**, en la barra de herramientas de la parte superior, haga clic en **Agregar**.
 
-   ![NOMBRE](./media/app-sign-in-risk/108.png)
+   ![Nombre](./media/app-sign-in-risk/108.png)
 
 1. La página **Nuevo**, en el cuadro de texto **Nombre**, escriba **Bloquear acceso si el nivel de riesgo es medio**.
 
-   ![NOMBRE](./media/app-sign-in-risk/104.png)
+   ![Nombre](./media/app-sign-in-risk/104.png)
 
 1. En la sección **Asignación**, haga clic en **Usuarios y grupos**.
 
@@ -129,7 +129,7 @@ En esta sección se muestra cómo crear la directiva de acceso condicional neces
 
    ![Habilitar directiva](./media/app-sign-in-risk/18.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Evaluación de un inicio de sesión simulado
 
