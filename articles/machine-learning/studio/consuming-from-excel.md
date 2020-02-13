@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: e32e3ddd99efe1d389b65f7a4134633a40b29a9a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3314852de2a5fc76ff152d05649fabb5eac2757e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839732"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168885"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Consumir un servicio web de Azure Machine Learning Studio (clásico) en Excel
 
@@ -26,7 +26,7 @@ Si utiliza Excel 2013 (o posterior) o Excel Online, le recomendamos que use el [
 
 
 ## <a name="steps"></a>Pasos
-Publicar un servicio web. En [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md) (Implementar el modelo de riesgo de crédito) se explica cómo hacerlo. Actualmente, la función de libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única). 
+Publicar un servicio web. [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md) (Implementar el modelo de riesgo de crédito) se explica cómo hacerlo. Actualmente, la función de libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única). 
 
 Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** que se encuentra a la izquierda del estudio y, luego, seleccione el servicio web que se va a usar desde Excel.
 

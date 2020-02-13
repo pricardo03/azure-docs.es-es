@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 11c6da0b79f169b250dc0178f76dcd885ce91668
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69015837"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162895"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Realización de streaming en vivo con codificadores locales mediante .NET
 > [!div class="op_single_selector"]
@@ -29,18 +29,18 @@ ms.locfileid: "69015837"
 > 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Este tutorial le guiará por los pasos para usar el SDK de .NET de Azure Media Services para crear un **Canal** que esté configurado para una entrega de paso a través. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Estos son los requisitos previos para completar el tutorial.
 
 * Una cuenta de Azure.
 * Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
 * Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución). 
 * Configurar el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-set-up-computer.md).
-* Una cámara web. Por ejemplo, el [codificador Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
+* Una cámara web. Por ejemplo, el [codificador Telestream Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 Se recomienda que revise los artículos siguientes:
 
