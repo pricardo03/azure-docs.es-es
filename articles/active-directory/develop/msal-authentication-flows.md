@@ -3,22 +3,22 @@ title: Flujos de autenticación de MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre los flujos y concesiones de autenticación utilizados por la biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/30/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bc906e1026dcc051ef152ff9fba94525ac700761
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: ace636152f6a0c9bf3896860eb17cc291bef2887
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962105"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085134"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 

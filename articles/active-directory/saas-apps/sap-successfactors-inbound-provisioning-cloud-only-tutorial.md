@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 2ae951896e9c97826264990dc33b9a1930b0eec2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530058"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063229"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors en Azure AD (versión preliminar)
-El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar los datos de trabajadores de SuccessFactors Employee Central en Azure Active Directory, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. Esta integración está en versión preliminar pública y admite la recuperación de más de [70 atributos de usuario](../manage-apps/sap-successfactors-attribute-reference.md) de SuccessFactors Employee Central. 
+El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar los datos de trabajadores de SuccessFactors Employee Central en Azure Active Directory, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. Esta integración está en versión preliminar pública y admite la recuperación de más de [70 atributos de usuario](../app-provisioning/sap-successfactors-attribute-reference.md) de SuccessFactors Employee Central. 
 
 >[!NOTE]
 >Use este tutorial si los usuarios que quiere aprovisionar desde SuccessFactors son usuarios que solo están en la nube y no necesitan una cuenta de AD local. Si los usuarios necesitan solo una cuenta de AD local o bien una cuenta de AD y de Azure AD, consulte el tutorial sobre [configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview). 
 
 ## <a name="overview"></a>Información general
 
-El [servicio de aprovisionamiento de usuarios de Azure Active Directory](../manage-apps/user-provisioning.md) se integra con [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) para administrar el ciclo de vida de identidad de los usuarios. 
+El [servicio de aprovisionamiento de usuarios de Azure Active Directory](../app-provisioning/user-provisioning.md) se integra con [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) para administrar el ciclo de vida de identidad de los usuarios. 
 
 Los flujos de trabajo de aprovisionamiento de usuarios de SuccessFactors que admite el servicio de aprovisionamiento de usuarios de Azure AD permiten la automatización de los siguientes escenarios de recursos humanos y de administración del ciclo de vida de identidad:
 
-* **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a SuccessFactors, se crea automáticamente una cuenta de usuario en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../manage-apps/user-provisioning.md), con escritura diferida de la dirección de correo electrónico en SuccessFactors.
+* **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a SuccessFactors, se crea automáticamente una cuenta de usuario en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md), con escritura diferida de la dirección de correo electrónico en SuccessFactors.
 
-* **Actualizaciones de atributos y perfiles de empleados**: si se actualiza un registro de empleado en SuccessFactors (por ejemplo, el nombre, el cargo o el jefe), su cuenta de usuario se actualizará automáticamente en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../manage-apps/user-provisioning.md).
+* **Actualizaciones de atributos y perfiles de empleados**: si se actualiza un registro de empleado en SuccessFactors (por ejemplo, el nombre, el cargo o el jefe), su cuenta de usuario se actualizará automáticamente en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Despidos de empleados**: cuando se prescinde de un empleado en SuccessFactors, su cuenta de usuario se deshabilita automáticamente en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../manage-apps/user-provisioning.md).
+* **Despidos de empleados**: cuando se prescinde de un empleado en SuccessFactors, su cuenta de usuario se deshabilita automáticamente en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Recontrataciones de empleados**: cuando se vuelve a contratar a un empleado en SuccessFactors, se puede reactivar o volver a aprovisionar automáticamente su cuenta antigua (en función de las preferencias) en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../manage-apps/user-provisioning.md).
+* **Recontrataciones de empleados**: cuando se vuelve a contratar a un empleado en SuccessFactors, se puede reactivar o volver a aprovisionar automáticamente su cuenta antigua (en función de las preferencias) en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>¿Para quién es más adecuada esta solución de aprovisionamiento de usuarios?
 
@@ -79,7 +79,7 @@ La configuración del aprovisionamiento de usuarios controlado por RR. HH. en l
 * Transformación de atributos 
 * Filtros de ámbito
 
-Consulte el [plan de implementación de RR. HH. en la nube](../manage-apps/plan-cloud-hr-provision.md) para instrucciones detalladas sobre estos temas. 
+Consulte el [plan de implementación de RR. HH. en la nube](../app-provisioning/plan-cloud-hr-provision.md) para instrucciones detalladas sobre estos temas. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configuración de SuccessFactors para la integración
 
@@ -211,14 +211,14 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
    > Al configurar la aplicación de aprovisionamiento por primera vez, deberá probar y verificar las expresiones y asignaciones de atributos para asegurarse de que ofrece el resultado deseado. Microsoft recomienda usar los filtros de ámbito de **Ámbito de objeto de origen** para probar las asignaciones con algunos usuarios de prueba de SuccessFactors. Una vez haya verificado que las asignaciones funcionan, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
    > [!CAUTION] 
-   > El comportamiento predeterminado del motor de aprovisionamiento es deshabilitar o eliminar usuarios que salen del ámbito. Puede que esta no sea la situación deseable en la integración de SuccessFactors con Azure AD. Para invalidar este comportamiento predeterminado, consulte el artículo [Omisión de la eliminación de usuarios fuera del ámbito](../manage-apps/skip-out-of-scope-deletions.md).
+   > El comportamiento predeterminado del motor de aprovisionamiento es deshabilitar o eliminar usuarios que salen del ámbito. Puede que esta no sea la situación deseable en la integración de SuccessFactors con Azure AD. Para invalidar este comportamiento predeterminado, consulte el artículo [Omisión de la eliminación de usuarios fuera del ámbito](../app-provisioning/skip-out-of-scope-deletions.md).
   
 1. En el campo **Acciones del objeto de destino**, puede filtrar de forma global qué acciones se realizan en Active Directory. **Crear** y **Actualizar** son las más habituales.
 
 1. En la sección **Asignaciones de atributos**, puede definir cómo se asignan los distintos atributos de SuccessFactors a los atributos de Active Directory.
 
   >[!NOTE]
-  >Para obtener la lista completa de atributos de SuccessFactors compatibles con la aplicación, consulte [Referencia de atributos de SuccessFactors](../manage-apps/sap-successfactors-attribute-reference.md).
+  >Para obtener la lista completa de atributos de SuccessFactors compatibles con la aplicación, consulte [Referencia de atributos de SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
 
 
 1. Haga clic en una asignación de atributos existente para actualizarla o haga clic en **Agregar nueva asignación** en la parte inferior de la pantalla para agregar asignaciones nuevas. Las asignaciones de atributos admiten estas propiedades:
@@ -229,7 +229,7 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
 
          * **Constante**: escribe un valor de cadena estático y constante en el atributo de AD.
 
-         * **Expresión**: permite escribir un valor personalizado en el atributo de AD, en función de uno o varios atributos de SuccessFactors. [Para obtener más información, consulte este artículo sobre las expresiones](../manage-apps/functions-for-customizing-application-data.md).
+         * **Expresión**: permite escribir un valor personalizado en el atributo de AD, en función de uno o varios atributos de SuccessFactors. [Para obtener más información, consulte este artículo sobre las expresiones](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **Atributo de origen**: el atributo de usuario de SuccessFactors.
 
@@ -274,11 +274,11 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre los atributos de SuccessFactors compatibles para el aprovisionamiento de entrada](../manage-apps/sap-successfactors-attribute-reference.md)
+* [Más información sobre los atributos de SuccessFactors compatibles para el aprovisionamiento de entrada](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Aprenda a configurar la escritura diferida de correo electrónico en SuccessFactors](sap-successfactors-writeback-tutorial.md)
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Aprenda a configurar el inicio de sesión único entre SuccessFactors y Azure Active Directory](successfactors-tutorial.md)
 * [Aprenda a integrar otras aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [Aprenda a exportar e importar las configuraciones de aprovisionamiento](../manage-apps/export-import-provisioning-configuration.md)
+* [Aprenda a exportar e importar las configuraciones de aprovisionamiento](../app-provisioning/export-import-provisioning-configuration.md)
 
 

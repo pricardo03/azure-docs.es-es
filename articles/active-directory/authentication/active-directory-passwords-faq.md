@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 790a948611c6cfa336964397282a38d2b9c00e11
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848789"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061461"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -41,7 +41,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  Si habilito el restablecimiento de contraseña de un grupo y decido habilitarla para todo el mundo, ¿deben volver a registrarse mis usuarios?**
 
-  > **R:**  No. No es necesario que los usuarios cuyos datos de autenticación estén rellenados vuelvan a registrarse.
+  > **R:** No. No es necesario que los usuarios cuyos datos de autenticación estén rellenados vuelvan a registrarse.
   >
   >
 * **P:  ¿Puedo definir los datos de restablecimiento de contraseña en nombre de mis usuarios?**
@@ -61,7 +61,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Mis usuarios deben registrarse antes de poder utilizar el restablecimiento de contraseña?**
 
-  > **R:**  No. Si define información de autenticación suficiente en nombre de sus usuarios, estos no tendrán que registrarse. El restablecimiento de contraseña funciona siempre que tenga los datos con formato correcto almacenados en los campos adecuados del directorio.
+  > **R:** No. Si define información de autenticación suficiente en nombre de sus usuarios, estos no tendrán que registrarse. El restablecimiento de contraseña funciona siempre que tenga los datos con formato correcto almacenados en los campos adecuados del directorio.
   >
   >
 * **P:  ¿Puedo sincronizar o definir los campos Teléfono de autenticación, Correo electrónico de autenticación o Teléfono de autenticación alternativo en nombre de mis usuarios?**
@@ -114,7 +114,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Cómo puedo informar a mis usuarios sobre dónde tienen que ir para restablecer sus contraseñas?**
 
-  > **R:** Pruebe algunas de las sugerencias de nuestro artículo sobre la [implementación del autoservicio de restablecimiento de contraseña (SSPR)](howto-sspr-deployment.md#communications-plan).
+  > **R:** Pruebe algunas de las sugerencias de nuestro artículo sobre la [implementación del autoservicio de restablecimiento de contraseña (SSPR)](howto-sspr-deployment.md#plan-communications).
   >
   >
 * **P:  ¿Puedo usar esta página desde un dispositivo móvil?**
@@ -159,7 +159,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Puede un usuario registrar la misma pregunta de seguridad más de una vez?**
 
-  > **R:**  No. Después de que un usuario registre una pregunta específica, no podrá volver a registrarla.
+  > **R:** No. Después de que un usuario registre una pregunta específica, no podrá volver a registrarla.
   >
   >
 * **P:  ¿Es posible establecer un límite mínimo de preguntas de seguridad para registro y restablecimiento?**

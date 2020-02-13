@@ -3,17 +3,17 @@ title: Tutorial de C# para crear la primera aplicación
 titleSuffix: Azure Cognitive Search
 description: Aprenda a crear su primera aplicación de búsqueda con C# paso a paso. En el tutorial se proporcionan un vínculo a una aplicación en funcionamiento en GitHub y el proceso completo para compilar la aplicación desde cero. Conozca los componentes esenciales de Azure Cognitive Search.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: fc3d9d52ca6eb3d35138323908c73eb0d09cf519
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112238"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121594"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Tutorial de C#: Creación de la primera aplicación: Azure Cognitive Search
 
@@ -44,7 +44,7 @@ Esta llamada única inicia una búsqueda de datos de Azure y devuelve los result
 ![Buscar "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 

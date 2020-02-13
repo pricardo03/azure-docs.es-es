@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895932"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063387"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guía de introducción a la integración de Azure Active Directory con las aplicaciones
 
@@ -85,7 +85,7 @@ Si quiere agregar su aplicación personalizada a la Galería de aplicaciones de 
 En los artículos siguientes se describen formas de administrar el acceso a las aplicaciones después de que se han integrado con Azure AD mediante conectores de Azure AD y Azure AD.
 
 * [Administración del acceso a aplicaciones con Azure AD](what-is-access-management.md)
-* [Automatización con conectores de Azure AD](user-provisioning.md)
+* [Automatización con conectores de Azure AD](../app-provisioning/user-provisioning.md)
 * [Asignación de usuarios a una aplicación](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Asignación de grupos a una aplicación](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Uso compartido de cuentas](../active-directory-sharing-accounts.md)
@@ -95,7 +95,7 @@ Para obtener información detallada, puede descargar los planes de implementaci�
 
 Para descargar un plan de implementación desde Azure Portal:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Aplicaciones empresariales** | **Elegir una aplicación** | **Plan de implementación**.
 
 Realice la [Encuesta del plan de implementación](https://aka.ms/DeploymentPlanFeedback) para proporcionar comentarios sobre los planes de implementación.

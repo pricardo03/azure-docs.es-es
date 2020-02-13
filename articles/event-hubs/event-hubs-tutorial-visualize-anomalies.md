@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 01/15/2020
-ms.openlocfilehash: 8fa123772ae380cd000c414c63bdf3908d279751
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906389"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163184"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita][] antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -384,6 +384,6 @@ En este tutorial, ha aprendido a:
 Avance al siguiente artículo para más información sobre Azure Event Hubs.
 
 > [!div class="nextstepaction"]
-> [Introducción al envío de mensajes a Azure Event Hubs en .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+> [Introducción al envío de mensajes a Azure Event Hubs en .NET Standard](get-started-dotnet-standard-send-v2.md)
 
 [cree una cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

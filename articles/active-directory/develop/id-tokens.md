@@ -13,16 +13,16 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 912287200097906af7a8a9d6d12eb1421f3edadc
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1efd027edb85cabcfdc2a170771ef19182b5c9f8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696765"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160957"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
-Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v1-protocols-openid-connect-code.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario.
+Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v2-protocols-oidc.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario.
 
 ## <a name="using-the-id_token"></a>Uso del id_token
 

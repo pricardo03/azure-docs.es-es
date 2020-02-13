@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f32d9832f0bad81ca29ab7553d956b593531d1bd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9fd5fa943468924c289587285fe7986a73c21dba
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698941"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161348"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Procedimientos: Usar Graph API de Azure AD
 
@@ -81,7 +81,7 @@ Para seguir esta guía de inicio rápido, puede usar el depurador web Fiddler pa
 
 En el ejemplo siguiente, usará el depurador web Fiddler para crear un nuevo grupo de seguridad, "MyTestGroup", en el directorio de Azure AD.
 
-**Obtener un token de acceso**: para obtener acceso a Azure AD Graph, los clientes deben autenticarse primero correctamente en Azure AD. Para obtener más información, consulte [Escenarios de autenticación en Azure AD](v1-authentication-scenarios.md).
+**Obtener un token de acceso**: para obtener acceso a Azure AD Graph, los clientes deben autenticarse primero correctamente en Azure AD. Para obtener más información, consulte [Escenarios de autenticación en Azure AD](authentication-scenarios.md).
 
 **Redactar y ejecutar una consulta**: Complete los pasos siguientes:
 

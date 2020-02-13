@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d191abafbaad123ed47f8eaae6cdd4e48478da7a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422636"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063533"
 ---
 # <a name="configure-password-single-sign-on"></a>Configuración del inicio de sesión único con contraseña
 
@@ -26,7 +26,7 @@ El SSO basado en contraseña representa una excelente manera de empezar a integr
 
 -   Habilitar el **inicio de sesión único para los usuarios** almacenando y reproduciendo de forma segura los nombres de usuario y contraseñas para la aplicación que ha integrado con Azure AD.
 
--   **Admitir las aplicaciones que requieren varios campos de inicio de sesión** para aplicaciones que requieren más que solo los campos de nombre de usuario y contraseña para iniciar sesión
+-   **Admitir aplicaciones que requieren varios campos de inicio de sesión** para aplicaciones que no solo requieren los campos de nombre de usuario y contraseña para iniciar sesión.
 
 -   **Personalizar las etiquetas** de los campos de entrada de nombre de usuario y contraseña que los usuarios ven en el [panel de acceso de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) cuando escriben sus credenciales
 
@@ -68,7 +68,7 @@ Si la aplicación no se ha agregado a su inquilino de Azure AD, consulte [Incor
 
 Si se produce un error en el intento de análisis de Azure AD, puede configurar el inicio de sesión manualmente.
 
-1. En **Configuración de \<nombreDeAplicación>** , seleccione **Establecer configuración de inicio de sesión único con contraseña de \<nombreDeAplicación> para mostrar la página**  **Configurar inicio de sesión**. 
+1. En **Configuración de \<nombreDeAplicación>** , seleccione **Establecer configuración de inicio de sesión único con contraseña de \<nombreDeAplicación> para mostrar la página** **Configurar inicio de sesión**. 
 
 2. Seleccione **Detectar campos de inicio de sesión manualmente**. Aparecen instrucciones adicionales que describen la detección manual de los campos de inicio de sesión.
 
@@ -95,4 +95,4 @@ Después de capturar la página de inicio de sesión, puede asignar los usuarios
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Asignación de usuarios y grupos a la aplicación](methods-for-assigning-users-and-groups.md)
-- [Configuración del aprovisionamiento automático de cuentas de usuario](configure-automatic-user-provisioning-portal.md)
+- [Configuración del aprovisionamiento automático de cuentas de usuario](../app-provisioning/configure-automatic-user-provisioning-portal.md)

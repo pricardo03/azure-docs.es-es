@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67737aed3bd9961a37dc761fddf608d9bcfe3ffe
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f1fa447312ad6a1f92eaed1164020cb6ee95606e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847259"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161603"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedimiento: Configurar la escritura diferida de contraseñas
 
@@ -35,7 +35,7 @@ En los pasos siguientes se da por supuesto que ya ha configurado Azure AD Connec
 Para tareas de solución de problemas comunes relacionadas con la escritura diferida de contraseñas, consulte la sección [Solución de problemas con la escritura diferida de contraseñas](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) en nuestro artículo de solución de problemas.
 
 > [!WARNING]
-> La escritura diferida de contraseñas dejará de funcionar para los clientes que usan versiones de Azure AD Connect 1.0.8641.0 y anteriores cuando el [servicio de Azure Access Control (ACS) se retire el 7 de noviembre de 2018](../develop/active-directory-acs-migration.md). Las versiones de Azure AD Connect 1.0.8641.0 y anteriores ya no permitirán la escritura diferida de contraseñas a partir de ese momento porque dependen de ACS para esa funcionalidad.
+> La escritura diferida de contraseñas dejará de funcionar para los clientes que usan versiones de Azure AD Connect 1.0.8641.0 y anteriores cuando el [servicio de Azure Access Control (ACS) se retire el 7 de noviembre de 2018](../azuread-dev/active-directory-acs-migration.md). Las versiones de Azure AD Connect 1.0.8641.0 y anteriores ya no permitirán la escritura diferida de contraseñas a partir de ese momento porque dependen de ACS para esa funcionalidad.
 >
 > Para evitar una interrupción en el servicio y actualizar desde una versión anterior de Azure AD Connect a una versión más reciente, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](../hybrid/how-to-upgrade-previous-version.md)
 >

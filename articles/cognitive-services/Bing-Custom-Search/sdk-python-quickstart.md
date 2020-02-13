@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d67075fad719b1780682c705f0e17f15c5801559
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448681"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136148"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para Python 
 
 Use este inicio rápido para comenzar a solicitar los resultados de la búsqueda de la instancia de Bing Custom Search con el SDK para Python. Aunque Bing Custom Search tiene una API de REST compatible con la mayoría de los lenguajes de programación, el SDK de Bing Custom Search proporciona una forma sencilla de integrar el servicio en sus aplicaciones. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una instancia de Bing Custom Search. Consulte [Quickstart: Creación de la primera instancia de Bing Custom Search](quick-start.md) para obtener más información.
 - Python [2.x o 3.x](https://www.python.org/) 
@@ -51,12 +51,13 @@ from msrest.authentication import CognitiveServicesCredentials
 
     ```python
     subscription_key = 'your-subscription-key'
+    endpoint = 'your-custom-endpoint'
     ```
 
 2. Cree una instancia de `CustomSearchClient` con un objeto `CognitiveServicesCredentials` mediante la clave de suscripción. 
 
     ```python
-    client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
     ```
 
 3. Envíe una solicitud de búsqueda con `client.custom_instance.search()`. Anexe el término de búsqueda al parámetro `query` y establezca `custom_config` en el identificador de configuración personalizada para usar la instancia de búsqueda. Puede obtener el identificador en el [portal de Bing Custom Search](https://www.customsearch.ai/), donde debe hacer clic en la pestaña **Producción**.

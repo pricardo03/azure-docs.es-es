@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e0a4eed020728bea5de196eebe438947ae509e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48df954f680c6774b0aa189453615156f4f0b4a8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515672"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063278"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce Sandbox para aprovisionar usuarios automáticamente
 
 El objetivo de este tutorial es mostrar los pasos que debe realizar en Salesforce Sandbox y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para Salesforce Sandbox.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -78,15 +78,15 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 1. Para obtener el token de seguridad de Salesforce Sandbox, abra una nueva pestaña e inicie sesión en la misma cuenta de administrador de Salesforce Sandbox. En la esquina superior derecha de la página, haga clic en su nombre y, a continuación, haga clic en **Configuración**.
 
-     ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Habilitar aprovisionamiento automático de usuarios")
+     ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Habilitar el aprovisionamiento automático de usuarios")
 
 1. En el panel de navegación izquierdo, haga clic en **Mi información personal** para expandir la sección relacionada y haga clic en **Reset My Security Token** (Restablecer mi token de seguridad).
   
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Habilitar aprovisionamiento automático de usuarios")
+    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Habilitar el aprovisionamiento automático de usuarios")
 
 1. En la página **Reset Security Token** (Restablecer token de seguridad), haga clic en el botón **Reset Security Token** (Restablecer token de seguridad).
 
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Habilitar aprovisionamiento automático de usuarios")
+    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Habilitar el aprovisionamiento automático de usuarios")
 
 1. Compruebe la bandeja de entrada de correo electrónico asociada a esta cuenta de administrador. Busque un correo electrónico de Salesforce Sandbox.com que contenga el nuevo token de seguridad.
 
@@ -108,7 +108,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 Comienza la sincronización inicial de todos los usuarios y grupos asignados a Salesforce Sandbox en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los registros de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Salesforce Sandbox.
 
-Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
+Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

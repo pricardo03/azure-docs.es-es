@@ -3,17 +3,17 @@ title: Tutorial de C# sobre la función Autocompletar y las sugerencias
 titleSuffix: Azure Cognitive Search
 description: En este tutorial se muestran las funciones Autocompletar y las sugerencias como una manera de recopilar la entrada de términos de búsqueda de los usuarios mediante una lista desplegable. Se basa en un proyecto de hoteles existente.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114567"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121535"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Tutorial de C#: Incorporación de la función Autocompletar y las sugerencias en Azure Cognitive Search
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a:
 > * Agregar la función Autocompletar
 > * Combinar la función Autocompletar y las sugerencias
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
@@ -44,7 +44,7 @@ Comencemos con el caso más simple de la oferta de alternativas para el usuario:
 
     La clave aquí es que hemos configurado el identificador del cuadro de búsqueda como **azureautosuggest**.
 
-2. Siguiendo esta aclaración, tras el  **&lt;/div&gt;** del cierre, escriba este script.
+2. Siguiendo esta aclaración, tras el **&lt;/div&gt;** del cierre, escriba este script.
 
     ```javascript
     <script>

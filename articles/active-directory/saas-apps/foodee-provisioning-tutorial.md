@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170072"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057834"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Tutorial: Configuración de Foodee para aprovisionar usuarios automáticamente
 
 En este artículo se muestra cómo configurar Azure Active Directory (Azure AD) en Foodee y Azure AD para aprovisionar o desaprovisionar automáticamente usuarios o grupos en Foodee.
 
 > [!NOTE]
-> En este artículo se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para saber qué hace este servicio y de su funcionamiento, así como obtener las respuestas proporcionadas a las preguntas que se realizan con más frecuencia al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+> En este artículo se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para saber qué hace este servicio y de su funcionamiento, así como obtener las respuestas proporcionadas a las preguntas que se realizan con más frecuencia al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Este conector está actualmente en versión preliminar. Para más información sobre la característica Términos de uso de Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial se supone que cuenta con los requisitos previos siguientes:
 
@@ -150,7 +150,7 @@ Para configurar el aprovisionamiento automático de usuarios para Foodee en Azur
     ![Asignaciones de usuario de Foodee](media/Foodee-provisioning-tutorial/groupattribute.png)
 
 1. Para confirmar los cambios, seleccione **Guardar**.
-1. Configure los filtros de ámbito. Para aprender a hacerlo, consulte las instrucciones del artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Configure los filtros de ámbito. Para aprender a hacerlo, consulte las instrucciones del artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para Foodee, en la sección **Configuración**, cambie el **Estado de aprovisionamiento** a **Activado**.
 
@@ -164,15 +164,15 @@ Para configurar el aprovisionamiento automático de usuarios para Foodee en Azur
 
     ![Botón Guardar para la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-La operación anterior inicia la sincronización inicial de los usuarios o grupos que ha definido en la lista desplegable **Ámbito**. La sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Para más información, consulte [¿Cuánto tiempo se tarda en aprovisionar usuarios?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+La operación anterior inicia la sincronización inicial de los usuarios o grupos que ha definido en la lista desplegable **Ámbito**. La sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Para más información, consulte [¿Cuánto tiempo se tarda en aprovisionar usuarios?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Puede usar la sección **Estado actual** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento. En el informe se describen todas las acciones que el servicio de aprovisionamiento de Azure AD realiza en Foodee. Para obtener más información, vea [Comprobación del estado de aprovisionamiento](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). Para leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
+Puede usar la sección **Estado actual** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento. En el informe se describen todas las acciones que el servicio de aprovisionamiento de Azure AD realiza en Foodee. Para obtener más información, vea [Comprobación del estado de aprovisionamiento](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)

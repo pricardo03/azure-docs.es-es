@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 443f1eb1576f2d6eb28d0de16f37e37912b707b9
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9ac0f4d5c10cf128b6161163a81cc171bcafbd36
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547350"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159002"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -30,7 +30,7 @@ Las identidades administradas para los recursos de Azure proporcionan a los serv
 
 En este artículo se proporcionan diversos ejemplos de códigos y scripts para obtener tokens, así como instrucciones sobre temas importantes como el control de errores HTTP y la expiración de tokens. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -45,7 +45,7 @@ Si tiene previsto usar los ejemplos de Azure PowerShell de este artículo, no se
 
 ## <a name="overview"></a>Información general
 
-Una aplicación cliente puede solicitar un [token de acceso de solo aplicación](../develop/developer-glossary.md#access-token) de identidades administradas de recursos de Azure para acceder a un recurso determinado. El token [se basa en la entidad de servicio de identidades administradas de recursos de Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Por lo tanto, no es necesario que el cliente se registre automáticamente para obtener un token de acceso en su propia entidad de servicio. El token es adecuado para utilizarse como un token de portador en [llamadas de servicio a servicio que requieren credenciales de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
+Una aplicación cliente puede solicitar un [token de acceso de solo aplicación](../develop/developer-glossary.md#access-token) de identidades administradas de recursos de Azure para acceder a un recurso determinado. El token [se basa en la entidad de servicio de identidades administradas de recursos de Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Por lo tanto, no es necesario que el cliente se registre automáticamente para obtener un token de acceso en su propia entidad de servicio. El token es adecuado para utilizarse como un token de portador en [llamadas de servicio a servicio que requieren credenciales de cliente](../develop/v2-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -70,7 +70,7 @@ Solicitud de ejemplo con el punto de conexión de Azure Instance Metadata Servic
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | Punto de conexión del token de las identidades administradas de recursos de Azure para Instance Metadata Service. |
@@ -88,7 +88,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
 | `http://localhost:50342/oauth2/token` | Punto de conexión de identidades administradas de recursos de Azure, donde 50342 es el puerto predeterminado y configurable. |
@@ -113,7 +113,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | `access_token` | El token de acceso solicitado. Al llamar a una API de REST protegida, el token se inserta en el campo `Authorization` del encabezado de la solicitud como un token de "portador", lo que permite a la API autenticar el llamador. | 
 | `refresh_token` | Las identidades administradas de recursos de Azure no lo usan. |
@@ -362,7 +362,7 @@ El punto de conexión de identidades administradas de recursos de Azure señala 
 
 Si se produce un error, el cuerpo de respuesta HTTP correspondiente contiene los detalles del error en formato JSON:
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | error   | Identificador del error. |
 | error_description | Descripción detallada del error. **Las descripciones de error pueden cambiar en cualquier momento. No escriba código que cree ramas en función de los valores de la descripción del error.**|

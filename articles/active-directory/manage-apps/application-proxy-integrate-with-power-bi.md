@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bc96c94152b39cc70cfc4553690faaa5b9cb8d20
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275522"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111578"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitación del acceso remoto a Power BI Mobile con Azure AD Application Proxy
 
 En este artículo se describe cómo usar Azure AD Application Proxy para habilitar la conexión de la aplicación Power BI Mobile a Power BI Report Server (PBIRS) y SQL Server Reporting Services (SSRS) 2016 y versiones posteriores. A través de esta integración, los usuarios que están fuera de la red corporativa pueden acceder a sus informes de Power BI desde la aplicación Power BI Mobile y estar protegidos mediante la autenticación de Azure AD. Esta protección incluye [ventajas de seguridad](application-proxy-security.md#security-benefits) como el acceso condicional y la autenticación multifactor.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por hecho que ya se han implementado los servicios de informes y se ha [habilitado Application Proxy](application-proxy-add-on-premises-application.md).
 
@@ -139,9 +139,6 @@ Para que la aplicación móvil de Power BI pueda conectarse y acceder a los ser
 
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>Paso 5: Configuración de la directiva de Intune para dispositivos administrados (opcional)
 
-> [!NOTE]
-> Esta funcionalidad solo está disponible actualmente en iOS.
-
 Puede usar Microsoft Intune para administrar las aplicaciones cliente que utiliza el personal de su empresa. Intune permite usar funcionalidades como el cifrado de datos y requisitos de acceso adicionales. Para obtener más información sobre la administración de aplicaciones a través de Intune, consulte Administración de aplicaciones de Intune. Para habilitar la aplicación Power BI Mobile para que funcione con la directiva de Intune, siga estos pasos.
 
 1. Vaya a **Azure Active Directory** y, luego, a **Registros de aplicaciones**.
@@ -153,7 +150,7 @@ Puede usar Microsoft Intune para administrar las aplicaciones cliente que utili
 7. Haga clic en **Conceder consentimiento de administrador** para conceder el permiso de acceso a la aplicación.
 8. Configure la directiva de Intune que quiera consultando el [procedimiento de creación y asignación de directivas de protección de aplicaciones](https://docs.microsoft.com/intune/app-protection-policies).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si la aplicación devuelve una página de error después de intentar cargar un informe durante varios minutos, puede que tenga que cambiar la configuración del tiempo de espera. De forma predeterminada, Application Proxy admite aplicaciones que tardan un máximo de 85 segundos en responder a una solicitud. Para aumentar este valor a 180 segundos, seleccione el tiempo de espera de back-end como **Largo** en la página de configuración de Application Proxy para la aplicación. Para obtener sugerencias sobre procedimientos para crear informes rápidos y de confianza, consulte los [procedimientos recomendados para informes de Power BI](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
 

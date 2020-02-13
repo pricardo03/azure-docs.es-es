@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ad27ad5e34d9f44fe7d7be80e05e33dd6fb5e7b1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841972"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159070"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configuración del inicio de sesión único basado en SAML en aplicaciones que no están en la galería
 
@@ -158,9 +158,9 @@ Si aparece un mensaje de error, realice los pasos siguientes:
 
 4. Vuelva a ejecutar la prueba hasta que se complete correctamente.
 
-Para más información, consulte [Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+Para más información, consulte [Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Asignación de usuarios y grupos a la aplicación](methods-for-assigning-users-and-groups.md)
-- [Configuración del aprovisionamiento automático de cuentas de usuario](configure-automatic-user-provisioning-portal.md)
+- [Configuración del aprovisionamiento automático de cuentas de usuario](../app-provisioning/configure-automatic-user-provisioning-portal.md)

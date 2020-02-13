@@ -6,23 +6,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 55846c76f2c3ef1c5d884af39af85db3abe38aad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0eabd918b5f8f52049792ceb28ef8055945d6475
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892913"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162181"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
 Este tutorial es la primera parte de una serie. En él, aprenderá a conseguir una alta disponibilidad de los datos de aplicación en Azure.
 
-Cuando haya terminado este tutorial, tendrá una aplicación de consola que carga un blob a una cuenta de [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) y lo recupera.
+Cuando haya terminado este tutorial, tendrá una aplicación de consola que carga un blob a una cuenta de [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy.md) (RA-GRS) y lo recupera.
 
 RA-GRS funciona mediante la replicación de transacciones de una región primaria en una región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación usa el patrón [disyuntor](/azure/architecture/patterns/circuit-breaker) para determinar a qué punto de conexión conectarse y cambia automáticamente entre los puntos de conexión a medida que se simulan errores y recuperaciones.
 
@@ -35,7 +35,7 @@ En la primera parte de la serie, se aprende a:
 > * Establecimiento de la cadena de conexión
 > * Ejecución de la aplicación de consola
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -58,7 +58,7 @@ Para completar este tutorial:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -79,8 +79,8 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
    | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
    | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
    |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
-   |**Ubicación** | East US | Elija una ubicación. |
+   |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
+   |**Ubicación** | Este de EE. UU. | Elija una ubicación. |
 
 ![creación de cuenta de almacenamiento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 

@@ -13,12 +13,12 @@ ms.date: 10/05/2018
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 372eac63b2ab9ea7dea540a088d61a5144886686
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dc7771f29fb5d00aedfe5162a98f5f0c14544a7b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698601"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161178"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Uso del protocolo SAML por parte de Azure AD
 
@@ -36,4 +36,4 @@ Azure Active Directory expone puntos de conexión de inicio y cierre de sesión 
 
 * El punto de conexión independiente del inquilino se encuentra en `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. En esta dirección de punto de conexión, se muestra **common**, en lugar de un id. o nombre de dominio del inquilino.
 
-Para obtener información sobre los documentos de metadatos de federación que publica Azure AD, consulte [Metadatos de federación](azure-ad-federation-metadata.md).
+Para obtener información sobre los documentos de metadatos de federación que publica Azure AD, consulte [Metadatos de federación](../azuread-dev/azure-ad-federation-metadata.md).
