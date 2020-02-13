@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: iainfoulds
   ms.author: iainfou
-  ms.date: 08/20/2019
+  ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 01e1fe5ed73275078fc37dbec9a0857a8c4a8619
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
+  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74847158"
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77166413"
 landingContent:
 - title: Acerca de la autenticación
   linkLists:
@@ -39,16 +39,16 @@ landingContent:
       url: concept-sspr-howitworks.md
     - text: escritura diferida de contraseñas
       url: concept-sspr-writeback.md
-  - linkListType: quickstart
+  - linkListType: tutorial
     links:
-    - text: Inicio rápido del autoservicio de restablecimiento de contraseña
-      url: quickstart-sspr.md
+    - text: Habilitar el autoservicio de restablecimiento de contraseña
+      url: tutorial-enable-sspr.md
+    - text: Habilitación de escritura diferida de contraseñas en un entorno local
+      url: tutorial-enable-writeback.md
   - linkListType: deploy
     links:
-    - text: Implementar el autoservicio de restablecimiento de contraseña de Azure AD
+    - text: Guía de implementación del autoservicio de restablecimiento de contraseña
       url: howto-sspr-deployment.md
-    - text: Habilitar escritura diferida de contraseñas
-      url: howto-sspr-writeback.md
     - text: Habilitar el restablecimiento de contraseña desde la pantalla de inicio de sesión de Windows
       url: howto-sspr-windows.md
 - title: Habilitación de Azure Multi-Factor Authentication
@@ -59,13 +59,13 @@ landingContent:
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Piloto de Azure MFA para aplicaciones específicas
-      url: tutorial-mfa-applications.md
-    - text: Uso de las detecciones de riesgos para desencadenar la autenticación multifactor y el cambio de contraseñas
+    - text: Habilitación de Azure Multi-Factor Authentication
+      url: tutorial-enable-azure-mfa.md
+    - text: Habilitación de la autenticación multifactor de Azure en función del riesgo
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Implementación de Azure Multi-Factor Authentication
+    - text: Guía de implementación de Azure Multi-Factor Authentication
       url: howto-mfa-getstarted.md
     - text: Uso de la extensión NPS para integrar las aplicaciones locales
       url: howto-mfa-nps-extension.md

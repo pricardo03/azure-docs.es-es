@@ -37,218 +37,30 @@
 - name: Ejemplos
   items:
     - name: Índice
-      displayName: 'list, examples'
+      displayName: 'list, builtins'
       href: ./samples/index.md
-    - name: General
+    - name: Directivas integradas
+      href: ./samples/built-in-policies.md
+    - name: Iniciativas integradas
+      href: ./samples/built-in-initiatives.md
+    - name: Patrones de uso
       items:
-        - name: Nomenclatura
-          items:
-            - name: Permitir varios patrones de nombre
-              displayName: 'deny, indexed'
-              href: samples/allow-multiple-name-patterns.md
-            - name: Requerir patrón Like
-              displayName: 'deny, indexed'
-              href: samples/enforce-like-pattern.md
-            - name: Requerir patrón de coincidencia
-              displayName: 'deny, indexed'
-              href: samples/enforce-match-pattern.md
-            - name: Requerir patrón de coincidencia de etiqueta
-              displayName: 'deny, all'
-              href: samples/enforce-tag-match-pattern.md
-        - name: Etiquetas
-          items:
-            - name: Aplicar etiqueta y su valor predeterminado
-              displayName: 'append, builtin, concat'
-              href: samples/apply-tag-default-value.md
-            - name: Iniciativa de directiva de etiquetas de facturación
-              href: samples/billing-tags-policy-initiative.md
-            - name: Enforce tag and its value (Forzar una etiqueta y su valor)
-              displayName: 'deny, concat, builtin'
-              href: samples/enforce-tag-value.md
-            - name: Aplicar etiqueta y su valor en grupos de recursos
-              displayName: 'deny, concat'
-              href: samples/enforce-tag-on-resource-groups.md
-        - name: Ubicaciones
-          items:
-            - name: Ubicaciones permitidas
-              displayName: 'deny, builtin, location'
-              href: samples/allowed-locations.md
-        - name: Tipos de recursos
-          items:
-            - name: Tipos de recursos permitidos
-              displayName: 'deny, builtin, resourceTypes'
-              href: samples/allowed-resource-types.md
-            - name: Tipos de recursos no permitidos
-              displayName: 'deny, builtin, resourceTypes'
-              href: samples/not-allowed-resource-types.md
-    - name: Proceso
-      items:
-        - name: Máquinas virtuales
-          items:
-            - name: Permitir una imagen de máquina virtual personalizada desde un grupo de recursos
-              displayName: 'deny, concat, ExistingResourceGroups'
-              href: samples/allow-custom-vm-image.md
-            - name: SKU permitidas para cuentas de almacenamiento y máquinas virtuales
-              displayName: 'initiative, vmSKUs, storageSKUs'
-              href: samples/allowed-skus-storage.md
-            - name: Imágenes de máquina virtual aprobadas
-              displayName: deny
-              href: samples/allowed-custom-images.md
-            - name: Auditar si la extensión no existe
-              displayName: auditIfNotExists
-              href: samples/audit-extension-not-exist.md
-            - name: Extensiones de máquina virtual no permitidas
-              displayName: deny
-              href: samples/not-allowed-vm-extension.md
-        - name: Conjuntos de escalado de máquinas virtuales
-          items:
-            - name: Auditoría cuando la máquina virtual no utiliza un disco administrado
-              displayName: audit
-              href: samples/create-vm-managed-disk.md
-            - name: Crear una máquina virtual con un disco administrado
-              displayName: deny
-              href: samples/use-managed-disk-vm.md
-            - name: Denegar la ventaja para uso híbrido
-              displayName: deny
-              href: samples/deny-hybrid-use.md
-            - name: Permitir solo cierta imagen de plataforma de máquina virtual
-              displayName: deny
-              href: samples/allow-certain-vm-image.md
-    - name: Data Lake
-      items:
-        - name: Aplicar cifrado de Data Lake Store
-          displayName: deny
-          href: samples/enforce-data-lake-store-encryption.md
-    - name: Configuración de invitado
-      items:
-        - name: Auditoría de aplicaciones no instaladas en Linux
-          displayName: 'audit, vm'
-          href: samples/guest-configuration-applications-installed-linux.md
-    - name: Almacenes de claves
-      items:
-        - name: Auditoría de almacenes que no tienen puntos de conexión de red virtual
-          displayName: 'audit, KeyVault, indexed'
-          href: samples/keyvault-no-vnet-rules.md
-    - name: Supervisión
-      items:
-        - name: Auditar la configuración de diagnóstico
-          displayName: 'auditIfNotExists, resourceTypes'
-          href: samples/audit-diagnostic-setting.md
-    - name: Red
-      items:
-        - name: Interfaces de red
-          items:
-            - name: NSG X en cada NIC
-              displayName: deny
-              href: samples/nsg-on-nic.md
-            - name: Usar subred aprobada para las interfaces de red de máquinas virtuales
-              displayName: deny
-              href: samples/use-approved-subnet-vm-nics.md
-            - name: Usar red virtual aprobada para las interfaces de red de máquinas virtuales
-              displayName: 'deny, concat'
-              href: samples/use-approved-vnet-vm-nics.md
-        - name: Redes virtuales
-          items:
-            - name: SKU permitidas de Application Gateway
-              displayName: deny
-              href: samples/allowed-app-gateway-sku.md
-            - name: SKU permitidas de puerta de enlace de red virtual
-              displayName: deny
-              href: samples/allowed-vnet-gateway-sku.md
-            - name: SKU permitidas de Load Balancer
-              displayName: deny
-              href: samples/allowed-load-balancer-skus.md
-            - name: Sin emparejamiento de red con la red de ER
-              displayName: 'deny, all, concat, ExistingResourceGroups'
-              href: samples/no-peering-express-route-network.md
-            - name: Sin tabla de rutas definida por el usuario
-              displayName: 'deny, all'
-              href: samples/no-user-defined-route-table.md
-            - name: NSG X en cada subred
-              displayName: 'deny, all'
-              href: samples/nsg-on-subnet.md
-            - name: Usar subred aprobada para las interfaces de red de máquinas virtuales
-              displayName: deny
-              href: samples/use-approved-subnet-vm-nics.md
-            - name: Usar red virtual aprobada para las interfaces de red de máquinas virtuales
-              displayName: deny
-              href: samples/use-approved-vnet-vm-nics.md
-        - name: Grupos de seguridad de red
-          items:
-            - name: NSG X en cada NIC
-              displayName: deny
-              href: samples/nsg-on-nic.md
-            - name: NSG X en cada subred
-              displayName: 'deny, all'
-              href: samples/nsg-on-subnet.md
-        - name: ExpressRoute
-          items:
-            - name: Ancho de banda permitido de ExpressRoute
-              displayName: deny
-              href: samples/allowed-express-route-bandwidth.md
-            - name: SKU de ExpressRoute permitidas
-              displayName: deny
-              href: samples/allowed-express-route-skus.md
-            - name: Ubicaciones permitidas de emparejamiento de ExpressRoute
-              displayName: 'deny, Location'
-              href: samples/allowed-express-route-peering.md
-        - name: Instancias de Network Watcher
-          items:
-            - name: Auditar si Network Watcher no está habilitado para la región
-              displayName: 'auditIfNotExists, Location'
-              href: samples/network-watcher-not-enabled.md
-        - name: Puertas de enlace de aplicaciones
-          items:
-            - name: SKU permitidas de Application Gateway
-              displayName: deny
-              href: samples/allowed-app-gateway-sku.md
-    - name: SQL
-      items:
-        - name: Servidores SQL Server
-          items:
-            - name: Auditar cuándo no hay administrador de Azure Active Directory
-              displayName: auditIfNotExists
-              href: samples/audit-no-aad-admin.md
-            - name: Auditar la configuración de detección de amenazas en el nivel de servidor
-              displayName: auditIfNotExists
-              href: samples/audit-sql-server-threat-detection-setting.md
-            - name: Auditar la configuración de auditoría de SQL Server
-              displayName: 'auditIfNotExists, builtin'
-              href: samples/sql-server-audit.md
-            - name: Auditar la configuración de auditoría en el nivel de SQL Server
-              displayName: auditIfNotExists
-              href: samples/audit-sql-server-audit-setting.md
-        - name: Instancias de SQL Database
-          items:
-            - name: SKU permitidas de SQL DB
-              displayName: deny
-              href: samples/allowed-sql-db-skus.md
-            - name: Auditar la configuración de detección de amenazas en el nivel de SQL DB
-              displayName: auditIfNotExists
-              href: samples/audit-db-threat-detection-setting.md
-            - name: Auditar cifrado de SQL DB
-              displayName: 'auditIfNotExists, disabled, indexed, builtin'
-              href: samples/sql-database-encryption-audit.md
-            - name: Auditar la configuración de auditoría en el nivel de SQL DB
-              displayName: auditIfNotExists
-              href: samples/audit-sql-db-audit-setting.md
-    - name: Storage
-      items:
-        - name: SKU permitidas para la cuenta de almacenamiento y las máquinas virtuales
-          displayName: 'initiative, vmSKUs, storageSKUs'
-          href: samples/allowed-skus-storage.md
-        - name: SKU de cuenta de almacenamiento permitida
-          displayName: 'deny, builtin, storageSKUs'
-          href: samples/allowed-storage-account-skus.md
-        - name: Denegar el nivel de almacenamiento de acceso esporádico para las cuentas de almacenamiento
-          displayName: 'deny, all'
-          href: samples/deny-cool-access-tiering.md
-        - name: Asegurar el tráfico HTTPS solo para una cuenta de almacenamiento
-          displayName: 'deny, all'
-          href: samples/ensure-https-storage-account.md
-        - name: Asegurar el cifrado de archivos de almacenamiento
-          displayName: 'deny, all'
-          href: samples/ensure-storage-file-encryption.md
+        - name: Operadores lógicos
+          href: ./samples/pattern-logical-operators.md
+        - name: Fields
+          href: ./samples/pattern-fields.md
+        - name: Parámetros
+          href: ./samples/pattern-parameters.md
+        - name: Detalles del efecto
+          href: ./samples/pattern-effect-details.md
+        - name: Operador value
+          href: ./samples/pattern-value-operator.md
+        - name: Operador count
+          href: ./samples/pattern-count-operator.md
+        - name: Agrupación en iniciativa
+          href: ./samples/pattern-group-with-initiative.md
+        - name: Implementación de recursos
+          href: ./samples/pattern-deploy-resources.md
 - name: Conceptos
   items:
     - name: Estructura de definición de Azure Policy

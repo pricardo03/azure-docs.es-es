@@ -64,7 +64,7 @@
   items:
     - name: Restablecimiento de la contraseña de autoservicio
       items:
-        - name: Implementación del autoservicio de restablecimiento de contraseña
+        - name: Guía de implementación
           href: howto-sspr-deployment.md
         - name: Registro previo de los datos de autenticación
           href: howto-sspr-authenticationdata.md
@@ -74,7 +74,7 @@
           href: howto-sspr-windows.md
     - name: Multi-Factor Authentication basado en la nube
       items:
-        - name: Implementación de Multi-Factor Authentication basado en la nube
+        - name: Guía de implementación
           href: howto-mfa-getstarted.md
         - name: Multi-Factor Authentication por usuario
           href: howto-mfa-userstates.md

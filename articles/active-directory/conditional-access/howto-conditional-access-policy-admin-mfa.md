@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e972228923654ca73063aad370d087e550138dbf
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fb396429c95dbed090283752c5a0d9ff5cc176af
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043376"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148205"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acceso condicional: Exigir autenticación multifactor para administradores
 
@@ -24,14 +24,14 @@ Las cuentas a las que se asignan derechos administrativos son el objetivo de los
 
 Microsoft recomienda exigir MFA en los roles siguientes como mínimo:
 
-* Administrador global
-* Administrador de SharePoint
-* Administrador de Exchange
+* Administrador de facturación
 * Administrador de acceso condicional
-* Administrador de seguridad
+* Administrador de Exchange
+* Administrador global
 * Administrador del departamento de soporte técnico (contraseñas)
 * Administrador de contraseñas
-* Administrador de facturación
+* Administrador de seguridad
+* Administrador de SharePoint
 * Administrador de usuarios
 
 Las organizaciones pueden optar por incluir o excluir roles según sea adecuado.
@@ -55,14 +55,14 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional qu
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
 1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Roles de directorio (versión preliminar)** y elija los siguientes roles como mínimo:
-      * Administrador global
-      * Administrador de SharePoint
-      * Administrador de Exchange
+      * Administrador de facturación
       * Administrador de acceso condicional
-      * Administrador de seguridad
+      * Administrador de Exchange
+      * Administrador global
       * Administrador del departamento de soporte técnico
       * Administrador de contraseñas
-      * Administrador de facturación
+      * Administrador de seguridad
+      * Administrador de SharePoint
       * Administrador de usuarios
    1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
    1. Seleccione **Listo**.

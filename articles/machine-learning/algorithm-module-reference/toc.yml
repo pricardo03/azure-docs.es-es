@@ -26,6 +26,8 @@
       href: convert-to-csv.md
     - name: Convertir conjunto de datos
       href: convert-to-dataset.md
+    - name: Conversión en valores de indicador
+      href: convert-to-indicator-values.md
     - name: Limpiar datos que faltan
       href: clean-missing-data.md
     - name: Edición de metadatos
@@ -120,11 +122,11 @@
       href: create-python-model.md
     - name: Ejecución de script de Python
       href: execute-python-script.md
-- name: Lenguaje R
+- name: "Lenguaje\_R"
   items:
     - name: Ejecución script de R
       href: execute-r-script.md
-- name: Text Analytics
+- name: Análisis de texto
   items:
     - name: Extracción de características de n-gramas a partir de texto
       href: extract-n-gram-features-from-text.md

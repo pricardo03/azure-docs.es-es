@@ -372,6 +372,8 @@
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: Solución de problemas
           items:
+            - name: No se puede crear un cuaderno de Jupyter Notebook
+              href: ./spark/troubleshoot-jupyter-notebook-convert.md
             - name: Excepción OutOfMemoryError
               href: ./spark/apache-spark-troubleshoot-outofmemory.md
             - name: 'Error en el trabajo de Apache Spark: NoClassDefFoundError'
@@ -396,6 +398,8 @@
               href: ./spark/apache-spark-troubleshoot-event-log-requestbodytoolarge.md
             - name: Depuración de trabajos de Apache Spark
               href: ./spark/apache-spark-job-debugging.md
+            - name: Depuración de las operaciones de archivos WASB
+              href: ./spark/troubleshoot-debug-wasb.md
             - name: Uso de IntelliJ para depurar trabajos de Apache Spark
               href: ./spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md
             - name: Solución de problemas de Apache Spark
@@ -523,6 +527,8 @@
               href: ./hadoop/troubleshoot-port-conflict.md
             - name: Se ha perdido el acceso a Key Vault
               href: ./hadoop/troubleshoot-lost-key-vault-access.md
+            - name: Excepción del almacenamiento de WASBS
+              href: ./hadoop/troubleshoot-wasbs-storage-exception.md
 - name: Apache Kafka
   items:
     - name: Información general

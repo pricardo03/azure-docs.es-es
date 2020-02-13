@@ -77,7 +77,7 @@
           href: notifications.md
         - name: Eliminación de un dominio administrado
           href: delete-aadds.md
-        - name: Migración desde una implementación clásica (versión preliminar)
+        - name: Migración desde una implementación clásica
           href: migrate-from-classic-vnet.md
         - name: Cambio de SKU
           href: change-sku.md

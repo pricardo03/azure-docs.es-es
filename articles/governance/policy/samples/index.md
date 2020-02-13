@@ -1,38 +1,39 @@
 ---
 title: Índice de ejemplos de Azure Policy
-description: Índice de ejemplos para Azure Policy. Las categorías incluyen nombres, etiquetas, Key Vault, redes, almacenamiento, etc.
-ms.date: 03/19/2019
+description: Índice de elementos integrados en Azure Policy. Etiquetas de categorías, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
+ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 54e77a83a03d9a8f5cedd59f010569d7ecef7d90
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 11e36ba71e1b88f279e824948dffa809f16fd443
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070096"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168030"
 ---
 # <a name="azure-policy-samples"></a>Ejemplos de Azure Policy
 
-En la tabla siguiente se incluyen vínculos a ejemplos de Azure Policy. Estos ejemplos se encuentran también en el [repositorio de ejemplos de Azure Policy](https://github.com/Azure/azure-policy).
+Esta página es un índice de los patrones de uso de lenguajes y de las definiciones de directivas integradas de Azure Policy.
 
-[!INCLUDE [azure-policy-samples-general](../../../../includes/azure-policy-samples-general.md)]
+## <a name="built-ins"></a>Integrados
 
-[!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
+- [Directivas](./built-in-policies.md)
+- [Iniciativas](./built-in-initiatives.md)
 
-[!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
+## <a name="patterns"></a>Patrones
 
-[!INCLUDE [azure-policy-samples-guest-configuration](../../../../includes/azure-policy-samples-guest-configuration.md)]
+A continuación se muestran ejemplos de diferentes patrones que usan el lenguaje y los operadores en Azure Policy:
 
-[!INCLUDE [azure-policy-samples-keyvault](../../../../includes/azure-policy-samples-keyvault.md)]
-
-[!INCLUDE [azure-policy-samples-monitoring](../../../../includes/azure-policy-samples-monitoring.md)]
-
-[!INCLUDE [azure-policy-samples-network](../../../../includes/azure-policy-samples-network.md)]
-
-[!INCLUDE [azure-policy-samples-sql](../../../../includes/azure-policy-samples-sql.md)]
-
-[!INCLUDE [azure-policy-samples-storage](../../../../includes/azure-policy-samples-storage.md)]
+- [Operadores lógicos](./pattern-logical-operators.md)
+- [Fields](./pattern-fields.md)
+- [Parámetros](./pattern-parameters.md)
+- [Detalles del efecto](./pattern-effect-details.md)
+- [Operador value](./pattern-value-operator.md)
+- [Operador count](./pattern-count-operator.md)
+- [Agrupación de definiciones de directivas en una iniciativa](./pattern-group-with-initiative.md)
+- [Implementación de recursos con deployIfNotExists](./pattern-deploy-resources.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Los elementos integrados se pueden encontrar en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).
 - Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
