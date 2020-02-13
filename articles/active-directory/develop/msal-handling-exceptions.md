@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 018d0c3bc009f6063de75b9a479be650b2c06e7c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916781"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160851"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Control de excepciones y errores en MSAL
 
@@ -142,7 +142,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 
 MSAL.js proporciona objetos de error que abstraen y clasifican los distintos tipos de errores comunes. También proporciona la interfaz para tener acceso a detalles específicos de los errores, como los mensajes de error, para controlarlos de manera adecuada.
 
-### <a name="error-object"></a>Objeto Error
+### <a name="error-object"></a>Objeto de error
 
 ```javascript
 export class AuthError extends Error {
@@ -506,7 +506,7 @@ El siguiente código de ejemplo de Objective-C muestra los procedimientos recome
 
 ## <a name="conditional-access-and-claims-challenges"></a>Acceso condicional y desafíos de notificaciones
 
-Al obtener los tokens de forma automática, la aplicación puede recibir errores si una API a la que está intentando acceder requiere un [desafío de notificaciones de acceso condicional](conditional-access-dev-guide.md) como, por ejemplo, una directiva de autenticación multifactor.
+Al obtener los tokens de forma automática, la aplicación puede recibir errores si una API a la que está intentando acceder requiere un [desafío de notificaciones de acceso condicional](../azuread-dev/conditional-access-dev-guide.md) como, por ejemplo, una directiva de autenticación multifactor.
 
 El patrón para controlar este error consiste en adquirir interactivamente un token mediante MSAL. La adquisición interactiva de un token avisa al usuario y le da la oportunidad de cumplir con la directiva de acceso condicional requerida.
 
@@ -520,7 +520,7 @@ Para controlar el desafío de notificaciones, deberá usar el método `.WithClai
 
 ### <a name="javascript"></a>JavaScript
 
-Al obtener los tokens de forma automática (mediante `acquireTokenSilent`) con MSAL.js, la aplicación puede recibir errores si una API a la que está intentando acceder requiere un [desafío de notificaciones de acceso condicional](conditional-access-dev-guide.md) como, por ejemplo, una directiva de autenticación multifactor.
+Al obtener los tokens de forma automática (mediante `acquireTokenSilent`) con MSAL.js, la aplicación puede recibir errores si una API a la que está intentando acceder requiere un [desafío de notificaciones de acceso condicional](../azuread-dev/conditional-access-dev-guide.md) como, por ejemplo, una directiva de autenticación multifactor.
 
 El patrón para controlar este error consiste en realizar una llamada interactiva para adquirir el token en MSAL.js como, por ejemplo, `acquireTokenPopup` o `acquireTokenRedirect` como se puede ver en el ejemplo siguiente:
 

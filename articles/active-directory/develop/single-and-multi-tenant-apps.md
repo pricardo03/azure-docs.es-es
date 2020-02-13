@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 364395a05737f6dc6333b922f54376a9d5149fe6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 38cb1222a64b1759528749caa15dfb1bb906cef6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701457"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159920"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Inquilinos en Azure Active Directory
 
@@ -46,9 +46,9 @@ En Azure Portal, puede configurar la aplicación para que sea de inquilino únic
 
 La creación de magníficas aplicaciones multiinquilino puede ser difícil debido al número de directivas que los administradores de TI pueden establecer en sus inquilinos. Si decide crear una aplicación multiinquilino, siga estos procedimientos recomendados:
 
-* Pruebe la aplicación en un inquilino que tenga configuradas [directivas de acceso condicional](conditional-access-dev-guide.md).
+* Pruebe la aplicación en un inquilino que tenga configuradas [directivas de acceso condicional](../azuread-dev/conditional-access-dev-guide.md).
 * Siga el principio de acceso mínimo de los usuarios para asegurarse de que la aplicación solo solicita los permisos que realmente necesita. Evite solicitar permisos que requieran el consentimiento del administrador, ya que esto puede impedir que los usuarios adquieran la aplicación en algunas organizaciones. 
-* Especifique los nombres apropiados y las descripciones pertinentes de los permisos que exponga como parte de la aplicación. Esto ayuda a los usuarios y los administradores a saber lo que aceptan cuando intentan usar las API de la aplicación. Para más información, consulte la sección de procedimientos recomendado en la [guía de permisos](v1-permissions-and-consent.md).
+* Especifique los nombres apropiados y las descripciones pertinentes de los permisos que exponga como parte de la aplicación. Esto ayuda a los usuarios y los administradores a saber lo que aceptan cuando intentan usar las API de la aplicación. Para más información, consulte la sección de procedimientos recomendado en la [guía de permisos](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

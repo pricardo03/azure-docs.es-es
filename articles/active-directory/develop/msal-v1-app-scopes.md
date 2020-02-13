@@ -2,22 +2,22 @@
 title: Ámbitos para las aplicaciones de la versión 1.0 (MSAL) | Azure
 description: Conozca los ámbitos para una aplicación de v1.0 mediante la biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c532eb658e882f11bb380dce4f7a604097693c0f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e0ef46d23ba267bbfc1ff539eb659fafe2b44f8e
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704364"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085687"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ámbitos para una API web que acepta tokens de la versión 1.0
 

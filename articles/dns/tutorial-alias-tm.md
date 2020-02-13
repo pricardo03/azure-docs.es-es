@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
-ms.openlocfilehash: 749e5eae64aa0d33c90ef8694da9a093647b8a8b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937920"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149956"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager 
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Debe tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
 Para obtener instrucciones sobre cómo hospedar el dominio en Azure DNS, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
@@ -40,7 +40,7 @@ El dominio en el ejemplo que se usa en este tutorial es contoso.com, pero debe u
 
 ## <a name="create-the-network-infrastructure"></a>Creación de la infraestructura de red
 En primer lugar, cree una red virtual y una subred en la que colocar los servidores web.
-1. Inicie sesión en Azure Portal en https://portal.azure.com.
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En el portal, en la parte superior izquierda, seleccione **Crear un recurso**. Escriba *grupo de recursos* en el cuadro de búsqueda y cree un grupo de recursos llamado **RG-DNS-Alias-TM**.
 3. Seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 4. Cree una red virtual llamada **VNet-Servers**. Colóquela en el grupo de recursos **RG-DNS-Alias-TM** y asigne a la subred el nombre **SN-Web**.

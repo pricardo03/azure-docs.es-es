@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/06/2019
+ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8124aea96ab00e7f09782531702dcb5cfa4ccdf2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eb75aa53051e7e3c424ffe131cda61324fe86b1a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701831"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159971"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicación de página única: Inicio y cierre de sesión
 
@@ -47,7 +47,7 @@ No puede usar juntos los métodos de ventana emergente y redirección en la apli
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Inicio de sesión con una ventana emergente
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const loginRequest = {
@@ -63,7 +63,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 El contenedor MSAL Angular le permite proteger rutas específicas de la aplicación con solo agregar el valor `MsalGuard` a la definición de ruta. Esta protección invocará al método para iniciar sesión cuando se tenga acceso a esa ruta.
 
@@ -89,10 +89,11 @@ Para usar la experiencia de ventana emergente, habilite la opción de configurac
             })]
          })
 ```
+---
 
 ## <a name="sign-in-with-redirect"></a>Inicio de sesión con redirección
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Los métodos de redirección no devuelven una promesa, dado que se abandona la aplicación principal. Para procesar los tokens devueltos y acceder a ellos, debe registrar las devoluciones de llamada correctas y con error antes de llamar a los métodos de redirección.
 
@@ -110,12 +111,14 @@ const loginRequest = {
 userAgentApplication.loginRedirect(loginRequest);
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 El código aquí es el mismo que el que se describió anteriormente en la sección sobre el inicio de sesión con una ventana emergente. El flujo predeterminado es de redirección.
 
 > [!NOTE]
 > El token de id. no contiene los ámbitos con consentimiento y solo representa al usuario autenticado. Se devuelven los ámbitos con consentimiento en el token de acceso que va a adquirir en el paso siguiente.
+
+---
 
 ## <a name="sign-out"></a>Cierre de sesión
 
@@ -123,7 +126,7 @@ La biblioteca MSAL proporciona un método `logout` que borra la caché en el alm
 
 Puede configurar el URI de redirección tras el cierre de sesión mediante el establecimiento del valor `postLogoutRedirectUri`. Este URI también se debe registrar como URI de cierre de sesión en el registro de la aplicación.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const config = {
@@ -140,7 +143,7 @@ userAgentApplication.logout();
 
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 ```javascript
 //In app.module.ts
@@ -154,6 +157,8 @@ userAgentApplication.logout();
 // In app.component.ts
 this.authService.logout();
 ```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

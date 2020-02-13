@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: f3cafb4d2df4d1944f583a99ca2014f3841827d0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ccece6c840033913ec6d96b446dcb98c4befb32f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701865"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160005"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplicación de página única: Llamada a una API de web
 
@@ -27,7 +27,7 @@ Se recomienda que llame al método `acquireTokenSilent` para adquirir o renovar 
 
 ## <a name="call-a-web-api"></a>Llamada a una API de web
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Use el token de acceso adquirido como portador en una solicitud HTTP para llamar a cualquier API web, como Microsoft Graph API. Por ejemplo:
 
@@ -47,9 +47,11 @@ Use el token de acceso adquirido como portador en una solicitud HTTP para llamar
         }
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 El contenedor MSAL Angular aprovecha las ventajas del interceptor HTTP para adquirir de forma automática y silenciosa tokens de acceso y adjuntarlos a las solicitudes HTTP de las API. Para más información, consulte [Aplicación de página única: adquirir un token para llamar a una API](scenario-spa-acquire-token.md).
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

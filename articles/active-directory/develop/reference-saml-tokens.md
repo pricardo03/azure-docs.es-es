@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01ea64a56d43976d319618350e68e03bba775e8e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2eb279d8f5871a0c6738ecc89fb7d01730187564
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702902"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160311"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referencia de tokens SAML de Azure AD
 
@@ -157,7 +157,7 @@ Este es un ejemplo de token SAML típico.
 ## <a name="related-content"></a>Contenido relacionado
 
 * Para más información acerca de la administración de la directiva de vigencia de token mediante Graph API de Azure AD, consulte las [operaciones de directivas](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) y la [entidad de directiva](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) de Azure AD Graph.
-* Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](active-directory-configurable-token-lifetimes.md) (Vigencias de tokens configurables en Azure Active Directory). 
-* Agregue [notificaciones opcionales y personalizadas](active-directory-optional-claims.md) a los tokens de la aplicación.
+* Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) (Vigencias de tokens configurables en Azure Active Directory). 
+* Agregue [notificaciones opcionales y personalizadas](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) a los tokens de la aplicación.
 * Uso del [inicio de sesión único (SSO) con SAML](single-sign-on-saml-protocol.md).
 * Uso del [Protocolo SAML de cierre de sesión único de Azure](single-sign-out-saml-protocol.md)

@@ -3,19 +3,19 @@ title: 'Inicio rápido: Asistente de voz personalizado en Java (Windows y Linux)
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido, aprenderá a utilizar el SDK de Voz de Cognitive Services en una aplicación de consola Java. Aprenderá a conectar su aplicación cliente a un bot de Bot Framework previamente creado y configurado para usar el canal Direct Line Speech y habilitar una experiencia de asistente de voz.
 services: cognitive-services
-author: bidishac
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: bidishac
-ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815861"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119671"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Inicio rápido: Creación de un asistente de voz con el SDK de Voz, Java (versión preliminar)
 
@@ -23,7 +23,7 @@ También hay disponibles inicios rápidos para [conversión de voz en texto](~/a
 
 En este artículo creará una aplicación de consola Java mediante el [SDK de Voz de Azure Cognitive Services](speech-sdk.md). La aplicación se conectará a un bot previamente creado y configurado para utilizar el canal Direct Line Speech, enviar una solicitud de voz y devolver una actividad de respuesta de voz (si se ha configurado). La aplicación se crea con el paquete de Maven del SDK de Voz y el IDE de Java de Eclipse en Windows, Ubuntu Linux y en macOS. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Esta guía de inicio rápido requiere:
 
@@ -67,7 +67,7 @@ Además, para habilitar el registro, actualice el archivo _pom.xml_ para incluir
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Para agregar una nueva clase vacía al proyecto de Java, seleccione **File (Archivo)**  >  **New (Nuevo)**  >  **Class (Clase)** .
+1. Para agregar una nueva clase vacía al proyecto de Java, seleccione **File (Archivo)**  > **New (Nuevo)**  > **Class (Clase)** .
 
 1. En la ventana **New Java Class** (Nueva clase de Java) escriba _speechsdk.quickstart_ en el campo **Package** (Paquete) y _Main_ en el campo **Name** (Nombre).
 
@@ -474,7 +474,7 @@ Se pueden encontrar ejemplos adicionales, por ejemplo, cómo leer voz de un arch
 > [!div class="nextstepaction"]
 > [Creación e implementación de un bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Acerca de los asistentes de voz](voice-assistants.md)
 - [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)

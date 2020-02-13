@@ -3,17 +3,17 @@ title: Tutorial de C# sobre la paginación de los resultados de la búsqueda
 titleSuffix: Azure Cognitive Search
 description: En este tutorial se muestra la paginación de los resultados de la búsqueda. Se basa en un proyecto de hoteles existente, con paginación mediante los botones primera, siguiente, anterior, última y con número. Un segundo sistema de paginación usa el desplazamiento infinito, desencadenado al mover una barra de desplazamiento vertical en el límite inferior.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 04f8229a86fbd8fbd5404997926412e760e74973
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113770"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121522"
 ---
 # <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Tutorial de C#: Paginación de los resultados de Azure Cognitive Search
 
@@ -24,7 +24,7 @@ En este tutorial, aprenderá a:
 > * Ampliar la aplicación con la paginación numerada
 > * Ampliar la aplicación con el desplazamiento infinito
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
@@ -424,7 +424,7 @@ Para implementar el desplazamiento infinito, comencemos con el proyecto antes de
 
 1. Busque la sección del archivo index.cshtml que muestra los resultados (comienza con **@if (Model !=null)** ).
 
-2. Reemplace la sección por el código siguiente. La nueva sección **&lt;div&gt;**  está alrededor del área que debe ser desplazable y agrega tanto un atributo **overflow-y** como una llamada a una función **onscroll** denominada "scrolled()".
+2. Reemplace la sección por el código siguiente. La nueva sección **&lt;div&gt;** está alrededor del área que debe ser desplazable y agrega tanto un atributo **overflow-y** como una llamada a una función **onscroll** denominada "scrolled()".
 
     ```cs
         @if (Model != null)

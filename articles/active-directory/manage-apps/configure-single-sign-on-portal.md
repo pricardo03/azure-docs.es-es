@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5e8ed4a78fccce4f3a5c631a99a8729114e5722
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: a415ac749d0d322bc2f71f64d4bec6e32ad1f12e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422607"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063499"
 ---
 # <a name="how-to-configure-saml-based-single-sign-on"></a>Configuración del inicio de sesión único basado en SAML
 
@@ -34,7 +34,7 @@ Para configurar un inicio de sesión único para una aplicación que no esté en
 - Si la aplicación no se ha agregado a su inquilino de Azure AD, consulte [Incorporación de una aplicación de la galería](add-gallery-app.md) o [Incorporación de una aplicación que no es de la galería](add-non-gallery-app.md).
 - Póngase en contacto con el proveedor de la aplicación para obtener la información correcta sobre las siguientes opciones:
 
-    | Opción de configuración básica de SAML | Iniciado por el proveedor de servicios | Iniciado por IdP | DESCRIPCIÓN |
+    | Opción de configuración básica de SAML | Iniciado por el proveedor de servicios | Iniciado por IdP | Descripción |
     |:--|:--|:--|:--|
     | Identificador (identificador de entidad) | Obligatorio para algunas aplicaciones | Obligatorio para algunas aplicaciones | Identifica de forma exclusiva la aplicación para la que se configura el inicio de sesión único. Azure AD envía el identificador a la aplicación como el parámetro Audiencia del token SAML. Se espera que la aplicación lo valide. Este valor también aparece como el id. de entidad en los metadatos SAML proporcionados por la aplicación. *Puede encontrar este valor como el elemento **Issuer** en el elemento **AuthRequest** (solicitud SAML) enviado por la aplicación.* |
     | URL de respuesta | Opcional | Obligatorio | Especifica el lugar donde la aplicación espera recibir el token SAML. La dirección URL de respuesta también se conoce como dirección URL del Servicio de consumidor de aserciones (ACS). |
@@ -102,7 +102,7 @@ Azure AD usa un certificado para firmar los tokens SAML que envía a la aplicac
 
 1. En la parte superior de la sección **Certificado de firma de SAML**, seleccione **Guardar**. 
 
-## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Paso 4 Configuración de la aplicación para que use Azure AD
+## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Paso 4. Configuración de la aplicación para que use Azure AD
 
 En la sección **Configurar \<applicationName>** se enumeran los valores que tienen que configurarse en la aplicación para que use Azure AD como proveedor de identidades de SAML. Los valores necesarios varían dependiendo de la aplicación. Para más información, consulte la documentación de SAML de la aplicación.
 
@@ -135,4 +135,4 @@ Si aparece un mensaje de error, realice los pasos siguientes:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Asignación de usuarios y grupos a la aplicación](methods-for-assigning-users-and-groups.md)
-- [Configuración del aprovisionamiento automático de cuentas de usuario](configure-automatic-user-provisioning-portal.md)
+- [Configuración del aprovisionamiento automático de cuentas de usuario](../app-provisioning/configure-automatic-user-provisioning-portal.md)

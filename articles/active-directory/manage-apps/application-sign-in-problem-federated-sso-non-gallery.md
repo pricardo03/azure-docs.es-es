@@ -16,19 +16,19 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8aac627936aef2cfa79bbd92d6163fe40b4d32
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 70a85a81996766b862cd6fbc3b605636385e0fda
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274851"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159189"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado
 
 Para solucionar los problemas de inicio de sesión, se recomienda que siga estas sugerencias para obtener un mejor diagnóstico y automatizar los pasos de resolución:
 
 - Instale la [extensión del explorador seguro de Mis aplicaciones](access-panel-extension-problem-installing.md) para ayudar a Azure Active Directory (Azure AD) a proporcionar mejores diagnósticos y resoluciones al usar la experiencia de pruebas en Azure Portal.
-- Reproduzca el error mediante la experiencia de pruebas en la página de configuración de aplicaciones en Azure Portal. Obtenga más información en [Depuración del inicio de sesión único basado en SAML en aplicaciones](../develop/howto-v1-debug-saml-sso-issues.md).
+- Reproduzca el error mediante la experiencia de pruebas en la página de configuración de aplicaciones en Azure Portal. Obtenga más información en [Depuración del inicio de sesión único basado en SAML en aplicaciones](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="application-not-found-in-directory"></a>No se encontró la aplicación en el directorio
 
@@ -40,7 +40,7 @@ El atributo Issuer que se envía de la aplicación a Azure AD en la solicitud SA
 
 **Resolución**
 
-Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
+Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../azuread-dev/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
 
 1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
@@ -70,7 +70,7 @@ El valor de AssertionConsumerServiceURL en la solicitud SAML no coincide con el 
 
 **Resolución** 
 
-Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
+Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../azuread-dev/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
  
 1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.** 
 
@@ -102,7 +102,7 @@ El usuario no tiene acceso a la aplicación en Azure AD.
 
 **Resolución**
 
-Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
+Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes. Si usa la [experiencia de pruebas](../azuread-dev/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
 
 1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
@@ -172,7 +172,7 @@ El atributo `Issuer` que se envía de la aplicación a Azure AD en la solicitud 
 
 **Resolución**
 
-Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente:
+Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../azuread-dev/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 

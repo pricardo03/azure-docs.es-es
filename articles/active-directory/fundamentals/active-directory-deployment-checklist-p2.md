@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc06931dd36c9ecd91ec1d748b9463f47f7afafc
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880589"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063652"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -26,7 +26,7 @@ Una infraestructura de identidades bien planeada y ejecutada prepara el terreno 
 
 Además, los clientes pueden consultar su [puntuación segura de identidad](identity-secure-score.md) para ver hasta qué punto siguen los procedimientos recomendados de Microsoft. Compruebe su puntuación segura antes y después de implementar estas recomendaciones para ver qué tal va en comparación con otros usuarios del sector y otras organizaciones de su tamaño.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Muchas de las recomendaciones de esta guía se pueden implementar con Azure AD Free o sin licencia. Cuando se requiera licencia, indicaremos cuál es necesaria como mínimo para completar la tarea.
 
@@ -94,7 +94,7 @@ En la fase 4 los administradores deben aplicar los últimos principios de los pe
 | [Completar una revisión de acceso para los roles de directorio de Azure AD en PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Trabaje con los equipos de seguridad y dirección para crear una directiva de revisión de acceso para revisar el acceso de los administradores de conformidad con las directivas de la organización. | Azure AD Premium P2 |
 | [Implementación de directivas de pertenencia dinámica a grupos](../users-groups-roles/groups-dynamic-membership.md) | Use grupos dinámicos para asignar automáticamente usuarios a grupos en función de sus atributos de RR. HH. (o su origen fiable), como el departamento, el puesto, la región y otros atributos. |  |
 | [Implementación del aprovisionamiento de aplicaciones basado en grupos](../manage-apps/what-is-access-management.md) | Use el aprovisionamiento de administración del acceso basado en grupos para aprovisionar usuarios automáticamente para las aplicaciones SaaS. |  |
-| [Automatización del aprovisionamiento y desaprovisionamiento de usuarios](../manage-apps/user-provisioning.md) | Elimine los pasos manuales del ciclo de vida de la cuenta del empleado para evitar el acceso no autorizado. Sincronización de identidades desde un origen fiable (sistema de RR. HH.) en Azure AD. |  |
+| [Automatización del aprovisionamiento y desaprovisionamiento de usuarios](../app-provisioning/user-provisioning.md) | Elimine los pasos manuales del ciclo de vida de la cuenta del empleado para evitar el acceso no autorizado. Sincronización de identidades desde un origen fiable (sistema de RR. HH.) en Azure AD. |  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

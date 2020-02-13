@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062817"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063618"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Agregue una aplicación no enumerada (que no esté en la galería) a su organización de Azure AD
 
@@ -25,7 +25,7 @@ Además de las opciones de la [galería de aplicaciones de Azure AD](https://azu
 
 - Integración de autoservicio de cualquier aplicación que admita proveedores de identidades de [Lenguaje de marcado de aserción de seguridad (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) (iniciado por el proveedor de servicios o por el proveedor de identidades)
 - Integración de autoservicio de cualquier aplicación web que tenga una página de inicio de sesión basada en HTML que use [SSO basado en contraseña](what-is-single-sign-on.md#password-based-sso)
-- Conexión de autoservicio de las aplicaciones que usan el protocolo [System for Cross-Domain Identity Management (SCIM) para el aprovisionamiento de usuarios](use-scim-to-provision-users-and-groups.md)
+- Conexión de autoservicio de las aplicaciones que usan el protocolo [System for Cross-Domain Identity Management (SCIM) para el aprovisionamiento de usuarios](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 - Capacidad para agregar vínculos a cualquier aplicación del [iniciador de aplicaciones de Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) o del [panel de acceso de Azure AD](what-is-single-sign-on.md#linked-sign-on)
 
 En este artículo se describe cómo agregar una aplicación que no esté en la galería a las **aplicaciones empresariales** de Azure Portal sin tener que escribir código. Si por el contrario quiere obtener instrucciones para desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md). Cuando desarrolle una aplicación que use un protocolo moderno como [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) para autenticar a los usuarios, puede registrarla en la plataforma de identidad de Microsoft mediante la experiencia [Registros de aplicaciones](../develop/quickstart-register-app.md) en Azure Portal.
@@ -73,13 +73,13 @@ En este artículo se describe cómo agregar una aplicación que no esté en la g
        | Configuración de propiedades de la aplicación | | | Experiencia del usuario asignado | |
        |---|---|---|---|---|
        | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden los usuarios asignados iniciar sesión? | ¿Pueden ver los usuarios asignados la aplicación?* |
-       | Sí | Sí | Sí | Sí | Sí  |
-       | Sí | Sí | no  | Sí | no   |
-       | Sí | no  | Sí | Sí | Sí  |
-       | Sí | no  | no  | Sí | no   |
-       | no  | Sí | Sí | no  | no   |
-       | no  | Sí | no  | no  | no   |
-       | no  | no  | Sí | no  | no   |
+       | sí | sí | sí | sí | sí  |
+       | sí | sí | no  | sí | no   |
+       | sí | no  | sí | sí | sí  |
+       | sí | no  | no  | sí | no   |
+       | no  | sí | sí | no  | no   |
+       | no  | sí | no  | no  | no   |
+       | no  | no  | sí | no  | no   |
        | no  | no  | no  | no  | no   |
 
       Comportamiento para los usuarios **no asignados**:
@@ -87,13 +87,13 @@ En este artículo se describe cómo agregar una aplicación que no esté en la g
        | Configuración de propiedades de la aplicación | | | Experiencia del usuario no asignado | |
        |---|---|---|---|---|
        | ¿Está habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
-       | Sí | Sí | Sí | no  | no   |
-       | Sí | Sí | no  | no  | no   |
-       | Sí | no  | Sí | Sí | no   |
-       | Sí | no  | no  | Sí | no   |
-       | no  | Sí | Sí | no  | no   |
-       | no  | Sí | no  | no  | no   |
-       | no  | no  | Sí | no  | no   |
+       | sí | sí | sí | no  | no   |
+       | sí | sí | no  | no  | no   |
+       | sí | no  | sí | sí | no   |
+       | sí | no  | no  | sí | no   |
+       | no  | sí | sí | no  | no   |
+       | no  | sí | no  | no  | no   |
+       | no  | no  | sí | no  | no   |
        | no  | no  | no  | no  | no   |
 
      ¿*Puede el usuario ver la aplicación en el panel de acceso y el iniciador de aplicaciones de Office 365?

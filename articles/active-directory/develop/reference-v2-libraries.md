@@ -17,12 +17,12 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b347357bca1a7c1057a480b4afdef59d08718310
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 09d0def2ebd012670b9502f6f9b02ad18a02922d
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703072"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160414"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticación de la Plataforma de identidad de Microsoft
 
@@ -31,7 +31,7 @@ El [punto de conexión de la Plataforma de identidad de Microsoft](active-direct
 Se recomienda usar bibliotecas escritas por expertos en los dominios del protocolo que sigan una metodología de ciclo de vida de desarrollo de seguridad (SDL). Estas metodologías incluyen [la que sigue Microsoft][Microsoft-SDL]. Si codifica manualmente los protocolos, debe seguir una metodología como la de SDL de Microsoft. Preste mucha atención a las consideraciones de seguridad en las especificaciones de estándares para cada protocolo.
 
 > [!NOTE]
-> ¿Busca la Biblioteca de autenticación de Azure Active Directory (ADAL)? Revise la [Guía de la biblioteca ADAL](active-directory-authentication-libraries.md).
+> ¿Busca la Biblioteca de autenticación de Azure Active Directory (ADAL)? Revise la [Guía de la biblioteca ADAL](../azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
 

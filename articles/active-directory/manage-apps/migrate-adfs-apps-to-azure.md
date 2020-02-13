@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c77b03c6e1f2240059d884b051e00b01836d714
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: ec825a562b57f081305af20ee6a6ce078d5c0505
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724015"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159019"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicaciones de AD FS a Azure AD 
 
@@ -59,7 +59,7 @@ En organizaciones que ya usan AD FS, Ping u otro proveedor de autenticación loc
   Azure AD, como un proveedor de identidades para aplicaciones SaaS, admite funcionalidades adicionales, como:
   - Certificados de firma de tokens por aplicación.
   - [Fechas de expiración de certificado configurables](manage-certificates-for-federated-single-sign-on.md).
-  - [Aprovisionamiento automático](user-provisioning.md) de cuentas de usuario (en las principales aplicaciones de Azure Marketplace) basada en identidades de Azure AD.
+  - [Aprovisionamiento automático](../app-provisioning/user-provisioning.md) de cuentas de usuario (en las principales aplicaciones de Azure Marketplace) basada en identidades de Azure AD.
 
 - **Se mantienen las ventajas de un proveedor de identidades local**
   
@@ -108,7 +108,7 @@ La migración comienza con la evaluación de cómo está configurada la aplicaci
 - Término de AD FS: Usuario de confianza o relación de confianza de usuario autenticado.
 - Términos de Azure AD: Aplicación empresarial o registro de aplicación (en función del tipo de aplicación).
 
-|Elemento de configuración de aplicación|DESCRIPCIÓN|Ubicación en la configuración de AD FS|Ubicación correspondiente en la configuración de Azure AD|Elemento de token de SAML|
+|Elemento de configuración de aplicación|Descripción|Ubicación en la configuración de AD FS|Ubicación correspondiente en la configuración de Azure AD|Elemento de token de SAML|
 |-----|-----|-----|-----|-----|
 |URL de inicio de sesión de aplicación|URL de la página de inicio de sesión de esta aplicación. Aquí es donde el usuario iría a iniciar sesión en la aplicación en un flujo de SAML iniciado por el SP.|N/D|En Azure AD, la dirección URL de inicio de sesión se configura en Azure Portal, en las propiedades de **inicio de sesión único** de la aplicación, como dirección URL de inicio de sesión.</br></br>(Puede que tenga que seleccionar **Mostrar configuración avanzada de URL** para ver la dirección URL de inicio de sesión).|N/D|
 |Dirección URL de respuesta de la aplicación|Dirección URL de la aplicación desde la perspectiva del proveedor de identidades (IdP). Aquí es donde se envían el usuario y el token una vez que el usuario ha iniciado sesión en el IdP.</br></br> Esto se conoce también como el "punto de conexión del consumidor de aserción de SAML".|Se encuentra en la relación de confianza de usuario autenticado de AD FS de la aplicación. Haga clic con el botón derecho en el usuario de confianza, seleccione **Propiedades** y, a continuación, seleccione la pestaña **Puntos de conexión**.|En Azure AD, la dirección URL de respuesta se configura en Azure Portal, en las propiedades de **Inicio de sesión único** de la aplicación, como dirección URL de respuesta.</br></br>(Puede que tenga que seleccionar **Mostrar configuración avanzada de URL** para ver la dirección URL de respuesta).|Se asigna al elemento **Destino** en el token SAML.</br></br> Valor de ejemplo: `https://contoso.my.salesforce.com`|
@@ -132,13 +132,13 @@ Reemplace {tenant-id} por el identificador de inquilino que puede encontrar en A
 
 En la siguiente tabla se describen los elementos de configuración principales del IdP para configurar los valores de inicio de sesión único en la aplicación y sus valores o ubicaciones dentro de AD FS y Azure AD. El marco de referencia de la tabla es la aplicación SaaS, que necesita saber dónde enviar las solicitudes de autenticación y cómo validar los tokens recibidos.
 
-|Elemento configuración|DESCRIPCIÓN|AD FS|Azure AD|
+|Elemento configuración|Descripción|AD FS|Azure AD|
 |---|---|---|---|
 |URL de </br>inicio de sesión del </br>URL|Dirección URL de inicio de sesión del IdP desde la perspectiva de la aplicación (donde se redirige al usuario para el inicio de sesión).|La dirección URL de inicio de sesión de AD FS es el nombre del servicio de federación de AD FS seguido de "/adfs/ls/". Por ejemplo: https&#58;//fs.contoso.com/adfs/ls/|El valor correspondiente para Azure AD sigue el patrón en el que {tenant-id} se reemplaza por el identificador del inquilino. Lo puede encontrar en Azure Portal en **Azure Active Directory** > **Propiedades** como **Identificador de directorio**.</br></br>Para aplicaciones que usan el protocolo SAML-P: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>Para aplicaciones que usan el protocolo WS-Federation: https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
 |URL de </br>cierre de sesión </br>URL|Dirección URL de cierre de sesión del IdP desde la perspectiva de la aplicación (donde se redirige al usuario cuando elige cerrar sesión en la aplicación).|En AD FS, la dirección URL de cierre de sesión es la misma que la dirección URL de inicio de sesión o la misma dirección URL seguida de "wa=wsignout1.0". Por ejemplo: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|El valor correspondiente para Azure AD depende de si la aplicación admite el cierre de sesión con SAML 2.0.</br></br>Si la aplicación admite el cierre de sesión con SAML, el valor sigue el patrón en el que el valor de {tenant-id} se reemplaza por el identificador del inquilino. Lo puede encontrar en Azure Portal en **Azure Active Directory** > **Propiedades** como **Identificador de directorio**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Si la aplicación no admite el cierre de sesión con SAML: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
-|Se necesita el cifrado de tokens </br>de firma </br>certificado|Certificado cuya clave privada usa el IDP para firmar los tokens emitidos. Se comprueba que el token procede del mismo IdP que se ha configurado como de confianza en la aplicación.|El certificado de firma de token de AD FS se encuentra en Administración de AD FS, en **Certificados**.|En Azure AD, el certificado de firma de token se puede encontrar en Azure Portal, en las propiedades de **inicio de sesión único** de la aplicación, bajo el encabezado **Certificado de firma de SAML**. Desde allí puede descargar el certificado para cargarlo en la aplicación.</br></br> Si la aplicación tiene más de un certificado, todos los certificados se pueden encontrar en el archivo XML de metadatos de federación.|
+|Token </br>de firma </br>certificado|Certificado cuya clave privada usa el IDP para firmar los tokens emitidos. Se comprueba que el token procede del mismo IdP que se ha configurado como de confianza en la aplicación.|El certificado de firma de token de AD FS se encuentra en Administración de AD FS, en **Certificados**.|En Azure AD, el certificado de firma de token se puede encontrar en Azure Portal, en las propiedades de **inicio de sesión único** de la aplicación, bajo el encabezado **Certificado de firma de SAML**. Desde allí puede descargar el certificado para cargarlo en la aplicación.</br></br> Si la aplicación tiene más de un certificado, todos los certificados se pueden encontrar en el archivo XML de metadatos de federación.|
 |Identificador/</br>"emisor"|Identificador del IdP desde la perspectiva de la aplicación (también llamado "Identificador de emisor").</br></br>En el token SAML, el valor aparece como el elemento **Emisor**.|El identificador de AD FS normalmente es el identificador del servicio de federación en Administración de AD, en **Servicio** > **Modificar las propiedades del Servicio de federación**. Por ejemplo: http&#58;//fs.contoso.com/adfs/services/trust|El valor correspondiente para Azure AD sigue el patrón en el que el valor de {tenant-id} se reemplaza por el identificador del inquilino. Lo puede encontrar en Azure Portal en **Azure Active Directory** > **Propiedades** como **Identificador de directorio**: https&#58;//sts.windows.net/{tenant-id}/|
-|URL de </br>federación </br>metadata|Ubicación de los metadatos de federación disponibles públicamente del IdP. (Algunas aplicaciones usan metadatos de federación como alternativa a la configuración de direcciones URL, identificadores y certificados de firma de token de forma individual por el administrador).|Puede encontrar la URL de metadatos de federación de AD FS en Administración de AD FS en **Servicio** > **Puntos de conexión** > **Metadatos** >  **Tipo: Metadatos de federación**. Por ejemplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|El valor correspondiente para Azure AD sigue el patrón https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. El valor de {TenantDomainName} se reemplaza por el nombre del inquilino con el formato "contoso.onmicrosoft.com". </br></br>Para más información, consulte [Metadatos de federación](../develop/azure-ad-federation-metadata.md).
+|URL de </br>federación </br>metadata|Ubicación de los metadatos de federación disponibles públicamente del IdP. (Algunas aplicaciones usan metadatos de federación como alternativa a la configuración de direcciones URL, identificadores y certificados de firma de token de forma individual por el administrador).|Puede encontrar la URL de metadatos de federación de AD FS en Administración de AD FS en **Servicio** > **Puntos de conexión** > **Metadatos** > **Tipo: Metadatos de federación**. Por ejemplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|El valor correspondiente para Azure AD sigue el patrón https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. El valor de {TenantDomainName} se reemplaza por el nombre del inquilino con el formato "contoso.onmicrosoft.com". </br></br>Para más información, consulte [Metadatos de federación](../azuread-dev/azure-ad-federation-metadata.md).
 
 ## <a name="moving-saas-apps"></a>Migración de aplicaciones SaaS
 
@@ -238,11 +238,11 @@ El proceso de traslado de federación local a Azure AD depende de si la aplicaci
 
    **P: ¿Qué significa que una aplicación admita varios IdP?**
 
-   R: Las aplicaciones SaaS que admiten varios IdP le permiten proporcionar toda la información sobre el nuevo IdP (en nuestro caso, Azure AD) antes de confirmar el cambio de la experiencia de inicio de sesión. Después de realizar la configuración, puede cambiar la configuración de autenticación de la aplicación para que apunte a Azure AD.
+   A. Las aplicaciones SaaS que admiten varios IdP le permiten proporcionar toda la información sobre el nuevo IdP (en nuestro caso, Azure AD) antes de confirmar el cambio de la experiencia de inicio de sesión. Después de realizar la configuración, puede cambiar la configuración de autenticación de la aplicación para que apunte a Azure AD.
 
    **P: ¿Por qué es importante que la aplicación SaaS admita varios IdP?**
 
-   R: Si no se admiten varios IdP, el administrador tiene que reservar un breve período de tiempo como interrupción del servicio o de mantenimiento durante el cual puede configurar Azure AD como el nuevo IdP de una aplicación. Durante esta interrupción, se debe notificar a los usuarios que no podrán iniciar sesión con sus cuentas.
+   A. Si no se admiten varios IdP, el administrador tiene que reservar un breve período de tiempo como interrupción del servicio o de mantenimiento durante el cual puede configurar Azure AD como el nuevo IdP de una aplicación. Durante esta interrupción, se debe notificar a los usuarios que no podrán iniciar sesión con sus cuentas.
 
    Si una aplicación admite varios IdP, el IdP adicional se puede configurar de antemano. El administrador, a continuación, puede cambiar el IdP a Azure.
 
@@ -250,7 +250,7 @@ El proceso de traslado de federación local a Azure AD depende de si la aplicaci
 
 #### <a name="example-support-for-multiple-identity-providers"></a>Ejemplo: Compatibilidad con varios proveedores de identidades
 
-Por ejemplo, en Salesforce, puede encontrar la configuración del IdP en **Configuración** > **Configuración de la empresa** > **Mi dominio** >  **Configuración de autenticación**.
+Por ejemplo, en Salesforce, puede encontrar la configuración del IdP en **Configuración** > **Configuración de la empresa** > **Mi dominio** > **Configuración de autenticación**.
 
 ![Sección "Configuración de autenticación" en la aplicación Salesforce](media/migrate-adfs-apps-to-azure/migrate9.png)
 
@@ -260,7 +260,7 @@ Debido a la configuración creada anteriormente en **Identidad** > **Configuraci
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: Configuración del aprovisionamiento de usuarios en Azure AD
 
-Si desea que Azure AD controle directamente el aprovisionamiento de usuarios para una aplicación SaaS, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md).
+Si desea que Azure AD controle directamente el aprovisionamiento de usuarios para una aplicación SaaS, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

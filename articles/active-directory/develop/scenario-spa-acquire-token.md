@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: 290b0073ea6736141bca035f82f7aa37bdf364ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701933"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160073"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicación de página única: Adquisición de un token para llamar a una API
 
@@ -42,7 +42,7 @@ Al crear la solicitud de token de acceso, puede establecer los ámbitos de API q
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Adquisición de un token con una ventana emergente
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En el código siguiente se combina el patrón descrito anteriormente con los métodos de una experiencia de ventana emergente:
 
@@ -69,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 El contenedor MSAL Angular proporciona el interceptor HTTP, que adquiere de forma automática y silenciosa los tokens de acceso y los asocia a las solicitudes HTTP de las API.
 
@@ -111,9 +111,11 @@ ngOnDestroy() {
 
 Como alternativa, también puede adquirir tokens de forma explícita mediante los métodos de adquisición de token, tal como se describe en la biblioteca principal MSAL.js.
 
+---
+
 ## <a name="acquire-a-token-with-a-redirect"></a>Adquisición de un token con una redirección
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 El siguiente patrón es como se describió anteriormente, pero se muestra con un método de redirección para adquirir tokens de manera interactiva. Como se mencionó anteriormente, tendrá que registrar la devolución de llamada de redirección.
 
@@ -142,6 +144,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 ```
 
 ## <a name="request-optional-claims"></a>Solicitud de notificaciones opcionales
+
 Puede usar notificaciones opcionales con los siguientes fines:
 
 - Incluir notificaciones adicionales en los tokens de la aplicación.
@@ -150,7 +153,6 @@ Puede usar notificaciones opcionales con los siguientes fines:
 
 Para solicitar notificaciones opcionales en `IdToken`, puede enviar un objeto de notificaciones en cadena al campo `claimsRequest` de la clase `AuthenticationParameters.ts`.
 
-### <a name="javascript"></a>JavaScript
 ```javascript
 "optionalClaims":  
    {
@@ -168,12 +170,14 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
+
 Para más información, consulte [Notificaciones opcionales](active-directory-optional-claims.md).
 
-
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Este código es igual al que se ha descrito anteriormente.
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

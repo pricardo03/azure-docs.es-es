@@ -2,15 +2,15 @@
 title: 'Inicio rápido: Obtención de respuestas de la base de conocimiento en QnA Maker con REST y C#'
 description: Esta guía de inicio rápido basada en REST de C# le guiará a través del proceso para obtener una respuesta de una base de conocimiento mediante programación.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
-ms.openlocfilehash: 26eb60e0271440d6d7613a6c315c512a2ae3c4dc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9bdb331433fef9874a91de6044ac70eab2cd28f6
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842995"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109921"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Inicio rápido: Obtención de respuestas a una pregunta desde una base de conocimiento con C#
 
@@ -18,7 +18,7 @@ Esta guía de inicio rápido le conduce por la obtención mediante programación
 
 [Documentación de referencia](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Ejemplo](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Versión de [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/) más reciente.
 * Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave, seleccione **Claves** en **Administración de recursos** en el panel de Azure del recurso de QnA Maker.

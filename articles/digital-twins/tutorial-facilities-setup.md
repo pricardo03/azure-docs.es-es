@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895398"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163048"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implementación de la versión preliminar de Azure Digital Twins y configuración de un grafo espacial
 
@@ -36,7 +36,7 @@ En el primer tutorial de esta serie, aprenderá a:
 
 Estos tutoriales utilizan y modifican los mismos ejemplos que usa la [guía de inicio rápido para buscar salas disponibles](quickstart-view-occupancy-dotnet.md) para proporcionar una cobertura más detallada y exhaustiva de los conceptos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure. Si no tiene una cuenta de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -52,7 +52,7 @@ Use los pasos de esta sección para crear una nueva instancia del servicio Azure
 
 ## <a name="grant-permissions-to-your-app"></a>Concesión de permisos a una aplicación
 
-Digital Twins usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) para controlar el [acceso de lectura y escritura](../active-directory/develop/v1-permissions-and-consent.md) al servicio. Todas las aplicaciones que necesita para conectarse a una instancia de Digital Twins deben estar registradas en Azure AD. Los pasos de esta sección muestran cómo crear una aplicación de ejemplo.
+Digital Twins usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) para controlar el [acceso de lectura y escritura](../active-directory/develop/v2-permissions-and-consent.md) al servicio. Todas las aplicaciones que necesita para conectarse a una instancia de Digital Twins deben estar registradas en Azure AD. Los pasos de esta sección muestran cómo crear una aplicación de ejemplo.
 
 Si ya tiene el registro de aplicaciones, puede reutilizarlo para el ejemplo. Sin embargo, en esta sección tiene la posibilidad de asegurarse de que el registro de la aplicación está configurado correctamente.
 
