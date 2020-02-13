@@ -327,7 +327,15 @@
     - name: Desencadenadores y enlaces
       items:
         - name: Almacenamiento de blobs
-          href: functions-bindings-storage-blob.md
+          items:
+            - name: Información general
+              href: functions-bindings-storage-blob.md
+            - name: Desencadenador
+              href: functions-bindings-storage-blob-trigger.md
+            - name: Entrada
+              href: functions-bindings-storage-blob-input.md
+            - name: Output
+              href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x

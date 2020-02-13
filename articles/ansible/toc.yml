@@ -10,7 +10,7 @@
     - name: Implementación de la plantilla de soluciones de Ansible en CentOS
       href: ./ansible-deploy-solution-template.md
     - name: Instalación de Ansible en máquinas virtuales Linux
-      href: /azure/virtual-machines/linux/ansible-install-configure
+      href: ./ansible-install-configure.md
       maintainContext: true
     - name: Ejecución de cuadernos de estrategias en Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
@@ -18,10 +18,10 @@
       expanded: true
       items:
         - name: Configuración de máquinas virtuales Linux
-          href: /azure/virtual-machines/linux/ansible-create-vm
+          href: ./ansible-create-vm.md
           maintainContext: true
         - name: Administración de máquinas virtuales Linux
-          href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+          href: ./ansible-manage-linux-vm.md
           maintainContext: true
 - name: Tutoriales
   items:

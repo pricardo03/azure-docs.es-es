@@ -3,14 +3,14 @@ title: Creación de elementos de definición de interfaz de usuario
 description: Describe los elementos que se usarán al crear definiciones de interfaz de usuario para Azure Portal.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/06/2020
 ms.author: tomfitz
-ms.openlocfilehash: 0ceb8f5762bb6bc987757845426a0f2b380264f1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 12bf5d131001d95a3f4327f95c24125dbf3fb510
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649264"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086709"
 ---
 # <a name="createuidefinition-elements"></a>Elementos CreateUiDefinition
 
@@ -60,6 +60,7 @@ La documentación de cada elemento contiene un ejemplo de interfaz de usuario, u
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft.ManagedIdentity.IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
