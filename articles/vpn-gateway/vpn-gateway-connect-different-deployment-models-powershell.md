@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1c11539460f1ef65f8cea3d36f1a017661133355
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1dc0eec6178420976181b05a059e9f8b4859ec2a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833957"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152013"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con PowerShell
 
@@ -166,7 +166,7 @@ Puede comprobar el estado de la puerta de enlace usando el cmdlet **Get-AzureVNe
 
 ## <a name="creatermgw"></a>Sección 2: Configuración de la puerta de enlace de la red virtual de RM
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 Para los requisitos previos, se supone que ya ha creado una red virtual de RM. En este paso, creará una puerta de enlace de VPN para la red virtual de RM. No empiece con los pasos hasta que haya recuperado la dirección IP pública de la puerta de enlace de la red virtual clásica. 
 

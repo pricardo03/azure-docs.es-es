@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: ef7e29351717daf91981f844f1d911a404cf9402
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646887"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121808"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -230,7 +230,7 @@ Sí. Puede usar API de REST en redes virtuales en los modelos de implementación
 Sí. Más información acerca del uso de:
 - Azure Portal para implementar redes virtuales a través de los modelos de implementación con [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) y [clásica](virtual-networks-create-vnet-classic-pportal.md).
 - PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/module/az.network) y [clásica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
-- La interfaz de la línea de comandos (CLI) de Azure para implementar y administrar redes virtuales implementadas mediante los modelos de implementación de [Resource Manager](/cli/azure/network/vnet) y [clásica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
+- La interfaz de la línea de comandos (CLI) de Azure para implementar y administrar redes virtuales implementadas mediante los modelos de implementación de [Resource Manager](/cli/azure/network/vnet) y [clásica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources).  
 
 ## <a name="vnet-peering"></a>Emparejamiento de VNET
 

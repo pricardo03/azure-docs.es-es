@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: dcb4a04ced1d36a6d0717b9a65150faacc702cc5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e6431d1fa73106267730db721060906e43c456d2
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769974"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117767"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar un Contrato Enterprise de Azure y ver datos de costo
 
@@ -24,7 +24,7 @@ Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Man
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal en https://portal.azure.com.
+- Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="register-with-cloudyn"></a>Registrarse en Cloudyn
 

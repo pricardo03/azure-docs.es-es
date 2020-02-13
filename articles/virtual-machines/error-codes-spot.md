@@ -1,20 +1,19 @@
 ---
 title: Códigos de error para las máquinas virtuales y los conjuntos de escalado de Azure Spot
 description: Más información sobre los códigos de error que podría ver al usar las máquinas virtuales y los conjuntos de escalado de Spot.
-services: virtual-machines-windows
 author: cynthn
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: cynthn
-ms.openlocfilehash: 97e68f4d0d671ffa0f697c484c502b9070a3f20f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 1863c510967dcf80044d768aee1a37643a068ce4
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781836"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115854"
 ---
 # <a name="preview-error-messages-for-spot-vms-and-scale-sets"></a>Vista previa: Mensajes de error de las máquinas virtuales y los conjuntos de escalado de Spot
 
@@ -27,7 +26,7 @@ ms.locfileid: "74781836"
 Estos son algunos de los códigos de error que podría recibir al usar las máquinas virtuales de Spot y los conjuntos de escalado.
 
 
-| Clave | Message | DESCRIPCIÓN |
+| Clave | Message | Descripción |
 |-----|---------|-------------|
 | SkuNotAvailable | El nivel solicitado para el recurso "\<recurso\>" no está disponible actualmente en la ubicación "\<ubicación\>" para la suscripción "\<IDdesuscripción\>". Pruebe otro nivel o realice la implementación en una ubicación diferente. | No hay suficiente capacidad en Azure Spot para crear la máquina virtual o el conjunto de escalado. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  La directiva de expulsión solo se puede establecer en las máquinas virtuales de Azure Spot. | Esta máquina virtual no forma parte de Spot, por lo que no se puede establecer la directiva de expulsión. |

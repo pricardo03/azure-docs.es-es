@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: cbb5882950636e281d311bf0536acf5b92cf11ea
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: dd73f42aaa0d0bd1884892143d96446935a401a5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018608"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048440"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -54,7 +54,7 @@ Un recurso de vínculo privado es el destino de un punto de conexión privado de
 |---------|---------|---------|
 |**Servicio Private Link** (su propio servicio)   |  Microsoft.Network/privateLinkServices       | empty |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
+|**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Almacenamiento de Azure**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Tabla (table, table_secondary)<BR> Cola (queue, queue_secondary)<BR> Archivo (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Sistema de archivos Data Lake Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|

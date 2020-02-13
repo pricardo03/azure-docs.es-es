@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: 02514285570b764c6f7392b789f2ff7b427bb3a6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 7505420cc31fe751ecc0c114a89fea0734cbc6cf
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863764"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162414"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurar OpenVPN para VPN Gateway de punto a sitio de Azure
 
 En este artículo le ayudamos a configurar el **protocolo OpenVPN®** en Azure VPN Gateway. Se supone que ya tiene un entorno de trabajo punto a sitio. En caso contrario, utilice las instrucciones del paso 1 para crear una VPN de punto a sitio.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="vnet"></a>1. Configuración de una VPN de punto a sitio
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9ecea0576f7cec4e70d6e223b5412a8d8057b2ab
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894739"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148168"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -28,7 +28,7 @@ Los valores de este artículo se aplican a las puertas de enlace de VPN (puertas
 
 * Para Virtual WAN, consulte [Acerca de Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="gwtype"></a>Tipos de puerta de enlace
 

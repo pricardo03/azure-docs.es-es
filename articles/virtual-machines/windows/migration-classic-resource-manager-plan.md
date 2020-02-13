@@ -3,8 +3,8 @@ title: Planificación de la migración del modelo clásico a Azure Resource Mana
 description: Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
@@ -12,20 +12,17 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 04/01/2017
-ms.author: kasing
-ms.openlocfilehash: d5245f73520a77648fc590520185a2cf66bffd02
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/06/2020
+ms.author: tagore
+ms.openlocfilehash: 2d7eca56556c8a1097b625b8f4b0e2de2facbc60
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980883"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061614"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planear la trayectoria de migración para asegurarse de que el proceso se desarrolla con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración.
-
-> [!NOTE]
-> El equipo de asesoramiento al cliente de Azure y los arquitectos de soluciones en la nube han contribuido significativamente en la elaboración de la guía siguiente en colaboración con los clientes en relación con la migración de entornos grandes. Habida cuenta de que este documento estará sujeto a actualizaciones continuas a medida que surjan nuevos patrones de éxito, resulta conveniente consultarlo de vez en cuando para ver si existen nuevas recomendaciones.
 
 La trayectoria de migración consta de cuatro fases generales:<br>
 

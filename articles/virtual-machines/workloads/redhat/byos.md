@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/14/2020
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: afda502bcd89423ecdd008c0297c85dd8a5b61fb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b0ef6030b1b460d118a255ede3c46719616fe3b0
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989848"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133831"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Imágenes Gold de tipo Traiga su propia suscripción (BYOS) de Red Hat Enterprise Linux en Azure
 
@@ -177,7 +177,7 @@ Las imágenes Gold de tipo Traiga su propia suscripción (BYOS) de Red Hat Enter
 
 Azure Disk Encryption no se admite en [imágenes personalizadas de Red Hat](/linux/redhat-create-upload-vhd). Los requisitos adicionales y requisitos previos de ADE se documentan en [Azure Disk Encryption para máquinas virtuales Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
-Los pasos para aplicar Azure Disk Encryption están disponibles en [Escenarios de Azure Disk Encryption en máquinas virtuales Linux](../../linux/disk-encryption-linux.md) y artículos relacionados.  
+Los pasos para aplicar Azure Disk Encryption están disponibles en [Escenarios de Azure Disk Encryption en máquinas virtuales Linux](../../linux/disk-encryption-linux.md) y artículos relacionados.
 
 ## <a name="additional-information"></a>Información adicional
 
@@ -186,7 +186,7 @@ Los pasos para aplicar Azure Disk Encryption están disponibles en [Escenarios d
     ```
     "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
     ```
-    
+
     En este caso, póngase en contacto con Microsoft o con Red Hat para habilitar su suscripción.
 
 - Si modifica una instantánea a partir de una imagen BYOS de RHEL e intenta publicarla en [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), debe proporcionar información del plan que coincida con el origen inicial de la instantánea. Por ejemplo, el comando podría tener el siguiente aspecto:

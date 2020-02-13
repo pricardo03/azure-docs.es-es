@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451241"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153866"
 ---
 # <a name="azure-serial-console"></a>Consola serie de Azure
 
@@ -38,7 +38,7 @@ Para acceder a la consola serie de la máquina virtual o de la instancia de conj
 - La cuenta de Azure que accede a la consola serie debe tener el [rol Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md).
 
 > [!NOTE]
-> - No se admiten las implementaciones clásicas. La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Azure Resource Manager.
+> No se admiten las implementaciones clásicas. La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Azure Resource Manager.
 
 ## <a name="get-started-with-the-serial-console"></a>Introducción al uso de la consola serie
 La consola serie para las máquinas virtuales y el conjunto de escalado de máquinas virtuales solo es accesible mediante Azure Portal:

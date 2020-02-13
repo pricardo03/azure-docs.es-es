@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: dce05c558423400d095c83800cdcaf85e174e081
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860442"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152081"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
 
 Este artículo le guiará por los pasos para crear conexiones activo-activo entre entornos locales y de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about-highly-available-cross-premises-connections"></a>Acerca de las conexiones entre entornos locales de alta disponibilidad
 Para lograr una alta disponibilidad en la conectividad de red virtual a red virtual y entre entornos locales, debe implementar varias puertas de enlace VPN y establecer varias conexiones en paralelo entre sus redes y Azure. Consulte [Conectividad de alta disponibilidad entre locales y de red virtual a red virtual](vpn-gateway-highlyavailable.md) para obtener información general de las opciones de conectividad y la topología.

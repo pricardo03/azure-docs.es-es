@@ -9,12 +9,12 @@ ms.date: 01/30/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6554385a879b054153dcb808c3dff4b60c136458
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147044"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120864"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Uso de la CLI de Azure clásica con Azure Storage
 
@@ -27,7 +27,7 @@ En esta guía, exploraremos cómo usar la [CLI de Azure clásica](../../cli-inst
 En esta guía se supone que conoce los conceptos básicos de Azure Storage. La guía incluye varios scripts que muestran cómo se usa la CLI clásica con Azure Storage. Antes de ejecutar cada script, asegúrese de que ha actualizado las variables del mismo según su configuración.
 
 > [!NOTE]
-> La guía proporciona ejemplos de comandos y scripts de la CLI de Azure clásica de cuentas de almacenamiento clásico. Consulte [Uso de la CLI de Azure para Mac, Linux y Windows mediante Azure Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver los comandos de la CLI de Azure clásica de las cuentas de almacenamiento de Resource Manager.
+> La guía proporciona ejemplos de comandos y scripts de la CLI de Azure clásica de cuentas de almacenamiento clásico. Consulte [Uso de la CLI de Azure para Mac, Linux y Windows mediante Azure Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#storage-objects) para ver los comandos de la CLI de Azure clásica de las cuentas de almacenamiento de Resource Manager.
 >
 >
 
@@ -133,7 +133,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob**en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor**en el parámetro Permiso. Para obtener más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).
+> Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob**en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor**en el parámetro Permiso. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).
 >
 >
 
@@ -187,7 +187,7 @@ Un recurso compartido de archivos de Azure es un recurso compartido de archivos 
 azure storage share create myshare
 ```
 
-### <a name="create-a-directory"></a>Creación de directorios
+### <a name="create-a-directory"></a>Creación de un directorio
 Un directorio proporciona una estructura jerárquica opcional para los recursos compartidos de archivos de Azure. En el ejemplo siguiente se crea el directorio **myDir** en el recurso compartido de archivos.
 
 ```azurecli
@@ -233,7 +233,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 Aquí puede encontrar la referencia a los comandos de la CLI de Azure clásica para trabajar con recursos de Storage:
 
-* [Comandos de la CLI de Azure clásica en el modo de Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Comandos de la CLI de Azure clásica en el modo de Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#storage-objects)
 * [Comandos de la CLI de Azure clásica en modo de Azure Service Management](../../cli-install-nodejs.md)
 
 También puede probar la versión más reciente de la [CLI de Azure](../storage-azure-cli.md), que se usa con el modelo de implementación de Resource Manager.

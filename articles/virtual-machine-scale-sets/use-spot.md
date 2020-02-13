@@ -6,14 +6,14 @@ tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544793"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162691"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Vista previa: Máquinas virtuales de Azure Spot para los conjuntos de escalado 
 
@@ -25,7 +25,6 @@ La cantidad de capacidad sin usar disponible varía, por ejemplo, en función de
 > Las instancias de Spot se encuentran actualmente en versión preliminar pública,
 > la cual no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> En la primera parte de la versión preliminar pública, las instancias de Spot tendrán un precio fijo, por lo que no habrá expulsiones basadas en el precio.
 
 ## <a name="pricing"></a>Precios
 

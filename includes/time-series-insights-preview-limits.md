@@ -4,17 +4,17 @@ description: archivo de inclusión
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 02/03/2020
+ms.date: 02/07/2020
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 8537db1e5703abd8df92a2950455bee556731d08
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013727"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123210"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Comparación entre disponibilidad general y versión preliminar
 
@@ -50,7 +50,7 @@ Se admite un máximo de dos orígenes de evento por instancia.
 * Obtenga información sobre cómo [agregar un origen de Event Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configure [un origen de centro de IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-De forma predeterminada, [los entornos de versión preliminar admiten tasas de entrada](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress) de hasta **1 megabyte por segundo (MB/s) por entorno** . Los clientes pueden escalar sus entornos de versión preliminar hasta un rendimiento de **16 MB/s** si es necesario. Además, hay un límite por partición de **0,5 MB/s**. 
+De forma predeterminada, [los entornos de versión preliminar admiten tasas de entrada](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#ingress-scale-and-preview-limitations) de hasta **1 megabyte por segundo (MB/s) por entorno** . Los clientes pueden escalar sus entornos de versión preliminar hasta un rendimiento de **16 MB/s** si es necesario. Además, hay un límite por partición de **0,5 MB/s**. 
 
 ### <a name="api-limits"></a>Límites de API
 

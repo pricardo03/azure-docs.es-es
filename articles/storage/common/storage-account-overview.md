@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274559"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157282"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -115,11 +115,9 @@ Si hay un cambio en el patrón de uso de datos, también se puede cambiar de niv
 > [!IMPORTANT]
 > Si cambia el nivel de acceso de una cuenta de almacenamiento o blob existente es posible que deba pagar cargos adicionales. Para más información, consulte la sección [Facturación de la cuenta de almacenamiento](#storage-account-billing).
 
-## <a name="replication"></a>Replicación
+## <a name="redundancy"></a>Redundancia
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-Para más información sobre la replicación del almacenamiento, consulte [Replicación en Azure Storage](storage-redundancy.md).
 
 ## <a name="encryption"></a>Cifrado
 

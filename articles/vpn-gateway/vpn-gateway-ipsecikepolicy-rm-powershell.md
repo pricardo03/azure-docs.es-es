@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 8ed32ccedcd6cc4ffd159069399c0417842325d8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eaca48fc354f1cf37635e9729b04eaaaa882ba1c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514925"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161909"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
 Este artículo le guiará por los pasos para configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>Acerca de los parámetros de la directiva de IPsec e IKE para Azure VPN gateway
 El protocolo IPsec e IKE estándar admite una gran variedad de algoritmos criptográficos en diversas combinaciones. En [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) (Acerca de los requisitos de cifrado y las puertas de enlace de VPN de Azure) se describe la manera en que esto puede ayudar a garantizar que la conectividad entre locales y de red virtual a red virtual satisface los requisitos de cumplimiento o seguridad.

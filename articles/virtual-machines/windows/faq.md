@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0ebf4049827a4abd9cfcb2eda354d0c796cbdbdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 64aeaf412bc8af242a9d3184a3c1f0fa0ee4809e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039182"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161773"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Preguntas más frecuentes sobre máquinas virtuales Windows
 En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, vea [Preguntas frecuentes sobre las máquinas virtuales de Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -64,9 +64,9 @@ Sí. Para obtener instrucciones, consulte [Cómo ampliar la unidad de sistema op
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>¿Puedo copiar o clonar una máquina virtual de Azure existente?
 Sí. Mediante el uso de imágenes administradas, puede crear una imagen de una máquina virtual y luego usar la imagen para crear varias máquinas virtuales nuevas. Para obtener instrucciones, consulte [Creación de una imagen personalizada de una máquina virtual](tutorial-custom-images.md).
 
-## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>¿Por qué no veo las regiones de Canadá central y Canadá oriental por medio de Azure Resource Manager?
+## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>¿Por qué no veo las regiones de Centro de Canadá y Este de Canadá por medio de Azure Resource Manager?
 
-Las dos nuevas áreas Canadá central y Canadá oriental no se registran automáticamente para la creación de máquinas virtuales en las suscripciones de Azure existentes. Este registro se realizará automáticamente cuando se implementa una máquina virtual mediante el Portal de Azure en cualquier otra región usando Azure Resource Manager. Después de implementar una máquina virtual en cualquier otra región de Azure, las áreas nuevas deberán estar disponibles para las máquinas virtuales siguientes.
+Las dos nuevas áreas Centro de Canadá y Este de Canadá no se registran automáticamente para la creación de máquinas virtuales en las suscripciones de Azure existentes. Este registro se realizará automáticamente cuando se implementa una máquina virtual mediante el Portal de Azure en cualquier otra región usando Azure Resource Manager. Después de implementar una máquina virtual en cualquier otra región de Azure, las áreas nuevas deberán estar disponibles para las máquinas virtuales siguientes.
 
 ## <a name="does-azure-support-linux-vms"></a>¿Se admiten máquinas virtuales Linux en Azure?
 Sí. Para crear rápidamente una máquina virtual Linux de prueba, consulte [Creación de una máquina virtual de Linux en Azure mediante el Portal](../linux/quick-create-portal.md).
@@ -103,7 +103,7 @@ No se permiten los siguientes nombres de usuario:
 Hay distintos requisitos de longitud de contraseña, en función de la herramienta que use:
  - Portal: entre 12 y 72 caracteres
  - PowerShell: entre 8 y 123 caracteres
- - CLI: entre 12 y 123
+ - CLI: entre 12 y 123 caracteres
 
 * Deben incluir caracteres en minúsculas.
 * Deben incluir caracteres en mayúsculas.

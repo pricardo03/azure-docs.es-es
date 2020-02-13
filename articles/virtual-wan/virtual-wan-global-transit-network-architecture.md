@@ -1,18 +1,19 @@
 ---
-title: Arquitectura de red de tránsito global de Azure Virtual WAN | Microsoft Docs
+title: 'Arquitectura: Arquitectura de red de tránsito global'
+titleSuffix: Azure Virtual WAN
 description: Obtenga información sobre la arquitectura de red de tránsito global de Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9b736e897278c4656df83c30388efc812ac6193d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607365"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064978"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
@@ -72,7 +73,7 @@ Azure Virtual WAN admite las siguientes rutas de conectividad de tránsito globa
 
 * Sucursal a red virtual (a)
 * Sucursal a sucursal (b)
-  * ExpressRoute Global Reach y Virtual WAN
+  * Global Reach de ExpressRoute y Virtual WAN
 * Usuario remoto a red virtual (c)
 * Usuario remoto a sucursal (d)
 * De red virtual a red virtual (e)

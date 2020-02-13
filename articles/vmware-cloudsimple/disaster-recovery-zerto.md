@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f34c4fb89d28a001a4af4d21879403a9ac5e860
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e5ee43af97e79f1e835787d61bd79cfb256ef445
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024711"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083138"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configuración de la nube privada de AVS como un sitio de recuperación ante desastres de las cargas de trabajo locales de VMware
 
@@ -46,12 +46,12 @@ En las secciones siguientes se describe cómo implementar una solución de recup
 3. [Configuración de ZVM y VRA en la nube privada de AVS](#set-up-zvm-and-vra-on-your-avs-private-cloud)
 4. [Configuración de un grupo de protección virtual de Zerto](#set-up-zerto-virtual-protection-group)
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Complete los siguientes requisitos previos para habilitar Zerto Virtual Replication desde el entorno local en la nube privada de AVS.
 
 1. [Configure una conexión VPN de sitio a sitio entre la red local y la nube privada de AVS](set-up-vpn.md).
-2. [Configure la búsqueda DNS para que los componentes de administración de la nube privada de AVS se reenvíen a servidores DNS de la nube privada de AVS](on-premises-dns-setup.md). Para habilitar el reenvío de búsqueda DNS, cree una entrada de zona de reenvío en el servidor DNS local para `*.AVS.io` en los servidores DNS de AVS.
+2. [Configure la búsqueda DNS para que los componentes de administración de la nube privada de AVS se reenvíen a servidores DNS de la nube privada de AVS](on-premises-dns-setup.md). Para habilitar el reenvío de búsqueda DNS, cree una entrada de zona de reenvío en el servidor DNS local para `*.cloudsimple.io` en los servidores DNS de AVS.
 3. Configure la búsqueda DNS para que los componentes de vCenter locales se reenvíen a los servidores DNS locales. Los servidores DNS deben ser accesibles desde la nube privada de AVS a través de la conexión VPN de sitio a sitio. Para obtener ayuda, envíe una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y facilite la siguiente información. 
 
     * Nombre del dominio DNS local

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ddcf5a1df31b4b36e25b2522ada21deab19fe032
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159878"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138020"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -36,7 +36,7 @@ En este artículo se proporciona información que ayuda a:
 ## <a name="cloud-security-advantages"></a>Ventajas de seguridad en la nube
 Es importante comprender la [división de responsabilidad](shared-responsibility.md) entre usted y Microsoft. De forma local, es propietario de la pila completa, pero a medida que se pasa a la nube, algunas responsabilidades se transfieren a Microsoft.
 
-La [nube ofrece ventajas de seguridad](shared-responsibility.md#cloud security advantages). En un entorno local, las organizaciones probablemente tengan responsabilidades inadecuadas y recursos limitados disponibles para invertir en seguridad, de tal manera que se crea un entorno donde los atacantes pueden aprovechar vulnerabilidades a todos los niveles.
+La [nube ofrece ventajas de seguridad](shared-responsibility.md#cloud-security-advantages). En un entorno local, las organizaciones probablemente tengan responsabilidades inadecuadas y recursos limitados disponibles para invertir en seguridad, de tal manera que se crea un entorno donde los atacantes pueden aprovechar vulnerabilidades a todos los niveles.
 
 Las organizaciones pueden mejorar los tiempos de detección de amenazas y respuesta mediante la utilización de inteligencia de la nube y funciones de seguridad basada en la nube del proveedor.  Con la transferencia de responsabilidades al proveedor de nube, las organizaciones pueden obtener más cobertura de seguridad, lo que les permite reasignar recursos de seguridad y presupuestos a otras prioridades empresariales.
 
@@ -155,7 +155,7 @@ Este artículo se centra en las ventajas de seguridad que ofrece una implementac
 
 - [Azure App Service](paas-applications-using-app-services.md)
 - [Azure SQL Database y Azure SQL Data Warehouse](paas-applications-using-sql.md)
-- [Azure Storage](paas-applications-using-storage.md)
+- [Almacenamiento de Azure](paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus
 - Firewall de aplicaciones web

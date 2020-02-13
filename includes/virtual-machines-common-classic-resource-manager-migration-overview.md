@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
-author: singhkays
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 0ffbbe5505c9316f362ebbc41d311f97408f1b17
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: aa03560160795e33a5d26a88d421894c6e20c61f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887583"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089077"
 ---
 En este artículo se describe la forma de migrar recursos de infraestructura como servicio (IaaS) de los modelos de implementación clásicos a Resource Manager y detalla cómo conectar los recursos de los dos modelos de implementación que coexisten en su suscripción mediante el uso de puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
@@ -27,7 +27,6 @@ Estos recursos de IaaS clásicos se admiten durante la migración
 
 * Virtual Machines
 * Conjuntos de disponibilidad
-* Cloud Services con Virtual Machines
 * Cuentas de almacenamiento
 * Virtual Networks
 * Puertas de enlace de VPN

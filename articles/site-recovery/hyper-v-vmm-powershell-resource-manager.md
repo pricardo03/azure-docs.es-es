@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: a46bca5c5c55338f8bea7e1ff370f92ce6a2d577
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841053"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048619"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con PowerShell (Resource Manager)
 
@@ -20,7 +20,7 @@ En este artículo se explica cómo automatizar los pasos necesarios para la repl
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Revise la [arquitectura del escenario y sus componentes](hyper-v-vmm-architecture.md).
 - Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-sec-site.md) de todos los componentes.
@@ -219,9 +219,9 @@ Para comprobar la finalización de la operación, siga los pasos descritos en [S
 1. Ejecute este comando para recuperar las redes para los servidores de origen y destino de Virtual Machine Manager.
 
    ```azurepowershell
-   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[0]
+   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[0]
 
-   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
+   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[1]
    ```
 
    > [!NOTE]

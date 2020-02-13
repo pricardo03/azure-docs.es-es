@@ -2,21 +2,21 @@
 title: 'Términos de la hoja de precios del Contrato de cliente de Microsoft: Azure'
 description: Aprenda a leer y entender el uso y la factura de un contrato de cliente de Microsoft.
 author: bandersmsft
-manager: jureid
+manager: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 44ead1d376bf8b57134380db90733ed48deda14e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 46d0f259d30f9864c371f8bd3dd01f593004c808
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75986424"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133585"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Términos de la hoja de precios del contrato de cliente de Microsoft
 

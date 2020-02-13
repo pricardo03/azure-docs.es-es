@@ -1,22 +1,18 @@
 ---
 title: Obtención de notificaciones de mantenimiento de máquinas virtuales de Azure con PowerShell
 description: Use PowerShell para ver las notificaciones de mantenimiento de máquinas virtuales que se ejecutan en Azure e iniciar el mantenimiento de autoservicio.
-services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: f136fc3001e6ae224e264a59ceba66ed61ead865
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c23a06c502bd43b52cb35220b711084c7c8c1c7a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534932"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121846"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Control del mantenimiento planeado con PowerShell
 
@@ -33,7 +29,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 Las siguientes propiedades se devuelven en MaintenanceRedeployStatus: 
 
-| Valor | DESCRIPCIÓN   |
+| Value | Descripción   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento |
 | PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual |

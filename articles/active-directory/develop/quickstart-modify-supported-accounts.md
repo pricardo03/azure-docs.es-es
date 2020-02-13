@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704126"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160696"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Inicio rápido: Modificación de las cuentas compatibles con una aplicación
 
@@ -25,7 +25,7 @@ Al registrar una aplicación en la plataforma de identidad de Microsoft, tal vez
 
 En esta guía de inicio rápido, aprenderá a modificar la configuración de la aplicación para cambiar quién o qué cuentas pueden acceder a la aplicación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para comenzar, asegúrese de que completa estos requisitos previos:
 
@@ -63,7 +63,7 @@ Si está escribiendo una aplicación que quiere poner a disposición de clientes
 
 Las aplicaciones de página única (SPA) normalmente tienen una estructura con un front-end de JavaScript que se ejecuta en el explorador, que llama al back-end de la API web de la aplicación para llevar a cabo la lógica de negocios. Para las SPA hospedadas en Azure AD, se usa la concesión implícita de OAuth 2.0 para autenticar al usuario en Azure AD y obtener un token que puede usar para proteger las llamadas desde el cliente JavaScript de la aplicación hasta la API web de back-end.
 
-Después de que el usuario haya dado su consentimiento, este mismo protocolo de autenticación se puede usar para obtener tokens para proteger las llamadas entre el cliente y otros recursos de API web configurados para la aplicación. Para saber más sobre la concesión de autorización implícita y ayudarle a decidir si es adecuada para el escenario de su aplicación, consulte el flujo de concesión implícita de OAuth 2.0 en Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) y [v2.0](v2-oauth2-implicit-grant-flow.md).
+Después de que el usuario haya dado su consentimiento, este mismo protocolo de autenticación se puede usar para obtener tokens para proteger las llamadas entre el cliente y otros recursos de API web configurados para la aplicación. Para saber más sobre la concesión de autorización implícita y ayudarle a decidir si es adecuada para el escenario de su aplicación, consulte el flujo de concesión implícita de OAuth 2.0 en Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) y [v2.0](v2-oauth2-implicit-grant-flow.md).
 
 De forma predeterminada, la concesión implícita de OAuth 2.0 está deshabilitada para las aplicaciones. Para habilitar la concesión implícita de OAuth 2.0 para la aplicación, siga los pasos descritos a continuación.
 

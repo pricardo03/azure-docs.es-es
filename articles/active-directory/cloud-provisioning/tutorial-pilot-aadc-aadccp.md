@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47806fe9c5c97c1f5a9c26d4ca38fb46bdf4057c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f47f55252c6274360f200a4bce0ed0b739e3d8a3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931398"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166568"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamiento piloto en la nube para un bosque de AD sincronizado existente 
 
@@ -35,7 +35,7 @@ Antes de empezar con este tutorial, considere los siguientes elementos:
 
 4. Este es un escenario avanzado. Asegúrese de que sigue los pasos de este tutorial con precisión.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 A continuación, se indican los requisitos previos necesarios para completar este tutorial:
 - Un entorno de prueba con la versión 1.4.32.0, o cualquier versión posterior, de la sincronización de Azure AD Connect.
 - Una unidad organizativa o un grupo que estén en el ámbito de la sincronización y que pueda usar en la prueba piloto. Se recomienda empezar con un pequeño conjunto de objetos.
@@ -67,8 +67,7 @@ La sincronización de Azure AD Connect sincroniza los campos que se incluyen en
  3. En la página **Descripción**, especifique los siguientes elementos y haga clic en **Siguiente**:
 
     **Nombre:** asigne un nombre descriptivo a la regla.<br>
-    **Descripción:** agregue una descripción significativa.<br> 
-    
+    **Descripción:** agregue una descripción significativa.<br>
     **Sistema conectado:** elija el conector de AD para el que va a escribir la regla de sincronización personalizada<br>
     **Tipo de objeto de sistema conectado:** Usuario<br>
     **Tipo de objeto de metaverso:** Person<br>

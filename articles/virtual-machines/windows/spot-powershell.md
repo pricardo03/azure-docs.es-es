@@ -7,19 +7,19 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 8752522e4b5a7b91778d6eb2cd8e4ba3bac95da0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 17186d1d7b50ea872dc47eca8c2c4491787d2a38
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781892"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158951"
 ---
 # <a name="preview-deploy-spot-vms-using-azure-powershell"></a>Vista previa: Implementación de máquinas virtuales de Spot mediante Azure PowerShell
 
 
-El uso de [máquinas virtuales de Spot](spot-vms.md) permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, estas son excelentes para cargas de trabajo que soporten interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
+El uso de [máquinas virtuales de Spot](spot-vms.md) permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, estas son excelentes para cargas de trabajo que soportan interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
 
 Los precios de las máquinas virtuales de Spot varían en función de la región y la SKU. Para más información, consulte precios de las máquinas virtuales para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para más información sobre la configuración del precio máximo, consulte [Máquinas virtuales de Spot - Precios](spot-vms.md#pricing).
 
@@ -29,7 +29,7 @@ Puede establecer el precio máximo por hora que esté dispuesto por la máquina 
 > Las instancias de Spot se encuentran actualmente en versión preliminar pública,
 > la cual no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> En la primera parte de la versión preliminar pública, las instancias de Spot tendrán un precio fijo, por lo que no habrá expulsiones basadas en el precio.
+
 
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual
@@ -37,9 +37,6 @@ Puede establecer el precio máximo por hora que esté dispuesto por la máquina 
 Cree una máquina virtual de Spot y sírvase de [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) para crear la configuración. Incluya `-Priority Spot` y establezca `-MaxPrice` en:
 - `-1` para que la máquina virtual no se expulse en función del precio
 - o en una cantidad de dólares, de hasta 5 dígitos. Por ejemplo, `-MaxPrice .98765` significa que la máquina virtual se desasignará cuando el precio de una máquina virtual de Spot sea de aproximadamente 0,98765 USD por hora.
-
-> [!IMPORTANT]
-> Para la primera parte de la versión preliminar pública, puede establecer un precio máximo, pero no se tendrá en cuenta. Las máquinas virtuales de Spot tendrán un precio fijo, por lo que no se expulsarán en función de su precio.
 
 
 En este ejemplo se crea una máquina virtual de Spot que no se desasigna por precio (solo cuando Azure requiera la capacidad).

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 808a17fcf303c6eb72f11f5379fa172302dc782a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022144"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059866"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Creación de soluciones de comercio minorista con Azure IoT Central
 
@@ -160,7 +160,7 @@ En la captura de pantalla siguiente se muestra el panel integrado en la plantill
 > [!div class="mx-imgBorder"]
 > ![Centro de micrologística](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación del centro de micrologística](./tutorial-iot-central-smart-inventory-management-pnp.md).
+Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación del centro de micrologística](./tutorial-micro-fulfillment-center-pnp.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -170,5 +170,5 @@ Para empezar a crear una solución para el comercio minorista:
 * [Implementación y recorrido por la plantilla de aplicación de logística conectada](./tutorial-iot-central-connected-logistics-pnp.md)
 * [Implementación y recorrido por la plantilla de aplicación del centro de distribución digital](./tutorial-iot-central-digital-distribution-center-pnp.md)
 * [Implementación y recorrido de la plantilla de aplicación de administración de inventario inteligente](./tutorial-iot-central-smart-inventory-management-pnp.md)
-* [Implementación y recorrido de la plantilla de aplicación del centro de micrologística](./tutorial-iot-central-smart-inventory-management-pnp.md)
+* [Implementación y recorrido de la plantilla de aplicación del centro de micrologística](./tutorial-micro-fulfillment-center-pnp.md)
 * Para más información sobre IoT Central, consulte [Introducción a IoT Central](../preview/overview-iot-central.md).

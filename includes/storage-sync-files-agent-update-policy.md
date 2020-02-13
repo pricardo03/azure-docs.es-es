@@ -4,17 +4,17 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: 02e9553b9704c96794e0c1113ab3e06458f0f7c8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: aeb15fbb8da44a203789e06a359cb664998602ab
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391787"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123256"
 ---
 El agente de Azure File Sync se actualiza periódicamente con el fin de agregar nueva funcionalidad y solucionar los problemas. Se recomienda configurar Microsoft Update para obtener todas las actualizaciones del agente de Azure File Sync a medida que están disponibles.
 
 #### <a name="major-vs-minor-agent-versions"></a>Versiones de agente principales y secundarias
-* Con frecuencia, las versiones de agente principales contienen nuevas características y en la primera parte del número de versión tienen un número creciente. Por ejemplo:  \*2.\*.\*\*
+* Con frecuencia, las versiones de agente principales contienen nuevas características y en la primera parte del número de versión tienen un número creciente. Por ejemplo: \*2.\*.\*\*
 * Las versiones de agente secundarias se llaman también "revisiones" y se lanzan con más frecuencia que las principales. Suelen contener correcciones de errores y mejoras más pequeñas, pero no características nuevas. Por ejemplo: \*\*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Rutas de actualización
@@ -40,7 +40,7 @@ En las instrucciones siguientes se describe cómo cambiar la configuración desp
 Abra una consola de PowerShell y navegue hasta el directorio donde instaló el agente de sincronización y, después, importe los cmdlets del servidor. De manera predeterminada, esto tendría un aspecto similar al siguiente:
 ```powershell
 cd 'C:\Program Files\Azure\StorageSyncAgent'
-Import-Module -Name \StorageSync.Management.ServerCmdlets.dll
+Import-Module -Name .\StorageSync.Management.ServerCmdlets.dll
 ```
 
 Puede ejecutar `Get-StorageSyncAgentAutoUpdatePolicy` para comprobar la configuración de la directiva actual y determinar si quiere cambiarla.

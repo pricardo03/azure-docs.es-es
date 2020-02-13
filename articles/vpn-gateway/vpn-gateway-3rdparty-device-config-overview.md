@@ -7,17 +7,17 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778029"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148339"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Información general sobre las configuraciones de dispositivo VPN asociado
 Este artículo proporciona información general sobre configuraciones de dispositivos VPN locales para conectarse a puertas de enlace de VPN de Azure. Se usará una red virtual de Azure de ejemplo y la configuración de la puerta de enlace de VPN para conectarse a distintos dispositivos VPN locales usando los mismos parámetros.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="device-requirements"></a>Requisitos del dispositivo
 Las puertas de enlace de VPN de Azure usan los conjuntos de protocolos IPsec o IKE estándar para túneles VPN de sitio a sitio (S2S). Consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md) para obtener una lista de los parámetros IPsec o IKE y los algoritmos criptográficos para las puertas de enlace de VPN de Azure. También puede especificar los algoritmos exactos y los niveles de clave para una conexión específica, como se describe en [Acerca de los requisitos criptográficos](vpn-gateway-about-compliance-crypto.md).

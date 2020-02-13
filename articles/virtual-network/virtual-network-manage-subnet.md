@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: e8717d10f61dfd50b9cdfa20a91203a5842d4c7d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: de80094c3fd2df7d2f8b32d1e968e9bebea847a1
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185381"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064349"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 
@@ -44,16 +44,17 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 3. En **CONFIGURACIÓN**, seleccione **Subredes**.
 4. Seleccione **+Subred**.
 5. Escriba valores para estos parámetros:
-   - **Nombre**: El nombre debe ser único dentro de la red virtual. Para lograr la máxima compatibilidad con otros servicios de Azure, se recomienda usar una letra como primer carácter del nombre. Por ejemplo, Azure Application Gateway no se implementará en una subred que tiene un nombre que comienza con un número.
+   - **Name**: El nombre debe ser único dentro de la red virtual. Para lograr la máxima compatibilidad con otros servicios de Azure, se recomienda usar una letra como primer carácter del nombre. Por ejemplo, Azure Application Gateway no se implementará en una subred que tiene un nombre que comienza con un número.
    - **Intervalo de direcciones**: El intervalo debe ser único dentro del espacio de direcciones de la red virtual. Este intervalo no puede superponerse con otros intervalos de direcciones de subred dentro de la red virtual. El espacio de direcciones debe especificarse mediante notación de Enrutamiento de interdominios sin clases (CIDR). Por ejemplo, en una red virtual con el espacio de direcciones 10.0.0.0/16, podría definir el espacio de direcciones de subred 10.0.0.0/24. El menor intervalo que se puede especificar es /29, lo que proporciona ocho direcciones IP de subred. De conformidad con el protocolo, Azure reserva la primera y la última dirección de cada subred. Otras tres direcciones están reservadas para el uso del servicio de Azure. Como resultado, al definir una subred con el intervalo de direcciones /29, se generan tres direcciones IP utilizables en la subred. Si planea conectar una red virtual a una puerta de enlace VPN, debe crear una subred de puerta de enlace. Más información sobre las [consideraciones específicas del intervalo de direcciones de las subredes de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). En determinadas circunstancias se puede cambiar el intervalo de direcciones una vez agregada la subred. Para información sobre cómo cambiar un intervalo de direcciones de subred, consulte [Cambio de configuración de subred](#change-subnet-settings).
    - **Grupo de seguridad de red**: puede no asociar ningún grupo de seguridad de red o asociar uno existente a una subred para filtrar el tráfico de red entrante y saliente de la subred. El grupo de seguridad de red debe existir en la misma suscripción y la misma ubicación que la red virtual. Obtenga más información sobre los [grupos de seguridad de red](security-overview.md) y [cómo crear un grupo de seguridad de red](tutorial-filter-network-traffic.md).
    - **Tabla de rutas**: puede no asociar ninguna tabla de rutas o asociar una existente a una subred para controlar el enrutamiento del tráfico de red a otras redes. La tabla de rutas debe existir en la misma suscripción y la misma ubicación que la red virtual. Obtenga más información sobre el [enrutamiento de Azure](virtual-networks-udr-overview.md) y [cómo crear una tabla de rutas](tutorial-create-route-table-portal.md).
    - **Puntos de conexión de servicio:** una subred puede tener habilitados varios puntos de conexión de servicio o ninguno. Para habilitar un punto de conexión de servicio, seleccione el servicio o los servicios para los que desea habilitar los puntos de conexión en la lista de **servicios**. La ubicación se configura automáticamente para un punto de conexión. De forma predeterminada, los puntos de conexión de servicio están configurados para la región de la red virtual. En el caso de Azure Storage, para admitir escenarios de conmutación por error regionales, los puntos de conexión se configuran automáticamente para las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-   - **Delegación de subred:** una subred puede tener varias delegaciones habilitadas para él o no tener ninguna. La delegación de subred proporciona permisos explícitos al servicio para crear los recursos específicos del servicio en la subred con un identificador único al implementar el servicio. Para delegar a un servicio, seleccione el servicio al que desea delegar en la lista **Servicios**.
-
+   
        Para quitar un punto de conexión de servicio, anule la selección del servicio para el que desea quitar el punto de conexión. Para más información sobre los puntos de conexión de servicio y sobre los servicios para los que se pueden habilitar, vea la [información general sobre los puntos de conexión de servicio de las redes virtuales](virtual-network-service-endpoints-overview.md). Una vez que habilita un punto de conexión para un servicio, también debe habilitar el acceso de red para la subred de un recurso creado con el servicio. Por ejemplo, si habilita el punto de conexión de servicio para *Microsoft.Storage*, también debe habilitar el acceso de red a todas las cuentas de Azure Storage a las que desea conceder acceso de red. Para detalles sobre cómo habilitar el acceso de red a las subredes para las que está habilitado un punto de conexión de servicio, consulte la documentación correspondiente al servicio individual para el que habilitó el punto de conexión de servicio.
 
      Para validar que un punto de conexión de servicio está habilitado para una subred, consulte las [rutas efectivas](diagnose-network-routing-problem.md) para cualquier interfaz de red de la subred. Cuando se configura un punto de conexión, verá una ruta *predeterminada* con los prefijos de dirección del servicio y un nextHopType de **VirtualNetworkServiceEndpoint**. Para más información sobre el enrutamiento, vea la [introducción al enrutamiento](virtual-networks-udr-overview.md).
+   - **Delegación de subred:** una subred puede tener varias delegaciones habilitadas para él o no tener ninguna. La delegación de subred proporciona permisos explícitos al servicio para crear los recursos específicos del servicio en la subred con un identificador único al implementar el servicio. Para delegar a un servicio, seleccione el servicio al que desea delegar en la lista **Servicios**.
+
 6. Para agregar la subred a la red virtual que seleccionó, seleccione **Aceptar**.
 
 **Comandos**
@@ -99,7 +100,7 @@ Solo se puede eliminar una subred si no tiene recursos. Si hay recursos en la su
 
 Para llevar a cabo tareas en subredes, su cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones adecuadas que se muestran en la tabla siguiente:
 
-|.                                                                   |   NOMBRE                                       |
+|Acción                                                                   |   Nombre                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   Leer una subred de red virtual              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   Crear o actualizar una subred de red virtual  |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845069"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152931"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspección de paquetes con Azure Network Watcher
 
@@ -39,7 +39,7 @@ En este escenario, podrá:
 
 En este escenario, se muestra cómo ver el tiempo de ida y vuelta (RTT) inicial de una conversación de Protocolo de control de transmisión (TCP) que se produce entre dos puntos de conexión.
 
-Cuando se establece una conexión TCP, los primeros tres paquetes enviados en la conexión siguen un patrón que se conoce comúnmente como protocolo de enlace de tres vías. Mediante el examen de los dos primeros paquetes enviados en este protocolo de enlace, una solicitud inicial del cliente y una respuesta del servidor, es posible calcular la latencia de cuando se estableció esta conexión. Esta latencia se conoce como tiempo de ida y vuelta (RTT). Para más información sobre el protocolo TCP y el protocolo de enlace de tres vías, consulte el siguiente recurso. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Cuando se establece una conexión TCP, los primeros tres paquetes enviados en la conexión siguen un patrón que se conoce comúnmente como protocolo de enlace de tres vías. Mediante el examen de los dos primeros paquetes enviados en este protocolo de enlace, una solicitud inicial del cliente y una respuesta del servidor, es posible calcular la latencia de cuando se estableció esta conexión. Esta latencia se conoce como tiempo de ida y vuelta (RTT). Para más información sobre el protocolo TCP y el protocolo de enlace de tres vías, consulte el siguiente recurso. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
 
 ### <a name="step-1"></a>Paso 1
 

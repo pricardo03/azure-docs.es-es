@@ -1,5 +1,5 @@
 ---
-title: Descripción de las asignaciones de denegación para recursos de Azure | Microsoft Docs
+title: Descripción de las asignaciones de denegación para recursos de Azure
 description: Obtenga información sobre las asignaciones de denegación en el control de acceso basado en rol (RBAC) para los recursos de Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 2c663b587d2e9ee278fc774c2841899b060ccbcf
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7ab811635ca50c3a28ecd8bdf6d0f18fad4c384f
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479369"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137373"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
 
@@ -54,21 +54,21 @@ Las asignaciones de denegación siguen un patrón similar que las asignaciones d
  Una asignación de denegación tiene las siguientes propiedades:
 
 > [!div class="mx-tableFixed"]
-> | Propiedad | Obligatorio | type | DESCRIPCIÓN |
+> | Propiedad | Obligatorio | Tipo | Descripción |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Sí | Cadena | El nombre para mostrar de la asignación de denegación. Los nombres deben ser únicos para un ámbito determinado. |
-> | `Description` | Sin | Cadena | La descripción de la asignación de denegación. |
+> | `DenyAssignmentName` | Sí | String | El nombre para mostrar de la asignación de denegación. Los nombres deben ser únicos para un ámbito determinado. |
+> | `Description` | No | String | La descripción de la asignación de denegación. |
 > | `Permissions.Actions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las operaciones de administración a las que la asignación de denegación bloquea el acceso. |
-> | `Permissions.NotActions` | Sin | String[] | Una matriz de cadenas que especifican las operaciones de administración que deben excluirse de la asignación de denegación. |
+> | `Permissions.NotActions` | No | String[] | Una matriz de cadenas que especifican las operaciones de administración que deben excluirse de la asignación de denegación. |
 > | `Permissions.DataActions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las operaciones de datos a las que la asignación de denegación bloquea el acceso. |
-> | `Permissions.NotDataActions` | Sin | String[] | Una matriz de cadenas que especifican las operaciones de datos que deben excluirse de la asignación de denegación. |
-> | `Scope` | Sin | Cadena | Una cadena que especifica el ámbito al que se aplica la asignación de denegación. |
-> | `DoNotApplyToChildScopes` | Sin | Boolean | Especifica si la asignación de denegación se aplica a los ámbitos secundarios. El valor predeterminado es False. |
+> | `Permissions.NotDataActions` | No | String[] | Una matriz de cadenas que especifican las operaciones de datos que deben excluirse de la asignación de denegación. |
+> | `Scope` | No | String | Una cadena que especifica el ámbito al que se aplica la asignación de denegación. |
+> | `DoNotApplyToChildScopes` | No | Boolean | Especifica si la asignación de denegación se aplica a los ámbitos secundarios. El valor predeterminado es False. |
 > | `Principals[i].Id` | Sí | String[] | Matriz de identificadores de objetos de entidad de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que se aplica la asignación de denegación. Establézcala en un GUID `00000000-0000-0000-0000-000000000000` vacío para representar a todas las entidades de seguridad. |
-> | `Principals[i].Type` | Sin | String[] | Una matriz de tipos de objetos representados por Principals[i].Id. Establézcala en `SystemDefined` para representar a todas las entidades de seguridad. |
-> | `ExcludePrincipals[i].Id` | Sin | String[] | Matriz de identificadores de objetos de entidades de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que no se aplica la asignación de denegación. |
-> | `ExcludePrincipals[i].Type` | Sin | String[] | Una matriz de tipos de objetos representados por ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Sin | Boolean | Especifica si Azure ha creado esta asignación de denegación y no se puede editar ni eliminar. Actualmente, el sistema protege todas las asignaciones de denegación. |
+> | `Principals[i].Type` | No | String[] | Una matriz de tipos de objetos representados por Principals[i].Id. Establézcala en `SystemDefined` para representar a todas las entidades de seguridad. |
+> | `ExcludePrincipals[i].Id` | No | String[] | Matriz de identificadores de objetos de entidades de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que no se aplica la asignación de denegación. |
+> | `ExcludePrincipals[i].Type` | No | String[] | Una matriz de tipos de objetos representados por ExcludePrincipals[i].Id. |
+> | `IsSystemProtected` | No | Boolean | Especifica si Azure ha creado esta asignación de denegación y no se puede editar ni eliminar. Actualmente, el sistema protege todas las asignaciones de denegación. |
 
 ## <a name="the-all-principals-principal"></a>La entidad de seguridad Todas las entidades de seguridad
 

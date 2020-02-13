@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación de un índice de búsqueda en C# mediante .NET
 titleSuffix: Azure Cognitive Search
 description: En este inicio rápido de C#, se explica cómo crear un índice, cargar datos y ejecutar consultas mediante el SDK de .NET de Azure Cognitive Search.
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 1d8eaea4a6eded769542921851fb0c74a3c9d58b
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: e9f43f729fc9e08054cd160b82945ee4bcd5821c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406755"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121651"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en C# mediante el SDK de .NET
 > [!div class="op_single_selector"]
@@ -32,13 +32,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > [!NOTE]
 > En aras de la simplicidad, el código de demostración de este artículo usa los métodos sincrónicos del SDK de .NET de Azure Cognitive Search. De todas formas, para escenarios de producción en sus propias aplicaciones, se recomienda que use métodos asincrónicos para mantener su escalabilidad y capacidad de respuesta. Por ejemplo, podría utilizar `CreateAsync` y `DeleteAsync` en lugar de `Create` y `Delete`.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para este inicio rápido, se requieren los siguientes servicios y herramientas.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), cualquier edición. Se han probado código de ejemplo e instrucciones en la edición Community Edition gratuita.
 
-+ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
 
 <a name="get-service-info"></a>
 
@@ -56,7 +56,7 @@ Las llamadas al servicio requieren un punto de conexión de URL y una clave de a
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-## <a name="set-up-your-environment"></a>Configuración del entorno
+## <a name="set-up-your-environment"></a>Configurar el entorno
 
 Para comenzar, abra Visual Studio y cree un nuevo proyecto de Aplicación de consola que pueda ejecutarse en .NET Core.
 

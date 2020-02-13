@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2019
 ms.author: banders
-ms.openlocfilehash: 1249758e5dd5b7e823c11890e57549195da22529
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 969fbc3fe0aa614d4284e1442f507f263d48b499
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984130"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117164"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Revisión de la factura de Azure
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Comparación de los cargos facturados con el archivo de uso
 > * Comparación de los cargos y el uso en el análisis de costos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe tener una cuenta de facturación de pago del *Programa de Microsoft Online Services*. La cuenta se crea al registrarse en Azure mediante el sitio web de Azure. Por ejemplo, si tiene una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o es [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
@@ -40,7 +40,7 @@ Deben haber transcurrido más de 30 días desde el momento de suscripción a Az
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal en https://portal.azure.com.
+- Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="compare-invoiced-charges-with-usage-file"></a>Comparación de los cargos facturados con el archivo de uso
 

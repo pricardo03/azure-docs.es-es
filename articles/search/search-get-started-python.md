@@ -2,19 +2,19 @@
 title: 'Inicio rápido: Creación de un índice de búsqueda en Python mediante las API REST'
 titleSuffix: Azure Cognitive Search
 description: Se explica cómo crear un índice, cargar datos y ejecutar consultas mediante Python, Jupyter Notebook y la API REST de Azure Cognitive Search.
-author: heidisteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: c663fae47de1e161314aa3bf2fdb9966ae80d3c6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/10/2020
+ms.openlocfilehash: 15a3801a7ea99d6d799bcd8adf340b03f36bc196
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792260"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121616"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Python mediante Jupyter Notebook
 
@@ -30,13 +30,13 @@ Compile un cuaderno de Jupyter Notebook que cree, cargue y consulte un índice d
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para este inicio rápido, se requieren los siguientes servicios y herramientas. 
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), que proporciona Python 3.x e instancias de Jupyter Notebook.
 
-+ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar el nivel Gratis para este inicio rápido. 
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar el nivel Gratis para este inicio rápido. 
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
@@ -92,9 +92,9 @@ En esta tarea, inicie un cuaderno de Jupyter Notebook y compruebe que puede cone
 
 ## <a name="1---create-an-index"></a>1 - Creación de un índice
 
-A menos que esté usando el portal, debe existir un índice en el servicio antes de poder cargar los datos. Este paso se usa la [API de REST de Crear índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para insertar un esquema de índice en el servicio.
+A menos que use el portal, debe existir un índice en el servicio antes de poder cargar los datos. Este paso se usa la [API de REST de Crear índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para insertar un esquema de índice en el servicio.
 
-Los elementos necesarios de un índice incluyen un nombre, una colección de campos y una clave. La colección de campos define la estructura de un *documento*. Cada campo tiene un nombre, un tipo y unos atributos que determinan cómo se usa el campo (por ejemplo, si es texto completo que se puede buscar, filtrar o recuperar en los resultados de búsqueda). Dentro de un índice, se debe designar uno de los campos de tipo `Edm.String` como la *clave* para la identidad del documento.
+Los elementos necesarios de un índice incluyen un nombre, una colección de campos y una clave. La colección de campos define la estructura de un *documento*. Cada campo tiene un nombre, un tipo y unos atributos que determinan cómo se usa el campo (por ejemplo, si es texto completo que se puede buscar, filtrar o recuperar en los resultados de búsqueda). Dentro de un índice, uno de los campos de tipo `Edm.String` se debe designar como la *clave* para la identidad del documento.
 
 Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo que aparecen a continuación. Es un subconjunto de un [índice de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) mayor usado en otros tutoriales. Lo hemos acortado en este inicio rápido para mayor brevedad.
 
@@ -148,7 +148,7 @@ Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo q
 
 ## <a name="2---load-documents"></a>2 - Carga de documentos
 
-Para insertar documentos, use una solicitud POST HTTP al punto de conexión de la dirección URL del índice. La API de REST es de [Agregar, Actualizar o Eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Los documentos se originan en [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) en GitHub.
+Para insertar documentos, use una solicitud HTTP POST al punto de conexión de la dirección URL del índice. La API de REST es de [Agregar, Actualizar o Eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Los documentos se originan en [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) en GitHub.
 
 1. En una celda nueva, proporcione cuatro documentos que se ajusten al esquema de índice. Especifique una acción de carga para cada documento.
 

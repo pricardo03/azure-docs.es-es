@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: 3cbc4ab4f0e2ad18c7d1d430ed5501e23b5f5f4d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 961eef939684b1bfb4ebe1840ff87e7bd836f205
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75983730"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121768"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Revisión de la factura relativa al Contrato de cliente de Microsoft
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Revisión de los cargos pendientes para calcular la próxima factura
 > * Análisis de los cargos por uso de Azure
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe tener una cuenta de facturación vinculada a un Contrato de cliente de Microsoft.
 
@@ -41,7 +41,7 @@ Deben haber transcurrido más de 30 días desde el momento de suscripción a Az
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal en https://portal.azure.com.
+- Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 

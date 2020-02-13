@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: c26c4c47cb17acf88bc545af3a1fc979138d56b1
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951741"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152030"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 
@@ -30,7 +30,7 @@ Si aún no tiene una puerta de enlace de red virtual y no desea crear una, consi
 
 ### <a name="before"></a>Antes de empezar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 * En estos pasos se presume que ya se crearon ambas redes virtuales. Si usa este artículo como ejercicio y no tiene redes virtuales, los pasos incluyen vínculos que le ayudarán a crearlas.
 * Compruebe que los intervalos de direcciones de las redes virtuales no se superponen entre sí ni con alguno de los intervalos de otras conexiones con las que puedan estar conectadas las puertas de enlace.
@@ -78,7 +78,7 @@ En la tabla siguiente se muestra un ejemplo de cómo se definen los sitios local
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
+| RMVNet | (192.168.0.0/16) |Este de EE. UU. |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>Sección 1: Configuración de la red virtual clásica
 
@@ -100,7 +100,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 
 1. Vaya a **Todos los recursos** y ubique **ClassicVNet** en la lista.
 2. Haga clic en **Puerta de enlace** en la sección **Configuración** del menú y, a continuación, haga clic en el banner para crear una puerta de enlace.
-  ![Configuración de una puerta de enlace de VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "CConfiguración de una VPN Gateway")
+  ![Configuración de una puerta de enlace de VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configuración de una instancia de VPN Gateway")
 3. En la página **Nueva conexión de VPN**, en la opción **Tipo de conexión**, seleccione **De sitio a sitio**.
 4. En **Sitio local**, haga clic en **Configurar los valores obligatorios**. Con esto se abre la página **Sitio local**.
 5. En la página **Sitio Local**, cree un nombre para hacer referencia a la red virtual de Resource Manager. Por ejemplo, "RMVNetLocal".
@@ -173,7 +173,7 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |Dirección IP pública de puerta de enlace|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |La dirección IP pública que se asigna a la puerta de enlace ClassicVNet|
-| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |La dirección IP pública que se asigna a la puerta de enlace RMVNet.|
+| RMVNet | (192.168.0.0/16) |Este de EE. UU. |ClassicVNetLocal (10.0.0.0/24) |La dirección IP pública que se asigna a la puerta de enlace RMVNet.|
 
 La puerta de enlace de red local especifica el intervalo de direcciones y la dirección IP pública asociados a la red virtual clásica y su puerta de enlace de red virtual. Si lleva a cabo estos pasos como un ejercicio, consulte los valores de ejemplo.
 

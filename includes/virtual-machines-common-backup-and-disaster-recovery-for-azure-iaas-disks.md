@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76530916"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179125"
 ---
 En este artículo se explica cómo planear la copia de seguridad y recuperación ante desastres (DR) de discos y máquinas virtuales (VM) IaaS en Azure. En este documento se tratan los discos administrados y los no administrados.
 
@@ -103,7 +103,7 @@ Si usa [discos SSD premium](../articles/virtual-machines/windows/disks-types.md)
 Con discos no administrados, puede usar el tipo de almacenamiento con redundancia local para discos IaaS, pero asegúrese de que Azure Backup esté habilitado con la opción de almacenamiento con redundancia geográfica en el almacén de Recovery Services.
 
 > [!NOTE]
-> Si usa la opción [almacenamiento con redundancia geográfica](../articles/storage/common/storage-redundancy-grs.md) o [almacenamiento con redundancia geográfica con acceso de lectura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) con los discos no administrados, todavía necesita instantáneas coherentes de copia de seguridad y recuperación ante desastres. Use [Azure Backup](https://azure.microsoft.com/services/backup/) o [instantáneas coherentes](#alternative-solution-consistent-snapshots).
+> Si usa la opción [almacenamiento con redundancia geográfica](../articles/storage/common/storage-redundancy-grs.md) o [almacenamiento con redundancia geográfica con acceso de lectura](../articles/storage/common/storage-redundancy.md) con los discos no administrados, todavía necesita instantáneas coherentes de copia de seguridad y recuperación ante desastres. Use [Azure Backup](https://azure.microsoft.com/services/backup/) o [instantáneas coherentes](#alternative-solution-consistent-snapshots).
 
  En la tabla siguiente se muestra un resumen de las soluciones disponibles para la recuperación ante desastres.
 
@@ -113,7 +113,7 @@ Con discos no administrados, puede usar el tipo de almacenamiento con redundanci
 | Discos administrados | Local ([almacenamiento con redundancia local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Discos no administrados de almacenamiento con redundancia local | Local ([almacenamiento con redundancia local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Discos no administrados de almacenamiento con redundancia geográfica | Entre regiones ([almacenamiento con redundancia geográfica](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantáneas coherentes](#alternative-solution-consistent-snapshots) |
-| Discos no administrados de almacenamiento con redundancia geográfica con acceso de lectura | Entre regiones ([almacenamiento con redundancia geográfica con acceso de lectura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantáneas coherentes](#alternative-solution-consistent-snapshots) |
+| Discos no administrados de almacenamiento con redundancia geográfica con acceso de lectura | Entre regiones ([almacenamiento con redundancia geográfica con acceso de lectura](../articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantáneas coherentes](#alternative-solution-consistent-snapshots) |
 
 La alta disponibilidad puede conseguirse mejor mediante los discos administrados en un conjunto de disponibilidad con Azure Backup. Si usa discos no administrados, de todos modos puede usar Azure Backup para recuperación ante desastres. Si no puede usar Azure Backup, tome [instantáneas coherentes](#alternative-solution-consistent-snapshots) tal y como se describe en una sección posterior es una solución alternativa de copia de seguridad y recuperación ante desastres.
 

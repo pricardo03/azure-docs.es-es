@@ -3,18 +3,18 @@ title: 'Inicio rápido: Supervisión de dispositivos en Azure IoT Central'
 description: Los operadores deben aprender a usar una aplicación de Azure IoT Central para supervisar los dispositivos.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e5185d78b0ffc17e861f49d294af65ddcd200d07
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e56b733a567c706c2a15f2c30ed93a47c244db11
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026168"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168718"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Inicio rápido: Uso de Azure IoT Central para supervisar los dispositivos
 
@@ -22,7 +22,7 @@ ms.locfileid: "77026168"
 
 En esta guía de inicio rápido se muestra cómo puede, como operador, usar la aplicación en Microsoft Azure IoT Central para supervisar los dispositivos y cambiar la configuración.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, debe completar los tres inicios rápidos anteriores: [Crear una aplicación de Azure IoT Central](./quick-deploy-iot-central.md), [Agregar un dispositivo simulado a la aplicación en IoT Central](./quick-create-pnp-device.md) y [Configurar reglas y acciones para el dispositivo](quick-configure-rules.md).
 
@@ -41,8 +41,6 @@ Se abre en el explorador la vista **Información general** del dispositivo simul
 ## <a name="investigate-an-issue"></a>Investigar un problema
 
 Los operadores pueden ver información acerca del dispositivo en las vistas **Información general**, **Acerca de** y **Comandos**. El generador ha creado una vista **Administrar dispositivo** en la que se puede editar la información del dispositivo y establecer sus propiedades.
-
-Elija la vista **Información general** para ver información sobre el dispositivo.
 
 El gráfico del panel muestra un trazado de la temperatura del dispositivo. Decide que la temperatura del dispositivo es demasiado alta.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 2ec8d389c99ad96e59bf49d4345855fa44d6c7aa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902006"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118813"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 

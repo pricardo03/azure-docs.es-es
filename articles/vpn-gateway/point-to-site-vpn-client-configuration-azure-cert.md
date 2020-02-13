@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9342a70e539c4a2717fe45426c26595285172681
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 18a9578cc454ea5259b9564d64dcd4308ee5ef87
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045778"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148987"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure
 
@@ -46,7 +46,6 @@ Para generar archivos de configuración de cliente, puede usar PowerShell o Azur
 
 ### <a name="zipps"></a>Generación de archivos mediante PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. Al generar archivos de configuración de cliente VPN, el valor de "-AuthenticationMethod" es "EapTIs". Genere los archivos de configuración de cliente VPN con el comando siguiente:
 
