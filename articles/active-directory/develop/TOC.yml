@@ -7,6 +7,7 @@
     - name: Evolución de la Plataforma de identidad de Microsoft
       href: about-microsoft-identity-platform.md
 - name: Guías de inicio rápido
+  expanded: true
   items:
     - name: Configuración de un inquilino
       href: quickstart-create-new-tenant.md
@@ -90,6 +91,7 @@
 - name: Ejemplos
   href: sample-v2-code.md
 - name: Conceptos
+  expanded: true
   items:
     - name: Conceptos básicos sobre autenticación
       href: authentication-scenarios.md

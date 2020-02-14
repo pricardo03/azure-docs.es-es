@@ -21,7 +21,11 @@
 - name: Conceptos
   items:
     - name: Ubicaciones y asociados
-      href: virtual-wan-locations-partners.md
+      items:
+        - name: Ubicaciones y asociados del centro de conectividad
+          href: virtual-wan-locations-partners.md
+        - name: Directrices de automatización para asociados
+          href: virtual-wan-configure-automation-providers.md
     - name: Directivas IPsec
       href: virtual-wan-ipsec.md
 - name: Guías paso a paso
@@ -46,8 +50,6 @@
       href: virtual-wan-point-to-site-azure-ad.md
     - name: "Configuración de la autenticación de Azure\_AD para varias aplicaciones en la VPN de usuario"
       href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Configuración de automatización (asociados de Virtual WAN)
-      href: virtual-wan-configure-automation-providers.md
     - name: Descargar perfiles de VPN globales y basados en centros de conectividad
       href: global-hub-profile.md
     - name: Configuración del enrutamiento

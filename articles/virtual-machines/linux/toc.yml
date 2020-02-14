@@ -160,6 +160,8 @@
           href: disk-scalability-targets.md
         - name: Copia de seguridad y recuperación ante desastres para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Discos compartidos
+          href: disks-shared.md
         - name: Discos de sistema operativo efímero
           href: ephemeral-os-disks.md
     - name: Redes
@@ -553,6 +555,8 @@
         - name: Implementación de discos con plantilla
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
+        - name: Habilitación de discos compartidos
+          href: disks-shared-enable.md
         - name: 'Carga de un disco duro virtual en un disco: CLI'
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Cambio del tamaño de un disco

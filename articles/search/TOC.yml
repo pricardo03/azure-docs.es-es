@@ -313,14 +313,20 @@
           href: search-pagination-page-layout.md
         - name: Ajuste de la relevancia (perfiles de puntuación)
           href: index-add-scoring-profiles.md
-    - name: Administración y supervisión
+    - name: Administración de un servicio
       items:
-        - name: Administración con Azure Portal
+        - name: Portal
           href: search-manage.md
-        - name: Administración con PowerShell
+        - name: PowerShell
           href: search-manage-powershell.md
-        - name: Supervisión de la actividad y el registro
+    - name: Supervisión y registro
+      items:
+        - name: Aspectos básicos
           href: search-monitor-usage.md
+        - name: Supervisión de una actividad de consulta
+          href: search-monitor-queries.md
+        - name: Registro de diagnóstico
+          href: search-monitor-logs.md
         - name: Búsqueda de análisis de tráfico
           href: search-traffic-analytics.md
     - name: Solución de problemas
