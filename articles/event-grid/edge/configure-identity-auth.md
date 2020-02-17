@@ -18,7 +18,7 @@ ms.locfileid: "76841772"
 ---
 # <a name="configure-identity-for-the-event-grid-module"></a>Configuración de la identidad para el módulo de Event Grid
 
-En este artículo se muestra cómo configurar la identidad de Grid en Edge. De forma predeterminada, el módulo de Event Grid presenta su certificado de identidad tal y como lo configuró el demonio de seguridad de IoT. Event Grid en Edge presenta su certificado de identidad con las llamadas salientes cuando entrega eventos. De este modo, un suscriptor puede validar que el módulo de Event Grid envió el evento antes de aceptarlo.
+En este artículo se muestra cómo configurar la identidad de Grid en Edge. De forma predeterminada, el módulo de Event Grid presenta su certificado de identidad tal y como lo configuró el demonio de seguridad de IoT. Event Grid en Microsoft Edge presenta su certificado de identidad con las llamadas salientes cuando entrega eventos. De este modo, un suscriptor puede validar que el módulo de Event Grid envió el evento antes de aceptarlo.
 
 Consulte la guía [Seguridad y autenticación](security-authentication.md) para ver todas las configuraciones posibles.
 
