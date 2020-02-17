@@ -1,6 +1,6 @@
 ---
 title: 'Controladores de eventos y destinos: Azure Event Grid IoT Edge | Microsoft Docs'
-description: Controladores de eventos y destinos en Event Grid en Edge
+description: Controladores de eventos y destinos en Event Grid en Microsoft Edge
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -15,9 +15,9 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2020
 ms.locfileid: "76851327"
 ---
-# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Controladores de eventos y destinos en Event Grid en Edge
+# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Controladores de eventos y destinos en Event Grid en Microsoft Edge
 
-Un controlador de eventos es el lugar donde se guarda el evento para realizar acciones posteriores o para procesarse. Con el módulo de Event Grid en Edge, el controlador de eventos puede estar en el mismo dispositivo Edge, en otro dispositivo o en la nube. Puede usar cualquier webhook para controlar eventos o para enviarlos a uno de los controladores nativos como Azure Event Grid.
+Un controlador de eventos es el lugar donde se guarda el evento para realizar acciones posteriores o para procesarse. Con el módulo de Event Grid en Microsoft Edge, el controlador de eventos puede estar en el mismo dispositivo Edge, en otro dispositivo o en la nube. Puede usar cualquier webhook para controlar eventos o para enviarlos a uno de los controladores nativos como Azure Event Grid.
 
 En este artículo se proporciona información sobre cómo configurar cada caso.
 

@@ -189,7 +189,7 @@ ms.locfileid: "77026020"
                                                 <h4>Bases de datos relacionales</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL Database como servicio</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-database-edge/">SQL Database para Edge</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database-edge/">SQL Database para Microsoft Edge</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server en una máquina virtual de Azure</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">Synapse Analytics (anteriormente SQL DW)</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">Base de datos PostgreSQL como servicio</a></li>
