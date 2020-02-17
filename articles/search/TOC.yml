@@ -105,9 +105,9 @@
           href: search-sku-tier.md
         - name: Límites de servicio
           href: search-limits-quotas-capacity.md
-        - name: Escalado de particiones y réplicas
+        - name: Ajuste de la capacidad
           href: search-capacity-planning.md
-        - name: Estrategias de implementación y procedimientos recomendados
+        - name: Escalado para mejorar el rendimiento
           href: search-performance-optimization.md
         - name: Arquitectura multiinquilino
           href: search-modeling-multitenant-saas-applications.md
