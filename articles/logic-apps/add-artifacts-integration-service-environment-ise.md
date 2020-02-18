@@ -1,23 +1,23 @@
 ---
-title: Incorporación de artefactos a un entorno del servicio de integración
-description: Agregue aplicaciones lógicas, cuentas de integración y conectores personalizados al entorno del servicio de integración (ISE) para acceder a redes virtuales de Azure (VNET).
+title: Incorporación de artefactos a entornos del servicio de integración
+description: Agregue aplicaciones lógicas, cuentas de integración, conectores personalizados y conectores administrados al entorno del servicio de integración (ISE).
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: c597bc4430e4390f0e29e4fe8ae4014521e1ae74
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.date: 02/10/2020
+ms.openlocfilehash: e2505d8ee8b8539f158c0a549bedfcd69a954e24
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732279"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191639"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Incorporación de artefactos al entorno del servicio de integración (ISE) en Azure Logic Apps
 
 Después de crear un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), agregue artefactos como aplicaciones lógicas, cuentas de integración y conectores para que puedan acceder a los recursos de la red virtual de Azure. Por ejemplo, los conectores ISE administrados que están disponibles después de crear el ISE no aparecen automáticamente en el selector de conectores en el Diseñador de aplicación lógica. Para poder usar estos conectores ISE, tiene que [agregarlos e implementarlos manualmente en su ISE](#add-ise-connectors-environment) para que aparezcan en el Diseñador de aplicación lógica.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -33,18 +33,19 @@ Para crear aplicaciones lógicas que se ejecuten en el entorno del servicio de i
 
    ![Incorporación de una nueva aplicación lógica a ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
-   O bien
+1. Proporcione información sobre la aplicación lógica que desea crear, por ejemplo:
 
-   En el menú principal de Azure, seleccione **Crear un recurso** > **Integración** > **Aplicación lógica**.
+   ![Selección del entorno de servicio de integración](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-1. Proporcione el nombre, la suscripción de Azure y el grupo de recursos de Azure (nuevo o existente) que se usará para la aplicación lógica.
+   | Propiedad | Obligatorio | Descripción |
+   |----------|----------|-------------|
+   | **Nombre** | Sí | Nombre de la aplicación lógica que se va a crear |
+   | **Suscripción** | Sí | Nombre de la suscripción a Azure que se va a usar |
+   | **Grupos de recursos** | Sí | Nombre del grupo de recursos de Azure (nuevo o existente) que se va a usar |
+   | **Ubicación** | Sí | En **entornos de servicio de integración**, seleccione el ISE que se va a usar, si aún no está seleccionado. <p><p> **Importante**: Para usar las aplicaciones lógicas con una cuenta de integración, ambos deben usar el mismo ISE. |
+   ||||
 
-1. En la lista **Ubicación**, en la sección **Entornos de servicio de integración**, seleccione su ISE, por ejemplo:
-
-   ![Selección del entorno de servicio de integración](./media/add-artifacts-integration-service-environment-ise/create-logic-app-with-integration-service-environment.png)
-
-   > [!IMPORTANT]
-   > Si quiere usar las aplicaciones lógicas con una cuenta de integración, todas ellas deben usar el mismo ISE.
+1. Seleccione **Crear** cuando haya terminado.
 
 1. Siga [creando la aplicación lógica de manera habitual](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -64,15 +65,20 @@ Para crear una cuenta de integración que use un ISE, siga estos pasos:
 
    ![Agregar una cuenta de integración nueva a ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
-   O bien
+1. Proporcione información sobre la aplicación lógica que desea crear, por ejemplo:
 
-   En el menú principal de Azure, seleccione **Crear un recurso** > **Integración** > **Cuenta de integración**.
+   ![Selección del entorno de servicio de integración](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-1. Proporcione el nombre, la suscripción de Azure, el grupo de recursos de Azure (nuevo o existente) y el plan de tarifa que usará para la cuenta de integración.
+   | Propiedad | Obligatorio | Descripción |
+   |----------|----------|-------------|
+   | **Nombre** | Sí | Nombre de la cuenta de integración que quiere crear |
+   | **Suscripción** | Sí | Nombre de la suscripción de Azure que quiere usar |
+   | **Grupos de recursos** | Sí | Nombre del grupo de recursos de Azure (nuevo o existente) que se va a usar |
+   | **Plan de tarifa** | Sí | Plan de tarifa que se va a usar para la cuenta de integración |
+   | **Ubicación** | Sí | En **entornos de servicio de integración**, seleccione el mismo ISE que usan las aplicaciones lógicas, si aún no está seleccionado. <p><p> **Importante**: Para usar la cuenta de integración con aplicaciones lógicas, ambas deben usar el mismo ISE. |
+   ||||
 
-1. En la lista **Ubicación**, en la sección **Entornos de servicio de integración**, seleccione el mismo ISE que usan las aplicaciones lógicas, por ejemplo:
-
-   ![Selección del entorno de servicio de integración](./media/add-artifacts-integration-service-environment-ise/create-integration-account-with-integration-service-environment.png)
+1. Seleccione **Crear** cuando haya terminado.
 
 1. [Vincule la aplicación lógica a la cuenta de integración como siempre](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
@@ -110,7 +116,7 @@ Para usar conectores personalizados en su ISE, créelos desde directamente dentr
 
 1. En la lista **Ubicación**, en la sección **Entornos de servicio de integración**, seleccione el mismo ISE que usan las aplicaciones lógicas y, después, seleccione **Crear**, por ejemplo:
 
-   ![Selección del entorno de servicio de integración](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-with-integration-service-environment.png)
+   ![Selección del entorno de servicio de integración](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. Seleccione el nuevo conector personalizado y, a continuación, seleccione **Editar**, por ejemplo:
 

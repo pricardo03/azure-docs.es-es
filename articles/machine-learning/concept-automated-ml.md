@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f7a2e78ed2b1de770f7a60f1312e069dc1757cb6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894896"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191201"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -95,11 +95,11 @@ En todos los experimentos de aprendizaje automático automatizado, los datos se 
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Preprocesamiento avanzado: caracterización opcional
 
-También están disponibles operaciones de preprocesamiento o caracterización avanzadas adicionales, como los límites de protección de datos, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#preprocess). Para habilitar esta configuración, realice lo siguiente:
+También están disponibles operaciones de preprocesamiento o caracterización avanzadas adicionales, como los límites de protección de datos, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#featurization). Para habilitar esta configuración, realice lo siguiente:
 
-+ Azure Machine Learning Studio: Seleccione **View featurization settings** (Ver configuración de características) en la sección **Configuration Run** (Ejecución de la configuración) [con estos pasos](how-to-create-portal-experiments.md).
++ Azure Machine Learning Studio: Habilite **Automatic featurization** (Características automáticas) en la sección **View additional configuration** (Ver configuración adicional) siguiendo [estos pasos](how-to-create-portal-experiments.md#create-and-run-experiment).
 
-+ SDK de Python: Especifique `"feauturization": auto' / 'off' / FeaturizationConfig` para la [clase `AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
++ SDK de Python: Especifique `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` para la [clase `AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 ## <a name="prevent-over-fitting"></a>Prevención del sobreajuste
 
@@ -217,9 +217,9 @@ El aprendizaje automático automatizado también está disponible en otras soluc
 
 |Integraciones|Descripción|
 |------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selección y entrenamiento del modelo automático en aplicaciones de .NET mediante Visual Studio y Visual Studio Code con aprendizaje automático (versión preliminar) de ML.NET.|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selección y entrenamiento del modelo automático en aplicaciones de .NET mediante Visual Studio y Visual Studio Code con aprendizaje automático automatizado de ML.NET.|
 |[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Escalado horizontal de trabajos de entrenamiento de aprendizaje automático en Spark en clústeres de HDInsight en paralelo.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invocación de modelos de Machine Learning directamente en Power BI (versión preliminar).|
+|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invocación de modelos de Machine Learning directamente en Power BI.|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Creación de nuevos modelos de Machine Learning a través de los datos en clústeres de macrodatos de SQL Server 2019.|
 
 ## <a name="next-steps"></a>Pasos siguientes

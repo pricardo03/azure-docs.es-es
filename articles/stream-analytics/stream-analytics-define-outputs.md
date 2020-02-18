@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2010
-ms.openlocfilehash: 6d8957fc5d4ba49dd034d6687df61c68b9d35ada
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 9fae39f8c03206a7a63338890101b820a585595b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314290"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190619"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -268,6 +268,8 @@ Azure Stream Analytics invoca a Azure Functions a través de desencadenadores HT
 | Clave |Si quiere usar una instancia de Azure Functions desde otra suscripción, debe proporcionar la clave para acceder a la función. |
 | Tamaño máximo de lote |Propiedad que permite establecer el tamaño máximo de cada lote de salida que se envía a la instancia de Azure Functions. La unidad de entrada se muestra en bytes. De manera predeterminada, este valor es 262 144 bytes (256 KB). |
 | Número máximo de lotes  |Propiedad que permite especificar el número máximo de eventos en cada lote que se envía a Azure Functions. El valor predeterminado es 100. |
+
+Azure Stream Analytics espera el estado de HTTP 200 de la aplicación de Functions para los lotes que se procesaron correctamente.
 
 Cuando Azure Stream Analytics recibe una excepción 413 ("La entidad de solicitud HTTP es demasiado grande") de una función de Azure, disminuye el tamaño de los lotes que envía a Azure Functions. En el código de función de Azure, use esta excepción para asegurarse de que Azure Stream Analytics no envíe lotes demasiado grandes. También, asegúrese de que los valores de tamaño y número máximo de lotes que se usan en la función sean coherentes con los valores que se especifican en el portal de Stream Analytics.
 

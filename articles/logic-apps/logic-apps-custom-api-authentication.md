@@ -1,25 +1,25 @@
 ---
 title: Agregar autenticación para proteger las llamadas a las API personalizadas
-description: Configuración de la autenticación para proteger las llamadas a las API personalizadas desde Azure Logic Apps
+description: Configuración de la autenticación para mejorar la seguridad de las llamadas a las API personalizadas desde Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666914"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191403"
 ---
-# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Protección de las llamadas a las API personalizadas desde Azure Logic Apps
+# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Mejora de la seguridad de las llamadas a las API personalizadas desde Azure Logic Apps
 
-Para proteger las llamadas a sus API, puede configurar la autenticación de Azure Active Directory (Azure AD) en Azure Portal para no tener que actualizar el código. También puede requerir y aplicar la autenticación a través del código de la API.
+Para mejorar la seguridad de las llamadas a sus API, puede configurar la autenticación de Azure Active Directory (Azure AD) en Azure Portal para no tener que actualizar el código. También puede requerir y aplicar la autenticación a través del código de la API.
 
 ## <a name="authentication-options-for-your-api"></a>Opciones de autenticación para la API
 
-Puede proteger las llamadas a la API personalizada de las siguientes maneras:
+Puede mejorar la seguridad de las llamadas a la API personalizada de las siguientes maneras:
 
 * [Ningún cambio de código](#no-code): proteja su API con [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) por medio de Azure Portal, de forma que no tenga que actualizar el código ni volver a implementar la API.
 
