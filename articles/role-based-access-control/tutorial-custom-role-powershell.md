@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de un rol personalizado para recursos de Azure con Azure PowerShell.'
+title: 'Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell'
 description: Introducción a la creación de un rol personalizado para los recursos de Azure con Azure PowerShell.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 176e465163d92156308eda64c4187467cc10ee15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419750"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138275"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell
 
@@ -36,9 +36,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, necesitará:
+Para realizar este tutorial, necesita:
 
 - Permisos para crear roles personalizados, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuarios](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) o [Azure PowerShell](/powershell/azure/install-az-ps)

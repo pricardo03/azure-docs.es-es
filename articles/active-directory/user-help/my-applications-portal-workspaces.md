@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/03/2020
+ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 49c5566454a93307dedd150a3508b33dbd7506e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022365"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064043"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Uso de colecciones en el portal Aplicaciones
 
-Las áreas de trabajo son diferentes vistas de las aplicaciones que se muestran en el portal **Aplicaciones**. Las aplicaciones se pueden agrupar en colecciones según la función de departamento o el rol de usuario, por ejemplo. Si no ve ninguna colección o categoría disponible, significa que el administrador no ha configurado ni compartido ninguna con usted. Póngase en contacto con el departamento de soporte técnico de la organización para obtener ayuda adicional o permisos para ver las colecciones compartidas.
+Las colecciones son diferentes vistas de las aplicaciones que se muestran en el portal **Aplicaciones**. Las aplicaciones se pueden agrupar en colecciones según la función de departamento o el rol de usuario, por ejemplo. Si no ve ninguna colección o categoría disponible, significa que el administrador no ha configurado ni compartido ninguna con usted. Póngase en contacto con el departamento de soporte técnico de la organización para obtener ayuda adicional o permisos para ver las colecciones compartidas.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 

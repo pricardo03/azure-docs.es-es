@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd4ad3e2e3da9dce3a5bab36137ce65807b6a9a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: ab129315f398061eaa427f05f3bd4b1cabff0dc3
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293732"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046771"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Box
 
@@ -32,7 +32,7 @@ En este tutorial, obtendrá información sobre cómo integrar Box con Azure Act
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -46,7 +46,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Box admite el inicio de sesión único iniciado por **SP**
 * Box admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (recomendado).
 * Box admite el aprovisionamiento de usuarios **Just-In-Time**
-* Una vez configurado Box, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado Box, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-box-from-the-gallery"></a>Adición de Box desde la galería
 
@@ -155,6 +155,6 @@ Al hacer clic en el icono de Box en el panel de acceso y debería iniciar sesió
 
 - [Pruebe Box con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-box)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Protección de Box con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protección de Box con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/protect-box)

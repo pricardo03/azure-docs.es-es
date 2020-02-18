@@ -9,13 +9,13 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 01/25/2019
-ms.openlocfilehash: c2548bb4537d17a3dab94d5476c743e2a70faad0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/07/2020
+ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810086"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083127"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 
@@ -80,7 +80,7 @@ Actualmente no se admiten otros tipos de pasos de trabajo, incluidos:
 - Aún no se admite el lector de colas.
 - No se admite Analysis Services.
 
-### <a name="job-schedules"></a>Programaciones del trabajo
+### <a name="job-schedules"></a>Programación de trabajos
 
 Una programación especifica cuándo se ejecuta un trabajo. Se puede ejecutar más de un trabajo en la misma programación y se puede aplicar más de una programación al mismo trabajo.
 Una programación puede definir las condiciones siguientes para el momento en que se ejecuta un trabajo:
@@ -158,7 +158,7 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 Algunas de las características del Agente SQL que están disponibles en SQL Server no se admiten en Instancia administrada:
 - La configuración del Agente SQL es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en Instancia administrada.
-- La habilitación o deshabilitación del Agente SQL no se admite actualmente en Instancia administrada. El Agente SQL siempre está en ejecución.
+- La habilitación o deshabilitación del Agente SQL no se admite actualmente en Instancia administrada. El Agente SQL se ejecuta de forma continua.
 - Las notificaciones se admiten parcialmente.
   - No se admite el paginador.
   - No se admite NetSend.
@@ -202,7 +202,9 @@ La *base de datos de trabajos* se utiliza para definir los trabajos y realizar e
 
 En la versión preliminar actual, es necesaria una base de datos de Azure SQL (S0 o superior) para crear un agente de trabajos elásticos.
 
-El *base de datos de trabajos* no necesita ser nueva literalmente, pero debe estar vacía y pertenecer al nivel de servicio S0 o superior. El nivel de servicio recomendado de la *base de datos de trabajos* es S1 o superior, pero realmente depende de las necesidades de rendimiento de sus trabajos: número de pasos de trabajo, número de veces y con qué frecuencia se ejecutan los trabajos. Por ejemplo, una base de datos S0 puede ser suficiente para un agente de trabajos que solo ejecuta algunos trabajos por hora, pero para la ejecución de un trabajo cada minuto podría no ser lo suficientemente eficiente y podría ser mejor un mayor nivel de servicio.
+La *base de datos de trabajos* no necesita ser nueva literalmente, pero debe estar vacía y pertenecer al objetivo de servicio S0 o superior. El objetivo de servicio recomendado de la *base de datos de trabajos* es S1 o superior, pero la opción óptima depende de las necesidades de rendimiento de los trabajos: el número de pasos de los trabajos, el número de destinos de los trabajos y la frecuencia con que se ejecutan los trabajos. Por ejemplo, una base de datos S0 puede ser suficiente para un agente de trabajos que ejecute pocos trabajos a la hora y cuyo destino sea inferior a diez bases de datos, pero la ejecución de un trabajo cada minuto podría no ser suficientemente rápida con una base de datos S0 y quizás sea mejor un nivel de servicio superior. 
+
+Si las operaciones realizadas en la base de datos de trabajos son más lentas de lo esperado, [supervise](sql-database-monitor-tune-overview.md#monitor-database-performance) el rendimiento de la base de datos y el uso de los recursos en la base de datos de trabajos durante los períodos de lentitud mediante Azure Portal o la vista de administración dinámica [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Si la utilización de un recurso, como la CPU, la E/S de datos o el registro de escritura, se aproxima al 100 % y se correlaciona con períodos de lentitud, considere la posibilidad de escalar incrementalmente la base de datos a objetivos de servicio más altos (ya sea en el [modelo de DTU](sql-database-service-tiers-dtu.md) o en el [modelo de núcleo virtual](sql-database-service-tiers-vcore.md)) hasta que el rendimiento de la base de datos mejore lo suficiente.
 
 
 ##### <a name="job-database-permissions"></a>Permisos de la base de datos de trabajos
@@ -250,6 +252,10 @@ El **Ejemplo 4** muestra un grupo de destino que contiene un grupo elástico com
 
 El **Ejemplo 5** y el **Ejemplo 6** muestran escenarios avanzados en los que se pueden combinar servidores de Azure SQL, grupos elásticos y bases de datos con reglas de inclusión y exclusión.<br>
 En el **Ejemplo 7** se muestra que las particiones de un mapa de particiones también se pueden evaluar en tiempo de ejecución del trabajo.
+
+> [!NOTE]
+> La propia base de datos de trabajos puede ser el destino de un trabajo. En este escenario, la base de datos de trabajos se trata como cualquier otra base de datos de destino. Se debe crear el usuario del trabajo y se le deben conceder permisos suficientes en la base de datos de trabajos. Las credenciales del usuario del trabajo con ámbito en la base de datos también debe existir en la base de datos de trabajos, igual que en cualquier otra base de datos de destino.
+>
 
 #### <a name="job"></a>Trabajo
 

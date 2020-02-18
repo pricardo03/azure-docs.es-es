@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/19/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 9483db2187c05fe8e0f4fa2d41c17b8748ba3db7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451109"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108998"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Inicio rápido: Prueba de una base de conocimientos con preguntas por lotes y respuestas esperadas
 
 Use la herramienta de realización de pruebas por lotes de QnA Maker para probar las bases de conocimientos del recurso de QnA Maker y ver las respuestas esperadas, las puntuaciones de confianza y los avisos de turno múltiple.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Cree un servicio QnA Maker](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) o use un servicio existente, que utilice el idioma inglés para el documento de ejemplo que se usa en este inicio rápido.
+* [Cree un servicio QnA Maker](create-publish-knowledge-base.md) o use un servicio existente que utilice el idioma inglés.
 * Descargar el archivo de [ejemplo de turno múltiple`.docx`](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Descargue la [herramienta de realización de pruebas por lotes](https://aka.ms/qnamakerbatchtestingtool) y extraiga el archivo ejecutable del archivo `.zip`.
 
@@ -41,9 +41,16 @@ Use la herramienta de realización de pruebas por lotes de QnA Maker para probar
     * Nombre del servicio Azure QnA
     * Idioma: inglés
 1. Escriba `Multi-turn batch test quickstart` como nombre de la base de conocimiento.
-1. En el **paso 4**, seleccione **Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción en varios turnos de direcciones URL, archivos .pdf o .docx).
-1. En **Default answer text** (Texto de respuesta predeterminado), escriba `Quickstart - can't find answer`. En una base de conocimiento de producción, esta información debe ser más instructiva para el usuario, pero para este inicio rápido es suficiente una respuesta sencilla.
-1. Sin abandonar el **paso 4**, seleccione **+ Add file** (Agregar archivo) y, después, seleccione la lista de archivos `.docx` descargados en los requisitos previos.
+
+1. En el **paso 4**, establezca la configuración con los siguientes valores:
+
+    |Configuración|Value|
+    |--|--|
+    |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción en varios turnos de direcciones URL, archivos .pdf o .docx).|Activado|
+    |**Texto de respuesta predeterminado**| `Batch test - default answer not found.`|
+    |**+ Agregar archivo**|Seleccione la lista de archivos `.docx` descargados en los requisitos previos.|
+    |**Charla**|Seleccione **Professional**|
+
 1. En el **paso 5**, seleccione **Create your KB** (Crear base de conocimiento).
 
     Cuando el proceso de creación finaliza, el portal muestra la base de conocimiento editable.
@@ -160,7 +167,7 @@ Hay dos escenarios principales para las pruebas por lotes:
 * **Procesamiento de archivos del registro de chat**: determine la respuesta principal de una pregunta que anteriormente no se había detectado. La situación más habitual es cuando se necesita procesar un archivo de registro de consultas, por ejemplo, las preguntas del usuario de un bot de chat. Cree una prueba de archivo por lotes que tenga solo las columnas necesarias. La prueba devuelve la respuesta principal a cada pregunta. Eso no significa que esa respuesta sea la correcta. Una vez que complete la prueba, pase a la prueba de validación.
 * **Prueba de validación**: valide la respuesta esperada. Esta prueba requiere la validación de todas las preguntas y respuestas esperadas coincidentes en la prueba por lotes, lo que puede requerir algún proceso manual.
 
-En el procedimiento siguiente se supone que el escenario es procesar los registros de chat como sigue 
+En el procedimiento siguiente se supone que el escenario es procesar los registros de chat como sigue
 
 1. Cree un archivo de prueba por lotes que incluya los datos opcionales, `batch-test-data-2.tsv`. Agregue las 6 filas del archivo de entrada de prueba por lotes original y, luego, agregue los metadatos, la respuesta principal y el identificador del conjunto de QnA de cada fila.
 

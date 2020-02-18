@@ -245,6 +245,8 @@
           items:
             - name: Solución de problemas de conexión
               href: howto-troubleshoot-common-connection-issues.md
+            - name: Solución de problemas de cifrado de datos
+              href: howto-data-encryption-troubleshoot.md
         - name: Protección contra amenazas avanzada
           items:
             - name: Portal de Azure

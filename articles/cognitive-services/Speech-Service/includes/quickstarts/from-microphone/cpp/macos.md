@@ -9,14 +9,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: 08459238173b379280cb513ccb3242e4f15ef0bc
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 85f2d671e53592fbe2a543fade43c0bc3e6f47e1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75928191"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156062"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar:
 
@@ -34,7 +34,7 @@ Antes de comenzar:
 
 1. En este nuevo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción del servicio Voz.
 
-1. Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace la cadena `YourServiceRegion` por el "parámetro del SDK de Voz" de la [región](https://aka.ms/speech/sdkregion) asociada a su suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
 > [!NOTE]
 > El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).

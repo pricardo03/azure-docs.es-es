@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Concesión de acceso de usuario a recursos de Azure mediante RBAC y Azure PowerShell'
+title: 'Tutorial: Concesión de acceso de grupo a los recursos de Azure mediante RBAC y Azure PowerShell'
 description: En este tutorial aprenderá a conceder acceso de usuario a recursos de Azure con el control de acceso basado en rol (RBAC) y Azure PowerShell.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418628"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138224"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell
 
@@ -35,9 +35,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, necesitará:
+Para realizar este tutorial, necesita:
 
 - Permisos para crear usuarios en Azure Active Directory (o tener un usuario existente)
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)

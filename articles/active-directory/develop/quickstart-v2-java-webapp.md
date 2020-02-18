@@ -11,16 +11,14 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3e1369901e259af6722d9e5a14fababac80f1d02
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549948"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160566"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 En este inicio rápido, aprenderá a integrar una aplicación web de Java con la Plataforma de identidad de Microsoft. Su aplicación iniciará la sesión de un usuario, obtendrá un token de acceso para llamar a Microsoft Graph API y realizará una solicitud a Microsoft Graph API.
 
@@ -28,7 +26,7 @@ Cuando haya completado esta guía de inicio rápido, la aplicación aceptará in
 
 ![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para ejecutar este ejemplo, necesitará lo siguiente:
 
@@ -61,7 +59,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 >    - Deje **URI de redirección** en blanco por ahora y seleccione **Registrar**.
 > 1. En la página **Información general**, busque los valores de **Identificador de la aplicación (cliente)** y **el identificador del Directorio (inquilino)**  de la aplicación. Copie estos valores para más adelante.
 > 1. Seleccione la **Autenticación** en el menú y, después, agregue la siguiente información:
->    - En **URI de redirección**, agregue `http://localhost:8080/msal4jsample/secure/aad` y `http://localhost:8080/msal4jsample/graph/me`.
+>    - En **URI de redirección**, agregue `https://localhost:8080/msal4jsample/secure/aad` y `https://localhost:8080/msal4jsample/graph/me`.
 >    - Seleccione **Guardar**.
 > 1. Seleccione los **Certificados y secretos** en el menú y, en la sección de **Secretos de cliente**, haga clic en **Nuevo secreto de cliente**:
 >
@@ -75,7 +73,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 >
 > Para que el código de ejemplo de este inicio rápido funcione, es preciso:
 >
-> 1. Agregue las direcciones URL de respuesta como `http://localhost:8080/msal4jsamples/secure/aad` y `http://localhost:8080/msal4jsamples/graph/me`.
+> 1. Agregue las direcciones URL de respuesta como `https://localhost:8080/msal4jsamples/secure/aad` y `https://localhost:8080/msal4jsamples/graph/me`.
 > 1. Cree un secreto de cliente.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
@@ -91,23 +89,36 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 
  1. Extraiga el archivo zip en una carpeta local.
  1. Si usa un entorno de desarrollo integrado, abra el ejemplo en su IDE favorito (opcional).
-
  1. Abra el archivo application.properties, que puede encontrarse en la carpeta src/main/resources/ y reemplace el valor de los campos *aad.clientId*, *aad.authority* y *aad.secretKey* con los valores respectivos de **Identificador de la aplicación**, **ID. de inquilino** y **Secreto de cliente** como el siguiente:
 
     ```file
     aad.clientId=Enter_the_Application_Id_here
     aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
     aad.secretKey=Enter_the_Client_Secret_Here
-    aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-    aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
+    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
+    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
     ```
 
-> [!div renderon="docs"]
-> Donde:
->
-> - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
-> - `Enter_the_Client_Secret_Here`: es el valor de **Secreto de cliente** que creó en **Certificados y secretos** para la aplicación registrada.
-> - `Enter_the_Tenant_Info_Here`: el valor de **Id. de directorio (inquilino)** de la aplicación que registró.
+    > [!div renderon="docs"]
+    > Donde:
+    >
+    > - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
+    > - `Enter_the_Client_Secret_Here`: es el valor de **Secreto de cliente** que creó en **Certificados y secretos** para la aplicación registrada.
+    > - `Enter_the_Tenant_Info_Here`: el valor de **Id. de directorio (inquilino)** de la aplicación que registró.
+
+ 1. Para usar https con localhost, rellene las propiedades server.ssl.key. Para generar un certificado autofirmado, use la utilidad keytool (que se incluye en JRE).
+
+   ```
+   Example: 
+   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+
+   server.ssl.key-store-type=PKCS12  
+   server.ssl.key-store=classpath:keystore.p12  
+   server.ssl.key-store-password=password  
+   server.ssl.key-alias=testCert 
+   ```
+
+   Coloque el archivo del almacén de claves generado en la carpeta "Resources".
 
 #### <a name="step-4-run-the-code-sample"></a>Paso 4: Ejecución del ejemplo de código
 
@@ -117,11 +128,11 @@ Ejecutarlo directamente desde el IDE mediante el servidor de Spring boot integra
 
 ##### <a name="running-from-ide"></a>Ejecutarlo desde IDE
 
-Si está ejecutando la aplicación web desde un IDE, haga clic en ejecutar y, luego, vaya a la Página principal del proyecto. En este ejemplo, la dirección URL de la Página principal estándar es http://localhost:8080
+Si está ejecutando la aplicación web desde un IDE, haga clic en ejecutar y, luego, vaya a la Página principal del proyecto. En este ejemplo, la dirección URL de la Página principal estándar es https://localhost:8080.
 
 1. En la página de información, seleccione el botón **Inicio de sesión** para redirigir a Azure Active Directory y solicite al usuario sus credenciales.
 
-1. Una vez autenticado el usuario, se redirigen a *http://localhost:8080/msal4jsample/secure/aad* . Ahora han iniciado sesión y la página mostrará información sobre la cuenta que ha iniciado sesión. La interfaz de usuario de ejemplo tiene los siguientes botones:
+1. Una vez autenticado el usuario, se redirigen a *https://localhost:8080/msal4jsample/secure/aad* . Ahora han iniciado sesión y la página mostrará información sobre la cuenta que ha iniciado sesión. La interfaz de usuario de ejemplo tiene los siguientes botones:
     - *Sign Out* (Cerrar sesión): Cierra la sesión del usuario actual de la aplicación y lo redirige a la página principal.
     - *Mostrar información de usuario*: Adquiere un token para Microsoft Graph y llama a Microsoft Graph con una solicitud que contiene el token, que devuelve información básica sobre el usuario que inició sesión.
 

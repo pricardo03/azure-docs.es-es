@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5df8ae89c16a453b008afed9ee9f8881a0ac4750
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845932"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046415"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adición de un certificado SSL en Azure App Service
 
@@ -29,7 +29,7 @@ En la tabla siguiente se enumeran las opciones que tiene para agregar certificad
 | Carga de un certificado privado | Si ya tiene un certificado privado de un proveedor de terceros, puede cargarlo. Consulte [Requisitos de certificados privados](#private-certificate-requirements). |
 | Carga de un certificado público | Los certificados públicos no se usan para proteger los dominios personalizados, pero se pueden cargar en el código si se necesitan para acceder a recursos remotos. |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía paso a paso, debe:
 
@@ -37,6 +37,9 @@ Para completar esta guía paso a paso, debe:
 - Solo certificado gratuito: asigne un subdominio (por ejemplo, `www.contoso.com`) a App Service con un [registro CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
 
 ## <a name="private-certificate-requirements"></a>Requisitos de certificados privados
+
+> [!NOTE]
+> Azure Web Apps **no** admite AES256 y todos los archivos pfx deben cifrarse con TrippleDES.
 
 El [certificado administrado de App Service gratuito](#create-a-free-certificate-preview) o el [certificado de App Service](#import-an-app-service-certificate) ya cumplen los requisitos de App Service. Si opta por cargar o importar un certificado privado en App Service, este certificado debe cumplir los siguientes requisitos:
 

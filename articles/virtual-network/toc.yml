@@ -39,6 +39,12 @@
       href: virtual-network-disaster-recovery-guidance.md
     - name: Conectividad
       items:
+        - name: NAT
+          items:
+            - name: Información general
+              href: nat-overview.md
+            - name: Resource
+              href: nat-gateway-resource.md
         - name: Interoperabilidad de conectividad de back-end
           items:
             - name: Preparación y configuración de la prueba
@@ -111,6 +117,20 @@
           href: virtual-network-nsg-manage-log.md
     - name: Conectividad
       items:
+        - name: NAT
+          items:
+            - name: 'Creación de una instancia de NAT Gateway: Portal'
+              href: quickstart-create-nat-gateway-portal.md
+            - name: 'Creación de una instancia de NAT Gateway: PowerShell'
+              href: quickstart-create-nat-gateway-powershell.md
+            - name: 'Creación de una instancia de NAT Gateway: CLI'
+              href: quickstart-create-nat-gateway-cli.md
+            - name: 'Creación y validación de una instancia de NAT Gateway: Portal'
+              href: tutorial-create-validate-nat-gateway-portal.md
+            - name: 'Creación y validación de una instancia de NAT Gateway: PowerShell'
+              href: tutorial-create-validate-nat-gateway-powershell.md
+            - name: 'Creación y validación de una instancia de NAT Gateway: CLI'
+              href: tutorial-create-validate-nat-gateway-cli.md
         - name: Administración de NIC
           href: virtual-network-network-interface.md
         - name: Administración de red virtual

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
-ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: f15f50e372d0bfe58018b16ebfa5d5d85644ae1a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963248"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137782"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Compile un clasificador para predecir la categoría de la empresa con el diseñador de Azure Machine Learning.
 
@@ -63,7 +63,7 @@ No se encontraron artículos para algunas empresas, por lo que el número de reg
 
 ## <a name="pre-process-the-text-data"></a>Preprocesar los datos de texto
 
-Usamos el módulo **Preprocess Text** (Preprocesar texto) para preprocesar los datos de texto, incluida la detección de oraciones, las oraciones con tokens, etc. Encontrará todas las opciones admitidas en el artículo [**Preprocesamiento de texto**](algorithm-module-reference/preprocess-text.md). Después de preprocesar los datos de texto, usamos el módulo **Split Data** (Dividir datos) para dividir aleatoriamente los datos de entrada para que el conjunto de datos de entrenamiento contenga el 50 % de los datos originales y el de prueba, el 50 %.
+Usamos el módulo **Preprocess Text** (Preprocesar texto) para preprocesar los datos de texto, incluida la detección de oraciones, las oraciones con tokens, etc. Encontrará todas las opciones admitidas en el artículo [**Preprocesamiento de texto**](algorithm-module-reference/preprocess-text.md). Después de preprocesar los datos de texto, usamos el módulo **Split Data** (Dividir datos) para dividir aleatoriamente los datos de entrada para que el conjunto de datos de entrenamiento contenga el 50 % de los datos originales y el de prueba, el otro 50 %.
 
 ## <a name="feature-engineering"></a>Diseño de características
 En este ejemplo, usaremos dos métodos que realizan el diseño de características.

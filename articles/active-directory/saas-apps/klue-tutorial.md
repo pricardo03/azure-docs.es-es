@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 02/13/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 082c167c883b655276c213a48d4d56283074531d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da6ce8c25bdb8a051bb346868b900053ef231816
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430916"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185633"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-klue"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Klue
 
@@ -31,9 +30,9 @@ En este tutorial, aprenderá a integrar Klue con Azure Active Directory (Azure
 * Permitir que los usuarios inicien sesión automáticamente en Klue con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -46,6 +45,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Klue admite SSO iniciado por **SP e IDP**
 * Klue admite el aprovisionamiento de usuarios **Just-In-Time**
+* Una vez configurado Klue, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-klue-from-the-gallery"></a>Agregación de Klue desde la galería
 
@@ -94,11 +94,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Klue](mailto:support@klue.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación PureCloud by Genesys espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de atributos de token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+1. La aplicación Klue espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
     ![imagen](common/default-attributes.png)
 
-1. Además de lo anterior, la aplicación PureCloud by Genesys espera que se pasen algunos atributos más en la respuesta de SAML que se muestran a continuación. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+1. Además de lo anterior, la aplicación Klue espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
     | Nombre | Atributo de origen|
     | ---------- | ----------- |
@@ -162,8 +162,10 @@ Al hacer clic en el icono de Klue en el Panel de acceso, debería iniciar sesió
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Pruebe Klue con Azure AD](https://aad.portal.azure.com/)
+
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

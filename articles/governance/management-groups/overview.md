@@ -4,12 +4,12 @@ description: Más información sobre los grupos de administración, el funcionam
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 507f4575e6d8daa16a1ed7db3d429d2810a63a7c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750244"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186979"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -23,7 +23,7 @@ Puede compilar una estructura flexible de grupos de administración y suscripcio
 
 ![Ejemplo de árbol de jerarquía de un grupo de administración](./media/tree.png)
 
-Puede crear una jerarquía que aplique una directiva, por ejemplo, que limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo denominado "Producción". Esta directiva se heredará en todas las suscripciones de EA descendientes de ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernanza mejorada.
+Puede crear una jerarquía que aplique una directiva, por ejemplo, que limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo denominado "Producción". Esta directiva se heredará en todas las suscripciones con Contrato Enterprise descendientes de ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernanza mejorada.
 
 Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones. Al mover muchas suscripciones bajo ese grupo de administración, puede crear una asignación de [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) en el grupo de administración que heredará ese acceso en todas las suscripciones.
 Una asignación en el grupo de administración puede permitir a los usuarios acceder a todo lo que necesitan en lugar de realizar scripting para proporcionar control de acceso basado en rol sobre las distintas suscripciones.
@@ -102,7 +102,7 @@ El gráfico siguiente muestra la lista de roles y las acciones admitidas en los 
 
 ## <a name="custom-rbac-role-definition-and-assignment"></a>Asignación y definición de roles de RBAC personalizados
 
-La compatibilidad de los roles de RBAC personalizados con grupos de administración se admite actualmente con algunas [limitaciones ](#limitations).  El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles.  Dicho rol personalizado de RBAC estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.    
+La compatibilidad de los roles de RBAC personalizados con los grupos de administración está actualmente en versión preliminar con algunas [limitaciones ](#limitations).  El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles.  Dicho rol personalizado de RBAC estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.    
 
 ### <a name="example-definition"></a>Definición de ejemplo
 La [definición y creación de un rol personalizado](../../role-based-access-control/custom-roles.md) no cambia con la inclusión de grupos de administración. Use la ruta de acceso completa para definir el grupo de administración **/providers/Microsoft.Management/managementgroups/{groupId}** . 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de un rol personalizado para recursos de Azure con la CLI de Azure'
+title: 'Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure'
 description: Introducción a la creación de un rol personalizado para los recursos de Azure con la CLI de Azure.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 29b0bea851466b5173711441a5a7927c796c9926
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419601"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138265"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure
 
@@ -34,9 +34,9 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, necesitará:
+Para realizar este tutorial, necesita:
 
 - Permisos para crear roles personalizados, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuarios](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) o [CLI de Azure](/cli/azure/install-azure-cli)
@@ -51,7 +51,7 @@ El modo más sencillo de crear un rol personalizado es tomar como partida una pl
 
 1. Revise la lista de operaciones para el [proveedor de recursos Microsoft.Support](resource-provider-operations.md#microsoftsupport). Resulta útil conocer las operaciones que están disponibles para crear los permisos.
 
-    | Operación | DESCRIPCIÓN |
+    | Operación | Descripción |
     | --- | --- |
     | Microsoft.Support/register/action | Registra para admitir el proveedor de recursos |
     | Microsoft.Support/supportTickets/read | Obtiene los detalles de las incidencias de soporte técnico (incluido el estado, gravedad, detalles de contacto y comunicaciones) u obtiene la lista de incidencias de soporte técnico de las diversas suscripciones. |

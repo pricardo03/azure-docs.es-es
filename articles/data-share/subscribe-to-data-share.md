@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f2acb89597ef877543a2c4cc46f395aede41034b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964505"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083106"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -23,14 +23,14 @@ En este tutorial aprenderá a aceptar una invitación a un recurso compartido de
 > * Especificación de un destino para los datos
 > * Creación de una suscripción en su recurso compartido de datos para la actualización programada
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para poder aceptar una invitación a compartir datos, previamente debe aprovisionar un número de recursos de Azure, que se enumeran a continuación. 
 
 Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una invitación para compartir datos. 
 
 * Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Una invitación de Azure Data Share: Una invitación de Microsoft Azure con el asunto "Azure Data Share invitation from **<yourdataprovider@domain.com>** " (Invitación para Azure Data Share de yourdataprovider@domain.com).
-* Registre el proveedor de recursos Microsoft.DataShare. Siga las instrucciones documentadas en [Solución de problemas de Azure Data Share](data-share-troubleshoot.md) para registrar el proveedor de recursos del recurso compartido de datos.
+* Registre el [proveedor de recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) en la suscripción de Azure en la que va a crear un recurso de Data Share y la suscripción de Azure en la que se encuentran los almacenes de datos de Azure de destino.
 
 ### <a name="receive-data-into-a-storage-account"></a>Recepción de los datos en una cuenta de almacenamiento: 
 
@@ -57,7 +57,7 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 * Acceso al firewall de SQL Server desde la dirección IP del cliente. Esto se puede hacer mediante los siguientes pasos: 
     1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales*.
     1. Haga clic en la alternancia **activado** para permitir el acceso a los servicios de Azure.
-    1. Haga clic en **+Agregar dirección IP de cliente** y haga clic en **Guardar**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP. 
+    1. Haga clic en **+Agregar dirección IP de cliente** y haga clic en **Guardar**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que reciba datos en un destino SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP. 
 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Recibir datos en un clúster de Azure Data Explorer: 

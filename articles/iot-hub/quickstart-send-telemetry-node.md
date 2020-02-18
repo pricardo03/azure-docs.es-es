@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: e37ce216bf1928785ef9052115599bbd4ab2a603
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fb1310a698bd6420b9f9a2406f1e13128725f9eb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690863"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110165"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (Node.js)
 
@@ -29,7 +29,7 @@ El inicio rápido usa dos aplicaciones Node.js escritas previamente: una para en
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido están escritas en Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo. Si usa Azure Cloud Shell, no actualice la versión instalada de Node.js. Azure Cloud Shell ya tiene la versión más reciente de Node.js.
 
@@ -48,6 +48,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Descargue el proyecto de muestra de Node.js desde https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip y extraiga el archivo ZIP.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

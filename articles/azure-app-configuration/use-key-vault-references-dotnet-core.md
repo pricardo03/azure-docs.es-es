@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b35c23e6dd88af01391bf7f01a7e736a1a744fff
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714434"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116624"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de ASP.NET Core
 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 > * Crear una clave de App Configuration que hace referencia a un valor almacenado en Key Vault.
 > * Acceder al valor de esta clave desde una aplicación web de ASP.NET Core.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de iniciar este tutorial, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
 
@@ -172,7 +172,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
     using Azure.Identity;
     ```
 
-1. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration`. Incluya la opción `UseAzureKeyVault` para pasar una nueva referencia `KeyVaultClient` a la instancia de Key Vault.
+1. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration`. Incluya la opción `ConfigureKeyVault` y pase las credenciales correctas a Key Vault.
 
     #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -217,7 +217,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
             .UseStartup<Startup>());
     ```
 
-1. Al inicializar la conexión con App Configuration, pasó la referencia `KeyVaultClient` al método `UseAzureKeyVault`. Después de la inicialización, puede acceder a los valores de las referencias de Key Vault de la misma manera que accede a los valores de las claves normales de App Configuration.
+1. Al inicializar la conexión a App Configuration, configura la conexión a Key Vault llamando al método `ConfigureKeyVault`. Después de la inicialización, puede acceder a los valores de las referencias de Key Vault de la misma manera que accede a los valores de las claves normales de App Configuration.
 
     Para ver este proceso en acción, abra *Index.cshtml* en la carpeta **Views** > **Home**. Reemplace su contenido por el código siguiente:
 

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053737"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122114"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Introducción a la seguridad de la empresa en Azure HDInsight
 
@@ -74,20 +74,20 @@ En la tabla siguiente se proporcionan vínculos a recursos para cada tipo de sol
 
 | Área de seguridad | Soluciones disponibles | Parte responsable |
 |---|---|---|
-| Seguridad de acceso a datos | Configurar las [listas de control de acceso](../../storage/blobs/data-lake-storage-access-control.md) para Azure Data Lake Storage Gen1 y Gen2  | Cliente |
-|  | Habilitar la propiedad ["Se requiere transferencia segura"](../../storage/common/storage-require-secure-transfer.md) en las cuenta de almacenamiento | Cliente |
-|  | Configurar las redes virtuales y los [firewalls de Azure Storage](../../storage/common/storage-network-security.md) | Cliente |
-|  | Configurar los [puntos de conexión de servicio de red virtual de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) para Cosmos DB y [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Cliente |
-|  | Garantizar que el [cifrado TLS](../../storage/common/storage-security-tls.md) está habilitado para los datos en tránsito | Cliente |
-|  | Configuración de las [claves que administra el cliente](../../storage/common/storage-encryption-keys-portal.md) para el cifrado de Azure Storage | Cliente |
-| Seguridad de aplicaciones y middleware | Integración con AAD-DS y [configuración de la autenticación](apache-domain-joined-configure-using-azure-adds.md) | Cliente |
-|  | Configurar las directivas de [autorización de Apache Ranger](apache-domain-joined-run-hive.md) | Cliente |
-|  | Usar [registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Cliente |
-| Seguridad del sistema operativo | Crear clústeres con la imagen base segura más reciente | Cliente |
-|  | Garantizar la [revisión del sistema operativo](../hdinsight-os-patching.md) en intervalos regulares | Cliente |
+| Seguridad de acceso a datos | Configurar las [listas de control de acceso](../../storage/blobs/data-lake-storage-access-control.md) para Azure Data Lake Storage Gen1 y Gen2  | Customer |
+|  | Habilitar la propiedad ["Se requiere transferencia segura"](../../storage/common/storage-require-secure-transfer.md) en las cuenta de almacenamiento | Customer |
+|  | Configurar las redes virtuales y los [firewalls de Azure Storage](../../storage/common/storage-network-security.md) | Customer |
+|  | Configurar los [puntos de conexión de servicio de red virtual de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) para Cosmos DB y [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
+|  | Garantizar que el [cifrado TLS](../../storage/common/storage-security-tls.md) está habilitado para los datos en tránsito | Customer |
+|  | Configuración de las [claves que administra el cliente](../../storage/common/storage-encryption-keys-portal.md) para el cifrado de Azure Storage | Customer |
+| Seguridad de aplicaciones y middleware | Integración con AAD-DS y [configuración de la autenticación](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+|  | Configurar las directivas de [autorización de Apache Ranger](apache-domain-joined-run-hive.md) | Customer |
+|  | Usar [registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
+| Seguridad del sistema operativo | Crear clústeres con la imagen base segura más reciente | Customer |
+|  | Garantizar la [revisión del sistema operativo](../hdinsight-os-patching.md) en intervalos regulares | Customer |
 | Seguridad de las redes | Configurar una [red virtual](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configurar las [reglas del grupo de seguridad de red (NSG) de entrada](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Cliente |
-|  | Configurar la [restricción del tráfico de salida](../hdinsight-restrict-outbound-traffic.md) con el firewall (versión preliminar) | Cliente |
+|  | Configurar las [reglas del grupo de seguridad de red (NSG) de entrada](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
+|  | Configurar la [restricción del tráfico de salida](../hdinsight-restrict-outbound-traffic.md) con el firewall | Customer |
 | Infraestructura virtualizada | N/D | HDInsight (proveedor de servicios en la nube) |
 | Seguridad de la infraestructura física | N/D | HDInsight (proveedor de servicios en la nube) |
 

@@ -1,25 +1,28 @@
 ---
 title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76842425"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117597"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
-Azure Cost Management está disponible de forma nativa para los asociados que hayan incorporado a sus clientes a un contrato de cliente de Microsoft y hayan [adquirido un plan de Azure](/partner-center/purchase-azure-plan). En este artículo se explica cómo usan los asociados las características de [Azure Cost Management](../index.yml) para ver los costos de las suscripciones en el plan de Azure. También se describe cómo los asociados permiten a sus clientes el acceso a Cost Management. Los clientes pueden usar las características de Cost Management cuando su asociado de CSP lo permita.
+Azure Cost Management está disponible de forma nativa para los asociados directos que hayan incorporado sus clientes a un contrato de cliente de Microsoft y hayan [adquirido un plan de Azure](/partner-center/purchase-azure-plan). En este artículo se explica cómo usan los asociados las características de [Azure Cost Management](../index.yml) para ver los costos de las suscripciones en el plan de Azure. También se describe cómo los asociados permiten a sus clientes el acceso a Cost Management.
+
+En los asociados directos y en los proveedores indirectos, tanto los agentes de administrador global como los de administrador del proveedor indirecto pueden acceder a Cost Management en el inquilino del asociado. Tanto los revendedores como los clientes pueden acceder a Cost Management en el inquilino del cliente y ver los costos de las suscripciones, donde los costos se calculan y se muestran a precios para minoristas. Sin embargo, deben tener acceso de RBAC a la suscripción en el inquilino del cliente para ver los costos. El proveedor debe habilitar la directiva de visibilidad de costos para el inquilino del cliente.
+
+Los clientes pueden usar las características de Cost Management cuando su asociado de CSP lo permita.
 
 Los asociados de CSP usan Cost Management para:
 
@@ -38,7 +41,7 @@ Este es un ejemplo que muestra los costos para un solo cliente.
 
 Toda la funcionalidad disponible en Azure Cost Management también lo está con las API REST. Use las API para automatizar las tareas de administración de costos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Como asociado, Azure Cost Management está disponible de forma nativa solo para las suscripciones que están en el plan de Azure.
 

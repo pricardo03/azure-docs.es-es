@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/04/2020
+ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982433"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048280"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Creación del primer modelo de clasificación con el aprendizaje automático automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,7 +32,7 @@ En este tutorial, aprenderá las siguientes tareas:
 > * Visualización de los detalles del experimento.
 > * Se implementa el modelo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
 
@@ -69,11 +69,15 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
 
 1. Cree un nuevo conjunto de datos; para ello, seleccione **From local files** (Desde archivos locales) en la lista desplegable **+ Create dataset** (+ Crear conjunto de datos). 
 
+    1. En el formulario **Basic info** (Información básica), asígnele un nombre al conjunto de datos y, si lo desea, incluya una descripción. El aprendizaje automático automatizado en Azure Machine Learning Studio por ahora solo admite los conjuntos de datos tabulares, por lo que el tipo de conjunto de datos debe ser tabular de forma predeterminada.
+
+    1. Seleccione **Next** (Siguiente) en la parte inferior izquierda.
+
+    1. En el formulario **Datastore and file selection** (Selección del archivo y el almacén de datos), seleccione el almacén de archivos predeterminado que se configuró automáticamente durante la creación del área de trabajo, **workspaceblobstore (Azure Blob Storage)** . Aquí es donde se cargará el archivo de datos para que esté disponible en el área de trabajo.
+
     1. Haga clic en **Examinar**.
     
     1. Seleccione el archivo **bankmarketing_train.csv** en el equipo local. Este es el archivo que descargó como [requisito previo](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
-
-    1. Seleccione **Tabular** como tipo de conjunto de datos. 
 
     1. Asigne un nombre único al conjunto de datos y proporcione una descripción opcional. 
 
@@ -136,18 +140,18 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
         Algoritmos bloqueados | Algoritmos que desea excluir del trabajo de entrenamiento.| None
         Criterios de exclusión| Si se cumplen los criterios, se detiene el trabajo de entrenamiento. |Tiempo del&nbsp;trabajo de&nbsp;entrenamiento (en horas): 1 <br> Umbral de&nbsp;puntuación&nbsp;de métrica: None
         Validación | Elija un tipo de validación cruzada y un número de pruebas.|Tipo de validación:<br>validación cruzada de&nbsp;k iteraciones&nbsp; <br> <br> Número de validaciones: 2
-        Simultaneidad| Número máximo de iteraciones paralelas ejecutadas y núcleos usados por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 5<br> Máximo de núcleos&nbsp;por&nbsp;iteración&nbsp;: None
+        Simultaneidad| Número máximo de iteraciones paralelas ejecutadas por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 5
         
         Seleccione **Guardar**.
 
-1. Para ejecutar el experimento, seleccione **Finalizar**. La pantalla **Run Detail** (Detalles de ejecución) se abrirá con **Run status** (Estado de ejecución) al comenzar la preparación del experimento.
+1. Para ejecutar el experimento, seleccione **Finalizar**. La pantalla **Run Details** (Detalles de ejecución) se abrirá con **Run status** (Estado de ejecución) al comenzar la preparación del experimento.
 
 >[!IMPORTANT]
 > La preparación necesita de **10 a 15 minutos** en preparar la ejecución del experimento.
 > Una vez que se ejecuta, se tarda de **2 a 3 minutos más para cada iteración**.  
 > Seleccione **Refresh** (Actualizar) periódicamente para ver el estado de la ejecución a medida que progresa el experimento.
 >
-> En producción, probablemente puede descansar un poco. Pero para este tutorial se recomienda empezar por explorar los algoritmos probados de la pestaña Models (Modelos) que se completan mientras los demás siguen en ejecución. 
+> En producción, probablemente puede descansar un poco. Pero para este tutorial se recomienda empezar por explorar los algoritmos probados de la pestaña **Models** (Modelos) que se completan mientras los demás siguen en ejecución. 
 
 ##  <a name="explore-models"></a>Exploración de modelos
 
@@ -165,7 +169,7 @@ El aprendizaje automático automatizado en Azure Machine Learning Studio permite
 
 En este experimento, la implementación em un servicio web significa que la institución financiera tiene ahora una solución web iterativa y escalable para identificar posibles clientes de depósitos a plazo fijo. 
 
-Una vez finalizada la ejecución, vuelva a la página **Run Detail** (Detalles de ejecución) y seleccione la pestaña **Models** (Modelos). Seleccione **Refresh** (Actualizar). 
+Una vez finalizada la ejecución, vuelva a la página **Run Detail** (Detalles de ejecución) y seleccione la pestaña **Models** (Modelos).
 
 En el contexto de este experimento, **VotingEnsemble** se considera el mejor modelo, según la métrica **AUC_weighted**.  Se implementa este modelo, pero se recomienda que la implementación tarda unos 20 minutos en completarse. El proceso de implementación conlleva varios pasos, como el registro del modelo, la generación de recursos y su configuración para el servicio web.
 
@@ -216,7 +220,7 @@ En este tutorial de aprendizaje automático automatizado ha usado Azure Machine 
 > [!div class="nextstepaction"]
 > [Consumo de un servicio web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Más información acerca del [preprocesamiento](how-to-create-portal-experiments.md#preprocess).
++ Más información sobre la [caracterización](how-to-create-portal-experiments.md#featurization).
 + Más información acerca de la [generación de perfiles de datos](how-to-create-portal-experiments.md#profile).
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
 + Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification).

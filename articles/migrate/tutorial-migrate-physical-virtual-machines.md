@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas físicas a Azu
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989763"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134933"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar este tutorial, debe:
 
@@ -61,9 +61,6 @@ Antes de comenzar este tutorial, debe:
 Configure los permisos de Azure para migrar con la herramienta Azure Migrate Server Migration.
 
 - **Crear un proyecto**: la cuenta de Azure necesita permisos para crear un proyecto de Azure Migrate. 
-- **Registrar el dispositivo de replicación de Azure Migrate**: el dispositivo de replicación crea y registra una aplicación de Azure Active Directory en la cuenta de Azure. Delegue permisos para ello.
-- **Crear un almacén de claves**: cuando se migran máquinas, Azure Migrate crea un almacén de claves en el grupo de recursos para administrar las claves de acceso a la cuenta de almacenamiento de replicación de la suscripción. Para crear el almacén, necesita permisos de asignación de roles en el grupo de recursos en el que reside el proyecto de Azure Migrate. 
-
 
 ### <a name="assign-permissions-to-create-project"></a>Asignación de permisos para crear un proyecto
 
@@ -73,43 +70,6 @@ Configure los permisos de Azure para migrar con la herramienta Azure Migrate Ser
     - Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripción.
     - Si no es el propietario, trabaje con él para asignar el rol.
 
-### <a name="assign-permissions-to-register-the-replication-appliance"></a>Asignación de permisos para registrar el dispositivo de replicación
-
-En el caso de la migración basada en agente, debe delegar permisos para que la herramienta Azure Migrate Server Migration pueda crear y registrar una aplicación de Azure AD en su cuenta. Puede asignar permisos mediante uno de los métodos siguientes:
-
-- Un administrador de inquilinos o administrador global puede conceder permisos a los usuarios del inquilino para crear y registrar aplicaciones de Azure AD.
-- Un administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones (que tiene los permisos) a la cuenta.
-
-Merece la pena mencionar que:
-
-- Las aplicaciones no tienen otros permisos de acceso en la suscripción distintos de los descritos anteriormente.
-- Solo necesita estos permisos al registrar un nuevo dispositivo de replicación. Puede quitar los permisos una vez configurado el dispositivo de replicación. 
-
-
-#### <a name="grant-account-permissions"></a>Concesión de permisos de cuenta
-
-El administrador de inquilinos o administrador global puede conceder permisos como se indica:
-
-1. En Azure AD, el administrador de inquilinos o global debe ir a **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
-2. El administrador debe establecer **Registros de aplicaciones** en **Sí**.
-
-    ![Permisos de Azure AD](./media/tutorial-migrate-physical-virtual-machines/aad.png)
-
-> [!NOTE]
-> Se trata de una configuración predeterminada que no es confidencial. [Más información](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-
-#### <a name="assign-application-developer-role"></a>Asignación del rol de desarrollador de aplicaciones 
-
-El administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
-
-## <a name="assign-permissions-to-create-key-vault"></a>Asignación de permisos para crear el almacén de claves
-
-Asigne permisos de asignación de roles en el grupo de recursos en el que reside el proyecto de Azure Migrate, como se indica a continuación:
-
-1. En el grupo de recursos de Azure Portal, seleccione **Control de acceso (IAM**).
-2. En **Comprobar acceso**, busque la cuenta correspondiente y haga clic en ella para ver los permisos. Necesita permisos de **Propietario** (o **Colaborador** y **Administrador de acceso de usuario**).
-3. Si no tiene los permisos necesarios, pídaselos al propietario del grupo de recursos. 
-
 ## <a name="prepare-for-migration"></a>Preparación para la migración
 
 ### <a name="check-machine-requirements-for-migration"></a>Comprobación de los requisitos de las máquinas para la migración
@@ -117,7 +77,7 @@ Asigne permisos de asignación de roles en el grupo de recursos en el que reside
 Asegúrese de que las máquinas cumplen los requisitos para la migración a Azure. 
 
 > [!NOTE]
-> La migración basada en agente con la herramienta Azure Migrate Server Migration se basa en las características del servicio Azure Site Recovery. Es posible que algunos requisitos lleven a la documentación de Site Recovery.
+> La migración basada en agente con Migración de servidores de Azure Migrate tiene la misma arquitectura de replicación que la característica de recuperación ante desastres basada en agente del servicio Azure Site Recovery y algunos de los componentes que se usan comparten el mismo código base. Es posible que algunos requisitos lleven a la documentación de Site Recovery.
 
 1. [Compruebe](migrate-support-matrix-physical-migration.md#physical-server-requirements) los requisitos del servidor físico.
 2. Compruebe la configuración de la máquina virtual. Las máquinas locales que replique en Azure tienen que cumplir los [requisitos de máquina virtual de Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -154,7 +114,7 @@ Configure un proyecto de Azure Migrate y, a continuación, agréguele la herrami
 
     **Geografía** | **Región**
     --- | ---
-    Asia | Sudeste asiático
+    Asia | Sudeste de Asia
     Europa | Norte de Europa y Oeste de Europa
     Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
 
@@ -194,7 +154,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 
     ![Finalizar el registro](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Tras la finalización del registro, pueden pasar 15 minutos hasta que las máquinas detectadas aparecen en Azure Migrate Server Migration. A medida que se detectan las máquinas virtuales, aumenta el número de **Servidores detectados**.
+Tras la finalización del registro, pueden pasar unos minutos hasta que las máquinas detectadas aparezcan en Migración de servidores de Azure Migrate. A medida que se detectan las máquinas virtuales, aumenta el número de **Servidores detectados**.
 
 ![Servidores detectados](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 

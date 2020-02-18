@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Prisma Cloud | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Prisma Cloud.
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Prisma Cloud SSO | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Prisma Cloud SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,72 +11,73 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd2e74b51e690c13bbc7d3b00603405ed80dd953
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e40a5f02a62d1e01e58c1d8a5ca03f0c80a75c84
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106830"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086575"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-prisma-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Prisma Cloud
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-prisma-cloud-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Prisma Cloud SSO
 
-En este tutorial, aprenderá a integrar Prisma Cloud con Azure Active Directory (Azure AD). Al integrar Prisma Cloud con Azure AD, puede hacer lo siguiente:
+En este tutorial aprenderá a integrar Prisma Cloud SSO con Azure Active Directory (Azure AD). Al integrar Prisma Cloud SSO con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a Prisma Cloud.
-* Permitir que los usuarios puedan iniciar sesión automáticamente en Prisma Cloud con sus cuentas de Azure AD.
+* Controlar en Azure AD quién tiene acceso a Prisma Cloud SSO.
+* Permitir que los usuarios inicien sesión automáticamente en Prisma Cloud SSO con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Prisma Cloud.
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Prisma Cloud SSO.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Prisma Cloud admite el inicio de sesión único iniciado por **IDP**.
+* Prisma Cloud SSO admite el inicio de sesión único iniciado por **IDP**.
 
-* Prisma Cloud admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Prisma Cloud SSO admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-prisma-cloud-from-the-gallery"></a>Adición de Prisma Cloud desde la galería
+* Una vez configurado Prisma Cloud SSO, puede aplicar controles de sesión, que protegen la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-Para configurar la integración de Prisma Cloud en Azure AD, necesita agregar Prisma Cloud desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="adding-prisma-cloud-sso-from-the-gallery"></a>Incorporación de Prisma Cloud SSO desde la galería
+
+Para configurar la integración de Prisma Cloud SSO en Azure AD, es preciso agregar Prisma Cloud SSO desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Prisma Cloud** en el cuadro de búsqueda.
-1. Seleccione **Prisma Cloud** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
+1. En la sección **Agregar desde la galería**, escriba **Prisma Cloud SSO** en el cuadro de búsqueda.
+1. Seleccione **Prisma Cloud SSO** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-prisma-cloud"></a>Configuración y prueba del inicio de sesión único de Azure AD para Prisma Cloud
+## <a name="configure-and-test-azure-ad-single-sign-on-for-prisma-cloud-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD para Prisma Cloud SSO
 
-Configure y pruebe el inicio de sesión único de Azure AD con Prisma Cloud utilizando un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Prisma Cloud.
+Configure y pruebe el inicio de sesión único de Azure AD con Prisma Cloud SSO mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Prisma Cloud SSO.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Prisma Cloud, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Prisma Cloud SSO, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Prisma Cloud](#configure-prisma-cloud-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Prisma Cloud](#create-prisma-cloud-test-user)** , para tener un homólogo de B.Simon en Prisma Cloud que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de Prisma Cloud SSO](#create-prisma-cloud-sso-test-user)** , para tener un homólogo de B.Simon en Prisma Cloud SSO que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Prisma Cloud**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Prisma Cloud SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
@@ -89,13 +90,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     b. Los valores de **URL de respuesta** son fijos y ya se han rellenado previamente en Azure Portal. Tiene que seleccionar la dirección URL adecuada según sus requisitos.
 
     > [!NOTE]
-    > El valor del identificador no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de atención al cliente de Prisma Cloud](mailto:support@paloaltonetworks.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > El valor del identificador no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte técnico al cliente de Prisma Cloud SSO](mailto:support@paloaltonetworks.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar Prisma Cloud**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Prisma Cloud SSO**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -109,14 +110,14 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a B.Simon a Prisma Cloud para usar el inicio de sesión único de Azure.
+En esta sección va a conceder a B.Simon acceso a Prisma Cloud SSO mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Prisma Cloud**.
+1. En la lista de aplicaciones, seleccione **Prisma Cloud SSO**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
@@ -131,25 +132,26 @@ En esta sección, concederá acceso a B.Simon a Prisma Cloud para usar el inicio
 
 ## <a name="configure-prisma-cloud-sso"></a>Configuración del inicio de sesión único de Prisma Cloud
 
-Para configurar el inicio de sesión único en **Prisma Cloud**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Prisma Cloud](mailto:support@paloaltonetworks.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Prisma Cloud SSO**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Prisma Cloud SSO](mailto:support@paloaltonetworks.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-### <a name="create-prisma-cloud-test-user"></a>Creación de un usuario de prueba de Prisma Cloud
+### <a name="create-prisma-cloud-sso-test-user"></a>Creación de un usuario de prueba de Prisma Cloud SSO
 
-En esta sección se crea un usuario llamado B.Simon en Prisma Cloud. Prisma Cloud admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en Prisma Cloud, se crea uno al intentar acceder a Prisma Cloud.
+En esta sección se crea un usuario llamado B.Simon en Prisma Cloud SSO. Prisma Cloud SSO admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe aún en Prisma Cloud SSO, se crea uno al intentar acceder a Prisma Cloud SSO.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Prisma Cloud en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Prisma Cloud para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Prisma Cloud SSO en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Prisma Cloud SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Pruebe Prisma Cloud con Azure AD](https://aad.portal.azure.com/)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
+- [Pruebe Prisma Cloud SSO con Azure AD](https://aad.portal.azure.com/)

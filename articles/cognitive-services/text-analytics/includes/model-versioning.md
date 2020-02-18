@@ -7,19 +7,22 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: 29850cb9cb40eae0829b5d8c2b58b5f9518f18d5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4cd8d0901ce23fb227bb6919dee18f5aa3d063ed
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021182"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089047"
 ---
-La versión 3 de Text Analytics API le permite elegir el modelo de Text Analytics que se usa en los datos. Use el parámetro opcional `model-version` para seleccionar una versión del modelo en sus solicitudes. Si no se especifica este parámetro, la API usará de forma predeterminada `latest`, la versión de modelo estable más reciente.
+La versión 3 de Text Analytics API le permite elegir la versión del modelo más actual para los datos. Use el parámetro opcional `model-version` para seleccionar la versión del modelo que desee para sus solicitudes. Si no se especifica este parámetro, la API usará de forma predeterminada `latest`, la versión estable más reciente. Aunque puede usar la versión más reciente del modelo en cualquier solicitud, solo se actualizan algunas características en cada versión. En la tabla siguiente se describen las características que se han actualizado en cada versión del modelo:
 
-Versiones disponibles del modelo:
-* `2019-10-01` (`latest`)
+| Versión del modelo           | Características actualizadas         | Versión más reciente para:           |
+|-------------------------|--------------------------|--------------------------|
+| `2020-02-01`            | Reconocimiento de entidades                      | Reconocimiento de entidades                      |
+| `2019-10-01`            | Reconocimiento de entidades, análisis de opiniones  | Detección de idioma, extracción de frases clave y análisis de sentimiento|
+
 
 Cada respuesta de los puntos de conexión V3 incluye un campo `model-version` que especifica la versión del modelo que se usó.
 
@@ -30,3 +33,4 @@ Cada respuesta de los puntos de conexión V3 incluye un campo `model-version` qu
     "model-version": "2019-10-01"
 }
 ```
+Consulte [Novedades](../whats-new.md) para más información sobre las actualizaciones de estas versiones del modelo.

@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 33d0e5c40e4c7d404558fe8fa7a5fb8f5967924e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 8ecd0ebbd242135f0d3b0c6e365d6e97586031cb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773799"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121236"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (.NET)
 
@@ -29,7 +29,7 @@ El inicio rápido usa dos aplicaciones C# escritas previamente: una para enviar 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en el equipo de desarrollo.
 
@@ -47,7 +47,9 @@ Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure p
 az extension add --name azure-cli-iot-ext
 ```
 
-Descargue los ejemplos de C# de Azure IoT de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip y extraiga el archivo ZIP.
+Descargue los ejemplos en C# de Azure IoT de [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8035cce1482c3c441cc956272a7300f0d0ea8194
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815313"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189075"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Inicio rápido: Ejecución de la aplicación de ejemplo de Speech Devices SDK en Linux
 
 En este inicio rápido, aprenderá a usar Speech Devices SDK para Linux para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](conversation-transcription-service.md). Actualmente, solo se admite [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/).
 
-La aplicación se crea con el paquete de Speech SDK y el IDE de Java de Eclipse (v4) en Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
+La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo integrado de Java de Eclipse (v4) en Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04 y Debian 9). Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
 Para esta guía se requiere una cuenta de [Azure Cognitive Services](get-started.md) con un recurso del servicio de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
 
 El código fuente de la [aplicación de ejemplo](https://aka.ms/sdsdk-download-JRE) se incluye con Speech Devices SDK. También está [disponible en GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Esta guía de inicio rápido requiere:
 
@@ -38,7 +38,7 @@ Esta guía de inicio rápido requiere:
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 * Descargue la versión más reciente de [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) para Java y extraiga el archivo .zip en el directorio de trabajo.
    > [!NOTE]
-   > El archivo JRE-Sample-Release.zip incluye la aplicación de ejemplo de JRE y en este inicio rápido se da por supuesto que ha extraído la aplicación en /home/wcaltest/JRE-Sample-Release.
+   > En este inicio rápido se supone que la aplicación se extrae en /home/wcaltest/JRE-Sample-Release.
 
 Asegúrese de que estén instaladas estas dependencias antes de iniciar Eclipse.
 
@@ -96,7 +96,7 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```

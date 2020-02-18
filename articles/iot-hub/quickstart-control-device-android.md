@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: d607608167e1287c7df35157ccb9870f40f22943
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 4b31b1ee77e6bcafc4981c85f0118d02de00a964
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516714"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108930"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Guía de inicio rápido: Control de un dispositivo conectado a IoT Hub (Android)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Inicio rápido: Control de un dispositivo conectado a IoT Hub (Android)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -33,7 +33,7 @@ El inicio rápido usa dos aplicaciones Java escritas anteriormente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Android Studio desde https://developer.android.com/studio/. Para más información acerca de la instalación de Android Studio, consulte [android-installation](https://developer.android.com/studio/install).
 
@@ -46,6 +46,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    ```
 
 * Esta guía de inicio rápido requiere dos aplicaciones de ejemplo: la [aplicación de Android de ejemplo del SDK de dispositivo](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) y la [aplicación de Android de ejemplo del SDK de servicio](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Ambos ejemplos forman parte del repositorio azure-iot-samples-java de GitHub. Descargue o clone el repositorio [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+
+* Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

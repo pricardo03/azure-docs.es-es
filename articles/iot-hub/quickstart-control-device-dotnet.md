@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: bffba0ce5481250a696cdf4ec0aed6b59620bfe9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3e01f02026bfd788c398e580a78812d1a69f8f1d
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773825"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108953"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Inicio rápido: Control de un dispositivo conectado a un centro de IoT (.NET)
 
@@ -33,7 +33,7 @@ El inicio rápido usa dos aplicaciones .NET escritas anteriormente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en el equipo de desarrollo.
 
@@ -52,6 +52,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Si aún no lo ha hecho, descargue los ejemplos de C# de Azure IoT de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip y extraiga el archivo ZIP.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

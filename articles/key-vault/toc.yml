@@ -112,6 +112,14 @@
           href: managed-identity.md
         - name: Uso de una directiva de control de acceso
           href: key-vault-group-permissions-for-apps.md
+        - name: Importación de claves protegidas con HSM
+          items:
+            - name: Información general
+              href: key-vault-hsm-protected-keys.md
+            - name: Importación de claves protegidas con HSM en Key Vault (versión preliminar)
+              href: hsm-protected-keys-vendor-agnostic-byok.md
+            - name: Importación de claves protegidas con HSM en Key Vault (heredado)
+              href: hsm-protected-keys-legacy.md
     - name: Enrutamiento de notificaciones de Key Vault con Event Grid
       href: event-grid-tutorial.md
     - name: Recepción de notificaciones a través de Event Grid y Logic Apps
@@ -170,8 +178,6 @@
       items:
         - name: Guía del desarrollador
           href: key-vault-developers-guide.md
-        - name: Claves protegidas con HSM
-          href: key-vault-hsm-protected-keys.md
         - name: Migración a .NET 2.0
           href: key-vault-dotnet2api-release-notes.md
         - name: Guardar secretos de Web Apps

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa22b46dabcc5c8b2db5997ffc9b2f2480846d6f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 727d4ec79b142595e59ff63a4afbcbe4a51c2a6d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074634"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057450"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Lesson.ly
 
@@ -33,7 +33,7 @@ En este tutorial aprenderá a integrar Lesson.ly con Azure Active Directory (A
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -83,15 +83,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.lessonly.com/signin`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.lessonly.com/signin`
 
     > [!NOTE]
     > Cuando se hace referencia a un nombre genérico, debe reemplazar **nombreDeCompañía** por un nombre real.
+    
+     b. En el cuadro de texto **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.lessonly.com/auth/saml/callback`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.lessonly.com/auth/saml/metadata`
-
+     c. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.lessonly.com/auth/saml/metadata`
+    
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de Lessonly.com](mailto:support@lessonly.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, la dirección URL de respuesta y el identificador reales. Póngase en contacto con el [equipo de atención al cliente de Lessonly.com](mailto:support@lessonly.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. La aplicación Lesson.ly espera las aserciones de SAML en un formato específico, lo cual requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -99,7 +101,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación Lesson.ly espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
-    | NOMBRE | Atributo de origen|
+    | Nombre | Atributo de origen|
     | ---------------  | ----------------|
     | urn:oid:2.5.4.42 | user.givenname |
     | urn:oid:2.5.4.4  | user.surname |
@@ -124,7 +126,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

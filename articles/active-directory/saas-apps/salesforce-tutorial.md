@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d0793c863f4f682c967c7a5ae61c5a0b78cdb4d
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 564e8dd8e6d7c4c0e3747469875e030be30b1a9b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292542"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046709"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Salesforce
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a integrar Salesforce con Azure Active Directory (
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -50,7 +50,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Salesforce admite el aprovisionamiento de usuarios **Just-In-Time**
 
 * Ahora se puede configurar la aplicación móvil Salesforce con Azure AD para habilitar el inicio de sesión único. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
-* Una vez configurado Salesforce, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado Salesforce, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-salesforce-from-the-gallery"></a>Adición de Salesforce desde la galería
 
@@ -243,6 +243,6 @@ Al hacer clic en el icono de Salesforce en el panel de acceso y debería iniciar
 
 - [Pruebe Salesforce con Azure AD](https://aad.portal.azure.com)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Protección de Salesforce con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protección de Salesforce con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/protect-salesforce)

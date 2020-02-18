@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf5b3c79e39e9baef49ce2c14408a15c3686a6a8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: df7fc366c5087e66c3022c212870397d77e6e34d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293443"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046759"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Tutorial: Integración de Azure Active Directory con Dropbox for Business
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a integrar Dropbox for Business con Azure Active Di
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -44,7 +44,7 @@ Para empezar, necesita los siguientes elementos:
 * En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. Dropbox for Business admite inicio de sesión único iniciado por **SP**.
 
 * Dropbox for Business admite el [aprovisionamiento y desaprovisionamiento de usuarios de forma automática](dropboxforbusiness-tutorial.md).
-* Una vez configurado Dropbox, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado Dropbox, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>Adición de Dropbox for Business desde la galería
 
@@ -197,6 +197,6 @@ Cuando selecciona el icono de Dropbox for Business en el Panel de acceso, deber�
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/cloud-app-security/protect-dropbox)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Protección de Dropbox con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protección de Dropbox con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/protect-dropbox)

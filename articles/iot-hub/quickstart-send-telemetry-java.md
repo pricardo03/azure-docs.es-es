@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 2c6226fea5235d45b7a3e99d56da6b007f171f98
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8be337bf2e244971b6b49c5e86f3635daa30bb71
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890506"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110226"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Inicio rápido: Envío de telemetría a una instancia de Azure IoT Hub y su lectura en una aplicación Java
 
@@ -29,11 +29,11 @@ El inicio rápido usa dos aplicaciones de Java escritas previamente: una para en
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Java. Necesita Java SE 8 en el equipo de desarrollo.
 
-Puede descargar Java SE Development Kit 8 para varias plataformas en [Soporte técnico de Java a largo plazo para Azure y Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Asegúrese de seleccionar **Java 8** en **Long-term support** (Soporte técnico a largo plazo) para obtener descargas de JDK 8.
+Puede descargar Java SE Development Kit 8 para varias plataformas en [Soporte técnico de Java a largo plazo para Azure y Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Asegúrese de seleccionar **Java 8** en **Long-term support** (Soporte técnico a largo plazo) para obtener descargas de JDK 8.
 
 Puede verificar la versión actual de Java en el equipo de desarrollo con el comando siguiente:
 
@@ -56,6 +56,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Descargue el proyecto de Java de muestra de https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip y extraiga el archivo ZIP.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -137,7 +139,7 @@ La aplicación back-end se conecta a un punto de conexión de **Eventos** de ser
 
 2. Abra el archivo **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** en el editor de texto de su elección. Actualice las siguientes variables y guarde los cambios en el archivo.
 
-    | Variable | Valor |
+    | Variable | Value |
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | Reemplace el valor de la variable por el punto de conexión compatible con Event Hubs que anotó anteriormente. |
     | `eventHubsCompatiblePath`     | Reemplace el valor de la variable por la ruta de acceso compatible con Event Hubs que ha anotó anteriormente. |

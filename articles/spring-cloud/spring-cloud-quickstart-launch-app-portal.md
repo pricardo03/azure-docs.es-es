@@ -1,23 +1,23 @@
 ---
-title: 'Inicio rápido: Inicio de una aplicación de Azure Spring Cloud desde Azure Portal'
-description: En este inicio rápido implementará una aplicación de ejemplo en Azure Spring Cloud desde Azure Portal.
+title: 'Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal'
+description: En este inicio rápido, se implementa una aplicación de Spring Cloud en Azure Spring Cloud desde Azure Portal.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/4/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: f88319319b366ec8b726d5cf6cce540008497b57
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 67ad112021c2fadb5ea93ffefcf5e58e9404e92a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278904"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137751"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud desde Azure Portal
+# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal
 
-Azure Spring Cloud permite ejecutar fácilmente en Azure aplicaciones de microservicios basadas en Spring Cloud.
+En este inicio rápido se muestra cómo implementar una aplicación de Spring Cloud existente en Azure. Azure Spring Cloud permite ejecutar fácilmente en Azure aplicaciones de microservicios basadas en Spring Cloud. 
 
-En este inicio rápido se muestra cómo implementar una aplicación de Spring Cloud existente en Azure.  Puede encontrar el código de aplicación de ejemplo que se usa en este tutorial en nuestro [repositorio de ejemplos de GitHub](https://github.com/Azure-Samples/PiggyMetrics). Cuando haya terminado, se podrá acceder en línea a la aplicación de ejemplo proporcionada y está estará lista para ser administrada mediante Azure Portal.
+Puede encontrar el código de aplicación de ejemplo que se usa en este tutorial en nuestro [repositorio de ejemplos de GitHub](https://github.com/Azure-Samples/PiggyMetrics). Cuando haya terminado, se podrá acceder en línea a la aplicación de ejemplo proporcionada y está estará lista para ser administrada mediante Azure Portal.
 
 En este inicio rápido aprenderá a:
 
@@ -28,7 +28,7 @@ En este inicio rápido aprenderá a:
 > * Implementar cada microservicio
 > * Asignar un punto de conexión público para la aplicación
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 >[!Note]
 > Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para obtener más información.
@@ -60,7 +60,7 @@ az extension add --name spring-cloud
     - Nombre del servicio: especifique el nombre de la instancia de servicio.  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
     - Suscripción: seleccione la suscripción a la que desea que se facture este recurso.  Asegúrese de que esta suscripción se ha agregado a nuestra lista de permitidos para Azure Spring Cloud.
     - Grupo de recursos: se recomienda crear grupos de recursos para los nuevos recursos.
-    - Ubicación: seleccione la ubicación de la instancia de servicio. Las ubicaciones admitidas actualmente son Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste Asiático.
+    - Ubicación: seleccione la ubicación de la instancia de servicio. Las ubicaciones admitidas actualmente son Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste de Asia.
 
 1. Haga clic en **Revisar y crear**.
 

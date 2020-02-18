@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: d097894c841d91d344b5958e7f5e1c10249f8b6e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904878"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082869"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionamiento de dispositivos con el servicio Azure IoT Hub Device Provisioning
 Microsoft Azure proporciona un amplio conjunto de servicios públicos en la nube integrados para todas las necesidades de su solución de IoT. IoT Hub Device Provisioning Service (DPS) es un servicio auxiliar para IoT Hub que habilita el aprovisionamiento sin interacción Just-In-Time a la instancia correcta del centro de IoT sin necesidad de intervención humana. DPS habilita el aprovisionamiento de millones de dispositivos de forma segura y escalable.
@@ -80,8 +80,10 @@ DPS tiene muchas características que hacen que resulte idóneo para el aprovisi
 * **Lista de inscripción** que contiene el registro completo de dispositivos o grupos de dispositivos que pueden registrarse en algún momento. La lista de inscripción contiene información sobre la configuración deseada del dispositivo una vez que se registra, y se puede actualizar en cualquier momento.
 * **Varias directivas de asignación** para controlar la forma en que DPS asigna dispositivos a los centros de IoT para dar soporte a los escenarios: Menos latencia, distribución ponderada uniformemente (valor predeterminado) y configuración estática a través de la lista de inscripción. Para determinar la latencia, se usa el mismo método que [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Registros de supervisión y diagnóstico** para asegurarse de que todo funciona correctamente.
-* La **compatibilidad con varios centros** permite que DPS asigne dispositivos a más de un centro de IoT en el entorno de ejecución. DPS puede comunicarse con los centros de varias suscripciones de Azure.
+* La **compatibilidad con varios centros** permite que Data Protection Manager asigne dispositivos a más de un centro de IoT. DPS puede comunicarse con los centros de varias suscripciones de Azure.
 * La **compatibilidad entre regiones** permite que DPS asigne dispositivos a los centros de IoT en otras regiones.
+* El **cifrado de datos en reposo** permite que los datos de Data Protection Manager se cifren y descifren de forma transparente mediante el cifrado AES de 256 bits, uno de los cifrados de bloques más sólidos disponibles, y que es compatible con FIPS 140-2.
+
 
 Puede aprender más sobre los conceptos y características implicados en el aprovisionamiento de dispositivos en [conceptos de dispositivo](concepts-device.md), [conceptos de servicio](concepts-service.md) y [conceptos de seguridad](concepts-security.md).
 

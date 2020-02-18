@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/09/2020
-ms.openlocfilehash: 11768a0d72549d917d93c0f6f7f4d0c7e8217da4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 23f9a88cd0accbf8716c706643e7b67f4ecaf05c
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864432"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110530"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Inicio rápido: Control de un dispositivo conectado a un centro de IoT (Python)
 
@@ -33,7 +33,7 @@ El inicio rápido usa dos aplicaciones Python escritas anteriormente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
 
@@ -44,6 +44,8 @@ az extension add --name azure-cli-iot-ext
 Si aún no lo ha hecho, descargue el proyecto de Python de muestra desde https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip y extraiga el archivo ZIP.
 
 Compruebe que en la máquina de desarrollo está instalada la [versión 3.7 de Python, o cualquier versión posterior](https://www.python.org/downloads/). Para otras versiones de Python compatibles, consulte el tema acerca de las [características de los dispositivos IoT de Azure](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features) en la documentación del SDK.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

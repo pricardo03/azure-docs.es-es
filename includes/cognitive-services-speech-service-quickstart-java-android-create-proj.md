@@ -2,14 +2,14 @@
 author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 5/23/2019
+ms.date: 02/10/2020
 ms.author: travisw
-ms.openlocfilehash: 5c0b6400c6dc346597329c82e82801403a888a4d
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: a7ce6bc2b6fa272c8dd3c4bf95bc06a37d1fe28f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675569"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119754"
 ---
 1. Inicie Android Studio y seleccione **Start a new Android Studio project** (Iniciar un nuevo proyecto de Android Studio) en la ventana **Welcome** (Bienvenida).
 
@@ -27,7 +27,7 @@ Android Studio tardará unos minutos en preparar el nuevo proyecto de Android. A
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-La versión actual del SDK de Voz de Cognitive Services es 1.7.0.
+La versión actual del SDK de Voz de Cognitive Services es 1.9.0.
 
 El SDK de Voz para Android está empaquetado como una [biblioteca de Android (AAR)](https://developer.android.com/studio/projects/android-library), que incluye las bibliotecas necesarias, así como los permisos necesarios de Android.
 Se hospeda en un repositorio de Maven en https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -42,12 +42,12 @@ Configure el proyecto para usar el SDK de Voz. Abra la ventana de la **estructur
 
    ![Captura de pantalla de la dependencia de biblioteca](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. En la ventana que aparece, escriba el nombre y la versión del SDK de Voz para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.7.0*. Después seleccione **Aceptar**.
+1. En la ventana que aparece, escriba el nombre y la versión del SDK de Voz para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.9.0*. Después, seleccione **Aceptar**.
    El SDK de Voz se agregará a la lista de dependencias, como se muestra a continuación:
 
    ![Captura de pantalla del SDK de Voz en la lista de dependencias](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-1. Haga clic en la pestaña **Properties** (Propiedades). En **Source Compability** (Compatibilidad de origen) y **Target Compatibility** (Compatibilidad de destino), seleccione **1.8**.
+1. Haga clic en la pestaña **Properties** (Propiedades). En **Source Compability** (Compatibilidad de origen) y **Target Compatibility** (Compatibilidad de destino), seleccione **1.9**.
 
    ![Captura de pantalla de Source Compability (Compatibilidad de origen) y Target Compatibility (Compatibilidad de destino)](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-09-dependency-added.png)
 

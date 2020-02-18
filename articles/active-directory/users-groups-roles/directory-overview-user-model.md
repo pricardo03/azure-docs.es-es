@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a647f4a5f051ec89bb82b6e7f89dcb677c95371
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027738"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046341"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Usuarios, grupos, licencias y roles para grandes organizaciones
 
@@ -31,7 +31,7 @@ Este artículo introduce al administrador de Azure AD a la relación entre las t
 
 ## <a name="assign-users-to-groups"></a>Asignar usuarios a grupos
 
-Puede usar grupos de Azure AD para asignar licencias a un gran número de usuarios o para asignar a los usuarios acceso a las aplicaciones empresariales implementadas. Puede usar grupos para asignar roles de administrador en Azure AD, o puede conceder acceso a recursos externos, como aplicaciones de SaaS o sitios de SharePoint.
+Puede usar grupos de Azure AD para asignar licencias a un gran número de usuarios o para asignar a los usuarios acceso a las aplicaciones empresariales implementadas. Puede usar grupos para asignar todos los roles de administrador en Azure AD excepto el de administrador global, o puede conceder acceso a recursos externos, como aplicaciones de SaaS o sitios de SharePoint.
 
 Para ofrecer una mayor flexibilidad y reducir el trabajo de administrar la pertenencia a grupos, puede usar [grupos dinámicos](groups-create-rule.md) en Azure AD para expandir y contraer automáticamente la pertenencia a grupos. Necesitará una licencia de Azure AD Premium P1 para cada usuario único que sea miembro de uno o varios grupos dinámicos.
 

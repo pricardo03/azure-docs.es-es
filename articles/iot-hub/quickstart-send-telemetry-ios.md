@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/03/2019
-ms.openlocfilehash: a23518cd016a1711e47734df0f7179770aa92a87
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 73f42384af8b9f0147f3855ad5003598a0cd3c53
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166981"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110515"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT (iOS)
 
@@ -28,7 +28,7 @@ En este artículo se usa una aplicación Swift escrita previamente para enviar l
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Descargue el código de ejemplo desde [Ejemplos de Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)
 - La versión más reciente de [XCode](https://developer.apple.com/xcode/) que, a su vez, ejecute la última versión del SDK de iOS. Este inicio rápido se probó con XCode 10.2 e iOS 12.2.
@@ -38,6 +38,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
+
+- Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -107,7 +109,7 @@ Junto con la instalación de los pods necesarios para el proyecto, el comando de
 5. Guarde los cambios. 
 6. Ejecute el proyecto en el emulador de dispositivos con el botón **Build and run** (Compilar y ejecutar) o la combinación de teclas **comando + r**. 
 
-   ![Ejecutar el proyecto](media/quickstart-send-telemetry-ios/run-sample.png)
+   ![Ejecución del proyecto](media/quickstart-send-telemetry-ios/run-sample.png)
 
 7. Cuando se inicie el emulador, seleccione **Start** (Iniciar) en la aplicación de ejemplo.
 

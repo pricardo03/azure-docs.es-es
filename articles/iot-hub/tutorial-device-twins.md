@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1337870fc871282f84af17b34ba26b3b0271316b
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890425"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110716"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -37,7 +37,7 @@ En este tutorial se realizan las siguientes tareas:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo.
 
@@ -50,6 +50,8 @@ node --version
 ```
 
 Descargue el proyecto de muestra de Node.js desde https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip y extraiga el archivo ZIP.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Configuración de los recursos de Azure
 

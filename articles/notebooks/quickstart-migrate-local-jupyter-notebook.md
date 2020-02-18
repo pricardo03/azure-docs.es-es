@@ -3,24 +3,30 @@ title: Migración de un cuaderno de Jupyter Notebook local a Azure Notebooks (ve
 description: Transfiera rápidamente un cuaderno de Jupyter Notebook a Azure Notebooks (versión preliminar) desde el equipo local o una dirección URL web y, posteriormente, a compartirlo con fines de colaboración.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647057"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064332"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Inicio rápido: Migración de un cuaderno de Jupyter Notebook local a Azure Notebooks (versión preliminar)
 
-Solo usted puede acceder a los cuadernos de Jupyter Notebook que crea localmente en su propio equipo. Puede compartir los archivos de diferentes maneras, pero los destinatarios tendrán su propia copia local del cuaderno y le será difícil incorporar los cambios que estos realicen. También puede almacenar cuadernos en un repositorio compartido en línea como GitHub, pero para ello es necesario que cada colaborador tenga su propia instalación local de Jupyter con la misma configuración que la suya.
+En este inicio rápido, se migra a Azure Notebooks un cuaderno de Jupyter Notebook desde un equipo local u otra dirección URL de archivo accesible. 
 
-Al migrar los cuadernos basados en repositorio o locales a Azure Notebooks, estos se almacenarán en la nube y podrá compartirlos al instante con sus colaboradores. Los colaboradores solo necesitan un explorador para ver y ejecutar el cuaderno y, si [inician sesión](quickstart-sign-in-azure-notebooks.md) en Azure Notebooks, también podrán realizar cambios.
+Usted es el único que puede acceder a los cuadernos de Jupyter Notebook que estén en su propio equipo. Puede compartir sus archivos, pero en ese caso los destinatarios tendrán sus copias locales del cuaderno y es difícil incorporar sus cambios. Aunque almacene cuadernos en un repositorio en línea compartido como GitHub, cada colaborador debe tener una instalación local de Jupyter configurada como suya.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+Al migrar a Azure Notebooks los cuadernos locales o los que están en el repositorio, puede compartirlos al instante con sus colaboradores, quienes solo necesitan un explorador para verlos y ejecutarlos. Si inician sesión en Azure Notebooks, también pueden realizar cambios.
 
-En este inicio rápido se muestra el proceso de migración de un bloc de notas desde su equipo local u otra dirección URL de archivo accesible. Para migrar los cuadernos desde un repositorio de GitHub, consulte [Inicio rápido: Clonación de un cuaderno](quickstart-clone-jupyter-notebook.md).
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Un [cuaderno de Jupyter Notebook](https://jupyter-notebook.readthedocs.io) en su equipo local o en otra dirección URL de archivo a la que se pueda acceder. 
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Creación de un proyecto en Azure Notebooks
+
+En este inicio rápido, se muestra cómo migrar un cuaderno desde su equipo local u otra dirección URL de archivo a la que se pueda acceder. Para migrar los cuadernos desde un repositorio de GitHub, consulte [Inicio rápido: Clonación de un cuaderno](quickstart-clone-jupyter-notebook.md).
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
 
@@ -28,7 +34,7 @@ En este inicio rápido se muestra el proceso de migración de un bloc de notas d
 
     ![Vínculo Mis proyectos en la parte superior de la ventana del explorador](media/quickstarts/my-projects-link.png)
 
-1. En la página **My Projects** (Mis proyectos), seleccione **+New Project** (+Nuevo proyecto) [método abreviado de teclado: n]; el botón puede aparecer solo como **+** si la ventana del explorador es estrecha:
+1. En la página **My Projects** (Mis proyectos), seleccione **New Project** (Nuevo proyecto) (método abreviado de teclado: n). Si la ventana del explorador es estrecha, el botón puede aparecer solo como **+** :
 
     ![Comando New Project (Nuevo proyecto) en la página My Projects (Mis proyectos)](media/quickstarts/new-project-command.png)
 
@@ -40,13 +46,13 @@ En este inicio rápido se muestra el proceso de migración de un bloc de notas d
 
     ![Comando para cargar un cuaderno desde una dirección URL o el equipo local](media/quickstarts/upload-from-computer-url-command.png)
 
-   (De nuevo, si el cuaderno se encuentra en un repositorio de GitHub, siga los pasos de [Inicio rápido: Clonación de un cuaderno](quickstart-clone-jupyter-notebook.md).)
+   De nuevo, si el cuaderno se encuentra en un repositorio de GitHub, siga los pasos de [Inicio rápido: Clonación de un cuaderno](quickstart-clone-jupyter-notebook.md).
 
-   - Si usa **From Computer** (Desde el equipo), arrastre y coloque los archivos *.ipynb* en la ventana emergente o seleccione **Elegir archivos** y, después, vaya a los archivos que quiere importar. A continuación, seleccione **Cargar**. Los archivos cargados tienen el mismo nombre que los archivos locales. (No es necesario cargar el contenido de ninguna carpeta *.ipynb_checkpoints*.)
+   - Si usa **From Computer** (Desde el equipo), arrastre y coloque los archivos *.ipynb* en la ventana emergente o seleccione **Elegir archivos** y, después, vaya a los archivos que quiere importar. A continuación, seleccione **Cargar**. Los archivos cargados tienen el mismo nombre que los archivos locales. No es necesario cargar el contenido de ninguna de las carpetas *.ipynb_checkpoints*.
 
      ![Ventana emergente para cargar desde equipo](media/quickstarts/upload-from-computer-popup.png)
 
-   - Si usa **From URL** (Desde la URL), escriba la dirección de origen en el campo **Dirección URL del archivo** y el nombre de archivo que quiere asignar al cuaderno en el proyecto en el campo **Nombre de archivo**. A continuación, seleccione **Cargar**. Si tiene varios archivos con direcciones URL diferentes, use el comando **+ Agregar archivo** para comprobar la primera dirección URL que escribió, después de que la ventana emergente proporcione nuevos campos para otro archivo.
+   - Si usa **From URL** (Desde la URL), escriba la dirección de origen en el campo **Dirección URL del archivo** y el nombre de archivo que quiere asignar al cuaderno en el proyecto en el campo **Nombre de archivo**. A continuación, seleccione **Cargar**. Si tiene varios archivos con direcciones URL diferentes, use el comando **Agregar archivo** para comprobar la primera dirección URL que escribió, después de que la ventana emergente proporcione nuevos campos para otro archivo.
 
      ![Ventana emergente para cargar desde URL](media/quickstarts/upload-from-url-popup.png)
 
@@ -59,4 +65,4 @@ En este inicio rápido se muestra el proceso de migración de un bloc de notas d
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal)
+> [Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal](tutorial-create-run-jupyter-notebook.md)

@@ -1,21 +1,20 @@
 ---
 title: 'Tutorial: Creación y administración de presupuestos de Azure | Microsoft Docs'
 description: Este tutorial le ayuda a planear y tener en cuenta los costos de los servicios de Azure que usted consume.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/22/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: adwise
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: bb02c4903348a3b8c1d129f02be64109ec0f48eb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9900a2f7a41a6b35be75326b9412ec628328e39b
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769790"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132100"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -34,13 +33,14 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un presupuesto en Azure Portal
+> * Crear y editar presupuestos con PowerShell
 > * Editar un presupuesto
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-Los presupuestos se admiten en varios tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los presupuestos, se necesita al menos acceso de lectura en la cuenta de Azure.
+Los presupuestos se admiten en distintos tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los presupuestos, se necesita al menos acceso de lectura en la cuenta de Azure.
 
- En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no se pueden crear presupuestos para cuentas de facturación de EA.
+ En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no puede crear presupuestos para las cuentas de facturación de EA.
 
 Se admiten los siguientes permisos o ámbitos de Azure por suscripción para los presupuestos por usuario y grupo. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
@@ -62,7 +62,7 @@ Para crear o ver un presupuesto, abra el ámbito deseado en Azure Portal y selec
 
 Después de crear los presupuestos, muestran a un lado una vista sencilla de su gasto actual.
 
-Haga clic en **Agregar**.
+Seleccione **Agregar**.
 
 ![Ejemplo en el que se muestra una lista de presupuestos ya creada](./media/tutorial-acm-create-budgets/budgets01.png)
 
@@ -78,15 +78,19 @@ En función de los campos elegidos en el presupuesto hasta el momento, se muestr
 
 ![Ejemplo que muestra la creación de un presupuesto con datos de costos mensuales ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Después de configurar la cantidad del presupuesto, haga clic en **Siguiente** para configurar las alertas de presupuesto. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se reciben en menos de 20 horas. Para más información acerca de las notificaciones, consulte [Use cost alerts](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos). En el siguiente ejemplo, se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto. Si crea un presupuesto con API Budgets, también puede asignar roles a los usuarios para que reciban alertas. No se admite la asignación de roles a personas en Azure Portal. Para más información sobre la API de presupuestos de Azure, consulte [API Budgets](/rest/api/consumption/budgets).
+Después de configurar el importe del presupuesto, haga clic en **Siguiente** para configurar las alertas de presupuesto. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se reciben en menos de 20 horas.
+
+Si desea recibir correos electrónicos, agregue azure-noreply@microsoft.com a la lista de remitentes aprobados, con el fin de que los correos electrónicos no vayan a la carpeta de correo no deseado. Para más información acerca de las notificaciones, consulte [Use cost alerts](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
+
+En el siguiente ejemplo, se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto. Si crea un presupuesto con API Budgets, también puede asignar roles a los usuarios para que reciban alertas. No se admite la asignación de roles a personas en Azure Portal. Para más información sobre la API de presupuestos de Azure, consulte [API Budgets](/rest/api/consumption/budgets).
 
 ![Ejemplo en el que se muestran las condiciones de la alerta](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-Después de crear un presupuesto, se muestra en el análisis de costos. Ver el presupuesto en relación con la tendencia del gasto es uno de los primeros pasos cuando empieza a [analizar los costos y los gastos](../../cost-management/quick-acm-cost-analysis.md).
+Después de crear un presupuesto, se muestra en el análisis de costos. Ver el presupuesto con respecto a la tendencia del gasto es uno de los primeros pasos para empezar a [analizar los costos y gastos](../../cost-management/quick-acm-cost-analysis.md).
 
 ![Presupuesto y gasto de ejemplo que se muestra en el análisis de costos](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
-En el ejemplo anterior, creó un presupuesto para una suscripción. Sin embargo, también puede crear un presupuesto para un grupo de recursos. Si quiere crear un presupuesto para un grupo de recursos, vaya a **Cost Management + Billing** &gt; **Suscripciones** &gt; seleccione una suscripción > **Grupos de recursos** > seleccione un grupo de recursos > **Presupuestos** > y **Agregar** un presupuesto.
+En el ejemplo anterior, creó un presupuesto para una suscripción. También puede crear un presupuesto para un grupo de recursos. Si quiere crear un presupuesto para un grupo de recursos, vaya a **Cost Management + Billing** &gt; **Suscripciones** &gt; seleccione una suscripción > **Grupos de recursos** > seleccione un grupo de recursos > **Presupuestos** > y **Agregar** un presupuesto.
 
 ## <a name="costs-in-budget-evaluations"></a>Costos de las evaluaciones de presupuesto
 
@@ -102,16 +106,16 @@ Las evaluaciones de los costos del presupuesto se basan en el costo real. No inc
 
 ## <a name="trigger-an-action-group"></a>Activación de un grupo de acciones
 
-Al crear o editar un presupuesto para un ámbito de suscripción o grupo de recursos, puede configurarlo para que llame a un grupo de acciones. El grupo de acciones puede realizar una serie de acciones diferentes cuando se alcanza el umbral del presupuesto. Los grupos de acciones solo se admiten actualmente para ámbitos de suscripción y de grupo de recursos. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](../../azure-monitor/platform/action-groups.md). Para obtener más información sobre el uso de la automatización basada en presupuestos con grupos de acciones, vea [Administración de costos con presupuestos de Azure](../manage/cost-management-budget-scenario.md).
+Al crear o editar un presupuesto para un ámbito de suscripción o grupo de recursos, puede configurarlo para que llame a un grupo de acciones. El grupo de acciones puede realizar varias acciones cuando se alcanza el umbral del presupuesto. Los grupos de acciones solo se admiten actualmente para ámbitos de suscripción y de grupo de recursos. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](../../azure-monitor/platform/action-groups.md). Para obtener más información sobre el uso de la automatización basada en presupuestos con grupos de acciones, vea [Administración de costos con presupuestos de Azure](../manage/cost-management-budget-scenario.md).
 
 
 
-Para crear o actualizar grupos de acciones, haga clic en **Administrar los grupos de acciones** al crear o editar un presupuesto.
+Para crear o actualizar los grupos de acciones, seleccione **Administrar los grupos de acciones** al crear o editar un presupuesto.
 
 ![Ejemplo de creación de un presupuesto para mostrar la opción Administrar los grupos de acciones](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Después, haga clic en **Agregar grupo de acciones** y cree el grupo de acciones.
+Después, seleccione **Agregar grupo de acciones** y cree el grupo de acciones.
 
 
 ![Imagen del cuadro Agregar grupo de acciones](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -128,12 +132,42 @@ En el ejemplo siguiente se muestran los umbrales del presupuesto establecidos en
 
 La integración de presupuesto con los grupos de acciones solo funciona para los grupos de acciones que tienen deshabilitado el esquema de alertas común. Para más información sobre cómo deshabilitar el esquema, consulte [¿Cómo habilito el esquema de alertas comunes?](../../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
+## <a name="create-and-edit-budgets-with-powershell"></a>Creación y edición de presupuestos con PowerShell
+
+Los clientes de EA pueden crear y editar presupuestos mediante programación con el módulo de Azure PowerShell.  Para descargar la versión más reciente de Azure PowerShell ejecute el siguiente comando:
+
+```azurepowershell-interactive
+install-module -name AzureRm
+```
+
+Los comandos del siguiente ejemplo crean un presupuesto.
+
+```azurepowershell-interactive
+#Sign into Azure Powershell with your account
+
+Connect-AzureRmAccount
+
+#Select a subscription to to monitor with a budget
+
+select-AzureRmSubscription -Subscription "Your Subscription"
+
+#Create an action group email receiver and corresponding action group
+
+$email1 = New-AzureRmActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
+
+#Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
+
+New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear un presupuesto en Azure Portal
+> * Creación y edición de presupuestos con PowerShell
 > * Editar un presupuesto
 
 Pase al siguiente tutorial para crear una exportación periódica de los datos de administración de costos.

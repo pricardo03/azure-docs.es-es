@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5eb5cedf14af9a013a5b6a1eba5df40d665cbad5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ad6b7150a43a286a4bec39a0482e08f50d95c06
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181499"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048059"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5
 
@@ -31,9 +31,9 @@ En este tutorial, obtendrá información sobre cómo integrar F5 con Azure Acti
 * Permitir que los usuarios inicien sesión automáticamente en F5 con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información acerca de la integración de aplicaciones SaaS con el inicio de sesión único en Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -179,7 +179,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

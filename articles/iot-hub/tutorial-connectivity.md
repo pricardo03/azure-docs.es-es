@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5d84b1b951cd1a48a385083f5ce2e2aaf1cba8d7
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595754"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110647"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Uso de un dispositivo simulado para probar la conectividad con IoT Hubs
 
@@ -26,12 +26,12 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Comprobar la autenticación del dispositivo
 > * Comprobar la conectividad del dispositivo a la nube
-> * Comprobar la conectividad de la nube al dispositivo
+> * Comprobación de la conectividad de la nube al dispositivo
 > * Comprobar la sincronización de dispositivos gemelos
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los scripts de la CLI que se ejecutan en este tutorial usan la [extensión de Microsoft Azure IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Para instalar esta extensión, ejecute el siguiente comando de la CLI:
 
@@ -50,6 +50,8 @@ node --version
 ```
 
 Descargue el simulador de dispositivos de ejemplo de Node.js desde https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip y extraiga el archivo ZIP.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

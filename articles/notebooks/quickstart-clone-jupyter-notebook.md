@@ -3,24 +3,29 @@ title: Clonación de un cuaderno de Jupyter Notebook desde GitHub con Azure Note
 description: Clone rápidamente un cuaderno de Jupyter Notebook desde un repositorio de GitHub y ejecútelo en su cuenta de Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 8aa88008ece170a5eed7ab491e3318aed5168923
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647108"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064604"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Inicio rápido: Clonación de un cuaderno en Azure Notebooks (versión preliminar)
 
-Muchos desarrolladores y científicos de datos almacenan los cuadernos en [repositorios de GitHub](https://github.com), un servicio gratuito que proporciona control de versiones y almacenamiento para muchos tipos de proyectos diferentes. GitHub a menudo se usa como un medio de colaboración en cuadernos de Jupyter Notebook que se ejecutan localmente. En tales casos, cada colaborador mantiene una copia local del repositorio y ejecuta los cuadernos desde esa copia.
+En este inicio rápido, se copia un cuaderno de Jupyter Notebook almacenado en GitHub en una cuenta de Azure Notebooks. 
 
-La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Notebooks en su lugar. Este clon es independiente de su repositorio original; los cambios solo se almacenan en la cuenta de Azure Notebooks y no afectan al original. Dado que el clon se encuentra en la nube, puede compartir el proyecto con otros colaboradores que no necesitan realizar ninguna copia local o incluso que tengan Jupyter instalado en sus propios equipos. También puede clonar un cuaderno simplemente como un punto inicial para un proyecto de su propiedad o para obtener archivos de datos.
+Los repositorios de GitHub proporcionan almacenamiento y control de versiones a los cuadernos de Jupyter Notebook. Los colaboradores mantienen copias locales de los repositorios y ejecutan los cuadernos desde esas copias. La clonación de un cuaderno de Jupyter Notebook desde GitHub en su cuenta de Azure Notebooks crea una copia independiente del cuaderno. Los cambios solo se almacenan en la cuenta de Azure Notebooks, no afectan al repositorio de GitHub original. 
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+Como el clon de Azure Notebooks se encuentra en la nube, se puede compartir con los colaboradores, que no necesitan realizar ninguna copia local, ni siquiera tener Jupyter instalado en sus equipos. También se puede clonar un cuaderno simplemente como punto inicial de un proyecto propio, o bien para obtener archivos de datos. 
+
+## <a name="prerequisites"></a>Prerrequisitos
+Ninguno.
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Clonación de cuadernos de Azure Cognitive Services
 
-1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. Para más información, consulte [Inicio rápido: Inicio de sesión en Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
 1. En la página del perfil público, seleccione **My Projects** (Mis proyectos) en la parte superior de la página:
 
@@ -69,4 +74,4 @@ La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Note
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal)
+> [Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal](tutorial-create-run-jupyter-notebook.md)

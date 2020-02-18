@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40659414848adb9be86b6163cf456809e9cb750f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020036"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134593"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
 
@@ -65,6 +65,10 @@ En la hoja **Aspectos básicos**, haga lo siguiente:
 En la hoja **Configuración de las máquinas virtuales**:
 
 1. Acepte los valores predeterminados o personalice el número y tamaño de las máquinas virtuales.
+    
+    >[!NOTE]
+    >Si el tamaño de máquina virtual específico que busca no aparece en el selector, es porque aún no se ha incorporado a la herramienta Azure Marketplace. Para solicitar un tamaño de máquina virtual, cree una solicitud o vote por una existente en el [foro de UserVoice de Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    
 2. Escriba un prefijo para los nombres de las máquinas virtuales. Por ejemplo, si escribe el nombre "prefijo", las máquinas virtuales se llamarán "prefijo-0", "prefijo-1" y así sucesivamente.
 3. Seleccione **Siguiente: Configuración de máquina virtual**.
 

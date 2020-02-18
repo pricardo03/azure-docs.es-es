@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: e3764dbfa7de52bf210a1e6cc8bd240d64d64aeb
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 78d9dc8c2302de6a9bdbfef62d47d10d252cf0c5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815545"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189025"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Inicio rápido: Ejecución de la aplicación de ejemplo de Speech Devices SDK en Windows
 
@@ -27,7 +27,7 @@ Para esta guía se requiere una cuenta de [Azure Cognitive Services](get-started
 
 El código fuente de la [aplicación de ejemplo](https://aka.ms/sdsdk-download-JRE) se incluye con Speech Devices SDK. También está [disponible en GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Esta guía de inicio rápido requiere:
 
@@ -39,7 +39,7 @@ Esta guía de inicio rápido requiere:
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 * Descargue la versión más reciente de [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) para Java y extraiga el archivo .zip en el directorio de trabajo.
    > [!NOTE]
-   > El archivo JRE-Sample-Release.zip incluye la aplicación de ejemplo de JRE y en este inicio rápido se da por supuesto que ha extraído la aplicación en C:\SDSDK\JRE-Sample-Release.
+   > En esta guía de inicio rápido se supone que la aplicación se extrae en C:\SDSDK\JRE-Sample-Release
 
 Transcripción de conversaciones solo está disponible actualmente para "en-US" y "zh-CN", en las regiones "centralus" y "eastasia". Debe tener una clave de voz en una de esas regiones para usar Transcripción de conversaciones.
 
@@ -81,7 +81,7 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```

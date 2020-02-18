@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: f053b30d344e5372617a5bf98c087056c4fe2911
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e77f6ca587a6dcd001b06fac22d974b22d6fee4e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76294157"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188643"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Inicio rápido: Explore y analice los costos con Análisis de costos
 
@@ -30,7 +30,7 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 - Descargue datos de análisis de costos
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 El análisis de costos es compatible con varios tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los datos de costos, se necesita al menos acceso de lectura en la cuenta de Azure.
 
@@ -61,6 +61,13 @@ La vista de análisis de costos inicial incluye las siguientes áreas.
 **Gráficos dinámicos (anillos)** : proporcionan gráficos dinámicos, que desglosan el costo total por un conjunto común de propiedades estándar. Muestran los costos de mayor a menor del mes actual. Puede cambiar los gráficos dinámicos en cualquier momento seleccionando un área dinámica diferente. Los costos se clasifican por servicio (categoría de medidor), ubicación (región) y ámbito secundario predeterminado. Por ejemplo, las cuentas de inscripción se incluyen en las cuentas de facturación, los grupos de recursos se incluyen en las suscripciones y los recursos se incluyen en grupos de recursos.
 
 ![Vista inicial de análisis de costos en Azure Portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+
+### <a name="understand-forecast"></a>Descripción de la previsión
+
+La previsión de costos muestra una proyección de los costos estimados durante el período de tiempo seleccionado. El modelo se basa en un modelo de regresión de series temporales. Se requiere al menos 10 días de datos de costo y uso recientes para predecir los costos de forma precisa. Para un período determinado, el modelo de previsión requiere la misma parte de datos de entrenamiento para el período de previsión. Por ejemplo, una proyección de tres meses necesita al menos tres meses de datos de costo y uso recientes. 
+
+El modelo utiliza un máximo de seis meses de datos de entrenamiento para proyectar los costos de un año. Como mínimo, necesita siete días de datos de entrenamiento para cambiar su predicción. La predicción se basa en cambios drásticos, como cambios abruptos e interrupciones, en patrones de costo y uso. La previsión no genera proyecciones individuales para cada elemento en las propiedades **Agrupar por** propiedades. Solo proporciona una previsión de los costos totales acumulados. Si usa varias monedas, el modelo proporciona una previsión de los costos solo en USD. 
+
 
 ## <a name="customize-cost-views"></a>Personalización de vistas de costos
 
@@ -113,7 +120,7 @@ De manera predeterminada, el análisis de costos muestra todos los costos de com
 
 ![Cambiar entre el costo real y el amortizado para ver las compras de reservas diseminadas por el plazo y asignadas a los recursos que usaron la reserva](./media/quick-acm-cost-analysis/metric-picker.png)
 
-El costo amortizado desglosa las compras de reservas en fragmentos diarios y los distribuye a lo largo de la duración del plazo de la reserva. Por ejemplo, en lugar de ver una compra de 365 USD el 1 de enero, se verá una compra de 1 USD todos los días desde el 1 de enero al 31 de diciembre. Además de la amortización básica, estos costos también se reasignan y se asocian con los recursos específicos que usó la reserva. Por ejemplo, si ese cargo diario de 1 USD se divide entre dos máquinas virtuales, vería dos cargos de 0,50 USD cada día. Si una parte de la reserva no se usa en el día, se vería un cargo de 0,50 USD asociado con la máquina virtual aplicable y otro de la misma cantidad con el tipo de cargo de `UnusedReservation`. Tenga en cuenta que los costos de las reservas sin usar solo se pueden ver cuando se ve el costo amortizado.
+El costo amortizado desglosa las compras de reservas en fragmentos diarios y los distribuye a lo largo de la duración del plazo de la reserva. Por ejemplo, en lugar de ver una compra de 365 USD el 1 de enero, se verá una compra de 1,00 USD todos los días desde el 1 de enero al 31 de diciembre. Además de la amortización básica, estos costos también se reasignan y se asocian con los recursos específicos que usó la reserva. Por ejemplo, si ese cargo diario de 1,00 USD se divide entre dos máquinas virtuales, vería dos cargos de 0,50 USD cada día. Si una parte de la reserva no se usa en el día, se vería un cargo de 0,50 USD asociado con la máquina virtual aplicable y otro de la misma cantidad con el tipo de cargo de `UnusedReservation`. Tenga en cuenta que los costos de las reservas sin usar solo se pueden ver cuando se ve el costo amortizado.
 
 Debido al cambio en la forma de representar los costos, es importante tener en cuenta que las vistas del costo real y del costo amortizado mostrarán números totales diferentes. En general, el costo total de los meses con una compra de reservas se reducirá cuando se ven los costos amortizados y los meses posteriores a una compra de reservas, aumentará. La amortización solo está disponible para las compras de reservas y, en este momento, no se aplica a las compras realizadas en Azure Marketplace.
 

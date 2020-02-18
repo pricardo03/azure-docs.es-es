@@ -3,15 +3,15 @@ title: Registros de contenedor administrados
 description: Introducción al servicio Azure Container Registry, que proporciona registros de Docker basados en la nube, administrados y privados.
 author: stevelas
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 863b93497505443b79f41f580150a4dbf790a6f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445729"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132029"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introducción a los registros de contenedores privados de Docker en Azure
 
@@ -41,7 +41,7 @@ Azure proporciona varias herramientas, entre las que se incluyen la Interfaz de 
 * **Seguridad y acceso**: inicie sesión en un registro mediante la CLI de Azure o el comando `docker login` estándar. Azure Container Registry transfiere imágenes de contenedor a través de HTTPS y admite TLS para proteger las conexiones de cliente. 
 
   > [!IMPORTANT]
-  > A partir del 13 de enero de 2020, Azure Container Registry requerirá que todas las conexiones seguras de servidores y aplicaciones utilicen TLS 1.2. Se retirará la compatibilidad con TLS 1.0 y 1.1.
+  > A partir del 13 de enero de 2020, Azure Container Registry requerirá que todas las conexiones seguras de servidores y aplicaciones utilicen TLS 1.2. Habilite TLS 1.2 mediante cualquier cliente de Docker reciente (versión 18.03.0 o posterior). Se retirará la compatibilidad con TLS 1.0 y 1.1. 
 
   Puede [controlar el acceso](container-registry-authentication.md) a un registro de contenedor mediante una identidad de Azure, una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) respaldada por Azure Active Directory o una cuenta de administrador proporcionada. Use el control de acceso basado en rol (RBAC) para asignar a los usuarios o sistemas permisos específicos para un registro.
 

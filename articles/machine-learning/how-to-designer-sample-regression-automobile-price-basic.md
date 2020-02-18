@@ -9,13 +9,13 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 6f4fe941cc44211f9f5d5e77b11043257b43a8ea
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: 58adbc7607b0b32e79123b701c37f55ce7cc1d2e
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963304"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138125"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Uso de la regresión para predecir los precios de los automóviles con el diseñador de Azure Machine Learning
 
@@ -38,7 +38,7 @@ Este es el gráfico final completo de la canalización. Le presentaremos el razo
 
 ![Gráfico de la canalización](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -61,7 +61,7 @@ Use el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto 
 
 Los problemas del aprendizaje automático son varios. Las tareas de aprendizaje automático habituales incluyen la clasificación, la agrupación en clústeres, la regresión y los sistemas de recomendación, que pueden requerir algoritmos diferentes. La elección del algoritmo a menudo depende de los requisitos del caso de uso. Después de elegir un algoritmo deberá ajustar sus parámetros para entrenar un modelo más preciso. A continuación, deberá evaluar todos los modelos en función de unas métricas, como la precisión, la inteligibilidad y la eficacia.
 
-Dado que el objetivo de este ejemplo es predecir precios de automóviles y la columna de etiqueta (precio) contiene números reales, un modelo de regresión es una buena elección. Teniendo en cuenta que el número de características es relativamente pequeño (menor que 100) y que estas características no están dispersas, el límite de decisión es probable que sea no lineal. Por lo tanto, en esta canalización usaremos **Regresión de bosque de decisión**.
+Dado que el objetivo de este ejemplo es predecir precios de automóviles y la columna de etiqueta (precio) contiene datos, un modelo de regresión es una buena elección. Para esta canalización usaremos **Regresión lineal**.
 
 Use el módulo **Split Data** (Dividir datos) para dividir aleatoriamente los datos de entrada de forma que el conjunto de datos de entrenamiento contenga el 70 % de los datos originales y el de prueba el 30 %.
 

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 08/26/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3c0ff63a360d96d0e9db18d430e755e567197de1
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 071a8dd40d87e5df6fc5c65b789bb63b515dc60a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122090"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116510"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementación de un modelo de clasificación de imágenes en Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,9 +38,9 @@ Container Instances es una excelente solución para probar y conocer el flujo de
 >[!NOTE]
 > El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.41.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para ejecutar el cuaderno, complete primero el entrenamiento del modelo en [Tutorial (parte 1): Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).   A continuación, abra el cuaderno **img-clasificación-part2-deploy.ipynb** de la carpeta **tutorials** clonada.
+Para ejecutar el cuaderno, complete primero el entrenamiento del modelo en [Tutorial (parte 1): Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).   A continuación, abra el cuaderno *img-classification-part2-deploy.ipynb* clonado de la carpeta *tutorials/image-classification-mnist-data* clonada.
 
 Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere usarlo en su propio [entorno local](how-to-configure-environment.md#local).  Asegúrese de que ha instalado `matplotlib` y `scikit-learn` en su entorno. 
 

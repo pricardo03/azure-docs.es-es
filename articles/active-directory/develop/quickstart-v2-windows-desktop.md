@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: be4646631a63a82458a975683f949a2a00398aaf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 745d7335f70fb082ced16341742e3eb77a34f563
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703242"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120471"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -49,7 +49,7 @@ En esta guía de inicio rápido aprenderá cómo escribir una aplicación .NET d
 >      - En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)** .
 >      - Seleccione **Registrar** para crear la aplicación.
 > 1. En la lista de páginas de la aplicación, seleccione **Autenticación**.
-> 1. En la sección **URI de redirección** | **URI de redireccionamiento sugeridos para clientes públicos (para dispositivos móviles o de escritorio)** , marque **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> 1. En la sección **URI de redirección** | **URI de redirección sugeridos para clientes públicos (para dispositivos móviles o de escritorio)** , use **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Seleccione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -113,6 +113,7 @@ A continuación, realice la inicialización de MSAL con el siguiente código:
 ```csharp
 public static IPublicClientApplication PublicClientApp;
 PublicClientApplicationBuilder.Create(ClientId)
+                .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();
 ```

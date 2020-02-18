@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5a32d92dd8a44602034d84262f2e502a60ac23a9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: d819d4f7b3049a5c034ec8ac5170175f3ad3e9bb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760647"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190844"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Inicio rápido: Uso de colas de Azure Service Bus con Java para enviar y recibir mensajes
 
@@ -30,7 +30,7 @@ En este tutorial, obtendrá información sobre cómo crear aplicaciones de Java 
 > [!NOTE]
 > Puede encontrar ejemplos de Java en GitHub en el [repositorio azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
     1. Lea la **introducción** rápida de las **colas** de Service Bus. 
@@ -124,9 +124,9 @@ La forma principal de recibir mensajes desde una cola es usando un objeto **Serv
 Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud de lectura para un mensaje de la cola, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** (que es el modelo predeterminado) es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla.
 Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-En el modo **PeekLock**, el proceso de recepción es una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción mediante la llamada a **Delete** en el mensaje recibido. Cuando Service Bus ve la llamada a **Delete**, marca el mensaje como consumido y lo elimina de la cola.
+En el modo **PeekLock**, el proceso de recepción es una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción creando la llamada **complete()** en el mensaje recibido. Cuando Service Bus ve la llamada a **complete()** , marca el mensaje como consumido y lo quita de la cola. 
 
-En el ejemplo siguiente se muestra cómo se pueden recibir y procesar mensajes con el modo **PeekLock** (no es el modo predeterminado). En el ejemplo que aparece a continuación se crea un bucle infinito y se procesan mensajes a medida que llegan a `TestQueue`:
+En el ejemplo siguiente se muestra cómo se pueden recibir y procesar mensajes con el modo **PeekLock** (no es el modo predeterminado). En el ejemplo siguiente se usa el modelo de devolución de llamada con un controlador de mensajes registrado y se procesan los mensajes a medida que llegan a `TestQueue`. En este modo se llama a **complete ()** automáticamente, ya que la devolución de llamada se realiza con normalidad y llama a **abandon()** si la devolución de llamada produce una excepción. 
 
 ```java
     public void run() throws Exception {
@@ -179,11 +179,11 @@ En el ejemplo siguiente se muestra cómo se pueden recibir y procesar mensajes c
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Actuación ante errores de la aplicación y mensajes que no se pueden leer
-Service Bus proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces realiza la llamada al método **unlockMessage** en el mensaje recibido (en lugar del método **deleteMessage**). Esto hará que Service Bus desbloquee el mensaje de la cola y esté disponible para volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
+Service Bus proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si una aplicación receptora no puede procesar el mensaje por algún motivo, puede llamar al método **abandon()** en el objeto cliente con el token de bloqueo del mensaje recibido obtenido mediante **getLockToken()** . Esto hará que Service Bus desbloquee el mensaje de la cola y esté disponible para volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
 También hay otro tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), entonces Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+Si la aplicación se bloquea después de procesar el mensaje, pero antes de que se emita la solicitud **complete()** , el mensaje se volverá a enviar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 > [!NOTE]
 > Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 

@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación Node.js en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: 902489524206ac1d4f403f254ecda820c29545c2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: de60a45126539cdd39b951eeb503fc349004797a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867314"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121355"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y Node.js con Azure Dev Spaces
 
@@ -88,7 +88,7 @@ Hay características enriquecidas, como la depuración de Kubernetes, disponible
 En esta sección, va a crear una aplicación web de Node.js y a ejecutarla en un contenedor de Kubernetes.
 
 ### <a name="create-a-nodejs-web-app"></a>Creación de una aplicación web de Node.js
-Descargue el código de GitHub en https://github.com/Azure/dev-spaces y seleccione **Clone or Download** (Clonar o descargar) para descargar el repositorio de GitHub en su entorno local. El código de esta guía se encuentra en `samples/nodejs/getting-started/webfrontend`.
+Descargue el código de GitHub en [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) y seleccione **Clone or Download** (Clonar o descargar) para descargar el repositorio de GitHub en su entorno local. El código de esta guía se encuentra en `samples/nodejs/getting-started/webfrontend`.
 
 ## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Preparación del código para el desarrollo de Docker y Kubernetes
 Hasta ahora, tiene una aplicación web básica que se puede ejecutar localmente. Ahora podrá incluirla en contenedores creando activos que definen el contenedor de la aplicación y cómo se implementará en Kubernetes. Esta tarea es fácil de hacer con Azure Dev Spaces: 

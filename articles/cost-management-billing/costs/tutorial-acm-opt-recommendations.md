@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 37253bb4c6001afe436e22597e75e2bc869fbbc8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 04b3802ae17440fe7cb96b424727600ab53aefce
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75985136"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168763"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Actuar en función de una recomendación para cambiar el tamaño de una máquina virtual a una opción más rentable
 > * Comprobar la acción para asegurarse de que la máquina virtual cambió el tamaño correctamente
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Hay recomendaciones disponibles para varios tipos de cuenta y ámbitos de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 - Subscription
@@ -79,7 +79,7 @@ En los detalles de la VM, compruebe el uso de la máquina virtual para confirmar
 
 Anote el tamaño actual de la máquina virtual. Después de comprobar que debe cambiarse el tamaño de la máquina virtual, cierre los detalles de la VM para ver la lista de máquinas virtuales.
 
-En la lista de candidatos para apagar o cambiar el tamaño, seleccione **Resize *&lt;FromVirtualMachineSKU&gt;* to *&lt;ToVirtualMachineSKU&gt;*** (**Cambiar tamaño de FromVirtualMachineSKU a _ToVirtualMachineSKU_**).
+En la lista de candidatos para apagar o cambiar el tamaño, seleccione **Resize _&lt;FromVirtualMachineSKU&gt;_ to _&lt;ToVirtualMachineSKU&gt;_** (Cambiar tamaño de FromVirtualMachineSKU a ToVirtualMachineSKU).
 ![Recomendaciones de ejemplo con la opción de cambiar el tamaño de la máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 A continuación, se le presentará una lista de opciones de cambio de tamaño disponibles. Elija la que ofrezca el mejor rendimiento y rentabilidad para su escenario. En el ejemplo siguiente, la opción elegida cambia el tamaño de **Standard_D8s_v3** a **Standard_D2s_v3**.

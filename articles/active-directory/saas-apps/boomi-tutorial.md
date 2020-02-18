@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2469745edb5b8b3696478603cfe874bcabc8c1ff
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a22a36d5e6c36008c3a574cbcf9be8ec4f52b82b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231952"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086459"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Boomi
 
@@ -31,9 +30,9 @@ En este tutorial aprenderá a integrar Boomi con Azure Active Directory (Azure
 * Permitir que los usuarios inicien sesión automáticamente en Boomi con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -45,6 +44,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Boomi admite el inicio de sesión único iniciado por **IDP**
+* Una vez configurado Boomi, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-boomi-from-the-gallery"></a>Adición de Boomi desde la galería
 
@@ -81,14 +81,22 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios** y quiere realizar la configuración en el modo iniciado por **IdP**, siga este procedimiento:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://platform.boomi.com/`
+    a. Haga clic en **Cargar el archivo de metadatos**.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    ![Carga del archivo de metadatos](common/upload-metadata.png)
 
-    > [!NOTE]
-    > El valor de dirección URL de respuesta no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de Boomi](https://boomi.com/company/contact/) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
+
+    ![Elección del archivo de metadatos](common/browse-upload-metadata.png)
+
+    c. Una vez que se haya cargado correctamente el archivo de metadatos, el valor de **Identificador** y **URL de respuesta** se rellena automáticamente en la sección Configuración básica de SAML.
+
+    ![imagen](common/idp-intiated.png)
+
+    > [!Note]
+    > Obtendrá el **archivo de metadatos del proveedor de servicios** en la sección **Configuración del inicio de sesión único en Boomi**, que se explica más adelante en el tutorial. Si los valores **Identificador** y **URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
 
 1. La aplicación espera las aserciones de SAML en un formato específico, lo cual requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -96,7 +104,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación Boomi espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
-    | NOMBRE |  Atributo de origen|
+    | Nombre |  Atributo de origen|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
@@ -118,7 +126,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -154,9 +162,11 @@ En esta sección va a permitir que B.Simon acceda a Boomi mediante el inicio de 
 
     c. En el cuadro de texto **Identity Provider Login URL** (URL de inicio de sesión del proveedor de identidades), coloque el valor de **Dirección URL de inicio de sesión** de la ventana de configuración de aplicaciones de Azure AD.
 
-    d. Como **ubicación del identificador de federación**, seleccione el botón de radio **Federation Id is in FEDERATION_ID Attribute element** (El id. de federación está en el elemento de atributo FEDERATION_ID).
+    d. En **Federation Id Location** (Ubicación del identificador de federación), seleccione el botón de radio **Federation Id is in FEDERATION_ID Attribute element** (El id. de federación está en el elemento de atributo FEDERATION_ID).
 
-    e. Haga clic en el botón **Guardar** .
+    e. Copie el valor de **AtomSphere MetaData URL** (Dirección URL de metadatos de AtomSphere), vaya a la **dirección URL de metadatos**  a través del explorador que prefiera y guarde la salida en un archivo. Cargue la **dirección URL de metadatos** en la sección **Configuración básica de SAML** en Azure Portal.
+
+    f. Haga clic en el botón **Guardar** .
 
 ### <a name="create-boomi-test-user"></a>Creación de un usuario de prueba de Boomi
 
@@ -189,7 +199,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Boomi, es necesar
     f. Haga clic en **OK**.
 
     > [!NOTE]
-    > El usuario no recibirá un correo electrónico de notificación de bienvenida con una contraseña que se pueda usar para iniciar sesión en la cuenta de AtomSphere porque su contraseña se administra mediante el proveedor de identidades. Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Boomi que proporcione Boomi para aprovisionar cuentas de usuario de Azure AD.
+    > El usuario no recibirá un correo electrónico de notificación de bienvenida con una contraseña que se pueda usar para iniciar sesión en la cuenta de AtomSphere porque su contraseña se administra mediante el proveedor de identidades. Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Boomi que proporcione Boomi para aprovisionar cuentas de usuario de AAD.
 
 ## <a name="test-sso"></a>Prueba de SSO
 
@@ -201,8 +211,10 @@ Al hacer clic en el icono de Boomi en el Panel de acceso, debería iniciar sesi�
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Prueba de Boomi con Azure AD](https://aad.portal.azure.com/)

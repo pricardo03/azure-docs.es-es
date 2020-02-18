@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/12/2019
-ms.openlocfilehash: b04cc3a5e3a5680f7a16e890c39a4a7d83002bd7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 02/10/2020
+ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321671"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122372"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>¿Qué es ML Services en Azure HDInsight?
 
@@ -23,7 +23,7 @@ ML Services en HDInsight proporciona las funcionalidades más recientes para rea
 
 El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de ScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Apache Spark o Hadoop MapReduce de ScaleR.
 
-Los modelos o las predicciones que se generen a partir de los análisis pueden descargarse y utilizarse en el entorno local. También pueden emplearse en otro lugar de Azure, en concreto a través del [servicio web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) de [Azure Machine Learning Studio (clásico)](https://studio.azureml.net).
+Los modelos o las predicciones que se generen a partir de los análisis pueden descargarse y utilizarse en el entorno local. También pueden hacerse operativos en otro lugar de Azure, en concreto a través del [servicio web](https://studio.azureml.net) [Azure Machine Learning Studio (clásico)](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introducción a ML Services en HDInsight
 
@@ -51,11 +51,14 @@ ML Services en HDInsight proporciona las siguientes ventajas:
   Individuals embarking on the journey of making their applications intelligent or simply wanting to learn the new world of AI and machine learning, need the right resources to help them get started. In addition to this documentation, Microsoft provides several learning resources and has engaged several training partners to help you ramp up and become productive quickly.
 --->
 
+> [!NOTE]  
+> El tipo de clúster de ML Services en HDInsight solo se admite en HDInsight 3.6. La retirada de HDInsight 3.6 está programada para el 31 de diciembre de 2020.
+
 ## <a name="key-features-of-ml-services-on-hdinsight"></a>Características principales de ML Services en HDInsight
 
 Las siguientes características se incluyen con ML Services en HDInsight.
 
-| Categoría de la característica | DESCRIPCIÓN |
+| Categoría de la característica | Descripción |
 |------------------|-------------|
 | Habilitado para R | [Paquetes de R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) para soluciones escritas en R, con una distribución de código abierto de R y una infraestructura de entorno de ejecución para la ejecución de scripts. |
 | Habilitado para Python | [Módulos de Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) para soluciones escritas en Python, con una distribución de código abierto de Python y una infraestructura de entorno de ejecución para la ejecución de scripts.

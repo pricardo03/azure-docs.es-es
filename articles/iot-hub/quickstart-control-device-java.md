@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 6ac102fa52977d3f9e07de1666dd98e8c2a31673
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2c07bbb868f1b1afc19be8d1ce68ca28292affb9
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890546"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109013"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Inicio rápido: Control de un dispositivo conectado a una instancia de Azure IoT Hub con Java
 
@@ -33,11 +33,11 @@ El inicio rápido usa dos aplicaciones Java escritas anteriormente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Java. Necesita Java SE 8 en el equipo de desarrollo.
 
-Puede descargar Java SE Development Kit 8 para varias plataformas en [Soporte técnico de Java a largo plazo para Azure y Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Asegúrese de seleccionar **Java 8** en **Long-term support** (Soporte técnico a largo plazo) para obtener descargas de JDK 8.
+Puede descargar Java SE Development Kit 8 para varias plataformas en [Soporte técnico de Java a largo plazo para Azure y Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Asegúrese de seleccionar **Java 8** en **Long-term support** (Soporte técnico a largo plazo) para obtener descargas de JDK 8.
 
 Puede verificar la versión actual de Java en el equipo de desarrollo con el comando siguiente:
 
@@ -60,6 +60,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Si aún no lo ha hecho, descargue el proyecto de Java de muestra desde https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip y extraiga el archivo ZIP.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

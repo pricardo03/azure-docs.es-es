@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a1736092578634680da5d56b5ec02f70cdde38
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cf148ec64ceed28577224741033258bad0e62372
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289856"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047969"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con G Suite
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a integrar G Suite con Azure Active Directory (Azu
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -87,7 +87,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * G Suite admite el inicio de sesión único iniciado por **SP**.
 
 * G Suite admite el [**aprovisionamiento automático** de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
-* Una vez configurado G Suite, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado G Suite, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-g-suite-from-the-gallery"></a>Incorporación de G Suite desde la Galería
 
@@ -252,9 +252,9 @@ Al hacer clic en el icono de G Suite en el panel de acceso y debería iniciar s
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Configuración del aprovisionamiento de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 - [Prueba de G Suite con Azure AD](https://aad.portal.azure.com/)
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Protección de G Suite con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protección de G Suite con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

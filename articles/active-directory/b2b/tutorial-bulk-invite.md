@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 9/19/2019
+ms.date: 2/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908843"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166454"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: Invitación en bloque a usuarios de colaboración B2B de Azure AD (versión preliminar)
 
@@ -27,7 +27,7 @@ ms.locfileid: "76908843"
 
 > [!NOTE]
 > Desde el 22/12/2019, la característica de usuarios de invitación masiva (versión preliminar) se ha deshabilitado temporalmente.
-> Actualmente no hay ninguna fecha conocida para una nueva habilitación de esta característica. 
+> Actualmente no hay ninguna fecha conocida para una nueva habilitación de esta característica en Azure Portal. Para invitar en bloque a usuarios con PowerShell, consulte el tutorial para [invitación en bloque de B2B](bulk-invite-powershell.md) o los [ejemplos de código de B2B y PowerShell](code-samples.md).
 
 Si usas la colaboración de Azure Active Directory (Azure AD) B2B para trabajar con asociados externos, puede invitar a varios usuarios a su organización al mismo tiempo. En este tutorial aprenderá a usar Azure Portal para enviar invitaciones de forma masiva a usuarios externos. En particular, haga lo siguiente:
 
@@ -38,7 +38,7 @@ Si usas la colaboración de Azure Active Directory (Azure AD) B2B para trabajar 
 
 Antes de comenzar, si no tiene una cuenta de Azure Active Directory, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita dos o más cuentas de correo electrónico de prueba a las que poder enviar las invitaciones. Las cuentas deben estar fuera de su organización. Puede usar cualquier tipo de cuenta, incluidas las cuentas sociales como las direcciones de gmail.com o outlook.com.
 

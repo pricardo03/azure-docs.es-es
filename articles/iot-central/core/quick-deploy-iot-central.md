@@ -3,18 +3,18 @@ title: Creación de una aplicación de Azure IoT Central | Microsoft Docs
 description: Cree una nueva aplicación de Azure IoT Central. Cree la aplicación mediante el plan de precios gratuito o uno de los planes de precios estándar.
 author: viv-liu
 ms.author: viviali
-ms.date: 08/02/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 09ff84bf17bbc07ee86e90f3985a949f70d9fe27
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d69a761df8066b4a84312c0c3ae8be5a79490960
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018302"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169418"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creación de una aplicación de Azure IoT Central
 
@@ -24,15 +24,15 @@ En este inicio rápido se muestra cómo crear una aplicación de Azure IoT Centr
 
 Navegue al sitio de [Compilación Azure IoT Central](https://aka.ms/iotcentral). Después, inicie sesión con una cuenta Microsoft personal, profesional o educativa.
 
-Puede crear una nueva aplicación desde la lista de plantillas de IoT Central relevantes del sector para ayudarle a empezar a trabajar rápidamente, o desde cero con la plantilla de **Aplicaciones personalizadas**. En este inicio rápido se usa la plantilla de **Aplicaciones personalizadas**.
+Puede crear una nueva aplicación desde la lista de plantillas de IoT Central relevantes del sector, lo que le ayudaría a empezar a trabajar rápidamente, o bien partir de cero con una plantilla de **Aplicaciones personalizadas**. En este inicio rápido se usa la plantilla **Aplicación personalizada**.
 
-Para crear una aplicación de Azure IoT Central a partir de la plantilla de **Aplicación personalizada**:
+Para crear una aplicación de Azure IoT Central a partir de la plantilla **Aplicación personalizada**:
 
 1. Vaya a la página **Compilar**:
 
     ![Página Compilación de una aplicación de IoT](media/quick-deploy-iot-central/iotcentralcreate-new-application.png)
 
-1. Elija **Aplicación personalizada** y asegúrese de que está seleccionada la plantilla de **Aplicación personalizada**.
+1. Elija **Aplicaciones personalizadas** y asegúrese de que está seleccionada la plantilla **Aplicación personalizada**.
 
 1. Azure IoT Central sugiere automáticamente un **nombre de aplicación** en función de la plantilla de aplicación que ha seleccionado. Puede usar este nombre o escribir su propio nombre descriptivo de la aplicación.
 
@@ -40,7 +40,7 @@ Para crear una aplicación de Azure IoT Central a partir de la plantilla de **A
 
     ![Página de creación de una aplicación de Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-custom.png)
 
-    ![Información acerca de la facturación de Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo-pnp.png)
+    ![Información acerca de la facturación de Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
     > Si seleccionó **Aplicación personalizada** en la página anterior, verá el elemento desplegable**Plantilla de aplicación**. Desde ahí puede cambiar entre plantillas personalizadas y heredadas. También puede ver otras plantillas que se han puesto a disposición de la organización.
@@ -48,7 +48,7 @@ Para crear una aplicación de Azure IoT Central a partir de la plantilla de **A
 1. Elija si desea crear esta aplicación mediante el plan de precios de evaluación gratuita durante siete días o uno de los planes de precios Estándar:
 
     - Las aplicaciones que se crean mediante el plan *gratuito* no tienen costo durante siete días y admiten un máximo de cinco dispositivos. En cualquier momento antes de que expiren puede convertirlas para que usen un plan de precios estándar.
-    - Las aplicaciones que se crean con un plan *estándar* se facturan por dispositivo y se pueden elegir el plan de precios **Estándar 1** o **Estándar 2** y los dos primeros dispositivos son gratis. Obtenga más información sobre los planes de precios gratuito y estándar en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Si crea una aplicación estándar, tendrá que seleccionar su *directorio*, *suscripción de Azure* y *ubicación*:
+    - Las aplicaciones que se crean con un plan *estándar* se facturan por dispositivo y se pueden elegir el plan de precios **Estándar 1** o **Estándar 2** y los dos primeros dispositivos son gratis. Obtenga más información sobre los planes de precios gratuito y estándar en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Si crea una aplicación que use un plan de precios estándar, tendrá que seleccionar su *directorio*, *suscripción de Azure* y *ubicación*:
         - *Directorio* es la instancia de Azure Active Directory en que se crea la aplicación. Azure Active Directory contiene identidades de usuario, credenciales y otra información de la organización. Si no tiene Azure Active Directory, se crea uno automáticamente al crear una suscripción de Azure.
         - Una *suscripción de Azure* permite crear instancias de los servicios de Azure. IoT Central aprovisiona los recursos de su suscripción. Si no tiene una suscripción a Azure, puede crear la de forma gratuita en la [página de suscripción a Azure](https://aka.ms/createazuresubscription). Después de crear la suscripción a Azure, vuelva a la página **Nueva aplicación**. La nueva suscripción aparece en el cuadro de lista desplegable **Suscripción de Azure**.
         - *Ubicación* es la [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Una vez que elija una ubicación, no puede mover la aplicación a otra más adelante.

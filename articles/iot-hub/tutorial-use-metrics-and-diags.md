@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: e0094add11755ecb0c303adf874abe5a4a8f5811
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 7ce56237631b858347a99c310751d4f2c1506e10
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746205"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108240"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub
 
@@ -34,13 +34,16 @@ En este tutorial se realizan las siguientes tareas:
 > * Ejecutar la aplicación hasta que empiecen a activarse las alertas. 
 > * Ver los resultados de las métricas y comprobar los registros de diagnóstico. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 - Instale [Visual Studio](https://www.visualstudio.com/). 
 
 - Una cuenta de correo electrónico capaz de recibir correo electrónico.
+
+- Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

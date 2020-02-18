@@ -4,49 +4,47 @@ description: En este tutorial configurará una máquina virtual de Azure que eje
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9f9c6ebd55752ea5a3400da8d42b6c6487277df
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: ab3ed567d34c6284959f7875bb121ced4770d65e
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514653"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133342"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configure un dispositivo IoT Edge
 
 > [!NOTE]
 > Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience con el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
 
-En este artículo, se configurará una máquina virtual de Azure que ejecuta Linux para que sea un dispositivo Azure IoT Edge que actúa como puerta de enlace transparente. La configuración de la puerta de enlace transparente permite que los dispositivos se conecten a Azure IoT Hub a través de la puerta de enlace sin necesidad de saber si dicha puerta existe. Al mismo tiempo, un usuario que interactúa con los dispositivos de IoT Hub no es consciente del dispositivo de puerta de enlace intermedio. En última instancia, se usa la puerta de enlace transparente para agregar análisis de Edge a nuestro sistema mediante la adición de módulos de IoT Edge a la puerta de enlace.
+En este artículo, se configurará una máquina virtual de Azure que ejecuta Linux para que sea un dispositivo IoT Edge que actúa como puerta de enlace transparente. La configuración de una puerta de enlace transparente permite que los dispositivos se conecten a Azure IoT Hub a través de la puerta de enlace sin necesidad de saber que dicha puerta existe. Al mismo tiempo, un usuario que interactúa con los dispositivos de Azure IoT Hub no es consciente del dispositivo de puerta de enlace intermedio. En última instancia, se agregará análisis de Edge a nuestro sistema mediante la adición de módulos de IoT Edge a la puerta de enlace transparente.
 
 Los pasos descritos en este artículo los realiza normalmente un desarrollador en la nube.
 
-## <a name="generate-certificates"></a>Generación de certificados
+## <a name="create-certificates"></a>Creación de certificados
 
-Para que un dispositivo funcione como una puerta de enlace, debe poder conectarse de forma segura a los dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo IoT Edge. Para obtener más información acerca de cómo los dispositivos IoT Edge usan certificados, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
+Para que un dispositivo funcione como una puerta de enlace, debe poder conectarse de forma segura a los dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo IoT de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo IoT Edge. Para obtener más información acerca de cómo los dispositivos IoT Edge usan certificados, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 
 En esta sección, crearemos los certificados autofirmados con una imagen de Docker que después se compila y ejecuta. Hemos optado por utilizar una imagen de Docker para completar este paso, ya que reduce significativamente el número de pasos necesarios para crear los certificados en el equipo de desarrollo de Windows. Consulte [Creación de certificados de demostración para probar las características del dispositivo IoT Edge](how-to-create-test-certificates.md) para comprender lo que se automatiza con la imagen de Docker.
 
-1. Inicie sesión en la nueva máquina virtual de desarrollo.
+1. Inicie sesión en la máquina virtual de desarrollo.
 
-2. Abra un símbolo de la línea de comandos y ejecute el siguiente comando para crear un directorio en la VM.
+2. Cree una nueva carpeta con la ruta de acceso y el nombre `c:\edgeCertificates`.
 
-    ```cmd
-    mkdir c:\edgeCertificates
-    ```
-
-3. Inicie **Docker para Windows** desde el menú Inicio de Windows.
+3. Inicie **Docker para Windows** desde el menú Inicio de Windows si es que aún no se está ejecutando.
 
 4. Abra Visual Studio Code.
 
 5. Seleccione **Archivo** > **Abrir carpeta...** y elija **C:\\origen\\IoTEdgeAndMlSample\\CreateCertificates**.
 
-6. Haga doble clic en el archivo Dockerfile y elija **Compilar imagen**.
+6. En el panel Explorador, haga clic con el botón derecho en el archivo **dockerfile** y elija **Compilar imagen**.
 
-7. En el cuadro de diálogo, acepte el valor predeterminado para el nombre de la imagen y la etiqueta: **createcertificates:latest**.
+7. En el cuadro de diálogo, acepte el valor predeterminado para el nombre de la imagen y la etiqueta: **createcertificates: latest**.
+
+    ![Creación de certificados en Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/create-certificates.png)
 
 8. Espere a que la compilación finalice.
 
@@ -95,17 +93,17 @@ Para almacenar nuestros certificados de forma segura y para que sean accesibles 
 
 ## <a name="create-iot-edge-device"></a>Crear dispositivo de IoT Edge
 
-Para conectar un dispositivo Azure IoT Edge a una instancia de IoT Hub, debe crearse primero una identidad para el dispositivo en el concentrador. Tomamos la cadena de conexión de la identidad del dispositivo en la nube y la usamos para configurar el tiempo de ejecución en nuestro dispositivo IoT Edge. Una vez que el dispositivo se ha configurado y se conecta al concentrador, es posible implementar módulos y enviar mensajes. También se puede cambiar la configuración del dispositivo IoT Edge físico modificando la configuración de la identidad del dispositivo correspondiente en IoT Hub.
+Para conectar un dispositivo Azure IoT Edge a una instancia de IoT Hub, debe crearse primero una identidad para el dispositivo en el concentrador. Tomamos la cadena de conexión de la identidad del dispositivo en la nube y la usamos para configurar el tiempo de ejecución en nuestro dispositivo IoT Edge. Una vez que un dispositivo configurado se conecta a la central, es posible implementar módulos y enviar mensajes. También se puede cambiar la configuración del dispositivo IoT Edge físico modificando la identidad del dispositivo correspondiente en IoT Hub.
 
 Para este tutorial, creamos la nueva identidad del dispositivo con Visual Studio Code. También puede llevar a cabo estos pasos con [Azure Portal](how-to-register-device.md#register-in-the-azure-portal) o la [CLI de Azure](how-to-register-device.md#register-with-the-azure-cli).
 
 1. Abra Visual Studio Code en el equipo de desarrollo.
 
-2. Abra la sección **Azure IoT Hub Devices** (Dispositivos de Azure IoT Hub) de la vista Explorador de Visual Studio Code.
+2. Expanda la sección **Azure IoT Hub** de la vista Explorador de Visual Studio Code.
 
 3. Haga clic en el botón de puntos suspensivos y seleccione **Crear dispositivo IoT Edge**.
 
-4. Asigne un nombre al dispositivo. Para mayor comodidad, usamos **aaTurbofanEdgeDevice** para ordenar por adelantado todos los dispositivos cliente que se crearon anteriormente mediante la herramienta de ejecución de dispositivos para enviar los datos de prueba.
+4. Asigne un nombre al dispositivo. Para mayor comodidad, usamos el nombre **aaTurbofanEdgeDevice** para que se ordene en la parte superior de la lista de dispositivos.
 
 5. El nuevo dispositivo aparecerá en la lista de dispositivos.
 
@@ -117,7 +115,7 @@ Usamos la imagen [Azure IoT Edge en Ubuntu](https://azuremarketplace.microsoft.c
 
 ### <a name="enable-programmatic-deployment"></a>Habilitación de implementaciones mediante programación
 
-Para usar la imagen del Marketplace en una implementación con scripts, es necesario habilitar la implementación mediante programación para la imagen.
+Para usar la imagen de Marketplace en una implementación con scripts, es necesario habilitar la implementación mediante programación para la imagen.
 
 1. Inicie sesión en Azure Portal.
 
@@ -125,9 +123,9 @@ Para usar la imagen del Marketplace en una implementación con scripts, es neces
 
 1. En la barra de búsqueda, escriba y seleccione **Marketplace**.
 
-1. En la barra de búsqueda, escriba y seleccione **Azure IoT Edge en Ubuntu**.
+1. En la barra de búsqueda de Marketplace, escriba y seleccione **Azure IoT Edge en Ubuntu**.
 
-1. Seleccione el hipervínculo **¿Quiere realizar una implementación mediante programación? Empiece ahora**.
+1. Seleccione el hipervínculo **Introducción** para realizar la implementación mediante programación.
 
 1. Seleccione el botón **Habilitar** y, después, **Guardar**.
 
@@ -192,7 +190,9 @@ En las secciones siguientes se configura la máquina virtual de Azure que hemos 
 
 ## <a name="download-key-vault-certificates"></a>Descarga de los certificados de Key Vault
 
-Anteriormente en este artículo, se cargaron los certificados en Key Vault para que estuvieran disponibles para nuestro dispositivo IoT Edge y nuestro dispositivo hoja, que es un dispositivo de bajada que usa el dispositivo IoT Edge como puerta de enlace para comunicarse con IoT Hub. Vamos a tratar el dispositivo hoja más adelante en el tutorial. En esta sección, descargue los certificados en el dispositivo IoT Edge.
+Anteriormente en este artículo, cargamos certificados en Key Vault para que estén disponibles para el dispositivo IoT Edge y para nuestro dispositivo hoja. El dispositivo hoja es un dispositivo de nivel inferior que usa el dispositivo IoT Edge como puerta de enlace para comunicarse con IoT Hub.
+
+Vamos a tratar el dispositivo hoja más adelante en el tutorial. En esta sección, descargue los certificados en el dispositivo IoT Edge.
 
 1. En la sesión SSH en la máquina virtual con Linux, inicie sesión en Azure con la CLI de Azure.
 
@@ -227,7 +227,7 @@ Anteriormente en este artículo, se cargaron los certificados en Key Vault para 
 
 ## <a name="update-the-iot-edge-device-configuration"></a>Actualización de la configuración del dispositivo IoT Edge
 
-El entorno de ejecución de IoT Edge usa el archivo /etc/iotedge/config.yaml para conservar su configuración. Es necesario actualizar la información siguiente de este archivo:
+El entorno de ejecución de IoT Edge usa el archivo `/etc/iotedge/config.yaml` para conservar su configuración. Es necesario actualizar la información siguiente de este archivo:
 
 * **Cadena de conexión del dispositivo:** la cadena de conexión de la identidad del dispositivo en IoT Hub
 * **Certificados:** los certificados que se usarán para las conexiones realizadas con los dispositivos de bajada
@@ -296,7 +296,9 @@ A continuación, actualizará los certificados y el nombre de host editando dire
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Se acaba de completar la configuración de una VM de Azure como puerta de enlace transparente de Azure IoT Edge. Comenzamos mediante la generación de certificados de prueba, que se cargaron en Azure Key Vault. A continuación, usamos un script y una plantilla de Resource Manager para implementar la VM con la imagen "Ubuntu Server 16.04 LTS + Entorno de ejecución de Azure IoT Edge" desde Azure Marketplace. El script realizó el paso adicional de instalar la CLI de Azure ([instalar la CLI de Azure con apt](https://docs.microsoft.com/cli/azure/install-azure-cli-apt)). Con la VM en funcionamiento, nos conectamos a través de SSH, iniciamos sesión en Azure, descargamos los certificados de Key Vault y realizamos varias actualizaciones en la configuración del entorno de ejecución de IoT Edge al actualizar el archivo config.yaml. Para obtener más información acerca del uso de IoT Edge como puerta de enlace, consulte [Uso de un dispositivo IoT Edge como puerta de enlace](iot-edge-as-gateway.md). Para obtener más información acerca de cómo configurar un dispositivo IoT Edge como puerta de enlace transparente, consulte [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md).
+Se acaba de completar la configuración de una VM de Azure como puerta de enlace transparente de Azure IoT Edge. Comenzamos con la generación de certificados de prueba, que se cargaron en Azure Key Vault. A continuación, usamos un script y una plantilla de Resource Manager para implementar la máquina virtual con la imagen "Ubuntu Server 16.04 LTS + Entorno de ejecución de Azure IoT Edge" desde Azure Marketplace. Con la máquina virtual en funcionamiento, nos conectamos mediante SSH, iniciamos sesión en Azure y descargamos certificados de Key Vault. Realizamos varias actualizaciones en la configuración del entorno de ejecución de Azure IoT Edge actualizando el archivo config.yaml.
+
+Para más información, consulte [Uso de un dispositivo IoT Edge como puerta de enlace](iot-edge-as-gateway.md) y [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md).
 
 Consulte el artículo siguiente para compilar módulos de IoT Edge.
 

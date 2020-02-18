@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a0ffa6e20b42ed8ac145b50c062f5c0a8998add0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435853"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061648"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package (versión preliminar)
 
@@ -147,6 +147,8 @@ Según las directivas de Ranger configuradas, **sales_user** puede producir o co
 
 4. Siga el paso 3 de **Compilación e implementación del ejemplo** en [Tutorial: Uso de Producer API y Consumer API de Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para asegurarse de que `kafka-producer-consumer.jar` también está disponible para **sales_user**.
 
+**Nota:  Para este tutorial, use el archivo kafka-producer-consumer.jar del proyecto "DomainJoined-Producer-Consumer" (no el del proyecto Producer-Consumer, que se utiliza en escenarios no unidos a un dominio).**
+
 5. Compruebe que **sales_user1** puede producir en el tema `salesevents` ejecutando el comando siguiente:
 
    ```bash
@@ -194,6 +196,9 @@ Si no va a seguir usando esta aplicación, puede eliminar el clúster Kafka que 
 1. Seleccione **Clústeres de HDInsight** en **Servicios**.
 1. En la lista de clústeres de HDInsight que aparece, haga clic en el signo **...**  situado junto al clúster que ha creado para este tutorial. 
 1. Haga clic en **Eliminar**. Haga clic en **Sí**.
+
+## <a name="troubleshooting"></a>Solución de problemas
+Si el archivo kafka-producer-consumer.jar no funciona en un clúster unido a un dominio, asegúrese de que utiliza el archivo kafka-producer-consumer.jar del proyecto "DomainJoined-Producer-Consumer" (no el del proyecto Producer-Consumer, que se utiliza en escenarios no unidos a un dominio).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f5284f95f6157c70461179177179a9fbee4fe0
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c18613233d6dec59c76db120ed7f089dfbb5fbac
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293698"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046716"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ServiceNow
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a integrar ServiceNow con Azure Active Directory (A
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -52,7 +52,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * ServiceNow admite el [aprovisionamiento de usuarios automatizado](servicenow-provisioning-tutorial.md).
 
-* Una vez configurado ServiceNow, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado ServiceNow, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 * Puede configurar la aplicación de ServiceNow Classic (móvil) con Azure AD para habilitar el inicio de sesión único. Admite tanto a usuarios de iOS como de Android. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
@@ -467,6 +467,6 @@ Al seleccionar en el icono de ServiceNow del panel de acceso, debería iniciar s
 
 - [Pruebe ServiceNow con Azure AD](https://aad.portal.azure.com)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Protección de ServiceNow con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protección de ServiceNow con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/protect-servicenow)

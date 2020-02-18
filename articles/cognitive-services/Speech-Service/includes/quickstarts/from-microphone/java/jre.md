@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: ebabeccc43998c229bcd28063b6cbabae4b046ea
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: cd00fb2df0063bd8bc753f9078194648f6745f1b
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796163"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156488"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar:
 
@@ -23,7 +23,7 @@ Antes de comenzar:
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Para agregar una nueva clase vacía al proyecto de Java, seleccione **File (Archivo)**  >  **New (Nuevo)**  >  **Class (Clase)** .
+1. Para agregar una nueva clase vacía al proyecto de Java, seleccione **File (Archivo)**  > **New (Nuevo)**  > **Class (Clase)** .
 
 1. En la ventana **New Java Class** (Nueva clase de Java) escriba **speechsdk.quickstart** en el campo **Package** (Paquete) y **Main** en el campo **Name** (Nombre).
 
@@ -35,7 +35,7 @@ Antes de comenzar:
 
 1. Reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
 
-1. Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada con la suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace la cadena `YourServiceRegion` por el "parámetro del SDK de Voz" de la [región](https://aka.ms/speech/sdkregion) asociada a su suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
 1. Guarde los cambios en el proyecto.
 

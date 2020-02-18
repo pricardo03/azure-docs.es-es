@@ -3,29 +3,27 @@ title: 'Tutorial: Creación y administración de reglas en la aplicación de Azu
 description: En este tutorial se muestra cómo las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 96514a224960240f2187164aac7c79c1659880e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f61a41fa89c7006341db928472f6b20d272bc550
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026358"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167389"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central
 
 *Este artículo se aplica a los administradores, operadores y compiladores.*
 
-
-
 Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de correo electrónico. Con unos pocos clics, puede definir una condición para supervisar los datos de telemetría de los dispositivos y configurar una acción correspondiente. En este artículo se explica cómo crear reglas para supervisar los datos de telemetría enviados por el dispositivo.
 
 Los dispositivos usan la telemetría para enviar datos numéricos. Cuando los datos de telemetría del dispositivo seleccionado superan un umbral especificado, se desencadena una regla.
 
-En este tutorial se crea una regla que envía un mensaje de correo electrónico cuando la temperatura de un dispositivo de sensor ambiental supera los 70 &deg;F.
+En este tutorial se crea una regla que envía un mensaje de correo electrónico cuando la temperatura de un dispositivo de sensor ambiental simulado supera los 70 &deg;F.
 
 En este tutorial, aprenderá a:
 
@@ -34,9 +32,9 @@ En este tutorial, aprenderá a:
 > * Crear una regla
 > * Adición de una acción de correo electrónico
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de comenzar, debe completar los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) e [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md) para crear la plantilla de dispositivo **Environment Sensor** con la que va a trabajar.
+Antes de comenzar, debe completar los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) e [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md) para crear la plantilla de dispositivo **MXChip IoT DevKit** con la que va a trabajar.
 
 ## <a name="create-a-rule"></a>Crear una regla
 
@@ -52,7 +50,7 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
 1. Escriba el nombre _Temperature monitor_ para identificar la regla y presione Entrar.
 
-1. Seleccione la plantilla de dispositivo **Environmental Sensor**. De forma predeterminada, la regla se aplica automáticamente a todos los dispositivos asociados con la plantilla de dispositivo. Para filtrar un subconjunto de los dispositivos, seleccione **+ Filter** (+ Filtro) y use las propiedades de dispositivo para identificar los dispositivos. Para deshabilitar la regla, alterne el botón **Enabled/Disabled** (Habilitado/Deshabilitado) del encabezado de la regla:
+1. Seleccione la plantilla de dispositivo **MXChip IoT DevKit**. De forma predeterminada, la regla se aplica automáticamente a todos los dispositivos asociados con la plantilla de dispositivo. Para filtrar un subconjunto de los dispositivos, seleccione **+ Filter** (+ Filtro) y use las propiedades de dispositivo para identificar los dispositivos. Para deshabilitar la regla, alterne el botón **Enabled/Disabled** (Habilitado/Deshabilitado) del encabezado de la regla:
 
     ![Filtros y habilitación](media/tutorial-create-telemetry-rules/device-filters.png)
 
@@ -77,7 +75,7 @@ Puede agregar varias condiciones a una regla seleccionando **+ Condition** (+ Co
 
 ### <a name="configure-actions"></a>Configuración de acciones
 
-Después de definir la condición, configure las acciones que deben llevarse a cabo cuando se desencadene la regla. Las acciones se invocan cuando todas las condiciones especificadas en la regla se evalúan como verdaderas. Actualmente, el correo electrónico es la única acción disponible.
+Después de definir la condición, configure las acciones que deben llevarse a cabo cuando se desencadene la regla. Las acciones se invocan cuando todas las condiciones especificadas en la regla se evalúan como verdaderas.
 
 1. Seleccione **+ Email** (+ Correo electrónico) en la sección **Actions** (Acciones).
 

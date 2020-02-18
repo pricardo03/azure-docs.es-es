@@ -1,23 +1,23 @@
 ---
-title: Creación de una función de Python desencadenada mediante HTTP en Azure
+title: Creación de una función de Python sin servidor para solicitudes HTTP en Azure Functions
 description: Cree e implemente código Python sin servidor en la nube mediante Azure Functions.
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898567"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157897"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Inicio rápido: Creación de una función de Python desencadenada mediante HTTP en Azure
+# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Inicio rápido: Creación de una función de Python en Azure que responda a solicitudes HTTP
 
 En este artículo se usan herramientas de línea de comandos para crear una función de Python que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions. Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
 También hay una [versión basada en Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) de este artículo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](./functions-run-local.md#v2), versión 2.7.1846, o cualquier versión posterior.
@@ -107,7 +107,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
 
 Si lo desea, puede ir a [Ejecución local de la función](#run-the-function-locally) y examine el contenido del archivo posteriormente.
 
-### <a name="__init__py"></a>\_\_init\_\_.py
+#### <a name="__init__py"></a>\_\_init\_\_.py
 
 *\_\_init\_\_.py* contiene una función `main()` de Python que se desencadena en función de la configuración de *function.json*.
 
@@ -140,7 +140,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 En el caso del desencadenador HTTP, la función recibe los datos de la solicitud en la variable `req` tal como se definen en *function.json*. `req` es una instancia de la [clase azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). El objeto devuelto, definido como `$return` en *function.json*, es una instancia de la [clase azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions](functions-bindings-http-webhook.md).
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 *function.json* es un archivo de configuración que define la entrada y salida `bindings` de la función, lo que incluye el tipo de desencadenador. Si lo desea, puede cambiar `scriptFile` para invocar otro un archivo de Python.
 
@@ -199,7 +199,7 @@ Cuando esté listo, presione **Ctrl**+**C** para detener el host de Functions.
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Creación de recursos auxiliares de Azure para la función
 
-Para implementar el código de la función en Azure, debe crear tres recursos:
+Antes de poder implementar el código de la función en Azure, debe crear tres recursos:
 
 - Un grupo de recursos, que es un contenedor lógico de recursos relacionados.
 - Una cuenta de almacenamiento, que mantiene el estado e información adicional sobre los proyectos.

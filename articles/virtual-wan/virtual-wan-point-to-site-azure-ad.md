@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 02/07/2019
 ms.author: alzam
-ms.openlocfilehash: 19aa029311584b5a9762691d24ed10c1666a032c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b3508c4c8da5b4987fb5f38cf3bf701f2dda1097
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781732"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122036"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-by-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión VPN de usuario con Azure Virtual WAN
 
@@ -86,19 +86,17 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 
 Una configuración de P2S define los parámetros para conectarse a los clientes remotos.
 
-1. Establezca las siguientes variables y reemplace los valores según sea necesario para su entorno.
+1. En la red WAN virtual, seleccione **Configuraciones de VPN de usuario**.
 
-   ```powershell
-   $aadAudience = "00000000-abcd-abcd-abcd-999999999999"
-   $aadIssuer = "https://sts.windows.net/00000000-abcd-abcd-abcd-999999999999/"
-   $aadTenant = "https://login.microsoftonline.com/00000000-abcd-abcd-abcd-999999999999"    
-   ```
+   ![Configuración nueva](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. Ejecute los siguientes comandos para crear la configuración:
+2. Haga clic en **+Create user VPN config** (+Crear configuración de VPN de usuario).
 
-   ```powershell
-   $aadConfig = New-AzVpnServerConfiguration -ResourceGroupName <ResourceGroup> -Name newAADConfig -VpnProtocol OpenVPN -VpnAuthenticationType AAD -AadTenant $aadTenant -AadIssuer $aadIssuer -AadAudience $aadAudience -Location westcentralus
-   ```
+   ![Configuración nueva](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+
+3. Escriba la información y haga clic en **Crear**.
+
+   ![Configuración nueva](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="hub"></a>Edición de la asignación del concentrador
 
@@ -125,7 +123,7 @@ Use el perfil de VPN para configurar los clientes.
 
 ## <a name="configure-user-vpn-clients"></a>Configuración de clientes de VPN de usuario
 
-Para conectarse, debe descargar el cliente de VPN de Azure (versión preliminar) e importar el perfil de cliente de VPN que descargó en los pasos anteriores en todos los equipos que quieran conectarse a la red virtual.
+Para conectarse, debe descargar el cliente de VPN de Azure e importar el perfil de cliente de VPN que descargó en los pasos anteriores en todos los equipos que quieran conectarse a la red virtual.
 
 > [!NOTE]
 > La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN®.
@@ -133,7 +131,7 @@ Para conectarse, debe descargar el cliente de VPN de Azure (versión preliminar)
 
 #### <a name="to-download-the-azure-vpn-client"></a>Para descargar el cliente VPN de Azure
 
-Use este [vínculo](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para descargar el cliente VPN de Azure (versión preliminar).
+Use este [vínculo](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para descargar el cliente VPN de Azure.
 
 #### <a name="import"></a>Para importar un perfil de cliente
 

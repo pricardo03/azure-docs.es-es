@@ -6,41 +6,31 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 257fd02c2f7ec2aff9d55b91b2cbd54b6eb55431
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464407"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121495"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Inicio rápido:  Implementación de una aplicación de Java en Azure Service Fabric con Linux
 
-En esta guía de inicio rápido se explica cómo implementar la primera aplicación Java en Azure Service Fabric mediante el IDE de Eclipse en un equipo de desarrolladores con Linux. Cuando termine, tendrá una aplicación de votación con un front-end web de Java que guarda los resultados de una votación en un servicio back-end con estado en el clúster.
+En este inicio rápido se implementa una aplicación Java en Azure Service Fabric mediante el IDE de Eclipse en una máquina de desarrolladores con Linux. Cuando termine, tendrá una aplicación de votación con un front-end web de Java que guarda los resultados de una votación en un servicio back-end con estado en el clúster.
 
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores.
 
-![Ejemplo de votación de Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
+## <a name="prerequisites"></a>Prerrequisitos
 
-En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
-
-* Usar Eclipse como una herramienta para las aplicaciones Java en Service Fabric
-* Implementar la aplicación en el clúster local
-* Escalar horizontalmente la aplicación en varios nodos
-
-## <a name="prerequisites"></a>Prerequisites
-
-Para completar esta guía de inicio rápido:
-
-1. [Instale el SDK de Service Fabric y la interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
-2. [Instalación de Git](https://git-scm.com/)
-3. [Instale Eclipse](https://www.eclipse.org/downloads/)
-4. [Configure el entorno de Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), para lo que debe seguir los pasos opcionales para instalar el complemento de Eclipse
+- [Entorno de Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) y [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Eclipse Neón (4.6) +](https://www.eclipse.org/downloads/packages/) y [complemento Eclipse para Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
+- [SDK de Service Fabric e interfaz de la línea de comandos (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
 En una ventana Comandos, ejecute el comando siguiente para clonar el repositorio de la aplicación de ejemplo en la máquina local.
 
-```git
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
@@ -51,13 +41,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    El inicio del clúster local tarda algún tiempo. Para confirmar que el clúster está totalmente operativo, acceda a Service Fabric Explorer en **http://localhost:19080** . Los cinco nodos con estado correcto indican que el clúster local está en funcionamiento.
+    El inicio del clúster local tarda algún tiempo. Para confirmar que el clúster está totalmente operativo, acceda a Service Fabric Explorer en `http://localhost:19080`. Los cinco nodos con estado correcto indican que el clúster local está en funcionamiento.
 
     ![Azure Service Fabric Explorer muestra nodos correctos](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Abra Eclipse.
 3. Seleccione **Archivo** > **Importar** > **Gradle** > **Existing Gradle Project (Proyecto existente de Gradle)** y siga los pasos del asistente.
-4. Seleccione **Directorio** y elija el directorio `Voting` de la carpeta `service-fabric-java-quickstart` que clonó de GitHub. Seleccione **Finalizar**.
+4. Seleccione **Directorio** y elija el directorio **Voting**en la carpeta **service-fabric-java-quickstart** que clonó de GitHub. Seleccione **Finalizar**.
 
     ![Importación de un proyecto de Gradle en Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
@@ -72,15 +62,17 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 Ahora puede agregar una serie de opciones de votación y empezar a recibir votos. La aplicación se ejecuta y almacena todos los datos en el clúster de Service Fabric, sin necesidad de una base de datos independiente.
 
+![Ejemplo de votación de Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
+
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Escalar aplicaciones y servicios en un clúster
 
-Los servicios se pueden escalar en un clúster para adaptarse a un cambio en la carga en los servicios. Para escalar un servicio, cambie el número de instancias que se ejecutan en el clúster. Hay muchas formas de escalar los servicios; por ejemplo, se pueden usar scripts o comandos de la CLI de Service Fabric (sfctl). En los pasos siguientes se utiliza Service Fabric Explorer.
+Los servicios se pueden escalar en un clúster para adaptarse a un cambio en la carga en los servicios. Para escalar un servicio, cambie el número de instancias que se ejecutan en el clúster. Hay muchas maneras de escalar los servicios. Por ejemplo, se pueden usar scripts o comandos de la CLI de Service Fabric (`sfctl`). En los pasos siguientes se utiliza Service Fabric Explorer.
 
-Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y se puede acceder a él desde un explorador. Para ello, vaya al puerto de administración HTTP de clústeres (19080); por ejemplo, `http://localhost:19080`.
+Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y se puede acceder a él desde un explorador. Para ello, es preciso ir al puerto de administración HTTP del clúster (19080). Por ejemplo, `http://localhost:19080`.
 
 Para escalar el servicio front-end web, realice estas operaciones:
 
-1. Abra Service Fabric Explorer en el clúster, por ejemplo, `https://localhost:19080`.
+1. Abra Service Fabric Explorer en el clúster. Por ejemplo, `https://localhost:19080`.
 2. Seleccione el botón de puntos suspensivos ( **...** ) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
 
     ![Escalado de un servicio de Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)

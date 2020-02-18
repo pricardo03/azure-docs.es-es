@@ -7,15 +7,15 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: fasttrack-edit
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 35ecb5c4e3987676d235fc6fd09f58c046301cda
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: d91567f10b33717b157bd0b839d2706996c5b591
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548040"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087202"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Inicio rápido: Introducción a Azure Sentinel
 
@@ -53,7 +53,7 @@ El cuerpo principal de la página de información general ofrece conclusiones de
 
 ## Uso de libros integrados<a name="dashboards"></a>
 
-Los libros integrados proporcionan datos integrados procedentes de orígenes de datos conectados y permiten analizar en profundidad los eventos generados en dichos servicios. Los libros integrados incluyen el de Azure AD, eventos de actividad de Azure y locales, que pueden ser datos de eventos de Windows de servidores, de alertas de primera entidad o de terceros, incluidos los registros de tráfico del firewall, Office 365 y protocolos poco seguros basados en eventos de Windows. Los libros se basan en Azure Monitor Workbooks para proporcionar una mayor flexibilidad y capacidad de personalización al diseñar su propio libro. Para más información, consulte [Libros](../azure-monitor/app/usage-workbooks.md).
+Los libros integrados proporcionan datos integrados procedentes de orígenes de datos conectados y permiten analizar en profundidad los eventos generados en dichos servicios. Los libros integrados incluyen Azure AD, eventos de actividad de Azure y locales, que pueden ser datos de eventos de Windows de servidores, de alertas de primera entidad o de terceros, incluidos los registros de tráfico del firewall, Office 365 y protocolos poco seguros basados en eventos de Windows. Los libros se basan en Azure Monitor Workbooks para proporcionar una mayor flexibilidad y capacidad de personalización al diseñar su propio libro. Para más información, consulte [Libros](../azure-monitor/app/usage-workbooks.md).
 
 1. En **Configuración**, seleccione **Libros**. En **Instalados**, puede ver todos los libros instalados. En **Todos**, puede ver toda la galería entera de libros integrados disponibles para su instalación. 
 2. Busque un libro específico ver la lista completa y una descripción de lo que ofrece cada uno. 

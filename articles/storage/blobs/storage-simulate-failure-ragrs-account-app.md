@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892454"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162708"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simulación de un error al leer datos de la región principal
 
-Este tutorial es la segunda parte de una serie. En él, obtendrá información sobre las ventajas del [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) mediante la simulación de un error.
+Este tutorial es la segunda parte de una serie. En él aprenderá sobre las ventajas del [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy.md) (RA-GRS) mediante la simulación de un error.
 
-Para simular un error, puede usar el [enrutamiento estático](#simulate-a-failure-with-an-invalid-static-route) o [Fiddler](#simulate-a-failure-with-fiddler). Ambos métodos permitirán simular un error para las solicitudes en el punto de conexión principal de la cuenta de almacenamiento [con redundancia geográfica con acceso de lectura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS), lo que hará que la aplicación se lea en cambio desde el punto de conexión secundario.
+Para simular un error, puede usar el [enrutamiento estático](#simulate-a-failure-with-an-invalid-static-route) o [Fiddler](#simulate-a-failure-with-fiddler). Ambos métodos permitirán simular un error para las solicitudes en el punto de conexión principal de la cuenta de almacenamiento [con redundancia geográfica con acceso de lectura](../common/storage-redundancy.md) (RA-GRS), lo que hará que la aplicación se lea en cambio desde el punto de conexión secundario.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -31,7 +31,7 @@ En la segunda parte de la serie, se aprende a:
 > * Simulación de un error con [una ruta estática no válida](#simulate-a-failure-with-an-invalid-static-route) o [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simular la restauración del punto de conexión principal
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar este tutorial, complete la parte primera, [Logre la alta disponibilidad de los datos de la aplicación con Azure Storage][previous-tutorial].
 
@@ -41,7 +41,7 @@ Para simular un error mediante Fiddler, descargue e [instale Fiddler](https://ww
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simulación de un error con una ruta estática no válida
 
-Puede crear una ruta estática no válida para todas las solicitudes al punto de conexión principal de la cuenta de almacenamiento [con redundancia geográfica con acceso de lectura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS). En este tutorial, se utiliza el host local como puerta de enlace para enrutar las solicitudes a la cuenta de almacenamiento. El uso del host local como puerta de enlace hace que todas las solicitudes al punto de conexión principal de la cuenta de almacenamiento creen un bucle dentro del host que provoca errores. Siga los pasos a continuación para simular un error y la restauración del punto de conexión principal con una ruta estática no válida.
+Puede crear una ruta estática no válida para todas las solicitudes al punto de conexión principal de la cuenta de almacenamiento [con redundancia geográfica con acceso de lectura](../common/storage-redundancy.md) (RA-GRS). En este tutorial, se utiliza el host local como puerta de enlace para enrutar las solicitudes a la cuenta de almacenamiento. El uso del host local como puerta de enlace hace que todas las solicitudes al punto de conexión principal de la cuenta de almacenamiento creen un bucle dentro del host que provoca errores. Siga los pasos a continuación para simular un error y la restauración del punto de conexión principal con una ruta estática no válida.
 
 ### <a name="start-and-pause-the-application"></a>Inicio y pausa de la aplicación
 
@@ -75,7 +75,7 @@ route add <destination_ip> gw <gateway_ip>
 route add <destination_ip> <gateway_ip>
 ```
 
-En la ventana con el ejemplo en ejecución, reanude la aplicación o pulse la tecla correspondiente para descargar el archivo de ejemplo y confirme que procede de un almacenamiento secundario. A continuación, puede pausar el ejemplo de nuevo o esperar al símbolo del sistema.
+En la ventana con el ejemplo en ejecución, reanude la aplicación o presione la tecla correspondiente para descargar el archivo de ejemplo y confirme que procede de un almacenamiento secundario. A continuación, puede pausar el ejemplo de nuevo o esperar al símbolo del sistema.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simular la restauración del punto de conexión principal
 

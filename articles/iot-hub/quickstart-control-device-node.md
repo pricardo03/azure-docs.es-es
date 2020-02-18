@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
-ms.openlocfilehash: ed3946c40d8e3eff665e4454b81f408c2033c09a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: cc0ff372b4680f02410f1f58304d0be95228c965
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529634"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108915"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Inicio rápido: Uso de Node.js para controlar un dispositivo conectado a una instancia de Azure IoT Hub
 
@@ -33,7 +33,7 @@ El inicio rápido usa dos aplicaciones Node.js escritas anteriormente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo.
 
@@ -52,6 +52,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Si aún no lo ha hecho, descargue el proyecto de Node.js de muestra desde https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip y extraiga el archivo ZIP.
+
+Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

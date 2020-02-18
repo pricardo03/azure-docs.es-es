@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal'
+title: 'Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal '
 description: En este tutorial, aprenderá a conceder acceso de usuario a los recursos de Azure con el control de acceso basado en rol (RBAC) en Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419652"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138087"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal
 
@@ -62,7 +62,7 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles.
 
 1. En la lista de **Grupos de recursos**, haga clic en el nuevo grupo de recursos **rbac-resource-group**.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver la lista actual de asignaciones de roles.
 

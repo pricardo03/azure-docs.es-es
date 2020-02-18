@@ -16,30 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: cb4e27aeada4f1b5f9e06279382327dcc51cc7dc
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b912dfe3fb6461a925977192a6631ecac1357d35
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899595"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049843"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Creación de una canalización de CI/CD para Python con Azure DevOps Projects
 
-Azure DevOps Projects ofrece una experiencia simplificada que crea recursos de Azure y configura una canalización de integración continua (CI) y entrega continua (CD) para la aplicación de Java.  
+En este inicio rápido se usa la experiencia simplificada de Azure DevOps Projects para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Python en Azure Pipelines. Azure DevOps Projects se puede usar para configurar todo lo necesario para desarrollar, implementar y supervisar una aplicación. 
 
-Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Una cuenta de [Azure DevOps](https://azure.microsoft.com/services/devops/) y una organización.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
- DevOps Projects crea una canalización de CI/CD en Azure Pipelines.  Puede crear una organización de Azure DevOps gratuita o usar una existente. DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
+DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, en el panel izquierdo, seleccione **Crear un recurso**. 
 
-2. Seleccione **Crear un recurso** en el panel izquierdo y, después, busque **DevOps Projects**.  
+   ![Creación de un recurso de Azure en Azure Portal](_img/azure-devops-project-python/fullbrowser.png)
 
-3. Seleccione **Crear**.
-
-    ![Inicio de la configuración de entrega continua](_img/azure-devops-project-python/fullbrowser.png)
+1. Busque **DevOps Project**, selecciónelo y, después, seleccione **Crear**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Seleccione una aplicación de ejemplo y el servicio de Azure
 

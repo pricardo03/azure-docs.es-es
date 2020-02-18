@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d02a9dbc5b89c4156b7ff8b6a49adb7f00fef83
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 465b41aaf3c3b16dcba489d1ea9ba951a3108c8e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969747"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046586"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EAB Navigate IMPL
 
@@ -33,7 +33,7 @@ En este tutorial aprenderá a integrar EAB Navigate IMPL con Azure Active Dire
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -83,12 +83,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
-
+1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:  En el cuadro de texto **Identificador (id. de entidad)** , escriba exactamente el siguiente valor: `https://impl.bouncer.eab.com`
+    
+    En el cuadro de texto **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba los valores siguientes como filas independientes: `https://impl.bouncer.eab.com/sso/saml2/acs`
+    `https://impl.bouncer.eab.com/sso/saml2/acs/`
+    
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.navigate.impl.eab.com/`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de EAB Navigate IMPL](mailto:jmahoney@eab.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de EAB Navigate IMPL](mailto:EABTechSupport@eab.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
@@ -104,7 +107,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -126,11 +129,11 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 ## <a name="configure-eab-navigate-impl-sso"></a>Configuración del inicio de sesión único de EAB Navigate IMPL
 
-Para configurar el inicio de sesión único en **EAB Navigate IMPL**, debe enviar la **dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de EAB Navigate IMPL](mailto:jmahoney@eab.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **EAB Navigate IMPL**, debe enviar la **dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de EAB Navigate IMPL](mailto:EABTechSupport@eab.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-eab-navigate-impl-test-user"></a>Creación de un usuario de prueba de EAB Navigate IMPL
 
-En esta sección, va a crear un usuario llamado B.Simon en EAB Navigate IMPL. Colabore con el  [equipo de soporte técnico de EAB Navigate IMPL](mailto:jmahoney@eab.com) para agregar los usuarios en la plataforma de EAB Navigate IMPL. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, va a crear un usuario llamado B.Simon en EAB Navigate IMPL. Colabore con el  [equipo de soporte técnico de EAB Navigate IMPL](mailto:EABTechSupport@eab.com) para agregar los usuarios en la plataforma de EAB Navigate IMPL. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

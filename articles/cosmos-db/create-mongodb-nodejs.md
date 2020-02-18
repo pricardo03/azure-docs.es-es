@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 2abf6187be78ee6cb78676284848051a935b150b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7e3e9e6c76d67db03ea812a4832e98f4449c9aba
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445463"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061682"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Inicio rápido: Migración de una aplicación web actual Node.js de MongoDB a Azure Cosmos DB 
 
@@ -27,26 +27,15 @@ ms.locfileid: "75445463"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-En esta guía de inicio rápido se muestra cómo se usa una aplicación existente MongoDB escrita en Node.js y cómo se conecta a la base de datos de Azure Cosmos, que es compatible con el cliente de MongoDB. En otras palabras, para la aplicación resulta transparente que los datos se almacenan en una base de datos de Cosmos.
+En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para MongoDB API mediante Azure Cloud Shell, y con una aplicación MEAN (MongoDB, Express, Angular y Node.js) clonada desde GitHub. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Cosmos DB.
-
-Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, Angular y Node.js) que se ejecuta en [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
-![Aplicación MEAN.js que se ejecuta en Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
-
+## <a name="prerequisites"></a>Prerrequisitos
+- Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). O bien, [pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure. También puede usar el [emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con la cadena de conexión `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
+- [Node.js](https://nodejs.org/) y conocimientos para trabajar con Node.js.
+- [Git](https://git-scm.com/downloads).
+- Si no desea usar Azure Cloud Shell, use la [CLI de Azure 2.0+](/cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
-
-## <a name="prerequisites"></a>Prerequisites 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
-[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
-
-Para ejecutar los comandos `npm` y `git`, además de la CLI de Azure, debería tener instalados localmente [Node.js](https://nodejs.org/) y [Git](https://www.git-scm.com/downloads).
-
-Debe tener conocimientos prácticos de Node.js. Esta guía de inicio rápido no está pensada para ayudarle a desarrollar aplicaciones Node.js en general.
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -72,6 +61,8 @@ Ejecute los comandos siguientes para clonar el repositorio de ejemplo. Este repo
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
+Esta aplicación de MongoDB escrita en Node.js se conecta a su base de datos de Azure Cosmos DB, que admite el cliente de MongoDB. En otras palabras, para la aplicación resulta transparente que los datos se almacenan en una base de datos de Azure Cosmos DB.
+
 Instale los paquetes necesarios e inicie la aplicación.
 
 ```bash
@@ -81,7 +72,9 @@ npm start
 ```
 La aplicación intentará conectarse a un origen de MongoDB y producirá un error. Siga adelante y salga de la aplicación cuando la salida devuelva "[MongoError: connect ECONNREFUSED 127.0.0.1:27017]".
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]. 
 
 Si usa una CLI de Azure instalada, inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/reference-index#az-login) y siga las instrucciones de la pantalla. Puede omitir este paso si usa Azure Cloud Shell.
 
@@ -93,13 +86,13 @@ az login
 
 Si va a usar una CLI de Azure instalada, ejecute el comando `az` para comprobar si el componente `cosmosdb` ya está instalado. Si `cosmosdb` está en la lista de comandos de referencia, continúe con el comando siguiente. Puede omitir este paso si usa Azure Cloud Shell.
 
-Si `cosmosdb` no está en la lista de comandos de referencia, vuelva a instalar la [CLI de Azure]( /cli/azure/install-azure-cli).
+Si `cosmosdb` no está en la lista de comandos de referencia, vuelva a instalar la [CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Cree un [grupo de recursos](../azure-resource-manager/management/overview.md) con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran recursos de Azure como aplicaciones web, bases de datos y cuentas de almacenamiento. 
 
-En el ejemplo siguiente se crea un grupo de recursos en la región de Europa Occidental. Elija un nombre único para el grupo de recursos.
+En el ejemplo siguiente se crea un grupo de recursos en la región de Oeste de Europa. Elija un nombre único para el grupo de recursos.
 
 Si usa Azure Cloud Shell, seleccione **Probarlo**, siga las indicaciones de la pantalla para iniciar sesión y, a continuación, copie el comando en el símbolo del sistema.
 
@@ -158,7 +151,7 @@ DB/databaseAccounts/<cosmosdb-name>",
 
 ## <a name="connect-your-nodejs-application-to-the-database"></a>Conexión de la aplicación Node.js a la base de datos
 
-En este paso, conectará la aplicación de ejemplo MEAN.js a la base de datos Cosmos que acaba de crear. 
+En este paso, se conecta la aplicación de ejemplo MEAN.js a la base de datos de Azure Cosmos DB que acaba de crear. 
 
 <a name="devconfig"></a>
 ## <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configuración de la cadena de conexión en la aplicación Node.js
@@ -253,7 +246,7 @@ git commit -m "configured MongoDB connection string"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a crear una cuenta de Cosmos, crear una colección y ejecutar una aplicación de consola. Ahora puede importar datos adicionales en la base de datos de Cosmos. 
+En este inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB para MongoDB API mediante Azure Cloud Shell, y a crear y ejecutar una aplicación MEAN.js para agregar usuarios a la cuenta. Ahora puede importar datos adicionales en la cuenta de Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Importación de datos de MongoDB a Azure Cosmos DB](mongodb-migrate.md)

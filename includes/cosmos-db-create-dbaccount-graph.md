@@ -5,36 +5,41 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 01/27/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 45e6417ed990a233a699d98da89b9b951c1e834d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: a6cfafd41d1632d99b7ca03bce2316ec679d7579
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210339"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061863"
 ---
 1. En una nueva ventana del explorador, inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Haga clic en **Crear un recurso** > **Bases de datos** > **Azure Cosmos DB**.
+2. En el menú de la izquierda, seleccione **Crear un recurso**.
    
-   ![Panel "Bases de datos" de Azure Portal](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
-
-3. En la página **Crear una cuenta de Azure Cosmos DB**, especifique la configuración de la nueva cuenta de Azure Cosmos DB. 
-
-    Configuración|Valor|DESCRIPCIÓN
+   ![Crear un recurso en Azure Portal](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-0.png)
+   
+3. En la página **Nuevo**, seleccione **Bases de datos** > **Azure Cosmos DB**.
+   
+   ![El panel de las bases de datos de Azure Portal](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
+   
+3. En la página **Crear una cuenta de Azure Cosmos DB**, especifique la configuración de la nueva cuenta de Azure Cosmos DB. 
+ 
+    Configuración|Value|Descripción
     ---|---|---
     Subscription|Su suscripción|Seleccione la suscripción de Azure que quiere usar para esta cuenta de Azure Cosmos DB. 
-    Grupo de recursos|Crear nuevo<br><br>A continuación, escriba el mismo nombre único que se proporcionó en el identificador|Seleccione **Crear nuevo**. A continuación, escriba un nombre nuevo de grupo de recursos para la cuenta. Para simplificar, utilice el mismo nombre del identificador. 
-    Nombre de cuenta|Escriba un nombre único.|Escriba un nombre único para identificar la cuenta de Azure Cosmos DB. Dado que *documents.azure.com* se anexa al identificador que se proporciona para crear el identificador URI, debe usar un identificador único.<br><br>El identificador solo debe contener letras minúsculas, números y el carácter de guion (-). Debe tener una longitud de entre 3 y 31 caracteres.
-    API|Gremlin (graph)|La API determina el tipo de cuenta que se va a crear. Azure Cosmos DB proporciona cinco API: Core(SQL) para bases de datos de documentos, Gremlin para bases de datos de grafos, MongoDB para bases de datos de documentos, Azure Table y Cassandra. Actualmente, debe crear una cuenta independiente para cada API. <br><br>Seleccione **Gremlin (grafo)** , ya que en esta guía de inicio rápido va a crear una tabla que funciona con la API de Gremlin. <br><br>[Más información sobre Graph API](../articles/cosmos-db/graph-introduction.md)|
+    Grupo de recursos|Crear nuevo<br><br>A continuación, escriba el mismo nombre que el nombre de cuenta.|Seleccione **Crear nuevo**. Luego, escriba un nombre nuevo de grupo de recursos para la cuenta. Para simplificar, use el mismo nombre que el de la cuenta de Azure Cosmos DB. 
+    Nombre de cuenta|Escriba un nombre único.|Escriba un nombre único para identificar la cuenta de Azure Cosmos DB. El URI de la cuenta será *gremlin.azure.com* y se anexará al nombre único de la cuenta.<br><br>El nombre de la cuenta solo puede utilizar letras minúsculas, números y guiones (-), y debe tener entre 3 y 31 caracteres de longitud.
+    API|Gremlin (graph)|La API determina el tipo de cuenta que se va a crear. Azure Cosmos DB proporciona cinco API: Core (SQL) para bases de datos de documentos, Gremlin para bases de datos de grafos, MongoDB para bases de datos de documentos, Azure Table y Cassandra. Debe crear una cuenta independiente para cada API. <br><br>Seleccione **Gremlin (grafo)** , ya que en este inicio rápido va a crear una tabla que funciona con Gremlin API. <br><br>[Más información sobre Gremlin API](../articles/cosmos-db/graph-introduction.md).|
     Location|Seleccionar la región más cercana a los usuarios|Seleccione una ubicación geográfica para hospedar la cuenta de Azure Cosmos DB. Use la ubicación más cercana a los usuarios para proporcionarles el acceso más rápido a los datos.
 
     Seleccione **Revisar y crear**. Puede omitir las secciones **Red** y **Etiquetas**. 
 
-    ![Sección de la nueva cuenta de Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png)
+    ![Página de la nueva cuenta de Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png)
 
 4. La cuenta tarda unos minutos en crearse. Espere a que el portal muestre la página **¡Enhorabuena! Se ha creado su cuenta de Azure Cosmos DB**.
+   
+   ![Página creada de la cuenta de Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)
 
-    ![El panel de las notificaciones de Azure Portal](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)

@@ -3,19 +3,17 @@ title: Administración de reservas de Azure
 description: Obtenga información sobre cómo puede administrar las reservas de Azure.
 ms.service: cost-management-billing
 author: bandersmsft
-manager: yashesvi
+ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/06/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82bf250a7902cfe4b905991809fd4bbe5dea102a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75986292"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188519"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -128,7 +126,7 @@ Para actualizar la configuración de optimización de la reserva:
 
 ## <a name="optimize-reservation-use"></a>Optimización del uso de reservas
 
-El ahorro de reservas de Azure solo se produce al usar recursos sostenidos. Cuando realiza una compra de reserva, paga un costo inicial por lo que es esencialmente el 100 % de uso de recursos durante un período de uno o tres años. Trate de maximizar la reserva para obtener el mayor uso y ahorros posibles. En las secciones siguientes se explica cómo supervisar una reserva y optimizar su uso.
+El ahorro de reservas de Azure solo se produce al usar recursos sostenidos. Cuando realiza una compra de reserva, paga por lo que es esencialmente el 100 % de uso de recursos durante un período de uno o tres años. Trate de maximizar la reserva para obtener el mayor uso y ahorros posibles. En las secciones siguientes se explica cómo supervisar una reserva y optimizar su uso.
 
 ### <a name="view-reservation-use-in-the-azure-portal"></a>Visualización del uso de las reservas en Azure Portal
 

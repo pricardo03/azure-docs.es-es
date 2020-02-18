@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 91ea2b68828ac54d4128a90550e9c60e065b719d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379454"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118543"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
@@ -51,17 +51,9 @@ Form Recognizer también incluye un modelo para leer los recibos de compras en i
 
 Form Recognizer también puede extraer texto y estructuras de tablas (los números de fila y columna asociados al texto) mediante el reconocimiento óptico de caracteres (OCR) de alta definición. 
 
-## <a name="where-do-i-start"></a>¿Por dónde empiezo?
+## <a name="get-started"></a>Introducción
 
-**Paso 1:** Solicite acceso:
-
-Form Recognizer está disponible como versión preliminar de acceso limitado. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess). El formulario solicita información acerca del usuario, su empresa y el escenario en el que se va a usar Form Recognizer.
-
-**Paso 2:** Cree un recurso de Form Recognizer en Azure Portal:
-
-Cuando se le concede acceso para usar Form Recognizer, recibe un correo electrónico de bienvenida con varios vínculos y recursos. Use el vínculo de "Azure Portal" de dicho mensaje para abrir Azure Portal y crear un recurso de Form Recognizer.
-
-**Paso 3:** Extraiga datos de los formularios:
+Siga un inicio rápido para comenzar a extraer datos de los formularios. Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
 
 * Personalizado: entrene un modelo para sus formularios.
   * Entrenamiento sin etiquetas
@@ -76,9 +68,7 @@ Cuando se le concede acceso para usar Form Recognizer, recibe un correo electró
 * Diseño: extraiga texto y estructura de tablas de los formularios.
   * [Inicio rápido: Extracción de datos de diseño con Python](quickstarts/python-layout.md)
 
-Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
-
-**Paso 4:** Revise las API REST:
+### <a name="review-the-rest-apis"></a>Revisión de las API REST
 
 Va a utilizar las siguientes API para entrenar modelos y extraer datos estructurados de formularios.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446799"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189001"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Creación de un modelo de inquilino (versión preliminar)
 
@@ -39,11 +39,11 @@ Para poder implementar un modelo de inquilino, es preciso estar inscrito en el s
 
 1. Inicie sesión en el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 
-1. En el panel izquierdo, seleccione **Configuración**, **Aplicaciones** y **Servicios de voz de Azure**.
+1. En el panel izquierdo, seleccione **Configuración**, de nuevo **Configuración** en el menú anidado y, finalmente, seleccione **Servicios de voz de Azure** en la ventana principal.
 
    ![El panel "Servicios y complementos"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-1. Seleccione la casilla **Permitir el modelo de idioma de toda la organización** y, después, **Guardar cambios**. 
+1. Seleccione la casilla **Permitir el modelo de idioma de toda la organización** y, después, **Guardar cambios**.
 
    ![El panel Servicios de voz de Azure](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
@@ -79,11 +79,11 @@ Una vez que el administrador haya habilitado Tenant Model para su organización,
 
    > [!NOTE]
    > Los clientes empresariales de Office 365 en Norteamérica son aptos para crear un modelo de inquilino (inglés). Para los clientes de Caja de seguridad del cliente, Clave de cliente u Office 365 Administración Pública característica no está disponible. Para determinar si es un cliente de Caja de seguridad del cliente o de Clave de cliente, consulte:
-   > * [Caja de seguridad del cliente](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
-   > * [Clave de cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
-   > * [Office 365 Administración Pública](https://www.microsoft.com/microsoft-365/government)
+   > * [Caja de seguridad del cliente](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Clave de cliente](/microsoft-365/compliance/customer-key-overview)
+   > * [Office 365 Administración Pública](/microsoft-365/government)
 
-1. Seleccione **Habilitar envío**. 
+1. Seleccione **Habilitar envío**.
 
    Cuando el modelo de inquilino esté listo, recibirá un mensaje de correo electrónico de confirmación con más instrucciones.
 

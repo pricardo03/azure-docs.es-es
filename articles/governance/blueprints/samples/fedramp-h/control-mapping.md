@@ -1,14 +1,14 @@
 ---
-title: 'Ejemplo: plano técnico con un nivel de impacto alto de FedRAMP: asignación de controles'
+title: Controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 description: Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 4b4d644497eb98ed88f57803e99cf27a419523fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76941353"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150619"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
@@ -261,7 +261,7 @@ Además, este proyecto también asigna definiciones de directiva que supervisan 
 
 - Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet
 - Debe restringirse el acceso a través de un punto de conexión accesible desde Internet
-- Se deben proteger las reglas de NSG para las aplicaciones web en IaaS
+- Los puertos web deben estar restringidos en los grupos de seguridad de red asociados a la máquina virtual.
 - Auditar el acceso de red sin restricciones a cuentas de almacenamiento
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>Protección de límites SC-7 (3) | Puntos de acceso

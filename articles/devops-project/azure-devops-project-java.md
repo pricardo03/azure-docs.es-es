@@ -16,30 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1a276770887bee39972ba8630fb13f52bcbe802d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203735"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049968"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Inicio rápido: Configuración de una canalización de CI/CD para una aplicación Java con Azure DevOps Projects
 
-En este artículo se usa una experiencia simplificada de Azure DevOps Projects para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Java en Azure Pipelines. Azure DevOps Projects también se puede usar para crear otros recursos de Azure.  
+En este inicio rápido se usa la experiencia simplificada de Azure DevOps Projects para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Java en Azure Pipelines. Azure DevOps Projects se puede usar para configurar todo lo necesario para desarrollar, implementar y supervisar una aplicación. 
 
-Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Una cuenta de [Azure DevOps](https://azure.microsoft.com/services/devops/) y una organización.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-  DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
+DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, en el panel izquierdo, seleccione **Crear un recurso**. 
 
-1. En el panel izquierdo, seleccione **Crear un recurso** y, después, busque **DevOps Projects**.  
+   ![Creación de un recurso de Azure en Azure Portal](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
-2. Seleccione **Crear**.
-
-    ![Creación de un recurso de Azure en DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
+1. Busque **DevOps Project**, selecciónelo y, después, seleccione **Crear**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Seleccione una aplicación de ejemplo y el servicio de Azure
 
@@ -53,18 +54,17 @@ Los ejemplos de Java incluyen una opción de varios marcos de trabajo de la apli
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure 
 
 1. Cree una organización de Azure DevOps nueva o elija una existente. 
-
-    a. Elija un nombre para el proyecto. 
-
-    b. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo**.  
-    En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad del repositorio de código, la canalización de CI/CD y la aplicación de Azure.
-    
-
+   
+   1. Elija un nombre para el proyecto. 
+   
+   1. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo**.  
+   En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad sobre el repositorio de código, la canalización de CI/CD y la aplicación de Azure.
+   
 2. Seleccione **Examinar** para ver la aplicación en ejecución.
+   
+   ![Visualización de un nuevo panel de aplicación en Azure Portal](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
 
-    ![Visualización de un nuevo panel de aplicación en Azure Portal](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
-    
-   DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de Java con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
+DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de Java con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
 

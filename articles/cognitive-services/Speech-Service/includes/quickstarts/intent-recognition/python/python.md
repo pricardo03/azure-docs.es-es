@@ -6,14 +6,14 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9bc514c32d97958d8ab154dc2c5533747f380e86
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8f3be4dfb0beeb97558dbda606af7c6bcc50bfa7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900348"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156696"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar:
 
@@ -42,7 +42,7 @@ Para poder inicializar un objeto `IntentRecognizer`, es preciso crear una config
 Inserte este código en `quickstart.py`. Asegúrese de actualizar estos valores:
 
 * Reemplace `"YourLanguageUnderstandingSubscriptionKey"` por la clave de predicción de LUIS. 
-* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS. 
+* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS. Use el "parámetro del SDK de Voz" en [región](https://aka.ms/speech/sdkregion).
 
 >[!TIP]
 > Si necesita ayuda para encontrar estos valores, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6a4b215b2b386754bae2c1bbec171ed4bc558a93
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984492"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048201"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure para la cuenta de MPA
 
@@ -29,7 +29,7 @@ Para solicitar la propiedad de la facturación, debe tener el rol **Administrado
 
 Este artículo se aplica a las cuentas de facturación de Microsoft Partner Agreement. Estas cuentas se crean para que los proveedores de soluciones en la nube (CSP) administren la facturación de sus clientes en la nueva experiencia comercial. La nueva experiencia solo está disponible para asociados que tengan al menos un cliente que haya aceptado un contrato de cliente de Microsoft (MCA) y que cuente con un plan de Azure. [Compruebe si tiene acceso a un contrato Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. Establezca la [relación de revendedor](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) con el cliente. Consulte [Introducción a la autorización regional de CSP](https://docs.microsoft.com/partner-center/regional-authorization-overview) para asegurarse de que el cliente y el inquilino del asociado estén dentro de las mismas regiones autorizadas.  
 
@@ -120,7 +120,7 @@ Puede solicitar la propiedad de facturación de los tipos de suscripción que se
 - [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* La suscripción a Enterprise DevTest se facturará según la tarifa de pago por uso tras la transferencia, los descuentos ofrecidos a través de la oferta de Enterprise DevTest mediante el Contrato Enterprise del cliente no estarán disponibles para el asociado de CSP.
+\* Una suscripción de Desarrollo/pruebas debe convertirse primero a una oferta Enterprise de Contrato Enterprise mediante una incidencia de soporte técnico. Una suscripción de Desarrollo/pruebas - Enterprise se facturará según la tarifa de pago por uso después de transferirla. Cualquier descuento ofrecido a través de la oferta de Desarrollo/pruebas - Enterprise mediante el Contrato Enterprise del cliente no estará disponible para el asociado de CSP.
 
 ## <a name="additional-information"></a>Información adicional
 

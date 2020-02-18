@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03de10f9ea3bc3bf13a0fffaf22805412456a6f9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8e185f4065fee0399104feadc27f038dd9c4a612
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991907"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046690"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EAB Navigate
 
@@ -32,7 +32,7 @@ En este tutorial aprenderá a integrar EAB Navigate con Azure Active Directory
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -45,7 +45,8 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * EAB Navigate admite el inicio de sesión único iniciado por **SP**.
 
-* Una vez configurado EAB Navigate, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 ## <a name="adding-eab-navigate-from-the-gallery"></a>Incorporación de EAB Navigate desde la galería
 
@@ -57,7 +58,6 @@ Para configurar la integración de EAB Navigate en Azure AD, deberá agregar EA
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **EAB Navigate** en el cuadro de búsqueda.
 1. Seleccione **EAB Navigate** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-eab-navigate"></a>Configuración y prueba del inicio de sesión único de Azure AD para EAB Navigate
 
@@ -82,32 +82,21 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
+1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+    
+    En el cuadro de texto **Identificador (id. de entidad)** , escriba exactamente el siguiente valor: `https://bouncer.eab.com`
+    
+    En el cuadro de texto **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba los valores siguientes como filas independientes: `https://bouncer.eab.com/sso/saml2/acs`
+    `https://bouncer.eab.com/sso/saml2/acs/`
+    
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.navigate.eab.com/`
 
-    a. Haga clic en **Cargar el archivo de metadatos**.
+    > [!NOTE]
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de EAB Navigate Client](mailto:EABTechSupport@eab.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Carga del archivo de metadatos](common/upload-metadata.png)
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
-    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
-
-    ![Elección del archivo de metadatos](common/browse-upload-metadata.png)
-
-    c. Una vez que se haya cargado correctamente el archivo de metadatos, el valor de **Identificador** se rellena automáticamente en la sección Configuración básica de SAML.
-
-    ![Información de inicio de sesión único de dominio y direcciones URL de EAB Navigate](common/sp-identifier.png)
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.navigate.eab.com`
-
-    > [!Note]
-    > Si el valor **Identificador** no se rellena automáticamente, hágalo manualmente según sus necesidades. El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de EAB Navigate](mailto:jmahoney@eab.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
-
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
-
-    ![Vínculo de descarga del certificado](common/certificateraw.png)
-
-1. En la sección **Configurar EAB Navigate**, copie las direcciones URL adecuadas según sus necesidades.
-
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -141,13 +130,13 @@ En esta sección, va a permitir que B.Simon acceda a EAB Navigate mediante el in
 
 ## <a name="configure-eab-navigate-sso"></a>Configuración del inicio de sesión único de EAB Navigate
 
-Para configurar el inicio de sesión único en **EAB Navigate**, es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de EAB Navigate](mailto:jmahoney@eab.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **EAB Navigate**, debe enviar el valor de **Dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de EAB Navigate](mailto:EABTechSupport@eab.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-eab-navigate-test-user"></a>Creación de un usuario de prueba en EAB Navigate
 
-En esta sección, va a crear un usuario llamado B.Simon en EAB Navigate. Colabore con el [equipo de soporte técnico de EAB Navigate](mailto:jmahoney@eab.com) para agregar los usuarios en la plataforma de EAB Navigate. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, va a crear un usuario llamado B.Simon en EAB Navigate. Colabore con el [equipo de soporte técnico de EAB Navigate](mailto:EABTechSupport@eab.com) para agregar los usuarios en la plataforma de EAB Navigate. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-## <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 

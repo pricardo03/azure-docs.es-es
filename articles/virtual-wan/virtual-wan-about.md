@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 3b33015b3a69372f6783d59b28a111ec279dd860
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048471"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056349"
 ---
 # <a name="about-azure-virtual-wan"></a>Acerca de Azure Virtual WAN
 
@@ -37,6 +37,13 @@ Existen dos tipos de WAN virtuales: Básico y Estándar. En la tabla siguiente s
 
 Para conocer los pasos para actualizar una WAN virtual, consulte [Actualización de una WAN virtual de plan Básico a Estándar](upgrade-virtual-wan.md).
 
+## <a name="architecture"></a>Arquitectura
+
+Para obtener información acerca de la arquitectura de Virtual WAN y de cómo migrar a Virtual WAN, consulte los siguientes artículos:
+
+* [Arquitectura de Virtual WAN](migrate-from-hub-spoke-topology.md)
+* [Arquitectura de red de tránsito global](virtual-wan-global-transit-network-architecture.md)
+
 ## <a name="resources"></a>Recursos de Virtual WAN
 
 Para configurar una red Virtual WAN de extremo a otro, debe crear los siguientes recursos:
@@ -57,7 +64,7 @@ Para configurar una red Virtual WAN de extremo a otro, debe crear los siguientes
 
   * **Sitio:** este recurso se usa solo para las conexiones de sitio a sitio. El recurso del sitio es **vpnsite**. Representa el dispositivo VPN local y su configuración. Al trabajar con un asociado de Virtual WAN, tiene una solución integrada para exportar automáticamente esta información a Azure.
 
-## <a name="connectivity"></a>Conectividad
+## <a name="connectivity"></a>Tipos de conectividad
 
 Virtual WAN permite dos tipos de conectividad: VPN de sitio a sitio, VPN de usuario (de punto a sitio) y ExpressRoute.
 

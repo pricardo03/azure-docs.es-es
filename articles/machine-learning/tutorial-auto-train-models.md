@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: 83c4ad92cc367deb52e4e9e5cd8b76ddab409933
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: 75e61ea3f4fa6c2b346f912a9effd66ad94e7e93
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532218"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116457"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Uso del aprendizaje automático para crear predecir tarifas de taxi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,10 +33,10 @@ En este tutorial, aprenderá a realizar las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago](https://aka.ms/AMLFree) de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos.
-* Después de completar el tutorial de instalación, abra el cuaderno **tutorials/regression-automated-ml.ipynb** con el mismo servidor de cuadernos.
+* Después de completar el tutorial de instalación, abra el cuaderno *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* con el mismo servidor de cuadernos.
 
 Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere ejecutarlo en su propio [entorno local](how-to-configure-environment.md#local). Ejecute `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` para obtener los paquetes requeridos.
 

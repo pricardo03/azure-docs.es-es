@@ -1,44 +1,38 @@
 ---
-title: 'Tutorial: Integración con una canalización de integración y entrega continuas'
-titleSuffix: Azure App Configuration
-description: En este tutorial, aprenderá a generar un archivo de configuración mediante los datos de Azure App Configuration durante la integración y entrega continuas.
+title: Integración de Azure App Configuration mediante una canalización de entrega e integración continuas
+description: Aprenda a implementar una entrega e integración continuas mediante Azure App Configuration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 02/24/2019
+ms.date: 01/30/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: cd40b52c20a3cafdbbeef093b574d44b9163c7b2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c744557471a9b37bd620bb9195bdb709c24649ab
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899376"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047286"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integración con una canalización de CI/CD
 
-En este artículo se describen distintas formas de usar datos de Azure App Configuration en un sistema de integración e implementación continuas.
+En este artículo se explica cómo usar datos de Azure App Configuration en un sistema de integración e implementación continuas.
 
 ## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Use App Configuration en la canalización de Azure DevOps
 
-Si tiene una canalización de Azure DevOps, puede capturar valores de clave de App Configuration y establecerlos como variables de la tarea. La [extensión de DevOps de Azure App Configuration](https://go.microsoft.com/fwlink/?linkid=2091063) es un módulo adicional que proporciona esta funcionalidad. Para usar la extensión en una secuencia de tareas de una compilación o versión no tiene más que seguir sus instrucciones.
+Si tiene una canalización de Azure DevOps, puede capturar valores de clave de App Configuration y establecerlos como variables de la tarea. La [extensión de DevOps de Azure App Configuration](https://go.microsoft.com/fwlink/?linkid=2091063) es un módulo adicional que proporciona esta funcionalidad. Para usar la extensión en una secuencia de tareas de una compilación o versión, siga sus instrucciones.
 
 ## <a name="deploy-app-configuration-data-with-your-application"></a>Implementación de datos de App Configuration con la aplicación
 
-La aplicación puede no ejecutarse si depende de Azure App Configuration y no puede acceder a él. Puede mejorar la resistencia de la aplicación para tratar con este tipo de evento, aunque es poco probable que ocurra. Para ello, empaquete los datos de configuración actuales en un archivo que se implemente con la aplicación y se cargue localmente durante su inicio. Este enfoque garantiza que la aplicación tenga al menos los valores de configuración predeterminados. Estos valores se sobrescriben con los cambios más recientes en un almacén de App Configuration cuando está disponible.
+La aplicación puede no ejecutarse si depende de Azure App Configuration y no puede acceder a él. Mejore la resistencia de la aplicación mediante el empaquetado de los datos de configuración en un archivo que se implementa con la aplicación y se carga localmente durante el inicio de la aplicación. Este enfoque garantiza que la aplicación tenga al menos los valores de configuración predeterminados en el inicio. Estos valores se sobrescriben con los cambios más recientes en un almacén de App Configuration cuando está disponible.
 
-Mediante la función [Exportar](./howto-import-export-data.md#export-data) de Azure App Configuration, puede automatizar el proceso de recuperar los datos de configuración actuales como un único archivo. A continuación, inserte este archivo en un paso de compilación o implementación en la canalización de implementación continua e integración continua (CI/CD).
+Mediante la función [Exportar](./howto-import-export-data.md#export-data) de Azure App Configuration, puede automatizar el proceso de recuperar los datos de configuración actuales como un único archivo. A continuación, puede insertar este archivo en un paso de compilación o implementación en la canalización de integración continua e implementación continua (CI/CD).
 
 En el ejemplo siguiente se muestra cómo incluir los datos de App Configuration como un paso de compilación para la aplicación web que se introdujo en los inicios rápidos. Antes de continuar, finalice primero el tutorial [Creación de una aplicación ASP.NET Core con Azure App Configuration](./quickstart-aspnet-core-app.md).
 
 Para realizar los pasos de este tutorial, puede usar cualquier editor de código. [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Si compila localmente, descargue e instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) si aún no lo ha hecho.
 
@@ -54,10 +48,7 @@ Para realizar una compilación en la nube, por ejemplo, con Azure DevOps, aseg�
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-
-    Agregue el valor de *ConnectionString* asociado al almacén de App Configuration como una variable de entorno.
-
-2. Abra *Program.cs* y actualice el método `CreateWebHostBuilder` para que use el archivo JSON exportado, para lo que es preciso llamar al método `config.AddJsonFile()`.
+1. Abra *Program.cs* y actualice el método `CreateWebHostBuilder` para que use el archivo JSON exportado, para lo que es preciso llamar al método `config.AddJsonFile()`.  Agregue también el espacio de nombres `System.Reflection`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -75,7 +66,8 @@ Para realizar una compilación en la nube, por ejemplo, con Azure DevOps, aseg�
 
 ### <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
-1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de App Configuration. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
+1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de App Configuration. 
+    Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

@@ -3,17 +3,17 @@ title: 'Inicio rápido: Adición de un dispositivo simulado a Azure IoT Central'
 description: En este inicio rápido se muestra cómo crear una plantilla de dispositivo y agregar un dispositivo simulado a la aplicación en IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: cb8f0c806435a6c623d14e50263844db7aac61bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 489bf81388c1bb889756d54957e791282054f0f7
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026188"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169600"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Inicio rápido: Adición de un dispositivo simulado a una aplicación de IoT Central
 
@@ -28,7 +28,7 @@ En este inicio rápido, se agrega una plantilla de dispositivo para una placa *M
 * Responde a comandos como, por ejemplo, activar y desactivar.
 * Notifica propiedades genéricas del dispositivo, como la versión de firmware y el número de serie.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete el inicio rápido [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la plantilla **Aplicación personalizada > Aplicación personalizada**.
 
@@ -52,7 +52,7 @@ En los pasos siguientes se muestra cómo usar el catálogo de dispositivos para 
 
 1. En la página **Select template type** (Seleccionar tipo de plantilla), desplácese hacia abajo hasta que encuentre el icono de **MXChip IoT DevKit**.
 
-1. Seleccione el icono **MXChip IoT DevKit** y, después, seleccione **Next: Customize** (Siguiente: Personalizar)
+1. Seleccione el icono **MXChip IoT DevKit** y, después, seleccione **Next: Customize** (Personalizar)
 
 1. En la página **Revisar**, seleccione **Crear**.
 
@@ -66,7 +66,7 @@ En los pasos siguientes se muestra cómo usar el catálogo de dispositivos para 
 
 Una plantilla de dispositivo puede incluir propiedades de la nube. Las propiedades de la nube solo existen en la aplicación IoT Central y nunca se envían a un dispositivo ni se reciben de él.
 
-1. Seleccione **Cloud Properties** (Propiedades de nube) y, luego, **+ Add Cloud Property** (+ Agregar propiedad de la nube). Use la información de la tabla siguiente para agregar dos propiedades de la nube a la plantilla de dispositivo:
+1. Seleccione **Cloud Properties** (Propiedades de la nube) y, luego, **+ Add cloud property** (+ Agregar propiedad de la nube). Use la información de la tabla siguiente para agregar dos propiedades de la nube a la plantilla de dispositivo:
 
     | Display Name (Nombre para mostrar)      | Semantic Type (Tipo semántico) | Schema |
     | ----------------- | ------------- | ------ |

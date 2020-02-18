@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 769cb77f297fb30d619623c4a635ef6793825421
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec4b80971a27553fb4967a85e5f47cf11e40c3b2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429084"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110365"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)
 
@@ -31,7 +31,7 @@ El artículo se ha escrito para Windows, pero este inicio rápido también puede
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Instale [Visual Studio 2019](https://www.visualstudio.com/vs/) con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Instale la última versión de [Git](https://git-scm.com/download/).
@@ -40,6 +40,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
+
+* Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo
 

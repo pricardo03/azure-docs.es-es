@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e213a92397240f2646ceda30688ecef422cdf29c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6d1a011f2aa446d8d6f9a7a474b174e3005aa1d9
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166369"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110338"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Inicio rápido: Envío de datos de telemetría de IoT desde un dispositivo Android
 
@@ -29,7 +29,7 @@ La guía de inicio rápido usa una aplicación Android escrita anteriormente par
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Android Studio desde https://developer.android.com/studio/. Para más información acerca de la instalación de Android Studio, consulte [android-installation](https://developer.android.com/studio/install).
 
@@ -42,6 +42,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    ```
 
 * La [aplicación Android de ejemplo](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) que va a ejecutar en inicio rápido es parte del repositorio azure-iot-samples-java en GitHub. Descargue o clone el repositorio [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+
+* Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

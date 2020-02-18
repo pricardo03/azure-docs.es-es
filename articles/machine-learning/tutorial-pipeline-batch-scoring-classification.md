@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: 4850a58ae96b9fc5e8293efbac0de447915289ca
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 02/10/2020
+ms.openlocfilehash: 3dc0af3f0d1236e902f6fa845fae95e3f2a500d1
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763358"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116469"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes
 
@@ -37,10 +37,10 @@ En este tutorial, va a completar las siguientes tareas:
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Complete la [parte 1 del tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos.
-* Una vez terminado el tutorial de instalación, use el mismo servidor de cuadernos para abrir el cuaderno *tutorials/tutorial-pipeline-batch-scoring-classification.ipynb*.
+* Una vez terminado el tutorial de instalación, use el mismo servidor de cuadernos para abrir el cuaderno *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb*.
 
 Si desea ejecutar el tutorial de instalación en su propio [entorno local](how-to-configure-environment.md#local) puede acceder al tutorial en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Ejecute `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` para obtener los paquetes requeridos.
 

@@ -4,12 +4,12 @@ description: Aprenda a ejecutar una migración de máquinas virtuales de VMware 
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: MVC
-ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028957"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057284"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migración de máquinas virtuales de VMware a Azure (basada en agente)
 
@@ -57,7 +57,7 @@ Para decidir si desea utilizar la migración sin agente o basada en agente, cons
 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar este tutorial, debe:
 
@@ -203,7 +203,7 @@ Si no ha seguido el tutorial para evaluar las máquinas virtuales de VMware, con
 
     **Geografía** | **Región**
     --- | ---
-    Asia | Sudeste asiático
+    Asia | Sudeste de Asia
     Europa | Norte de Europa y Oeste de Europa
     Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
 
@@ -402,7 +402,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 
 2. En **Replicación de máquinas**, haga clic con el botón derecho en la máquina virtual > **Migrar**.
 3. En **Migrar** >  **¿Quiere apagar las máquinas virtuales y realizar una migración planificada sin perder datos?** , seleccione **Sí** > **Aceptar**.
-    - De forma predeterminada, Azure Migrate apaga la máquina virtual local y ejecuta una replicación a petición para sincronizar los cambios que se han producido en la máquina virtual desde la última replicación. De esta forma se garantiza que no se pierden datos.
+    - De forma predeterminada, Azure Migrate apaga la máquina virtual local para garantizar una pérdida de datos mínima. 
     - Si no desea apagar la máquina virtual, seleccione **No**
 4. Se inicia un trabajo de migración de la máquina virtual. Realice un seguimiento del trabajo en las notificaciones de Azure.
 5. Una vez finalizado el trabajo, la máquina virtual puede ver y administrar desde la página **Máquinas virtuales**.

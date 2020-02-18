@@ -3,12 +3,12 @@ title: 'Ejemplo de plano técnico de FedRAMP moderado: controles'
 description: Ejemplo de asignación de control del plano técnico de FedRAMP moderado. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 ms.date: 10/31/2019
 ms.topic: sample
-ms.openlocfilehash: 0ecf5430f643ee795f81759f3d07a062e433f5b6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 3fd6762f4f0a76b560a37dd1ed4f727aa76385fd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544555"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150485"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Ejemplo de asignación de control del plano técnico de FedRAMP moderado
 
@@ -190,7 +190,7 @@ Además, este proyecto también asigna definiciones de directiva que supervisan 
 
 - Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet
 - Debe restringirse el acceso a través de un punto de conexión accesible desde Internet
-- Se deben proteger las reglas de NSG para las aplicaciones web en IaaS
+- Los puertos web deben estar restringidos en los grupos de seguridad de red asociados a la máquina virtual.
 - Auditar el acceso de red sin restricciones a cuentas de almacenamiento
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>Protección de límites SC-7 (3) | Puntos de acceso
@@ -272,7 +272,7 @@ Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de s
 - Implementación de Advanced Data Security en los servidores de SQL Server
 - Implementar Advanced Threat Protection en las cuentas de almacenamiento
 - Implementación de auditorías en servidores SQL Server
-- Implementar Network Watcher al crear redes virtuales
+- Implementar Network Watcher al crear redes virtuales.
 - Implementación de la detección de amenazas en servidores SQL Server.
 
 > [!NOTE]

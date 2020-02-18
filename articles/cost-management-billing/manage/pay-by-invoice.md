@@ -2,28 +2,28 @@
 title: Pago de suscripciones de Azure con factura
 description: Describe cómo pagar las suscripciones de Azure mediante factura.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: a0f012145788d2d1d4935e10691859e5aaf71255
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a471e859261dc735e92bfff743eb3a8e13dd9a35
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75986380"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133625"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pago de las suscripciones de Azure con factura
 
 Si cambia al pago con factura, significa que pagará el importe en un plazo de 30 días después de la fecha de factura mediante cheque o transferencia bancaria. Para ser apto para pagar su suscripción de Azure mediante factura, envíe una solicitud a Soporte técnico de Azure. Una vez aprobada su solicitud, puede cambiar al pago con factura (cheque o transferencia bancaria) en [Azure Portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * El pago con factura (cheque o transferencia bancaria) solo está disponible para las cuentas empresariales.
+> * El pago (por cheque o transferencia bancaria) de la factura solo está disponible para los clientes que usan Azure en nombre de una empresa.
 > * Pague todos los cargos pendientes antes de cambiar al pago con factura.
 > * Actualmente, no se admite el pago de facturas para Azure global en China.
 

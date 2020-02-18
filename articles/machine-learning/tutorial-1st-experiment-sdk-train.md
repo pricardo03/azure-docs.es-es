@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: c38347a03ddc0ef5f6c1bd3118696062db9a8254
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532428"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116543"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Entrenamiento del primer modelo de Machine Learning
 
@@ -31,11 +31,11 @@ En este tutorial, ha aprendido las tareas siguientes:
 > * Visualización de los resultados del entrenamiento en el portal
 > * Recuperación del mejor modelo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 El único requisito previo es ejecutar la parte primera de este tutorial, [Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
-En esta parte del tutorial, ejecutará el código `tutorials/tutorial-1st-experiment-sdk-train.ipynb` en el cuaderno de Jupyter Notebook de ejemplo que se abrió al final de la parte uno. Este artículo le guía a través del mismo código que se encuentra en el cuaderno.
+En esta parte del tutorial se ejecuta el código del cuaderno de Jupyter de muestra *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* que se abrió al final de la primera parte. Este artículo le guía a través del mismo código que se encuentra en el cuaderno.
 
 ## <a name="open-the-notebook"></a>Apertura del cuaderno
 
@@ -45,7 +45,7 @@ En esta parte del tutorial, ejecutará el código `tutorials/tutorial-1st-experi
 
 
 > [!Warning]
-> **No** debe crear un cuaderno *nuevo* en la interfaz de Jupyter. El cuaderno `tutorials/tutorial-1st-experiment-sdk-train.ipynb` incluye **todo código y los datos necesarios** para este tutorial.
+> **No** debe crear un cuaderno *nuevo* en la interfaz de Jupyter. En el cuaderno *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* se incluyen **todos los códigos y datos necesarios** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conexión con el área de trabajo y creación de un experimento
 

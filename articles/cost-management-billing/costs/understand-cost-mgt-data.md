@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 156684676758d777231d3b159ba7bc4749b8582a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a514dc07da3e4fd5928614099eb86ecef311bbb1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901766"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188530"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -85,8 +85,6 @@ Si no ve los datos de una suscripción y desea determinar si tal suscripción se
 
 Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cost Management. Todos los costos se calculan hasta que se genera una factura. Los costos que se muestran no incluyen los créditos gratuitos ni los pagados por adelantado.
 
-**Datos de costo y uso**
-
 | **Se incluye** | **No se incluye** |
 | --- | --- |
 | Uso del servicio de Azure<sup>5</sup>        | Cargos de soporte técnico - Para obtener más información, consulte [Explicación de los términos de facturación](../understand/understand-invoice.md). |
@@ -101,13 +99,42 @@ _<sup>**6**</sup> Las compras de Marketplace no están disponible para las ofert
 
 _<sup>**7**</sup> En este momento, las compras de reserva solo están disponibles para las cuentas de Contrato Enterprise (EA)._
 
-**Metadata**
+## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Uso de las etiquetas en los datos de costo y uso
 
-| **Se incluye** | **No se incluye** |
-| --- | --- |
-| Etiquetas de recurso<sup>8</sup> | Etiquetas de grupos de recursos |
+Azure Cost Management recibe etiquetas como parte de cada registro de uso enviado por los servicios individuales. Se aplican las restricciones siguientes a estas etiquetas:
 
-_<sup>**8**</sup> Las etiquetas de recursos se aplican mientras se transmite el uso de cada servicio y no están disponibles con carácter retroactivo para el historial del uso._
+- Las etiquetas deben aplicarse directamente a los recursos y no se heredan implícitamente del grupo de recursos primario.
+- Las etiquetas de recursos solo se admiten para los recursos implementados en grupos de recursos.
+- Es posible que algunos recursos implementados no admitan etiquetas o que no incluyan etiquetas en los datos de uso; consulte [Compatibilidad de etiquetas de los recursos de Azure](../../azure-resource-manager/tag-support.md).
+- Las etiquetas de recursos solo se incluyen en los datos de uso mientras se aplica la etiqueta; las etiquetas no se aplican a los datos históricos.
+- Las etiquetas de recursos solo están disponibles en Cost Management después de que se actualicen los datos; consulte [La frecuencia de actualización de los datos de uso varía](#usage-data-update-frequency-varies).
+- Las etiquetas de recursos solo están disponibles en Cost Management cuando el recurso está activo o en ejecución y genera registros de uso (por ejemplo, no cuando una máquina virtual está desasignada).
+- La administración de etiquetas requiere el acceso de colaborador a cada recurso.
+- La administración de directivas de etiquetas requiere el acceso de propietario o de colaborador de directiva a un grupo de administración, suscripción o grupo de recursos.
+    
+Si no ve una etiqueta específica en Cost Management, tenga en cuenta lo siguiente:
+
+- ¿Se aplicó la etiqueta directamente al recurso?
+- ¿Se aplicó la etiqueta hace más de 24 horas? Consulte [La frecuencia de actualización de los datos de uso varía](#usage-data-update-frequency-varies).
+- ¿Admite etiquetas el tipo de recurso? Los siguientes tipos de recursos no admiten etiquetas en los datos de uso a partir del 1 de diciembre de 2019. Consulte [Compatibilidad de etiquetas de los recursos de Azure](../../azure-resource-manager/tag-support.md) para ver la lista completa de lo que se admite.
+    - Directorios de Azure Active Directory B2C
+    - Instancias de Azure Firewall
+    - Azure NetApp Files
+    - Data Factory
+    - Databricks
+    - Equilibradores de carga
+    - Network Watcher
+    - Notification Hubs
+    - Azure Service Bus
+    - Time Series Insights
+    - puerta de enlace de VPN
+    
+Estas son algunas sugerencias para trabajar con etiquetas:
+
+- Planee por anticipado y defina una estrategia de etiquetado que le permita desglosar los costos por organización, aplicación, entorno, etc.
+- Use Azure Policy para copiar las etiquetas de grupos de recursos en recursos individuales y aplicar la estrategia de etiquetado.
+- Use Tag API junto con Query o UsageDetails para obtener todo el costo basado en las etiquetas actuales.
+
 
 **Actualización de evaluación gratuita a pago por uso**
 

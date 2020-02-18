@@ -1,59 +1,53 @@
 ---
 title: 'Inicio rápido: Creación, entrenamiento y publicación de la base de conocimientos: QnA Maker'
-titleSuffix: Azure Cognitive Services
-description: Este inicio rápido le muestra cómo crear una base de conocimiento (KB) de QnA Maker a partir de contenido propio como, por ejemplo, preguntas más frecuentes o manuales de productos. La base de conocimiento de QnA Maker de este ejemplo se crea a partir de una página web sencilla de preguntas más frecuentes sobre la recuperación de claves de BitLocker.
-author: diberry
-manager: nitinme
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido propio, como por ejemplo preguntas más frecuentes o manuales de productos. En este artículo se incluye un ejemplo de la creación de una base de conocimiento de QnA Maker a partir de una página web sencilla de preguntas más frecuentes para responder a preguntas de QnA Maker.
 ms.topic: quickstart
-ms.date: 01/29/2020
-ms.author: diberry
-ms.openlocfilehash: a3bdc118be96630ebcf3bf63a2948976dc9b4261
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/08/2020
+ms.openlocfilehash: a4c4d9b2e8f4b816510fb35a75b3c9b8b2afa5e2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901680"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108730"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Inicio rápido: Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
-Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido propio, como por ejemplo preguntas más frecuentes o manuales de productos. En este artículo se incluye un ejemplo de la creación de una base de conocimiento de QnA Maker a partir de una página web sencilla de preguntas más frecuentes sobre la recuperación de claves de BitLocker.
+Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido propio, como por ejemplo preguntas más frecuentes o manuales de productos. En este artículo se incluye un ejemplo de la creación de una base de conocimiento de QnA Maker a partir de una página web sencilla de preguntas más frecuentes para responder a preguntas de QnA Maker.
 
-Incluya una personalidad de charla para hacer que sus conocimientos sean más atractivos para los usuarios.
-
-[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-## <a name="prerequisite"></a>Requisito previo
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!div class="checklist"]
 > * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+> * Un [recurso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) de QnA Maker creado en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre de recurso de QnA que seleccionó al crear el recurso.
 
-## <a name="create-a-new-qna-maker-knowledge-base"></a>Creación de una nueva base de conocimiento de QnA Maker
+## <a name="create-your-first-qna-maker-knowledge-base"></a>Creación de su primera base de conocimiento de QnA Maker
 
 1. Inicie sesión en el portal de [QnAMaker.ai](https://QnAMaker.ai) con las credenciales de Azure.
 
 1. En el portal de QnA Maker, seleccione **Create a knowledge base** (Crear una base de conocimiento).
 
-1. En la página **Create** (Crear), seleccione **Create a QnA service** (Crear un servicio QnA). Se le dirigirá a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar un servicio QnA Maker en la suscripción.
+1. En la página **Crear**, omita el **paso 1** si ya tiene el recurso de QnA Maker.
 
-1. Cree el recurso en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre de recurso de QnA que seleccionó al crear el recurso.
-1. Vuelva al portal de QnA Maker y actualice la página web en el portal para continuar con la creación de la base de conocimiento. Seleccione un inquilino existente, una suscripción y el nuevo recurso. Seleccione el idioma. Este será el idioma que se utilice para todas las bases de conocimiento de este servicio QnA Maker.
+    Si aún no ha creado el recurso, seleccione **Create a QnA service** (Crear un servicio QnA). Se le dirigirá a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar un servicio QnA Maker en la suscripción. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre de recurso de QnA que seleccionó al crear el recurso.
+
+    Cuando haya terminado de crear el recurso en Azure Portal, vuelva al portal de QnA Maker, actualice la página del explorador y continúe con el **paso 2**.
+
+1. En el **paso 3**, seleccione Active Directory, la suscripción, el servicio (recurso) y el idioma de todas las bases de conocimiento creadas en el servicio.
 
    ![Captura de pantalla de la selección de una base de conocimiento del servicio QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. Asigne el nombre **Mi KB de QnA de ejemplo** a la base de conocimiento.
+1. En el **paso 3**, asigne el nombre **Mi KB de QnA de ejemplo** a la base de conocimiento.
 
-1. Agregue un documento de Word de ejemplo como una dirección URL:
+1. En el **paso 4**, establezca la configuración con los siguientes valores:
 
-    `https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`
+    |Configuración|Value|
+    |--|--|
+    |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción en varios turnos de direcciones URL, archivos .pdf o .docx).|Activado|
+    |**Texto de respuesta predeterminado**| `Quickstart - default answer not found.`|
+    |**+ Agregar dirección URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**Charla**|Seleccione **Professional**|
 
-1. Seleccione `+ Add URL`.
-
-1. Agregue **_charla profesional_** a su base de conocimiento.
-
-1. Seleccione **Create your KB** (Crear la base de conocimiento).
+1. En el **paso 5**, seleccione **Create your KB** (Crear base de conocimiento).
 
     El proceso de extracción tarda unos minutos en leer el documento e identificar las preguntas y respuestas.
 
@@ -78,7 +72,7 @@ Incluya una personalidad de charla para hacer que sus conocimientos sean más at
 
 ## <a name="save-and-train"></a>Guardar y entrenar
 
-En la esquina superior derecha, haga clic en **Save and train** (Guardar y entrenar) para guardar las modificaciones y entrenar el modelo de QnA Maker. Las modificaciones no se conservan a menos que se guarden.
+En la esquina superior derecha, haga clic en **Save and train** (Guardar y entrenar) para guardar las modificaciones y entrenar a QnA Maker. Las modificaciones no se conservan a menos que se guarden.
 
 ## <a name="test-the-knowledge-base"></a>Prueba de la base de conocimiento
 
@@ -149,9 +143,12 @@ Todo esto se ha realizado en unos minutos sin tener que escribir ningún código
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Limpie los recursos del marco de QnA Maker y Bot en Azure Portal.
+Si no va a continuar con el siguiente inicio rápido, elimine los recursos de QnA Maker y Bot Framework en Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Adición de preguntas con metadatos](add-question-metadata-portal.md)
 
 Para obtener más información:
 
@@ -159,5 +156,4 @@ Para obtener más información:
 * [Orígenes de datos](../concepts/knowledge-base.md) de QnA Maker
 * [Opciones de configuración de recursos de bot](../tutorials/create-qna-bot.md)
 
-> [!div class="nextstepaction"]
-> [Adición de preguntas con metadatos](add-question-metadata-portal.md)
+

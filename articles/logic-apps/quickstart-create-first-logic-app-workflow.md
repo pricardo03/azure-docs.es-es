@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c2a26f2f40e0312fbfa0962e69ddfd0cfdabad5f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428759"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191289"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo mediante Azure Logic Apps: Azure Portal
 
@@ -47,7 +47,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales 
    | **Nombre** | <*nombre-de-la-aplicación-lógica*> | El nombre de la aplicación lógica, que solo puede contener letras, números,guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`,`)`) y puntos (`.`). En este ejemplo se usa "My-First-Logic-App". |
    | **Suscripción** | <*Azure-subscription-name*> | El nombre de la suscripción de Azure |
    | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | Nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se usa "My-First-LA-RG". |
-   | **Ubicación** | <*Azure-region*> | La región en la que desea almacenar la información de la aplicación lógica. En este ejemplo se utiliza "West US". |
+   | **Ubicación** | <*Azure-region*> | La región en la que desea almacenar la información de la aplicación lógica. En este ejemplo se utiliza "Oeste de EE. UU.". |
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. |
    ||||
 
@@ -116,7 +116,7 @@ Ahora, agregue una [acción](../logic-apps/logic-apps-overview.md#logic-app-conc
 1. Si el conector de correo electrónico seleccionado le pide que autentique su identidad, complete ese paso ahora para crear una conexión entre la aplicación lógica y el servicio de correo electrónico.
 
    > [!NOTE]
-   > En este ejemplo en concreto, la identidad se autentica manualmente. Sin embargo, los conectores que requieren autenticación difieren en los tipos de autenticación que admiten. También tiene opciones para configurar la manera en que desea controlar la autenticación. Por ejemplo, al usar plantillas de Azure Resource Manager para la implementación, puede parametrizar y proteger las entradas que desea cambiar con frecuencia o con facilidad, como la información de conexión. Para más información, consulte los temas siguientes:
+   > En este ejemplo en concreto, la identidad se autentica manualmente. Sin embargo, los conectores que requieren autenticación difieren en los tipos de autenticación que admiten. También tiene opciones para configurar la manera en que desea controlar la autenticación. Por ejemplo, si se usan plantillas de Azure Resource Manager para la implementación, es posible parametrizar y mejorar la seguridad de las entradas que se cambian con frecuencia o con facilidad, como la información de la conexión. Para más información, consulte los temas siguientes:
    >
    > * [Parámetros de plantilla para la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Autorización de conexiones de OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)

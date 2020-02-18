@@ -11,28 +11,31 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: c8c6e2741eeeadf2afc0c027da8f9cf957c29c95
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 022af5ce0774ff106a29a2ef0bcf3fe11acfda15
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023249"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187212"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Envío o recepción de eventos desde Azure Event Hubs: .NET Core (Microsoft.Azure.EventHubs) 
-Event Hubs es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Event Hubs, puede almacenarlos mediante un clúster de almacenamiento o eventos de procesos. Por ejemplo, los datos de eventos se pueden transformar mediante un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las arquitecturas de aplicaciones modernas, entre las que se incluye Internet de las cosas (IoT). Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
-
-En este tutorial se muestra cómo enviar o recibir eventos desde un centro de eventos mediante el SDK de .NET Core de Event Hubs. 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Envío y recepción de eventos desde Azure Event Hubs: .NET Core (Azure.Messaging.EventHubs) 
+En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante la biblioteca de .NET Core**Azure.Messaging.EventHubs**. 
 
 > [!IMPORTANT]
-> Este inicio rápido usa la nueva biblioteca del servicio **Azure.Messaging.EventHubs**. Para ver un inicio rápido que use la biblioteca de **Microsoft.Azure.EventHubs** anterior, consulte [este artículo](event-hubs-dotnet-standard-getstarted-send.md). 
+> Este inicio rápido usa la nueva biblioteca del servicio **Azure.Messaging.EventHubs**. Para ver un inicio rápido que use la biblioteca **Microsoft.Azure.EventHubs**anterior, consulte [Envío y recepción de eventos mediante la biblioteca Microsoft.Azure.EventHubs](event-hubs-dotnet-standard-getstarted-send.md). 
 
-## <a name="prerequisites"></a>Prerequisites
+
+
+## <a name="prerequisites"></a>Prerrequisitos
+Si es la primera vez que usa Azure Event Hubs, consulte la [información general de Event Hubs](event-hubs-about.md) antes de proceder con este inicio rápido. 
+
+Para completar este tutorial de inicio rápido, debe cumplir los siguientes requisitos previos:
 
 - Una **suscripción a Microsoft Azure**. Para usar los servicios de Azure, entre los que se incluye Azure Event Hubs, se necesita una suscripción.  Si no se dispone de una cuenta de Azure, es posible registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/), o bien usar las ventajas que disfrutan los suscriptores MSDN al [crear una cuenta](https://azure.microsoft.com).
 - **Microsoft Visual Studio 2019**. La biblioteca cliente de Azure Event Hubs utiliza las nuevas características que se introdujeron en C# 8.0.  La biblioteca se puede usar con versiones anteriores de C#, pero una parte de su funcionalidad no estará disponible.  Para habilitar estas características, debe usar [.NET Core 3.0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) como destino, o bien [especificar la versión del lenguaje](/dotnet/csharp/language-reference/configure-language-version#override-a-default) que quiere usar (8.0 o superior). Si usa Visual Studio, las versiones anteriores a Visual Studio 2019 no son compatibles con las herramientas necesarias para compilar proyectos de C# 8.0. Visual Studio 2019, incluida la edición Community gratis, se puede descargar [aquí](https://visualstudio.microsoft.com/vs/)
-- **Creación de un espacio de nombres de Event Hubs y un centro de eventos**. El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). Después, obtenga la **cadena de conexión para el espacio de nombres de Event Hubs**. Para ello, siga las instrucciones del artículo: [Obtenga la cadena de conexión](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilizará la cadena de conexión más adelante en el tutorial.
+- **Creación de un espacio de nombres de Event Hubs y un centro de eventos**. El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). Después, obtenga la **cadena de conexión para el espacio de nombres de Event Hubs**. Para ello, siga las instrucciones del artículo: [Obtenga la cadena de conexión](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La cadena de conexión la utilizará más adelante en este inicio rápido.
 
 ## <a name="send-events"></a>Envío de eventos 
 En esta sección se muestra cómo crear una aplicación de consola de .NET Core para enviar eventos a un centro de eventos. 
@@ -228,3 +231,4 @@ Consulte los ejemplos de GitHub.
 
 - [Ejemplos de Event Hubs en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [Ejemplos de procesador de eventos en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
+- [Control de acceso basado en rol (RBAC): Ejemplos](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)

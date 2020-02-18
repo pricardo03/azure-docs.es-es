@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75765076"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153118"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -37,7 +37,7 @@ En este artículo, aprenderá a:
 > * Exportar las etiquetas
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Los datos que quiere etiquetar, ya sea en archivos locales o en Azure Storage.
 * Conjunto de etiquetas que quiere aplicar.
@@ -125,7 +125,7 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 
 ## <a name="initialize-the-labeling-project"></a>Inicialización del proyecto de etiquetado
 
-Una vez inicializado el proyecto de etiquetado, algunos aspectos del proyecto son inmutables. No se puede cambiar el tipo de tarea ni el conjunto de datos. Se *pueden* modificar las etiquetas y la dirección URL de la descripción de la tarea. Repase atentamente la configuración antes de crear el proyecto. Después de enviar el proyecto, volverá a la página principal **Etiquetado**, que muestra el proyecto como **Inicializando**. Esta página no se actualiza automáticamente. Espere unos momentos y actualice la página manualmente para ver el estado del proyecto como **Creado**.
+Una vez inicializado el proyecto de etiquetado, algunos aspectos del proyecto son inmutables. No se puede cambiar el tipo de tarea ni el conjunto de datos. Se *pueden* modificar las etiquetas y la dirección URL de la descripción de la tarea. Repase atentamente la configuración antes de crear el proyecto. Después de enviar el proyecto, volverá a la página principal **Data Labelling** (Etiquetado de datos), que muestra el proyecto como **Initializing** (Inicializando). Esta página no se actualiza automáticamente. Espere unos momentos y actualice la página manualmente para ver el estado del proyecto como **Creado**.
 
 ## <a name="manage-teams-and-people"></a>Administración de equipos y personas
 
@@ -139,7 +139,7 @@ Para enviar un correo electrónico al equipo, seleccione el equipo para ver la p
 
 ## <a name="run-and-monitor-the-project"></a>Ejecutar y supervisar el proyecto
 
-Después de inicializar el proyecto, Azure comenzará a ejecutarlo. Seleccione el proyecto en la página **Etiquetado** para ir a **Detalles del proyecto**. En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
+Después de inicializar el proyecto, Azure comenzará a ejecutarlo. Seleccione el proyecto en la página **Data Labeling** (Etiquetado de datos) para ir a **Project details** (Detalles del proyecto). En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
 
 En la pestaña **Datos**, puede ver el conjunto de datos y revisar los datos etiquetados. Si ve datos etiquetados incorrectamente, selecciónelos y elija **Rechazar**; se quitarán las etiquetas y los datos se volverán a colocar en la cola sin etiquetar.
 
@@ -148,6 +148,24 @@ Use la pestaña **Equipo** para asignar o desasignar equipos del proyecto.
 Para poner en pausa o reiniciar el proyecto, seleccione el botón **Pausar**/**Iniciar**. Solo se pueden etiquetar datos cuando el proyecto se está ejecutando.
 
 Puede etiquetar los datos directamente desde la página **Detalles del proyecto** si selecciona **Label data** (Etiquetar datos).
+
+## <a name="add-labels-to-a-project"></a>Incorporación de etiquetas a un proyecto
+
+Durante el proceso de etiquetado es posible que se necesiten etiquetas adicionales para clasificar las imágenes.  Por ejemplo, puede que desee agregar una etiqueta "Desconocido" u "Otro" para indicar que las imágenes son confusas.
+
+Siga estos pasos para agregar una o varias etiquetas a un proyecto:
+
+1. Seleccione el proyecto en la página principal **Data Labeling** (Etiquetado de datos).
+1. En la parte superior de la página, seleccione **Pause** (Pausa) para detener la actividad de los etiquetadores.
+1. Seleccione la pestaña **Details** (Detalles).
+1. En la lista de la izquierda, seleccione **Label classes** (Clases de etiquetas).
+1. En la parte superior de la lista, seleccione **+ Add Labels** (+ Agregar etiquetas) ![Add a label](media/how-to-create-labeling-projects/add-label.png) (Agregar una etiqueta).
+1. En el formulario, agregue la nueva etiqueta y elija cómo continuar.  Como ha cambiado las etiquetas disponibles para una imagen, elija cómo tratar los datos ya etiquetados:
+    * Vuelva a empezar y quite todas las etiquetas existentes.  Elija esta opción si desea empezar a etiquetar desde el principio con el nuevo conjunto de etiquetas completo. 
+    * Vuelva a empezar y conserve todas las etiquetas existentes.  Elija esta opción para marcar todos los datos como sin etiquetar, pero mantener las etiquetas existentes como predeterminadas para las imágenes etiquetadas previamente.
+    * Continúe y conserve todas las etiquetas existentes. Elija esta opción para mantener todos los datos ya etiquetados como están y empezar a usar la nueva etiqueta para los datos que aún no se hayan etiquetado.
+1. Modifique la página de instrucciones según sea necesario para las nuevas etiquetas.
+1. Una vez que haya agregado todas las etiquetas nuevas, en la parte superior de la página, seleccione **Start** (Iniciar) para reiniciar el proyecto.  
 
 ## <a name="export-the-labels"></a>Exportar las etiquetas
 

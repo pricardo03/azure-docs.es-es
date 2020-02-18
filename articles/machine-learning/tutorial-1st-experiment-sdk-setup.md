@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/25/2019
-ms.openlocfilehash: 125cde85d3caa6fd1a33045e85c5383f83a669bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/10/2020
+ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982541"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77165983"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Creación del primer experimento de ML con el SDK de Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,7 +84,7 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
     > [!IMPORTANT]
     > Puede ver los cuadernos en la carpeta **samples** (ejemplos), pero no puede ejecutar un cuaderno desde aquí.  Para ejecutar un cuaderno, asegúrese de que abre la versión clonada del cuaderno en la sección **User Files** (Archivos de usuario).
     
-1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials** (tutoriales).
+1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials/create-first-ml-experiment**.
 
 1. En la barra superior, seleccione una instancia de proceso para usarla para ejecutar el cuaderno. Estas máquinas virtuales están configuradas previamente con [todo lo necesario para ejecutar Azure Machine Learning](concept-compute-instance.md#contents). Puede seleccionar una máquina virtual creada por cualquier usuario del área de trabajo. 
 
@@ -99,10 +99,6 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
 1. Una vez disponible, se mostrará en la barra de herramientas superior.  Ahora puede ejecutar el cuaderon con **Run all** (Ejecutar todo) de la barra de herramientas o **Mayús + Entrar** en las celdas de código del cuaderno.
 
 Si tiene widgets personalizados o prefiere usar Jupyter/JupyterLab, seleccione la lista desplegable **Jupyter** en el extremo derecho y, después, seleccione **Jupyter** o **JupyterLab**. Se abrirá la nueva ventana del explorador.
-
-> [!NOTE]
-> Actualmente, las instancias de proceso (versión preliminar) solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar.  Puede usar una máquina virtual de Notebook o una instancia de proceso para ejecutar el cuaderno. Una máquina virtual seguirá en ejecución y generando costos a menos que la detenga. Puede detenerla manualmente en la pestaña **Proceso** de Studio o consultar la [entrada de blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) sobre cómo habilitar el apagado automático programado en máquinas virtuales de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

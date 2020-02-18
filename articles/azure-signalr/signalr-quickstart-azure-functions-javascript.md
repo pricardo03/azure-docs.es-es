@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido de Azure SignalR Service sin servidor: JavaScript'
+title: Uso de JavaScript para crear un salón de chat con Azure Functions y SignalR Service
 description: Una guía de inicio rápido para usar el servicio Azure SignalR y Azure Functions para crear un salón de chat.
 author: sffamily
 ms.service: signalr
@@ -7,28 +7,29 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: eadeb0f0203868c2a1a37190fdd46e47bf26e8f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2726d5da2613be4ae2065246543d206cf814f353
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450256"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083191"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Inicio rápido: Creación de un salón de chat con Azure Functions y SignalR Service mediante JavaScript
+# <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Inicio rápido: Uso de JavaScript para crear un salón de chat con Azure Functions y SignalR Service
 
-El servicio Azure SignalR le permite agregar fácilmente funcionalidad en tiempo real a la aplicación. Azure Functions es una plataforma sin servidor que le permite ejecutar el código sin tener que administrar ninguna infraestructura. En esta guía de inicio rápido, obtenga información sobre cómo usar el servicio SignalR y Functions para crear una aplicación de chat sin servidor en tiempo real.
+Azure SignalR Service permite agregar fácilmente funciones en tiempo real a una aplicación y Azure Functions es una plataforma sin servidor que permite ejecutar el código sin tener que administrar ninguna infraestructura. En este inicio rápido, se usa JavaScript para crear una aplicación de chat en tiempo real sin servidor mediante SignalR Service y Functions.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-Esta guía de inicio rápido se puede ejecutar en macOS, Windows o Linux.
+- Un editor de código como [Visual Studio Code](https://code.visualstudio.com/)
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing), versión 2 o superiores. Se usa para ejecutar aplicaciones de Azure Functions de forma local.
+- [Node.js](https://nodejs.org/en/download/), versión 10.x
 
-Asegúrese de tener instalado un editor de código como [Visual Studio Code](https://code.visualstudio.com/).
+   > [!NOTE]
+   > Los ejemplos deberían funcionar con otras versiones de Node.js. Para más información, consulte la [documentación de las versiones del runtime de Azure Functions](../azure-functions/functions-versions.md#languages).
 
-Instale [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (versión 2 o posteriores) para ejecutar las aplicaciones de Azure Functions de forma local.
-
-En este inicio rápido se usa [Node. js](https://nodejs.org/en/download/) 10. x, pero debería funcionar también con otras versiones. Para más información sobre las versiones admitidas de Node.js, consulte la [documentación de las versiones del runtime de Azure Functions](../azure-functions/functions-versions.md#languages).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> [!NOTE]
+> Esta guía de inicio rápido se puede ejecutar en macOS, Windows o Linux.
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 

@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/14/2020
-ms.openlocfilehash: dee8c919b815c6f22b171f58be9fc6a38167056a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 02/06/2020
+ms.openlocfilehash: 00b51c14a24b525d98e9634a4f416177364228cb
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030030"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069598"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriales en vídeo del flujo de datos de asignación
 
@@ -42,6 +42,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Transformación Columna derivada](https://www.youtube.com/watch?v=FFCbU4ujCiY)
 
 [Transformación Combinación](https://www.youtube.com/watch?v=zukwayEXRtg)
+
+[Patrón de autocombinación](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
 
 [Transformación Búsqueda](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
@@ -130,3 +132,7 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Modelos lógicos frente a modelos físicos](http://youtu.be/K5tgzLjEE9Q)
 
 [Detección de cambios en los datos de origen](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+## <a name="data-flow-expressions"></a>Expresiones del flujo de datos
+
+[Expresiones de fecha y hora](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)

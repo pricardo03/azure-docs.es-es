@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: e1c5504b30c2784e8657ccc0dc4ec18689fe2a68
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: ef5cc0fb561d385a1b1d7b4c14db8c10343508cf
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806820"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133662"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Información general sobre tipos de clase: Azure Lab Services
 
@@ -28,7 +28,7 @@ Azure Lab Services le permite configurar rápidamente un entorno de laboratorio 
 
 Puede configurar un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural (NLP) mediante Azure Lab Services. El procesamiento de lenguaje natural (NLP) es una forma de inteligencia artificial (AI) que permite a los equipos utilizar la traducción, el reconocimiento de voz y otras capacidades de comprensión de lenguajes. Los alumnos que sigan una clase de NLP obtienen una máquina virtual Linux para aprender a aplicar algoritmos de red neuronal para desarrollar modelos de aprendizaje profundo que se utilizan para analizar el lenguaje humano escrito.
 
-Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio centrado en el aprendizaje profundo del procesamiento de lenguaje natural con Azure Lab Services](class-type-deep-learning-natural-processing.md).
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural mediante Azure Lab Services](class-type-deep-learning-natural-processing.md).
 
 ## <a name="shell-scripting-on-linux"></a>Generación de scripts en shell en Linux
 
@@ -40,15 +40,31 @@ Para más información sobre cómo configurar este tipo de laboratorio, consulte
 
 ## <a name="ethical-hacking"></a>Piratería ética
 
-Puede configurar un laboratorio para una clase que se centre en la parte forense de la piratería ética. Las pruebas de penetración son una práctica que usa la comunidad de piratería ética y que se producen cuando alguien intenta obtener acceso al sistema o a la red para demostrar las vulnerabilidades que un atacante malintencionado puede explotar.
+Puede configurar un laboratorio para una clase que se centre en la parte forense de la piratería ética. Las pruebas de penetración son una práctica que usa la comunidad de piratería ética y que se producen cuando alguien intenta obtener acceso al sistema o a la red para mostrar los puntos vulnerables que un atacante malintencionado podría aprovechar.
 
 En una clase de piratería ética, los alumnos pueden aprender técnicas modernas para protegerse frente a los puntos vulnerables. Cada alumno obtiene una máquina virtual host de Windows Server que tiene dos máquinas virtuales anidadas: una máquina virtual con una imagen de [Metasploitable3](https://github.com/rapid7/metasploitable3) y otra con una imagen de [Kali Linux](https://www.kali.org/). La máquina virtual Metasploitable se usa para la explotación.  La máquina virtual Kali de Linux proporciona acceso a las herramientas necesarias para ejecutar tareas forenses.
 
-Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para impartir una clase acerca de la piratería ética](class-type-ethical-hacking.md).
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para impartir una clase de piratería ética](class-type-ethical-hacking.md).
+
+## <a name="database-management"></a>Administración de bases de datos
+Los conceptos de las bases de datos son uno de los cursos introductorios en la mayoría de los departamentos de informática de las universidades. Puede configurar un laboratorio para una clase de administración de bases de datos básica en Azure Lab Services. Por ejemplo, puede configurar una plantilla de máquina virtual en un laboratorio con un servidor de base de datos [MySQL](https://www.mysql.com/) o un servidor de [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019).
+
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para enseñar administración de bases de datos relacionales](class-type-database-management.md).
+
+## <a name="python-and-jupyter-notebooks"></a>Python y cuadernos de Jupyter Notebook
+Puede configurar una máquina de plantilla en Azure Lab Services con las herramientas necesarias para enseñar a los alumnos cómo usar [cuadernos de Jupyter Notebook](http://jupyter-notebook.readthedocs.io). Jupyter Notebooks es un proyecto de código abierto que le permite combinar fácilmente texto enriquecido y código fuente [Python](https://www.python.org/) ejecutable en un solo lienzo denominado cuaderno. Al ejecutar un cuaderno, se genera un registro lineal de entradas y salidas.  Dichas salidas pueden incluir texto, tablas de información, gráficos de dispersión y mucho más.
+
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para enseñar ciencia de datos con Python y cuadernos de Jupyter Notebook](class-type-jupyter-notebook.md).
+
+## <a name="mobile-app-development-with-android-studio"></a>Desarrollo de aplicaciones móviles con Android Studio
+Puede configurar un laboratorio en Azure Lab Services para enseñar una clase introductoria de desarrollo de aplicaciones móviles. Esta clase se centra en las aplicaciones móviles de Android que se pueden publicar en [Google Play Store](https://play.google.com/store/apps).  Los alumnos aprenderán a usar [Android Studio](https://developer.android.com/studio) para compilar aplicaciones.  El [Emulador de Visual Studio para Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) se usa para probar la aplicación localmente.
+
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para enseñar el desarrollo de aplicaciones móviles con Android Studio](class-type-mobile-dev-android-studio.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Configuración de un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural mediante Azure Lab Services](class-type-deep-learning-natural-processing.md)
 - [Generación de scripts de shell en Linux](class-type-shell-scripting-linux.md)

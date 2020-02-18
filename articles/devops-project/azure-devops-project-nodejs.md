@@ -16,28 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: vsts
-ms.openlocfilehash: 11edeb35119e2c598fd83fd89c65ba4dc4679650
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 35eebeaa393ff75ada11752aaf9f195efddfa12b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256100"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049798"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Inicio rápido: Creación de una canalización de CI/CD en Azure Pipelines para Node.js con Azure DevOps Projects
 
-Azure DevOps Projects ofrece una experiencia simplificada que crea recursos de Azure y configura una canalización de integración continua (CI) y entrega continua (CD) para la aplicación de Node.js en Azure Pipelines.  
+En este inicio rápido se usa la experiencia simplificada de Azure DevOps Projects para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Node.js en Azure Pipelines. Azure DevOps Projects se puede usar para configurar todo lo necesario para desarrollar, implementar y supervisar una aplicación. 
 
-Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Una cuenta de [Azure DevOps](https://azure.microsoft.com/services/devops/) y una organización.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, en el panel izquierdo, seleccione **Crear un recurso**. 
 
-1. En el panel izquierdo, seleccione **Crear un recurso** y, después, busque **DevOps Projects**. 
+   ![Creación de un recurso de Azure en Azure Portal](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-    ![Creación de un recurso de configuración de entrega continua](_img/azure-devops-project-nodejs/create-azure-resource.png)
+1. Busque **DevOps Project**, selecciónelo y, después, seleccione **Crear**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Seleccione una aplicación de ejemplo y el servicio de Azure
 
@@ -52,16 +55,16 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure 
 
 1. Cree una organización de Azure DevOps nueva o elija una existente. 
+   
+   1. Escriba un nombre para el proyecto.
+      
+   1. Seleccione la suscripción de Azure y la ubicación, escriba el nombre de la aplicación y seleccione **Listo**.  
+      En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad sobre el repositorio de código, la canalización de CI/CD y la aplicación de Azure.
+   
+1. Seleccione **Examinar** para ver la aplicación en ejecución.
+   
+   ![Vista de panel de la canalización de CI/CD](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-    a. Escriba un nombre para el proyecto.
-
-    b. Seleccione la suscripción de Azure y la ubicación, escriba el nombre de la aplicación y seleccione **Listo**.  
-    En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad del repositorio de código, la canalización de CI/CD y la aplicación de Azure.
-     
-3. Seleccione **Examinar** para ver la aplicación en ejecución.
-
-    ![Vista de panel de la canalización de CI/CD](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
-    
 DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de Node.js con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD

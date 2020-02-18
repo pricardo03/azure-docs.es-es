@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 2/20/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 3c88b8cb40660327d2a4c28cc80b7ebd5956b189
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d0ab828a2574914c511042a16704c4b553960b84
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467263"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119686"
 ---
 1. Inicie Eclipse.
 
@@ -35,7 +35,7 @@ ms.locfileid: "73467263"
 
    ![Captura de pantalla del Explorador de paquetes](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. Aparece la ventana **Create new POM** (Crear nuevo POM). En el campo **Group Id** (Identificador de grupo), escriba *com.microsoft.cognitiveservices.speech.samples*, y en el campo **Artifact Id** (Identificador de artefacto), escriba *quickstart*. A continuación, seleccione **Finish** (Finalizar).
+1. Aparece la ventana **Create new POM** (Crear nuevo POM). En el campo **Group Id** (Identificador de grupo), escriba *com.microsoft.cognitiveservices.speech.samples*, y en el campo **Artifact Id** (Identificador de artefacto), escriba *quickstart*. Después, seleccione **Finalizar**.
 
    ![Captura de pantalla de la pantalla Create new POM (Crear nuevo POM)](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "73467263"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Agregue también un elemento `dependencies`, con la versión 1.7.0 del SDK de Voz como dependencia:
+   * Agregue también un elemento `dependencies`, con la versión 1.9.0 del SDK de Voz como dependencia:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b5748824590f40e30af8f462d4c8ff25521cfd94
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769232"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136093"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para Java
 
@@ -27,7 +27,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 
 [Código fuente](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Documentación de referencia de API](https://azure.github.io/azure-sdk-for-java) | [Documentación del producto](index.yml) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/?view=azure-java-stable), versión 8 o posterior
@@ -168,7 +168,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 La biblioteca cliente de Azure Key Vault para Java le permite administrar las claves y los recursos relacionados, como certificados y secretos. Los ejemplos de código siguientes le mostrarán cómo crear un cliente y cómo establecer, recuperar y eliminar un secreto.
 
-Toda la aplicación de consola está disponible en https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+Toda la aplicación de consola se encuentra [ a continuación](#sample-code).
 
 ## <a name="code-examples"></a>Ejemplos de código
 

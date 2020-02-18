@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Concesión de acceso de un usuario a los recursos de Azure mediante el control de acceso basado en rol y una plantilla de Resource Manager'
+title: 'Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y una plantilla de Resource Manager'
 description: Aprenda a conceder a un usuario acceso a los recursos de Azure con el control de acceso basado en rol (RBAC) y una plantilla de Azure Resource Manager.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418494"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138214"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y una plantilla de Resource Manager
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para agregar y quitar las asignaciones de roles, debe tener:
 
@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Abra el grupo de recursos creado en el último procedimiento. El nombre predeterminado es el nombre del proyecto con **rg** anexado.
 1. Seleccione **Control de acceso (IAM)** en el menú izquierdo.
 1. Seleccione **Asignaciones de roles**. 
