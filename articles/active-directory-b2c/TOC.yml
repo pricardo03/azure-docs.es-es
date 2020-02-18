@@ -177,8 +177,6 @@
             - name: Personalización de la interfaz de usuario
               href: custom-policy-ui-customization.md
               displayName: 'ux, input, cors, html, css'
-            - name: Personalización de la interfaz de usuario de forma dinámica
-              href: custom-policy-ui-customization-dynamic.md
             - name: Correo electrónico personalizado
               href: custom-email.md
               displayName: verification
