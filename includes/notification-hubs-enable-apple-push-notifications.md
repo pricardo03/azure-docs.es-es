@@ -5,15 +5,15 @@ services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/21/2019
+ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: ef2b98821b28d8a49e5f16bf1c6ac176eb8b5793
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407260"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123169"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generación del archivo de solicitud de firma de certificado
 
@@ -26,6 +26,9 @@ Genere el archivo de solicitud de firma de certificado (CSR) que utiliza Apple p
 1. Seleccione **Keychain Access** (Acceso con cadena de claves), expanda **Certificate Assistant** (Asistente para certificados) y, después, seleccione **Request a Certificate from a Certificate Authority** (Solicitar un certificado a una entidad de certificación).
 
     ![Use Acceso a llaves para solicitar un nuevo certificado](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
+
+   > [!NOTE]
+   > De forma predeterminada, Keychain Access (Acceso con cadena de claves) selecciona el primer elemento de la lista. Esto puede ser un problema si está en la categoría **Certificates** (Certificados) y **Apple Worldwide Developer Relations Certification Authority** (Entidad de certificación de Apple Worldwide Developer Relations) no es el primer elemento de la lista. Antes de generar la solicitud de firma de certificado, asegúrese de que tiene un elemento que no sea clave o de que esté seleccionada la clave **Apple Worldwide Developer Relations Certification Authority** (Entidad de certificación de Apple Worldwide Developer Relations).
 
 1. Seleccione una **dirección de correo electrónico de usuario**, escriba un valor en **Common Name** (Nombre común), asegúrese de que especifica **Saved to disk** (Guardar en disco) y, finalmente, seleccione **Continue** (Continuar). Deje en blanco **CA Email Address** (Dirección de correo de la entidad de certificación), ya que no es obligatorio.
 

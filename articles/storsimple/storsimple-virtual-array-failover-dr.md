@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a676f4187af2d358934539e4ca29dbc5c25897
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61409627"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190637"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple mediante Azure Portal
 
@@ -40,11 +40,11 @@ La recuperación ante desastres se modela como una restauración total del dispo
 > 
 > 
 
-La recuperación ante desastres se coordina mediante la característica de recuperación ante desastres del dispositivo y se inicia desde la hoja **Dispositivos**. Esta hoja recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio StorSimple Device Manager. Para cada dispositivo, puede ver el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
+La recuperación ante desastres se orquesta a través de la característica de recuperación ante desastres del dispositivo y se inicia desde la hoja **Dispositivos**. Esta hoja recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio StorSimple Device Manager. Para cada dispositivo, puede ver el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
 
 ## <a name="prerequisites-for-device-failover"></a>Requisitos previos para la conmutación por error de un dispositivo
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para una conmutación por error de un dispositivo, asegúrese de que se cumplen los requisitos previos siguientes:
 
@@ -57,15 +57,15 @@ Para una conmutación por error de un dispositivo, asegúrese de que se cumplen 
   > 
 * El dispositivo de destino no puede tener el mismo nombre que el dispositivo de origen.
 * El dispositivo de origen y de destino deben ser del mismo tipo. Solo puede conmutar por error una matriz virtual configurada como servidor de archivos a otro servidor de archivos. Lo mismo es cierto para un servidor iSCSI.
-* Para la recuperación ante desastres de un servidor de archivos, recomendamos unir el dispositivo de destino al mismo dominio que el origen. Esta configuración garantiza que los permisos del recurso compartido se resuelvan automáticamente. Realice la conmutación por error a un dispositivo de destino solo en el mismo dominio.
+* Para la recuperación ante desastres de un servidor de archivos, recomendamos unir el dispositivo de destino al mismo dominio que el origen. Esta configuración garantiza que los permisos del recurso compartido se resuelvan automáticamente. Se admite solo la conmutación por error en un dispositivo de destino del mismo dominio.
 * Los dispositivos de destino disponibles para la recuperación ante desastres son dispositivos que tienen una capacidad igual o superior en comparación con el dispositivo de origen. Los dispositivos que están conectados al servicio, pero que no cumplen los criterios de espacio suficiente, no están disponibles como dispositivos de destino.
 
 ### <a name="other-considerations"></a>Otras consideraciones
 
-* Si es una conmutación por error planeada 
+* Si es una conmutación por error planeada:
   
   * Se recomienda que deje sin conexión todos los volúmenes o recursos compartidos en el dispositivo de origen.
-  * Se recomienda realizar una copia de seguridad del dispositivo y, a continuación, continuar con la conmutación por error para minimizar la pérdida de datos. 
+  * Se recomienda realizar una copia de seguridad del dispositivo y, a continuación, continuar con la conmutación por error para minimizar la pérdida de datos.
 * Si es una conmutación por error no planeada, el dispositivo utiliza la copia de seguridad más reciente para restaurar los datos.
 
 ### <a name="device-failover-prechecks"></a>Comprobaciones previas a la conmutación por error de dispositivos

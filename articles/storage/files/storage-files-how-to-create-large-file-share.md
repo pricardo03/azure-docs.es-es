@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a9b545d71f21138c0374cf199ce10dc2dc246afb
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732151"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190674"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
-Originalmente, los recursos compartidos de archivos estándar solo podían escalarse verticalmente hasta 5 TiB. Ahora, gracias a los recursos compartidos de archivos grandes, se pueden escalar hasta 100 TiB. Esta escalabilidad se puede habilitar para los recursos compartidos de archivos existentes en las cuentas de almacenamiento existentes. Los recursos compartidos de archivos Premium escalan verticalmente de forma predeterminada hasta 100 TiB.
+Cuando se habilitan recursos compartidos de archivos de gran tamaño en la cuenta de almacenamiento, los recursos compartidos de archivos se pueden escalar verticalmente hasta 100 TiB. Esta escalabilidad se puede habilitar para los recursos compartidos de archivos existentes en las cuentas de almacenamiento existentes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -26,7 +26,7 @@ Originalmente, los recursos compartidos de archivos estándar solo podían escal
 
 ## <a name="restrictions"></a>Restricciones
 
-Por ahora, solo puede usar LRS o ZRS en cuentas habilitadas para recursos compartidos de archivos grandes. No puede usar GZRS, GRS o RA-GRS.
+Por ahora, solo puede usar el almacenamiento con redundancia local (LRS) o el almacenamiento con redundancia de zona (ZRS) en cuentas habilitadas para recursos compartidos de archivos de gran tamaño. No puede usar el almacenamiento con redundancia de zona geográfica (GZRS), el almacenamiento con redundancia geográfica (GRS) ni el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
 La habilitación de recursos compartidos de archivos grandes en una cuenta es un proceso irreversible. Después de habilitarlos, no podrá convertir la cuenta a GZRS, GRS o RA-GRS.
 
 ## <a name="create-a-new-storage-account"></a>Creación de una cuenta de almacenamiento nueva

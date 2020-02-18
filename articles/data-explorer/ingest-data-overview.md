@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091798"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187993"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
 
@@ -70,7 +70,7 @@ Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de d
 
 * [SDK de Node](/azure/kusto/api/node/kusto-node-client-library)
 
-* [API DE REST](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Técnicas de ingesta mediante programación**:
 
@@ -118,7 +118,7 @@ En el caso de las organizaciones con una infraestructura existente que usen un s
 ## <a name="supported-data-formats"></a>Formatos de datos compatibles
 
 Para todos los métodos de ingesta, salvo la ingesta de consulta, cambie el formato de los datos para que Azure Data Explorer pueda analizarlos. 
-* Los formatos de datos compatibles son: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separados por línea, multilínea), Avro y Parquet. 
+* Los formatos de datos compatibles son: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separados por línea, multilínea), Avro, Orc y Parquet. 
 * Admite la compresión ZIP y GZIP.
 
 > [!NOTE]
@@ -126,15 +126,15 @@ Para todos los métodos de ingesta, salvo la ingesta de consulta, cambie el form
 
 ## <a name="ingestion-recommendations-and-limitations"></a>Limitaciones y recomendaciones de ingesta
 
-* La directiva de retención efectiva de los datos ingeridos se deriva de la directiva de retención de la base de datos. Para información más detallada consulte [Directiva de retención](/azure/kusto/concepts/retentionpolicy). La ingesta de datos requiere permisos de **Agente de ingesta de tablas** o de **Agente de ingesta de base de datos**.
+* La directiva de retención efectiva de los datos ingeridos se deriva de la directiva de retención de la base de datos. Para información más detallada, consulte [Directiva de retención](/azure/kusto/concepts/retentionpolicy). La ingesta de datos requiere permisos de **Agente de ingesta de tablas** o de **Agente de ingesta de base de datos**.
 * La ingesta admite un tamaño de archivo máximo de 5 GB. Se recomienda ingerir archivos de entre 100 MB y 1 GB.
 
 ## <a name="schema-mapping"></a>Asignación de esquemas
 
 La asignación de esquemas, ayuda a enlazar campos de datos de origen a columnas de tabla de destino.
 
-* [Asignación de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona con todos los formatos basados en ordinales. se puede realizar mediante el parámetro de comando de ingesta o [se puede crear previamente en la tabla](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) y hacerle referencia desde el parámetro de comando de ingesta.
-* [Asignación de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoria) y [Asignación de Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoria) se pueden realizar mediante el parámetro de comando de ingesta. También se pueden [crear previamente en la tabla](/azure/kusto/management/tables#create-ingestion-mapping) y referenciarse desde el parámetro de comando de ingesta.
+* [Asignación de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona con todos los formatos basados en ordinales. se puede realizar mediante el parámetro de comando de ingesta o [se puede crear previamente en la tabla](/azure/kusto/management/create-ingestion-mapping-command) y hacerle referencia desde el parámetro de comando de ingesta.
+* [Asignación de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoria) y [Asignación de Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoria) se pueden realizar mediante el parámetro de comando de ingesta. También se pueden [crear previamente en la tabla](/azure/kusto/management/create-ingestion-mapping-command) y referenciarse desde el parámetro de comando de ingesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

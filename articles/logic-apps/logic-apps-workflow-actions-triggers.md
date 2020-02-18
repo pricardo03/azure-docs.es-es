@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 6bb8dfc4b85da47a70ba768400341317462bafd8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 336d2ef471e21e3157c7d8c81b3837bb6a962e2e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543484"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191308"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -2383,7 +2383,7 @@ Para cambiar el comportamiento predeterminado del runtime de desencadenadores y 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de instancias de flujo de trabajo que deben esperar para ejecutarse cuando la aplicación lógica ya está ejecutando el número máximo de instancias simultáneas. <p>Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | Todos los desencadenadores | 
 | `runtimeConfiguration.concurrency.repetitions` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo (de forma simultánea o en paralelo). <p>Establecer la propiedad `repetitions` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio de la simultaneidad de los bucles "for each"](#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](#sequential-for-each). | Acción: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Entero | Para acciones específicas que admiten y tienen la paginación activada, este valor especifica el número *mínimo* de resultados que se van a recuperar. <p>Para activar la paginación, vea [Obtención masiva de datos, elementos o resultados mediante la paginación](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Acción: Varía |
-| `runtimeConfiguration.secureData.properties` | Array | En muchos desencadenadores y acciones, esta configuración oculta las entradas, salidas o ambas del historial de ejecución de la aplicación lógica. <p>Para proteger estos datos, consulte [Ocultar entradas y salidas del historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Mayoría de desencadenadores y acciones |
+| `runtimeConfiguration.secureData.properties` | Array | En muchos desencadenadores y acciones, esta configuración oculta las entradas, salidas o ambas del historial de ejecución de la aplicación lógica. <p>Para obtener más información sobre la protección de estos datos, consulte [Ocultar entradas y salidas del historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Mayoría de desencadenadores y acciones |
 | `runtimeConfiguration.staticResult` | Objeto JSON | Para las acciones que tienen la opción [resultado estático](../logic-apps/test-logic-apps-mock-data-static-results.md) activada, el objeto `staticResult` tiene estos atributos: <p>- `name`, que hace referencia al nombre de definición del resultado estático de la acción actual, que aparece dentro del atributo `staticResults` en el atributo `definition` del flujo de trabajo de la aplicación lógica. Para más información, vea [Resultados estáticos: Referencia de esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, que especifica si los resultados estáticos tienen el valor `Enabled` o no para la acción actual. <p>Para activar los resultados estáticos, vea [Probar las aplicaciones lógicas con datos simulados mediante la configuración de resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md). | Acción: Varía |
 ||||| 
 

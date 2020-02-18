@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 1f5824f349650e340e395221785266096da16d6f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: df44cbefaec943a2df483f4804650b939c796cb5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969554"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191150"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitaciones de Azure Database for MariaDB
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
@@ -37,6 +37,11 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Demasiadas conexiones
+
+> [!IMPORTANT]
+> Para obtener la mejor experiencia posible, se recomienda usar un agrupador de conexiones, como ProxySQL, para administrar las conexiones de forma eficaz.
+
+La creación de conexiones cliente a MariaDB lleva tiempo y, una vez establecidas, estas conexiones ocupan recursos de bases de datos, incluso cuando están inactivas. La mayoría de las aplicaciones solicitan muchas conexiones de corta duración, y esto es lo que conforma esta situación. El resultado es que hay menos recursos disponibles para la carga de trabajo real, lo que baja el rendimiento. Esto se puede evitar con un agrupador de conexiones, ya que reduce las conexiones inactivas y reutiliza las conexiones existentes. Para más información sobre cómo configurar ProxySQL, visite nuestra [entrada de blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
 
