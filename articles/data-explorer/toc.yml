@@ -56,6 +56,10 @@
           href: create-cluster-database-resource-manager.md
     - name: Ingerir datos
       items:
+        - name: Ingesta con un solo clic
+          href: ingest-data-one-click.md
+        - name: Ingesta de streaming
+          href: ingest-data-streaming.md
         - name: Centro de eventos
           items:
             - name: Portal de Azure
@@ -86,10 +90,6 @@
               href: data-connection-iot-hub-python.md
             - name: Plantilla del Administrador de recursos de Azure
               href: data-connection-iot-hub-resource-manager.md
-        - name: Ingesta con un solo clic
-          href: ingest-data-one-click.md
-        - name: Ingesta de streaming
-          href: ingest-data-streaming.md
         - name: Uso de SDK
           items:
             - name: Python
