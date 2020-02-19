@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2e05f0cb46e1e54ced5911c0a78dd026dbb7f4fa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dcb0ffef0cf48a7bcbfbdb0107999f7e90333559
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905582"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151996"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 
@@ -88,7 +88,7 @@ Para ayudarle a planear la implementación de cada una de las fases, a continuac
 | Número de objetos | 25 millones de objetos |
 | Tamaño del conjunto de datos| ~4,7 TiB |
 | Tamaño de archivo medio | ~200 KiB (archivo más grande: 100 GiB) |
-| Rendimiento de carga | 20 objetos por segundo |
+| Rendimiento de carga | 20 objetos por segundo por grupo de sincronización |
 | Rendimiento de descarga de espacio de nombres* | 400 objetos por segundo |
 
 \* Cuando se crea un nuevo punto de conexión de servidor, el agente de Azure File Sync no descarga nada del contenido del archivo. En primer lugar sincroniza el espacio de nombres completo y, después, desencadena la recuperación en segundo plano para descargar los archivos, ya sea en su totalidad o, si está habilitada la organización en niveles en la nube, la directiva de niveles en la nube establecida en el punto de conexión del servidor.
@@ -98,7 +98,7 @@ Para ayudarle a planear la implementación de cada una de las fases, a continuac
 | Número de objetos sincronizados| 125 000 objetos (renovación ~ 1 %) |
 | Tamaño del conjunto de datos| 50 GiB |
 | Tamaño de archivo medio | ~500 KiB |
-| Rendimiento de carga | 20 objetos por segundo |
+| Rendimiento de carga | 20 objetos por segundo por grupo de sincronización |
 | Rendimiento de descarga completa* | 60 objetos por segundo |
 
 *Si están habilitados los niveles de la nube, es probable que observe un rendimiento mejor, ya que solo se descargan algunos de los datos de los archivos. Azure File Sync solo descarga los datos de los archivos almacenados en la memoria caché cuando cambian en cualquiera de los puntos de conexión. En el caso de los archivos en niveles o recién creados, el agente no descarga los datos de los archivos, solo sincroniza el espacio de nombres en todos los puntos de conexión del servidor. El agente también admite descargas parciales de archivos en capas cuando el usuario accede a ellos. 

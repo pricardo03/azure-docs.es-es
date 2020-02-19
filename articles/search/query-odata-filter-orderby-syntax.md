@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e0db41098287ff011416932a0d44a1cb9f76127d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786155"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153883"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Introducción a `$filter`, `$orderby` y `$select` del lenguaje OData en Azure Cognitive Search
 
@@ -59,10 +59,10 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 Una ruta de acceso de campo se compone de uno o varios **identificadores** separados por barras diagonales. Cada identificador es una secuencia de caracteres que debe comenzar con una letra ASCII o un carácter de subrayado y contener solo letras ASCII, dígitos o caracteres de subrayado. Las letras pueden ser mayúsculas o minúsculas.
 
@@ -70,7 +70,7 @@ Un identificador puede hacer referencia al nombre de un campo o a una **variable
 
 En la tabla siguiente se muestran ejemplos de rutas de acceso de campo:
 
-| Ruta de acceso de campo | DESCRIPCIÓN |
+| Ruta de acceso de campo | Descripción |
 | --- | --- |
 | `HotelName` | Hace referencia a un campo de nivel superior del índice. |
 | `Address/City` | Hace referencia al subcampo `City` de un campo complejo en el índice; `Address` es de tipo `Edm.ComplexType` en este ejemplo. |
@@ -96,10 +96,10 @@ Las rutas de acceso de campo se usan en numerosos parámetros de las [API REST d
 | [Create](https://docs.microsoft.com/rest/api/searchservice/create-index) or [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `suggesters/sourceFields` | None |
 | [Create](https://docs.microsoft.com/rest/api/searchservice/create-index) or [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `scoringProfiles/text/weights` | Solo puede hacer referencia a campos que **permiten realizar búsquedas**. |
 | [Create](https://docs.microsoft.com/rest/api/searchservice/create-index) or [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `scoringProfiles/functions/fieldName` | Solo puede hacer referencia a campos **filtrables**. |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` cuando `queryType` es `full` | Solo puede hacer referencia a campos que **permiten realizar búsquedas**. |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Solo puede hacer referencia a campos **clasificables** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Solo puede hacer referencia a campos que **permiten realizar búsquedas**. |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Solo puede hacer referencia a campos que **permiten realizar búsquedas**. |
+| [Búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` cuando `queryType` es `full` | Solo puede hacer referencia a campos que **permiten realizar búsquedas**. |
+| [Búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Solo puede hacer referencia a campos **clasificables** |
+| [Búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Solo puede hacer referencia a campos que **permiten realizar búsquedas**. |
+| [Búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Solo puede hacer referencia a campos que **permiten realizar búsquedas**. |
 | [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) y [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Solo puede hacer referencia a campos que forman parte de un [proveedor de sugerencias](index-add-suggesters.md). |
 | [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) y [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Solo puede hacer referencia a campos **filtrables**. |
 | [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) y [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Solo puede hacer referencia a campos **ordenables**. |
@@ -121,6 +121,17 @@ En la tabla siguiente se muestran ejemplos de constantes de cada uno de los tipo
 | `Edm.Int32` | `123`, `-456` |
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
+
+### <a name="escaping-special-characters-in-string-constants"></a>Caracteres especiales de escape en constantes de cadena
+
+Las constantes de cadena en OData están delimitadas por comillas simples. Si tiene que crear una consulta con una constante de cadena que, a su vez, pueda contener comillas simples, puede escapar las comillas incrustadas si las duplica.
+
+Por ejemplo, una frase con un apóstrofo sin formato, como "Alice's car", se representaría en OData como la constante de cadena `'Alice''s car'`.
+
+> [!IMPORTANT]
+> Al construir filtros mediante programación, es importante recordar escapar las constantes de cadena que proceden de los datos proporcionados por el usuario. Esto es para mitigar la posibilidad de [ataques por inyección de código](https://wikipedia.org/wiki/SQL_injection), en especial cuando se usan filtros para implementar el [recorte de seguridad](search-security-trimming-for-azure-search.md).
+
+### <a name="constants-syntax"></a>Sintaxis de las constantes
 
 El siguiente EBNF ([notación de Backus-Naur extendida](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define la gramática de la mayoría de las constantes que se muestran en la tabla anterior. La gramática de los tipos geoespaciales se puede encontrar en [Funciones geoespaciales de Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
 
@@ -187,10 +198,10 @@ boolean_literal ::= 'true' | 'false'
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 ## <a name="building-expressions-from-field-paths-and-constants"></a>Generación de expresiones a partir de rutas de acceso de campo y constantes
 
@@ -213,12 +224,12 @@ select_expression ::= '*' | field_path(',' field_path)*
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
-Los parámetros **$orderby** y **$select** son ambos listas separadas por comas de expresiones más sencillas. El parámetro **$filter** es una expresión booleana que se compone de subexpresiones más sencillas. Estas subexpresiones se combinan mediante operadores lógicos, como [ `and`, `or`, y `not` ](search-query-odata-logical-operators.md), operadores de comparación, como [`eq`, `lt`, `gt`, etc.](search-query-odata-comparison-operators.md) y operadores de colección, como [`any` y `all`](search-query-odata-collection-operators.md).
+Los parámetros **$orderby** y **$select** son ambos listas separadas por comas de expresiones más sencillas. El parámetro **$filter** es una expresión booleana que se compone de subexpresiones más sencillas. Estas subexpresiones se combinan mediante operadores lógicos, como [`and`, `or`, y `not`](search-query-odata-logical-operators.md), operadores de comparación, como [`eq`, `lt`, `gt`, etc.](search-query-odata-comparison-operators.md) y operadores de colección, como [`any` y `all`](search-query-odata-collection-operators.md).
 
 Los parámetros **$filter**, **$orderby**, y **$select** se exploran con más detalle en los siguientes artículos:
 
@@ -226,7 +237,7 @@ Los parámetros **$filter**, **$orderby**, y **$select** se exploran con más de
 - [Sintaxis de $orderby de OData en Azure Cognitive Search](search-query-odata-orderby.md)
 - [Sintaxis de $select de OData en Azure Cognitive Search](search-query-odata-select.md)
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Consulte también  
 
 - [Navegación por facetas en Azure Cognitive Search](search-faceted-navigation.md)
 - [Filtros de Azure Cognitive Search](search-filters.md)

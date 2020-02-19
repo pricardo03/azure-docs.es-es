@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 9d685e2852dee25e03bdd98ea5463fd40e795f23
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 02/11/2020
+ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157665"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153169"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -527,6 +527,13 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | clusters | resource group | 4-63 | Caracteres alfanuméricos y guiones.<br><br>Comience y termine con un carácter alfanumérico. |
 > | workspaces | resource group | 4-63 | Caracteres alfanuméricos y guiones.<br><br>Comience y termine con un carácter alfanumérico. |
+
+## <a name="microsoftportal"></a>Microsoft.Portal
+
+> [!div class="mx-tableFixed"]
+> | Entidad | Ámbito | Length | Caracteres válidos |
+> | --- | --- | --- | --- |
+> | dashboards | resource group | 3-160 | Caracteres alfanuméricos y guiones.<br><br>Para usar caracteres restringidos, agregue una etiqueta denominada **hidden-title** con el nombre del panel que desee usar. El portal muestra ese nombre al mostrar el panel. |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 

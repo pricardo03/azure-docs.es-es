@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546714"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137524"
 ---
 # <a name="cross-validate-model"></a>Modelo de validación cruzada
 
@@ -62,21 +62,19 @@ En este escenario se entrena y se prueba el modelo con el módulo Cross-Validate
 
 2. Conecte la salida de cualquier modelo de clasificación o regresión. 
 
-    Por ejemplo, si usa el módulo **Two Class Bayes Point Machine** (Máquina del punto de Bayes de dos clases) para la clasificación, configure el modelo con los parámetros que desee. A continuación, arrastre un conector desde el puerto **Untrained model** (Modelo sin entrenar) del clasificador hasta el puerto coincidente del modelo de validación cruzada. 
+    Por ejemplo, si usa el módulo **Two Class Boosted Decision Tree** (Árbol de decisión impulsado por dos clases) para la clasificación, configure el modelo con los parámetros que desee. A continuación, arrastre un conector desde el puerto **Untrained model** (Modelo sin entrenar) del clasificador hasta el puerto coincidente del modelo de validación cruzada. 
 
     > [!TIP] 
     > No es necesario entrenar el modelo, porque el modelo de validación cruzada lo entrena automáticamente como parte de la evaluación.  
 3.  En el puerto **Dataset** (Conjunto de datos) del modelo de validación cruzada, conecte cualquier conjunto de datos de entrenamiento etiquetado.  
 
-4.  En el panel **Properties** (Propiedades) seleccione **Launch column selector** (Iniciar selector de columna). Elija la columna única que contiene la etiqueta de clase o el valor de predicción. 
+4.  En el panel derecho del modelo de validación cruzada, haga clic en **Editar columna**. Seleccione la columna única que contiene la etiqueta de clase o el valor de predicción. 
 
 5. Establezca un valor para el parámetro **Random seed** si quiere repetir los resultados de la validación cruzada en ejecuciones posteriores de los mismos datos.  
 
 6. Ejecución de la canalización
 
 7. Consulte la sección [Resultados](#results) para obtener una descripción de los informes.
-
-    Para obtener una copia del modelo para su posterior reutilización, cambie a la pestaña **Outputs** (Salidas) del panel derecho del módulo que contiene el algoritmo (por ejemplo, **Two Class Bayes Point Machine** [Máquina del punto de Bayes de dos clases]) Luego, seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar una copia del modelo entrenado en el árbol de módulos.
 
 ## <a name="results"></a>Results
 

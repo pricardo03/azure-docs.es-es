@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: b53fc3af71ce872c9ca9f513139c8179fd4165ed
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: bc6859d29a574cea0d97989977ba9a333b20f6c4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031423"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157147"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interacción con clústeres de Apache Kafka en Azure HDInsight mediante un proxy de REST
 
@@ -24,6 +24,8 @@ El proxy de REST de Kafka le permite interactuar con el clúster de Kafka median
 
 Sin un proxy de REST, los clientes de Kafka deben estar en la misma red virtual que el clúster de Kafka o en una red virtual emparejada. El proxy de REST permite conectar a los productores o consumidores de datos ubicados en cualquier lugar. La implementación del proxy de REST crea un nuevo punto de conexión público para el clúster, que puede encontrar en la configuración del portal.
 
+![Arquitectura del proxy de REST de Kafka](./media/rest-proxy/rest-proxy-architecture.png)
+
 Para obtener la especificación completa de las operaciones que admite la API, consulte [API de proxy de REST de Apache Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
 ### <a name="security"></a>Seguridad
@@ -32,11 +34,11 @@ El acceso al proxy de REST de Kafka se administra con grupos de seguridad de Azu
 
 Al crear el clúster de Kafka con el proxy de REST habilitado, proporcionará el grupo de seguridad de AAD que debe tener acceso al punto de conexión de REST. El propietario del grupo debe registrar en este grupo los clientes de Kafka (aplicaciones) que necesitan acceso al proxy de REST. El propietario del grupo puede hacerlo a través del portal o mediante PowerShell.
 
-Antes de realizar solicitudes al punto de conexión del proxy de REST, la aplicación cliente debe obtener un token de OAuth para verificar la pertenencia del grupo de seguridad adecuado. Para obtener más información sobre cómo funcionan los tokens de OAuth, consulte [Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md). Para obtener un ejemplo de captura de un token de OAuth en Python, consulte el apartado [Ejemplo de aplicación cliente](#client-application-sample).
+Antes de realizar solicitudes al punto de conexión del proxy de REST, la aplicación cliente debe obtener un token de OAuth para verificar la pertenencia del grupo de seguridad adecuado. Para obtener más información sobre cómo funcionan los tokens de OAuth, consulte [Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0](../../active-directory/azuread-dev/v1-protocols-oauth-code.md). Para obtener un ejemplo de captura de un token de OAuth en Python, consulte el apartado [Ejemplo de aplicación cliente](#client-application-sample).
 
 Una vez que la aplicación cliente tenga el token de OAuth, debe pasar ese token en la solicitud HTTP realizada al proxy de REST.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. Registrar una aplicación con Azure AD. Las aplicaciones cliente que escriba para interactuar con el proxy de REST de Kafka usarán el identificador y el secreto de la aplicación para autenticarse en Azure.
 1. Cree un grupo de seguridad de Azure AD y agregue la aplicación que ha registrado con Azure AD al grupo de seguridad. Este grupo de seguridad se usará para controlar qué aplicaciones pueden interactuar con el proxy de REST. Para obtener más información sobre cómo crear grupos de Azure AD, consulte [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).

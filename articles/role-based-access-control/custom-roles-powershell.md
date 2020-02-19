@@ -1,5 +1,5 @@
 ---
-title: Creación o actualización de roles personalizados para los recursos de Azure con Azure PowerShell | Microsoft Docs
+title: Creación o actualización de roles personalizados para recursos de Azure con Azure PowerShell
 description: Aprenda a mostrar, crear, actualizar o eliminar roles personalizados con el control de acceso basado en rol (RBAC) para recursos de Azure con Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fa4ff5f35df0f541d8a7e633df024af81676e58b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 52057477fdba9757be2737c223d569b9e9a3e749
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703094"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137448"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Creación o actualización de roles personalizados para los recursos de Azure con Azure PowerShell
 
@@ -29,7 +29,7 @@ Para ver un tutorial paso a paso sobre cómo crear un rol personalizado, consult
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para crear roles personalizados, necesita:
 

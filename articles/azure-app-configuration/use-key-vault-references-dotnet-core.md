@@ -125,7 +125,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
 1. Agregue variables de entorno para almacenar los valores de *clientId*, *clientSecret* y *tenantId*.
 
-    #### <a name="windows-command-prompttabcmd"></a>[Símbolo del sistema de Windows](#tab/cmd)
+    #### <a name="windows-command-prompt"></a>[Símbolo del sistema de Windows](#tab/cmd)
 
     ```cmd
     setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
@@ -133,7 +133,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
     setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```PowerShell
     $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -141,7 +141,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
     $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="bashtabbash"></a>[Bash](#tab/bash)
+    #### <a name="bash"></a>[Bash](#tab/bash)
 
     ```bash
     export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -174,7 +174,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
 1. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration`. Incluya la opción `ConfigureKeyVault` y pase las credenciales correctas a Key Vault.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -195,7 +195,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>

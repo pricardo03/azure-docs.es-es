@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 62be78df28d65c2ed16a9f45295edec8c5c360c4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: bbfb65c31bf6fd46cc18c9eee66086afbbff1d5f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901522"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157981"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -31,13 +31,12 @@ Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de A
 
 Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que admiten varios grupos de nodos:
 
+* Consulte [Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * No puede eliminar el primer grupo de nodos.
 * El complemento de enrutamiento de aplicación HTTP no se puede utilizar.
 * El clúster de AKS debe usar el equilibrador de carga de SKU estándar para usar varios grupos de nodos; la característica no es compatible con los equilibradores de carga de SKU básica.
 * El clúster de AKS debe usar conjuntos de escalado de máquinas virtuales para los nodos.
 * El nombre de un grupo de nodos solo puede contener caracteres alfanuméricos en minúsculas y debe comenzar con una letra minúscula. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. Para los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
-* El clúster de AKS puede tener un máximo de 10 grupos de nodos.
-* El clúster de AKS puede tener un máximo de 1000 nodos distribuidos entre esos 10 grupos de nodos.
 * Todos los grupos de nodos deben residir en la misma red virtual y la misma subred.
 * Al crear varios grupos de nodos durante la creación del clúster, todas las versiones de Kubernetes que se usen en los grupos de nodos deben coincidir con la versión establecida para el plano de control. Se puede actualizar después de aprovisionar el clúster mediante operaciones en función del grupo de nodos.
 
@@ -565,7 +564,7 @@ Puede que tarde unos minutos en actualizarse el clúster de AKS según la config
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Asignar una IP pública por nodo en un grupo de nodos
 
 > [!WARNING]
-> Durante la vista previa de la asignación de una IP pública por nodo, no se puede usar con la *SKU de Standard Load Balancer en AKS* debido a posibles reglas de equilibrador de carga en conflicto con el aprovisionamiento de la máquina virtual. Durante la versión preliminar, debe usar la *SKU básica de Load Balancer* si necesita asignar una dirección IP pública por nodo.
+> Durante la vista previa de la asignación de una IP pública por nodo, no se puede usar con la *SKU de Standard Load Balancer en AKS* debido a posibles reglas de equilibrador de carga en conflicto con el aprovisionamiento de la máquina virtual. Como consecuencia de esta limitación, los grupos de agentes de Windows no se admiten con esta característica en vista previa. Durante la versión preliminar, debe usar la *SKU básica de Load Balancer* si necesita asignar una dirección IP pública por nodo.
 
 Los nodos de AKS no necesitan sus propias direcciones IP públicas para la comunicación. Sin embargo, algunos escenarios pueden requerir que los nodos de un grupo de nodos tengan sus propias direcciones IP públicas. Un ejemplo son los juegos, en los que se necesita una consola para tener una conexión directa a una máquina virtual en la nube para minimizar los saltos. Esto se puede lograr si se registra para una característica en vista previa (GB) independiente: IP pública de nodo (versión preliminar).
 
@@ -604,6 +603,7 @@ Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [C
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
+[quotas-skus-regions]: quotas-skus-regions.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create

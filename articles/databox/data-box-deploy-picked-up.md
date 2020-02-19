@@ -77,7 +77,7 @@ Asegúrese de que la copia de datos se ha completado en el dispositivo y que la 
 
 ::: zone-end
 
-## <a name="in-us-canada-europetabin-us-canada-europe"></a>[En EE. UU., Canadá, Europa](#tab/in-us-canada-europe)
+## <a name="in-us-canada-europe"></a>[En EE. UU., Canadá, Europa](#tab/in-us-canada-europe)
 
 Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos, Canadá o Europa.
 
@@ -114,7 +114,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 ::: zone-end
 
 
-## <a name="in-australiatabin-australia"></a>[En Australia](#tab/in-australia)
+## <a name="in-australia"></a>[En Australia](#tab/in-australia)
 
 Los centros de datos de Azure en Australia tienen una notificación de seguridad adicional. Todos los envíos entrantes deben tener una notificación avanzada. Realice los pasos siguientes si el envío se realiza en Australia.
 
@@ -143,7 +143,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 ::: zone-end
 
-## <a name="in-japantabin-japan"></a>[En Japón](#tab/in-japan) 
+## <a name="in-japan"></a>[En Japón](#tab/in-japan) 
 
 1. Conserve la caja original utilizada para devolver el dispositivo.
 2. Apague el dispositivo y quite los cables.
@@ -191,7 +191,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 ::: zone-end
 
-## <a name="in-singaporetabin-singapore"></a>[En Singapur](#tab/in-singapore) 
+## <a name="in-singapore"></a>[En Singapur](#tab/in-singapore) 
 
 1. Conserve la caja original utilizada para devolver el dispositivo.
 2. Anote el número de seguimiento (que se muestra como número de referencia en la página Preparación para el envío de la interfaz de usuario web local de Data Box). Estará disponible cuando el paso de preparación para el envío se complete correctamente. Descargue la etiqueta de envío de esta página y péguela en la caja de embalaje. 
@@ -273,7 +273,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managedtabin-selfmanaged"></a>[Autoadministrado](#tab/in-selfmanaged) 
+## <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged) 
 
 Si usa Data Box en Japón, Singapur, Corea y Oeste de Europa, y ha seleccionado la opción de envío autoadministrado durante la creación del pedido, siga estas instrucciones. 
 

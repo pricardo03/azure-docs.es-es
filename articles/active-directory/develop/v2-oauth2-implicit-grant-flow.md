@@ -17,16 +17,14 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42d315b44a76e79d6f1db48e5024094099564a98
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d7f27ad2adc5d4abf2b5ec993b3398ebf1370f52
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700488"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159682"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y concesión implícita de flujo
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Con el punto de conexión de la plataforma de identidad de Microsoft, puede iniciar la sesión de los usuarios en las aplicaciones de página única tanto con cuentas Microsoft personales como profesionales o educativas. Las aplicaciones de página única y otras aplicaciones JavaScript que se ejecutan principalmente en un explorador se enfrentan con algunos retos interesantes en lo que a la autenticación se refiere:
 
@@ -42,6 +40,35 @@ Pero si prefiere no usar una biblioteca en la aplicación de página única y en
 
 > [!NOTE]
 > No todas las características y escenarios de Azure Active Directory (Azure AD) son compatibles con el punto de conexión de la plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la plataforma de identidad de Microsoft, conozca las [limitaciones de dicha plataforma](active-directory-v2-limitations.md).
+
+## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Escenarios adecuados para la concesión implícita de OAuth2
+
+La especificación de OAuth2 declara que la concesión implícita se ha diseñado para habilitar aplicaciones de agente de usuario, es decir, aplicaciones JavaScript que se ejecutan en un explorador. La característica definitoria de esas aplicaciones es que el código JavaScript se utiliza para acceder a los recursos del servidor (normalmente, una API web) y actualizar en consecuencia la experiencia de usuario de la aplicación. Piense en aplicaciones como Gmail o Outlook Web Access: al seleccionar un mensaje de la bandeja de entrada, solo cambia el panel de visualización de mensajes para mostrar la nueva selección, mientras que el resto de la página permanece sin modificar. A diferencia de las aplicaciones web basadas en redireccionamientos tradicionales, donde cada interacción del usuario produce un postback de página completa y una representación de página completa de la nueva respuesta del servidor.
+
+Las aplicaciones que llevan el enfoque basado en JavaScript hasta su extremo se denominan aplicaciones de página única o SPA. La idea es que estas aplicaciones solo publican una página HTML inicial y el código JavaScript asociado, y todas las interacciones subsiguientes se controlan mediante llamadas a la API Web realizadas a través de JavaScript. Sin embargo, los enfoques híbridos, donde la aplicación se basa fundamentalmente en eventos postback, pero realiza llamadas de JavaScript ocasionales, no son habituales. El debate sobre el uso del flujo implícito es pertinente para este tipo de enfoques.
+
+Por lo general, las aplicaciones basadas en redirecciones protegen sus solicitudes a través de las cookies; sin embargo, este enfoque no funciona tan bien para aplicaciones JavaScript. Las cookies solo funcionan con el dominio para el que se han generado, aunque las llamadas de JavaScript pueden ser dirigidas a otros dominios. De hecho, esto pasará con frecuencia. Piense en las aplicaciones que invocan Microsoft Graph API, la API de Office o la API de Azure: todas residen fuera del dominio desde donde se publica la aplicación. Una tendencia que se está volviendo más popular en las aplicaciones JavaScript es no tener ningún back-end y depender exclusivamente de API web de terceros para implementar su función empresarial.
+
+Actualmente, el método preferido para proteger las llamadas a una API web es usar el enfoque de token de portador de OAuth2, donde cada llamada viene acompañada de un token de acceso OAuth2. La API web examina el token de acceso entrante y, si se encuentran en él los ámbitos necesarios, concede acceso a la operación solicitada. El flujo implícito proporciona un cómodo mecanismo para que las aplicaciones JavaScript obtengan tokens de acceso para una API web, con lo que ofrece numerosas ventajas con respecto a las cookies:
+
+* Pueden obtenerse tokens de forma confiable sin necesidad de realizar llamadas de origen cruzado: gracias al registro obligatorio del URI de redirección en el que se devuelven los tokens, se garantiza que estos no van a sustituirse.
+* Las aplicaciones JavaScript pueden obtener tantos tokens de acceso como necesiten para la cantidad de API web que tengan como destino; sin restricciones de dominios.
+* Las características de HTML5 como el almacenamiento local o de sesión conceden un control total sobre el almacenamiento en caché de tokens y administración de la duración, mientras que la administración de cookies es opaca para la aplicación.
+* Los tokens de acceso no son susceptibles a los ataques de falsificación de solicitud entre sitios (CSRF).
+
+El flujo de concesión implícita no emite tokens de actualización, principalmente por motivos de seguridad. Los tokens de actualización no tienen tantas limitaciones como los de acceso, que conceden muchos más permisos y, por tanto, pueden producir más daños en caso de que se filtren. En el flujo implícito, los tokens se entregan en la dirección URL, por lo tanto, el riesgo de interceptación es mayor que en la concesión de código de autorización.
+
+Sin embargo, una aplicación JavaScript posee otro mecanismo para renovar los tokens de acceso sin preguntar las credenciales al usuario repetidamente. La aplicación puede usar un elemento iframe oculto para realizar nuevas solicitudes de token en el punto de conexión de autorización de Azure AD: siempre y cuando el explorador siga teniendo una sesión activa (es decir, una cookie de sesión) en el dominio de Azure AD, la solicitud de autenticación podrá realizarse correctamente sin necesidad de que tenga que interactuar el usuario.
+
+Este modelo concede a la aplicación JavaScript la capacidad de renovar los tokens de acceso de forma independiente e incluso de adquirir unos nuevos para una nueva API (siempre que el usuario haya dado previamente su consentimiento). Esto evita la carga agregada de adquisición, mantenimiento y protección de un artefacto de valor elevado, como un token de actualización. El artefacto que posibilita la renovación silenciosa, la cookie de sesión de Azure AD, se administra fuera de la aplicación. Otra ventaja de este enfoque es que un usuario puede cerrar la sesión desde Azure AD, mediante cualquiera de las aplicaciones que han iniciado sesión en Azure AD y que se ejecutan en cualquiera de las pestañas del explorador. Esto dará como resultado la eliminación de la cookie de sesión de Azure AD y la aplicación JavaScript perderá automáticamente la capacidad de renovar tokens para el usuario que ha cerrado la sesión.
+
+## <a name="is-the-implicit-grant-suitable-for-my-app"></a>¿Es adecuada la concesión implícita para mi aplicación?
+
+La concesión implícita presenta más riesgos que otras concesiones, y las áreas a las que debe prestar atención están bien documentadas (por ejemplo, [Uso incorrecto del token de acceso para hacerse pasar por el propietario del recurso en el flujo implícito][OAuth2-Spec-Implicit-Misuse] y [Modelo de amenazas de OAuth 2.0 y consideraciones de seguridad][OAuth2-Threat-Model-And-Security-Implications]). Sin embargo, el perfil de mayor riesgo se debe, en gran medida, al hecho de que este tipo de concesión está diseñada para permitir aplicaciones que ejecutan código activo servido por un recurso remoto en un explorador. Si planea una arquitectura de SPA, no dispone de ningún componente de back-end o tiene planeado invocar una API web a través de JavaScript, se recomienda utilizar el flujo implícito para obtener tokens.
+
+Si su aplicación es un cliente nativo, el flujo implícito no es una buena elección. La ausencia de la cookie de sesión de Azure AD en el contexto de un cliente nativo priva a su aplicación de los medios de mantener una sesión de larga duración. Lo que significa que la aplicación pedirá confirmación repetidamente al usuario al obtener los tokens de acceso para los nuevos recursos.
+
+Si está desarrollando una aplicación web que incluye un back-end y que usa una API desde el código de back-end, el flujo implícito tampoco es una buena elección. Otras concesiones ofrecen muchas más posibilidades. Por ejemplo, la concesión de credenciales de cliente de OAuth2 proporciona la capacidad de obtener tokens que reflejan los permisos asignados a la misma aplicación, a diferencia de las delegaciones de usuario. Esto significa que el cliente tiene la capacidad de mantener el acceso mediante programación a los recursos, incluso cuando el usuario no está activamente implicado en una sesión. No solo eso, sino que dichas concesiones ofrecen mayores garantías de seguridad. Por ejemplo, los tokens de acceso nunca pasan por el explorador del usuario, porque no se arriesgan a ser guardados en el historial del explorador. La aplicación cliente también puede realizar una autenticación segura cuando se solicita un token.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 

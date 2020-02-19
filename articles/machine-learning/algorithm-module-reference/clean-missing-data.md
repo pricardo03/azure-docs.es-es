@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 46034c8392dc1720fe5e03fc5e419dba6ed20e0b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5851b294e52fdcc03dbf3b889ff32898a823f655
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314477"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137571"
 ---
 # <a name="clean-missing-data-module"></a>Módulo Limpiar datos que faltan
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para quitar, reemplazar o deducir los valores que faltan. 
 
@@ -37,11 +37,11 @@ Este módulo también genera una definición de la transformación usada para li
 
 ## <a name="how-to-use-clean-missing-data"></a>Procedimiento para usar Limpiar datos que faltan
 
-Este módulo permite definir una operación de limpieza. También puede guardar la operación de limpieza para aplicarla más adelante a nuevos datos. Vea los siguientes vínculos para obtener una descripción de cómo crear y guardar un proceso de limpieza: 
+Este módulo permite definir una operación de limpieza. También puede guardar la operación de limpieza para aplicarla más adelante a nuevos datos. Vea las secciones siguientes para obtener una descripción de cómo crear y guardar un proceso de limpieza: 
  
-+ Reemplazar los valores que faltan
++ [Para reemplazar los valores que faltan](#replace-missing-values)
   
-+ Aplicar una transformación de limpieza aplicar nuevos datos
++ [Para aplicar una transformación de limpieza a nuevos datos](#apply-a-saved-cleaning-operation-to-new-data)
  
 > [!IMPORTANT]
 > El método de limpieza que use para controlar los valores que faltan puede afectar drásticamente a los resultados. Se recomienda que experimente con diferentes métodos. Tenga en cuenta tanto la justificación para el uso de un método concreto como la calidad de los resultados.
@@ -56,12 +56,9 @@ Cada vez que se aplica el módulo [Limpiar datos que faltan](./clean-missing-dat
 
     Por ejemplo, para comprobar si hay valores que faltan en todas las columnas numéricas:
 
-    1. Abra el selector de columnas y seleccione **WITH RULES** (CON REGLAS).
-    2. Para **BEGIN WITH**, seleccione **NO COLUMNS** (NINGUNA COLUMNA).
+    1. Seleccione el módulo **Limpiar los datos que faltan** y haga clic en **Editar columna** en el panel derecho del módulo.
 
-        También puede empezar con ALL COLUMNS (TODAS LAS COLUMNAS) y, a continuación, excluir columnas. Inicialmente, las reglas no se muestran si primero hace clic en **ALL COLUMNS** (TODAS LAS COLUMNAS), pero puede hacer clic en **NO COLUMNS** (NINGUNA COLUMNA) y, a continuación, hacer clic en **ALL COLUMNS** (TODAS LAS COLUMNAS) de nuevo para comenzar con todas las columnas y, a continuación, filtrar (excluir) las columnas según el nombre, tipo de datos o índice de columnas.
-
-    3. Para **Incluir**, seleccione **Tipo de columna** en la lista desplegable y, a continuación, seleccione **Numérico** o un tipo numérico más específico. 
+    3. Para **Incluir**, seleccione **Tipos de columna** en la lista desplegable y, a continuación, seleccione **Numérico**. 
   
     Cualquier método de limpieza o de reemplazo que elija debe ser aplicable a **todas** las columnas de la selección. Si los datos de cualquier columna no son compatibles con la operación especificada, el módulo devuelve un error y detiene la canalización.
   
@@ -109,7 +106,7 @@ Cada vez que se aplica el módulo [Limpiar datos que faltan](./clean-missing-dat
   
 6. La opción **Replacement value** está disponible si ha seleccionado la opción **Custom substitution value** (Valor de sustitución personalizado). Escriba un nuevo valor que se usará como el valor de reemplazo para todos los valores que faltan en la columna.  
   
-    Tenga en cuenta que puede usar esta opción únicamente en las columnas que tienen los tipos datos entero, doble, booleano o fecha. Para las columnas de fecha, el valor de reemplazo también se puede introducir como el número de tics de 100 nanosegundos desde 1/1/0001 12:00 A.M.  
+    Tenga en cuenta que puede usar esta opción únicamente en las columnas que tienen los tipos datos entero, doble, booleano o cadena.
   
 7. **Generate missing value indicator column** (Generar columna de indicador de valores que faltan): Seleccione esta opción si desea producir alguna indicación de si los valores de la columna cumplen los criterios para la limpieza de valores que faltan. Esta opción es especialmente útil cuando va a configurar una nueva operación de limpieza y desea asegurarse de que funciona según lo diseñado.
   

@@ -4,12 +4,12 @@ description: Restauración de una máquina virtual de Azure desde un punto de re
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 23e34d65a06f5fbf3ad8ce53311862c680ddebd0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d70db384101d838b2b65707090577156daa59b9a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77021991"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138060"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -167,6 +167,9 @@ La experiencia del usuario de restauración de la región secundaria será simil
 
 - Para restaurar y crear una VM, consulte [Crear una VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
 - Para realizar la restauración como un disco, consulte [Restaurar discos](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks).
+
+>[!NOTE]
+>Una vez que se desencadena la restauración y se está en la fase de transferencia de datos, no se puede cancelar el trabajo de restauración.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Supervisión de trabajos de restauración en la región secundaria
 

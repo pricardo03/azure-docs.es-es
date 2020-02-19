@@ -1,5 +1,5 @@
 ---
-title: Incorporación o eliminación de asignaciones de roles para usuarios invitados externos con RBAC de Azure y Azure Portal
+title: Incorporación o eliminación de asignaciones de roles para usuarios externos con RBAC y Azure Portal
 description: Aprenda a conceder acceso a recursos de Azure para los usuarios externos a una organización mediante el control de acceso basado en rol (RBAC) de Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: db43a3cce27da5f40986968b6573bfd58a1d3cb7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707875"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138379"
 ---
 # <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles para usuarios invitados externos con RBAC de Azure y Azure Portal
 
 El [control de acceso basado en rol (RBAC) de Azure](overview.md) permite una mejor administración de la seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. Puede usar las funcionalidades de [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar con usuarios invitados externos y puede usar RBAC para conceder solo los permisos que los usuarios invitados necesitan en su entorno.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para agregar o quitar asignaciones de roles, debe tener:
 
@@ -77,7 +77,7 @@ En RBAC, para conceder acceso es preciso asignar un rol. Para agregar una asigna
 
 1. Haga clic en el recurso específico.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
     En la siguiente captura de pantalla se muestra un ejemplo de la hoja Control de acceso (IAM) de un grupo de recursos. Si realiza algún cambio en el control de acceso aquí, solo se aplicará al grupo de recursos.
 
@@ -113,7 +113,7 @@ Si el usuario invitado todavía no está en el directorio, puede invitar al usua
 
 1. Haga clic en el recurso específico.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
@@ -165,7 +165,7 @@ Antes de eliminar un usuario invitado de un directorio, primero debe eliminar la
 
 1. Haga clic en el usuario invitado que desea eliminar.
 
-1. Hacer clic en **Eliminar**.
+1. Haga clic en **Eliminar**.
 
    ![Eliminar usuario invitado](./media/role-assignments-external-users/delete-guest-user.png)
 

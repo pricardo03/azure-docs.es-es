@@ -36,7 +36,7 @@ También hay una [versión basada en Visual Studio Code](/azure/azure-functions/
 En una carpeta adecuada, ejecute los comandos siguientes para crear y activar un entorno virtual denominado `.venv`. Asegúrese de usar Python 3.7, que es compatible con Azure Functions.
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -52,7 +52,7 @@ Si Python no instaló el paquete venv en la distribución de Linux, ejecute el s
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
@@ -62,7 +62,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 py -m venv .venv
@@ -269,14 +269,14 @@ Functions in msdocs-azurefunctions-qs:
 
 Como la función usa un desencadenador HTTP, para invocarla es preciso realizar una solicitud HTTP a su dirección URL en el explorador o con una herramienta como CURL. En ambas instancias, el parámetro de dirección URL `code` es la clave de función exclusiva única que autoriza la invocación con el punto de conexión de la función.
 
-# <a name="browsertabbrowser"></a>[Browser](#tab/browser)
+# <a name="browser"></a>[Browser](#tab/browser)
 
 Copie el valor completo de **Invoke URL** que se muestra en la salida del comando de publicación en una barra de direcciones del explorador, anexando el parámetro de consulta `&name=Azure`. El explorador debe mostrar una salida similar a cuando ejecutó la función localmente.
 
 ![La salida de la función ejecutada en Azure en un explorador](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curl"></a>[curl](#tab/curl)
 
 Ejecute [curl](https://curl.haxx.se/) con la **dirección URL de invocación**  y anexe el parámetro `&name=Azure`. El resultado del comando debería ser el texto "Hello Azure".
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2b4f198d596ddcb475e123c355c38ada784d21d3
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b023b49955f642f1cafcb5f26ae67e657718bcd6
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884001"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148239"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticación, solicitudes y respuestas
 
@@ -51,7 +51,7 @@ En este tema se tratan los detalles específicos del servicio Azure Key Vault. P
 
  A menos que se indique lo contrario en la descripción de la operación, el encabezado de la solicitud Accept debe contener el tipo de medio application/json.  
 
-## <a name="response-body"></a>Cuerpo de respuesta  
+## <a name="response-body"></a>Cuerpo de la respuesta  
  A menos que se indique lo contrario en la descripción de la operación, el tipo de contenido del cuerpo de respuesta tanto de las operaciones correctas como de las erróneas será application/json y contiene información detallada sobre los errores.  
 
 ## <a name="using-http-post"></a>Uso de HTTP POST  
@@ -112,7 +112,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: la dirección del servicio de autorización de OAuth2 que puede utilizarse para obtener un token de acceso para la solicitud.  
 
--   resource: el nombre del recurso que se va a utilizar en la solicitud de autorización.  
+-   resource: Nombre del recurso (https://vault.azure.net) que se va a utilizar en la solicitud de autorización.  
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Consulte también  
  [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)

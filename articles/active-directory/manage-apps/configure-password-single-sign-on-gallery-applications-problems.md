@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e729bee0ac9beac447893ed8dbf1bba633e412
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e933c82229415a71182096a6aca9a2e535934d89
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274196"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159053"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problemas en la configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD
 
@@ -31,7 +31,7 @@ En general, este problema sucede si el proveedor de la aplicación ha cambiado r
 
 Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen estas integraciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. En el caso de que una de estas integraciones no funcione correctamente, abra un caso de soporte técnico para que podamos solucionar el problema lo más rápido posible.
 
-**Si está en contacto con el proveedor de la aplicación,** pídale que se comunique con Microsoft para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/howto-app-gallery-listing.md).
+**Si está en contacto con el proveedor de la aplicación,** pídale que se comunique con Microsoft para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Las credenciales se rellenan y se envían, pero la página indica que son incorrectas
 
@@ -59,7 +59,7 @@ Si las sugerencias anteriores no funcionan, puede que se haya producido un cambi
 
 Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible. 
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/howto-app-gallery-listing.md).
+Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>La extensión funciona en Chrome y Firefox, pero no en Internet Explorer
 
@@ -73,7 +73,7 @@ Hay dos principales causas de este problema:
 
   * Desgraciadamente esta situación puede variar dependiendo de la versión del explorador, la velocidad del equipo o el sitio visitado. En este caso, se recomienda ponerse en contacto con soporte técnico para que podamos solucionar la integración para esta aplicación específica.
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/howto-app-gallery-listing.md).
+Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Compruebe si la página de inicio de sesión de la aplicación ha cambiado recientemente, o si requiere un campo adicional
 
@@ -81,7 +81,7 @@ Si la página de inicio de sesión de la aplicación ha cambiado de forma consid
 
 Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible. 
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/howto-app-gallery-listing.md).
+Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Cómo instalar la extensión de explorador del Panel de acceso
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 112a7f7aa61984b2ce9bd8400c629fe62db55584
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548380"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137896"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimizar los hiperparámetros del modelo
 
@@ -43,17 +43,13 @@ En esta sección se describe cómo realizar un barrido de parámetros básico, q
 
 2.  Conecte un modelo no entrenado a la entrada que se encuentra más a la izquierda. 
 
-3. Establezca la opción **Create trainer mode** (Crear modo de entrenador) en **Parameter Range** (Intervalo de parámetros). Use **Range Builder** (Generador de intervalos) para especificar el intervalo de valores que se van a usar en el barrido de parámetros.  
 
-    Casi todos los módulos de clasificación y regresión admiten un barrido de parámetros integrado. En el caso de los aprendizajes que no admiten la configuración de un intervalo de parámetros, solo se pueden probar los valores de los parámetros disponibles.
-
-    Puede ajustar manualmente el valor de uno o más parámetros y, luego realizar el barrido de los parámetros restantes. Esto puede ahorrar tiempo.
 
 4.  Agregue el conjunto de datos que desea usar para el entrenamiento y conéctelo a la entrada central de Tune Model Hyperparameters (Optimizar hiperparámetros del modelo).  
 
     Opcionalmente, si tiene un conjunto de datos etiquetado, puede conectarlo al puerto de entrada situado más a la derecha (**Conjunto de datos de validación opcional**). Esto le permite medir la precisión durante el entrenamiento y la optimización.
 
-5.  En el panel **Properties**  (Propiedades) de Tune Model Hyperparameters (Optimizar hiperparámetros del modelo), elija un valor para **Parameter sweeping mode** (Modo de barrido de parámetros). Esta opción controla la manera en la que se seleccionan los parámetros.
+5.  En el panel derecho de Optimizar hiperparámetros del modelo, elija un valor para **Parameter sweeping mode** (Modo de barrido de parámetros). Esta opción controla la manera en la que se seleccionan los parámetros.
 
     - **Cuadrícula completa**: Al seleccionar esta opción, el módulo recorre en bucle una cuadrícula predefinida por el sistema para probar diferentes combinaciones e identificar el mejor aprendizaje. Esta opción es útil si no sabe cuál podría ser la mejor configuración de parámetros y desea probar todas las combinaciones posibles de valores.
 
@@ -64,8 +60,6 @@ En esta sección se describe cómo realizar un barrido de parámetros básico, q
 7.  Elija el número de ejecuciones:
 
     1. **Máximo número de ejecuciones en el barrido aleatorio**: si elige un barrido aleatorio, puede especificar el número de veces que se debe entrenar el modelo con una combinación aleatoria de valores de parámetros.
-
-    2. **Máximo número de ejecuciones en la cuadrícula aleatoria**: esta opción también controla el número de iteraciones en un muestreo aleatorio de valores de parámetro, pero los valores no se generan aleatoriamente a partir del intervalo especificado. En su lugar, el módulo crea una matriz de todas las posibles combinaciones de valores de parámetro. A continuación, realiza un muestreo aleatorio en la matriz. Este método es más eficaz y menos propenso al sobremuestreo o al submuestreo regional.
 
 8.  En **Ranking** (Clasificación), elija una sola métrica que se usará para clasificar los modelos.
 

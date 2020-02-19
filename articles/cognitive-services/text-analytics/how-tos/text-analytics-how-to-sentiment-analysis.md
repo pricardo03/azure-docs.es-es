@@ -50,7 +50,7 @@ La API Text Analytics ofrece dos versiones de Análisis de sentimiento, la versi
 | Etiquetado de opiniones                        |                       | X                     |
 | Control de versiones de los modelos                   |                       | X                     |
 
-#### <a name="version-30-previewtabversion-3"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>Puntuación de opinión
 
@@ -79,7 +79,7 @@ La versión 3 de Análisis de sentimiento puede devolver las puntuaciones y etiq
 Puede encontrar un ejemplo de aplicación C# que llama a esta versión dl Análisis de sentimiento en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
 
-#### <a name="version-21tabversion-2"></a>[Versión 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
 
 ### <a name="sentiment-scoring"></a>Puntuación de opinión
 
@@ -101,11 +101,11 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento. Pued
 
 Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md) o la **consola de pruebas de API** en los siguientes vínculos de referencia para estructurar y enviar rápidamente una. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 [Referencia de Análisis de sentimiento, versión 3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
 
-#### <a name="version-21tabversion-2"></a>[Versión 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
 
 [Referencia de Análisis de sentimiento, versión 2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
@@ -116,11 +116,11 @@ Establezca el punto de conexión HTTPS para el análisis de sentimiento, para lo
 > [!NOTE]
 > Puede encontrar la clave y el punto de conexión del recurso de Text Analytics en Azure Portal. Están en la página **Inicio rápido** del recurso, en **Administración de recursos**. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
 
-#### <a name="version-21tabversion-2"></a>[Versión 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
@@ -162,7 +162,7 @@ El analizador de sentimiento clasifica el texto como predominantemente positivo 
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos.
 
-#### <a name="version-30-previewtabversion-3"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Respuesta de ejemplo de la versión 3 de Análisis de sentimiento
 
@@ -238,7 +238,7 @@ Las respuestas de la versión 3 de Análisis de sentimiento contienen puntuacio
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Versión 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
 
 ### <a name="sentiment-analysis-v2-example-response"></a>Respuesta de ejemplo de la versión 2 de Análisis de sentimiento
 

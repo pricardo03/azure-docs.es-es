@@ -10,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: f65b61d7265268b33d2c9a113503cc1b5a87db8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361218"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157514"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Qué hacer en caso de una interrupción del servicio de Azure que afecte a Azure Cloud Services
 En Microsoft, hacemos todo lo posible para garantizar que nuestros servicios estén siempre disponibles cuando los necesite. En ocasiones, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas.
@@ -27,7 +27,7 @@ Azure ya integra en su plataforma muchas características que admiten aplicacion
 En este artículo se expone un escenario real de recuperación ante desastres en el que toda una región experimenta una interrupción debido a un desastre natural importante o a una interrupción del servicio generalizada. Se trata de casos muy infrecuentes, pero debe estar preparado para la posibilidad de que se produzca una interrupción en toda una región. Si una región completa experimenta una interrupción del servicio, las copias con redundancia local de los datos estarían temporalmente no disponibles. Si ha habilitado la replicación geográfica, se almacenan en una región distinta tres copias adicionales de los blobs y las tablas de Azure Storage. En caso de una interrupción completa en una región o de un desastre en el que la región primaria no sea recuperable, Azure reasignará todas las entradas DNS a la región de replicación geográfica.
 
 > [!NOTE]
-> Tenga en cuenta que no tiene ningún control sobre este proceso y que solo se producirá si se da una interrupción del servicio en todo el centro de datos. Por este motivo, también debe confiar en otras estrategias de copia de seguridad específicas de la aplicación para lograr el máximo nivel de disponibilidad. Para más información, consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones creadas en Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Si desea poder influir sobre su propia conmutación por error, plantéese usar un [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), el cual crea una copia de solo lectura de sus datos en otra región.
+> Tenga en cuenta que no tiene ningún control sobre este proceso y que solo se producirá si se da una interrupción del servicio en todo el centro de datos. Por este motivo, también debe confiar en otras estrategias de copia de seguridad específicas de la aplicación para lograr el máximo nivel de disponibilidad. Para más información, consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones creadas en Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Si desea poder influir sobre su propia conmutación por error, plantéese usar un [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/common/storage-redundancy.md), el cual crea una copia de solo lectura de sus datos en otra región.
 >
 >
 
@@ -46,7 +46,7 @@ Para más información sobre cómo crear e implementar una aplicación de servic
 
 En función de los orígenes de datos de la aplicación, es posible que deba comprobar los procedimientos de recuperación para el origen de datos de su aplicación.
 
-* Para los orígenes de datos de Azure Storage, consulte [Replicación de Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
+* Para los orígenes de datos de Azure Storage, consulte [Redundancia de Azure Storage](../storage/common/storage-redundancy.md) a fin de ver las opciones disponibles según el modelo de redundancia elegido para su aplicación.
 * Para ver los orígenes de SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con SQL Database](../sql-database/sql-database-business-continuity.md) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
 
 

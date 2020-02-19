@@ -1,5 +1,5 @@
 ---
-title: 'Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST: Azure | Microsoft Docs'
+title: Enumeración de las asignaciones de denegación para recursos de Azure con la API de REST
 description: Aprenda a enumerar las asignaciones de denegación para usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) para recursos de Azure y la API REST.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e6214b3cb2cdca2d80ebae43771b206e3396d8b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118284"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137320"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST
 
@@ -29,7 +29,7 @@ Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios 
 > [!NOTE]
 > No se pueden crear directamente asignaciones de denegación propias. Para obtener información sobre cómo se crean las asignaciones de denegación, vea [Asignaciones de denegación](deny-assignments.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para obtener información sobre una asignación de denegación, debe tener lo siguiente:
 
@@ -45,11 +45,11 @@ Para obtener información sobre una asignación de denegación, debe tener lo si
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de asignaciones de denegación quiere obtener.
 
-    | Ámbito | Type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Reemplace *{deny-assignment-id}* por el identificador de asignación de denegación que desea recuperar.
 
@@ -69,15 +69,15 @@ Para obtener información sobre una asignación de denegación, debe tener lo si
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de asignaciones de denegación quiere obtener.
 
-    | Ámbito | Type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de asignaciones de denegación.
 
-    | Filtrar | DESCRIPCIÓN |
+    | Filter | Descripción |
     | --- | --- |
     | (sin filtro) | Lista de todas las asignaciones de denegación del ámbito especificado, y también por encima y por debajo. |
     | `$filter=atScope()` | Lista de las asignaciones de denegación del ámbito especificado y por encima. No incluye las asignaciones de denegación de ámbitos secundarios. |
@@ -95,7 +95,7 @@ Para obtener información sobre una asignación de denegación, debe tener lo si
 
 1. Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de asignaciones de denegación. Se requiere un filtro.
 
-    | Filtrar | DESCRIPCIÓN |
+    | Filter | Descripción |
     | --- | --- |
     | `$filter=atScope()` | Lista de asignaciones de denegación solo en el ámbito raíz. No incluye las asignaciones de denegación de ámbitos secundarios. |
     | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lista de asignaciones de denegación con el nombre especificado. |

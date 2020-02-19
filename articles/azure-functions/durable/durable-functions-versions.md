@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849809"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152897"
 ---
 # <a name="durable-functions-versions-overview"></a>Información general sobre las versiones de Durable Functions
 
@@ -59,6 +59,10 @@ En Durable Functions 2.x se usa un nuevo esquema de host.json. Los principales c
 * `"notifications"` (y la subsección `"eventGrid"`) para la configuración de notificaciones de Event Grid.
 
 Vea la [Documentación de referencia para el archivo host.json de Durable Functions](durable-functions-bindings.md#durable-functions-2-0-host-json) para obtener más información.
+
+#### <a name="default-taskhub-name-changes"></a>Cambios de nombre predeterminado de taskhub
+
+En la versión 1.x, si no se especificaba un nombre de central de tareas en host.json, se tomaba como valor predeterminado "DurableFunctionsHub". En la versión 2.x, el nombre predeterminado de la central de tareas se deriva ahora del nombre de la aplicación de funciones. Por este motivo, si no ha especificado un nombre de central de tareas al actualizar a la versión 2.x, el código funcionará con la nueva central de tareas, y todas las orquestaciones en curso dejarán de tener una aplicación que las procese. Para solucionar esto, puede establecer explícitamente el nombre de la central de tareas en el valor predeterminado de la versión 1.x, "DurableFunctionsHub", o bien puede seguir nuestras [instrucciones de implementación sin tiempo de inactividad](durable-functions-zero-downtime-deployment.md) para obtener más información sobre cómo administrar los cambios importantes para las orquestaciones en curso.
 
 #### <a name="public-interface-changes-net-only"></a>Cambios en la interfaz pública (solo para .NET)
 

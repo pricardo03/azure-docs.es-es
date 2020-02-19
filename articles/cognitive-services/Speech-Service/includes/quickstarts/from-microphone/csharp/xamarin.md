@@ -54,7 +54,7 @@ El proyecto "helloworld" común contiene implementaciones independientes de la p
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
-#### <a name="androidtabx-android"></a>[Android](#tab/x-android)
+#### <a name="android"></a>[Android](#tab/x-android)
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>Adición de código de ejemplo al proyecto `helloworld.Android`
 
 Ahora, agregue el código C# que define la parte específica de Android de la aplicación.
@@ -75,7 +75,7 @@ Ahora, agregue el código C# que define la parte específica de Android de la ap
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
    ```
    
-#### <a name="iostabios"></a>[iOS](#tab/ios)
+#### <a name="ios"></a>[iOS](#tab/ios)
 ## <a name="add-sample-code-for-the-helloworldios-project"></a>Adición de código de ejemplo al proyecto `helloworld.iOS`
 
 Ahora, agregue el código C# que define la parte específica de iOS de la aplicación. Cree también configuraciones específicas del dispositivo de Apple en el proyecto helloworld.iOS.
@@ -100,7 +100,7 @@ Ahora, agregue el código C# que define la parte específica de iOS de la aplica
 
 1. Si va a compilar en un PC Windows, debe establecer una conexión con el dispositivo Mac para compilar mediante **Tools** (Herramientas) > **iOS** > **Pair to Mac** (Emparejar con Mac). Siga el Asistente para instrucciones de Visual Studio para habilitar la conexión con el dispositivo Mac.
 
-#### <a name="uwptabhelloworlduwp"></a>[UWP](#tab/helloworlduwp)
+#### <a name="uwp"></a>[UWP](#tab/helloworlduwp)
 ## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Adición de código de ejemplo al proyecto `helloworld.UWP`
 
 ## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Adición de código de ejemplo al proyecto helloworld.UWP

@@ -3,12 +3,12 @@ title: Opciones de autenticación de registro
 description: Opciones de autenticación de una instancia privada de Azure Container Registry, incluido el inicio de sesión con una identidad de Azure Active Directory, mediante entidades de servicio y credenciales de administrador opcionales.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 384f401a986c58dc6ce63384ce3e2a43b8db27fa
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029884"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152950"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticación con un registro de contenedor de Azure
 
@@ -23,7 +23,7 @@ En la tabla siguiente se enumeran los métodos de autenticación disponibles y l
 | Método                               | Cómo autenticarse                                           | Escenarios                                                            | RBAC                             | Limitaciones                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Identidad de AD individual](#individual-login-with-azure-ad)                | `az acr login` en la CLI de Azure                             | Inserción/extracción interactiva por parte de los desarrolladores y evaluadores                                    | Sí                              | El token de AD se debe renovar cada 3 horas.     |
-| [Entidad de servicio de AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` en la CLI de Azure<br/><br/> Configuración de inicio de sesión del registro en API o herramientas<br/><br/> Secreto de extracción de Kubernetes                                           | Inserción desatendida desde la canalización de CI/CD<br/><br/> Extracción desatendida a Azure o a servicios externos  | Sí                              | La expiración predeterminada de la contraseña de SP es de 1 año.       |                                                           
+| [Entidad de servicio de AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` en la CLI de Azure<br/><br/> Configuración de inicio de sesión del registro en API o herramientas<br/><br/> [Secreto de extracción de Kubernetes](container-registry-auth-kubernetes.md)                                           | Inserción desatendida desde la canalización de CI/CD<br/><br/> Extracción desatendida a Azure o a servicios externos  | Sí                              | La expiración predeterminada de la contraseña de SP es de 1 año.       |                                                           
 | [Integración con AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Asocie un registro al crear o actualizar el clúster de AKS.  | Extracción desatendida a un clúster de AKS                                                  | No, solo acceso de extracción             | Solo disponible con el clúster de AKS            |
 | [Identidad administrada para recursos de Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` en la CLI de Azure                                       | Inserción desatendida desde la canalización de CI/CD de Azure<br/><br/> Extracción desatendida a servicios de Azure<br/><br/>   | Sí                              | Uso solo desde servicios de Azure que [admiten identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
 | [Usuario administrador](#admin-account)                            | `docker login`                                          | Inserción/extracción interactiva por parte de un desarrollador o evaluador                           | No, siempre acceso de extracción e inserción  | Una sola cuenta por registro; no se recomienda para varios usuarios.         |

@@ -12,22 +12,22 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 6b880696b4922c68c73ce4ff59f72a62ce5a5a30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348969"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157523"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
-SQL Database crea automáticamente las copias de seguridad de base de datos que se conservan durante el período de retención configurado y usa el [almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) de Azure para asegurarse de que se conservan incluso si el centro de datos no está disponible. Estas copias de seguridad se crean automáticamente. Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Si las reglas de seguridad exigen que las copias de seguridad estén disponibles durante un largo período de tiempo (hasta 10 años), puede configurar una [retención a largo plazo](sql-database-long-term-retention.md) en bases de datos singleton y grupos elásticos.
+SQL Database crea automáticamente las copias de seguridad de base de datos que se conservan durante el período de retención configurado y usa el [almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS)](../storage/common/storage-redundancy.md) de Azure para asegurarse de que se conservan incluso si el centro de datos no está disponible. Estas copias de seguridad se crean automáticamente. Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Si las reglas de seguridad exigen que las copias de seguridad estén disponibles durante un largo período de tiempo (hasta 10 años), puede configurar una [retención a largo plazo](sql-database-long-term-retention.md) en bases de datos singleton y grupos elásticos.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>Qué es una copia de seguridad de SQL Database
 
-SQL Database emplea tecnología de SQL Server para crear [copias de seguridad completas](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) cada semana, [copias de seguridad diferenciales](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) cada 12 horas y [copias de seguridad del registro de transacciones](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) cada 5 o 10 minutos. Las copias de seguridad se almacenan en [blobs de almacenamiento RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) que se replican en un [centro de datos emparejado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Cuando se restaura una base de datos, el servicio calcula qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
+SQL Database emplea tecnología de SQL Server para crear [copias de seguridad completas](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) cada semana, [copias de seguridad diferenciales](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) cada 12 horas y [copias de seguridad del registro de transacciones](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) cada 5 o 10 minutos. Las copias de seguridad se almacenan en [blobs de almacenamiento RA-GRS](../storage/common/storage-redundancy.md) que se replican en un [centro de datos emparejado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Cuando se restaura una base de datos, el servicio calcula qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
 
 Puede utilizar estas copias de seguridad para realizar lo siguiente:
 
@@ -55,9 +55,9 @@ Puede probar algunas de estas operaciones con los ejemplos siguientes:
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-SQL Database admite el autoservicio de restauración a un momento dado (PITR) mediante la creación automática de copias de seguridad completas, copias de seguridad diferenciales y copias de seguridad de registro de transacciones. Las copias de seguridad de la base de datos completas se crean todas las semanas, las copias de seguridad de la base de datos diferenciales se suelen crear cada 12 horas y las copias de seguridad del registro de transacciones, cada 5-10 minutos; la frecuencia se basa en el tamaño de proceso y la cantidad de actividad de la base de datos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente, se completa en 30 minutos pero puede tardar más si la base de datos tiene un tamaño considerable. Por ejemplo, la copia de seguridad inicial puede tardar más en una base de datos restaurada o una copia de la base de datos. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El servicio SQL Database determina el momento exacto en el que se producen todas las copias de seguridad de la base de datos a medida que equilibra la carga de trabajo global del sistema. No se pueden cambiar o deshabilitar los trabajos de copia de seguridad. 
+SQL Database admite el autoservicio de restauración a un momento dado (PITR) mediante la creación automática de copias de seguridad completas, copias de seguridad diferenciales y copias de seguridad de registro de transacciones. Las copias de seguridad de la base de datos completas se crean todas las semanas, las copias de seguridad de la base de datos diferenciales se suelen crear cada 12 horas y las copias de seguridad del registro de transacciones, cada 5-10 minutos; la frecuencia se basa en el tamaño de proceso y la cantidad de actividad de la base de datos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente, se completa en 30 minutos pero puede tardar más si la base de datos tiene un tamaño considerable. Por ejemplo, la copia de seguridad inicial puede tardar más en una base de datos restaurada o una copia de la base de datos. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El servicio SQL Database determina el momento exacto en el que se producen todas las copias de seguridad de la base de datos a medida que equilibra la carga de trabajo global del sistema. No se pueden cambiar o deshabilitar los trabajos de copia de seguridad.
 
-Las copias de seguridad PITR tienen redundancia geográfica y se protegen mediante la [replicación entre regiones de Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+Las copias de seguridad de PITR están protegidas con almacenamiento con redundancia geográfica. Para obtener más información, consulte [Redundancia de Azure Storage](../storage/common/storage-redundancy.md).
 
 Para más información, consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
@@ -65,7 +65,7 @@ Para más información, consulte [Restauración a un momento dado](sql-database-
 
 Las bases de datos únicas y agrupadas le ofrecen la opción de configurar la retención a largo plazo (LTR) de las copias de seguridad completas durante un período máximo de 10 años en Azure Blob Storage. Si la directiva LTR está habilitada, las copias de seguridad completas semanales se copian de forma automática en otro contenedor de almacenamiento de RA-GRS. Para satisfacer los distintos requisitos de cumplimiento, puede seleccionar distintos períodos de retención para copias de seguridad semanales, mensuales o anuales. El consumo de almacenamiento depende de la frecuencia seleccionada de las copias de seguridad y de los períodos de retención. Para estimar el costo del almacenamiento de LTR, se puede usar la [calculadora de precios de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database).
 
-Como sucede con PITR, las copias de seguridad LTR tienen redundancia geográfica y se protegen mediante la [replicación entre regiones de Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
+Al igual que PITR, las copias de seguridad LTR están protegidas con almacenamiento con redundancia geográfica. Para obtener más información, consulte [Redundancia de Azure Storage](../storage/common/storage-redundancy.md).
 
 Para obtener más información, vea [Retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
 
@@ -169,13 +169,13 @@ Puede cambiar el período de retención predeterminado de copia de seguridad de 
 
 Para cambiar el periodo de retención de copia de seguridad de PITR mediante Azure Portal, vaya al objeto de servidor cuyo período de retención desea cambiar dentro del portal y, luego, seleccione la opción apropiada según el objeto de servidor que va a modificar.
 
-#### <a name="single-database--elastic-poolstabsingle-database"></a>[Grupos elásticos y base de datos única](#tab/single-database)
+#### <a name="single-database--elastic-pools"></a>[Grupos elásticos y base de datos única](#tab/single-database)
 
 El cambio de la retención de copia de seguridad de PITR para las bases de datos únicas de Azure SQL Database solo se realiza en el nivel de servidor. Los cambios realizados en el nivel de servidor se aplican a las bases de datos de ese servidor. Para cambiar la recuperación a un momento dado para el servidor de Azure SQL Database en Azure Portal, vaya a la hoja de información general del servidor, haga clic en Administrar copias de seguridad en el menú de navegación y, a continuación, haga clic en Configurar retención en la barra de navegación.
 
 ![Cambio de PITR en Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instancetabmanaged-instance"></a>[Instancia administrada](#tab/managed-instance)
+#### <a name="managed-instance"></a>[Instancia administrada](#tab/managed-instance)
 
 El cambio de la retención de copia de seguridad de recuperación a un momento dado para Instancia administrada de SQL Database se realiza en un nivel de base de datos individual. Para cambiar la retención de copia de seguridad de recuperación a un momento dado de una base de datos de instancia en Azure Portal, vaya a la hoja de información general de la base de datos individual y haga clic en Configurar retención de copias de seguridad en la barra de navegación.
 

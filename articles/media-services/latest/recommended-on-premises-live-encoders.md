@@ -6,21 +6,23 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 11/18/2019
+ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c8cf8883c80dad7988793a898dcaf01dd8f860c3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186036"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152642"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de streaming en vivo recomendados
 
 En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa una canalización para procesar contenido de streaming en vivo. El evento en directo recibe las secuencias de entrada en vivo de una de estas dos formas:
 
-* Un codificador en directo local envía una secuencia RTMP o Smooth Streaming (MP4 fragmentado) de velocidad de bits múltiple al canal Evento en directo que no está habilitado para realizar la codificación en vivo con Media Services. Las secuencias recopiladas pasan a través de Eventos en directo sin más procesamiento. Este método se llama **paso a través**. Un codificador en directo puede enviar una transmisión de velocidad de bits única a un canal de tránsito. No se recomienda esta configuración, ya que no permite al cliente utilizar un streaming con velocidad de bits adaptable.
+* Un codificador en directo local envía una secuencia RTMP o Smooth Streaming (MP4 fragmentado) de velocidad de bits múltiple al canal Evento en directo que no está habilitado para realizar la codificación en vivo con Media Services. Las secuencias recopiladas pasan a través de Eventos en directo sin más procesamiento. Este método se llama **paso a través**. Se recomienda que el codificador en directo envíe transmisiones de múltiples velocidades de bits en lugar de una transmisión de una sola velocidad de bits a un evento en directo de paso a través para permitir el streaming con velocidad de bits adaptable al cliente. 
+
+    Si usa transmisiones de múltiples velocidades de bits para el evento en directo de paso a través, el tamaño del GOP de vídeo y los fragmentos de vídeo con diferentes velocidades de bits deben estar sincronizados para evitar un comportamiento inesperado en el lado de reproducción.
 
   > [!NOTE]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
@@ -29,21 +31,28 @@ En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/
 
 Para obtener información detallada sobre la codificación en vivo con Media Services, vea [Streaming en vivo con Azure Media Services v3](live-streaming-overview.md).
 
+## <a name="encoder-requirements"></a>Requisitos del codificador
+
+Los codificadores deben admitir TLS 1.2 al usar protocolos HTTPS o RTMP.
+
 ## <a name="live-encoders-that-output-rtmp"></a>Codificadores en directo que generan una salida RTMP
 
 Media Services recomienda usar uno de los siguientes codificadores en directo que tienen RTMP como salida. Los esquemas URL admitidos son `rtmp://` o `rtmps://`.
 
+Al hacer el streaming mediante RTMP, compruebe la configuración del firewall o del proxy para confirmar que los puertos TCP salientes 1935 y 1936 están abiertos.<br/><br/>
+Al hacer el streaming mediante RTMPS, compruebe la configuración del firewall o del proxy para confirmar que los puertos TCP salientes 2935 y 2936 están abiertos.
+
 > [!NOTE]
-> Al hacer el streaming mediante RTMP, compruebe la configuración del firewall o del proxy para confirmar que los puertos TCP salientes 1935 y 1936 están abiertos.
+> Los codificadores deben admitir TLS 1.2 al usar protocolos RTMP.
 
 - Adobe Flash Media Live Encoder 3.2
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
+- Elemental Live (versión 2.14.15 y posteriores)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
 - Switcher Studio (iOS)
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Telestream Wirecast (versión 13.0.2 o posterior debido al requisito de TLS 1.2)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -57,17 +66,19 @@ Media Services recomienda usar uno de los siguientes codificadores en directo qu
 
 Media Services recomienda usar uno de los codificadores en directo siguientes que tienen Smooth Streaming de velocidad de bits múltiple (MP4 fragmentado) como salida. Los esquemas URL admitidos son `http://` o `https://`.
 
+> [!NOTE]
+> Los codificadores deben admitir TLS 1.2 al usar protocolos HTTPS.
+
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
-- Envivio 4Caster C4 Gen III
+- Elemental Live (versión 2.14.15 y posterior debido al requisito de TLS 1.2)
+- Envivio 4Caster C4 Gen III 
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live y Hero 4K (UHD/HEVC)
 - [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  Si está transmitiendo eventos en directo en varios idiomas (por ejemplo, una pista de audio en inglés y una en español), puede hacerlo con el codificador en directo de elementos multimedia de Excel configurado para enviar la fuente en directo a un evento en directo de paso a través.
-
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configuración de los valores del codificador en directo local
 

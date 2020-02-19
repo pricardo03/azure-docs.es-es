@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5b039221f3a25bddf7953cbe8d517275f76d6f37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7cbd088ed7b4f6ae242cce2067e52def2dad61c9
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474702"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136338"
 ---
 # <a name="display-controls"></a>Controles de visualización
 
@@ -30,7 +30,7 @@ En la imagen siguiente se muestra una página de registro de aserción automáti
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
  En la sección [Metadatos](self-asserted-technical-profile.md#metadata) de un [perfil técnico de aserción automática](self-asserted-technical-profile.md), el elemento [ContentDefinition](contentdefinitions.md) al que se hace referencia debe tener `DataUri` establecido en la versión 2.0.0 o superior del contrato de página. Por ejemplo:
 
@@ -90,7 +90,7 @@ Determinadas notificaciones de visualización son necesarias para algunos tipos 
 
 Las **notificaciones de salida** de un control de visualización no se envían al siguiente paso de orquestación. Solo se guardan de forma temporal para la sesión de control de visualización actual. Las distintas acciones del mismo control de visualización pueden compartir estas notificaciones temporales.
 
-Para propagar la salida de las notificaciones al siguiente paso de orquestación, use las **OutputClaims** del perfil técnico de aserción automática real que hace referencia a este control de visualización.
+Para propagar la salida de las notificaciones al siguiente paso de orquestación, use **OutputClaims** del perfil técnico de aserción automática real que hace referencia a este control de visualización.
 
 ### <a name="display-control-actions"></a>Acciones de control de visualización
 

@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274640"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159172"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -152,7 +152,7 @@ Usaremos los cmdlets de PowerShell de Azure AD para desplazarse por algunos esce
 - Enumerar las aplicaciones para las que se configura una directiva.
 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 En los ejemplos siguientes, podrá crear, actualizar, vincular y eliminar directivas en las entidades de servicio de aplicación en Azure AD.
 
 1.  Para comenzar, descargue la versión preliminar más reciente de los cmdlets de PowerShell de Azure AD. 
@@ -271,4 +271,4 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener más información sobre el funcionamiento de la autenticación en Azure AD, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md).
 - Para obtener más información sobre el inicio de sesión único del usuario, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](what-is-single-sign-on.md).
-- Consulte la [Guía del desarrollador de Active Directory](../develop/v1-overview.md) para información general sobre todo el contenido de interés para los desarrolladores.
+- Visite la [plataforma de identidad de Microsoft](../develop/v2-overview.md) para obtener información general sobre todo el contenido relacionado con los desarrolladores.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 203bf584711fbfcfd0baeee8f5e4c7f70d96823b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906276"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157231"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -93,7 +93,7 @@ Para obtener información sobre cómo crear un recurso compartido de archivos pr
 Actualmente, no se puede convertir directamente entre un recurso compartido de archivos estándar y un recurso compartido de archivos prémium. Para cambiar a cualquier nivel, debe crear un nuevo recurso compartido de archivos en ese nivel y copiar manualmente los datos del recurso compartido original en el nuevo recurso compartido que creó. Para hacerlo, puede usar cualquiera de las herramientas de copia de Azure Files compatibles, como Robocopy o AzCopy.
 
 > [!IMPORTANT]
-> Los recursos compartidos de archivos Prémium están disponibles con LRS en la mayoría de regiones que ofrecen cuentas de almacenamiento y con ZRS en subconjuntos de regiones más pequeños. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para averiguar qué regiones admiten ZRS, consulte [Cobertura de soporte técnico y disponibilidad regional](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+> Los recursos compartidos de archivos Prémium están disponibles con LRS en la mayoría de regiones que ofrecen cuentas de almacenamiento y con ZRS en subconjuntos de regiones más pequeños. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para obtener información sobre las regiones que admiten ZRS, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md).
 >
 > Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características del nivel Premium, rellene esta [encuesta](https://aka.ms/pfsfeedback).
 
@@ -155,41 +155,14 @@ Los nuevos recursos compartidos de archivo empiezan con la cantidad total de cr�
 
 ## <a name="file-share-redundancy"></a>Redundancia del recurso compartido de archivos
 
-Los recursos compartidos estándar de Azure Files admiten cuatro opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona (ZRS),almacenamiento con redundancia geográfica (GRS) y almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Los recursos compartidos Prémium de Azure Files admiten tanto LRS como ZRS. ZRS está disponible actualmente en un subconjunto más pequeño de regiones.
-
-En las siguientes secciones se describen las diferencias entre las diferentes opciones de redundancia:
-
-### <a name="locally-redundant-storage"></a>Almacenamiento con redundancia local
-
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
-
-### <a name="zone-redundant-storage"></a>Almacenamiento con redundancia de zona
-
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
-
-### <a name="geo-redundant-storage"></a>Almacenamiento con redundancia geográfica
+Si opta por el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS), debe saber que Azure Files no admite el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) en ninguna región en este momento. Los recursos compartidos de archivos de la cuenta de almacenamiento de RA-GRS funcionan como lo harían en las cuentas de GRS y se cobran de acuerdo con los precios de GRS.
 
 > [!Warning]  
 > Si usa el recurso compartido de archivos de Azure como punto de conexión en la nube en una cuenta de almacenamiento GRS, no debe iniciar la conmutación por error de la cuenta de almacenamiento. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas. En caso de pérdida de una región de Azure, Microsoft activará la conmutación por error de la cuenta de almacenamiento de forma que sea compatible con Azure File Sync.
 
-El almacenamiento con redundancia geográfica(GRS) está diseñado para proporcionar al menos el 99.99999999999999 % (dieciséis nueves) de durabilidad de objetos a lo largo de un año. Para ello, replica los datos a una región secundaria que se encuentra a cientos de kilómetros de la región primaria. Si la cuenta de almacenamiento tiene habilitado GRS, sus datos se mantienen incluso ante un apagón regional completo o un desastre del cual la región principal no se puede recuperar.
-
-Si opta por el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS), debe saber que Azure Files no admite el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) en ninguna región en este momento. Los recursos compartidos de archivos de la cuenta de almacenamiento de RA-GRS funcionan como lo harían en las cuentas de GRS y se cobran de acuerdo con los precios de GRS.
-
-GRS replica los datos en otro centro de datos en una región secundaria, pero esos datos están disponibles para ser de solo lectura si Microsoft inicia una conmutación por error desde la región primaria a la región secundaria.
-
-Para una cuenta de almacenamiento con el GRS habilitado, todos los datos se replican primero con el almacenamiento con redundancia local (LRS). Una actualización se confirma primero en la ubicación principal y se replican mediante LRS. La actualización luego se replica de manera asincrónica en la región secundaria con GRS. Cuando los datos se escriben en la ubicación secundaria, también se replican dentro de esa ubicación con LRS.
-
-Las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento. La unidad de escalado de almacenamiento es la unidad de replicación básica dentro del centro de datos. LRS proporciona la replicación en este nivel. Para más información, vea [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../common/storage-redundancy-lrs.md).
-
-Tenga en cuenta estos puntos cuando decida qué opción de replicación usar:
-
-* El almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar) proporciona alta disponibilidad junto con el máximo de durabilidad al replicar los datos de forma sincrónica en tres zonas de disponibilidad de Azure y, después, replicar los datos de forma asincrónica en la región secundaria. También puede habilitar el acceso de lectura a la región secundaria. El almacenamiento con redundancia de zona geográfica (GZRS) está diseñado para proporcionar una durabilidad mínima del 99,99999999999999 % (16 nueves) de los objetos en un año determinado. Para obtener más información acerca de GZRS, consulte [Almacenamiento con redundancia de zona geográfica para obtener alta disponibilidad y durabilidad máxima (versión preliminar)](../common/storage-redundancy-gzrs.md).
-* El almacenamiento con redundancia de zona (ZRS) ofrece alta disponibilidad con replicación sincrónica y puede ser una mejor opción para algunos escenarios que GRS. Para más información sobre ZRS, consulte [ZRS](../common/storage-redundancy-zrs.md).
-* La replicación asincrónica implica un retraso desde el momento en que se escriben los datos en la región principal hasta que se replican en la región secundaria. En el caso de un desastre regional, los cambios que no se hayan replicado en la región secundaria pueden perderse si dichos datos no se pueden recuperar desde la región principal.
-* Con GRS, la réplica no está disponible para acceso de lectura o escritura a menos que Microsoft inicie la conmutación por error en la región secundaria. En el caso de una conmutación por error, tendrá acceso de lectura y escritura a dichos datos después de que se haya completado la conmutación por error. Para más información, consulte la [guía de recuperación ante desastres](../common/storage-disaster-recovery-guidance.md).
+Los recursos compartidos Prémium de Azure Files admiten tanto LRS como ZRS. ZRS está disponible actualmente en un subconjunto más pequeño de regiones.
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)
 
@@ -204,8 +177,7 @@ Esta sección solo se aplica a los recursos compartidos de archivos estándar. T
 Están disponibles recursos compartidos de archivos estándar con el límite de capacidad de 100 TiB a nivel global en todas las regiones de Azure.
 
 - LRS: todas las regiones, excepto Norte de Sudáfrica y Oeste de Sudáfrica.
-   - Las nubes nacionales (Government, Alemania, China) se admiten mediante PowerShell y la interfaz de la línea de comandos (CLI) de Azure. Sin compatibilidad con el portal. 
-   - Este de EE. UU., Este de EE. UU. 2, Oeste de Europa: Se admiten todas las cuentas nuevas. Un número pequeño de cuentas existentes no ha completado el proceso de actualización. Puede comprobar si las cuentas de almacenamiento existentes han completado el proceso de actualización si intenta [habilitar los recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
+   - Este de EE. UU. y Oeste de Europa: Se admiten todas las cuentas nuevas. Un número pequeño de cuentas existentes no ha completado el proceso de actualización. Puede comprobar si las cuentas de almacenamiento existentes han completado el proceso de actualización si intenta [habilitar los recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
 
 - ZRS: todas las regiones, excepto Japón Oriental, Europa del Norte, Norte de Sudáfrica.
 - GRS/GZRS: No compatible.

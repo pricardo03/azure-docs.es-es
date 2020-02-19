@@ -3,12 +3,12 @@ title: Cómo seleccionar un destino para versiones en tiempo de ejecución de Az
 description: Azure Functions admite varias versiones del runtime. Obtenga información sobre cómo especificar la versión en tiempo de ejecución de una aplicación de función hospedada en Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 60953d10aeb92083b0aad3432921c7c55bc77e39
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294174"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151962"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
 
@@ -18,7 +18,7 @@ Una aplicación de función se ejecuta en una versión específica del runtime d
 
 Azure Functions permite hacer que el destino sea una versión específica del entorno en tiempo de ejecución mediante el uso de la configuración de aplicación `FUNCTIONS_EXTENSION_VERSION` en la aplicación de función. La aplicación de función se mantiene en la versión principal especificada hasta que elija explícitamente moverla a una nueva versión.
 
-Si especifica solo la versión principal, la aplicación de funciones se actualiza automáticamente a las nuevas versiones secundarias del entorno de ejecución cuando están disponibles. Las nuevas versiones secundarias no introducen cambios importantes. Si especifica una versión secundaria (por ejemplo, "2.0.12345"), la aplicación de función se mantiene en esa versión específica hasta que la modifique explícitamente.
+Si especifica solo la versión principal, la aplicación de funciones se actualiza automáticamente a las nuevas versiones secundarias del entorno de ejecución cuando están disponibles. Las nuevas versiones secundarias no deberían introducir cambios importantes. Si especifica una versión secundaria (por ejemplo, "2.0.12345"), la aplicación de función se mantiene en esa versión específica hasta que la modifique explícitamente.
 
 > [!NOTE]
 > Si ancla una versión específica de Azure Functions y, a continuación, intenta publicar en Azure mediante Visual Studio, aparecerá un cuadro de diálogo que le solicitará que actualice a la versión más reciente o que cancele la publicación. Para evitarlo, agregue la propiedad `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` en su archivo `.csproj`.

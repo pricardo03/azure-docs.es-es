@@ -13,21 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: b37253f37043d902d33504b99401781eb1c761c5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: eac7dc3b7188131685ef630c0dc01d248e1d6a6a
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075931"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134779"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer con restablecimiento de TCP inactivo (versión preliminar pública)
+# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer con restablecimiento de TCP inactivo
 
 Puede usar [Standard Load Balancer](load-balancer-standard-overview.md) para crear un comportamiento de aplicación más predecible para los escenarios si habilita el restablecimiento de TCP inactivo para una regla determinada. El comportamiento predeterminado de Load Balancer es descartar silenciosamente los flujos cuando se alcanza el tiempo de inactividad de un flujo.  Si habilita esta característica, Load Balancer enviará restablecimientos de TCP bidireccionales (paquete TCP RST) cuando se agote el tiempo de espera de inactividad.  Esto le informará a los puntos de conexión de la aplicación que el tiempo de espera se agotó y ya no se puede usar.  De ser necesario, los puntos de conexión pueden establecer una conexión nueva inmediatamente.
 
 ![Restablecimiento de TCP en Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
-
->[!NOTE] 
->Load Balancer con la funcionalidad de restablecimiento de TCP al agotarse el tiempo de espera de inactividad está disponible como versión preliminar pública en este momento. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Puede cambiar este comportamiento predeterminado y habilitar el envío de restablecimientos de TCP al agotarse el tiempo de espera de inactividad en las reglas NAT de entrada, en las reglas de equilibrio de carga y en las [reglas de salida](https://aka.ms/lboutboundrules).  Cuando se habilita en cada regla, Load Balancer envía restablecimientos TCP bidireccionales (paquetes RST de TCP) tanto a los puntos de conexión del cliente como a los del servidor en el momento en que se agota el tiempo de espera de inactividad para todos los flujos que correspondan.
 
@@ -73,7 +70,6 @@ Disponible en todas las regiones.
 
 ## <a name="limitations"></a>Limitaciones
 
-- El portal no se puede usar para configurar o ver el restablecimiento de TCP.  Use plantillas, API REST, Az CLI 2.0 o PowerShell en su lugar.
 - TCP RST solo se envía durante la conexión TCP en el estado ESTABLECIDO.
 
 ## <a name="next-steps"></a>Pasos siguientes

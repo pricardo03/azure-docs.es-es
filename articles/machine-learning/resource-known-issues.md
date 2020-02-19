@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9824f5cfd7b42860079536232b8a5ad40ea608c9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 40749a80d99782a1ea84b27e68376ea2870e8eb7
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638364"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138001"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conocidos y soluciones de Azure Machine Learning
 
@@ -306,3 +306,14 @@ Para cargar todas las imágenes etiquetadas, elija el botón **Primera**. El bot
 ### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Al presionar la tecla ESC mientras se etiqueta para la detección de objetos, se crea una etiqueta de tamaño cero en la esquina superior izquierda. El envío de etiquetas en este estado produce un error.
 
 Haga clic en la cruz junto a la etiqueta para eliminarla.
+
+## <a name="run-or-experiment-deletion"></a>Eliminación de ejecuciones o experimentos
+
+Los experimentos se pueden archivar con el método [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) o desde la vista de la pestaña Experimento en el cliente de Azure Machine Learning Studio. Esta acción oculta el experimento de listas de consultas y vistas, pero no lo elimina.
+
+Actualmente no se admite la eliminación permanente de experimentos ni ejecuciones individuales. Para obtener más información sobre cómo eliminar recursos del área de trabajo, consulte [Exportación o eliminación de los datos del área de trabajo de Machine Learning Service](how-to-export-delete-data.md).
+
+## <a name="moving-the-workspace"></a>Movimiento del área de trabajo
+
+> [!WARNING]
+> No se admite mover el área de trabajo de Azure Machine Learning a otra suscripción ni mover la suscripción propietaria a un nuevo inquilino. Si lo hace, pueden producirse errores.

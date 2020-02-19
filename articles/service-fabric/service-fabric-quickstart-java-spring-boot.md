@@ -19,13 +19,13 @@ En este inicio rápido, se implementar una aplicación de Spring Boot de Java en
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 - [Entorno de Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) y [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [SDK de Service Fabric e interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
-#### <a name="macostabmacos"></a>[macOS](#tab/macos)
+#### <a name="macos"></a>[macOS](#tab/macos)
 
 - [Entorno de Java y Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 - [SDK de Service Fabric e interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)

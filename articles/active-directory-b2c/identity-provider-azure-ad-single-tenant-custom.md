@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1802c3a92ed18dec5cba974c54c92f01324245eb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 64934dd5bc591415c0bad6ac3dc6a4a2d98dd005
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850671"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136307"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar el inicio de sesión con una cuenta de Azure Active Directory mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76850671"
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una organización de Azure Active Directory (Azure AD) mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -50,6 +50,19 @@ Para habilitar el inicio de sesión para los usuarios de una organización espec
 1. Seleccione **Certificados y secretos** y luego seleccione **Nuevo secreto de cliente**.
 1. En **Descripción**, escriba una descripción para el secreto, seleccione una fecha de expiración y seleccione **Agregar**. Registre el valor **Value** del secreto para usarlo en un paso posterior.
 
+## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
+
+Si quiere obtener las notificaciones de `family_name` y `given_name` de Azure AD, puede configurar notificaciones opcionales para la aplicación en la interfaz de usuario de Azure Portal o el manifiesto de aplicación. Para obtener más información, consulte [Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione **Azure Active Directory**.
+1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
+1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
+1. En la sección **Administrar**, seleccione **Configuración del token (versión preliminar)** .
+1. Seleccione **Agregar notificación opcional**.
+1. Seleccione el tipo de token que desea configurar.
+1. Seleccione las notificaciones opcionales que va a agregar.
+1. Haga clic en **Agregar**.
+
 ## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 
 Debe almacenar la clave de la aplicación que creó en el inquilino de Azure AD B2C.
@@ -73,23 +86,20 @@ Para definir Azure AD como proveedor de notificaciones, agregue el elemento **Cl
 1. Abra el archivo *TrustFrameworkExtensions.xml*.
 2. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
 3. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
-
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>Contoso</Domain>
       <DisplayName>Login using Contoso</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
+        <TechnicalProfile Id="OIDC-Contoso">
           <DisplayName>Contoso Employee</DisplayName>
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
-            <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="METADATA">https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
@@ -125,12 +135,11 @@ Para definir Azure AD como proveedor de notificaciones, agregue el elemento **Cl
 
 Para obtener un token del punto de conexión de Azure AD es preciso definir los protocolos que Azure AD B2C debe usar para comunicarse con Azure AD. Esto se realiza dentro del elemento **TechnicalProfile** de **ClaimsProvider**.
 
-1. Actualice el identificador del elemento **TechnicalProfile**. Este identificador se usa para hacer referencia a este perfil técnico desde otras partes de la directiva.
+1. Actualice el identificador del elemento **TechnicalProfile**. Este identificador se usa para hacer referencia a este perfil técnico desde otras partes de la directiva, por ejemplo: `OIDC-Contoso`.
 1. Actualice el valor de **DisplayName**. Este valor se mostrará en el botón de inicio de sesión de la pantalla de inicio de sesión.
 1. Actualice el valor de **Description**.
 1. Azure AD usa el protocolo OpenID Connect, por lo que debe asegurarse de que el valor de **Protocol** es `OpenIdConnect`.
-1. Establezca el valor de **METADATA** como `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, donde `your-AD-tenant-name` es el nombre del inquilino de Azure AD. Por ejemplo: `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
-1. Abra el explorador y vaya a la dirección URL **METADATA** que acaba de actualizar, busque el objeto **emisor** y copie y pegue el valor en **ProviderName** en el archivo XML.
+1. Establezca el valor de **METADATA** como `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, donde `tenant-name` es el nombre del inquilino de Azure AD. Por ejemplo: `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Establezca **client_id** en el identificador de la aplicación desde el registro de aplicación.
 1. En **CryptographicKeys**, actualice el valor de **StorageReferenceId** con el nombre de la clave de directiva que creó anteriormente. Por ejemplo, `B2C_1A_ContosoAppSecret`.
 
@@ -171,10 +180,10 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
 1. Al agregar el siguiente elemento **ClaimsExchange**, asegúrese de usar el mismo valor para el elemento **Id** que el que usó en **TargetClaimsExchangeId**:
 
     ```XML
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 
-    Actualice el valor de **TechnicalProfileReferenceId** al elemento **Id** del perfil técnico que creó anteriormente. Por ejemplo, `ContosoProfile`.
+    Actualice el valor de **TechnicalProfileReferenceId** al elemento **Id** del perfil técnico que creó anteriormente. Por ejemplo, `OIDC-Contoso`.
 
 1. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
 

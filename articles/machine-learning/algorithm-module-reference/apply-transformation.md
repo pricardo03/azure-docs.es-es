@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: a48ce60dca9f4221e364d53567f5b53719deb18c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 443b021b266a202775e94e44acac3a91a2b70617
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314528"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137577"
 ---
 # <a name="apply-transformation-module"></a>Módulo Aplicar transformación
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para modificar un conjunto de datos de entrada basado en una transformación calculada previamente.  
   
@@ -32,9 +32,9 @@ Azure Machine Learning proporciona compatibilidad para crear y después aplica
 
 ## <a name="how-to-use-apply-transformation"></a>Cómo se usa Aplicar transformación  
   
-1. Agregue el módulo **Apply Transformation** (Aplicar transformación) a la canalización. Puede encontrar este módulo en la categoría **Machine Learning**, en la categoría **Puntuación**. 
+1. Agregue el módulo **Apply Transformation** (Aplicar transformación) a la canalización. Puede encontrar este módulo en la categoría **Evaluación y puntuación del modelo**. 
   
-2. Busque una transformación existente para usarla como entrada.  Las transformaciones guardadas anteriormente se pueden encontrar en el grupo **Transformaciones** del panel de navegación izquierdo.  
+2. Busque una transformación existente para usarla como entrada. Las transformaciones guardadas anteriormente se pueden encontrar en el grupo **My Datasets** (Mis conjuntos de datos) en la categoría **Conjuntos de datos** en el árbol del módulo de la izquierda.  
   
    
   

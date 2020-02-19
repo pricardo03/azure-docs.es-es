@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: df50654b8673306a6bee544d9b5fcc2cb578795d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5a1d3753dfec673338bdde67656afd9c5f413ef0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988199"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137603"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,7 +105,6 @@ Use el botón Eliminar en la parte superior del área de trabajo que desea elimi
 
   ![Botón Eliminar](./media/how-to-manage-workspace/delete-workspace.png)
 
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
@@ -115,6 +114,11 @@ Use el botón Eliminar en la parte superior del área de trabajo que desea elimi
 ### <a name="resource-provider-errors"></a>Errores del proveedor de recursos
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>Movimiento del área de trabajo
+
+> [!WARNING]
+> No se admite mover el área de trabajo de Azure Machine Learning a otra suscripción ni mover la suscripción propietaria a un nuevo inquilino. Si lo hace, pueden producirse errores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

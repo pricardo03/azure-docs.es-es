@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5633dd7b72f4de22cd34b7d093e8ec4d9cb411f1
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571977"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137701"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Terminación SSL con certificados de Key Vault
 
@@ -33,6 +33,9 @@ La integración de Application Gateway con Key Vault ofrece muchas ventajas, inc
 - Compatibilidad con la renovación automática de certificados almacenados en el almacén de claves.
 
 Actualmente, Application Gateway solo admite certificados validados por software. Los certificados validados por el módulo de seguridad de hardware (HSM) no se admiten. Después de configurar Application Gateway para usar certificados de Key Vault, sus instancias recuperan el certificado de Key Vault y lo instalan localmente para la terminación SSL. Además, las instancias sondean Key Vault en intervalos de 24 horas para recuperar una versión renovada del certificado, si existe. Si se encuentra un certificado actualizado, el certificado SSL asociado actualmente al cliente de escucha HTTPS se gira automáticamente.
+
+> [!NOTE]
+> Azure Portal solo admite certificados de KeyVault, no secretos. Application Gateway sigue admitiendo hacer referencia a secretos desde KeyVault, pero solo a través de recursos que no son de portal, como PowerShell, la CLI, API, plantillas de ARM, etc. 
 
 ## <a name="how-integration-works"></a>Funcionamiento de la integración
 

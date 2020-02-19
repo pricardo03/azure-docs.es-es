@@ -15,26 +15,28 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d9d63aa6b3da1b8d8389722bd5af0eeed585d03
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016677"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134970"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
-En este artículo se muestra cómo configurar el codificador en directo [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo.  Para obtener más información, consulte [Uso de canales habilitados para Live Encoding con Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+En este artículo se muestra cómo configurar el codificador en directo [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. Para obtener más información, consulte [Uso de canales habilitados para Live Encoding con Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la herramienta Explorador de Azure Media Services (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use Azure Portal para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> Los codificadores deben admitir TLS 1.2 al usar protocolos RTMP. Use la versión de Wirecast 13.0.2 o posterior debido al requisito de TLS 1.2.
+
+## <a name="prerequisites"></a>Prerrequisitos
 * [Creación de una cuenta de Azure Media Services](media-services-portal-create-account.md)
 * Asegúrese de que hay un punto de conexión de streaming en ejecución. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
@@ -169,7 +171,7 @@ Si se recibe un error, debe restablecer el canal y ajustar la configuración del
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.  
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 Para más información, consulte el artículo de [solución de problemas](media-services-troubleshooting-live-streaming.md).
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services

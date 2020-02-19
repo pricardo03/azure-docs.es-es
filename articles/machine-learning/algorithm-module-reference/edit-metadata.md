@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 173e483710c3fa96ae542f7941f0912ed07ea2ca
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 57a211c6ffab9a960c013008410f4b52b909d360
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312214"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137509"
 ---
 # <a name="edit-metadata-module"></a>Módulo Editar metadatos
 
-En este artículo se describe un módulo incluido en el diseñador de Azure Machine Learning.
+En este artículo se describe un módulo incluido en el diseñador de Azure Machine Learning (versión preliminar).
 
 Use el módulo Editar metadatos para cambiar los metadatos asociados con las columnas de un conjunto de datos. El valor y el tipo de datos del conjunto de datos cambiará después de usar el módulo Editar metadatos.
 
@@ -40,9 +40,9 @@ Entre los cambios de metadatos habituales se pueden incluir:
   
 ## <a name="configure-edit-metadata"></a>Configuración del módulo Editar metadatos
   
-1. En Azure Machine Learning, agregue el módulo Edit Metadata (Editar metadatos) a la canalización y conecte el conjunto de datos que desea actualizar. Puede encontrar el conjunto de datos en **Transformación de datos**, en la categoría **Manipulación**.
+1. En el diseñador de Azure Machine Learning, agregue el módulo Editar metadatos a la canalización y conecte el conjunto de datos que desea actualizar. Puede encontrar el módulo en la categoría **Transformación de datos**.
   
-1. Seleccione **Launch the column selector** (Iniciar el selector de columnas) y elija la columna o conjunto de columnas con las que desea trabajar. Puede elegir las columnas individualmente por nombre o por índice, o puede elegir un grupo de columnas por tipo.  
+1. Haga clic en **Editar columna** en el panel derecho del módulo y elija la columna o el conjunto de columnas con el que desea trabajar. Puede elegir las columnas individualmente por nombre o por índice, o puede elegir un grupo de columnas por tipo.  
   
 1. Seleccione la opción **Tipo de datos** si tiene que asignar un tipo de datos diferente a las columnas seleccionadas. Es posible que deba cambiar el tipo de datos para determinadas operaciones. Por ejemplo, si el conjunto de datos de origen tiene números tratados como texto, debe cambiarlos a un tipo de datos numérico antes de usar las operaciones matemáticas.
 

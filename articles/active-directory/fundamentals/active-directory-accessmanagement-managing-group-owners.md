@@ -12,17 +12,17 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ee4b452d087bfef0e9f5f7c820870da0df8dc3e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: f83a48ad13fe4ae217319b2aa85adf976aa6a7ae
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74683937"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149854"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adición o eliminación de propietarios del grupo en Azure Active Directory
 Los grupos de Azure Active Directory (Azure AD) pertenecen a propietarios del grupo, quienes también lo administran. Los propietarios del grupo pueden ser usuarios o entidades de servicio y disponen de la capacidad de administrar el grupo, incluida la pertenencia. Los propietarios de grupos existentes o los administradores de gestión de grupos son los únicos que pueden asignar propietarios de grupos. Los propietarios del grupo no deben ser miembros del grupo.
 
-Cuando un grupo no tiene propietario, los administradores de gestión de grupos pueden administrar el grupo.
+Cuando un grupo no tiene propietario, los administradores de gestión de grupos pueden administrar el grupo. Se recomienda que cada grupo tenga al menos un propietario. Una vez que se asignan los propietarios a un grupo, no se puede quitar el último propietario del grupo. Asegúrese de seleccionar otro propietario antes de quitar el último propietario del grupo.
 
 ## <a name="add-an-owner-to-a-group"></a>Adición de un propietario a un grupo
 A continuación encontrará las instrucciones para agregar un usuario como propietario a un grupo mediante el portal de Azure AD. Para agregar una entidad de servicio como propietario de un grupo, siga las instrucciones para hacerlo mediante [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).

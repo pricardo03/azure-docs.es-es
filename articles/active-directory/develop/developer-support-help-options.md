@@ -13,12 +13,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e85a768d8e4f11ca3637bc8f0b394cfb1ea9744a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697479"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160974"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opciones de ayuda y soporte técnico para desarrolladores
 
@@ -79,8 +79,8 @@ Si encuentra un error o un problema relacionado con nuestras bibliotecas, genere
 
 Para ver una lista de bibliotecas y sus repositorios de GitHub, consulte lo siguiente:
 
-* Bibliotecas [ADAL](active-directory-authentication-libraries.md) y repositorios de GitHub
-* Bibliotecas y repositorios de GitHub [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) y [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc)
+* [Bibliotecas de autenticación de Azure Active Directory (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) y repositorios de GitHub
+* [Bibliotecas de autenticación de Microsoft (MSAL)](reference-v2-libraries.md) y repositorios de GitHub
 
 ## <a name="open-a-support-request"></a>Apertura de una solicitud de soporte técnico
 

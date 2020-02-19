@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112189"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149888"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta de Lucene en Azure Cognitive Search
 
 Puede escribir consultas en Azure Cognitive Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formas de consulta especializadas, por ejemplo, comodines, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Cognitive Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen mediante expresiones `$filter`. 
+
+> [!NOTE]
+> La sintaxis completa de Lucene se usa para las expresiones de consulta que se pasan en el parámetro **search** de la API [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents), no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para el parámetro [$filter](search-filters.md) de esa API. Estas distintas sintaxis tienen sus propias reglas para construir consultas, cadenas de escape, etc.
 
 ## <a name="how-to-invoke-full-parsing"></a>Invocación del análisis completo
 
@@ -108,7 +111,7 @@ El operador OR es una barra vertical o el carácter de barra vertical. Por ejemp
 El operador AND es una Y comercial o un signo más. Por ejemplo: `wifi && luxury` buscará documentos que contengan "wifi" y "luxury". El carácter de signo más (+) se usa para los términos requeridos. Por ejemplo, `+wifi +luxury` estipula que ambos términos deben aparecer en algún lugar en el campo de un documento.
 
 
-### <a name="not-operator-not--or--"></a>Operador NOT `NOT` `!` o `-`
+### <a name="not-operator-not--or--"></a>Operador NOT `NOT``!` o `-`
 
 El operador NOT es un signo de exclamación o el signo menos. Por ejemplo, `wifi !luxury` buscará documentos que contengan el término "wifi" y/o no tengan "luxury". La opción `searchMode` controla si se aplica AND u OR a un término con el operador NOT con los otros términos de la consulta en ausencia de un operador + o ||. Recuerde que `searchMode` puede establecerse en `any` (valor predeterminado) o en `all`.
 
@@ -123,7 +126,7 @@ El uso de `searchMode=all` aumenta la precisión de las consultas al incluirse m
  Azure Cognitive Search usa la puntuación basada en la frecuencia ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para las consultas de texto. Sin embargo, para consultas con caracteres comodín y expresiones regulares donde el ámbito de los términos puede ser posiblemente amplio, se omite el factor de frecuencia para evitar que la clasificación se desvíe hacia las coincidencias de términos menos frecuentes. Todas las coincidencias se tratan por igual en las búsquedas con caracteres comodín y expresiones regulares.
 
 ##  <a name="bkmk_fields"></a> Búsqueda clasificada por campos  
-Puede definir una operación de búsqueda clasificada por campos con la sintaxis `fieldName:searchExpression`, donde la expresión de búsqueda puede ser una sola palabra, una frase o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. Estos son algunos ejemplos:  
+Puede definir una operación de búsqueda clasificada por campos con la sintaxis `fieldName:searchExpression`, donde la expresión de búsqueda puede ser una sola palabra, una frase o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. A continuación se muestran algunos ejemplos:  
 
 - genre:jazz NOT history  
 
@@ -169,7 +172,7 @@ En el siguiente ejemplo se muestran las diferencias. Suponga que hay un perfil d
 >  ¿No puede utilizar un símbolo * o ? como primer carácter de la búsqueda.  
 >  No se realiza ningún análisis de texto en consultas de búsqueda con caracteres comodín. En tiempo de consulta, los términos de consulta con caracteres comodín se comparan con los términos analizados en el índice de búsqueda y expandidos.
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Consulte también  
 
 + [Buscar en documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md) (Sintaxis de expresiones de OData para filtros y ordenación)   

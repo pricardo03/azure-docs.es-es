@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f28d984cfc29e67c3b5c3a90137ee09868b471c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806035"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137765"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entrenamiento de un modelo de Custom Speech
 
-El entrenamiento de un modelo de voz a texto puede mejorar la precisión del reconocimiento en el modelo de línea de base de Microsoft o en un modelo personalizado que tenga pensado crear. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado. Estos conjuntos de datos, junto con los datos de audio cargados anteriormente, se usan para refinar y entrenar el modelo de texto a voz para el reconocimiento de palabras, frases, acrónimos, nombres y otros términos específicos de cada producto. Cuantos más conjuntos de datos en dominio proporcione (datos que están relacionados con qué dirán los usuarios y qué espera reconocer), más preciso será su modelo y, por lo tanto, mejor será el reconocimiento. Tenga en cuenta que el uso de datos no relacionados en el entrenamiento puede reducir o perjudicar la precisión del modelo.
+El entrenamiento de un modelo de conversión de voz a texto puede mejorar la precisión del reconocimiento del modelo de base de referencia de Microsoft. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado. Estos conjuntos de datos, junto con los datos de audio cargados anteriormente, se usan para refinar y entrenar el modelo de texto a voz para el reconocimiento de palabras, frases, acrónimos, nombres y otros términos específicos de cada producto. Cuantos más conjuntos de datos en dominio proporcione (datos que están relacionados con qué dirán los usuarios y qué espera reconocer), más preciso será su modelo y, por lo tanto, mejor será el reconocimiento. Tenga en cuenta que el uso de datos no relacionados en el entrenamiento puede reducir o perjudicar la precisión del modelo.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Uso del entrenamiento para solucionar problemas de precisión
 

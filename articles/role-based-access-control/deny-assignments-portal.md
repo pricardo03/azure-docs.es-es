@@ -1,5 +1,5 @@
 ---
-title: Enumeración de las asignaciones de denegación de recursos de Azure mediante Azure Portal | Microsoft Docs
+title: Enumeración de las asignaciones de denegación para recursos de Azure con Azure Portal
 description: Aprenda cómo enumerar los usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas en recursos de Azure en un ámbito determinado mediante Azure Portal.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 21ffb1a2539a2e724a91dd3b2818270a5e573ef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67127486"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137423"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure Portal
 
@@ -28,7 +28,7 @@ Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios 
 > [!NOTE]
 > No se pueden crear directamente asignaciones de denegación propias. Para obtener información sobre cómo se crean las asignaciones de denegación, vea [Asignaciones de denegación](deny-assignments.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para obtener información sobre una asignación de denegación, debe tener lo siguiente:
 
@@ -42,11 +42,11 @@ Siga estos pasos para enumerar las asignaciones de denegación en el ámbito de 
 
 1. Haga clic en el grupo de administración o suscripción que quiera enumerar.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de denegación** (o haga clic en el botón **Ver** en el icono Ver asignaciones de denegación).
 
-    Si hay alguna asignación denegada en este ámbito o heredada de este ámbito, se enumerarán.
+    Si hay asignaciones denegadas en este ámbito o heredadas en este ámbito, se mostrarán.
 
     ![Control de acceso: pestaña Asignaciones de denegación](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
@@ -90,7 +90,7 @@ Siga estos pasos para enumerar detalles adicionales sobre una asignación de den
 
     ![Asignación de denegación: Permisos denegados](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
-    | Tipo de acción | DESCRIPCIÓN |
+    | Tipo de acción | Descripción |
     | --- | --- |
     | **Acciones**  | Operaciones de administración denegadas. |
     | **NotActions** | Operaciones de administración que se excluyen de la operación de administración denegada. |
