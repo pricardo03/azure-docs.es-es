@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c173d0e17166911e28fea3d1c5820879d17af4a8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1a8832234978a2c8b2db25d88b5dd6c211b634b7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381120"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186451"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional 
 
@@ -36,7 +36,7 @@ En la terminología del acceso condicional, estas aplicaciones cliente se conoce
 
 ![Acceso condicional](./media/app-based-conditional-access/05.png)
 
-Para una lista de las aplicaciones cliente aprobadas, consulte el [requisito de las aplicaciones cliente aprobadas](technical-reference.md#approved-client-app-requirement).
+Para una lista de las aplicaciones cliente aprobadas, consulte el [requisito de las aplicaciones cliente aprobadas](concept-conditional-access-grant.md).
 
 Puede combinar directivas de acceso condicional basadas en aplicaciones con otras directivas como las [de acceso condicional basadas en dispositivos](require-managed-devices.md) con el fin de proporcionar flexibilidad en la manera de proteger los datos de los dispositivos personales y corporativos.
 
@@ -44,12 +44,12 @@ Puede combinar directivas de acceso condicional basadas en aplicaciones con otra
 
 En este tema se da por supuesto que está familiarizado con:
 
-- La referencia técnica del [requisito de las aplicaciones cliente aprobadas](technical-reference.md#approved-client-app-requirement).
+- El [requisito de aplicación cliente aprobada](concept-conditional-access-grant.md).
 - Los conceptos básicos del [acceso condicional en Azure Active Directory](overview.md).
 - La [configuración de la directiva de acceso condicional](app-based-mfa.md).
 - La [migración de directivas de acceso condicional](best-practices.md#policy-migration).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para crear una directiva de acceso condicional basada en aplicaciones, debe tener una suscripción a Enterprise Mobility + Security o una suscripción premium a Azure Active Directory, y los usuarios deben disponer de una licencia para EMS o Azure AD. 
 

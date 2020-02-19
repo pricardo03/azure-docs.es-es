@@ -1,5 +1,6 @@
 ---
-title: Cinco pasos para proteger su infraestructura de identidad en Azure Active Directory
+title: Proteja su infraestructura de identidad de Azure AD
+titleSuffix: Azure Active Directory
 description: En este documento se proporciona una lista de acciones importantes que los administradores deberían implementar para proteger su organización mediante las funcionalidades de Azure AD.
 author: martincoetzer
 manager: manmeetb
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cafa9d6100e03d8315bf5dd19d863ca90aadd4bb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903576"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190889"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -106,7 +107,7 @@ Las aplicaciones que usan sus propios métodos heredados para autenticarse con A
 
 1. Bloquee la [autenticación heredada si usa AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configure [SharePoint Online y Exchange Online para que usen una autenticación moderna](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Si tiene Azure AD Premium, use [Directivas de acceso condicional](../../active-directory/conditional-access/conditions.md) para bloquear la autenticación heredada; de lo contrario, use [valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+3. Si tiene Azure AD Premium, use [Directivas de acceso condicional](../../active-directory/conditional-access/overview.md) para bloquear la autenticación heredada; de lo contrario, use [valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquear los puntos de entrada de autenticación no válidos
 

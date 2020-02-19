@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: 1766b536043d8c404addb1877aa3ef9b57344ef4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722261"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116763"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Programación de canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python
 
 En este artículo, aprenderá a programar mediante programación una canalización para que se ejecute en Azure. Puede optar por crear una programación basada en el tiempo transcurrido o en los cambios en el sistema de archivos. Las programaciones basadas en el tiempo se pueden usar para encargarse de tareas rutinarias, como la supervisión del desfase de datos. Las programaciones basadas en los cambios se pueden usar para reaccionar ante cambios irregulares o imprevisibles, como la carga de nuevos datos o la edición de datos antiguos. Después de aprender a crear programaciones, aprenderá a recuperarlas y desactivarlas.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
 
@@ -55,6 +55,13 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 ## <a name="create-a-schedule"></a>Crear una programación
 
 Para ejecutar una canalización de forma periódica, creará una programación. Un elemento `Schedule` asocia una canalización, un experimento y un desencadenador. El desencadenador puede ser un elemento `ScheduleRecurrence` que describa la espera entre ejecuciones o una ruta de acceso a un almacén de datos que especifique un directorio para inspeccionar los cambios. En cualquier caso, necesitará el identificador de la canalización y el nombre del experimento en el que se va a crear la programación.
+
+En la parte superior del archivo de Python, importe las clases `Schedule` y `ScheduleRecurrence`:
+
+```python
+
+from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
+```
 
 ### <a name="create-a-time-based-schedule"></a>Creación de una programación basada en el tiempo
 
@@ -141,3 +148,4 @@ Para más información, consulte:
 
 * Más información sobre las [canalizaciones](concept-ml-pipelines.md)
 * Más información sobre la [exploración de Azure Machine Learning con Jupyter](samples-notebooks.md)
+

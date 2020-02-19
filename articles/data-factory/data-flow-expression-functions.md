@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 68771ee3d2ae2d43245bd217bedcf59b987786f1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5492850944b04ea4b4d30dd206e7b297b34c075c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716723"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062853"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow 
 
@@ -934,8 +934,8 @@ La función CumeDist calcula la posición de un valor respecto a todos los valor
 * ``cumeDist()``
 ___
 ### <code>denseRank</code>
-<code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Calcula la clasificación de un valor en un grupo de valores. El resultado es uno más el número de filas anteriores o iguales a la fila actual en la ordenación de la partición. Los valores no generarán intervalos en la secuencia. La clasificación densa funciona incluso cuando los datos no están ordenados y busca cambios en los valores. * ``denseRank(salesQtr, salesAmt)``
+<code><b>denseRank() => integer</b></code><br/><br/>
+Calcula el rango de un valor en un grupo de valores especificado en la cláusula order by de una ventana. El resultado es uno más el número de filas anteriores o iguales a la fila actual en la ordenación de la partición. Los valores no generarán intervalos en la secuencia. La clasificación densa funciona incluso cuando los datos no están ordenados y busca cambios en los valores. * ``denseRank()``
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
@@ -954,8 +954,8 @@ La función NTile divide las filas para cada partición de ventana en `n` cubos 
 * ``nTile(numOfBuckets)``
 ___
 ### <code>rank</code>
-<code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Calcula la clasificación de un valor en un grupo de valores. El resultado es uno más el número de filas anteriores o iguales a la fila actual en la ordenación de la partición. Los valores generarán intervalos en la secuencia. La clasificación funciona incluso cuando no está ordenada y busca cambios en los valores. * ``rank(salesQtr, salesAmt)``
+<code><b>rank() => integer</b></code><br/><br/>
+Calcula el rango de un valor en un grupo de valores especificado en la cláusula order by de una ventana. El resultado es uno más el número de filas anteriores o iguales a la fila actual en la ordenación de la partición. Los valores generarán intervalos en la secuencia. La clasificación funciona incluso cuando no está ordenada y busca cambios en los valores. * ``rank()``
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>

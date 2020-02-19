@@ -1,36 +1,29 @@
 ---
-title: Comandos de la CLI de Azure en el modo Resource Manager | Microsoft Docs
-description: Comandos de la interfaz de la línea de comandos (CLI) de Azure para administrar recursos en el modelo de implementación de Resource Manager
-services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: ''
+title: Comandos de la CLI clásica de Azure
+description: Comandos de la interfaz de la línea de comandos (CLI) de Azure para administrar recursos.
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
-ms.service: multiple
-ms.workload: multiple
-ms.tgt_pltfrm: command-line-interface
-ms.devlang: na
+ms.service: virtual-machines
+ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 7fd06a620c695b3be49a116c89f63507cee9c07c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 899f453ef67fd094578e946c1cdd9ca4d427bf79
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355925"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122458"
 ---
-# <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos de la CLI de Azure en el modo de Resource Manager
-En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para obtener una descripción general de los recursos y grupos de recursos de Azure, vea [Información general del grupo de recursos de Azure](../azure-resource-manager/management/overview.md).  
+# <a name="azure-classic-cli-commands"></a>Comandos de la CLI clásica de Azure 
 
-> [!NOTE]
-> Este artículo muestra los comandos de modo de Resource Manager en la CLI de Azure, a la que a veces se llama CLI clásica de Azure. Para trabajar en el modelo de Resource Manager, también puede probar la [CLI de Azure](/cli/azure/install-az-cli2), nuestra CLI multiplataforma de última generación.
->Obtenga más información sobre las [CLI antigua y nueva de Azure](/cli/azure/old-and-new-clis).
->
+> [!IMPORTANT]
+> Este tema describe cómo instalar la CLI clásica de Azure. La CLI clásica está en desuso y solo debe usarse con el modelo de implementación clásico.
+> Para las demás implementaciones, utilice la [CLI de Azure](https://docs.microsoft.com/cli/azure/).
 
-En primer lugar, [instale la CLI de Azure](../cli-install-nodejs.md) y [conéctese a su suscripción de Azure](/cli/azure/authenticate-azure-cli).
+En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) clásica de Azure que normalmente se usan para crear y administrar recursos de Azure. Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. 
+
+En primer lugar, [instale la CLI clásica de Azure](../cli-install-nodejs.md) y [conéctese a su suscripción de Azure](/cli/azure/authenticate-azure-cli).
 
 Para las opciones y la sintaxis de comando actuales de la línea de comandos en el modo del Administrador de recursos, escriba `azure help` o, para mostrar la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
 
@@ -45,10 +38,10 @@ Use el siguiente comando para habilitar los comandos de la CLI de Azure en modo 
 
 > [!NOTE]
 > El modo de Azure Resource Manager de la CLI y el modo de administración de servicios de Azure son mutuamente excluyentes. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
-> 
-> 
+>
 
-## <a name="azure-account-manage-your-account-information"></a>Cuenta de Azure: actualización de la información de la cuenta
+
+## <a name="account-information"></a>Información de cuenta
 La herramienta usa la información de la suscripción de Azure para la conexión a su cuenta.
 
 **Enumerar las suscripciones importadas**
@@ -75,7 +68,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad-commands-to-display-active-directory-objects"></a>azure ad: comandos para mostrar objetos de Active Directory
+## <a name="active-directory-objects"></a>Objetos de Active Directory
 **Comandos para mostrar aplicaciones de Active Directory**
 
     ad app create [options]
@@ -102,7 +95,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>azure availset: comandos para administrar los conjuntos de disponibilidad
+## <a name="availability-sets"></a>Conjuntos de disponibilidad
 **Crea un conjunto de disponibilidad dentro de un grupo de recursos**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -119,7 +112,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
 
     availset delete [options] <resource-group> <name>
 
-## <a name="azure-config-commands-to-manage-your-local-settings"></a>azure config: comandos para administrar la configuración local
+## <a name="local-settings"></a>Configuración local
 **Mostrar ajustes de configuración de la CLI de Azure**
 
     config list [options]
@@ -137,7 +130,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
     config mode [options] <modename>
 
 
-## <a name="azure-feature-commands-to-manage-account-features"></a>característica de Azure: comandos para administrar las características de la cuenta
+## <a name="account-features"></a>Características de la cuenta
 **Enumera todas las características disponibles para su suscripción**
 
     feature list [options]
@@ -150,7 +143,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group-commands-to-manage-your-resource-groups"></a>azure group: comandos para administrar los grupos de recursos
+## <a name="resource-groups"></a>Grupos de recursos
 **Crea un grupo de recursos**
 
     group create [options] <name> <location>
@@ -189,12 +182,13 @@ La herramienta usa la información de la suscripción de Azure para la conexión
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight: comandos para administrar sus clústeres de HDInsight
+## <a name="hdinsight-clusters"></a>Clústeres de HDInsight
 **Comandos para crear o agregar a un archivo de configuración de clúster**
 
     hdinsight config create [options] <configFilePath> <overwrite>
     hdinsight config add-config-values [options] <configFilePath>
     hdinsight config add-script-action [options] <configFilePath>
+
 
 Ejemplo: Cree un archivo de configuración que contenga una acción de scripts para ejecutarlo al crear un clúster.
 
@@ -307,17 +301,17 @@ Opciones de parámetro:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights: comandos relacionados con la supervisión de Insights (eventos, reglas de alerta, configuración de escalado automático, métricas)
+## <a name="insights-events-alert-rules-autoscale-settings-metrics"></a>Insights (eventos, reglas de alerta, configuración de escalado automático, métricas)
 **Recuperar registros de operaciones de una suscripción, un correlationId, un grupo de recursos, un recurso o un proveedor de recursos**
 
     insights logs list [options]
 
-## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location: comandos para obtener las ubicaciones disponibles para todos los tipos de recursos
+## <a name="locations"></a>Ubicaciones 
 **Enumerar las ubicaciones disponibles**
 
     location list [options]
 
-## <a name="azure-network-commands-to-manage-network-resources"></a>azure network: comandos para administrar los recursos de red
+## <a name="network-resources"></a>Recursos de red
 **Comandos para administrar redes virtuales**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -1509,7 +1503,7 @@ Opciones de parámetro:
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>azure provider: comandos para administrar los registros de proveedor de recursos
+## <a name="resource-provider-registrations"></a>Registros del proveedor de recursos
 **Enumerar los proveedores registrados actualmente en Resource Manager**
 
     provider list [options]
@@ -1526,7 +1520,7 @@ Opciones de parámetro:
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource-commands-to-manage-your-resources"></a>azure resource: comandos para administrar los recursos
+## <a name="resources"></a>Recursos
 **Crea un recurso en un grupo de recursos.**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1547,7 +1541,7 @@ Opciones de parámetro:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role-commands-to-manage-your-azure-roles"></a>azure role: comandos para administrar los roles de Azure
+## <a name="azure-roles"></a>Roles de Azure
 **Obtener todas las definiciones de rol disponibles**
 
     role list [options]
@@ -1562,7 +1556,7 @@ Opciones de parámetro:
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: Comandos para administrar objetos de almacenamiento
+## <a name="storage-objects"></a>Objetos de almacenamiento
 **Comandos para administrar cuentas de Almacenamiento**
 
     storage account list [options]
@@ -1685,7 +1679,7 @@ Opciones de parámetro:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>azure tag: comandos para administrar las etiquetas del administrador de recursos
+## <a name="tags"></a>Etiquetas
 **Agregar una etiqueta**
 
     tag create [options] <name> <value>
@@ -1702,7 +1696,7 @@ Opciones de parámetro:
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: comandos para administrar Azure Virtual Machines
+## <a name="virtual-machines"></a>Virtual Machines
 **Crear una máquina virtual**
 
     vm create [options] <resource-group> <name> <location> <os-type>

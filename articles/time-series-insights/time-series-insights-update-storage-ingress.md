@@ -8,68 +8,82 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/31/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: f00529d00312fd6acb045de698590047f991bec7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0c7f2de0a454dceeff1946a93801c20ad81ab0ab
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714303"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122529"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
-En este artículo se describen las actualizaciones en el almacenamiento y la entrada de datos de la versión preliminar de Azure Time Series Insights. Se trata la estructura de almacenamiento subyacente, el formato de archivos y la propiedad Time Series ID. También se describen el proceso de entrada subyacente, los procedimientos recomendados y las limitaciones actuales de la versión preliminar.
+En este artículo se describen las actualizaciones en el almacenamiento y la entrada de datos de la versión preliminar de Azure Time Series Insights. Describe la estructura de almacenamiento subyacente, el formato de archivo y la propiedad Id. de serie temporal. También se describen el proceso de entrada subyacente, los procedimientos recomendados y las limitaciones actuales de la versión preliminar.
 
 ## <a name="data-ingress"></a>Entrada de datos
 
-El entorno de Azure Time Series Insights contiene un motor de ingesta para recopilar, procesar y almacenar datos de series temporales. Al planear el entorno, hay algunas consideraciones que se deben tener en cuenta para asegurarse de que se procesan todos los datos entrantes y para lograr una gran escala de entrada y minimizar la latencia de ingesta (el tiempo que tarda TSI en leer y procesar los datos del evento de origen). 
+El entorno de Azure Time Series Insights contiene un *motor de ingesta* para recopilar, procesar y almacenar datos de series temporales. 
+
+Hay algunas consideraciones que se deben tener en cuenta para garantizar el proceso de todos los datos entrantes, lograr una gran escala de entrada y minimizar la *latencia de ingesta* (el tiempo que tarda Time Series Insights en leer y procesar los datos del origen del evento) al [planear el entorno](time-series-insights-update-plan.md).
 
 Las directivas de entrada de datos de la versión preliminar de Time Series Insights determinan dónde se pueden obtener los datos de origen y qué formato deben tener.
 
 ### <a name="ingress-policies"></a>Directivas de entrada
 
+La *entrada de datos* implica cómo se envían los datos a un entorno de versión preliminar de Azure Time Series Insights. 
+
+A continuación se resumen las configuraciones principales, el formato y los procedimientos recomendados.
+
 #### <a name="event-sources"></a>Orígenes de eventos
 
-La versión preliminar de Time Series Insights admite los siguientes orígenes de eventos:
+La versión preliminar de Azure Time Series Insights admite los siguientes orígenes de eventos:
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-La versión preliminar de Time Series Insights admite un máximo de dos orígenes de eventos por instancia.
+La versión preliminar de Azure Time Series Insights admite un máximo de dos orígenes de eventos por instancia.
 
-> [!WARNING] 
+> [!IMPORTANT] 
 > * Al conectar un origen del evento a un entorno de versión preliminar, puede experimentar una latencia inicial elevada. 
 > La latencia del origen del evento depende del número de eventos que se encuentren actualmente en IoT Hub o en el Centro de eventos.
-> * Tras la primera ingesta de datos del origen del evento la latencia elevada disminuirá. Póngase en contacto con nosotros enviando una incidencia de soporte técnico desde Azure Portal si sufre una latencia elevada de forma continuada.
+> * Tras la primera ingesta de datos del origen del evento la latencia elevada disminuirá. Envíe una incidencia de soporte técnico a través de Azure Portal si sufre una latencia elevada de forma continuada.
 
 #### <a name="supported-data-format-and-types"></a>Tipos y formatos de datos admitidos
 
 Azure Time Series Insights admite JSON codificado en UTF8 enviado a través de Azure IoT Hub o Azure Event Hubs. 
 
-A continuación se muestra la lista de los tipos de datos admitidos.
+Los tipos de datos admitidos son:
 
 | Tipo de datos | Descripción |
-|-----------|------------------|-------------|
-| bool      |   Un tipo de datos que tiene uno de dos estados: true o false.       |
-| dateTime    |   Representa un instante de tiempo, normalmente expresado en forma de fecha y hora del día. Los valores DateTime deben tener el formato ISO 8601.      |
-| double    |   Un punto flotante IEEE 754 de doble precisión de 64 bits.
-| string    |   Valores de texto, compuestos de caracteres Unicode.          |
+|---|---|
+| **bool** | Tipo de datos que tiene uno de dos estados: `true` o `false`. |
+| **dateTime** | Representa un instante de tiempo, normalmente expresado en forma de fecha y hora del día. Se expresa en formato [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html). |
+| **double** | Punto flotante [IEEE 754](https://ieeexplore.ieee.org/document/8766229) de doble precisión de 64 bits. |
+| **string** | Valores de texto, compuestos de caracteres Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Objetos y matrices
 
-Puede enviar tipos complejos, como objetos y matrices, como parte de la carga del evento, pero los datos se someterán a un proceso de acoplamiento al almacenarse. Para obtener más información sobre cómo dar forma a los eventos JSON, así como detalles sobre el tipo complejo y el acoplamiento de objetos anidados, vea la página sobre [cómo dar forma a JSON para la entrada y la consulta](./time-series-insights-update-how-to-shape-events.md).
+Puede enviar tipos complejos, como objetos y matrices, como parte de la carga del evento, pero los datos se someterán a un proceso de acoplamiento al almacenarse. 
 
+La información detallada que describe cómo definir los eventos JSON, enviar un tipo complejo y acoplar objetos anidados está disponible en el artículo sobre [dar forma a los eventos JSON para la entrada y la consulta](./time-series-insights-update-how-to-shape-events.md) destinado a facilitar el planeamiento y la optimización.
 
 ### <a name="ingress-best-practices"></a>Procedimientos recomendados de entrada
 
 Se recomienda aplicar los siguientes procedimientos recomendados:
 
-* Configure Time Series Insights y la instancia de IoT Hub o el centro de eventos en la misma región con el fin de reducir la latencia de ingesta de la red.
-* Planee las necesidades de escala al calcular la tasa de ingesta prevista y comprobar que se encuentra dentro de la tasa admitida que se indica a continuación.
+* Configure Azure Time Series Insights y una instancia de IoT Hub o Event Hubs en la misma región para reducir la latencia potencial.
+
+* Para [planear sus necesidades de escala](time-series-insights-update-plan.md), calcule la tasa de ingesta prevista y compruebe que se encuentra dentro de la tasa admitida que se indica a continuación.
+
 * Entienda cómo optimizar y dar forma a los datos JSON, así como las limitaciones actuales de la versión preliminar, al leer [Cómo dar forma a JSON para la entrada y la consulta](./time-series-insights-update-how-to-shape-events.md).
 
-### <a name="ingress-scale-and-limitations-in-preview"></a>Escala y limitaciones de entrada de la versión preliminar
+### <a name="ingress-scale-and-preview-limitations"></a>Escala de entrada y limitaciones de la versión preliminar 
+
+A continuación se describen las limitaciones de entrada de la versión preliminar de Azure Time Series Insights.
+
+> [!TIP]
+> Lea [Planeamiento del entorno de versión preliminar](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) para obtener una lista completa de todos los límites de la versión preliminar.
 
 #### <a name="per-environment-limitations"></a>Limitaciones de cada entorno
 
@@ -77,39 +91,65 @@ En general, las tasas de entrada se ven como el factor del número de dispositiv
 
 *  **Número de dispositivos** × **Frecuencia de emisión de eventos** × **Tamaño de cada evento**.
 
-De forma predeterminada, la versión preliminar de Time Series Insights puede ingerir datos entrantes a una velocidad de hasta 1 MB por segundo (MBps) **por entorno de TSI**. Póngase en contacto con nosotros si esto no cumple sus requisitos, podemos admitir hasta 16 MBps para un entorno mediante el envío de una incidencia de soporte técnico en Azure Portal.
+De forma predeterminada, la versión preliminar de Time Series Insights puede ingerir datos entrantes a una velocidad de **hasta 1 megabyte por segundo (MBps) por entorno de Time Series Insights**.
+
+> [!TIP] 
+> * La compatibilidad del entorno con velocidades de ingesta de hasta 16 MBps se puede proporcionar a petición.
+> * Póngase en contacto con nosotros si necesita mayor rendimiento mediante el envío de una incidencia de soporte técnico a través de Azure Portal.
  
-Ejemplo 1: Contoso Shipping tiene 100.000 dispositivos que emiten un evento tres veces por minuto. El tamaño de un evento es de 200 bytes. Están usando una instancia de Event Hubs con 4 particiones como origen de eventos de TSI.
-La tasa de ingesta para su entorno de TSI sería: 100.000 dispositivos * 200 bytes/evento * (3/60 eventos por segundo) = 1 MBps.
-La tasa de ingesta por partición sería de 0,25 MBps.
-La tasa de ingesta de Contoso Shipping se encuentra dentro del límite de escala de la versión preliminar.
- 
-Ejemplo 2: Contoso Fleet Analytics tiene 60.000 dispositivos que emiten un evento cada segundo. Están utilizando un recuento de 24 particiones de IoT Hub de 4 como origen del evento de TSI. El tamaño de un evento es de 200 bytes.
-La tasa de ingesta de entorno sería: 20.000 dispositivos * 200 bytes/evento * (1 evento por segundo) = 4 MBps.
-La tasa de ingesta por partición sería de 1 MBps.
-Contoso Fleet Analytics necesitaría enviar una solicitud a TSI a través de Azure Portal para que un entorno dedicado alcance esta escala.
+* **Ejemplo 1:**
+
+    Contoso Shipping tiene 100.000 dispositivos que emiten un evento tres veces por minuto. El tamaño de un evento es de 200 bytes. Usan una instancia de Event Hubs con cuatro particiones como origen de eventos de Time Series Insights.
+
+    * La tasa de ingesta para su entorno de Time Series Insights sería: **100 000 dispositivos * 200 bytes/evento * (3/60 evento/segundo) = 1 MBps**.
+    * La tasa de ingesta por partición sería de 0,25 MBps.
+    * La tasa de ingesta de Contoso Shipping se encuentra dentro del límite de escala de la versión preliminar.
+
+* **Ejemplo 2:**
+
+    Contoso Fleet Analytics tiene 60.000 dispositivos que emiten un evento cada segundo. Están utilizando un recuento de 24 particiones de IoT Hub de 4 como origen del evento de Time Series Insights. El tamaño de un evento es de 200 bytes.
+
+    * La tasa de ingesta de entorno sería: **20 000 dispositivos * 200 bytes/evento * 1 evento/segundo = 4 MBps**.
+    * La tasa de ingesta por partición sería de 1 MBps.
+    * Contoso Fleet Analytics puede enviar una solicitud a Time Series Insights a través de Azure Portal para aumentar la tasa de ingesta de su entorno.
 
 #### <a name="hub-partitions-and-per-partition-limits"></a>Particiones del centro y límites por partición
 
-Al planear el entorno de TSI, es importante tener en cuenta la configuración de los orígenes de eventos que se van a conectar a TSI. Tanto Azure IoT Hub como Event Hubs usan particiones para habilitar el escalado horizontal para el procesamiento de eventos.  Una partición es una secuencia ordenada de eventos que se mantiene en un centro. El número de particiones se establece durante la fase de creación de IoT o Event Hubs, y no es modificable. Para más información para determinar el número de particiones, consulte esta pregunta frecuente sobre Event Hubs: ¿Cuántas particiones necesito? En el caso de los entornos de TSI que usan IoT Hub, generalmente la mayoría de las instancias de IoT Hub solo necesitan 4 particiones. Tanto si está creando un nuevo centro para el entorno de TSI como si usa uno existente, deberá calcular la velocidad de ingesta por partición para determinar si se encuentra dentro de los límites de la versión preliminar. La versión preliminar de TSI actualmente tiene un límite **por partición** de 0,5 MB/s. Use los ejemplos siguientes como referencia y tenga en cuenta la siguiente consideración específica de IoT Hub si es un usuario de IoT Hub.
+Al planear el entorno de Time Series Insights, es importante tener en cuenta la configuración de los orígenes de eventos que se van a conectar a Time Series Insights. Tanto Azure IoT Hub como Event Hubs usan particiones para habilitar el escalado horizontal para el procesamiento de eventos. 
+
+Una *partición* es una secuencia ordenada de eventos que se mantiene en un centro. El número de particiones se establece durante la fase de creación del centro y no se puede cambiar. 
+
+Para conocer los procedimientos recomendados de partición de Event Hubs, revise [¿Cuántas particiones necesito?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
+
+> [!NOTE]
+> La mayoría de las instancias de IoT Hub que se usan con Azure Time Series Insights solo necesitan cuatro particiones.
+
+Tanto si está creando un nuevo centro para el entorno de Time Series Insights como si usa uno existente, deberá calcular la tasa de ingesta por partición para determinar si se encuentra dentro de los límites de la versión preliminar. 
+
+La versión preliminar de Azure Time Series Insights tiene actualmente un **límite general por partición de 0,5 MBps**.
 
 #### <a name="iot-hub-specific-considerations"></a>Consideraciones específicas de IoT Hub
 
-Cuando se crea un dispositivo en IoT Hub, se asigna a una partición y la asignación de la partición no cambia. Al hacerlo, IoT Hub puede garantizar el orden de los eventos. Sin embargo, esto tiene implicaciones en TSI como lector inferior en ciertos escenarios. Cuando los mensajes de varios dispositivos se reenvían al centro con el mismo identificador de dispositivo de puerta de enlace, llegarán a la misma partición, lo que posiblemente haga superar el límite de escala por partición. 
+Cuando se crea un dispositivo en IoT Hub, se asigna de forma permanente a una partición. Al hacerlo, IoT Hub puede garantizar el orden de los eventos (puesto que la asignación nunca cambia).
 
-**Impacto**: Si una sola partición experimenta una tasa sostenida de ingesta sobre la limitación de la versión preliminar, existe la posibilidad de que el lector de TSI no la alcance antes de que se haya superado el período de retención de datos de IoT Hub. Esto provocaría una pérdida de datos.
+Una asignación de partición fija también afecta a las instancias de Time Series Insights que ingieren datos enviados desde la instancia de IoT Hub de bajada. Cuando los mensajes de varios dispositivos se reenvían al centro con el mismo identificador de dispositivo de puerta de enlace, pueden llegar a la misma partición al mismo tiempo, lo que posiblemente haga superar los límites de escala por partición. 
 
-Se recomienda lo siguiente: 
+**Impacto**:
 
-* Calcule la tasa de ingesta por entorno y por partición antes de implementar la solución
-* Asegúrese de que los dispositivos IoT Hub (y, por lo tanto, las particiones) tienen una carga equilibrada con la extensión más lejana posible.
+* Si una sola partición experimenta una tasa sostenida de ingesta sobre la limitación de la versión preliminar, existe la posibilidad de que Time Series Insights no sincronice la telemetría de todos los dispositivos antes de que se haya superado el período de retención de datos de IoT Hub. Como resultado, los datos enviados se pueden perder si los límites de ingesta se superan constantemente.
 
-> [!WARNING]
+Para mitigar esta circunstancia, se recomiendan los siguientes procedimientos recomendados:
+
+* Calcule sus tasas de ingesta por entorno y por partición antes de implementar la solución.
+* Asegúrese de que los dispositivos IoT Hub tengan una carga equilibrada en la medida de lo posible.
+
+> [!IMPORTANT]
 > En el caso de los entornos que usan IoT Hub como origen de eventos, calcule la tasa de ingesta usando el número de dispositivos concentradores en uso para asegurarse de que la velocidad esté por debajo de 0,5 MBps por límite de partición en la versión preliminar.
+> * Aunque varios eventos lleguen simultáneamente, no se superará el límite de la versión preliminar.
 
   ![Diagrama de particiones de IoT Hub](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
 
-Vea los vínculos siguientes para obtener más información sobre las unidades de procesamiento y las particiones:
+Consulte los siguientes recursos para obtener más información sobre cómo optimizar el rendimiento y las particiones del centro:
 
 * [Escala de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [Escala del centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
@@ -117,9 +157,9 @@ Vea los vínculos siguientes para obtener más información sobre las unidades d
 
 ### <a name="data-storage"></a>Almacenamiento de datos
 
-Al crear un entorno de SKU de pago por uso de la versión preliminar de Time Series Insights, se crean dos recursos de Azure:
+Al crear un entorno de SKU de *pago por uso* de la versión preliminar de Time Series Insights, se crean dos recursos de Azure:
 
-* Un entorno de versión preliminar de Time Series Insights que puede incluir opcionalmente capacidades de almacenamiento intermedio.
+* Un entorno de versión preliminar de Azure Time Series Insights que se puede configurar para el almacenamiento intermedio.
 * Una cuenta de blob de uso general v1 de Azure Storage para el almacenamiento de datos en frío.
 
 Los datos del almacenamiento intermedio solo están disponibles a través de [Consulta de Serie temporal](./time-series-insights-update-tsq.md) y el [explorador de la versión preliminar de Azure Time Series Insights](./time-series-insights-update-explorer.md). 
@@ -131,7 +171,7 @@ La versión preliminar de Time Series Insights guarda los datos del almacenamien
 
 ### <a name="data-availability"></a>Disponibilidad de los datos
 
-La versión preliminar de Time Series Insights crea particiones de los datos y los indexa para lograr un rendimiento óptimo de las consultas. Los datos están disponibles para su consulta una vez indexados. La cantidad de datos que se va a ingerir puede afectar a esta disponibilidad.
+La versión preliminar de Azure Time Series Insights crea particiones de los datos y los indexa para lograr un rendimiento óptimo de las consultas. Los datos están disponibles para su consulta una vez indexados. La cantidad de datos que se va a ingerir puede afectar a esta disponibilidad.
 
 > [!IMPORTANT]
 > Durante la versión preliminar, es posible que experimente un período de hasta 60 segundos hasta que los datos estén disponibles. Si experimenta una latencia considerable de más de 60 segundos, envíe una incidencia de soporte técnico a través de Azure Portal.
@@ -144,11 +184,14 @@ Para obtener una descripción detallada de Azure Blob Storage, lea [Introducció
 
 ### <a name="your-storage-account"></a>Cuenta de almacenamiento
 
-Cuando se crea un entorno de pago por uso de la versión preliminar de Time Series Insights, se crea una cuenta de blob de uso general v1 de Azure Storage como almacenamiento en frío a largo plazo.  
+Cuando se crea un entorno de pago por uso de la versión preliminar de Azure Time Series Insights, se crea una cuenta de blob de uso general v1 de Azure Storage como almacenamiento en frío a largo plazo.  
 
-La versión preliminar de Time Series Insights publica un máximo de dos copias de cada evento en su cuenta de Azure Storage. La copia inicial tiene eventos ordenados por hora de ingesta y siempre se conserva, por lo que se pueden usar otros servicios para acceder a ella. Puede usar Spark, Hadoop y otras herramientas conocidas para procesar los archivos de Parquet sin formato. 
+La versión preliminar de Azure Time Series Insights publica un máximo de dos copias de cada evento en su cuenta de Azure Storage. La copia inicial tiene los eventos ordenados por hora de ingesta. Ese orden de eventos se **mantiene siempre** para que otros servicios puedan acceder a sus eventos sin problemas de secuenciación. 
 
-La versión preliminar de Time Series Insights vuelve a crear particiones de los archivos de Parquet a fin de optimizarlos para la consulta de Time Series Insights. Esta copia reparticionada de los datos también se guarda.
+> [!NOTE]
+> También puede usar Spark, Hadoop y otras herramientas conocidas para procesar los archivos de Parquet sin formato. 
+
+La versión preliminar de Time Series Insights vuelve a crear particiones de los archivos de Parquet a fin de optimizarlos para la consulta de Time Series Insights. Esta copia reparticionada de los datos también se guarda. 
 
 Durante la versión preliminar pública, los datos se almacenan de forma indefinida en su cuenta de Azure Storage.
 

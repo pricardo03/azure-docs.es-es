@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cd1b5f120952752e956c957df9daa124a06d7b63
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5a0e5846dd541e4997c271aee180b3790efa16e9
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850675"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114044"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "76850675"
 
 Las [directivas personalizadas](custom-policy-overview.md) son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory B2C (Azure AD B2C). En este artículo se crea una directiva personalizada que admite el registro o el inicio de sesión de la cuenta local mediante una dirección de correo electrónico y una contraseña. También debe preparar el entorno para agregar proveedores de identidades.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 - [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
@@ -73,9 +73,9 @@ Solo tiene que registrar estas dos aplicaciones en el inquilino de Azure AD B2
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar la aplicación IdentityExperienceFramework
 
-Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
+Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Registros de aplicaciones (heredada)** o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En Azure Portal, busque y seleccione **Azure Active Directory**.
@@ -86,7 +86,7 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 1. En **URL de inicio de sesión**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el nombre de dominio del inquilino de Azure AD B2C. Todas las direcciones URL ahora deberían estar utilizando [b2clogin.com](b2clogin.md).
 1. Seleccione **Crear**. Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
 1. En **Nombre**, escriba `IdentityExperienceFramework`.
@@ -110,7 +110,7 @@ A continuación, exponga la API agregando un ámbito:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrar la aplicación ProxyIdentityExperienceFramework
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. En **Registros de aplicaciones (característica heredada)** , seleccione **Nuevo registro de aplicaciones**.
 1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
@@ -122,7 +122,7 @@ A continuación, exponga la API agregando un ámbito:
 1. Active la casilla situada junto a **Access IdentityExperienceFramework** (Acceder a IdentityExperienceFramework), haga clic en **Seleccionar** y luego en **Listo**.
 1. Seleccione **Conceder permisos** y, después, seleccione **Sí** para confirmar.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
 1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.

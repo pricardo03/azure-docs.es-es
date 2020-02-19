@@ -3,18 +3,21 @@ title: Restauración de Azure Files con PowerShell
 description: En este artículo se aprende a restaurar Azure Files mediante el servicio Azure Backup y PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: c1c116033dbf44e6e1f332195a18c7dfdbcd6c71
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 99aeaa6173bb5336e6e1719a9fc0df0c668374e2
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776085"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086827"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Restauración de Azure Files con PowerShell
 
 En este artículo se explica cómo restaurar un recurso compartido de archivos completo, o archivos específicos, desde un punto de restauración creado por el servicio [Azure Backup](backup-overview.md) mediante Azure PowerShell.
 
 Puede restaurar un recurso compartido de archivos al completo o archivos específicos de dicho recurso compartido. La restauración puede llevarse a cabo en la ubicación original o en una ubicación alternativa.
+
+> [!WARNING]
+> Asegúrese de que la versión de PS se actualice a la versión mínima de "Az.RecoveryServices 2.6.0" para las copias de seguridad de AFS. Para obtener más información, consulte [la sección](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) que describe el requisito de este cambio.
 
 ## <a name="fetch-recovery-points"></a>Captura de puntos de recuperación
 

@@ -9,18 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: d8e96ffc3e2b4756a4184a9a023133f14b326ed3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 42ab32e80ef0a1a7f3c02d8a8eedbb8ab13c4b88
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979941"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132251"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitación de auditorías de seguridad para Azure Active Directory Domain Services
 
-Las auditorías de seguridad de Azure Active Directory Domain Services (Azure AD DS) permiten a Azure transmitir eventos de seguridad a recursos de destino. Estos recursos incluyen Azure Storage, áreas de trabajo de Azure Log Analytics o Azure Event Hubs. Después de habilitar los eventos de auditoría de seguridad, Azure AD DS envía todos los eventos auditados de la categoría seleccionada al recurso de destino. Puede archivar eventos en Azure Storage y transmitir eventos a software de administración de eventos e información de seguridad (SIEM) (o equivalente) mediante Azure Event Hubs, o bien realizar sus propios análisis y usar áreas de trabajo de Azure Log Analytics en Azure Portal.
+Las auditorías de seguridad de Azure Active Directory Domain Services (Azure AD DS) permiten a Azure transmitir eventos de seguridad a recursos de destino. Estos recursos incluyen Azure Storage, áreas de trabajo de Azure Log Analytics o Azure Event Hubs. Después de habilitar los eventos de auditoría de seguridad, Azure AD DS envía todos los eventos auditados de la categoría seleccionada al recurso de destino.
+
+Puede archivar eventos en Azure Storage y transmitir eventos a software de administración de eventos e información de seguridad (SIEM) (o equivalente) mediante Azure Event Hubs, o bien realizar sus propios análisis y usar áreas de trabajo de Azure Log Analytics en Azure Portal.
 
 > [!IMPORTANT]
 > Las auditorías de seguridad de Azure AD DS solo están disponibles para instancias basadas en Azure Resource Manager. Para obtener información sobre cómo migrar, vea [Versión preliminar: Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager][migrate-azure-adds].
@@ -61,25 +63,25 @@ Hay disponibles las siguientes categorías de eventos de auditoría:
 
 ## <a name="security-audit-destinations"></a>Destinos de auditorías de seguridad
 
-Puede usar cualquier combinación de Azure Storage, Azure Event Hubs o áreas de trabajo de Azure Log Analytics como recurso de destino para las auditorías de seguridad de Azure AD DS. Puede usar Azure Storage para archivar eventos de auditoría de seguridad, pero un área de trabajo de Azure Log Analytics para analizar y notificar sobre la información a corto plazo.
+Puede usar Azure Storage, Azure Event Hubs o áreas de trabajo de Azure Log Analytics como recurso de destino para las auditorías de seguridad de Azure AD DS. Estos destinos se pueden combinar. Por ejemplo, puede usar Azure Storage para archivar eventos de auditoría de seguridad, pero un área de trabajo de Azure Log Analytics para analizar la información a corto plazo y notificarla.
 
 En la tabla siguiente se esbozan los escenarios para cada tipo de recurso de destino.
 
 > [!IMPORTANT]
-> Debe crear el recurso de destino antes de habilitar las auditorías de seguridad de Azure AD Domain Services. Puede crear estos recursos mediante Azure Portal, Azure PowerShell o la CLI de Azure.
+> Debe crear el recurso de destino antes de habilitar las auditorías de seguridad de Azure AD DS. Puede crear estos recursos mediante Azure Portal, Azure PowerShell o la CLI de Azure.
 
 | Recurso de destino | Escenario |
 |:---|:---|
-|Azure Storage| Este destino se debe usar cuando la necesidad principal es almacenar eventos de auditoría de seguridad para fines de archivado. Se pueden usar otros destinos para fines de archivado, pero esos destinos proporcionan funcionalidades que van más allá de la principal necesidad de archivado. Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree una cuenta de Azure Storage](../storage/common/storage-account-create.md).|
-|Azure Event Hubs| Este destino debe usarse cuando la principal necesidad es compartir eventos de auditoría de seguridad con otro software, como software de análisis de datos o software de administración de eventos e información de seguridad (SIEM). Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un centro de eventos mediante Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
-|Área de trabajo de Azure Log Analytics| Este destino debe usarse cuando la principal necesidad es analizar y revisar auditorías de seguridad directamente en Azure Portal. Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un área de trabajo de Log Analytics en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).|
+|Azure Storage| Este destino se debe usar cuando la necesidad principal es almacenar eventos de auditoría de seguridad para fines de archivado. Se pueden usar otros destinos para fines de archivado, pero esos destinos proporcionan funcionalidades que van más allá de la principal necesidad de archivado. <br /><br />Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree una cuenta de Azure Storage](../storage/common/storage-account-create.md).|
+|Azure Event Hubs| Este destino debe usarse cuando la principal necesidad es compartir eventos de auditoría de seguridad con otro software, como software de análisis de datos o software de administración de eventos e información de seguridad (SIEM).<br /><br />Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un centro de eventos mediante Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
+|Área de trabajo de Azure Log Analytics| Este destino debe usarse cuando la principal necesidad es analizar y revisar auditorías de seguridad directamente en Azure Portal.<br /><br />Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un área de trabajo de Log Analytics en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Habilitar eventos de auditoría de seguridad mediante Azure Portal
 
 Para habilitar eventos de auditoría de seguridad de Azure AD DS mediante Azure Portal, siga los pasos siguientes.
 
 > [!IMPORTANT]
-> Las auditorías de seguridad de Azure AD DS no son retroactivas. No es posible recuperar eventos del pasado ni reproducir eventos del pasado. Azure AD DS solo puede enviar los eventos que se producen después de habilitarlo.
+> Las auditorías de seguridad de Azure AD DS no son retroactivas. No se pueden recuperar ni reproducir eventos del pasado. Azure AD DS solo puede enviar los eventos que se producen después de la habilitación de las auditorías de seguridad.
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 1. En la parte superior de Azure Portal, busque y seleccione **Azure AD Domain Services**. Elija el dominio administrado como, por ejemplo, *aadds.contoso.com*.
@@ -116,7 +118,7 @@ Para habilitar eventos de auditoría de seguridad de Azure AD DS mediante Azure 
 Para habilitar eventos de auditoría de seguridad de Azure AD DS mediante Azure PowerShell, siga estos pasos. Si es necesario, primero [instale el módulo Azure PowerShell y conéctese a la suscripción de Azure](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Las auditorías de seguridad de Azure AD DS no son retroactivas. No es posible recuperar eventos del pasado ni reproducir eventos del pasado. Azure AD DS solo puede enviar los eventos que se producen después de habilitarlo.
+> Las auditorías de seguridad de Azure AD DS no son retroactivas. No se pueden recuperar ni reproducir eventos del pasado. Azure AD DS solo puede enviar los eventos que se producen después de la habilitación de las auditorías de seguridad.
 
 1. Autentíquese en la suscripción de Azure con el cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount). Cuando se le solicite, escriba las credenciales de la cuenta.
 
@@ -191,11 +193,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Consulta de ejemplo 2
 
-Vea todos los eventos de bloqueo de cuentas (*4740*) entre el 26 de junio de 2019 a las 9:00 y el 1 de julio de 2019 a medianoche, ordenados de forma ascendente por fecha y hora:
+Vea todos los eventos de bloqueo de cuentas (*4740*) entre el 3 de febrero de 2020 a las 9:00 y el 10 de febrero de 2019 a medianoche, ordenados de forma ascendente por fecha y hora:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
+| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

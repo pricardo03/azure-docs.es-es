@@ -1,31 +1,29 @@
 ---
-title: 'Inicio rápido: Enumeración de voces de texto a voz en Python: servicio de voz'
+title: 'Enumeración de voces de texto a voz en Python: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido, aprenderá a obtener la lista completa de voces estándar y neuronales para una región o punto de conexión mediante Python. La lista se devuelve como JSON y la disponibilidad de las voces varía por regiones.
+description: En este artículo, aprenderá a obtener la lista completa de voces estándar y neuronales para una región o un punto de conexión mediante Python. La lista se devuelve como JSON y la disponibilidad de las voces varía por regiones.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: c645d01dd37fd370911019446c99c76c9da6221c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.topic: how-to
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975982"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119796"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Inicio rápido: Obtención de la lista de voces de texto a voz mediante Python
+# <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obtención de la lista de voces de texto a voz mediante Python
 
-En esta guía de inicio rápido, aprenderá a obtener la lista completa de voces estándar y neuronales para una región o punto de conexión mediante Python. La lista se devuelve como JSON y la disponibilidad de las voces varía por regiones. Para ver una lista de las regiones admitidas, consulte [Regiones](regions.md).
+En este artículo, aprenderá a obtener la lista completa de voces estándar y neuronales para una región o un punto de conexión mediante Python. La lista se devuelve como JSON y la disponibilidad de las voces varía por regiones. Para ver una lista de las regiones admitidas, consulte [Regiones](regions.md).
 
-En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso del servicio de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
+Para este artículo se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso del servicio de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
 
-## <a name="prerequisites"></a>Requisitos previos
-
-Esta guía de inicio rápido requiere:
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Python 2.7.x o 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código

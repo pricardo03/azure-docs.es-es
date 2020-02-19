@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6084eca4f7d2d6040eb3f32a9b28cfc50922d200
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3db5cf0ddfec231a313df58e551061cbd5f9bef5
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896097"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110449"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca de las conexiones VPN de punto a sitio
 
@@ -45,7 +45,7 @@ La validación del certificado de cliente se realiza mediante la puerta de enlac
 
 ### <a name="authenticate-using-native-azure-active-directory-authentication"></a>Autenticación mediante Azure Active Directory de forma nativa
 
-La autenticación mediante Azure AD permite a los usuarios conectarse a Azure con sus credenciales de Azure Active Directory. La autenticación de Azure AD nativa solo se admite para el protocolo OpenVPN y Windows 10, y requiere el uso del [Cliente VPN de Azure (versión preliminar)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab).
+La autenticación mediante Azure AD permite a los usuarios conectarse a Azure con sus credenciales de Azure Active Directory. La autenticación de Azure AD nativa solo se admite para el protocolo OpenVPN y Windows 10, y requiere el uso del [Cliente VPN de Azure](https://go.microsoft.com/fwlink/?linkid=2117554).
 
 Con la autenticación de Azure AD nativa, puede aprovechar el acceso condicional de Azure AD, así como las características de Multi-Factor Authentication (MFA) para VPN.
 
@@ -55,7 +55,7 @@ En un nivel alto, para configurar la autenticación de Azure AD es preciso segu
 
 2. [Habilitar la autenticación de Azure AD en la puerta de enlace](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
 
-3. [Descargar y configurar el Cliente VPN de Azure (versión preliminar)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+3. [Descargar y configurar el Cliente VPN de Azure](https://go.microsoft.com/fwlink/?linkid=2117554)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticación mediante el servidor de dominio de Active Directory (AD)

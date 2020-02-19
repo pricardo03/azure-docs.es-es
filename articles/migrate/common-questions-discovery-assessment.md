@@ -3,12 +3,12 @@ title: 'Preguntas comunes: detección, valoración y análisis de dependencias e
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513293"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059494"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Preguntas comunes sobre detección, valoración y análisis de dependencias
 
@@ -16,6 +16,8 @@ En este artículo se responde a preguntas comunes sobre detección, valoración 
 
 - [Preguntas generales](resources-faq.md) sobre Azure Migrate.
 - [Preguntas](common-questions-appliance.md) sobre el dispositivo de Azure Migrate.
+- [Preguntas](common-questions-server-migration.md) sobre la migración de servidores.
+
 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>¿Cuántas máquinas virtuales puedo detectar con un dispositivo?

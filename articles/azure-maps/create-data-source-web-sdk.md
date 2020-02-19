@@ -1,6 +1,6 @@
 ---
 title: Creación de un origen de datos para un mapa | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo crear un origen de datos y agregarlo a un mapa mediante el SDK web de Microsoft Azure Maps.
+description: En este artículo, aprenderá a crear un origen de datos y agregarlo a un mapa mediante el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,35 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 74b45d3f7fa7d0e13b8767d4a887d8a22cad3a30
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911732"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190230"
 ---
 # <a name="create-a-data-source"></a>Creación de un origen de datos
 
-El SDK de Azure Maps para web almacena los datos en orígenes de datos que optimizan los datos para la consulta y la representación. Actualmente hay dos tipos de orígenes de datos:
+El SDK web de Azure Maps almacena los datos en orígenes de datos. El uso de orígenes de datos optimiza las operaciones de datos en las consultas y representaciones. Actualmente hay dos tipos de orígenes de datos:
 
 **Origen de datos de GeoJSON**
 
-Un origen de datos basado en GeoJSON puede cargar y almacenar datos localmente mediante la clase `DataSource`. Los datos de GeoJSON se pueden crear manualmente o mediante las clases auxiliares del espacio de nombres de [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La clase `DataSource` proporciona funciones para importar archivos GeoJSON locales o remotos. Los archivos GeoJSON remotos deben hospedarse en un punto de conexión habilitado para CORs. La clase `DataSource` proporciona funcionalidad para agrupar en clústeres los datos de punto. Los datos se pueden agregar, quitar y actualizar con facilidad con la clase `DataSource`.
+Un origen de datos basado en GeoJSON puede cargar y almacenar datos localmente mediante la clase `DataSource`. Los datos de GeoJSON se pueden crear manualmente o mediante las clases auxiliares del espacio de nombres de [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La clase `DataSource` proporciona funciones para importar archivos GeoJSON locales o remotos. Los archivos GeoJSON remotos deben hospedarse en un punto de conexión habilitado para CORs. La clase `DataSource` proporciona funcionalidad para agrupar en clústeres los datos de punto. Además, los datos se pueden agregar, quitar y actualizar fácilmente con la clase `DataSource`.
 
 
 > [!TIP]
-> Si quiere sobrescribir todos los datos en un `DataSource`, puede realizar llamadas a las funciones `clear` y `add`. De esta forma, el mapa intentará volver a representarse dos veces, lo que puede provocar un cierto retraso. En su lugar, use la función `setShapes`, que quitará y reemplazará todos los datos del origen de datos y solo desencadenará una nueva representación del mapa.
+> Supongamos que quiere sobrescribir todos los datos de un elemento `DataSource`. Si realiza llamadas a las funciones `clear` y `add`, es posible que el mapa se vuelva a representar dos veces, lo que puede provocar cierto retraso. Use en su lugar la función `setShapes`, que quitará y reemplazará todos los datos del origen de datos y solo desencadenará una nueva representación del mapa.
 
 **Origen de mosaico vectorial**
 
-Un origen de mosaico vectorial describe cómo obtener acceso a una capa de mosaico vectorial y se puede crear con la clase [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource). Azure Maps se alinea con la [especificación de mosaicos vectoriales de MapBox](https://github.com/mapbox/vector-tile-spec), que es un estándar abierto. Las capas de mosaicos vectoriales son similares a las capas de mosaicos; sin embargo, en lugar de que cada mosaico sea una imagen de trama, son archivos comprimidos (formato PBF) que contienen datos de mapas vectoriales y una o varias capas que se pueden representar y dar estilo en el cliente en función del estilo de cada capa. Los datos de un mosaico vectorial contienen características geográficas en forma de puntos, líneas y polígonos. Hay varias ventajas de las capas de mosaicos vectoriales en las capas de mosaicos de trama.
+Un origen de mosaico vectorial describe cómo acceder a una capa de mosaico vectorial. Use la clase [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) para crear una instancia de un origen de mosaico vectorial. Las capas de mosaico vectorial son similares a las de mosaico, pero no son iguales. Una capa de mosaico es una imagen de trama. Las capas de mosaico vectorial son un archivo comprimido, en formato PBF. Este archivo comprimido contiene datos de mapas vectoriales y una o varias capas. El archivo se puede representar en el cliente, y aplicarle un estilo, en función del estilo de cada capa. Los datos de un mosaico vectorial contienen características geográficas en forma de puntos, líneas y polígonos. El uso de capas de mosaico vectorial en lugar de capas de mosaico de trama presenta varias ventajas:
 
- - Un tamaño de archivo de un mosaico vectorial suele ser mucho menor que el de un mosaico de trama equivalente. Como tal, se usa menos ancho de banda, lo que significa una menor latencia y una asignación más rápida. Esto crea una mejor experiencia de usuario.
- - Como los mosaicos vectoriales se representan en el cliente, pueden adaptarse a la resolución del dispositivo en el que se muestran. Esto permite que los mapas representados aparezcan mucho más definidos y con etiquetas más claras. 
- - Cambiar el estilo de los datos en los mapas vectoriales no requiere descargar los datos de nuevo ya que el nuevo estilo se puede aplicar en el cliente. Por el contrario, cambiar el estilo de una capa de mosaico de trama requiere normalmente la carga de mosaicos del servidor que tienen aplicado el nuevo estilo.
- - Dado que los datos se entregan en forma de vector, se requiere menos procesamiento del lado servidor para preparar los datos, lo que significa que los datos más recientes pueden ponerse a disposición con más rapidez.
+ - Un tamaño de archivo de un mosaico vectorial suele ser mucho menor que el de un mosaico de trama equivalente. Como tal, se usa menos ancho de banda. Esto significa una menor latencia, un mapa más rápido y una mejor experiencia de usuario.
+ - Como los mosaicos vectoriales se representan en el cliente, pueden adaptarse a la resolución del dispositivo en el que se muestran. Como resultado, los mapas representados aparecen mejor definidos, con etiquetas nítidas.
+ - Para cambiar el estilo de los datos en los mapas vectoriales no es necesario descargar los datos de nuevo, ya que el nuevo estilo se puede aplicar en el cliente. Al contrario, para cambiar el estilo de una capa de mosaico de trama es necesario normalmente cargar los mosaicos desde el servidor y luego aplicar el nuevo estilo.
+ - Dado que los datos se entregan en forma de vector, se requiere menos procesamiento del lado servidor para preparar los datos. Como resultado, los datos más recientes pueden estar disponibles más rápido.
 
-Todas las capas que usan un origen vectorial deben especificar un valor `sourceLayer`. 
+Todas las capas que usan un origen vectorial deben especificar un valor `sourceLayer`.
 
 Una vez creados, los orígenes de datos se pueden agregar a la asignación mediante la propiedad `map.sources`, que es un objeto [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). El código siguiente muestra cómo crear un `DataSource` y agregarlo al mapa.
 
@@ -47,17 +47,19 @@ var dataSource = new atlas.source.DataSource();
 map.sources.add(dataSource);
 ```
 
+Azure Maps se adhiere a la [especificación de mosaicos vectoriales de Mapbox](https://github.com/mapbox/vector-tile-spec), un estándar abierto.
+
 ## <a name="connecting-a-data-source-to-a-layer"></a>Conexión de un origen de datos a una capa
 
-Los datos se representan en el mapa mediante las capas de representación. Una o varias capas de representación pueden hacer referencia a un único origen de datos. Las siguientes capas de representación requieren que un origen de datos las alimente:
+Los datos se representan en el mapa mediante las capas de representación. Una o varias capas de representación pueden hacer referencia a un único origen de datos. Las siguientes capas de representación requieren un origen de datos:
 
 - [Capa de burbuja](map-add-bubble-layer.md): representa los datos de puntos como círculos a escala en el mapa.
-- [Capa de símbolo](map-add-pin.md): representa los datos del punto como iconos o texto.
+- [Capa de símbolo](map-add-pin.md): representa los datos de punto como iconos o texto.
 - [Capa de mapa térmico](map-add-heat-map-layer.md): representa datos de puntos como un mapa térmico de densidad.
-- [Capa de línea](map-add-shape.md): se puede usar para representar una línea o el contorno de los polígonos. 
+- [Capa de línea](map-add-shape.md): representa una línea o el contorno de los polígonos. 
 - [Capa de polígono](map-add-shape.md): rellena el área de un polígono con un patrón de imagen o un color sólido.
 
-En el código siguiente se muestra cómo crear un origen de datos, agregarlo a la asignación y conectarlo a una capa de burbuja y, a continuación, importar los datos de punto de GeoJSON desde una ubicación remota a él. 
+En el código siguiente se muestra cómo crear un origen de datos, agregarlo al mapa y conectarlo a una capa de burbuja. Luego, importe los datos de punto de GeoJSON desde una ubicación remota hasta el origen de datos. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -71,18 +73,18 @@ map.layers.add(new atlas.layer.BubbleLayer(datasource));
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 ```
 
-Hay capas de representación adicionales que no se conectan a estos orígenes de datos, sino que, en su lugar, cargan los datos que representan directamente. 
+Hay capas de representación adicionales que no se conectan a estos orígenes de datos, sino que cargan los datos directamente para representarlos. 
 
 - [Capa de imagen](map-add-image-layer.md): superpone una sola imagen en la parte superior del mapa y enlaza sus esquinas a un conjunto de coordenadas especificadas.
 - [Capa de mosaico](map-add-tile-layer.md): superpone una capa de mosaico de trama en la parte superior del mapa.
 
 ## <a name="one-data-source-with-multiple-layers"></a>Un origen de datos con varias capas
 
-Varias capas pueden estar conectadas a un solo origen de datos. Esto puede sonar extraño, pero hay diversos escenarios en los que esto resulta útil. Por ejemplo, tomemos el escenario en el que crea una experiencia de dibujo de un polígono. Cuando se le permite a un usuario dibujar un polígono, debemos representar el área de relleno del polígono a media que el usuario agrega puntos al mapa. Agregar una línea con estilo que contornee el polígono hará que sea más fácil ver los bordes del polígono mientras se dibuja. Finalmente, agregar algún tipo de manipulador, como un marcador o una chincheta, sobre cada posición en el polígono permitiría editar más fácilmente cada posición. En la siguiente imagen se muestra este escenario.
+Varias capas pueden estar conectadas a un solo origen de datos. Hay muchos escenarios diferentes en los que esta opción es útil. Por ejemplo, considere aquel en el que un usuario dibuja un polígono. Debemos representar y rellenar el área del polígono a medida que el usuario agrega puntos al mapa. Agregar una línea con estilo para delinear el polígono permite ver más fácilmente sus bordes, a medida que el usuario dibuja. Para editar cómodamente una posición individual del polígono, podemos agregar un identificador, como una chincheta o una marca, encima de cada posición.
 
 ![Mapa que muestra varias capas que representan datos de un único origen de datos](media/create-data-source-web-sdk/multiple-layers-one-datasource.png)
 
-Para lograr este escenario en la mayoría de las plataformas de mapas, tendría que crear un objeto de polígono, un objeto de línea y una chincheta para cada posición en el polígono. A medida que le polígono se modifica, tendría que actualizar manualmente las líneas y las chinchetas, que pueden volverse complejas rápidamente.
+En la mayoría de las plataformas de mapas, necesitaría un objeto de polígono, un objeto de línea y una chincheta para cada posición del polígono. A medida que le polígono se modifica, tendría que actualizar manualmente las líneas y las chinchetas, que pueden volverse complejas rápidamente.
 
 Con Azure Maps, lo único que necesita es un solo polígono en un origen de datos, como se muestra en el siguiente código.
 

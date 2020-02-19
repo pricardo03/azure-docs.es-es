@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 9559f1d52f87314670162482e10714dad13be5bb
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: aaa7e5e65ced2a9899bef5a811ee74be42a8548f
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046166"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048810"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -131,7 +131,9 @@ Sí, tiene que crear una conexión de Active Directory antes de implementar un v
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>¿Cuántas conexiones de Active Directory se admiten?
 
-Actualmente, Azure NetApp Files admite solo una conexión de Active Directory por cuenta de NetApp, por suscripción y en cada región; la conexión no se comparte entre las cuentas de NetApp.
+Azure NetApp Files no admite varias conexiones de Active Directory (AD) en una única *región*, incluso si las conexiones de AD se encuentran en distintas cuentas de NetApp. Sin embargo, puede tener varias conexiones de AD en una única *suscripción*, siempre que las conexiones de AD se encuentren en regiones diferentes. Si necesita varias conexiones de AD en una sola región, puede usar suscripciones independientes para ello. 
+
+Se configura una conexión de AD por cuenta de NetApp; la conexión de AD solo es visible a través de la cuenta de NetApp en la que se crea.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>¿ Azure NetApp Files admite Azure Active Directory? 
 

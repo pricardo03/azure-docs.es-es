@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840594"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114396"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -76,11 +76,11 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 * Sur de Reino Unido 2
 * Este de Australia
 * Sudeste de Australia
-* Asia oriental
-* Sudeste asiático
+* Este de Asia
+* Sudeste de Asia
 * Centro de Corea del Sur
 * Centro de la India
-* India del Sur
+* Sur de la India
 * Japón Oriental 
 * Japón Occidental
 * US Gov - Virginia
@@ -107,15 +107,15 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 * Sur de Reino Unido 2
 * Este de Australia
 * Sudeste de Australia
-* Asia oriental
-* Sudeste asiático
+* Este de Asia
+* Sudeste de Asia
 * Centro de Corea del Sur
 * Centro de la India
 * Japón Oriental
 * US Gov - Virginia
 * Este de China 2
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="user-access-requirements"></a>Requisitos del acceso de usuario
 
@@ -151,7 +151,7 @@ Para analizar el tráfico, debe tener una instancia de Network Watcher existente
 
 Antes de habilitar el registro de flujos del grupo de seguridad de red, debe tener un grupo de seguridad de red del que registrar los flujos. Si no tiene ningún grupo de seguridad de red, consulte [Creación de grupos de seguridad de red](../virtual-network/manage-network-security-group.md#create-a-network-security-group) para crear uno.
 
-En el lado izquierdo de Azure Portal, seleccione **Monitor** y, a continuación, **Network Watcher**y, finalmente, **Registro de flujos de NSG**. Seleccione el grupo de seguridad de red para el que desee habilitar un registro de flujos, tal como se muestra en la siguiente imagen:
+En Azure Portal, vaya a **Network Watcher** y seleccione **Registro de flujos de NSG**. Seleccione el grupo de seguridad de red para el que desee habilitar un registro de flujos, tal como se muestra en la siguiente imagen:
 
 ![Selección de los grupos de seguridad de red que requieren la habilitación del registro de flujos de NSG](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 

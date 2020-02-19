@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 32a4fde12287e06c12fac9ed13ad7a8889b49fc1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895908"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162538"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -31,7 +31,7 @@ ms.locfileid: "74895908"
 En Azure Media Services (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
 
 * Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (Fragmented MP4). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
-* Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
   > [!NOTE]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
@@ -73,7 +73,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Iniciando |Iniciando |No (estado transitorio) |
 | En ejecución |Listo (no hay programas en ejecución)<br/>or<br/>Streaming (al menos un programa en ejecución) |SÍ |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
-| Detenido |Detenido |Sin |
+| Detenido |Detenido |No |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Cierre automático para canales no utilizados
 A partir del 25 de enero de 2016, Media Services implementó una actualización que detiene automáticamente un canal (con Live Encoding habilitado), después de haber estado ejecutándose en un estado no usado durante un largo período. Esto se aplica a los canales que no tienen ningún programa activo y que no han recibido una fuente de contribución de entrada durante un largo período de tiempo.
@@ -146,7 +146,7 @@ Consideraciones:
 * Velocidad de muestreo 44,1 kHz
 * Empaquetado ADTS estilo MPEG-2
 * Entre los codificadores recomendados se incluyen:
-* Telestream Wirecast
+* [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md)
 * Flash Media Live Encoder
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>MP4 fragmentado de una sola velocidad de bits (Smooth Streaming)
@@ -313,9 +313,9 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Estado del canal | Indicadores IU del portal | ¿Facturado? |
 | --- | --- | --- |
 | Iniciando |Iniciando |No (estado transitorio) |
-| En ejecución |Listo (no hay programas en ejecución)<br/>or<br/>Streaming (al menos un programa en ejecución) |SÍ |
+| En ejecución |Listo (no hay programas en ejecución)<br/>or<br/>Streaming (al menos un programa en ejecución) |Sí |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
-| Detenido |Detenido |Sin |
+| Detenido |Detenido |No |
 
 > [!NOTE]
 > Actualmente, el promedio de inicio de canal es de aproximadamente 2 minutos, pero a veces puede tardar hasta más de 20 minutos. Los restablecimientos de canal pueden tardar hasta 5 minutos.

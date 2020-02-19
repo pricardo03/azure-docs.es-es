@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga más información sobre la compatibilidad para la evaluación de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846178"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121323"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -42,7 +42,7 @@ Además de detectar máquinas, Azure Migrate: Server Assessment puede detectar a
 **Sistema operativo de la máquina** | Todas las versiones de Windows y Linux.
 **Credenciales de vCenter** | Cuenta de vCenter Server con acceso de solo lectura, así como privilegios habilitados para Máquinas virtuales > Operaciones de invitado.
 **Credenciales de máquina virtual** | Actualmente admite el uso de una credencial para todos los servidores Windows y una credencial para todos los servidores Linux.<br/><br/> Se crea una cuenta de usuario invitado para máquinas virtuales Windows y una cuenta de usuario normal (acceso sin sudo) para todas las máquinas virtuales Linux.
-**Herramientas de VMware** | Las herramientas de VMware se deben instalar y ejecutar en las máquinas virtuales que se quieren detectar.
+**Herramientas de VMware** | Las herramientas de VMware se deben instalar y ejecutar en las máquinas virtuales que se quieren detectar. <br/> Si la versión de las herramientas de VMware está entre 9.10 y 10.2.0, asegúrese de actualizarla a una versión posterior a 10.2.0.
 **Acceso a puertos** | En los hosts ESXi que ejecuten las máquinas virtuales que desea detectar, Azure Migrate debería ser capaz de conectarse al puerto TCP 443.
 **Límites** | En el caso de la detección de aplicaciones, puede detectar hasta 10 000 por dispositivo. 
 
@@ -80,7 +80,7 @@ La [visualización de dependencias](concepts-dependency-visualization.md) le ayu
 --- | ---
 **Implementación** | Antes de implementar la visualización de dependencias, debe tener un proyecto de Azure Migrate en su lugar, con la herramienta Azure Migrate: Server Assessment agregada al proyecto. La visualización de dependencias se implementa después de configurar un dispositivo Azure Migrate para detectar las máquinas locales.<br/><br/> La visualización de dependencias no está disponible en Azure Government.
 **Mapa de servicio** | La visualización de la dependencia basada en agente usa la solución [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) en los [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).<br/><br/> Para realizar la implementación, asocie un área de trabajo de Log Analytics nuevo o existente con un proyecto de Azure Migrate.
-**Área de trabajo de Log Analytics** | El área de trabajo debe estar en la misma suscripción que el proyecto de Azure Migrate.<br/><br/> Azure Migrate admite áreas de trabajo que residen en las regiones Este de EE. UU., Sudeste Asiático y Oeste de Europa.<br/><br/>  El área de trabajo debe estar en una región en la que [se admita Service Map](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> El área de trabajo de un proyecto de Azure Migrate no se puede modificar una vez que se ha agregado.
+**Área de trabajo de Log Analytics** | El área de trabajo debe estar en la misma suscripción que el proyecto de Azure Migrate.<br/><br/> Azure Migrate admite áreas de trabajo que residen en las regiones Este de EE. UU., Sudeste de Asia y Oeste de Europa.<br/><br/>  El área de trabajo debe estar en una región en la que [se admita Service Map](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> El área de trabajo de un proyecto de Azure Migrate no se puede modificar una vez que se ha agregado.
 **Gastos** | La solución Service Map no supone ningún gasto durante los primeros 180 días (desde el mismo día que asoció el área de trabajo de Log Analytics con el proyecto de Azure Migrate).<br/><br/> Transcurridos los 180 días, se aplicarán las tarifas normales de Log Analytics.<br/><br/> Si se usa alguna solución que no sea Service Map en el área de trabajo de Log Analytics asociada generará los gastos estándar de Log Analytics.<br/><br/> Si elimina el proyecto de Azure Migrate, el área de trabajo no se elimina con él. Tras la eliminación del proyecto, Service Map deja de ser gratuito y cada nodo se cobrará conforme al nivel de pago del área de trabajo de Log Analytics.
 **Agentes** | La visualización de la dependencia basada en agente requiere que se instalen dos agentes en los equipos que se quieran analizar.<br/><br/> - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> - [Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 **Conectividad de Internet** | Si las máquinas no están conectadas a Internet, necesita instalar la puerta de enlace de Log Analytics en ellas.
@@ -96,10 +96,10 @@ Esta opción se encuentra actualmente en versión preliminar. [Más información
 **Soporte técnico de máquina virtual** | Actualmente solo se admite en máquinas virtuales VMware.
 **Máquinas virtuales Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits)
 **Máquinas virtuales Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7
-**Cuenta de Windows** |  La visualización necesita una cuenta de usuario con acceso de invitado.
+**Cuenta de Windows** |  Se necesita una cuenta de administrador local o de dominio para la visualización.
 **Cuenta de Linux** | La visualización necesita una cuenta de usuario con privilegio de usuario raíz.<br/><br/> Como alternativa, la cuenta de usuario necesita estos permisos en los archivos/bin/netstat y /bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE.
 **Agentes de máquina virtual** | No se necesitan agentes en las máquinas virtuales.
-**Herramientas de VMware** | Las herramientas de VMware se deben instalar y ejecutar en las máquinas virtuales que se quieren analizar.
+**Herramientas de VMware** | Las herramientas de VMware se deben instalar y ejecutar en las máquinas virtuales que se quieren analizar. <br/> Si la versión de las herramientas de VMware está entre 9.10 y 10.2.0, asegúrese de actualizarla a una versión posterior a 10.2.0.
 **Credenciales de vCenter** | Cuenta de vCenter Server con acceso de solo lectura, así como privilegios habilitados para Máquinas virtuales > Operaciones de invitado.
 **Acceso a puertos** | En los hosts ESXi que ejecuten las máquinas virtuales que desea analizar, Azure Migrate debería ser capaz de conectarse al puerto TCP 443.
 

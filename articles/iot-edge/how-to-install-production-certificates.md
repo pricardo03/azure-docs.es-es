@@ -4,16 +4,16 @@ description: Cree certificados de prueba y obtenga información sobre cómo inst
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/03/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf073572cd5b371ec484c99f14cbefb4cba75ce7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fe46e968aa2dcebaa483cd38fd2e050ccfe43054
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509910"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149905"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Instalación de certificados de producción en un dispositivo IoT Edge
 
@@ -30,7 +30,7 @@ Para obtener más información sobre los diferentes tipos de certificados y sus 
 >[!NOTE]
 >El término "entidad de certificación raíz" que se usa en este artículo hace referencia al certificado público de la entidad de nivel superior de la cadena de certificados de la solución de IoT. No es necesario usar la raíz del certificado de una entidad de certificación sindicada o la raíz de la entidad de certificación de la organización. En muchos casos, se trata realmente de un certificado público intermedio de la entidad de certificación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un dispositivo IoT Edge que se ejecute en [Windows](how-to-install-iot-edge-windows.md) o [Linux](how-to-install-iot-edge-linux.md).
 * Tener un certificado de entidad de certificación (CA) raíz, ya sea autofirmado o comprado a través de una entidad de certificación comercial de confianza como Baltimore, Verisign, DigiCert o GlobalSign.
@@ -89,6 +89,12 @@ Por ejemplo, si ha usado los scripts de ejemplo para [Crear certificados de demo
       ```
 
 4. En los dispositivos Linux, asegúrese de que el usuario **iotedge** tiene permisos de lectura para el directorio que contiene los certificados.
+
+5. Si anteriormente ha usado cualquier otro certificado para IoT Edge en el dispositivo, elimine los archivos de los dos directorios siguientes antes de iniciar o reiniciar IoT Edge:
+
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` y `C:\ProgramData\iotedge\hsm\cert_keys`
+
+   * Linux: `/var/lib/iotedge/hsm/certs` y `/var/lib/iotedge/hsm/cert_keys`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

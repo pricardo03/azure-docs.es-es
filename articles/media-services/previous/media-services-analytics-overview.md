@@ -15,24 +15,20 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844350"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069632"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services 
 
 ## <a name="retirement-plans"></a>Planes de retirada
 
 > [!IMPORTANT]
-> El siguiente procesador de multimedia heredado se va a retirar en 2020; consulte los detalles en la tabla siguiente. 
+> Algunos procesadores se retirarán. Para ver las fechas de retirada y más información, consulte el tema sobre [componentes heredados](legacy-components.md). 
 
-|Nombre de procesador de multimedia|Fecha de retirada|Notas adicionales|
-|---|---|
-|[Azure Media Indexer](media-services-index-content.md)|1 de octubre de 2020|[Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplazará a este procesador de multimedia. Para más información, consulte [Migración de Azure Media Indexer a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md)
- 
 ## <a name="overview"></a>Información general
 
 Cada vez más organizaciones adoptan el vídeo como medio preferido para formar a sus empleados, atraer a sus clientes y documentar las funciones empresariales. La informática en la nube proporciona una manera de almacenar estos archivos multimedia de gran tamaño, transmitirlos y acceder a ellos. Pero a medida que la biblioteca de contenido de vídeo de una empresa crece, necesita un medio igualmente eficaz de extraer información de ese contenido. 

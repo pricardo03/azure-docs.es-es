@@ -14,12 +14,12 @@ ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 301fe9c213ec6d78d32d6ccde84a689c4659acb3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c99a6e018edd0806daac7cd429135e522f217f23
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888974"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159835"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -97,7 +97,7 @@ Esta página le permite revisar los dominios UPN presentes en el entorno local d
 ![Dominios sin comprobar](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Revise los dominios marcados como **Not Added** (Sin agregar) y **Not Verified** (Sin comprobar). Asegúrese de que los dominios que usa se han comprobado en Azure AD. Cuando haya comprobado los dominios, haga clic en el símbolo de actualización. Para más información, consulte [agregar y comprobar el dominio](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName**: userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Microsoft recomienda mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro. Por ejemplo, se puede seleccionar email como atributo que contiene el identificador de inicio de sesión. El uso de cualquier atributo distinto de userPrincipalName se conoce como **id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Se puede utilizar un identificador alternativo con la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. El atributo no debe definirse en Active Directory como de valores múltiples, aunque solo tenga un valor. Para más información sobre el identificador alternativo, [haga clic aquí.](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
+**UserPrincipalName**: userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Microsoft recomienda mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro. Por ejemplo, se puede seleccionar email como atributo que contiene el identificador de inicio de sesión. El uso de cualquier atributo distinto de userPrincipalName se conoce como **id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Se puede utilizar un identificador alternativo con la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. El atributo no debe definirse en Active Directory como de valores múltiples, aunque solo tenga un valor. Para obtener más información sobre el identificador alternativo, vea el tema [Preguntas frecuentes](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
 
 >[!NOTE]
 > Al habilitar la autenticación de paso a través, debe tener al menos un dominio verificado para continuar con el asistente.
@@ -163,9 +163,9 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 >[!WARNING]
 >Las versiones de Azure AD Connect **1.0.8641.0** y las anteriores se basan en Azure Access Control Service para la escritura diferida de contraseñas.  Este servicio se retirará el **7 de noviembre de 2018**.  Si está usando cualquiera de estas versiones de Azure AD Connect y ha habilitado la escritura diferida de contraseñas, puede que los usuarios pierdan la capacidad de cambiar o restablecer sus contraseñas una vez que el servicio se retire. No se admitirá la escritura diferida de contraseñas con estas versiones de Azure AD Connect.
 >
->Para más información sobre Azure Access Control Service consulte [Control de migración desde Azure Access Control Service](../develop/active-directory-acs-migration.md)
+>Para más información sobre Azure Access Control Service consulte [Control de migración desde Azure Access Control Service](../azuread-dev/active-directory-acs-migration.md)
 >
->Haga clic [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=47594) para descargar la versión más reciente de Azure AD Connect.
+>Haga clic [aquí](https://www.microsoft.com/download/details.aspx?id=47594) para descargar la versión más reciente de Azure AD Connect.
 
 ![Características opcionales](./media/how-to-connect-install-custom/optional2.png)
 

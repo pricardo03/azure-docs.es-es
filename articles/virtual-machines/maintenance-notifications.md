@@ -1,22 +1,18 @@
 ---
-title: Notificaciones de mantenimiento en máquinas virtuales de Azure | Microsoft Docs
+title: Notificaciones de mantenimiento
 description: Información general sobre las notificaciones de mantenimiento de las máquinas virtuales que se ejecutan en Azure.
-services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 83a1f3921272f5ec15ae4d1f4220652f56679c96
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 68159577cb31145be5063bb19af6db71ca1727bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903225"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115686"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Control de las notificaciones de mantenimiento planeado
 

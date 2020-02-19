@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a27c9ae1b75b9517bd3af92486df96434c5b34fb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207385"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185843"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -55,9 +55,9 @@ Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguient
 
 ---
 
-### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices-"></a>P: ¿Por qué mis usuarios ven un mensaje de error que dice "Su organización ha eliminado el dispositivo" o "Su organización ha deshabilitado el dispositivo" en los dispositivos de Windows 10?
+### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices"></a>P: ¿Por qué los usuarios ven un mensaje de error que indica "La organización ha eliminado el dispositivo" o "La organización ha deshabilitado el dispositivo" en los dispositivos Windows 10?
 
-**R:** En los dispositivos de Windows 10 conectados o registrados con Azure AD, se emite un [token de actualización principal (PRT)](concept-primary-refresh-token.md) que permite el inicio de sesión único. La validez de dicho token se basa en la validez del mismo dispositivo. Los usuarios verán este mensaje si el dispositivo se ha eliminado o deshabilitado en Azure AD sin iniciar la acción desde el propio dispositivo. Un dispositivo se puede eliminar o deshabilitar en Azure AD uno de los siguientes escenarios: 
+**R:** En los dispositivos de Windows 10 conectados o registrados con Azure AD, se emite un [token de actualización principal (PRT)](concept-primary-refresh-token.md) que permite el inicio de sesión único. La validez de dicho token se basa en la validez del propio dispositivo. Los usuarios verán este mensaje si el dispositivo se ha eliminado o deshabilitado en Azure AD sin iniciar la acción desde el propio dispositivo. Un dispositivo se puede eliminar o deshabilitar en Azure AD uno de los siguientes escenarios: 
 
 - El usuario deshabilita el dispositivo en el portal Mis aplicaciones. 
 - Un administrador (o usuario) elimina o deshabilita el dispositivo en Azure Portal o mediante PowerShell.
@@ -119,7 +119,7 @@ Vea a continuación cómo se pueden rectificar estas acciones.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>P: ¿El registro de dispositivos Windows 10 en Azure AD admite TPM en el modo FIPS?
 
-**R:** El registro de dispositivos Windows 10 solo se admite con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD o la unión a Azure AD híbrido. Tenga en cuenta que Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante del TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. 
+**R:** El registro de dispositivos Windows 10 solo se admite con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD o la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. 
 
 ---
 
@@ -288,12 +288,12 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 **R:** 
 - Para los dispositivos registrados en Azure AD Windows 10 vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y luego **Desconectar**. El registro de dispositivos es por perfil de usuario en Windows 10.
 - Para iOS y Android, puede usar **Configuración** > **Registro de dispositivos** la aplicación Microsoft Authenticator configuración y seleccionar **Anular registro del dispositivo** .
-- Para macOS, puede usar la aplicación Portal de empresa de Microsoft Intune para anular la inscripción del dispositivo desde la administración y quitar cualquier registro. 
+- En macOS, puede usar la aplicación Portal de empresa de Microsoft Intune para anular la inscripción del dispositivo en la administración y quitar cualquier registro. 
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>P: ¿Cómo puedo impedir que los usuarios agreguen más cuentas de trabajo (registradas en Azure AD) en mis dispositivos corporativos de Windows 10?
 
-**R:** Habilite el siguiente registro para impedir que los usuarios agreguen cuentas de trabajo adicionales a los dispositivos Windows 10 unidos a un dominio corporativo, a Azure AD o a Azure AD híbrido. Esta directiva también se puede usar para impedir que las máquinas unidas a un dominio reciban involuntariamente la instancia de Azure AD registrada con la misma cuenta de usuario. 
+**R:** Habilite el siguiente registro para evitar que los usuarios agreguen cuentas de trabajo adicionales a los dispositivos Windows 10 corporativos unidos a un dominio o a Azure AD o híbridos unidos a Azure AD. Esta directiva también se puede usar para impedir que las máquinas unidas a un dominio reciban involuntariamente la instancia de Azure AD registrada con la misma cuenta de usuario. 
 
 `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
@@ -310,9 +310,9 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 1.  [Cree una directiva de cumplimiento](https://docs.microsoft.com/intune/compliance-policy-create-mac-os).
 1.  [Defina una directiva de acceso condicional para dispositivos de Mac OS](../active-directory-conditional-access-azure-portal.md). 
 
-**Comentarios:**
+**Observaciones**:
 
-- Los usuarios incluidos en la directiva de acceso condicional necesitan una [versión admitida de Office para macOS](../conditional-access/technical-reference.md#client-apps-condition) para acceder a los recursos. 
+- Los usuarios incluidos en la directiva de acceso condicional necesitan una [versión admitida de Office para macOS](../conditional-access/concept-conditional-access-conditions.md) para acceder a los recursos. 
 - Durante el primer intento de acceso, se pide a los usuarios que inscriban el dispositivo mediante el portal de la empresa.
 
 ---

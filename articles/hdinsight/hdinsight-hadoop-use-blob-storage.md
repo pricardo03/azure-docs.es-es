@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 1e115c59cab4c340f927da516b5f937abf42e985
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55cddf5317938dea353517cde7260a1aa531d1df
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839651"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061265"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
@@ -49,7 +49,7 @@ Existen varias maneras de acceder a los archivos de Data Lake Storage desde un c
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Con el formato abreviado de la ruta de acceso**. Con este enfoque, reemplaza la ruta de acceso hasta la raíz del clúster con:
+* **Con el formato abreviado de la ruta de acceso**. Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
 
     ```
     wasb:///<file.path>/
@@ -64,7 +64,7 @@ Existen varias maneras de acceder a los archivos de Data Lake Storage desde un c
 
 ### <a name="data-access-examples"></a>Ejemplos de acceso a datos
 
-Los ejemplos se basan en una [conexión ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo principal del clúster. En los ejemplos se usan los tres esquemas de URI. Reemplace `CONTAINERNAME` y `STORAGEACCOUNT` por los valores pertinentes.
+Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo principal del clúster. En los ejemplos se usan los tres esquemas de URI. Reemplace `CONTAINERNAME` y `STORAGEACCOUNT` por los valores pertinentes.
 
 #### <a name="a-few-hdfs-commands"></a>Algunos comandos hdfs
 
@@ -82,7 +82,7 @@ Los ejemplos se basan en una [conexión ssh](./hdinsight-hadoop-linux-use-ssh-un
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. Copiar los datos del almacenamiento local al almacenamiento de clúster.
+1. Copia de datos del almacenamiento local al almacenamiento de clúster.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt  wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
@@ -103,7 +103,7 @@ Los ejemplos se basan en una [conexión ssh](./hdinsight-hadoop-linux-use-ssh-un
 
 #### <a name="creating-a-hive-table"></a>Creación de una tabla de Hive
 
-Con fines de ilustración, se muestran tres ubicaciones de archivos. Para la ejecución real, use solo una de las entradas `LOCATION`.
+Con fines de ilustración, se muestran tres ubicaciones de archivos. En la ejecución real, use solo una de las entradas `LOCATION`.
 
 ```hql
 DROP TABLE myTable;
@@ -122,7 +122,7 @@ LOCATION 'wasbs:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-abmari"></a>Identificación de la ruta de acceso de almacenamiento de Abmari
+## <a name="identify-storage-path-from-ambari"></a>Identificación de la ruta de acceso de almacenamiento de Ambari
 
 * Para identificar la ruta de acceso completa al almacén predeterminado configurado, vaya a:
 

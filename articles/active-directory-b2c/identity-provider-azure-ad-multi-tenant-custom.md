@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8a222aa63387f7c57f8896b013f71f0c1bf40b2e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851287"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111550"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76851287"
 
 En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios con el punto de conexión de multiempresa de Azure Active Directory (Azure AD) mediante [directivas personalizadas](custom-policy-overview.md) en Azure AD B2C. Esto permite a los usuarios de varios inquilinos de Azure AD iniciar sesión en Azure AD B2C sin tener que configurar un proveedor técnico para cada inquilino. Sin embargo, los miembros invitados en cualquiera de estos inquilinos **no** podrán iniciar sesión. Para ello, tendrá que [configurar individualmente cada inquilino](identity-provider-azure-ad-single-tenant-custom.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -49,6 +49,19 @@ Para habilitar el inicio de sesión para los usuarios de una organización espec
 1. Seleccione **Registrar**. Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
 1. Seleccione **Certificados y secretos** y luego seleccione **Nuevo secreto de cliente**.
 1. En **Descripción**, escriba una descripción para el secreto, seleccione una fecha de expiración y seleccione **Agregar**. Registre el valor **Value** del secreto para usarlo en un paso posterior.
+
+## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
+
+Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, puede configurar notificaciones opcionales para la aplicación en la interfaz de usuario de Azure Portal o el manifiesto de aplicación. Para obtener más información, consulte [Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione **Azure Active Directory**.
+1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
+1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
+1. En la sección **Administrar**, seleccione **Configuración del token (versión preliminar)** .
+1. Seleccione **Agregar notificación opcional**.
+1. Seleccione el tipo de token que desea configurar.
+1. Seleccione las notificaciones opcionales que va a agregar.
+1. Haga clic en **Agregar**.
 
 ## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 

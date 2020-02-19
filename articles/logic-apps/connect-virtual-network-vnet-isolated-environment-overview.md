@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
-ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/10/2020
+ms.openlocfilehash: 1f743384f467e4559412fa1a46d48011b568d249
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860763"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191565"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -45,7 +45,7 @@ Al crear un Entorno del servicio integrado (ISE) en Azure, puede seleccionar la 
 
 Las aplicaciones lógicas de una instancia de ISE proporcionan las mismas experiencias de usuario y funcionalidades similares que el servicio público global de Logic Apps. Puede usar los mismos desencadenadores, acciones y conectores administrados integrados que están disponibles en el servicio global de Logic Apps. Algunos conectores administrados ofrecen versiones de ISE adicionales. La diferencia existe en el lugar donde se ejecutan y las etiquetas que se muestran en el diseñador de aplicación lógica cuando se trabaja en un ISE.
 
-![Conectores con y sin etiquetas en un ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
+![Conectores con y sin etiquetas en un ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
 
 * Las acciones y los desencadenadores integrados muestran la etiqueta **CORE** y se ejecutan en el mismo ISE que la aplicación lógica. Los conectores administrados en los que se muestra la etiqueta **ISE** también se ejecutan en el mismo ISE que la aplicación lógica.
 
@@ -111,10 +111,10 @@ En lo que respecta a los sistemas locales conectados a una red de Azure Virtual 
 * Conector personalizado
 
   * Si tiene conectores personalizados que requieren la puerta de enlace de datos local y los ha creado fuera de un ISE, las aplicaciones lógicas en un ISE también pueden usar esos conectores.
-  
+
   * Los conectores personalizados creados en un ISE no funcionan con la puerta de enlace de datos local. Aun así, estos conectores pueden acceder directamente a orígenes de datos locales que están conectados a la red virtual en la que se hospeda el ISE. Por tanto, es muy probable que las aplicaciones lógicas en un ISE no necesiten la puerta de enlace de datos cuando se comuniquen con esos recursos.
 
-En el caso de los sistemas locales que no están conectados a una red virtual o que no tienen conectores con etiqueta ISE, primero debe [configurar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) para que las aplicaciones lógicas puedan conectarse a esos sistemas.
+En el caso de sistemas locales que no están conectados a una red virtual o que no tienen conectores con etiqueta ISE, primero debe [configurar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) para que las aplicaciones lógicas puedan conectarse a esos sistemas.
 
 <a name="create-integration-account-environment"></a>
 

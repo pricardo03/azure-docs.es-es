@@ -3,12 +3,12 @@ title: Recuperación de archivos y carpetas desde una copia de seguridad de máq
 description: En este artículo, aprenderá a recuperar archivos y carpetas desde un punto de recuperación de la máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 86a46e606e9425cf4951817ca3afa23fe57dae52
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294089"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114325"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -56,6 +56,8 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 7. Desde la ubicación de descarga (normalmente, la carpeta Descargas), haga clic con el botón derecho en el archivo ejecutable o el script y ejecútelo con las credenciales del administrador. Cuando se le solicite, escriba la contraseña o péguela de la memoria y presione **Entrar**. Una vez que se escriba la contraseña válida, el script se conecta al punto de recuperación.
 
     ![Menú Recuperación de archivos](./media/backup-azure-restore-files-from-vm/executable-output.png)
+
+8. En el caso de las máquinas Linux, se genera un script de Python. Es necesario descargar el script y copiarlo en el servidor Linux relevante o compatible. Es posible que haya que modificar los permisos para ejecutarlo con ```chmod +x <python file name>```. Luego se ejecuta el archivo de Python con ```./<python file name>```.
 
 Consulte la sección [Requisitos de acceso](#access-requirements) para asegurarse de que el script se ejecuta correctamente.
 
@@ -202,7 +204,7 @@ Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a l
 - Direcciones URL del servicio de recuperación (geo-nombre hace referencia a la región donde reside el almacén de Recovery Services)
   - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Para regiones geográficas públicas de Azure)
   - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Para Azure China 21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Para Azure Gobierno de EE.UU.)
+  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Para Azure US Gov)
   - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Para Azure Alemania)
 - Puerto de salida 3260
 

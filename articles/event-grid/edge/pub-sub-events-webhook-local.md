@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844565"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086642"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: Publicación de eventos y suscripción a ellos de forma local
 
@@ -23,7 +23,7 @@ Este artículo le guía por todos los pasos necesarios para publicar eventos y s
 > [!NOTE]
 > Para información sobre los temas y las suscripciones de Azure Event Grid, consulte [Conceptos de Event Grid](concepts.md).
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 
@@ -64,8 +64,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     ```json
         {
           "Env": [
-            "inbound__clientAuth__clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -79,21 +78,17 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
         }
     ```    
  1. Haga clic en **Guardar**
- 1. Continúe con la sección siguiente para agregar el módulo de Azure Functions antes de implementarlos juntos.
+ 1. Continúe con la sección siguiente para agregar el módulo de suscriptor de Azure Event Grid antes de implementarlos juntos.
 
     >[!IMPORTANT]
-    > En este tutorial, implementará el módulo de Event Grid con la autenticación de cliente deshabilitada y permitirá suscriptores HTTP. En el caso de las cargas de trabajo de producción, se recomienda habilitar la autenticación de cliente y permitir solo suscriptores HTTPS. Para más información sobre cómo configurar el módulo de Event Grid de forma segura, consulte [Seguridad y autenticación](security-authentication.md).
+    > En este tutorial, implementará el módulo de Event Grid con la autenticación de cliente deshabilitada. En el caso de las cargas de trabajo de producción, se recomienda habilitar la autenticación de cliente. Para más información sobre cómo configurar el módulo de Event Grid de forma segura, consulte [Seguridad y autenticación](security-authentication.md).
     > 
     > Si va a usar una máquina virtual de Azure como dispositivo perimetral, agregue una regla de puerto de entrada para permitir tráfico entrante en el puerto 4438. Para instrucciones sobre cómo agregar la regla, consulte [Apertura de puertos en una máquina virtual](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
-## <a name="deploy-azure-function-iot-edge-module"></a>Implementación del módulo de IoT Edge para Azure Functions
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Implementación del módulo IoT Edge de suscriptor de Event Grid
 
-En esta sección se muestra cómo implementar el módulo de IoT para Azure Functions, que funcionará como suscriptor de Event Grid al que se pueden entregar eventos.
-
->[!IMPORTANT]
->En esta sección, implementará un módulo de suscripción de ejemplo basado en Azure Functions. Se puede usar desde luego cualquier módulo de IoT personalizado que pueda escuchar solicitudes HTTP POST.
-
+En esta sección se muestra cómo implementar otro módulo de IoT que funcionará como controlador de eventos al que se pueden entregar eventos.
 
 ### <a name="add-modules"></a>Adición de módulos
 
@@ -102,23 +97,8 @@ En esta sección se muestra cómo implementar el módulo de IoT para Azure Funct
 1. Proporcione el nombre, la imagen y las opciones de creación del contenedor:
 
    * **Nombre**: suscriptor
-   * **URI de imagen**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Opciones de creación del contenedor**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **URI de imagen**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Opciones de creación del contenedor**: None
 1. Haga clic en **Guardar**
 1. Seleccione **Siguiente** para ir a la sección de rutas
 
@@ -191,7 +171,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -199,7 +179,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
     ```
 
     >[!NOTE]
-    > La propiedad **endpointType** especifica que el suscriptor es un **webhook**.  La propiedad **endpointUrl** especifica la dirección URL en la que el suscriptor escucha los eventos. Esta dirección URL corresponde al ejemplo de Azure Functions que implementó anteriormente.
+    > La propiedad **endpointType** especifica que el suscriptor es un **webhook**.  La propiedad **endpointUrl** especifica la dirección URL en la que el suscriptor escucha los eventos. Esta dirección URL corresponde al ejemplo de suscriptor de Azure que implementó anteriormente.
 2. Ejecute el siguiente comando para crear una suscripción para el tema. Confirme que se muestra el código de estado HTTP `200 OK`.
 
     ```sh
@@ -223,7 +203,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -275,7 +255,7 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
     Salida del ejemplo:
 
     ```sh
-        Received event data [
+        Received Event:
             {
               "id": "eventId-func-0",
               "topic": "sampleTopic1",
@@ -289,7 +269,6 @@ Los suscriptores pueden registrarse en eventos publicados en un tema. Para recib
                 "model": "Monster"
               }
             }
-          ]
     ```
 
 ## <a name="cleanup-resources"></a>Limpieza de recursos

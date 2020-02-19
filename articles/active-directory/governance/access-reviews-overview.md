@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e77f507f2a3bd89069f25bf984cf4059009faa6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932641"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185749"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
@@ -62,9 +62,9 @@ Dependiendo de lo que quiera revisar, creará la revisión de acceso en Revision
 | Rol de recursos de Azure | Revisores especificados</br>Autorrevisión | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal de Azure |
 
 
-## <a name="onboard-access-reviews"></a>Incorporarse a las revisiones de acceso
+## <a name="create-access-reviews"></a>Crear revisiones del acceso
 
-Para incorporar las revisiones de acceso, siga estos pasos.
+Para crear una revisión de acceso, siga estos pasos:
 
 1. Diríjase a [Azure Portal](https://portal.azure.com) para administrar las revisiones de acceso e inicie sesión como administrador global o administrador de usuarios.
 
@@ -74,13 +74,9 @@ Para incorporar las revisiones de acceso, siga estos pasos.
 
 1. Seleccione **Identity Governance**.
 
-1. Haga clic en **Revisiones de acceso**.
- 
-    ![Página de inicio de revisiones de acceso](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+1. En la página Introducción, haga clic en el botón **Crear una revisión de acceso**.
 
-1. En la página, haga clic en el botón **Incorporar ahora**.
-    
-      ![Incorporar revisiones de acceso](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+   ![Página de inicio de revisiones de acceso](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
 
 ## <a name="learn-about-access-reviews"></a>Más información sobre las revisiones de acceso
@@ -112,7 +108,7 @@ Las licencias de Azure AD Premium P2 **no** son necesarias para las tareas sigu
 
 Por cada licencia de Azure AD Premium P2 de pago que asigne a uno de los usuarios de la organización, puede usar la colaboración negocio a negocio (B2B) Azure AD para invitar hasta a cinco usuarios, gracias a la concesión de usuarios externos. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
 
-Para más información sobre las licencias, vea [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+Para más información sobre las licencias, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ### <a name="example-license-scenarios"></a>Escenarios de licencia de ejemplo
 

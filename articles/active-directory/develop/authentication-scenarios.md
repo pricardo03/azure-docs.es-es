@@ -13,18 +13,18 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 841ff610509c0d580ff8dca3a9fc14b816d56f1c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9760f09f2588f09263c96cf8c1be74129b117009
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983229"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085385"
 ---
 # <a name="authentication-basics"></a>Conceptos básicos sobre autenticación
 
 ## <a name="what-is-authentication"></a>¿Qué es la autenticación?
 
-En este artículo, se explican muchos de los conceptos sobre la autenticación que debe conocer para poder crear aplicaciones web protegidas, API web o aplicaciones que llamen a API web protegidas. Si ve un término con el que no está familiarizado, pruebe nuestro (glosario)[developer-glossary.md].
+En este artículo, se explican muchos de los conceptos sobre la autenticación que debe conocer para poder crear aplicaciones web protegidas, API web o aplicaciones que llamen a API web protegidas. Si ve un término con el que no está familiarizado, pruebe nuestro [glosario](developer-glossary.md).
 
 La **autenticación** es el proceso mediante el que se comprueba que es quien dice ser. A veces, la autenticación se abrevia como AuthN.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 2ae6314accf5ad9143e1e103239c2e7c884ec947
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6980518da00e6849c327ca712bbeadaa816ae479
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776177"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056672"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configuración de registros de flujo de NSG a partir de una plantilla de Azure Resource Manager
 
@@ -38,7 +38,7 @@ En este artículo se muestra cómo habilitar los [registros de flujo de NSG](htt
 
 ## <a name="nsg-flow-logs-object"></a>Objeto de los registros de flujo de NSG
 
-A continuación se muestra el objeto de registros de flujo de NSG con todos los parámetros.
+A continuación se muestra el objeto de los registros de flujo de NSG con todos los parámetros.
 Para obtener una introducción completa de las propiedades, lea la [referencia de la plantilla de registros de flujo de NSG](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json

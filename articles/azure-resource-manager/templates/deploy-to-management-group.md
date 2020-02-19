@@ -2,13 +2,13 @@
 title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 4ba4f4d2e95c0b878e9f402fa84139ac5b351e3c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 02/10/2020
+ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121920"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117044"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creación de recursos a nivel de grupo de administración
 
@@ -63,8 +63,20 @@ En las implementaciones de nivel de grupo de administración, hay algunas consid
 
 * La función [resourceGroup()](template-functions-resource.md#resourcegroup)**no** se admite.
 * La función [subscription()](template-functions-resource.md#subscription)**no** se admite.
-* La función [resourceId()](template-functions-resource.md#resourceid) sí se admite. Utilícela para obtener el identificador de los recursos que se utilizan en las implementaciones de nivel de grupo de administración. Por ejemplo, puede obtener el identificador de recursos de una definición de directiva con `resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))`. Devuelve el identificador de recursos con el formato `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
 * Se admiten las funciones [reference()](template-functions-resource.md#reference) y [list()](template-functions-resource.md#list).
+* La función [resourceId()](template-functions-resource.md#resourceid) sí se admite. Utilícela para obtener el identificador de los recursos que se utilizan en las implementaciones de nivel de grupo de administración. No proporcione un valor para el parámetro del grupo de recursos.
+
+  Por ejemplo, para obtener el identificador de recurso de una definición de directiva, utilice:
+  
+  ```json
+  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  ```
+  
+  El identificador de recurso devuelto tiene el formato siguiente:
+  
+  ```json
+  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
 
 ## <a name="create-policies"></a>Creación de directivas
 
@@ -136,9 +148,13 @@ En el ejemplo siguiente se asigna una definición de directiva existente al grup
 }
 ```
 
+## <a name="template-sample"></a>Ejemplo de plantilla
+
+* Cree un grupo de recursos, una directiva y una asignación de directiva.  Consulte [aquí](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para aprender sobre los roles de asignación, consulte [Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para un ejemplo de implementación de la configuración del área de trabajo para Azure Security Center, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](template-syntax.md). 
+* Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](template-syntax.md).
 * Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](template-functions.md).

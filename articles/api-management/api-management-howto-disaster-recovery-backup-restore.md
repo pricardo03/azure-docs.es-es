@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: e3d8821fc36a9ba570893ec861b949921d9fabf5
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 8f748764d0f61e4932b2d4710f5a6805a5eddf0e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029952"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047467"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -169,7 +169,7 @@ Establezca el valor del encabezado de solicitud `Content-Type` en `application/j
 
 La creación de una copia de seguridad es una operación de larga ejecución que puede tardar más de un minuto en completarse. Si la solicitud se realizó correctamente y empezó el proceso de copia de seguridad, recibirá un código de estado de respuesta `202 Accepted` con un encabezado `Location`. Realice solicitudes "GET" en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se crea la copia de seguridad, recibirá el código de estado "202 Aceptado". El código de respuesta `200 OK` indica que la operación de copia de seguridad se ha completado correctamente.
 
-Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia de seguridad:
+Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia de seguridad o restauración:
 
 -   El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real**.
 -   Mientras la copia de seguridad esté en curso, **evite hacer cambios de administración en el servicio**, como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
@@ -178,10 +178,10 @@ Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia 
 -   Además, los elementos siguientes no forman parte de los datos de copia de seguridad: certificados SSL de dominio personalizado y cualquier certificado intermedio o raíz cargado por el cliente, el contenido del portal para desarrolladores y la configuración de integración de Virtual Network.
 -   La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda implementar copias de seguridad habituales y realizar copias de seguridad a petición después de hacer cambios en el servicio API Management.
 -   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
--   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage. El cliente debe abrir el conjunto de [direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para la copia de seguridad. 
+-   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage si tiene el [firewall][azure-storage-ip-firewall] habilitado. El cliente debe abrir el conjunto de [direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para la copia de seguridad o la restauración. 
 
 > [!NOTE]
-> Si el firewall está habilitado en la cuenta de almacenamiento y está intentando realizar una copia de seguridad o una restauración desde un servicio de API Management en la misma región, no funcionará, ya que las solicitudes a Azure Storage no se convierten mediante SNAT a IP públicas desde el servicio Compute implementado en la misma región.
+> Si intenta realizar una copia de seguridad o una restauración desde o a un servicio de API Management usando una cuenta de almacenamiento que tiene el [firewall][azure-storage-ip-firewall] habilitado, en la misma región de Azure, esto no funcionará. Esto se debe a que a las solicitudes a Azure Storage no se les aplica SNAT a una dirección IP pública desde Compute > (plano de control de Azure API Management). Se aplicará SNAT a la solicitud de almacenamiento entre regiones.
 
 ### <a name="step2"> </a>Restaurar el servicio API Management
 
@@ -244,3 +244,4 @@ Consulte los recursos siguientes para ver distintos tutoriales del proceso de co
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
 [control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

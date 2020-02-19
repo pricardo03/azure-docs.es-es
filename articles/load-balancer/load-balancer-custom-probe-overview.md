@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5aa75de694d05ce31becc6996aca419dff256a3f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5517b6434d8d654e8aa7e28bec8f6d2a3d9ca73b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023555"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056689"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -128,7 +128,7 @@ Si usa Cloud Services y tiene roles web que utilizan w3wp.exe, también obtiene 
 
 Un sondeo HTTP / HTTPS genera un error cuando:
 * El punto de conexión de sondeo devuelve un código HTTP de respuesta distinto de 200 (por ejemplo, 403, 404 o 500). Esto marcará el sondeo de estado como inactivo de forma inmediata. 
-* El punto de conexión de sondeo no responde durante un período de tiempo de espera de 31 segundos. Es posible que no se respondan varias solicitudes de sondeo antes de que el sondeo se marque como que no se está ejecutando, hasta que se haya alcanzado la suma de todos los intervalos de tiempo de espera.
+* El punto de conexión de sondeo no responde durante el intervalo de sondeo mínimo y un período de tiempo de espera de 30 segundos. Es posible que no se respondan varias solicitudes de sondeo antes de que el sondeo se marque como que no se está ejecutando, hasta que se haya alcanzado la suma de todos los intervalos de tiempo de espera.
 * El punto de conexión de sondeo cierra la conexión mediante TCP Reset.
 
 A continuación se muestra cómo puede expresar este tipo de configuración de sondeo en una plantilla de Resource Manager:

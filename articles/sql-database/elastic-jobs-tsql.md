@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-ms.date: 01/25/2019
-ms.openlocfilehash: 6b70eb1a6e51c98311ae51648b1a9618f9c3349d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/07/2020
+ms.openlocfilehash: c228f3d6591cd72845101c00188f3fc4a55be644
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861343"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087354"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
@@ -189,10 +189,13 @@ Por ejemplo, para agrupar todos los resultados de la misma ejecución del trabaj
 
 En el ejemplo siguiente se crea un nuevo trabajo para recopilar datos de rendimiento de varias bases de datos.
 
-De forma predeterminada, el agente de trabajo buscará crear la tabla para almacenar los resultados devueltos. Como consecuencia, el inicio de sesión asociado con la credencial usada para la credencial de salida deberá tener permisos suficientes para realizar esta operación. Si desea crear manualmente la tabla antes de tiempo, debe tener las siguientes propiedades:
+De forma predeterminada, el agente de trabajo crea la tabla de salida para almacenar los resultados devueltos. Por lo tanto, la entidad de seguridad de base de datos asociada con la credencial de salida debe tener, como mínimo, los siguientes permisos: `CREATE TABLE` en la base de datos, `ALTER`, `SELECT`, `INSERT` y `DELETE` en la tabla de salida o su esquema y `SELECT` en la vista de catálogo [sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql).
+
+Si desea crear manualmente la tabla antes de tiempo, debe tener las siguientes propiedades:
 1. Columnas con el nombre y los tipos de datos correctos para el conjunto de resultados.
 2. Columna adicional para internal_execution_id con el tipo de datos de uniqueidentifier.
 3. Un índice no agrupado denominado `IX_<TableName>_Internal_Execution_ID` en la columna internal_execution_id.
+4. Todos los permisos enumerados anteriormente, salvo el permiso `CREATE TABLE` en la base de datos.
 
 Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute los siguientes comandos:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749451"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086148"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -81,6 +81,15 @@ Este modelo basado en ventanas es parecido al concepto de control de flujo basad
 En la actualidad, Azure Service Bus utiliza exactamente una sesión para cada conexión. El tamaño de trama máximo de Service Bus es 262 144 bytes (256 KB) para Service Bus estándar y Event Hubs. Para Service Bus Premium es 1 048 576 (1 MB). Service Bus no impone ninguna ventana específica de limitación en el nivel de sesión, pero restablece la ventana periódicamente como parte del control de flujo en el nivel de vínculo (consulte [la siguiente sección](#links)).
 
 Las conexiones, los canales y las sesiones son efímeros. Si la conexión subyacente se contrae, es necesario restablecer las conexiones, el túnel TLS, el contexto de autorización SASL y las sesiones.
+
+### <a name="amqp-outbound-port-requirements"></a>Requisitos de puertos de salida de AMQP
+
+Los clientes que usan conexiones AMQP a través de TCP requieren que se abran los puertos 5671 y 5672 en el firewall local. Junto con estos puertos, podría ser necesario abrir puertos adicionales si está habilitada la característica [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet). `EnableLinkRedirect` es una nueva característica de mensajería que ayuda a omitir un salto al recibir mensajes, lo que ayuda a mejorar el rendimiento. El cliente comenzará a comunicarse directamente con el servicio back-end a través del intervalo de puertos 104XX como se muestra en la siguiente imagen. 
+
+![Lista de puertos de destino][4]
+
+Un cliente de .NET producirá un error SocketException ("Intento de obtener acceso a un socket de una manera no permitida por los permisos de acceso") si el firewall bloquea estos puertos. La característica se puede deshabilitar estableciendo `EnableAmqpLinkRedirect=false` en la cadena de conexión, lo que obliga a los clientes a comunicarse con el servicio remoto a través del puerto 5671.
+
 
 ### <a name="links"></a>Vínculos
 
@@ -144,49 +153,49 @@ Las flechas de la tabla siguiente muestran la dirección de flujo de performativ
 
 #### <a name="create-message-receiver"></a>Creación del receptor del mensaje
 
-| Cliente | Azure Service Bus |
+| Remoto | Azure Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link ID}<br/>) |El cliente se adjunta a la entidad como receptor |
 | Service Bus responde asociando su extremo del vínculo |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link ID}<br/>) |
 
 #### <a name="create-message-sender"></a>Creación del remitente del mensaje
 
-| Cliente | Azure Service Bus |
+| Remoto | Azure Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Ninguna acción |
 | Ninguna acción |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Creación del remitente del mensaje (error)
 
-| Cliente | Azure Service Bus |
+| Remoto | Azure Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Ninguna acción |
 | Ninguna acción |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Cierre del remitente/receptor del mensaje
 
-| Cliente | Azure Service Bus |
+| Remoto | Azure Service Bus |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Ninguna acción |
 | Ninguna acción |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
 #### <a name="send-success"></a>Envío (correcto)
 
-| Cliente | Azure Service Bus |
+| Remoto | Azure Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Ninguna acción |
 | Ninguna acción |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Envío (error)
 
-| Cliente | Azure Service Bus |
+| Remoto | Azure Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Ninguna acción |
 | Ninguna acción |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Recepción
 
-| Cliente | Azure Service Bus |
+| Remoto | Azure Service Bus |
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |Ninguna acción |
 | Ninguna acción |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
@@ -194,7 +203,7 @@ Las flechas de la tabla siguiente muestran la dirección de flujo de performativ
 
 #### <a name="multi-message-receive"></a>Recepción de múltiples mensajes
 
-| Cliente | Azure Service Bus |
+| Remoto | Azure Service Bus |
 | --- | --- |
 | --> flow(<br/>link-credit=3<br/>) |Ninguna acción |
 | Ninguna acción |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
@@ -325,7 +334,7 @@ La especificación de la administración de AMQP es la primera de las extensione
 
 Todos los gestos requieren una interacción de solicitud/respuesta entre el cliente y la infraestructura de mensajería y, por tanto, la especificación define cómo modelar ese patrón de interacción sobre AMQP: el cliente se conecta a la infraestructura de mensajería, inicia una sesión y crea un par de vínculos. En un vínculo, el cliente actúa como remitente y en el otro actúa como receptor, creando así un par de vínculos que puede actuar como un canal bidireccional.
 
-| Operadores lógicos | Cliente | Azure Service Bus |
+| Operadores lógicos | Remoto | Azure Service Bus |
 | --- | --- | --- |
 | Creación de una ruta de acceso de respuesta de solicitud |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |Ninguna acción |
 | Creación de una ruta de acceso de respuesta de solicitud |Ninguna acción |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
@@ -361,9 +370,9 @@ El mensaje de solicitud tiene las siguientes propiedades de la aplicación:
 
 | Clave | Opcional | Tipo de valor | Contenido del valor |
 | --- | --- | --- | --- |
-| operation |Sin |string |**put-token** |
-| type |Sin |string |Tipo del token que se coloca. |
-| name |Sin |string |El "público" al que se aplica el token. |
+| operation |No |string |**put-token** |
+| type |No |string |Tipo del token que se coloca. |
+| name |No |string |El "público" al que se aplica el token. |
 | expiration |Sí |timestamp |La hora de expiración del token. |
 
 La propiedad *name* identifica la entidad a la que se va a asociar el token. En Service Bus es la ruta de acceso a la cola, el tema o la suscripción. La propiedad *type* identifica el tipo de token:
@@ -380,7 +389,7 @@ El mensaje de respuesta tiene los siguientes valores de *application-properties*
 
 | Clave | Opcional | Tipo de valor | Contenido del valor |
 | --- | --- | --- | --- |
-| status-code |Sin |int |Código de respuesta HTTP **[RFC2616]** . |
+| status-code |No |int |Código de respuesta HTTP **[RFC2616]** . |
 | status-description |Sí |string |Descripción del estado. |
 
 El cliente puede llamar a *put-token* repetidamente y para cualquier entidad de la infraestructura de mensajería. El ámbito de los tokens es el cliente actual y se anclan en la conexión actual, lo que significa que el servidor elimina todos los tokens retenidos cuando la conexión se interrumpe.
@@ -401,7 +410,7 @@ Gracias a esta funcionalidad, puede crear un remitente y establecer el vínculo 
 
 > Nota: La autenticación debe realizarse en ambos elementos *via-entity* y *destination-entity* antes de establecer este vínculo.
 
-| Cliente | | Azure Service Bus |
+| Remoto | | Azure Service Bus |
 | --- | --- | --- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target= **{via-entity}** ,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |

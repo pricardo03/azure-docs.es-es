@@ -7,27 +7,27 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 8240b1a01aa39e53b9ae41f73543ccf9774290b2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512919"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161756"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Consulta de datos en Azure Data Lake con Azure Data Explorer
 
 Azure Data Lake Storage es una solución de lago de datos rentable y muy escalable para el análisis de macrodatos. Combina el potencial de un sistema de archivos de alto rendimiento con escala masiva y economía para ayudarle a obtener conclusiones con rapidez. Data Lake Storage Gen2 amplía la funcionalidad de Azure Blob Storage y está optimizado para cargas de trabajo analíticas.
  
-Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage Gen2, de modo que proporciona un acceso rápido, indexado y almacenado en caché a los datos del lago. Puede analizar y consultar los datos del lago sin una ingesta previa en Azure Data Explorer. También puede consultar al mismo tiempo los datos ingeridos y sin ingerir del lago nativo.  
+Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage (Gen1 y Gen2), de modo que proporciona un acceso rápido, indexado y almacenado en caché a los datos del lago. Puede analizar y consultar los datos del lago sin una ingesta previa en Azure Data Explorer. También puede consultar al mismo tiempo los datos ingeridos y sin ingerir del lago nativo.  
 
 > [!TIP]
-> Para obtener el mejor rendimiento de consultas, se necesita la ingesta de datos en Azure Data Explorer. La funcionalidad para consultar datos en Azure Data Lake Storage Gen2 sin una ingesta previa solo debe usarse para datos históricos o para datos que se consultan con poca frecuencia. [Optimice el rendimiento de las consultas en el lago](#optimize-your-query-performance) para obtener los mejores resultados.
+> Para obtener el mejor rendimiento de consultas, se necesita la ingesta de datos en Azure Data Explorer. La funcionalidad para consultar datos externos sin una ingesta previa solo debe usarse para datos históricos o para datos que se consultan con poca frecuencia. [Optimice el rendimiento de las consultas en el lago](#optimize-your-query-performance) para obtener los mejores resultados.
  
 
 ## <a name="create-an-external-table"></a>Crear una tabla externa
 
  > [!NOTE]
- > Las cuentas de almacenamiento que se admiten actualmente son Azure Blob Storage o Azure Data Lake Storage Gen2, Actualmente, los formatos de datos compatibles son json, csv, tsv y txt.
+ > Las cuentas de almacenamiento que se admiten actualmente son Azure Blob Storage o Azure Data Lake Storage (Gen1 y Gen2).
 
 1. Use el comando `.create external table` para crear una tabla externa en Azure Data Explorer. En [Comandos de tabla externa](/azure/kusto/management/externaltables) se documentan otros comandos de este tipo, como `.show`, `.drop` y `.alter`.
 
@@ -46,6 +46,7 @@ Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage 
     > * Cuando se define una tabla externa con particiones, se espera que la estructura de almacenamiento sea idéntica.
 Por ejemplo, si la tabla se define con una partición DateTime en formato aaaa/MM/dd (valor predeterminado), la ruta de acceso del archivo de almacenamiento de URI debe ser *container1/aaaa/MM/dd/all_exported_blobs*. 
     > * Si la tabla externa tiene particiones de una columna DateTime, incluya siempre un filtro de tiempo para un intervalo cerrado en la consulta (por ejemplo, la consulta `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` debe ofrecer un mejor rendimiento que `ArchivedProducts | where Timestamp > ago(1h)` [intervalo abierto]). 
+    > * Todos los [formatos de ingesta compatibles](ingest-data-overview.md#supported-data-formats) se pueden consultar mediante tablas externas.
 
 1. La tabla externa está visible en el panel izquierdo de la interfaz de usuario web.
 

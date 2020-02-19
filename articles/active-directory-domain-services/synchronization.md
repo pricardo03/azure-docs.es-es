@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: a0c9a654d0ee49dc2bdb6efb7370a3ad2b199e10
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481312"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132200"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Procedimiento para sincronizar objetos y credenciales en un dominio administrado de Azure AD Domain Services
 
@@ -64,7 +64,7 @@ En la tabla siguiente se muestra cómo determinados atributos de objetos de usua
 | DisplayName |DisplayName |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
-| jobTitle |título |
+| jobTitle |title |
 | mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (a veces, puede generarse automáticamente) |
@@ -97,7 +97,7 @@ En la tabla siguiente se muestra cómo determinados atributos de objetos de grup
 
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Sincronización de un entorno AD DS local a Azure AD y Azure AD DS
 
-Azure AD Connect se utiliza para sincronizar cuentas de usuario, pertenencias a grupos y hash de credenciales de un entorno de AD DS local a Azure AD. Los atributos de cuentas de usuario, como el UPN y el identificador de seguridad local (SID), se sincronizan. Para iniciar sesión con Azure AD Domain Services, los hash heredados necesarios para la autenticación NTLM y Kerberos también se sincronizan con Azure AD.
+Azure AD Connect se utiliza para sincronizar cuentas de usuario, pertenencias a grupos y hash de credenciales de un entorno de AD DS local a Azure AD. Los atributos de cuentas de usuario, como el UPN y el identificador de seguridad local (SID), se sincronizan. Para iniciar sesión con Azure AD DS, los hash de contraseña heredados necesarios para la autenticación NTLM y Kerberos también se sincronizan con Azure AD.
 
 > [!IMPORTANT]
 > Azure AD Connect solo debe instalarse y configurarse para la sincronización con entornos de AD DS locales. No se admite la instalación de Azure AD Connect en un dominio administrado de Azure AD DS para volver a sincronizar los objetos con Azure AD.
@@ -113,7 +113,7 @@ Muchas organizaciones tienen un entorno de AD DS local bastante complejo que in
 
 Azure AD tiene un espacio de nombres mucho más sencillo y plano. Si quiere que los usuarios puedan acceder de manera confiable a las aplicaciones protegidas mediante Azure AD, resuelva todos los conflictos de UPN que haya en las cuentas de usuario de los todos los bosques. Los dominios administrados de Azure AD DS usan una estructura plana de unidad organizativa, similar a Azure AD. Las cuentas de usuario y los grupos se almacenan en el contenedor *Usuarios de AADDC*, aunque se sincronicen desde dominios o bosques locales distintos, incluso si se ha configurado una estructura jerárquica de unidad organizativa local. El dominio administrado de Azure AD DS simplifica las estructuras jerárquicas de unidades organizativas.
 
-Como se ha detallado anteriormente, no hay ninguna sincronización de Azure AD DS de nuevo a Azure AD. Puede [crear una unidad organizativa (OU) personalizada](create-ou.md) en Azure AD DS y, después, usuarios, grupos o cuentas de servicio en esas unidades organizativas personalizadas. Ninguno de los objetos creados en las unidades organizativas personalizadas se vuelven a sincronizar con Azure AD. Estos objetos solo están disponibles en el dominio administrado de Azure AD DS y no se pueden ver mediante los cmdlets de PowerShell de Azure AD, Graph API o la interfaz de usuario de administración de Azure AD.
+Como se ha detallado anteriormente, no hay ninguna sincronización de Azure AD DS de nuevo a Azure AD. Puede [crear una unidad organizativa (OU) personalizada](create-ou.md) en Azure AD DS y, después, usuarios, grupos o cuentas de servicio en esas unidades organizativas personalizadas. Ninguno de los objetos creados en las unidades organizativas personalizadas se vuelven a sincronizar con Azure AD. Estos objetos solo están disponibles en el dominio administrado de Azure AD DS y no se pueden ver mediante cmdlets de PowerShell de Azure AD, Microsoft Graph API ni la interfaz de usuario de administración de Azure AD.
 
 ## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Objetos o atributos que no están sincronizados con Azure AD DS
 
@@ -128,9 +128,13 @@ Los siguientes objetos o atributos no se sincronizan desde un entorno AD DS loc
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Consideraciones de seguridad y sincronización de hash de contraseña
 
-Al habilitar Azure AD DS, se necesitan hash de contraseña heredados para la autenticación NTLM y Kerberos. Azure AD no almacena contraseñas no cifradas, por lo que estos hash no se pueden generar automáticamente para las cuentas de usuario existentes. Una vez generados y almacenados, los hash de contraseña en los formatos compatibles NTLM y Kerberos siempre se almacenarán de forma cifrada en Azure AD. Las claves de cifrado serán únicas para cada inquilino de Azure AD. Estos hash se cifrarán de forma que solo Azure AD DS tenga acceso a las claves de descifrado. Ningún otro servicio o componente de Azure AD tendrá acceso a ellas. Los hash de contraseña heredados se sincronizan desde Azure AD en los controladores de dominio de un dominio administrado de Azure AD DS. Los discos de estos controladores de dominio administrados en Azure AD DS se cifrarán en reposo. Estos hash de contraseña se almacenarán y protegerán en dichos controladores de dominio de modo similar a cómo se almacenan y protegen las contraseñas en un entorno de AD DS local.
+Al habilitar Azure AD DS, se necesitan hash de contraseña heredados para la autenticación NTLM y Kerberos. Azure AD no almacena contraseñas no cifradas, por lo que estos hash no se pueden generar automáticamente para las cuentas de usuario existentes. Una vez generados y almacenados, los hash de contraseña en los formatos compatibles NTLM y Kerberos siempre se almacenarán de forma cifrada en Azure AD.
 
-En el caso de los entornos de Azure AD solo de nube, los [usuarios deben restablecer o cambiar su contraseña](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que los hash de contraseña se puedan generar y almacenar en Azure AD. En el caso de cualquier cuenta de usuario en la nube creada en Azure AD tras habilitar Azure AD Domain Services, los hash de contraseña se generarán y almacenarán en los formatos compatibles NTLM y Kerberos. No es necesario restablecer o cambiar la contraseña de esas cuentas nuevas para generar los hash de contraseña heredados.
+Las claves de cifrado serán únicas para cada inquilino de Azure AD. Estos hash se cifrarán de forma que solo Azure AD DS tenga acceso a las claves de descifrado. Ningún otro servicio o componente de Azure AD tendrá acceso a ellas.
+
+Los hash de contraseña heredados se sincronizan desde Azure AD en los controladores de dominio de un dominio administrado de Azure AD DS. Los discos de estos controladores de dominio administrados en Azure AD DS se cifrarán en reposo. Estos hash de contraseña se almacenarán y protegerán en dichos controladores de dominio de modo similar a cómo se almacenan y protegen las contraseñas en un entorno de AD DS local.
+
+En el caso de los entornos de Azure AD solo de nube, los [usuarios deben restablecer o cambiar su contraseña](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que los hash de contraseña se puedan generar y almacenar en Azure AD. En el caso de cualquier cuenta de usuario en la nube creada en Azure AD tras habilitar Azure AD Domain Services, los hash de contraseña se generarán y almacenarán en los formatos compatibles NTLM y Kerberos. No es necesario restablecer ni cambiar la contraseña de esas cuentas nuevas para generar los hash de contraseña heredados.
 
 En el caso de las cuentas de usuario híbridas sincronizadas desde el entorno de AD DS local mediante Azure AD Connect, deberá [configurar Azure AD Connect para que sincronice los hash de contraseña en los formatos compatibles NTLM y Kerberos](tutorial-configure-password-hash-sync.md).
 

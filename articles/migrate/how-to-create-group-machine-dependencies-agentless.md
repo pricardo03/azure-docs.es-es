@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c8ddd343cd00b24506382521361ebad33ad112a7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288969"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049748"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configuración de la visualización de dependencias sin agente para la evaluación
 
@@ -62,7 +62,7 @@ La visualización de dependencias sin agente no requiere la instalación de ning
 
 Configure una cuenta de usuario que tenga los permisos necesarios para que Server Assessment pueda acceder a la VM para la detección. Puede especificar una cuenta de usuario.
 
-- **Permiso necesario en las VM de Windows**: la cuenta de usuario requiere el permiso de acceso "Invitado".
+- **Permiso necesario en las VM de Windows**: La cuenta de usuario debe ser una cuenta de administrador local o de dominio.
 - **Permiso necesario en las VM de Linux**: se requiere el privilegio raíz en la cuenta. Como alternativa, la cuenta de usuario requiere estas dos funcionalidades en los archivos/bin/netstat y /bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Adición de la cuenta de usuario al dispositivo

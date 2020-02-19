@@ -3,12 +3,12 @@ title: Copia de seguridad de Azure Files con PowerShell
 description: En este artículo se aprende a realizar copias de seguridad de Azure Files mediante el servicio Azure Backup y PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 5147ab893d4ebad395d7dbd8cc25872177ec10a2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773098"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120510"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Copia de seguridad de Azure Files con PowerShell
 
@@ -44,6 +44,13 @@ Revise la [referencia de cmdlet](/powershell/module/az.recoveryservices) de **Az
 Configure PowerShell como sigue:
 
 1. [Descargue la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps). La versión 1.0.0 es la versión mínima requerida.
+
+> [!WARNING]
+> La versión mínima de PS necesaria para la versión preliminar era "Az 1.0.0". Debido a los próximos cambios de disponibilidad general, la versión mínima de PS necesaria será "Az.RecoveryServices 2.6.0". Es muy importante actualizar todas las versiones de PS existentes a esta versión. De lo contrario, los scripts existentes se interrumpirán después de la disponibilidad general. Instalación de la versión mínima con los siguientes comandos de PS
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
 
 2. Busque los cmdlets de PowerShell de Azure Backup con este comando:
 
@@ -241,19 +248,32 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Aviso importante: Identificación de elemento de copia de seguridad para copias de seguridad de AFS
+
+En esta sección se esboza un cambio importante con respecto a la copia de seguridad de AFS en preparación para la disponibilidad general.
+
+Al habilitar la copia de seguridad para AFS, el usuario proporciona el nombre del recurso compartido de archivos descriptivo del cliente como nombre de la entidad y se crea un elemento de copia de seguridad. El elemento "name" del elemento de copia de seguridad es un identificador único creado por el servicio Azure Backup. Normalmente, el identificador incluye el nombre descriptivo del usuario. Pero para controlar el importante escenario de eliminación temporal, donde se puede eliminar un recurso compartido de archivos y crear otro con el mismo nombre, la identidad única del recurso compartido de archivos de Azure ahora es un identificador en lugar de un nombre descriptivo de cliente. Para conocer el nombre o la identidad únicos de cada elemento, simplemente ejecute el comando ```Get-AzRecoveryServicesBackupItem``` con los filtros relevantes para backupManagementType y WorkloadType a fin de obtener todos los elementos pertinentes y luego observe el campo de nombre en el objeto o la respuesta devueltos de PS. Siempre se recomienda mostrar los elementos y luego recuperar su nombre único del campo "name" de la respuesta. Use este valor para filtrar los elementos con el parámetro "Name". De lo contrario, use el parámetro "FriendlyName" para recuperar el elemento con su identificador o nombre descriptivo de cliente.
+
+> [!WARNING]
+> Asegúrese de que la versión de PS se actualice a la versión mínima de "Az.RecoveryServices 2.6.0" para las copias de seguridad de AFS. Con esta versión, el filtro "friendlyName" está disponible para el comando ```Get-AzRecoveryServicesBackupItem```. Pase el nombre del recurso compartido de archivos de Azure al parámetro "friendlyName". Si pasa el nombre del recurso compartido de archivos de Azure al parámetro "Name", esta versión genera la advertencia de pasar este nombre descriptivo al parámetro "friendlyName". La no instalación de esta versión mínima puede dar lugar a un error en los scripts existentes. Instale la versión mínima de PS con el siguiente comando.
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
+
 ## <a name="trigger-an-on-demand-backup"></a>Desencadenamiento de una copia de seguridad a petición
 
 Use [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) para ejecutar una copia de seguridad a petición para un recurso compartido de archivos protegido de Azure.
 
-1. Recupere la cuenta de almacenamiento y el recurso compartido de archivos del contenedor del almacén que contenga los datos de copia de seguridad con [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Para iniciar un trabajo de copia de seguridad, obtenga información sobre la máquina virtual con [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+1. Recupere la cuenta de almacenamiento del contenedor del almacén que contenga los datos de copia de seguridad con [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Para iniciar un trabajo de copia de seguridad, obtenga información sobre el recurso compartido de archivos de Azure con [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Ejecute una copia de seguridad a petición con [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Ejecute la copia de seguridad a petición de la manera siguiente:
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -Name "testAzureFS"
+$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -FriendlyName "testAzureFS"
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 ```
 
@@ -272,6 +292,9 @@ Las instantáneas de recursos compartidos de archivos de Azure se usan al realiz
 Las copias de seguridad a petición se pueden usar para conservar las instantáneas durante 10 años. Los programadores pueden usarse para ejecutar scripts de PowerShell a petición con la retención seleccionada. De este modo, se toman instantáneas a intervalos regulares cada semana, mes o año. Al tomar instantáneas periódicas, haga referencia a las [limitaciones de las copias de seguridad a petición](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) mediante Azure Backup.
 
 Si busca scripts de ejemplo, puede ver el script de ejemplo en GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) con el runbook de Azure Automation que le permite programar las copias de seguridad de forma periódica y conservarlas hasta 10 años.
+
+> [!WARNING]
+> Asegúrese de que la versión de PS se actualice a la versión mínima de "Az.RecoveryServices 2.6.0" para las copias de seguridad de AFS de los runbooks de Automation. Tiene que reemplazar el antiguo módulo " AzureRM" por el módulo "Az". Con esta versión, el filtro "friendlyName" está disponible para el comando ```Get-AzRecoveryServicesBackupItem```. Pase el nombre del recurso compartido de archivos de Azure al parámetro "friendlyName". Si pasa el nombre del recurso compartido de archivos de Azure al parámetro "Name", esta versión genera la advertencia de pasar este nombre descriptivo al parámetro "friendlyName".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

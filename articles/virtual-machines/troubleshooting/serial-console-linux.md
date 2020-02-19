@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 1074c4bc561236039e6ee55ef2df4fc8bd8dbbfc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772523"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167011"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola serie de Azure para Linux
 
@@ -32,7 +32,7 @@ Para la documentación sobre la consola serie para Windows, consulte [Consola se
 > La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Resource Manager. No se admiten las implementaciones clásicas.
 
@@ -124,7 +124,7 @@ Somos conscientes de que hay algunos problemas con la consola serie y el sistema
 
 Problema                           |   Mitigación
 :---------------------------------|:--------------------------------------------|
-Al presionar **Entrar** después del banner de conexión no se muestra ninguna solicitud de inicio de sesión. | Para obtener más información, consulte [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) (Al presionar Entrar, no se realiza ninguna acción). Este problema puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo protegido o una configuración de GRUB que hace que Linux no pueda conectarse al puerto serie.
+Al presionar **Entrar** después del banner de conexión no se muestra ninguna solicitud de inicio de sesión. | GRUB puede no estar configurado correctamente. Ejecute los comandos siguientes: `grub2-mkconfig -o /etc/grub2-efi.cfg` y/o `grub2-mkconfig -o /etc/grub2.cfg`. Para obtener más información, consulte [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) (Al presionar Entrar, no se realiza ninguna acción). Este problema puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo protegido o una configuración de GRUB que hace que Linux no pueda conectarse al puerto serie.
 El texto de la consola serie solo ocupa una parte de la pantalla (a menudo después de usar un editor de texto). | Las consolas serie no admiten operaciones para cambiar el tamaño de la ventana ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), lo que significa que no se enviará ninguna señal SIGWINCH para actualizar el tamaño de la pantalla y la máquina virtual no tendrá conocimiento del tamaño del terminal. Instale xterm o una utilidad similar que le proporcione el comando `resize` y, a continuación, ejecute `resize`.
 El hecho de pegar cadenas largas no funciona. | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres a fin de impedir que el ancho de banda del puerto serie se sobrecargue.
 Entradas de teclado erráticas en las imágenes de SLES BYOS. La entrada mediante el teclado solo se reconoce esporádicamente. | Se trata de un problema con el paquete de Plymouth. No se debe ejecutar Plymouth en Azure, ya que no necesita una pantalla de presentación y Plymouth afecta la capacidad de la plataforma para usar la consola serie. Quite Plymouth con `sudo zypper remove plymouth` y reinicie el equipo. Como alternativa, modifique la línea de kernel de la configuración GRUB anexando `plymouth.enable=0` al final de esta. Para ello, puede [editar la entrada de arranque en el tiempo de arranque](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles) o editar la línea GRUB_CMDLINE_LINUX en `/etc/default/grub`, reconstruir GRUB con `grub2-mkconfig -o /boot/grub2/grub.cfg` y reiniciar el equipo.

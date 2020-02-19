@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: a2bf15c8778a6ff549284b1053cf0978d182b802
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720408"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116886"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "76720408"
 
  Si prefiere una experiencia más basada en código, también puede [configurar los experimentos de aprendizaje automático automatizado de Python](how-to-configure-auto-train.md) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -47,7 +47,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
 ## <a name="create-and-run-experiment"></a>Creación y ejecución de un experimento
 
-1. Seleccione **+ Create Experiment** (+ Crear experimento) y rellene el formulario.
+1. Seleccione **+ New automated ML run** (+ Nueva ejecución de ML automatizada) y rellene el formulario.
 
 1. Seleccione un conjunto de datos del contenedor de almacenamiento o cree un nuevo conjunto de datos. Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones URL web, almacenes de datos o Azure Open Datasets. 
 
@@ -60,7 +60,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
     1. Asigne un nombre único al conjunto de datos y proporcione una descripción opcional. 
 
-    1. Seleccione **Siguiente** para cargarlo en el contenedor de almacenamiento predeterminado que se crea automáticamente con el área de trabajo o elija un contenedor de almacenamiento que quiera usar para el experimento. 
+    1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde quiere cargar el conjunto de datos: el contenedor de almacenamiento predeterminado que se crea automáticamente con el área de trabajo, o bien elija un contenedor de almacenamiento que quiera usar para el experimento. 
 
     1. Revise el formulario **Settings and preview** (Configuración y vista previa) para ver que todo está correcto. El formulario se rellena de forma inteligente según el tipo de archivo. 
 
@@ -78,7 +78,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
             
         Seleccione **Siguiente**.
 
-    1. En el formulario **Confirmar detalles** se muestra un resumen de la información que se ha rellenado anteriormente en los formularios **Información básica** y **Settings and preview** (Configuración y vista previa). También tiene la opción de generar perfiles del conjunto de datos mediante un proceso habilitado para la generación de perfiles. Más información acerca de la [generación de perfiles de datos](#profile).
+    1. En el formulario **Confirmar detalles** se muestra un resumen de la información que se ha rellenado anteriormente en los formularios **Información básica** y **Settings and preview** (Configuración y vista previa). También tiene la opción de crear un perfil de datos para el conjunto de datos mediante un proceso habilitado para la generación de perfiles. Más información acerca de la [generación de perfiles de datos](#profile).
 
         Seleccione **Next** (Siguiente).
 1. Seleccione el conjunto de datos recién creado cuando aparezca. También puede ver una vista previa del conjunto de datos y las estadísticas de ejemplo. 
@@ -113,16 +113,19 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
         1. Seleccione el horizonte de previsión: Indique cuántas unidades de tiempo (minutos, horas, días, semanas, meses o años) será capaz predecir el modelo en el futuro. Cuanto más se exija al modelo que prediga en el futuro, menos preciso será. [Más información sobre la previsión y el horizonte de previsión](how-to-auto-train-forecast.md).
 
-1. (Opcional) Adición de configuraciones: configuración adicional que puede usar para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento. 
+1. (Opcional) Ver el apartado sobre la adición de configuraciones: opciones de configuración adicionales que puede usar para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento. 
 
     Configuraciones adicionales|Descripción
     ------|------
     Métrica principal| Métrica principal usada para puntuar el modelo. [Más información sobre las métricas del modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Características automáticas| Seleccione esta opción para habilitar o deshabilitar el preprocesamiento que el aprendizaje automático automatizado realiza. El preprocesamiento incluye la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas. [Más información sobre el preprocesamiento](#preprocess).
+    Características automáticas| Seleccione esta opción para habilitar o deshabilitar el preprocesamiento que el aprendizaje automático automatizado realiza. El preprocesamiento incluye la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas. No se admite para el tipo de tarea de predicción de series temporales. [Más información sobre el preprocesamiento](#featurization). 
+    Explicación del mejor modelo | Seleccione esta opción para habilitar o deshabilitar la visualización de la explicación del mejor modelo recomendado.
     Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento.
     Criterios de exclusión| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Tiempo de trabajo de entrenamiento (horas)* : cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
     Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-auto-train.md).
-    Simultaneidad| *Número máximo de iteraciones simultáneas*: número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas. <br> *Número máximo de núcleos por iteración*: Seleccione los límites de varios núcleos que le gustaría usar cuando se usa un proceso de varios núcleos.
+    Simultaneidad| *Número máximo de iteraciones simultáneas*: número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas.
+
+1. (Opcional) Ver el apartado sobre la configuración de características: si decide habilitar **Características automáticas** en el formulario **Additional configuration settings** (Opciones de configuración adicionales), en este formulario se especifican las columnas en las que se van a definir dichas características y se selecciona el valor estadístico que se va a usar para las imputaciones de valores que faltan.
 
 <a name="profile"></a>
 
@@ -151,17 +154,13 @@ Asimetría| Medida de la diferencia entre los datos de esta columna y la distrib
 Curtosis| La medida de la cantidad de datos en cola de esta columna se compara con una distribución normal.
 
 
-<a name="preprocess"></a>
+<a name="featurization"></a>
 
 ## <a name="advanced-featurization-options"></a>Opciones avanzadas de caracterización
 
-Al configurar los experimentos, puede habilitar la configuración avanzada `feauturization`. 
+El aprendizaje automático automatizado ofrece límites de protección de datos y preprocesamiento automáticamente, para ayudarle a identificar y administrar posibles problemas con los datos. 
 
-|Configuración de la caracterización | Descripción |
-| ------------- | ------------- |
-|"feauturization" = 'FeaturizationConfig'| Indica que se debe usar un paso personalizado de caracterización. [Aprenda a personalizar la caracterización](how-to-configure-auto-train.md#customize-feature-engineering).|
-|"feauturization" = 'off'| Indica que el paso de caracterización no debe realizarse automáticamente.|
-|"feauturization" = 'auto'| Indica que, como parte del preprocesamiento, los siguientes pasos de caracterización y protección se realizarán automáticamente.|
+### <a name="preprocessing"></a>Preprocessing (Preprocesamiento)
 
 |Pasos de&nbsp;preprocesamiento| Descripción |
 | ------------- | ------------- |
@@ -177,7 +176,7 @@ Al configurar los experimentos, puede habilitar la configuración avanzada `feau
 
 ### <a name="data-guardrails"></a>Límites de protección de datos
 
-El aprendizaje automático automatizado ofrece límites de protección de datos para ayudarle a identificar posibles problemas con los datos (por ejemplo, valores faltantes o desequilibrio de clases) y a realizar acciones correctivas para mejorar los resultados. Hay muchos procedimientos recomendados disponibles y se pueden aplicar para lograr resultados confiables. 
+Los límites de protección de datos se aplican automáticamente para ayudarle a identificar posibles problemas con los datos (por ejemplo, valores faltantes o desequilibrio de clases) y a realizar acciones correctivas para mejorar los resultados. Hay muchos procedimientos recomendados disponibles y se pueden aplicar para lograr resultados confiables. 
 
 En la tabla siguiente se describen los límites de protección de datos admitidos actualmente, así como los estados asociados que pueden producirse al enviar el experimento.
 
@@ -191,14 +190,11 @@ Coherencia de los datos en la serie temporal|**Superado** <br><br><br><br> **Cor
 
 ## <a name="run-experiment-and-view-results"></a>Ejecución del experimento y visualización de los resultados
 
-Seleccione **Start** (Iniciar) para ejecutar el experimento. El proceso de preparación del experimento puede tardar hasta 10 minutos. Los trabajos de entrenamiento pueden tardar de 2 a 3 minutos más para que cada canalización termine de ejecutarse.
+Para ejecutar el experimento, seleccione **Finalizar**. El proceso de preparación del experimento puede tardar hasta 10 minutos. Los trabajos de entrenamiento pueden tardar de 2 a 3 minutos más para que cada canalización termine de ejecutarse.
 
 ### <a name="view-experiment-details"></a>Visualización de los detalles del experimento
 
->[!NOTE]
-> Seleccione **Actualizar** periódicamente para ver el estado de la ejecución. 
-
-Se abre la pantalla **Detalles de ejecución** en la pestaña **Detalles**. En esta pantalla se muestra un resumen de la ejecución del experimento, incluido el **Estado de la ejecución**. 
+Se abre la pantalla **Detalles de ejecución** en la pestaña **Detalles**. En esta pantalla se muestra un resumen de la ejecución del experimento, incluida una barra de estado en la parte superior, junto al número de ejecución. 
 
 La pestaña **Modelos** contiene una lista de los modelos creados ordenados por la puntuación de la métrica. De forma predeterminada, el modelo que puntúa más alto en función de las métricas seleccionadas aparece en la parte superior de la lista. A medida que el trabajo de entrenamiento prueba más modelos, se agregan a la lista. Utilice esto para obtener una comparación rápida de las métricas para los modelos generados hasta ahora.
 
@@ -218,18 +214,18 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Tiene unas par de opciones de implementación. 
 
-    + Opción 1: Para implementar el mejor modelo (según los criterios de métrica que definió), seleccione la opción para implementar el mejor modelo en la página Detalles.
+    + Opción 1: Para implementar el mejor modelo (según los criterios de métrica que definió), seleccione el botón **Deploy best model** (Implementar el mejor modelo) en la pestaña **Detalles**.
 
-    + Opción 2: Si quiere implementar una iteración de modelo específica de este experimento, explore en profundidad el modelo para abrir su pestaña Detalles del modelo y seleccione Implementar modelo.
+    + Opción 2: Si quiere implementar una iteración de modelo específica de este experimento, explore en profundidad el modelo para abrir su pestaña **Detalles del modelo** y seleccione **Implementar modelo**.
 
-1. Rellene el panel **Deploy Model** (Implementar modelo).
+1. Rellene el panel **Implementar modelo**.
 
     Campo| Value
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.
     Compute type (Tipo de proceso)| Seleccione el tipo de punto de conexión que desea implementar: *Azure Kubernetes Service (AKS)* o *Azure Container Instance (ACI)* .
-    Nombre| *Solo se aplica a AKS:* Seleccione el nombre del clúster de AKS en que desea realizar la implementación.
+    Nombre del proceso| *Solo se aplica a AKS:* Seleccione el nombre del clúster de AKS en que desea realizar la implementación.
     Enable authentication (Habilitar autenticación) | Seleccione esta opción para permitir la autenticación basada en token o basada en clave.
     Use custom deployment assets (Usar recursos de implementación personalizados)| Habilite esta característica si desea cargar su propio archivo de entorno y script de puntuación. [Más información sobre los scripts de puntuación](how-to-deploy-and-where.md#script).
 
@@ -244,7 +240,7 @@ Ya tiene un servicio web operativo para generar predicciones. Puede probar las p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Pruebe el [tutorial de un extremo a otro para crear su primer experimento de ML automatizado con Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
+* Pruebe el [tutorial de un extremo a otro para crear su primer experimento de ML automatizado con Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md). 
 * [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md) y Azure Machine Learning.
 * [Descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 * [Obtenga información sobre cómo consumir un servicio web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

@@ -3,12 +3,12 @@ title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ff5df19d3e2d42af9a45fbc1b71980cee1cdb8a0
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979892"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111602"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -66,6 +66,8 @@ Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Ser
 > * Un equipo que sea un grupo de administración de System Center Operations Manager
 > * Un equipo en el que se ejecute Exchange Server
 > * Un equipo que sea un nodo de un clúster
+>
+> La instalación de Azure Backup Server no se admite en Windows Server Core ni Microsoft Hyper-V Server.
 
 Siempre una Azure Backup Server a un dominio. Si piensa mover el servidor a un dominio diferente, instale primero Azure Backup Server y luego una el servidor al nuevo dominio. *No se permite*mover una máquina de Azure Backup Server existente a un dominio nuevo después de la implementación.
 

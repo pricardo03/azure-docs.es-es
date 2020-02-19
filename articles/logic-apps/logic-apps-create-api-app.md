@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
-ms.openlocfilehash: e4200d09a02da1fd95f9bf5051b7f9d5fca5aa98
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793211"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191441"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
@@ -171,7 +171,7 @@ Por ejemplo, para comprobar periódicamente el servicio para buscar nuevos archi
 
 | ¿La solicitud incluye `triggerState`? | Respuesta de la API | 
 | -------------------------------- | -------------| 
-| Sin | Devuelve un estado de HTTP `202 ACCEPTED` más un encabezado `location` con `triggerState` establecido en la hora actual y el intervalo `retry-after` en 15 segundos. | 
+| No | Devuelve un estado de HTTP `202 ACCEPTED` más un encabezado `location` con `triggerState` establecido en la hora actual y el intervalo `retry-after` en 15 segundos. | 
 | Sí | Compruebe si en el servicio se han agregado archivos después de la fecha `DateTime` para `triggerState`. | 
 ||| 
 
@@ -206,9 +206,9 @@ Los desencadenadores de webhook actúan de manera muy similar a las [acciones de
 > [!TIP]
 > Para ver un ejemplo de patrón de webhook, consulte este [ejemplo de controlador de desencadenador de webhook en GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## <a name="secure-calls-to-your-apis-from-logic-apps"></a>Llamadas seguras a las API desde aplicaciones lógicas
+## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Mejora de la seguridad de las llamadas a las API desde aplicaciones lógicas
 
-Después de crear las API personalizadas, configure la autenticación para las API de forma que pueda llamarlas de forma segura desde las aplicaciones lógicas. Obtenga información sobre [cómo proteger las llamadas a API personalizadas desde aplicaciones lógicas](../logic-apps/logic-apps-custom-api-authentication.md).
+Después de crear las API personalizadas, configure la autenticación para las API de forma que pueda llamarlas de forma segura desde las aplicaciones lógicas. Obtenga información sobre [cómo mejorar la seguridad de las llamadas a API personalizadas desde aplicaciones lógicas](../logic-apps/logic-apps-custom-api-authentication.md).
 
 ## <a name="deploy-and-call-your-apis"></a>Implementación de sus API y llamada a las mismas
 

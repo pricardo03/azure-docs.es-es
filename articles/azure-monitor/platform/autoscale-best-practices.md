@@ -4,12 +4,12 @@ description: Patrones de escalado automático en Azure para Web Apps, conjunto d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396995"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117111"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -113,7 +113,7 @@ De forma similar, cuando el escalado automático regresa al perfil predeterminad
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Consideraciones de escalado cuando hay varias reglas configuradas en un perfil
 
-Hay casos en los que puede que sea necesario establecer varias reglas en un perfil. Los servicios usan el siguiente conjunto de reglas de escalado automático cuando se establecen varias reglas.
+Hay casos en los que puede que sea necesario establecer varias reglas en un perfil. El motor de escalabilidad automática usa el siguiente conjunto de reglas de escalado automático cuando se establecen varias reglas.
 
 Al *escalar horizontalmente*, el escalado automático se ejecuta si se cumple cualquier regla.
 Al *reducir horizontalmente*, el escalado automático necesita que todas las reglas se cumplan.
@@ -133,13 +133,13 @@ Por tanto, sucederá lo siguiente:
 Por otro lado, con una CPU del 25 % y una memoria del 51 %, el escalado automático **no** reduce horizontalmente. Para ello, la CPU debe ser 29 % y la memoria, 49 %.
 
 ### <a name="always-select-a-safe-default-instance-count"></a>Seleccione siempre un número predeterminado de instancias seguro
-El número predeterminado de instancias es importante, porque el escalado automático escala el servicio a dicho número cuando no haya métricas disponibles. Por tanto, seleccione un número predeterminado de instancias que sea seguro para sus cargas de trabajo.
+El número predeterminado de instancias es importante, porque el escalado automático escala el servicio a dicho número cuando no hay métricas disponibles. Por tanto, seleccione un número predeterminado de instancias que sea seguro para sus cargas de trabajo.
 
 ### <a name="configure-autoscale-notifications"></a>Configure notificaciones de escalado automático
 El escalado automático se publicará en el registro de actividad si se produce alguna de las condiciones siguientes:
 
-* Problemas de escalado automático en una operación de escala
-* El servicio de escalado automático completa correctamente una acción de escalado
+* El escalado automático genera una operación de escala.
+* El servicio de escalado automático completa correctamente una acción de escalado.
 * El servicio de escalado automático no puede realizar una acción de escalado.
 * No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
 * Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado.

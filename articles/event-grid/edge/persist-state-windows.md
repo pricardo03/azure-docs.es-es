@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844622"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086615"
 ---
 # <a name="persist-state-in-windows"></a>Conservación del estado en Windows
 
@@ -212,7 +212,7 @@ En lugar de montar un volumen, puede crear un directorio en el sistema host y mo
     ```
 ## <a name="persist-events"></a>Conservación de eventos
 
-Para habilitar la conservación de eventos, primero debe habilitar la conservación de metadatos mediante el montaje de volúmenes o el montaje de directorios de host, siguiendo las secciones anteriores.
+Para habilitar la conservación de eventos, primero debe habilitar la conservación de eventos mediante el montaje de volúmenes o de directorios de host, siguiendo las secciones anteriores.
 
 Aspectos importantes que se deben tener en cuenta sobre la conservación de eventos:
 

@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792035"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191330"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP en Azure Logic Apps
 
@@ -28,15 +28,15 @@ Para configurar un punto de conexión HTTP, puede usar cualquiera de los siguien
 
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Aplicación lógica en la que quiera configurar el punto de conexión HTTP como desencadenador. Puede empezar con una aplicación lógica en blanco o con una aplicación lógica existente en la que quiera reemplazar el desencadenador actual. Este ejemplo comienza con una aplicación lógica en blanco.
 
 ## <a name="create-a-callable-endpoint"></a>Creación de un punto de conexión al que se puede llamar
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Cree y abra una aplicación lógica en blanco en el Diseñador de aplicación lógica.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Cree y abra una aplicación lógica en blanco en el Diseñador de aplicación lógica.
 
    En este ejemplo, se usa el desencadenador de solicitud, pero puede usar cualquier desencadenador que pueda recibir solicitudes HTTP entrantes. Todos los principios se aplican de manera idéntica a estos desencadenadores. Para obtener más información sobre el desencadenador de solicitud, consulte [Recepción de llamadas HTTPS entrantes y respuesta a ellas mediante Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
@@ -275,7 +275,7 @@ En el cuerpo de la respuesta, puede incluir varios encabezados y cualquier tipo 
 
 Las respuestas tienen estas propiedades:
 
-| Propiedad (nombre) | Propiedad (JSON) | DESCRIPCIÓN |
+| Propiedad (nombre) | Propiedad (JSON) | Descripción |
 |--------------------|-----------------|-------------|
 | **Código de estado** | `statusCode` | Código de estado HTTP que se usará en la respuesta para la solicitud entrante. Este código puede ser cualquier código de estado válido que comience con 2xx, 4xx o 5xx. En cambio, no se permiten códigos de estado 3xx. |
 | **Encabezados** | `headers` | Uno o más encabezados que se incluirán en la respuesta. |
@@ -309,10 +309,10 @@ Para ver la definición de JSON de la acción de respuesta y la definición comp
 **R.** : Azure genera direcciones URL de devolución de llamada de la aplicación lógica de manera segura con una [firma de acceso compartido (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda ejecutar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
 
 > [!IMPORTANT]
-> Para sistemas seguros y de producción, se recomienda que no llame a su aplicación lógica directamente desde el explorador por los siguientes motivos:
+> En sistemas de más alta seguridad y de producción, se recomienda encarecidamente no llamar a la aplicación lógica directamente desde el explorador. Los motivos son estos:
 >
 > * La clave de acceso compartido aparece en la dirección URL.
-> * No puede administrar las directivas de contenido seguro debido a los dominios compartidos entre los clientes de Azure Logic Apps.
+> * No puede administrar directivas de contenido de seguridad debido a los dominios compartidos entre los clientes de Azure Logic Apps.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: ¿Puedo configurar más puntos de conexión HTTP?
 

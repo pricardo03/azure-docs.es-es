@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fa84b5e87581fad4a7ada5fda074429409d2f8f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bbc9048452c5361306dd05e712090543bb1066ce
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850353"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111507"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reenvío de datos de informes de Azure Automation State Configuration a registros de Azure Monitor
 
@@ -31,7 +31,7 @@ Con los registros de Azure Monitor, puede:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar a enviar los informes de Automation State Configuration a los registros de Azure Monitor, necesita:
 
@@ -74,9 +74,9 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## <a name="view-the-state-configuration-logs"></a>Visualización de los registros de State Configuration
 
-Después de configurar la integración con los registros de Azure Monitor para los datos de Automation State Configuration, aparecerá un botón **Búsqueda de registros** en la hoja **Nodos DSC** de la cuenta de Automation. Haga clic en el botón **Búsqueda de registros** para ver los registros de los datos del nodo DSC.
+Después de configurar la integración con los registros de Azure Monitor de sus datos de State Configuration de Automation, seleccione **Registros** en la sección **Supervisión** del panel izquierdo de la página de State Configuration (DSC) para consultarlos.  
 
-![Botón Búsqueda de registros](media/automation-dsc-diagnostics/log-search-button.png)
+![Registros](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
 Se abre la hoja **Búsqueda de registros**, donde se ve una operación **DscNodeStatusData** para cada nodo de State Configuration y una operación **DscResourceStatusData** para cada [recurso de DSC](/powershell/scripting/dsc/resources/resources) llamado en la configuración que se aplica a un nodo.
 
@@ -84,11 +84,14 @@ La operación **DscResourceStatusData** contiene información de los recursos de
 
 Haga clic en la operación que desee de la lista para ver los datos de la misma.
 
-Para ver los registros, realice la búsqueda en los registros de Azure Monitor.
-Consulte [Búsqueda de datos mediante búsquedas de registros](../log-analytics/log-analytics-log-searches.md).
-Escriba la siguiente consulta para buscar los registros de State Configuration:`Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
+Para ver los registros, realice la búsqueda en los registros de Azure Monitor. Consulte [Búsqueda de datos mediante búsquedas de registros](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview). Escriba la siguiente consulta para buscar los registros de State Configuration.
 
-La consulta también se puede restringir por nombre de operación. Por ejemplo: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
+```
+AzureDiagnostics
+| where Category == 'DscNodeStatus' 
+| where OperationName contains 'DSCNodeStatusData'
+| where ResultType != 'Compliant'
+```
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Envío de un correo electrónico cuando se produce un error en cualquier comprobación de cumplimiento de State Configuration
 
@@ -126,7 +129,7 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
 | OperationName |DscNodeStatusData |
@@ -149,15 +152,15 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 | SourceSystem | Cómo los registros de Azure Monitor recopilan los datos. Siempre *Azure* para Diagnósticos de Azure. |
 | ResourceId |Especifica la cuenta de Azure Automation. |
 | ResultDescription | La descripción de esta operación. |
-| SubscriptionId | El identificador de la suscripción de Azure (GUID) para la cuenta de Automation. |
+| SubscriptionId | Identificador de la suscripción de Azure (GUID) para la cuenta de Automation. |
 | ResourceGroup | Nombre del grupo de recursos de la cuenta de Automation. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID que es el identificador de correlación del informe de cumplimiento. |
+| CorrelationId |GUID identificador de correlación del informe de cumplimiento. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
 | OperationName |DscResourceStatusData|
@@ -180,11 +183,11 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 | SourceSystem | Cómo los registros de Azure Monitor recopilan los datos. Siempre *Azure* para Diagnósticos de Azure. |
 | ResourceId |Especifica la cuenta de Azure Automation. |
 | ResultDescription | La descripción de esta operación. |
-| SubscriptionId | El identificador de la suscripción de Azure (GUID) para la cuenta de Automation. |
+| SubscriptionId | Identificador de la suscripción de Azure (GUID) para la cuenta de Automation. |
 | ResourceGroup | Nombre del grupo de recursos de la cuenta de Automation. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID que es el identificador de correlación del informe de cumplimiento. |
+| CorrelationId |GUID identificador de correlación del informe de cumplimiento. |
 
 ## <a name="summary"></a>Resumen
 

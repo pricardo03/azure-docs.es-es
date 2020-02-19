@@ -8,16 +8,16 @@ ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 79b223de7a0a0cfdaf799b1f80e585a2a55f7e82
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851323"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086680"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Supervisión de temas y suscripciones de eventos
 
-Event Grid en Edge expone una serie de métricas para los temas y las suscripciones de eventos en el [formato de exposición Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). En este artículo se describen las métricas disponibles y cómo habilitarlas.
+Event Grid en Microsoft Edge expone una serie de métricas para los temas y las suscripciones de eventos en el [formato de exposición Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). En este artículo se describen las métricas disponibles y cómo habilitarlas.
 
 ## <a name="enable-metrics"></a>Habilitación de métricas
 
@@ -40,7 +40,7 @@ Para configurar el módulo y emitir métricas, establezca la variable de entorno
         }
  ```    
 
-Las métricas estarán disponibles en `5888/metrics` del módulo para HTTP y en `4438/metrics` para HTTPS. Por ejemplo, `http://<modulename>:4438/metrics?api-version=2019-01-01-preview` para HTTP. En este punto, un módulo de métricas puede sondear el punto de conexión para recopilar métricas, como se ilustra en la siguiente [arquitectura de ejemplo](https://github.com/veyalla/ehm).
+Las métricas estarán disponibles en `5888/metrics` del módulo para HTTP y en `4438/metrics` para HTTPS. Por ejemplo, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` para HTTP. En este punto, un módulo de métricas puede sondear el punto de conexión para recopilar métricas, como se ilustra en la siguiente [arquitectura de ejemplo](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Métricas disponibles
 
@@ -62,10 +62,10 @@ Tanto los temas como las suscripciones de eventos emiten métricas para proporci
 
 | Métrica | Descripción |
 | ------ | ----------- |
-| deliverySuccessCounts | Número de eventos entregados correctamente al punto de conexión configurado
-| deliveryFailureCounts | Número de intentos de entrega de eventos con errores en el punto de conexión configurado
-| deliverySuccessLatencyMs | Latencia de eventos entregados correctamente en milisegundos
-| deliveryFailureLatencyMs | Latencia de errores de entrega de eventos en milisegundos
-| systemDelayForFirstAttemptMs | Retraso del sistema en eventos antes del primer intento de entrega en milisegundos
-| deliveryAttemptsCount | Número de intentos de entrega de eventos (correctos y erróneos)
-| expiredCounts | Número de eventos que no se pueden entregar 
+| DeliverySuccessCounts | Número de eventos entregados correctamente al punto de conexión configurado
+| DeliveryFailureCounts | Número de eventos que no se pudieron entregar al punto de conexión configurado
+| DeliverySuccessLatencyMs | Latencia de eventos entregados correctamente en milisegundos
+| DeliveryFailureLatencyMs | Latencia de errores de entrega de eventos en milisegundos
+| SystemDelayForFirstAttemptMs | Retraso del sistema en eventos antes del primer intento de entrega en milisegundos
+| DeliveryAttemptsCount | Número de intentos de entrega de eventos (correctos y erróneos)
+| ExpiredCounts | Número de eventos que expiraron y no se entregaron al punto de conexión configurado

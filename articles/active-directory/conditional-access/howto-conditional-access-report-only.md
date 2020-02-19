@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3cd57c09c08ab4c86feeca27915639123b439d0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180040"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186081"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configuración de una directiva de acceso condicional en modo de solo informe (versión preliminar)
 
@@ -40,6 +40,9 @@ Para ver el resultado de una directiva de solo informe para un inicio de sesión
 1. Vaya a **Azure Active Directory** > **Inicios de sesión**.
 1. Seleccione un inicio de sesión o agregue filtros para restringir los resultados.
 1. En el cajón **Detalles**, seleccione la pestaña **Solo informe (versión preliminar)** para ver las directivas evaluadas durante el inicio de sesión.
+
+> [!NOTE]
+> Al descargar los registros de inicios de sesión, seleccione formato JSON para incluir datos de resultados de solo informe de acceso condicional.
 
 ## <a name="set-up-azure-monitor-integration-with-azure-ad"></a>Configuración de la integración de Azure Monitor con Azure AD
 

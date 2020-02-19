@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2019
+ms.date: 02/07/2020
 ms.author: barclayn
-ms.openlocfilehash: da8dfe61e92c4839deb1f7fbc289be0136087720
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497298"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087102"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -262,36 +262,48 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Lado servidor mediante claves administradas por el cliente**             | **Lado cliente mediante clave administrada por el cliente**      |
 | **Inteligencia artificial y aprendizaje automático**      |                    |                    |                    |
-| Azure Cognitive Search                     | Sí                | Vista previa            | -                  |
-| Azure Machine Learning   | Sí                | -                  | -                  |
+| Azure Cognitive Search           | Sí                | Sí                | -                  |
+| Azure Machine Learning           | Sí                | Sí                | -                  |
 | Azure Machine Learning Studio    | Sí                | Versión preliminar, RSA de 2048 bits | -               |
 | Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sí                | -                  | -                  |
-| Event Hubs                       | Sí                | Versión preliminar, todas las longitudes de RSA. | -                  |
+| Event Hubs                       | Sí                | Sí, todas las longitudes de RSA. | -                  |
+| Functions                        | Sí                | Sí, todas las longitudes de RSA. | -                  |
 | Azure Analysis Services          | Sí                | -                  | -                  |
 | Azure Data Catalog               | Sí                | -                  | -                  |
 | Apache Kafka en Azure HDInsight  | Sí                | Todas las longitudes de RSA.   | -                  |
-| Explorador de datos de Azure              | Sí                | -                  | -                  |
+| Azure Monitor Application Insights | Sí                | Sí                | -                  |
+| Azure Monitor Log Analytics | Sí                | Sí                | -                  |
+| Explorador de datos de Azure              | Sí                | Sí                | -                  |
 | Azure Data Factory               | Sí                | Sí                | -                  |
 | Azure Data Lake Store            | Sí                | Sí, RSA de 2048 bits  | -                  |
 | **Contenedores**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Sí                | -                  | -                  |
-| Container Registry               | Sí                | -                  | -                  |
+| Azure Kubernetes Service         | Sí                | Sí                | -                  |
+| Azure Container Instances              | Sí                | Sí                | -                  |
+| Container Registry               | Sí                | Sí                | -                  |
 | **Proceso**                      |                    |                    |                    |
 | Virtual Machines                 | Sí                | Sí, RSA de 2048 bits  | -                  |
 | Conjunto de escalado de máquinas virtuales        | Sí                | Sí, RSA de 2048 bits  | -                  |
 | SAP HANA                         | Sí                | Sí, RSA de 2048 bits  | -                  |
+| App Service                      | Sí                | Sí                | -                  |
+| Automation                       | Sí                | Sí                | -                  |
+| Azure Portal                     | Sí                | Sí                | -                  |
+| Logic Apps                       | Sí                | Sí                | -                  |
+| Azure Managed Applications       | Sí                | Sí                | -                  |
+| Azure Service Bus                      | Sí                | Sí                | -                  |
+| Site Recovery                    | Sí                | Sí                | -                  |
 | **Bases de datos**                    |                    |                    |                    |
 | SQL Server en máquinas virtuales   | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Azure SQL Database               | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Azure SQL Database for MariaDB   | Sí                | -                  | -                  |
-| Azure SQL Database for MySQL     | Sí                | -                  | -                  |
-| Azure SQL Database for PostgreSQL | Sí                | -                  | -                  |
-| Azure SQL Data Warehouse         | Sí                | Sí, RSA de 2048 bits  | Sí                |
+| Azure SQL Database for MySQL     | Sí                | Sí                | -                  |
+| Azure SQL Database for PostgreSQL | Sí               | Sí                | -                  |
+| Azure Synapse Analytics          | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | SQL Server Stretch Database      | Sí                | Sí, RSA de 2048 bits  | Sí                |
-| Table Storage                    | Sí                | -                  | Sí                |
-| Azure Cosmos DB                  | Sí                | -                  | -                  |
+| Table Storage                    | Sí                | Sí                | Sí                |
+| Azure Cosmos DB                  | Sí                | Sí                | -                  |
+| Azure Databricks                 | Sí                | Sí                | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | Sí                | -                  | Sí                |
 | Azure Repos                      | Sí                | -                  | Sí                |
@@ -299,27 +311,28 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Azure Active Directory           | Sí                | -                  | -                  |
 | Azure Active Directory Domain Services | Sí          | Sí, RSA de 2048 bits  | -                  |
 | **Integración**                  |                    |                    |                    |
-| Azure Service Bus                      | Sí                | -                  | Sí                |
+| Azure Service Bus                      | Sí                | Sí                | Sí                |
 | Event Grid                       | Sí                | -                  | -                  |
 | API Management                   | Sí                | -                  | -                  |
 | **Servicios IoT**                 |                    |                    |                    |
-| IoT Hub                          | Sí                | -                  | Sí                |
+| IoT Hub                          | Sí                | Sí                | Sí                |
 | **Administración y gobernanza**    |                    |                    |                    |
 | Azure Site Recovery              | Sí                | -                  | -                  |
 | **Elementos multimedia**                        |                    |                    |                    |
 | Media Services                   | Sí                | -                  | Sí                |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Sí                | Sí, RSA de 2048 bits  | Sí                |
-| Disk Storage                     | Sí                | -                  | -                  |
-| Disk Storage administrado             | Sí                | -                  | -                  |
+| Disk Storage                     | Sí                | Sí                | -                  |
+| Disk Storage administrado             | Sí                | Sí                | -                  |
 | File Storage                     | Sí                | Sí, RSA de 2048 bits  | -                  |
-| Queue Storage                    | Sí                | -                  | Sí                |
+| Queue Storage                    | Sí                | Sí                | Sí                |
 | Avere vFXT                       | Sí                | -                  | -                  |
 | Azure NetApp Files               | Sí                | -                  | -                  |
 | Archive Storage                  | Sí                | Sí, RSA de 2048 bits  | -                  |
 | StorSimple                       | Sí                | Sí, RSA de 2048 bits  | Sí                |
-| Azure Backup                     | Sí                | -                  | Sí                |
+| Azure Backup                     | Sí                | Sí                | Sí                |
 | Data Box                         | Sí                | -                  | Sí                |
+| Data Box Edge                    | Sí                | Sí                | -                  |
 
 ## <a name="conclusion"></a>Conclusión
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 2126fed5231f2264ba9a0bbc13be9410bb8294da
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 69e2c053c9fb874889bc3d5b08be6e0c7ce875a5
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978839"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162912"
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services 
 
@@ -68,7 +68,7 @@ Un [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspol
 >Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
 ### <a name="blob-container"></a>Contenedor de blobs
-Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los contenedores de blobs se usan en Media Services como punto limítrofe para el control de acceso y localizadores de firma de acceso compartido (SAS) en los recursos. Una cuenta de Azure Storage puede contener una cantidad ilimitada de contenedores de blobs. un contenedor puede almacenar un número ilimitado de blobs.
+Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los contenedores de blobs se usan en Media Services como punto limítrofe para el control de acceso y localizadores de firma de acceso compartido (SAS) en los recursos. Una cuenta de Azure Storage puede contener una cantidad ilimitada de contenedores de blobs. Un contenedor puede almacenar un número ilimitado de blobs.
 
 >[!NOTE]
 > No debe intentar cambiar el contenido de los contenedores de blobs que generó Media Services sin usar las API de Media Services.
@@ -103,7 +103,7 @@ Para aprovechar el [empaquetado dinámico](media-services-dynamic-packaging-over
 
 Media Services admite los siguientes codificadores a petición que se describen en este artículo:
 
-* [Media Encoder Estándar](media-services-encode-asset.md#media-encoder-standard)
+* [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Flujo de trabajo del Codificador multimedia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Para obtener información acerca de los codificadores compatibles, consulte [Codificadores](media-services-encode-asset.md).
@@ -111,7 +111,7 @@ Para obtener información acerca de los codificadores compatibles, consulte [Cod
 ## <a name="live-streaming"></a>Streaming en directo
 En Azure Media Services, un canal representa una canalización para procesar contenido de streaming en directo. Los canales reciben el flujo de entrada en directo de dos maneras posibles:
 
-* Un codificador local en directo envía contenido RTMP o Smooth Streaming (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision y Tricaster. Las secuencias recopiladas pasan a través de canales sin más procesamiento ni codificación. Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador local en directo envía contenido RTMP o Smooth Streaming (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision y Tricaster. Las secuencias recopiladas pasan a través de canales sin más procesamiento ni codificación. Cuando se solicita, Media Services entrega la secuencia a los clientes.
 * Una secuencia de velocidad de bits única (en uno de los siguientes formatos: RTMP o Smooth Streaming (MP4 fragmentado)) se envía al canal habilitado para realizar la codificación en directo con Media Services. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
 ### <a name="channel"></a>Canal
@@ -230,7 +230,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

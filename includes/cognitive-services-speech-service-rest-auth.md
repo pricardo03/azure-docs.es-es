@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362627"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168317"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -17,7 +17,7 @@ Cada solicitud requiere un encabezado de autorización. Esta tabla muestra qué 
 
 | Encabezados de autorización compatibles | Voz a texto | Texto a voz |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Sí | Sin |
+| Ocp-Apim-Subscription-Key | Sí | No |
 | Autorización: Portador | Sí | Sí |
 
 Cuando se usa el encabezado `Ocp-Apim-Subscription-Key`, solo se le pide que proporcione la clave de suscripción. Por ejemplo:
@@ -32,9 +32,15 @@ Cuando se usa el encabezado `Authorization: Bearer`, se le pide que haga una sol
 
 Para obtener un token de acceso, tiene que realizar una solicitud al punto de conexión `issueToken` mediante `Ocp-Apim-Subscription-Key` y su clave de suscripción.
 
-Se admiten estas regiones y puntos de conexión:
+El punto de conexión `issueToken` tiene el siguiente formato:
 
-[!INCLUDE [](./cognitive-services-speech-service-endpoints-token-service.md)]
+```
+https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
+```
+
+Reemplace `<REGION_IDENTIFIER>` por el identificador que coincida con la región de la suscripción en la siguiente tabla:
+
+[!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
 Use estos ejemplos para crear la solicitud de token de acceso.
 

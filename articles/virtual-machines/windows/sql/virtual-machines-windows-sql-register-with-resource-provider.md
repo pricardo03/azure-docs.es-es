@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 148ded0eba61221a2bdf0b8a50392da47a4c5f20
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122447"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122494"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL
 
@@ -35,14 +35,14 @@ La implementación de una imagen de Azure Marketplace de una máquina virtual co
 
 - **Administración de licencias simplificada**: el registro en el proveedor de recursos de máquina virtual con SQL simplifica la administración de licencias de SQL Server y permite identificar rápidamente máquinas virtuales con SQL Server mediante Ventaja híbrida de Azure en [Azure portal](virtual-machines-windows-sql-manage-portal.md), la CLI de Azure o PowerShell: 
 
-   # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+   # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-   # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
@@ -57,7 +57,7 @@ Para más información sobre las ventajas de usar el proveedor de recursos de m�
 <iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Ventajas del proveedor de recursos de máquina virtual de SQL al instalar automáticamente SQL Server en Azure: vídeo de Microsoft Channel 9"></iframe>
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para registrar una máquina virtual con SQL Server con el proveedor de recursos, necesita lo siguiente: 
 
@@ -106,14 +106,14 @@ Para registrar la máquina virtual de SQL Server con el proveedor de recursos d
 
 Registre el proveedor de recursos de máquina virtual con SQL en su suscripción de Azure mediante la CLI de Azure o PowerShell. 
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="az-cli"></a>[CLI de AZ](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL VM resource provider to your subscription
@@ -130,7 +130,7 @@ Si la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-se
 
 Tanto las instancias del clúster de conmutación por error como las implementaciones de instancias múltiples solo se pueden registrar en el proveedor de recursos de máquina virtual con SQL en el modo ligero. 
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="az-cli"></a>[CLI de AZ](#tab/bash)
 
 Registre la máquina virtual con SQL Server en modo ligero con la CLI de Azure: 
 
@@ -140,7 +140,7 @@ Registre la máquina virtual con SQL Server en modo ligero con la CLI de Azure:
   ```
 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registre la máquina virtual con SQL Server en modo ligero con PowerShell:  
 
@@ -161,39 +161,59 @@ Registre la máquina virtual con SQL Server en modo ligero con PowerShell:
 
 Si la extensión IaaS de SQL ya se ha instalado en la máquina virtual manualmente, puede registrar la máquina virtual con SQL Server en modo completo sin reiniciar el servicio SQL Server. **Sin embargo, si no se ha instalado la extensión IaaS de SQL, al registrarse en modo completo se instalará la extensión IaaS de SQL en modo completo y se reiniciará el servicio SQL Server. Proceda con precaución.**
 
-A continuación se muestra el fragmento de código que se va a registrar con el proveedor de recursos de máquina virtual con SQL en modo completo. Para registrarse en el modo de administración completa, use el siguiente comando de PowerShell:
+
+Para registrar la VM de SQL Server directamente en modo completo (y posiblemente reiniciar el servicio de SQL Server), use el siguiente comando de PowerShell: 
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
         
   # Register with SQL VM resource provider in full mode
-  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
-
 
 ### <a name="noagent-management-mode"></a>Modo de administración NoAgent 
 
-SQL Server 2008 y 2008 R2 instalados en Windows Server 2008 se pueden registrar con el proveedor de recursos de máquina virtual con SQL en [modo NoAgent](#management-modes). Esta opción garantiza el cumplimiento de normas y permite que la VM con SQL Server se supervise en Azure Portal con una funcionalidad limitada.
+SQL Server 2008 y 2008 R2 instalados en Windows Server 2008 (_no R2_) se pueden registrar con el proveedor de recursos de VM con SQL en [modo NoAgent](#management-modes). Esta opción garantiza el cumplimiento de normas y permite que la VM con SQL Server se supervise en Azure Portal con una funcionalidad limitada.
 
 Especifique `AHUB` o `PAYG` como **sqlLicenseType** y `SQL2008-WS2008` o `SQL2008R2-WS2008` como **sqlImageOffer**. 
 
 Para registrar su instancia de SQL Server 2008 o 2008 R2 en una instancia de Windows Server 2008, use el siguiente fragmento de código de la CLI de Azure o Powershell: 
 
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="az-cli"></a>[CLI de AZ](#tab/bash)
 
-Registre la máquina virtual con SQL Server en modo NoAgent con la CLI de Azure: 
+Registre la VM con SQL Server 2008 en modo NoAgent con la CLI de Azure: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
    --image-sku Enterprise --image-offer SQL2008-WS2008R2
  ```
+ 
+ 
+Registre la VM con SQL Server 2008 R2 en modo NoAgent con la CLI de Azure: 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+  ```azurecli-interactive
+   az sql vm create -n sqlvm -g myresourcegroup -l eastus |
+   --license-type PAYG --sql-mgmt-type NoAgent 
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+ ```
 
-Registre la máquina virtual con SQL Server en modo NoAgent con PowerShell: 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Registre la VM con SQL Server 2008 en modo NoAgent con PowerShell: 
+
+
+  ```powershell-interactive
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
+  ```
+  
+  Registre la VM con SQL Server 2008 R2 en modo NoAgent con PowerShell: 
 
 
   ```powershell-interactive
@@ -236,7 +256,7 @@ Para actualizar el modo del agente a Full:
 
 ### <a name="command-line"></a>Línea de comandos
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="az-cli"></a>[CLI de AZ](#tab/bash)
 
 Ejecute el siguiente fragmento de código de la CLI de Azure:
 
@@ -245,17 +265,16 @@ Ejecute el siguiente fragmento de código de la CLI de Azure:
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Ejecute el siguiente fragmento de código de PowerShell:
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Update to full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-     -LicenseType PAYG -SqlManagementType Full
+        
+  # Register with SQL VM resource provider in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
 
 ---
@@ -276,14 +295,14 @@ Puede comprobar si su máquina virtual con SQL Server ya se ha registrado con e
 
 Compruebe el estado actual del registro de una máquina virtual con SQL Server con la CLI de Azure o PowerShell. `ProvisioningState` mostrará `Succeeded` si el registro fue correcto. 
 
-# <a name="az-clitabbash"></a>[CLI de AZ](#tab/bash)
+# <a name="az-cli"></a>[CLI de AZ](#tab/bash)
 
 
   ```azurecli-interactive
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
   Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
@@ -324,7 +343,7 @@ Para anular el registro de MV con SQL Server con el proveedor de recursos median
 
 ### <a name="command-line"></a>Línea de comandos
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 Para anular el registro de la máquina virtual de SQL Server del proveedor de recursos con Azure CLI, use el comando [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete). Esto quitará el *recurso* de la máquina virtual de SQL Server, pero no eliminará la máquina virtual. 
 
 
@@ -335,7 +354,7 @@ az sql vm delete
   --yes 
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para anular el registro de la máquina virtual con SQL Server del proveedor de recursos con la CLI de Azure, use el comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Esto quitará el *recurso* de la máquina virtual de SQL Server, pero no eliminará la máquina virtual. 
 
 ```powershell-interactive

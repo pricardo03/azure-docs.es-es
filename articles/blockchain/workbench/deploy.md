@@ -4,12 +4,12 @@ description: Cómo implementar Azure Blockchain Workbench (versión preliminar)
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 190f780d7aed30667c23bb97f9ce7726da0f00ca
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779845"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189200"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementación de Azure Blockchain Workbench (versión preliminar)
 
@@ -40,7 +40,7 @@ La siguiente es una implementación de ejemplo creada en el grupo de recursos **
 
 El costo de Blockchain Workbench se agrega al costo de los servicios de Azure subyacentes. La información de precios de los servicios de Azure se pueden calcular mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Azure Blockchain Workbench requiere de registros de aplicación y configuraciones de Azure AD. Puede elegir entre [configurar manualmente](#azure-ad-configuration) Azure AD antes de la implementación o ejecutar un script posterior a la implementación. Si está implementando nuevamente Blockchain Workbench, consulte la [configuración de Azure AD](#azure-ad-configuration) para verificar la configuración de Azure AD.
 
@@ -175,7 +175,7 @@ Si decide configurar o comprobar manualmente la configuración de Azure AD antes
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Registro de aplicación de API de Blockchain Workbench
 
-La implementación de Blockchain Workbench requiere el registro de una aplicación de Azure AD. Necesita un inquilino de Azure Active Directory (Azure AD) para registrar la aplicación. Puede usar un inquilino existente o crear uno nuevo. Si va a usar un inquilino de Azure AD ya existente, necesitará suficientes permisos para registrar aplicaciones, otorgar permisos de Graph API y permitir el acceso a los invitados dentro de un inquilino de Azure AD. Si no tiene permisos suficientes en un inquilino de Azure AD existente, cree un inquilino.
+La implementación de Blockchain Workbench requiere el registro de una aplicación de Azure AD. Necesita un inquilino de Azure Active Directory (Azure AD) para registrar la aplicación. Puede usar un inquilino existente o crear uno nuevo. Si va a usar un inquilino de Azure AD ya existente, necesitará suficientes permisos para registrar aplicaciones, otorgar permisos de Graph API y permitir el acceso a los invitados dentro de un inquilino de Azure AD. Si no tiene permisos suficientes en un inquilino existente de Azure AD, cree un inquilino.
 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
@@ -195,7 +195,7 @@ La implementación de Blockchain Workbench requiere el registro de una aplicaci�
 A continuación, debe modificar el manifiesto para que use los roles de aplicación en Azure AD con el fin de especificar los administradores de Blockchain Workbench.  Para más información acerca de los manifiestos de aplicación, consulte [Manifiesto de aplicación de Azure Active Directory](../../active-directory/develop/reference-app-manifest.md).
 
 
-1. Debe generar un GUID para el manifiesto. Se puede generar un GUID mediante el comando de PowerShell `[guid]::NewGuid()` o el cmdlet `New-GUID`. Otra opción es usar un sitio web generador de GUID.
+1. Se requiere un GUID para el manifiesto. Se puede generar un GUID mediante el comando de PowerShell `[guid]::NewGuid()` o el cmdlet `New-GUID`. Otra opción es usar un sitio web generador de GUID.
 1. Para la aplicación que se ha registrado, seleccione **Manifiesto** en la sección **Administrar**.
 1. Después, actualice la sección **appRoles** del manifiesto. Reemplace `"appRoles": []` por el JSON proporcionado. Asegúrese de reemplazar el valor del campo **ID** por el identificador único global que generó. 
 
@@ -233,8 +233,15 @@ A continuación, debe modificar el manifiesto para que use los roles de aplicaci
 La aplicación de API necesita solicitar permiso del usuario para acceder al directorio. Establezca el siguiente permiso necesario para la aplicación de API:
 
 1. En el registro de aplicación de la *API Blockchain*, seleccione **Permisos de la API**. De forma predeterminada, se agrega el permiso de Graph API **User.Read**.
+1. La aplicación Workbench necesita acceso de lectura a la información de perfil básica de los usuarios. En *Permisos configurados*, seleccione **Agregar un permiso**. En **API de Microsoft**, seleccione **Microsoft Graph**.
+1. Dado que la aplicación Workbench usa las credenciales del usuario autenticado, seleccione **Permisos delegados**.
+1. En la categoría *Usuario*, seleccione el permiso **User.ReadBasic.All**.
 
-1. En **Otorgar consentimiento**, seleccione **Concesión de consentimiento del administrador** para el dominio y, después, **Sí** para la solicitud de comprobación.
+    ![Configuración de registro de aplicación de Azure AD que muestra la incorporación del permiso delegado User.ReadBasic.All de Microsoft Graph](media/deploy/add-graph-user-permission.png)
+
+    Seleccione **Agregar permisos**.
+
+1. En *Permisos configurados*, seleccione **Conceder consentimiento del administrador** para el dominio y luego **Sí** en el mensaje de comprobación.
 
    ![Concesión de permisos](media/deploy/client-app-grant-permissions.png)
 

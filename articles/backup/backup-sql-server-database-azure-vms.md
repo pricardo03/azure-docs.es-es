@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a realizar copias de seguridad de bas
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 10f55bb4c5c488975f075aa0382296f808a9a5b1
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 7a6bae3a850b5e67af8da80a06b862e7e2e7561d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029578"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120838"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá a:
 >**La eliminación temporal de SQL Server en máquinas virtuales de Azure y la eliminación temporal de SAP HANA en cargas de trabajo de máquinas virtuales de Azure** están ahora disponible en versión preliminar.<br>
 >Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne los siguientes criterios:
 
@@ -87,7 +87,7 @@ Para crear una regla mediante PowerShell:
 
 **Allow access by using Azure Firewall tags** (Permitir el acceso mediante el uso de etiquetas de Azure Firewall). Si usa Azure Firewall, cree una regla de aplicación mediante la [etiqueta de nombre de dominio completo](https://docs.microsoft.com/azure/firewall/fqdn-tags) AzureBackup. Esto permite el acceso de salida a Azure Backup.
 
-**Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico). Cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
+**Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico). Cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. No hay ningún dominio comodín en uso con Azure Backup para agregar a la lista de permitidos de sus reglas de proxy. Tendrá que usar los intervalos de IP públicas para estos servicios que proporciona Azure. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
 
 Las opciones de conectividad incluyen las siguientes ventajas y desventajas:
 
@@ -96,7 +96,7 @@ Las opciones de conectividad incluyen las siguientes ventajas y desventajas:
 Permitir intervalos IP | Sin costos adicionales. | Este escenario es complejo de administrar, ya que los intervalos de direcciones IP cambian con el tiempo. <br/><br/> Proporciona acceso a la totalidad de Azure, no solo a Azure Storage.
 Uso de las etiquetas de servicio de NSG | Más fácil de administrar ya que los cambios de intervalo se combinan automáticamente <br/><br/> Sin costos adicionales. <br/><br/> | Solo se puede usar con grupos de seguridad de red. <br/><br/> Proporciona acceso a todo el servicio.
 Uso de las etiquetas de nombre de dominio completo de Azure Firewall | Más fácil de administrar ya que los nombres de dominio completo se administran automáticamente. | Solo se puede usar con Azure Firewall.
-Usar un servidor proxy HTTP | Se permite un control detallado en el proxy sobre las direcciones URL de almacenamiento. <br/><br/> Un único punto de acceso a Internet para las máquinas virtuales. <br/><br/> No están sujetas a cambios de direcciones IP de Azure. | Costos adicionales de ejecutar una máquina virtual con el software de proxy.
+Usar un servidor proxy HTTP | Un único punto de acceso a Internet para las máquinas virtuales. <br/> | Costos adicionales de ejecutar una máquina virtual con el software de proxy. <br/> No hay direcciones FQDN publicadas, las reglas de permisos estarán sujetas a cambios de direcciones IP de Azure.
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Instrucciones de nomenclatura de la base de datos para Azure Backup
 

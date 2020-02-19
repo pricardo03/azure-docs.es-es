@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 51ddd4f3775ae8e41c0d0bdd4ed8a3a2a59b7db4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271775"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190600"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controles de seguridad para Azure Virtual Machine Scale Sets
 
@@ -51,7 +51,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Vir
 | Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | Azure Virtual Machines admite [ExpressRoute](/azure/expressroute) y el cifrado de red virtual. Consulte [Cifrado en tránsito en máquinas virtuales](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sí | Las claves administradas por el cliente es un escenario de cifrado admitidos de Azure; consulte [Azure Disk Encryption para conjuntos de escalado de máquinas virtuales](disk-encryption-overview.md).|
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
-| Llamadas a API cifradas| Sí | A través de HTTPS y SSL. |
+| Llamadas a API cifradas| Sí | A través de HTTPS y TLS. |
 
 ## <a name="configuration-management"></a>Administración de configuración
 

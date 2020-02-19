@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: e7a6e819676752aac679a36221eb60f9ad767071
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830163"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049858"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON en Azure Data Factory
 
@@ -183,7 +183,148 @@ La actividad de copia puede detectar y analizar automáticamente los siguientes 
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-Obtenga información detallada de la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en la asignación de flujo de datos.
+Los tipos de archivo JSON se pueden usar como receptor y origen en el flujo de datos de asignación.
+
+### <a name="creating-json-structures-in-a-derived-column"></a>Creación de estructuras JSON en una columna derivada
+
+Puede agregar una columna compleja al flujo de datos mediante el generador de expresiones de columna derivada. En la transformación de columna derivada, agregue una nueva columna y abra el generador de expresiones haciendo clic en el cuadro azul. Para que una columna sea compleja, puede escribir la estructura JSON manualmente o usar la experiencia de usuario para agregar subcolumnas de forma interactiva.
+
+#### <a name="using-the-expression-builder-ux"></a>Uso de la experiencia de usuario del generador de expresiones
+
+En el panel lateral del esquema de salida, mantenga el puntero sobre una columna y haga clic en el icono de signo más. Seleccione **Agregar subcolumna** para convertir la columna en un tipo complejo.
+
+![Add subcolumn (Agregar subcolumna)](media/data-flow/addsubcolumn.png "Agregar subcolumna")
+
+Puede agregar columnas y subcolumnas adicionales de la misma manera. Para cada campo no complejo, se puede agregar una expresión en el editor de expresiones a la derecha.
+
+![Columna compleja](media/data-flow/complexcolumn.png "Columna compleja")
+
+#### <a name="entering-the-json-structure-manually"></a>Introducción manual de la estructura JSON
+
+Para agregar manualmente una estructura JSON, agregue una nueva columna y escriba la expresión en el editor. La expresión tiene el siguiente formato general:
+
+```
+@(
+    field1=0,
+    field2=@(
+        field1=0
+    )
+)
+```
+
+Si esta expresión se especificara para una columna denominada "complexColumn", se escribiría en el receptor como el siguiente JSON:
+
+```
+{
+    "complexColumn": {
+        "field1": 0,
+        "field2": {
+            "field1": 0
+        }
+    }
+}
+```
+
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Script manual de ejemplo para una definición jerárquica completa
+```
+@(
+    title=Title,
+    firstName=FirstName,
+    middleName=MiddleName,
+    lastName=LastName,
+    suffix=Suffix,
+    contactDetails=@(
+        email=EmailAddress,
+        phone=Phone
+    ),
+    address=@(
+        line1=AddressLine1,
+        line2=AddressLine2,
+        city=City,
+        state=StateProvince,
+        country=CountryRegion,
+        postCode=PostalCode
+    ),
+    ids=[
+        toString(CustomerID), toString(AddressID), rowguid
+    ]
+)
+```
+
+### <a name="source-format-options"></a>Opciones de formato de origen
+
+El uso de un conjunto de datos JSON como origen en el flujo de datos le permite establecer cinco opciones de configuración adicionales. Esta configuración se puede encontrar en el acordeón **Configuración de JSON** en la pestaña **Opciones de origen**.  
+
+![Configuración de JSON](media/data-flow/json-settings.png "Configuración de JSON")
+
+#### <a name="default"></a>Valor predeterminado
+
+De forma predeterminada, los datos JSON se leen en el formato siguiente.
+
+```
+{ "json": "record 1" }
+{ "json": "record 2" }
+{ "json": "record 3" }
+```
+
+#### <a name="single-document"></a>Documento único
+
+Si se selecciona **Documento único**, los flujos de datos de asignación leen un documento JSON de cada archivo. 
+
+``` json
+File1.json
+{
+    "json": "record 1"
+}
+File2.json
+{
+    "json": "record 2"
+}
+File3.json
+{
+    "json": "record 3"
+}
+```
+
+#### <a name="unquoted-column-names"></a>Nombres de columnas sin comillas
+
+Si se selecciona **Nombres de columnas sin comillas**, los flujos de datos de asignación leen columnas JSON que no están entre comillas. 
+
+```
+{ json: "record 1" }
+{ json: "record 2" }
+{ json: "record 3" }
+```
+
+#### <a name="has-comments"></a>Tiene comentarios
+
+Seleccione **Tiene comentarios** si los datos JSON tienen comentarios de estilo C o C++.
+
+``` json
+{ "json": /** comment **/ "record 1" }
+{ "json": "record 2" }
+{ /** comment **/ "json": "record 3" }
+```
+
+#### <a name="single-quoted"></a>Con comillas simples
+
+Seleccione **Con comillas simples** si los valores y campos JSON usan comillas simples en lugar de comillas dobles.
+
+```
+{ 'json': 'record 1' }
+{ 'json': 'record 2' }
+{ 'json': 'record 3' }
+```
+
+#### <a name="backslash-escaped"></a>Barra diagonal inversa con escape
+
+Seleccione **Barra diagonal inversa con escape** si se usan barras diagonales inversas como caracteres de escape en los datos JSON.
+
+```
+{ "json": "record 1" }
+{ "json": "\} \" \' \\ \n \\n record 2" }
+{ "json": "record 3" }
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

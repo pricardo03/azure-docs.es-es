@@ -2,18 +2,18 @@
 title: Disponibilidad de recursos por región
 description: Disponibilidad de recursos de proceso y memoria para el servicio Azure Container Instances en diferentes regiones de Azure.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/31/2020
 ms.author: danlep
-ms.openlocfilehash: 9de5b08eed3aa10015813cbb4724ef4e947005fb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888012"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117838"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
-En este artículo se detalla la disponibilidad de los recursos de proceso y memoria de Azure Container Instances en las regiones de Azure. 
+En este artículo se detalla la disponibilidad de los recursos de proceso, memoria y almacenamiento de Azure Container Instances en las regiones de Azure y del sistema operativo de destino. 
 
 Los valores que se presentan son los recursos máximos disponibles por cada implementación de un [grupo de contenedores](container-instances-container-groups.md). Los valores están actualizados en el momento de la publicación. 
 
@@ -26,23 +26,23 @@ Para obtener información sobre las cuotas y otros límites en las implementacio
 
 Las siguientes regiones y recursos están disponibles para los grupos de contenedores con Linux y [admiten](container-instances-faq.md#what-windows-base-os-images-are-supported) contenedores basados en Windows Server 2016.
 
-| Regions | SO | Uso máximo de CPU | Memoria máxima (GB) |
-| -------- | -- | :---: | :-----------: |
-| Sur de Brasil, Centro de Canadá, Centro de la India, Centro de EE. UU., Asia Oriental, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Asia Suroriental, India del Sur, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2 | Linux | 4 | 16 |
-| Este de Australia, Japón Oriental | Linux | 2 | 8 |
-| Centro-Norte de EE. UU | Linux | 2 | 3,5 |
-| Sur de Brasil, Japón Oriental, Oeste de Europa | Windows | 4 | 16 |
-| Este de EE. UU., Oeste de EE. UU. | Windows | 4 | 14 |
-| Este de Australia, Centro de Canadá, Centro de la India, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Centro-norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Asia Suroriental, India del Sur, Sur de Reino Unido, Oeste de EE. UU. 2 | Windows | 2 | 3,5 |
+| Regions | SO | Uso máximo de CPU | Memoria máxima (GB) | Almacenamiento (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Sur de Brasil, Centro de Canadá, Centro de la India, Centro de EE. UU., Este de Asia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2 | Linux | 4 | 16 | 50 |
+| Este de Australia, Japón Oriental | Linux | 2 | 8 | 50 |
+| Centro-Norte de EE. UU | Linux | 2 | 3,5 | 50 |
+| Sur de Brasil, Japón Oriental, Oeste de Europa | Windows | 4 | 16 | 20 |
+| Este de EE. UU., Oeste de EE. UU. | Windows | 4 | 14 | 20 |
+| Este de Australia, Centro de Canadá, Centro de la India, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Centro-norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste de EE. UU. 2 | Windows | 2 | 3,5 | 20 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidad: implementaciones de la versión 1809 para Windows Server 2019 LTSC (versión preliminar)
 
 Las siguientes regiones y recursos están disponibles para los grupos de contenedores con contenedores basados en Windows Server 2019 (versión preliminar).
 
-| Regions | SO | Uso máximo de CPU | Memoria máxima (GB) |
-| -------- | -- | :---: | :-----------: |
-| Este de Australia, Sur de Brasil, Centro de Canadá, Centro de la India, Centro de EE. UU., Asia Oriental, Este de EE. UU., Japón Oriental, Centro-norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Asia Suroriental, India del Sur, Sur de Reino Unido, Oeste de Europa | Windows | 4 | 16 |
-| Este de EE. UU. 2, Oeste de EE. UU. 2 | Windows | 2 | 3,5 |
+| Regions | SO | Uso máximo de CPU | Memoria máxima (GB) | Almacenamiento (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Este de Australia, Sur de Brasil, Centro de Canadá, Centro de la India, Centro de EE. UU., Este de Asia, Este de EE. UU., Este de Japón, Centro-norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste de Europa | Windows | 4 | 16 | 20 |
+| Este de EE. UU. 2, Oeste de EE. UU. 2 | Windows | 2 | 3,5 | 20 |
 
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilidad: implementación de red virtual

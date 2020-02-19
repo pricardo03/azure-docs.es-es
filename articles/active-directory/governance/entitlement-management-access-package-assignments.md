@@ -16,16 +16,16 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74553994"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120434"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Consulta, incorporación y eliminación de asignaciones para un paquete de acceso en la administración de derechos de Azure AD
 
-En la administración de derechos de Azure AD, puede ver a quién se le han asignado los paquetes de acceso, su directiva y su estado. Si un paquete de acceso tiene una directiva adecuada, también puede asignar directamente al usuario un paquete de acceso. En este artículo se explica cómo consultar, agregar y eliminar asignaciones en un paquete de acceso.
+En la administración de derechos de Azure AD, puede ver a quién se le han asignado los paquetes de acceso, su directiva y su estado. Si un paquete de acceso tiene una directiva adecuada, también puede asignar directamente al usuario un paquete de acceso. En este artículo se explica cómo consultar, agregar y eliminar asignaciones en paquetes de acceso.
 
 ## <a name="view-who-has-an-assignment"></a>Ver quién tiene una asignación
 
@@ -48,6 +48,10 @@ En la administración de derechos de Azure AD, puede ver a quién se le han asi
 1. Para ver las asignaciones expiradas, haga clic en el filtro de estado y seleccione **Expiradas**.
 
 1. Para descargar un archivo CSV de la lista filtrada, haga clic en **Descargar**.
+
+### <a name="viewing-assignments-programmatically"></a>Visualización de asignaciones mediante programación
+
+También puede recuperar las asignaciones de un paquete de acceso mediante Microsoft Graph.  Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para [enumerar elementos accessPackageAssignments](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
 
 ## <a name="directly-assign-a-user"></a>Asignar directamente un usuario
 
@@ -77,6 +81,10 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
     Transcurridos unos instantes, haga clic en **Actualizar** para ver los usuarios en la lista Asignaciones.
 
+### <a name="directly-assigning-users-programmatically"></a>Asignación de usuarios directamente mediante programación
+
+También puede asignar un usuario directamente a un paquete de acceso mediante Microsoft Graph.  Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para [crear un elemento accessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
+
 ## <a name="remove-an-assignment"></a>Eliminación de una asignación
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
@@ -98,4 +106,4 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Modificar la configuración de solicitud de un paquete de acceso](entitlement-management-access-package-request-policy.md)
-- [Ver informes y registros](entitlement-management-reports.md)
+- [Visualización de informes y registros](entitlement-management-reports.md)

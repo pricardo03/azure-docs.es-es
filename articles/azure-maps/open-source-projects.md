@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7f9bd55054fca6b45a25ef737a1a00872e536ca8
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75908941"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048907"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidad de Azure Maps: proyectos de código abierto
 
-Se trata de iniciativas de código abierto que promueve la comunidad, creadas y mantenidas por el equipo de Azure Maps, pero que no forman parte de las ofertas de productos o servicios estándar. A continuación se muestra una lista de algunos de los proyectos y ejemplos más populares de Azure Maps creados en código abierto.
+El equipo de Azure Maps crea y mantiene estas iniciativas basadas en la comunidad y de código abierto. No forman parte de las ofertas de productos o servicios estándar.
+
+A continuación se muestra una lista de algunos de los proyectos y ejemplos más populares de Azure Maps de código abierto.
 
 | Nombre de proyecto | Descripción |
 |-|-|
@@ -27,7 +29,7 @@ Se trata de iniciativas de código abierto que promueve la comunidad, creadas y 
 | [Muestras de Azure Maps y Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Colección de ejemplos que muestran cómo usar Azure Active Directory con Azure Maps. | 
 | [Implementación del análisis espacial de IoT mediante Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | El seguimiento y la captura de eventos pertinentes que se producen en el espacio y en el tiempo es un escenario común de IoT. |
 | [Ejemplos de Jupyter Notebook en Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Colección de ejemplos de Python con los servicios REST de Azure Maps. |
-| [Bot Framework: aptitud de punto de interés](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | La aptitud Punto de interés proporciona capacidades relacionadas con puntos de interés a un asistente virtual mediante Azure Maps con Azure Bot Service y Bot Framework. |
+| [Bot Framework: aptitud de punto de interés](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | La aptitud Punto de interés proporciona funcionalidades relacionadas con puntos de interés a un asistente virtual mediante Azure Maps con Azure Bot Service y Bot Framework. |
 
 Una lista más extensa de proyectos de código abierto creados por la comunidad se encuentra disponible [aquí](https://github.com/microsoft/Maps/blob/master/AzureMaps.md).
 
@@ -40,7 +42,7 @@ Las siguientes instrucciones se aplican a todas las instancias de Azure Maps don
 - Los proyectos y ejemplos de código abierto de Azure Maps utilizan técnicas compatibles y recomendadas.
 - Los proyectos y ejemplos de código abierto de Azure Maps constituyen una iniciativa impulsada por la comunidad: personas que trabajan en la iniciativa en beneficio de otras personas, y también tienen su trabajo diario normal.
 - Los proyectos y ejemplos de código abierto de Azure Maps NO son un producto y, por lo tanto, no son compatibles con soporte técnico Premier u otros canales de soporte técnico oficiales.
-- Los proyectos y ejemplos de código abierto de Azure Maps se admiten de manera similar a otros proyectos de código abierto realizados por Microsoft con soporte técnico de la comunidad ofrecido por la comunidad.
+- Los proyectos y ejemplos de código abierto de Azure Maps son compatibles de manera similar a otros proyectos de código abierto realizados por Microsoft con soporte técnico de la comunidad ofrecido por la comunidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

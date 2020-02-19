@@ -1,31 +1,31 @@
 ---
-title: 'Aplicaciones cliente en una directiva de acceso condicional: Azure Active Directory'
-description: ''
+title: 'Aplicaciones o acciones en la nube en la directiva de acceso condicional: Azure Active Directory'
+description: Qué son las aplicaciones o acciones en la nube en una directiva de acceso condicional de Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afc25c906ecd3b7807e6bf3e0763ac1673ebd99
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a9d2780e09c099d76aa2ef4ec2638a410793481d
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544062"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186378"
 ---
-# <a name="conditional-access-cloud-apps-and-actions"></a>Acceso condicional: Aplicaciones y acciones en la nube
+# <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
-Las aplicaciones o las acciones en la nube son una parte fundamental de una directiva de acceso condicional. Las directivas de acceso condicional permiten que los administradores asignen controles a determinadas aplicaciones o acciones. 
+Las aplicaciones o acciones en la nube son una señal esencial en una directiva de acceso condicional. Las directivas de acceso condicional permiten que los administradores asignen controles a determinadas aplicaciones o acciones.
 
 - Los administradores pueden elegir en la lista de aplicaciones entre aplicaciones integradas de Microsoft y cualquier [aplicación integrada de Azure AD](../manage-apps/what-is-application-management.md), incluidas aplicaciones de la galería, aplicaciones que no son de la galería y aplicaciones publicadas a través de [Application Proxy](../manage-apps/what-is-application-proxy.md).
 - Los administradores pueden optar por definir una directiva que no se base en una aplicación en la nube, sino en una acción del usuario. La única acción admitida es Registrar la información de seguridad (versión preliminar), que permite que el acceso condicional aplique controles en torno a la [experiencia de registro de la información de seguridad combinado](../authentication/howto-registration-mfa-sspr-combined.md).
 
-![Definición de una directiva de acceso condicional y especificación de aplicaciones en la nube](./media/concept-conditional-access-cloud-apps/conditional-access-define-policy-specify-cloud-apps.png)
+![Definición de una directiva de acceso condicional y especificación de aplicaciones en la nube](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
 ## <a name="microsoft-cloud-applications"></a>Aplicaciones de nube de Microsoft
 
@@ -124,6 +124,7 @@ Las acciones del usuario son tareas que un usuario puede realizar. La única acc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una directiva de acceso condicional](concept-conditional-access-policies.md)
+- [Acceso condicional: Condiciones](concept-conditional-access-conditions.md)
+
+- [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 - [¿Cuáles son las dependencias de servicio del acceso condicional de Azure Active Directory?](service-dependencies.md)
-- [Microsoft Intune: Requerir la autenticación multifactor para las inscripciones de dispositivos](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)

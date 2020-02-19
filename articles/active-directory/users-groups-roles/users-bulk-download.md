@@ -4,21 +4,21 @@ description: Descargue los registros de usuarios de forma masiva en el Centro de
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 07/15/2019
+manager: daveba
+ms.date: 02/06/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720289"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063839"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Descarga de una lista de usuarios (versión preliminar) en el portal de Azure Active Directory
 
@@ -39,7 +39,7 @@ Para descargar la lista de usuarios del Centro de administración de Azure AD, d
 
    El archivo de descarga contendrá la lista filtrada de usuarios.
 
-   Se incluirán los atributos de usuario siguientes: 
+   Se incluyen los atributos de usuario siguientes:
 
    - userPrincipalName
    - DisplayName
@@ -50,7 +50,6 @@ Para descargar la lista de usuarios del Centro de administración de Azure AD, d
    - userType
    - jobTitle
    - department
-   - manager
    - accountEnabled
    - usageLocation
    - streetAddress

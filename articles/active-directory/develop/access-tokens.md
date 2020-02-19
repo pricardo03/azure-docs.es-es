@@ -12,12 +12,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: bacac67ddd7f379d679a149fe9574676ae0c7567
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7d596292a823b4d912204f5cfbe8623ab7429fa3
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834432"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161399"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -63,7 +63,7 @@ Los tokens JWT se dividen en tres partes:
 
 Cada fragmento se separa por un punto (`.`) y se codifica por separado en Base64.
 
-Las notificaciones están presentes solo si existe un valor que las rellene. Por lo tanto, la aplicación no debería depender de la presencia de una notificación. Los ejemplos incluyen `pwd_exp` (no todos los inquilinos requieren que las contraseñas expiren) o `family_name` (los flujos de [credenciales de cliente](v1-oauth2-client-creds-grant-flow.md) representan las aplicaciones, que no tienen nombres). Las notificaciones utilizadas para la validación de los token de acceso siempre estarán presentes.
+Las notificaciones están presentes solo si existe un valor que las rellene. Por lo tanto, la aplicación no debería depender de la presencia de una notificación. Los ejemplos incluyen `pwd_exp` (no todos los inquilinos requieren que las contraseñas expiren) o `family_name` (los flujos de credenciales de cliente [[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) y [v2.0](v2-oauth2-client-creds-grant-flow.md)] representan las aplicaciones, que no tienen nombres). Las notificaciones utilizadas para la validación de los token de acceso siempre estarán presentes.
 
 > [!NOTE]
 > Algunas notificaciones se utilizan para ayudar a Azure AD a asegurar los tokens en caso de reutilización. En la descripción se indica que no están destinados al consumo público como "opacos". Estas notificaciones pueden o no aparecer en un token, y pueden agregarse otras nuevas sin previo aviso.
@@ -98,7 +98,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `preferred_username` | String | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización.  También se puede usar para las sugerencias de nombre de usuario. El ámbito `profile` es necesario para recibir esta notificación. |
 | `name` | String | Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
 | `scp` | Cadena, una lista de ámbitos separada por espacios. | El conjunto de ámbitos expuestos por la aplicación para los cuales la aplicación cliente ha solicitado (y recibido) consentimiento. Su aplicación debe comprobar que estos ámbitos son válidos y están expuestos por la aplicación, y tomar decisiones de autorización basadas en el valor de estos ámbitos. Solo se incluye para los [tokens de usuario](#user-and-application-tokens). |
-| `roles` | Matriz de cadenas, una lista de permisos | El conjunto de permisos expuestos por la aplicación para la que la aplicación o el usuario solicitante ha recibido permiso para llamar. Para los [tokens de aplicaciones](#user-and-application-tokens) se usa durante el flujo de [credenciales de cliente](v1-oauth2-client-creds-grant-flow.md) en lugar de los ámbitos de usuario.  Para los [tokens de usuario](#user-and-application-tokens) se rellena con los roles a los que se ha asignado el usuario en la aplicación de destino. |
+| `roles` | Matriz de cadenas, una lista de permisos | El conjunto de permisos expuestos por la aplicación para la que la aplicación o el usuario solicitante ha recibido permiso para llamar. Para los [tokens de aplicaciones](#user-and-application-tokens), esta acción se usa durante el flujo de credenciales de cliente ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) y [v2.0](v2-oauth2-client-creds-grant-flow.md)) en lugar de los ámbitos de usuario.  Para los [tokens de usuario](#user-and-application-tokens) se rellena con los roles a los que se ha asignado el usuario en la aplicación de destino. |
 | `wids` | Matriz de GUID [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Denota los roles de todos los inquilinos asignados a este usuario desde la sección de roles presentes en [la página de roles de administrador](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Esta notificación se configura por aplicación, a través de la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md).  Es necesario establecerla en "All" o "DirectoryRole".  Es posible que no esté presente en los tokens obtenidos a través del flujo implícito por motivos de longitud del token. |
 | `groups` | Matriz JSON de identificadores GUID | Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md). Un valor null excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Office 365. <br><br>Consulte la notificación `hasgroups` que aparece a continuación para más información sobre el uso de la notificación `groups` con la concesión implícita. <br>Para los demás flujos, si el número de grupos en los que el usuario está supera un límite (150 para SAML, 200 para JWT), se agregará una notificación de uso por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de AAD Graph que contiene la lista de grupos del usuario. |
 | `hasgroups` | Boolean | Si está presente, siempre es `true`, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación `groups` para métodos JWT en flujos de concesión implícita si las notificaciones completas de los grupos amplían el fragmento URI por encima de los límites de longitud de la URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Graph para determinar los grupos del usuario (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
@@ -172,7 +172,7 @@ Para validar un id_token o un access_token, la aplicación tiene que validar tan
 
 El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
 
-Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar fácilmente la validación de token. La siguiente información se proporciona para aquellos que desean entender el proceso subyacente. También hay varias bibliotecas de código abierto de terceros para la validación de JWT; hay al menos una opción para casi cualquier plataforma e idioma. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte las [bibliotecas de autenticación v1.0](active-directory-authentication-libraries.md) y las [bibliotecas de autenticación v2.0](reference-v2-libraries.md).
+Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar fácilmente la validación de token. La siguiente información se proporciona para aquellos que desean entender el proceso subyacente. También hay varias bibliotecas de código abierto de terceros para la validación de JWT; hay al menos una opción para casi cualquier plataforma e idioma. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte las [bibliotecas de autenticación v1.0](../azuread-dev/active-directory-authentication-libraries.md) y las [bibliotecas de autenticación v2.0](reference-v2-libraries.md).
 
 ### <a name="validating-the-signature"></a>Validación de la firma
 
@@ -229,9 +229,9 @@ La lógica de negocio de la aplicación dictará este paso; a continuación se p
 
 ## <a name="user-and-application-tokens"></a>Tokens de usuario y de aplicación
 
-La aplicación puede recibir tokens en nombre de un usuario (el flujo habitual) o directamente desde una aplicación (mediante el [flujo de credenciales de cliente](v1-oauth2-client-creds-grant-flow.md)). Estos tokens de solo aplicación indican que esta llamada proviene de una aplicación y no tiene un usuario que la respalde. Estos tokens se usan en gran medida de la misma manera, con algunas diferencias:
+La aplicación puede recibir tokens en nombre de un usuario (el flujo habitual) o directamente desde una aplicación (mediante el flujo de credenciales de cliente [[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) y [v2.0](v2-oauth2-client-creds-grant-flow.md)]). Estos tokens de solo aplicación indican que esta llamada proviene de una aplicación y no tiene un usuario que la respalde. Estos tokens se usan en gran medida de la misma manera, con algunas diferencias:
 
-* Los tokens de solo aplicación no tendrán una notificación `scp`, y en su lugar pueden tener una notificación `roles`. Aquí es donde se registrarán los permisos de aplicación (a diferencia de los permisos delegados). Para más información acerca de los permisos delegados y de aplicación, consulte los permisos y consentimiento en [v1.0](v1-permissions-and-consent.md) y [v2.0](v2-permissions-and-consent.md).
+* Los tokens de solo aplicación no tendrán una notificación `scp`, y en su lugar pueden tener una notificación `roles`. Aquí es donde se registrarán los permisos de aplicación (a diferencia de los permisos delegados). Para obtener más información acerca de los permisos delegados y de aplicación, consulte los permisos y consentimiento ([v1.0](../azuread-dev/v1-permissions-consent.md) y [v2.0](v2-permissions-and-consent.md)).
 * Faltan muchas notificaciones específicas de usuarios, como `name` o `upn`.
 * Las notificaciones `sub` y `oid` serán las mismas. 
 
@@ -257,7 +257,7 @@ Los tokens de actualización se pueden invalidar o revocar en cualquier momento 
 | Administrador restablece la contraseña | Revocada | Revocada | Permanece activa | Permanece activa | Permanece activa |
 | Usuario revoca sus tokens de actualización [a través de PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revocada | Revocada | Revocada | Revocada | Revocada |
 | Administrador revoca todos los tokens de actualización para el inquilino [a través de PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocada | Revocada |Revocada | Revocada | Revocada |
-| [Cierre de sesión único](v1-protocols-openid-connect-code.md#single-sign-out) en la web | Revocada | Permanece activa | Revocada | Permanece activa | Permanece activa |
+| Cierre de sesión único ([v 1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out) y [v 2.0](v2-protocols-oidc.md#single-sign-out)) en la web | Revocada | Permanece activa | Revocada | Permanece activa | Permanece activa |
 
 > [!NOTE]
 > Un inicio de sesión "no basado en contraseña" es aquel en el que el usuario no escribió una contraseña para obtenerlo. Por ejemplo, con la cara con Windows Hello, una clave de FIDO2 o un PIN.
@@ -269,4 +269,4 @@ Los tokens de actualización se pueden invalidar o revocar en cualquier momento 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre [`id_tokens` en Azure AD](id-tokens.md).
-* Obtenga información sobre permisos y consentimiento en [v1.0](v1-permissions-and-consent.md) y [v2.0](v2-permissions-and-consent.md).
+* Obtenga información sobre permisos y consentimiento ([v1.0](../azuread-dev/v1-permissions-consent.md) y [v2.0](v2-permissions-and-consent.md)).

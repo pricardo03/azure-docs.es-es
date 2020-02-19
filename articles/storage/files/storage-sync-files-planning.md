@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 483603b8ff2f4b51f85d21d6ff4f02ad6f8a8272
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046087"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162096"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -256,33 +256,33 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Sur de Brasil | Estado de Sao Paulo |
 | Centro de Canadá | Toronto |
 | Este de Canadá | Ciudad de Quebec |
-| India Central | Pune |
+| Centro de la India | Pune |
 | Centro de EE. UU. | Iowa |
-| Asia oriental | RAE de Hong Kong |
-| East US | Virginia |
+| Este de Asia | RAE de Hong Kong |
+| Este de EE. UU. | Virginia |
 | Este de EE. UU. 2 | Virginia |
 | Centro de Francia | Paris |
 | Sur de Francia* | Marsella |
-| Corea Central | Seúl |
+| Centro de Corea del Sur | Seúl |
 | Corea del Sur | Busán |
-| Este de Japón | Tokio, Saitama |
-| Oeste de Japón | Osaka |
+| Japón Oriental | Tokio, Saitama |
+| Japón Occidental | Osaka |
 | Centro-Norte de EE. UU | Illinois |
-| Europa del Norte | Irlanda |
+| Norte de Europa | Irlanda |
 | Norte de Sudáfrica | Johannesburgo |
 | Oeste de Sudáfrica* | Ciudad del Cabo |
-| Centro-Sur de EE. UU | Texas |
+| Centro-sur de EE. UU. | Texas |
 | Sur de la India | Chennai |
-| Sudeste asiático | Singapur |
+| Sudeste de Asia | Singapur |
 | Sur de Reino Unido 2 | London |
 | Oeste de Reino Unido | Cardiff |
-| Gobierno de EE. UU.: Arizona | Arizona |
-| Gobierno de EE. UU.: Texas | Texas |
-| Gobierno de EE. UU. - Virginia | Virginia |
+| US Gov: Arizona | Arizona |
+| US Gov Texas | Texas |
+| US Gov - Virginia | Virginia |
 | Norte de Emiratos Árabes Unidos | Dubai |
 | Centro de Emiratos Árabes Unidos* | Abu Dabi |
-| Europa occidental | Países Bajos |
-| Centro occidental de EE.UU. | Wyoming |
+| Oeste de Europa | Países Bajos |
+| Centro-Oeste de EE. UU. | Wyoming |
 | Oeste de EE. UU. | California |
 | Oeste de EE. UU. 2 | Washington |
 
@@ -291,7 +291,7 @@ Azure File Sync solo se admite la sincronización con recursos compartidos de ar
 En el caso de las regiones marcadas con asteriscos, debe ponerse en contacto con el soporte técnico de Azure para solicitar acceso a Azure Storage. El proceso se describe más adelante en[ este documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Azure Disaster Recovery
-Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con la opción de [almacenamiento con redundancia geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporal o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
+Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con el [almacenamiento con redundancia geográfica](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporal o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
 
 > [!Warning]  
 > Si usa el recurso compartido de archivos de Azure como punto de conexión en la nube en una cuenta de almacenamiento GRS, no debe iniciar la conmutación por error de la cuenta de almacenamiento. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas. En caso de pérdida de una región de Azure, Microsoft activará la conmutación por error de la cuenta de almacenamiento de forma que sea compatible con Azure File Sync.
@@ -302,36 +302,36 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 |---------------------|--------------------|
 | Este de Australia      | Sudeste de Australia|
 | Sudeste de Australia | Este de Australia     |
-| Sur de Brasil        | Centro-Sur de EE. UU   |
+| Sur de Brasil        | Centro-sur de EE. UU.   |
 | Centro de Canadá      | Este de Canadá        |
 | Este de Canadá         | Centro de Canadá     |
-| India Central       | Sur de la India        |
+| Centro de la India       | Sur de la India        |
 | Centro de EE. UU.          | Este de EE. UU. 2          |
-| Asia oriental           | Sudeste asiático     |
-| East US             | Oeste de EE. UU.            |
+| Este de Asia           | Sudeste de Asia     |
+| Este de EE. UU.             | Oeste de EE. UU.            |
 | Este de EE. UU. 2           | Centro de EE. UU.         |
 | Centro de Francia      | Sur de Francia       |
 | Sur de Francia        | Centro de Francia     |
-| Este de Japón          | Oeste de Japón         |
-| Oeste de Japón          | Este de Japón         |
-| Corea Central       | Corea del Sur        |
-| Corea del Sur         | Corea Central      |
-| Europa del Norte        | Europa occidental        |
-| Centro-Norte de EE. UU    | Centro-Sur de EE. UU   |
+| Japón Oriental          | Japón Occidental         |
+| Japón Occidental          | Japón Oriental         |
+| Centro de Corea del Sur       | Corea del Sur        |
+| Corea del Sur         | Centro de Corea del Sur      |
+| Norte de Europa        | Oeste de Europa        |
+| Centro-Norte de EE. UU    | Centro-sur de EE. UU.   |
 | Norte de Sudáfrica  | Oeste de Sudáfrica  |
 | Oeste de Sudáfrica   | Norte de Sudáfrica |
-| Centro-Sur de EE. UU    | Centro-Norte de EE. UU   |
-| Sur de la India         | India Central      |
-| Sudeste asiático      | Asia oriental          |
+| Centro-sur de EE. UU.    | Centro-Norte de EE. UU   |
+| Sur de la India         | Centro de la India      |
+| Sudeste de Asia      | Este de Asia          |
 | Sur de Reino Unido 2            | Oeste de Reino Unido            |
 | Oeste de Reino Unido             | Sur de Reino Unido 2           |
-| Gobierno de EE. UU.: Arizona      | Gobierno de EE. UU.: Texas       |
-| US Gov Iowa         | Gobierno de EE. UU. - Virginia    |
-| Gobierno de EE. UU. - Virginia      | Gobierno de EE. UU.: Texas       |
-| Europa occidental         | Europa del Norte       |
-| Centro occidental de EE.UU.     | Oeste de EE. UU. 2          |
-| Oeste de EE. UU.             | East US            |
-| Oeste de EE. UU. 2           | Centro occidental de EE.UU.    |
+| US Gov: Arizona      | US Gov Texas       |
+| US Gov Iowa         | US Gov - Virginia    |
+| US Gov - Virginia      | US Gov Texas       |
+| Oeste de Europa         | Norte de Europa       |
+| Centro-Oeste de EE. UU.     | Oeste de EE. UU. 2          |
+| Oeste de EE. UU.             | Este de EE. UU.            |
+| Oeste de EE. UU. 2           | Centro-Oeste de EE. UU.    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

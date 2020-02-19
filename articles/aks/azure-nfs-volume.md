@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 3ef584c48ab44fd3616b5c7897d589bddbe45dc0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9b9c4b326596887774d9dfc0dd792052ec672be2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549264"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063822"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Crear manualmente y usar un volumen de servidor NFS (sistema de archivos de red) de Linux con Azure Kubernetes Service (AKS)
 Compartir datos entre contenedores a menudo es un componente necesario de las aplicaciones y los servicios basados en contenedores. Habitualmente tiene varios pods que necesitan tener acceso a la misma información en un volumen persistente externo.    
@@ -93,8 +93,9 @@ chmod +x ~/nfs-server-setup.sh
 ```
 
 ## <a name="connecting-aks-cluster-to-nfs-server"></a>Conectar el clúster de AKS al servidor NFS
-Podemos conectar el servidor NFS a nuestro clúster aprovisionando un volumen persistente y una notificación de volumen persistente que especifique cómo acceder al volumen.  
-Es necesario conectar ambos servicios en la misma red virtual o en redes virtuales emparejadas. Las instrucciones para configurar el clúster en la misma red virtual se encuentran en este artículo: [Creación de un clúster de AKS en la red virtual][aks-virtual-network].
+Podemos conectar el servidor NFS a nuestro clúster aprovisionando un volumen persistente y una notificación de volumen persistente que especifique cómo acceder al volumen.
+
+Es necesario conectar ambos servicios en la misma red virtual o en redes virtuales emparejadas. Las instrucciones para configurar el clúster en la misma red virtual se encuentran en este artículo: [Creación de un clúster de AKS en la red virtual][aks-virtual-network]
 
 Una vez que se encuentren en la misma red virtual (o en redes virtuales emparejadas), deberá aprovisionar un volumen persistente y una notificación de volumen persistente en el clúster de AKS. A continuación, los contenedores pueden montar la unidad NFS en su directorio local.
 

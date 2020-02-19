@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 02/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 59839df1e67c5ea7f18df373ad0530a2ea740209
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: c5a1aaac0edea1e5ab2e6cdf35f91f61eed23db5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030904"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047494"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -31,7 +31,7 @@ Azure API Management se puede implementar dentro de la red virtual (VNET), por l
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -136,7 +136,7 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
     | Entorno de Azure | Puntos de conexión                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com donde `East US 2` es eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net(**nuevo**)</li><li>prod.warmpath.msftcloudes.com (**próximamente en desuso**)</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com donde `East US 2` es eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
@@ -212,7 +212,7 @@ Las direcciones IP se dividen según el **entorno de Azure**. Cuando se permiten
 | Azure Public| Este de Canadá| 52.139.80.117|
 | Azure Public| Norte de Emiratos Árabes Unidos| 20.46.144.85|
 | Azure Public| Sur de Brasil| 191.233.24.179|
-| Azure Public| Sudeste asiático| 40.90.185.46|
+| Azure Public| Sudeste de Asia| 40.90.185.46|
 | Azure Public| Norte de Sudáfrica| 102.133.130.197|
 | Azure Public| Centro de Canadá| 52.139.20.34|
 | Azure Public| Corea del Sur| 40.80.232.185|
@@ -220,7 +220,7 @@ Las direcciones IP se dividen según el **entorno de Azure**. Cuando se permiten
 | Azure Public| Oeste de EE. UU.| 13.64.39.16|
 | Azure Public| Sudeste de Australia| 20.40.160.107|
 | Azure Public| Centro de Australia| 20.37.52.67|
-| Azure Public| India del Sur| 20.44.33.246|
+| Azure Public| Sur de la India| 20.44.33.246|
 | Azure Public| Centro de EE. UU.| 13.86.102.66|
 | Azure Public| Este de Australia| 20.40.125.155|
 | Azure Public| Oeste de EE. UU. 2| 51.143.127.203|
@@ -229,7 +229,7 @@ Las direcciones IP se dividen según el **entorno de Azure**. Cuando se permiten
 | Azure Public| Centro-sur de EE. UU.| 20.188.77.119|
 | Azure Public| Este de EE. UU. 2| 20.44.72.3|
 | Azure Public| Norte de Europa| 52.142.95.35|
-| Azure Public| Asia oriental| 52.139.152.27|
+| Azure Public| Este de Asia| 52.139.152.27|
 | Azure Public| Sur de Francia| 20.39.80.2|
 | Azure Public| Oeste de Suiza| 51.107.96.8|
 | Azure Public| Centro de Australia 2| 20.39.99.81|

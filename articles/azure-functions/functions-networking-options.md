@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7b47e7b0672716141f62e3f7df4b0d3ed95c663d
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846457"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114296"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -111,7 +111,7 @@ Con el fin de proporcionar un mayor nivel de seguridad, puede restringir una ser
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restricción de la cuenta de almacenamiento a una red virtual
 
-Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. En la actualidad, no es posible usar ninguna restricción de red virtual en esta cuenta. Si configura un punto de conexión de servicio de red virtual en la cuenta de almacenamiento que usa para la aplicación de funciones, se interrumpe la aplicación.
+Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. En la actualidad, no es posible usar ninguna restricción de red virtual en esta cuenta. Si configura un punto de conexión de servicio de red virtual en la cuenta de almacenamiento que usa para la aplicación de funciones, se interrumpirá la aplicación. Esta funcionalidad está disponible actualmente si se usa el plan Premium y una integración de red virtual.
 
 [Más información sobre los requisitos de la cuenta de almacenamiento](./functions-create-function-app-portal.md#storage-account-requirements).
 

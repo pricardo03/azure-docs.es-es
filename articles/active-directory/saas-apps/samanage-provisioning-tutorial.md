@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67cfe5a26740837508ea3a3e76295a896c3cc107
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 988efc2087b3b30e6073bd7f6e2cf08f91fd397c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670924"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060531"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configuración de Samanage para el aprovisionamiento automático de usuarios
 
 Este tutorial muestra los pasos que se deben realizar en Samanage y Azure Active Directory (Azure AD) para configurar Azure AD con el objetivo de aprovisionar y desaprovisionar automáticamente usuarios y grupos en Samanage.
 
 > [!NOTE]
-> En este tutorial se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+> En este tutorial se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -86,7 +86,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 ### <a name="configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Configuración del aprovisionamiento automático de usuarios para Samanage en Azure AD
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Samanage**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Samanage**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -100,51 +100,45 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Modo de aprovisionamiento de Samanage](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
+    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba el nombre de usuario de administrador y la contraseña de administrador de su cuenta de Samanage. Algunos ejemplos de estos valores son:
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL de inquilino** y **Token de secreto** de Samanage. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Samanage. Si la conexión no se establece, asegúrese de que la cuenta de Samanage tiene permisos de administrador e inténtelo de nuevo.
 
-   * En el cuadro **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de Samanage. Un ejemplo es admin@contoso.com.
+    ![Prueba de conexión de Samanage](./media/samanage-provisioning-tutorial/provisioning.png)
 
-   * En el cuadro **Contraseña de administrador**, rellene la contraseña de la cuenta de administrador correspondiente al nombre de usuario de administrador.
-
-6. Después de rellenar los cuadros que se muestran en el paso 5, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a Samanage. Si la conexión no se establece, asegúrese de que la cuenta de Samanage tiene permisos de administrador e inténtelo de nuevo.
-
-    ![Prueba de conexión de Samanage](./media/samanage-provisioning-tutorial/TestConnection.png)
-
-7. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Notificación por correo electrónico de Samanage](./media/samanage-provisioning-tutorial/EmailNotification.png)
 
-8. Seleccione **Guardar**.
+7. Seleccione **Guardar**.
 
-9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Samanage** (Sincronizar usuarios de Azure Active Directory con Samanage).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Samanage** (Sincronizar usuarios de Azure Active Directory con Samanage).
 
     ![Sincronización de usuarios de Samanage](./media/samanage-provisioning-tutorial/UserMappings.png)
 
-10. Revise los atributos de usuario que se sincronizan entre Azure AD y Samanage, en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Samanage con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
+9. Revise los atributos de usuario que se sincronizan entre Azure AD y Samanage, en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Samanage con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
 
     ![Atributos de usuario coincidentes de Samanage](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
 
-11. Para habilitar las asignaciones de grupos, en la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Samanage** (Sincronizar grupos de Azure Active Directory con Samanage).
+10. Para habilitar las asignaciones de grupos, en la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Samanage** (Sincronizar grupos de Azure Active Directory con Samanage).
 
     ![Sincronización de grupos de Samanage](./media/samanage-provisioning-tutorial/GroupMappings.png)
 
-12. Establezca **Habilitado** a **Sí** para sincronizar los grupos. Revise los atributos de grupo que se sincronizan entre Azure AD y Samanage en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Samanage con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
+11. Establezca **Habilitado** a **Sí** para sincronizar los grupos. Revise los atributos de grupo que se sincronizan entre Azure AD y Samanage en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Samanage con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
 
     ![Atributos de grupo coincidentes de Samanage](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-13. Para configurar filtros de ámbito, consulte las instrucciones del [tutorial sobre filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Para configurar filtros de ámbito, consulte las instrucciones del [tutorial sobre filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Para habilitar el servicio de aprovisionamiento de Azure AD para Samanage, vaya a la sección **Configuración** y cambie el **estado de aprovisionamiento** a **Activado**.
+13. Para habilitar el servicio de aprovisionamiento de Azure AD para Samanage, vaya a la sección **Configuración** y cambie el **estado de aprovisionamiento** a **Activado**.
 
     ![Estado de aprovisionamiento de Samanage](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Defina los usuarios o grupos que quiere que se aprovisionen en Samanage. En la sección **Configuración**, seleccione los valores que quiere incluir en el **Ámbito**. Cuando seleccione la opción **Sincronizar todos los usuarios y grupos**, tenga en cuenta las limitaciones que se describen más adelante en la sección "Limitaciones del conector".
+14. Defina los usuarios o grupos que quiere que se aprovisionen en Samanage. En la sección **Configuración**, seleccione los valores que quiere incluir en el **Ámbito**. Cuando seleccione la opción **Sincronizar todos los usuarios y grupos**, tenga en cuenta las limitaciones que se describen más adelante en la sección "Limitaciones del conector".
 
     ![Ámbito de Samanage](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
-16. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar**.
+15. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar**.
 
     ![Guardado de Samanage](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
 
@@ -153,7 +147,7 @@ Esta operación inicia la sincronización inicial de todos los usuarios o grupos
 
 Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de actividad de aprovisionamiento. En el informe se describen todas las acciones que el servicio de aprovisionamiento de Azure AD realiza en Samanage.
 
-Para obtener información acerca de cómo leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
+Para obtener información acerca de cómo leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitaciones del conector
 
@@ -163,13 +157,13 @@ Si selecciona la opción **Sincronizar todos los usuarios y grupos** y configura
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png

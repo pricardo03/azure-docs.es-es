@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 02/06/2019
+ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: a71751ba8dde2152a00a1455a51d13a3dedb792a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51b69e8b7f6c980fd851cdf3e60ecfe0ade29e71
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437175"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187342"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creación de un espacio de nombres con Event Hubs y habilitación de la característica Capture mediante una plantilla
 
@@ -235,7 +235,7 @@ El contenedor de blobs en el que se van a capturar los datos del evento.
 }
 ```
 
-Si elige como destino Azure Data Lake Store, use los parámetros siguientes. Debe establecer permisos en la ruta de acceso de Data Lake Store, en el que desea capturar el evento. Para establecer los permisos, consulte [este artículo](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
+Use los parámetros siguientes si elige Azure Data Lake Storage Gen1 como destino. Debe establecer permisos en la ruta de acceso de Data Lake Store, en el que desea capturar el evento. Para establecer permisos, vea [Captura de datos para Azure Data Lake Storage Gen1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
 
 ### <a name="subscriptionid"></a>subscriptionId
 

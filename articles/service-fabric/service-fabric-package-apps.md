@@ -3,12 +3,12 @@ title: Empaquetado de una aplicación de Azure Service Fabric
 description: Obtenga información sobre cómo empaquetar una aplicación de Azure Service Fabric y cómo prepararse para la implementación en un clúster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639690"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083614"
 ---
 # <a name="package-an-application"></a>Empaquetar una aplicación
 
@@ -56,9 +56,9 @@ Para obtener más información sobre cómo configurar **SetupEntryPoint**, vea [
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Crear un paquete mediante Visual Studio
 
-Si usa Visual Studio 2015 para crear su aplicación, puede utilizar el comando Package para crear automáticamente un paquete que coincida con el diseño descrito anteriormente.
+Si usó Visual Studio para crear su aplicación, puede utilizar el comando *Empaquetar* para crear automáticamente un paquete que coincida con el diseño descrito anteriormente.
 
-Para crear un paquete, haga clic con el botón derecho en el proyecto de aplicación del Explorador de soluciones y elegir el comando Package, como se muestra a continuación:
+Para crear un paquete, haga clic con el botón derecho en el proyecto de aplicación en el *Explorador de soluciones* y elija el comando **Empaquetar**:
 
 ![Empaquetado de una aplicación con Visual Studio][vs-package-command]
 

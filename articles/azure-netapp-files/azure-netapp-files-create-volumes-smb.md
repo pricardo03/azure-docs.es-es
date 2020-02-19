@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867429"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049886"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -73,6 +73,8 @@ Debe haber una subred delegada en Azure NetApp Files.
     Si tiene controladores de dominio a los que no se puede tener acceso a través de la subred delegada en Azure NetApp Files, puede enviar una solicitud de soporte técnico de Azure para modificar el ámbito de **global** (valor predeterminado) a **site** .  Azure NetApp Files solo debe comunicarse con los controladores de dominio del sitio en el que reside el espacio de direcciones de la subred delegada en Azure NetApp Files.
 
     Consulte [Diseño de la topología de sitio](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) para obtener información acerca de los sitios y servicios de AD. 
+    
+Consulte las [Preguntas más frecuentes de SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) de Azure NetApp Files para obtener información adicional de AD. 
 
 ## <a name="create-an-active-directory-connection"></a>Creación de una conexión de Active Directory
 

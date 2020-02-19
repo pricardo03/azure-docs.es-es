@@ -1,5 +1,6 @@
 ---
-title: Un mundo sin contraseñas con Azure Active Directory | Microsoft Docs
+title: Autenticación sin contraseña con Azure AD
+titleSuffix: Active Directory
 description: Esta guía está pensada para ayudar a los consejeros delegados (CEO), los directores de información (CIO), los directores de seguridad de la información (CISO), los arquitectos jefe de identidad, los arquitectos de empresa y los responsables de la toma de decisiones de TI a elegir un método de autenticación sin contraseña para la implementación de Azure Active Directory.
 keywords: passwordless, azuread
 author: martincoetzer
@@ -9,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 5fc6a4a23573995cf791a21ec7cf3a7d68d048e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945586"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064485"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un mundo sin contraseñas con Azure Active Directory
 

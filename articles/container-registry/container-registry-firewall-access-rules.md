@@ -2,13 +2,13 @@
 title: Reglas de acceso del firewall
 description: Configure reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall. Para ello, permita el acceso a la API de REST ("inclusión en lista blanca") y los nombres de dominio del punto de conexión de almacenamiento o los intervalos de direcciones IP específicos del servicio.
 ms.topic: article
-ms.date: 07/17/2019
-ms.openlocfilehash: 4d3c4ff4ca19d8b563c185e5c314011823081df1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/11/2020
+ms.openlocfilehash: 06fedea2adf5e73929f5752279f2bd7e7227e570
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745207"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168013"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall
 
@@ -115,6 +115,10 @@ Busque la región específica, como **Storage.AustraliaCentral**.
 En una red virtual de Azure, use las reglas de seguridad de red para filtrar el tráfico de un recurso (por ejemplo, una máquina virtual) a un registro de contenedor. Para simplificar la creación de las reglas de red de Azure, use la [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry**. Una etiqueta de servicio constituye un grupo de prefijos de dirección IP para tener acceso a un servicio de Azure de manera global o por región de Azure. La etiqueta se actualiza automáticamente cuando las direcciones cambian. 
 
 Por ejemplo, cree una regla de grupo de seguridad de red saliente con el destino **AzureContainerRegistry** para permitir el tráfico a un registro de contenedor de Azure. Para permitir el acceso a la etiqueta de servicio únicamente en una región específica, especifique la región con el siguiente formato: **AzureContainerRegistry**.[*nombre de la región*].
+
+## <a name="configure-client-firewall-rules-for-mcr"></a>Configuración de las reglas de firewall de cliente para MCR
+
+Si necesita obtener acceso a Microsoft Container Registry (MCR) desde detrás de un firewall, consulte las instrucciones para configurar las [reglas de firewall de cliente de MCR](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR es el registro principal para todas las imágenes de Docker publicadas por Microsoft, como las imágenes de Windows Server.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

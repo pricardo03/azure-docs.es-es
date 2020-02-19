@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dbc7f8068ed84f42ec41ebd969e0aa91ffbb264
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473322"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149820"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -113,7 +113,7 @@ El siguiente es un documento informativo que presenta algunos de los procedimien
 - Los servidores de almacenamiento provisional no están diseñados para ser una solución de alta disponibilidad, pero puede tener varios servidores de almacenamiento provisional.
 - La introducción de un servidor de almacenamiento provisional de tipo "Lag" podría mitigar algunos posibles tiempos de inactividad en caso de error.
 - Pruebe y valide todas las actualizaciones en el servidor de almacenamiento provisional primero.
-- Valide siempre las exportaciones antes de cambiar el servidor de almacenamiento provisional al almacenamiento provisional denominado “serverLeverage” cuando realice importaciones y sincronizaciones completas, para reducir el impacto del negocio.
+- Valide siempre las exportaciones antes de pasar al servidor de almacenamiento provisional.  Aproveche el servidor de almacenamiento provisional para las importaciones completas y las sincronizaciones completas a fin de reducir el impacto empresarial
 - Mantenga la consistencia de la versión entre los servidores de Azure AD Connect tanto como sea posible. 
 
 **P: ¿Puedo permitir que Azure AD Connect cree la cuenta del conector de Azure AD en la máquina del grupo de trabajo?**
@@ -258,7 +258,7 @@ En raras ocasiones, el servicio Azure AD Connect no se inicia después de realiz
 **P: No estoy seguro de los riesgos derivados de la actualización a una versión más reciente de Azure AD Connect. ¿Puede llamarme para ayudarme con la actualización?**  
 Si necesita ayuda para actualizar a una versión más reciente de Azure AD Connect, abra un vale de soporte; en [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) (Crear una solicitud de servicio para ponerse en contacto con el soporte técnico de Office 365).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 **P: ¿Cómo puedo obtener ayuda con Azure AD Connect?**
 
 [Buscar en Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)

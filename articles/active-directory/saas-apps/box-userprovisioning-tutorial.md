@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60431763"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058576"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configuración de Box para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar los pasos que debe realizar en Box y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para Box.
 
 > [!NOTE]
-> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Box, se necesitan los siguientes elementos:
 
@@ -101,11 +101,11 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 6. En la página **Log in to grant access to Box** (Iniciar sesión para otorgar acceso a Box), proporcione las credenciales necesarias y haga clic en **Authorize** (Autorizar). 
    
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/box-userprovisioning-tutorial/IC769546.png "Habilitar aprovisionamiento automático de usuarios")
+    ![Habilitar el aprovisionamiento automático de usuarios](./media/box-userprovisioning-tutorial/IC769546.png "Habilitar el aprovisionamiento automático de usuarios")
 
 7. Haga clic en **Grant access to Box** (Otorgar acceso a Box) para autorizar esta operación y volver a Azure Portal. 
    
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/box-userprovisioning-tutorial/IC769549.png "Habilitar aprovisionamiento automático de usuarios")
+    ![Habilitar el aprovisionamiento automático de usuarios](./media/box-userprovisioning-tutorial/IC769549.png "Habilitar el aprovisionamiento automático de usuarios")
 
 8. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Box. Si se produce un error de conexión, asegúrese de que su cuenta de Box tiene permisos de administrador de equipo y vuelva a intentar el paso de **Autorizar**.
 
@@ -123,7 +123,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Box en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación Box.
 
-Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
+Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
 En su inquilino de Box, los usuarios sincronizados se muestran en **Usuarios administrados** en la **Consola de administración**.
 

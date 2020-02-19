@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 06a247c9e65ce386034a50650e46994bbbe9074a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152177"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122413"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Ejemplo: Creación de una aptitud personalizada con Python
 
@@ -21,7 +21,7 @@ En este ejemplo de un conjunto de aptitudes de Azure Cognitive Search, aprender�
 
 La aptitud personalizada es sencilla por diseño (concatena dos cadenas) para que pueda centrarse en las herramientas y tecnologías que se usan para el desarrollo personalizado de aptitudes en Python. Una vez que crea correctamente una aptitud sencilla, puede atreverse con escenarios más complejos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 + Repase el artículo sobre la [interfaz de una aptitud personalizada](cognitive-search-custom-skill-interface.md) para ver una introducción sobre la interfaz de entrada/salida que debe implementar una aptitud personalizada.
 
@@ -57,7 +57,7 @@ La plantilla del proyecto de Azure Functions de Visual Studio Code crea un proye
 
 Visual Studio Code crea el proyecto de la aplicación de función en una nueva área de trabajo. Este proyecto contiene los archivos de configuración [host.json](../azure-functions/functions-host-json.md) y [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), además de los archivos de proyecto específicos del lenguaje. 
 
-También se crea una nueva función desencadenada por HTTP en la carpeta **Concatenator** del proyecto de la aplicación de funciones. Dentro de ella habrá un archivo denominado "\__init__.py" con este contenido:
+También se crea una nueva función desencadenada por HTTP en la carpeta **Concatenator** del proyecto de la aplicación de funciones. Dentro de ella habrá un archivo denominado "\_\_init__.py" con este contenido:
 
 ```py
 import logging

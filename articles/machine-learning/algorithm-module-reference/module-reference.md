@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 12/17/2019
-ms.openlocfilehash: 7f2d282541e8a5a3752a0784a3f00a48ad2fb303
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d3feb62c0c7fa24dd998add08d17ebd1d4e9ee6c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769156"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162589"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning
 
@@ -35,7 +35,7 @@ Para obtener ayuda con la elección de algoritmos, consulte
 | Funcionalidad | Descripción | módulo |
 | --- |--- | --- |
 | Entrada y salida de datos | Mueva los datos de los orígenes en la nube a la canalización. Escriba los resultados o los datos intermedios en Azure Storage, una base de datos SQL o Hive, mientras ejecuta una canalización, o use el almacenamiento en la nube para intercambiar datos entre canalizaciones.  | [Introducción manual de datos](enter-data-manually.md) <br/> [Export Data](export-data.md) <br/> [Import Data](import-data.md) |
-| Transformación de datos | Operaciones con los datos que son exclusivas del aprendizaje automático, como la normalización o discretización de datos, la reducción de la dimensionalidad y la conversión de datos entre barios formatos de archivo.| [Adición de columnas](add-columns.md) <br/> [Adición de filas](add-rows.md) <br/> [Aplicación de operación matemática](apply-math-operation.md) <br/> [Aplicación de transformaciones de SQL](apply-sql-transformation.md) <br/> [Clean Missing Data](clean-missing-data.md) (limpiar datos faltantes) <br/> [Recorte de valores](clip-values.md) <br/> [Conversión a CSV](convert-to-csv.md) <br/> [Conversión en conjunto de datos](convert-to-dataset.md) <br/> [Edición de metadatos](edit-metadata.md) <br/> [Combinación de datos](join-data.md) <br/> [Normalize Data](normalize-data.md) (normalizar datos) <br/> [Partición y ejemplo](partition-and-sample.md)  <br/> [Supresión de filas duplicadas](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Selección de transformación de columnas](select-columns-transform.md) <br/> [Seleccionar columnas de conjunto de datos](select-columns-in-dataset.md) <br/> [División de datos](split-data.md) |
+| Transformación de datos | Operaciones con los datos que son exclusivas del aprendizaje automático, como la normalización o discretización de datos, la reducción de la dimensionalidad y la conversión de datos entre barios formatos de archivo.| [Adición de columnas](add-columns.md) <br/> [Adición de filas](add-rows.md) <br/> [Aplicación de operación matemática](apply-math-operation.md) <br/> [Aplicación de transformaciones de SQL](apply-sql-transformation.md) <br/> [Clean Missing Data](clean-missing-data.md) (limpiar datos faltantes) <br/> [Recorte de valores](clip-values.md) <br/> [Conversión a CSV](convert-to-csv.md) <br/> [Conversión en conjunto de datos](convert-to-dataset.md) <br/> [Convertir en valores de indicador](convert-to-indicator-values.md) <br/> [Edición de metadatos](edit-metadata.md) <br/> [Combinación de datos](join-data.md) <br/> [Normalize Data](normalize-data.md) (normalizar datos) <br/> [Partición y ejemplo](partition-and-sample.md)  <br/> [Supresión de filas duplicadas](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Selección de transformación de columnas](select-columns-transform.md) <br/> [Seleccionar columnas de conjunto de datos](select-columns-in-dataset.md) <br/> [División de datos](split-data.md) |
 | Selección de características | Seleccione un subconjunto de características pertinentes y útiles para la creación de un modelo analítico. | [Selección de características basada en filtros](filter-based-feature-selection.md) <br/> [Importancia de la característica de permutación](permutation-feature-importance.md) |
 | Funciones estadísticas | Proporcionar una amplia variedad de métodos estadísticos relacionados con la ciencia de datos. | [Resumen de datos](summarize-data.md)|
 

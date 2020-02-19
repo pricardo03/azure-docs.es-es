@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647380"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191081"
 ---
 # <a name="what-is-azure-private-link-service"></a>¿Qué es el servicio Azure Private Link?
 
@@ -55,6 +55,7 @@ Un servicio Private Link especifica las siguientes propiedades:
 |Configuración de IP de front-end de Load Balancer (loadBalancerFrontendIpConfigurations)    |    El servicio Private Link está asociado a la dirección IP de front-end de una instancia de Standard Load Balancer. Todo el tráfico destinado al servicio alcanzará el front-end de SLB. Puede configurar las reglas de SLB para dirigir este tráfico a grupos de back-end adecuados donde se ejecutan sus aplicaciones. Las configuraciones de IP de front-end de Load Balancer son distintas de las configuraciones de IP de NAT.      |
 |Configuración de IP de NAT (ipConfigurations)    |    Esta propiedad hace referencia a la configuración de IP de NAT (traducción de direcciones de red) para el servicio Private Link. La IP de NAT se puede elegir desde cualquier subred de la red virtual de un proveedor de servicios. El servicio Private Link realiza traducciones de direcciones de red del lado del destino en el tráfico de Private Link. Esto garantiza que no haya ningún conflicto de IP entre el espacio de direcciones de origen (lado del consumidor) y destino (proveedor de servicios). En el lado de destino (lado del proveedor de servicios), la dirección IP de NAT se mostrará como IP de origen para todos los paquetes recibidos por su servicio e IP de destino para todos los paquetes enviados por su servicio.       |
 |Conexiones de punto de conexión privado (privateEndpointConnections)     |  Esta propiedad muestra los puntos de conexión privados que se conectan al servicio Private Link. Varios puntos de conexión privados pueden conectarse al mismo servicio Private Link y el proveedor de servicios puede controlar el estado para los puntos de conexión privados individuales.        |
+|Proxy TCP V2 (EnableProxyProtocol)     |  Esta propiedad permite al proveedor de servicios utilizar el proxy TCP v2 para recuperar información de conexión sobre el consumidor del servicio. El proveedor de servicios es responsable de preparar las configuraciones del receptor para que este pueda analizar el encabezado del protocolo de proxy v2.        |
 |||
 
 
@@ -95,14 +96,28 @@ Los consumidores con exposición (controlada por la configuración de visibilida
 
 La acción de aprobar las conexiones se puede automatizar mediante la propiedad de aprobación automática del servicio Private Link. La aprobación automática es la capacidad de los proveedores de servicios de aprobar de forma previa un conjunto de suscripciones para el acceso automatizado a su servicio. Los clientes tendrán que compartir sus suscripciones sin conexión para que los proveedores de servicios se agreguen a la lista de aprobación automática. La aprobación automática es un subconjunto de la matriz de visibilidad. La visibilidad controla la configuración de exposición, mientras que la aprobación automática controla la configuración de aprobación para su servicio. Si un cliente solicita una conexión desde una suscripción en la lista de aprobación automática, la conexión se aprobará automáticamente y se establecerá. No es necesario que los proveedores de servicios sigan aprobando manualmente la solicitud. Por otro lado, si un cliente solicita una conexión desde una suscripción en la matriz de visibilidad y no en la de aprobación automática, el proveedor de servicios recibirá la solicitud, pero este debe aprobar las conexiones.
 
+## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Cómo obtener información de conexión mediante el proxy TCP V2
+
+Al usar el servicio de hipervínculo privado, la dirección IP de origen de los paquetes procedentes de un punto de conexión privado es traducida a dirección de red (NAT) en el lado del proveedor de servicios mediante la dirección IP NAT asignada desde la red virtual del proveedor. Por lo tanto, las aplicaciones reciben la dirección IP NAT asignada en lugar de la dirección IP de origen real de los consumidores del servicio. Si la aplicación necesita la dirección IP de origen real del lado del consumidor, se puede habilitar el protocolo de proxy en el servicio y recuperar la información a partir del encabezado del protocolo de proxy. Además de la dirección IP de origen, el encabezado del protocolo de proxy también incluye el LinkID del punto de conexión privado. Combinar la dirección IP de origen con el LinkID puede ayudar a los proveedores de servicios a identificar de forma única a sus consumidores. Para obtener más información sobre el protocolo de proxy, consulte este artículo. 
+
+Esta información se codifica mediante un vector tipo-longitud-valor (TLV) personalizado como se indica a continuación:
+
+Detalles del TLV personalizado:
+
+|Campo |Longitud (octetos)  |Descripción  |
+|---------|---------|----------|
+|Tipo  |1        |PP2_TYPE_AZURE (0xEE)|
+|Length  |2      |Longitud del valor|
+|Value  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|  |4        |UINT32 (4 bytes) que representan el LINKID del punto de conexión privado. Codificado en formato little endian.|
+
+
 ## <a name="limitations"></a>Limitaciones
 
 A continuación se muestran las limitaciones conocidas al usar el servicio Private Link:
 - Solo se admite en Standard Load Balancer 
 - Solo admite el tráfico IPv4
 - Solo admite el tráfico TCP
-- No se admite la creación y administración de la experiencia de Azure Portal
-- La información sobre la conexión de los clientes que hace uso del protocolo de proxy no está disponible para el proveedor de servicios
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de un servicio Private Link mediante Azure PowerShell](create-private-link-service-powershell.md)

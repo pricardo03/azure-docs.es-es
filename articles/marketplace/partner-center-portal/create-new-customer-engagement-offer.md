@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 9a2237c0cea5fcc67e093709a0b42193b7326d1d
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 498cbd982b565f498ddade2dbc9afafe17a2c4ab
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045993"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048717"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps
 
@@ -112,19 +112,9 @@ Seleccione todos los productos de Dynamics 365 a los que se aplica esta oferta.
 
 Escriba el número de versión de la oferta. Los clientes verán esta versión en la página de detalles de la oferta. Si solo va a actualizar el número de versión debido a cambios descriptivos o de marketing, active la casilla **Solo cambios de marketing**. Esta opción permite que la oferta pueda omitir las etapas de certificación y aprovisionamiento.
 
-### <a name="standard-contract"></a>Contrato estándar
+### <a name="terms-and-conditions"></a>Términos y condiciones
 
-Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece una plantilla de Contrato estándar con el fin de ayudar a facilitar una transacción en Marketplace.
-
-En lugar de crear términos y condiciones personalizados, puede ofrecer el software en virtud del Contrato estándar, que los clientes solo tienen que revisar y aceptar una vez.
-
-El Contrato estándar se puede encontrar aquí: https://go.microsoft.com/fwlink/?linkid=2041178.
-
-Para usar el Contrato estándar, active la casilla **¿Usar el contrato estándar?** .
-
-#### <a name="terms-of-use"></a>Términos de uso
-
-Si no activa la casilla **¿Usar el contrato estándar?** , deberá proporcionar sus propios términos de uso legales en el campo **Términos de uso**. Escriba hasta 10.000 caracteres de texto o, si los términos de uso requieren una descripción más larga, proporcione la dirección URL donde se pueden encontrar los términos de licencia adicionales. Los clientes deberán aceptar estos términos para poder probar la aplicación.
+Proporcione sus propios términos y condiciones legales en el campo **Términos y condiciones**. También puede proporcionar la dirección URL donde se pueden encontrar los términos y condiciones. Los clientes deberán aceptar estos términos para poder probar la oferta.
 
 ## <a name="offer-listing"></a>Descripción de la oferta
 
@@ -174,7 +164,7 @@ Para que la descripción de la oferta sea más atractiva, use el editor de texto
 
 Siga las instrucciones siguientes para usar el editor de texto enriquecido:
 
-- Para cambiar el formato del contenido, resalte el texto al que quiera dar formato y seleccione un estilo de texto, como se muestra a continuación:
+- Para cambiar el formato del contenido, resalte el texto al que quiera dar formato y seleccione un estilo de texto, como se muestra aquí:
 
      ![Uso del editor de texto enriquecido para cambiar el formato del texto](./media/text-editor3.png)
 
@@ -291,7 +281,7 @@ Active la casilla etiquetada **Hay más de un paquete de CRM en el archivo de pa
 
 ### <a name="crm-package-availability"></a>Disponibilidad del paquete de CRM
 
-En esta sección, seleccione **+ Agregar región** para especificar las regiones geográficas en las que el paquete de CRM estará disponible para los clientes. La implementación en las siguientes regiones soberanas requiere un permiso y una validación especiales durante el proceso de certificación: [Alemania](https://docs.microsoft.com/azure/germany/), la [nube del gobierno de EE. UU.](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) y TIP.
+En esta sección, seleccione **+ Agregar región** para especificar las regiones geográficas en las que el paquete de CRM estará disponible para los clientes. La implementación en las siguientes regiones soberanas requiere un permiso y una validación especiales durante el proceso de certificación: [Alemania](https://docs.microsoft.com/azure/germany/), la [nube del US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) y TIP.
 
 De manera predeterminada, la **dirección URL de configuración de aplicación** que especificó anteriormente se usará para cada región. Si lo prefiere, puede especificar una dirección URL de configuración de aplicación independiente para una o varias regiones específicas. 
 

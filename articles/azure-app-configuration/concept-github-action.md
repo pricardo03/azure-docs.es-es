@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ce8d42ec7c37b19378b6f4ae0c81548f2eff5c9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899629"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190383"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronización de la instancia de App Configuration mediante Acciones de GitHub
 Azure App Configuration usa Acciones de GitHub para actualizar una instancia de App Configuration cuando se desencadena mediante una acción realizada en un repositorio de GitHub. Puede aprovechar los flujos de trabajo de GitHub para actualizar la configuración de la aplicación, lo que permite la integración de las actualizaciones de configuración de aplicaciones en el mismo flujo de trabajo que se usa para actualizar el código de la aplicación.
@@ -25,8 +25,7 @@ Los eventos de GitHub, como una inserción en un repositorio, pueden desencadena
 La [documentación](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) de GitHub proporciona una vista detallada de los flujos de trabajo y las acciones de GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Habilitación de Acciones de GitHub en el repositorio
-Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la pestaña **Acciones**. Busque y seleccione la acción de GitHub en Marketplace. Para ello, busque "Sincronización de Azure App Configuration". 
-
+Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la pestaña **Acciones**. Haga clic en New workflow (Nuevo flujo de trabajo) y, luego, en "Set up a workflow yourself" (Configurar un flujo de trabajo por su cuenta). Desde allí, busque en Marketplace "Azure App Configuration Sync".
 > [!div class="mx-imgBorder"]
 > ![Selección de la pestaña Acción](media/find-github-action.png)
 

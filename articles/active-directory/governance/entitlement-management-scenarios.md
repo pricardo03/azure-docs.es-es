@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d780e6e11d2c067261f6862e1678ef5de0aaa9bb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f40ed05391c36f820940d5351373ecd8f9492b17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422504"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120144"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Escenarios comunes de administración de derechos de Azure AD
 
@@ -150,6 +150,10 @@ Hay varias formas para configurar la administración de derechos para su organiz
 
 1. [Ver los paquetes de acceso de un usuario](entitlement-management-reports.md#view-access-packages-for-a-user)
 1. [Ver las asignaciones de recursos de un usuario](entitlement-management-reports.md#view-resource-assignments-for-a-user)
+
+## <a name="programmatic-administration"></a>Administración mediante programación
+
+También puede administrar paquetes de acceso, catálogos, directivas, solicitudes y asignaciones mediante Microsoft Graph.  Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la [API de administración de derechos](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

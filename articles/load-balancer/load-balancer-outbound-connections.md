@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d3e4a794a948dd6bd9860c9b7e6f06ac981f86b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934554"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162504"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -43,7 +43,7 @@ Cuando se usan [recursos de Azure Resource Manager](https://docs.microsoft.com/a
 | SKU | Escenario | Método | Protocolos IP | Descripción |
 | --- | --- | --- | --- | --- |
 | Nivel Estándar o Básico | [1. Máquina virtual con dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. Cuando se usa Standard Load Balancer, también deben usarse las [reglas de salida](load-balancer-outbound-rules-overview.md) para definir explícitamente la conectividad saliente |
-| Nivel Estándar o Básico | [2. Load Balancer público asociado a una máquina virtual (ninguna dirección IP pública en la instancia)](#lb) | SNAT con enmascaramiento de puertos (PAT) mediante los servidores front-end de Load Balancer | TCP, UDP |Azure comparte la dirección IP pública de los servidores front-end de Load Balancer público con varias direcciones IP privadas. Azure usa puertos efímeros de los servidores front-end para PAT. |
+| Nivel Estándar o Básico | [1. Máquina virtual con una dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. Cuando se usa Standard Load Balancer, no se admiten las [reglas de salida](load-balancer-outbound-rules-overview.md) si se asigna una dirección IP pública a la máquina virtual. |
 | Ninguna o nivel Básico | [3. Máquina virtual independiente (sin Load Balancer, sin dirección IP pública)](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con varias direcciones IP privadas del conjunto de disponibilidad y usa los puertos efímeros de esta dirección IP pública. Este es un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. |
 
 Si no quiere que una máquina virtual se comunique con puntos de conexión situados fuera de Azure en el espacio de direcciones IP públicas, puede usar grupos de seguridad de red (NSG) para bloquear el acceso según sea necesario. En la sección [Impedir la conectividad saliente](#preventoutbound) se proporciona información sobre los grupos de seguridad de red. Las instrucciones sobre cómo diseñar, implementar y administrar una red virtual sin acceso de salida escapan del ámbito de este artículo.

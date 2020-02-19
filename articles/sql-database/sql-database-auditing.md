@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/22/2019
-ms.openlocfilehash: 8f82f0539432418f967d51f00e659ce92d1fa9b6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/11/2020
+ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719813"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161960"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
@@ -27,9 +27,6 @@ La auditoría de Azure [SQL Database](sql-database-technical-overview.md) y [SQL
 
 > [!NOTE] 
 > Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 
 ## <a id="subheading-1"></a>Información general sobre auditoría en Azure SQL Database
 
@@ -44,11 +41,11 @@ Puede usar la auditoría de base de datos SQL para:
 >
 > - Se admiten todos los tipos de almacenamiento (v1, v2 y blob).
 > - Se admiten todas las configuraciones de replicación de almacenamiento.
+> - Se admite el almacenamiento detrás de un firewall y una red virtual.
 > - **Premium Storage** actualmente **no se admite**.
-> - **El almacenamiento en VNet** actualmente **no se admite**.
-> - **El almacenamiento detrás de un firewall** actualmente **no se admite**.
 > - **El espacio de nombres jerárquico** para la **cuenta de almacenamiento de Azure Data Lake Storage Gen2** actualmente **no se admite**.
-
+> - No es posible habilitar la auditoría en una instancia de **Azure SQL Data Warehouse** en pausa. Para habilitar la auditoría, reanude Data Warehouse.
+   
 ## <a id="subheading-8"></a>Definir la directiva de auditoría de nivel de servidor frente la de nivel de base de datos
 
 Puede definirse una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada:
@@ -66,60 +63,51 @@ Puede definirse una directiva de auditoría para una base de datos específica o
    >
    > En caso contrario, se recomienda habilitar solo la auditoría de blobs de nivel de servidor y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
 
-## <a id="subheading-2"></a>Configuración de la auditoría para su base de datos
+## <a id="subheading-2"></a>Configuración de la auditoría para su servidor
 
 En la sección siguiente se describe la configuración de auditoría mediante Azure Portal.
 
+  > [!NOTE]
+   >Ahora tiene varias opciones para configurar dónde se escriben los registros de auditoría. Puede escribir registros en una cuenta de almacenamiento de Azure, en un área de trabajo de Log Analytics para su consumo en registros de Azure Monitor, o en un centro de eventos para consumirlos mediante el centro de eventos. Puede configurar cualquier combinación de estas opciones, y los registros de auditoría se escribirán en cada una.
+
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la base de datos/servidor SQL.
-
-    <a id="auditing-screenshot"></a> ![Panel de navegación][1]
-
 3. Si prefiere configurar una directiva de auditoría de servidor, puede seleccionar el vínculo **Ver configuración del servidor** en la hoja de auditoría de base de datos. Después, puede ver o modificar la configuración de auditoría del servidor. Las directivas de auditoría de servidor se aplican a todas las bases de datos existentes y recién creadas en este servidor.
 
     ![Panel de navegación][2]
 
-4. Si prefiere habilitar la auditoría en el nivel de base de datos, cambie **Auditoría** a **Activado**.
-
-    Si está habilitada la auditoría del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría del servidor.
+4. Si prefiere habilitar la auditoría en el nivel de base de datos, cambie **Auditoría** a **Activado**. Si está habilitada la auditoría del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría del servidor.
 
     ![Panel de navegación][3]
 
-5. **Nuevo**: ahora tiene varias opciones para configurar dónde se escribirán los registros de auditoría. Puede escribir registros en una cuenta de almacenamiento de Azure, en un área de trabajo de Log Analytics para su consumo en registros de Azure Monitor, o en un centro de eventos para consumirlos mediante el centro de eventos. Puede configurar cualquier combinación de estas opciones, y los registros de auditoría se escribirán en cada una.
-  
-  > [!NOTE]
-   >Los clientes que quieran configurar un almacén de registros inmutable para los eventos de auditoría a nivel de servidor o de base de datos deben seguir las [instrucciones que proporciona Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes).
-  
-  > [!WARNING]
-   > La habilitación de la auditoría en Log Analytics incurrirá en costos en función de las tarifas de ingesta. Tenga en cuenta el costo asociado al uso de esta [opción](https://azure.microsoft.com/pricing/details/monitor/), o considere la posibilidad de almacenar los registros de auditoría en una cuenta de almacenamiento de Azure.
+### <a id="audit-storage-destination">Auditoría para el destino de almacenamiento</a>
 
-    ![opciones de almacenamiento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
-
-6. Para configurar la escritura de registros de auditoría en una cuenta de almacenamiento, seleccione **Almacenamiento** y abra **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. Se eliminarán los registros antiguos. A continuación, haga clic en **Aceptar**.
+Para configurar la escritura de registros de auditoría en una cuenta de almacenamiento, seleccione **Almacenamiento** y abra **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. A continuación, haga clic en **Aceptar**. Los registros anteriores al período de retención se eliminarán.
 
    > [!IMPORTANT]
    > - El valor predeterminado para el período de retención es 0 (retención ilimitada). Puede cambiar este valor moviendo el control deslizante **Retención (días)** de **Configuración de almacenamiento** al configurar la cuenta de almacenamiento para la auditoría.
    > - Si cambia el período de retención de 0 (retención ilimitada) a cualquier otro valor, tenga en cuenta que la retención solo se aplicará a los registros escritos una vez cambiado el valor de retención (los registros escritos durante el período en el que la retención se estableció en ilimitada se conservan, incluso después de habilitarse la retención)
 
-    ![Cuenta de almacenamiento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+   ![Cuenta de almacenamiento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Para configurar la escritura de registros de auditoría en un área de trabajo de Log Analytics, seleccione **Log Analytics (versión preliminar)** y abra **Detalles de Log Analytics**. Seleccione o cree el área de trabajo de Log Analytics donde se escribirán los registros y, luego, haga clic en **Aceptar**.
+Para configurar una cuenta de almacenamiento en un firewall o una red virtual, necesitará que un [administrador de Active Directory](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) en el servidor habilite la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la cuenta de almacenamiento. Además, debe tener el permiso "Microsoft.Authorization/roleAssignments/write" en la cuenta de almacenamiento seleccionada.
 
-    ![Área de trabajo de Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+Se recomienda que sea un [administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) para conceder a la identidad administrada el rol "colaborador de datos de Blob Storage". Para obtener más información sobre los permisos y el control de acceso basado en roles, consulte [¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?](../role-based-access-control/overview.md) y [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-8. Para configurar la escritura de registros de auditoría en un centro de eventos, seleccione **Centro de eventos (versión preliminar)** y abra **Detalles del centro de eventos**. Seleccione el centro de eventos donde se escribirán los registros y, luego, haga clic en **Aceptar**. Asegúrese de que el centro de eventos esté en la misma región que la base de datos y el servidor.
+### <a id="audit-log-analytics-destination">Auditoría en un destino de Log Analytics</a>
+  
+Para configurar la escritura de registros de auditoría en un área de trabajo de Log Analytics, seleccione **Log Analytics (versión preliminar)** y abra **Detalles de Log Analytics**. Seleccione o cree el área de trabajo de Log Analytics donde se escribirán los registros y, luego, haga clic en **Aceptar**.
 
-    ![Centro de eventos](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+   ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    
+  > [!WARNING]
+   > La habilitación de la auditoría en Log Analytics incurrirá en costos en función de las tarifas de ingesta. Tenga en cuenta el costo asociado al uso de esta [opción](https://azure.microsoft.com/pricing/details/monitor/), o considere la posibilidad de almacenar los registros de auditoría en una cuenta de almacenamiento de Azure.
 
-9. Haga clic en **Save**(Guardar).
-10. Si quiere personalizar los eventos auditados, puede hacerlo a través de los [cmdlets de PowerShell](#subheading-7) o de la [API de REST](#subheading-9).
-11. Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md).
+### <a id="audit-event-hub-destination">Auditoría en un destino del centro de eventos</a>
 
-> [!IMPORTANT]
-> No es posible habilitar la auditoría en una instancia de Azure SQL Data Warehouse en pausa. Para habilitarla, anule la pausa de Data Warehouse.
+Para configurar la escritura de registros de auditoría en un centro de eventos, seleccione **Centro de eventos (versión preliminar)** y abra **Detalles del centro de eventos**. Seleccione el centro de eventos donde se escribirán los registros y, luego, haga clic en **Aceptar**. Asegúrese de que el centro de eventos esté en la misma región que la base de datos y el servidor.
 
-> [!WARNING]
-> Si habilita la auditoría en un servidor que tiene una instancia de Azure SQL Data Warehouse, **hará que esta instancia se reanude y se vuelva a pausar**, lo que puede dar lugar a cargos de facturación.
+   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
 ## <a id="subheading-3"></a>Análisis de registros e informes de auditoría
 
@@ -171,7 +159,7 @@ Si eligió escribir los registros de auditoría en una cuenta de almacenamiento 
 
        ![Panel de navegación][8]
 
-- Use la función del sistema **sys.fn_get_audit_file** (T-SQL) para devolver los datos de registro de auditoría en formato tabular. Para más información sobre el uso de esta función, consulte [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Use la función del sistema **sys.fn_get_audit_file** (T-SQL) para devolver los datos de registro de auditoría en formato tabular. Para más información sobre el uso de esta función, consulte [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use **Combinar archivos de auditoría** en SQL Server Management Studio (a partir de SSMS 17):
     1. En el menú SSMS, seleccione **Archivo** > **Abrir** > **Combinar archivos de auditoría**.
@@ -226,6 +214,9 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 ## <a name="additional-information"></a>Información adicional
 
+- Si quiere personalizar los eventos auditados, puede hacerlo a través de los [cmdlets de PowerShell](#subheading-7) o de la [API de REST](#subheading-9).
+
+- Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md).
 - Para obtener más información sobre el formato de registro, la jerarquía de la carpeta de almacenamiento y las convenciones de nomenclatura, vea la [referencia del formato de registro de auditoría de blobs](https://go.microsoft.com/fwlink/?linkid=829599).
 
     > [!IMPORTANT]
@@ -233,7 +224,6 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 - Los registros de auditoría se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure:
   - **Premium Storage** actualmente **no es compatible** con Append Blobs.
-  - **El almacenamiento en VNet** actualmente **no se admite**.
 
 - La directiva de auditoría predeterminada incluye todas las acciones y el siguiente conjunto de grupos de acciones, que auditarán todas las consultas y almacenarán los procedimientos ejecutados en la base de datos, así como los inicios de sesión correctos y erróneos:
 
@@ -247,7 +237,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 - La auditoría de Azure SQL Database está optimizada para el rendimiento y la disponibilidad. Cuando Azure SQL Database tiene una actividad muy elevada, permite que las operaciones continúen y es posible que no grabe algunos eventos auditados.
 
-- Para configurar la auditoría inmutable en una cuenta de almacenamiento, consulte [Permitir escrituras de blobs en anexos protegidos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Tenga en cuenta que el nombre del contenedor para la auditoría es **sqldbauditlogs**.
+- Para configurar la auditoría inmutable en una cuenta de almacenamiento, consulte [Permitir escrituras de blobs en anexos protegidos](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes). Tenga en cuenta que el nombre del contenedor para la auditoría es **sqldbauditlogs**.
 
     > [!IMPORTANT]
     > Actualmente, la configuración para permitir escrituras de blobs en anexos protegidos en la retención de duración definida solo es visible y está disponible en las regiones siguientes:
@@ -260,12 +250,12 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 **Cmdlets de PowerShell (incluye compatibilidad con la cláusula WHERE para filtrado adicional)** :
 
-- [Crear o actualizar la directiva de auditoría de base de datos (Set-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
-- [Crear o actualizar la directiva de auditoría de servidor (Set-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
-- [Obtener la directiva de auditoría de base de datos (Get-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
-- [Obtener la directiva de auditoría de servidor (Get-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
-- [Quitar la directiva de auditoría de base de datos (Remove-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
-- [Quitar la directiva de auditoría de servidor (Remove-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
+- [Crear o actualizar la directiva de auditoría de base de datos (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Crear o actualizar la directiva de auditoría de servidor (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+- [Obtener la directiva de auditoría de base de datos (Get-AzSqlDatabaseAudit)](/powershell/module/az.sql/get-azsqldatabaseaudit)
+- [Obtener la directiva de auditoría de servidor (Get-AzSqlServerAudit)](/powershell/module/az.sql/get-azsqlserveraudit)
+- [Quitar la directiva de auditoría de base de datos (Remove-AzSqlDatabaseAudit)](/powershell/module/az.sql/remove-azsqldatabaseaudit)
+- [Quitar la directiva de auditoría de servidor (Remove-AzSqlServerAudit)](/powershell/module/az.sql/remove-azsqlserveraudit)
 
 Para ver un script de ejemplo, consulte [Configuración de la auditoría y detección de amenazas mediante PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -273,21 +263,21 @@ Para ver un script de ejemplo, consulte [Configuración de la auditoría y detec
 
 **API REST**:
 
-- [Create or Update Database Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate) (Creación o actualización de la directiva de auditoría de la base de datos)
-- [Create or Update Server Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate) (Creación o actualización de la directiva de auditoría del servidor)
-- [Get Database Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get) (Obtención de la directiva de auditoría de la base de datos)
-- [Get Server Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get) (Obtención de la directiva de auditoría del servidor)
+- [Create or Update Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/createorupdate) (Creación o actualización de la directiva de auditoría de la base de datos)
+- [Create or Update Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate) (Creación o actualización de la directiva de auditoría del servidor)
+- [Get Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/get) (Obtención de la directiva de auditoría de la base de datos)
+- [Get Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/get) (Obtención de la directiva de auditoría del servidor)
 
 Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 
-- [Crear o actualizar la directiva de auditoría de base de datos *extendida*](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Crear o actualizar la directiva de auditoría de servidor *extendida*](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Obtener la directiva de auditoría de base de datos *extendida*](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Obtener la directiva de auditoría de servidor *extendida*](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Crear o actualizar la directiva de auditoría de base de datos *extendida*](/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Crear o actualizar la directiva de auditoría de servidor *extendida*](/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Obtener la directiva de auditoría de base de datos *extendida*](/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Obtener la directiva de auditoría de servidor *extendida*](/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-9"></a>Administración de auditorías de Azure SQL Server y Database mediante plantillas de Azure Resource Manager
 
-Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), tal como se muestra en estos ejemplos:
+Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azure Resource Manager](../azure-resource-manager/management/overview.md), tal como se muestra en estos ejemplos:
 
 - [Implementar un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en la cuenta de Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
@@ -316,4 +306,4 @@ Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azur
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
+[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 

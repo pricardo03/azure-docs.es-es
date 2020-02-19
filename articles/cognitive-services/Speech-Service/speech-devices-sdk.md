@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 7f6793cab3d2d7cc54252bae3a7393f836256bdd
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 854e7beb2afd8ae838455f77ff448f13d8b3fbea
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815530"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188973"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Introducción a Speech Devices SDK
 
@@ -27,27 +27,29 @@ El SDK de dispositivos de voz puede ayudarle a:
 - Integrar más fácilmente el servicio de voz basado en la nube en el dispositivo.
 - Crear una experiencia de usuario excepcional para sus clientes.
 
-El SDK de dispositivos de voz consume el [SDK de voz](speech-sdk.md). Usa el SDK de voz para enviar el audio que procesa nuestro algoritmo de procesamiento avanzado de audio desde la matriz del micrófono del dispositivo al [servicio de voz](overview.md). Usa audio multicanal para proporcionar un [reconocimiento de voz](speech-to-text.md) de campo lejano más preciso mediante la supresión de ruido, la cancelación del eco, la formación de haces y la eliminación de la reverberación.
+El SDK de dispositivos de voz consume el [SDK de voz](speech-sdk.md). Uso de nuestros algoritmos avanzados de procesamiento de audio con la matriz del micrófono del dispositivo para enviar el audio al [servicio de voz](overview.md). Ofrece un [reconocimiento de voz](speech-to-text.md) de campo lejano preciso mediante la supresión de ruido, la cancelación del eco, la formación de haces y la eliminación de la reverberación.
 
-También puede usar el SDK de dispositivos de voz para compilar dispositivos ambientales que tienen su propia [palabra clave personalizada](speech-devices-sdk-create-kws.md), de modo que la indicación que inicia la interacción del usuario sea única para su marca.
+También puede usar el SDK de dispositivos de voz para crear dispositivos de ambiente que tengan su propia [palabra clave personalizada](speech-devices-sdk-create-kws.md). Una palabra clave personalizada proporciona una indicación de inicio de una interacción del usuario única para su marca.
 
-El SDK de dispositivos de voz facilita diversos escenarios habilitados para voz, como [asistentes de voz](https://aka.ms/bots/speech/va), sistemas de pedidos de comida para llevar, [transcripción de conversaciones](conversation-transcription-service.md) y altavoces inteligentes. Puede responder a los usuarios con texto, hablarles con una voz predeterminada o [personalizada](how-to-customize-voice-font.md), proporcionar resultados de búsqueda, [traducir](speech-translation.md) a otros idiomas y mucho más. Estamos deseando ver lo que ha compilado.
+El SDK de dispositivos de voz permite diversos escenarios habilitados para voz, como [asistentes de voz](https://aka.ms/bots/speech/va), sistemas de pedidos de comida para llevar, [transcripción de conversaciones](conversation-transcription-service.md) y altavoces inteligentes. Puede responder a los usuarios con texto, hablarles con una voz predeterminada o [personalizada](how-to-customize-voice-font.md), proporcionar resultados de búsqueda, [traducir](speech-translation.md) a otros idiomas y mucho más. Estamos deseando ver lo que ha compilado.
 
 ## <a name="get-the-speech-devices-sdk"></a>Obtener el SDK de dispositivos de voz
 
 ### <a name="android"></a>Android
 
-En el caso los dispositivos Android, descargue la versión más reciente del [SDK para dispositivos de voz de Android](https://aka.ms/sdsdk-download-android).
+Para los dispositivos Android, descargue la versión más reciente del [SDK para dispositivos de voz de Android](https://aka.ms/sdsdk-download-android).
 
 ### <a name="windows"></a>Windows
 
-En el caso de Windows, la aplicación de ejemplo que se proporciona es una aplicación de Java multiplataforma. Descargue la última versión del [SDK para dispositivos de voz de JRE](https://aka.ms/sdsdk-download-JRE).
+En el caso de Windows, la aplicación de ejemplo se proporciona como aplicación Java multiplataforma. Descargue la última versión del [SDK para dispositivos de voz de JRE](https://aka.ms/sdsdk-download-JRE).
 La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo integrado de Java de Eclipse (v4) en Windows de 64 bits. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
 ### <a name="linux"></a>Linux
 
-En el caso de Linux, la aplicación de ejemplo que se proporciona es una aplicación de Java multiplataforma. Descargue la última versión del [SDK para dispositivos de voz de JRE](https://aka.ms/sdsdk-download-JRE).
+En el caso de Linux, la aplicación de ejemplo se proporciona como aplicación Java multiplataforma. Descargue la última versión del [SDK para dispositivos de voz de JRE](https://aka.ms/sdsdk-download-JRE).
 La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo integrado de Java de Eclipse (v4) en Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04 y Debian 9). Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
+
+Se proporcionan archivos binarios adicionales para ofrecer compatibilidad con dispositivos venideros: [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2)y [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: ace08d95e1f2eb5a6e7252ecdf505e282b04ddf8
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7daa2da76bf3097679a72bfdef069db20ae66087
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837362"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161739"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -58,7 +58,8 @@ Las VM de generación 2 admiten las siguientes imágenes de Marketplace:
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.0
+* RHEL 8.0, 7.6, 7.5, 7.4, 7.0
+* Cent OS 8.0
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Máquinas virtuales locales frente a VM de generación 2 de Azure
 
@@ -102,16 +103,17 @@ En Azure Portal o la CLI de Azure, puede crear VM de generación 2 a partir de u
 
 #### <a name="azure-portal"></a>Portal de Azure
 
-Las imágenes de la generación 2 para Windows y SLES se incluyen en la misma oferta de servidor que las imágenes de Generación 1. Lo que eso significa desde una perspectiva de flujo, es que selecciona la oferta y el SKU del portal para la máquina virtual. Si la SKU admite tanto imágenes de la generación 1 como de la generación 2, puede optar por crear una máquina virtual de la generación 2 desde la pestaña *Avanzado* en el flujo de creación de la máquina virtual.
+A continuación se indican los pasos para crear una máquina virtual de segunda generación (Gen2) en Azure Portal.
 
-Actualmente, las SKU siguientes admiten imágenes de la generación 1 y de la generación 2:
-
-* Windows Server 2012
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows Server 2019
-
-Al seleccionar una SKU de Windows Server como oferta, en la pestaña **Avanzado**, hay una opción para crear una máquina virtual **Generación 1** (BIOS) o **Generación 2** (UEFI). Si selecciona **Gen 2**, asegúrese de que el tamaño de la máquina virtual seleccionado en la pestaña **Datos básicos**[se admite para máquinas virtuales de la generación 2](#generation-2-vm-sizes).
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
+1. Seleccione **Crear un recurso**.
+1. Haga clic en **Ver todo** junto a Azure Marketplace, en el lado izquierdo.
+1. Seleccione una imagen que sea compatible con Gen2.
+1. Haga clic en **Crear**.
+1. En la pestaña **Avanzado**, en la sección **Generación de VM**, seleccione la opción **Gen 2**.
+1. En la pestaña **Datos básicos**, en **Detalles de instancia**, vaya a **Tamaño** y abra la hoja **Seleccionar un tamaño de máquina virtual**.
+1. Seleccione una [máquina virtual compatible con la generación 2](#generation-2-vm-sizes).
+1. Realice el [flujo de creación de Azure Portal](quick-create-portal.md) para terminar de crear la máquina virtual.
 
 ![Selección de la máquina virtual Generación 1 o Generación 2](./media/generation-2/gen1-gen2-select.png)
 
@@ -195,6 +197,13 @@ También puede crear VM de generación 2 usando conjuntos de escalado de VM. En 
 
 * **¿Puedo migrar una VM de generación 1 a la generación 2?**  
     No, no se puede cambiar la generación de una VM después de crearla. Si tiene que cambiar entre varias generaciones de VM, cree una nueva máquina virtual de otra generación.
+
+* **¿Por qué el tamaño de la máquina virtual no está habilitado en el selector de tamaño cuando intento crear una máquina virtual de Gen2?**
+
+    Para solucionarlo, haga lo siguiente:
+
+    1. Compruebe que la propiedad **Generación de VM** está establecida en **Gen 2** en la pestaña **Avanzado**.
+    1. Compruebe que está buscando un [tamaño de máquina virtual compatible con máquinas virtuales de Gen2](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

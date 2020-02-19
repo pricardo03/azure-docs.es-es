@@ -6,18 +6,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/22/2018
-ms.openlocfilehash: 05d849aa0edf5892e568c4078ca619490cfcd98e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2019
+ms.openlocfilehash: e5d707200d1e1eab9becbb30181649525f3a5a7b
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363207"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166477"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creación de vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!IMPORTANT]
+> Las vistas de Azure Monitor se están retirando paulatinamente y están siendo reemplazadas por [libros](workbooks-overview.md), que proporcionan funcionalidad adicional. Consulte [guía de transición del diseñador de vistas de Azure Monitor a libros](view-designer-conversion-overview.md) para obtener más información sobre cómo convertir las vistas existentes en libros.
 
 Para más información acerca del Diseñador de vistas, consulte:
 

@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7ef868f156ac537cb066f293872f69135c4df25f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793488"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059662"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Cognitive Search
 
@@ -56,7 +56,7 @@ Azure Cognitive Search no almacena ningún dato aparte de los objetos que admini
 
 En la tabla siguiente se comparan las opciones para almacenar registros, agregar supervisión exhaustiva de las operaciones de servicio y consultar las cargas de trabajo mediante Application Insights.
 
-| Resource | Usado para |
+| Resource | Se usa para |
 |----------|----------|
 | [Registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados y métricas de consulta, según los esquemas siguientes. Los eventos se registran en un área de trabajo de Log Analytics. Puede ejecutar consultas en un área de trabajo para devolver información detallada del registro. Para más información, consulte [Introducción a los registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados y métricas de consulta, según los esquemas siguientes. Los eventos se registran en un contenedor de blobs y se almacenan en archivos JSON. Use un editor de JSON para ver el contenido del archivo.|
@@ -76,19 +76,21 @@ En esta sección, aprenderá a usar Blob Storage para almacenar datos de métric
 
    La cuenta de almacenamiento debe existir en la misma región que Azure Cognitive Search.
 
-2. Abra la página de información general del servicio de búsqueda. En el panel de navegación izquierdo, desplácese a **Monitoring** (Supervisión) y haga clic en **Enable Monitoring** (Habilitar supervisión).
+2. Abra la página de información general del servicio de búsqueda. En el panel de navegación izquierdo, desplácese a **Supervisión** y haga clic en **Configuración de diagnóstico**.
 
-   ![Habilitar supervisión](./media/search-monitor-usage/enable-monitoring.png "Habilitar supervisión")
+   ![Configuración de diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Configuración de diagnóstico")
 
-3. Elija los datos que quiere exportar: registros, métricas o ambos. Puede copiarlos en una cuenta de almacenamiento, enviarlos a un centro de eventos o exportarlo a los registros de Azure Monitor.
+3. Seleccione **Agregar configuración de diagnóstico**.
+
+4. Elija los datos que quiere exportar: registros, métricas o ambos. Puede copiarlos en una cuenta de almacenamiento, enviarlos a un centro de eventos o exportarlo a los registros de Azure Monitor.
 
    Para el archivado en Blob Storage, solo debe existir la cuenta de almacenamiento. Los contenedores y blobs se crearán a medida que sean necesarios cuando se exporten los datos de registro.
 
    ![Configurar archivo de Blob Storage](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurar archivo de Blob Storage")
 
-4. Guarde el perfil.
+5. Guarde el perfil.
 
-5. Para probar el registro, cree o elimine objetos (se crean eventos de registro) y envíe consultas (se generan métricas). 
+6. Para probar el registro, cree o elimine objetos (se crean eventos de registro) y envíe consultas (se generan métricas). 
 
 El registro se habilita después de guardar el perfil. Los contenedores solo se crean cuando hay una actividad para registrar o medir. Cuando los datos se copian en una cuenta de almacenamiento, adoptan el formato JSON y se colocan en dos contenedores:
 
@@ -108,7 +110,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>Esquema de registro
 Los blobs que contienen los registros de tráfico del servicio de búsqueda se estructuran como se describe en esta sección. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro. Cada blob contiene registros de todas las operaciones que tuvieron lugar durante la misma hora.
 
-| NOMBRE | type | Ejemplo | Notas |
+| Nombre | Tipo | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
@@ -122,9 +124,9 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 **Esquema de propiedades**
 
-| NOMBRE | type | Ejemplo | Notas |
+| Nombre | Tipo | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| DESCRIPCIÓN |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
+| Descripción |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
 | Consultar |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Los parámetros de consulta |
 | Documentos |int |42 |Número de documentos procesados |
 | IndexName |string |"testindex" |Nombre del índice asociado a la operación |
@@ -133,11 +135,11 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 Se capturan las métricas de solicitudes de consulta.
 
-| NOMBRE | type | Ejemplo | Notas |
+| Nombre | Tipo | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |
-| Twitter en tiempo |datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
 | average |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | minimum |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | maximum |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |
@@ -169,7 +171,7 @@ La API REST de Azure Cognitive Search y .NET SDK proporcionan acceso mediante pr
 
 * [Get Services Statistics](/rest/api/searchservice/get-service-statistics) (Obtención de estadísticas de servicios)
 * [Obtención de estadísticas de índice](/rest/api/searchservice/get-index-statistics)
-* [Recuento de documentos](/rest/api/searchservice/count-documents)
+* [Documentos de recuento](/rest/api/searchservice/count-documents)
 * [Obtención del estado del indizador](/rest/api/searchservice/get-indexer-status)
 
 Para habilitar el uso de PowerShell o la CLI de Azure, consulte la documentación [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).

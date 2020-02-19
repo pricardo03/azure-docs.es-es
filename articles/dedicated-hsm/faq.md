@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/8/2019
+ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 338977c236ebb8f1b800eb6c28747a010e708300
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 947dc6eb8060d2d229ee7984f719cb837e638490
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244207"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045924"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -66,14 +66,18 @@ El servicio Azure Dedicated HSM usa dispositivos SafeNet Luna Network HSM 7 (mod
 
 Desde finales de marzo de 2019, Dedicated HSM está disponible en las 14 regiones que se indican a continuación. Además, está prevista la inclusión de más regiones. Si le interesan otras, coménteselo a su representante de cuenta Microsoft.
 
-* East US
+* Este de EE. UU.
 * Este de EE. UU. 2
 * Oeste de EE. UU.
-* Centro-Sur de EE. UU
-* Sudeste asiático
-* Asia oriental
-* Europa del Norte
-* Europa occidental
+* Centro-sur de EE. UU.
+* Sudeste de Asia
+* Este de Asia
+* India central
+* Sur de India
+* Japón Oriental
+* Japón Occidental
+* Norte de Europa
+* Oeste de Europa
 * Sur de Reino Unido 2
 * Oeste de Reino Unido
 * Centro de Canadá
@@ -199,7 +203,7 @@ No.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>P: ¿Cuántos módulos HSM puedo agregar a la misma configuración de alta disponibilidad desde una sola aplicación?
 
-Se ha sometido a prueba a 16 miembros de un grupo de alta disponibilidad a pleno rendimiento y se han obtenido excelentes resultados.
+Se han sometido a prueba 16 miembros de un grupo de alta disponibilidad a pleno rendimiento y se han obtenido excelentes resultados.
 
 ## <a name="support"></a>Soporte técnico
 
@@ -233,7 +237,7 @@ Microsoft no puede conectarse a los módulos HSM asignados a los clientes. Los c
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>P: ¿Qué ocurre si necesito reiniciar mi HSM?
 
-HSM tiene una opción de reinicio de la línea de comandos, pero se están experimentando problemas de falta de respuesta de forma intermitente. Por este motivo, para un reinicio seguro, se recomienda que presente una solicitud de soporte técnico a Microsoft para que el dispositivo se reinicie físicamente. 
+HSM tiene una opción de reinicio de línea de comandos, pero se están experimentando problemas de falta de respuesta de forma intermitente. Por este motivo, para un reinicio seguro, se recomienda que presente una solicitud de soporte técnico a Microsoft para que el dispositivo se reinicie físicamente. 
 
 ## <a name="cryptography-and-standards"></a>Criptografía y estándares
 

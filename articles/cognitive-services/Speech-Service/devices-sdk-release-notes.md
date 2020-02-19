@@ -8,23 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 4d5d3cc6159a4601f0a398e87b89eea9b8d3aba6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c12aaea1dbc99a3f6db064e03b4b49e569f15194
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446956"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189060"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de la versión: SDK de dispositivos de voz
 
 En las siguientes secciones se indican los cambios en las versiones más recientes.
 
+## <a name="speech-devices-sdk-190"></a>SDK de dispositivos de voz 1.9.0:
+
+- Se proporcionan archivos binarios iniciales para [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter) (Linux ARM64).
+- Ahora, Roobo v1 utiliza Maven para Speech SDK
+- Se ha actualizado el componente [SDK de Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.9.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+
 ## <a name="speech-devices-sdk-170"></a>SDK de dispositivos de voz 1.7.0:
 
 - Ahora se admite Linux ARM.
-- Se proporcionan archivos binarios iniciales para Roobo v2 (Linux ARM64).
+- Se proporcionan archivos binarios iniciales para [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) (Linux ARM64).
 - Los usuarios de Windows pueden usar `AudioConfig.fromDefaultMicrophoneInput()` o `AudioConfig.fromMicrophoneInput(deviceName)` para especificar el micrófono que se utilizará.
 - Se ha optimizado el tamaño de la biblioteca.
 - Compatibilidad con el reconocimiento de múltiples turnos mediante el mismo objeto reconocedor de voz/intención.

@@ -17,12 +17,12 @@ ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c6ed72e5c94191411572c6ab67533141e2fe47d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758757"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185817"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación 
 
@@ -42,7 +42,7 @@ El sistema de autenticación altera y agrega características constantemente par
 
 No hay ninguno programado en este momento.  Consulte a continuación los cambios que están o estarán próximamente en producción. 
 
-## <a name="february-2020"></a>Febrero de 2020: 
+## <a name="february-2020"></a>Febrero de 2020 
 
 ### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Los fragmentos vacíos se anexarán a cada redirección HTTP desde el punto de conexión de inicio de sesión. 
 
@@ -156,7 +156,7 @@ A partir del 15 de noviembre de 2018, Azure AD dejará de aceptar los códigos d
 
 Si la aplicación reutiliza códigos de autorización para obtener tokens para varios recursos, es recomendable que use el código para obtener un token de actualización y, a continuación, utilice este para adquirir tokens adicionales para otros recursos. Los códigos de autorización solo se pueden usar una vez, pero los tokens de actualización se pueden usar varias veces en varios recursos. Cualquier nueva aplicación que intente reutilizar un código de autenticación durante el flujo de código de OAuth obtendrá el error invalid_grant.
 
-Para más información acerca de los tokens de actualización, consulte [Actualización de los tokens de acceso](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  Si usa ADAL o MSAL, la biblioteca lo controla automáticamente. Sustituya la segunda instancia de 'AcquireTokenByAuthorizationCodeAsync' por 'AcquireTokenSilentAsync'. 
+Para más información acerca de los tokens de actualización, consulte [Actualización de los tokens de acceso](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Si usa ADAL o MSAL, la biblioteca lo controla automáticamente. Sustituya la segunda instancia de 'AcquireTokenByAuthorizationCodeAsync' por 'AcquireTokenSilentAsync'. 
 
 ## <a name="may-2018"></a>Mayo de 2018
 
@@ -166,7 +166,7 @@ Para más información acerca de los tokens de actualización, consulte [Actuali
 
 **Puntos de conexión afectados**: v1.0 y v2.0
 
-**Protocolos afectados**: flujo implícito y [flujo OBO](v1-oauth2-on-behalf-of-flow.md)
+**Protocolos afectados**: flujo implícito y [flujo con derechos delegados](v2-oauth2-on-behalf-of-flow.md)
 
 A partir del 1 de mayo de 2018, id_tokens no se puede utilizar como instrucción de aserción en un flujo de OBO en las aplicaciones nuevas. En su lugar deben usarse tokens de acceso para proteger las API, incluso entre un cliente y el nivel intermedio de la misma aplicación. Las aplicaciones registradas antes del 1 de mayo de 2018 seguirán funcionando y podrán intercambiar id_tokens por un token de acceso (pero tenga en cuenta que este patrón no se considera un procedimiento recomendado).
 

@@ -2,13 +2,13 @@
 title: Configuración de clústeres de Red Hat OpenShift en Azure con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede configurar la supervisión de un clúster de Kubernetes con Azure Monitor hospedado en Red Hat OpenShift en Azure.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 0d5ed362d6eb76e2fa04b88e9e45c890118a53eb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/12/2020
+ms.openlocfilehash: 215835c04a1877ccdb6454c4c3902332b9dc1ab2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979790"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190071"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configuración de clústeres de Red Hat OpenShift en Azure con Azure Monitor para contenedores
 
@@ -20,8 +20,8 @@ Azure Monitor para contenedores proporciona una experiencia de supervisión enri
 
 Azure Monitor para contenedores puede habilitarse para implementaciones de Red Hat OpenShift en Azure nuevas, o en una o más implementaciones ya existentes, mediante los siguientes métodos admitidos:
 
-- En el caso de un clúster ya existente desde Azure Portal o mediante una plantilla de Azure Resource Manager
-- En el caso de un nuevo clúster mediante una plantilla de Azure Resource Manager
+- En el caso de un clúster existente desde Azure Portal o mediante una plantilla de Azure Resource Manager.
+- En el caso de un clúster nuevo mediante una plantilla de Azure Resource Manager, o al crear un nuevo clúster mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Características admitidas y no admitidas
 
@@ -30,7 +30,7 @@ Azure Monitor para contenedores admite la supervisión de Red Hat OpenShift en A
 - Datos en directo (versión preliminar)
 - [Recopilación de métricas](container-insights-update-metrics.md) de nodos y pods de clúster, y almacenamiento de estos en la base de datos de métricas de Azure Monitor
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Para habilitar y acceder a las características de Azure Monitor para contenedores debe ser miembro, como mínimo, del rol *Colaborador* de la suscripción de Azure y miembro del rol [*Colaborador de Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) del área de trabajo de Log Analytics configurada con Azure Monitor para contenedores.
 

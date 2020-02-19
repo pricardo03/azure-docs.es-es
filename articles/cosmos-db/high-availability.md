@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: daa98d703a115e663032639d78f51b26ed1c7ba3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441868"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083020"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 
@@ -79,15 +79,15 @@ Esta característica está disponible en las siguientes regiones de Azure:
 
 - Sur de Reino Unido 2
 
-- Sudeste asiático
+- Sudeste de Asia
 
-- East US
+- Este de EE. UU.
 
 - Este de EE. UU. 2
 
 - Centro de EE. UU.
 
-- Europa occidental
+- Oeste de Europa
 
 - Oeste de EE. UU. 2
 
@@ -105,7 +105,7 @@ En la tabla siguiente se resume la funcionalidad de alta disponibilidad de varia
 |Errores de zona: disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad |
 |Latencia de lectura | Entre regiones | Entre regiones | Bajo |
 |Latencia de escritura | Entre regiones | Entre regiones | Bajo |
-|Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Pérdida de datos <br/><br/> Al usar la coherencia de obsolescencia limitada con la arquitectura multimaestro y más de una región, la pérdida de datos se limita a la obsolescencia limitada configurada en su cuenta. <br/><br/> Se puede evitar la pérdida de datos durante una interrupción regional si se configura la coherencia fuerte con varias regiones. Esta opción conlleva ciertos inconvenientes que afectan al rendimiento y la disponibilidad.      |
+|Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Pérdida de datos <br/><br/> Al usar la coherencia de obsolescencia limitada con la arquitectura multimaestro y más de una región, la pérdida de datos se limita a la obsolescencia limitada configurada en su cuenta. <br /><br />Puede evitar la pérdida de datos durante una interrupción regional configurando una coherencia alta con varias regiones. Esta opción conlleva ciertos inconvenientes que afectan al rendimiento y la disponibilidad. Solo se puede configurar en cuentas que estén configuradas para escrituras de una sola región. |
 |Interrupción regional: disponibilidad | Pérdida de disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad |
 |Throughput | X RU/s de rendimiento aprovisionado | X RU/s de rendimiento aprovisionado | 2X RU/s de rendimiento aprovisionado <br/><br/> Este modo de configuración requiere dos veces la cantidad de rendimiento en comparación con una sola región con Availability Zones porque hay dos regiones. |
 

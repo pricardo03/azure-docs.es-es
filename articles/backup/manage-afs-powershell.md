@@ -3,16 +3,19 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Obtenga información sobre cómo usar PowerShell para administrar y supervisar los recursos compartidos de archivos de Azure de los que el servicio Azure Backup ha realizado una copia de seguridad.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 9004e16c4b7c6ee704460d744612bafcd32831b9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a9dc421db740963fc5cd11e868eb383694376ce1
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776109"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083163"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con PowerShell
 
 En este artículo se describe el uso de Azure PowerShell para administrar y supervisar los recursos compartidos de archivos de Azure que tienen una copia de seguridad del servicio Azure Backup.
+
+> [!WARNING]
+> Asegúrese de que la versión de PS se actualice a la versión mínima de "Az.RecoveryServices 2.6.0" para las copias de seguridad de AFS. Para obtener más información, consulte [la sección](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) que describe el requisito de este cambio.
 
 ## <a name="modify-the-protection-policy"></a>Modificación de la directiva de protección
 

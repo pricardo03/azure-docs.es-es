@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: f7d62487605c26a68e7c71b6d95d7814da0a07c9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776101"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049665"
 ---
 # <a name="linux-support"></a>Compatibilidad de Linux
 
@@ -55,7 +55,7 @@ Antes de que pueda desarrollar un cliente Linux para Windows Virtual Desktop, de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede solicitar acceso al SDK de Linux en nuestro [foro Tech Community](https://go.microsoft.com/fwlink/?linkid=2116541).
+El SDK está actualmente en desarrollo. Este documento se actualizará con instrucciones para acceder al SDK cuando esté disponible.
 
 Consulte la documentación de los siguientes clientes:
 

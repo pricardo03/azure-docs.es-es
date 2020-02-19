@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 179bb5c9d718a556b829af8f860cb284597835aa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 34f102b43de669b5ea03324db47ac4dfcb554133
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821887"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190755"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático en Azure SQL Database
 
@@ -67,8 +67,8 @@ Las opciones de ajuste automático disponibles en Azure SQL Database son:
 
 | Opción de ajuste automático | Compatibilidad con bases de datos únicas y bases de datos agrupadas | Compatibilidad de base de datos de instancia |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX**: identifica los índices que pueden mejorar el rendimiento de la carga de trabajo, crea índices y comprueba automáticamente que el rendimiento de las consultas ha mejorado. | Sí | Sin | 
-| **DROP INDEX**: identifica diariamente los índices duplicados y redundantes, excepto los índices únicos, y aquellos que no se han usado durante mucho tiempo (más de 90 días). Tenga en cuenta que esta opción no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones. No se admite la eliminación de índices sin usar para los niveles de servicio Prémium y Crítico para la empresa. | Sí | Sin |
+| **CREATE INDEX**: identifica los índices que pueden mejorar el rendimiento de la carga de trabajo, crea índices y comprueba automáticamente que el rendimiento de las consultas ha mejorado. | Sí | No | 
+| **DROP INDEX**: identifica diariamente los índices duplicados y redundantes, excepto los índices únicos, y aquellos que no se han usado durante mucho tiempo (más de 90 días). Tenga en cuenta que esta opción no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones. No se admite la eliminación de índices sin usar para los niveles de servicio Prémium y Crítico para la empresa. | Sí | No |
 | **FORCE LAST GOOD PLAN** (corrección automática del plan): identifica consultas SQL que usan un plan de ejecución más lento que el plan correcto anterior, y consultas que usan el último plan correcto conocido, en lugar del plan revertido. | Sí | Sí |
 
 El ajuste automático identifica las recomendaciones de **CREATE INDEX**, **DROP INDEX** y **FORCE LAST GOOD PLAN** que pueden optimizar el rendimiento de su base de datos, las muestra en [Azure Portal](sql-database-advisor-portal.md) y las expone a través de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) y [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Para obtener más información sobre FORCE LAST GOOD PLAN y sobre cómo configurar las opciones de ajuste automático a través de T-SQL, consulte el artículo sobre cómo el [ajuste automático introduce la corrección automática del plan](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
@@ -78,6 +78,13 @@ Puede aplicar manualmente las recomendaciones de ajuste mediante el portal, o bi
 En caso de que aplique las recomendaciones de ajuste mediante T-SQL, ni la validación automática del rendimiento ni los mecanismos de inversión estarán disponibles. Las recomendaciones aplicadas de este modo permanecerán activas y se mostrarán en la lista de recomendaciones de optimización durante 24-48 horas. antes de que el sistema las retire automáticamente. Si quiere quitar una recomendación antes, puede descartarla en Azure Portal.
 
 Las opciones de ajuste automático se pueden habilitar o deshabilitar en cada base de datos de forma independiente o pueden configurarse en servidores de SQL Database y aplicarse en todas las bases de datos que hereden la configuración del servidor. Los servidores de SQL Database pueden heredar valores predeterminados de Azure para realizar la configuración de optimización automática. Los valores predeterminados de Azure en este momento son FORCE_LAST_GOOD_PLAN (habilitado), CREATE_INDEX (habilitado) y DROP_INDEX (deshabilitado).
+
+> [!IMPORTANT]
+> A partir de marzo de 2020, los cambios en los valores predeterminados de Azure para el ajuste automático tendrán efecto de la manera siguiente:
+> - Los nuevos valores predeterminados de Azure serán FORCE_LAST_GOOD_PLAN = habilitado, CREATE_INDEX = deshabilitado y DROP_INDEX = deshabilitado.
+> - Los servidores existentes que no tengan preferencias de ajuste automático se configurarán automáticamente con los nuevos valores predeterminados de Azure. Esto se aplica a todos los clientes que tienen actualmente el ajuste automático en un estado indefinido.
+> - Los servidores creados se configurarán automáticamente con los nuevos valores predeterminados de Azure (a diferencia de antes en que la configuración de ajuste automático se encontraba en un estado indefinido tras la creación de un servidor).
+>
 
 El método recomendado para configurar el ajuste automático es configurar las opciones de ajuste automático en un servidor y utilizar la configuración heredada en las bases de datos que pertenecen al servidor primario. De ese modo, resulta más fácil administrar las opciones de ajuste automático en un gran número de bases de datos.
 

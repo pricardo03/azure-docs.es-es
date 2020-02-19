@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 046b2da7cdb966192e485ff9f5510eb63c9e0008
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263178"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086553"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Inicio rápido: Creación de un área de trabajo de Azure Databricks en su red virtual propia
 
 La implementación predeterminada de Azure Databricks crea una nueva red virtual administrada por Databricks. En este inicio rápido se muestra cómo crear un área de trabajo de Azure Databricks en una red virtual propia. También creará un clúster de Apache Spark dentro de esa área de trabajo. 
 
-Para más información sobre el razón por la que puede optar por crear un área de trabajo de Azure Databricks en su propia red virtual, consulte [Implementación de Azure Databricks en Azure Virtual Network (inyección de VNet)] (/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
+Para más información sobre el razón por la que puede optar por crear un área de trabajo de Azure Databricks en su propia red virtual, consulte [Implementación de Azure Databricks en Azure Virtual Network (inyección de VNet)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/databricks/).
 

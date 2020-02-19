@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: a106984bc60d0ccfe29a1956213aec6f87ad30dd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090171"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167026"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos de Windows: CMD y PowerShell
 
@@ -28,7 +28,7 @@ SAC se ha incluido en todas las versiones de Windows desde Windows Server 2003, 
 
 SAC le permite conectarse a su sistema operativo a través del puerto serie. Cuando se inicia CMD desde SAC, `sacsess.exe` inicia `cmd.exe` dentro del sistema operativo en ejecución. Esto se puede ver en Task Manager si se conecta mediante RDP a su máquina virtual al mismo tiempo que está conectado a SAC mediante la característica de la consola serie. El CMD al que se accede a través de SAC es el mismo `cmd.exe` que usa cuando se conecta mediante RDP. Están disponibles las mismas herramientas y comandos, incluida la posibilidad de iniciar PowerShell desde esa instancia de CMD. Hay una diferencia importante entre SAC y el Entorno de recuperación de Windows (WinRE) y es que SAC le permite administrar su sistema operativo en ejecución, mientras que WinRE se inicia en un sistema operativo mínimo diferente. Aunque las máquinas virtuales no admiten la posibilidad de acceder a WinRE, con la característica de la consola serie las máquinas virtuales de Azure se pueden administrar mediante SAC.
 
-Dado que SAC está limitado a un búfer de pantalla de 80 x 24 sin desplazamiento, agregue `| more` a los comandos para mostrar la salida en una página cada vez. Use `<spacebar>` para ver la página siguiente o `<enter>` para ver la línea siguiente.  
+Dado que SAC está limitado a un búfer de pantalla de 80 x 24 sin desplazamiento, agregue `| more` a los comandos para mostrar la salida en una página cada vez. Use `<spacebar>` para ver la página siguiente o `<enter>` para ver la línea siguiente.
 
 `SHIFT+INSERT` es el método abreviado de pegar de la ventana de la consola serie.
 
@@ -45,7 +45,7 @@ La segunda clave (en \Policies) solo existe si está configurada la opción de d
 ### <a name="enable-rdp"></a>Habilitar RDP
 `reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0`
 
-`reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0` 
+`reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0`
 
 La segunda clave (en \Policies) solo se necesitaría si se ha configurado la opción de directiva de grupo pertinente. El valor se volverá a escribir en la siguiente actualización de directiva de grupo si está configurado en la directiva de grupo.
 
@@ -55,12 +55,12 @@ La segunda clave (en \Policies) solo se necesitaría si se ha configurado la opc
 `sc query termservice`
 ###  <a name="view-service-logon-account"></a>Ver la cuenta de inicio de sesión del servicio
 `sc qc termservice`
-### <a name="set-service-logon-account"></a>Establecer la cuenta de inicio de sesión del servicio 
+### <a name="set-service-logon-account"></a>Establecer la cuenta de inicio de sesión del servicio
 `sc config termservice obj= "NT Authority\NetworkService"`
 
 Se requiere un espacio después del signo igual.
 ### <a name="set-service-start-type"></a>Establecer el tipo de inicio del servicio
-`sc config termservice start= demand` 
+`sc config termservice start= demand`
 
 Se requiere un espacio después del signo igual. Los valores de inicio posibles son `boot`, `system`, `auto`, `demand`, `disabled`, `delayed-auto`.
 ### <a name="set-service-dependencies"></a>Establecer las dependencias del servicio
@@ -70,22 +70,22 @@ Se requiere un espacio después del signo igual.
 ### <a name="start-service"></a>Iniciar el servicio
 `net start termservice`
 
-o
+or
 
 `sc start termservice`
 ### <a name="stop-service"></a>Detener el servicio
 `net stop termservice`
 
-o
+or
 
 `sc stop termservice`
 ## <a name="manage-networking-features"></a>Administración de las características de red
 ### <a name="show-nic-properties"></a>Mostrar las propiedades de NIC
-`netsh interface show interface` 
+`netsh interface show interface`
 ### <a name="show-ip-properties"></a>Mostrar las propiedades de IP
 `netsh interface ip show config`
 ### <a name="show-ipsec-configuration"></a>Mostrar la configuración de IPSec
-`netsh nap client show configuration`  
+`netsh nap client show configuration`
 ### <a name="enable-nic"></a>Habilitar NIC
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>Establecer NIC para usar DHCP
@@ -95,8 +95,8 @@ Para más información sobre `netsh`, [haga clic aquí](https://docs.microsoft.c
 
 Las máquinas virtuales de Azure se deben configurar siempre en el sistema operativo invitado para usar DHCP para obtener una dirección IP. La configuración de IP estática de Azure sigue usando DHCP para proporcionar la dirección IP estática a la máquina virtual.
 ### <a name="ping"></a>Ping
-`ping 8.8.8.8` 
-### <a name="port-ping"></a>Ping de puerto  
+`ping 8.8.8.8`
+### <a name="port-ping"></a>Ping de puerto
 Instalar al cliente de Telnet
 
 `dism /online /Enable-Feature /FeatureName:TelnetClient`
@@ -130,7 +130,7 @@ Puede usar este comando al solucionar problemas para excluir temporalmente el Fi
 
 El nombre de la cuenta de administrador local de las máquinas virtuales de Azure creadas a partir de la imagen generalizada tomará el especificado durante el aprovisionamiento de la máquina virtual. Así que normalmente no será `Administrator`.
 ### <a name="enable-user-account"></a>Habilitar la cuenta de usuario
-`net user <username> /active:yes`  
+`net user <username> /active:yes`
 ### <a name="view-user-account-properties"></a>Ver las propiedades de la cuenta de usuario
 `net user <username>`
 
@@ -191,15 +191,15 @@ Consulte también [Repair a Windows Image](https://docs.microsoft.com/windows-ha
 ### <a name="export-file-permissions-to-text-file"></a>Exportar los permisos de archivo a un archivo de texto
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 ### <a name="save-file-permissions-to-acl-file"></a>Guardar los permisos de archivo en el archivo ACL
-`icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /save %temp%\MachineKeys_permissions_before.aclfile /t`  
+`icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /save %temp%\MachineKeys_permissions_before.aclfile /t`
 ### <a name="restore-file-permissions-from-acl-file"></a>Restaurar los permisos de archivo del archivo ACL
 `icacls %programdata%\Microsoft\Crypto\RSA /save %temp%\MachineKeys_permissions_before.aclfile /t`
 
 La ruta de acceso al usar `/restore` debe ser la carpeta primaria de la carpeta que especificó al utilizar `/save`. En este ejemplo, `\RSA` es la carpeta primaria de la carpeta `\MachineKeys` especificada en el ejemplo anterior con `/save`.
 ### <a name="take-ntfs-ownership-of-a-folder"></a>Tomar la propiedad de NTFS de una carpeta
-`takeown /f %programdata%\Microsoft\Crypto\RSA\MachineKeys /a /r`  
+`takeown /f %programdata%\Microsoft\Crypto\RSA\MachineKeys /a /r`
 ### <a name="grant-ntfs-permissions-to-a-folder-recursively"></a>Conceder permisos NTFS a una carpeta de forma recursiva
-`icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"`  
+`icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"`
 ## <a name="manage-devices"></a>Administración de dispositivos
 ### <a name="remove-non-present-pnp-devices"></a>Quitar dispositivos Plug and Play no existentes
 `%windir%\System32\RUNDLL32.exe %windir%\System32\pnpclean.dll,RunDLL_PnpClean /Devices /Maxclean`
@@ -210,11 +210,11 @@ La ruta de acceso al usar `/restore` debe ser la carpeta primaria de la carpeta 
 ### <a name="show-os-version"></a>Mostrar la versión del sistema operativo
 `ver`
 
-o 
+or
 
 `wmic os get caption,version,buildnumber /format:list`
 
-o 
+or
 
 `systeminfo  find /i "os name"`
 
@@ -222,7 +222,7 @@ o
 ### <a name="view-os-install-date"></a>Ver la fecha de instalación del sistema operativo
 `systeminfo | find /i "original"`
 
-o 
+or
 
 `wmic os get installdate`
 ### <a name="view-last-boot-time"></a>Ver la hora del último arranque
@@ -230,7 +230,7 @@ o
 ### <a name="view-time-zone"></a>Ver la zona horaria
 `systeminfo | find /i "time zone"`
 
-o
+or
 
 `wmic timezone get caption,standardname /format:list`
 ### <a name="restart-windows"></a>Reiniciar Windows
@@ -238,7 +238,7 @@ o
 
 Al agregar `/f` se forzará a que las aplicaciones en ejecución se cierren sin avisar a los usuarios.
 ### <a name="detect-safe-mode-boot"></a>Detectar el modo de arranque seguro
-`bcdedit /enum | find /i "safeboot"` 
+`bcdedit /enum | find /i "safeboot"`
 
 ## <a name="windows-commands---powershell"></a>Comandos de Windows: PowerShell
 
@@ -249,7 +249,7 @@ Para ejecutar PowerShell en SAC, después de llegar a un símbolo del sistema CM
 > [!CAUTION]
 > Quite el módulo PSReadLine de la sesión de PowerShell antes de ejecutar otros comandos de PowerShell. Existe un problema conocido en el que se pueden introducir caracteres adicionales en el texto pegado desde el portapapeles si PSReadLine se ejecuta en una sesión de PowerShell en SAC.
 
-En primer lugar, compruebe si PSReadLine está cargado. Se carga de forma predeterminada en Windows Server 2016, Windows 10 y versiones posteriores de Windows. Solo existiría en versiones anteriores de Windows si se hubiera instalado manualmente. 
+En primer lugar, compruebe si PSReadLine está cargado. Se carga de forma predeterminada en Windows Server 2016, Windows 10 y versiones posteriores de Windows. Solo existiría en versiones anteriores de Windows si se hubiera instalado manualmente.
 
 Si este comando devuelve un símbolo del sistema sin ninguna salida, significa que el módulo no se ha cargado y puede seguir usando la sesión de PowerShell en SAC de la forma habitual.
 
@@ -295,7 +295,7 @@ Cuando se use una cuenta de servicio distinta de `NT AUTHORITY\LocalService`, `N
 ### <a name="show-nic-properties"></a>Mostrar las propiedades de NIC
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
-o 
+or
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
@@ -305,7 +305,7 @@ o
 ### <a name="enable-nic"></a>Habilitar NIC
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | enable-netadapter`
 
-o
+or
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
@@ -319,7 +319,10 @@ o
 ### <a name="ping"></a>Ping
 `test-netconnection`
 
-o
+> [!NOTE]
+> Es posible que el cmdlet Write-Progress no funcione con este comando. Como medida de mitigación, puede ejecutar el comando `$ProgressPreference = "SilentlyContinue"` en PowerShell para deshabilitar la barra de progreso.
+
+or
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
@@ -327,29 +330,29 @@ o
 ### <a name="port-ping"></a>Ping de puerto
 `test-netconnection -ComputerName bing.com -Port 80`
 
-o
+or
 
 `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
 `Test-NetConnection` está disponible en 2012+. Para 2008R2, use `Net.Sockets.TcpClient`.
 ### <a name="test-dns-name-resolution"></a>Probar la resolución de nombres DNS
-`resolve-dnsname bing.com` 
+`resolve-dnsname bing.com`
 
-o 
+or
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
 `Resolve-DnsName` está disponible en 2012+. Para 2008R2, use `System.Net.DNS`.
 ### <a name="show-windows-firewall-rule-by-name"></a>Mostrar la regla de Firewall de Windows por nombre
-`get-netfirewallrule -name RemoteDesktop-UserMode-In-TCP` 
+`get-netfirewallrule -name RemoteDesktop-UserMode-In-TCP`
 ### <a name="show-windows-firewall-rule-by-port"></a>Mostrar la regla de Firewall de Windows por puerto
 `get-netfirewallportfilter | where {$_.localport -eq 3389} | foreach {Get-NetFirewallRule -Name $_.InstanceId} | format-list Name,Enabled,Profile,Direction,Action`
 
-o
+or
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
-`Get-NetFirewallPortFilter` está disponible en 2012+. Para 2008R2, use el objeto COM `hnetcfg.fwpolicy2`. 
+`Get-NetFirewallPortFilter` está disponible en 2012+. Para 2008R2, use el objeto COM `hnetcfg.fwpolicy2`.
 ### <a name="disable-windows-firewall"></a>Deshabilitar el Firewall de Windows
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
@@ -360,7 +363,7 @@ o
 ### <a name="verify-user-account-is-enabled"></a>Comprobar que la cuenta de usuario está habilitada
 `(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled`
 
-o 
+or
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
@@ -368,19 +371,19 @@ o
 ### <a name="add-local-user-to-local-group"></a>Agregar un usuario local a un grupo local
 `add-localgroupmember -group Administrators -member <username>`
 ### <a name="enable-local-user-account"></a>Habilitar la cuenta de usuario local
-`get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | enable-localuser` 
+`get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | enable-localuser`
 
 En este ejemplo se habilita la cuenta de administrador local integrada, que siempre tiene el SID `S-1-5-21-*-500`. El nombre de la cuenta de administrador local de las máquinas virtuales de Azure creadas a partir de la imagen generalizada tomará el especificado durante el aprovisionamiento de la máquina virtual. Así que normalmente no será `Administrator`.
 ### <a name="view-user-account-properties"></a>Ver las propiedades de la cuenta de usuario
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
 
-o 
+or
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 
 `Get-LocalUser` está disponible en 2012+. Para 2008R2, use `Get-WmiObject`. En este ejemplo se muestra la cuenta de administrador local integrada, que siempre tiene el SID `S-1-5-21-*-500`.
 ### <a name="view-local-groups"></a>Ver los grupos locales
-`(get-localgroup).name | sort``(get-wmiobject win32_group).Name | sort`
+`(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
 `Get-LocalUser` está disponible en 2012+. Para 2008R2, use `Get-WmiObject`.
 ## <a name="manage-the-windows-event-log"></a>Administración del registro de eventos de Windows
@@ -414,7 +417,7 @@ En este ejemplo se devuelve la versión del archivo del controlador NIC virtual,
 En este ejemplo se crea una carpeta `c:\bin`, y luego se descarga y se extrae el conjunto de herramientas de Sysinternals en `c:\bin`.
 ## <a name="miscellaneous-tasks"></a>Herramientas varias
 ### <a name="show-os-version"></a>Mostrar la versión del sistema operativo
-`get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber` 
+`get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
 ### <a name="view-os-install-date"></a>Ver la fecha de instalación del sistema operativo
 `(get-wmiobject win32_operatingsystem).converttodatetime((get-wmiobject win32_operatingsystem).installdate)`
 ### <a name="view-last-boot-time"></a>Ver la hora del último arranque
@@ -422,7 +425,7 @@ En este ejemplo se crea una carpeta `c:\bin`, y luego se descarga y se extrae el
 ### <a name="view-windows-uptime"></a>Ver el tiempo de actividad de Windows
 `"{0:dd}:{0:hh}:{0:mm}:{0:ss}.{0:ff}" -f ((get-date)-(get-wmiobject win32_operatingsystem).converttodatetime((get-wmiobject win32_operatingsystem).lastbootuptime))`
 
-Devuelve el tiempo de actividad como `<days>:<hours>:<minutes>:<seconds>:<milliseconds>`, por ejemplo `49:16:48:00.00`. 
+Devuelve el tiempo de actividad como `<days>:<hours>:<minutes>:<seconds>:<milliseconds>`, por ejemplo `49:16:48:00.00`.
 ### <a name="restart-windows"></a>Reiniciar Windows
 `restart-computer`
 

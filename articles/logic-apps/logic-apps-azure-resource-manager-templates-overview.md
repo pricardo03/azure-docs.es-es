@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 486f90d82af729a3dbfd836239d2d19ebdf44819
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972695"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191421"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -145,10 +145,10 @@ En este ejemplo solo se muestran los parámetros de plantilla de los valores usa
 
 Excepto en el caso de los parámetros que controlan valores que son confidenciales o deben protegerse, como nombres de usuario, contraseñas y secretos, todos estos parámetros incluyen atributos `defaultValue`, aunque en algunos casos, los valores predeterminados son valores vacíos. Los valores de implementación que se usarán para estos parámetros de plantilla se proporcionan mediante el [archivo de parámetros](#template-parameter-files) de ejemplo que se describe más adelante en este tema.
 
-Para proteger los parámetros de plantilla, consulte estos temas:
+Para obtener más información sobre la protección de los parámetros de plantilla, vea estos temas:
 
 * [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters)
-* [Protección de parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+* [Mejora de la seguridad de los parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Otros objetos de plantilla a menudo hacen referencia a los parámetros de plantilla a fin de poder usar los valores que pasan a través de los parámetros de plantilla, por ejemplo:
@@ -171,7 +171,7 @@ Estos son algunos procedimientos recomendados para definir parámetros:
 
   * [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
-  * [Protección de parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+  * [Mejora de la seguridad de los parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
   * [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -188,7 +188,7 @@ Para proporcionar los valores de los parámetros de plantilla, almacénelos en u
 * Nombre de archivo de la plantilla de la aplicación lógica: **<*logic-app-name*>.json**
 * Nombre del archivo de parámetros: **<*logic-app-name*>.parameters.json**
 
-A continuación, le mostramos la estructura de dentro del archivo de parámetros, que incluye una referencia al almacén de claves para [pasar un valor de parámetro seguro con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
+Esta es la estructura del interior del archivo de parámetros, que incluye una referencia al almacén de claves para [pasar un valor de parámetro seguro con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
 ```json
 {
@@ -413,7 +413,7 @@ Para establecer el valor del parámetro de la definición de flujo de trabajo, u
 
 En esta plantilla de ejemplo, se muestra cómo puede completar estas tareas mediante la definición de parámetros seguros cuando sea necesario a fin de almacenar sus valores en Azure Key Vault:
 
-* Declare los parámetros seguros para los valores usados a fin de autenticar el acceso.
+* Declare parámetros seguros para los valores usados para autenticar el acceso.
 * Use estos valores en los niveles de definición de plantilla y flujo de trabajo.
 * Proporcione estos valores mediante un archivo de parámetros.
 

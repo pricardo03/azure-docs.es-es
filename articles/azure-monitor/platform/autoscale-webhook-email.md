@@ -4,12 +4,12 @@ description: Aprenda a usar las acciones de escalado automático para llamar a d
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: fd5aeadd72123b58801ce038b0cc99d17dcfd200
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364210"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120692"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor
 En este artículo se muestra cómo configurar desencadenadores para que pueda llamar a direcciones URL web específicas o enviar mensajes de correo electrónico en función de las acciones de escalado automático en Azure.  
@@ -20,8 +20,8 @@ Los Webhook permiten enrutar las notificaciones de alerta de Azure a otros siste
 ## <a name="email"></a>Email
 Se pueden enviar mensajes de correo electrónico a cualquier dirección de correo electrónico válida. También se enviará una notificación a los administradores y los coadministradores de la suscripción en la que se ejecuta la regla.
 
-## <a name="cloud-services-and-web-apps"></a>Cloud Services y Web Apps
-Puede participar desde Azure Portal en Cloud Services y granjas de servidores (aplicaciones web).
+## <a name="cloud-services-and-app-services"></a>Cloud Services y App Services
+Puede participar desde Azure Portal en Cloud Services y granjas de servidores (App Services).
 
 * Elija la **Escalar por** .
 

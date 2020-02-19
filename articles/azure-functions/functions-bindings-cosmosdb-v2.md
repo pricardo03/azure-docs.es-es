@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: da05dc7136a75d519660412f2ce176f7530eb392
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3ef2fdcaefeedb0769eac34d292e67a99524a6f2
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547445"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168076"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
@@ -41,7 +41,7 @@ Los enlaces de Azure Cosmos DB para la versión 2.x de Functions se proporcionan
 
 El desencadenador de Azure Cosmos DB utiliza la [fuente de cambios de Azure Cosmos DB](../cosmos-db/change-feed.md) para estar atento a las inserciones y actualizaciones de las particiones. La fuente de cambios publica inserciones y actualizaciones, no eliminaciones.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra un [función de C#](functions-dotnet-class-library.md) que se invoca cuando hay inserciones y actualizaciones en la base de datos y colección especificadas.
 
@@ -75,7 +75,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de Cosmos DB en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe mensajes de registro cuando se agregan o modifican los registros de Cosmos DB.
 
@@ -111,7 +111,7 @@ Este es el código de script de C#:
     }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de Cosmos DB en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe mensajes de registro cuando se agregan o modifican los registros de Cosmos DB.
 
@@ -140,7 +140,7 @@ Este es el código de JavaScript:
     }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra un enlace del desencadenador de Cosmos DB en un archivo *function.json* y una [función de Python](functions-reference-python.md) que usa dicho enlace. La función escribe mensajes de registro cuando se modifican los registros de Cosmos DB.
 
@@ -171,24 +171,9 @@ Este es el código de Python:
             logging.info('First document Id modified: %s', documents[0]['id'])
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de Cosmos DB en el archivo *function.json* y una [función de Java](functions-reference-java.md) que usa el enlace. La función se invoca cuando hay inserciones y actualizaciones en la base de datos y la colección especificadas.
-
-```json
-{
-    "type": "cosmosDBTrigger",
-    "name": "items",
-    "direction": "in",
-    "leaseCollectionName": "leases",
-    "connectionStringSetting": "AzureCosmosDBConnection",
-    "databaseName": "ToDoList",
-    "collectionName": "Items",
-    "createLeaseCollectionIfNotExists": false
-}
-```
-
-Este es el código de Java:
+Esta función se invoca cuando hay inserciones y actualizaciones en la base de datos y la colección especificadas.
 
 ```java
     @FunctionName("cosmosDBMonitor")
@@ -211,7 +196,7 @@ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overvi
 
 ## <a name="trigger---attributes-and-annotations"></a>Desencadenador: atributos y anotaciones
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs).
 
@@ -230,19 +215,19 @@ El constructor del atributo toma el nombre de la base de datos y el nombre de la
 
 Para obtener un ejemplo completo, consulte [Desencadenador](#trigger).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), utilice la anotación `@CosmosDBInput` en los parámetros que leen los datos de Cosmos DB.
 
@@ -293,7 +278,7 @@ El enlace de entrada de Azure Cosmos DB usa SQL API para recuperar uno o varios 
 > Si la colección tiene [particiones](../cosmos-db/partition-data.md#logical-partitions), las operaciones de búsqueda también tienen que especificar el valor de la clave de partición.
 >
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -622,7 +607,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -985,7 +970,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Esta sección contiene los siguientes ejemplos que leen un solo documento mediante la especificación de un valor de identificación desde varios orígenes:
 
@@ -1194,7 +1179,7 @@ Este es el código de JavaScript:
     };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Esta sección contiene los siguientes ejemplos que leen un solo documento mediante la especificación de un valor de identificación desde varios orígenes:
 
@@ -1401,7 +1386,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
         # operate on each document
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -1669,25 +1654,25 @@ public class DocsFromRouteSqlQuery {
 
 ## <a name="input---attributes-and-annotations"></a>Entrada: atributos y anotaciones
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs).
 
 El constructor del atributo toma el nombre de la base de datos y el nombre de la colección. Para información sobre esos valores y otras propiedades que puede configurar, consulte [la sección de configuración siguiente](#input---configuration).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), utilice la anotación `@CosmosDBOutput` en los parámetros que escriben en Cosmos DB. El tipo de parámetro de anotación debe ser `OutputBinding<T>`, donde `T` es un tipo nativo de Java o un POJO.
 
@@ -1713,23 +1698,23 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="input---usage"></a>Uso de entradas
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Cuando se sale de la función correctamente, los cambios realizados en el documento de entrada mediante parámetros de entrada con nombre se guardan automáticamente.
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 Cuando se sale de la función correctamente, los cambios realizados en el documento de entrada mediante parámetros de entrada con nombre se guardan automáticamente.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Las actualizaciones no se realizan automáticamente al cerrar la función. Por el contrario, use `context.bindings.<documentName>In` y `context.bindings.<documentName>Out` para realizar las actualizaciones. Consulte el ejemplo de JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Los datos se ponen a disposición de la función mediante un parámetro `DocumentList`. Los cambios realizados en el documento no se conservan automáticamente.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), la anotación [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) expone los datos de Cosmos DB a la función. Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`.
 
@@ -1739,7 +1724,7 @@ En la [biblioteca en tiempo de ejecución de funciones de Java](https://docs.mic
 
 El enlace de salida de Azure Cosmos DB permite escribir un nuevo documento en una base de datos de Azure Cosmos DB mediante SQL API.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -1831,7 +1816,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -1966,7 +1951,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de salida de Azure Cosmos DB en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función usa un enlace de entrada de cola para una cola que recibe JSON en el formato siguiente:
 
@@ -2021,7 +2006,7 @@ Este es el código de JavaScript:
     };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra cómo escribir un documento en una base de datos de Azure CosmosDB como la salida de una función.
 
@@ -2073,7 +2058,7 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
     return 'OK'
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 * [Desencadenador de cola, guardar el mensaje en la base de datos a través de un valor devuelto](#queue-trigger-save-message-to-database-via-return-value-java)
 * [Desencadenador de HTTP, guardar un documento en la base de datos a través de un valor devuelto](#http-trigger-save-one-document-to-database-via-return-value-java)
@@ -2244,7 +2229,7 @@ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overvi
 
 ## <a name="output---attributes-and-annotations"></a>Salida: atributos y anotaciones
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs).
 
@@ -2260,19 +2245,19 @@ El constructor del atributo toma el nombre de la base de datos y el nombre de la
     }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 La anotación `CosmosDBOutput` está disponible para escribir datos en Cosmos DB. Puede aplicar la anotación a la función o a un parámetro individual de la función. Cuando se usa en el método de la función, el valor devuelto de la función es lo que se escribe en Cosmos DB. Si utiliza la anotación con un parámetro, el tipo del parámetro se debe declarar como `OutputBinding<T>`, donde `T` es un tipo nativo de Java o un POJO.
 

@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c993a08a4163d50a9632055da355e39b5bdde004
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 43c49cce1dd53edd5c2b13b01a31f94752579dff
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026452"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169333"
 ---
-# <a name="overview"></a>Información general
+# <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Supervisión de conectividad unificada con el Monitor de conexión (versión preliminar)
 
 Monitor de conexión (versión preliminar) ofrece funcionalidades de supervisión de conexión integrales unificadas en Azure Network Watcher para implementaciones híbridas y en la nube de Azure. Azure Network Watcher proporciona herramientas para supervisar, diagnosticar y ver las métricas relacionadas con la conectividad de las implementaciones de Azure.
 
@@ -78,8 +78,8 @@ _Monitor de conexión_ supervisa la comunicación a intervalos regulares y le in
 
 ### <a name="accessing-connection-monitor-preview"></a>Acceso a Monitor de conexión (versión preliminar)
 
-1. Acceda a Network Watcher con el siguiente vínculo:[https://ms.portal.azure.com/?Microsoft\_Azure\_Network\_connectionmonitorpreview=true#blade/Microsoft\_Azure\_Network/NetworkWatcherMenuBlade/connectionMonitorPreview](https://ms.portal.azure.com/?Microsoft_Azure_Network_connectionmonitorpreview=true#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/connectionMonitorPreview)
-2. En la sección Supervisión del panel izquierdo de Network Watcher, haga clic en la pestaña "Monitor de conexión (vista previa)". Esta pestaña solo estará visible si se tiene acceso a Network Watcher mediante el vínculo especificado en el paso 1.
+1. Desde la página principal de Azure Portal, visite Network Watcher.
+2. En la sección Supervisión del panel izquierdo de Network Watcher, haga clic en la pestaña "Monitor de conexión (vista previa)".
 3. Puede ver todos los monitores de conexión que se crean con la experiencia de Monitor de conexión (versión preliminar). Todos los monitores de conexión creados con la experiencia clásica de la pestaña Monitor de conexión estarán visibles en la pestaña Monitor de conexión.
 
     ![Crear un monitor de conexión](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -403,7 +403,7 @@ Para crear un grupo de prueba en un monitor de conexión, especifique el valor d
 
       ![Agregar destinos 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-   2. Haga clic en la pestaña "Puntos de conexión" para seleccionar las VM de Azure como destinos. La lista de puntos de conexión se rellenará con las direcciones URL de prueba de O365 y D365, agrupadas por nombre.  También puede elegir un punto de conexión creado en otros grupos de prueba en el mismo monitor de conexión. Para agregar un nuevo punto de conexión, haga clic en "+ Punto de conexión" en la esquina superior derecha de la pantalla y proporcione la dirección URL/IP/FQDN y el nombre del punto de conexión.
+   2. Haga clic en la pestaña "Puntos de conexión" para seleccionar los puntos de conexión como destinos. La lista de puntos de conexión se rellenará con las direcciones URL de prueba de O365 y D365, agrupadas por nombre.  También puede elegir un punto de conexión creado en otros grupos de prueba en el mismo monitor de conexión. Para agregar un nuevo punto de conexión, haga clic en "+ Punto de conexión" en la esquina superior derecha de la pantalla y proporcione la dirección URL/IP/FQDN y el nombre del punto de conexión.
 
       ![Agregar puntos de conexión](./media/connection-monitor-2-preview/add-endpoints.png)
 
@@ -578,8 +578,8 @@ Tipo de recurso: Microsoft.Network/networkWatchers/connectionMonitors
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % de sondeos con error | Percent | Average | % de sondeos de supervisión de conectividad con error | Sin dimensiones |
 | AverageRoundtripMs | Prom. Tiempo de ida y vuelta (ms) | MilliSeconds | Average | Promedio de tiempo de ida y vuelta de red (ms) para los sondeos de supervisión de conectividad que se envían entre el origen y el destino |             Sin dimensiones |
-| ChecksFailedPercent (versión preliminar) | Comprobaciones erróneas (%) (versión preliminar) | Percent | Average | Porcentaje de comprobaciones erróneas para una prueba |Lista: - ConnectionMonitorResourceId - SourceAddress - SourceName - SourceResourceId - SourceType - Protocol - DestinationAddress - DestinationName - DestinationResourceId - DestinationType -DestinationPort - TestGroupName - TestConfigurationName - Region |
-| RoundTripTimeMs (versión preliminar) | Tiempo de ida y vuelta (ms) (versión preliminar) | Milisegundos | Average | Tiempo de ida y vuelta (ms) para las comprobaciones enviadas entre el origen y el destino. Este valor no se calcula como promedio. | Lista: - ConnectionMonitorResourceId - SourceAddress - SourceName - SourceResourceId - SourceType - Protocol - DestinationAddress - DestinationName - DestinationResourceId - DestinationType - DestinationPort - TestGroupName - TestConfigurationName - Region |
+| ChecksFailedPercent (versión preliminar) | Comprobaciones erróneas (%) (versión preliminar) | Percent | Average | Porcentaje de comprobaciones erróneas para una prueba | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Region |
+| RoundTripTimeMs (versión preliminar) | Tiempo de ida y vuelta (ms) (versión preliminar) | Milisegundos | Average | Tiempo de ida y vuelta (ms) para las comprobaciones enviadas entre el origen y el destino. Este valor no se calcula como promedio. | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Region |
 
  ![Métricas de supervisión](./media/connection-monitor-2-preview/monitor-metrics.png)
 

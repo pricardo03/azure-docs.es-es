@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: b8d0a3e60654c9d3f951c6f288ea904bb4c0d50b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/10/2020
+ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900635"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120526"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -112,7 +112,7 @@ En el ejemplo siguiente se devuelve el identificador de recurso para el bloqueo 
 list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 ```
 
-La sintaxis de esta función varía según el nombre de las operaciones de la lista. Cada implementación devuelve valores para el tipo de recurso que admite una operación de la lista. El nombre de la operación debe empezar por `list`. Algunos usos habituales son `listKeys` y `listSecrets`. 
+La sintaxis de esta función varía según el nombre de las operaciones de la lista. Cada implementación devuelve valores para el tipo de recurso que admite una operación de la lista. El nombre de la operación debe empezar por `list`. Algunos usos habituales son `listKeys` y `listSecrets`.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -120,7 +120,7 @@ La sintaxis de esta función varía según el nombre de las operaciones de la li
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sí |string |Identificador único para el recurso. |
 | apiVersion |Sí |string |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
-| functionValues |No |object | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. | 
+| functionValues |No |object | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
@@ -154,7 +154,7 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 | Microsoft.DataFactory/datafactories/gateways | listauthkeys |
 | Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
 | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
-| Microsoft.DataShare/accounts/shares | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) | 
+| Microsoft.DataShare/accounts/shares | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) |
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
@@ -287,7 +287,7 @@ Si usa una función **list** con un recurso que se implementa de forma condicion
 
 ### <a name="list-example"></a>Ejemplo de lista
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) siguiente se muestra cómo se devuelven las claves principal y secundaria de una cuenta de almacenamiento en la sección de salidas. También devuelve un token de SAS para la cuenta de almacenamiento. 
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) siguiente se muestra cómo se devuelven las claves principal y secundaria de una cuenta de almacenamiento en la sección de salidas. También devuelve un token de SAS para la cuenta de almacenamiento.
 
 Para obtener el token de SAS, pase un objeto para la hora de expiración. Dicha hora debe ser futura. Este ejemplo está pensado para mostrar cómo usar las funciones de la lista. Normalmente, se podría usar el token SAS en un valor de recurso en lugar de devolverse como un valor de salida. Los valores de salida se almacenan en el historial de implementación y no son seguros.
 
@@ -371,7 +371,7 @@ Devuelve información acerca de un proveedor de recursos y sus tipos de recursos
 
 ### <a name="return-value"></a>Valor devuelto
 
-Se devuelve cada tipo admitido en el formato siguiente: 
+Se devuelve cada tipo admitido en el formato siguiente:
 
 ```json
 {
@@ -460,11 +460,11 @@ Normalmente, se usa la función de **referencia** para devolver un valor determi
 ```json
 "outputs": {
     "BlobUri": {
-        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')).primaryEndpoints.blob]",
+        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]",
         "type" : "string"
     },
     "FQDN": {
-        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')).dnsSettings.fqdn]",
+        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]",
         "type" : "string"
     }
 }
@@ -523,7 +523,7 @@ Al hacer referencia a un recurso que no esté implementado en la misma plantilla
 Para evitar la ambigüedad sobre cuál es el recurso al que hace referencia, puede proporcionar un nombre de recurso completo.
 
 ```json
-"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))]"
+"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')))]"
 ```
 
 Al construir una referencia completa a un recurso, el orden para combinar los segmentos a partir del tipo y el nombre no es simplemente una concatenación de los dos. En su lugar, después del espacio de nombres, use una secuencia de pares *tipo/nombre* de menos a más específico:
@@ -555,7 +555,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "storageAccountName": { 
+      "storageAccountName": {
           "type": "string"
       }
   },
@@ -585,7 +585,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
       }
     }
 }
-``` 
+```
 
 El ejemplo anterior devuelve los dos objetos. El objeto de propiedades está en el formato siguiente:
 
@@ -672,7 +672,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 resourceGroup()
 ```
 
-Devuelve un objeto que representa el grupo de recursos actual. 
+Devuelve un objeto que representa el grupo de recursos actual.
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -752,14 +752,14 @@ El ejemplo anterior devuelve un objeto en el formato siguiente:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Devuelve el identificador único de un recurso. Utilice esta función cuando el nombre del recurso sea ambiguo o no esté aprovisionado dentro de la misma plantilla. 
+Devuelve el identificador único de un recurso. Utilice esta función cuando el nombre del recurso sea ambiguo o no esté aprovisionado dentro de la misma plantilla. El formato del identificador devuelto varía en función de si la implementación se produce en el ámbito de un grupo de recursos, una suscripción, un grupo de administración o un inquilino.
 
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
-| resourceGroupName |No |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. |
+| resourceGroupName |No |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. Proporcione solo este valor al realizar la implementación en el ámbito de un grupo de recursos. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
 | resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
@@ -768,7 +768,7 @@ Siga agregando nombres de recursos como parámetros cuando el tipo de recurso in
 
 ### <a name="return-value"></a>Valor devuelto
 
-El identificador de recurso se devuelve con el formato siguiente:
+Cuando la plantilla se implementa en el ámbito de un grupo de recursos, el identificador de recurso se devuelve en el formato siguiente:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -778,6 +778,12 @@ Cuando se usa en una [implementación de nivel de suscripción](deploy-to-subscr
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+Cuando se usa en una [implementación de nivel de grupo de administración](deploy-to-management-group.md), el identificador de recurso se devuelve en el formato siguiente:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 Para obtener el identificador en otros formatos, vea:
@@ -903,7 +909,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 subscription()
 ```
 
-Devuelve detalles sobre la suscripción para la implementación actual. 
+Devuelve detalles sobre la suscripción para la implementación actual.
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -924,7 +930,7 @@ Al usar plantillas anidadas para implementar en varias suscripciones, puede espe
 
 ### <a name="subscription-example"></a>Ejemplo de suscripción
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) siguiente se muestra la función de suscripción a la que se llama en la sección de salidas. 
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) siguiente se muestra la función de suscripción a la que se llama en la sección de salidas.
 
 ```json
 {

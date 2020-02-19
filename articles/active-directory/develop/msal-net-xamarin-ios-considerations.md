@@ -1,7 +1,7 @@
 ---
 title: Consideraciones sobre Xamarin iOS (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre las consideraciones específicas al usar Xamarin iOS con Microsoft Authentication Library for .NET (MSAL.NET).
+description: Conozca las consideraciones para usar Xamarin iOS con la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -10,28 +10,29 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 599b8a3fdbad5747b0b303c71aeef084d04db6df
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 76e614b605cd07cd5dc454824dd204447f806907
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694927"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132474"
 ---
-# <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Consideraciones específicas de Xamarin iOS con MSAL.NET
-En Xamarin iOS, hay varias consideraciones que debe tener en cuenta al usar MSAL.NET.
+# <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Consideraciones para usar Xamarin iOS con MSAL.NET
+Cuando use la biblioteca de autenticación de Microsoft para .NET (MSAL.NET) en Xamarin iOS, debe: 
 
-- [Problemas conocidos con iOS 12 y la autenticación](#known-issues-with-ios-12-and-authentication)
-- [Reemplazo e implementación de la función `OpenUrl` en `AppDelegate`](#implement-openurl)
-- [Habilitación de grupos de la cadena de claves](#enable-keychain-access)
-- [Habilitación del uso compartido de caché de tokens](#enable-token-cache-sharing-across-ios-applications)
-- [Habilitación de acceso a la cadena de claves](#enable-keychain-access)
+- Reemplazar e implementar la función `OpenUrl` en `AppDelegate`.
+- Habilitar grupos de cadenas de claves.
+- Habilitar el uso compartido de la caché de tokens.
+- Habilitar el acceso a cadenas de claves.
+- Entender los problemas conocidos de iOS 12 y la autenticación.
 
 ## <a name="implement-openurl"></a>Implementación de OpenUrl
 
-En primer lugar, tiene que invalidar el método `OpenUrl` de la clase derivada `FormsApplicationDelegate` y llamar a `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`.
+Reemplace el método `OpenUrl` de la clase derivada `FormsApplicationDelegate` y llame a `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`. Este es un ejemplo:
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
@@ -41,16 +42,19 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 }
 ```
 
-También deberá definir un esquema URL, requerir permisos para que la aplicación llame a otra aplicación, disponer de un formato específico para la dirección URL de redireccionamiento y registrar esta dirección URL de redireccionamiento en [Azure Portal](https://portal.azure.com).
+Además, realice las siguientes tareas: 
+* Defina un esquema URL.
+* Exija permisos para que la aplicación llame a otra aplicación.
+* Disponga de un formato específico para la URL de redireccionamiento.
+* Registre la URL de redireccionamiento en [Azure Portal](https://portal.azure.com).
 
 ### <a name="enable-keychain-access"></a>Habilitación de acceso a la cadena de claves
 
-Para habilitar el acceso a la cadena de claves, la aplicación debe tener un grupo de acceso a la cadena de claves.
-Puede establecer el grupo de acceso a la cadena de claves mediante la API `WithIosKeychainSecurityGroup()` al crear la aplicación como se muestra a continuación:
+Para habilitar el acceso a cadenas de claves, asegúrese de que la aplicación tenga un grupo de acceso a cadenas de claves. Puede establecer el grupo de acceso a cadenas de claves cuando cree la aplicación mediante la API `WithIosKeychainSecurityGroup()`.
 
-Para beneficiarse de la caché y el inicio de sesión único, debe establecer el grupo de acceso a la cadena de claves en el mismo valor en todas las aplicaciones.
+Para beneficiarse de la caché y del inicio de sesión único (SSO), establezca el grupo de acceso a cadenas de claves en el mismo valor en todas las aplicaciones.
 
-Un ejemplo de esto con MSAL v4.x sería:
+En este ejemplo de configuración se usa MSAL 4.x:
 ```csharp
 var builder = PublicClientApplicationBuilder
      .Create(ClientId)
@@ -58,7 +62,7 @@ var builder = PublicClientApplicationBuilder
      .Build();
 ```
 
-Realice este cambio *además* de habilitar el acceso a la cadena de claves en el archivo `Entitlements.plist`, ya sea mediante el siguiente grupo de acceso o el suyo propio:
+Habilite también el acceso a cadenas de claves en el archivo `Entitlements.plist`. Use el siguiente grupo de acceso o el suyo propio.
 
 ```xml
 <dict>
@@ -69,49 +73,50 @@ Realice este cambio *además* de habilitar el acceso a la cadena de claves en el
 </dict>
 ```
 
-Al usar la API `WithIosKeychainSecurityGroup()`, MSAL anexa automáticamente el grupo de seguridad al final del *id. de equipo* de la aplicación (AppIdentifierPrefix), porque cuando compile la aplicación con Xcode el resultado será el mismo. Para más información, consulte la [documentación sobre los derechos de iOS](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). Este es el motivo por el que los derechos tienen que incluir `$(AppIdentifierPrefix)` antes del grupo de acceso a la cadena de claves en `Entitlements.plist`.
+Cuando se usa la API `WithIosKeychainSecurityGroup()`, MSAL anexa automáticamente el grupo de seguridad al final del *identificador de equipo* (`AppIdentifierPrefix`) de la aplicación. MSAL agrega el grupo de seguridad porque, al compilar la aplicación en Xcode, va a hacer lo mismo. Por eso, los derechos del archivo `Entitlements.plist` deben incluir `$(AppIdentifierPrefix)` antes del grupo de acceso a cadenas de claves.
+
+Para obtener más información, vea la [documentación sobre derechos de iOS](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). 
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Habilitación del uso compartido de la caché de tokens entre aplicaciones de iOS
 
-A partir de MSAL 2.x, puede especificar un grupo de acceso a la cadena de claves para usarlo a fin de conservar la memoria caché de tokens entre varias aplicaciones. Esta opción le permite compartir la caché de tokens entre varias aplicaciones con el mismo grupo de acceso a la cadena de claves, incluidas las desarrolladas con [ADAL.NET](https://aka.ms/adal-net), las aplicaciones Xamarin.iOS de MSAL.NET y las aplicaciones nativas de iOS desarrolladas con [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) o [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
+A partir de MSAL 2.x, puede especificar un grupo de acceso a cadenas de claves para conservar la caché de tokens en varias aplicaciones. Este valor permite compartir la caché de tokens entre varias aplicaciones con el mismo grupo de acceso a cadenas de claves. Puede compartir la caché de tokens entre aplicaciones de [ADAL.NET](https://aka.ms/adal-net), aplicaciones de Xamarin.iOS para MSAL.NET y aplicaciones nativas de iOS desarrolladas en [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) o [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
 
-Al compartir la caché de tokens, se permite el inicio de sesión único entre todas las aplicaciones que usan el mismo grupo de acceso a la cadena de claves.
+Al compartir la caché de tokens, se permite el inicio de sesión único (SSO) entre todas las aplicaciones que usan el mismo grupo de acceso a cadenas de claves.
 
-Para habilitar este uso compartido de la caché, debe usar el método "WithIosKeychainSecurityGroup()" para establecer el grupo de acceso a la cadena de claves en el mismo valor en todas las aplicaciones que comparten la caché, como se muestra en el ejemplo anterior.
+Para habilitar este uso compartido de la caché, use el método `WithIosKeychainSecurityGroup()` para establecer el grupo de acceso a cadenas de claves en el mismo valor en todas las aplicaciones que comparten la misma caché. En el primer ejemplo de código de este artículo se muestra cómo usar el método.
 
-Antes mencionamos que MSAL agrega $(AppIdentifierPrefix) cada vez que se usa la API `WithIosKeychainSecurityGroup()`. Esto se debe a que se usa AppIdentifierPrefix o el "Id. de equipo" para garantizar que solo las aplicaciones de un mismo editor puedan compartir el acceso a la cadena de claves.
+Anteriormente en este artículo ha aprendido que MSAL agrega `$(AppIdentifierPrefix)` siempre que se usa la API `WithIosKeychainSecurityGroup()`. MSAL agrega este elemento porque el identificador de equipo `AppIdentifierPrefix` garantiza que solo las aplicaciones creadas por el mismo publicador puedan compartir el acceso a cadenas de claves.
 
 > [!NOTE]
-> **La propiedad `KeychainSecurityGroup` está en desuso.**
+> La propiedad `KeychainSecurityGroup` está en desuso.
 > 
-> Anteriormente, en MSAL 2.x, los desarrolladores se veían obligados a incluir el prefijo TeamId cuando se usaba la propiedad `KeychainSecurityGroup`.
+> A partir de MSAL 2.x, los desarrolladores se veían obligados a incluir el prefijo `TeamId` al usar la propiedad `KeychainSecurityGroup`. Pero a partir de MSAL 2.7.x, cuando se usa la nueva propiedad `iOSKeychainSecurityGroup`, MSAL resuelve el prefijo `TeamId` durante el tiempo de ejecución. Al usar esta propiedad, no incluya el prefijo `TeamId` en el valor. El prefijo no es necesario.
 >
->  A partir de MSAL 2.7.x, cuando se use la nueva propiedad `iOSKeychainSecurityGroup`, MSAL resolverá el prefijo TeamId en tiempo de ejecución. Al usar esta propiedad, el valor no debe contener el prefijo TeamId.
->  Use la nueva propiedad `iOSKeychainSecurityGroup`, que no requiere el prefijo TeamId, ya que ahora la propiedad anterior `KeychainSecurityGroup` está en desuso.
+> Como la propiedad `KeychainSecurityGroup` está obsoleta, use la propiedad `iOSKeychainSecurityGroup`.
 
 ### <a name="use-microsoft-authenticator"></a>Uso de Microsoft Authenticator
 
-La aplicación puede usar Microsoft Authenticator (un agente) para habilitar lo siguiente:
+La aplicación puede usar Microsoft Authenticator como agente para habilitar:
 
-- Inicio de sesión único (SSO). Los usuarios no tendrán que iniciar sesión en cada aplicación.
-- Identificación de dispositivos. Mediante el acceso al certificado del dispositivo que se creó en este al unirse al área de trabajo. La aplicación estará lista si los administradores de inquilinos habilitan el acceso condicional relacionado con los dispositivos.
-- Comprobación de identificación de la aplicación. Cuando una aplicación llama al agente, pasa su dirección URL de redireccionamiento y el agente la comprueba.
+- **SSO**: al habilitar el inicio de sesión único, los usuarios no necesitan iniciar sesión en cada aplicación.
+- **Identificación del dispositivo**: use la identificación del dispositivo para autenticar mediante el acceso al certificado del dispositivo. Este certificado se crea en el dispositivo cuando se une al área de trabajo. La aplicación está lista si los administradores de inquilinos habilitan el acceso condicional relacionado con los dispositivos.
+- **Comprobación de identificación de la aplicación**: cuando una aplicación llama al agente, pasa su URL de redireccionamiento. El agente comprueba la URL de redireccionamiento.
 
-Para obtener más información sobre cómo habilitar el agente, consulte [Uso de Microsoft Authenticator o el portal de empresa de Microsoft Intune en aplicaciones de Xamarin para iOS y Android](msal-net-use-brokers-with-xamarin-apps.md).
+Para obtener detalles sobre cómo habilitar un agente, vea [Uso de Microsoft Authenticator o el Portal de empresa de Microsoft Intune en aplicaciones de Android y Xamarin iOS](msal-net-use-brokers-with-xamarin-apps.md).
 
-### <a name="sample-illustrating-xamarin-ios-specific-properties"></a>Ejemplo en el que se ilustran las propiedades específicas de Xamarin iOS
+## <a name="known-issues-with-ios-12-and-authentication"></a>Problemas conocidos con iOS 12 y la autenticación
+Microsoft ha publicado un [aviso de seguridad](https://github.com/aspnet/AspNetCore/issues/4647) sobre una incompatibilidad entre iOS 12 y algunos tipos de autenticación. La incompatibilidad afecta a los inicios de sesión en redes sociales, WSFed y OIDC. El aviso de seguridad ayuda a los desarrolladores a comprender cómo quitar las restricciones de seguridad de ASP.NET de sus aplicaciones para que sean compatibles con iOS 12.  
 
-Se proporcionan más detalles en el párrafo [Consideraciones específicas de iOS](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) del archivo readme.md del ejemplo siguiente:
+Al desarrollar aplicaciones MSAL.NET en Xamarin iOS, puede experimentar un bucle infinito al intentar iniciar sesión en sitios web desde iOS 12. Este comportamiento es similar a este [problema de ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
+
+También puede observar una incidencia en la autenticación en OIDC de ASP.NET Core con Safari para iOS 12. Para obtener más información, vea este [problema de WebKit](https://bugs.webkit.org/show_bug.cgi?id=188165).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener información sobre las propiedades de Xamarin iOS, vea el párrafo [Consideraciones específicas de iOS](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) del archivo README.md del ejemplo siguiente:
 
 Muestra | Plataforma | Descripción
 ------ | -------- | -----------
-[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Aplicación de Xamarin Forms sencilla que muestra cómo se usa MSAL para autenticar MSA y Azure AD mediante el punto de conexión de Azure AD v2.0 y cómo se obtiene acceso a Microsoft Graph con el token resultante.
+[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Plataforma universal de Windows (UWP) | Una aplicación sencilla de Xamarin Forms que muestra cómo usar MSAL para autenticar cuentas personales de Microsoft y Azure AD a través del punto de conexión de Azure AD 2.0. La aplicación también muestra cómo usar el token resultante para acceder a Microsoft Graph.
 
 <!--- https://github.com/Azure-Samples/active-directory-xamarin-native-v2/blob/master/ReadmeFiles/Topology.png -->
-
-## <a name="known-issues-with-ios-12-and-authentication"></a>Problemas conocidos con iOS 12 y la autenticación
-Microsoft ha publicado un [documento informativo sobre seguridad](https://github.com/aspnet/AspNetCore/issues/4647) para proporcionar información sobre una incompatibilidad entre iOS 12 y algunos tipos de autenticación. La incompatibilidad afecta a los inicios de sesión en redes sociales, WSFed y OIDC. Este documento informativo proporciona instrucciones sobre qué pueden hacer desarrolladores para quitar las restricciones de seguridad actuales agregadas por ASP.NET a sus aplicaciones para garantizar la compatibilidad con iOS 12.  
-
-Al desarrollar aplicaciones MSAL.NET en Xamarin iOS, puede experimentar un bucle infinito al intentar iniciar sesión en sitios web desde iOS 12 (al igual que con esta [incidencia de ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329)). 
-
-También puede observa una incidencia con la autenticación en OIDC de ASP.NET Core con Safari para iOS 12, tal como se describe en este [WebKit](https://bugs.webkit.org/show_bug.cgi?id=188165).

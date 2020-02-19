@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2019
-ms.openlocfilehash: a01258799efa81c8d3ddba398facaa90c24c2513
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ae799e9a852b8700399ef695c54b3348174b560c
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150032"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069412"
 ---
 # <a name="overview-of-the-azure-monitor-agents"></a>Introducción a los agentes de Azure Monitor 
 Los recursos de proceso, tales como las máquinas virtuales, generan datos para supervisar su rendimiento y disponibilidad, al igual que [otros recursos en la nube](../insights/monitor-azure-resource.md). Los recursos de proceso, sin embargo, tienen también un sistema operativo invitado y cargas de trabajo que deben supervisarse. La recopilación de estos datos de supervisión desde dentro del recurso requiere un agente. En este artículo se describen los agentes utilizados por Azure Monitor y se ayuda a determinar qué se necesita para cumplir con los requisitos del entorno concreto.
@@ -63,7 +63,7 @@ Entre los escenarios admitidos por la extensión Azure Diagnostics se incluyen l
 ## <a name="log-analytics-agent"></a>Agente de Log Analytics
 El [agente de Log Analytics](log-analytics-agent.md) recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure, otros proveedores de nube y el entorno local. Recopila los datos en un área de trabajo de Log Analytics.
 
-El agente de Log Analytics es el mismo agente que se usa en System Center Operations Manager y en los equipos de agente de host múltiple, para comunicarse con el grupo de administración y Azure Monitor simultáneamente. Este agente también es necesario en ciertas soluciones de Azure Monitor.
+El agente de Log Analytics es el mismo agente que se usa en System Center Operations Manager y en los equipos de agente de host múltiple para comunicarse con el grupo de administración y Azure Monitor simultáneamente. Este agente también es necesario en ciertas soluciones de Azure Monitor.
 
 El agente de Log Analytics para Windows a menudo se conoce como Agente de administración de Microsoft (MMA). El agente de Log Analytics para Linux se conoce a menudo como agente de OMS.
 

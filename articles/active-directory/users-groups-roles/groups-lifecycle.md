@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 83133fed401dac51a8dd6a653ccfd86117e956ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768694"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046456"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configuración de la directiva de expiración de grupos de Office 365
 
@@ -30,10 +30,10 @@ Una vez establecido un grupo para establecer la expiración:
 
 - Los grupos con actividades de usuario se renuevan automáticamente a medida que se aproxima la expiración.
 - Si no lo hacen, se notifica a los propietarios del grupo que lo renueven.
-- Se eliminará cualquier grupo que no se renueve
-- Los propietarios del grupo o el administrador pueden restaurar, dentro de un plazo de 30 días, los grupos de Office 365 que se hayan eliminado
+- Se eliminará cualquier grupo que no se renueve.
+- Los propietarios del grupo o el administrador pueden restaurar, dentro de un plazo de 30 días, los grupos de Office 365 que se hayan eliminado.
 
-Actualmente solo se puede configurar una directiva de expiración para todos los grupos de Office 365 de una organización Azure AD.
+Actualmente solo se puede configurar una directiva de expiración para todos los grupos de Office 365 de una organización de Azure AD.
 
 > [!NOTE]
 > Para configurar y usar la directiva de expiración en grupos de Office 365, es preciso poseer las licencias de Azure AD Premium de todos los miembros de los grupos a los que se aplica la directiva de expiración, pero no necesariamente asignarlas.
@@ -42,7 +42,7 @@ Para más información sobre cómo descargar e instalar los cmdlets de PowerShel
 
 ## <a name="activity-based-automatic-renewal"></a>Renovación automática basada en la actividad
 
-Con la inteligencia de Azure AD, ahora los grupos se renuevan automáticamente según su uso reciente. Esta característica elimina la necesidad de intervención manual por parte de los propietarios del grupo, ya que se basa en la actividad del usuario en los grupos de los servicios de Office 365, como Outlook, SharePoint, Teams o Yammer. Por ejemplo, si el propietario o el miembro de un grupo hace cosas como cargar un documento en SharePoint, visitar un canal de Teams o enviar un correo electrónico al grupo en Outlook, el grupo se renueva automáticamente y el propietario no obtiene ninguna notificación de renovación.
+Con la inteligencia de Azure AD, ahora los grupos se renuevan automáticamente en función de si se han usado recientemente. Esta característica elimina la necesidad de intervención manual por parte de los propietarios del grupo, ya que se basa en la actividad del usuario en los grupos de los servicios de Office 365, como Outlook, SharePoint, Teams o Yammer. Por ejemplo, si el propietario o el miembro de un grupo hace cosas como cargar un documento en SharePoint, visitar un canal de Teams o enviar un correo electrónico al grupo en Outlook, el grupo se renueva automáticamente y el propietario no obtiene ninguna notificación de renovación.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Actividades que renuevan automáticamente la expiración del grupo
 
@@ -55,6 +55,8 @@ Las siguientes acciones de usuario provocan la renovación automática del grupo
 ### <a name="auditing-and-reporting"></a>Informes y auditoría
 
 Los administradores pueden obtener una lista de grupos renovados automáticamente de los registros de auditoría de actividad de Azure AD.
+
+![Renovación automática de grupos en función de la actividad](./media/groups-lifecycle/audit-logs-autorenew-group.png)
 
 ## <a name="roles-and-permissions"></a>Roles y permisos
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ed80ad87d81c2ec1bdfe50e9cd4556f141507b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907131"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120082"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Creación de colecciones en el portal Mis aplicaciones
 
@@ -30,7 +30,7 @@ Los usuarios pueden usar el portal Mis aplicaciones para ver e iniciar las aplic
 > [!NOTE]
 > En este artículo se explica cómo un administrador puede habilitar y crear colecciones. Para información sobre cómo los usuarios finales pueden usar el portal Mis aplicaciones y las colecciones, consulte [Acceso y uso de colecciones](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
-## <a name="enable-my-apps-preview-features"></a>Habilitación de las características en versión preliminar de Mis aplicaciones
+## <a name="enable-the-latest-my-apps-features"></a>Habilitación de las características más recientes de Mis aplicaciones
 
 1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como administrador global o coadministrador.
 
@@ -39,8 +39,8 @@ Los usuarios pueden usar el portal Mis aplicaciones para ver e iniciar las aplic
 3. En **Versiones preliminares de características de usuarios**, seleccione **Administrar la configuración de la versión preliminar de características del usuario**.
 
 4. En **Los usuarios pueden utilizar las características en versión preliminar de Mis aplicaciones**, elija una de las siguientes opciones:
-   * **Seleccionado**: habilita las características en versión preliminar para un grupo específico. Use la opción **Seleccionar un grupo** para seleccionar el grupo para el que desea habilitar las características en versión preliminar.  
-   * **Todo**: habilita las características en versión preliminar para todos los usuarios.
+   * **Seleccionado**: habilita las características para un grupo específico. Use la opción **Seleccionar un grupo** para seleccionar el grupo para el que quiere habilitar las características.  
+   * **Todos**: habilita las características para todos los usuarios.
 
 > [!NOTE]
 > Para abrir el portal de Mis aplicaciones, los usuarios pueden usar el vínculo `https://myapps.microsoft.com` o el vínculo personalizado de la organización, como `https://myapps.microsoft.com/contoso.com`. Después de habilitar la nueva experiencia de Mis aplicaciones, se mostrará un banner similar a **Una experiencia actualizada de Mis aplicaciones está disponible** en la parte superior de la página Mis aplicaciones y los usuarios podrán seleccionar **Probarlo** para ver la nueva experiencia. Para dejar de usar la nueva experiencia, los usuarios pueden seleccionar **Sí** en el banner similar a **Salir de la nueva experiencia** de la parte superior de la página.

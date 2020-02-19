@@ -1,28 +1,19 @@
 ---
-title: Escenarios de recuperación ante desastres para las máquinas virtuales de Azure | Microsoft Docs
+title: Escenarios de recuperación de ante desastres
 description: Obtenga información sobre qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure.
-services: virtual-machines
-documentationcenter: ''
-author: kmouss
-manager: gwallace
-editor: ''
-ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
+author: cynthn
 ms.service: virtual-machines
-ms.workload: virtual-machines
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
-ms.author: gwallace
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b59343fca5e14d211864a1354001819c918bd1ca
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.author: cynthn
+ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891517"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115610"
 ---
-# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure
+# <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Qué hacer si se produce una interrupción del servicio de Azure que afecta a las VM de Azure
 En Microsoft, hacemos todo lo posible para garantizar que nuestros servicios estén siempre disponibles cuando los necesite. En ocasiones, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas.
 
 Microsoft proporciona Acuerdos de Nivel de Servicio para sus servicios como un compromiso en cuanto al tiempo de actividad y la conectividad. Puede encontrar el Acuerdo de Nivel de Servicio para los diferentes servicios de Azure en [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).

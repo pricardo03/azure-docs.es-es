@@ -3,19 +3,19 @@ title: Reconocimiento de intenciones a partir de contenido de voz mediante el SD
 titleSuffix: Azure Cognitive Services
 description: En esta guía aprenderá a reconocer intenciones a partir de contenido de voz con el SDK de Voz para C#.
 services: cognitive-services
-author: wolfma61
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2019
-ms.author: wolfma
-ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805899"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120042"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 
@@ -35,7 +35,7 @@ En esta guía, se utiliza el SDK de Voz para desarrollar una aplicación de cons
 > - Reconocer la voz a partir de un archivo
 > - Usar el reconocimiento asincrónico, continuo y controlado por eventos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de disponer de los siguientes elementos antes de empezar esta guía:
 
@@ -91,12 +91,15 @@ Después, agregue al código al proyecto.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. En el método `Main()` que se proporciona, agregue el código siguiente:
+1. Reemplace el método `Main()` proporcionado por el siguiente equivalente asincrónico:
 
    ```csharp
-   RecognizeIntentAsync().Wait();
-   Console.WriteLine("Please press Enter to continue.");
-   Console.ReadLine();
+   public static async Task Main()
+   {
+       await RecognizeIntentAsync();
+       Console.WriteLine("Please press Enter to continue.");
+       Console.ReadLine();
+   }
    ```
 
 1. Cree un método asincrónico vacío `RecognizeIntentAsync()`, tal como se muestra aquí:
@@ -173,7 +176,7 @@ La aplicación no analiza el resultado de JSON. Solo muestra el texto JSON en la
 
 ## <a name="specify-recognition-language"></a>Especificación de un idioma de reconocimiento
 
-De forma predeterminada, LUIS reconoce las intenciones en idioma inglés de Estados Unidos (`en-us`). Al asignar un código de configuración regional a la propiedad `SpeechRecognitionLanguage` de la configuración de voz, puede reconocer las intenciones en otros idiomas. Por ejemplo, agregue `config.SpeechRecognitionLanguage = "de-de";` en la aplicación antes de crear el reconocedor para reconocer las intenciones en idioma alemán. Para más información, consulte [Lenguajes admitidos](language-support.md#speech-to-text).
+De forma predeterminada, LUIS reconoce las intenciones en idioma inglés de Estados Unidos (`en-us`). Al asignar un código de configuración regional a la propiedad `SpeechRecognitionLanguage` de la configuración de voz, puede reconocer las intenciones en otros idiomas. Por ejemplo, agregue `config.SpeechRecognitionLanguage = "de-de";` en la aplicación antes de crear el reconocedor para reconocer las intenciones en idioma alemán. Para obtener más información, consulte [Idiomas admitidos: LUIS](../LUIS/luis-language-support.md#languages-supported).
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconocimiento continuo desde un archivo
 

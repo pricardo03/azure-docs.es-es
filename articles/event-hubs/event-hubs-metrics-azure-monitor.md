@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 09/18/2019
 ms.author: shvija
-ms.openlocfilehash: 788f0647bec11184c2a85d87d0dfde2cb6c5744c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 96c346f4359740fda5638dfdbe5735c5bdfce8c9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266300"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162657"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Azure Event Hubs en Azure Monitor
 
@@ -62,7 +62,7 @@ Los valores de las métricas se envían a Azure Monitor cada minuto. La granular
 
 Cuenta el número de solicitudes de operaciones de datos y administración.
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 | Solicitudes entrantes  | Número de solicitudes realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName |
 | Solicitudes correctas    | Número de solicitudes correctas realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName |
@@ -72,13 +72,13 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 ## <a name="throughput-metrics"></a>Métricas de procesamiento
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 |Solicitudes limitadas |Número de solicitudes que se han limitado porque se superó el uso de la unidad de procesamiento.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="message-metrics"></a>Métricas de mensaje
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 |Mensajes entrantes |Número de eventos o mensajes enviados a Event Hubs durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 |Mensajes salientes |Número de eventos o mensajes recuperados de Event Hubs durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
@@ -87,7 +87,7 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 ## <a name="connection-metrics"></a>Métricas de conexión
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 |ActiveConnections |Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 |Conexiones abiertas |Número de conexiones abiertas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
@@ -97,7 +97,7 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 Puede supervisar las métricas de captura de Event Hubs cuando se habilita la característica de captura de los centros de eventos. Las métricas siguientes describen lo que puede supervisar con la característica de captura habilitada.
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 |Capture el trabajo pendiente |El número de bytes que se aún se tiene que capturar en el destino elegido.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 |Mensajes capturados |El número de mensajes o eventos que se capturan en el destino elegido durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
@@ -107,7 +107,7 @@ Puede supervisar las métricas de captura de Event Hubs cuando se habilita la ca
 
 Azure Event Hubs admite las siguientes dimensiones para las métricas de Azure Monitor. La adición de dimensiones a las métricas es opcional. Si no agrega dimensiones, las métricas se especifican en el nivel de espacio de nombres. 
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 |EntityName| Event Hubs admite las entidades de concentrador de eventos en el espacio de nombres.|
 
@@ -131,7 +131,11 @@ En el escenario en el que una herramienta SIEM consume datos de registro de un c
 
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 
-* Empiece por un [tutorial de Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
+- Empiece a trabajar con un tutorial de Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 * [Aplicaciones de ejemplo que usan Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

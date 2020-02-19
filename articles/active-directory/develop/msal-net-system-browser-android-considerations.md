@@ -1,34 +1,35 @@
 ---
 title: Consideraciones sobre el explorador del sistema de Xamarin Android con (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Conozca las consideraciones específicas al usar los exploradores del sistema en Xamarin Android con la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
+description: Conozca las consideraciones para usar los exploradores del sistema en Xamarin Android con la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9346a4d5eaabb2af490afc13d5785a8f8233e53f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ad26a4d619a7984f08a8decc87f9339adae47cdd
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695063"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132610"
 ---
-#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Consideraciones del explorador del sistema de Xamarin Android con MSAL.NET
+#  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Consideraciones del explorador del sistema de Xamarin Android para usar MSAL.NET
 
-En este artículo se describen las consideraciones específicas al usar el explorador del sistema en Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
+En este artículo se describe lo que debe tener en cuenta al usar el explorador del sistema en Xamarin Android con la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 
-A partir de la versión preliminar de MSAL.NET 2.4.0, MSAL.NET es compatible con los exploradores que no sean Chrome y ya no requiere que Chrome esté instalado en el dispositivo Android para la autenticación.
+A partir de la versión preliminar de MSAL.NET 2.4.0, MSAL.NET admite exploradores distintos de Chrome. Ya no es necesario que Chrome esté instalado en el dispositivo Android para la autenticación.
 
-Se recomienda usar exploradores que admitan pestañas personalizadas, como los siguientes:
+Se recomienda usar exploradores que admitan pestañas personalizadas. Aquí se proporcionan algunos ejemplos de estos exploradores:
 
-| Exploradores con compatibilidad con pestañas personalizadas | Nombre del paquete |
+| Exploradores que admiten pestañas personalizadas | Nombre del paquete |
 |------| ------- |
 |Chrome | com.android.chrome|
 |Microsoft Edge | com.microsoft.emmx|
@@ -37,28 +38,19 @@ Se recomienda usar exploradores que admitan pestañas personalizadas, como los s
 |Kiwi | com.kiwibrowser.browser|
 |Brave | com.brave.browser|
 
-De acuerdo con nuestras pruebas, además de los exploradores compatibles con las pestañas personalizadas, algunos exploradores que no las admiten también funcionan para la autenticación: Opera, Opera Mini, InBrowser y Maxthon. Para obtener más información, consulte la [tabla de los resultados de pruebas](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested).
+Además de identificar los exploradores que admiten pestañas personalizadas, nuestras pruebas revelan que algunos exploradores que no las admiten también funcionan para la autenticación. Estos exploradores incluyen Opera, Opera Mini, InBrowser y Maxthon. 
 
-## <a name="known-issues"></a>Problemas conocidos
+## <a name="tested-devices-and-browsers"></a>Dispositivos y exploradores probados
+En la tabla siguiente se enumeran los dispositivos y exploradores que se han probado para determinar si son compatibles con la autenticación.
 
-- Si el usuario no tiene ningún explorador habilitado en el dispositivo, MSAL.NET producirá una excepción `AndroidActivityNotFound`. 
-  - **Mitigación**: Informe al usuario que debe habilitar un explorador (preferiblemente compatible con las pestañas personalizadas) en el dispositivo.
-
-- Si se produce un error de autenticación (por ejemplo, la autenticación se inicia con DuckDuckGo), MSAL.NET devolverá una `AuthenticationCanceled MsalClientException`. 
-  - **Problema raíz**: No se ha habilitado en el dispositivo ningún explorador compatible con las pestañas personalizadas. La autenticación se ha iniciado con un explorador alternativo que no ha podido completarla. 
-  - **Mitigación**: Informe al usuario que debe instalar un explorador (preferiblemente compatible con las pestañas personalizadas) en el dispositivo.
-
-## <a name="devices-and-browsers-tested"></a>Dispositivos y exploradores probados
-En la tabla siguiente se enumeran los dispositivos y exploradores que se han probado.
-
-| | Browser&ast;     |  Resultado  | 
+| Dispositivo | Browser     |  Resultado  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/One+ | Chrome&ast; | Pass (pasado)|
-| Huawei/One+ | Edge&ast; | Pass (pasado)|
-| Huawei/One+ | Firefox&ast; | Pass (pasado)|
-| Huawei/One+ | Brave&ast; | Pass (pasado)|
-| One+ | Ecosia&ast; | Pass (pasado)|
-| One+ | Kiwi&ast; | Pass (pasado)|
+| Huawei/One+ | Chrome\* | Pass (pasado)|
+| Huawei/One+ | Edge\* | Pass (pasado)|
+| Huawei/One+ | Firefox\* | Pass (pasado)|
+| Huawei/One+ | Brave\* | Pass (pasado)|
+| One+ | Ecosia\* | Pass (pasado)|
+| One+ | Kiwi\* | Pass (pasado)|
 | Huawei/One+ | Opera | Pass (pasado)|
 | Huawei | OperaMini | Pass (pasado)|
 | Huawei/One+ | InBrowser | Pass (pasado)|
@@ -67,9 +59,18 @@ En la tabla siguiente se enumeran los dispositivos y exploradores que se han pro
 | Huawei/One+ | Explorador UC | Autenticación cancelada por el usuario|
 | One+ | Dolphin | Autenticación cancelada por el usuario|
 | One+ | Explorador CM | Autenticación cancelada por el usuario|
-| Huawei/One+ | ninguno instalado | AndroidActivityNotFound p. ej.|
+| Huawei/One+ | Ninguno instalado | Excepción AndroidActivityNotFound|
 
-&ast; admite las pestañas personalizadas
+\* admite las pestañas personalizadas
+
+## <a name="known-issues"></a>Problemas conocidos
+
+Si el usuario no tiene ningún explorador habilitado en el dispositivo, MSAL.NET iniciará una excepción `AndroidActivityNotFound`.  
+  - **Mitigación**: pida al usuario que habilite un explorador en su dispositivo. Recomiende un explorador que admita pestañas personalizadas.
+
+Si se produce un error de autenticación (por ejemplo, si la autenticación se inicia con DuckDuckGo), MSAL.NET devolverá `AuthenticationCanceled MsalClientException`. 
+  - **Problema raíz**: no se ha habilitado un explorador que admite pestañas personalizadas en el dispositivo. La autenticación se inició con un explorador que no pudo completar la autenticación. 
+  - **Mitigación**: pida al usuario que habilite un explorador en su dispositivo. Recomiende un explorador que admita pestañas personalizadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información sobre los fragmentos de código e información adicional sobre el uso del explorador del sistema con Xamarin Android, consulte esta [guía](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid).  
+Para obtener más información y ejemplos de código, consulte [Elección entre un explorador web insertado y un explorador del sistema en Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) e [Interfaz de usuario web integrada frente el sistema](msal-net-web-browsers.md#embedded-vs-system-web-ui).  

@@ -1,6 +1,6 @@
 ---
 title: Protección de mensajes B2B con certificados
-description: Adición de certificados para proteger mensajes B2B en Azure Logic Apps con el Enterprise Integration Pack
+description: Agregue certificados para proteger los mensajes B2B de Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,25 +8,25 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 6c5de6eba000c9052c7eb7b31d75804b9f454607
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790679"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191384"
 ---
-# <a name="secure-b2b-messages-with-certificates"></a>Protección de mensajes B2B con certificados
+# <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Mejora de la seguridad de los mensajes B2B mediante certificados
 
-Cuando necesite mantener confidencial la comunicación B2B, puede protegerla para sus aplicaciones de integración empresarial (en particular, las aplicaciones lógicas), al añadir certificados a su cuenta de integración. Los certificados son documentos digitales que comprueban la identidad de los participantes de las comunicaciones electrónicas y ayudan a proteger su comunicación de las siguientes formas:
+Si necesita mantener la confidencialidad de la comunicación B2B, puede aumentar su seguridad en las aplicaciones de integración empresarial, en particular, las aplicaciones lógicas, si agrega certificados a la cuenta de integración. Los certificados son documentos digitales que comprueban la identidad de los participantes de las comunicaciones electrónicas y ayudan a proteger su comunicación de las siguientes formas:
 
 * Cifrado del contenido de los mensajes.
-* Firma digital de los mensajes. 
+* Firma digital de los mensajes.
 
 Puede usar los siguientes certificados en las aplicaciones de integración empresarial:
 
 * Los [Certificados públicos](https://en.wikipedia.org/wiki/Public_key_certificate), que debe adquirir desde la [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) de una red pública de internet, pero no requieren ninguna clave. 
 
-* Los certificados privados o [ *certificados autofirmados*](https://en.wikipedia.org/wiki/Self-signed_certificate), que crea y emite usted mismo, pero que además requieren claves privadas. 
+* Los certificados privados o [*certificados autofirmados*](https://en.wikipedia.org/wiki/Self-signed_certificate), que crea y emite usted mismo, pero que además requieren claves privadas. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,7 +34,7 @@ Puede usar los siguientes certificados en las aplicaciones de integración empre
 
 Para usar un *certificado público* en las aplicaciones lógicas con funcionalidades B2B, antes hay que cargarlo en la cuenta de integración. Después de definir las propiedades en los [contratos](logic-apps-enterprise-integration-agreements.md) que cree, el certificado estará disponible para que pueda proteger los mensajes B2B.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). En el menú principal de Azure, seleccione **Todos los recursos**. En el cuadro de búsqueda, escriba el nombre de la cuenta de integración y, a continuación, seleccione la cuenta de integración que desee.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). En el menú principal de Azure, seleccione **Todos los recursos**. En el cuadro de búsqueda, escriba el nombre de la cuenta de integración y, a continuación, seleccione la cuenta de integración que desee.
 
    ![Busque y seleccione su cuenta de integración](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
@@ -44,7 +44,7 @@ Para usar un *certificado público* en las aplicaciones lógicas con funcionalid
 
 3. En **Certificados**, elija **Agregar**. En **Agregar certificado**, proporcione los detalles de su certificado. Cuando termine, elija **Aceptar**.
 
-   | Propiedad | Valor | DESCRIPCIÓN | 
+   | Propiedad | Value | Descripción | 
    |----------|-------|-------------|
    | **Nombre** | <*nombre-certificado*> | El nombre del certificado, que es "publicCert" en este ejemplo | 
    | **Tipo de certificado** | Público | Su tipo de certificado |
@@ -64,7 +64,7 @@ Para usar un *certificado privado* en las aplicaciones lógicas con funcionalida
 Después de definir las propiedades en los [contratos](logic-apps-enterprise-integration-agreements.md) que cree, el certificado estará disponible para que pueda proteger los mensajes B2B.
 
 > [!NOTE]
-> En el caso de los certificados privados, asegúrese de añadir un certificado público correspondiente para que aparezca en las configuraciones de [contrato AS2](logic-apps-enterprise-integration-as2.md) y **envío y recepción** para la firma y el cifrado de mensajes.
+> En el caso de los certificados privados, asegúrese de agregar un certificado público correspondiente que aparezca en la opción **Enviar y recibir** del [contrato de AS2](logic-apps-enterprise-integration-as2.md) para la firma y el cifrado de mensajes.
 
 1. [Añada la clave privada a Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) y especifique un **nombre de clave**.
    
@@ -73,7 +73,7 @@ Después de definir las propiedades en los [contratos](logic-apps-enterprise-int
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Inicie sesión en el [Azure Portal](https://portal.azure.com). En el menú principal de Azure, seleccione **Todos los recursos**. En el cuadro de búsqueda, escriba el nombre de la cuenta de integración y, a continuación, seleccione la cuenta de integración que desee.
+3. Inicie sesión en [Azure Portal](https://portal.azure.com). En el menú principal de Azure, seleccione **Todos los recursos**. En el cuadro de búsqueda, escriba el nombre de la cuenta de integración y, a continuación, seleccione la cuenta de integración que desee.
 
    ![Búsqueda de la cuenta de integración](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
@@ -83,7 +83,7 @@ Después de definir las propiedades en los [contratos](logic-apps-enterprise-int
 
 5. En **Certificados**, elija **Agregar**. En **Agregar certificado**, proporcione los detalles de su certificado. Cuando termine, elija **Aceptar**.
 
-   | Propiedad | Valor | DESCRIPCIÓN | 
+   | Propiedad | Value | Descripción | 
    |----------|-------|-------------|
    | **Nombre** | <*nombre-certificado*> | El nombre del certificado, que es "publicCert" en este ejemplo | 
    | **Tipo de certificado** | Privada | Su tipo de certificado |

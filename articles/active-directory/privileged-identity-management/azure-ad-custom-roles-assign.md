@@ -1,5 +1,5 @@
 ---
-title: Asignación de un rol personalizado de Azure AD en Privileged Identity Management (PIM) | Microsoft Docs
+title: 'Asignación de roles personalizados de Azure AD: Privileged Identity Management (PIM)'
 description: Procedimiento para asignar un rol personalizado de Azure AD en Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a1ec6ddf4f10aa2e03656eb6a3d92ead0d74922
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 410ee39a3984c4e6adde7dd2763808f776c71bd5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896586"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046953"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Asignación de un rol personalizado de Azure AD en Privileged Identity Management
 

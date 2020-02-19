@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a6c333da0e88af25e3907af23f792a210002477f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901878"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179136"
 ---
 El uso de máquinas virtuales de Spot permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, estas son excelentes para cargas de trabajo que soportan interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
 
@@ -23,16 +23,12 @@ La cantidad de capacidad sin usar disponible varía, por ejemplo, en función de
 > Las instancias de Spot se encuentran actualmente en versión preliminar pública,
 > la cual no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> En la primera parte de la versión preliminar pública, las instancias de Spot tendrán un precio fijo, por lo que no habrá expulsiones basadas en el precio.
 
 ## <a name="eviction-policy"></a>Directiva de expulsión
 
 Las máquinas virtuales se pueden expulsar en función de la capacidad o del precio máximo establecido. Para las máquinas virtuales, la directiva de expulsión se establece en *Deallocate* (Desasignar); por lo tanto, las que se hayan expulsado pasan al estado stopped-deallocated para que pueda volver a implementarlas posteriormente. Sin embargo, la reasignación de máquinas virtuales de Spot dependerá de la disponibilidad de capacidad de Spot. Las máquinas virtuales desasignadas se siguen teniendo en cuenta en la cuota de vCPU de Spot y se cobra por los discos subyacentes. 
 
 Los usuarios pueden optar por recibir notificaciones en las máquinas virtuales mediante [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). De este modo se le notificará que se van a expulsar las máquinas virtuales y tendrá 30 segundos para terminar los trabajos y cerrar las tareas antes de que esto ocurra. 
-
-> [!IMPORTANT]
-> Para la primera parte de la versión preliminar pública, puede establecer un precio máximo, pero no se tendrá en cuenta. Las máquinas virtuales de Spot tendrán un precio fijo, por lo que no se expulsarán por razones de precio.
 
 
 | Opción | Resultado |
@@ -54,7 +50,7 @@ No se admiten los siguientes tamaños de máquina virtual para Spot:
 
 En la actualidad, las máquinas virtuales de Spot no pueden usar discos de sistema operativo efímeros.
 
-Las máquinas virtuales de Spot se pueden implementar en cualquier región, excepto en Microsoft Azure China 21Vianet y Department of Defense (DoD) de la región de Azure Government.
+Las máquinas virtuales de Spot se pueden implementar en cualquier región, excepto Microsoft Azure China 21Vianet.
 
 ## <a name="pricing"></a>Precios
 

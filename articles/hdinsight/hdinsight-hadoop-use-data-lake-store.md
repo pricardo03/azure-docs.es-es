@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 309af904f0dbfc0664c4341803cb6a4dc8a2c8a4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/05/2020
+ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839280"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162419"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Uso de Data Lake Storage Gen1 con clústeres de Azure HDInsight
 
@@ -42,12 +42,12 @@ A partir de ahora, solo algunos tipos o versiones de clústeres de HDInsight adm
 
 | Tipo de clúster de HDInsight | Data Lake Storage Gen1 como almacenamiento predeterminado | Data Lake Storage Gen1 como almacenamiento adicional| Notas |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight versión 4.0 | Sin | Sin |ADLS Gen1 no es compatible con HDInsight 4.0 |
+| HDInsight versión 4.0 | No | No |ADLS Gen1 no es compatible con HDInsight 4.0 |
 | HDInsight versión 3.6 | Sí | Sí | Con la excepción de HBase|
 | Versión de HDInsight 3.5 | Sí | Sí | Con la excepción de HBase|
 | Versión de HDInsight 3.4 | No | Sí | |
-| HDInsight versión 3.3 | Sin | Sin | |
-| HDInsight versión 3.2 | Sin | Sí | |
+| HDInsight versión 3.3 | No | No | |
+| HDInsight versión 3.2 | No | Sí | |
 | Storm | | |Data Lake Storage Gen1 se puede usar para escribir datos de una topología de Storm. Puede usar Data Lake Storage para datos de referencia que luego puede leer una topología de Storm.|
 
 > [!WARNING]  
@@ -126,10 +126,12 @@ La incorporación de una cuenta de Data Lake Storage como adicional y la incorpo
 
 ## <a name="configure-data-lake-storage-access"></a>Configuración del acceso de Data Lake Storage
 
-Para configurar el acceso a Data Lake Storage desde el clúster de HDInsight, debe tener una entidad de servicio de Azure Active Directory (Azure AD). Solo un administrador de Azure AD puede crear una entidad de servicio. La entidad de servicio debe crearse con un certificado. Para más información, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) y [Creación de una entidad de servicio con un certificado autofirmado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
+Para configurar el acceso a Data Lake Storage desde el clúster de HDInsight, debe tener una entidad de servicio de Azure Active Directory (Azure AD). Solo un administrador de Azure AD puede crear una entidad de servicio. La entidad de servicio debe crearse con un certificado. Para más información, consulte [Inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) y [Creación de una entidad de servicio con un certificado autofirmado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
 > [!NOTE]  
 > Si va a usar Azure Data Lake Storage Gen1 como almacenamiento adicional para un clúster de HDInsight, se recomienda encarecidamente hacerlo al crear el clúster, como se describe en este artículo. La incorporación de Azure Data Lake Storage Gen1 como almacenamiento adicional a un clúster de HDInsight existente no es un escenario admitido.
+
+Para obtener más información sobre los conceptos básicos del modelo de control de acceso para Data Lake Storage Gen1, consulte [Control de acceso en Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="access-files-from-the-cluster"></a>Acceso a los archivos desde el clúster
 
@@ -141,7 +143,7 @@ Existen varias maneras de acceder a los archivos de Data Lake Storage desde un c
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Con el formato abreviado de la ruta de acceso**. Con este enfoque, reemplaza la ruta de acceso hasta la raíz del clúster con:
+* **Con el formato abreviado de la ruta de acceso**. Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
 
     ```
     adl:///<file path>
@@ -155,7 +157,7 @@ Existen varias maneras de acceder a los archivos de Data Lake Storage desde un c
 
 ### <a name="data-access-examples"></a>Ejemplos de acceso a datos
 
-Los ejemplos se basan en una [conexión ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo principal del clúster. En los ejemplos se usan los tres esquemas de URI. Reemplace `DATALAKEACCOUNT` y `CLUSTERNAME` por los valores pertinentes.
+Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo principal del clúster. En los ejemplos se usan los tres esquemas de URI. Reemplace `DATALAKEACCOUNT` y `CLUSTERNAME` por los valores pertinentes.
 
 #### <a name="a-few-hdfs-commands"></a>Algunos comandos hdfs
 
@@ -173,7 +175,7 @@ Los ejemplos se basan en una [conexión ssh](./hdinsight-hadoop-linux-use-ssh-un
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. Copiar los datos del almacenamiento local al almacenamiento de clúster.
+1. Copia de datos del almacenamiento local al almacenamiento de clúster.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -191,7 +193,7 @@ Los ejemplos se basan en una [conexión ssh](./hdinsight-hadoop-linux-use-ssh-un
 
 #### <a name="creating-a-hive-table"></a>Creación de una tabla de Hive
 
-Con fines de ilustración, se muestran tres ubicaciones de archivos. Para la ejecución real, use solo una de las entradas `LOCATION`.
+Con fines de ilustración, se muestran tres ubicaciones de archivos. En la ejecución real, use solo una de las entradas `LOCATION`.
 
 ```hql
 DROP TABLE myTable;
@@ -210,7 +212,7 @@ LOCATION 'adl:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-abmari"></a>Identificación de la ruta de acceso de almacenamiento de Abmari
+## <a name="identify-storage-path-from-ambari"></a>Identificación de la ruta de acceso de almacenamiento de Ambari
 
 Para identificar la ruta de acceso completa al almacén predeterminado configurado, vaya a **HDFS** > **Configs** y escriba `fs.defaultFS` en el cuadro de entrada de filtro.
 

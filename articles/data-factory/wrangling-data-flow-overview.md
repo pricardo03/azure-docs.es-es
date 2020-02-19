@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531392"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048357"
 ---
 # <a name="what-are-wrangling-data-flows"></a>¿Qué son los flujos de datos de limpieza y transformación?
 
@@ -42,11 +42,11 @@ Analice visualmente los datos sin código para quitar los valores atípicos y la
 
 | Conector | Formato de datos | Tipo de autenticación |
 | -- | -- | --|
-| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV | Clave de cuenta |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Clave de cuenta |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entidad de servicio |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Clave de cuenta, Entidad de servicio |
-| [Azure SQL Database](connector-azure-sql-database.md) | - | Autenticación de SQL |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticación de SQL |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Clave de cuenta, Entidad de servicio |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | Autenticación SQL |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticación SQL |
 
 ## <a name="the-mashup-editor"></a>Editor de mashup
 

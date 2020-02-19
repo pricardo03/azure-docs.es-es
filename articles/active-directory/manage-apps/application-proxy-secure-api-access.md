@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: celested
+ms.date: 02/12/2020
+ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: b741f42bb215df59903fed7ed84094b7d037ce65
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ecd5d8bae22d67f8d9f5b99d5c94eecf54a4a1f3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063040"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166004"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acceso seguro a API locales con Azure AD Application Proxy
 
@@ -38,7 +38,7 @@ Azure AD Application Proxy es la base de la solución, funciona como punto de c
 
 Puesto que la autorización y autenticación de Azure AD Application Proxy se basan en Azure AD, puede usar el acceso condicional de Azure AD para asegurarse de que solo los dispositivos de confianza puedan tener acceso a las API publicadas mediante Application Proxy. Use Unión a Azure AD o Unión a Azure AD híbrido para escritorios e Intune Managed para dispositivos. También puede aprovechar las características de Azure Active Directory Premium, como la autenticación multifactor de Azure y la seguridad basada en el aprendizaje automático de [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir este tutorial, necesita:
 
@@ -47,25 +47,25 @@ Para seguir este tutorial, necesita:
 
 ## <a name="publish-the-api-through-application-proxy"></a>Publicar la API mediante Application Proxy
 
-Para publicar una API fuera de la intranet mediante Application Proxy, se sigue el mismo patrón que para publicar aplicaciones web. Para más información, consulte [Tutorial: Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](application-proxy-add-on-premises-application.md).
+Para publicar una API fuera de la intranet mediante Application Proxy, se sigue el mismo patrón que para publicar aplicaciones web. Para más información, consulte el [Tutorial: Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 Para publicar la API web SecretAPI mediante Application Proxy:
 
 1. Compile y publique el proyecto de ejemplo SecretAPI como aplicación web ASP.NET en el equipo local o la intranet. Asegúrese de que puede acceder a la aplicación web localmente. 
    
-1. En [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** en el panel de navegación izquierdo. A continuación, en la página **Introducción**, seleccione **Aplicaciones empresariales**.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**. Después, seleccione **Aplicaciones empresariales**.
    
 1. En la parte superior de la página **Aplicaciones empresariales - Todas las aplicaciones, seleccione** **Nueva aplicación**.
    
-1. En la página **Examinar la Galería de Azure AD**, en **Aplicaciones locales**, seleccione **Agregar una aplicación local**. Se abre la página **Agregar aplicación local propia**.
+1. En la página **Agregar una aplicación**, seleccione **Aplicaciones locales**. Se abre la página **Agregar aplicación local propia**.
    
 1. Si no tiene instalado un conector de Application Proxy, se le pedirá que lo instale. Seleccione **Descargar conector de Application Proxy** para descargar el conector e instalarlo. 
    
 1. Una vez instalado el conector de Application Proxy, en la página **Agregar aplicación local propia**:
    
-   1. Escriba *SecretAPI* junto a **Nombre**.
+   1. Junto a **Nombre**, escriba *SecretAPI*.
       
-   1. Escriba la dirección URL que usa para acceder a la API desde la intranet junto a **Dirección URL interna**. 
+   1. Junto a **Dirección URL interna**, escriba la dirección URL que usa para acceder a la API desde la intranet.
       
    1. Asegúrese de que la **Autenticación previa** está establecida en **Azure Active Directory**. 
       
@@ -173,6 +173,6 @@ Después de configurar los parámetros, compile y ejecute la aplicación nativa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web](../develop/quickstart-configure-app-access-web-apis.md)
 - [Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de aplicaciones](application-proxy-configure-native-client-application.md)

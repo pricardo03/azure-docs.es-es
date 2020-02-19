@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120816"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190362"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -27,7 +27,7 @@ En esta guía se muestra cómo configurar la instancia de Azure API Management p
 > [!NOTE]
 > Esta característica está disponible en los niveles **Desarrollador**, **Estándar** y **Premium** de API Management.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para seguir los pasos de este artículo, debe tener:
 * Una instancia de API Management
 * Una API que se vaya a publicar y que use la instancia de API Management
@@ -47,7 +47,7 @@ Aquí se muestra una introducción rápida de los pasos:
 
 Para proteger una API con Azure AD, el primer paso es registrar una aplicación en Azure AD que la represente. 
 
-1. Vaya a [Azure Portal](https://portal.azure.com) para registrar la aplicación. Busque y seleccione **Registros de API**.
+1. Vaya a [Azure Portal](https://portal.azure.com) para registrar la aplicación. Busque y seleccione **Registros de aplicaciones**.
 
 1. Seleccione **Nuevo registro**. 
 
@@ -71,7 +71,7 @@ Para proteger una API con Azure AD, el primer paso es registrar una aplicación 
 
 Todas las aplicaciones cliente que llamen a la API deben registrarse también como aplicación en Azure AD. En este ejemplo, la aplicación cliente es la consola del desarrollador en el portal para desarrolladores de API Management. A continuación se indica cómo registrar otra aplicación en Azure AD que represente la consola del desarrollador.
 
-1. Vaya a [Azure Portal](https://portal.azure.com) para registrar la aplicación. Busque y seleccione **Registros de API**.
+1. Vaya a [Azure Portal](https://portal.azure.com) para registrar la aplicación. Busque y seleccione **Registros de aplicaciones**.
 
 1. Seleccione **Nuevo registro**.
 
@@ -97,7 +97,7 @@ Cuando se cree el secreto, anote el valor de clave para usarlo en un paso poster
 
 Ahora que hemos registrado dos aplicaciones que representan la API y la consola del desarrollador, es necesario conceder permisos para que la aplicación cliente pueda llamar a la aplicación back-end.  
 
-1. Vaya a [Azure Portal](https://portal.azure.com) para conceder permisos a la aplicación cliente. Busque y seleccione **Registros de API**.
+1. Vaya a [Azure Portal](https://portal.azure.com) para conceder permisos a la aplicación cliente. Busque y seleccione **Registros de aplicaciones**.
 
 1. Seleccione la aplicación cliente. Después, en la lista de páginas de la aplicación, seleccione **Permisos de API**.
 
@@ -202,7 +202,7 @@ La directiva de [validación de JWT](api-management-access-restriction-policies.
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID URI of backend-app}</value>
+            <value>{Application ID of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>
@@ -212,7 +212,7 @@ La directiva de [validación de JWT](api-management-access-restriction-policies.
 
 ## <a name="build-an-application-to-call-the-api"></a>Compilación de una aplicación para llamar a la API
 
-En esta guía, se utiliza la consola del desarrollador en API Management como la aplicación de cliente de ejemplo para llamar a `Echo API` protegido por OAuth 2.0. Para más información sobre cómo compilar una aplicación e implementar OAuth 2.0, consulte [Ejemplos de código de Azure Active Directory](../active-directory/develop/sample-v1-code.md).
+En esta guía, se utiliza la consola del desarrollador en API Management como la aplicación de cliente de ejemplo para llamar a `Echo API` protegido por OAuth 2.0. Para más información sobre cómo compilar una aplicación e implementar OAuth 2.0, consulte [Ejemplos de código de Azure Active Directory](../active-directory/develop/sample-v2-code.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md).

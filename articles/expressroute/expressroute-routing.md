@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901583"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048161"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -182,8 +182,8 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | Este de Noruega | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
 | Oeste de Noruega | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Asia Pacífico** | |
-| Asia oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
-| Sudeste asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
+| Este de Asia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Sudeste de Asia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japón** | |
 | Japón Oriental | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
 | Japón Occidental | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
@@ -223,13 +223,14 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | Exchange Online** | 12076:5010 |
 | SharePoint Online** | 12076:5020 |
 | Skype For Business Online** | 12076:5030 |
-| CRM en línea |12076:5040 |
+| CRM Online*** |12076:5040 |
 | Servicios globales de Azure* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Otros servicios de Office 365 Online** | 12076:5100 |
 
-*Por ahora, los servicios globales de Azure solo incluyen Azure DevOps.
-** Se requiere autorización de Microsoft, consulte [Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell](how-to-routefilter-portal.md) 
+*Por ahora, los servicios globales de Azure solo incluyen Azure DevOps.\
+** Se requiere autorización de Microsoft, consulte [Configuración de filtros de ruta para el emparejamiento de Microsoft](how-to-routefilter-portal.md)\
+*** CRM Online es compatible con Dynamics v8.2 y versiones anteriores. En el caso de versiones posteriores, seleccione la comunidad regional de las implementaciones de Dynamics.
 
 > [!NOTE]
 > Microsoft no admite los valores de las comunidades de BGP que defina en las rutas anunciadas a Microsoft.

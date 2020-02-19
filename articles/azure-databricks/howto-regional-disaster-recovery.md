@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639878"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161943"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperación ante desastres regional para clústeres de Azure Databricks
 
@@ -37,7 +37,7 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
 
    1. Aprovisione varias áreas de trabajo de Azure Databricks en distintas regiones de Azure. Por ejemplo, puede crear el área de trabajo principal de Azure Databricks en Este de EE. UU. 2. Cree el área de trabajo secundaria de recuperación ante desastres de Azure Databricks en una región distinta, por ejemplo, Oeste de EE. UU.
 
-   2. Utilice el [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Los datos asociados a Azure Databricks se almacenan de forma predeterminada en Azure Storage. Los resultados de un trabajo de Databricks también se almacenan en Azure Blob Storage, con el fin de que los datos procesados sean duraderos y tengan una alta disponibilidad después de que el clúster se finalice. Como el clúster de Databricks y de Storage tienen la misma ubicación, tiene que usar almacenamiento con redundancia geográfica para poder obtener acceso a los datos en una región secundaria si la región primaria ya no es accesible.
+   2. Use el [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md). Los datos asociados a Azure Databricks se almacenan de forma predeterminada en Azure Storage. Los resultados de un trabajo de Databricks también se almacenan en Azure Blob Storage, con el fin de que los datos procesados sean duraderos y tengan una alta disponibilidad después de que el clúster se finalice. Como el clúster de Databricks y de Storage tienen la misma ubicación, tiene que usar almacenamiento con redundancia geográfica para poder obtener acceso a los datos en una región secundaria si la región primaria ya no es accesible.
 
    3. Una vez creada la región secundaria, tiene que migrar los usuarios, las carpetas de usuario, blocs de notas, configuración de clúster, configuración de trabajos, bibliotecas, almacenamiento, scripts de init y volver a configurar el control de acceso. En la siguiente sección se describen detalles adicionales.
 

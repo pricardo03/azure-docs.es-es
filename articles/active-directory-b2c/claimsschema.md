@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c3bb0cb6726326cda7ede46ba09fa6d17c2ba2c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983051"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185583"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -51,7 +51,7 @@ El elemento **ClaimType** contiene los elementos siguientes:
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | El título que se muestra a los usuarios en varias pantallas. El valor se puede [localizar](localization.md). |
-| DataType | 1:1 | Tipo de la notificación. Se pueden usar los tipos de datos siguientes: boolean, date, dateTime, int, long, string, stringCollection. El tipo de datos primitivo representa el equivalente del tipo de datos de variable de C#. stringCollection representa una colección de cadenas. Para más información, consulte [Tipos y variables de C#](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). La fecha sigue la convención ISO 8601. |
+| DataType | 1:1 | Tipo de la notificación. Se pueden usar los tipos de datos: boolean, date, dateTime, int, long, string, stringCollection y phoneNumber. El tipo de datos primitivo representa el equivalente del tipo de datos de variable de C#. stringCollection representa una colección de cadenas. Para más información, consulte [Tipos y variables de C#](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). La fecha sigue la convención ISO 8601. |
 | DefaultPartnerClaimTypes | 0:1 | Los tipos de notificación predeterminada del partner que se van a usar para un protocolo especificado. El valor del elemento **PartnerClaimType** especificado se puede sobrescribir en los elementos **InputClaim** o **OutputClaim**. Use este elemento para especificar el nombre predeterminado de un protocolo.  |
 | Máscara | 0:1 | Cadena opcional de caracteres de enmascaramiento que se pueden aplicar al mostrar la notificación. Por ejemplo, el número de teléfono 324-232-4343 se puede enmascarar como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Una descripción del tipo de notificación que puede ser útil para que los usuarios comprendan su propósito. El valor se puede [localizar](localization.md). |

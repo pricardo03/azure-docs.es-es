@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934633"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064825"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -196,7 +196,7 @@ El enrutamiento de mensajes le permite consultar en etiquetas y propiedades de [
 
 ### <a name="query-expressions"></a>Expresiones de consulta
 
-Una consulta al cuerpo del mensaje debe tener el prefijo `$twin`. La expresión de consulta también puede combinar referencias a propiedades o etiquetas de dispositivo gemelo con referencias al cuerpo del mensaje, a las propiedades del sistema de mensajes y a las propiedades de la aplicación de mensajes. Se recomienda usar nombres únicos en las etiquetas y propiedades ya que la consulta no distingue mayúsculas de minúsculas. Esto se aplica tanto a los dispositivos gemelos como a los módulo gemelos. También debe evitar utilizar `twin`, `$twin`, `body` o `$body` como nombres de propiedad. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas: 
+Una consulta en el mensaje gemelo debe tener el prefijo `$twin`. La expresión de consulta también puede combinar referencias a propiedades o etiquetas de dispositivo gemelo con referencias al cuerpo del mensaje, a las propiedades del sistema de mensajes y a las propiedades de la aplicación de mensajes. Se recomienda usar nombres únicos en las etiquetas y propiedades ya que la consulta no distingue mayúsculas de minúsculas. Esto se aplica tanto a los dispositivos gemelos como a los módulo gemelos. También debe evitar utilizar `twin`, `$twin`, `body` o `$body` como nombres de propiedad. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
