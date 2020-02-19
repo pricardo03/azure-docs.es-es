@@ -8,12 +8,12 @@
   expanded: true
   items:
     - name: Instalación y configuración de Terraform
-      href: /azure/virtual-machines/linux/terraform-install-configure
+      href: terraform-install-configure.md
       maintainContext: true
     - name: Creación de un archivo de configuración de Terraform
       href: terraform-create-configuration.md
     - name: Creación de una máquina virtual Linux
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      href: terraform-create-complete-vm.md
       maintainContext: true
 - name: Tutoriales
   items:
@@ -35,8 +35,6 @@
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infraestructura
       items:
-        - name: Creación de una máquina virtual de Terraform con identidades administradas habilitadas para recursos de Azure
-          href: terraform-vm-managed-identities-for-azure-resources.md
         - name: Creación de un clúster de máquina virtual con módulos de Terraform
           href: terraform-create-vm-cluster-module.md
         - name: Creación de un clúster de máquina virtual con Terraform y HCL

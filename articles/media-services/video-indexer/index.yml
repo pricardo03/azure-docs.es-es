@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentación sobre Video Indexer de Azure Media Services
 metadata:
-  document_id: null
   title: Documentación sobre Video Indexer de Azure Media Services | Microsoft Docs
   description: Más información acerca de Video Indexer.
   services: media-services
@@ -29,7 +28,7 @@ sections:
             image:
               src: media/index/AMSIcons-media_servicesV3.svg
             title: ¿Qué es Video Indexer de Azure Media Services?
-  - title: Inicio rápido en 5 minutos
+  - title: Guías de inicio rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Inicie sesión en el sitio web de Video Indexer y cargue su primer vídeo:'
@@ -40,7 +39,7 @@ sections:
               src: media/index/AMSIcons-media_analytics.svg
             text: Extracción de información
             href: /azure/media-services/video-indexer/video-indexer-get-started
-  - title: Tutoriales detallados
+  - title: Tutoriales paso a paso
     items:
       - type: paragraph
         text: 'Aprenda a extraer la información de cualquier vídeo con Video Indexer API:'
