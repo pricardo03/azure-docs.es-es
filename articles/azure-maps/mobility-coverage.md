@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9519aaf7b57f5f4fbafa7248d3d524aea5d22c46
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8dcbfe7a47dba5a1783d6010d41e33073bc0bb20
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922399"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048919"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de movilidad en Azure Maps
 
-El [servicio de movilidad](https://aka.ms/AzureMapsMobilityService) de Azure Maps permite la funcionalidad de hacer rutas para transporte público, uso compartido de bicicletas y motos con opciones de planeamiento de viajes multimodales. Para el transporte público, el servicio ofrece la búsqueda de estaciones cercanas, paradas y líneas, y proporciona información como las llegadas de transporte púbico programadas y en tiempo real, la lista de las paradas y guías de las rutas, así como alertas de servicio e itinerarios paso a paso multimodales. El servicio de movilidad también devuelve información sobre disponibilidad estática y en tiempo real para el uso compartido de vehículos, bicicletas y motos.
+Azure Maps cuenta con el [servicio Mobility](https://aka.ms/AzureMapsMobilityService). El servicio Mobility mejora el tiempo de desarrollo de las aplicaciones con características para el transporte público, el uso compartido de bicicletas y el uso compartido de motos. Brinda la posibilidad de crear rutas con opciones multimodales para el planeamiento de recorridos. Entre las características de transporte público, se incluyen la búsqueda de estaciones cercanas, paradas y líneas de transporte, así como la obtención de información sobre los horarios, las llegadas del transporte público en tiempo real, la lista de paradas y las guías de rutas. El servicio devuelve información estadística y en tiempo real sobre la disponibilidad para el uso compartido de vehículos, bicicletas y motos. La API devuelve alertas de servicio e itinerarios paso por paso detallados y multimodales.
 
-Azure Maps no tiene el mismo nivel de información y precisión para todas las ciudades ni en todas las regiones o países. La posibilidad de llamar a datos de tránsito depende de la ciudad y los datos pueden no incluir todas las opciones de transporte público o agencias que operen en la ciudad.
+Azure Maps no tiene el mismo nivel de información y precisión en todas las ciudades ni en todas las regiones o países. La capacidad para llamar a los datos de transporte depende de la ciudad. Es posible que los datos no incluyan todas las opciones de transporte público ni todas las agencias que prestan servicio a la ciudad.
 
 En la siguiente tabla se proporciona información sobre la cobertura del servicio de movilidad de Azure Maps.
 
@@ -114,7 +114,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del servici
 | Serbia  | Belgrado, Kragujevac, Nis, Novi Sad, Valjevo, Subotica | 
 | Eslovaquia | Banská Bystrica, Bratislava, Kosice, Presov, Prievidza, Stará Ľubovňa, Trencin | 
 | Eslovenia | Koper, Liubliana | 
-| España    | <p>Coruña, Alicante, Almería, Asturias, Ávila, Badajoz, Bahía de Cádiz, Barcelona, Bilbao, Burgos, Cáceres, Campo de Gibraltar, Castellón de la Plana, Ceuta, Ciudad Real, Córdoba, Cuenca, El Hierro, Ferrol, Fuerteventura, Gran Canaria, Granada, Huelva, Huesca, Ibiza, Jaén - Úbeda, La Gomera, La Palma, Lanzarote, León, Lleida, Logroño, Lugo, Madrid, Málaga, Mallorca - Majorca, Melilla, Menorca, Mérida, Murcia, Ourense, Palencia, Pamplona, Salamanca, San Sebastián, Santander, Santiago de Compostela, Segovia, Sevilla, Soria, Tarragona - Reus, Tenerife, Toledo, Valencia, Valladolid, Vigo, Vitoria-Gasteiz, Zaragoza - Zaragoza</p> |
+| España    | <p>Coruña, Alicante, Almería, Asturias, Ávila, Badajoz, Bahía de Cádiz, Barcelona, Bilbao, Burgos, Cáceres, Campo de Gibraltar, Castellón de la Plana, Ceuta, Ciudad Real, Córdoba, Cuenca, El Hierro, Ferrol, Fuerteventura, Gran Canaria, Granada, Huelva, Huesca, Ibiza, Jaén - Úbeda, La Gomera, La Palma, Lanzarote, León, Lleida, Logroño, Lugo, Madrid, Málaga, Mallorca, Melilla, Menorca, Mérida, Murcia, Ourense, Palencia, Pamplona, Salamanca, San Sebastián, Santander, Santiago de Compostela, Segovia, Sevilla, Soria, Tarragona - Reus, Tenerife, Toledo, Valencia, Valladolid, Vigo, Vitoria-Gasteiz, Zaragoza - Zaragoza</p> |
 | Suecia | Goteborg/Gothenburg/Jonkoping, Malmö kommun - Malmö, Norrköping och Linköping, Stockholm, Sundsvall |
 | Suiza | Basilea, Ginebra, Yverdon-les-Bains, Zúrich | 
 | Turquía | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Duzce, Elazig, Eskisehir, Istanbul, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    

@@ -52,16 +52,20 @@
           href: how-to-manage-lab-accounts.md
         - name: Configuración de cuentas de laboratorio
           href: how-to-configure-lab-accounts.md
+        - name: Incorporación de un creador de laboratorio
+          href: add-lab-creator.md
         - name: Permiso al creador del laboratorio para seleccionar su ubicación
           href: allow-lab-creator-pick-lab-location.md
-        - name: Conexión de los laboratorios a una red virtual del mismo nivel
+        - name: Conexión a una red virtual del mismo nivel
           href: how-to-connect-peer-virtual-network.md
         - name: Asociación o desasociación de una galería de imágenes compartidas
           href: how-to-attach-detach-shared-image-gallery.md
-        - name: Adición de un usuario como propietario a un laboratorio de clase
+        - name: Incorporación de propietarios adicionales a un laboratorio de clase
           href: how-to-add-user-lab-owner.md
-        - name: Configuración del firewall para Azure Lab Services
+        - name: Configuración del firewall
           href: how-to-configure-firewall-settings.md
+        - name: Especificación de imágenes de Marketplace para laboratorios
+          href: specify-marketplace-images.md
     - name: Creación y configuración de laboratorios educativos (instructor)
       items:
         - name: Creación y administración de laboratorios educativos

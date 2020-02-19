@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: ea37dc9ee6c9249aa9d18f7ee7ab1fdbe1230930
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 26fe995f45a97a5863bfc20fd1564df89124ed88
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975846"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168312"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -32,25 +32,34 @@ Si el envío de un audio más grande es necesario para la aplicación, considere
 
 ## <a name="regions-and-endpoints"></a>Regiones y puntos de conexión
 
-Estas regiones son compatibles con la transcripción de voz a texto mediante la API REST. Asegúrese de que selecciona el punto de conexión que coincida con la región de su suscripción.
+El punto de conexión de la API REST tiene este formato:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Reemplace `<REGION_IDENTIFIER>` por el identificador que coincida con la región de la suscripción en la siguiente tabla:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> El parámetro de idioma debe anexarse a la dirección URL para evitar la recepción de errores HTTP 4xx. Por ejemplo, el idioma definido a inglés de Estados Unidos con el punto de conexión del Oeste de EE. UU. es: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ## <a name="query-parameters"></a>Parámetros de consulta
 
 Estos parámetros podrían incluirse en la cadena de consulta de la solicitud de REST.
 
-| Parámetro | DESCRIPCIÓN | Obligatorio u opcional |
+| Parámetro | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | `language` | Identifica el idioma hablado que se está reconociendo. Vea [Idiomas admitidos](language-support.md#speech-to-text). | Obligatorio |
-| `format` | Especifica el formato del resultado. Los valores aceptados son: `simple` y `detailed`. Los resultados simples incluyen `RecognitionStatus`, `DisplayText`, `Offset` y `Duration`. Las respuestas detalladas incluyen varios resultados con valores de confianza y cuatro representaciones diferentes. La configuración predeterminada es `simple`. | Opcional |
-| `profanity` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `masked`, que reemplaza las palabras soeces con asteriscos, `removed`, que quita todas las palabras soeces del resultado o `raw` que incluye la palabra soez en el resultado. La configuración predeterminada es `masked`. | Opcional |
+| `format` | Especifica el formato del resultado. Los valores aceptados son: `simple` y `detailed`. Los resultados simples incluyen `RecognitionStatus`, `DisplayText`, `Offset` y `Duration`. Las respuestas detalladas incluyen varios resultados con valores de confianza y cuatro representaciones diferentes. El valor predeterminado es `simple`. | Opcional |
+| `profanity` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `masked`, que reemplaza las palabras soeces con asteriscos, `removed`, que quita todas las palabras soeces del resultado o `raw` que incluye la palabra soez en el resultado. El valor predeterminado es `masked`. | Opcional |
 
 ## <a name="request-headers"></a>Encabezados de solicitud
 
 Esta tabla enumera los encabezados obligatorios y opcionales para las solicitudes de voz a texto.
 
-|Encabezado| DESCRIPCIÓN | Obligatorio u opcional |
+|Encabezado| Descripción | Obligatorio u opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Clave de suscripción del servicio de voz. | Se necesita este encabezado, o bien `Authorization`. |
 | `Authorization` | Un token de autorización precedido por la palabra `Bearer`. Para más información, consulte [Autenticación](#authentication). | Se necesita este encabezado, o bien `Ocp-Apim-Subscription-Key`. |
@@ -69,7 +78,7 @@ El audio se envía en el cuerpo de la solicitud HTTP `POST`. Debe estar en uno d
 | OGG | OPUS | 16 bits | 16 kHz, mono |
 
 >[!NOTE]
->Se admiten los formatos anteriores a través de la API REST y WebSocket en el servicio de voz. El [SDK de Voz](speech-sdk.md) actualmente solo admite el formato WAV con el códec PCM.
+>Se admiten los formatos anteriores a través de la API REST y WebSocket en el servicio de voz. Actualmente, el [SDK de Voz](speech-sdk.md) admite el formato WAV con el códec PCM así como [otros formatos](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -89,10 +98,10 @@ Expect: 100-continue
 
 El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 
-| Código de estado HTTP | DESCRIPCIÓN | Posible motivo |
+| Código de estado HTTP | Descripción | Posible motivo |
 |------------------|-------------|-----------------|
 | 100 | Continuar | Se ha aceptado la solicitud inicial. Continúe con el envío del resto de los datos. (Se usa con la transferencia fragmentada). |
-| 200 | OK | La solicitud es correcta; el cuerpo de la respuesta es un objeto JSON. |
+| 200 | Aceptar | La solicitud es correcta; el cuerpo de la respuesta es un objeto JSON. |
 | 400 | Solicitud incorrecta | Código de idioma no proporcionado, idioma no compatible; archivo de audio no válido, etc. |
 | 401 | No autorizado | Clave de suscripción o token de autorización no válido en la región especificada, o punto de conexión no válido. |
 | 403 | Prohibido | Falta la clave de suscripción o el token de autorización. |
@@ -144,7 +153,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 Los resultados se proporcionan como JSON. El formato `simple` incluye los siguientes campos de nivel superior.
 
-| Parámetro | DESCRIPCIÓN  |
+| Parámetro | Descripción  |
 |-----------|--------------|
 |`RecognitionStatus`|Estado, como `Success`, para un reconocimiento correcto. Vea la tabla siguiente.|
 |`DisplayText`|Texto reconocido tras mayúsculas, puntuación, normalización inversa de texto (conversión de texto hablado en formularios más cortos, como 200 para "doscientos" o "Dr. Smith" para "doctor smith") y enmascaramiento de palabras soeces. Solo se presenta en caso de corrección.|
@@ -153,7 +162,7 @@ Los resultados se proporcionan como JSON. El formato `simple` incluye los siguie
 
 El campo `RecognitionStatus` puede contener estos valores:
 
-| Status | DESCRIPCIÓN |
+| Status | Descripción |
 |--------|-------------|
 | `Success` | El reconocimiento es correcto y el campo `DisplayText` está presente. |
 | `NoMatch` | Se detectó voz en la secuencia de audio, pero no se encontraron coincidencias de palabras en el idioma de destino. Normalmente significa que el idioma de reconocimiento es un idioma distinto al que habla el usuario. |
@@ -168,7 +177,7 @@ El formato `detailed` incluye los mismos datos que el formato `simple`, junto co
 
 Cada objeto de la lista `NBest` incluye:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | `Confidence` | La puntuación de confianza de la entrada de 0,0 (ninguna confianza) a 1,0 (plena confianza) |
 | `Lexical` | La forma léxica del texto reconocido: palabras reales reconocidas. |

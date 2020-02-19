@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 09b25dbdc8fc13c40ccd89b2cfd78611cedaac9d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a4a9760b5c7a70c58a1afe1b14b781a35f2b9b18
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024473"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082975"
 ---
 # <a name="accessing-your-avs-private-cloud-environment-and-applications-from-on-premises"></a>Acceso al entorno y las aplicaciones de la nube privada de AVS desde el entorno local
 
@@ -26,7 +26,7 @@ Para acceder a la instancia de vCenter de la nube privada de AVS y al administra
 
 | Port       | Source                           | Destination                      | Propósito                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | Servidores DNS locales          | Servidores DNS de la nube privada de AVS        | Se requiere para reenviar la búsqueda de DNS de *az.AVS.io* a los servidores DNS de la nube privada de AVS desde la red local.     |
+| 53 (UDP)   | Servidores DNS locales          | Servidores DNS de la nube privada de AVS        | Se requiere para reenviar la búsqueda de DNS de *az.cloudsimple.io* a los servidores DNS de la nube privada de AVS desde la red local.     |
 | 53 (UDP)   | Servidores DNS de la nube privada de AVS        | Servidores DNS locales          | Se requiere para reenviar la búsqueda de DNS de los nombres de dominio locales de la instancia de vCenter de la nube privada de AVS a los servidores DNS locales. |
 | 80 (TCP)   | Red local              | Red de administración de la nube privada de AVS | Se requiere para redirigir la dirección URL de vCenter de *http* a *https*.                                                         |
 | 443 (TCP)  | Red local              | Red de administración de la nube privada de AVS | Se requiere para acceder al vCenter y al administrador de NSX-T desde la red local.                                           |

@@ -8,13 +8,13 @@ ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2e50d226282536fa4e8c044d2ee3d91df4cfd1ee
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644705"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131462"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -195,6 +195,9 @@ Utilice la actividad de copia para almacenar provisionalmente los datos desde cu
 
 E entorno de ejecución de integración autohospedado es una construcción de canalización de ADF que se puede usar con la actividad de copia para adquirir o trasladar datos hacia y desde orígenes locales o receptores de datos basados en máquinas virtuales. Almacene temporalmente primero los datos con una copia, después cree el flujo de datos para la transformación y, a continuación, una copia posterior si necesita trasladar los datos transformados de nuevo al almacén local.
 
+### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>¿El motor de proceso de flujo de datos atiende a varios inquilinos?
+Los clústeres nunca se comparten. Garantizamos el aislamiento de cada trabajo ejecutado en las ejecuciones en producción. En caso de los escenarios de depuración, una persona obtiene un clúster, lo inicia y todos los depuradores irán a él.
+
 ## <a name="wrangling-data-flows"></a>Flujos de datos de limpieza y transformación
 
 ### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>¿Cuáles son las regiones admitidas para el flujo de datos de limpieza y transformación?
@@ -203,17 +206,17 @@ El flujo de datos de limpieza y transformación se admite actualmente en las fac
 
 * Este de Australia
 * Centro de Canadá
-* India Central
+* Centro de la India
 * Centro de EE. UU.
-* East US
+* Este de EE. UU.
 * Este de EE. UU. 2
-* Este de Japón
-* Europa del Norte
-* Sudeste asiático
-* Centro-Sur de EE. UU
+* Japón Oriental
+* Norte de Europa
+* Sudeste de Asia
+* Centro-sur de EE. UU.
 * Sur de Reino Unido 2
-* Centro occidental de EE.UU.
-* Europa occidental
+* Centro-Oeste de EE. UU.
+* Oeste de Europa
 * Oeste de EE. UU.
 * Oeste de EE. UU. 2
 

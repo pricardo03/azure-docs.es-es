@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: b026ef7dbbe850f0d2d1cb67ec8ca93b14ef879a
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 96d0124941f9f2daa1e1b2d1d254b0b767ffb395
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044895"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111571"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -21,7 +21,7 @@ ms.locfileid: "76044895"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Actualización de la solución
-> Esta solución se ha reemplazado por la solución de disponibilidad general [Office 365](../../sentinel/connect-office-365.md) en [Azure Sentinel](../../sentinel/overview.md) y la [solución de supervisión e informes de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). De forma conjunta, proporcionan una versión actualizada de la solución Office 365 de Azure Monitor anterior con una experiencia de configuración mejorada. Puede seguir usando la solución existente hasta el 30 de marzo de 2020.
+> Esta solución se ha reemplazado por la solución de disponibilidad general [Office 365](../../sentinel/connect-office-365.md) en [Azure Sentinel](../../sentinel/overview.md) y la [solución de supervisión e informes de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). De forma conjunta, proporcionan una versión actualizada de la solución Office 365 de Azure Monitor anterior con una experiencia de configuración mejorada. Puede seguir usando la solución existente hasta el 30 de abril de 2020.
 > 
 > Azure Sentinel es una solución de administración de eventos e información de seguridad nativa en la nube que ingiere registros y proporciona funcionalidad de SIEM adicional, como detecciones, investigaciones, búsqueda e información controlada por aprendizaje automático. El uso de Azure Sentinel ahora le proporcionará ingesta de registros de administración de Exchange y de actividad de Office 365 SharePoint.
 > 
@@ -37,8 +37,8 @@ ms.locfileid: "76044895"
 >
 > ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-march-30th"></a>P: ¿Es posible incorporar la solución Office 365 de Azure Monitor entre ahora y el 30 de marzo?
-> No, los scripts de incorporación de la solución Office 365 de Azure Monitor ya no están disponibles. La solución se quitará el 30 de marzo.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-april-30th"></a>P: ¿Es posible incorporar la solución Office 365 de Azure Monitor entre ahora y el 30 de abril?
+> No, los scripts de incorporación de la solución Office 365 de Azure Monitor ya no están disponibles. La solución se eliminará el 30 de abril.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>P: ¿Se modificarán las tablas y los esquemas?
 > El nombre y el esquema de la tabla **OfficeActivity** seguirán siendo los mismos que en la solución actual. Puede seguir usando las mismas consultas en la nueva solución excluyendo las consultas que hacen referencia a datos de Azure AD.
@@ -104,11 +104,11 @@ ms.locfileid: "76044895"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>P: ¿Azure Sentinel proporciona conectores adicionales como parte de la solución?
 > Sí, vea [Conexión con orígenes de datos de Azure Sentinel](../../sentinel/connect-data-sources.md).
 > 
-> ###   <a name="q-what-will-happen-on-march-30-do-i-need-to-offboard-beforehand"></a>P: ¿Qué ocurrirá el 30 de marzo? ¿Tengo que realizar la retirada con antelación?
+> ###   <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>P: ¿Qué ocurrirá el 30 de abril? ¿Tengo que realizar la retirada con antelación?
 > 
 > - No podrá recibir datos de la solución **Office365**. La solución ya no estará disponible en Marketplace
 > - Para los clientes de Azure Sentinel, la solución **Office365** del área de trabajo de Log Analytics se incluirá en la solución **SecurityInsights** de Azure Sentinel.
-> - Si no retira la solución manualmente, los datos se desconectarán de forma automática el 30 de marzo.
+> - Si no retira la solución manualmente, los datos se desconectarán de forma automática el 30 de abril.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: ¿Mis datos se transferirán a la nueva solución?
 > Sí. Cuando quite la solución **Office 365** del área de trabajo, los datos dejarán de estar disponibles temporalmente porque el esquema se ha quitado. Al habilitar el nuevo conector de **Office 365** en Sentinel, el esquema se restaura en el área de trabajo y los datos ya recopilados estarán disponibles. 

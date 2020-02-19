@@ -3,12 +3,12 @@ title: Preguntas sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el servicio Azure Migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: de9583b7983dda904e06ea258ecb0d202644586b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292339"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064706"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -16,6 +16,7 @@ Este artículo contiene respuestas a algunas preguntas frecuentes sobre el dispo
 
 - [Preguntas generales](resources-faq.md) sobre Azure Migrate.
 - [Preguntas](common-questions-discovery-assessment.md) sobre la detección, valoración y visualización de dependencias.
+- [Preguntas](common-questions-server-migration.md) sobre la migración de servidores
 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>¿Qué es el dispositivo de Azure Migrate?

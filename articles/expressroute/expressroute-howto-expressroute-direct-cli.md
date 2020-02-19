@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a17570a62728d5b4f9c99e3c4c939b5c77cb3df
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74080209"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049938"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configuración de ExpressRoute Direct mediante la CLI de Azure
 
@@ -38,7 +38,12 @@ Puede usar Azure ExpressRoute Direct para conectarse directamente a la red globa
    az account set --subscription "<subscription ID>"
    ```
 
-2. Enumere todas las ubicaciones donde se admita ExpressRoute Direct:
+2. Vuelva a registrar la suscripción a Microsoft.Network para acceder a las API expressrouteportslocation y expressrouteport.
+
+   ```azurecli
+   az provider register --namespace Microsoft.Network
+   ```
+3. Enumere todas las ubicaciones donde se admita ExpressRoute Direct:
     
    ```azurecli
    az network express-route port location list
@@ -105,7 +110,7 @@ Puede usar Azure ExpressRoute Direct para conectarse directamente a la red globa
    }
    ]
    ```
-3. Determine si alguna de las ubicaciones enumeradas en el paso anterior tiene ancho de banda disponible:
+4. Determine si alguna de las ubicaciones enumeradas en el paso anterior tiene ancho de banda disponible:
 
    ```azurecli
    az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -131,7 +136,7 @@ Puede usar Azure ExpressRoute Direct para conectarse directamente a la red globa
    "type": "Microsoft.Network/expressRoutePortsLocations"
    }
    ```
-4. Cree un recurso de ExpressRoute Direct situado en la ubicación que eligió en los pasos anteriores.
+5. Cree un recurso de ExpressRoute Direct situado en la ubicación que eligió en los pasos anteriores.
 
    ExpressRoute Direct admite la encapsulación de tipo QinQ y Dot1Q. Si selecciona QinQ, a cada circuito de ExpressRoute se le asigna dinámicamente una S-Tag y es única en todo el recurso de ExpressRoute Direct. Cada C-Tag del circuito debe ser única dentro del circuito, pero no en el recurso de ExpressRoute Direct.  
 

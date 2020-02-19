@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 8062428ae63a572b81a5432c8b29910fe8422e24
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 812875be47cabdd23e6307403bb95d8d6ff174ec
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547462"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167499"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -38,7 +38,7 @@ El desencadenador de Event Grid se proporciona en el paquete NuGet [Microsoft.Az
 
 ## <a name="example"></a>Ejemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Para ver un ejemplo de un desencadenador HTTP, consulte [Recepción de eventos en un punto de conexión HTTP](../event-grid/receive-events.md).
 
@@ -93,7 +93,7 @@ namespace Company.Function
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace.
 
@@ -145,7 +145,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace.
 
@@ -176,7 +176,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Python](functions-reference-python.md) que usa el enlace.
 
@@ -217,26 +217,14 @@ def main(event: func.EventGridEvent):
     logging.info('Python EventGrid trigger processed an event: %s', result)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En esta sección se incluyen los ejemplos siguientes:
 
 * [Desencadenador de Event Grid, parámetro de cadena](#event-grid-trigger-string-parameter)
 * [Desencadenador de Event Grid, parámetro POJO](#event-grid-trigger-pojo-parameter)
 
-En los siguientes ejemplos se muestra el enlace de activación en un archivo *function.json* y las [funciones de Java](functions-reference-java.md) que usan el enlace e imprimen un evento, recibiendo primero el evento como ```String``` y un segundo evento como POJO.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ]
-}
-```
+En los siguientes ejemplos, se muestra un enlace de desencadenador de [Java](functions-reference-java.md) que utiliza el enlace e imprime un evento. El evento se recibe primero como `String` y después como POJO.
 
 ### <a name="event-grid-trigger-string-parameter"></a>Desencadenador de Event Grid, parámetro de cadena
 
@@ -298,7 +286,7 @@ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overvi
 
 ## <a name="attributes"></a>Atributos
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs).
 
@@ -314,19 +302,19 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 Para un ejemplo completo, consulte el ejemplo de C#.
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 La anotación [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) permite configurar mediante declaración un enlace de Event Grid con valores de configuración. Para más información, consulte las secciones [Ejemplo](#example) y [Configuración](#configuration).
 
@@ -344,7 +332,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="usage"></a>Uso
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En Azure Functions 1.x, puede usar los tipos de parámetro siguientes para el desencadenador de Event Grid:
 
@@ -358,7 +346,7 @@ En Azure Functions 2.x y versiones posteriores, también tiene la opción de us
 > [!NOTE]
 > En Functions v1, si intenta enlazar a `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, el compilador mostrará un mensaje "en desuso" y le avisará de que use en su lugar `Microsoft.Azure.EventGrid.Models.EventGridEvent`. Para usar el tipo más nuevo, haga referencia al paquete NuGet [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) y califique completamente el nombre del tipo `EventGridEvent` usando el prefijo `Microsoft.Azure.EventGrid.Models`.
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 En Azure Functions 1.x, puede usar los tipos de parámetro siguientes para el desencadenador de Event Grid:
 
@@ -372,15 +360,15 @@ En Azure Functions 2.x y versiones posteriores, también tiene la opción de us
 > [!NOTE]
 > En Functions v1, si intenta enlazar a `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, el compilador mostrará un mensaje "en desuso" y le avisará de que use en su lugar `Microsoft.Azure.EventGrid.Models.EventGridEvent`. Para usar el tipo más nuevo, haga referencia al paquete NuGet [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) y califique completamente el nombre del tipo `EventGridEvent` usando el prefijo `Microsoft.Azure.EventGrid.Models`. Para información sobre cómo hacer referencia a paquetes NuGet en una función de script de C#, consulte [Uso de paquetes NuGet](functions-reference-csharp.md#using-nuget-packages).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 La instancia de Event Grid está disponible mediante el parámetro configurado en la propiedad `name` del archivo *function.json*.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 La instancia de Event Grid está disponible mediante el parámetro configurado en la propiedad `name` del archivo *function.json*, con el tipo `func.EventGridEvent`.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 La instancia del evento de Event Grid está disponible mediante el parámetro asociado al atributo `EventGridTrigger`, con el tipo `EventSchema`. Consulte el [ejemplo](#example) para más detalles.
 

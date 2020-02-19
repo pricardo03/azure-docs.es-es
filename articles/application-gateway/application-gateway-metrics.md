@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/29/2019
+ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 695507b0d6997870dbea392e73e4f4470248d26c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985890"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046310"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -132,6 +132,9 @@ Para Application Gateway, están disponibles las métricas siguientes:
 - **Recuento de hosts con estado incorrecto**
 
   El número de back-ends que el sondeo de Estado ha determinado que son incorrectos. También puede filtrar en función de grupos de back-end para mostrar el número de hosts en estado incorrecto en un grupo de back-end específico.
+  
+- **Requests per minute per Healthy Host** (Solicitudes por minuto y host con estado correcto) Promedio de solicitudes recibidas por cada miembro correcto en un grupo de servidores de back-end en un minuto. Debe especificar el grupo de servidores de back-end mediante la dimensión *BackendPool Httpsettings*.  
+  
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas compatibles con la SKU de Application Gateway V1
 

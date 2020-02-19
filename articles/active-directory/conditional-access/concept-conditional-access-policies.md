@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f3e815f541ad4cfabc22d917ca9cecba47b50f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077940"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186230"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -32,15 +32,15 @@ La parte de las asignaciones controla el quién, el qué y el dónde de una dire
 
 ### <a name="users-and-groups"></a>Usuarios y grupos
 
-Los usuarios y grupos asignan a quién incluirá y a quién excluirá la directiva. Esta asignación puede incluir a todos los usuarios, grupos específicos de usuarios, roles de directorio o usuarios invitados externos. 
+[Usuarios y grupos](concept-conditional-access-users-groups.md) asigna a quién incluirá y a quién excluirá la directiva. Esta asignación puede incluir a todos los usuarios, grupos específicos de usuarios, roles de directorio o usuarios invitados externos. 
 
 ### <a name="cloud-apps-or-actions"></a>Aplicaciones o acciones en la nube
 
-Las aplicaciones o acciones en la nube pueden incluir o excluir las aplicaciones en la nube o acciones del usuario que estarán sujetas a la directiva.
+[Aplicaciones o acciones en la nube](concept-conditional-access-cloud-apps.md) puede incluir o excluir las aplicaciones en la nube o acciones del usuario que estarán sujetas a la directiva.
 
 ### <a name="conditions"></a>Condiciones
 
-Una directiva puede contener varias condiciones.
+Una directiva puede contener varias [condiciones](concept-conditional-access-conditions.md).
 
 #### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 
@@ -72,6 +72,8 @@ La parte de controles de acceso de la directiva de acceso condicional controla c
 
 ### <a name="grant"></a>Conceder
 
+[Concesión](concept-conditional-access-grant.md) proporciona a los administradores un medio de aplicación de directivas en el que pueden bloquear o conceder acceso.
+
 #### <a name="block-access"></a>Bloquear acceso
 
 El bloqueo de acceso hace justamente eso, bloqueará el acceso bajo las asignaciones especificadas. El control de bloqueo es eficaz y se debe manejar con el conocimiento adecuado.
@@ -93,7 +95,7 @@ Los administradores pueden elegir si requerir uno de los controles anteriores o 
 
 ### <a name="session"></a>Sesión
 
-Los controles de sesión pueden limitar la experiencia 
+[Controles de sesión](concept-conditional-access-session.md) puede limitar la experiencia. 
 
 - Usar restricciones que exige la aplicación
    - Actualmente solo funciona con Exchange Online y SharePoint Online.
@@ -121,11 +123,11 @@ Una directiva de acceso condicional debe contener, como mínimo, lo siguiente pa
 
 ![Directiva de acceso condicional en blanco](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
+El artículo [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md) incluye algunas directivas que pensamos que serían útiles para la mayoría de las organizaciones.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
-
-[Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 
 [Planeamiento de una implementación de Azure Multi-Factor Authentication basada en la nube](../authentication/howto-mfa-getstarted.md)
 

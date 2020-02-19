@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680960"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152999"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en Azure App Service
 
 En esta guía se muestra cómo implementar la aplicación en [Azure App Service](overview.md) desde un repositorio Git en la máquina local.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir los pasos de esta guía:
 
@@ -50,6 +50,9 @@ Para obtener la URL para habilitar la implementación de Git local de una aplica
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
+> [!NOTE]
+> Si usa un plan de servicio de aplicaciones de Linux, debe agregar este parámetro:--runtime python|3.7
+
 
 Igualmente, para crear una aplicación habilitada para Git, ejecute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) en Cloud Shell con el parámetro `--deployment-local-git`. Reemplace \<app-name>, \<group-name> y \<plan-name> con los nombres de la nueva aplicación de Git, el grupo de recursos de Azure y el plan de Azure App Service.
 

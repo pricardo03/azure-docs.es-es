@@ -3,20 +3,18 @@ title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cae653c9e51e2a497d6fa3781415a1f836053593
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934933"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064536"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) se actualiza y mejora de manera continua. Para ayudarlo a mantenerse actualizado, en este artículo encontrará información sobre las versiones más recientes, las características nuevas y el nuevo contenido. Esta página se actualiza de manera periódica.
 
 Puede seguirla y suscribirse a las notificaciones de actualizaciones de Site Recovery en el canal de [actualizaciones de Azure](https://azure.microsoft.com/updates/?product=site-recovery).
-
-
 
 ## <a name="supported-updates"></a>Actualizaciones admitidas
 
@@ -30,18 +28,18 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 [Paquete acumulativo 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Paquete acumulativo 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-
-
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
 
 ## <a name="updates-january-2020"></a>Actualizaciones (enero de 2020)
 
 ### <a name="update-rollup-44"></a>Paquete acumulativo de actualizaciones 44
+
 El [paquete acumulativo de actualizaciones 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) proporciona las siguientes actualizaciones.
 
 **Actualizar** | **Detalles**
 --- | ---
-**Mejoras y correcciones de problemas** | Varias actualizaciones de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo).
+**Proveedores y agentes** | No hubo actualizaciones para los proveedores y agentes de Site Recovery.
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
 ### <a name="azure-vmware-disaster-recovery"></a>Recuperación ante desastres de VMware en Azure
 

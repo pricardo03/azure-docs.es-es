@@ -1,18 +1,18 @@
 ---
 title: 'Conceptos: Redes en Azure Kubernetes Service (AKS)'
 description: Obtenga más información sobre las redes en Azure Kubernetes Service (AKS), incluidas las redes de kubenet y Azure CNI, los controladores de entrada, los equilibradores de carga y las direcciones IP estáticas.
-services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
+ms.custom: fasttrack-edit
 ms.author: mlearned
-ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547972"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084283"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -108,6 +108,8 @@ Existen las siguientes diferencias de comportamiento entre kubenet y Azure CNI:
 | Expone los servicios de Kubernetes mediante un servicio de equilibrador de carga, App Gateway o un controlador de entrada | Compatible | Compatible |
 | Azure DNS y zonas privadas predeterminadas                                                          | Compatible | Compatible |
 
+Con respecto a DNS, con los complementos kubenet y Azure CNI, DNS se ofrece mediante CoreDNS, un demonio establecido que se ejecuta en AKS. Para más información sobre CoreDNS en Kubernetes, consulte [Personalización del servicio DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS se configura de forma predeterminada para reenviar dominios desconocidos a los servidores DNS de nodo, es decir, a la funcionalidad DNS de la red virtual de Azure donde se ha implementado el clúster de AKS. Por lo tanto, las zonas privadas y Azure DNS funcionarán para los pods que se ejecutan en AKS.
+
 ### <a name="support-scope-between-network-models"></a>Ámbito de compatibilidad entre los modelos de red
 
 Independientemente del modelo de red que use, kubenet y Azure CNI pueden implementarse de una de las siguientes maneras:
@@ -117,7 +119,7 @@ Independientemente del modelo de red que use, kubenet y Azure CNI pueden impleme
 
 Aunque se admiten funcionalidades como puntos de conexión de servicio o UDR tanto con kubenet como con Azure CNI, las [directivas de compatibilidad para AKS][support-policies] definen los cambios que se pueden realizar. Por ejemplo:
 
-* Si crea manualmente los recursos de red virtual para un clúster de AKS, podrá configurar sus propios puntos de conexión de servicio o UDR.
+* Si crea manualmente los recursos de red virtual para un clúster de AKS, tendrá soporte técnico para configurar sus propios puntos de conexión de servicio o UDR.
 * Si la plataforma de Azure crea automáticamente los recursos de red virtual para el clúster de AKS, no se admite cambiar manualmente esos recursos administrados de AKS para configurar sus propios UDR o puntos de conexión de servicio.
 
 ## <a name="ingress-controllers"></a>Controladores de entrada

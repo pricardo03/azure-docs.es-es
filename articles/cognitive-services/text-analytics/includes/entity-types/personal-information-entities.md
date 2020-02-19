@@ -6,30 +6,110 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/21/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800135"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086913"
 ---
 ## <a name="personal-information-entity-types"></a>Tipos de entidades de información personal:
 
+### <a name="person"></a>Person
+Reconocimiento de nombres de persona en el texto.
+
+Lenguajes:
+* Versión preliminar pública: `English`
+
+| Nombre del subtipo | Descripción                                               | Disponible a partir de la versión del modelo |
+|--------------|-----------------------------------------------------------|----------------------------------------|
+| N/D          | Nombres reconocidos, como `Bill Gates` o `Marie Curie` | `2020-02-01`                           |
+
+### <a name="organization"></a>Organización  
+
+Reconocimiento de organizaciones, corporaciones, agencias, compañías, clubs y otros grupos de personas.
+
+Lenguajes: 
+
+* Versión preliminar pública: `English`
+
+| Nombre del subtipo | Descripción                                                                                       | Disponible a partir de la versión del modelo|
+|--------------|---------------------------------------------------------------------------------------------------|--------------|
+| N/D          | Organizaciones, como `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
+
 ### <a name="phone-number"></a>Número de teléfono
 
-Números de teléfono. 
+Números de teléfono (solo números de teléfono de EE. UU.). 
 
 Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo           | DESCRIPCIÓN                                           |
-|------------------------|-------------------------------------------------------|
-| N/D                    | Números de teléfono, como `+1 123-123-123`.          |
-| Número de teléfono de la UE        | Números de teléfono específicos de la Unión Europea.         |
-| Número de teléfono móvil de la UE | Números de teléfono móviles específicos de la Unión Europea. |
+| Nombre del subtipo | Descripción                                    | Disponible a partir de la versión del modelo |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/D          | Números de teléfono de EE. UU., como `(312) 555-0176`. | `2020-02-01`                           |
+
+### <a name="email"></a>Email
+
+Dirección de correo electrónico. 
+
+Lenguajes:
+
+* Versión preliminar pública: `English`
+
+| Nombre del subtipo | Descripción                                      | Disponible a partir de la versión del modelo |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/D          | Dirección de correo electrónico, por ejemplo `support@contoso.com` | `2020-02-01`                           |
+
+### <a name="url"></a>URL
+
+Direcciones URL de Internet.
+
+Lenguajes:
+
+* Versión preliminar pública: `English`
+
+| Nombre del subtipo | Descripción                                          | Disponible a partir de la versión del modelo |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/D          | Direcciones URL a sitios web, como `https://www.bing.com`. | `2020-02-01`                           |
+
+### <a name="ip-address"></a>Dirección IP
+
+Dirección de protocolo de Internet
+
+Lenguajes:
+
+* Versión preliminar pública: `English`
+
+| Nombre del subtipo | Descripción                              | Disponible a partir de la versión del modelo |
+|--------------|------------------------------------------|----------------------------------------|
+| N/D          | Dirección de red, como `10.0.0.101` | `2020-02-01`                           |
+
+### <a name="quantity"></a>Cantidad 
+
+Cantidades numéricas
+
+Lenguajes:
+
+* Versión preliminar pública: `English`
+
+| Nombre del subtipo | Descripción                   | Disponible a partir de la versión del modelo |
+|--------------|-------------------------------|----------------------------------------|
+| Age          | `90 days old`, `30 years old` | `2020-02-01`                           |
+
+### <a name="datetime"></a>DateTime
+
+Entidades de fecha y hora
+
+Lenguajes:
+
+* Versión preliminar pública: `English`
+
+| Nombre del subtipo | Descripción                   | Disponible a partir de la versión del modelo. |
+|--------------|-------------------------------|----------------------------------------|
+| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### <a name="eu-gps-coordinates"></a>Coordenadas GPS de la UE
 
@@ -39,19 +119,21 @@ Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | DESCRIPCIÓN                               |
-|--------------|-------------------------------------------|
-| N/D          | Coordenadas GPS de la Unión Europea |
+| Nombre del subtipo | Descripción                               | Disponible a partir de la versión del modelo |
+|--------------|-------------------------------------------|----------------------------------------|
+| N/D          | Coordenadas GPS de la Unión Europea | `2019-10-01`                           |
 
 ### <a name="azure-information"></a>Información de Azure
 
 Información de Azure identificable, incluida la información de autenticación y las cadenas de conexión. 
 
+* Disponible a partir de la versión del modelo `2019-10-01`
+
 Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo                          | DESCRIPCIÓN                                                                 |
+| Nombre del subtipo                          | Descripción                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Clave de autorización de Azure DocumentDB             | Clave de autorización para un servidor de Azure DocumentDB.                           |
 | Cadena de conexión de base de datos IaaS de Azure | Cadena de conexión de una base de datos de infraestructura como servicio (IaaS) de Azure. |
@@ -67,13 +149,15 @@ Lenguajes:
 
 ### <a name="identification"></a>Identificación
 
+* Disponible a partir de la versión del modelo `2019-10-01`
+
 Lenguajes:
 
 * Versión preliminar pública: `English`
 
 #### <a name="financial-account-identification"></a>Identificación de cuenta financiera
 
-| Nombre del subtipo               | DESCRIPCIÓN                                                                |
+| Nombre del subtipo               | Descripción                                                                |
 |----------------------------|----------------------------------------------------------------------------|
 | Números de enrutamiento ABA        | Números de enrutamiento de tránsito de American Banker Association (ABA).                  |
 | Código SWIFT                 | Códigos SWIFT de información de instrucciones de pago.                           |

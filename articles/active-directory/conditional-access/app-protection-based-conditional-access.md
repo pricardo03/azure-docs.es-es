@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3c853ef3a5a40381aba4e1c13eaf9ad7d8653170
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964096"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186632"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Uso obligatorio de directivas de protección de aplicaciones para el acceso a aplicaciones en la nube con acceso condicional en Azure Active Directory (versión preliminar)
 
@@ -30,13 +30,13 @@ Con el [acceso condicional de Azure AD](overview.md), puede ajustar el modo en 
 
 Puede usar [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy) para ayudar a proteger los datos de su compañía. Las directivas de protección de aplicaciones de Intune no requieren una solución de administración de dispositivos móviles (MDM). Puede proteger los datos de la empresa con o sin inscripción de dispositivos en una solución de administración de dispositivos.
 
-El acceso condicional de Azure Active Directory restringe el acceso a las aplicaciones en la nube para las aplicaciones cliente que Intune ha notificado a Azure AD como receptoras de una directiva de protección de aplicaciones. Por ejemplo, puede restringir el acceso a Exchange Online para la aplicación Outlook que tiene una directiva de protección de aplicaciones de Intune.
+El acceso condicional de Azure Active Directory restringe el acceso a las aplicaciones en la nube para las aplicaciones cliente que Intune ha notificado a Azure AD como receptoras de una directiva de protección de aplicaciones. Por ejemplo, puede restringir el acceso de Exchange Online a la aplicación de Outlook que tenga una directiva de protección de aplicaciones de Intune.
 
 En la terminología del acceso condicional, estas aplicaciones cliente se conocen como directivas protegidas con una *directiva de protección de aplicaciones*.  
 
 ![Acceso condicional](./media/app-protection-based-conditional-access/05.png)
 
-Para obtener una lista de aplicaciones cliente protegidas por directivas, consulte [Requisito de directiva de protección de aplicaciones](technical-reference.md#approved-client-app-requirement).
+Para obtener una lista de aplicaciones cliente protegidas por directivas, consulte [Requisito de directiva de protección de aplicaciones](concept-conditional-access-grant.md).
 
 Puede combinar directivas de acceso condicional basado en la protección de aplicaciones con otras directivas, como [directivas de acceso condicional basado en dispositivos](require-managed-devices.md). De este modo, puede proporcionar flexibilidad acerca de cómo proteger los datos de dispositivos personales y corporativos.
 
@@ -55,12 +55,12 @@ Similar al cumplimiento notificado por Intune para iOS y Android para un disposi
 
 En este artículo se da por hecho que está familiarizado con:
 
-- La referencia técnica del [requisito de directiva de protección de aplicaciones](technical-reference.md#app-protection-policy-requirement).
-- La referencia técnica del [requisito de las aplicaciones cliente aprobadas](technical-reference.md#approved-client-app-requirement).
+- El [requisito de la directiva de protección de aplicaciones](concept-conditional-access-grant.md).
+- El [requisito de aplicación cliente aprobada](concept-conditional-access-grant.md).
 - Los conceptos básicos del [acceso condicional en Azure Active Directory](overview.md).
 - La [configuración de la directiva de acceso condicional](app-based-mfa.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para crear una directiva de acceso condicional basado en la protección de aplicaciones, debe:
 
@@ -91,7 +91,7 @@ Todas las directivas de protección de aplicaciones de Intune deben estar en la 
 
 ### <a name="configuration"></a>Configuración
 
-**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online**
+**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online**
 
 Para la directiva de acceso condicional descrita en este paso, configure los componentes siguientes:
 
@@ -116,7 +116,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
 
    ![Acceso condicional](./media/app-protection-based-conditional-access/05.png)
 
-**Paso 2: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online con Active Sync (EAS)**
+**Paso 2: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online con Active Sync (EAS)**
 
 Para la directiva de acceso condicional descrita en este paso, configure los componentes siguientes:
 
@@ -138,7 +138,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
 
       ![Acceso condicional](./media/app-protection-based-conditional-access/05.png)
 
-**Paso 3: Configuración de la directiva de protección de aplicaciones de Intune para aplicaciones cliente de iOS y Android**
+**Paso 3: Configuración de la directiva de protección de aplicaciones de Intune para aplicaciones cliente de iOS y Android**
 
 ![Acceso condicional](./media/app-protection-based-conditional-access/09.png)
 
@@ -161,7 +161,7 @@ En este escenario se supone que:
 
 ### <a name="configuration"></a>Configuración
 
-**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online**
+**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online**
 
 Para la directiva de acceso condicional descrita en este paso, configure los componentes siguientes:
 
@@ -190,7 +190,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
  
       ![Acceso condicional](./media/app-protection-based-conditional-access/11.png)
 
-**Paso 2: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online con ActiveSync**
+**Paso 2: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online con ActiveSync**
 
 Para la directiva de acceso condicional descrita en este paso, configure los componentes siguientes:
 
@@ -215,7 +215,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
 
       ![Acceso condicional](./media/app-protection-based-conditional-access/11.png)
 
-**Paso 3: Configuración de la directiva de protección de aplicaciones de Intune para aplicaciones cliente de iOS y Android**
+**Paso 3: Configuración de la directiva de protección de aplicaciones de Intune para aplicaciones cliente de iOS y Android**
 
 ![Acceso condicional](./media/app-protection-based-conditional-access/09.png)
 
@@ -242,7 +242,7 @@ Todas las directivas de protección de aplicaciones de Intune se activan antes d
 
 ### <a name="configuration"></a>Configuración
 
-**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online**
+**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online**
 
 Para la directiva de acceso condicional descrita en este paso, configure los componentes siguientes:
 
@@ -270,7 +270,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
  
       ![Acceso condicional](./media/app-protection-based-conditional-access/13.png)
 
-**Paso 2: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online con ActiveSync**
+**Paso 2: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online con ActiveSync**
 
 Para la directiva de acceso condicional descrita en este paso, configure los componentes siguientes:
 
@@ -295,7 +295,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
  
       ![Acceso condicional](./media/app-protection-based-conditional-access/13.png)
 
-**Paso 3: Configuración de la directiva de protección de aplicaciones de Intune para aplicaciones cliente de iOS y Android**
+**Paso 3: Configuración de la directiva de protección de aplicaciones de Intune para aplicaciones cliente de iOS y Android**
 
 ![Acceso condicional](./media/app-protection-based-conditional-access/09.png)
 
@@ -330,7 +330,7 @@ Todas las directivas de protección de aplicaciones de Intune son necesarias par
 
 ### <a name="configuration"></a>Configuración
 
-**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online y SharePoint Online**
+**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online y SharePoint Online**
 
 Para la directiva de acceso condicional descrita en este paso, configure los componentes siguientes:
 
@@ -358,7 +358,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
  
       ![Acceso condicional](./media/app-protection-based-conditional-access/12.png)
 
-**Paso 2: Configuración de la directiva de protección de aplicaciones de Intune para aplicaciones cliente de iOS y Android**
+**Paso 2: Configuración de la directiva de protección de aplicaciones de Intune para aplicaciones cliente de iOS y Android**
 
 ![Acceso condicional](./media/app-protection-based-conditional-access/09.png)
 
@@ -366,5 +366,5 @@ Para más información, consulte [Protección de aplicaciones y datos con Micros
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md).
+- Si quiere saber cómo configurar una directiva de acceso condicional, vea [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
 - Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).

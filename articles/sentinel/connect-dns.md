@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 96515d81668bf172325f88e3e5bac8d8cccfa999
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262727"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190859"
 ---
 # <a name="connect-your-domain-name-server"></a>Conectar con el servidor de nombres de dominio
 
@@ -44,9 +44,9 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | **Origen conectado** | **Soporte técnico** | **Descripción** |
 | --- | --- | --- |
 | [Agentes de Windows](../azure-monitor/platform/agent-windows.md) | Sí | La solución recopila información de DNS de los agentes de Windows. |
-| [Agentes de Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Sin | La solución no recopila información de DNS de los agentes directos de Linux. |
+| [Agentes de Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | No | La solución no recopila información de DNS de los agentes directos de Linux. |
 | [Grupo de administración de System Center Operations](../azure-monitor/platform/om-agents.md) | Sí | La solución recopila información de DNS de los agentes en un grupo de administración de Operations Manager conectado. No se requiere ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. Los datos se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
-| [Cuenta de Almacenamiento de Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | Sin | La solución no usa Azure Storage. |
+| [Cuenta de Almacenamiento de Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | No | La solución no usa Azure Storage. |
 
 ### <a name="data-collection-details"></a>Detalles de la recopilación de datos
 
@@ -73,7 +73,17 @@ La solución permite recopilar inventario y datos relacionados con eventos de DN
 
 En Log Analytics, busque el esquema **DnsEvents** y asegúrese de que hay eventos.
 
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si las consultas de búsqueda no aparecen en Azure Sentinel, siga estos pasos para que aparezcan correctamente:
+1. Active los [registros de DNS Analytics en los servidores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+2. Asegúrese de que aparezca DNSEvents en la lista de colecciones de Log Analytics.
+3. Active [Azure DNS Analytics](../azure-monitor/insights/dns-analytics.md).
+4. En Azure DNS Analytics, en **Configuración**, cambie cualquiera de los valores de configuración, guárdelo, vuelva a dejarlo como estaba si es necesario y guárdelo de nuevo.
+5. Compruebe Azure DNS Analytics para asegurarse de que las consultas aparecen ahora.
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este documento, ha aprendido a conectar dispositivos locales DNS a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).

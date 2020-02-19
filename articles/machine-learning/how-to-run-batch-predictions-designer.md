@@ -1,5 +1,5 @@
 ---
-title: Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
+title: Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar un modelo y a configurar una canalización de predicción por lotes mediante el diseñador. Implemente la canalización como servicio web con parámetros que se pueda desencadenar desde cualquier biblioteca HTTP.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/13/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: d2653699a69cb468e8490c2cba579b73e526d1ed
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 95a3c1b892cacd802f359fdc03de74fa60a1e118
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311893"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138105"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ En esta guía paso a paso aprenderá a realizar las tareas siguientes:
 
 Para aprender a configurar los servicios de puntuación por lotes mediante el SDK, consulte las [instrucciones](how-to-run-batch-predictions.md) adjuntas.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En estas instrucciones se da por hecho que ya tiene una canalización de entrenamiento. Para ver una introducción guiada sobre el diseñador, complete la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md). 
 
@@ -41,7 +41,7 @@ Las canalizaciones de entrenamiento deben ejecutarse al menos una vez para poder
 
 1. Vaya a la pestaña **Diseñador** del área de trabajo.
 
-1. Seleccione la canalización de entrenamiento que entrene el modelo que desea usar para crear la predicción.
+1. Seleccione la canalización de entrenamiento que entrene el modelo que quiere usar para realizar la predicción.
 
 1. **Ejecute** la canalización.
 

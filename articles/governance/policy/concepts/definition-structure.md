@@ -3,16 +3,18 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7502c1c9a2e125052abf71e50273fbd9bab15cd1
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989882"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169765"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
-Azure Policy usa las definiciones de directivas de recursos para establecer convenciones para los recursos. Cada definición describe la compatibilidad de recursos y el efecto que debe realizarse cuando un recurso no es compatible.
+Azure Policy establece las convenciones de los recursos. Las definiciones de directiva describen las [condiciones](#conditions) de cumplimiento de los recursos y qué sucederá si se cumple una condición. Una condición compara un [campo](#fields) de propiedad de recurso con un valor requerido. Para acceder a los campos de propiedad de recurso, se usa [alias](#aliases). Un campo de propiedad de recurso es un campo con un solo valor o una [matriz](#understanding-the--alias) de varios valores. La evaluación de la condición es diferente en las matrices.
+Más información sobre las [condiciones](#conditions).
+
 La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. Si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
 
 El esquema de definición de Directiva se encuentra aquí: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
@@ -73,6 +75,8 @@ El **modo** determina qué tipos de recurso se evaluarán para una directiva. Lo
 
 - `all`: evalúe los grupos de recursos y todos los tipos de recurso
 - `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
+
+Por ejemplo, en un recurso, `Microsoft.Network/routeTables` admite etiquetas y ubicación, y se evalúa en ambos modos. Sin embargo, `Microsoft.Network/routeTables/routes` no se puede etiquetar y no se evalúa en el modo `Indexed`.
 
 Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
@@ -251,7 +255,9 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
 
-Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincida cualquier carácter y cualquier otro carácter para que coincida ese carácter en sí. Mientras que **match** y **notMatch** distinguen mayúsculas de minúsculas, el resto de las condiciones que evalúan un elemento _stringValue_ no lo hacen. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincida cualquier carácter y cualquier otro carácter para que coincida ese carácter en sí. Mientras que **match** y **notMatch** distinguen mayúsculas de minúsculas, el resto de las condiciones que evalúan un elemento _stringValue_ no lo hacen. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**.
+
+En un valor de campo de la matriz de **alias \[\*\]** , cada elemento de la matriz se evalúa individualmente con la lógica **and** entre los elementos. Para más información, consulte [Evaluación del alias \[\*\]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### <a name="fields"></a>Fields
 
@@ -265,7 +271,7 @@ Se admiten los siguientes campos:
 - `kind`
 - `type`
 - `location`
-  - Use **global** para los recursos que son independientes de la ubicación. Para obtener un ejemplo, consulte [Ejemplos: ubicaciones permitidas](../samples/allowed-locations.md).
+  - Use **global** para los recursos que son independientes de la ubicación.
 - `identity.type`
   - Devuelve el tipo de [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md) habilitado en el recurso.
 - `tags`

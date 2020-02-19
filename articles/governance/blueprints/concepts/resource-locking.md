@@ -3,12 +3,12 @@ title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo de Azure Blueprints para proteger los recursos cuando asigne un plano técnico.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406401"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057352"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -21,7 +21,7 @@ Sin embargo, los modos de bloqueo no se pueden cambiar fuera de los planos técn
 
 Los recursos creados por los artefactos en una asignación de plano técnico tienen cuatro estados: **Sin bloquear**, **Solo lectura**, **No se puede editar o eliminar** o **No se puede eliminar**. Cada tipo de artefacto pueden tener el estado **Sin bloquear**. La tabla siguiente puede usarse para determinar el estado de un recurso:
 
-|Mode|Tipo de recurso de artefacto|State|DESCRIPCIÓN|
+|Mode|Tipo de recurso de artefacto|State|Descripción|
 |-|-|-|-|
 |No bloquear|*|Sin bloquear|Los recursos no están protegidos por planos técnicos. Este estado también se usa para los recursos que se agregan a un artefacto del grupo de recursos de **Solo lectura** o **No eliminar** a partir de fuera de una asignación de plano técnico.|
 |Solo lectura|Resource group|No se puede editar o eliminar|El grupo de recursos es de solo lectura, y no se pueden modificar las etiquetas en el grupo de recursos. Los recursos **Sin bloquear** se pueden agregar, mover, cambiar o elimina de este grupo de recursos.|
@@ -102,6 +102,26 @@ En algunos escenarios de diseño y seguridad, puede que necesite excluir una ent
   }
 }
 ```
+
+## <a name="exclude-an-action-from-a-deny-assignment"></a>Exclusión de una acción en una asignación de denegación
+
+De forma similar a la [exclusión de una entidad de seguridad](#exclude-a-principal-from-a-deny-assignment) en una [asignación de denegación](../../../role-based-access-control/deny-assignments.md) de la asignación de un plano técnico, puede excluir [operaciones de RBAC](../../../role-based-access-control/resource-provider-operations.md) específicas. En el bloque **properties.locks**, en el mismo lugar donde está **excludedPrincipals**, se puede agregar **excludedActions**:
+
+```json
+"locks": {
+    "mode": "AllResourcesDoNotDelete",
+    "excludedPrincipals": [
+        "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+        "38833b56-194d-420b-90ce-cff578296714"
+    ],
+    "excludedActions": [
+        "Microsoft.ContainerRegistry/registries/push/write",
+        "Microsoft.Authorization/*/read"
+    ]
+},
+```
+
+Aunque **excludedPrincipals** debe ser explícito, las entradas de **excludedActions** pueden usar `*` como carácter comodín para las operaciones de RBAC.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

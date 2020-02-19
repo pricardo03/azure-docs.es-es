@@ -1,5 +1,5 @@
 ---
-title: Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure PowerShell
+title: Incorporación o eliminación de asignaciones de roles con RBAC y Azure PowerShell
 description: Aprenda a conceder acceso a recursos de Azure para usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ee996e39950d38b10f8df78fe47f7087c4a2ed1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981055"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138334"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "75981055"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para agregar o quitar asignaciones de roles, debe tener:
 

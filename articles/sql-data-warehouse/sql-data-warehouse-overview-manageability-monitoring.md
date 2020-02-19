@@ -1,6 +1,6 @@
 ---
 title: 'Administración y supervisión: información general'
-description: Información general de supervisión y administración para el uso de recursos, la actividad de registros y consultas, las recomendaciones y la protección de datos (copia de seguridad y restauración) en Azure SQL Data Warehouse.
+description: Información general de supervisión y administración para el uso de recursos, la actividad de registros y consultas, las recomendaciones y la protección de datos (copia de seguridad y restauración) con un grupo de SQL.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 54dbf7bcac92f7536d4e4579045c474914264935
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 31a12a60fc6f02a935ff98278e69d1ed2dd68ce5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760749"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153271"
 ---
-# <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Capacidad de administración y supervisión con Azure SQL Data Warehouse
+# <a name="manageability-and-monitoring-with-sql-pool"></a>Administración y supervisión con un grupo de SQL
 
-Eche un vistazo a lo que está disponible para ayudarle a administrar y supervisar SQL Data Warehouse. Los artículos siguientes resaltan maneras de optimizar el rendimiento y el uso del almacenamiento de datos.
+SQL Analytics le permite aprovisionar un almacenamiento de datos mediante un grupo de SQL. Los artículos siguientes le ayudarán a administrar y supervisar el almacenamiento de datos. También aprenderá a optimizar el uso y el rendimiento del almacenamiento de datos.
 
 ## <a name="overview"></a>Información general
 
@@ -33,4 +33,4 @@ Eche un vistazo a lo que está disponible para ayudarle a administrar y supervis
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para acceder a guías de procedimientos, consulte [Supervisión y ajuste del almacenamiento de datos](sql-data-warehouse-manage-monitor.md).
+Para acceder a guías de procedimientos, consulte [Supervisión y ajuste del grupo de SQL](sql-data-warehouse-manage-monitor.md).

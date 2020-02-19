@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 3f95a0743ca6fadff0c7a26a796ef20659adfb80
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: cb9441e6ce19094ff72e902cdeea151041ceb963
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697751"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161155"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Marco de consentimiento de Azure Active Directory
 
@@ -28,7 +28,7 @@ El marco se basa en que un usuario o un administrador da consentimiento a una ap
 
 El marco de consentimiento se basa en OAuth 2.0 y sus distintos flujos, como la concesión de credenciales de cliente y la concesión de código de autorización, mediante clientes públicos o confidenciales. Con OAuth 2.0, Azure AD permite crear muchos tipos diferentes de aplicaciones cliente, como en un teléfono, tableta, servidor o una aplicación web, y obtener acceso a los recursos necesarios.
 
-Para más información sobre el uso del marco de consentimiento con concesiones de autorización de OAuth2.0, consulte [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory](v1-protocols-oauth-code.md) y [Escenarios de autenticación para Azure AD](authentication-scenarios.md). Para más información sobre cómo obtener acceso autorizado a Office 365 mediante Microsoft Graph, consulte [Autenticación de la aplicación con Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+Para más información sobre el uso del marco de consentimiento con concesiones de autorización de OAuth2.0, consulte [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory](v2-oauth2-auth-code-flow.md) y [Escenarios de autenticación para Azure AD](authentication-scenarios.md). Para más información sobre cómo obtener acceso autorizado a Office 365 mediante Microsoft Graph, consulte [Autenticación de la aplicación con Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Ejemplo de experiencia de consentimiento
 
@@ -42,13 +42,13 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
 
 1. Si el usuario no está aún autenticado, el punto de conexión `/authorize` de Azure AD le pide que inicie sesión.
 
-    ![Inicio de sesión de usuario o administrador en Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    ![Inicio de sesión de usuario o administrador en Azure AD](./media/consent-framework/usersignin.png)
 
 1. Cuando el usuario inicie sesión, Azure AD determinará si se debe mostrar una página de consentimiento al usuario. Esta determinación se basa en que el usuario (o el administrador de la organización) ya concediese el consentimiento de la aplicación. Si todavía no se concedió el consentimiento, Azure AD se lo pide al usuario y muestra los permisos necesarios para que funcione. El conjunto de permisos que aparecen en el cuadro de diálogo de consentimiento coinciden con los que se seleccionaron en **Permisos delegados** en Azure Portal.
 
-    ![Se muestra un ejemplo de los permisos que aparecen en el cuadro de diálogo de consentimiento](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Se muestra un ejemplo de los permisos que aparecen en el cuadro de diálogo de consentimiento](./media/consent-framework/consent.png)
 
-1. Después de que el usuario concede el consentimiento, se devuelve un código de autorización a la aplicación, que se canjea para adquirir un token de acceso y un token de actualización. Para obtener más información acerca de este flujo, consulte [Tipo de aplicaciones de API web](web-api.md).
+1. Después de que el usuario concede el consentimiento, se devuelve un código de autorización a la aplicación, que se canjea para adquirir un token de acceso y un token de actualización. Para más información sobre este flujo, consulte [Plataforma de identidad y flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 1. Como administrador, también puede dar su consentimiento para permisos delegados de una aplicación en nombre de todos los usuarios del inquilino. El consentimiento del administrador evita que el cuadro de diálogo de consentimiento aparezca para cada usuario del inquilino y lo pueden llevar a cabo los usuarios con el rol de administrador en [Azure Portal](https://portal.azure.com). Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 

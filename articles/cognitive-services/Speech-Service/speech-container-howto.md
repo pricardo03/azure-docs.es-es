@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "74815364"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086999"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores del servicio de voz (versión preliminar)
 
@@ -35,7 +35,7 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Requisitos previos para poder usar los contenedores de Voz:
 
@@ -73,25 +73,25 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 En la tabla siguiente se describe la asignación mínima y recomendada de recursos para cada contenedor de Voz.
 
-# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
+# <a name="speech-to-text"></a>[Voz a texto](#tab/stt)
 
 | Contenedor | Mínima | Recomendado |
 |-----------|---------|-------------|
 | Voz a texto | 2 núcleos, 2 GB de memoria | 4 núcleos, 4 GB de memoria |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
 | Contenedor | Mínima | Recomendado |
 |-----------|---------|-------------|
 | Conversión de voz a texto personalizada | 2 núcleos, 2 GB de memoria | 4 núcleos, 4 GB de memoria |
 
-# <a name="text-to-speechtabtts"></a>[Texto a voz](#tab/tts)
+# <a name="text-to-speech"></a>[Texto a voz](#tab/tts)
 
 | Contenedor | Mínima | Recomendado |
 |-----------|---------|-------------|
 | Texto a voz | 1 núcleo, 2 GB de memoria | 2 núcleo, 3 GB de memoria |
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Conversión de texto a voz personalizada](#tab/ctts)
 
 | Contenedor | Mínima | Recomendado |
 |-----------|---------|-------------|
@@ -110,25 +110,25 @@ El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory`
 
 Las imágenes de contenedor para Voz están disponibles en la instancia de Container Registry siguiente.
 
-# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
+# <a name="speech-to-text"></a>[Voz a texto](#tab/stt)
 
 | Contenedor | Repositorio |
 |-----------|------------|
 | Voz a texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
 | Contenedor | Repositorio |
 |-----------|------------|
 | Conversión de voz a texto personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
-# <a name="text-to-speechtabtts"></a>[Texto a voz](#tab/tts)
+# <a name="text-to-speech"></a>[Texto a voz](#tab/tts)
 
 | Contenedor | Repositorio |
 |-----------|------------|
 | Texto a voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Conversión de texto a voz personalizada](#tab/ctts)
 
 | Contenedor | Repositorio |
 |-----------|------------|
@@ -140,7 +140,7 @@ Las imágenes de contenedor para Voz están disponibles en la instancia de Conta
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Docker pull para los contenedores de Voz
 
-# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
+# <a name="speech-to-text"></a>[Voz a texto](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker pull para el contenedor de conversión de voz a texto
 
@@ -169,7 +169,7 @@ La etiqueta siguiente es un ejemplo del formato:
 
 Para ver todas las configuraciones regionales admitidas del contenedor de **conversión de voz a texto**, consulte las [etiquetas de imágenes de la conversión de voz a texto](../containers/container-image-tags.md#speech-to-text).
 
-# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker pull para el contenedor de conversión de voz a texto personalizada
 
@@ -182,7 +182,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 > [!NOTE]
 > Los valores de `locale` y `voice` de los contenedores de Voz personalizados los determina el modelo personalizado que ingiere el contenedor.
 
-# <a name="text-to-speechtabtts"></a>[Texto a voz](#tab/tts)
+# <a name="text-to-speech"></a>[Texto a voz](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker pull para el contenedor de conversión de texto a voz
 
@@ -214,7 +214,7 @@ Para ver todas las configuraciones regionales admitidas y las voces correspondie
 > [!IMPORTANT]
 > Cuando se construye un HTTP POST de *conversión de texto a voz estándar*, el mensaje del [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md) requiere un elemento `voice` con un atributo `name`. El valor es la configuración regional del contenedor y la voz correspondiente, que también se conoce como ["nombre corto"](language-support.md#standard-voices). Por ejemplo, la etiqueta `latest` tendría un nombre de voz de `en-US-JessaRUS`.
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Conversión de texto a voz personalizada](#tab/ctts)
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker pull para el contenedor de conversión de texto a voz personalizada
 
@@ -240,7 +240,7 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar el contenedor. Consulte [Recopilación de los parámetros obligatorios](#gathering-required-parameters) para más información sobre cómo obtener los valores de `{Endpoint_URI}` y `{API_Key}`. También hay disponibles otros [ejemplos](speech-container-configuration.md#example-docker-run-commands) del comando `docker run`.
 
-# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
+# <a name="speech-to-text"></a>[Voz a texto](#tab/stt)
 
 Para ejecutar el contenedor *Conversión de voz a texto*, ejecute el comando `docker run` siguiente.
 
@@ -259,7 +259,7 @@ Este comando:
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
 El contenedor *Conversión de voz a texto personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-speech-train-model.md) con el [portal de Voz personalizada](https://speech.microsoft.com/customspeech). El **identificador de modelo** de voz personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Voz personalizada. En el portal de Voz personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
 <br>
@@ -302,7 +302,7 @@ Este comando:
 * Si el modelo personalizado se descargó anteriormente, se omite el `ModelId`.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
-# <a name="text-to-speechtabtts"></a>[Texto a voz](#tab/tts)
+# <a name="text-to-speech"></a>[Texto a voz](#tab/tts)
 
 Para ejecutar el contenedor *Conversión de texto a voz*, ejecute el comando `docker run` siguiente.
 
@@ -321,7 +321,7 @@ Este comando:
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Conversión de texto a voz personalizada](#tab/ctts)
 
 El contenedor *Conversión de texto a voz personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-voice-create-voice.md) con el [portal de Voz personalizada](https://aka.ms/custom-voice-portal). El **identificador de modelo** de voz personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Voz personalizada. En el portal de Voz personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
 <br>
@@ -425,7 +425,7 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
   * *Conversión de texto a voz personalizada*
 * Las imágenes de contenedor se descargan desde el registro de contenedor de Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
-* Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Voz mediante la especificación del URI del host del contenedor.
+* Si usa la API REST (solo conversión de texto a voz) o el SDK (conversión de voz a texto o de texto a voz), especifique el URI del host del contenedor. 
 * Debe proporcionar la información de facturación al crear una instancia de un contenedor.
 
 > [!IMPORTANT]

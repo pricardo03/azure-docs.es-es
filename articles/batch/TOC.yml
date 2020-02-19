@@ -37,7 +37,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=batch'
         - name: Repositorio de ejemplos de Batch
           href: 'https://github.com/Azure/azure-batch-samples'
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
 - name: Conceptos
   items:
@@ -55,7 +55,7 @@
       href: high-availability-disaster-recovery.md
     - name: Variables de entorno de tiempo de ejecución de tareas
       href: batch-compute-node-environment-variables.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Administración de cuentas de Batch
       items:
@@ -71,6 +71,8 @@
           href: batch-aad-auth.md
         - name: Azure AD con administración de Batch
           href: batch-aad-auth-management.md
+        - name: Acceso seguro a Key Vault con Batch
+          href: credential-access-key-vault.md
     - name: Uso de paquetes de aplicaciones
       href: batch-application-packages.md
     - name: Creación y administración de grupos
@@ -174,7 +176,7 @@
       href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/batch
     - name: Azure PowerShell
       href: /powershell/module/az.batch

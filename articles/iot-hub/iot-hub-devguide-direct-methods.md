@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dcbc03257b8bfeacda700f60f2724f2d02ec147d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429267"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048265"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 
@@ -73,7 +73,10 @@ Las invocaciones de método directo en un dispositivo son llamadas HTTPS compues
     }
     ```
 
-El tiempo de espera se expresa en segundos. Si no se establece el tiempo de espera, el valor predeterminado es 30 segundos.
+El valor proporcionado como `responseTimeoutInSeconds` en la solicitud es la cantidad de tiempo que el servicio IoT Hub debe esperar a que finalice la ejecución de un método directo en un dispositivo. Configure este tiempo de espera para que sea al menos igual que el tiempo de ejecución esperado de un método directo por parte de un dispositivo. Si no se proporciona el tiempo de espera, se usa el valor predeterminado de 30 segundos. Los valores mínimo y máximo de `responseTimeoutInSeconds` son 5 y 300 segundos, respectivamente.
+
+El valor proporcionado como `connectTimeoutInSeconds` en la solicitud es la cantidad de tiempo que debe esperar el servicio IoT Hub, tras la invocación de un método directo, a que un dispositivo desconectado se conecte. El valor predeterminado es 0, lo que significa que los dispositivos ya deben estar en línea tras la invocación de un método directo. El valor máximo de `connectTimeoutInSeconds` son 300 segundos.
+
 
 #### <a name="example"></a>Ejemplo
 
@@ -98,7 +101,10 @@ curl -X POST \
 
 La aplicación de back-end recibe una respuesta que se compone de los siguientes elementos:
 
-* *Código de estado HTTP*, que se usa para errores procedentes de IoT Hub, incluido el error 404 para los dispositivos que no estén conectados.
+* *Código de estado HTTP*:
+  * 200 indica la ejecución correcta del método directo;
+  * 404 indica que el identificador del dispositivo no es válido o que el dispositivo no estaba en línea tras la invocación de un método directo y para `connectTimeoutInSeconds` posteriormente (use el mensaje de error que acompaña para comprender la causa raíz);
+  * 504 indica el tiempo de espera de la puerta de enlace ocasionado por un dispositivo que no responde a una llamada de método directo en `responseTimeoutInSeconds`.
 
 * *Encabezados* que contienen la etiqueta de identidad, el identificador de solicitud, el tipo de contenido y la codificación del contenido.
 

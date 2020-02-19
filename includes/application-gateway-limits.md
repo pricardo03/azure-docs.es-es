@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6ab6c4c2051ccd2fbb22c383b9ca0af53ceb13d3
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75662907"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054939"
 ---
 | Resource | Límite predeterminado/máximo | Nota: |
 | --- | --- | --- |
@@ -21,14 +21,14 @@ ms.locfileid: "75662907"
 | Agentes de escucha HTTP |100<sup>1</sup> | |
 | Reglas de equilibrio de carga HTTP |100<sup>1</sup> | |
 | Configuración de HTTP de back-end |100<sup>1</sup> | |
-| Instancias por puerta de enlace |32 | |
-| Certificados SSL |100<sup>1</sup> |1 por agentes de escucha HTTP |
+| Instancias por puerta de enlace |V1 SKU: 32<br>V2 SKU: 125 | |
+| Certificados SSL |100<sup>1</sup> |Uno por cliente de escucha HTTP |
 | Tamaño máximo de certificados SSL |V1 SKU: 10 KB<br>V2 SKU: 16 KB| |
 | Certificados de autenticación |100 | |
 | Certificados raíz de confianza |100 | |
 | Tiempo de espera de solicitud mínimo |1 segundo | |
 | Tiempo de espera de solicitud máximo |24 horas | |
-| Número de sitios |100<sup>1</sup> |1 por agentes de escucha HTTP |
+| Número de sitios |100<sup>1</sup> |Uno por cliente de escucha HTTP |
 | Asignaciones de URL por agente de escucha |1 | |
 | Número máximo de reglas basadas en rutas por mapa de direcciones URL|100||
 | Configuraciones de redirección |100<sup>1</sup>| |
@@ -36,7 +36,7 @@ ms.locfileid: "75662907"
 | Longitud máxima de dirección URL|32 KB| |
 | Tamaño de encabezado máximo para HTTP/2 |4 KB| |
 | Tamaño máximo de carga de archivos (estándar) |2 GB | |
-| Tamaño máximo de carga de archivos WAF |Puertas de enlaces v1 medianas WAF, 100 MB<br>Puertas de enlace v1 grandes WAF 500 MB<br>v2 WAF, 750 MB| |
+| Tamaño máximo de carga de archivos WAF |Puertas de enlaces v1 medianas WAF, 100 MB<br>Puertas de enlace v1 grandes WAF, 500 MB<br>V2 WAF, 750 MB| |
 | Límite de tamaño de cuerpo de WAF (sin archivos)|128 KB||
 | Máximo de reglas personalizadas de WAF|100||
 | Exclusiones máximas de WAF|100||

@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: b9d64c347881f78e832a39bca8404fdad98cbf17
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76981113"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152523"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos a un entorno de Time Series Insights mediante un centro de eventos
 
@@ -73,12 +73,18 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
     [![Copiar el valor de la cadena de conexión de la clave principal](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Ir a https://tsiclientsample.azurewebsites.net/windFarmGen.html. La dirección URL ejecuta dispositivos simulados de molinos de viento.
+1. Ir a https://tsiclientsample.azurewebsites.net/windFarmGen.html. La dirección URL crea y ejecuta dispositivos simulados de molinos de viento.
 1. En el cuadro **Event Hub Connection String** (Cadena de conexión del centro de eventos) de la página web, pegue la cadena de conexión que copió en el [campo de entrada de molinos de viento](#push-events-to-windmills-sample).
   
     [![Pegar la cadena de conexión de la clave principal en el cuadro de la cadena de conexión del centro de eventos](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Seleccione **Click to start** (Haga clic para iniciar). El simulador genera la instancia JSON que puede usar directamente.
+1. Seleccione **Click to start** (Haga clic para iniciar). 
+
+    > [!TIP]
+    > El simulador de molino de viento también crea código JSON que se puede usar como carga útil con las [API de consulta de disponibilidad general de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+
+    > [!NOTE]
+    > El simulador seguirá enviando datos hasta que se cierre la pestaña del explorador.
 
 1. Vuelva a su centro de eventos en Azure Portal. En la página **Información general**, se muestran los eventos nuevos que recibe el centro de eventos.
 

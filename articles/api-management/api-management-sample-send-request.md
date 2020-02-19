@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557960"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190010"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio Azure API Management pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de API Management brinda muchas más oportunidades.
@@ -101,6 +101,10 @@ Una vez que API Management tiene el token de autorización, API Management puede
 El atributo `response-variable-name` sirve para proporcionar acceso a la respuesta devuelta. El nombre definido en esta propiedad se puede usar como clave en el diccionario `context.Variables` para acceder al objeto `IResponse`.
 
 En el objeto de respuesta, puede recuperar el cuerpo, y RFC 7622 indica a API Management que la respuesta debe ser un objeto JSON que contenga al menos una propiedad denominada `active`, que es un valor booleano. Cuando `active` es true, el token se considera válido.
+
+Como alternativa, si el servidor de autorización no incluye el campo "activo" para indicar si el token es válido, use una herramienta como Postman para determinar qué propiedades se establecen en un token válido. Por ejemplo, si una respuesta de token válido contiene una propiedad denominada "expires_in", compruebe si este nombre de propiedad existe en la respuesta del servidor de autorización de esta manera:
+
+<when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
 
 ### <a name="reporting-failure"></a>Notificación de error
 Puede usar una directiva `<choose>` para detectar si el token no es válido y, en caso de no serlo, devolver una respuesta 401.

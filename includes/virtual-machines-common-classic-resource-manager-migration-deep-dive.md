@@ -3,13 +3,13 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: cynthn
-ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: tanmaygore
+ms.openlocfilehash: 215057640dd08d9ea524d8f6b3bed8b03a8b5b8c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186291"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77068423"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migración de recursos IaaS del modelo de implementación clásica a Azure Resource Manager
 En primer lugar, es importante conocer la diferencia entre operaciones del plano de datos y del plano de administración en los recursos de infraestructura como servicio (IaaS).
@@ -117,11 +117,11 @@ Este paso es opcional si desea revertir los cambios realizados en el modelo de i
 > Esta operación no se puede realizar una vez que se ha desencadenado la operación de confirmación.     
 >
 
-### <a name="commit"></a>Confirmación
+### <a name="commit"></a>Commit
 Después de finalizar la validación, puede confirmar la migración. Los recursos no aparecen en el modelo de implementación clásica y solo están disponibles en el modelo de implementación con Resource Manager. Los recursos migrados solo se pueden administrar en el nuevo portal.
 
 > [!NOTE]
-> Se trata de una operación idempotente. Si se produce un error, vuelva a intentar la operación. Si sigue sin poder completarla, cree un vale de soporte o publique una entrada con la etiqueta "ClassicIaaSMigration" en el [foro de máquinas virtuales](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+> Se trata de una operación idempotente. Si se produce un error, vuelva a intentar la operación. Si sigue teniendo errores, cree una incidencia de soporte técnico o cree un foro en [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
 >
 >
 

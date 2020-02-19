@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 81b57191a02dd3214928ac90e2761f5f8dfb2cfc
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: d8cb8bfa32db958b6dfdda0df23429669ce2a439
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311659"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063805"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
@@ -32,7 +32,7 @@ Con este documento aprende a usar la interfaz de usuario web de Ambari con un cl
 La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
 
 > [!IMPORTANT]  
-> La conexión a Ambari en HDInsight requiere HTTPS. Cuando se le solicite autenticación, use el nombre de la cuenta de administrador y la contraseña que proporcionó cuando se creó el clúster.
+> La conexión a Ambari en HDInsight requiere HTTPS. Cuando se le solicite autenticación, use el nombre de la cuenta de administrador y la contraseña que proporcionó cuando se creó el clúster. Si no se le piden las credenciales, compruebe la configuración de red para confirmar que no hay ningún problema de conectividad entre el cliente y los clústeres de Azure HDInsight.
 
 ## <a name="ssh-tunnel-proxy"></a>Túnel SSH (proxy)
 
@@ -49,13 +49,13 @@ Cuando se abra la página, observe la barra que se encuentra en la parte superio
 
 ![Información general acerca de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|item |DESCRIPCIÓN |
+|Elemento |Descripción |
 |---|---|
 |Logotipo de Ambari|Abre el panel, que puede usarse para supervisar el clúster.|
 |Cluster name # ops|Muestra el número de operaciones de Ambari en curso. Seleccione el nombre del clúster o **# ops** para ver una lista de las operaciones en segundo plano.|
 |# alerts|Muestra alertas de advertencia o alertas críticas del clúster, si las hay.|
-|panel|Muestra el panel.|
-|Services|Información y ajustes de configuración de los servicios en el clúster.|
+|Panel|Muestra el panel.|
+|Servicios|Información y ajustes de configuración de los servicios en el clúster.|
 |Hosts|Información y ajustes de configuración de los nodos del clúster.|
 |Alertas|Un registro de información, advertencias y alertas críticas.|
 |Administración|Servicios/pila de software que están instalados en el clúster, información de la cuenta de servicio y seguridad Kerberos.|
@@ -70,7 +70,7 @@ La lista siguiente contiene los estados de alerta comunes usados por Ambari:
 * **OK (CORRECTO)**
 * **Warning (ADVERTENCIA)**
 * **CRITICAL (CRÍTICA)**
-* **UNKNOWN (DESCONOCIDO)**
+* **UNKNOWN**
 
 Las alertas, con la excepción de **OK**, hacen que la entrada **# alerts** en la parte superior de la página muestre el número de alertas. Seleccione esta entrada para ver las alertas y sus estados.
 
@@ -102,7 +102,7 @@ Para más información sobre los nodos del clúster, seleccione **Hosts**. A con
 
 ![Detalles de resumen del host de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servicios
 
 La barra lateral **Services** (Servicios) del panel proporciona información rápida del estado de los servicios que se ejecutan en el clúster. Se usan varios iconos para indicar el estado o las acciones que se deben realizar. Por ejemplo, si es necesario reciclar un servicio, se muestra un símbolo de reciclaje amarillo.
 
@@ -151,12 +151,12 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
 2. Use el menú **Actions** para seleccionar la acción que desea realizar:
 
-    |item |DESCRIPCIÓN |
+    |Elemento |Descripción |
     |---|---|
     |Iniciar todos los componentes|Inicia todos los componentes en el host.|
     |Detener todos los componentes|Detiene todos los componentes en el host.|
     |Reiniciar todos los componentes|Detiene e inicia todos los componentes en el host.|
-    |Activar el modo de mantenimiento|Suprime las alertas del host. Este modo se debería habilitar si va a realizar acciones que generan alertas. Por ejemplo, detener e iniciar un servicio.|
+    |Activar el modo de mantenimiento|Suprime las alertas del host. Si va a realizar acciones que generan alertas, este modo debería estar habilitado. Por ejemplo, detener e iniciar un servicio.|
     |Desactivar el modo de mantenimiento|Devuelve el host al modo de alertas normal.|
     |Stop|Detiene DataNode o NodeManagers en el host.|
     |Start|Inicia DataNode o NodeManagers en el host.|

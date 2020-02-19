@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837937"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064689"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -69,7 +69,7 @@ Es importante entender los tipos de cargas de trabajo que se ejecutan en los cl�
 
 * Considere si una solución o un servicio de supervisión sería una ventaja útil. Microsoft System Center proporciona un [paquete de administración de HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). También puede usar herramientas de terceros, como Apache Chukwa y Ganglia, para recopilar y centralizar los registros. Por ejemplo, muchas compañías ofrecen servicios para supervisar las soluciones de macrodatos basadas en Hadoop, por ejemplo: Centerity, Compuware APM, Sematext SPM y Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Paso 2: Administración de las versiones del servicio de clúster y ver los registros de acciones de script
+## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Paso 2: Administración de versiones de servicio del clúster y visualización de registros
 
 Un clúster típico de HDInsight utiliza varios servicios y paquetes de software de código abierto (por ejemplo, Apache HBase, Apache Spark, etc.). Para algunas cargas de trabajo, como bioinformática, es posible que deba conservar el historial de registro de configuración del servicio, además de los registros de ejecución de trabajo.
 
@@ -89,9 +89,21 @@ Con la UI de Ambari, puede descargar la configuración de cualquier servicio (o 
 
 Las [acciones de script](hdinsight-hadoop-customize-cluster-linux.md) de HDInsight ejecutan scripts en un clúster, ya sea manualmente o cuando se especifique. Por ejemplo, las acciones de script pueden utilizarse para instalar software adicional en el clúster o para modificar las opciones de configuración de los valores predeterminados. Los registros de acciones de script pueden proporcionar información sobre los errores que se produjeron durante la instalación del clúster, así como sobre los cambios de las opciones de configuración que podrían afectar a la disponibilidad y al rendimiento del clúster.  Para ver el estado de una acción de script, seleccione el botón **Operaciones** en la UI de Ambari o acceda a los registros del estado de la cuenta de almacenamiento predeterminada. Los registros de almacenamiento están disponibles en `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
+### <a name="view-ambari-alerts-status-logs"></a>Visualización de los registros de estado de alertas de Ambari
+
+Apache Ambari escribe cambios de estado de alerta en `ambari-alerts.log`. La ruta de acceso completa es `/var/log/ambari-server/ambari-alerts.log`. Para permitir la depuración del registro, cambie una propiedad en `/etc/ambari-server/conf/log4j.properties.` Luego, cambie la entrada que aparece en `# Log alert state changes` de:
+
+```
+log4j.logger.alerts=INFO,alerts
+
+to
+
+log4j.logger.alerts=DEBUG,alerts
+```
+
 ## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Paso 3: Administración de los archivos de registro de ejecución de trabajo del clúster
 
-El paso siguiente es revisar los archivos de registro de ejecución de trabajo de los distintos servicios.  Estos servicios podrían incluir Apache HBase, Apache Spark y muchos más. Un clúster de Hadoop genera un gran número de registros detallados, por lo que determinar qué registros son útiles (y cuáles no) puede llevar mucho tiempo.  Comprender el sistema de registro es importante para la administración dirigida de archivos de registro.  A continuación, se muestra un archivo de registro de ejemplo.
+El paso siguiente es revisar los archivos de registro de ejecución de trabajo de los distintos servicios.  Estos servicios podrían incluir Apache HBase, Apache Spark y muchos más. Un clúster de Hadoop genera un gran número de registros detallados, por lo que determinar qué registros son útiles (y cuáles no) puede llevar mucho tiempo.  Comprender el sistema de registro es importante para la administración dirigida de archivos de registro.  La imagen siguiente es un archivo de registro de ejemplo.
 
 ![Salida de ejemplo del archivo de registro de ejemplo de HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
 
@@ -140,7 +152,7 @@ Tras completar los pasos anteriores, comprenderá los tipos y volúmenes de los 
 
 A continuación, analice el volumen de datos de registro en ubicaciones clave de almacenamiento de registro durante un período de tiempo. Por ejemplo, puede analizar el volumen y el crecimiento durante períodos de 30, 60 o 90 días.  Registre esta información en una hoja de cálculo o use otras herramientas, como Visual Studio, el Explorador de Azure Storage o Power Query para Excel. Para obtener más información, consulte [Análisis de los registros de HDInsight](hdinsight-debug-jobs.md).  
 
-Ahora tiene información suficiente para crear una estrategia de administración de registros para los registros clave.  Utilice la hoja de cálculo (o la herramienta que prefiera) para pronosticar el crecimiento del tamaño del registro y los costos de servicio de Azure de almacenamiento de registros en el futuro.  También debe tener en cuenta los requisitos de retención de registros para el conjunto de registros que está examinando.  Ahora puede volver a prever los futuros costos de almacenamiento de registros, después de determinar qué archivos de registro pueden eliminarse (si los hubiera) y qué registros se deberían conservar y archivar en una instancia de Azure Storage más económica.
+Ahora tiene información suficiente para crear una estrategia de administración de registros para los registros clave.  Utilice la hoja de cálculo (o la herramienta que prefiera) para pronosticar el crecimiento del tamaño del registro y los costos de servicio de Azure de almacenamiento de registros en el futuro.  También debe tener en cuenta los requisitos de retención de registros para el conjunto de registros que está examinando.  Ahora, puede volver a prever los futuros costos de almacenamiento de registros después de determinar qué archivos de registro pueden eliminarse (si los hubiera) y qué registros se deberían conservar y archivar en una instancia de Azure Storage más económica.
 
 ## <a name="step-5-determine-log-archive-policies-and-processes"></a>Paso 5: Determinación de las directivas y procesos del archivo de registro
 
@@ -155,7 +167,7 @@ Como alternativa, puede crear scripts de archivado de registros con PowerShell. 
 ### <a name="accessing-azure-storage-metrics"></a>Acceso a las métricas de Azure Storage
 
 Azure Storage puede configurarse para registrar operaciones de almacenamiento y acceso. Puede usar estos registros muy detallados para la supervisión y planeamiento de capacidades, así como para las solicitudes de auditoría de almacenamiento. La información registrada incluye detalles de latencia, lo que le permite supervisar y ajustar el rendimiento de las soluciones.
-Puede usar el SDK de .NET para Hadoop para examinar los archivos de registro generados para la instancia de Azure Storage que contiene los datos para un clúster de HDInsight.
+Puede usar el SDK de .NET para Hadoop para examinar los archivos de registro generados para la instancia de Azure Storage que contiene los datos de un clúster de HDInsight.
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Control del tamaño y del número de índices de copia de seguridad de los archivos de registro antiguos
 

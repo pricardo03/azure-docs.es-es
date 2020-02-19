@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823485"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087176"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de cliente de Elastic Database con Entity Framework
 
@@ -27,7 +27,7 @@ Este documento muestra los cambios que es necesario realizar en una aplicación 
 Para descargar el código de este artículo:
 
 * Se requiere Visual Studio 2012 o posterior. 
-* Descargue el [ ejemplo Elastic DB Tools for Azure SQL - Entity Framework Integration (Herramientas de Elastic DB para SQL Azure: Integración con Entity Framework)](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) de MSDN. Descomprima el ejemplo en una ubicación de su elección.
+* Descargue el [ ejemplo Elastic DB Tools for Azure SQL - Entity Framework Integration (Herramientas de Elastic DB para SQL Azure: Integración con Entity Framework)](https://github.com/Azure/elastic-db-tools/). Descomprima el ejemplo en una ubicación de su elección.
 * Inicie Visual Studio. 
 * En Visual Studio, seleccione Archivo -> Abrir proyecto/solución. 
 * En el cuadro de diálogo **Abrir proyecto**, vaya al ejemplo que descargó y seleccione **EntityFrameworkCodeFirst.sln** para abrir el ejemplo. 

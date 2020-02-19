@@ -9,14 +9,14 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314035"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138166"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer"></a>Importación de datos en el diseñador de Azure Machine Learning
+# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importación de datos en el diseñador de Azure Machine Learning (versión preliminar)
 
 En este artículo, aprenderá a importar sus propios datos en el diseñador para crear soluciones personalizadas. Hay dos formas de importar datos en el diseñador: 
 
@@ -45,7 +45,7 @@ Sus conjuntos de datos registrados se pueden encontrar en la paleta del módulo,
 
 ![Captura de pantalla que muestra la ubicación de los conjuntos de datos guardados en la paleta del diseñador](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Todos los [conjuntos de datos de archivo](how-to-create-register-datasets.md#dataset-types) registrados en su área de trabajo de Machine Learning aparecerán en la paleta del módulo. No está limitado a usar los conjuntos de datos creados en el diseñador.
+
 
 > [!NOTE]
 > Actualmente, el diseñador solo admite el procesamiento de [conjuntos de datos tabulares](how-to-create-register-datasets.md#dataset-types). Si desea usar [conjuntos de datos de archivo](how-to-create-register-datasets.md#dataset-types), use el SDK de Azure Machine Learning disponible para Python y R.

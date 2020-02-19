@@ -1,58 +1,48 @@
 ---
-title: Solución de problemas de acceso a Azure Functions Runtime
+title: 'Solución del error: No se puede acceder a Azure Functions Runtime'
 description: Aprenda a solucionar los problemas con una cuenta de almacenamiento no válida.
 author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 910b582cb40b9f8aff6a553621b4677d6b019826
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963893"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063788"
 ---
-# <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Solución de problemas de acceso a Azure Functions Runtime
+# <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Solución del error: "No se puede acceder a Azure Functions Runtime"
 
-El objetivo de este artículo es solucionar los problemas relacionados con el mensaje de error que indica que no se puede acceder al entorno de ejecución de Azure Functions cuando este aparece en Azure Portal. Cuando se produce este error, aparece el siguiente mensaje de error en el portal.
+Este artículo ayuda a solucionar la cadena de error siguiente que aparece en Azure Portal:
 
-`Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
+> "Error: No se puede acceder a Azure Functions Runtime. Haga clic aquí para obtener detalles sobre la configuración de almacenamiento".
 
-Este problema se produce cuando no se puede iniciar Azure Functions Runtime. La razón más común para que se produzca este error es que la aplicación de función pierde el acceso a su cuenta de almacenamiento. Para más información, consulte [Requisitos de la cuenta de almacenamiento](storage-considerations.md#storage-account-requirements).
+Este problema se produce cuando no se puede iniciar Azure Functions Runtime. La razón más común de este error es que la aplicación de funciones haya perdido el acceso a su cuenta de almacenamiento. Para más información, consulte [Requisitos de la cuenta de almacenamiento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
 
 Las demás secciones de este artículo le ayudarán a solucionar las siguientes causas del error, así como a identificar y a resolver cada caso.
 
-+ [Eliminación de la cuenta de almacenamiento](#storage-account-deleted)
-+ [Eliminación de la configuración de la aplicación de la cuenta de almacenamiento](#storage-account-application-settings-deleted)
-+ [Credenciales de la cuenta de almacenamiento no válidas](#storage-account-credentials-invalid)
-+ [Falta de acceso a la cuenta de almacenamiento](#storage-account-inaccessible)
-+ [Cuota de ejecución diaria superada](#daily-execution-quota-full)
-+ [La aplicación está detrás de un firewall](#app-is-behind-a-firewall)
+## <a name="storage-account-was-deleted"></a>Se ha eliminado la cuenta de almacenamiento
 
+Cada aplicación de función requiere una cuenta de almacenamiento para funcionar. Si se elimina la cuenta, la función no funcionará.
 
-## <a name="storage-account-deleted"></a>Eliminación de la cuenta de almacenamiento
+Empiece por buscar el nombre de la cuenta de almacenamiento en la configuración de la aplicación. `AzureWebJobsStorage` o `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contienen el nombre de la cuenta de almacenamiento incluida en una cadena de conexión. Para más información, consulte [Referencia de configuración de aplicación para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
 
-Cada aplicación de función requiere una cuenta de almacenamiento para funcionar. Si esa cuenta se elimina, la función no funciona.
+Busque la cuenta de almacenamiento en Azure Portal para ver si sigue existiendo. Si se ha eliminado, vuelva a crear la cuenta de almacenamiento y reemplace las cadenas de conexión de almacenamiento. El código de función se pierde y debe volver a implementarlo.
 
-### <a name="how-to-find-your-storage-account"></a>Búsqueda de la cuenta de almacenamiento
+## <a name="storage-account-application-settings-were-deleted"></a>Se ha eliminado la configuración de la aplicación de la cuenta de almacenamiento
 
-Empiece por buscar el nombre de cuenta de almacenamiento en Configuración de la aplicación. `AzureWebJobsStorage` o `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contendrán el nombre de la cuenta de almacenamiento incluida en una cadena de conexión. Lea información más específica en esta [referencia de configuración de aplicación](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
-
-Busque la cuenta de almacenamiento en Azure Portal para ver si sigue existiendo. Si se ha eliminado, deberá volver a crear una cuenta de almacenamiento y reemplazar las cadenas de conexión de almacenamiento. El código de función se pierde y debe volver a implementarlo.
-
-## <a name="storage-account-application-settings-deleted"></a>Eliminación de la configuración de la aplicación de la cuenta de almacenamiento
-
-En el paso anterior, si no tenía una cadena de conexión de la cuenta de almacenamiento, es probable que se eliminara o se sobrescribiera. La configuración de la aplicación se suele eliminar cuando se usan ranuras de implementación o scripts de Azure Resource Manager para la configuración de la aplicación.
+En el paso anterior, si no encontraba una cadena de conexión de la cuenta de almacenamiento, es probable que se eliminara o se sobrescribiera. La configuración de la aplicación se suele eliminar cuando se usan ranuras de implementación o scripts de Azure Resource Manager para la configuración de la aplicación.
 
 ### <a name="required-application-settings"></a>Configuración de aplicación necesaria
 
-* Obligatorio
+* Requerido:
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
-* Obligatorio para las funciones del plan de consumo
+* Obligatorio para las funciones del plan de consumo:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
     * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-[Más información sobre estos valores de configuración de la aplicación](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
+Para más información, consulte [Referencia de configuración de aplicación para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
 
 ### <a name="guidance"></a>Guía
 
@@ -60,33 +50,45 @@ En el paso anterior, si no tenía una cadena de conexión de la cuenta de almace
 * No modifique esta configuración durante las implementaciones automatizadas.
 * Esta configuración debe ser válida y proporcionarse en el momento de la creación. Si una implementación automatizada no tuviera esta configuración, la aplicación de funciones no se ejecutaría, ni siquiera aunque esta configuración se agregara más adelante.
 
-## <a name="storage-account-credentials-invalid"></a>Credenciales de la cuenta de almacenamiento no válidas
+## <a name="storage-account-credentials-are-invalid"></a>Las credenciales de la cuenta de almacenamiento no son válidas
 
-Al volver a generar las claves de almacenamiento deben actualizarse las cadenas de conexión de la cuenta de almacenamiento anteriores. [Más información sobre la administración de las claves de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+Al volver a generar las claves de almacenamiento deben actualizarse las cadenas de conexión de la cuenta de almacenamiento que se han comentado anteriormente. Para más información sobre la administración de las claves de almacenamiento, consulte [Creación de una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-## <a name="storage-account-inaccessible"></a>Falta de acceso a la cuenta de almacenamiento
+## <a name="storage-account-is-inaccessible"></a>No se puede acceder a la cuenta de almacenamiento
 
-Es necesario que la aplicación de funciones pueda acceder a la cuenta de almacenamiento. Estos son los problemas comunes de bloqueo del acceso de Functions a la cuenta de almacenamiento:
+Es necesario que la aplicación de funciones pueda acceder a la cuenta de almacenamiento. Estos son los problemas comunes de bloqueo del acceso de la aplicación de funciones a la cuenta de almacenamiento:
 
-+ Las aplicaciones de funciones están implementadas en instancias de App Service Environment sin las reglas de red adecuadas para permitir el tráfico de entrada y salida de la cuenta de almacenamiento.
+* La aplicación de funciones está implementada en App Service Environment sin las reglas de red adecuadas para permitir el tráfico de entrada y salida de la cuenta de almacenamiento.
 
-+ El firewall de la cuenta de almacenamiento está habilitado, pero no está configurado para permitir el tráfico de entrada y salida de Functions. Para más información, consulte [Configuración de redes virtuales y firewalls de Azure Storage](../storage/common/storage-network-security.md).
+* El firewall de la cuenta de almacenamiento está habilitado, pero no está configurado para permitir el tráfico de entrada y salida de Functions. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="daily-execution-quota-full"></a>Se ha alcanzado la cuota de ejecución diaria
+## <a name="daily-execution-quota-is-full"></a>Se ha alcanzado la cuota de ejecución diaria
 
 Si tiene configurada una cuota de ejecución diaria, la aplicación de funciones se deshabilitará temporalmente y muchos de los controles del portal dejarán de estar disponibles. 
 
-+ Para comprobarlo en [Azure Portal](https://portal.azure.com), abra **Características de la plataforma** > **Configuración de aplicación de funciones** en la aplicación de funciones. Si supera el valor establecido en **Cuota de uso diario**, aparecerá el siguiente mensaje:
+Para comprobar la cuota en [Azure Portal](https://portal.azure.com), seleccione **Platform Features** (Características de la plataforma)  > **Configuración de aplicación de funciones** en la aplicación de funciones. Si supera el valor establecido en **Cuota de uso diario**, aparecerá el siguiente mensaje:
 
-    `The function app has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+  > "La aplicación de funciones ha alcanzado la cuota de uso diaria y se ha detenido hasta que comience el siguiente período de 24 horas".
 
-+ Para resolver este problema, quite o aumente la cuota diaria y reinicie la aplicación. De lo contrario, la ejecución de la aplicación se bloqueará hasta el día siguiente.
+Para resolver este problema, quite o aumente la cuota diaria y reinicie la aplicación. De lo contrario, la ejecución de la aplicación se bloqueará hasta el día siguiente.
 
 ## <a name="app-is-behind-a-firewall"></a>Aplicación detrás de un firewall
 
-El entorno de ejecución de la función no estará accesible si la aplicación de funciones está hospedada en una instancia de [App Service Environment con equilibro de carga interno](../app-service/environment/create-ilb-ase.md) y está configurada para bloquear el tráfico entrante de Internet o tiene [restricciones de IP de entrada](functions-networking-options.md#inbound-ip-restrictions) configuradas para bloquear el acceso a Internet. Azure Portal realiza llamadas directamente a la aplicación en ejecución para obtener la lista de funciones y también realiza llamadas HTTP a un punto de conexión de KUDU. La configuración de nivel de plataforma en la pestaña `Platform Features` seguirá estando disponible.
+Es posible que no se pueda acceder al entorno en tiempo de ejecución de la función por alguna de las razones siguientes:
 
-Para comprobar la configuración de ASE, vaya al grupo de seguridad de red de la subred donde se encuentra ASE y valide las reglas de entrada para permitir el tráfico procedente de la dirección IP pública del equipo desde el que se accede a la aplicación. También puede usar el portal desde un equipo conectado a la red virtual que ejecuta la aplicación o una máquina virtual que se ejecuta en la red virtual. [Obtenga más información sobre la configuración de reglas de entrada aquí](../app-service/environment/network-info.md#network-security-groups).
+* La aplicación de funciones se hospeda en una [instancia de App Service Environment con equilibrio de carga interno](../app-service/environment/create-ilb-ase.md) y está configurada para bloquear el tráfico entrante de Internet.
+
+* La aplicación de funciones tiene [restricciones de IP de entrada](functions-networking-options.md#inbound-ip-restrictions) que están configuradas para bloquear el acceso a Internet. 
+
+Azure Portal realiza llamadas directamente a la aplicación en ejecución para obtener la lista de funciones y realiza llamadas HTTP al punto de conexión de Kudu. La configuración en el nivel de plataforma de la pestaña **Platform Features** (Características de la plataforma) sigue estando disponible.
+
+Para comprobar la configuración de App Service Environment:
+1. Vaya al grupo de seguridad de red de la subred en la que reside la instancia de App Service Environment.
+1. Valide las reglas de entrada para permitir el tráfico procedente de la dirección IP pública del equipo desde donde se accede a la aplicación. 
+   
+También puede usar el portal desde un equipo conectado a la red virtual que ejecuta la aplicación o una máquina virtual que se ejecuta en la red virtual. 
+
+Para más información acerca de la configuración de reglas de entrada, consulte la sección "Grupos de seguridad de red" de [Consideraciones de red para una instancia de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

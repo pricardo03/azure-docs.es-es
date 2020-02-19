@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: be19de19dab92bc40ca5529ad578e033a98929cd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c18190ec5e5d079d51630a976681717a78a46e00
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023572"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087049"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -36,38 +36,40 @@ Hay algunas excepciones y limitaciones a la hora de elegir un tamaño de máquin
 
 Los grupos de Batch en la configuración de máquina virtual son compatibles con casi todos los tamaños de máquina virtual ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Consulte la tabla siguiente para más información sobre los tamaños admitidos y las restricciones.
 
-No se garantiza la compatibilidad de los tamaños de máquina virtual promocionales o en versión preliminar que no figuren en la lista.
+| Series de máquinas virtuales  | Tamaños admitidos |
+|------------|---------|
+| A básico | Todos los tamaños *excepto* Basic_A0 (A0) |
+| Un | Todos los tamaños *excepto* Standard_A0 |
+| Av2 | Todos los tamaños |
+| B | None |
+| DC | None |
+| Dv2, DSv2 | Todos los tamaños |
+| Dv3, Dsv3 | Todos los tamaños |
+| Dav4, Dasv4 | Ninguno: no disponible todavía |
+| Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 y E64i_v3 |
+| Eav4, Easv4 | Ninguno: no disponible todavía |
+| F, Fs | Todos los tamaños |
+| Fsv2 | Todos los tamaños |
+| G, Gs | Todos los tamaños |
+| H | Todos los tamaños |
+| HB<sup>1</sup> | Todos los tamaños |
+| HBv2<sup>1</sup> | Todos los tamaños |
+| HC<sup>1</sup> | Todos los tamaños |
+| LS | Todos los tamaños |
+| Lsv2 | Ninguno: no disponible todavía |
+| M<sup>1</sup> | Todos los tamaños, excepto M64, M64m, M128, M128m |
+| Mv2 | Ninguno: no disponible todavía |
+| NC | Todos los tamaños |
+| NCv2<sup>1</sup> | Todos los tamaños |
+| NCv3<sup>1</sup> | Todos los tamaños |
+| ND<sup>1</sup> | Todos los tamaños |
+| NDv2<sup>1</sup> | Ninguno: no disponible todavía |
+| NV | Todos los tamaños |
+| NVv3<sup>1</sup> | Todos los tamaños |
+| NVv4 | None |
+| SAP HANA | None |
 
-| Series de máquinas virtuales  | Tamaños admitidos | Modo de asignación de grupo de cuenta de Batch<sup>1</sup> |
-|------------|---------|-----------------|
-| Serie A básica | Todos los tamaños *excepto* Basic_A0 (A0) | Any |
-| Serie A | Todos los tamaños *excepto* Standard_A0 | Any |
-| Serie Av2 | Todos los tamaños | Any |
-| Serie B | None | No disponible |
-| Serie DC | None | No disponible |
-| Series Dv2 y Dsv2 | Todos los tamaños | Any |
-| Series Dv3 y Dsv3 | Todos los tamaños | Any |
-| Series Ev3 y Esv3 | Todos los tamaños | Any |
-| Serie Fsv2 | Todos los tamaños | Any |
-| Serie H | Todos los tamaños | Any |
-| Serie HB<sup>2</sup> | Todos los tamaños | Any |
-| Serie HC<sup>2</sup> | Todos los tamaños | Any |
-| Serie Ls | Todos los tamaños | Any |
-| Serie Lsv2 | None | No disponible |
-| Serie M | Standard_M64ms (solo baja prioridad), Standard_M128s (solo baja prioridad) | Any |
-| Serie Mv2 | None | No disponible |
-| Serie NC | Todos los tamaños | Any |
-| Serie NCv2<sup>2</sup> | Todos los tamaños | Any |
-| Serie NCv3<sup>2</sup> | Todos los tamaños | Any |
-| Serie ND<sup>2</sup> | Todos los tamaños | Any |
-| Serie NDv2 | Todos los tamaños | Modo de suscripción de usuario |
-| Serie NV | Todos los tamaños | Any |
-| Serie NVv3 | None | No disponible |
-| SAP HANA | None | No disponible |
-
-<sup>1</sup> Inicialmente, se admiten algunas series de máquinas virtuales más recientes de forma parcial. Puede asignar estas series de máquinas virtuales mediante cuentas de Batch con el **Modo de asignación de grupo** establecido en **Suscripción de usuario**. Consulte [Administración de cuentas de Batch](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) para más información sobre la configuración de la cuenta de Batch. Consulte [Límites y cuotas](batch-quota-limit.md) para información sobre cómo solicitar la cuota para estas series de máquinas virtuales parcialmente admitidas para cuentas de Batch con el modo **Suscripción de usuario**.  
-
-<sup>2</sup> Estos tamaños de máquina virtual se pueden asignar en grupos de Batch en la configuración de la máquina virtual, pero tiene que solicitar un [aumento de cuota](batch-quota-limit.md#increase-a-quota) específico.
+<sup>1</sup> Estos tamaños de máquina virtual se pueden asignar en grupos de Batch en la configuración de la máquina virtual, pero debe crear una nueva cuenta de Batch y solicitar un [aumento de cuota](batch-quota-limit.md#increase-a-quota) específico. Esta limitación se eliminará una vez que la cuota de vCPU por serie de máquinas virtuales sea totalmente compatible con las cuentas de Batch.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Grupos en la configuración de Cloud Service
 

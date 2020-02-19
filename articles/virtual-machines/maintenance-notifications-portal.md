@@ -1,20 +1,18 @@
 ---
-title: Uso de Azure Portal para notificaciones de mantenimiento de máquinas virtuales de Azure
+title: Uso del portal para notificaciones de mantenimiento
 description: Use el portal para ver las notificaciones de mantenimiento de máquinas virtuales que se ejecutan en Azure e iniciar el mantenimiento de autoservicio.
-services: virtual-machines
 author: shants123
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 759fbc5ba3c5eaa78fec1045bcf41969108d39b1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 46fcc825ac49f0181ac74e9c3e2deaea577f3329
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534928"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115740"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Control de las notificaciones de mantenimiento planeado con el portal
 
@@ -24,7 +22,7 @@ Una vez que se programa una tanda de [mantenimiento planeado](maintenance-notifi
 
 Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programado.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. En el panel de navegación de la izquierda, haga clic en **Máquinas virtuales**.
 
@@ -34,7 +32,7 @@ Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programad
 
    **Estado de mantenimiento**: muestra el estado de mantenimiento para la máquina virtual. Estos son los valores posibles:
       
-      | Valor | DESCRIPCIÓN |
+      | Value | Descripción |
       |-------|-------------|
       | Empezar ahora | La máquina virtual está en la ventana de mantenimiento de autoservicio, lo que le permite iniciar el mantenimiento usted mismo. Vea a continuación cómo iniciar el mantenimiento en la máquina virtual. | 
       | Programado | La máquina virtual está programada para el mantenimiento sin opción de que inicie el mantenimiento. Puede obtener información de la ventana de mantenimiento mediante la selección de la ventana Mantenimiento: Programado en esta vista o haciendo clic en la máquina virtual. | 

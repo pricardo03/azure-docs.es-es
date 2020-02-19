@@ -4,16 +4,16 @@ description: Obtenga información sobre las distintas formas en que puede visual
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/30/2019
-ms.openlocfilehash: d1c73d8eb65ed5d67d5250b4a3bca3b80450001e
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.date: 01/30/2020
+ms.openlocfilehash: 32ccc5ad236c87d3609798a8432db14ee440d067
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536730"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064570"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>Visualización de datos con Azure Data Explorer 
 
@@ -37,7 +37,7 @@ Azure Data Explorer brinda la funcionalidad para conectarse a [Power BI](https:
 
 ## <a name="microsoft-excel"></a>Microsoft Excel
 
-Azure Data Explorer brinda la funcionalidad para conectarse a [Microsoft Excel](https://products.office.com/excel) con el conector nativo de Excel integrado o de importar una consulta desde Azure Data Explorer a Excel.
+Azure Data Explorer brinda la funcionalidad para conectarse a [Microsoft Excel](https://products.office.com/excel) con el [conector nativo de Excel integrado](excel-connector.md) o de [importar una consulta](excel-blank-query.md) desde Azure Data Explorer a Excel.
 
 ## <a name="grafana"></a>Grafana
 
@@ -60,3 +60,7 @@ Azure Data Explorer brinda la funcionalidad para conectarse a [Qlik](https://www
 ## <a name="sisense"></a>Sisense
 
 Azure Data Explorer brinda la funcionalidad para conectarse a [Sisense](https://www.sisense.com) mediante el conector JDBC. Puede [configurar Azure Data Explorer como un origen de datos para Sisense y, luego, visualizar los datos](/azure/data-explorer/sisense).
+
+## <a name="redash"></a>Redash
+
+Puede usar [Redash](https://redash.io/) para compilar paneles y visualizar los datos. [Configure Azure Data Explorer como un origen de datos para Redash y, luego, visualice los datos](/azure/data-explorer/redash).

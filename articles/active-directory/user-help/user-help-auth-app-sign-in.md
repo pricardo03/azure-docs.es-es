@@ -2,21 +2,21 @@
 title: Inicio de sesión con la Azure AD de la aplicación Microsoft Authenticator
 description: Use la aplicación Microsoft Authenticator para iniciar sesión en su cuenta profesional o educativa o en sus cuentas personales, tanto de Microsoft como ajenas a Microsoft, y que se use la comprobación en dos fases o el inicio de sesión en el teléfono.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.author: lizross
+ms.date: 02/07/2020
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 84aa3731f8066772c6a268f2ae4e16215452e78a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b5f2b42728fd6f3d61695b4f88cc416015dd97cb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704687"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108263"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator
 
@@ -31,7 +31,7 @@ Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
   >[!Important]
   >Este método de inicio de sesión en el teléfono solo funciona con las cuentas profesionales o educativas y personales de Microsoft. Las cuentas que no sean de Microsoft requieren que se use el proceso estándar de comprobación en dos fases.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder usar la aplicación Microsoft Authenticator, es preciso:
 
@@ -116,7 +116,7 @@ Para conocer los pasos necesarios para iniciar sesión en su cuenta profesional 
 | Si mantengo activa la verificación en dos pasos para mi cuenta, ¿tendré que aprobar dos notificaciones? | No. El inicio de sesión en su cuenta Microsoft con el teléfono también cuenta como verificación en dos pasos, así que no se requiere ninguna segunda aprobación. |
 | ¿Qué ocurre si pierdo mi teléfono o no lo tengo conmigo? ¿Cómo puedo acceder a mi cuenta? | Siempre puede seleccionar el uso de una contraseña en lugar del vínculo en la página de inicio de sesión para volver a utilizar la contraseña. Sin embargo, si usa la verificación en dos pasos, seguirá siendo necesario un segundo método para verificar la identidad.<br><br>**Importante**<br>Es muy recomendable que tenga más de un método de verificación asociado con su cuenta y que dicho método esté actualizado.<br><br>Puede administrar sus métodos de verificación para las cuentas personales de la página [Configuración de seguridad](https://account.live.com/proofs/manage). Para cuentas profesionales o educativas, puede ir a la página [Comprobación de seguridad adicional](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) de su organización o a la página **Garantizar la seguridad de la cuenta** si el administrador ha activado la información de seguridad. Para más información sobre seguridad, consulte [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).<br><br>Si no puede administrar sus métodos de verificación, debe ponerse en contacto con su administrador. |
 | ¿Cómo dejo de usar esta característica y vuelvo a usar mi contraseña? | Para las cuentas personales, seleccione el vínculo **Use su contraseña en su lugar** durante el inicio de sesión. Su elección más reciente se recuerda y se ofrece de forma predeterminada la próxima vez que inicie sesión. Si desea volver a usar el inicio de sesión con el teléfono, seleccione el vínculo **Use una aplicación en su lugar** durante el inicio de sesión.<br><br>Si la cuenta es profesional o educativa, debe anular el registro del dispositivo desde la página **Settings** (Configuración) de la aplicación Microsoft Authenticator o deshabilitar el dispositivo desde el área **Devices & activity** (Dispositivos y actividad) del perfil. Para más información sobre cómo deshabilitar el dispositivo de su perfil, consulte [Actualización de la información del perfil y de la cuente desde el portal Mis aplicaciones](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
-| ¿Por qué no puedo usar más de una cuenta profesional o educativa para el inicio de sesión con el teléfono? | Debe registrarse un teléfono en una única cuenta profesional o educativa. Si desea activar el inicio de sesión con el teléfono para una cuenta profesional o educativa diferente, primero debe anular el registro de la cuenta antigua a través de la página **Configuración**. |
+| ¿Por qué no puedo usar más de una cuenta profesional o educativa para el inicio de sesión con el teléfono? | Debe registrarse un teléfono en una única cuenta profesional o educativa. Si desea activar el inicio de sesión con el teléfono para una cuenta profesional o educativa diferente, debe anular el registro de la cuenta en el dispositivo desde la página **Configuración**. |
 | ¿Puedo iniciar sesión en mi equipo con mi teléfono? | En el caso de su equipo, se recomienda iniciar sesión mediante Windows Hello en Windows 10. Windows Hello le permite usar su cara, la huella digital o el PIN para iniciar sesión. |
 
 ## <a name="next-steps"></a>Pasos siguientes

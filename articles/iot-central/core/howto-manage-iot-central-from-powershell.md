@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/11/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: a95b59c6cc0d486c1d4b10f39d0d272dd4b34f54
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 944f5008cff8d982ef15a1b129e2cd41d7df5cb4
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018999"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137724"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Administración de IoT Central desde Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "77018999"
 
 En lugar de crear y administrar aplicaciones de IoT Central desde el sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral), puede usar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para administrar las aplicaciones.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -57,7 +57,7 @@ New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
 # Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
-  -Sku "ST1" -Template "iotc-demo@1.0.0" `
+  -Sku "ST1" -Template "iotc-pnp-preview@1.0.0" `
   -DisplayName "My Custom Display Name"
 ```
 
@@ -66,30 +66,14 @@ El script crea primero un grupo de recursos en la región Este de EE. UU. para l
 |Parámetro         |Descripción |
 |------------------|------------|
 |ResourceGroupName |Grupo de recursos que contiene a la aplicación. Este grupo de recursos ya debe existir en la suscripción. |
-|Location |De forma predeterminada, este cmdlet usa la ubicación del grupo de recursos. Actualmente, se pueden crear aplicaciones de IoT Central en **Este de EE. UU.** , **Oeste de EE. UU.** , **Norte de Europa** u **Oeste de Europa**, o incluso en las regiones geográficas de **Australia** o **Asia Pacifico**.  |
+|Location |De forma predeterminada, este cmdlet usa la ubicación del grupo de recursos. Actualmente, puede crear una aplicación de IoT Central en las ubicaciones geográficas **Australia**, **Asia Pacífico**, **Europa** o **Estados Unidos**.  |
 |Nombre              |Nombre de la aplicación en Azure Portal. |
 |Subdominio         |Subdominio en la dirección URL de la aplicación. En el ejemplo, la dirección URL de la aplicación es https://mysubdomain.azureiotcentral.com. |
 |SKU               |Actualmente, puede usar **ST1** o **ST2**. Consulte [Precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
-|Plantilla          | Plantilla de aplicación que se va a usar. Para más información, vea la tabla siguiente: |
+|Plantilla          | Plantilla de aplicación que se va a usar. Para más información, vea la tabla siguiente. |
 |DisplayName       |Nombre de la aplicación tal como se muestra en la interfaz de usuario. |
 
-**Plantillas de aplicación**
-
-| Nombre de la plantilla            | Descripción |
-| ------------------------ | ----------- |
-| iotc-default@1.0.0       | Permite crear una aplicación vacía para que pueda rellenarla con sus propias plantillas de dispositivo y dispositivos.
-| iotc-pnp-preview@1.0.0   | Crea una aplicación de Plug and Play (versión preliminar) vacía para completarla con sus propios dispositivos y plantillas de dispositivo. |
-| iotc-condition@1.0.0     | Crea una aplicación con una plantilla de supervisión de condiciones de análisis en la tienda. Use esta plantilla para conectar y supervisar el entorno del almacén. |
-| iotc-consumption@1.0.0   | Permite crear una aplicación con la plantilla de supervisión del consumo de agua. Use esta plantilla para supervisar y controlar el flujo de agua. |
-| iotc-distribution@1.0.0  | Permite crear una aplicación con una plantilla de distribución digital. Use esta plantilla para mejorar la eficacia de la salida de productos del almacén mediante la digitalización de recursos y acciones clave. |
-| iotc-inventory@1.0.0     | Permite crear una aplicación con una plantilla de administración inteligente de inventarios. Use esta plantilla para automatizar la recepción, el movimiento de productos, el recuento de ciclos y el seguimiento y el seguimiento de sensores. |
-| iotc-logistics@1.0.0     | Permite crear una aplicación con una plantilla de logística conectada. Use esta plantilla para realizar un seguimiento de su envío en tiempo real por aire, mar y tierra con supervisión del estado y la ubicación. |
-| iotc-meter@1.0.0         | Permite crear una aplicación con una plantilla de supervisión de medidores inteligentes. Use esta plantilla para supervisar el consumo de energía y el estado de la red e identificar tendencias para mejorar la asistencia al cliente y la administración de medidores inteligentes.  |
-| iotc-patient@1.0.0       | Permite crear una aplicación con una plantilla de supervisión continua de pacientes. Use esta plantilla para ampliar el cuidado de los pacientes, las readmisiones y el control de enfermedades. |
-| iotc-power@1.0.0         | Permite crear una aplicación con una plantilla de supervisión de paneles solares. Use esta plantilla para supervisar el estado del panel solar y las tendencias de generación de energía. |
-| iotc-quality@1.0.0       | Permite crear una aplicación con una plantilla de supervisión de la calidad del agua. Use esta plantilla para supervisar digitalmente la calidad del agua.|
-| iotc-store@1.0.0         | Permite crear una aplicación con una plantilla de análisis en tienda y finalización de la compra. Use esta plantilla para supervisar y administrar el flujo de finalización de compra en su tienda. |
-| iotc-waste@1.0.0         | Permite crear una aplicación con una plantilla de administración de desechos conectada. Use esta plantilla para supervisar contenedores de residuos y operadores de campo de distribución. |
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## <a name="view-your-iot-central-applications"></a>Visualización de las aplicaciones de IoT Central
 

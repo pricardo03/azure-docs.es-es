@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862839"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116274"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
 
@@ -25,6 +25,8 @@ Se recomienda consultar [Azure Monitor para Storage](../../azure-monitor/insight
 > Existen costos asociados con el análisis de los datos de supervisión en Azure Portal. Para más información, consulte [Storage Analytics](storage-analytics.md).
 >
 > Azure Files admite actualmente las métricas de Storage Analytics, pero aún no admite el registro.
+>
+> Las cuentas de almacenamiento de blobs en bloques de rendimiento Premium no admiten las métricas de análisis de almacenamiento, pero admiten el registro, que se puede habilitar mediante programación a través de la API REST o de la biblioteca cliente. Si desea ver métricas con cuentas de almacenamiento de blobs en bloques de rendimiento Premium, considere la posibilidad de usar [Métricas de Azure Storage en Azure Monitor](storage-metrics-in-azure-monitor.md).
 >
 > Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage, consulte [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >

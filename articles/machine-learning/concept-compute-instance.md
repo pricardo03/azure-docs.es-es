@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984853"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169832"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -26,9 +26,6 @@ Use una instancia de proceso como entorno de desarrollo completamente configurad
 
 Las instancias de proceso se usan normalmente como entornos de desarrollo.  También se pueden usar como destino de proceso para la formación y la inferencia para el desarrollo y las pruebas.  Para las tareas de gran tamaño, un[ clúster de proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
 
-> [!NOTE]
-> Actualmente, las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro-norte de EE. UU.** , **Este de EE. UU. 2**, **Norte de Europa** o **Sur de Reino Unido**. La compatibilidad con otras regiones estará disponible próximamente.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar. 
 
 ## <a name="why-use-a-compute-instance"></a>¿Por qué usar una instancia de proceso?
 
@@ -124,7 +121,7 @@ Puede realizar las siguientes acciones:
 
 Para cada instancia de proceso del área de trabajo, puede:
 
-* Acceder a Jupyter, JupyterLab, RStudio, VS Code URI en la instancia de proceso
+* Acceder a Jupyter, JupyterLab y RStudio en la instancia de proceso.
 * SSH en la instancia de proceso. El acceso SSH está deshabilitado de forma predeterminada, pero se puede habilitar en el momento de la creación de la instancia de proceso. El acceso SSH se realiza a través del mecanismo de claves pública y privada. La pestaña le proporcionará detalles sobre la conexión SSH, como la dirección IP, el nombre de usuario y el número de puerto.
 * Más detalles sobre una instancia de proceso específica, como la dirección IP y la región.
 

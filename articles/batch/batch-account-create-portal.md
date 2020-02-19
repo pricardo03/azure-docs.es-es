@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0c6fab0c9e26630bd54830044da56dba20564b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025903"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048626"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -117,6 +117,14 @@ Al crear la cuenta de Batch en modo de suscripción de usuario, use el grupo de 
 Si prefiere conceder acceso al almacén de claves manualmente, vaya a la sección **Directivas de acceso** de dicho almacén, seleccione **Agregar directivas de acceso** y busque **Microsoft Azure Batch**. Una vez seleccionado, deberá configurar los **Permisos de secretos** en el menú desplegable. A Azure Batch se le deben conceder los permisos mínimos **Get**, **List**, **Set** y **Delete**.
 
 ![Permisos de secretos de Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
+
+
+> [!NOTE]
+> Asegúrese de que las casillas de verificación **Azure Virtual Machines para implementación** y **Azure Resource Manager para implementación de plantillas** están activadas en **Directivas de acceso** para el recurso de **Key Vault** vinculado.
+> 
+> ![Directiva de acceso Key Vault obligatorio](./media/batch-account-create-portal/key-vault-access-policy.png) No es obligatorio cuando se crea una cuenta de Batch en Azure Portal. La opción está seleccionada de forma predeterminada.
+
+
 
 ### <a name="configure-subscription-quotas"></a>Configuración de cuotas de suscripción
 

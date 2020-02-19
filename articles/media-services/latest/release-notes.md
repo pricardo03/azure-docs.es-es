@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 52d8dda8b543e5bdf3ca88ae3784df65be3a2ba1
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e5bf99e2ea84f41054ff57d08882bfa8ab4d6be5
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962950"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114228"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -35,14 +35,33 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-sdk), la CLI o uno de los SDK admitidos.
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
-
+ 
 ## <a name="january-2020"></a>Enero de 2020
 
 ### <a name="improvements-in-media-processors"></a>Mejoras en los procesadores de multimedia
 
 - Compatibilidad mejorada con orígenes entrelazados en el análisis de vídeo: se ha eliminado correctamente el entrelazado de esos contenidos antes de enviarse a los motores de inferencia.
 - Ahora, al generar miniaturas con el modo "Mejor", el codificador busca durante más de 30 segundos para seleccionar un fotograma que no sea monocromático.
- 
+
+### <a name="azure-government-cloud-updates"></a>Actualizaciones de la nube de Azure Government
+
+Media Services está disponible con carácter temporal en las siguientes regiones de Azure Government: *USGov Arizona* y *USGov Texas*.
+
+## <a name="december-2019"></a>Diciembre de 2019
+
+Se agregó compatibilidad de la red CDN con los encabezados *Origin-Assist Prefetch* para streaming a petición tanto en directo como en vídeo; está disponible para clientes que tienen un contrato directo con CDN de Akamai. La característica Origin-Assist CDN-Prefetch supone los siguientes intercambios de encabezados HTTP entre CDN de Akamai y el origen de Azure Media Services:
+
+|Encabezado HTTP|Valores|Remitente|Receptor|Propósito|
+| ---- | ---- | ---- | ---- | ----- |
+|CDN-Origin-Assist-Prefetch-Enabled | 1 (valor predeterminado) o 0 |CDN|Origen|Para indicar que la red CDN está habilitada para la captura previa.|
+|CDN-Origin-Assist-Prefetch-Path| Ejemplo: <br/>Fragments(video=1400000000,format=mpd-time-cmaf)|Origen|CDN|Para proporcionar la ruta de acceso de captura previa a la red CDN.|
+|CDN-Origin-Assist-Prefetch-Request|1 (solicitud de captura previa) o 0 (solicitud normal)|CDN|Origen|Para indicar que la solicitud de CDN es una captura previa.|
+
+Para ver en acción parte del intercambio de encabezados, puede probar los pasos siguientes:
+
+1. Use Postman o Curl para emitir una solicitud de un segmento o fragmento de audio o vídeo al origen de Media Services. Asegúrese de agregar el encabezado CDN-Origin-Assist-Prefetch-Enabled: 1 en la solicitud.
+2. En la respuesta, debería ver el encabezado CDN-Origin-Assist-Prefetch-Path con una ruta de acceso relativa como su valor.
+
 ## <a name="november-2019"></a>Noviembre de 2019
 
 ### <a name="live-transcription-preview"></a>Transcripción en directo (versión preliminar)
@@ -90,7 +109,7 @@ Media Services V3 anuncia la versión preliminar de la codificación lineal de e
 
 #### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
 
-Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. Para ver las fechas de retirada, consulte el tema [componentes heredados](../previous/legacy-components.md). [Video Indexer de Azure Media Services ](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplaza a estos procesadores multimedia heredados.
+Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. Para ver las fechas de retirada, consulte el tema sobre [componentes heredados](../previous/legacy-components.md). [Video Indexer de Azure Media Services ](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplaza a estos procesadores multimedia heredados.
 
 Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](../previous/migrate-indexer-v1-v2.md).
 

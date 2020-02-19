@@ -8,12 +8,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2cf3c784c711977a6fe758bb9017e1f0dc404c33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8febe1fd749842a6db0cd1c9991f4002eb7cf2ad
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991971"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190095"
 ---
 # <a name="connection-strings"></a>Cadenas de conexión
 
@@ -140,10 +140,10 @@ En este ejemplo, esta cadena de conexión especifica invalidaciones explícitas 
 - El esquema de autorización tiene como valor predeterminado "iKey". 
 - Clave de instrumentación: 00000000-0000-0000-0000-000000000000
 - Los identificadores URI de servicio regional se basan en los valores de invalidación explícitos: 
-   - Ingesta: https://custom.com:111/
-   - Live Metrics: https://custom.com:222/
-   - Profiler: https://custom.com:333/ 
-   - Depurador: https://custom.com:444/   
+   - Ingesta: https:\//custom.com:111/
+   - Métricas en directo: https:\//custom.com:222/
+   - Generador de perfiles: https:\//custom.com:333/ 
+   - Depurador: https:\//custom.com:444/   
 
 
 ## <a name="how-to-set-a-connection-string"></a>Cómo establecer una cadena de conexión

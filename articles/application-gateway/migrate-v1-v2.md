@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 719686cb123355359391c5cb1e517ff9cfd88371
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231743"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046197"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -58,7 +58,7 @@ Para determinar si tiene instalados los módulos de Azure Az, ejecute `Get-Inst
 
 Para usar esta opción, los módulos de Azure Az no deben estar instalados en el equipo. En caso de que lo estén, el comando siguiente mostrará un error. Puede desinstalar los módulos de Azure Az o usar la otra opción para descargar manualmente el script y ejecutarlo.
   
-Ejecute el siguiente comando para ejecutar el script:
+Ejecute el script con el siguiente comando:
 
 `Install-Script -Name AzureAppGWMigration`
 
@@ -98,11 +98,11 @@ Para ejecutar el script:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [cadena]:  obligatorio**. Se trata el espacio de direcciones IP que ha asignado (o quiere asignar) a la nueva subred que contiene la nueva puerta de enlace v2. Debe especificarse en la notación CIDR. Por ejemplo:  10.0.0.0/24. No es necesario crear de antemano esta subred, ya que el script la crea automáticamente si no existe.
+   * **subnetAddressRange: [cadena]:  obligatorio**. Se trata el espacio de direcciones IP que ha asignado (o quiere asignar) a la nueva subred que contiene la nueva puerta de enlace v2. Debe especificarse en la notación CIDR. Por ejemplo: 10.0.0.0/24. No es necesario crear de antemano esta subred, ya que el script la crea automáticamente si no existe.
    * **appgwName: [cadena]: opcional**. Se trata de una cadena que se especifica para su uso como nombre de la nueva puerta de enlace Standard_v2 o WAF_v2. Si no se proporciona este parámetro, se usará el nombre de la puerta de enlace v1 existente con el sufijo *_v2* anexado.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: opcional**.  La lista separada por comas de objetos PSApplicationGatewaySslCertificate que cree para representar los certificados SSL de la puerta de enlace v1 debe cargarse en la nueva puerta de enlace v2. Para cada uno de los certificados SSL configurados para la puerta de enlace Standard v1 o WAF v1, puede crear un objeto PSApplicationGatewaySslCertificate con el comando `New-AzApplicationGatewaySslCertificate` que se muestra aquí. Necesita la ruta de acceso del archivo del certificado SSL y la contraseña.
 
-       Este parámetro solo es opcional si no tiene agentes de escucha HTTPS configurados para la puerta de enlace v1 o WAF. Si tiene al menos un programa de instalación del agente de escucha HTTPS, debe especificar este parámetro.
+     Este parámetro solo es opcional si no tiene agentes de escucha HTTPS configurados para la puerta de enlace v1 o WAF. Si tiene al menos un programa de instalación del agente de escucha HTTPS, debe especificar este parámetro.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -114,12 +114,17 @@ Para ejecutar el script:
         -Password $password
       ```
 
-      Puede pasar `$mySslCert1, $mySslCert2` (separados por comas) en el ejemplo anterior como valores para este parámetro en el script.
-   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: opcional**. Se trata de una lista de objetos PSApplicationGatewayTrustedRootCertificate separados por comas que se crea para representar los [certificados raíz de confianza](ssl-overview.md) para la autenticación de las instancias de back-end de la puerta de enlace v2.  
+     Puede pasar `$mySslCert1, $mySslCert2` (separados por comas) en el ejemplo anterior como valores para este parámetro en el script.
+   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: opcional**. Se trata de una lista de objetos PSApplicationGatewayTrustedRootCertificate separados por comas que se crea para representar los [certificados raíz de confianza](ssl-overview.md) para la autenticación de las instancias de back-end de la puerta de enlace v2.
+   
+      ```azurepowershell
+      $certFilePath = ".\rootCA.cer"
+      $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
+      ```
 
       Para crear una lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [cadena]: opcional**. Dirección IP privada específica que quiere asociar a la nueva puerta de enlace v2.  Debe ser de la misma red virtual que asigne a la nueva puerta de enlace v2. Si esto no se especifica, el script asigna una dirección IP privada para la puerta de enlace v2.
-    * **publicIpResourceId: [cadena]: opcional**. Identificador de un recurso de dirección IP pública (SKU estándar) de la suscripción que quiere asignar a la nueva puerta de enlace v2. Si esto no se especifica, el script asigna una nueva dirección IP pública en el mismo grupo de recursos. El nombre es el mismo de la puerta de enlace v2 con *-IP* anexado.
+   * **publicIpResourceId: [cadena]: opcional**. Identificador de recurso de una dirección IP pública existente (SKU estándar) en la suscripción que quiere asignar a la nueva puerta de enlace v2. Si esto no se especifica, el script asigna una nueva dirección IP pública en el mismo grupo de recursos. El nombre es el mismo de la puerta de enlace v2 con *-IP* anexado.
    * **validateMigration: [modificador]: opcional**. Use este parámetro si quiere que el script realice algunas validaciones de comparación de la configuración básica tras la creación de la puerta de enlace v2 y la copia de la configuración. De forma predeterminada, no se realiza ninguna validación.
    * **enableAutoScale: [modificador]: opcional**. Use este parámetro si quiere que el script habilite el escalado automático en la nueva puerta de enlace v2 después de crearla. De forma predeterminada, el escalado automático está deshabilitado. Puede habilitarlo manualmente más adelante en la puerta de enlace v2 recién creada.
 
@@ -132,10 +137,10 @@ Para ejecutar el script:
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
-      -sslCertificates $Certs `
+      -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceId "MyPublicIP" `
+      -publicIpResourceId "/subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 

@@ -11,18 +11,20 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 409ce8b904997f2ab75f70b2138ec5b1e70a0e69
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f1379202fc59e9cca7a3543be201f8ebff276bef
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816651"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168354"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
 El servicio Voz permite que la aplicación convierta audio en texto, lleve a cabo la traducción de voz y convertir texto a voz. Este servicio está disponible en varias regiones con puntos de conexión únicos para SDK de Voz y API REST.
 
-Asegúrese de usar el punto de conexión que coincida con la región de su suscripción.
+El portal de Voz para realizar configuraciones personalizadas a su experiencia de voz para todas las regiones está disponible aquí: https://speech.microsoft.com
+
+En el caso de las invocaciones del servicio de voz, asegúrese de que la llamada coincide con la región de la suscripción.
 
 ## <a name="speech-sdk"></a>SDK de voz
 
@@ -30,28 +32,13 @@ En las regiones de [SDK de Voz](speech-sdk.md), las regiones se especifican como
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>Voz a texto, texto a voz y traducción
 
-El SDK de Voz está disponible en estas regiones para el **reconocimiento de voz**, el **texto a voz** y la **traducción**:
+El portal de personalización de voz está disponible aquí: https://speech.microsoft.com
 
-| Region           | Parámetro del SDK de Voz | Portal de personalización de Voz    |
-| ---------------- | -------------------- | ------------------------------ |
-| Oeste de EE. UU.          | `westus`             | https://westus.cris.ai         |
-| Oeste de EE. UU. 2        | `westus2`            | https://westus2.cris.ai        |
-| East US          | `eastus`             | https://eastus.cris.ai         |
-| Este de EE. UU. 2        | `eastus2`            | https://eastus2.cris.ai        |
-| Centro de EE. UU.       | `centralus`          | https://centralus.cris.ai      |
-| Centro-Norte de EE. UU | `northcentralus`     | https://northcentralus.cris.ai |
-| Centro-Sur de EE. UU | `southcentralus`     | https://southcentralus.cris.ai |
-| India Central    | `centralindia`       | https://centralindia.cris.ai   |
-| Asia oriental        | `eastasia`           | https://eastasia.cris.ai       |
-| Sudeste asiático   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Este de Japón       | `japaneast`          | https://japaneast.cris.ai      |
-| Corea Central    | `koreacentral`       | https://koreacentral.cris.ai   |
-| Este de Australia   | `australiaeast`      | https://australiaeast.cris.ai  |
-| Centro de Canadá   | `canadacentral`      | https://canadacentral.cris.ai  |
-| Europa del Norte     | `northeurope`        | https://northeurope.cris.ai    |
-| Europa occidental      | `westeurope`         | https://westeurope.cris.ai     |
-| Sur de Reino Unido 2         | `uksouth`            | https://uksouth.cris.ai        |
-| Centro de Francia   | `francecentral`      | https://francecentral.cris.ai  |
+El servicio de voz está disponible en estas regiones para el **reconocimiento de voz**, la **conversión de texto a voz** y la **traducción**:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+Si usa el [SDK de Voz](speech-sdk.md), las regiones se especifican mediante el **identificador de región** (por ejemplo, como un parámetro de `SpeechConfig.FromSubscription`). Asegúrese de que la región coincide con la región de la suscripción.
 
 ### <a name="intent-recognition"></a>Reconocimiento de la intención
 
@@ -59,15 +46,15 @@ Las regiones disponibles para el **reconocimiento de la intención** mediante el
 
 | Región global | Region           | Parámetro del SDK de Voz |
 | ------------- | ---------------- | -------------------- |
-| Asia          | Asia oriental        | `eastasia`           |
-| Asia          | Sudeste asiático   | `southeastasia`      |
+| Asia          | Este de Asia        | `eastasia`           |
+| Asia          | Sudeste de Asia   | `southeastasia`      |
 | Australia     | Este de Australia   | `australiaeast`      |
-| Europa        | Europa del Norte     | `northeurope`        |
-| Europa        | Europa occidental      | `westeurope`         |
-| Norteamérica | East US          | `eastus`             |
+| Europa        | Norte de Europa     | `northeurope`        |
+| Europa        | Oeste de Europa      | `westeurope`         |
+| Norteamérica | Este de EE. UU.          | `eastus`             |
 | Norteamérica | Este de EE. UU. 2        | `eastus2`            |
-| Norteamérica | Centro-Sur de EE. UU | `southcentralus`     |
-| Norteamérica | Centro occidental de EE.UU.  | `westcentralus`      |
+| Norteamérica | Centro-sur de EE. UU. | `southcentralus`     |
+| Norteamérica | Centro-Oeste de EE. UU.  | `westcentralus`      |
 | Norteamérica | Oeste de EE. UU.          | `westus`             |
 | Norteamérica | Oeste de EE. UU. 2        | `westus2`            |
 | Sudamérica | Sur de Brasil     | `brazilsouth`        |
@@ -82,11 +69,11 @@ El [SDK de Voz](speech-sdk.md) admite funcionalidades de **asistente de voz** en
 | -------------- | -------------------- |
 | Oeste de EE. UU.        | `westus`             |
 | Oeste de EE. UU. 2      | `westus2`            |
-| East US        | `eastus`             |
+| Este de EE. UU.        | `eastus`             |
 | Este de EE. UU. 2      | `eastus2`            |
-| Europa occidental    | `westeurope`         |
-| Europa del Norte   | `northeurope`        |
-| Sudeste asiático | `southeastasia`      |
+| Oeste de Europa    | `westeurope`         |
+| Norte de Europa   | `northeurope`        |
+| Sudeste de Asia | `southeastasia`      |
 
 ## <a name="rest-apis"></a>API de REST
 
@@ -96,7 +83,18 @@ El servicio Voz también expone puntos de conexión REST para las solicitudes de
 
 Para obtener la documentación de referencia sobre la opción de voz a texto, consulte las [API de REST de voz a texto](rest-speech-to-text.md).
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+El punto de conexión de la API REST tiene este formato:
+
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Reemplace `<REGION_IDENTIFIER>` por el identificador que coincida con la región de la suscripción en la siguiente tabla:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> El parámetro de idioma debe anexarse a la dirección URL para evitar la recepción de errores HTTP 4xx. Por ejemplo, el idioma definido a inglés de Estados Unidos con el punto de conexión del Oeste de EE. UU. es: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ### <a name="text-to-speech"></a>Texto a voz
 

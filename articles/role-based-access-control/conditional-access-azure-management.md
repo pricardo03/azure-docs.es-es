@@ -1,5 +1,5 @@
 ---
-title: Administración del acceso a la administración de Azure con acceso condicional en Azure Active Directory
+title: Administración el acceso a la administración de Azure con acceso condicional en Azure AD
 description: Obtenga más información sobre el uso del acceso condicional en Azure AD para administrar el acceso a la administración de Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: e4b7ce0701349cae3ef501213d0f822ee8d150d0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f3341f1c30a1581b8507652c322c00581e3972aa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142833"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137409"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Administración el acceso a la administración de Azure con acceso condicional
 

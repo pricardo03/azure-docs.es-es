@@ -7,10 +7,14 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: Protección de la red en la nube - Portal
+    - name: 'Protección de una WAN virtual: portal'
       href: secure-cloud-network.md
+    - name: 'Protección de una WAN virtual de un centro de conectividad: portal'
+      href: secure-hybrid-network.md
 - name: Conceptos
   items:
+    - name: Información general de directivas
+      href: policy-overview.md
     - name: ¿Qué es un centro virtual protegido?
       href: secured-virtual-hub.md
     - name: Proceso de implementación general
@@ -19,11 +23,13 @@
       href: trusted-security-partners.md
     - name: Lógica de procesamiento de reglas
       href: rule-processing.md
+    - name: Opciones de arquitectura
+      href: vhubs-and-vnets.md
 - name: Guías paso a paso
   items:
     - name: Implementación de asociados de seguridad de confianza
       href: deploy-trusted-security-partner.md
-    - name: Directiva de migración a firewall
+    - name: 'Directiva de migración a firewall: PowerShell'
       href: migrate-to-policy.md
 - name: Referencia
   items:

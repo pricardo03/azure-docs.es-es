@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0e2acb346fad87e0c1c7fd7de1389d8fc86206d0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ceda7bd6bd165df1eece555c6ce8a9a6c863b2c1
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641537"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77112320"
 ---
 ### <a name="create-a-user-assigned-identity"></a>Creación de una identidad asignada por el usuario
 
@@ -23,13 +23,13 @@ Cree una identidad denominada *myACRTasksId* en la suscripción con el comando [
 az identity create --resource-group myResourceGroup --name myACRTasksId
 ```
 
-Para configurar la identidad asignada por el usuario en los pasos siguientes, use el comando [az identity show][az-identity-show] para almacenar en variables los identificadores de recurso, entidad de servicio y cliente de la identidad.
+Para configurar la identidad asignada por el usuario en los pasos siguientes, use el comando [az identity show][az-identity-show] para almacenar en variables los identificadores de recurso, de entidad de seguridad y de cliente de la identidad.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
 resourceID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query id --output tsv)
 
-# Get service principal ID of the user-assigned identity
+# Get principal ID of the task's user-assigned identity
 principalID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query principalId --output tsv)
 
 # Get client ID of the user-assigned identity

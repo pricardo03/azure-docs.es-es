@@ -3,12 +3,12 @@ title: Configuración de datos en directo (versión preliminar) de Azure Monitor
 description: En este artículo se describe cómo configurar la vista en tiempo real de los registros de contenedor (stdout/stderr) y eventos sin usar kubectl con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: cf42eea99e437a76bb437b23f6eaffae1f1f3bc6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030697"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063771"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Cómo configurar la característica de datos en directo (versión preliminar)
 
@@ -114,7 +114,7 @@ Para más información sobre la configuración de seguridad avanzada en Kubernet
     >[!NOTE]
     >Si usa esta característica en Azure China, el primer valor de dirección URL base debe ser `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` y el segundo, `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
-4. Después de registrar las direcciones URL de redireccionamiento, en **Configuración avanzada**, seleccione las opciones **Tokens de acceso** y **Tokens de identificador** y luego guarde los cambios.
+4. Después de registrar las direcciones URL de redireccionamiento, en **Concesión implícita**, seleccione las opciones **Tokens de acceso** y **Tokens de identificador** y luego guarde los cambios.
 
 >[!NOTE]
 >La configuración de la autenticación con Azure Active Directory para el inicio de sesión único solo puede lograrse durante la implementación inicial de un nuevo clúster de AKS. No puede configurar el inicio de sesión único en un clúster de AKS ya implementado.

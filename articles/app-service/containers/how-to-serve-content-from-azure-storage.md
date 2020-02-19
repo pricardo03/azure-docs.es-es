@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930008"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121415"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Servicio de contenido desde Azure Storage en App Service en Linux
 
@@ -20,7 +20,7 @@ ms.locfileid: "75930008"
 
 En esta guía se muestra cómo adjuntar Azure Storage a App Service en Linux. Entre las ventajas se incluye protección y portabilidad del contenido, almacenamiento persistente, acceso a varias aplicaciones y varios métodos de transferencia.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [CLI de Azure](/cli/azure/install-azure-cli) (2.0.46 o posterior).
 - Una [aplicación de App Service en Linux](https://docs.microsoft.com/azure/app-service/containers/) existente.
@@ -34,6 +34,7 @@ En esta guía se muestra cómo adjuntar Azure Storage a App Service en Linux. En
 - Azure Storage con App Service admite el montaje de **contenedores de Azure Files** (lectura y escritura) y **contenedores de blobs de Azure** (solo lectura)
 - Azure Storage con App Service **no admite** el uso de la configuración del **firewall de Storage** debido a limitaciones de la infraestructura.
 - Azure Storage con App Service le permite especificar **hasta cinco** puntos de montaje por aplicación.
+- No se pude acceder a Azure Storage montado en una aplicación mediante los puntos de conexión de FTP/FTP de App Service. Use [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 - Azure Storage **no se incluye** con la aplicación web y se factura por separado. Obtenga más información sobre los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage).
 
 > [!WARNING]

@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2bac51a86c8acdba0f6c2f03e5a24ab2b133aa8e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7529cfbd0ab75d0113e5cea666bc04aa1b15d30b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521008"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157727"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Inicio de una conmutación por error de la cuenta de almacenamiento (versión preliminar)
 
@@ -27,24 +27,24 @@ En este artículo se muestra cómo iniciar una conmutación por error de la cuen
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder realizar una conmutación por error de la cuenta, asegúrese de que se han realizado los pasos siguientes:
 
 - Regístrese para la versión preliminar de conmutación por error de la cuenta. Para información sobre cómo registrarse, consulte [Acerca de la versión preliminar](storage-disaster-recovery-guidance.md#about-the-preview).
-- Asegúrese de que la cuenta de almacenamiento esté configurada para usar almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Para más información sobre el almacenamiento con redundancia geográfica, consulte [Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage](storage-redundancy-grs.md). 
+- Asegúrese de que la cuenta de almacenamiento esté configurada para usar almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Para más información sobre el almacenamiento con redundancia geográfica, consulte [Redundancia de Azure Storage](storage-redundancy.md).
 
 ## <a name="important-implications-of-account-failover"></a>Implicaciones importantes de la conmutación por error de la cuenta
 
 Cuando se inicia una conmutación por error de la cuenta de almacenamiento, se actualizan los registros DNS del punto de conexión secundario para que pase a ser el punto de conexión principal. Asegúrese de comprender el posible efecto para la cuenta de almacenamiento antes de iniciar una conmutación por error.
 
-Para calcular el alcance de la posible pérdida de datos antes de iniciar una conmutación por error, compruebe la propiedad **Hora de la última sincronización** mediante el cmdlet `Get-AzStorageAccount` de PowerShell e incluya el parámetro `-IncludeGeoReplicationStats`. A continuación, compruebe la propiedad `GeoReplicationStats` de su cuenta. 
+Para calcular el alcance de la posible pérdida de datos antes de iniciar una conmutación por error, compruebe la propiedad **Hora de la última sincronización** mediante el cmdlet `Get-AzStorageAccount` de PowerShell e incluya el parámetro `-IncludeGeoReplicationStats`. A continuación, compruebe la propiedad `GeoReplicationStats` de su cuenta. \
 
-Después de la conmutación por error, el tipo de cuenta de almacenamiento se convierte automáticamente en almacenamiento con redundancia local (LRS) en la nueva región primaria. Puede volver a habilitar el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para la cuenta. Tenga en cuenta que la conversión de LRS a GRS o a RA-GRS supone un costo adicional. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
+Después de la conmutación por error, el tipo de cuenta de almacenamiento se convierte automáticamente en almacenamiento con redundancia local (LRS) en la nueva región primaria. Puede volver a habilitar el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para la cuenta. Tenga en cuenta que la conversión de LRS a GRS o a RA-GRS supone un costo adicional. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Después de volver a habilitar GRS para la cuenta de almacenamiento, Microsoft comienza a replicar los datos de la cuenta en la nueva región secundaria. La hora de la replicación depende de la cantidad de datos que se replican.  
 
-## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+## <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para iniciar una conmutación por error de la cuenta desde Azure Portal, siga estos pasos:
 
@@ -60,7 +60,7 @@ Para iniciar una conmutación por error de la cuenta desde Azure Portal, siga es
 
     ![Captura de pantalla que muestra el cuadro de diálogo de confirmación de una conmutación por error de la cuenta](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para usar PowerShell para iniciar una conmutación por error de la cuenta, primero debe instalar el módulo de versión preliminar 6.0.1. Para instalar el módulo, siga estos pasos:
 
@@ -97,7 +97,7 @@ Para iniciar una conmutación por error de la cuenta desde PowerShell, ejecute e
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+## <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para usar la CLI de Azure para iniciar una conmutación por error de la cuenta, ejecute los siguientes comandos:
 

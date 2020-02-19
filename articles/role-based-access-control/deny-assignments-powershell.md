@@ -1,5 +1,5 @@
 ---
-title: Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure PowerShell | Microsoft Docs
+title: Enumeración de las asignaciones de denegación para recursos de Azure con Azure PowerShell
 description: Obtenga información sobre cómo enumerar los usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas de recursos de Azure en ámbitos determinados mediante Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c1ea26fdb4d60262f89ea6ab0f87220a08c01e68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ba18b89bd37dbd55350321c503e37ab0590ab87
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113594"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137396"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure PowerShell
 
@@ -27,7 +27,7 @@ Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios 
 > [!NOTE]
 > No se pueden crear directamente asignaciones de denegación propias. Para obtener información sobre cómo se crean las asignaciones de denegación, vea [Asignaciones de denegación](deny-assignments.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para obtener información sobre una asignación de denegación, debe tener lo siguiente:
 

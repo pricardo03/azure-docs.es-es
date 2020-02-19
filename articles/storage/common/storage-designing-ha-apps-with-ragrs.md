@@ -10,12 +10,12 @@ ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 592be1710893791e80dfe4b20e1323e789b33e69
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945450"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157099"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Diseño de aplicaciones de alta disponibilidad mediante almacenamiento con redundancia geográfica con acceso de lectura
 
@@ -23,8 +23,8 @@ Una característica común de las infraestructuras basadas en la nube como Azure
 
 Las cuentas de almacenamiento configuradas para la replicación con redundancia geográfica se replican de forma sincrónica en la región primaria y luego se replican de forma asincrónica en una región secundaria que se encuentra a cientos de kilómetros de distancia. Azure Storage ofrece dos tipos de replicación con redundancia geográfica:
 
-* [El almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)](storage-redundancy-gzrs.md) proporciona replicación para escenarios que requieren alta disponibilidad y máxima durabilidad. Los datos se replican de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria mediante el almacenamiento con redundancia de zona (ZRS) y, luego, se replican de forma asincrónica en la región secundaria. Para obtener acceso de lectura a los datos de la región secundaria, habilite el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS).
-* [El almacenamiento con redundancia geográfica (GRS)](storage-redundancy-grs.md) proporciona replicación interregional para protegerse frente a interrupciones regionales. Los datos se replican de forma sincrónica tres veces en la región primaria mediante el almacenamiento con redundancia local (LRS) y, luego, se replican de forma asincrónica en la región secundaria. Para obtener acceso de lectura a los datos de la región secundaria, habilite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
+* [El almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)](storage-redundancy.md) proporciona replicación para escenarios que requieren alta disponibilidad y máxima durabilidad. Los datos se replican de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria mediante el almacenamiento con redundancia de zona (ZRS) y, luego, se replican de forma asincrónica en la región secundaria. Para obtener acceso de lectura a los datos de la región secundaria, habilite el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS).
+* [El almacenamiento con redundancia geográfica (GRS)](storage-redundancy.md) proporciona replicación interregional para protegerse frente a interrupciones regionales. Los datos se replican de forma sincrónica tres veces en la región primaria mediante el almacenamiento con redundancia local (LRS) y, luego, se replican de forma asincrónica en la región secundaria. Para obtener acceso de lectura a los datos de la región secundaria, habilite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
 
 En este artículo se muestra cómo diseñar la aplicación para controlar una interrupción en la región primaria. Si la región primaria deja de estar disponible, la aplicación se puede adaptar para realizar operaciones de lectura en la región secundaria en su lugar. Antes de comenzar, asegúrese de que la cuenta de almacenamiento está configurada para RA-GRS o RA-GZRS.
 
@@ -214,38 +214,7 @@ En este ejemplo, suponga que el cliente pasa a leer desde la región secundaria 
 
 Para reconocer que tiene datos potencialmente incoherentes, el cliente puede usar el valor de *Hora de última sincronización*, que puede obtener en cualquier momento al consultar un servicio de almacenamiento. Esto indica la hora en que los datos de la región secundaria fueron coherentes por última vez y cuándo aplicó el servicio todas las transacciones hasta ese momento. En el ejemplo mostrado antes, una vez que el servicio inserta la entidad **empleado** en la región secundaria, la hora de la última sincronización se establece en *T1*. Permanece en *T1* hasta que el servicio actualiza la entidad **empleado** en la región secundaria cuando se establece en *T6*. Si el cliente recupera la última hora de sincronización cuando lee la entidad en *T5*, puede compararla con la marca de tiempo en la entidad. Si la marca de tiempo en la entidad es posterior a la hora de la última sincronización, la entidad se encuentra en un estado potencialmente incoherente, por lo que podrá llevar a cabo la acción adecuada para su aplicación. Para usar este campo, es necesario saber cuándo se completó la última actualización en la región primaria.
 
-## <a name="getting-the-last-sync-time"></a>Obtener la hora de última sincronización
-
-Puede usar PowerShell o la CLI de Azure para recuperar la hora de la última sincronización para determinar cuándo se escribieron los datos por última vez en la región secundaria.
-
-### <a name="powershell"></a>PowerShell
-
-Para obtener la hora de la última sincronización de la cuenta de almacenamiento mediante PowerShell, instale un módulo de versión preliminar de Azure Storage que admita la obtención de estadísticas de replicación geográfica. Por ejemplo:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
-```
-
-A continuación, compruebe la propiedad **GeoReplicationStats.LastSyncTime** de la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición por los propios:
-
-```powershell
-$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
-    -Name <storage-account> `
-    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-Para obtener la hora de la última sincronización para la cuenta de almacenamiento mediante la CLI de Azure, compruebe la propiedad **geoReplicationStats.lastSyncTime** de la cuenta de almacenamiento. Use el parámetro `--expand` para devolver valores para las propiedades anidadas bajo **geoReplicationStats**. Recuerde reemplazar los valores de marcador de posición por los propios:
-
-```azurecli
-$lastSyncTime=$(az storage account show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --expand geoReplicationStats \
-    --query geoReplicationStats.lastSyncTime \
-    --output tsv)
-```
+Para aprender a consultar la hora de la última sincronización, vea [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
 
 ## <a name="testing"></a>Prueba
 

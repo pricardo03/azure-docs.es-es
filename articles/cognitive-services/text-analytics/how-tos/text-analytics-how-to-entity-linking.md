@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/27/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774140"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137969"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -44,7 +44,35 @@ Text Analytics API ofrece dos versiones de reconocimiento de entidades con nombr
 
 Consulte [Compatibilidad de idioma](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para obtener más información.
 
-#### <a name="version-2tabversion-2"></a>[Versión 2](#tab/version-2)
+
+#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+
+### <a name="entity-types"></a>Tipos de entidades
+
+El reconocimiento de entidades con nombre v3 proporciona detección expandida en varios tipos. Actualmente, NER v3 puede reconocer las siguientes categorías de entidades:
+
+* General
+* Información personal 
+
+Para obtener una lista detallada de las entidades y los lenguajes compatibles, consulte el artículo sobre los [tipos de entidades que se admiten en NER v3](../named-entity-types.md).
+
+### <a name="request-endpoints"></a>Puntos de conexión de solicitud
+
+El reconocimiento de entidades con nombre v3 usa puntos de conexión independientes para las solicitudes de NER y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud:
+
+NER
+* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* Información personal - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+Vinculación de entidad
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### <a name="model-versioning"></a>Control de versiones de los modelos
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+#### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
 
 ### <a name="entity-types"></a>Tipos de entidades
 
@@ -83,33 +111,6 @@ El reconocimiento de entidades con nombre v2 usa un punto de conexión único pa
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
-#### <a name="version-3-public-previewtabversion-3"></a>[Versión 3 (versión preliminar pública)](#tab/version-3)
-
-### <a name="entity-types"></a>Tipos de entidades
-
-El reconocimiento de entidades con nombre v3 proporciona detección expandida en varios tipos. Actualmente, NER v3 puede reconocer las siguientes categorías de entidades:
-
-* General
-* Información personal 
-
-Para obtener una lista detallada de las entidades y los lenguajes compatibles, consulte el artículo sobre los [tipos de entidades que se admiten en NER v3](../named-entity-types.md).
-
-### <a name="request-endpoints"></a>Puntos de conexión de solicitud
-
-El reconocimiento de entidades con nombre v3 usa puntos de conexión independientes para las solicitudes de NER y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud:
-
-NER
-* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
-
-* Información personal - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
-
-Vinculación de entidad
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
-
-### <a name="model-versioning"></a>Control de versiones de los modelos
-
-[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
-
 ---
 
 ## <a name="sending-a-rest-api-request"></a>Envío de una solicitud de API REST
@@ -118,23 +119,16 @@ Vinculación de entidad
 
 Debe tener documentos JSON en este formato: identificador, texto, idioma.
 
-Cada documento debe tener un tamaño inferior a 5120 caracteres. Puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud.
+Cada documento tiene un tamaño inferior a 5120 caracteres. Puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud.
 
 ### <a name="structure-the-request"></a>Estructurar la solicitud
 
 Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md) o la **consola de pruebas de API** en los siguientes vínculos de referencia para estructurar y enviar rápidamente una. 
 
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+> [!NOTE]
+> Puede encontrar la clave y el punto de conexión del recurso de Text Analytics en Azure Portal. Están en la página **Inicio rápido** del recurso, en **Administración de recursos**. 
 
-#### <a name="version-2tabversion-2"></a>[Versión 2](#tab/version-2)
-
-[Referencia del reconocimiento de entidades con nombre (NER) v2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
-La versión 2 usa el siguiente punto de conexión para las solicitudes de NER y de vinculación de entidad: 
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### <a name="version-3tabversion-3"></a>[Versión 3](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 [Referencia del reconocimiento de entidades con nombre (NER) v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -147,6 +141,14 @@ NER
 
 Vinculación de entidad
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+#### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
+
+[Referencia del reconocimiento de entidades con nombre (NER) v2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+La versión 2 usa el siguiente punto de conexión para las solicitudes de NER y de vinculación de entidad: 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
 ---
 
@@ -180,44 +182,8 @@ Todas las solicitudes POST devuelven una respuesta con formato JSON con los iden
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local y, a continuación, importarlo en una aplicación que permita ordenar, buscar y manipular los datos.
 
-#### <a name="version-2tabversion-2"></a>[Versión 2](#tab/version-2)
 
-### <a name="example-ner-v2-response"></a>Respuesta de NER v2 de ejemplo
-```json
-{
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "wikipediaScore": 0.15046201222847677,
-        "entityTypeScore": 0.80624294281005859,
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7
-      }],
-      "wikipediaLanguage": "en",
-      "wikipediaId": "Seattle",
-      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
-      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-      "type": "Location"
-    }, {
-      "name": "last week",
-      "matches": [{
-        "entityTypeScore": 0.8,
-        "text": "last week",
-        "offset": 34,
-        "length": 9
-      }],
-      "type": "DateTime",
-      "subType": "DateRange"
-    }]
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versión 3 (versión preliminar pública)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Respuestas de la versión 3 de ejemplo
 
@@ -271,6 +237,43 @@ La versión 3 proporciona puntos de conexión independientes para la vinculació
   }],
   "errors": [],
   "modelVersion": "2019-10-01"
+}
+```
+
+#### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
+
+### <a name="example-ner-v2-response"></a>Respuesta de NER v2 de ejemplo
+```json
+{
+  "documents": [{
+    "id": "1",
+    "entities": [{
+      "name": "Seattle",
+      "matches": [{
+        "wikipediaScore": 0.15046201222847677,
+        "entityTypeScore": 0.80624294281005859,
+        "text": "Seattle",
+        "offset": 26,
+        "length": 7
+      }],
+      "wikipediaLanguage": "en",
+      "wikipediaId": "Seattle",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
+      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+      "type": "Location"
+    }, {
+      "name": "last week",
+      "matches": [{
+        "entityTypeScore": 0.8,
+        "text": "last week",
+        "offset": 34,
+        "length": 9
+      }],
+      "type": "DateTime",
+      "subType": "DateRange"
+    }]
+  }],
+  "errors": []
 }
 ```
 

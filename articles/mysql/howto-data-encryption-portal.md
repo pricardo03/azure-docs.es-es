@@ -1,28 +1,28 @@
 ---
-title: Cifrado de datos para Azure Database for MySQL mediante el portal
-description: Obtenga información sobre cómo configurar y administrar el cifrado de datos con la clave administrada por el cliente para Azure Database for MySQL mediante Azure Portal.
+title: Cifrado de datos para Azure Database for MySQL mediante Azure Portal
+description: Aprenda a configurar y administrar el cifrado de datos de Azure Database for MySQL mediante Azure Portal.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 5bd100a5858660d80f3704844ed974f2bc9257b4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ba1ad7c533ea1dc9e88c8337373e607db653ac24
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028947"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048540"
 ---
-# <a name="data-encryption-for-azure-database-for-mysql-server-using-azure-portal"></a>Cifrado de datos para un servidor de Azure Database for MySQL mediante Azure Portal
+# <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Cifrado de datos para Azure Database for MySQL mediante Azure Portal
 
-En este artículo, obtendrá información sobre cómo configurar y administrar para usar Azure Portal para configurar el cifrado de datos con la clave administrada por el cliente para Azure Database for MySQL.
+Aprenda a usar Azure Portal para configurar y administrar el cifrado de datos de Azure Database for MySQL.
 
-## <a name="prerequisites-for-cli"></a>Requisitos previos para la CLI
+## <a name="prerequisites-for-azure-cli"></a>Requisitos previos de la CLI de Azure
 
 * Debe tener una suscripción de Azure y ser un administrador en esa suscripción.
-* Cree una instancia de Azure Key Vault y una clave para usar para TDE.
-* El almacén de claves debe tener la siguiente propiedad que se usará como una clave administrada por el cliente:
-  * [eliminación temporal](../key-vault/key-vault-ovw-soft-delete.md)
+* En Azure Key Vault, cree un almacén de claves y una clave que se usará como clave administrada por el cliente.
+* Para ello, el almacén de claves debe tener las siguientes propiedades:
+  * [Eliminación temporal](../key-vault/key-vault-ovw-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
@@ -34,66 +34,66 @@ En este artículo, obtendrá información sobre cómo configurar y administrar p
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
 
-* La clave debe tener los siguientes atributos que se usarán para clave administrada por el cliente.
+* La clave debe tener los siguientes atributos para que se pueda usar como clave administrada por el cliente:
   * Sin fecha de expiración
   * No deshabilitado
-  * Poder realizar las operaciones _get_, _wrap key_, _unwrap key_
+  * Poder realizar operaciones get, wrap key, unwrap key
 
-## <a name="setting-the-right-permissions-for-key-operations"></a>Establecimiento de los permisos adecuados para las operaciones de clave
+## <a name="set-the-right-permissions-for-key-operations"></a>Establecer los permisos adecuados para las operaciones de clave
 
-1. En el Azure Key Vault, seleccione las **Directivas de acceso** y después **Agregar directiva de acceso**:
+1. En Key Vault, seleccione **Directivas de acceso** > **Agregar directiva de acceso**.
 
-   ![Introducción a la directiva de acceso](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
+   ![Captura de pantalla de Key Vault, con las opciones Directivas de acceso y Agregar directiva de acceso resaltadas](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. En **Permisos de clave** seleccione **Get**, **Wrap**, **Unwrap** y **Principal**, que es el nombre del servidor MySQL. Si no se encuentra la entidad de seguridad del servidor en la lista de entidades de seguridad existentes, deberá registrarla configurando el cifrado de datos por primera vez, lo que producirá un error.
+2. En **Permisos clave** seleccione **Get** (Obtener), **Wrap** (Encapsular), **Unwrap** (Desencapsular) y **Principal** (Entidad de seguridad), que es el nombre del servidor MySQL. Si no se encuentra la entidad de seguridad del servidor en la lista de entidades de seguridad existentes, debe registrarla. Se le pedirá que registre la entidad de seguridad del servidor cuando intente configurar el cifrado de datos por primera vez y se produzca un error.
 
    ![Introducción a la directiva de acceso](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
-3. **Guarde** la configuración.
+3. Seleccione **Guardar**.
 
-## <a name="setting-data-encryption-for-azure-database-for-mysql"></a>Configuración del cifrado de datos para Azure Database for MySQL
+## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Establecimiento del cifrado de datos para Azure Database for MySQL
 
-1. En **Azure Database for MySQL**, seleccione el **Cifrado de datos** para establecer la configuración de la clave administrada por el cliente.
+1. En Azure Database for MySQL, seleccione **Cifrado de datos** para configurar la clave administrada por el cliente.
 
-   ![Configuración del cifrado de datos](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
+   ![Captura de pantalla de Azure Database for MySQL, con Cifrado de datos resaltado](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
 
-2. Puede seleccionar **Key Vault** y un par de **claves** o pasar un **Identificador de claves**.
+2. Puede seleccionar un almacén de claves y un par de claves o escribir un identificador de clave.
 
-   ![Configuración de Key Vault](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
+   ![Captura de pantalla de Azure Database for MySQL, con las opciones de cifrado de datos resaltadas](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
-3. **Guarde** la configuración.
+3. Seleccione **Guardar**.
 
-4. Para asegurarse de que todos los archivos (incluidos los **temporales**) están cifrados de forma completa, **deberá** **reiniciar** el servidor.
+4. Para asegurarse de que todos los archivos (incluidos los archivos temporales) están totalmente cifrados, reinicie el servidor.
 
-## <a name="restoring-or-creating-replica-of-the-server-which-has-data-encryption-enabled"></a>Restauración o creación de una réplica del servidor con el cifrado de datos habilitado
+## <a name="restore-or-create-a-replica-of-the-server"></a>Restauración o creación de una réplica del servidor
 
-Una vez que se cifra Azure Database for MySQL con la clave administrada por el cliente almacenada en Key Vault, cualquier copia recién creada del servidor, ya sea mediante una operación de restauración geográfica o local o mediante una operación de réplica (local o entre regiones). De modo que, para un servidor MySQL cifrado, puede seguir los siguientes pasos para crear un servidor restaurado cifrado.
+Después de cifrar Azure Database for MySQL con la clave administrada de un cliente almacenada en Key Vault, también se cifra cualquier copia recién creada del servidor. Puede crear esta nueva copia mediante una operación de restauración local o geográfica, o por medio de una operación de réplica (local o entre regiones). De modo que, con un servidor MySQL cifrado, puede usar los siguientes pasos para crear un servidor restaurado cifrado.
 
-1. En el servidor, seleccione **Información general** y, después, seleccione **Restaurar**.
+1. En el servidor, seleccione **Información general** > **Restaurar**.
 
-   ![Iniciar-restaurar](media/concepts-data-access-and-security-data-encryption/show-restore.png)
+   ![Captura de pantalla de Azure Database for MySQL, las opciones información general y Restaurar resaltadas](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
-   Para un servidor habilitado para la replicación, en el encabezado **Configuración**, seleccione **Replicación**, como se muestra aquí:
+   O bien, en el caso de un servidor habilitado para la replicación, en el encabezado **Configuración**, seleccione **Replicación**.
 
-   ![Iniciar-réplica](media/concepts-data-access-and-security-data-encryption/mysql-replica.png)
+   ![Captura de pantalla de Azure Database for MySQL, con la opción Replicación resaltada](media/concepts-data-access-and-security-data-encryption/mysql-replica.png)
 
-2. Una vez completada la operación de restauración, el nuevo servidor creado cuenta está cifrado con la clave usada para cifrar el servidor principal. Sin embargo, las características y opciones del servidor están deshabilitadas y el servidor está marcado con el estado **Inaccesible**. Este comportamiento está diseñado para evitar la manipulación de datos, ya que aún no se ha concedido permiso a la identidad del nuevo servidor para obtener acceso a Key Vault.
+2. Una vez completada la operación de restauración, el nuevo servidor creado se cifra con la clave del servidor principal. Sin embargo, las características y opciones del servidor están deshabilitadas y el servidor está inaccesible. Esto evita la manipulación de los datos, ya que la identidad del nuevo servidor todavía no tiene permiso para acceder al almacén de claves.
 
-   ![Marcar servidor como inaccesible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
+   ![Captura de pantalla de Azure Database for MySQL, con estado Inaccesible resaltado](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. Para corregir el estado inaccesible, debe volver a validar la clave en el servidor restaurado. Seleccione el panel **Cifrado de datos** y, a continuación, el botón **Clave para volver a validar**.
+3. Para que el servidor sea accesible, vuelva a validar la clave en el servidor restaurado. Seleccione **Cifrado de datos** > **Revalidate key** (Volver a validar la clave).
 
    > [!NOTE]
-   > Se producirá un error en el primer intento de volver a validar porque la entidad de servicio del nuevo servidor debe tener acceso al almacén de claves. Para generar la entidad de servicio, seleccione **Volver a validar la clave**. Se producirá un error, pero se generará la entidad de servicio. A partir de ese momento, consulte los pasos [de la sección 2](#setting-the-right-permissions-for-key-operations) anterior.
+   > Se producirá un error en el primer intento de volver a realizar la validación, ya que la entidad de servicio debe tener acceso al almacén de claves. Para generar la entidad de servicio, seleccione **Revalidate key** (Volver a validar la clave). Se muestra un error, pero se genera la entidad de servicio. A partir de ese momento, consulte [estos pasos](#set-the-right-permissions-for-key-operations) anteriormente en este artículo.
 
-   ![volver a validar el servidor](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
+   ![Captura de pantalla de Azure Database for MySQL, con el paso de nueva validación resaltado](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
-   Tendrá que conceder a Key Vault acceso al nuevo servidor.
+   Tendrá que conceder al almacén de claves acceso al nuevo servidor.
 
-4. Después de registrar la entidad de servicio, tendrá que volver a validar la clave y el servidor reanudará su funcionalidad normal.
+4. Después de registrar la entidad de servicio, vuelva a validar la clave otra vez; el servidor reanudará su funcionalidad normal.
 
-   ![Servidor normal restaurado](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
+   ![Captura de pantalla de Azure Database for MySQL, que muestra la funcionalidad restaurada](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- Para obtener más información sobre el cifrado de datos, consulte [Qué es el cifrado de datos de Azure](concepts-data-encryption-mysql.md).
+ Para más información sobre el cifrado de datos, consulte [Cifrado de datos de Azure Database for MySQL con clave administrada por el cliente](concepts-data-encryption-mysql.md).

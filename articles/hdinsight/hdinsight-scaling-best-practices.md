@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/05/2020
+ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030936"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064638"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -216,6 +216,10 @@ Si Hive ha dejado archivos temporales, puede limpiarlos manualmente antes de la 
 Si los clústeres se quedan bloqueados en modo seguro cuando se realiza una reducción vertical a menos de tres nodos de trabajo y los pasos anteriores no funcionan, puede evitar que el clúster entre en modo seguro por completo manteniendo al menos tres nodos de trabajo.
 
 Conservar tres nodos de trabajo es más caro que realizar una reducción vertical a uno solo, pero impedirá que el clúster se quede bloqueado en modo seguro.
+
+### <a name="scale-hdinsight-down-to-one-worker-node"></a>Reducción vertical de HDInsight a un nodo de trabajo
+
+Incluso cuando el clúster se reduce verticalmente a 1 nodo, el nodo de trabajo 0 aún sobrevive. El nodo de trabajo 0 nunca se puede retirar.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Ejecución del comando para salir del modo seguro
 

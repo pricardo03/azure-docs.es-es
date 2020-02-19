@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69582291ca1da95003e26a6922899defd7d5e477
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f3a9265c1f9a5c6c63931798718e4d0679cd126b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982405"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136259"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -44,25 +44,29 @@ Un perfil técnico posibilita estos tipos de escenarios:
 
 ## <a name="technical-profile-flow"></a>Flujo del perfil técnico
 
-Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario envía notificaciones de entrada, ejecuta la transformación de notificaciones y se comunica con la entidad configurada, como un proveedor de identidades, la API REST o los servicios de directorio de Azure AD. Una vez que finalice el proceso, el perfil técnico devuelve las notificaciones de salida y puede ejecutar la transformación de notificaciones de salida. El diagrama siguiente muestra cómo se procesan las transformaciones y las asignaciones a las que se hace referencia en el perfil técnico. Independientemente de la entidad con la que interactúe el perfil técnico, una vez que se ejecute la transformación de las notificaciones, las notificaciones de salida del perfil técnico se almacenan de inmediato en el contenedor de notificaciones.
+Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario envía notificaciones de entrada, ejecuta la transformación de notificaciones y se comunica con la entidad configurada, como un proveedor de identidades, la API REST o los servicios de directorio de Azure AD. Una vez finalizado el proceso, el perfil técnico devuelve las notificaciones de salida y puede ejecutar la transformación de notificaciones de salida. El diagrama siguiente muestra cómo se procesan las transformaciones y las asignaciones a las que se hace referencia en el perfil técnico. Independientemente de la entidad con la que interactúe el perfil técnico, una vez que se ejecute la transformación de las notificaciones, las notificaciones de salida del perfil técnico se almacenan de inmediato en el contenedor de notificaciones.
 
 ![Diagrama que ilustra el flujo de perfil técnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **InputClaimsTransformation**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de entrada se recogen del contenedor de notificaciones y, después de la ejecución, las notificaciones de salida se colocan de nuevo en el contenedor de notificaciones. Las notificaciones de salida de una transformación de notificaciones de entrada pueden ser notificaciones de entrada de una transformación de notificaciones de entrada subsiguiente.
-2. **InputClaims**: las notificaciones se toman de contenedor de notificaciones y se usan para el perfil técnico. Por ejemplo, un [perfil técnico autoafirmado](self-asserted-technical-profile.md) usa las notificaciones de entrada para rellenar previamente las notificaciones de salida que proporciona el usuario. Un perfil técnico de la API REST usa las notificaciones de entrada para enviar los parámetros de entrada al punto de conexión de la API REST. Azure Active Directory usa la notificación de entrada como un identificador único para leer, actualizar o eliminar una cuenta.
-3. **Ejecución de perfil técnico**: el perfil técnico intercambia las notificaciones con la entidad configurada. Por ejemplo:
+1. **Administración de la sesión de inicio de sesión único (SSO)** : restaura el estado de la sesión del perfil técnico mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md). 
+1. **Tranformación de las notificaciones de entrada**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de entrada se toman del contenedor de notificaciones.  Las notificaciones de salida de una transformación de notificaciones de entrada pueden ser notificaciones de entrada de una transformación de notificaciones de entrada subsiguiente.
+1. **Notificaciones de entrada**: las notificaciones se toman del contenedor de notificaciones y se usan para el perfil técnico. Por ejemplo, un [perfil técnico autoafirmado](self-asserted-technical-profile.md) usa las notificaciones de entrada para rellenar previamente las notificaciones de salida que proporciona el usuario. Un perfil técnico de la API REST usa las notificaciones de entrada para enviar los parámetros de entrada al punto de conexión de la API REST. Azure Active Directory usa la notificación de entrada como un identificador único para leer, actualizar o eliminar una cuenta.
+1. **Ejecución de perfil técnico**: el perfil técnico intercambia las notificaciones con la entidad configurada. Por ejemplo:
     - Redirija al usuario al proveedor de identidades para completar el inicio de sesión. Después de iniciar sesión correctamente, el usuario regresa y la ejecución del perfil técnico continúa.
     - Llame a una API REST mientras envía parámetros como InputClaims y recupera información como OutputClaims.
     - Cree o actualice la cuenta de usuario.
     - Envía y comprueba el mensaje de texto de MFA.
-4. **ValidationTechnicalProfiles**: para un [perfil técnico autoafirmado](self-asserted-technical-profile.md), puede llamar a un [perfil técnico de validación](validation-technical-profile.md) de entrada. El perfil técnico de validación valida los datos perfilados por el usuario y devuelve un mensaje de error o de ejecución correcta, con o sin notificaciones de salida. Por ejemplo, antes de que Azure AD B2C cree una nueva cuenta, comprueba si el usuario ya existe en los servicios de directorio. Puede llamar a un perfil técnico de la API REST para agregar su propia lógica de negocios.<p>El ámbito de las notificaciones de salida de un perfil técnico de validación se limita al perfil técnico que invoca el perfil técnico de validación y otros perfiles técnicos de validación en el mismo perfil técnico. Si desea usar las notificaciones de salida en el siguiente paso de orquestación, deberá agregar las notificaciones de salida al perfil técnico que invoca el perfil técnico de validación.
-5. **OutputClaims**: las notificaciones se devuelven al contenedor de notificaciones. Puede usar dichas notificaciones en el siguiente paso de orquestación o en las transformaciones de notificaciones de salida.
-6. **OutputClaimsTransformations**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de salida se toman del contenedor de notificaciones. Las notificaciones de salida del perfil técnico de los pasos anteriores pueden ser notificaciones de entrada de una transformación de notificaciones de salida. Después de la ejecución, las notificaciones de salida se vuelven a poner en el contenedor de notificaciones. Las notificaciones de salida de una transformación de notificaciones de salida pueden ser también notificaciones de entrada de una transformación de notificaciones de salida subsiguiente.
-7. **Administración de sesión de inicio de sesión único (SSO)**  - [La administración de sesión de SSO](custom-policy-reference-sso.md) controla la interacción con un usuario después de que el usuario se haya autenticado. Por ejemplo, el administrador puede controlar si se muestra la selección de proveedores de identidades, o si se tienen que volver a especificar los detalles de la cuenta local.
+1. **Perfiles técnicos de validación**: un [perfil técnico autoafirmado](self-asserted-technical-profile.md), puede llamar a [perfiles técnicos de validación](validation-technical-profile.md). El perfil técnico de validación valida los datos perfilados por el usuario y devuelve un mensaje de error o de ejecución correcta, con o sin notificaciones de salida. Por ejemplo, antes de que Azure AD B2C cree una nueva cuenta, comprueba si el usuario ya existe en los servicios de directorio. Puede llamar a un perfil técnico de la API REST para agregar su propia lógica de negocios.<p>El ámbito de las notificaciones de salida de un perfil técnico de validación se limita al perfil técnico que invoca el perfil técnico de validación y otros perfiles técnicos de validación del mismo perfil técnico. Si desea usar las notificaciones de salida en el siguiente paso de orquestación, deberá agregar las notificaciones de salida al perfil técnico que invoca el perfil técnico de validación.
+1. **Notificaciones de salida**: las notificaciones se devuelven al contenedor de notificaciones. Puede usar dichas notificaciones en el siguiente paso de orquestación o en las transformaciones de notificaciones de salida.
+1. **Transformaciones de notificaciones de salida**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de salida se toman del contenedor de notificaciones. Las notificaciones de salida del perfil técnico de los pasos anteriores pueden ser notificaciones de entrada de una transformación de notificaciones de salida. Después de la ejecución, las notificaciones de salida se vuelven a poner en el contenedor de notificaciones. Las notificaciones de salida de una transformación de notificaciones de salida pueden ser también notificaciones de entrada de una transformación de notificaciones de salida subsiguiente.
+1. **Administración de la sesión de inicio de sesión único (SSO)** : conserva los datos del perfil técnico en la sesión mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md).
 
-Un perfil técnico puede heredar de otro perfil técnico para cambiar la configuración o agregar funcionalidad nueva.  El elemento **IncludeTechnicalProfile** es una referencia al perfil técnico base del que se deriva un perfil técnico.
 
-Por ejemplo, el perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError** incluye **AAD-UserReadUsingAlternativeSecurityId**. Este perfil técnico establece el elemento de metadatos **RaiseErrorIfClaimsPrincipalDoesNotExist** en `true`y genera un error si no existe una cuenta de redes sociales en el directorio. **AAD-UserReadUsingAlternativeSecurityId-NoError** invalida este comportamiento y deshabilita el mensaje de error si el usuario no ha existido.
+## <a name="technical-profile-inclusion"></a>Inclusión del perfil técnico
+
+Un perfil técnico puede incluir otro perfil técnico para cambiar la configuración o agregar funcionalidades.  El elemento `IncludeTechnicalProfile` es una referencia al perfil técnico de base del que se deriva un perfil técnico. No existe un límite en el número de niveles. 
+
+Por ejemplo, el perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError** incluye **AAD-UserReadUsingAlternativeSecurityId**. Este perfil técnico establece el elemento de metadatos `RaiseErrorIfClaimsPrincipalDoesNotExist` en `true` y genera un error si no existe una cuenta de redes sociales en el directorio. **AAD-UserReadUsingAlternativeSecurityId-NoError** invalida este comportamiento y deshabilita ese mensaje de error.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
@@ -97,7 +101,7 @@ Por ejemplo, el perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError
 </TechnicalProfile>
 ```
 
-Ni **UserReadUsingAlternativeSecurityId-AAD-NoError** ni **AAD UserReadUsingAlternativeSecurityId** especifican el elemento **Protocol**, porque se especifica en el perfil técnico **AAD-Common**.
+Ni **AAD-UserReadUsingAlternativeSecurityId-NoError** ni **AAD-UserReadUsingAlternativeSecurityId** especifican el elemento **Protocol**, porque se especifica en el perfil técnico **AAD-Common**.
 
 ```XML
 <TechnicalProfile Id="AAD-Common">
@@ -106,16 +110,3 @@ Ni **UserReadUsingAlternativeSecurityId-AAD-NoError** ni **AAD UserReadUsingAlte
   ...
 </TechnicalProfile>
 ```
-
-Un perfil técnico puede incluir o heredar otro perfil técnico, que puede incluir otro más. No existe un límite en el número de niveles. En función de las necesidades de su empresa, el recorrido del usuario puede llamar a **AAD-UserReadUsingAlternativeSecurityId**, que genera un error si no existe una cuenta de redes sociales del usuario, o **AAD-UserReadUsingAlternativeSecurityId-NoError**, que no genera ningún error.
-
-
-
-
-
-
-
-
-
-
-

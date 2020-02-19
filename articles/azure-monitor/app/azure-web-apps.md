@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/11/2019
-ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3ca9cbf2e282e3f67af3c5da470a3d81e6055f98
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407233"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189583"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -39,7 +39,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
 ## <a name="enable-agent-based-monitoring"></a>Habilitación de la supervisión basada en agente
 
-# <a name="nettabnet"></a>[.NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > No se admite la combinación de APPINSIGHTS_JAVASCRIPT_ENABLED y urlCompression. Para más información, consulte la explicación de la [sección Solución de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -75,7 +75,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
     * Para obtener la lista de valores de configuración de procesador de telemetría de muestreo adaptable compatibles, puede consultar el [código](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) y la [documentación asociada](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Se admiten las siguientes versiones de .NET Core: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
 
@@ -96,15 +96,15 @@ Actualmente, la orientación del marco de trabajo completo de .NET Core, la impl
 
     ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Desde la aplicación web de App Service, en **Configuración** > **seleccione Application Insights** > **Habilitar**. La supervisión basada en agente de Node.js se encuentra actualmente en versión preliminar.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Las aplicaciones web de App Service basadas en Java no admiten actualmente la supervisión automática basada en agente ni extensión. Para habilitar la supervisión de la aplicación Java, debe [instrumentar manualmente la aplicación](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Las aplicaciones web de App Service basadas en Python no admiten actualmente la supervisión automática basada en agente ni extensión. Para habilitar la supervisión de la aplicación Python, debe [instrumentar manualmente la aplicación](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
@@ -112,7 +112,7 @@ Las aplicaciones web de App Service basadas en Python no admiten actualmente la 
 
 ## <a name="enable-client-side-monitoring"></a>Habilitación de la supervisión del lado cliente
 
-# <a name="nettabnet"></a>[.NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 La supervisión de cliente está habilitada en ASP.NET. Para habilitar la supervisión de cliente:
 
@@ -129,7 +129,7 @@ La supervisión de cliente está habilitada en ASP.NET. Para habilitar la superv
 
 Para deshabilitar la supervisión de cliente, quite el par clave-valor asociado de la configuración de la aplicación o establezca el valor en false.
 
-# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 La supervisión de cliente está **habilitada de manera predeterminada** para las aplicaciones de .NET Core con la **recopilación recomendada**, independientemente de si está presente el valor "APPINSIGHTS_JAVASCRIPT_ENABLED" de la aplicación.
 
@@ -146,15 +146,15 @@ Si por algún motivo quiere deshabilitar la supervisión de cliente:
 
 ![Captura de pantalla de la interfaz de usuario de la configuración de la aplicación](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Para habilitar la supervisión del lado cliente para la aplicación de Node.js, debe [agregar manualmente el SDK de JavaScript del lado cliente a la aplicación](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Para habilitar la supervisión del lado cliente para la aplicación Java, debe [agregar manualmente el SDK de JavaScript del lado cliente a la aplicación](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Para habilitar la supervisión del lado cliente para la aplicación Python, debe [agregar manualmente el SDK de JavaScript del lado cliente a la aplicación](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
@@ -173,7 +173,7 @@ Con el fin de habilitar la recopilación de datos de telemetría con Application
 |ApplicationInsightsAgent_EXTENSION_VERSION | Extensión principal; controla la supervisión en el entorno en tiempo de ejecución. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo en el modo predeterminado; se habilitan las características esenciales para garantizar un rendimiento óptimo. | `default` o `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla si se activa el motor `InstrumentationEngine` de reescritura binaria. Esta configuración tiene implicaciones de rendimiento y afecta a la hora de inicio o al arranque en frío. | `~1` |
-|XDT_MicrosoftApplicationInsights_BaseExtensions | Controla si el texto de la tabla SQL y Azure se captura junto con las llamadas de dependencia. Advertencia de rendimiento: esta configuración requiere `InstrumentationEngine`. | `~1` |
+|XDT_MicrosoftApplicationInsights_BaseExtensions | Controla si el texto de la tabla SQL y Azure se captura junto con las llamadas de dependencia. Advertencia de rendimiento: el tiempo de inicio en frío de la aplicación se verá afectado. Esta configuración requiere el elemento `InstrumentationEngine`. | `~1` |
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Configuración de la aplicación de App Service con Azure Resource Manager
 
@@ -229,6 +229,10 @@ A continuación, se muestra un ejemplo; reemplace todas las instancias de `AppMo
                         {
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
                             "value": "[reference('microsoft.insights/components/AppMonitoredSite', '2015-05-01').InstrumentationKey]"
+                        },
+                        {
+                            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+                            "value": "[reference('microsoft.insights/components/AppMonitoredSite', '2015-05-01').ConnectionString]"
                         },
                         {
                             "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
@@ -308,9 +312,6 @@ A continuación, se muestra un ejemplo; reemplace todas las instancias de `AppMo
 }
 ```
 
-> [!NOTE]
-> La plantilla generará la configuración de la aplicación en modo "predeterminado". Este modo está optimizado para rendimiento, aunque puede modificar la plantilla para activar las características que prefiera.
-
 ### <a name="enabling-through-powershell"></a>Habilitación a través de PowerShell
 
 Para habilitar la supervisión de la aplicación a través de PowerShell, solo se debe cambiar la configuración de la aplicación subyacente. A continuación, se muestra un ejemplo que habilita la supervisión de la aplicación para un sitio web denominado "AppMonitoredSite" en el grupo de recursos "AppMonitoredRG" y configura los datos para que se envíen a la clave de instrumentación "012345678-abcd-ef01-2345-6789abcd".
@@ -320,8 +321,9 @@ Para habilitar la supervisión de la aplicación a través de PowerShell, solo s
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
-$app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} #preserve non Application Insights Application settings.
-$newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # enable the ApplicationInsightsAgent
+$app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} # preserve non Application Insights application settings.
+$newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # set the Application Insights instrumentation key
+$newAppSettings["APPLICATIONINSIGHTS_CONNECTION_STRING"] = "InstrumentationKey=012345678-abcd-ef01-2345-6789abcd"; # set the Application Insights connection string
 $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable the ApplicationInsightsAgent
 $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
@@ -370,7 +372,7 @@ A continuación, se muestra nuestra guía paso a paso de solución de problemas 
         * Si no está presente un valor similar, significa que la aplicación no se admite o no se está ejecutando actualmente. Para asegurarse de que la aplicación se está ejecutando, intente visitar manualmente los puntos de conexión de la aplicación o la dirección URL de la aplicación, lo que permitirá que la información del entorno en tiempo de ejecución esté disponible.
 
     * Confirme que `IKeyExists` es `true`.
-        * Si es false, agregue `APPINSIGHTS_INSTRUMENTATIONKEY con el GUID de iKey a la configuración de la aplicación.
+        * Si es `false`, agregue `APPINSIGHTS_INSTRUMENTATIONKEY` y `APPLICATIONINSIGHTS_CONNECTION_STRING` con el GUID de ikey a la configuración de la aplicación.
 
     * Confirme que no hay ninguna entrada para `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` y `AppContainsAspNetTelemetryCorrelationAssembly`.
         * Si existe alguna de estas entradas, quite los siguientes paquetes de la aplicación: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource` y `Microsoft.AspNet.TelemetryCorrelation`.

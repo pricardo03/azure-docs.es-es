@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4396c82851969b39841ba77fb8aba9679363474
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 00ab3e9c7902e253d39a38eb0e98ee166244bca2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986502"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048575"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -189,12 +189,18 @@ Obtenga información acerca de las definiciones específicas de estas métricas 
 
 ### <a name="data-featurization"></a>Caracterización de datos
 
-En cada experimento de aprendizaje automático automatizado, los datos se [escalan y se normalizan automáticamente](concept-automated-ml.md#preprocess) para ayudar a *determinados* algoritmos que dependen de características que se encuentran en diferentes escalas.  Sin embargo, también puede habilitar la caracterización adicional, como la atribución de valores que faltan, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#preprocess).
+En cada experimento de aprendizaje automático automatizado, los datos se [escalan y se normalizan automáticamente](concept-automated-ml.md#preprocess) para ayudar a *determinados* algoritmos que dependen de características que se encuentran en diferentes escalas.  Sin embargo, también puede habilitar la caracterización adicional, como la atribución de valores que faltan, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#featurization).
 
-Para habilitar la caracterización, especifique `"featurization": 'auto'` para la clase [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Al configurar los experimentos, puede habilitar la configuración avanzada `featurization`. En la tabla siguiente se muestra la configuración aceptada para la caracterización de la clase [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+|Configuración de la caracterización | Descripción |
+| ------------- | ------------- |
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que se debe usar un paso personalizado de caracterización. [Aprenda a personalizar la caracterización](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'off'`| Indica que el paso de caracterización no debe realizarse automáticamente.|
+|`"featurization": 'auto'`| Indica que, como parte del preprocesamiento, los [pasos de caracterización y protección](how-to-create-portal-experiments.md#advanced-featurization-options) se realizan automáticamente.|
 
 > [!NOTE]
-> Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se utiliza el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
+> Los pasos de la caracterización del aprendizaje automático automatizado (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se usa el modelo para realizar predicciones, se aplican automáticamente a los datos de entrada los mismos pasos de caracterización que se aplican durante el entrenamiento.
 
 ### <a name="time-series-forecasting"></a>Previsión de series temporales
 La tarea `forecasting` de serie temporal requiere parámetros adicionales en el objeto de configuración:
@@ -408,7 +414,7 @@ Utilice estas dos API en el primer paso del modelo ajustado para más informaci�
    |Transformaciones|Lista de transformaciones aplicadas a las características de entrada para generar características de diseño.|
    
 ### <a name="customize-feature-engineering"></a>Diseño de características personalizadas
-Para personalizar el diseño de características, especifique `"feauturization":FeaturizationConfig`.
+Para personalizar el diseño de características, especifique `"featurization": FeaturizationConfig`.
 
 Entre las personalizaciones admitidas se incluyen:
 

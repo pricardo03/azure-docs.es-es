@@ -55,10 +55,10 @@ Considere las siguientes expresiones de ejemplo:
 
 |Expresiones de ejemplo|
 |--|
-|¿Cómo puedo obtener un equipo?|
-|¿Dónde puedo obtener un equipo?|
-|Quiero obtener un equipo, ¿cómo lo hago?|
-|¿Cuándo puedo tener un equipo?| 
+|how do I get a computer?|
+|Where do I get a computer?|
+|I want to get a computer, how do I go about it?|
+|When can I have a computer?| 
 
 En este caso, el término principal, "equipo", no varía. Use alternativas como "equipo de escritorio", "portátil", "estación de trabajo" o incluso simplemente "máquina". LUIS puede deducir de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, siempre es mejor variarlas.
 
@@ -144,8 +144,8 @@ En las siguientes expresiones inglesas, la palabra `fair` es un homógrafo. Es d
 
 |Expresión|
 |--|
-|¿Qué tipo de ferias locales se producen en el área de Seattle este verano?|
-|¿La clasificación actual para la revisión de Seattle es razonable?|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
 
 Si quiere que una entidad de evento busque todos los datos de eventos, etiquete la palabra `fair` en la primera expresión, pero no en la segunda.
 

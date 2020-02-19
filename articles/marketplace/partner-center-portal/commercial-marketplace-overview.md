@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f6ba5c240a9ad74d9a2fab41496ce519f25fc4dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+ms.openlocfilehash: 2e5ae90cf6ee8bccc9919c88bc695bf944f58a67
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812072"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069445"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Introducción al portal de Marketplace comercial en el Centro de partners
 
@@ -29,11 +29,12 @@ El Centro de partners es el centro de la experiencia de un asociado de Microsoft
 
 ## <a name="migration-from-cloud-partner-portal"></a>Migración desde Cloud Partner Portal
 
-El Centro de partners está evolucionando para integrar mejor todos los aspectos de la relación de Microsoft con los editores de software. Como parte de esta evolución, estamos migrando las funciones de [Cloud Partner Portal](https://cloudpartner.azure.com/) al Centro de partners. 
+El Centro de partners está evolucionando para integrar mejor todos los aspectos de la relación de Microsoft con los editores de software. Como parte de esta evolución, estamos migrando las funciones de [Cloud Partner Portal](https://cloudpartner.azure.com/) al Centro de partners.
 
-**Actualmente, el Centro de partners solo admite la creación y administración de ofertas de software como servicio (SaaS).**
+>[!NOTE]
+>Actualmente, el Centro de partners admite la creación y administración de ofertas de software como servicio (SaaS), ofertas de aplicaciones de Azure, ofertas de Dynamics 365 for Customer, ofertas de Engagement y PowerApps, ofertas de Dynamics 365 for Operations y ofertas de Dynamics 365 for Business Central. Pronto se admitirán más ofertas.
 
-Los editores existentes en Marketplace encontrarán una experiencia de usuario familiar, pero mejorada, que cuenta con una interfaz intuitiva. Las notificaciones del portal y mediante el correo electrónico informarán a los editores de la migración. Los usuarios serán fácilmente dirigidos a la ubicación apropiada. Esta actualización de la experiencia de los asociados no afectará a los clientes. 
+Los editores existentes en Marketplace encontrarán una experiencia de usuario familiar, pero mejorada, que cuenta con una interfaz intuitiva. Las notificaciones del portal y mediante el correo electrónico informarán a los editores de la migración. Los usuarios serán fácilmente dirigidos a la ubicación apropiada. Esta actualización de la experiencia de los asociados no afectará a los clientes.
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Mejoras en la experiencia del usuario y la facturación
 

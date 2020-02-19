@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dab35fbcd221af9f4eb587b8c98a8ff85aeef59f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982796"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114059"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C
 
@@ -168,3 +168,10 @@ En el siguiente ejemplo, `TechnicalProfile` se usa para verificar un código:
     </InputClaims>
 </TechnicalProfile>
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte el siguiente artículo para un ejemplo de uso de un perfil técnico de contraseña de un solo uso con comprobación de correo electrónico personalizado:
+
+- [Verificación de correo electrónico personalizado en Azure Active Directory B2C](custom-email.md)
+

@@ -3,12 +3,12 @@ title: 'Formato Markdown: QnA Maker'
 description: A continuación se muestra la lista de formatos de Markdown que puede usar en el texto de respuesta de QnA Maker.
 ms.topic: reference
 ms.date: 01/09/2020
-ms.openlocfilehash: f3c51052abeb48584df8fa1e831dc4605d471741
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3fb7d73afdfd5ab7f1fb56a685b21538b97c8ea4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898554"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045404"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Formato Markdown admitido en el texto de respuesta de QnA Maker
 
@@ -25,7 +25,7 @@ A continuación se muestra la lista de formatos de Markdown que puede usar en el
 Nueva línea entre dos oraciones.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![dar formato a una nueva línea entre dos oraciones](./media/qnamaker-concepts-datasources/format-newline.png)|
 |Encabezados de h1 a h6, el número de `#` indica el encabezado. 1 `#` es el h1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![formato con encabezados de Markdown](./media/qnamaker-concepts-datasources/format-headers.png)<br>![formato con encabezados de Markdown H1 a H5](./media/qnamaker-concepts-datasources/format-h1-h5.png)|
 |Cursiva |`*text*`|`How do I create a bot with *QnA Maker*?`|![formato con cursiva](./media/qnamaker-concepts-datasources/format-italics.png)|
-|Cadena (negrita)|`**text**`|`How do I create a bot with **QnA Maker**?`|![formato con marcado fuerte para negrita](./media/qnamaker-concepts-datasources/format-strong.png)|
+|Negrita|`**text**`|`How do I create a bot with **QnA Maker**?`|![formato con marcado fuerte para negrita](./media/qnamaker-concepts-datasources/format-strong.png)|
 |Dirección URL del vínculo|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato de dirección URL (hipervínculo)](./media/qnamaker-concepts-datasources/format-url.png)|
 |*Dirección URL de imagen pública|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato de la dirección URL de imagen pública ](./media/qnamaker-concepts-datasources/format-image-url.png)|
 |Tachado|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato del tachado](./media/qnamaker-concepts-datasources/format-strikethrough.png)|
@@ -34,7 +34,7 @@ Nueva línea entre dos oraciones.|`\n\n`|`How can I create a bot with \n\n QnA M
 |Dirección URL en cursiva del vínculo.|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato de la dirección URL en cursiva](./media/qnamaker-concepts-datasources/format-url-italics.png)|
 |Símbolos de escape de Markdown|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato de la dirección URL en cursiva](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>En el ejemplo anterior se utiliza la numeración automática integrada en Markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>En el ejemplo anterior se usa la numeración explícita.|![formato de la lista ordenada](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
-|Lista sin ordenar|`\n * item1 \n * item2`<br>or<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato de la lista sin ordenar](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Lista sin ordenar|`\n * item1 \n * item2`<br>or<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![formato de la lista sin ordenar](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
 |Listas anidadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Puede anidar listas ordenadas y sin ordenar juntas. La pestaña, `\t`, indica el nivel de sangría del elemento secundario.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato de la lista sin ordenar anidada](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato de la lista ordenada anidada](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker no procesa la imagen de ninguna manera. Es el rol de la aplicación cliente para representar la imagen.

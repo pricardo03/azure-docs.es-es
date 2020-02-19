@@ -81,7 +81,7 @@
           href: container-instances-managed-identity.md
         - name: Uso de recursos de GPU (versión preliminar)
           href: container-instances-gpu.md
-        - name: Habilitar punto de conexión SSL
+        - name: Habilitación de un punto de conexión SSL en sidecar
           href: container-instances-container-group-ssl.md
     - name: Montaje de volúmenes de datos
       items:

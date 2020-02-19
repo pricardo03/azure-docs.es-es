@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
-ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 01/31/2020
+ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765764"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047839"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Monitor para VM disponible de forma general (GA): preguntas más frecuentes
 
@@ -37,7 +37,9 @@ En el pasado, se habilitó la solución ServiceMap en el área de trabajo y se c
 
 
 ## <a name="how-do-i-upgrade"></a>¿Cómo realizar una actualización?
-Cada máquina virtual que necesite actualización se identificará en la pestaña **Introducción** de Azure Monitor para VM en Azure Portal. Puede actualizar una sola máquina virtual o seleccionar varias para actualizarlas juntas. Use el siguiente comando para realizar la actualización con PowerShell:
+Cuando un área de trabajo de Log Analytics se actualiza a la versión más reciente de Azure Monitor a las máquinas virtuales, actualizará el agente de dependencias en cada una de las máquinas virtuales asociadas al área de trabajo. Cada máquina virtual que necesite actualización se identificará en la pestaña **Introducción** de Azure Monitor para VM en Azure Portal. Cuando elige actualizar una máquina virtual, se actualiza el área de trabajo de esa máquina virtual junto con cualquier otra máquina virtual conectada al área de trabajo. Puede seleccionar una o varias máquinas virtuales, grupos de recursos o suscripciones. 
+
+Use el siguiente comando para actualizar un área de trabajo mediante PowerShell:
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True

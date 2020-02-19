@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 4bdf842ae24d90850280a5a19038dbd00168ff2c
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/07/2020
+ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053361"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087088"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -123,7 +123,7 @@ También puede establecer alertas para comprobar si el número de solicitudes co
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>Escalado del rendimiento elásticamente y a petición 
 
-Puesto que se le cobrará el rendimiento aprovisionado, asociar el rendimiento aprovisionado con sus necesidades puede ayudarle a evitar los cargos por el rendimiento sin usar. Puede escalar o reducir verticalmente el rendimiento aprovisionado en cualquier momento, según sea necesario.  
+Puesto que se le cobrará el rendimiento aprovisionado, asociar el rendimiento aprovisionado con sus necesidades puede ayudarle a evitar los cargos por el rendimiento sin usar. Puede escalar o reducir verticalmente el rendimiento aprovisionado en cualquier momento, según sea necesario. Si sus necesidades de rendimiento son muy predecibles, puede usar Azure Functions y usar un desencadenador de temporizador para [aumentar o disminuir el rendimiento según una programación](scale-on-schedule.md). 
 
 * Supervisar el consumo de las RU y la relación de solicitudes con velocidad limitada puede revelar que no es necesario mantener constante el rendimiento aprovisionado a lo largo del día o de la semana. Puede recibir menos tráfico durante la noche o durante el fin de semana. Mediante los SDK nativos o la API de REST de Azure Portal o Azure Cosmos DB, puede escalar el rendimiento aprovisionado en cualquier momento. La API de REST de Azure Cosmos DB proporciona puntos de conexión para actualizar mediante programación el nivel de rendimiento de los contenedores, lo que simplifica el ajuste del rendimiento desde el código según la hora del día o el día de la semana. La operación se realiza sin ningún tiempo de inactividad y normalmente surte efecto en menos de un minuto. 
 
@@ -177,9 +177,9 @@ Los pasos siguientes le ayudan a que sus soluciones sean altamente escalables y 
 
 A continuación, puede seguir obteniendo más información sobre la optimización de costos en Azure Cosmos DB con los siguientes artículos:
 
-* Sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
-* Más información sobre la [descripción de la factura de Azure Cosmos DB](understand-your-bill.md)
-* Más información sobre la [optimización del costo de almacenamiento](optimize-cost-storage.md)
+* Obtenga más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md).
+* Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
+* Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
 * Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
 * Obtenga más información sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md).

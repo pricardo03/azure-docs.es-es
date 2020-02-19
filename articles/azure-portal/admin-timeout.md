@@ -5,24 +5,24 @@ services: azure-portal
 keywords: configuración, tiempo de expiración
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 87de67eec9171825a1ebff9ab60782fea8836039
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310805"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132090"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Establecimiento del tiempo de expiración de inactividad de nivel de directorio
 
-La configuración de tiempo de expiración de inactividad ayuda a proteger los recursos frente al acceso no autorizado si los usuarios se olvidan de proteger su estación de trabajo. Cuando un usuario ha estado inactivo durante un tiempo, se cerrará automáticamente su sesión de Azure Portal. Los administradores pueden exigir el tiempo de inactividad máximo antes de que se cierre una sesión. El tiempo de expiración de inactividad se aplica en el nivel de directorio. Para más información sobre los directorios, vea [Introducción a Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+La configuración de tiempo de expiración de inactividad ayuda a proteger los recursos frente al acceso no autorizado si los usuarios se olvidan de proteger su estación de trabajo. Cuando un usuario ha estado inactivo durante un tiempo, se cerrará automáticamente su sesión de Azure Portal. Los administradores del [rol Administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) pueden exigir la aplicación de un tiempo de inactividad máximo antes de que se cierre una sesión. El tiempo de expiración de inactividad se aplica en el nivel de directorio. Para más información sobre los directorios, vea [Introducción a Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 ## <a name="configure-the-inactive-timeout-setting"></a>Configuración de las opciones de tiempo de expiración de inactividad
 
-Si es un administrador y quiere aplicar un valor de tiempo de expiración de inactividad para todos los usuarios de Azure Portal, siga estos pasos:
+Si es un administrador global y quiere aplicar un valor de tiempo de expiración de inactividad para todos los usuarios de Azure Portal, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Configuración** en el encabezado de página global.

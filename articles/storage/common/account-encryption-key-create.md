@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8cf1f8ecb68e31f93c19d93d6ebc4f8ef37724e7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028438"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083551"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creación de una cuenta que admita las claves administradas por el cliente para tablas y colas
 
@@ -29,47 +29,99 @@ Para crear una cuenta de almacenamiento que se base en la clave de cifrado de la
 
 Puede crear una cuenta de almacenamiento que se base en la clave de cifrado de la cuenta para Queue Storage y Table Storage en las siguientes regiones:
 
-- East US
-- Centro-Sur de EE. UU
+- Este de EE. UU.
+- Centro-sur de EE. UU.
 - Oeste de EE. UU. 2  
 
 ### <a name="register-to-use-the-account-encryption-key"></a>Registro para usar la clave de cifrado de la cuenta
 
+Para registrarse para usar la clave de cifrado de la cuenta con Queue Storage o Table Storage, use PowerShell o la CLI de Azure.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para registrarse con PowerShell, llame al comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
+
+```powershell
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Para registrarse con la CLI de Azure, llame al comando [az feature register](/cli/azure/feature#az-feature-register).
 
-Para registrarse para usar la clave de cifrado de la cuenta con Queue Storage:
-
 ```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
 
-Para registrarse para usar la clave de cifrado de la cuenta con Table Storage:
+# <a name="template"></a>[Plantilla](#tab/template)
 
-```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
-```
+N/D
+
+---
 
 ### <a name="check-the-status-of-your-registration"></a>Comprobación del estado del registro
 
-Para comprobar el estado del registro para Queue Storage:
+Para comprobar el estado del registro de Queue Storage o Table Storage, use PowerShell o la CLI de Azure.
 
-```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para comprobar el estado del registro con PowerShell, llame al comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-Para comprobar el estado del registro para Table Storage:
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para comprobar el estado del registro con la CLI de Azure, llame al comando [az feature](/cli/azure/feature#az-feature-show).
 
 ```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
+
+# <a name="template"></a>[Plantilla](#tab/template)
+
+N/D
+
+---
 
 ### <a name="re-register-the-azure-storage-resource-provider"></a>Repetición del registro del proveedor de recursos de Azure Storage
 
-Una vez aprobado el registro, debe volver a registrar el proveedor de recursos de Azure Storage. Llame al comando [az provider register](/cli/azure/provider#az-provider-register):
+Una vez aprobado el registro, debe volver a registrar el proveedor de recursos de Azure Storage. Use PowerShell o la CLI de Azure para volver a registrar el proveedor de recursos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para volver a registrar el proveedor de recursos con PowerShell, llame al comando [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para volver a registrar el proveedor de recursos con la CLI de Azure, llame al comando [az provider register](/cli/azure/provider#az-provider-register).
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
 ```
+
+# <a name="template"></a>[Plantilla](#tab/template)
+
+N/D
+
+---
 
 ## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Creación de una cuenta que use la clave de cifrado de la cuenta
 
@@ -80,7 +132,28 @@ La cuenta de almacenamiento debe ser de tipo de uso general v2. Puede crear la c
 > [!NOTE]
 > Solo puede configurar Queue Storage y Table Storage para cifrar datos con la clave de cifrado de la cuenta cuando se crea la cuenta de almacenamiento. Blob Storage y Azure Files siempre usan la clave de cifrado de la cuenta para cifrar los datos.
 
-### <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para usar PowerShell para crear una cuenta de almacenamiento que utilice la clave de cifrado de la cuenta, asegúrese de haber instalado la versión 3.4.0 del módulo de Azure PowerShell, o cualquier versión posterior. Para más información, consulte el artículo en el que se indica cómo [instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps).
+
+A continuación, cree una cuenta de almacenamiento de uso general v2. Para ello, debe llamar al comando [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), con los parámetros adecuados:
+
+- Incluya la opción `-EncryptionKeyTypeForQueue` y establezca su valor en `Account` a fin de usar la clave de cifrado de la cuenta para cifrar los datos en Queue Storage.
+- Incluya la opción `-EncryptionKeyTypeForTable` y establezca su valor en `Account` a fin de usar la clave de cifrado de la cuenta para cifrar los datos en Table Storage.
+
+En el ejemplo siguiente se muestra cómo crear una cuenta de almacenamiento de uso general v2 configurada para el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) y que usa la clave de cifrado de la cuenta para cifrar los datos tanto de Queue Storage como de Table Storage. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
+
+```powershell
+New-AzStorageAccount -ResourceGroupName <resource_group> `
+    -AccountName <storage-account> `
+    -Location <location> `
+    -SkuName "Standard_RAGRS" `
+    -Kind StorageV2 `
+    -EncryptionKeyTypeForTable Account `
+    -EncryptionKeyTypeForQueue Account
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para usar la CLI de Azure para crear una cuenta de almacenamiento que se base en la clave de cifrado de la cuenta, asegúrese de haber instalado la CLI de Azure de la versión 2.0.80 o posterior. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -89,22 +162,22 @@ A continuación, cree una cuenta de almacenamiento de uso general v2. Para ello,
 - Incluya la opción `--encryption-key-type-for-queue` y establezca su valor en `Account` a fin de usar la clave de cifrado de la cuenta para cifrar los datos en Queue Storage.
 - Incluya la opción `--encryption-key-type-for-table` y establezca su valor en `Account` a fin de usar la clave de cifrado de la cuenta para cifrar los datos en Table Storage.
 
-En el ejemplo siguiente se muestra cómo crear una cuenta de almacenamiento de uso general v2 que está configurada para LRS y que usa la clave de cifrado de la cuenta para cifrar los datos para Queue Storage y Table Storage. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
+En el ejemplo siguiente se muestra cómo crear una cuenta de almacenamiento de uso general v2 configurada para el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) y que usa la clave de cifrado de la cuenta para cifrar los datos tanto de Queue Storage como de Table Storage. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
 ```azurecli
 az storage account create \
     --name <storage-account> \
     --resource-group <resource-group> \
     --location <location> \
-    --sku Standard_LRS \
+    --sku Standard_RAGRS \
     --kind StorageV2 \
     --encryption-key-type-for-table Account \
     --encryption-key-type-for-queue Account
 ```
 
-### <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
+# <a name="template"></a>[Plantilla](#tab/template)
 
-En el ejemplo de JSON siguiente se crea una cuenta de almacenamiento de uso general v2 que está configurada para LRS y que usa la clave de cifrado de la cuenta para cifrar los datos para Queue Storage y Table Storage. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
+En el ejemplo de JSON siguiente se crea una cuenta de almacenamiento de uso general v2 configurada para el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) y que usa la clave de cifrado de la cuenta para cifrar los datos tanto de Queue Storage como de Table Storage. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
 ```json
 "resources": [
@@ -116,7 +189,7 @@ En el ejemplo de JSON siguiente se crea una cuenta de almacenamiento de uso gene
         "dependsOn": [],
         "tags": {},
         "sku": {
-            "name": "[parameters('Standard_LRS')]"
+            "name": "[parameters('Standard_RAGRS')]"
         },
         "kind": "[parameters('StorageV2')]",
         "properties": {
@@ -151,11 +224,32 @@ Después de crear una cuenta que se base en la clave de cifrado de la cuenta, co
 
 Para verificar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [az storage account](/cli/azure/storage/account#az-storage-account-show) de la CLI de Azure. Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para comprobar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount). Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `KeyType` en cada servicio dentro de la propiedad `Encryption` y compruebe que esté establecida en `Account`.
+
+```powershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
+$account.Encryption.Services.Queue
+$account.Encryption.Services.Table
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para comprobar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [az storage account](/cli/azure/storage/account#az-storage-account-show). Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
+
 ```azurecli
 az storage account show /
     --name <storage-account> /
     --resource-group <resource-group>
 ```
+
+# <a name="template"></a>[Plantilla](#tab/template)
+
+N/D
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

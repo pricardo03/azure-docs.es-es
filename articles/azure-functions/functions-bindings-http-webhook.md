@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 11f5c07305fa9192097dbcb1386c13707c0d46f7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 25f3cb6f03e3a3c581d8977168e572554b5e0cc7
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711142"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168121"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
@@ -44,7 +44,7 @@ De forma predeterminada, un desencadenador HTTP devuelve HTTP 200 OK con un cuer
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP. Tenga en cuenta que el valor devuelto se utiliza para el enlace de salida, pero no se requiere un atributo de valor devuelto.
 
@@ -68,7 +68,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
 
@@ -144,7 +144,7 @@ public class Person {
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
 
@@ -193,7 +193,7 @@ module.exports = function(context, req) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Python](functions-reference-python.md) que usa el enlace. La función busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
 
@@ -249,35 +249,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 * [Leer el parámetro de la cadena de consulta](#read-parameter-from-the-query-string)
 * [Leer el cuerpo de una solicitud POST](#read-body-from-a-post-request)
 * [Leer el parámetro de una ruta](#read-parameter-from-a-route)
 * [Leer el cuerpo POJO de una solicitud POST](#read-pojo-body-from-a-post-request)
 
-En el ejemplo siguiente se muestra un enlace de desencadenador HTTP de un archivo *function.json* y las [funciones de Java](functions-reference-java.md) correspondientes que usan el enlace. 
-
-Este es el archivo *function.json*:
-
-```json
-{
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "anonymous",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
+En los ejemplos siguientes, se muestra el enlace del desencadenador HTTP.
 
 #### <a name="read-parameter-from-the-query-string"></a>Lectura del parámetro desde la cadena de consulta
 
@@ -464,7 +443,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md) y en Jav
 
 Puede establecer el nivel de autorización y los métodos HTTP permitidos en los parámetros del constructor de atributo, así como la plantilla de ruta y el tipo de webhook. Para más información sobre estos valores, consulte [Desencadenador: configuración](#trigger---configuration).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En este ejemplo se muestra cómo usar el atributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs).
 
@@ -479,19 +458,19 @@ public static Task<IActionResult> Run(
 
 Para obtener un ejemplo completo, vea el [ejemplo del desencadenador](#trigger---example).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En este ejemplo se muestra cómo usar el atributo [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java).
 
@@ -564,7 +543,7 @@ http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 
 Esto permite que el código de la función admita dos parámetros en la dirección: _category_ e _id_.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Puede usar cualquier [restricción de ruta de API web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) con sus parámetros. El siguiente código de función de C# emplea los dos parámetros.
 
@@ -580,7 +559,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 Puede usar cualquier [restricción de ruta de API web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) con sus parámetros. El siguiente código de función de C# emplea los dos parámetros.
 
@@ -598,7 +577,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el nodo, el entorno de ejecución de Functions proporciona el cuerpo de la solicitud a partir del objeto `context`. Para más información, consulte el [ejemplo de desencadenador de JavaScript](#trigger---example).
 
@@ -619,7 +598,7 @@ module.exports = function (context, req) {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 El contexto de ejecución de la función se expone a través de un parámetro declarado como `func.HttpRequest`. Esta instancia permite que una función acceda a parámetros de rutas de datos, valores de cadenas de consulta y métodos que permiten devolver respuestas HTTP.
 
@@ -639,7 +618,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(message)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 El contexto de ejecución de la función son las propiedades declaradas en el atributo `HttpTrigger`. El atributo permite definir parámetros de ruta, niveles de autorización, verbos HTTP y la instancia de solicitud entrante.
 
@@ -704,7 +683,7 @@ Si la aplicación de función está usando la [autenticación/autorización de A
 
 También puede leer esta información desde los datos de enlace. Esta funcionalidad solo está disponible para el entorno en tiempo de ejecución de Functions en la versión 2.x y posteriores. Actualmente, también está disponible para lenguajes .NET.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 La información relacionada con los clientes autenticados está disponible como [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal está disponible como parte del contexto de solicitud, tal como se muestra en el ejemplo siguiente:
 
@@ -736,7 +715,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 La información relacionada con los clientes autenticados está disponible como [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal está disponible como parte del contexto de solicitud, tal como se muestra en el ejemplo siguiente:
 
@@ -770,15 +749,15 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 

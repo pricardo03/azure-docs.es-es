@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 4cf979c99c596abff075eb38f3358c6389a6b07e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.custom: hdinsightactive
+ms.date: 02/12/2020
+ms.openlocfilehash: d030e44f59d41c32c9a76c0b89c0bce1c8c54a69
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264292"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186855"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 
@@ -21,7 +21,7 @@ ms.locfileid: "72264292"
 
 En [Azure Portal](https://portal.azure.com), puede administrar clústeres de [Apache Hadoop](https://hadoop.apache.org/) en Azure HDInsight. Use el selector de pestañas anterior para más información sobre cómo administrar clústeres de Hadoop en HDInsight con otras herramientas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Un clúster existente de Apache Hadoop en HDInsight.  Consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -35,7 +35,7 @@ En la página de **clústeres de HDInsight** se muestran los clústeres existent
 1. En el menú izquierdo, seleccione **Todos los servicios**.
 2. Seleccione **Clústeres de HDInsight** en **ANALYTICS**.
 
-## <a name="homePage"></a> Página principal del clúster 
+## <a name="homePage"></a> Página principal del clúster
 
 Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#showClusters).  Se abrirá la vista de **Información general**, que se parece a la siguiente imagen:
 
@@ -43,17 +43,17 @@ Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#s
 
 **Menú superior:**  
 
-| item| DESCRIPCIÓN |
+| Elemento| Descripción |
 |---|---|
 |Move|mueve el clúster a otro grupo de recursos o a otra suscripción.|
 |Eliminar|elimina el clúster. |
-|Actualizar|actualiza la vista.|
+|Actualizar|Actualiza la vista.|
 
 **Menú de la izquierda:**  
 
   - **Menú de la parte superior izquierda**
 
-    | item| DESCRIPCIÓN |
+    | Elemento| Descripción |
     |---|---|
     |Información general|proporciona información general del clúster.|
     |Registro de actividades|muestra y consulta los registros de actividad.|
@@ -65,7 +65,7 @@ Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#s
 
   - **Menú Configuración**  
 
-    | item| DESCRIPCIÓN |
+    | Elemento| Descripción |
     |---|---|
     |Tamaño del clúster|comprueba, aumenta o reduce el número de nodos de trabajo del clúster. Consulte [Escalado de clústeres](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Límites de cuota|muestra los núcleos utilizados y disponibles de la suscripción.|
@@ -76,13 +76,13 @@ Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#s
     |Acciones de script|ejecuta scripts de Bash en el clúster. Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).|
     |Tiendas de metadatos externas|consulte las tiendas de metadatos de [Apache Hive](https://hive.apache.org/) y [Apache Oozie](https://oozie.apache.org/). Las tiendas de metadatos solo pueden configurarse durante el proceso de creación del clúster.|
     |Asociado de HDInsight|agrega o quita el asociado de HDInsight actual.|
-    |properties (Propiedades)|vea las [propiedades del clúster](#properties).|
+    |Propiedades|vea las [propiedades del clúster](#properties).|
     |Bloqueos|agrega bloqueos para evitar la modificación o eliminación del clúster.|
     |Exportación de la plantilla|muestra y exporta la plantilla de Azure Resource Manager para el clúster. Actualmente, solo se puede exportar la cuenta de Azure Storage dependiente. Consulte [Creación de clústeres de Apache Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
   - **Menú Supervisión**
 
-    | item| DESCRIPCIÓN |
+    | Elemento| Descripción |
     |---|---|
     |Alertas|administra las alertas y acciones.|
     |Métricas|Supervise las métricas del clúster en los registros de Azure Monitor.|
@@ -91,7 +91,7 @@ Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#s
 
   - **Menú Soporte y solución de problemas**
 
-    | item| DESCRIPCIÓN |
+    | Elemento| Descripción |
     |---|---|
     |Estado de los recursos|consulte [Introducción a Azure Resource Health](../service-health/resource-health-overview.md).|
     |Nueva solicitud de soporte|permite crear una incidencia de soporte técnico con el soporte técnico de Microsoft.|
@@ -100,18 +100,19 @@ Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#s
 
 En la [página principal del clúster](#homePage), en **Configuración**, seleccione **Propiedades**.
 
-|item | DESCRIPCIÓN |
+|Elemento | Descripción |
 |---|---|
 |NOMBRE DE HOST|Nombre del clúster.|
 |DIRECCIÓN URL DEL CLÚSTER|La dirección URL para la interfaz web de Ambari.|
 |Punto de conexión privado|El punto de conexión privado del clúster.|
 |Secure Shell (SSH)|el nombre de usuario y el nombre de host que se usarán para acceder al clúster mediante SSH.|
-|STATUS|El valor es uno de los siguientes: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued o ClusterCustomization.|
+|STATUS|Uno de los valores siguientes: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued o ClusterCustomization.|
 |REGIÓN|ubicación de Azure. Para ver una lista de ubicaciones de Azure admitidas, consulte el cuadro de lista desplegable **Región** en [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |FECHA DE CREACIÓN|la fecha en que se implementó el clúster.|
 |SISTEMA OPERATIVO|**Windows** o **Linux**.|
-|TIPO|Hadoop, HBase, Storm o Spark.|
+|TYPE|Hadoop, HBase, Storm o Spark.|
 |Versión|Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).|
+|Versión de TLS mínima|Versión de TLS.|
 |SUSCRIPCIÓN|el nombre de la suscripción.|
 |ORIGEN DE DATOS PREDETERMINADO|el sistema de archivos predeterminado del clúster.|
 |Tamaño de los nodos de trabajo|el tamaño de máquina virtual seleccionado de los nodos de trabajo.|
@@ -218,12 +219,12 @@ La contraseña se cambia en todos los nodos del clúster.
 4. En la página **Acciones de script**, seleccione **Enviar nuevo**.
 5. En la página **Enviar acción de script**, escriba la siguiente información:
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | Tipo de script | Seleccione **- Personalizado** en la lista desplegable.|
-   | NOMBRE |"Cambio de contraseña de SSH" |
+   | Nombre |"Cambio de contraseña de SSH" |
    | URI de script de Bash |El identificador URI del archivo changepassword.sh |
-   | Tipos de nodo: (principal, de trabajo, nimbus, supervisor, Zookeeper, etc.) |✓ para todos los tipos de nodo indicados |
+   | Tipos de nodo: (principal, de trabajo, nimbus, supervisor, zookeeper, etc.) |✓ para todos los tipos de nodo indicados |
    | Parámetros |Escriba el nombre de usuario de SSH y la contraseña nueva. Debe haber un espacio entre el nombre de usuario y la contraseña. |
    | Conservar esta acción de script... |Deje este campo en sin activar. |
 
@@ -271,7 +272,7 @@ El icono **Tamaño del clúster** de la [página principal del clúster](#homePa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo ha aprendido algunas funciones administrativas básicas. Para obtener más información, consulte los artículos siguientes:
+En este artículo ha aprendido algunas funciones administrativas básicas. Para más información, vea los siguientes artículos:
 
 - [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)
 - [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md)

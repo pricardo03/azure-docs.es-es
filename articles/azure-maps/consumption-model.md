@@ -1,6 +1,6 @@
 ---
 title: Modelos de consumo del vehículo para enrutamiento | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre los modelos de consumo del vehículo para enrutamiento de Microsoft Azure Maps.
+description: En este artículo, obtendrá información sobre los modelos de consumo del vehículo para el enrutamiento de Microsoft Azure Maps.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,30 +8,29 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911705"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190245"
 ---
 # <a name="consumption-model"></a>Modelo de consumo
 
-El enrutamiento en línea proporciona un conjunto de parámetros para una descripción detallada del modelo de consumo específico del vehículo.
-Según el valor de **vehicleEngineType**, se admiten dos modelos principales de consumo: _Combustión_ y _Electric_. La especificación de parámetros que pertenecen a diferentes modelos en la misma solicitud es un error.
-El modelo de consumo no se puede usar con los valores de **travelMode**_bicycle_ y _pedestrian_.
+El servicio de enrutamiento proporciona un conjunto de parámetros para tener una descripción detallada del modelo de consumo específico del vehículo.
+Según el valor de **vehicleEngineType**, se admiten dos modelos principales de consumo: _Combustión_ y _Electric_. Es incorrecto especificar parámetros que pertenecen a diferentes modelos en la misma solicitud. Además, los parámetros del modelo de consumo no se pueden usar con los siguientes valores de **travelMode**: _bicycle_ y _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Restricciones de parámetros en el modelo de consumo
 
-En ambos modelos de consumo, para especificar explícitamente algunos parámetros es necesario especificar también otros. Estas dependencias son:
+En ambos modelos de consumo, existen algunas dependencias cuando se especifican los parámetros. Esto significa que, si se especifican explícitamente algunos parámetros, puede que sea necesario especificar otros. Estas son las dependencias que se deben tener en cuenta:
 
-* Todos los parámetros requieren que el usuario especifique **constantSpeedConsumption**. Es un error especificar cualquier otro parámetro de modelo de consumo, a excepción de **vehicleWeight**, si no se ha especificado **constantSpeedConsumption**.
+* Todos los parámetros requieren que el usuario especifique **constantSpeedConsumption**. Es un error especificar cualquier otro parámetro del modelo de consumo si no se ha especificado **constantSpeedConsumption**. El parámetro **vehicleWeight** es una excepción de este requisito.
 * **accelerationEfficiency** y **decelerationEfficiency** se deben especificar siempre como un par (es decir, ambos o ninguno).
 * Si se especifican **accelerationEfficiency** y **decelerationEfficiency**, el producto de los valores no debe ser mayor que 1 (para evitar el movimiento perpetuo).
 * **uphillEfficiency** y **downhillEfficiency** se deben especificar siempre como un par (es decir, ambos o ninguno).
 * Si se especifican **uphillEfficiency** y **downhillEfficiency**, el producto de los valores no debe ser mayor que 1 (para evitar el movimiento perpetuo).
 * Si el usuario especifica los parámetros de \*__Efficiency__, también debe especificarse **vehicleWeight**. Cuando **vehicleEngineType** es _combustion_, se debe especificar también **fuelEnergyDensityInMJoulesPerLiter**.
-* **maxChargeInkWh** y **currentChargeInkWh** siempre deben especificarse como un par (es decir, ambos o ninguno).
+* **maxChargeInkWh** y **currentChargeInkWh** se deben especificar siempre como un par (es decir, ambos o ninguno).
 
 > [!NOTE]
 > Si solo se especifica **constantSpeedConsumption**, no se tiene en cuenta ningún otro aspecto de consumo, como pendientes o aceleración del vehículo, en los cálculos de consumo.
@@ -68,5 +67,5 @@ A continuación se muestra la lista de parámetros que pertenecen a este modelo.
 
 ## <a name="sensible-values-of-consumption-parameters"></a>Valores razonables de parámetros de consumo
 
-Se puede rechazar un determinado conjunto de parámetros de consumo, incluso aunque puedan satisfacer todos los requisitos explícitos especificados anteriormente. Esto sucede cuando el valor de un parámetro concreto, o una combinación de valores de varios parámetros, se considera que conduce a magnitudes irrazonables de valores de consumo. En este caso, probablemente sea indicio de un error en la entrada, dado que se tiene el debido cuidado para admitir todos los valores razonables de los parámetros de consumo. Si un determinado conjunto de parámetros de consumo se rechace, el mensaje de error acompañante contendrá una explicación textual de los motivos.
+Se puede rechazar un determinado conjunto de parámetros de consumo, incluso aunque puedan satisfacer todos los requisitos explícitos. Esto sucede cuando el valor de un parámetro concreto, o una combinación de valores de varios parámetros, se considera que conduce a magnitudes irrazonables de valores de consumo. En este caso, probablemente sea indicio de un error en la entrada, dado que se tiene el debido cuidado para admitir todos los valores razonables de los parámetros de consumo. Si un determinado conjunto de parámetros de consumo se rechace, el mensaje de error acompañante contendrá una explicación textual de los motivos.
 En las descripciones detalladas de los parámetros se incluyen de ejemplos de valores razonables para ambos modelos.

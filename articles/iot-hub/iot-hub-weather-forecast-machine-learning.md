@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/11/2018
+ms.date: 02/10/2020
 ms.author: robinsh
-ms.openlocfilehash: d26ccd47ada4f1f1fd87f315e05f822bb2463114
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b71b86c14c55c312ef420a4d8517140fdded4072
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976186"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122228"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning
 
@@ -32,7 +32,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 ## <a name="what-you-do"></a>Qué debe hacer
 
 - Implementar el modelo de pronóstico meteorológico como un servicio web.
-- Preparar el IoT Hub para el acceso a datos mediante la adición de un grupo de consumidores.
+- Prepare el IoT Hub para el acceso a datos mediante la adición de un grupo de consumidores.
 - Crear un trabajo de Stream Analytics y configurar el trabajo para:
   - Leer los datos de temperatura y humedad de IoT Hub.
   - Llamar al servicio web para saber la posibilidad de lluvia.
@@ -49,24 +49,77 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Implementación del modelo de pronóstico meteorológico como un servicio web
 
+En esta sección obtendrá el modelo de predicción meteorológica de la biblioteca de Azure AI. A continuación, agregará un módulo de script de R al modelo para limpiar los datos de temperatura y humedad. Por último, implementará el modelo como un servicio web predictivo.
+
+### <a name="get-the-weather-prediction-model"></a>Obtención del modelo de predicción meteorológica
+
+En esta sección obtendrá el modelo de predicción meteorológica de Azure AI Gallery y lo abrirá en Azure Machine Learning Studio (clásico).
+
 1. Vaya a la [página del modelo de pronóstico meteorológico](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Haga clic en **Abrir en Studio** en Microsoft Azure Machine Learning Studio (clásico).
-   ![Abrir la página del modelo de pronóstico meteorológico en la Galería de Cortana Intelligence](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
-1. Haga clic en **Ejecutar** para validar los pasos del modelo. Este paso puede tardar 2 minutos en completarse.
-   ![Abrir el modelo de pronóstico meteorológico en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
-1. Haga clic en **CONFIGURAR SERVICIO WEB** > **Servicio web predictivo**.
-   ![Implementar el modelo de pronóstico meteorológico en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
-1. En el diagrama, arrastre el módulo **Entrada de servicio web** a algún lugar cerca del módulo **Puntuar modelo**.
-1. Conecte el módulo **Entrada de servicio web** con el módulo **Puntuar modelo**.
-   ![Conectar dos módulos en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+
+   ![Apertura de la página del modelo de predicción meteorológica en Azure AI Gallery](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
+
+1. Haga clic en **Open in Studio (classic)** (Abrir en Studio [clásico]) para abrir el modelo en Microsoft Azure Machine Learning Studio (clásico).
+
+   ![Apertura del modelo de predicción meteorológica en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
+
+### <a name="add-an-r-script-module-to-clean-temperature-and-humidity-data"></a>Incorporación de un módulo de script de R para limpiar los datos de temperatura y humedad
+
+Para que el modelo se comporte correctamente, los datos de temperatura y humedad deben poder convertirse en datos numéricos. En esta sección, agregará un módulo de script de R al modelo de predicción meteorológica que quita las filas que tienen valores de datos de temperatura o humedad que no se pueden convertir en valores numéricos.
+
+1. En el lado izquierdo de la ventana de Azure Machine Learning Studio, haga clic en la flecha para expandir el panel de herramientas. Escriba "ejecutar" en el cuadro de búsqueda. Seleccione el módulo **Execute R Script** (Ejecutar script de R).
+
+   ![Selección del módulo Execute R Script (Ejecutar script de R)](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
+
+1. Arrastre el módulo **Execute R Script** (Ejecutar script de R) cerca del módulo **Clean Missing Data** (Limpiar datos que faltan) y el módulo **Execute R Script** (Ejecutar script de R) en el diagrama. Elimine la conexión entre los módulos **Clean Missing Data** (Limpiar datos que faltan) y **Execute R Script** (Ejecutar script de R) y, luego, conecte las entradas y salidas del nuevo módulo tal y como se muestra.
+
+   ![Incorporación del módulo Execute R Script (Ejecutar script de R)](media/iot-hub-weather-forecast-machine-learning/add-r-script-module.png)
+
+1. Seleccione el nuevo módulo **Execute R Script** (Ejecutar script de R) para abrir su ventana de propiedades. Copie y pegue el código siguiente en el cuadro **R Script** (Script de R).
+
+   ```r
+   # Map 1-based optional input ports to variables
+   data <- maml.mapInputPort(1) # class: data.frame
+
+   data$temperature <- as.numeric(as.character(data$temperature))
+   data$humidity <- as.numeric(as.character(data$humidity))
+
+   completedata <- data[complete.cases(data), ]
+
+   maml.mapOutputPort('completedata')
+
+   ```
+
+   Cuando haya terminado, la ventana de propiedades debería tener un aspecto similar al siguiente:
+
+   ![Incorporación de código al módulo Execute R Script (Ejecutar script de R)](media/iot-hub-weather-forecast-machine-learning/add-code-to-module.png)
+
+### <a name="deploy-predictive-web-service"></a>Implementación de un servicio web predictivo
+
+En esta sección, validará el modelo, configurará un servicio web predictivo basado en este y, luego, implementará el servicio web.
+
+1. Haga clic en **Ejecutar** para validar los pasos del modelo. Este paso puede tardar unos minutos.
+
+   ![Ejecución del experimento para validar los pasos](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
+
+1. Haga clic en **CONFIGURAR SERVICIO WEB** > **Servicio web predictivo**. Se abre el diagrama del experimento predictivo.
+
+   ![Implementación del modelo de predicción meteorológica en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
+
+1. En el diagrama del experimento predictivo, elimine la conexión entre el módulo **Web service input** (Entrada de servicio web) y **Weather Dataset** (Conjunto de datos de tiempo) que se encuentra en la parte superior. Luego, arrastre el módulo **Web service input** (Entrada de servicio web) cerca del módulo **Score Model** (Puntuar modelo) y conéctelo como se muestra:
+
+   ![Conexión de dos módulos en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+
 1. Haga clic en **EJECUTAR** para validar los pasos del modelo.
+
 1. Haga clic en **IMPLEMENTAR SERVICIO WEB** para implementar el modelo como un servicio web.
+
 1. En el panel del modelo, descargue **Excel 2010 o el libro anterior** para **SOLICITUD/RESPUESTA**.
 
    > [!Note]
-   > Asegúrese de descargar **Excel 2010 o el libro anterior** aunque ejecute la última versión de Excel en el equipo.
+   > Asegúrese de descargar el **libro de Excel 2010 o anterior** aunque vaya a ejecutar una versión posterior de Excel en el equipo.
 
-   ![Descargar Excel para el punto de conexión SOLICITUD/RESPUESTA](media/iot-hub-weather-forecast-machine-learning/5_download-endpoint-app-excel-for-request-response.png)
+   ![Descargar Excel para el punto de conexión SOLICITUD/RESPUESTA](media/iot-hub-weather-forecast-machine-learning/download-workbook.png)
 
 1. Abra el libro de Excel, tome nota de la **DIRECCIÓN URL DEL SERVICIO WEB** y de la **CLAVE DE ACCESO**.
 
@@ -89,7 +142,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    ![Creación de un trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adición de una entrada al trabajo de Stream Analytics
 
@@ -105,7 +158,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    ![Adición de una entrada al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adición de una salida al trabajo de Stream Analytics
 
@@ -124,7 +177,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    ![Adición de una salida al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Adición de una función al trabajo de Stream Analytics para llamar al servicio web implementado
 
@@ -143,7 +196,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    ![Adición de una función al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configuración de la consulta del trabajo de Stream Analytics
 
@@ -182,7 +235,7 @@ Ejecute la aplicación cliente para empezar a recopilar y enviar datos de temper
 1. Haga clic en la suscripción > **Cuentas de almacenamiento** > su cuenta de almacenamiento > **Contenedores de blob** > su contenedor.
 1. Abra un archivo .csv para ver el resultado. La última columna registra la posibilidad de lluvia.
 
-   ![Obtención del resultado del pronóstico meteorológico con Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
+   ![Obtención del resultado del pronóstico meteorológico con Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## <a name="summary"></a>Resumen
 

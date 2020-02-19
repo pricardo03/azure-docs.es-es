@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1f55b8963ad9f940202816704c5818c6853ffcde
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 25bc25d9ec12804cc20baa558dce67fb3f8269a1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353699"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149216"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configuración de una conexión de punto a sitio a una red virtual con autenticación RADIUS: PowerShell
 
@@ -43,8 +43,6 @@ Las conexiones P2S requieren lo siguiente:
 * Un servidor RADIUS para controlar la autenticación de los usuarios. El servidor RADIUS puede implementarse de forma local o en la red virtual de Azure.
 * Un paquete de configuración de cliente VPN para los dispositivos Windows que se conectarán a la red virtual. Un paquete de configuración de cliente VPN proporciona la configuración necesaria para que un cliente de VPN realice una conexión de punto a sitio.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="aboutad"></a>Acerca de la autenticación de dominio de Active Directory (AD) para VPN de punto a sitio
 
 La autenticación de dominio de AD permite a los usuarios iniciar sesión en Azure con sus credenciales de dominio de la organización. Requiere un servidor RADIUS que se integre con el servidor de AD. Las organizaciones también pueden aprovechar las implementaciones existentes de RADIUS.
@@ -63,6 +61,8 @@ Además de con Active Directory, los servidores RADIUS también se integran con 
 ## <a name="before"></a>Antes de comenzar
 
 Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial).
+
+### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
@@ -87,12 +87,7 @@ Puede usar los valores del ejemplo para crear un entorno de prueba o hacer refer
 * **Nombre de dirección IP pública: VNet1GWPIP**
 * **VpnType: RouteBased**
 
-
-## <a name="signin"></a>Inicio de sesión y establecimiento de variables
-
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
-
-### <a name="declare-variables"></a>Declaración de variables
+## <a name="signin"></a>1. Establecimiento de las variables
 
 Declare las variables que desea utilizar. Use el ejemplo siguiente y sustituya los valores por los suyos propios cuando sea necesario. Si cierra la sesión de PowerShell/Cloud Shell en cualquier momento durante el ejercicio, copie y pegue los valores de nuevo para volver a declarar las variables.
 
@@ -114,7 +109,7 @@ Declare las variables que desea utilizar. Use el ejemplo siguiente y sustituya l
   $GWIPconfName = "gwipconf"
   ```
 
-## 1. <a name="vnet"></a>Creación del grupo de recursos, la red virtual y la dirección IP pública
+## 2. <a name="vnet"></a>Creación del grupo de recursos, la red virtual y la dirección IP pública
 
 Los pasos siguientes sirven para crear un grupo de recursos y una red virtual en el grupo de recursos con tres subredes. Al reemplazar valores, es importante que siempre asigne el nombre "GatewaySubnet" a la subred de la puerta de enlace. Si usa otro, se produce un error al crear la puerta de enlace.
 
@@ -148,7 +143,7 @@ Los pasos siguientes sirven para crear un grupo de recursos y una red virtual en
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## 2. <a name="radius"></a>Configuración del servidor RADIUS
+## 3. <a name="radius"></a>Configuración del servidor RADIUS
 
 Antes de crear y configurar la puerta de enlace de red virtual, el servidor RADIUS debe configurarse correctamente para la autenticación.
 
@@ -158,7 +153,7 @@ Antes de crear y configurar la puerta de enlace de red virtual, el servidor RADI
 
 El artículo [Servidor de directivas de redes (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) proporciona instrucciones acerca de cómo configurar un servidor Windows RADIUS (NPS) para la autenticación de dominio de AD.
 
-## 3. <a name="creategw"></a>Creación de la puerta de enlace de VPN
+## 4. <a name="creategw"></a>Creación de la puerta de enlace de VPN
 
 Configure y cree la puerta de enlace de VPN para la red virtual.
 
@@ -171,7 +166,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## 4. <a name="addradius"></a>Incorporación del servidor RADIUS y el grupo de direcciones de cliente
+## 5. <a name="addradius"></a>Incorporación del servidor RADIUS y el grupo de direcciones de cliente
  
 * El valor de -RadiusServer se puede especificar por nombre o por dirección IP. Si se especifica el nombre y el servidor es local, quizá la puerta de enlace de VPN no pueda resolver el nombre. Si es el caso, lo mejor es especificar la dirección IP del servidor. 
 * El valor de -RadiusSecret debe coincidir con la configuración del servidor RADIUS.
@@ -228,11 +223,11 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## 5. <a name="vpnclient"></a>Descarga del paquete de configuración de cliente VPN y configuración del cliente VPN
+## 6. <a name="vpnclient"></a>Descarga del paquete de configuración de cliente VPN y configuración del cliente VPN
 
 La configuración del cliente VPN permite que los dispositivos se conecten a una red virtual mediante una conexión de punto a sitio. Para generar un paquete de configuración de cliente VPN y configurar el cliente de VPN, consulte [Create a VPN Client Configuration for RADIUS authentication](point-to-site-vpn-client-configuration-radius.md) (Creación de la configuración de cliente de VPN para la autenticación RADIUS).
 
-## <a name="connect"></a>6. Conexión con Azure
+## <a name="connect"></a>7. Conexión con Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Para conectarse desde un cliente VPN en Windows
 

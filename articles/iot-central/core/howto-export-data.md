@@ -8,12 +8,12 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 058fe9aea87879fe85dcbc6dcb864fd841fcb049
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3d60bf38c4a9dad13dacf8ba9798c4078c1df1a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026424"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049739"
 ---
 # <a name="export-your-azure-iot-central-data"></a>Exportación de los datos de Azure IoT Central
 
@@ -29,7 +29,7 @@ En este artículo se describe cómo usar la característica de exportación cont
 > [!Note]
 > Al activar la exportación de datos continua, solo obtendrá los datos a partir de ese momento. Actualmente, los datos no se pueden recuperar durante un tiempo cuando la exportación de datos continua estaba desactivada. Para conservar más datos históricos, activa la exportación continua de datos al principio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Ser administrador en la aplicación de IoT Central o contar con permisos de exportación de datos.
 
@@ -62,10 +62,14 @@ Al elegir Service Bus como destino de exportación, las colas y los temas no deb
 
 Si no tiene una cuenta existente de Azure Storage a la que exportar, siga estos pasos:
 
-1. Cree una [cuenta de almacenamiento en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede obtener más información acerca de cómo crear nuevas [cuentas de Azure Blob Storage](https://aka.ms/blobdocscreatestorageaccount) o [cuentas de almacenamiento de Azure Data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md).
+1. Cree una [cuenta de almacenamiento en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede obtener más información acerca de cómo crear nuevas [cuentas de Azure Blob Storage](https://aka.ms/blobdocscreatestorageaccount) o [cuentas de almacenamiento de Azure Data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). La exportación de datos solo puede escribir datos en cuentas de almacenamiento que admiten blobs en bloques. Esta es una lista de tipos compatibles conocidos de cuentas de almacenamiento: 
 
-    - Si decide exportar datos a una cuenta de almacenamiento de Azure Data Lake Storage v2, debe elegir **BlobStorage** como **Tipo de cuenta**.
-    - Puede exportar datos a cuentas de almacenamiento en suscripciones que no sean la de su aplicación de IoT Central. En este caso se conectará mediante una cadena de conexión.
+    |Nivel de rendimiento|Tipo de cuenta|
+    |-|-|
+    |Estándar|Uso general V2|
+    |Estándar|Uso general V1|
+    |Estándar|Blob Storage|
+    |Premium|Almacenamiento de blobs en bloque|
 
 2. Cree un contenedor en la cuenta de almacenamiento. Vaya a la cuenta de almacenamiento. En **Blob Service** seleccione **Examinar blobs**. Seleccione **+ Contenedor** en la parte superior para crear un contenedor.
 

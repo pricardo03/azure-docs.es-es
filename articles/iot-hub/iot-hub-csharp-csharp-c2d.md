@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 99acd43128bedcf3dba470f84c0a406861d77e2d
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 7805b9b3f000b2bc2e45272ab9ff469d5711e581
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147790"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110207"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 
@@ -44,11 +44,13 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET.
 > IoT Hub ofrece compatibilidad con SDK en muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java, Python y Javascript, mediante los [SDK de dispositivo IoT de Azure](iot-hub-devguide-sdks.md). Para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general a Azure IoT Hub consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Visual Studio
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
+
+* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="receive-messages-in-the-device-app"></a>Recepción de mensajes en la aplicación de dispositivo
 
@@ -101,7 +103,7 @@ En este artículo, se crea un servicio de back-end para enviar mensajes de la nu
 
 Ahora debe escribir una aplicación de consola de .NET que envía mensajes de la nube al dispositivo a la aplicación de dispositivo.
 
-1. En la solución actual de Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**. En **Crear un nuevo proyecto**, seleccione **Aplicación de consola (.NET Framework)** y, después, **Siguiente**.
+1. En la solución actual de Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**. En **Crear un proyecto**, seleccione **Aplicación de consola (.NET Framework)** y seleccione **Siguiente**.
 
 1. Denomine el proyecto *SendCloudToDevice*. En **Solución**, seleccione **Agregar a la solución** y acepte la versión más reciente de .NET Framework. Seleccione **Crear** para crear el proyecto.
 
@@ -151,7 +153,7 @@ Ahora debe escribir una aplicación de consola de .NET que envía mensajes de la
    Console.ReadLine();
    ```
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en su solución y seleccione **Establecer proyectos de inicio**.
+1. En el Explorador de soluciones, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**.
 
 1. En **Propiedades comunes** > **Proyecto de inicio**, seleccione **Varios proyectos de inicio** y, después, seleccione la acción **Iniciar** para **ReadDeviceToCloudMessages**, **SimulatedDevice** y **SendCloudToDevice**. Seleccione **Aceptar** para guardar los cambios.
 
@@ -207,7 +209,7 @@ En esta sección, modificará la aplicación **SendCloudToDevice** para solicita
    ![Aplicación que recibe el mensaje](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos, por ejemplo, el retroceso exponencial, tal y como se sugiere en [Control de errores transitorios](/azure/architecture/best-practices/transient-faults).
+> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo [Control de errores transitorios](/azure/architecture/best-practices/transient-faults).
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/02/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 90bccf76b4c98c732cb926bb4252654d20478412
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 27517c375265b552d2e1dec4d8c167d1bc86549d
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018982"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137657"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Administración de IoT Central desde Azure Portal
 
@@ -23,19 +23,17 @@ En lugar de crear y administrar aplicaciones de IoT Central desde el sitio web d
 
 ## <a name="create-iot-central-applications"></a>Creación de aplicaciones de IoT Central
 
-Para crear una aplicación, vaya a [Azure Portal](https://ms.portal.azure.com) y seleccione **Crear un recurso** en el panel de la izquierda.
+Para crear una aplicación, vaya a [Azure Portal](https://ms.portal.azure.com) y seleccione **Crear un recurso**.
 
-![Portal de administración: menú de navegación](media/howto-manage-iot-central-from-portal/image0.png)
-
-En la barra de búsqueda escriba el término **IoT Central**.
+En la barra **Buscar en Marketplace**, escriba *IoT Central*:
 
 ![Portal de administración: buscar](media/howto-manage-iot-central-from-portal/image0a1.png)
 
-Seleccione el elemento de línea de la **aplicación de IoT Central** en los resultados de la búsqueda.
+Seleccione el icono **Aplicación de IoT Central** en los resultados de búsqueda:
 
 ![Portal de administración: resultados de la búsqueda](media/howto-manage-iot-central-from-portal/image0b1.png)
 
-Ahora, seleccione **Crear**.
+Ahora, seleccione **Crear**:
 
 ![Portal de administración: Recurso de IoT Central](media/howto-manage-iot-central-from-portal/image0c1.png)
 
@@ -55,19 +53,17 @@ Si ya tiene una aplicación de Azure IoT Central, puede eliminarla o moverla a u
 > [!NOTE]
 > No puede ver las aplicaciones creadas en el plan de tarifa gratis en Azure Portal porque no están asociadas con su suscripción.
 
-Para empezar, seleccione **Todos los recursos** en el panel de la izquierda. En el cuadro de búsqueda, escriba el nombre de la aplicación para buscarla en la lista de recursos. Después, seleccione la aplicación de IoT Central que quiera administrar.
+Para empezar, seleccione **Todos los recursos** en el portal. Seleccione **Mostrar tipos ocultos** y comience a escribir el nombre de la aplicación en **Filtrar por nombre** para encontrarla. Después, seleccione la aplicación de IoT Central que quiera administrar.
 
-![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image2a.png)
-
-Para navegar a la aplicación, seleccione la URL de la aplicación de IoT Central.
+Para ir a la aplicación, seleccione la **URL de la aplicación de IoT Central**:
 
 ![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image3.png)
 
-Para mover la aplicación a otro grupo de recursos, seleccione **Cambiar** al lado del grupo de recursos. En la página **Mover recursos**, seleccione el grupo de recursos al que le gustaría migrar esta aplicación.
+Para mover la aplicación a otro grupo de recursos, seleccione **Cambiar** al lado del grupo de recursos. En la página **Mover recursos**, seleccione el grupo de recursos al que le gustaría mover esta aplicación:
 
 ![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Para mover la aplicación a otra suscripción, seleccione el vínculo **Cambiar** al lado de la suscripción. Seleccione la suscripción a la que le gustaría migrar esta aplicación en el cuadro de diálogo que aparece.
+Para mover la aplicación a otra suscripción, seleccione **Cambiar** al lado de la suscripción. En la página **Mover recursos**, elija la suscripción a la que le gustaría mover esta aplicación:
 
 ![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image5a.png)
 

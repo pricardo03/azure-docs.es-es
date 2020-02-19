@@ -1,6 +1,6 @@
 ---
 title: Expresiones de estilo basadas en datos en el SDK web de Azure Maps | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo usar expresiones de estilo basadas en datos en el SDK web de Microsoft Azure Maps.
+description: En este artículo, aprenderá a usar expresiones de estilo basadas en datos en el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e3e8476d09541518d964bfaff4dabad47755eeb9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911776"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189648"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
-Las expresiones permiten aplicar lógica de negocios a las opciones de estilo que respetan las propiedades definidas en cada forma de un origen de datos. También se pueden usar expresiones para filtrar los datos de un origen o una capa de datos. Las expresiones pueden constar de lógica condicional, como instrucciones if y también pueden usarse para manipular datos con operadores de cadena, lógicos y matemáticos. 
+Las expresiones permiten aplicar lógica de negocios a las opciones de estilo que respetan las propiedades definidas en cada forma de un origen de datos. Las expresiones pueden filtrar los datos de un origen o una capa de datos. Pueden contener lógica condicional, como instrucciones if. Además, se pueden usar para manipular los datos mediante operadores de cadena, operadores lógicos y operadores matemáticos.
 
-Los estilos basados en datos pueden reducir la cantidad de código necesario para implementar la lógica de negocios en torno a los estilos. Cuando se usan con capas, las expresiones se evalúan en tiempo de procesamiento en un subproceso independiente que proporciona un mayor rendimiento en comparación con la evaluación de la lógica de negocios en el subproceso de la interfaz de usuario.
+Los estilos basados en datos reducen la cantidad de código necesario para implementar la lógica de negocios relacionada con los estilos. Cuando se usan con capas, las expresiones se evalúan en tiempo de representación en un subproceso independiente. Esta funcionalidad proporciona mayor rendimiento que cuando la lógica de negocios se evalúa en el subproceso de la interfaz de usuario.
 
-En el vídeo siguiente se proporciona información general sobre la aplicación de estilos basados en datos en el SDK web de Azure Maps.
+En este vídeo, encontrará información general sobre la aplicación de estilos basados en datos en el SDK web de Azure Maps.
 
 <br/>
 
@@ -39,7 +39,7 @@ Las expresiones se representan como matrices JSON. El primer elemento de una exp
 ] 
 ```
 
-El SDK web de Azure Maps admite muchos tipos de expresiones que pueden usarse solas o en combinación con otras expresiones.
+El SDK web de Azure Maps admite muchos tipos de expresiones. Las expresiones se pueden utilizar solas o junto con otras expresiones.
 
 | Tipo de expresiones | Descripción |
 |---------------------|-------------|
@@ -53,10 +53,10 @@ El SDK web de Azure Maps admite muchos tipos de expresiones que pueden usarse so
 | [Expresiones matemáticas](#math-expressions) | Proporcionan operadores matemáticos para llevar a cabo cálculos basados en datos dentro del marco de la expresión. |
 | [Expresiones de operador de cadena](#string-operator-expressions) | Las expresiones de operador de cadena realizan operaciones de conversión sobre cadenas, como concatenación y conversión de las mayúsculas y minúsculas. |
 | [Expresiones de tipo](#type-expressions) | Las expresiones de tipo proporcionan herramientas para probar y convertir distintos tipos de datos, como cadenas, números y valores booleanos. |
-| [Expresiones de enlace de variable](#variable-binding-expressions) | Las expresiones de enlace de variable permiten almacenar los resultados de un cálculo en una variable y hacer referencia a ellos en otra parte de una expresión varias veces sin tener que volver a calcular el valor almacenado. |
+| [Expresiones de enlace de variable](#variable-binding-expressions) | Las expresiones de enlace de variables almacenan los resultados de un cálculo en una variable y permiten utilizar referencias en otra parte de una expresión varias veces sin tener que volver a calcular el valor almacenado. |
 | [Expresión de zoom](#zoom-expression) | Recupera el nivel de zoom actual del mapa en tiempo de representación. |
 
-En todos los ejemplos de este documento se usará la siguiente función para mostrar diferentes maneras en que se pueden usar los diferentes tipos de expresiones. 
+En todos los ejemplos de este documento, se utiliza la siguiente característica para mostrar diferentes maneras en que se pueden usar los diversos tipos de expresiones. 
 
 ```javascript
 {
@@ -94,7 +94,7 @@ Las expresiones de datos proporcionan acceso a los datos de propiedad de una car
 
 **Ejemplos**
 
-Se puede acceder directamente a las propiedades de una característica en una expresión mediante una expresión `get`. En el ejemplo siguiente se usa el valor de "zoneColor" de la característica para especificar la propiedad de color de una capa de burbuja. 
+Se puede acceder directamente a las propiedades de una característica en una expresión mediante una expresión `get`. En este ejemplo, el valor de "zoneColor" de la característica se utiliza para especificar la propiedad de color de una capa de burbujas. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -102,7 +102,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-El ejemplo anterior funcionará bien si todas las características de punto tienen la propiedad `zoneColor`; si no, es probable que el color se reserve como "black". Para modificar el color de retroceso, se puede usar una expresión `case` en combinación con la expresión `has` para comprobar si existe la propiedad y, si no, devolver un color de retroceso.
+El ejemplo anterior funcionará bien si todas las características de punto tienen la propiedad `zoneColor`. De lo contrario, es probable que se utilice el color de reserva "black". Si desea modificar el color de reserva, utilice una expresión `case` junto con la expresión `has` para comprobar si existe la propiedad. Si la propiedad no existe, se devolverá un color de reserva.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -117,7 +117,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Las capas de burbujas y símbolos representarán de forma predeterminada las coordenadas de todas las formas de un origen de datos. Para ello, se pueden resaltar los vértices de una línea o un polígono. La opción `filter` de la capa puede usarse para limitar el tipo de geometría de las características que representa mediante una expresión `['geometry-type']` dentro de una expresión booleana. En el siguiente ejemplo se limita una capa de burbujas para que solo se representen las características `Point`.
+De forma predeterminada, las capas de burbujas y símbolos representarán las coordenadas de todas las formas de un origen de datos. Este comportamiento puede resaltar los vértices de una línea o un polígono. La opción `filter` de la capa puede emplearse para limitar el tipo de geometría de las características que representa, utilizando una expresión `['geometry-type']` dentro de una expresión booleana. En el siguiente ejemplo se limita una capa de burbujas para que solo se representen las características `Point`.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -172,21 +172,21 @@ Las expresiones matemáticas proporcionan operadores matemáticos para llevar a 
 
 Una expresión de agregado define un cálculo que se procesa en un conjunto de datos y que se puede utilizar con la opción `clusterProperties` de `DataSource`. La salida de estas expresiones debe ser un número o un valor booleano. 
 
-Una expresión de agregado toma tres valores: un valor de operador y un valor inicial y una expresión para recuperar una propiedad de cada característica en los datos en los que se va a aplicar la operación de agregado. La expresión tiene el siguiente formato:
+Una expresión de agregado toma tres valores: un valor de operador, un valor inicial y una expresión para recuperar una propiedad de cada característica de los datos en los que se va a aplicar esta operación. La expresión tiene el siguiente formato:
 
 ```javascript
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
 ```
 
-- operator: Una función de la expresión que luego se aplica a todos los valores que calcula `mapExpression` para cada punto del clúster. Operadores que se admiten: 
+- operator: función de la expresión que se aplica después a todos los valores calculados por `mapExpression` en cada punto del clúster. Operadores admitidos: 
     - Para números `+`: `*`, `max`, `min`
     - Para valores booleanos: `all`, `any`
 - initialValue: un valor inicial al que se agrega el primer valor calculado.
-- mapExpression: una expresión que se aplica a cada punto del conjunto de datos.
+- mapExpression: expresión que se aplica a cada punto del conjunto de datos.
 
 **Ejemplos**
 
-Si todas las características de un conjunto de datos tienen una propiedad `revenue` que es un número. Los ingresos totales de todos los puntos de un clúster creados a partir del conjunto de datos se pueden calcular mediante la siguiente expresión de agregado: `['+', 0, ['get', 'revenue']]`
+Si todas las características de un conjunto de datos tienen una propiedad `revenue`, que es un número, se pueden calcular los ingresos totales de todos los puntos de un clúster, que se crean a partir del conjunto de datos. Este cálculo se realiza mediante la siguiente expresión de agregado: `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>Expresiones booleanas
 
@@ -214,7 +214,7 @@ Las expresiones siguientes realizan operaciones de lógica condicional sobre los
 
 ### <a name="case-expression"></a>Expresión case
 
-Una expresión `case` es un tipo de expresión condicional que proporciona la instrucción if como lógica (if/then/else). Este tipo de expresión pasa por una lista de condiciones booleanas y devuelve el valor de salida de la primera condición booleano que sea verdadera.
+Una expresión `case` es un tipo de expresión condicional que proporciona la lógica "if/then/else". Este tipo de expresión recorre paso a paso una lista de condiciones booleanas. Devuelve el valor de salida de la primera condición booleana que se evalúa como true.
 
 El pseudocódigo siguiente define la estructura de la expresión `case`. 
 
@@ -294,7 +294,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-En el ejemplo siguiente se usa una matriz para enumerar un conjunto de etiquetas que deben devolver el mismo valor. Este sistema es mucho más eficiente que enumerar cada etiqueta por separado. En este caso, si la propiedad `entityType` es "restaurant" o "grocery_store", se devolverá el color "red".
+En el ejemplo siguiente se usa una matriz para enumerar un conjunto de etiquetas que deben devolver el mismo valor. Este enfoque es mucho más eficiente que enumerar cada etiqueta por separado. En este caso, si la propiedad `entityType` es "restaurant" o "grocery_store", se devolverá el color "red".
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -315,7 +315,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-En el ejemplo siguiente se usa una expresión de coincidencia para realizar un filtro de tipo "en la matriz" o "la matriz contiene"; en este caso, se filtran los datos cuyo valor de identificador se encuentra en una lista de identificadores permitidos. Cuando se usan expresiones con filtros, el resultado debe ser un valor booleano.
+En el ejemplo siguiente, se usa una expresión de coincidencia para realizar un filtro de tipo "in array" (en la matriz) o "array contains" (la matriz contiene). En este caso, la expresión filtra los datos cuyo valor de identificador se encuentra en una lista de identificadores permitidos. Cuando se usan expresiones con filtros, el resultado debe ser un valor booleano.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -408,7 +408,7 @@ Las expresiones de tipo proporcionan herramientas para probar y convertir distin
 | `['typeof', value]` | string | Devuelve una cadena que describe el tipo del valor especificado. |
 
 > [!TIP]
-> Si aparece un mensaje de error similar a `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` en la consola del explorador, significa que en algún lugar del código hay una expresión que tiene una matriz que no tiene una cadena en su primer valor. Si quiere que la expresión para devolver una matriz, encapsule la matriz con la expresión `literal`. En el ejemplo siguiente se establece la opción `offset` de icono de una capa de símbolos, que debe ser una matriz que contenga dos números, mediante una expresión `match` para elegir entre dos valores de desplazamiento en función del valor de la propiedad `entityType` de la característica de punto.
+> Si aparece un mensaje de error similar a `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` en la consola del explorador, significa que en algún lugar del código hay una expresión que tiene una matriz cuyo primer valor no contiene una cadena. Si quiere que la expresión para devolver una matriz, encapsule la matriz con la expresión `literal`. En el ejemplo siguiente se establece la opción `offset` de icono de una capa de símbolos, que debe ser una matriz que contenga dos números, mediante una expresión `match` para elegir entre dos valores de desplazamiento en función del valor de la propiedad `entityType` de la característica de punto.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -441,7 +441,7 @@ Las expresiones de color facilitan la creación y la manipulación de valores de
 
 **Ejemplo**
 
-En el ejemplo siguiente se crea un valor de color RGB que tiene un valor *red* de `255` y valores *green* y *blue* que se calculan multiplicando `2.5` por el valor de la propiedad `temperature`. A medida que cambia la temperatura cambia el color a diferentes tonalidades de *red*.
+En el ejemplo siguiente, se crea un valor de color RGB que tiene el valor `255` en *red* y valores *green* y *blue* que se calculan multiplicando `2.5` por el valor de la propiedad `temperature`. A medida que cambia la temperatura, el color cambiará a diferentes tonalidades de *red*.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -492,7 +492,7 @@ La expresión anterior representa una chincheta en el mapa con el texto "64° F"
 
 ## <a name="interpolate-and-step-expressions"></a>Expresiones de interpolación y paso
 
-Se pueden usar para calcular valores a lo largo de una curva interpolada o una función de paso. Estas expresiones toman una expresión que devuelve un valor numérico como entrada, por ejemplo `['get',  'temperature']`. El valor de entrada se evalúa con pares de valores de entrada y salida, llamados "paradas", para determinar el valor que mejor se adapta a la curva interpolada o la función de paso. Los valores de entrada de cada parada deben ser un número y estar en orden ascendente. Los valores de salida deben ser un número y una matriz de números, o un color.
+Se pueden usar para calcular valores a lo largo de una curva interpolada o una función de paso. Estas expresiones toman una expresión que devuelve un valor numérico como entrada, por ejemplo `['get',  'temperature']`. El valor de entrada se evalúa con pares de valores de entrada y salida para determinar el valor que mejor se adapta a la curva interpolada o a la función de paso. Los valores de salida se denominan "paradas". Los valores de entrada de cada parada deben ser un número y estar en orden ascendente. Los valores de salida deben ser un número y una matriz de números, o un color.
 
 ### <a name="interpolate-expression"></a>Expresión de interpolación
 
@@ -527,7 +527,7 @@ El pseudocódigo siguiente define la estructura de la expresión `interpolate`.
 
 **Ejemplo**
 
-En el ejemplo siguiente se usa una expresión `linear interpolate` para establecer la propiedad `color` de una capa de burbuja según la propiedad `temperature` de la característica de punto. Si el valor de `temperature` es inferior a 60, se devuelve "blue", si está entre 60 y menos de 70, se devuelve "yellow", si está entre 70 y menos de 80, se devuelve "orange" y si es de 80 o mayor, se devuelve "red".
+En el ejemplo siguiente se usa una expresión `linear interpolate` para establecer la propiedad `color` de una capa de burbuja según la propiedad `temperature` de la característica de punto. Si el valor de `temperature` es inferior a 60, se devolverá "blue". Si es mayor que 60 y menor que 70, se devolverá "yellow". Si es mayor que 70 y menor que 80, se devolverá "orange". Si es 80 o superior, se devolverá "red".
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -576,7 +576,7 @@ Las expresiones de paso devuelven el valor de salida de la parada justo antes de
 
 **Ejemplo**
 
-En el ejemplo siguiente se usa una expresión `step` para establecer la propiedad `color` de una capa de burbuja según la propiedad `temperature` de la característica de punto. Si el valor de `temperature` es inferior a 60, se devuelve "blue", si está entre 60 y menos de 70, se devuelve "yellow", si está entre 70 y menos de 80, se devuelve "orange" y si es de 80 o mayor, se devuelve "red".
+En el ejemplo siguiente se usa una expresión `step` para establecer la propiedad `color` de una capa de burbuja según la propiedad `temperature` de la característica de punto. Si el valor de `temperature` es inferior a 60, se devolverá "blue". Si es mayor que 60 y menor que 70, se devolverá "yellow". Si es mayor que 70 y menor que 80, se devolverá "orange". Si es 80 o superior, se devolverá "red".
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -601,16 +601,16 @@ En la siguiente imagen se muestra cómo se eligen los colores de la expresión a
 ![Ejemplo de expresión de paso](media/how-to-expressions/step-expression-example.png)
 </center>
 
-## <a name="layer-specific-expressions"></a>Expresiones específicas de capa
+## <a name="layer-specific-expressions"></a>Expresiones específicas de una capa
 
 Expresiones especiales que solo se aplican a capas específicas.
 
 ### <a name="heat-map-density-expression"></a>Expresión de densidad de mapa térmico
 
-Una expresión de densidad de mapa término recupera el valor de densidad de mapa término para cada píxel de una capa de mapa térmico y se define como `['heatmap-density']`. Este valor es un número entre `0` y `1` y se usa en combinación con una expresión `interpolation` o `step` para definir el degradado de color que se usa para colorear el mapa térmico. Esta expresión solo se puede usar en la [opción de color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) de la capa de mapa térmico.
+Una expresión de densidad de mapa término recupera el valor de densidad de mapa término para cada píxel de una capa de mapa térmico y se define como `['heatmap-density']`. Este valor es un número comprendido entre `0` y `1`. Se usa en combinación con una expresión `interpolation` o `step` para definir el degradado de color empleado para colorear el mapa térmico. Esta expresión solo se puede usar en la [opción de color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) de la capa de mapa térmico.
 
 > [!TIP]
-> El color en el índice 0 de una expresión de interpolación o el color predeterminado de un color de paso definen el color del área donde no hay ningún dato y se pueden usar para definir un color de fondo. Muchos prefieren establecer este valor en transparente o en un negro semitransparente. 
+> El color del índice 0 de una expresión de interpolación o el color predeterminado de un paso definen el color del área donde no hay ningún dato. El color del índice 0 se puede usar para definir el color de fondo. Muchos prefieren establecer este valor en transparente o en un negro semitransparente.
 
 **Ejemplo**
 
@@ -630,7 +630,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-Además de usar un degradado suave para colorear un mapa térmico, se pueden especificar colores dentro de un conjunto de intervalos mediante una expresión `step`. El uso de una expresión `step` para colorear el mapa térmico separa la densidad en los intervalos que más se parecen visualmente a un mapa de estilo de contorno o radar.  
+Además de usar un degradado suave para colorear un mapa térmico, se pueden especificar colores dentro de un conjunto de intervalos mediante una expresión `step`. El uso de una expresión `step` para colorear el mapa térmico separa visualmente la densidad en intervalos, lo que recuerda a un mapa de estilo de contorno o radar.  
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -651,14 +651,14 @@ Para más información, consulte el artículo [Adición de una capa de mapa tér
 
 ### <a name="line-progress-expression"></a>Expresión de progreso lineal
 
-Una expresión de progreso lineal recupera el progreso a lo largo de una línea de degradado en una capa de línea y se define como `['line-progress']`. Este valor es un número entre 0 y 1 y se usa en combinación con una expresión `interpolation` o `step`. Esta expresión solo puede usarse con la [opción strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) de la capa de línea. 
+Una expresión de progreso lineal recupera el progreso a lo largo de una línea de degradado en una capa de línea y se define como `['line-progress']`. Este valor es un número comprendido entre 0 y 1. Se usa en combinación con una expresión `interpolation` o `step`. Esta expresión solo puede usarse con la [opción strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) de la capa de línea. 
 
 > [!NOTE]
 > La opción `strokeGradient` de la capa de línea requiere que la opción `lineMetrics` del origen de datos esté establecida en `true`.
 
 **Ejemplo**
 
-En el ejemplo siguiente se usa la expresión `['line-progress']` para aplicar un degradado de color al trazo de una línea.
+En este ejemplo, se usa la expresión `['line-progress']` para aplicar un degradado de color al trazo de una línea.
 
 ```javascript
 var layer = new atlas.layer.LineLayer(datasource, null, {
@@ -793,11 +793,11 @@ Esta capa representará la característica punto, tal como se muestra en la imag
 
 ## <a name="zoom-expression"></a>Expresión de zoom
 
-Una expresión `zoom` se usa para recuperar el nivel de zoom actual del mapa e tiempo de representación y se define como `['zoom']`. Esta expresión devuelve un número entre el intervalo de nivel de zoom mínimo y máximo del mapa. El uso de esta expresión permite la modificación dinámica de estilos a medida que cambia el nivel de zoom del mapa. La expresión `zoom` solo puede usarse con expresiones `interpolate` y `step`.
+Una expresión `zoom` se usa para recuperar el nivel de zoom actual del mapa e tiempo de representación y se define como `['zoom']`. Esta expresión devuelve un número entre el intervalo de nivel de zoom mínimo y máximo del mapa. Los controles de mapa interactivo de Azure Maps para web y Android admiten 25 niveles de zoom, numerados de 0 a 24. El uso de la expresión `zoom` permite modificar dinámicamente los estilos a medida que cambia el nivel de zoom del mapa. La expresión `zoom` solo puede usarse con expresiones `interpolate` y `step`.
 
 **Ejemplo**
 
-De forma predeterminada, los radios de los puntos de datos representados en la capa del mapa térmico tienen un radio de píxel fijo para todos los niveles de zoom. A medida que se amplía el mapa, los datos se agregan juntos y la capa de mapa térmico parece diferente. Una expresión `zoom` puede usarse para ampliar el radio de cada nivel de zoom de forma que cada punto de datos cubra el mismo área físico del mapa. Esto hará que la capa de mapa térmico parezca más estática y coherente. Cada nivel de zoom del mapa tiene dos veces tantos píxeles vertical y horizontalmente que nivel de zoom anterior. Ampliar el radio de forma que se duplique con cada nivel de zoom creará un mapa térmico que parece coherente en todos los niveles de zoom. Esto puede realizarse mediante la expresión `zoom` con una expresión `base 2 exponential interpolation`, como se muestra a continuación. 
+De forma predeterminada, los radios de los puntos de datos representados en la capa del mapa térmico tienen un radio de píxel fijo para todos los niveles de zoom. A medida que se amplía el mapa, los datos se agregan juntos y la capa de mapa térmico parece diferente. Una expresión `zoom` puede usarse para ampliar el radio de cada nivel de zoom de forma que cada punto de datos cubra el mismo área físico del mapa. Esto hará que la capa del mapa térmico parezca más estática y coherente. Cada nivel de zoom del mapa tiene dos veces tantos píxeles vertical y horizontalmente que nivel de zoom anterior. Si se amplía el radio de forma que se duplique con cada nivel de zoom, se creará un mapa térmico que parecerá coherente en todos los niveles de zoom. Para ello, puede utilizarse la expresión `zoom` con una expresión `base 2 exponential interpolation`, tal y como se muestra a continuación. 
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -819,7 +819,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 ## <a name="variable-binding-expressions"></a>Expresiones de enlace de variable
 
-Las expresiones de enlace de variable almacenan los resultados de un cálculo en una variable de forma que se puede hacer referencia a ellos en otra parte de una expresión varias veces sin tener que volver a calcularlo. Esta es una optimización útil para expresiones en las que intervienen muchos cálculos.
+Las expresiones de enlace de variables almacenan los resultados de un cálculo en una variable. De ese modo, se pueden incluir varias veces referencias a esos resultados de cálculo en cualquier parte de una expresión. Esta optimización resulta muy útil para las expresiones en las que intervienen muchos cálculos.
 
 | Expression | Tipo de valor devuelto | Descripción |
 |--------------|---------------|--------------|
@@ -828,7 +828,7 @@ Las expresiones de enlace de variable almacenan los resultados de un cálculo en
 
 **Ejemplo**
 
-En este ejemplo se usa una expresión que calcula los ingresos relativos a la proporción de temperatura y, luego, usa una expresión `case` para evaluar diferentes operaciones booleanas sobre este valor. La expresión `let` se usa para almacenar los ingresos relativos a la proporción de temperatura de modo que solo debe calcularse una vez y la expresión `var` hace referencia a esta variable tantas veces como sea necesario sin tener que volver a calcularla.
+En este ejemplo se usa una expresión que calcula los ingresos relativos a la proporción de temperatura y, luego, usa una expresión `case` para evaluar diferentes operaciones booleanas sobre este valor. La expresión `let` se usa para almacenar los ingresos en relación con el índice de temperatura, de modo que solo debe calcularse una vez. La expresión `var` hace referencia a esta variable tantas veces como sean necesarias sin necesidad de volver a calcularla.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395752"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162249"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -42,7 +42,7 @@ La identificación del número de áreas de trabajo que necesita se ve afectada 
 
 En la actualidad, las organizaciones de TI siguen modelos centralizados, descentralizados o usan una estructura híbrida. Como resultado, los siguientes modelos de implementación de áreas de trabajo se han usado normalmente para asignarse a una de estas estructuras organizativas:
 
-* **Centralizado**: todos los registros se almacenan en un área de trabajo central y los administra un único equipo, y Azure Monitor proporcionar un acceso diferenciado por equipo. En este escenario, es fácil administrar, buscar en los recursos y correlacionar registros entre ellos. El área de trabajo puede crecer considerablemente en función de la cantidad de datos recopilados de varios recursos de la suscripción, lo que genera una sobrecarga administrativa adicional para mantener el control del acceso de los distintos usuarios.
+* **Centralizado**: todos los registros se almacenan en un área de trabajo central y los administra un único equipo, y Azure Monitor proporcionar un acceso diferenciado por equipo. En este escenario, es fácil administrar, buscar en los recursos y correlacionar registros entre ellos. El área de trabajo puede crecer considerablemente en función de la cantidad de datos recopilados de varios recursos de la suscripción, lo que genera una sobrecarga administrativa adicional para mantener el control del acceso de los distintos usuarios. Este modelo se conoce como "concentrador y radio".
 * **Descentralizado**: cada equipo tiene su propia área de trabajo creada en un grupo de recursos que poseen y administran, y los datos de registro se segregan por recurso. En este escenario, el área de trabajo se puede mantener seguro y el control de acceso es coherente con el acceso de los recursos, pero es difícil correlacionar los registros. Los usuarios que necesitan una visión amplia de muchos recursos no pueden analizar los datos de forma significativa.
 * **Híbrido**: los requisitos de cumplimiento de auditorías de seguridad complican aún más este escenario, ya que muchas organizaciones implementan ambos modelos de implementación en paralelo. Habitualmente, esto genera una configuración compleja, cara y difícil de mantener con brechas en la cobertura de los registros.
 

@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: c9d02490a5627ead502429ead06608b4fb621058
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 3141795ed9ccfdabc9fd462a1cd09a74690f9c5b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548414"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137920"
 ---
 # <a name="train-model-module"></a>Módulo Entrenar modelo
 
@@ -39,7 +39,7 @@ En Azure Machine Learning, crear y usar un modelo suele ser un proceso de tres p
 
 3. Una vez completado el entrenamiento, utilice el modelo entrenado con uno de los [módulos de puntuación](./score-model.md), para realizar predicciones sobre nuevos datos.
 
-## <a name="how-to-use-train-model"></a>Procedimiento para usar **Entrenar modelo**  
+## <a name="how-to-use-train-model"></a>Procedimiento para usar Entrenar modelo 
   
 1.  En Azure Machine Learning, configure un modelo de regresión o modelo de clasificación.
     
@@ -49,7 +49,7 @@ En Azure Machine Learning, crear y usar un modelo suele ser un proceso de tres p
 
     El conjunto de datos de entrenamiento debe contener una columna de etiqueta. Se omiten todas las filas sin etiquetas.
   
-4.  Para **Columna de etiqueta**, haga clic en **Launch column selector** (Iniciar selector de columna) y elija una sola columna que contenga los resultados que el modelo puede usar para el entrenamiento.
+4.  En **Label column** (Columna de etiqueta), haga clic en **Edit column** (Editar columna) en el panel derecho del módulo y elija una columna que contenga resultados que el modelo pueda usar para el entrenamiento.
   
     - Para problemas de clasificación, la columna de etiqueta debe contener valores **categoriales** o valores **discretos**. Algunos ejemplos podrían ser una calificación de sí o no, un código o nombre de clasificación de enfermedades o un grupo de ingresos.  Si elige una columna no categorial, el módulo devolverá un error durante el entrenamiento.
   

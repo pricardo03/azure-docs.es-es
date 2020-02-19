@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6fe43eb5963f2918f41ad15f1904f883b5e9c298
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e774690fae2314b8db6e14f19a67c7ae1ce3a203
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678304"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064281"
 ---
 # <a name="dependency-auto-collection"></a>Recopilación automática de dependencias
 
@@ -82,12 +82,13 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 
 | Bibliotecas de comunicaciones | Versiones |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Todo |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | All |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Configuración del seguimiento de dependencias personalizadas para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
 - Configuración del seguimiento de dependencias personalizadas para [Java](../../azure-monitor/app/java-agent.md).
+- Configuración del seguimiento de dependencias personalizado para [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
 - [Escritura de una telemetría de dependencia personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Consulte [modelo de datos](../../azure-monitor/app/data-model.md) para los tipos y el modelo de datos de Application Insights.
 - Consulte las [plataformas](../../azure-monitor/app/platforms.md) compatibles con Application Insights.

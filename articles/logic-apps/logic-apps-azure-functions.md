@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453463"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116906"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Llamada a funciones de Azure desde Azure Logic Apps
 
@@ -26,7 +26,7 @@ Para ejecutar fragmentos de código sin necesidad de crear las funciones de Azur
 > [!NOTE]
 > La integración entre Logic Apps y Azure Functions actualmente no funciona con los espacios habilitados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -200,11 +200,11 @@ Cuando quiera desencadenar una aplicación lógica desde dentro de una función 
 
 Para autenticar el acceso a los recursos de otros inquilinos de Azure Active Directory (Azure AD) sin tener que iniciar sesión ni proporcionar credenciales o secretos, la aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocido como Managed Service Identity o MSI). Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Si configura la aplicación lógica para que use la identidad administrada asignada por el sistema, Azure Functions en la aplicación lógica también puede usar la misma identidad para la autenticación. Para más información sobre la compatibilidad de la autenticación con Azure Functions en aplicaciones lógicas, consulte [Agregar autenticación a llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+Si configura la aplicación lógica para que use la identidad administrada asignada por el sistema o una identidad asignada por el usuario creada de forma manual, las funciones de Azure de la aplicación lógica también pueden usar la misma identidad para la autenticación. Para más información sobre la compatibilidad de la autenticación con Azure Functions en aplicaciones lógicas, consulte [Agregar autenticación a llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-Para configurar y usar la identidad asignada por el sistema con la función, siga estos pasos:
+Para configurar y usar la identidad administrada con la función, siga estos pasos:
 
-1. Habilite la identidad asignada por el sistema en la aplicación lógica y configure el acceso de dicha identidad en el recurso de destino. Consulte [Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+1. Habilite la identidad administrada en la aplicación lógica y configure el acceso de dicha identidad al recurso de destino. Consulte [Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 1. Siga estos pasos para habilitar la autenticación en Azure Functions y la aplicación de función:
 
@@ -215,7 +215,7 @@ Para configurar y usar la identidad asignada por el sistema con la función, sig
 
 ### <a name="set-up-anonymous-authentication-in-your-function"></a>Configurar la autenticación anónima en la función
 
-Para usar la identidad asignada por el sistema de la aplicación lógica en Azure Functions, ha establecido el nivel de autenticación de la función en anónimo. De lo contrario, la aplicación lógica produce un error "BadRequest".
+Para usar la identidad administrada de la aplicación lógica en la función de Azure, ha establecido el nivel de autenticación de la función en anónimo. De lo contrario, la aplicación lógica produce un error "BadRequest".
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione la aplicación lógica. En estos pasos se usa "FabrikamFunctionApp" como la aplicación de función de ejemplo.
 

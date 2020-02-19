@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 02/07/2020
+ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162885"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162215"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitectura de Apache Hadoop en HDInsight
 
@@ -46,6 +46,27 @@ Los servicios NodeManager ejecutan las tareas que componen la aplicación y, a c
 Todos los tipos de clúster HDInsight implementan YARN. ResourceManager se implementa para lograr alta disponibilidad con una instancia principal y secundaria, que se ejecutan en el primer y segundo nodo principal dentro del clúster, respectivamente. Solo la única instancia de ResourceManager está activa a la vez. Las instancias de NodeManager se ejecutan en todos los nodos de trabajo disponibles en el clúster.
 
 ![Apache YARN en HDInsight de Azure](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+
+## <a name="soft-delete"></a>Eliminación temporal
+
+Para recuperar un archivo de la cuenta de almacenamiento, consulte:
+
+### <a name="azure-storage"></a>Azure Storage
+
+* [Eliminación temporal de blobs de Azure Storage](../storage/blobs/storage-blob-soft-delete.md)
+* [Undelete Blob](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
+
+[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+
+### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
+
+[Problemas conocidos con Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
+
+## <a name="trash-purging"></a>Purga de la papelera
+
+La propiedad `fs.trash.interval` de **HDFS** > **Advanced core-site** debe permanecer en su valor predeterminado de `0`, ya que no se debe almacenar ningún dato en el sistema de archivos local. Este valor no afecta a las cuentas de almacenamiento remoto (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

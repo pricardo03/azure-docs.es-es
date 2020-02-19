@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 5929d4edac53b2be87e168b527034c5a473f154f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678182"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110021"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
-La actividad web se puede usar para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
+La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
 
 > [!NOTE]
 > Actividad web solo puede llamar a direcciones URL expuestas públicamente. No se admite para direcciones URL que se hospedan en una red virtual privada.
@@ -63,15 +63,15 @@ La actividad web se puede usar para llamar a un punto de conexión REST personal
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
+Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad web | Cadena | Sí
-Tipo | Se debe establecer en **WebActivity**. | Cadena | Sí
+name | Nombre de la actividad web | String | Sí
+type | Se debe establecer en **WebActivity**. | String | Sí
 method | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST", "PUT" | Sí
 url | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión. | Sí
 headers | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadena (o expresión con un valor resultType de cadena) | Sí, el encabezado Content-type es necesario. `"headers":{ "Content-Type":"application/json"}`
 body | Representa la carga útil que se envía al punto de conexión.  | Cadena (o expresión con un valor resultType de cadena). <br/><br/>Vea el esquema de la carga de solicitud en la sección [Solicitar un esquema de carga](#request-payload-schema). | Necesario para los métodos POST o PUT.
-Autenticación | Método de autenticación usado para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, vea la sección [Autenticación](#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Cadena (o expresión con un valor resultType de cadena) | Sin
+autenticación | Método de autenticación usado para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, vea la sección [Autenticación](#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Cadena (o expresión con un valor resultType de cadena) | No
 conjuntos de datos | Lista de conjuntos de datos que se pasan al punto de conexión. | Matriz de referencias de conjunto de datos. Puede ser una matriz vacía. | Sí
 linkedServices | Lista de servicios vinculados que se pasan al punto de conexión. | Matriz de referencias de servicios vinculados. Puede ser una matriz vacía. | Sí
 
@@ -90,10 +90,14 @@ En la tabla siguiente se enumeran los requisitos del contenido JSON:
 
 ## <a name="authentication"></a>Authentication
 
+A continuación, se muestran los tipos de autenticación admitidos en la actividad web.
+
 ### <a name="none"></a>None
+
 Si la autenticación no es necesaria, no incluya la propiedad "authentication".
 
 ### <a name="basic"></a>Básica
+
 Especifique el nombre de usuario y la contraseña que se usarán con la autenticación básica.
 
 ```json
@@ -105,6 +109,7 @@ Especifique el nombre de usuario y la contraseña que se usarán con la autentic
 ```
 
 ### <a name="client-certificate"></a>Certificado de cliente
+
 Especifique un contenido codificado en base64 de un archivo PFX y la contraseña.
 
 ```json
@@ -125,6 +130,9 @@ Especifique el URI de recurso para el que el token de acceso se solicitará util
     "resource": "https://management.azure.com/"
 }
 ```
+
+> [!NOTE]
+> Si la factoría de datos está configurada con un repositorio de Git, debe almacenar las credenciales en Azure Key Vault para usar la autenticación de certificado de cliente o básica. Azure Data Factory no almacena contraseñas en Git.
 
 ## <a name="request-payload-schema"></a>Solicitar un esquema de carga
 Al usar el método POST o PUT, la propiedad body representa la carga que se envía al punto de conexión. Puede pasar servicios vinculados y conjuntos de datos como parte de la carga. Este es el esquema de la carga:
@@ -248,5 +256,5 @@ Consulte otras actividades de flujo de control compatibles con Data Factory:
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)
-- [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
-- [Actividad de búsqueda](control-flow-lookup-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
+- [Actividad Lookup](control-flow-lookup-activity.md)

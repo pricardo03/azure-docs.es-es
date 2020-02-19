@@ -1,20 +1,20 @@
 ---
-title: Asociados de Azure Virtual WAN | Microsoft Docs
+title: Directrices de automatización de asociados de Azure Virtual WAN | Microsoft Docs
 description: En este artículo se ayuda a los asociados a configurar la automatización de Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775315"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190413"
 ---
-# <a name="virtual-wan-partners"></a>Asociados de Virtual WAN
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Directrices de automatización para asociados de Virtual WAN
 
 Este artículo le ayudará a comprender cómo configurar el entorno de automatización para conectar y configurar un dispositivo de la rama (un dispositivo VPN de cliente en el entorno local o SDWAN CPE) para Azure Virtual WAN. Si es un proveedor que proporciona dispositivos de la rama que pueden dar cabida a la conectividad VPN a través de IPsec/IKEv2 o IPsec/IKEv1, este artículo es para usted.
 

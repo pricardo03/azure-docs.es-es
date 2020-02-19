@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
+ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fcb2198ea3f01e923022c205e478167240a01894
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932637"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084447"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -28,7 +28,7 @@ El acceso a los grupos y las aplicaciones para empleados e invitados cambia a lo
 
 En este artículo se describe cómo crear una o varias revisiones de acceso para el acceso de los miembros de un grupo o aplicación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Azure AD Premium P2
 - administrador global o administrador de usuarios.
@@ -127,6 +127,20 @@ Una vez que haya especificado la configuración para una revisión de acceso, ha
 De forma predeterminada, Azure AD envía un correo electrónico a los revisores poco después de iniciar la revisión. Si decide no hacer que Azure AD envíe el correo electrónico, asegúrese de informar a los revisores de que hay una revisión de acceso esperando para que la lleven a cabo. Puede mostrarles las instrucciones sobre cómo [revisar el acceso a grupos o aplicaciones](perform-access-review.md). Si la revisión es para que los invitados revisen su propio acceso, muéstreles las instrucciones sobre cómo [revisar su propio acceso a los grupos o aplicaciones](review-your-access.md).
 
 Si ha asignado como revisores a invitados y no han aceptado la invitación, no recibirán un correo electrónico de las revisiones de acceso, ya que, antes de proceder a la revisión, deben aceptar la invitación.
+
+## <a name="access-review-status-table"></a>Tabla de estado de revisión de acceso
+
+| Status | Definición |
+|--------|------------|
+|NotStarted | Se ha creado la revisión y la detección de usuarios está en espera para empezar. |
+|Inicializando   | La detección de usuarios está en curso para identificar a todos los usuarios que forman parte de la revisión. |
+|Iniciando | La revisión se está iniciando. Si se habilitan las notificaciones por correo electrónico, se envían mensajes de correo electrónico a los revisores. |
+|InProgress | La revisión se ha iniciado. Si se habilitan las notificaciones por correo electrónico, se habrán enviado mensajes de correo electrónico a los revisores. Los revisores pueden enviar decisiones hasta la fecha de vencimiento. |
+|Completando | La revisión se ha completado y se están enviando mensajes de correo electrónico al propietario de la revisión. |
+|AutoReviewing (En autorrevisión) | La revisión se encuentra en una fase de revisión del sistema. El sistema está registrando decisiones para los usuarios que no se han revisado en función de las recomendaciones o decisiones previamente configuradas. |
+|AutoReviewed (Autorrevisado) | El sistema ha registrado decisiones para todos los usuarios que no se han revisado. La revisión está lista para continuar con **Aplicando** si está habilitada la opción de aplicación automática. |
+|Aplicando | No habrá ningún cambio en el acceso para los usuarios que se han aprobado. |
+|Aplicado | Los usuarios denegados, si los hay, se han quitado del recurso o directorio. |
 
 ## <a name="create-reviews-via-apis"></a>Creación de revisiones mediante API
 

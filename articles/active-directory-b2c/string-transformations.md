@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982764"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045370"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -81,7 +81,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 - Notificaciones de entrada:
   - **inputClaim1**: someone@contoso.com
   - **inputClaim2**: someone@outlook.com
-    - Parámetros de entrada:
+- Parámetros de entrada:
   - **stringComparison**: ordinalIgnoreCase
 - Resultado: aparece un error
 
@@ -91,7 +91,7 @@ Cambia el uso de mayúsculas y minúsculas en la notificación proporcionada, de
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | El tipo ClaimType que se va cambiar. |
+| InputClaim | inputClaim1 | string | ClaimType que se va a cambiar. |
 | InputParameter | toCase | string | Puede ser uno de los siguientes valores: `LOWER` o `UPPER`. |
 | OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
 
@@ -326,7 +326,7 @@ Use esta transformación de notificaciones para dar formato a cualquier cadena c
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
-Da formato a dos notificaciones de acuerdo con la cadena de formato proporcionada. Esta transformación usa el método de C# **String.Format**.
+Da formato a dos notificaciones de acuerdo con la cadena de formato proporcionada. Esta transformación usa el método `String.Format` de C#.
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -361,6 +361,76 @@ Use esta transformación de notificaciones para dar formato a cualquier cadena c
     - **stringFormat**: {0} {1}
 - Notificaciones de salida:
     - **outputClaim**: Joe Fernando
+
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+
+Copia las cadenas localizadas en las notificaciones.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| OutputClaim | Nombre de la cadena localizada. | string | Lista de tipos de notificaciones que se genera después de que se haya invocado esta transformación de notificaciones. |
+
+Para usar la transformación de notificaciones GetLocalizedStringsTransformation:
+
+1. Defina una [cadena de localización](localization.md) y asóciela con un [perfil técnico autoafirmado](self-asserted-technical-profile.md).
+1. `ElementType` del elemento `LocalizedString` debe establecerse en `GetLocalizedStringsTransformationClaimType`.
+1. `StringId` es un identificador único que se define y se usa más adelante en la transformación de notificaciones.
+1. En la transformación de notificaciones, especifique la lista de notificaciones que se van a establecer con la cadena localizada. `ClaimTypeReferenceId` es una referencia a ClaimType ya definida en la sección ClaimsSchema de la directiva. `TransformationClaimType` es el nombre de la cadena localizada tal como se define en `StringId` del elemento `LocalizedString`.
+1. En un [perfil técnico autoafirmado](self-asserted-technical-profile.md) o una transformación de notificaciones de entrada o salida de [control de visualización](display-controls.md), haga una referencia a la transformación de notificaciones.
+
+![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
+
+En el siguiente ejemplo se busca el asunto, el cuerpo, el mensaje de código y la firma del correo electrónico en las cadenas localizadas. Estas notificaciones se usan posteriormente en la plantilla de comprobación de correo electrónico personalizada.
+
+Defina cadenas localizadas para inglés (predeterminado) y español.
+
+```XML
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+     </LocalizedStrings>
+   </LocalizedResources>
+   <LocalizedResources Id="api.localaccountsignup.es">
+     <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Atentamente</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+La transformación de notificaciones establece el valor del tipo de notificación *subject* con el valor de `StringId`email_subject*de*.
+
+```XML
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de salida:
+  - **subject**: Código de verificación del correo electrónico de la cuenta de Contoso
+  - **message**: Gracias por comprobar la cuenta 
+  - **codeIntro**: Su código es 
+  - **signature**: Atentamente  
+
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
 
@@ -414,7 +484,7 @@ Buscar un valor de notificación en una lista de valores en función del valor d
 | InputClaim | inputParameterId | string | La notificación que contiene el valor de búsqueda. |
 | InputParameter | |string | Colección de inputParameters. |
 | InputParameter | errorOnFailedLookup | boolean | Controlar si se devuelve un error cuando una búsqueda no tiene resultados. |
-| OutputClaim | inputParameterId | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. El valor del identificador coincidente. |
+| OutputClaim | inputParameterId | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. Valor del `Id` coincidente. |
 
 En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones inputParameters. La transformación de notificaciones busca el nombre de dominio en el identificador y devuelve su valor (un identificador de aplicación).
 
@@ -479,7 +549,7 @@ Obtiene la parte de dominio de una dirección de correo electrónico.
 | InputClaim | emailAddress | string | ClaimType que contiene la dirección de correo electrónico. |
 | OutputClaim | dominio | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones: el dominio. |
 
-Use esta transformación de notificaciones para analizar el nombre de dominio después el símbolo @ del usuario. Esto puede ser útil para quitar información de identificación personal (PII) de los datos de auditoría. La siguiente transformación de notificaciones muestra cómo analizar el nombre de dominio desde una notificación de **email**.
+Use esta transformación de notificaciones para analizar el nombre de dominio después el símbolo @ del usuario. La siguiente transformación de notificaciones muestra cómo analizar el nombre de dominio desde una notificación de **email**.
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
@@ -681,7 +751,7 @@ Extrae partes de un tipo de notificación de cadena, comenzando por el carácter
 | InputClaim | inputClaim | string | Tipo de notificación que contiene la cadena. |
 | InputParameter | startIndex | int | Posición de carácter inicial de base cero de una subcadena en la instancia. |
 | InputParameter | length | int | Número de caracteres de la subcadena. |
-| OutputClaim | outputClaim | boolean | Cadena equivalente a la subcadena de longitud que comienza en el valor de startIndex de esta instancia, o bien un valor vacío si el valor de startIndex es igual a la longitud de esta instancia y length es cero. |
+| OutputClaim | outputClaim | boolean | Cadena equivalente a la subcadena de longitud que comienza en el valor de startIndex de esta instancia, o bien, un valor vacío si el valor de startIndex es igual a la longitud de esta instancia y length es cero. |
 
 Por ejemplo, obtiene el prefijo de país del número de teléfono.  
 
@@ -758,7 +828,7 @@ Concatena los elementos de un tipo de notificación de colección de cadenas esp
 | InputParameter | delimiter | string | Cadena que se va a usar como separador; por ejemplo, coma `,`. |
 | OutputClaim | outputClaim | string | Cadena que consta de los miembros de la colección de cadenas `inputClaim`, delimitadas por el parámetro de entrada `delimiter`. |
   
-En el ejemplo siguiente se toma una colección de cadenas de funciones de usuario y se convierte en una cadena con delimitador de comas. Puede usar este método para almacenar una colección de cadenas en la cuenta de usuario de Azure AD. Más adelante, cuando lea la cuenta desde el directorio, podrá usar `StringSplit` para volver a convertir la cadena con delimitador de coma en una colección de cadenas.
+En el ejemplo siguiente se toma una colección de cadenas de roles de usuario y se convierte en una cadena con delimitador de comas. Puede usar este método para almacenar una colección de cadenas en la cuenta de usuario de Azure AD. Más adelante, cuando lea la cuenta desde el directorio, podrá usar `StringSplit` para volver a convertir la cadena con delimitador de coma en una colección de cadenas.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
@@ -794,7 +864,7 @@ Devuelve una matriz de cadenas que contiene las subcadenas de esta instancia que
 | InputParameter | delimiter | string | Cadena que se va a usar como separador; por ejemplo, coma `,`. |
 | OutputClaim | outputClaim | stringCollection | Colección de cadenas cuyos elementos contienen las subcadenas de esta cadena que están delimitadas por el parámetro de entrada `delimiter`. |
   
-En el siguiente ejemplo se toma una cadena con delimitador de coma de funciones de usuario y se convierte en una colección de cadenas.
+En el siguiente ejemplo se toma una cadena con delimitador de coma de roles de usuario y se convierte en una colección de cadenas.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">

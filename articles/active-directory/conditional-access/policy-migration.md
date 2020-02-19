@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c6ce46af8fb9a9ab4be5fcc63ccd4909374e4f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846185"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185910"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migración de directivas clásicas de acceso condicional
 
@@ -89,7 +89,7 @@ Si existe una directiva nueva que tiene **Exchange Active Sync** como condición
 
 ![Condiciones de acceso condicional](./media/policy-migration/16.png)
  
-Las directivas clásicas [basadas en aplicaciones](technical-reference.md#approved-client-app-requirement) para Office 365 Exchange Online que incluyen **Exchange Active Sync** como condición de aplicaciones de cliente permiten [plataformas de dispositivos](technical-reference.md#device-platform-condition) **admitidas** y **no admitidas**. Aunque no se pueda configurar plataformas de dispositivos individuales en una directiva nueva relacionada, puede limitar la compatibilidad solo para [plataformas de dispositivos compatibles](technical-reference.md#device-platform-condition). 
+Las directivas clásicas basadas en aplicaciones para Office 365 Exchange Online que incluyen **Exchange Active Sync** como condición de aplicaciones de cliente permiten plataformas de dispositivos **admitidas** y **no admitidas**. Aunque no se pueda configurar plataformas de dispositivos individuales en una directiva nueva relacionada, puede limitar la compatibilidad solo para [plataformas de dispositivos compatibles](concept-conditional-access-conditions.md#device-platforms). 
 
 ![Acceso condicional con selección de Exchange ActiveSync](./media/policy-migration/65.png)
 
@@ -109,9 +109,9 @@ En este caso, puede consolidar las directivas clásicas en una nueva directiva q
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-Las directivas de clásicas con [controles basados en aplicaciones](technical-reference.md#approved-client-app-requirement) están preconfiguradas con iOS y Android como la [condición de la plataforma del dispositivo](technical-reference.md#device-platform-condition). 
+Las directivas clásicas con controles basados en aplicaciones están preconfiguradas con iOS y Android como la condición de la plataforma del dispositivo. 
 
-En una directiva nueva, debe seleccionar las [plataformas de dispositivo](technical-reference.md#device-platform-condition) que quiera admitir de forma individual.
+En una directiva nueva, debe seleccionar las [plataformas de dispositivo](concept-conditional-access-conditions.md#device-platforms) que quiera admitir de forma individual.
 
 ![Selección de plataformas de dispositivo de acceso condicional](./media/policy-migration/41.png)
 

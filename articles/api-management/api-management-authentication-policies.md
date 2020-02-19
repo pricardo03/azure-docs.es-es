@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 572d8c4b59622156e8b3aca4565bbc206367f6d4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514843"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120825"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -48,13 +48,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ### <a name="elements"></a>Elementos
 
-|NOMBRE|DESCRIPCIÓN|Obligatorio|
+|Nombre|Descripción|Obligatorio|
 |----------|-----------------|--------------|
 |authentication-basic|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
-|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
+|Nombre|Descripción|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
 |username|Especifica el nombre de usuario de la credencial básica.|Sí|N/D|
 |password|Especifica la contraseña de usuario de la credencial básica.|Sí|N/D|
@@ -88,13 +88,13 @@ En este ejemplo, el certificado de cliente se identifica mediante el nombre de r
 
 ### <a name="elements"></a>Elementos  
   
-|NOMBRE|DESCRIPCIÓN|Obligatorio|  
+|Nombre|Descripción|Obligatorio|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
+|Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|La huella digital del certificado de cliente.|`thumbprint` o `certificate-id` debe estar presente.|N/D|  
 |certificate-id|Nombre del recurso de certificado.|`thumbprint` o `certificate-id` debe estar presente.|N/D|  
@@ -147,17 +147,17 @@ En este ejemplo, el certificado de cliente se identifica mediante el nombre de r
 
 ### <a name="elements"></a>Elementos  
   
-|NOMBRE|DESCRIPCIÓN|Obligatorio|  
+|Nombre|Descripción|Obligatorio|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
+|Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|resource|String. URI del identificador de aplicación de la API web de destino (recurso seguro) en Azure Active Directory.|Sí|N/D|  
-|output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un tipo de objeto `string`. |Sin|N/D|  
-|ignore-error|Booleano. Si se establece en `true`, la canalización de directivas seguirá ejecutándose incluso si no se obtiene un token de acceso.|Sin|false|  
+|resource|String. Identificador de aplicación de la API web de destino (recurso seguro) en Azure Active Directory.|Sí|N/D|  
+|output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un tipo de objeto `string`. |No|N/D|  
+|ignore-error|booleano. Si se establece en `true`, la canalización de directivas seguirá ejecutándose incluso si no se obtiene un token de acceso.|No|false|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  

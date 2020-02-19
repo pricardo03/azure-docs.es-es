@@ -1,6 +1,6 @@
 ---
 title: Protección de bases de datos
-description: Sugerencias para proteger una base de datos en Azure SQL Data Warehouse para desarrollar soluciones.
+description: Sugerencias para proteger una base de datos y desarrollar soluciones en el recurso del grupo de SQL de SQL Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e9ab9dddad35708b58d32802452789adf84a19e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 26cdbb1fc2899d1b03fea6199074467623706c63
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759472"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153288"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger una base de datos en SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -27,21 +27,21 @@ ms.locfileid: "76759472"
 > 
 > 
 
-En este artículo se describen los fundamentos de la protección de una base de datos de Azure SQL Data Warehouse. En concreto, este artículo le ayuda a empezar a trabajar con los recursos para limitar el acceso, proteger los datos y supervisar las actividades en una base de datos.
+Este artículo le guiará a través de los aspectos básicos de la protección del grupo de SQL en SQL Analytics. En concreto, este artículo le ayuda a empezar a trabajar con los recursos para limitar el acceso, proteger los datos y supervisar las actividades en una base de datos aprovisionada mediante un grupo de SQL.
 
 ## <a name="connection-security"></a>Seguridad de conexión
 Seguridad de conexión hace referencia a cómo restringir y proteger las conexiones a la base de datos mediante reglas de firewall y cifrado de las conexiones.
 
 Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir conexiones desde la dirección IP pública de la máquina cliente o de la aplicación, primero debe crear una regla de firewall de nivel de servidor mediante Azure Portal, la API de REST o PowerShell. 
 
-Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible.  Para obtener acceso a Azure SQL Data Warehouse desde el equipo local, asegúrese de que el firewall de su red y el equipo local permiten la comunicación saliente en el puerto TCP 1433.  
+Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible.  Para acceder al grupo de SQL desde su equipo local, asegúrese de que el firewall de su red y del equipo local permita la comunicación de salida en el puerto TCP 1433.  
 
-Azure Synapse usa las reglas de firewall de IP de nivel de servidor. No es compatible con las de nivel de base de datos. Para más información, consulte [Reglas de firewall de Azure SQL Database](../sql-database/sql-database-firewall-configure.md).
+Azure Synapse Analytics usa las reglas de firewall de IP de nivel de servidor. No es compatible con las de nivel de base de datos. Para más información, consulte [Reglas de firewall de Azure SQL Database](../sql-database/sql-database-firewall-configure.md).
 
-Las conexiones a su instancia de SQL Data Warehouse se cifran de forma predeterminada.  Se pasa por alto la modificación de la configuración de conexión para deshabilitar el cifrado.
+Las conexiones al grupo de SQL están cifradas de forma predeterminada.  Se pasa por alto la modificación de la configuración de conexión para deshabilitar el cifrado.
 
 ## <a name="authentication"></a>Authentication
-La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Actualmente, SQL Data Warehouse admite la autenticación de SQL Server con un nombre de usuario y una contraseña, y con Azure Active Directory. 
+La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Actualmente, el grupo de SQL admite la autenticación de SQL Server con un nombre de usuario y una contraseña, y con Azure Active Directory. 
 
 Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos de ese servidor como propietario, o "dbo" a través de la autenticación en SQL Server.
 
@@ -55,7 +55,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-A continuación, conéctese a la **base de datos de SQL Data Warehouse** con el inicio de sesión de administrador de servidor y cree un usuario de base de datos basado en el inicio de sesión de servidor que creó.
+A continuación, conéctese a la **base de datos del grupo de SQL** con el inicio de sesión de administrador de servidor y cree un usuario de base de datos basado en el inicio de sesión de servidor que creó.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -98,4 +98,4 @@ En SQL Database, la clave de cifrado de base de datos está protegida por un cer
 Puede cifrar la base de datos mediante [Azure Portal](sql-data-warehouse-encryption-tde.md) o [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver detalles y ejemplos sobre la conexión del almacenamiento con diferentes protocolos, consulte [Conexión a SQL Data Warehouse](sql-data-warehouse-connect-overview.md).
+Para ver detalles y ejemplos sobre la conexión del almacenamiento con diferentes protocolos, consulte [Conexión a un grupo de SQL](sql-data-warehouse-connect-overview.md).

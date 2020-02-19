@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372337"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131964"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 
@@ -342,7 +342,7 @@ Más concretamente, la facturación del proceso en este ejemplo se calcula como 
 |8:00-24:00|0|0|No se factura ningún proceso mientras la base de datos está en pausa|0 segundos de núcleo virtual|
 |Número total de segundos de núcleo virtual facturados durante 24 horas||||50 400 segundos de núcleo virtual|
 
-Suponga que el precio de la unidad de proceso es 0,000073 $/núcleo virtual/segundo.  El proceso que se factura en este período de 24 horas es igual al producto del precio por unidad de proceso por los segundos de núcleo virtual facturados: $0,000073/vCore/segundo * 50 400 segundos de núcleo virtual = $3,68
+Suponga que el precio de la unidad de proceso es 0,000145 $/núcleo virtual/segundo.  El proceso que se factura en este período de 24 horas es igual al producto del precio por unidad de proceso por los segundos de núcleo virtual facturados: 0,000145 $/núcleo virtual/segundo * 50400 segundos de núcleo virtual = aproximadamente 7,31 $.
 
 ### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Ventaja híbrida de Azure y capacidad reservada
 

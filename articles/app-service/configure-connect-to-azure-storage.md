@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866976"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120669"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configuración de Azure Files en un contenedor de Windows en App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "75866976"
 
 Esta guía muestra cómo acceder a Azure Storage en contenedores de Windows. Solo se admiten [recursos compartidos de archivos de Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) y [recursos compartidos de archivos Premium](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare). Puede usar recursos compartidos de archivos de Azure Files en esta guía. Entre las ventajas se incluye protección y portabilidad del contenido, acceso a varias aplicaciones y varios métodos de transferencia.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [CLI de Azure](/cli/azure/install-azure-cli) (2.0.46 o posterior).
 - [Una aplicación de contenedor de Windows existente en Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)
@@ -38,6 +38,7 @@ Esta guía muestra cómo acceder a Azure Storage en contenedores de Windows. Sol
 - Actualmente, **no se admite** Azure Storage en los contenedores de Windows para incluir escenarios de código propios en los planes de Windows App Service.
 - Azure Storage en los contenedores de Windows **no admite** el uso de la configuración del **firewall de Storage** debido a limitaciones de la infraestructura.
 - Azure Storage en los contenedores de Windows le permite especificar **hasta cinco** puntos de montaje por aplicación.
+- No se pude acceder a Azure Storage montado en una aplicación mediante los puntos de conexión de FTP/FTP de App Service. Use [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 - Azure Storage se factura por separado y **no se incluye** con la aplicación web. Obtenga más información sobre los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage).
 
 ## <a name="link-storage-to-your-web-app-preview"></a>Vinculación del almacenamiento a la aplicación web (versión preliminar)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 77e6ab588f74c8b810f211e069c1c24043155111
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982118"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132848"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Arquitectura de referencia de Azure DevTest Labs para empresas
 Este artículo proporciona una arquitectura de referencia para ayudarle a implementar una solución basada en Azure DevTest Labs en una empresa. Incluye lo siguiente:
@@ -41,7 +41,7 @@ Estos son los elementos clave de la arquitectura de referencia:
     - Desea forzar todo el tráfico de red dentro y fuera del entorno de la nube a través de un firewall local por motivos de seguridad/cumplimiento.
 - **Grupos de seguridad de red**: Una manera habitual de restringir el tráfico al entorno de la nube (o dentro del entorno de la nube) según las direcciones IP de origen y destino es utilizar un [ grupo de seguridad de red](../virtual-network/security-overview.md). Por ejemplo, desea permitir únicamente el tráfico que se origina en la red corporativa en las redes del laboratorio.
 - **Puerta de enlace de Escritorio remoto**: Las empresas generalmente bloquean las conexiones de Escritorio remoto salientes en el firewall corporativo. Hay varias opciones para habilitar la conectividad con el entorno en la nube en DevTest Labs, como las siguientes:
-  - Utilice una [puerta de enlace de Escritorio remoto](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) y agregue a la lista blanca la dirección IP estática del equilibrador de carga de la puerta de enlace.
+  - Use una [puerta de enlace de Escritorio remoto](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) y permita la dirección IP estática del equilibrador de carga de la puerta de enlace.
   - [Dirija todo el tráfico de RDP entrante](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) a través de la conexión ExpressRoute/VPN de sitio a sitio. Esta funcionalidad es una consideración común cuando las empresas planean una implementación de DevTest Labs.
 - **Servicios de red (redes virtuales, subredes)** : La topología de [redes de Azure](../networking/networking-overview.md) es otro elemento clave en la arquitectura de DevTest Labs. Controla si los recursos del laboratorio pueden comunicarse y tener acceso a las instalaciones e Internet. Nuestro diagrama de arquitectura incluye las formas más comunes en que los clientes utilizan DevTest Labs: Todos los laboratorios se conectan a través del [emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md) mediante el uso de un [modelo tipo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) para la conexión ExpressRoute/VPN de sitio a sitio con el entorno local. Pero DevTest Labs usa directamente Azure Virtual Network, por lo que no hay restricciones sobre cómo configurar la infraestructura de red.
 - **DevTest Labs**:  DevTest Labs es una parte fundamental de la arquitectura global. Para obtener más información sobre el servicio, consulte [Acerca de Azure DevTest Labs](devtest-lab-overview.md).
@@ -50,7 +50,7 @@ Estos son los elementos clave de la arquitectura de referencia:
 ## <a name="scalability-considerations"></a>Consideraciones sobre escalabilidad
 Aunque DevTest Labs no tiene cuotas ni límites incorporados, otros recursos de Azure que se usan en el funcionamiento habitual de un laboratorio tienen [cuotas de nivel de suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md). Por lo tanto, en una implementación empresarial típica, necesita varias suscripciones de Azure para cubrir una gran implementación de DevTest Labs. Las cuotas que las empresas más comúnmente alcanzan son:
 
-- **Grupos de recursos**: En la configuración predeterminada, DevTest Labs crea un grupo de recursos para cada nueva máquina virtual, o el usuario crea un entorno con el servicio. Las suscripciones pueden contener [hasta 980 grupos de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). Por lo tanto, ese es el límite de las máquinas virtuales y los entornos en una suscripción. Hay dos otras configuraciones que se deben tener en cuenta:
+- **Grupos de recursos**: En la configuración predeterminada, DevTest Labs crea un grupo de recursos para cada nueva máquina virtual, o el usuario crea un entorno con el servicio. Las suscripciones pueden contener [hasta 980 grupos de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). Por lo tanto, ese es el límite de las máquinas virtuales y los entornos en una suscripción. Hay dos otras configuraciones que se deben tener en cuenta:
     - **[Todas las máquinas virtuales van al mismo grupo de recursos](resource-group-control.md)** : Aunque esta configuración le ayuda a cumplir el límite del grupo de recursos, incide en el límite de tipo de recurso por grupo de recursos.
     - **Uso de direcciones IP públicas compartidas**: Todas las máquinas virtuales del mismo tamaño y región van al mismo grupo de recursos. Esta configuración es un "punto medio" entre las cuotas del grupo de recursos y las cuotas del tipo de recurso por grupo de recursos, si se permite que las máquinas virtuales tengan direcciones IP públicas.
 - **Recursos por grupo de recursos por tipo de recurso**: El límite predeterminado de [recursos por grupo de recursos por tipo de recurso es 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Cuando utiliza la configuración que determina que *todas las máquinas virtuales van al mismo grupo de recursos*, los usuarios alcanzan este límite de suscripción mucho antes, especialmente si las máquinas virtuales tienen muchos discos adicionales.

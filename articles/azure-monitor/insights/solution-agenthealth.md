@@ -6,18 +6,18 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/19/2017
-ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/06/2020
+ms.openlocfilehash: 9a7cb80b5510ff0ac4a2491d896aded866180c19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402444"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062139"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solución Agent Health en Azure Monitor
 La solución Agent Health en Azure le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de Log Analytics en Azure Monitor o a un grupo de administración de System Center Operations Manager conectado a Azure Monitor, cuáles no responden y cuáles envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de implementar esta solución, confirme que tiene actualmente [agentes de Windows](../../log-analytics/log-analytics-windows-agent.md) compatibles que informan al área de trabajo de Log Analytics o a un [grupo de administración de Operations Manager](../../azure-monitor/platform/om-agents.md) integrado con el área de trabajo.
 
 ## <a name="solution-components"></a>Componentes de soluciones
@@ -79,7 +79,7 @@ Se crea un registro del tipo **Heartbeat**.  Estos registros tienen las propieda
 | `Version` | Versión del agente de Log Analytics o de Operations Manager.|
 | `SCAgentChannel` | El valor es *Direct* o *SCManagementServer*.|
 | `IsGatewayInstalled` | Si la puerta de enlace de Log Analytics está instalada, el valor es *true*; en caso contrario, es *false*.|
-| `ComputerIP` | Dirección IP del equipo.|
+| `ComputerIP` | Dirección IP pública del equipo. En máquinas virtuales de Azure, se mostrará la dirección IP pública si hay alguna disponible. En el caso de las máquinas virtuales que usan direcciones IP privadas, se mostrará la dirección SNAT de Azure (no la dirección IP privada). |
 | `RemoteIPCountry` | Ubicación geográfica donde el equipo está implementado.|
 | `ManagementGroupName` | Nombre del grupo de administración de Operations Manager.|
 | `SourceComputerId` | Identificador único del equipo.|

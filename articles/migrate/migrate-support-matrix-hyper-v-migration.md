@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación y migración de Hyper-V en Azure Migra
 description: Obtenga información sobre la compatibilidad con la evaluación y migración de Hyper-V en Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 4ca946597417ccde0e00c8bf09c70207bc4f85b9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031653"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064468"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -23,10 +23,10 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 
 | **Soporte técnico**                | **Detalles**               
 | :-------------------       | :------------------- |
-| **Implementación**       | El host de Hyper-V puede ser independiente o implementarse en un clúster. |
+| **Implementación**       | El host de Hyper-V puede ser independiente o implementarse en un clúster. <br/>Es necesario instalar el software de replicación de Azure Migrate (proveedor de replicación de Hyper-V) en los hosts de Hyper-V.|
 | **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. |
 | **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. |
-| **URL de acceso** | Los hosts de Hyper-V necesitan tener acceso a estas direcciones URL:<br/><br/> - login.microsoftonline.com: Control de acceso y administración de identidades mediante Active Directory.<br/><br/> - *.backup.windowsazure.com: Transferencia y coordinación de datos de replicación. Direcciones URL del servicio de migración.<br/><br/> - *.blob.core.windows.net: Cargar los datos en las cuentas de almacenamiento.<br/><br/> - dc.services.visualstudio.com: Cargue los registros de aplicaciones que se usan para la supervisión interna.<br/><br/> - time.windows.com | Verificación de la sincronización de la hora entre el sistema y la hora global.
+| **URL de acceso** | El software del proveedor de replicación en los hosts de Hyper-V necesitará tener acceso a estas direcciones URL:<br/><br/> - login.microsoftonline.com: Control de acceso y administración de identidades mediante Active Directory.<br/><br/> - *.backup.windowsazure.com: Transferencia y coordinación de datos de replicación. Direcciones URL del servicio de migración.<br/><br/> - *.blob.core.windows.net: Cargar los datos en las cuentas de almacenamiento.<br/><br/> - dc.services.visualstudio.com: Cargue los registros de aplicaciones que se usan para la supervisión interna.<br/><br/> - time.windows.com: Verificación de la sincronización de la hora entre el sistema y la hora global.
 | **Acceso a puertos** |  Conexiones salientes en el puerto HTTPS 443 para enviar datos de replicación de VM.
 
 ## <a name="hyper-v-vms"></a>Máquinas virtuales de Hyper-V
@@ -34,8 +34,6 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | **Soporte técnico**                  | **Detalles**               
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
-| **Permisos**           | Necesita permisos de administrador en cada VM de Hyper-V que quiera evaluar. |
-| **Servicio de integración**       | Los [servicio de integración de Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) deben ejecutarse en las VM que evalúe, con el fin de capturar la información del sistema operativo. |
 | **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Debe hacer los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
 | **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si/boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
 | **Arranque UEFI**                  | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS. La máquina virtual debe estar ejecutando Windows Server 2012 o una versión posterior. El disco del sistema operativo debe tener un máximo de cinco particiones y el tamaño del disco del sistema operativo debe ser inferior a 300 GB.
@@ -55,15 +53,13 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM de Azure
 
-Todas las máquinas virtuales locales que se replican en Azure deben cumplir los requisitos de máquina virtual de Azure que se resumen en esta tabla. Cuando Site Recovery ejecuta una comprobación de requisitos previos para la replicación, se producirá un error si no se cumplen algunos de los requisitos.
+Todas las máquinas virtuales locales que se replican en Azure deben cumplir los requisitos de máquina virtual de Azure que se resumen en esta tabla.
 
 **Componente** | **Requisitos** | **Detalles**
 --- | --- | ---
-Sistema operativo invitado | Comprueba los sistemas operativos de máquinas virtuales de VMware compatibles con la migración.<br/> Puede migrar cualquier carga de trabajo que se ejecute en un sistema operativo compatible. | Se produce un error en la comprobación si no es compatible.
-Arquitectura del sistema operativo invitado | 64 bits | Se produce un error en la comprobación si no es compatible.
 Tamaño del disco del sistema operativo | Hasta 2048 GB | Se produce un error en la comprobación si no es compatible.
 Número de discos del sistema operativo | 1 | Se produce un error en la comprobación si no es compatible.
-Número de discos de datos | 64 o menos | Se produce un error en la comprobación si no es compatible.
+Número de discos de datos | 16 o menos. | Se produce un error en la comprobación si no es compatible.
 Tamaño del disco de datos | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible.
 Adaptadores de red | Se admiten varios adaptadores. |
 VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible.

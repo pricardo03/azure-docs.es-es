@@ -1,18 +1,18 @@
 ---
 title: Problemas de latido de Apache Ambari en Azure HDInsight
 description: Revisión de varias causas para los problemas de latido de Apache Ambari en Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 09/11/2019
-ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 02/06/2020
+ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964624"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057080"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemas de latido de Apache Ambari en Azure HDInsight
 
@@ -22,7 +22,7 @@ En este artículo se describen los pasos de solución de problemas y las posible
 
 ### <a name="issue"></a>Problema
 
-El agente de Ambari tiene un uso elevado de CPU. Como resultado, se generan alertas de la interfaz de usuario de Ambari informando que se perdió el latido del agente de Ambari para algunos nodos. La alerta de pérdida de latido suele ser transitoria. 
+El agente de Ambari tiene un uso elevado de CPU. Como resultado, se generan alertas de la interfaz de usuario de Ambari informando que se perdió el latido del agente de Ambari para algunos nodos. La alerta de pérdida de latido suele ser transitoria.
 
 ### <a name="cause"></a>Causa
 
@@ -61,7 +61,7 @@ Debido a varios errores de ambari-agent, en raras ocasiones, ambari-agent puede 
 
 ### <a name="issue"></a>Problema
 
-El agente de Ambari no se ha iniciado. Como resultado, se generan alertas de la interfaz de usuario de Ambari informando que se perdió el latido del agente de Ambari para algunos nodos.
+El agente de Ambari no se ha iniciado. Como resultado, se generan alertas de la interfaz de usuario de Ambari que informan de que se ha perdido el latido del agente de Ambari para algunos nodos.
 
 ### <a name="cause"></a>Causa
 
@@ -95,7 +95,7 @@ Los registros de OMS están causando un uso elevado de la CPU.
 
 ### <a name="resolution"></a>Solución
 
-* Deshabilite el registro de OMS mediante el módulo de PowerShell [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0). 
+* Deshabilite el registro de Azure Monitor mediante el cmdlet [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) de PowerShell.
 * Elimine el archivo de registro `mdsd.warn`.
 
 ---

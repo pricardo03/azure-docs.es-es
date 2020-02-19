@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806888"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158917"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso de puntos de conexión privados para Azure Storage (versión preliminar)
 
@@ -50,7 +50,7 @@ Al crear el punto de conexión privado, debe especificar la cuenta de almacenami
 > [!TIP]
 > Cree un punto de conexión privado independiente para la instancia secundaria del servicio de almacenamiento para mejorar el rendimiento de lectura en las cuentas de almacenamiento con redundancia geográfica con acceso de lectura.
 
-Para obtener disponibilidad de lectura en una [cuenta de almacenamiento con redundancia geográfica con acceso de lectura](storage-redundancy-grs.md#read-access-geo-redundant-storage), se necesitan puntos de conexión privados para las instancias principal y secundaria del servicio. No es preciso crear un punto de conexión privado para la instancia secundaria para la **conmutación por error**. El punto de conexión privado se conectará automáticamente a la nueva instancia principal después de la conmutación por error.
+Para obtener acceso de lectura a la región secundaria con una cuenta de almacenamiento configurada para el almacenamiento con redundancia geográfica se necesitan puntos de conexión privados para las instancias principal y secundaria del servicio. No es preciso crear un punto de conexión privado para la instancia secundaria para la **conmutación por error**. El punto de conexión privado se conectará automáticamente a la nueva instancia principal después de la conmutación por error. Para más información sobre las opciones de redundancia de almacenamiento, consulte [Redundancia de Azure Storage](storage-redundancy.md).
 
 #### <a name="resources"></a>Recursos
 
@@ -78,20 +78,20 @@ Cuando se resuelve la dirección URL del punto de conexión de almacenamiento de
 
 En el ejemplo anterior, los registros de recursos DNS de la cuenta de almacenamiento "StorageAccountA", cuando se resuelven desde fuera de la red virtual que hospeda el punto de conexión privado, serán:
 
-| NOMBRE                                                  | type  | Valor                                                 |
+| Nombre                                                  | Tipo  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<Punto de conexión público del servicio Storage\>                   |
-| \<Punto de conexión público del servicio Storage\>                   | Una     | \<Dirección IP pública del servicio Storage\>                 |
+| \<Punto de conexión público del servicio Storage\>                   | Un     | \<Dirección IP pública del servicio Storage\>                 |
 
 Como ya se ha mencionado, puede denegar o controlar el acceso de los clientes de fuera de la red virtual a través del punto de conexión público mediante el firewall de Storage.
 
 Los registros de recursos DNS de StorageAccountA, cuando los resuelve un cliente en la red virtual que hospeda el punto de conexión privado, serán:
 
-| NOMBRE                                                  | type  | Valor                                                 |
+| Nombre                                                  | Tipo  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | Una     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | Un     | 10.1.1.5                                              |
 
 Este enfoque permite el acceso a la cuenta de almacenamiento **mediante la misma cadena de conexión** para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 

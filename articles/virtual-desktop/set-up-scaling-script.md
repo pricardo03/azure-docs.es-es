@@ -1,138 +1,255 @@
 ---
-title: 'Escalado dinámico de hosts de sesión de Windows Virtual Desktop: Azure'
-description: Describe cómo configurar el script de escalado automático para los hosts de sesión de Windows Virtual Desktop.
+title: 'Escalado de hosts de sesión con Azure Automation: Azure'
+description: Escalado automático de hosts de sesión de Windows Virtual Desktop con Azure Automation
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c201df03bb156bac3f63d03cc4ca35215792f65c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451333"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061548"
 ---
-# <a name="scale-session-hosts-dynamically"></a>Escalado dinámico de host de sesiones
+# <a name="scale-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión con Azure Automation
 
-En muchas implementaciones de Windows Virtual Desktop, el costo de máquina virtual representa una parte considerable de los costos total de implementación de Windows Virtual Desktop. Para reducir dichos costos, es mejor apagar y desasignar máquinas de virtuales (VM) del host de sesión durante las horas de menos uso y, después, reinícielas durante las horas de máximo uso.
+Puede reducir el costo total de implementación de Windows Virtual Desktop mediante el escalado de las máquinas virtuales. Esto significa que se cierran y desasignan las máquinas virtuales del host de sesión durante las horas de menos uso y, posteriormente, se vuelven a activar y se reasignan durante las horas punta.
 
-Este artículo usa un script de escalado simple para escalar automáticamente las máquinas virtuales del host de sesión en su entorno de Windows Virtual Desktop. Para más información acerca del funcionamiento del script de escalado, consulte la sección [Funcionamiento del script de escalado](#how-the-scaling-script-works) sección.
+En este artículo, obtendrá información sobre la herramienta de escalado creada con Azure Automation y Azure Logic Apps que escalará automáticamente las máquinas virtuales del host de sesión en el entorno de Windows Virtual Desktop. Para más información sobre cómo usar la herramienta de escalado, consulte los [requisitos previos](#prerequisites).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="how-the-scaling-tool-works"></a>Funcionamiento de la herramienta de escalado
 
-El entorno en el que se ejecuta el script debe tener los siguientes elementos:
+La herramienta de escalado proporciona una opción de automatización de bajo costo para aquellos clientes que deseen optimizar los costos de las máquinas virtuales del host de sesión.
 
-- Un inquilino y una cuenta de Windows Virtual Desktop o una entidad de servicio con permisos para realizar consultas en dicho inquilino (como por ejemplo, Colaborador de RDS).
-- Máquinas virtuales del grupo de hosts de sesión configuradas y registradas en el servicio Windows Virtual Desktop.
-- Una máquina virtual adicional que ejecuta la tarea programada a través del Programador de tareas y tiene acceso de red a los hosts de sesión. Dicha máquina se denominará más adelante, en este mismo documento, como máquina virtual escaladora.
-- El [módulo de PowerShell de Microsoft Azure Resource Manager](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instalado en la máquina virtual en la que se ejecuta la tarea programada.
-- El [módulo de PowerShell de Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) instalado en la máquina virtual en la que se ejecuta la tarea programada.
+Puede usar la herramienta de escalado para:
+ 
+- Programar las máquinas virtuales para que se inicien y se detengan según el horario comercial de horas punta y horas de menos uso.
+- Escalar horizontalmente las máquinas virtuales basadas en el número de sesiones por núcleo de CPU.
+- Reducir horizontalmente las máquinas virtuales durante las horas de menos uso, lo que mantiene en ejecución el número mínimo de máquinas virtuales del host de sesión.
 
-## <a name="recommendations-and-limitations"></a>Limitaciones y recomendaciones
+Para funcionar, la herramienta de escalado utiliza una combinación de runbooks de PowerShell de Azure Automation, webhooks y Azure Logic Apps. Cuando se ejecuta la herramienta, Azure Logic Apps llama a un webhook para iniciar el runbook de Azure Automation. A continuación, el runbook crea un trabajo.
 
-Al ejecutar el script de escalado, tenga en cuenta lo siguiente:
+Durante el tiempo de uso en horas punta, el trabajo comprueba el número actual de sesiones y la capacidad de la máquina virtual del host de sesión que se está ejecutando para cada grupo de hosts. Usa esta información para calcular si las máquinas virtuales del host de sesión pueden admitir las sesiones existentes en función del parámetro *SessionThresholdPerCPU* definido en el archivo **createazurelogicapp.ps1**. Si las máquinas virtuales del host de sesión no admiten las sesiones existentes, el trabajo inicia máquinas virtuales del host de sesión adicionales en el grupo de hosts.
 
-- Este script de escalado solo puede controlar un grupo de hosts por cada instancia de la tarea programada que se ejecuta en dicho script.
-- Las tareas programadas que ejecutan scripts de escalado deben estar en una máquina virtual que esté siempre activa.
-- Cree una carpeta independiente para cada instancia del script de escalado y su configuración.
-- Dicho script no admite el inicio de sesión como administrador en Windows Virtual Desktop con cuentas de usuario de Azure AD que requieren la autenticación multifactor. Es aconsejable que use entidades de servicio para acceder al servicio Windows Virtual Desktop y a Azure. Siga [este tutorial](create-service-principal-role-powershell.md) para crear una entidad de servicio y una asignación de roles con PowerShell.
-- La garantía que se establece en el contrato de nivel de servicio solo se aplica a las máquinas virtuales de un conjunto de disponibilidad. La versión actual del documento describe un entorno en el que una sola máquina virtual realiza el escalado, que puede cumplir los requisitos de disponibilidad, o no cumplirlos.
+>[!NOTE]
+>*SessionThresholdPerCPU* no restringe el número de sesiones en la máquina virtual. Este parámetro solo determina cuándo es necesario iniciar nuevas máquinas virtuales para equilibrar la carga de las conexiones. Para restringir el número de sesiones, debe seguir las instrucciones de [Set-RdsHostPool](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/set-rdshostpool) para configurar el parámetro *MaxSessionLimit* en consecuencia.
 
-## <a name="deploy-the-scaling-script"></a>Implementación del script de escalado
+En las horas de menos uso, el trabajo determina qué máquinas virtuales de los hosts de sesión deben apagarse según el parámetro *MinimumNumberOfRDSH*. El trabajo establecerá las máquinas virtuales de los hosts de sesión en modo de purga para evitar que las nuevas sesiones se conecten a los hosts. Si establece el parámetro *LimitSecondsToForceLogOffUser* en un valor positivo distinto de cero, el script le enviará una notificación cada vez que los usuarios que tengan la sesión iniciada guarden su trabajo, esperará el tiempo predeterminado y, después, forzará a los usuarios a cerrar la sesión. Cuando se hayan cerrado todas las sesiones de usuario en la máquina virtual del host de sesión, el script apagará la máquina virtual.
 
-Los procedimientos siguientes le indicará cómo implementar el script de escalado.
+Si establece el parámetro *LimitSecondsToForceLogOffUser* en cero, el trabajo permitirá que el valor de configuración de la sesión de las directivas de grupo especificadas controle el cierre de las sesiones de los usuarios. Para ver estas directivas de grupo, vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Terminal Services** > **Terminal Server** > **Límites de tiempo de sesión**. Si hay sesiones activas en una máquina virtual del host de sesión, el trabajo dejará que se ejecute esa máquina. Si no hay sesiones activas, el trabajo apagará la máquina virtual del host de sesión.
 
-### <a name="prepare-your-environment-for-the-scaling-script"></a>Preparación del entorno para el script de escalado
+El trabajo se ejecuta periódicamente según un intervalo de periodicidad establecido. Puede cambiar este intervalo según el tamaño del entorno de Windows Virtual Desktop, pero recuerde que el inicio y el apagado de las máquinas virtuales pueden tardar algún tiempo, por lo que debe tener en cuenta el retraso. Se recomienda establecer el intervalo de periodicidad en 15 minutos.
 
-En primer lugar, prepare el entorno para el script de escalado:
+Sin embargo, la herramienta también tiene las siguientes limitaciones:
 
-1. Inicie sesión en la máquina virtual (máquina virtual de escalado) en la que se ejecutará la tarea programada con una cuenta administrativa de dominio.
-2. Cree una carpeta en la máquina virtual de escalado que contenga el script de escalado y su configuración (por ejemplo, **C:\\scaling-HostPool1**).
-3. Descargue los archivos **basicScale.ps1**, **Config.json**, y **Functions-PSStoredCredentials.ps1** y la carpeta **PowershellModules** del [repositorio de scripts de escalado](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) y cópielos en la carpeta que creó en el paso 2. Hay dos formas principales de obtener los archivos antes de copiarlos en la máquina virtual de escalado:
-    - Clone el repositorio de Git en el equipo local.
-    - Vea la versión **Sin formato** de cada archivo, copie y pegue el contenido de los archivos en un editor de texto y, después, guárdelos con el nombre y tipo de archivo correspondientes. 
+- Esta solución solo se aplica a las máquinas virtuales de host de sesión agrupadas.
+- Esta solución administra máquinas virtuales de cualquier región, pero solo se puede utilizar en la misma suscripción que la cuenta de Azure Automation y Azure Logic Apps.
 
-### <a name="create-securely-stored-credentials"></a>Creación de credenciales almacenadas de forma segura
+>[!NOTE]
+>La herramienta de escalado controla el modo de equilibrio de carga del grupo de hosts que se está escalando. Lo establece para equilibrar la amplitud de la primera carga tanto en las horas punta como en las horas de menos uso.
 
-A continuación, deberá crear las credenciales almacenadas de forma segura:
+## <a name="prerequisites"></a>Prerrequisitos
 
-1. Abra PowerShell ISE como administrador.
-2. Importe el módulo de PowerShell de RDS, para lo que debe ejecutar el siguiente cmdlet:
+Antes de empezar a configurar la herramienta de escalado, asegúrese de tener preparado lo siguiente:
 
-    ```powershell
-    Install-Module Microsoft.RdInfra.RdPowershell
-    ```
-    
-3. Abra el panel de edición y cargue el archivo **Function-PSStoredCredentials.ps1**. A continuación, ejecute el script entero (F5).
-4. Ejecute el siguiente cmdlet:
-    
-    ```powershell
-    Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
-    ```
-    
-    Por ejemplo, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
-5. Ejecute el cmdlet **New-StoredCredential -KeyPath \$KeyPath**. Cuando se le solicite, escriba las credenciales de Windows Virtual Desktop con permisos para consultar el grupo de hosts (el grupo de hosts se especifica en **config.json**).
-    - Si utiliza diferentes entidades de servicio o una cuenta estándar, ejecute el cmdlet **New-StoredCredential -KeyPath \$KeyPath** una vez por cada cuenta crear credenciales almacenadas locales.
-6. Ejecute **Get-StoredCredential -List** para confirmar que las credenciales se han creado correctamente.
+- Un [grupo de inquilinos y de hosts de Windows Virtual Desktop](create-host-pools-arm-template.md)
+- Máquinas virtuales del grupo de hosts de sesión configuradas y registradas en el servicio Windows Virtual Desktop
+- Un usuario con [acceso de colaborador](../role-based-access-control/role-assignments-portal.md) en la suscripción de Azure
 
-### <a name="configure-the-configjson-file"></a>Configuración del archivo config.json
+La máquina que se usa para implementar la herramienta debe tener: 
 
-Escriba los valores correspondientes en los campos siguientes para actualizar la configuración del script de escalado en config.json:
+- Windows PowerShell 5.1 o posterior
+- El módulo Microsoft Az PowerShell
 
-| Campo                     | Descripción                    |
-|-------------------------------|------------------------------------|
-| AADTenantId                   | Identificador de inquilino de Azure AD que asocia la suscripción donde se ejecutan las máquinas virtuales del host de sesión     |
-| AADApplicationId              | Id. de aplicación de la entidad de servicio                                                       |
-| AADServicePrincipalSecret     | Se puede especificar durante la fase de pruebas, pero se debe mantener vacío una vez que se creen las credenciales con **Functions-PSStoredCredentials.ps1**    |
-| currentAzureSubscriptionId    | El identificador de la suscripción de Azure en la que se ejecutan las máquinas virtuales de los hosts de sesión                        |
-| tenantName                    | Nombre del inquilino de Windows Virtual Desktop                                                    |
-| hostPoolName                  | Nombre de grupo de hosts de Windows Virtual Desktop                                                 |
-| RDBroker                      | Dirección URL del servicio WVD, el valor predeterminado es https:\//rdbroker.wvd.microsoft.com             |
-| Nombre de usuario                      | El identificador de la aplicación de la entidad de servicio (es posible que tenga la misma entidad de servicio de servicio que en AADApplicationId) o usuario estándar sin autenticación multifactor |
-| isServicePrincipal            | Los valores aceptados son **true** o **false**. Indica si el segundo conjunto de credenciales que se usa es una entidad de servicio o una cuenta estándar. |
-| BeginPeakTime                 | Cuando comienza el tiempo de uso máximo                                                            |
-| EndPeakTime                   | Cuando termina el tiempo de uso máximo                                                              |
-| TimeDifferenceInHours         | Diferencia horaria entre la hora local y la hora universal coordinada, en horas                                   |
-| SessionThresholdPerCPU        | Número máximo de sesiones por el umbral de CPU que se usa para determinar cuándo se debe iniciar una máquina virtual del host de sesión en las horas pico.  |
-| MinimumNumberOfRDSH           | Número mínimo de máquinas virtuales del grupo de hosts que se mantienen en ejecución durante el tiempo de menos uso             |
-| LimitSecondsToForceLogOffUser | Número de segundos que se espera antes de obligar a los usuarios a cerrar la sesión. Si se establece en 0, no se obliga a los usuarios a cerrar sesión.  |
-| LogOffMessageTitle            | Título del mensaje enviado a los usuarios antes de que se les obligue a cerrar sesión                  |
-| LogOffMessageBody             | Cuerpo del mensaje de advertencia que se envía a los usuarios antes de que se cierre la sesión. Por ejemplo, "Este equipo se apagará en X minutos. Guarde el trabajo y cierre la sesión." |
+Si tiene todo preparado, vamos a empezar.
 
-### <a name="configure-the-task-scheduler"></a>Configuración del Programador de tareas
+## <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
 
-Después de configurar el archivo JSON de configuración, tendrá que configurar el Programador de tareas para ejecutar el archivo basicScaler.ps1 a intervalos regulares.
+En primer lugar, necesitará una cuenta de Azure Automation para ejecutar el runbook de PowerShell. Aquí se muestra cómo configurar la cuenta:
 
-1. Inicie el **Programador de tareas**.
-2. En la ventana del **Programador de tareas** ventana, seleccione **Crear tarea...**
-3. En el cuadro de diálogo **Crear tarea**, seleccione la pestaña **General**, escriba un **nombre** (por ejemplo, "RDSH dinámica"), seleccione **Ejecutar tanto si el usuario inició sesión como si no**  y **Ejecutar con los privilegios más elevados** .
-4. Vaya a la pestaña **Desencadenadores** y seleccione **Nuevo...**
-5. En el cuadro de diálogo **Nuevo desencadenador**, en **Configuración avanzada**, active **Repetir cada** y seleccione el período y la duración adecuados (por ejemplo, **15 minutos** o **indefinidamente**).
-6. Seleccione la pestaña **Acciones** y **Nuevo…**
-7. En el cuadro de diálogo **Nueva acción**, escriba **powershell.exe** en el campo **Programa o script** y, después, escriba **C:\\scaling\\basicScale.ps1** en el campo **Agregar argumentos (opcional)** .
-8. Vaya a las pestañas **Condiciones** y **Configuración**, y seleccione **Aceptar** para aceptar la configuración predeterminada en cada uno.
-9. Escriba la contraseña de la cuenta administrativa en la que planea ejecutar el script de escalado.
+1. Abra Windows PowerShell como administrador.
+2. Ejecute el siguiente cmdlet para iniciar sesión en la cuenta de Azure.
 
-## <a name="how-the-scaling-script-works"></a>Funcionamiento del script de escalado
+     ```powershell
+     Login-AzAccount
+     ```
 
-Este script de escalado lee la configuración de un archivo config.json, lo que incluye el inicio y el final del período de uso máximo durante el día.
+     >[!NOTE]
+     >La cuenta debe tener derechos de colaborador en la suscripción de Azure en la que desea implementar la herramienta de escalado.
 
-Durante el tiempo de uso máximo, el script comprueba el número actual de sesiones y la capacidad del RDSH que se ejecuta en la actualidad para cada grupo de hosts. Calcula si las máquinas virtuales del host de sesión que se ejecuta tienen capacidad suficiente para admitir las sesiones existentes en función del parámetro SessionThresholdPerCPU definido en el archivo config.json. Si no, el script inicia más máquinas virtuales de los hosts de sesión en el grupo de hosts.
+3. Ejecute el siguiente cmdlet para descargar el script para crear la cuenta de Azure Automation:
 
-Durante el tiempo de uso mínimo, el script determina qué máquinas virtuales de los hosts de sesión deben apagarse en función del parámetro MinimumNumberOfRDSH del archivo config.json. El script establecerá las máquinas virtuales de los hosts de sesión en modo de purga para evitar que las nuevas sesiones se conecten a los hosts. Si establece el parámetro **LimitSecondsToForceLogOffUser** del archivo config.json en un valor positivo distinto de cero, el script le enviará una notificación cada vez que los usuarios que tengan la sesión iniciada guarden su trabajo, esperará el tiempo predeterminado y, después, forzará a los usuarios a cerrar la sesión. Una vez que se han cerrado todas las sesiones de usuario en una máquina virtual del host de sesión, el script apagará el servidor.
+     ```powershell
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
+     ```
 
-Si establece el parámetro **LimitSecondsToForceLogOffUser** del archivo config.xml en cero, el script permitirá que el valor de configuración de la sesión de las propiedades del grupo de hosts controle el cierre de las sesiones de los usuarios. Si hay sesiones en una máquina virtual del host de sesión, dejará que se ejecute dicha máquina. Si no hay sesiones, el script apagará la máquina virtual del host de sesión.
+4. Ejecute el siguiente cmdlet para ejecutar el script y crear la cuenta de Azure Automation:
 
-El script está diseñado para ejecutarse periódicamente en el servidor de la máquina virtual de escalado mediante el Programador de tareas. Seleccione el intervalo adecuado en función del tamaño del entorno de Servicios de Escritorio remoto y recuerde que iniciar y apagar las máquinas virtuales pueden tardar cierto tiempo. Se recomienda ejecutar el script de escalado cada 15 minutos.
+     ```powershell
+     .\createazureautomationaccount.ps1 -SubscriptionID <azuresubscriptionid> -ResourceGroupName <resourcegroupname> -AutomationAccountName <name of automation account> -Location "Azure region for deployment"
+     ```
 
-## <a name="log-files"></a>Archivos de registro
+5. La salida del cmdlet incluirá un URI de webhook. Asegúrese de mantener un registro del URI porque lo usará como parámetro cuando configure la programación de ejecución para Azure Logic Apps.
 
-El script de escalado crea dos archivos de registro, **WVDTenantScale.log** y **WVDTenantUsage.log**. El primero, **WVDTenantScale.log**, registrará los eventos y errores (si hay) que se produzcan en cada ejecución del script de escalado.
+Después de configurar la cuenta de Azure Automation, inicie sesión en la suscripción de Azure y asegúrese de que la cuenta de Azure Automation y el runbook correspondiente han aparecido en el grupo de recursos especificado, tal como se muestra en la siguiente imagen:
 
-El archivo **WVDTenantUsage.log** registrará el número activo de núcleos y el número activo de máquinas virtuales cada vez que ejecute el script de escalado. Esta información se puede usar para calcular tanto el uso real de las máquinas virtuales de Microsoft Azure como su costo. El archivo tiene el formato de valores separados por comas y cada elemento contiene la información siguiente:
+![Una imagen de la página de información general de Azure que muestra la cuenta de Automation y el runbook creados recientemente.](media/automation-account.png)
 
->hora, grupo de hosts, núcleos, máquinas virtuales
+Para comprobar si el webhook está donde debe estar, vaya a la lista de recursos en el lado izquierdo de la pantalla y seleccione **Webhook**.
 
-El nombre de archivo también puede modificarse para que tenga la extensión .csv y se puede cargar en Microsoft Excel para analizarlo.
+## <a name="create-an-azure-automation-run-as-account"></a>Creación de una cuenta de ejecución de Azure Automation
+
+Ahora que tiene una cuenta de Azure Automation, también deberá crear una cuenta de ejecución de Azure Automation para acceder a los recursos de Azure.
+
+La [cuenta de ejecución en Azure Automation](../automation/manage-runas-account.md) se usa para proporcionar autenticación con objeto de administrar los recursos de Azure con los cmdlets de Azure. Al crear una cuenta de ejecución, se crea un nuevo usuario de entidad de servicio en Azure Active Directory y se asigna el rol de colaborador al usuario de la entidad de servicio en el nivel de suscripción; la cuenta de ejecución de Azure es una excelente manera de autenticarse de forma segura con certificados y un nombre de entidad de seguridad de servicio sin necesidad de almacenar un nombre de usuario y una contraseña en un objeto de credenciales. Para más información acerca de la autenticación de la cuenta de ejecución, consulte [Limitación de los permisos de las cuentas de ejecución](../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+
+Cualquier usuario que sea miembro del rol de administradores de suscripciones y coadministrador de la suscripción puede crear una cuenta de ejecución siguiendo las instrucciones de la sección siguiente.
+
+Para crear una cuenta de ejecución en la cuenta de Azure:
+
+1. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba y seleccione **Cuentas de Automation**.
+
+2. En la página **Cuentas de Automation**, seleccione su cuenta.
+
+3. En el panel de la izquierda de la ventana, seleccione **Cuentas de ejecución** en la sección Configuración de la cuenta.
+
+4. Seleccione **Cuenta de ejecución de Azure**. Cuando se muestre el panel **Agregar cuenta de ejecución de Azure**, revise la información general y, después, seleccione **Crear** para iniciar el proceso de creación de la cuenta.
+
+5. Espere unos minutos para que Azure cree la cuenta de ejecución. Puede realizar el seguimiento del progreso de la creación en el menú en Notificaciones.
+
+6. Cuando el proceso finaliza, crea un recurso denominado AzureRunAsConnection en la cuenta de Automation especificada. El recurso de conexión contiene el identificador de la aplicación, el identificador del inquilino, el identificador de la suscripción y la huella digital del certificado. Recuerde el identificador de la aplicación, porque lo necesitará más adelante.
+
+### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Creación de una asignación de roles en Windows Virtual Desktop
+
+A continuación, debe crear una asignación de roles para que AzureRunAsConnection pueda interactuar con Windows Virtual Desktop. Asegúrese de usar PowerShell para iniciar sesión con una cuenta que tenga permisos para crear la asignación de roles.
+
+En primer lugar y, si aún no lo ha hecho, descargue e importe el [módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell. Ejecute los siguientes cmdlets de PowerShell para conectarse a Windows Virtual Desktop y mostrar los inquilinos.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+
+Get-RdsTenant
+```
+
+Cuando encuentre el inquilino con los grupos de hosts que desea escalar, siga las instrucciones de [Escalado dinámico de host de sesiones](#create-an-azure-automation-account) y use el nombre del inquilino que recibió del cmdlet anterior en el siguiente cmdlet para crear la asignación de roles:
+
+```powershell
+New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
+```
+
+## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Creación de la aplicación lógica de Azure y la programación de ejecución
+
+Por último, deberá crear la aplicación lógica de Azure y configurar una programación de ejecución para la nueva herramienta de escalado.
+
+1.  Abra Windows PowerShell como administrador.
+
+2.  Ejecute el siguiente cmdlet para iniciar sesión en la cuenta de Azure.
+
+     ```powershell
+     Login-AzAccount
+     ```
+
+3. Ejecute el siguiente cmdlet para descargar el archivo de script createazurelogicapp.ps1 en la máquina local.
+
+     ```powershell
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
+     ```
+
+4. Ejecute el siguiente cmdlet para iniciar sesión en Windows Virtual Desktop con una cuenta que tenga permisos de propietario de RDS o de colaborador de RDS.
+
+     ```powershell
+     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+     ```
+
+5. Ejecute el siguiente script de PowerShell para crear la aplicación lógica de Azure y la programación de ejecución.
+
+     ```powershell
+     $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group for the new Azure Logic App"
+     
+     $aadTenantId = Read-Host -Prompt "Enter your Azure AD tenant ID"
+
+     $subscriptionId = Read-Host -Prompt "Enter your Azure Subscription ID"
+
+     $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
+
+     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you’d like to scale"
+
+     $recurrenceInterval = Read-Host -Prompt "Enter how often you’d like the job to run in minutes, e.g. ‘15’"
+
+     $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
+
+     $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
+
+     $timeDifference = Read-Host -Prompt "Enter the time difference between local time and UTC in hours, e.g. +5:30"
+
+     $sessionThresholdPerCPU = Read-Host -Prompt "Enter the maximum number of sessions per CPU that will be used as a threshold to determine when new session host VMs need to be started during peak hours"
+
+     $minimumNumberOfRdsh = Read-Host -Prompt "Enter the minimum number of session host VMs to keep running during off-peak hours"
+
+     $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
+
+     $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
+
+     $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
+
+     $location = Read-Host -Prompt "Enter the name of the Azure region where you will be creating the logic app"
+
+     $connectionAssetName = Read-Host -Prompt "Enter the name of the Azure RunAs connection asset"
+
+     $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
+
+     $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
+
+     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
+
+     .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
+       -AADTenantID $aadTenantId `
+       -SubscriptionID $subscriptionId `
+       -TenantName $tenantName `
+       -HostPoolName $hostPoolName `
+       -RecurrenceInterval $recurrenceInterval `
+       -BeginPeakTime $beginPeakTime `
+       -EndPeakTime $endPeakTime `
+       -TimeDifference $timeDifference `
+       -SessionThresholdPerCPU $sessionThresholdPerCPU `
+       -MinimumNumberOfRDSH $minimumNumberOfRdsh `
+       -LimitSecondsToForceLogOffUser $limitSecondsToForceLogOffUser `
+       -LogOffMessageTitle $logOffMessageTitle `
+       -LogOffMessageBody $logOffMessageBody `
+       -Location $location `
+       -ConnectionAssetName $connectionAssetName `
+       -WebHookURI $webHookURI `
+       -AutomationAccountName $automationAccountName `
+       -MaintenanceTagName $maintenanceTagName
+     ```
+
+     Después de ejecutar el script, la aplicación lógica debe aparecer en un grupo de recursos, como se muestra en la siguiente imagen.
+
+     ![Imagen de la página de información general para ver una aplicación lógica de Azure de ejemplo.](media/logic-app.png)
+
+Para realizar cambios en la programación de ejecución, como cambiar el intervalo de periodicidad o la zona horaria, vaya al programador de escalabilidad automática y seleccione **Editar** para ir al diseñador de aplicaciones lógicas.
+
+![Una imagen del diseñador de aplicaciones lógicas. Los menús Periodicidad y Webhook que permiten al usuario editar los tiempos de periodicidad y el archivo de webhook están abiertos.](media/logic-apps-designer.png)
+
+## <a name="manage-your-scaling-tool"></a>Administración de la herramienta de escalado
+
+Ahora que ha creado la herramienta de escalado, puede acceder a su salida. En esta sección se describen algunas características que pueden resultarle útiles.
+
+### <a name="view-job-status"></a>Ver estado del trabajo
+
+Puede ver un resumen del estado de todos los trabajos del runbook o profundizar en el estado de un trabajo de runbook específico en Azure Portal.
+
+A la derecha de la cuenta de Automation seleccionada, en "Estadísticas del trabajo" puede ver una lista de los resúmenes de todos los trabajos de runbook. Al abrir la página **Trabajos** en el lado izquierdo de la ventana, se muestran los estados de trabajo actuales, las horas de inicio y las horas de finalización.
+
+![Captura de pantalla de la página de estado del trabajo.](media/jobs-status.png)
+
+### <a name="view-logs-and-scaling-tool-output"></a>Visualización de registros y salida de la herramienta de escalado
+
+Para ver los registros de las operaciones de escalabilidad y reducción horizontales, abra el runbook y seleccione el nombre de su trabajo.
+
+Vaya al runbook (el nombre predeterminado es WVDAutoScaleRunbook) en el grupo de recursos que hospeda la cuenta de Azure Automation y seleccione **Información general**. En la página Información general, seleccione un trabajo en Trabajos recientes para ver la salida de la herramienta de escalado, tal como se muestra en la siguiente imagen.
+
+![Imagen de la ventana de salida de la herramienta de escalado.](media/tool-output.png)

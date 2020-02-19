@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 74ede523c9747de4746fe1854bd1e352eba2f7e3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751004"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148902"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de datos de Azure Monitor
 
@@ -38,7 +38,7 @@ Las [métricas](data-platform-metrics.md) son valores numéricos que describen a
 
 Las métricas en Azure Monitor se almacenan en una base de datos de serie temporal que está optimizada para el análisis de los datos con marca de tiempo. Esta situación hace que las métricas sean especialmente adecuadas para la alerta y la detección rápida de problemas. Pueden indicar cómo funciona el sistema, pero normalmente deben combinarse con registros para identificar la causa raíz de los problemas.
 
-Existen métricas para análisis interactivos en Azure Portal con el [Explorador de métricas](../app/metrics-explorer.md). Se pueden agregar a un [panel de Azure](../learn/tutorial-app-dashboards.md) para su visualización en combinación con otros datos y usarse para la [alerta](alerts-metric.md) en tiempo real.
+Hay métricas disponibles para análisis interactivos en Azure Portal con el [Explorador de métricas](../platform/metrics-getting-started.md). Se pueden agregar a un [panel de Azure](../learn/tutorial-app-dashboards.md) para su visualización en combinación con otros datos y usarse para la [alerta](alerts-metric.md) en tiempo real.
 
 Conozca más sobre las métricas de Azure Monitor, incluidos sus orígenes de datos en [Métricas en Azure Monitor](data-platform-metrics.md).
 

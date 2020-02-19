@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58070cab1221b9d9585784d82cf1a48afcedb8af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ce7f3eafa57cbd993be98f4a2da3d89cb312f9b7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802842"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190691"
 ---
 # <a name="security-controls-for-azure-sql-database"></a>Controles de seguridad para Azure SQL Database
 
@@ -27,7 +27,7 @@ SQL Database incluye una [base de datos única](sql-database-single-index.yml) y
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con el punto de conexión de servicio| Sí | Se aplica solo a las [bases de datos únicas](sql-database-single-index.yml). |
+| Compatibilidad con punto de conexión de servicio| Sí | Se aplica solo a las [bases de datos únicas](sql-database-single-index.yml). |
 | Compatibilidad con la inserción de Azure Virtual Network| Sí | Se aplica solo a las [instancias administradas](sql-database-managed-instance.md). |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | Firewall en el nivel de base de datos y de servidor. El aislamiento de red es solo para [instancias administradas](sql-database-managed-instance.md). |
 | Compatibilidad con la tunelización forzada| Sí | [Instancia administrada](sql-database-managed-instance.md) mediante VPN de [ExpressRoute](../expressroute/index.yml). |
@@ -47,7 +47,7 @@ SQL Database incluye una [base de datos única](sql-database-single-index.yml) y
 | Authentication| Sí | Azure Active Directory (Azure AD) |
 | Authorization| Sí | None |
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
@@ -55,13 +55,13 @@ SQL Database incluye una [base de datos única](sql-database-single-index.yml) y
 | Cifrado en tránsito:<ul><li>Cifrado de Azure ExpressRoute</li><li>Cifrado en una red virtual</li><li>Cifrado entre redes virtuales</ul>| Sí | Se usa HTTPS. |
 | Control de claves de cifrado, como CMK o BYOK| Sí | Se ofrece control de claves tanto administradas por el servicio como por el cliente. Este último se ofrece mediante [Azure Key Vault](../key-vault/index.yml). |
 | Cifrado de nivel de columna proporcionado por Azure Data Services| Sí | Mediante [Always Encrypted](sql-database-always-encrypted.md). |
-| Llamadas a API cifradas| Sí | Con HTTPS/SSL. |
+| Llamadas a API cifradas| Sí | Se usa HTTPS/TLS. |
 
 ## <a name="configuration-management"></a>Administración de configuración
 
 | Control de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la administración de configuración, como el control de versiones de configuración| Sin  | None |
+| Compatibilidad con la administración de configuración, como el control de versiones de configuración| No  | None |
 
 ## <a name="additional-security-controls-for-sql-database"></a>Controles de seguridad adicionales para SQL Database
 

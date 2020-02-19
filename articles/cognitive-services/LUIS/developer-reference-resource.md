@@ -1,25 +1,18 @@
 ---
 title: 'Recursos para desarrolladores: Language Understanding'
-titleSuffix: Azure Cognitive Services
-description: Los desarrolladores tienen SDK y API REST para Language Understanding.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/22/2020
-ms.author: diberry
-ms.openlocfilehash: 2f351ac570080c83e78697bbca94340bb96cbcf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+description: Los SDK, las API REST o la CLI le ayudan a desarrollar aplicaciones de Language Understanding (LUIS) en su lenguaje de programación. Administre los recursos de Azure y predicciones de LUIS.
+ms.topic: reference
+ms.date: 02/11/2020
+ms.openlocfilehash: fda4301a0851e6a36cbb6493dcf48293b2c5db37
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716137"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152693"
 ---
-# <a name="developer-resources-for-language-understanding"></a>Recursos de desarrolladores para Language Understanding
+# <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desarrolladores de SDK, REST y CLI para Language Understanding (LUIS)
 
-Los desarrolladores pueden usar SDK y API REST para Language Understanding.
+Los SDK, las API REST o la CLI le ayudan a desarrollar aplicaciones de Language Understanding (LUIS) en su lenguaje de programación. Administre los recursos de Azure y predicciones de LUIS.
 
 ## <a name="azure-resource-management"></a>Administración de recursos de Azure
 
@@ -31,11 +24,21 @@ Encuentre la documentación de referencia basada en la herramienta:
 
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
+
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Solicitudes de creación y predicción de Language Understanding
 
-Al servicio Language Understanding se accede desde un recurso de Azure que tiene que crear. Hay dos recursos: recursos de punto de conexión de predicción y de creación. Ambos recursos le permiten controlar los recursos de LUIS.
+Al servicio Language Understanding se accede desde un recurso de Azure que tiene que crear. Hay dos recursos:
+
+* Use el recurso de **creación** para entrenar para la creación, edición, entrenamiento y publicación.
+* Use el recurso de **predicción** para que entorno de ejecución envíe el texto del usuario y reciba una predicción.
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+Use el [código de ejemplo de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-quickstart-code) para aprender y usar las tareas más comunes.
+
+### <a name="rest-specifications"></a>Especificaciones de REST
+
+Las [especificaciones de REST de LUIS](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/cognitiveservices/data-plane/LUIS), junto con todas las [especificaciones de REST de Azure](https://github.com/Azure/azure-rest-api-specs), están disponibles públicamente en GitHub.
 
 ### <a name="rest-apis"></a>API de REST
 
@@ -45,6 +48,29 @@ Las API de punto de conexión de predicción y de creación están disponibles e
 |--|--|
 |Creación|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[versión preliminar V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |Predicción|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
+
+### <a name="rest-endpoints"></a>Puntos de conexión REST
+
+LUIS actualmente tiene dos tipos de puntos de conexión:
+
+* creación en el punto de conexión de entrenamiento
+* predicción de consultas en el punto de conexión en tiempo de ejecución
+
+|Propósito|URL|
+|--|--|
+|Creación en el punto de conexión de entrenamiento|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|Versión v2 del entorno de ejecución: todas las predicciones en el punto de conexión en tiempo de ejecución|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+|Versión v3 del entorno de ejecución: la predicción de las versiones en el punto de conexión en tiempo de ejecución|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|Versión v3 del entorno de ejecución: predicciones de espacios en el punto de conexión en tiempo de ejecución|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+
+En la tabla siguiente se explican los parámetros que se muestran entre llaves `{}` en la tabla anterior.
+
+|Parámetro|Propósito|
+|--|--|
+|`your-resource-name`|Nombre de recurso de Azure|
+|`q` o `query`|Texto de expresión enviado desde la aplicación cliente, como un bot de chat|
+|`version`|Nombre de la versión de 10 caracteres|
+|`slot`| `production` o `staging`|
 
 ### <a name="language-based-sdks"></a>SDK basados en lenguaje
 
@@ -77,8 +103,8 @@ Bot Framework proporciona [varias herramientas](https://github.com/microsoft/bot
 * [CLI de LUIS](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS): cree y administre las aplicaciones LUIS.ai.
 * [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch): administre aplicaciones principales y secundarias
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen): genere automáticamente clases C#/Typescript de respaldo para sus intenciones y entidades de LUIS.
-* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases): una aplicación de escritorio que permite que los desarrolladores de bots prueben y depuren los bots mediante el SDK de Bot Framework
-
+* [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases): una aplicación de escritorio que permite que los desarrolladores de bots prueben y depuren los bots mediante el SDK de Bot Framework
+* [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md): es una herramienta de desarrollo integrado para desarrolladores y equipos multidisciplinares que permite crear bots y experiencias de conversación con Microsoft Bot Framework.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

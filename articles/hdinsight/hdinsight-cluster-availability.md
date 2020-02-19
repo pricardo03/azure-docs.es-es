@@ -1,20 +1,19 @@
 ---
 title: 'Supervisión: registros de Apache Ambari y Azure Monitor: Azure HDInsight'
 description: Aprenda a usar los registros de Ambari y Azure Monitor para supervisar la disponibilidad y estado del clúster.
-keywords: monitoring, supervisión, ambari, monitor, supervisar, log analytics, alert, alerta, availability, disponibilidad, health, mantenimiento
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/25/2019
-ms.openlocfilehash: a21610fefcfe1632dffbfd8e055497476f7e59c1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 02/06/2020
+ms.openlocfilehash: 383366fa3e436c79bed28a7c47f1e9daa5f0d9de
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687827"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060188"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Supervisión de la disponibilidad del clúster con los registros de Apache Ambari y Azure Monitor
 
@@ -24,7 +23,7 @@ En este documento se muestra cómo usar estas herramientas para supervisar el cl
 
 ## <a name="ambari"></a>Ambari
 
-### <a name="dashboard"></a>panel
+### <a name="dashboard"></a>Panel
 
 Para acceder al panel de Ambari, seleccione el vínculo **Inicio de Ambari** de la sección **Paneles de clúster** de la hoja de información general de HDInsight en Azure Portal, tal como se muestra a continuación. También puede acceder a él yendo a `https://CLUSTERNAME.azurehdinsight.net` en un explorador en el que CLUSTERNAME es el nombre del clúster.
 
@@ -58,7 +57,7 @@ Para ver una lista de definiciones de alertas y sus estados, seleccione la pesta
 
 Ambari ofrece muchas alertas predefinidas relacionadas con la disponibilidad, entre las que se incluyen las siguientes:
 
-| Nombre de la alerta                        | DESCRIPCIÓN   |
+| Nombre de la alerta                        | Descripción   |
 |---|---|
 | Resumen de estado de DataNode           | Esta alerta de nivel de servicio se desencadena si hay elementos DataNodes en mal estado.|
 | Estado de disponibilidad alta de NameNode | Esta alerta de nivel de servicio se desencadena si el elemento NameNode activo o NameNode en espera no está en ejecución.|
@@ -96,9 +95,9 @@ Como requisito previo, necesitará un área de trabajo de Log Analytics para alm
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Habilitar la integración de registros de Azure Monitor de HDInsight
 
-En la página de recursos del clúster de HDInsight en el portal, seleccione **Operations Management Suite**. Luego, seleccione **Habilitar** y seleccione el área de trabajo de Log Analytics de la lista desplegable.
+En la página de recursos del clúster de HDInsight, en el portal, seleccione **Azure Monitor**. Luego, seleccione **Habilitar** y seleccione el área de trabajo de Log Analytics de la lista desplegable.
 
-![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
+![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/azure-portal-monitoring.png)
 
 ### <a name="query-metrics-and-logs-tables"></a>Consultar tablas de métricas y registros
 
@@ -108,7 +107,7 @@ Cuando se haya habilitado la integración de registros de Azure Monitor (esto pu
 
 La hoja Registros muestra un número de consultas de ejemplo, como:
 
-| Nombre de la consulta                      | DESCRIPCIÓN                                                               |
+| Nombre de la consulta                      | Descripción                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Disponibilidad de los equipos hoy en día    | Crear un gráfico del número de equipos que envían registros, cada hora                     |
 | Enumerar latidos                 | Lista de todos los latidos del equipo de la última hora                           |

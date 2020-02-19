@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933332"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167327"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Desencadenador de preparación de Azure Functions
 
@@ -38,7 +38,7 @@ Tenga en cuenta que solo se llama al desencadenador de preparación durante las 
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función C# ](functions-dotnet-class-library.md) que se ejecutará en cada nueva instancia cuando se agregue a la aplicación. No se requiere un atributo de valor devuelto.
 
@@ -73,7 +73,7 @@ namespace WarmupSample
     }
 }
 ```
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 
 En el ejemplo siguiente se muestra un desencadenador de preparación en un archivo *function.json* y una [función de script C#](functions-reference-csharp.md) que se ejecutará en cada nueva instancia cuando se agregue a la aplicación.
@@ -105,7 +105,7 @@ public static void Run(ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un desencadenador de preparación en un archivo *function.json* y una [función JavaScript](functions-reference-node.md) que se ejecutará en cada nueva instancia cuando se agregue a la aplicación.
 
@@ -136,7 +136,7 @@ module.exports = async function (context, warmupContext) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra un desencadenador de preparación en un archivo *function.json* y una [función Python](functions-reference-python.md) que se ejecutará en cada nueva instancia cuando se agregue a la aplicación.
 
@@ -169,27 +169,11 @@ def main(warmupContext: func.Context) -> None:
     logging.info('Function App instance is warm 🌞🌞🌞')
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-En el ejemplo siguiente se muestra un desencadenador de preparación en un archivo *function.json* y una [función Java](functions-reference-java.md) que se ejecutará en cada nueva instancia cuando se agregue a la aplicación.
+En el ejemplo siguiente, se muestra un desencadenador de calentamiento que se ejecuta cada vez que se agrega una nueva instancia a la aplicación.
 
-La función debe denominarse ```warmup``` (sin distinguir entre mayúsculas y minúsculas) y solo puede haber una función de preparación por aplicación.
-
-Este es el archivo *function.json*:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "warmupTrigger",
-            "direction": "in",
-            "name": "warmupContext"
-        }
-    ]
-}
-```
-
-Este es el código de Java:
+La función debe denominarse `warmup` (sin distinguir entre mayúsculas y minúsculas) y solo puede haber una función de preparación por aplicación.
 
 ```java
 @FunctionName("Warmup")
@@ -204,7 +188,7 @@ public void run( ExecutionContext context) {
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), está disponible el atributo `WarmupTrigger` para configurar la función.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En este ejemplo se muestra cómo usar el atributo [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs).
 
@@ -221,19 +205,19 @@ Tenga en cuenta que la función debe denominarse ```Warmup``` y solo puede haber
 
 Para obtener un ejemplo completo, vea el [ejemplo del desencadenador](#trigger---example).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 El desencadenador de preparación no se admite en Java como atributo.
 

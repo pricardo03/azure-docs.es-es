@@ -11,20 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumi
-ms.openlocfilehash: 86726eefb53638036a4e9207c648bf5ffe6c866e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1aa4328a6d5367ef356ce33807289a873c93d90f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595380"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056706"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Directivas de punto de conexión de servicio de red virtual (versión preliminar)
 
 Las directivas de punto de conexión de servicio de la red virtual le permiten filtrar el tráfico de red virtual a los servicios de Azure, lo que permite únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio. Las directivas de punto de conexión ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure.
 
-Esta característica está disponible en __versión preliminar__ para los siguientes servicios y regiones de Azure:
-
-__Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
+Esta característica está disponible en __versión preliminar__ en todas las regiones públicas de Azure para Azure Storage.
 
 Para las notificaciones más actualizadas para la versión preliminar, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -182,7 +180,7 @@ No hay ningún cargo adicional para el uso de directivas de punto de conexión d
 
 Los límites siguientes se aplican en las directivas de punto de conexión de servicio: 
 
- |Recurso | Límite predeterminado |
+ |Resource | Límite predeterminado |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpintPoliciesPerSubnet|100 |
