@@ -3,14 +3,14 @@ title: Configuración de un entorno de desarrollo de Windows
 description: Instale las herramientas, el SDK y el motor en tiempo de ejecución y cree un clúster de desarrollo local. Después de completar esta instalación, estará listo para compilar aplicaciones en Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 02/05/2020
 ms.custom: sfrev
-ms.openlocfilehash: 70a819636b786cedce5bbd0abd0d2594738cbfb9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6768f45e61880370295ce7725e553828e66f3d39
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904111"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062122"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 
@@ -23,7 +23,7 @@ ms.locfileid: "76904111"
 
 Para compilar y ejecutar [aplicaciones de Azure Service Fabric][1] en la máquina de desarrollo Windows, debe instalar el entorno en tiempo de ejecución de Service Fabric, el SDK y las herramientas. También es preciso que [habilite la ejecución de los scripts de Windows PowerShell](#enable-powershell-script-execution) que se incluyen en el SDK.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="supported-operating-system-versions"></a>Versiones de sistemas operativos admitidos
 
@@ -68,8 +68,8 @@ Si únicamente necesita el SDK, puede instalar este paquete:
 
 Las versiones actuales son:
 
-* SDK y herramientas de Service Fabric 4.0.464
-* Entorno de ejecución de Service Fabric 7.0.464
+* SDK y herramientas de Service Fabric 4.0.466
+* Entorno de ejecución de Service Fabric 7.0.466
 
 Para obtener una lista de las versiones admitidas, consulte [Versiones de Service Fabric](service-fabric-versions.md).
 

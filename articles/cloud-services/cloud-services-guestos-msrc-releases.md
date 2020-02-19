@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/24/2020
+ms.date: 02/07/2020
 ms.author: raiye
-ms.openlocfilehash: 89fd16b6afadee75678b76381739c12a31dc1a07
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: cca79946c0537b75335eb2e64ae1fa429f2c8d18
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765375"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087235"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
@@ -42,9 +42,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 |  Versión 20-01  |  [4494174]  |  Microcódigo v4  | [6.15] | 29 de agosto de 2019 |
 |  Versión 20-01  |  [4532947]  |  Seguridad de Windows  | [6.15] | 14 de enero de 2020 |
 |  Versión 20-01  |  [4534273]  |  LCU  | [6.15] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4530734]  |  No relacionada con la seguridad  | [2.94] | 10 de diciembre de 2019 |
-|  Versión 20-01  |  [4530691]  |  No relacionada con la seguridad   | [3.81] | 10 de diciembre de 2019 |
-|  Versión 20-01  |  [4530702]  |  No relacionada con la seguridad  | [4.74] | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4530734]  |  Acumulación mensual  | [2.94] | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4530691]  |  Acumulación mensual   | [3.81] | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4530702]  |  Acumulación mensual  | [4.74] | 10 de diciembre de 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251

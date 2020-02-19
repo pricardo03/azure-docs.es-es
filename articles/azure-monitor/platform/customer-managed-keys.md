@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 01/11/2020
-ms.openlocfilehash: e677b2e958d25181b972b2696584355f8a1a465b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/05/2020
+ms.openlocfilehash: eff751465c7b64429968b0305e6ad483943c374b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901285"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048184"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuración de la clave administrada por el cliente de Azure Monitor 
 
@@ -308,54 +308,31 @@ Durante el período de acceso anticipado de la característica, el equipo de pro
 > [!NOTE]
 > Este paso **solo** se debe llevar a cabo después de recibir la confirmación por parte del equipo de productos a través de su canal de Microsoft de que se ha realizado el **aprovisionamiento del almacén de datos de Azure Monitor (clúster de ADX)** . Si asocia áreas de trabajo e ingiere datos antes de este **aprovisionamiento**, los datos se quitarán y no se podrán recuperar.
 
-**Asociación de un área de trabajo a un recurso de *clúster* mediante la API [Áreas de trabajo: crear o actualizar](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate)**
-
 Para la configuración de CMK en Application Insights, en lugar de realizar este paso, siga el contenido del apéndice.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2015-11-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
 
 {
   "properties": {
-    "source": "Azure",
-    "customerId": "<workspace-id>",
-    "features": {
-      "clusterDefinitionId": "<cluster-id>" 
+    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     }
-  },
-  "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>",
-  "name": "<workspace-name>",
-  "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "<region-name>"
 }
 ```
-"clusterDefinitionId" es el valor "clusterId" proporcionado en la respuesta del paso anterior.
+*clusterDefinitionId* es el valor *clusterId* proporcionado en la respuesta del paso anterior.
 
 **Respuesta**
 
 ```json
 {
   "properties": {
-    "source": "Azure",
-    "customerId": "workspace-id",
-    "retentionInDays": value,
-    "features": {
-      "legacy": value,
-      "searchVersion": value,
-      "clusterDefinitionId": "cluster-id"
+    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     },
-    "workspaceCapping": {
-      "dailyQuotaGb": value,
-      "quotaNextResetTime": "timeStamp",
-      "dataIngestionStatus": "RespectQuota"
-    }
-  },
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
-  "name": "workspace-name",
-  "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "region-name"
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
+  "name": "workspace-name/cluster",
+  "type": "microsoft.operationalInsights/workspaces/linkedServices",
 }
 ```
 
@@ -583,7 +560,7 @@ La identidad se asigna al recurso de *clúster* en el momento de su creación.
 > [!IMPORTANT]
 > Copie y guarde el valor "cluster-id", lo necesitará en los pasos siguientes.
 
-### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-updatehttpsdocsmicrosoftcomrestapiapplication-insightscomponentscreateorupdate-api"></a>Asociación de un componente a un recurso de *clúster* mediante la API [Componentes: crear o actualizar](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
+### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Asociación de un componente a un recurso de *clúster* mediante la API [Componentes: crear o actualizar](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01
