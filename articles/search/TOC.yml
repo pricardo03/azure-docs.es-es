@@ -323,10 +323,10 @@
       items:
         - name: Aspectos básicos
           href: search-monitor-usage.md
-        - name: Supervisión de una actividad de consulta
-          href: search-monitor-queries.md
         - name: Registro de diagnóstico
           href: search-monitor-logs.md
+        - name: Supervisión de una actividad de consulta
+          href: search-monitor-queries.md
         - name: Búsqueda de análisis de tráfico
           href: search-traffic-analytics.md
     - name: Solución de problemas
