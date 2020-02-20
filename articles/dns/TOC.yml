@@ -83,7 +83,7 @@
               href: dns-operations-dnszones-portal.md
             - name: Azure PowerShell
               href: dns-operations-dnszones.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: dns-operations-dnszones-cli.md
         - name: Administración de registros DNS
           items:
@@ -91,7 +91,7 @@
               href: dns-operations-recordsets-portal.md
             - name: Azure PowerShell
               href: dns-operations-recordsets.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: dns-operations-recordsets-cli.md
         - name: Administración de DNS inverso
           items:
@@ -113,6 +113,10 @@
           href: dns-sdk.md
         - name: Dominios personalizados para recursos de Azure
           href: dns-custom-domain.md
+    - name: DNS privado
+      items:
+        - name: Protección de zonas DNS y registros privados
+          href: dns-protect-private-zones-recordsets.md
     - name: Solución de problemas
       items:
         - name: Guía de solución de problemas
@@ -145,7 +149,7 @@
           href: /azure/templates/microsoft.network/dns-allversions
     - name: DNS privado
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: /cli/azure/network/private-dns
         - name: Azure PowerShell
           href: /powershell/module/az.PrivateDns
@@ -163,7 +167,7 @@
       href: /azure/virtual-network/
     - name: Máquina virtual
       href: /azure/virtual-machines/
-    - name: Equilibrador de carga
+    - name: Load Balancer
       href: /azure/load-balancer/
     - name: Traffic Manager
       href: /azure/traffic-manager/

@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 8ca7f2618c6415dd3dbe22cada35bccb56be50ee
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: f72b43fe60676011819dc3aafe026017af6c62c0
+  ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75437880"
+  ms.lasthandoff: 02/19/2020
+  ms.locfileid: "77471387"
 landingContent:
 - title: Acerca de Azure Database Migration Service
   linkLists:
@@ -63,17 +63,17 @@ landingContent:
       url: tutorial-sql-server-managed-instance-online.md
     - text: Migración a una instancia administrada de SQL Database (sin conexión)
       url: tutorial-sql-server-to-managed-instance.md
-    - text: Migración de RDS SQL Server a una base de datos única o a una instancia administrada de SQL Database (en línea)
+    - text: Migración de RDS SQL Server a una base de datos única o a una instancia administrada de SQL Database (en línea)
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
   - linkListType: reference
     links:
-    - text: 'Problemas conocidos: migración a una base de datos única de SQL Database'
+    - text: 'Problemas conocidos: migración en línea a una base de datos única de SQL Database'
       url: known-issues-azure-sql-online.md
     - text: 'Problemas conocidos: migración en línea a una instancia administrada de SQL Database'
       url: known-issues-azure-sql-db-managed-instance-online.md
-    - text: Topologías de red para migraciones a de instancia administrada de SQL Database
+    - text: Topologías de red para migraciones de instancias administradas de SQL Database
       url: resource-network-topologies.md
-    - text: Roles personalizados para migraciones en línea desde SQL Server a una instancia administrada de SQL Database
+    - text: Roles personalizados para migraciones en línea desde SQL Server a una instancia administrada de SQL Database
       url: resource-custom-roles-sql-db-managed-instance.md
   - linkListType: video
     links:
@@ -83,13 +83,15 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Migración a Azure Database for PostgreSQL: servidor individual (en línea)'
+    - text: Migración a Azure Database for PostgreSQL en línea mediante el portal
+      url: tutorial-postgresql-azure-postgresql-online-portal.md
+    - text: Migración a Azure Database for PostgreSQL en línea mediante la CLI
       url: tutorial-postgresql-azure-postgresql-online.md
-    - text: 'Migración de RDS PostgreSQL a Azure Database for PostgreSQL: servidor individual (en línea)'
+    - text: Migración de RDS PostgreSQL a Azure Database for PostgreSQL
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - text: Migración a Azure Database for MySQL (en línea)
       url: tutorial-mysql-azure-mysql-online.md
-    - text: Migración de RDS MySQL a Azure Database for MySQL (en línea)
+    - text: Migración de RDS MySQL a Azure Database for MySQL en línea
       url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
     - text: Migración a la API de Mongo de Azure Cosmos DB (en línea)
       url: tutorial-mongodb-cosmos-db-online.md
@@ -97,13 +99,13 @@ landingContent:
       url: tutorial-mongodb-cosmos-db.md
   - linkListType: reference
     links:
-    - text: 'Problemas conocidos: migración en línea a Azure Database for PostgreSQL (servidor individual)'
+    - text: 'Problemas conocidos: migración en línea a Azure Database for PostgreSQL (servidor único)'
       url: known-issues-azure-postgresql-online.md
-    - text: 'Problemas conocidos: migración en línea a Azure Database for MySQL'
+    - text: 'Problemas conocidos: migración en línea a Azure DB for MySQL'
       url: known-issues-azure-mysql-online.md
   - linkListType: video
     links:
-    - text: Migración de PostgreSQL a Azure Database for PostgreSQL (servidor individual)
+    - text: 'Migración de PostgreSQL a Azure Database for PostgreSQL: servidor único'
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
     - text: Migración a la API de Mongo de Azure Cosmos DB
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/

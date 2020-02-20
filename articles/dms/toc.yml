@@ -26,9 +26,11 @@
       href: tutorial-mysql-azure-mysql-online.md
     - name: Migración de RDS MySQL a Azure DB for MySQL en línea
       href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-    - name: 'Migración de PostgreSQL a Azure DB for PostgreSQL: servidor único en línea'
+    - name: Migración de PostgreSQL a Azure DB for PostgreSQL en línea mediante el portal
+      href: tutorial-postgresql-azure-postgresql-online-portal.md
+    - name: Migración de PostgreSQL a Azure DB for PostgreSQL en línea mediante la CLI
       href: tutorial-postgresql-azure-postgresql-online.md
-    - name: 'Migración de RDS PostgreSQL a Azure DB for PostgreSQL: servidor único en línea'
+    - name: Migración de RDS PostgreSQL a Azure DB for PostgreSQL en línea
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: Migración de MongoDB a la API de Mongo de Azure Cosmos DB sin conexión
       href: tutorial-mongodb-cosmos-db.md
@@ -44,9 +46,9 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: Supervisión de la actividad de migración
       href: how-to-monitor-migration-activity.md
-    - name: "Migración de paquetes de SQL\_Server Integration Services a una base de datos única de Azure SQL\_Database"
+    - name: "Reimplementación de paquetes de SQL\_Server Integration Services en una base de datos única de Azure SQL\_Database"
       href: how-to-migrate-ssis-packages.md
-    - name: Reimplementación de paquetes de SSIS a una instancia administrada de Azure SQL Database
+    - name: "Reimplementación de paquetes de SSIS en una instancia administrada de Azure SQL\_Database"
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Recursos
   expanded: true
@@ -85,7 +87,7 @@
           href: 'https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/'
         - name: Abordar los requisitos previos y crear una instancia de DMS
           href: 'https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/'
-        - name: Migración de SQL Server 2008 a Instancia administrada de Azure SQL Database
+        - name: "Migración de SQL\_Server\_2008 a una instancia administrada de Azure SQL\_Database"
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/'
         - name: Migración de PostgreSQL a Azure Database for PostgreSQL
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/'

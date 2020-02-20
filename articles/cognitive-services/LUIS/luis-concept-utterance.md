@@ -55,10 +55,10 @@ Considere las siguientes expresiones de ejemplo:
 
 |Expresiones de ejemplo|
 |--|
-|how do I get a computer?|
-|Where do I get a computer?|
-|I want to get a computer, how do I go about it?|
-|When can I have a computer?| 
+|¿Cómo puedo obtener un equipo?|
+|¿Dónde puedo obtener un equipo?|
+|Quiero obtener un equipo, ¿cómo lo hago?|
+|¿Cuándo puedo tener un equipo?| 
 
 En este caso, el término principal, "equipo", no varía. Use alternativas como "equipo de escritorio", "portátil", "estación de trabajo" o incluso simplemente "máquina". LUIS puede deducir de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, siempre es mejor variarlas.
 
