@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: edb947f0748c186e146bce5f4dbe9d0b95a2568d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846487"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210198"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creación de una función en Linux con un contenedor personalizado
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Puede seguir este tutorial en cualquier equipo que ejecute Windows, MacOS o Linux. Completar el tutorial hará que incurra en un pequeño costo en su cuenta de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.7.1846 u otra posterior.
@@ -256,7 +256,7 @@ Puede seguir este tutorial en cualquier equipo que ejecute Windows, MacOS o Linu
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. Una vez que la imagen se esté ejecutando en un contenedor local, abra un explorador que vaya a `http://localhost:8080` y aquí debería aparecer la imagen del marcador de posición que se muestra a continuación. La imagen aparece en este momento porque la función se ejecuta en el contenedor local, como lo haría en Azure, lo que significa que está protegida por una clave de acceso, como se define en *function.json* con la propiedad `"authLevel": "function"`. No obstante, el contenedor no se ha publicado aún en una aplicación de funciones de Azure, por lo que la clave aún no está disponible. Si desea realizar una prueba localmente, detenga Docker, cambie la propiedad de autorización a `"authLevel": "anonymous"`, vuelva a compilar la imagen y reinicie Docker. Después, restablezca `"authLevel": "function"` en *function.json*. Para más información, consulte [Claves de autorización](functions-bindings-http-webhook.md#authorization-keys).
+1. Una vez que la imagen se esté ejecutando en un contenedor local, abra un explorador que vaya a `http://localhost:8080` y aquí debería aparecer la imagen del marcador de posición que se muestra a continuación. La imagen aparece en este momento porque la función se ejecuta en el contenedor local, como lo haría en Azure, lo que significa que está protegida por una clave de acceso, como se define en *function.json* con la propiedad `"authLevel": "function"`. No obstante, el contenedor no se ha publicado aún en una aplicación de funciones de Azure, por lo que la clave aún no está disponible. Si desea realizar una prueba localmente, detenga Docker, cambie la propiedad de autorización a `"authLevel": "anonymous"`, vuelva a compilar la imagen y reinicie Docker. Después, restablezca `"authLevel": "function"` en *function.json*. Para más información, consulte [Claves de autorización](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     ![Imagen de marcador de posición que indica que el contenedor se está ejecutando localmente](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -296,7 +296,7 @@ Puede utilizar comandos de la CLI de Azure para crear estos elementos. Cada coma
     az login
     ```
     
-1. Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente, se crea un grupo de recursos denominado `AzureFunctionsContainers-rg` en la región `westeurope`. (Por lo general, tanto los grupos de recursos como los recursos se crean en una región cercana y se utiliza alguna de las regiones disponibles del comando `az account list-locations`).
+1. Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado `AzureFunctionsContainers-rg` en la región `westeurope`. (Por lo general, tanto los grupos de recursos como los recursos se crean en una región cercana y se utiliza alguna de las regiones disponibles del comando `az account list-locations`).
 
     ```azurecli
     az group create --name AzureFunctionsContainers-rg --location westeurope
@@ -370,7 +370,7 @@ Con la imagen implementada en la aplicación de funciones en Azure, ya puede inv
 
 1. Recupere la dirección URL con la clave de acceso (función) mediante Azure Portal o mediante la CLI de Azure con el comando `az rest`.
 
-    # <a name="portaltabportal"></a>[Portal](#tab/portal)
+    # <a name="portal"></a>[Portal](#tab/portal)
 
     1. Inicie sesión en Azure Portal y, a continuación, busque la aplicación de funciones. Para ello, escriba el nombre de esta en el cuadro de **búsqueda** en la parte superior de la página. En los resultados, seleccione el recurso **App Service**.
 
@@ -387,7 +387,7 @@ Con la imagen implementada en la aplicación de funciones en Azure, ya puede inv
     > [!NOTE]  
     > Dado que la aplicación de función se implementa como un contenedor, no se pueden realizar cambios en el código de la función en el portal. En su lugar, debe actualizar el proyecto en la imagen local, insertar de nuevo la imagen en el registro y, a continuación, volver a implementarlo en Azure. Puede configurar la implementación continua en una sección posterior.
     
-    # <a name="azure-clitabazurecli"></a>[CLI de Azure](#tab/azurecli)
+    # <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 
     1. Construya una cadena de dirección URL con el formato siguiente, reemplazando `<subscription_id>`, `<resource_group>` y `<app_name>` por el identificador de suscripción de Azure, el grupo de recursos de la aplicación de funciones y el nombre de esta, respectivamente:
 
@@ -877,19 +877,19 @@ Puede ver la cola en [Azure Portal](../storage/queues/storage-quickstart-queues-
 
 1. Abra el archivo *local.setting.json* del proyecto de Functions y copie el valor de la cadena de conexión. En una ventana de terminal o de comandos, ejecute el siguiente comando para crear una variable de entorno denominada `AZURE_STORAGE_CONNECTION_STRING` y pegue la cadena de conexión concreta en lugar de `<connection_string>`. (Esta variable de entorno significa que no es necesario proporcionar la cadena de conexión a cada comando posterior mediante el argumento `--connection-string`).
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -899,19 +899,19 @@ Puede ver la cola en [Azure Portal](../storage/queues/storage-quickstart-queues-
     
 1. (Opcional) Puede usar el comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para ver las colas de Storage de la cuenta. La salida de este comando debe incluir una cola denominada `outqueue`, la cual se creó cuando la función escribió su primer mensaje en esa cola.
     
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```azurecli
     az storage queue list --output tsv
@@ -921,19 +921,19 @@ Puede ver la cola en [Azure Portal](../storage/queues/storage-quickstart-queues-
 
 1. Use el comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para ver los mensajes de esta cola, la cual debe ser el nombre que utilizó al probar la función anteriormente. El comando recupera el primer mensaje de la cola con [codificación Base64](functions-bindings-storage-queue.md#encoding), por lo que también deberá descodificar el mensaje para verlo como texto.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     Como debe desreferenciar la colección de mensajes y descodificar a partir de Base64, ejecute PowerShell y use el comando de PowerShell.
 

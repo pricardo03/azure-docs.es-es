@@ -2,21 +2,18 @@
 title: Tareas de administrador de cuenta en Azure Portal
 description: Describe cómo realizar operaciones de pago en Azure Portal
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 2f858fa7715145d55cf1c978b9c368e1f6586dce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 5d48f6e02719bbf647cdbf800550d73ce83a018f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132131"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201006"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tareas de administrador de cuenta en Azure Portal
 
@@ -25,35 +22,35 @@ En este artículo se explica cómo realizar las siguientes tareas en Azure Porta
 - Eliminar el límite de gasto en su suscripción
 - Agregar créditos a una suscripción de Azure bajo licencia Open
 
-Debe ser el administrador de cuenta para realizar cualquiera de estas tareas. 
+Debe ser el administrador de cuenta para realizar cualquiera de estas tareas.
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Ir a los métodos de pago de la suscripción
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
 
 1. Busque **Administración de costos + facturación**.
-    
+
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En **Mis suscripciones**, seleccione la suscripción a la que quiere agregar la tarjeta de crédito. 
-   
+1. En **Mis suscripciones**, seleccione la suscripción a la que quiere agregar la tarjeta de crédito.
+
    ![Captura de pantalla que muestra la cuadrícula Mis suscripciones en información general](./media/account-admin-tasks/cost-management-billing-overview-x.png)
-   
+
    > [!NOTE]
-   > Si no ve aquí alguna de sus suscripciones, puede deberse a que haya cambiado el directorio de suscripción en algún momento. Para estas suscripciones, debe cambiar el directorio al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2. 
+   > Si no ve aquí alguna de sus suscripciones, puede deberse a que haya cambiado el directorio de suscripción en algún momento. Para estas suscripciones, debe cambiar el directorio al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2.
 
 1. Seleccione **Métodos de pago**.
 
     ![Captura de pantalla que muestra la hoja de métodos de pago seleccionada.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
-Aquí puede agregar una nueva tarjeta de crédito, cambiar el método de pago activo, editar los detalles de la tarjeta de crédito y eliminar las tarjetas de crédito. 
+Aquí puede agregar una nueva tarjeta de crédito, cambiar el método de pago activo, editar los detalles de la tarjeta de crédito y eliminar las tarjetas de crédito.
 
 ### <a name="change-active-payment-method"></a>Cambio del método de pago activo
 
 Puede cambiar el método de pago activo si agrega una nueva tarjeta de crédito o elije una que ya esté guardada. Para cambiar el método de pago activo a una nueva tarjeta de crédito:
 
 1. En la esquina superior izquierda, seleccione "+" para agregar una tarjeta de crédito.
-    
+
     ![Captura de pantalla que muestra el signo más](./media/account-admin-tasks/subscription-payment-methods-plus.png)
 
 1. Escriba los detalles de la tarjeta de crédito en el formulario de la derecha.
@@ -111,7 +108,7 @@ Si quiere que se le apruebe el pago mediante factura, consulte [Pago mediante fa
 
 ### <a name="edit-invoice-payment-address"></a>Edición de la dirección de pago mediante factura
 
-Para editar la dirección de su método de pago mediante factura, haga clic en **Factura** en la lista de métodos de pago de la suscripción. El formulario de dirección se abrirá a la derecha. 
+Para editar la dirección de su método de pago mediante factura, haga clic en **Factura** en la lista de métodos de pago de la suscripción. El formulario de dirección se abrirá a la derecha.
 
 ## <a name="remove-spending-limit"></a>Eliminación del límite de gasto
 
@@ -124,15 +121,15 @@ El límite de gasto no está disponible para las suscripciones con planes de com
 
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En la lista **Mis suscripciones**, seleccione su suscripción de Visual Studio Enterprise. 
+1. En la lista **Mis suscripciones**, seleccione su suscripción de Visual Studio Enterprise.
 
    ![Captura de pantalla que muestra la cuadrícula Mis suscripciones en información general](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Si no ve aquí alguna de sus suscripciones a Visual Studio, puede deberse a que haya cambiado el directorio de suscripción en algún momento. Para estas suscripciones, debe cambiar el directorio al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2.
-    
+
 1. En la información general de la suscripción, haga clic en el banner naranja para quitar el límite de gasto.
-    
+
     ![Captura de pantalla que muestra el banner quitar el límite de gasto](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
 
 1. Elija si desea quitar el límite de gasto indefinidamente o solo durante el período de facturación actual.
@@ -152,15 +149,15 @@ Si tiene una suscripción a Azure bajo licencia Open, puede agregar créditos a 
 
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En la lista **Mis suscripciones**, seleccione su suscripción de Azure bajo licencia Open. 
+1. En la lista **Mis suscripciones**, seleccione su suscripción de Azure bajo licencia Open.
 
     ![Captura de pantalla que muestra la cuadrícula Mis suscripciones en información general](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Si no ve aquí su suscripción, puede deberse a que haya cambiado el directorio en algún momento. Debe cambiar el directorio de la suscripción al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2.
-    
+
 1. Seleccione **Historial de crédito**.
-    
+
     ![Captura de pantalla que muestra el historial de crédito](./media/account-admin-tasks/aio-credit-history-blade.png)
 
 1. En la esquina superior izquierda, seleccione "+" para agregar más créditos.
@@ -168,7 +165,7 @@ Si tiene una suscripción a Azure bajo licencia Open, puede agregar créditos a 
     ![Captura de pantalla que muestra el botón de agregar crédito](./media/account-admin-tasks/aio-credit-history-plus.png)
 
 1. Seleccione un tipo de método de pago en el menú desplegable. Puede agregar una clave de producto o comprar créditos con una tarjeta de crédito.
-    
+
     ![Captura de pantalla de la lista desplegable del método de pago en la hoja Agregar créditos](./media/account-admin-tasks/add-credits-select-payment-method.png)
 
 1. Si seleccionó la clave de producto:

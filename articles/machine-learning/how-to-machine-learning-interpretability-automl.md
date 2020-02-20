@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: a0d805d6ae9b129443a2850e0741d5da87feac84
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9cacc0a1faa66e5d265f7f80830e13c54a88a68c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535040"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366280"
 ---
 # <a name="model-interpretability-in-automated-machine-learning"></a>Interpretación de modelo en aprendizaje automático automatizado
 
@@ -29,7 +29,7 @@ En este artículo aprenderá a:
 - Habilitar visualizaciones para ayudarle a ver patrones en datos y explicaciones.
 - Implementar la interpretación durante la inferencia o puntuación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Características de interoperabilidad. Ejecute `pip install azureml-interpret azureml-contrib-interpret` para obtener los paquetes necesarios.
 - Conocimiento de la compilación de experimentos de aprendizaje automático automatizado. Para más información sobre cómo usar el SDK de Azure Machine Learning, complete este [tutorial de modelo de regresión](tutorial-auto-train-models.md) o consulte cómo [configurar experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md).
@@ -71,7 +71,7 @@ Utilice `automl_setup_model_explanations` para obtener las explicaciones de cara
 `automl_explainer_setup_obj` contiene todas las estructuras de la lista anterior.
 
 ```python
-from azureml.train.automl.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
 
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train, 
                                                              X_test=X_test, y=y_train, 

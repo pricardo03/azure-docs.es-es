@@ -5,12 +5,12 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 431bd45763cbe24e44d47342b32c5c452a27b0f6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845717"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210300"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
 
@@ -22,7 +22,7 @@ En este artículo, aprenderá a usar la extensión de Azure Functions para Visua
 
 ![Ejecución de una función durable en Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -57,7 +57,7 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
     | Selección de una versión | Azure Functions v2 | Esta opción solo se ve si las herramientas principales no estén instaladas. En este caso, las herramientas principales se instalan la primera vez que se ejecuta la aplicación. |
     | Seleccionar una plantilla para la primera función de su proyecto | Desencadenador HTTP | Cree una función desencadenada por HTTP en la nueva aplicación de funciones. |
     | Proporcionar un nombre de función | HttpTrigger | Presione ENTRAR para usar el nombre predeterminado. |
-    | Nivel de autorización | Función | El nivel de autorización `function` requiere que especifique una clave de acceso al llamar al punto de conexión HTTP de la función. Esto dificulta aún más el acceso a un punto de conexión no protegido. Para más información, consulte [Claves de autorización](../functions-bindings-http-webhook.md#authorization-keys).  |
+    | Nivel de autorización | Función | El nivel de autorización `function` requiere que especifique una clave de acceso al llamar al punto de conexión HTTP de la función. Esto dificulta aún más el acceso a un punto de conexión no protegido. Para más información, consulte [Claves de autorización](../functions-bindings-http-webhook-trigger.md#authorization-keys).  |
     | Seleccionar cómo desea que se abra el proyecto | Agregar a área de trabajo | Crea la aplicación de funciones en el área de trabajo actual. |
 
 Visual Studio Code instala Azure Functions Core Tools, en caso de que sea necesario. También crea el proyecto de una aplicación de funciones en una nueva área de trabajo. Este proyecto contiene los archivos de configuración [host.json](../functions-host-json.md) y [local.settings.json](../functions-run-local.md#local-settings-file). También crea una carpeta HttpExample que contiene el archivo de definición [function.json](../functions-reference-node.md#folder-structure) y el [archivo index.js](../functions-reference-node.md#exporting-a-function), un archivo en Node.js que contiene el código de función.

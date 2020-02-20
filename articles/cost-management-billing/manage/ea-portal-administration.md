@@ -1,19 +1,18 @@
 ---
 title: Administración del portal del Contrato Enterprise de Azure
 description: En este artículo se explican las tareas comunes que un administrador lleva a cabo en el portal del Contrato Enterprise de Azure.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 88daa5913838511be59ce7a30b7e9430d8865a62
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: 142ef421599cef4083efdf8b9ed700d2baa152b3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023385"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199779"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -124,7 +123,7 @@ Tenga en cuenta los puntos siguientes cuando transfiera una cuenta de empresa a 
 - Solo se transfieren las cuentas especificadas en la solicitud. Si se eligen todas las cuentas, se transfieren todas.
 - La inscripción de origen conserva su estado como activo o extendido. Puede seguir usando la inscripción hasta que expire.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Al solicitar una transferencia de cuentas, proporcione la siguiente información:
 
@@ -164,7 +163,7 @@ La fecha de transferencia efectiva puede ser la fecha de inicio de la suscripci�
 
 El uso de la inscripción de origen se cobra en el compromiso monetario o como uso por encima del límite. El uso que se produce después de la fecha de transferencia efectiva se transfiere a la nueva inscripción y se cobra en consecuencia.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Al solicitar una transferencia de inscripciones, proporcione la siguiente información:
 

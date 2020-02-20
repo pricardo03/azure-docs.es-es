@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f808ff2a88a86df25b555f94257168e2d176e7f8
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: fd52c4cc5cd9d4c01ddb355bdfb28d0952e65759
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963670"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210266"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -112,7 +112,7 @@ Para las funciones de C#, puede cambiar el tipo a una matriz fuertemente tipada.
 
 El archivo `host.json` de la aplicación de función permite la configuración de comportamientos del sistema de tiempo de ejecución y de desencadenadores del host.  Además de los comportamientos del procesamiento por lotes, puede administrar la simultaneidad para varios desencadenadores. Frecuentemente, el ajustar los valores de estas opciones puede hacer que cada instancia se escale adecuadamente para satisfacer la demanda de las funciones que se invocan.
 
-La configuración del archivo host.json se aplica a todas las funciones de la aplicación, dentro de una *única instancia* de la función. Por ejemplo, si tuviera una aplicación de funciones con dos funciones HTTP y solicitudes [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) establecidas en 25, una solicitud a cualquiera de los desencadenadores HTTP contaría las 25 solicitudes simultáneas compartidas.  Cuando esa aplicación de funciones se escala a diez instancias, las dos funciones permiten eficazmente 250 solicitudes simultáneas (10 instancias * 25 solicitudes simultáneas por cada instancia). 
+La configuración del archivo host.json se aplica a todas las funciones de la aplicación, dentro de una *única instancia* de la función. Por ejemplo, si tuviera una aplicación de funciones con dos funciones HTTP y solicitudes [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) establecidas en 25, una solicitud a cualquiera de los desencadenadores HTTP contaría las 25 solicitudes simultáneas compartidas.  Cuando esa aplicación de funciones se escala a diez instancias, las dos funciones permiten eficazmente 250 solicitudes simultáneas (10 instancias * 25 solicitudes simultáneas por cada instancia). 
 
 En el [artículo de configuración de host.json](functions-host-json.md) hay otras opciones de configuración de host.
 

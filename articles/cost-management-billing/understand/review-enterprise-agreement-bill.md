@@ -1,22 +1,19 @@
 ---
 title: Revisión de la factura del Contrato Enterprise de Azure
 description: Aprenda a leer y a comprender el uso y la facturación de los contratos Enterprise de Azure.
-author: banders
-manager: dougeby
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/04/2020
 ms.author: banders
-ms.openlocfilehash: 8e674ec1c2d4c47d3b4e56bd788c963c81ea23e9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1affe81228b491ea45f610d741d454fa38f2029a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016211"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199116"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Descripción de la factura de Azure Enterprise
 
@@ -33,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Revisar los cargos por uso del servicio por encima del límite
 > * Revisar la factura de Marketplace
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para revisar y comprobar los gastos en su factura, debe ser un administrador de empresa. Para más información, consulte [Roles administrativos del Contrato Enterprise de Azure en Azure](../manage/understand-ea-roles.md). Si no sabe quién es el administrador de la empresa para su organización, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

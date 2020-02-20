@@ -4,18 +4,18 @@ description: En este inicio rápido aprenderá a realizar diversas tareas de Ans
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: d04708be82a704c2ce20a928380fca1d325493da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155962"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193657"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Inicio rápido: Ejecución de cuadernos de estrategias de Ansible a través de Bash en Azure Cloud Shell
 
 Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure. Cloud Shell le permite usar la línea de comandos de Bash o Powershell. En este artículo, va a usar Bash en Azure Cloud Shell para ejecutar un cuaderno de estrategias de Ansible.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Configuración de Azure Cloud Shell**: si no está familiarizado con Azure Cloud Shell, consulte [Inicio rápido para Bash en Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -47,4 +47,4 @@ Para comprobar si la configuración es correcta, use Ansible para crear un grupo
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"] 
-> [Inicio rápido: Configuración de una máquina virtual en Azure con Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Inicio rápido: Configuración de una máquina virtual en Azure con Ansible](./ansible-create-vm.md)

@@ -3,12 +3,12 @@ title: Desarrollo de Azure Functions con Visual Studio Code
 description: Aprenda a desarrollar y probar Azure Functions mediante la extensión de Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 7e533d5826d429a716ad1592d75159782ed43fa7
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 3bc8c9aa5d31f757a34350d9605fdecbe42b8be7
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964027"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210249"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -38,7 +38,7 @@ En este artículo se dan detalles sobre cómo usar la extensión de Azure Functi
 > [!IMPORTANT]
 > No mezcle el desarrollo local con el desarrollo del portal en una aplicación de funciones individual. Al publicar desde un proyecto local en una aplicación de la función, el proceso de implementación sobrescribe todas las funciones que ha desarrollado en el portal.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de instalar y ejecutar la [extensión de Azure Functions][extensión de azure functions para visual studio code], es necesario cumplir estos requisitos:
 
@@ -71,7 +71,7 @@ La extensión de Functions le permite crear un proyecto de aplicación de funcio
 
     ![Elegir la plantilla del desencadenador HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Escriba **HttpExample** como nombre de la función, seleccione Entrar y, después, seleccione la autorización de **Función**. Este nivel de autorización requiere que proporcione un valor para la [clave de función](functions-bindings-http-webhook.md#authorization-keys) al llamar al punto de conexión de la función.
+1. Escriba **HttpExample** como nombre de la función, seleccione Entrar y, después, seleccione la autorización de **Función**. Este nivel de autorización requiere que proporcione un valor para la [clave de función](functions-bindings-http-webhook-trigger.md#authorization-keys) al llamar al punto de conexión de la función.
 
     ![Selección de la autorización de función](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -92,11 +92,11 @@ La plantilla de proyecto crea un proyecto en el lenguaje elegido e instala las d
 
 En función del lenguaje utilizado, se crean estos otros archivos:
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 * [Archivo de biblioteca de clases HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) que implementa la función.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 * Archivo package.json de la carpeta raíz.
 
@@ -122,7 +122,7 @@ También puede [agregar una nueva función al proyecto](#add-a-function-to-your-
 
 Excepto los desencadenadores HTTP y del temporizador, los enlaces se implementan como paquetes de extensión. Tiene que instalar los paquetes de extensión para los desencadenadores y enlaces que los necesiten. El proceso de instalar las extensiones de enlace depende del lenguaje del proyecto.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Ejecute el comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) en la ventana del terminal para instalar los paquetes de extensión que necesita en el proyecto. El siguiente comando instala la extensión de Azure Storage, que implementa los enlaces para el almacenamiento de Blob, Cola y Tabla.
 
@@ -130,7 +130,7 @@ Ejecute el comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) e
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -142,11 +142,11 @@ Puede agregar una nueva función a un proyecto existente mediante una de las pla
 
 Los resultados de esta acción dependen del lenguaje del proyecto:
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Un nuevo archivo de biblioteca de clases (. cs) de C# se agrega al proyecto.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Se crea una nueva carpeta en el proyecto. La carpeta contiene un nuevo archivo function.json y el nuevo archivo de código de JavaScript.
 
@@ -158,7 +158,7 @@ Puede expandir la función mediante la adición de enlaces de entrada y de salid
 
 Los ejemplos siguientes se conectan a una cola de almacenamiento denominada `outqueue`, en la que está establecida la cadena de conexión para la cuenta de almacenamiento en valor de aplicación `MyStorageConnection` en local.settings.json.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Actualice el método de función para agregar el siguiente parámetro a la definición de método `Run`:
 
@@ -176,7 +176,7 @@ El parámetro `msg` es de tipo `ICollector<T>`, que representa una colección de
 
 Para más información, consulte la documentación de [Enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output).
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code le permite agregar enlaces a su archivo function.json siguiendo un conjunto práctico de mensajes. Para crear un enlace, haga clic con el botón derecho (Ctrl + clic en macOS) en el **archivo function.json** de la carpeta de función y seleccione **Agregar enlace**:
 
@@ -277,7 +277,7 @@ El proyecto se vuelve a compilar y empaquetar, y se carga en Azure. El proyecto 
 
 ## <a name="get-the-url-of-the-deployed-function"></a>Obtención de la dirección URL de la función implementada
 
-Para llamar a una función desencadenada por HTTP, necesitará la dirección URL de la función cuando se implementa en la aplicación de funciones. Esta dirección URL incluye todas las [teclas de función](functions-bindings-http-webhook.md#authorization-keys) necesarias. Puede usar la extensión para obtener estas direcciones URL para las funciones implementadas.
+Para llamar a una función desencadenada por HTTP, necesitará la dirección URL de la función cuando se implementa en la aplicación de funciones. Esta dirección URL incluye todas las [teclas de función](functions-bindings-http-webhook-trigger.md#authorization-keys) necesarias. Puede usar la extensión para obtener estas direcciones URL para las funciones implementadas.
 
 1. Seleccione F1 para abrir la paleta de comandos, y busque y ejecute el comando **Azure Functions: Copy Function URL** (Copiar la dirección URL de la función).
 

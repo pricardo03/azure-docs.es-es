@@ -1,19 +1,18 @@
 ---
 title: Transferencia de suscripciones de Azure entre suscriptores y CSP
 description: Aprenda a transferir suscripciones de Azure entre suscriptores y CSP.
-services: billing
 author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: banders
-ms.openlocfilehash: 08aeac9a8cd21e6f13bab0ee10ba4d212d96c5b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 4e7e9ea61d74eb38f3c225d66a39906bc18fe6d2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76775421"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200527"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferencia de suscripciones de Azure entre suscriptores y CSP
 
@@ -33,7 +32,7 @@ Para transferir cualquier otra suscripción de Azure a un partner de CSP, el sus
 1. Asegúrese de que las suscripciones de CSP de origen y destino están en el mismo inquilino de Azure Active Directory (Azure AD).  
     No se puede cambiar al inquilino de Azure AD por una suscripción de Azure CSP. En su lugar, debe agregar o asociar la suscripción de origen al inquilino de Azure AD de CSP. Para más información, consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     > [!IMPORTANT]
-    > - Al asociar una suscripción a otro directorio de Azure AD, los usuarios que tengan roles asignados mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/role-assignments-portal.md) pierden el acceso. Los administradores de suscripciones clásicas, incluidos el administrador y los coadministradores del servicio, también pierden el acceso. 
+    > - Al asociar una suscripción a otro directorio de Azure AD, los usuarios que tengan roles asignados mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/role-assignments-portal.md) pierden el acceso. Los administradores de suscripciones clásicas, incluidos el administrador y los coadministradores del servicio, también pierden el acceso.
     > - También se quitan las asignaciones de directivas de una suscripción cuando dicha suscripción está asociada a un directorio diferente.
 1. La cuenta de usuario que use para realizar la transferencia debe tener el acceso de propietario [RBAC](add-change-subscription-administrator.md) en ambas suscripciones.
 1. Antes de comenzar, [valide](/rest/api/resources/resources/validatemoveresources) que todos los recursos de Azure puedan moverse de la suscripción de origen a la suscripción de destino.  

@@ -1,19 +1,18 @@
 ---
 title: Aplicación del descuento por reserva a Azure Data Explorer
 description: Aprenda a aplicar el descuento por reserva al medidor de incremento de Azure Data Explorer.
-services: data-explorer
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/12/2020
+ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75986776"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199337"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Aplicación del descuento por reserva a Azure Data Explorer
 
@@ -36,23 +35,23 @@ El descuento por reserva se aplica al consumo de incremento de Azure Data Explor
 ## <a name="examples"></a>Ejemplos
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por la capacidad reservada de Azure Data Explorer en función del número de unidades de incremento adquiridos y el momento de su ejecución.
-Por ejemplo, para el tamaño del clúster del motor: **2 máquinas virtuales D11_v2**, el costo total a petición es de cuatro unidades del medidor de incremento de Azure Data Explorer por hora. 
+Por ejemplo, para el tamaño del clúster del motor: **2 máquinas virtuales D11_v2**, el costo total a petición es de cuatro unidades del medidor de incremento de Azure Data Explorer por hora.
 
-**Escenario 1** 
+**Escenario 1**
 
 Compra una capacidad reservada de Azure Data Explorer para ocho unidades de incremento de Azure Data Explorer. Puede ejecutar un clúster de motor de dos máquinas virtuales D13_v2 con un total de 16 núcleos que cobra por 16 unidades de incremento de Azure Data Explorer las unidades por hora y coincide con el resto de los atributos de la reserva. Se le cobrará el precio de pago por uso de ocho núcleos de uso de proceso de Azure Data Explorer y obtendrá el descuento de reserva durante una hora de uso de la unidad de incremento por ocho núcleos de Azure Data Explorer.
 
 En los demás ejemplos, se supone que la capacidad reservada de Azure Data Explorer que compra es para un clúster de Azure Data Explorer de 16 núcleos y el resto de atributos de la reserva coinciden con el clúster de Azure Data Explorer en ejecución.
 
-**Escenario 2** 
+**Escenario 2**
 
 Se ejecutan dos clústeres del motor de Azure Data Explorer con ocho núcleos cada uno durante una hora en dos regiones diferentes. El descuento de la reserva de 16 núcleos se aplica a ambos clústeres y a las 16 unidades de las unidades de incremento de Azure Data Explorer que consumen.
 
-**Escenario 3** 
+**Escenario 3**
 
 Se ejecuta el clúster del motor de Azure Data Explorer de 16 núcleos de 1 pm a 1:30 pm. Se ejecuta otro clúster del motor de Azure Data Explorer de 16 núcleos de 1:30 pm a 2 pm. Ambas están cubiertas por el descuento en la reserva.
 
-**Escenario 4** 
+**Escenario 4**
 
 Se ejecuta el clúster del motor de Azure Data Explorer de 16 núcleos de 1 pm a 1:45 pm. Se ejecuta otro clúster del motor de Azure Data Explorer de 16 núcleos de 1:30 pm a 2 pm. Se le cobra el precio de pago por uso por el solapamiento de 15 minutos. El descuento por la reserva se aplica al uso de incremento de Azure Data Explorer por el resto del tiempo.
 
