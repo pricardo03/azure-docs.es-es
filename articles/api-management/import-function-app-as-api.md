@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442577"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209195"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -35,7 +35,7 @@ Aprenderá a:
 > * Prueba de la API en Azure Portal
 > * Prueba de la API en el portal para desarrolladores
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Complete la guía de inicio rápido [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 * Asegúrese de que tiene una aplicación de Azure Functions en la suscripción. Para más información, consulte [Creación de una instancia de Azure Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Debe contener funciones con desencadenador HTTP y la configuración del nivel de autorización debe establecerse en *Anónimo* o *Función*.
@@ -118,7 +118,7 @@ La importación de una instancia de Azure Function App genera automáticamente:
 * una clave de host en la aplicación de función con el nombre apim-{*nombre de instancia del servicio Azure API Management*}.
 * un valor con nombre dentro de la instancia de Azure API Management con el nombre {*nombre de la instancia de Azure Function App*}-key, que contiene la clave de host creada.
 
-En el caso de las API creadas después del 4 de abril de 2019, la clave de host se pasa en las solicitudes HTTP desde API Management a la aplicación de función en un encabezado. Las API más antiguas pasan la clave de host como [un parámetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Se puede cambiar este comportamiento mediante la `PATCH Backend` [llamada API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) en la entidad de *back-end* asociada con la aplicación de función.
+En el caso de las API creadas después del 4 de abril de 2019, la clave de host se pasa en las solicitudes HTTP desde API Management a la aplicación de función en un encabezado. Las API más antiguas pasan la clave de host como [un parámetro de consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Se puede cambiar este comportamiento mediante la `PATCH Backend` [llamada API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) en la entidad de *back-end* asociada con la aplicación de función.
 
 > [!WARNING]
 > Si se quita o se cambia el valor de la clave de host de Azure Function App o el valor con nombre de Azure API Management, se interrumpirá la comunicación entre los servicios. Los valores no se sincronizan automáticamente.

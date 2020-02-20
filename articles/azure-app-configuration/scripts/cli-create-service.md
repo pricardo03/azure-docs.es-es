@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7cc8454ca8dc8d6313e1cf353292adb47b15ef47
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 11f3aec10aed0dc8bc0c9831d563dca2b0c1a6fb
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898720"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468378"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Creación de un almacén de Azure App Configuration
 
@@ -24,10 +24,6 @@ Este script de ejemplo crea una nueva instancia de Azure App Configuration en un
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
-
-Para instalar la extensión de la CLI de Azure App Configuration primero debe ejecutar el comando siguiente:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -71,8 +67,8 @@ Este script usa los siguientes comandos para crear un grupo de recursos y un alm
 | Get-Help | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Crea un recurso del almacén de App Configuration. |
-| [az appconfig credential list](/cli/azure/ext/appconfig/appconfig/credential?view=azure-cli-latest) | Enumera las claves de acceso de un almacén de App Configuration. |
+| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Crea un recurso del almacén de App Configuration. |
+| [az appconfig credential list](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Enumera las claves de acceso de un almacén de App Configuration. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

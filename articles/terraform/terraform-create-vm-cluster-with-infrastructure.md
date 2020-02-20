@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de un clúster de máquinas virtuales de Azure con T
 description: Uso de Terraform y HCL para crear un clúster de máquinas virtuales Linux con un equilibrador de carga en Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665369"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470877"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutorial: Creación de un clúster de máquinas virtuales de Azure con Terraform y HCL
 
@@ -28,11 +28,11 @@ Aprenderá a realizar las siguientes tareas:
 ## <a name="1-set-up-azure-authentication"></a>1. Configuración de la autenticación con Azure
 
 > [!NOTE]
-> Si [usa variables de entorno de Terraform](/azure/virtual-machines/linux/terraform-install-configure) o ejecuta este tutorial en [Azure Cloud Shell](terraform-cloud-shell.md), omita esta sección.
+> Si [usa variables de entorno de Terraform](terraform-install-configure.md) o ejecuta este tutorial en [Azure Cloud Shell](terraform-cloud-shell.md), omita esta sección.
 
 En esta sección, genera una entidad de servicio de Azure y dos archivos de configuración de Terraform que contienen las credenciales de la entidad de seguridad.
 
-1. [Configure una entidad de servicio de Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) a fin de habilitar Terraform para aprovisionar recursos en Azure. Al crear la entidad de seguridad, tome nota de los valores para el identificador de suscripción, el suscriptor, el identificador de aplicación y la contraseña.
+1. [Configure una entidad de servicio de Azure AD](terraform-install-configure.md#set-up-terraform-access-to-azure) a fin de habilitar Terraform para aprovisionar recursos en Azure. Al crear la entidad de seguridad, tome nota de los valores para el identificador de suscripción, el suscriptor, el identificador de aplicación y la contraseña.
 
 2. Abra un símbolo del sistema.
 

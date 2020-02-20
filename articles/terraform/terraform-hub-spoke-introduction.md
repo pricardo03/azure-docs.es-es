@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de una topología de red híbrida en estrella tipo h
 description: Tutorial que ilustra cómo crear una arquitectura de referencia de red híbrida completa en Azure mediante Terraform
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 90a60fc4fe98397c903e3e8a460806d6a2edb908
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159021"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472186"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutorial: Creación de una topología de red híbrida en estrella tipo hub-and-spoke en Azure con Terraform
 
@@ -26,11 +26,11 @@ En este tutorial se describen las tareas siguientes:
 > * Uso de Terraform para establecer puertas de enlace y conexiones entre redes locales y de Azure
 > * Uso de Terraform para emparejar redes virtuales a redes radiales
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Suscripción de Azure**: Si no tiene ya una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
-- **Instalación y configuración de Terraform**: Para aprovisionar máquinas virtuales y otras infraestructuras en Azure, [instale y configure Terraform](/azure/virtual-machines/linux/terraform-install-configure)
+- **Instalación y configuración de Terraform**: Para aprovisionar máquinas virtuales y otras infraestructuras en Azure, [instale y configure Terraform](terraform-install-configure.md)
 
 ## <a name="hub-and-spoke-topology-architecture"></a>Arquitectura de la topología de red en estrella tipo hub-and-spoke
 

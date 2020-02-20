@@ -1,21 +1,20 @@
 ---
 title: Optimización de la inversión en la nube con Azure Cost Management | Microsoft Docs
 description: Este artículo le ayuda a obtener el máximo partido de las inversiones en la nube, reducir los costos y evaluar dónde se invierte su dinero.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 47a53136a8f299e5c8654d122d8e319be4ae29db
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984548"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201074"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
@@ -85,20 +84,20 @@ El primer paso para maximizar su experiencia con Cost Management es investigar y
 
 Para más información sobre las distintas opciones, consulte las [Instrucciones para contratar Azure](https://azure.microsoft.com/pricing/purchase-options/). A continuación, se identifican algunos de los modelos de facturación más comunes.
 
-#### <a name="freehttpsazuremicrosoftcomfree"></a>[Gratis](https://azure.microsoft.com/free/)
+#### <a name="free"></a>[Gratis](https://azure.microsoft.com/free/)
 
 - 12 meses de servicios populares gratis
 - 200 USD en crédito para explorar los servicios durante 30 días
 - Más de 25 servicios siempre son gratis
 
-#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p)
+#### <a name="pay-as-you-go"></a>[Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p)
 
 - Sin mínimos ni compromisos
 - Precios competitivos
 - Pague solo por lo que usa
 - Cancelación en cualquier momento
 
-#### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
+#### <a name="enterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
 - Opciones para compromisos monetarios por adelantado
 - Acceso a la reducción de precios de Azure

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: hamusa
-ms.openlocfilehash: 96d1c44eb9ecb71684e817a89f9376a07dbe3ccb
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: bf6798d557cb1d27030565e4706864e945de6f04
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514976"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472101"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configuración de la visualización de dependencias para la evaluación
 
@@ -40,7 +40,7 @@ Disponibilidad | La visualización de dependencias no está disponible en Azure 
 Mapa de servicio | La visualización de dependencias usa la solución Service Map en Azure Monitor. [Service Map](../azure-monitor/insights/service-map.md) detecta y muestra automáticamente las conexiones entre los servidores.
 Agentes | Para usar la visualización de dependencias, instale los agentes siguientes en las máquinas que quiera asignar:<br/> - [Agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (conocido anteriormente como Microsoft Monitoring Agent [MMA]).<br/> - [Agente de dependencias de Service Map](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Para automatizar la instalación de agentes, puede usar una herramienta de implementación, como Configuration Manager, que cuenta con una solución de implementación de agentes para Azure Migrate.
 Dependency Agent | Revise la [compatibilidad del agente de dependencias](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) con Windows y Linux.<br/><br/> [Obtenga más información](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) acerca de cómo puede utilizar scripts para instalar el agente de dependencias.
-Agente de Log Analytics (MMA) | [Obtenga más información](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) sobre los métodos de instalación de MMA.<br/><br/> En el caso de las máquinas que supervisa System Center Operations Manager 2012 R2 o las versiones posteriores, no hay necesidad de instalar el agente MMA. Service Map se integra con Operations Manager. Puede habilitar la integración con las instrucciones que encontrará [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Sin embargo, tenga en cuenta que será necesario instalar el agente de dependencia en estas máquinas.<br/><br/> [Revise](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) los sistemas operativos Linux compatibles con el agente de Log Analytics.
+Agente de Log Analytics (MMA) | [Obtenga más información](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sobre los métodos de instalación de MMA.<br/><br/> En el caso de las máquinas que supervisa System Center Operations Manager 2012 R2 o las versiones posteriores, no hay necesidad de instalar el agente MMA. Service Map se integra con Operations Manager. Puede habilitar la integración con las instrucciones que encontrará [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Sin embargo, tenga en cuenta que será necesario instalar el agente de dependencia en estas máquinas.<br/><br/> [Revise](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) los sistemas operativos Linux compatibles con el agente de Log Analytics.
 Grupos de evaluación | Los grupos de los que desea visualizar las dependencias no deben contener más de diez máquinas. Si tiene más de 10 máquinas, divídalas en grupos más pequeños para visualizar las dependencias.
 
 ## <a name="associate-a-log-analytics-workspace"></a>Asociar un área de trabajo de Log Analytics

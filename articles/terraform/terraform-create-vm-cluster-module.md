@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de un clúster de VM de Azure con Terraform mediante
 description: Aprenda a usar módulos de Terraform para crear un clúster de máquinas virtuales Windows en Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 3ddc80e8f5a81e89e4574ff6524055f12a4a618a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d17a0d7c26cc1a16ab73350fe6e8c28ba4af6ff2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185558"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472217"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Tutorial: Creación de un clúster de VM de Azure con Terraform mediante el registro de módulos
 
@@ -25,9 +25,9 @@ Para obtener más información sobre Terraform, consulte la [documentación de T
 ## <a name="set-up-authentication-with-azure"></a>Configurar la autenticación con Azure
 
 > [!TIP]
-> Si [usa variables de entorno de Terraform](/azure/virtual-machines/linux/terraform-install-configure) o ejecuta este tutorial en [Azure Cloud Shell](/azure/cloud-shell/overview), omita este paso.
+> Si [usa variables de entorno de Terraform](terraform-install-configure.md) o ejecuta este tutorial en [Azure Cloud Shell](/azure/cloud-shell/overview), omita este paso.
 
- Revise el artículo sobre cómo [Instalar Terraform y configurar el acceso a Azure](/azure/virtual-machines/linux/terraform-install-configure) para crear una entidad de servicio de Azure. Use esta entidad de servicio para completar un nuevo archivo `azureProviderAndCreds.tf` en un directorio vacío con el código siguiente:
+ Revise el artículo sobre cómo [Instalar Terraform y configurar el acceso a Azure](terraform-install-configure.md) para crear una entidad de servicio de Azure. Use esta entidad de servicio para completar un nuevo archivo `azureProviderAndCreds.tf` en un directorio vacío con el código siguiente:
 
 ```hcl
 variable subscription_id {}

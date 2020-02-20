@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de un conjunto de escalado de máquinas virtuales de
 description: Use Terraform para configurar y controlar las versiones de un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada generada por Packer (junto con una red virtual y discos asociados administrados).
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 9d149a28f82100715035f435de56ff134ca685f5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 92a8221d625f8b6b73343f74b85fdfcf5e578b23
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159287"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472218"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Tutorial: Tutorial: Creación de un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer mediante Terraform
 
@@ -26,9 +26,9 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- **Terraform**: [Instalación de Terraform y configuración del acceso a Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- **Terraform**: [Instalación de Terraform y configuración del acceso a Azure](terraform-install-configure.md).
 - **Par de claves SSH**: [Creación de un par de claves SSH](/azure/virtual-machines/linux/mac-create-ssh-keys).
 - **Packer**:  [Instalación de Packer](https://www.packer.io/docs/install/index.html).
 

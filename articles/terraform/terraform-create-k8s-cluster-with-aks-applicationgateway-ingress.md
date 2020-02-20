@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de un controlador de entrada de Application Gateway 
 description: Tutorial que ilustra cómo crear un clúster de Kubernetes con Azure Kubernetes Service con Application Gateway como controlador de entrada
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772871"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472271"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: Creación de un controlador de entrada de Application Gateway en Azure Kubernetes Service
 
@@ -25,11 +25,11 @@ En este tutorial, aprenderá las siguientes tareas:
 > * Use Terraform y AKS para crear un clúster de Kubernetes.
 > * Utilice la herramienta kubectl para probar la disponibilidad de un clúster de Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
-- **Configuración de Terraform**: siga las instrucciones del artículo [Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- **Configuración de Terraform**: siga las instrucciones del artículo [Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure](terraform-install-configure.md).
 
 - **Grupo de recursos de Azure**: Si no tiene ningún grupo de recursos de Azure que pueda usar para la demostración, [créelo](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Tome nota del nombre y la ubicación del grupo de recursos, ya que estos valores se usan en la demostración.
 

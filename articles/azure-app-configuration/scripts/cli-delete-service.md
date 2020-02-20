@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 9f18cb79e4c160271fbb3855b1fc6e05589cf854
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 62628b611c7df7aa0515cbb2cc938b02977e510e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899430"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467674"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Eliminación de un almacén de Azure App Configuration
 
@@ -31,10 +31,6 @@ Este script permite eliminar una instancia de Azure App Configuration.
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
-
-Para instalar la extensión de la CLI de Azure App Configuration primero debe ejecutar el comando siguiente:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -53,7 +49,7 @@ Este script usa los siguientes comandos para eliminar un almacén de App Configu
 
 | Get-Help | Notas |
 |---|---|
-| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Elimina un recurso del almacén de App Configuration. |
+| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Elimina un recurso del almacén de App Configuration. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
