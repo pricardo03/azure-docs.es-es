@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 2c637346aae72a238963607f6f5d23910684265c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921995"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423646"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
 
@@ -87,7 +87,7 @@ Puede especificar las columnas que quiere asignar en actividad de copia -> propi
 
 Se admiten las siguientes propiedades en `translator` -> `mappings` -> objeto con `source` y `sink`:
 
-| Propiedad | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad | Descripción                                                  | Obligatorio |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nombre de la columna de origen o receptor.                           | Sí      |
 | ordinal  | Índice de columna. Comienza con 1. <br>Se aplica y es obligatoria cuando se usa texto delimitado sin línea de encabezado. | Sin       |
@@ -98,7 +98,7 @@ Se admiten las siguientes propiedades en `translator` -> `mappings` -> objeto co
 
 Se admiten las siguientes propiedades en `translator` -> `mappings`, así como en un objeto con `source` y `sink`:
 
-| Propiedad            | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad            | Descripción                                                  | Obligatorio |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Solo se admite si el origen son datos jerárquicos; por ejemplo, MongoDB o REST.<br>Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. | Sin       |
 
@@ -200,7 +200,7 @@ Si estaba usando la sintaxis de `"columnMappings": "UserId: MyUserId, Group: MyG
 
 Puede especificar actividad de copia -> `translator` -> `schemaMapping` para realizar la asignación de tablas de datos jerárquicos y datos tabulares. Por ejemplo, al copiar de MongoDB o REST a un archivo de texto, o al copiar de Oracle a la API de Azure Cosmos DB para MongoDB. Se admiten las siguientes propiedades en la sección `translator` de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí |
 | schemaMapping | Colección de pares clave-valor, que representa la relación de la asignación **del lado origen al lado receptor**.<br/>- **Clave:** representa el origen. Para un **origen tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **origen jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar.<br>- **Valor:** representa el receptor. Para un **receptor tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **receptor jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz.  | Sí |
@@ -259,11 +259,11 @@ Configure la regla de asignación de esquemas como el siguiente ejemplo JSON de 
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number",
-                "orderDate": "$.date",
-                "order_pd": "prod",
-                "order_price": "price",
-                "city": " $.city[0].name"
+                "$.number": "orderNumber",
+                "$.date": "orderDate",
+                "prod": "order_pd",
+                "price": "order_price",
+                "$.city[0].name": "city"
             },
             "collectionReference":  "$.orders"
         }
@@ -295,7 +295,7 @@ Data Factory admite los siguientes tipos de datos provisionales: Puede especific
 * Int32
 * Int64
 * Single
-* Cadena
+* String
 * TimeSpan
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -4,18 +4,18 @@ description: Lista de servicios que admiten identidades administradas para recur
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 09/24/2019
+ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b79a27526054f76d9d44e277c401e93214ec3c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a0576a70b1b345d31ffc11c55f7fa5cbd288acd5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018710"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425517"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -114,7 +114,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Asignado por el sistema | Disponible | No disponible | No disponible | No disponible |
+| Asignado por el sistema | Disponible | Disponible | No disponible | Disponible |
 | Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Data Factory V2 (en las regiones donde esté disponible):

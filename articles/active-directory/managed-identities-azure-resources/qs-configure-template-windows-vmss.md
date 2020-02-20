@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9854027bbdfaf22c650ae9e2e0aa1eec457f89dd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2d5e324ea20b2ea82fac5b5132893d3558bd3b41
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977940"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425568"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales de Azure mediante una plantilla
 
@@ -32,7 +32,7 @@ En este artículo, aprenderá a realizar las siguientes operaciones de identidad
 - Habilitación y deshabilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure
 - Adición y eliminación de una identidad asignada por el usuario un conjunto de escalado de máquinas virtuales de Azure
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -189,7 +189,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
        "identity": {
            "type": "userAssigned",
            "identityIds": [
-               "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
            ]
        }
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/27/2020
-ms.openlocfilehash: b8bb68f7da74e547b020ae00a4672e10d70cbfd1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844469"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199014"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en HDInsight
 
@@ -52,7 +52,7 @@ Un nodo perimetral vacío se puede agregar a un clúster de HDInsight existente 
 
 Como se muestra en el ejemplo, opcionalmente puede llamar a una [acción de script](hdinsight-hadoop-customize-cluster-linux.md) para realizar configuraciones adicionales, como instalar [Apache Hue](hdinsight-hadoop-hue-linux.md) en el nodo perimetral. El script de acción de script debe estar accesible públicamente en la web.  Por ejemplo, si el script está almacenado en Azure Storage, use contenedores o blobs públicos.
 
-El tamaño de la máquina virtual del nodo perimetral debe cumplir con los requisitos de tamaño para las máquinas virtuales de nodos de trabajador de clústeres de HDInsight. Para conocer los tamaños recomendados para máquinas virtuales de nodos de trabajador, consulte [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+El tamaño de la máquina virtual del nodo perimetral debe cumplir con los requisitos de tamaño para las máquinas virtuales de nodos de trabajador de clústeres de HDInsight. Para conocer los tamaños recomendados para máquinas virtuales de nodos de trabajador, consulte [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
 Después de crear un nodo perimetral, puede conectarse a él mediante SSH y ejecutar herramientas de cliente para acceder al clúster de Hadoop en HDInsight.
 

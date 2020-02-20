@@ -6,12 +6,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 12/29/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7461f378a4f95a43971f5893fe70739511e942ff
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: f85f63af94beb5c0d99632be69368c0c7c727b7b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732008"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212207"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Configurar la aplicación para usar una identidad administrada al conectarse a App Configuration.
 > * También puede configurar la aplicación para que use una identidad administrada cuando se conecte a Key Vault mediante una referencia de Key Vault de App Configuration.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para realizar este tutorial, necesitará lo siguiente:
 
@@ -95,7 +95,6 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
     ```csharp-interactive
     using Azure.Identity;
-    using Microsoft.Azure.Services.AppAuthentication;
     ```
 
 1. Si desea acceder solo a los valores almacenados directamente en App Configuration, actualice el método `CreateWebHostBuilder` reemplazando el método `config.AddAzureAppConfiguration()`.
@@ -103,7 +102,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
     > [!IMPORTANT]
     > `CreateHostBuilder` reemplaza a `CreateWebHostBuilder` en .NET Core 3.0.  Seleccione la sintaxis correcta en función de su entorno.
 
-    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -117,7 +116,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
                 .UseStartup<Startup>();
     ```
 
-    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -135,7 +134,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 1. Para usar los valores de App Configuration y las referencias de Key Vault, actualice *Program.cs* como se muestra a continuación. Este código crea un nuevo objeto `KeyVaultClient` mediante `AzureServiceTokenProvider` y pasa esta referencia a una llamada al método `UseAzureKeyVault`.
 
-    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
             public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -151,7 +150,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
                     .UseStartup<Startup>();
     ```
 
-    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>

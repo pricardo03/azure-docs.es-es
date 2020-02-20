@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 23d032a2496e975c7e6ceafb61691c2cb1216218
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5b07416f785ad263b4dbb9a0d249cb6022c01b13
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605747"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367474"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creación de un grupo host con una plantilla de Azure Resource Manager
 
@@ -28,7 +28,7 @@ Asegúrese de que conoce los siguientes datos antes de ejecutar la plantilla de 
 - Sus credenciales de unión un dominio.
 - Sus credenciales de Windows Virtual Desktop.
 
-Cuando se crea un grupo de hosts de Windows Virtual Desktop con la plantilla de Azure Resource Manager, se puede crear una máquina virtual desde una imagen de Azure Gallery, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
+Cuando se crea un grupo de hosts de Windows Virtual Desktop con la plantilla de Azure Resource Manager, se puede crear una máquina virtual desde una imagen de Azure Gallery, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
 
 ## <a name="run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool"></a>Ejecutar la plantilla de Azure Resource Manager para el aprovisionamiento de un nuevo grupo de hosts
 
@@ -52,7 +52,7 @@ Para obtener instrucciones sobre los parámetros que debe especificar en su caso
 
 Cuando la plantilla de Azure Resource Manager de GitHub finalice, asigne accesos de usuario antes de empezar a comprobar los escritorios de sesión completos en sus máquinas virtuales.
 
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
+En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell.
 
 Para asignar usuarios al grupo de aplicaciones de escritorio, abra una ventana de PowerShell y ejecute este cmdlet para iniciar sesión en el entorno de Windows Virtual Desktop:
 
@@ -71,4 +71,4 @@ El UPN del usuario debe coincidir con la identidad del usuario en Azure Active D
 Después de haber completado estos pasos, los usuarios agregados al grupo de aplicaciones de escritorio pueden iniciar sesión en Windows Virtual Desktop con clientes de Escritorio remoto compatibles y ver un recurso de escritorio de sesión.
 
 >[!IMPORTANT]
->Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](../security-center/security-center-just-in-time.md).

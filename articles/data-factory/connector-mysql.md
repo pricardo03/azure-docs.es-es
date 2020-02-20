@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 03f8bffafe9ebfd95d439f920a5e00be27810c96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0bfae10d3b3b491c3662385055b23cc585a6e24d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444241"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471166"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -39,13 +39,11 @@ Puede copiar datos desde la base de datos MySQL en cualquier almacén de datos r
 
 En concreto, este conector MySQL es compatible con las **versiones 5.6 y 5.7** de MySQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 El entorno Integration Runtime proporciona un controlador MySQL integrado a partir de la versión 3.7, por lo tanto, no es necesario que instale uno manualmente.
-
-Para una versión de IR autohospedado anterior a 3.7, debe instalar una versión entre 6.6.5 y 6.10.7 del [conector MySQL o Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) en la máquina de Integration Runtime. Este controlador de 32 bits es compatible con IR de 64 bits.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -61,14 +59,14 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MySQL:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **MySQL** | Sí |
 | connectionString | Especifique la información necesaria para conectarse a la instancia de Azure Database for MySQL.<br/> También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Más propiedades que puede establecer para su caso:
 
 | Propiedad | Descripción | Opciones | Obligatorio |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Esta opción especifica si el controlador utiliza cifrado SSL y comprobación durante la conexión a MySQL. Por ejemplo, `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(valor predeterminado)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
-| UseSystemTrustStore | Esta opción concreta si se usa un certificado de entidad de certificación del almacén de confianza del sistema o de un archivo PEM especificado. Por ejemplo, `UseSystemTrustStore=<0/1>;`| Habilitado (1) / Deshabilitado (0) **(valor predeterminado)** | No |
+| SSLMode | Esta opción especifica si el controlador utiliza cifrado SSL y comprobación durante la conexión a MySQL. Por ejemplo, `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(valor predeterminado)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Sin |
+| UseSystemTrustStore | Esta opción concreta si se usa un certificado de entidad de certificación del almacén de confianza del sistema o de un archivo PEM especificado. Por ejemplo, `UseSystemTrustStore=<0/1>;`| Habilitado (1) / Deshabilitado (0) **(valor predeterminado)** | Sin |
 
 **Ejemplo**:
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7659c8187f7f4763b51b09362c94dad9554ed1c0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 502b4cef4fc44abcc55c1733b86fb6052e3e43ab
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982847"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372749"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -126,7 +126,7 @@ El elemento **SingleSignOn** contiene el atributo siguiente:
 | --------- | -------- | ----------- |
 | Ámbito | Sí | El ámbito del comportamiento de inicio de sesión único. Valores posibles: `Suppressed`, `Tenant`, `Application` o `Policy`. El valor `Suppressed` indica que se suprime el comportamiento. Por ejemplo, en el caso de una sesión de inicio de sesión único, no se mantiene ninguna sesión para el usuario y siempre se solicita al usuario una selección del proveedor de identidades. El valor `TrustFramework` indica que el comportamiento se aplica a todas las directivas del marco de confianza. Por ejemplo, un usuario que navega por dos recorridos de directiva para un marco de confianza no se solicita para una selección del proveedor de identidades. El valor `Tenant` indica que el comportamiento se aplica a todas las directivas del inquilino. Por ejemplo, a un usuario que sigue dos recorridos de directiva para un inquilino no se le solicita que seleccione el proveedor de identidades. El valor `Application` indica que el comportamiento se aplica a todas las directivas de la aplicación que hace la solicitud. Por ejemplo, a un usuario que sigue dos recorridos de directiva para una aplicación no se le solicita que seleccione el proveedor de identidades. El valor `Policy` indica que el comportamiento solo se aplica a una directiva. Por ejemplo, a un usuario que sigue dos recorridos de directiva para un marco de confianza se le solicita que seleccione el proveedor de identidades al cambiar de una directiva a otra. |
 | KeepAliveInDays | Sí | Controla cuánto tiempo permanece el usuario con la sesión iniciada. Si se establece el valor en 0, se desactiva la funcionalidad KMSI. Para más información, consulte [Mantener la sesión iniciada](custom-policy-keep-me-signed-in.md). |
-|EnforceIdTokenHintOnLogout| No|  Haga que un token de id. emitido previamente se pase al punto de conexión de cierre de sesión como una sugerencia sobre la sesión autenticada actual del usuario final con el cliente. Valores posibles: `false` (opción predeterminada) o `true`. Para más información, consulte [Inicio de sesión web con OpenID Connect](openid-connect.md).  |
+|EnforceIdTokenHintOnLogout| Sin|  Haga que un token de id. emitido previamente se pase al punto de conexión de cierre de sesión como una sugerencia sobre la sesión autenticada actual del usuario final con el cliente. Valores posibles: `false` (opción predeterminada) o `true`. Para más información, consulte [Inicio de sesión web con OpenID Connect](openid-connect.md).  |
 
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -164,7 +164,7 @@ El elemento **ContentDefinitionParameter** contiene el atributo siguiente:
 | --------- | -------- | ----------- |
 | Nombre | Sí | El nombre del par clave-valor. |
 
-Para obtener más información, vea [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](custom-policy-ui-customization-dynamic.md).
+Para obtener más información, vea [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri).
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
@@ -204,8 +204,8 @@ El elemento **OutputClaim** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | Una referencia a un **ClaimType** ya definido en la sección **ClaimsSchema** del archivo de directiva. |
-| DefaultValue | No | Un valor predeterminado que se puede usar si el valor de notificación está vacío. |
-| PartnerClaimType | No | Envía la notificación con un nombre distinto al configurado en la definición de ClaimType. |
+| DefaultValue | Sin | Un valor predeterminado que se puede usar si el valor de notificación está vacío. |
+| PartnerClaimType | Sin | Envía la notificación con un nombre distinto al configurado en la definición de ClaimType. |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 

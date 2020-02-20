@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 03b0269b1a4500fd8ae26cd5e56f48427c5506aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f47c2c30f71d6510ee66bb19bdd936e0780e242c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429185"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461881"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Inicio rápido: Habilitar SSH y RDP mediante un flujo de dispositivo de IoT Hub con una aplicación proxy en C (versión preliminar)
 
@@ -50,14 +50,14 @@ En la siguiente ilustración se muestra cómo configurar los programas de proxy 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La versión preliminar de los flujos de dispositivo solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
 
   * Centro de EE. UU.
   * EUAP del centro de EE. UU.
-  * Europa del Norte
-  * Sudeste asiático
+  * Norte de Europa
+  * Sudeste de Asia
 
 * Instale [Visual Studio 2019](https://www.visualstudio.com/vs/) con la carga de trabajo [Desarrollo para el escritorio con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Instale la última versión de [Git](https://git-scm.com/download/).
@@ -120,7 +120,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 

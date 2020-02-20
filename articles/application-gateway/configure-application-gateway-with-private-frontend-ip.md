@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: c49c37ced4a5d5cc7cdde0737b889aad3b538f7f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898999"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198639"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configuración de una puerta de enlace de aplicaciones con un punto de conexión de equilibrador de carga interno (ILB)
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980070"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467188"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archivado de registros de recurso de Azure en la cuenta de almacenamiento
 Los [registros de plataforma](platform-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen.  En este artículo se describe la recopilación de registros de plataforma en una cuenta de almacenamiento de Azure para conservar los datos para su archivado.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Si no la tiene, puede crear una [cuenta de almacenamiento de Azure](../../storage/common/storage-account-create.md). La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
 
 
@@ -33,7 +33,7 @@ Envíe los registros de plataforma al almacenamiento y otros destinos mediante l
 
 
 ## <a name="collect-data-from-compute-resources"></a>Recopilación de datos desde recursos de proceso
-La configuración de diagnóstico recopilará los registros de recursos para los recursos de proceso de Azure, como cualquier otro recurso, pero no su sistema operativo invitado o sus cargas de trabajo. Para recopilar estos datos, instale el [agente de Windows Azure Diagnostics](diagnostics-extension-overview.md). Consulte [Guardar y ver datos de diagnóstico en Azure Storage](diagnostics-extension-to-storage.md) para obtener más información.
+La configuración de diagnóstico recopilará los registros de recursos para los recursos de proceso de Azure, como cualquier otro recurso, pero no su sistema operativo invitado o sus cargas de trabajo. Para recopilar estos datos, instale el [agente de Windows Azure Diagnostics](diagnostics-extension-overview.md). 
 
 
 ## <a name="schema-of-platform-logs-in-storage-account"></a>Esquema de los registros de plataforma en una cuenta de almacenamiento

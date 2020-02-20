@@ -5,23 +5,23 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 11/20/2019
+ms.date: 02/14/2020
+ms.subservice: language-understanding
 ms.author: diberry
-ms.openlocfilehash: c81aaa02af0895e6c3a851fe15273d85de9b55bc
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 956aa308bf1cb3736c491031239661ec6b295ddb
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262762"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279455"
 ---
 La aplicación cliente debe saber si una expresión no es significativa o adecuada para la aplicación. La intención **None** se agrega a cada aplicación como parte del proceso de creación para determinar si la aplicación cliente no debe responder a una expresión.
 
-Si LUIS devuelve la intención **None** para una expresión, la aplicación cliente puede preguntar al usuario si quiere finalizar la conversación o dar más instrucciones para continuarla. 
+Si LUIS devuelve la intención **None** para una expresión, la aplicación cliente puede preguntar al usuario si quiere finalizar la conversación o dar más instrucciones para continuarla.
 
-Si deja la intención **None** vacía, una expresión que debería predecirse fuera del dominio del asunto se predecirá en una de las intenciones del dominio de sujeto existente. El resultado es que la aplicación cliente, como un bot de chat, realizará operaciones incorrectas en función de una predicción incorrecta. 
+Si deja la intención **None** vacía, una expresión que debería predecirse fuera del dominio del asunto se predecirá en una de las intenciones del dominio de sujeto existente. El resultado es que la aplicación cliente, como un bot de chat, realizará operaciones incorrectas en función de una predicción incorrecta.
 
 1. Seleccione **Intents** (Intenciones) en el panel izquierdo.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513327"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443846"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -67,12 +67,12 @@ No se permite tener registrada una máquina para Update Management en más de un
 
 ### <a name="supported-client-types"></a>Tipos de cliente admitidos
 
-En la tabla siguiente se muestra una lista de sistemas operativos compatibles para evaluaciones de actualizaciones. La aplicación de revisiones requiere Hybrid Runbook Worker. Para obtener información sobre los requisitos de Hybrid Runbook Worker, consulte las guías de instalación para [HRW en Windows](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) y [HRW en Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
+En la tabla siguiente se muestra una lista de sistemas operativos compatibles para evaluaciones de actualizaciones. La aplicación de revisiones requiere Hybrid Runbook Worker. Para obtener información sobre los requisitos de Hybrid Runbook Worker, consulte las guías de instalación para [HRW en Windows](automation-windows-hrw-install.md) y [HRW en Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
 |Sistema operativo  |Notas  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management solo permite realizar valoraciones de este sistema operativo. No permite aplicar revisiones, ya que [Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) no es compatible con Windows Server 2008 R2. |
+|Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management solo permite realizar valoraciones de este sistema operativo. No permite aplicar revisiones, ya que [Hybrid Runbook Worker](automation-windows-hrw-install.md) no es compatible con Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
@@ -240,7 +240,7 @@ sudo yum -q --security check-update
 
 Actualmente no hay ningún método compatible para habilitar la disponibilidad de datos de clasificación nativos en CentOS. En este momento, solo se proporciona soporte técnico a clientes que puedan haberla habilitado por su cuenta. 
 
-Para clasificar las actualizaciones en la versión 6 de Red Hat Enterprise, debe instalar el complemento de seguridad de yum. En Red Hat Enterprise Linux 7, el complemento ya forma parte de yum, no es necesario instalar nada. Para obtener más información, consulte el siguiente [artículo de conocimientos](https://access.redhat.com/solutions/10021) de Red Hat.
+Para clasificar las actualizaciones en la versión 6 de Red Hat Enterprise, debe instalar el complemento de seguridad de yum. En Red Hat Enterprise Linux 7, el complemento ya forma parte de yum, por lo que no es necesario instalar nada. Para más información, consulte el siguiente [artículo de conocimientos](https://access.redhat.com/solutions/10021) de Red Hat.
 
 ## <a name="integrate-with-configuration-manager"></a>Integración con Configuration Manager
 

@@ -3,12 +3,12 @@ title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 7f9b964212d7b8056895aa1c6826766315af2ec2
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 9cd602644ecf803e97254189cfc157d60713cc6c
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122073"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209467"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -37,12 +37,12 @@ En la estructura más simple, una plantilla tiene los siguientes elementos:
 |:--- |:--- |:--- |
 | $schema |Sí |Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla.<br><br> Para las implementaciones de grupos de recursos, use: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>Para las implementaciones de suscripciones, use: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`. |
 | contentVersion |Sí |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
-| apiProfile |No | Una versión de API que actúa como una colección de versiones de API para los tipos de recursos. Use este valor para evitar tener que especificar las versiones de API para cada recurso de la plantilla. Si especifica una versión del perfil de API y no especifica una versión de API para el tipo de recurso, Resource Manager usa la versión de API para el tipo de recurso que está definido en el perfil.<br><br>La propiedad del perfil de API es especialmente útil al implementar una plantilla en diferentes entornos, como Azure Stack y Azure global. Use la versión del perfil de API para asegurarse de que la plantilla utilice automáticamente las versiones que se admiten en ambos entornos. Para obtener una lista de las versiones del perfil de API actuales y de las versiones de API de recursos definidas en el perfil, consulte [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile) (Perfil de API).<br><br>Para más información, consulte [Seguimiento de versiones mediante perfiles de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
-| [parameters](#parameters) |No |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
-| [variables](#variables) |No |Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla. |
-| [functions](#functions) |No |Funciones definidas por el usuario que están disponibles dentro de la plantilla. |
+| apiProfile |Sin | Una versión de API que actúa como una colección de versiones de API para los tipos de recursos. Use este valor para evitar tener que especificar las versiones de API para cada recurso de la plantilla. Si especifica una versión del perfil de API y no especifica una versión de API para el tipo de recurso, Resource Manager usa la versión de API para el tipo de recurso que está definido en el perfil.<br><br>La propiedad del perfil de API es especialmente útil al implementar una plantilla en diferentes entornos, como Azure Stack y Azure global. Use la versión del perfil de API para asegurarse de que la plantilla utilice automáticamente las versiones que se admiten en ambos entornos. Para obtener una lista de las versiones del perfil de API actuales y de las versiones de API de recursos definidas en el perfil, consulte [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile) (Perfil de API).<br><br>Para más información, consulte [Seguimiento de versiones mediante perfiles de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| [parameters](#parameters) |Sin |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
+| [variables](#variables) |Sin |Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla. |
+| [functions](#functions) |Sin |Funciones definidas por el usuario que están disponibles dentro de la plantilla. |
 | [resources](#resources) |Sí |Tipos de servicios que se implementan o actualizan en un grupo de recursos o suscripción. |
-| [outputs](#outputs) |No |Valores que se devuelven después de la implementación. |
+| [outputs](#outputs) |Sin |Valores que se devuelven después de la implementación. |
 
 Cada elemento tiene propiedades que puede configurar. En este artículo se describen las secciones de la plantilla con más detalle.
 
@@ -73,13 +73,13 @@ Las propiedades disponibles para un parámetro son:
 |:--- |:--- |:--- |
 | nombre-del-parámetro |Sí |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
 | type |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. Consulte [Tipos de datos](#data-types). |
-| defaultValue |No |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
-| allowedValues |No |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
-| minValue |No |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
-| maxValue |No |El valor máximo de parámetros de tipo int, este valor es inclusivo. |
-| minLength |No |Longitud mínima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
-| maxLength |No |Longitud máxima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
-| description |No |Descripción del parámetro que se muestra a los usuarios a través del portal. Para más información, consulte [Comentarios en plantillas](#comments). |
+| defaultValue |Sin |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
+| allowedValues |Sin |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
+| minValue |Sin |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
+| maxValue |Sin |El valor máximo de parámetros de tipo int, este valor es inclusivo. |
+| minLength |Sin |Longitud mínima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
+| maxLength |Sin |Longitud máxima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
+| description |Sin |Descripción del parámetro que se muestra a los usuarios a través del portal. Para más información, consulte [Comentarios en plantillas](#comments). |
 
 Para ejemplos de cómo usar los parámetros, consulte [Parámetros en plantillas de Azure Resource Manager](template-parameters.md).
 
@@ -126,7 +126,7 @@ En el ejemplo siguiente se muestran las opciones disponibles para definir una va
 }
 ```
 
-Si desea información sobre el uso de `copy` para crear varios valores para una variable, consulte [Iteración de variables](create-multiple-instances.md#variable-iteration).
+Si desea información sobre el uso de `copy` para crear varios valores para una variable, consulte [Iteración de variables](copy-variables.md).
 
 Para ejemplos de cómo usar las variables, consulte [Variables en plantillas de Azure Resource Manager](template-variables.md).
 
@@ -168,8 +168,8 @@ Al definir una función de usuario, hay algunas restricciones:
 |:--- |:--- |:--- |
 | espacio de nombres |Sí |Espacio de nombres para las funciones personalizadas. Se usa para evitar conflictos de nomenclatura con funciones de plantilla. |
 | nombre-de-la-función |Sí |Nombre de la función personalizada. Al llamar a la función, combine el nombre de la función con el espacio de nombres. Por ejemplo, para llamar a una función denominada uniqueName en el espacio de nombres contoso, use `"[contoso.uniqueName()]"`. |
-| nombre-del-parámetro |No |Nombre del parámetro que se va a usar en la función personalizada. |
-| valor-del-parámetro |No |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
+| nombre-del-parámetro |Sin |Nombre del parámetro que se va a usar en la función personalizada. |
+| valor-del-parámetro |Sin |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
 | tipo de salida |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de función. |
 | valor de salida |Sí |Expresión de lenguaje de plantilla que se evalúa y devuelve desde la función. |
 
@@ -237,20 +237,20 @@ Defina recursos con la siguiente estructura:
 
 | Nombre del elemento | Obligatorio | Descripción |
 |:--- |:--- |:--- |
-| condición | No | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condition](conditional-resource-deployment.md). |
+| condición | Sin | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condition](conditional-resource-deployment.md). |
 | type |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
 | apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
 | name |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Para un recurso secundario, el formato del nombre depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
-| comments |No |Notas para documentar los recursos de la plantilla. Para más información, consulte [Comentarios en plantillas](template-syntax.md#comments). |
+| comments |Sin |Notas para documentar los recursos de la plantilla. Para más información, consulte [Comentarios en plantillas](template-syntax.md#comments). |
 | ubicación |Varía |Ubicaciones geográficas compatibles del recurso proporcionado. Puede seleccionar cualquiera de las ubicaciones disponibles, pero normalmente tiene sentido elegir aquella que esté más cerca de los usuarios. Normalmente, también tiene sentido colocar los recursos que interactúan entre sí en la misma región. La mayoría de los tipos de recursos requieren una ubicación, pero algunos (por ejemplo, una asignación de roles) no la necesitan. Consulte [Establecimiento de la ubicación del recurso](resource-location.md). |
-| dependsOn |No |Recursos que se deben implementar antes de implementar este. Resource Manager evalúa las dependencias entre recursos y los implementa en su orden correcto. Cuando no hay recursos dependientes entre sí, se implementan en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos. Solo los recursos de lista que se implementan en esta plantilla. Deben existir los recursos que no estén definidos en esta plantilla. Evite agregar dependencias innecesarias, ya que pueden ralentizar la implementación y crear dependencias circulares. Para obtener instrucciones sobre la configuración de dependencias, consulte [Definición de dependencias en plantillas de Azure Resource Manager](define-resource-dependency.md). |
-| etiquetas |No |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
-| sku | No | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
-| kind | No | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
-| copy |No |Si se necesita más de una instancia, el número de recursos que se crearán. El modo predeterminado es paralelo. Si no desea que todos los recursos se implementen al mismo tiempo, especifique el modo serie. Para obtener más información, consulte [Creación de varias instancias de recursos en Azure Resource Manager](create-multiple-instances.md). |
-| plan | No | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. |
-| properties |No |Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. También puede especificar una matriz de copia para crear varias instancias de una propiedad. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
-| resources |No |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
+| dependsOn |Sin |Recursos que se deben implementar antes de implementar este. Resource Manager evalúa las dependencias entre recursos y los implementa en su orden correcto. Cuando no hay recursos dependientes entre sí, se implementan en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos. Solo los recursos de lista que se implementan en esta plantilla. Deben existir los recursos que no estén definidos en esta plantilla. Evite agregar dependencias innecesarias, ya que pueden ralentizar la implementación y crear dependencias circulares. Para obtener instrucciones sobre la configuración de dependencias, consulte [Definición de dependencias en plantillas de Azure Resource Manager](define-resource-dependency.md). |
+| etiquetas |Sin |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
+| sku | Sin | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
+| kind | Sin | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
+| copy |Sin |Si se necesita más de una instancia, el número de recursos que se crearán. El modo predeterminado es paralelo. Si no desea que todos los recursos se implementen al mismo tiempo, especifique el modo serie. Para obtener más información, consulte [Creación de varias instancias de recursos en Azure Resource Manager](copy-resources.md). |
+| plan | Sin | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. |
+| properties |Sin |Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. También puede especificar una matriz de copia para crear varias instancias de una propiedad. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
+| resources |Sin |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
 
 ## <a name="outputs"></a>Salidas
 
@@ -271,7 +271,7 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 | Nombre del elemento | Obligatorio | Descripción |
 |:--- |:--- |:--- |
 | nombre de salida |Sí |Nombre del valor de salida. Debe ser un identificador válido de JavaScript. |
-| condición |No | Valor booleano que indica si se va a devolver este valor de salida. Si es `true`, el valor se incluye en la salida de la implementación. Si es `false`, el recurso se omite en esta implementación. Si no se especifica, el valor predeterminado es `true`. |
+| condición |Sin | Valor booleano que indica si se va a devolver este valor de salida. Si es `true`, el valor se incluye en la salida de la implementación. Si es `false`, el recurso se omite en esta implementación. Si no se especifica, el valor predeterminado es `true`. |
 | type |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. Si especifica **securestring** para el tipo de salida, el valor no se muestra en el historial de implementación y no se puede recuperar desde otra plantilla. Para usar un valor de secreto en más de una plantilla, almacene el secreto en un almacén de claves y haga referencia al secreto en el archivo de parámetros. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](key-vault-parameter.md). |
 | value |Sí |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
 

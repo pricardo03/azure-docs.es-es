@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 8f6307e37ff24d2a3f10bcf39ed989acdf3611f9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 1bf8f8e198f6c4a4a0af308262cd830685698a80
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157999"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458926"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de iOS para Aplicaciones móviles de Azure
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 ## <a name="overview"></a>Información general
 En esta guía se muestra cómo realizar algunas tareas comunes a través del [SDK de iOS de Azure Mobile Apps][1]. Si está familiarizado con Aplicaciones móviles de Azure, complete primero [Creación de una aplicación de Apache Cordova] para crear un back-end, crear una tabla y descargar un proyecto de Xcode para iOS pregenerada. En esta guía, nos centramos en el SDK de iOS de cliente. Para obtener más información sobre el SDK de servidor para el back-end, consulte los procedimientos del SDK de servidor.

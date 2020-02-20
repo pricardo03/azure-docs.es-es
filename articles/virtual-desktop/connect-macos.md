@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: a46be5dea8286194ccd2558b2e6e301e2624a5f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8995899a0bc6d8d023a7ad08d886fc879fab390
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460211"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367510"
 ---
 # <a name="connect-with-the-macos-client"></a>Conexión con el cliente macOS
 
@@ -43,4 +43,4 @@ Una vez que se haya suscrito a una fuente, el contenido de la misma se actualiza
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el cliente macOS, consulte el documento [Introducción al cliente de macOS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
+Para más información sobre el cliente macOS, consulte el documento [Introducción al cliente de macOS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/).

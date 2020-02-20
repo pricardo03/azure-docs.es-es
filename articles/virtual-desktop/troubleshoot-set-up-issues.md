@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 12b5b6ce84ad36d14a393b54745e530779d4ca95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 438c391febc28a716c681aa81b3f42c155b720eb
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965744"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367217"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -53,7 +53,7 @@ Ejemplo de error no procesado:
 
 **Causa:** No han asignado al usuario que ha iniciado sesión el rol TenantCreator en su Azure Active Directory.
 
-**Solución:** Siga las instrucciones de [Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). Después de seguir las instrucciones, tendrá un usuario asignado al rol TenantCreator.
+**Solución:** Siga las instrucciones de [Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Después de seguir las instrucciones, tendrá un usuario asignado al rol TenantCreator.
 
 ![Captura de pantalla del rol TenantCreator asignado.](media/TenantCreatorRoleAssigned.png)
 
@@ -113,9 +113,9 @@ Si la plantilla de la operación supera el límite de cuota, puede realizar una 
 
 Siga estas instrucciones para solucionar problemas de implementaciones incorrectas de DSC de PowerShell y plantillas de Azure Resource Manager.
 
-1. Revise los errores en la implementación mediante [Ver operaciones de implementación con Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
-2. Si no hay ningún error en la implementación, revise los errores en el registro de actividad mediante [Ver registros de actividad para auditar las acciones sobre los recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-3. Una vez identificado el error, utilice el mensaje de error y los recursos de [Solucionar errores comunes de implementación de Azure con Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) para solucionar el problema.
+1. Revise los errores en la implementación mediante [Ver operaciones de implementación con Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
+2. Si no hay ningún error en la implementación, revise los errores en el registro de actividad mediante [Ver registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/resource-group-audit.md).
+3. Una vez identificado el error, utilice el mensaje de error y los recursos de [Solucionar errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) para solucionar el problema.
 4. Elimine los recursos creados durante la implementación anterior y vuelva a intentar implementar la plantilla.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: Error al realizar la implementación...\<hostname>/joindomain

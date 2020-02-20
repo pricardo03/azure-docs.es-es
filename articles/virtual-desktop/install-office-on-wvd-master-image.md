@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 059748f6f08b1c73d56aa3a127aa785f55eb63ee
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1637cb7621d6071bbce2af66f3a106770139ad4e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539127"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368821"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalación de Office en la imagen de un disco duro virtual principal
 
@@ -20,20 +20,20 @@ Este artículo le indica cómo instalar Office 365 ProPlus, OneDrive y otras apl
 
 En este artículo se da por supuesto que ya ha creado una máquina virtual (VM). En caso contrario, consulte [Preparación y personalización de una imagen de disco duro virtual maestro](set-up-customize-master-image.md#create-a-vm).
 
-En este artículo también se da por supuesto que ha concedido privilegios de acceso elevados sobre la máquina virtual sin importar si está aprovisionada en Azure o en Hyper-V Manager. Si no es así, consulte [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+En este artículo también se da por supuesto que ha concedido privilegios de acceso elevados sobre la máquina virtual sin importar si está aprovisionada en Azure o en Hyper-V Manager. Si no es así, consulte [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
 >Estas instrucciones son específicas de una configuración de Windows Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Instalación de Office en modo de activación en equipos compartidos
 
-La activación en equipos compartidos le permite implementar Office 365 ProPlus en un equipo de la organización al que acceden varios usuarios. Para más información sobre la activación en equipos compartidos, consulte [Introducción a la activación en equipos compartidos para Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
+La activación en equipos compartidos le permite implementar Office 365 ProPlus en un equipo de la organización al que acceden varios usuarios. Para más información sobre la activación en equipos compartidos, consulte [Introducción a la activación en equipos compartidos para Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
 
 Use la [herramienta de implementación de Office](https://www.microsoft.com/download/details.aspx?id=49117) para instalar Office. Sesión múltiple de Windows 10 Enterprise solo admite las siguientes versiones de Office:
 - Office 365 ProPlus
 - Office 365 Business que incluye una suscripción a Microsoft 365 Business
 
-La herramienta de implementación de Office requiere un archivo XML de configuración. Para personalizar el ejemplo siguiente, consulte [las opciones de configuración de la herramienta de implementación de Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
+La herramienta de implementación de Office requiere un archivo XML de configuración. Para personalizar el ejemplo siguiente, consulte [las opciones de configuración de la herramienta de implementación de Office](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 Este archivo XML de configuración de ejemplo que hemos proporcionado hará lo siguiente:
 

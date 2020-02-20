@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772782"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471778"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -72,7 +72,7 @@ Está previsto agregar compatibilidad con los siguientes sistemas operativos, as
 
 Su infraestructura necesita cumplir los siguientes requisitos para ser compatible con Windows Virtual Desktop:
 
-* Una instancia de [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+* Una instancia de [Azure Active Directory](/azure/active-directory/).
 * Una instancia de Windows Server Active Directory sincronizada con Azure Active Directory. Puede configurarla con uno de los siguientes elementos:
   * Azure AD Connect (para organizaciones híbridas)
   * Azure AD Domain Services (para organizaciones híbridas o de nube)
@@ -80,7 +80,7 @@ Su infraestructura necesita cumplir los siguientes requisitos para ser compatibl
   
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cumplir estos requisitos:
 
-* Estar [unidas a un dominio estándar](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) o a un [dominio híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Las máquinas virtuales no pueden estar unidas a Azure AD.
+* Estar [unidas a un dominio estándar](../active-directory-domain-services/active-directory-ds-comparison.md) o a un [dominio híbrido](../active-directory/devices/hybrid-azuread-join-plan.md). Las máquinas virtuales no pueden estar unidas a Azure AD.
 * Deben ejecutar una de las siguientes [imágenes de sistema operativo admitidas](#supported-virtual-machine-os-images).
 
 >[!NOTE]
@@ -146,13 +146,13 @@ Las opciones de automatización y de implementación disponibles dependen del si
 |Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|Actualizaciones del agente de Windows Virtual Desktop|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
 |Sesión múltiple de Windows 10, versión 1903|Sí|Sí|Sí|Sí|Automático|
-|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|No|No|Automático|
+|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|Sin|Sin|Automático|
 |Windows 10 Enterprise, versión 1903|Sí|Sí|Sí|Sí|Automático|
-|Windows 10 Enterprise, versión 1809|Sí|Sí|No|No|Automático|
-|Windows 7 Enterprise|Sí|Sí|No|No|Manual|
-|Windows Server 2019|Sí|Sí|No|No|Automático|
+|Windows 10 Enterprise, versión 1809|Sí|Sí|Sin|Sin|Automático|
+|Windows 7 Enterprise|Sí|Sí|Sin|Sin|Manual|
+|Windows Server 2019|Sí|Sí|Sin|Sin|Automático|
 |Windows Server 2016|Sí|Sí|Sí|Sí|Automático|
-|Windows Server 2012 R2|Sí|Sí|No|No|Automático|
+|Windows Server 2012 R2|Sí|Sí|Sin|Sin|Automático|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

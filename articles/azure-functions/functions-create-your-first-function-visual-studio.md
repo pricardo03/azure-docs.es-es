@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 6d09453db0fdf8c09ad6d90c63b27f48508302be
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b343adeed5abeecdf55f71f8bc4298659a106e09
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230706"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198401"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creación de la primera función mediante Visual Studio
 
@@ -20,7 +20,7 @@ En este artículo aprenderá a usar Visual Studio 2019 con el fin de crear y p
 
 ![Respuesta de localhost de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, antes debe instalar [Visual Studio 2019](https://azure.microsoft.com/downloads/). Asegúrese de que la carga de trabajo de **Desarrollo de Azure** también está instalada.
 
@@ -32,7 +32,7 @@ Para completar este tutorial, antes debe instalar [Visual Studio 2019](https:/
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio crea un proyecto y una clase que contiene código reutilizable para el tipo de función de desencadenador HTTP. El atributo `FunctionName` en el método establece el nombre de la función que, de forma predeterminada, es `HttpTrigger`. El atributo `HttpTrigger` especifica que la función es desencadenada por una solicitud HTTP. El código reutilizable envía una respuesta HTTP que incluye un valor del cuerpo de la solicitud o de la cadena de consulta.
+Visual Studio crea un proyecto y una clase que contiene código reutilizable para el tipo de función de desencadenador HTTP. El atributo `FunctionName` en el método establece el nombre de la función que, de forma predeterminada, es `Function1`. El atributo `HttpTrigger` especifica que la función es desencadenada por una solicitud HTTP. El código reutilizable envía una respuesta HTTP que incluye un valor del cuerpo de la solicitud o de la cadena de consulta.
 
 Puede ampliar las capacidades de la función con enlaces de entrada y salida, mediante la aplicación de los atributos adecuados al método. Para más información, consulte la sección [Desencadenadores y enlaces](functions-dotnet-class-library.md#triggers-and-bindings) de la [Referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
-ms.openlocfilehash: ed67a21107f6a7d90341ae40feeb817671785778
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: daca108cfc8bb2e5b2a068170a4a0244c72c9592
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823813"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462605"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Escalar recursos de grupos elásticos en Azure SQL Database
 
@@ -62,7 +62,7 @@ La latencia estimada de cambiar el nivel de servicio o la escala del tamaño de 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Consideraciones adicionales cuando se cambia el nivel de servicio o la escala de tamaño de proceso
 
 - Cuando se reducen los núcleos virtuales o las eDTU del grupo elástico, el grupo que se utilice debe ser menor que el tamaño máximo permitido del nivel de servicio de destino y de las eDTU de grupo.
-- Cuando se cambia la escala de los núcleos virtuales y las eDTU de un grupo elástico, se aplica un costo de almacenamiento adicional si (1) el tamaño máximo de almacenamiento del grupo es compatible con el grupo de destino y (2) el tamaño máximo de almacenamiento supera la cantidad de almacenamiento incluida del grupo de destino. Por ejemplo, si un grupo Estándar de 100 eDTU con un tamaño máximo de 100 GB se reduce a un grupo Estándar de 50 eDTU, se aplica un costo de almacenamiento adicional porque el grupo de destino admite un tamaño máximo de 100 GB y su cantidad de almacenamiento incluido es solo de 50 GB. Por lo tanto, la cantidad de almacenamiento adicional es 100 GB – 50 GB = 50 GB. Para conocer el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la cantidad de espacio real utilizada es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida.
+- Cuando se cambia la escala de las eDTU de un grupo elástico, se aplica un costo de almacenamiento adicional si (1) el tamaño máximo de almacenamiento del grupo de es compatible con el grupo de destino y (2) el tamaño máximo de almacenamiento supera la cantidad de almacenamiento incluido del grupo de destino. Por ejemplo, si un grupo Estándar de 100 eDTU con un tamaño máximo de 100 GB se reduce a un grupo Estándar de 50 eDTU, se aplica un costo de almacenamiento adicional porque el grupo de destino admite un tamaño máximo de 100 GB y su cantidad de almacenamiento incluido es solo de 50 GB. Por lo tanto, la cantidad de almacenamiento adicional es 100 GB – 50 GB = 50 GB. Para conocer el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la cantidad de espacio real utilizada es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida.
 
 ### <a name="billing-during-rescaling"></a>Facturación durante el cambio de escala
 
@@ -77,7 +77,7 @@ Se le cobrará por cada hora que una base de datos exista con el mayor nivel de 
 
 - Se puede aprovisionar el almacenamiento hasta el límite de tamaño máximo:
 
-  - En el caso del almacenamiento en niveles de servicio estándar o Uso general, aumente o disminuya el tamaño en incrementos de 10 GB.
+  - En el caso del almacenamiento en los niveles de servicio Estándar o Uso general, aumente o disminuya el tamaño en incrementos de 10 GB.
   - Para el almacenamiento en niveles de servicio Premium o Crítico para la empresa, aumente o disminuya el tamaño en incrementos de 250 GB.
 - El almacenamiento de un grupo elástico se puede aprovisionar aumentando o reduciendo su tamaño máximo.
 - El precio del almacenamiento para un grupo elástico es la cantidad de almacenamiento multiplicada por el precio de la unidad de almacenamiento del nivel de servicio. Para más información sobre el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).

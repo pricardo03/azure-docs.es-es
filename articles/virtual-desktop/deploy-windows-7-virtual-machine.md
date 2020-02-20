@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 28111e45d365069f80f10b88c38618dbb2b4651d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f8aebee72105e4f3218e7ae5f867962d0ed8e23d
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896219"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367372"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementación de una máquina virtual Windows 7 en Windows Virtual Desktop
 
 El proceso de implementación de una máquina virtual con Windows 7 en Windows Virtual Desktop es ligeramente diferente al de las máquinas virtuales que ejecutan versiones posteriores de Windows. En esta guía se explica cómo implementar Windows 7.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, siga las instrucciones de [Creación de un grupo hosts con PowerShell](create-host-pools-powershell.md) para crear un grupo de hosts. Después, siga las instrucciones de [Creación de grupos de hosts en Azure Marketplace](create-host-pools-azure-marketplace.md#optional-assign-additional-users-to-the-desktop-application-group) para asignar uno o varios usuarios al grupo de aplicaciones de escritorio.
 
@@ -44,7 +44,7 @@ Para configurar una máquina virtual de Windows 7 en Windows Virtual Desktop:
      shutdown /r /t 0
      ```
     
-12. Siga las instrucciones descritas [aquí](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) para obtener un token de registro.
+12. Siga las instrucciones descritas [aquí](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) para obtener un token de registro.
 13. [Descargue el agente de Windows Virtual Desktop para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Descargue el administrador de agente de Windows Virtual Desktop para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Abra el instalador del agente de Windows Virtual Desktop y siga las instrucciones. Cuando se le solicite, proporcione la clave de registro que ha creado en el paso 12.

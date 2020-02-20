@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: a0f78239406567513c1eb94b48bf1090165d9185
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 9188db19adab9bd46d65fc97f1c62b39141cee90
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668696"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461392"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Creación de una aplicación de Windows con un back-end de Azure
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 ## <a name="overview"></a>Información general
 
@@ -30,7 +25,7 @@ En este tutorial se muestra cómo agregar un servicio back-end basado en la nube
 
 Completar este tutorial es un requisito previo para todos los tutoriales de aplicaciones móviles para aplicaciones para UWP.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -45,7 +40,7 @@ Siga estos pasos para crear un nuevo back-end de aplicación móvil.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Crear una conexión de base de datos y configurar el proyecto de cliente y servidor
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Creación de una conexión de base de datos y configuración del proyecto de cliente y servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="run-the-client-project"></a>Ejecutar el proyecto de cliente

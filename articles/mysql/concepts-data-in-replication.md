@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 58882f7569e26ebcba237158db2eb23e76bcd015
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765093"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462503"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar datos en Azure Database for MySQL
 
@@ -28,7 +28,7 @@ Para los escenarios de migración, use [Azure Database Migration Service](https:
 ## <a name="limitations-and-considerations"></a>Limitaciones y consideraciones
 
 ### <a name="data-not-replicated"></a>Datos no replicados
-La [*base de datos del sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) del servidor maestro no se replica. No se replican los cambios en las cuentas y permisos en el servidor maestro. Si crea una cuenta en el servidor maestro y esta cuenta debe tener acceso al servidor de réplica, cree manualmente la misma cuenta en el servidor de réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea el [manual de MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+La [*base de datos del sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) del servidor maestro no se replica. No se replican los cambios en las cuentas y permisos en el servidor maestro. Si crea una cuenta en el servidor maestro y esta cuenta debe tener acceso al servidor de réplica, cree manualmente la misma cuenta en el servidor de réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea el [manual de MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### <a name="requirements"></a>Requisitos
 - La versión del servidor maestro debe ser al menos la versión 5.6 de MySQL. 

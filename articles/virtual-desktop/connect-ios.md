@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.author: helohr
-ms.openlocfilehash: 92e11edf3b28017ac73702e3f71dfc491d3986e3
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: aba2202f0d33609400588e379a4ed3bb9bb798d9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110627"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367527"
 ---
 # <a name="connect-with-the-ios-client"></a>Conexión con el cliente iOS
 
@@ -47,4 +47,4 @@ Una vez que se haya suscrito a una fuente, el contenido de la misma se actualiza
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo usar el cliente de iOS, consulte el documento [Introducción al cliente de iOS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios).
+Para más información sobre cómo usar el cliente de iOS, consulte el documento [Introducción al cliente de iOS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios/).

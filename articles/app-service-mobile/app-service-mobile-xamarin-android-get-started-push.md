@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: c9dc4c825d65287f152522868a2b9e6a38ea70bb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 5657be0dbaeb46f8f899a9b4a2f8ba9b4fe9ebaa
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668741"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461409"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Agregar notificaciones push a la aplicación de Xamarin.Android
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 ## <a name="overview"></a>Información general
 
@@ -28,12 +23,12 @@ En este tutorial, agregará notificaciones push al proyecto de [inicio rápido d
 
 Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el paquete de extensión de notificaciones push. Para más información, consulte [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial, es necesario configurar:
 
 * Una cuenta de Google activa. Puede registrarse para obtener una cuenta de Google en [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
-* [Componente del cliente de Google Cloud Messaging](https://components.xamarin.com/view/GCMClient/).
+* [Componente Google Cloud Messaging Client](https://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Configurar un Centro de notificaciones
 
@@ -47,7 +42,7 @@ En este tutorial, es necesario configurar:
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a id="update-server"></a>Actualizar el proyecto de servidor para que envíe notificaciones push
+## <a id="update-server"></a>Actualización del proyecto de servidor para enviar notificaciones push
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030884"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198946"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Apache Hadoop en HDInsight
 
@@ -27,7 +27,7 @@ Hadoop logra una alta disponibilidad y confiabilidad al replicar datos y servici
 Los nodos de un clúster de HDInsight se implementan mediante Azure Virtual Machines. En las secciones siguientes se describen los tipos de nodo individuales usados con HDInsight.
 
 > [!NOTE]  
-> No todos los tipos de nodo se utilizan para un tipo de clúster. Por ejemplo, un tipo de clúster de Hadoop no tiene ningún nodo Nimbus. Para más información sobre los nodos usados por los tipos de clúster de HDInsight, vea la sección Tipos de clúster en el documento [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+> No todos los tipos de nodo se utilizan para un tipo de clúster. Por ejemplo, un tipo de clúster de Hadoop no tiene ningún nodo Nimbus. Para más información sobre los nodos usados por los tipos de clúster de HDInsight, vea la sección Tipos de clúster en el documento [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
 ### <a name="head-nodes"></a>Nodos principales
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: 6adb918bbc6d4718be8518019394582a6a843fb8
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 70396cdcaf8b6e2ac66619290eea35a7b260cd9a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664858"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461256"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configuración de agentes de seguridad
 
@@ -120,7 +120,7 @@ La siguiente tabla contiene las propiedades controlables de los agentes de segur
 
 Los valores predeterminados están disponibles en el esquema pertinente en [GitHub](https\://aka.ms/iot-security-module-default).
 
-| NOMBRE| Status | Valores válidos| Valores predeterminados| DESCRIPCIÓN |
+| Nombre| Status | Valores válidos| Valores predeterminados| Descripción |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|Requerido: false |Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT7M |Intervalo de tiempo máximo antes de que los mensajes de prioridad alta se envíen.|
 |lowPriorityMessageFrequency |Requerido: false|Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT5H |Tiempo máximo antes de que los mensajes de prioridad baja se envíen.| 
@@ -136,7 +136,6 @@ Los valores predeterminados están disponibles en el esquema pertinente en [GitH
 |Evento de diagnóstico|eventPriorityDiagnostic| Off| False| Eventos de diagnóstico relacionados con el agente. Use este evento para el registro detallado.| 
 |Error de configuración |eventPriorityConfigurationError |Bajo |False |El agente no pudo analizar la configuración. Contraste la configuración con el esquema.| 
 |Estadísticas de eventos quitados |eventPriorityDroppedEventsStatistics |Bajo |True|Estadísticas de eventos relacionados con el agente. |
-|Estadísticas de mensajes|eventPriorityMessageStatistics |Bajo |True |Estadísticas de mensajes relacionados con el agente. |
 |Hardware conectado|eventPriorityConnectedHardware |Bajo |True |Instantánea de todo el hardware conectado al dispositivo.|
 |Puertos de escucha|eventPriorityListeningPorts |Alto |True |Instantánea de todos los puertos de escucha en el dispositivo.|
 |Crear proceso |eventPriorityProcessCreate |Bajo |False |Auditoría de la creación de procesos en el dispositivo.|
@@ -145,7 +144,7 @@ Los valores predeterminados están disponibles en el esquema pertinente en [GitH
 |Usuarios locales| eventPriorityLocalUsers |Alto |True|Instantánea de los usuarios locales registrados en el sistema. |
 |Inicio de sesión|  eventPriorityLogin |Alto|False|Auditoría de los eventos de inicio de sesión del dispositivo (inicios de sesión tanto locales como remotos).|
 |Crear conexión |eventPriorityConnectionCreate|Bajo|False|Auditoría de las conexiones TCP creadas desde y hacia el dispositivo. |
-|Configuración del firewall| eventPriorityFirewallConfiguration|Bajo|True|Instantánea de configuración de firewall del dispositivo (reglas de firewall). |
+|Configuración de firewall| eventPriorityFirewallConfiguration|Bajo|True|Instantánea de configuración de firewall del dispositivo (reglas de firewall). |
 |Línea base del SO| eventPriorityOSBaseline| Bajo|True|Instantánea de la comprobación de línea base del SO.|
 |
  

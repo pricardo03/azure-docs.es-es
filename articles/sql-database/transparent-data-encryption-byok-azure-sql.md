@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/03/2019
-ms.openlocfilehash: 305af8e8acd7e7a54fae8c831d36bee0aad4ad6b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/12/2020
+ms.openlocfilehash: 8e91bb9223f3e6ccd4c76614d75db8591dbed045
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990987"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201530"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 
@@ -65,6 +65,7 @@ Cuando es necesario, el servidor envía la DEK protegida al almacén de claves p
 
 Los auditores pueden usar Azure Monitor para revisar los registros de los objetos AuditEvent del almacén de claves, si está habilitado el registro.
 
+[!INCLUDE [sql-database-akv-permission-delay](includes/sql-database-akv-permission-delay.md)]
 
 ## <a name="requirements-for-configuring-customer-managed-tde"></a>Requisitos de configuración de TDE administrado por el cliente
 

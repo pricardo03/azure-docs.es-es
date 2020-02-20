@@ -1,19 +1,19 @@
 ---
 title: Cobertura de geocodificación | Microsoft Azure Maps
 description: El proceso de conversión de la dirección de ubicación en coordenadas de latitud y longitud se conoce como geocodificación. En este artículo, obtendrá información sobre regiones con cobertura de geocodificación para Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 38d25b7494f8b2f3e1abdac959edde8969d7d4c7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 149dd0a3e709bbf4660aaae176f76f560de873e2
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911619"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210062"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
 

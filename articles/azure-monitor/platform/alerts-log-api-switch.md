@@ -8,17 +8,20 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5d6b8ce557cb794b3a56ecb3a938a2fe184156ab
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a6f71cca2c63591d2d26a7d34ced232eabfbc6bb
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680756"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425158"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Cambio de la preferencia de API para las alertas de registro
 
 > [!NOTE]
 > EL contenido indicado solo se aplica a usuarios de la nube pública de Azure, **no** a la nube de Azure Government o Azure China.  
+
+> [!NOTE]
+> Cuando un usuario opta por cambiar la preferencia a la nueva [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), no se puede revertir la elección para usar la instancia anterior de [Alert API de Log Analytics heredada](api-alerts.md).
 
 Hasta hace poco, las reglas de alertas se administraban en el portal de Microsoft Operations Management Suite. La nueva experiencia de alertas se ha integrado con diversos servicios en Microsoft Azure, incluido Log Analytics y hemos pedido [ampliar las reglas de alertas del portal de OMS a Azure](alerts-extend.md). Pero para asegura una interrupción mínima para los clientes, el proceso no modificó la interfaz de programación para su consumo: [API de alertas de Log Analytics](api-alerts.md) basada en SavedSearch.
 
@@ -50,9 +53,6 @@ El proceso de trasladar las reglas de alertas de la [API heredada de alertas de 
 
 - Un cambio en la preferencia de la API y el acceso a las reglas mediante una nueva API.
 - Un URI de recurso de regla de alerta modificada que contenga los identificadores que se utilizan en [Alert API de Log Analytics heredada](api-alerts.md) en lugar del nombre de la regla de alertas de esta estructura `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. El nombre para mostrar de la regla de alertas se mantendrá sin cambios.
-
-> [!NOTE]
-> Cuando un usuario opta por cambiar la preferencia a la nueva [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), no se puede revertir la elección para usar la instancia anterior de [Alert API de Log Analytics heredada](api-alerts.md).
 
 Cualquier cliente que quiera cambiar voluntariamente a la nueva [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) y bloquee el uso de la [API heredada de alertas de Log Analytics](api-alerts.md) puede hacerlo mediante una llamada PUT en la API siguiente para cambiar todas las reglas de alertas reglas asociadas con el área de trabajo de Log Analytics específica.
 

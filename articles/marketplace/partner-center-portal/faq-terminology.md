@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 559c0e2a56bfb452f1faf10f68c19d4f406427e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/17/2020
+ms.openlocfilehash: 081109c2208e2006eb1628fbf0cfb99b1e6bd8f9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475162"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462146"
 ---
 # <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Preguntas más frecuentes y terminología para el análisis de Marketplace comercial
 
@@ -29,7 +29,6 @@ En esta sección se proporcionan respuestas a las preguntas más frecuentes sobr
 
 Por qué podría recibir este mensaje:
 
-- Las ofertas que aparecen en Marketplace no son ofertas de SaaS. Actualmente, Centro de partners solo informa del análisis de las ofertas de SaaS. Las ofertas de Dynamics 365 se pueden publicar en Centro de partners, pero aún no se han habilitado los análisis de estas ofertas ahí.
 - Actualmente no existe ninguna adquisición para las ofertas publicadas en Marketplace. Esto puede significar que las ofertas están activas en Marketplace y obtienen vistas de los clientes en las páginas de presentación del producto, pero que los clientes aún no han realizado acciones para comprarlas e implementarlas.
 - La publicación de la oferta podría estar en curso y no activa aún. Los clientes solo pueden adquirir ofertas en directo. Para comprobar el estado de las ofertas, consulte la información general en el [panel Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para obtener más información, consulte [Panel de resumen del análisis de Marketplace comercial](./summary-dashboard.md).
 - Sus ofertas pueden aparecer como **Ponerse en contacto conmigo**, que son ofertas solo de anuncio y no pueden ser adquiridas por los clientes en Marketplace. Aunque estas ofertas generan clientes potenciales y se comparten con usted, no se crean pedidos para estas ofertas, ya que no se pueden comprar. Para consultar el tipo de anuncio de la oferta, vaya a la página de configuración.
@@ -98,10 +97,10 @@ Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre los informes de análisis disponibles en el Marketplace comercial del Centro de partners, consulte [Análisis de Marketplace comercial en el Centro de partners](./analytics.md).
-- Para ver gráficos, tendencias y valores de datos agregados que resuman la actividad de Marketplace de la oferta, consulte la documentación [Panel Resumen de los análisis de Marketplace comercial](./summary-dashboard.md).
-- Para obtener información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de Marketplace comercial](./orders-dashboard.md).
-- Para que la máquina virtual (VM) ofrezca métricas de uso y de facturación de uso medido, consulte [Panel Uso de los análisis de Marketplace comercial](./usage-dashboard.md).
-- Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Clientes de los análisis de Marketplace comercial](./customer-dashboard.md).
+- Para obtener información general sobre los informes de análisis disponibles en el Marketplace comercial del Centro de partners, consulte [Análisis para Marketplace comercial en el Centro de partners](./analytics.md).
+- Para ver gráficos, tendencias y valores de datos agregados que resuman la actividad de Marketplace de la oferta, vea [Panel Resumen en los análisis de Marketplace comercial](./summary-dashboard.md).
+- Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de Marketplace comercial](./orders-dashboard.md).
+- Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual (VM), consulte [Panel de uso de los análisis de Marketplace comercial](./usage-dashboard.md).
+- Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de Marketplace comercial](./customer-dashboard.md).
 - Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de Marketplace comercial](./downloads-dashboard.md).
 - Para obtener una vista consolidada de comentarios de clientes de las ofertas de Azure Marketplace y AppSource, consulte [Panel Valoraciones y opiniones de los análisis de Marketplace comercial](./ratings-reviews.md).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 92152652ca264cace12d3f780ebec0f80bb2048a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c375487b30595251753021033c98cf0ca1e8dd7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234445"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469925"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configuración de un laboratorio para enseñar administración de bases de datos relacionales
 
@@ -32,9 +32,9 @@ Para configurar este laboratorio, para empezar, necesita una suscripción a Azur
 
 ### <a name="lab-account-settings"></a>Configuración de la cuenta de laboratorio
 
-Habilite la configuración que se describe en la tabla siguiente para la cuenta de laboratorio. Para obtener más información sobre cómo habilitar imágenes de Marketplace, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators).
+Habilite la configuración que se describe en la tabla siguiente para la cuenta de laboratorio. Para obtener más información sobre cómo habilitar imágenes de Marketplace, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
 
-| Configuración de la cuenta de laboratorio | Instrucciones |
+| Configuración de la cuenta de laboratorio | Instructions |
 | ------------------- | ------------ |
 |Imagen de Marketplace| Habilite la imagen "SQL Server 2019 Standard en Windows Server 2019" para usarla en su cuenta de laboratorio.|
 
@@ -45,7 +45,7 @@ Use las opciones de la tabla siguiente al configurar un laboratorio educativo.  
 | Configuración del laboratorio | Valor/instrucciones |
 | ------------ | ------------------ |
 |Tamaño de la máquina virtual| Mediana. Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.|
-|Imagen de máquina virtual| SQL Server 2019 Standard en Windows Server 2019|
+|Imagen de máquina virtual| SQL Server 2019 Standard en Windows Server 2019|
 
 ## <a name="template-machine-configuration"></a>Configuración de la máquina de plantilla
 
@@ -55,7 +55,7 @@ SQL Server 2019 está preinstalado en la imagen de máquina virtual que elegimos
 
 ## <a name="cost-estimate"></a>Estimación del costo
 
-Vamos a cubrir una posible estimación de costos para esta clase.  Usaremos una clase de 25 alumnos.  Hay 20 horas de tiempo de clase programado.  Además, cada alumno obtiene una cuota de 10 horas para deberes o asignaciones fuera del tiempo de clase programado.  El tamaño de la máquina virtual que elegimos es el medio, que tiene 42 unidades de laboratorio.
+Vamos a cubrir una posible estimación de costos para esta clase.  Usaremos una clase de 25 alumnos.  Hay 20 horas de tiempo de clase programado.  Además, cada alumno obtiene una cuota de 10 horas para deberes o tareas fuera del tiempo de clase programado.  El tamaño de la máquina virtual que elegimos es el medio, que tiene 42 unidades de laboratorio.
 
 A continuación se incluye un ejemplo de una posible estimación del costo para esta clase:
 

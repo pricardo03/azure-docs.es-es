@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: e9410ce93d9e11d3023f4f461f3ba90a7bf74507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb473ec55ec6a5e93ba4ad22bf500414d54e4a5d
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451311"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367203"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop
 
@@ -53,6 +53,6 @@ Si está listo para crear sus propios contenedores de perfiles de FSLogix, comie
 
 - [Introducción a los contenedores de perfiles de FSLogix en Azure Files en Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
 - [Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files](create-fslogix-profile-container.md)
-- Las instrucciones de [Implementar un servidor de archivos de escalabilidad horizontal de Espacios de almacenamiento directo de dos nodos para almacenar UPD en Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) también se aplican cuando se usa un contenedor de perfiles de FSLogix en lugar de un disco de perfil de usuario.
+- Las instrucciones de [Implementar un servidor de archivos de escalabilidad horizontal de Espacios de almacenamiento directo de dos nodos para almacenar UPD en Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) también se aplican cuando se usa un contenedor de perfiles de FSLogix en lugar de un disco de perfil de usuario.
 
 También puede empezar desde el principio y configurar su propia solución de Windows Virtual Desktop en [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md).

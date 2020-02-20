@@ -4,15 +4,15 @@ description: Aprenda a crear una entidad de servicio para automatizar las tareas
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 02/18/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5078fcc1ba5c581aca475025b286d0319d6024a6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572600"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461681"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
 
@@ -20,7 +20,7 @@ Las entidades de servicio son un recurso de aplicación de Azure Active Director
 
 En Analysis Services, las entidades de servicio se usan con Azure Automation, el modo desatendido de PowerShell, las aplicaciones cliente personalizadas y las aplicaciones web para automatizar tareas comunes. Por ejemplo, las tareas de aprovisionamiento de servidores, implementación de modelos, actualización de datos, escalado vertical y reducción vertical y pausa y reanudación pueden automatizarse con el uso de las entidades de servicio. Los permisos se asignan a las entidades de servicio con la pertenencia a roles, como las cuentas de UPN de Azure AD regulares.
 
-Analysis Services también admite las operaciones realizadas por las identidades administradas mediante entidades de servicio. Para obtener más información, vea [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) y [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
+Analysis Services también admite las operaciones realizadas por las identidades administradas mediante entidades de servicio. Para obtener más información, vea [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) y [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).  
 
 ## <a name="create-service-principals"></a>Creación de entidades de servicio
  

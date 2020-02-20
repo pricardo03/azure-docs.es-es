@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: dapine
-ms.openlocfilehash: 68392bfdb80236a1cf82261332d3bf3b4d09e02b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 7bac943a4550103a941fbd812381e34ab2de2454
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156127"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446681"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -75,8 +75,7 @@ Antes de inicializar un objeto `SpeechRecognizer`, debe crear una configuración
 > El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
 ```csharp
-// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
-// from here: https://aka.ms/speech/sdkregion).
+// Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 

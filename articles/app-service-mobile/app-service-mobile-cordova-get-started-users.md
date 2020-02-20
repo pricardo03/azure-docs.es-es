@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: f85c8e4f8eedccf3039038308f2262727fb18197
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 3714ce2a8098608851991115aa82afdc00d08a47
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668549"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459395"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Agregar autenticación a su aplicación de Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 ## <a name="summary"></a>Resumen
 En este tutorial podrá agregar la autenticación al proyecto de inicio rápido todolist en Apache Cordova con un proveedor de identidades admitido. Este tutorial está basado en el tutorial [Introducción a Mobile Apps], que debe completar primero.
@@ -47,7 +42,7 @@ A continuación, actualice la aplicación para autenticar usuarios antes de soli
    | Proveedor | Nombre del proveedor del SDK | Host de OAuth |
    |:--- |:--- |:--- |
    | Azure Active Directory | aad | https://login.microsoftonline.com |
-   | Facebook | Facebook | https://www.facebook.com |
+   | Facebook | facebook | https://www.facebook.com |
    | Google | Google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
    | Twitter | Twitter | https://api.twitter.com |
@@ -92,7 +87,7 @@ A continuación, actualice la aplicación para autenticar usuarios antes de soli
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información [sobre la autenticación] con Azure App Service.
-* Prosiga el tutorial agregando [notificaciones push] a la aplicación de Apache Cordova.
+* Prosiga el tutorial agregando [Notificaciones de inserción] a la aplicación de Apache Cordova.
 
 Obtenga información sobre cómo usar los SDK.
 
@@ -103,7 +98,7 @@ Obtenga información sobre cómo usar los SDK.
 <!-- URLs. -->
 [Introducción a Mobile Apps]: app-service-mobile-cordova-get-started.md
 [documentación de Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
-[notificaciones push]: app-service-mobile-cordova-get-started-push.md
+[Notificaciones de inserción]: app-service-mobile-cordova-get-started-push.md
 [sobre la autenticación]: app-service-mobile-auth.md
 [SDK de Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [SDK de servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

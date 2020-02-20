@@ -5,19 +5,19 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.date: 02/14/2020
+ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.date: 10/19/2019
 ms.author: diberry
-ms.openlocfilehash: ba400beb13d0bd4b29eee0c60617ec7ad128dd77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e879afdbd4c34e9d74405644de86421fb2cbab46
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505831"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279727"
 ---
-Las expresiones del ejemplo siguen un formato específico. 
+Las expresiones del ejemplo siguen un formato específico.
 
 El campo `text` contiene el texto de la expresión de ejemplo. El campo `intentName` debe corresponder al nombre de una intención existente en la aplicación de LUIS. El campo `entityLabels` es obligatorio. Si no desea etiquetar ninguna entidad, proporcione una matriz vacía.
 

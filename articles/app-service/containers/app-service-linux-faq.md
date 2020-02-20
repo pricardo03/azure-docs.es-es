@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687596"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443863"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -32,8 +32,8 @@ Puede encontrar todos los archivos de Docker en [GitHub](https://github.com/azur
 
 | Pila           | Valor esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | Comando para iniciar la aplicación JAR (por ejemplo, `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | Ubicación de un script para realizar las configuraciones necesarias (por ejemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | Comando para iniciar la aplicación JAR (por ejemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
+| Tomcat          | Ubicación de un script para realizar las configuraciones necesarias (por ejemplo, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | Archivo de configuración de PM2 o el archivo de script.                                |
 | .Net Core       | Nombre del archivo DLL compilado como `dotnet <myapp>.dll`.                                 |
 | Ruby            | Script de Ruby con el que quiere inicializar la aplicación.                     |
@@ -110,7 +110,7 @@ Sí, durante una implementación de Git, Kudu debe detectar que va a implementar
 
 **Utilizo mi propio contenedor personalizado. Deseo que la plataforma monte un recurso compartido de SMB en el directorio `/home/`.**
 
-Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha **especificado** o es *true*, el directorio `/home/` **se compartirá** entre instancias de escala y los archivos que se escriben **se conservarán** al reiniciar. Establecer de forma explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en *false* deshabilitará el montaje.
+Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha **especificado** o es *true*, el directorio `/home/`**se compartirá** entre instancias de escala y los archivos que se escriben **se conservarán** al reiniciar. Establecer de forma explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en *false* deshabilitará el montaje.
 
 **Mi contenedor personalizado tarda mucho tiempo en iniciarse y la plataforma reinicia el contenedor antes de que finalice el inicio.**
 

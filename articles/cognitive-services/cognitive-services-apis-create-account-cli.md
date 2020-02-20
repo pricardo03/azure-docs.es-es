@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 5d3aba2f6010ba16656be96433c521d2adae4c58
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 3e5fd2315a5d352ed5abee9253b5c84eea3b73a9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169157"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462282"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure
 
@@ -25,7 +25,7 @@ En este artículo de inicio rápido, aprenderá a suscribirse a Azure Cognitive 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción de Azure válida: [cree una de forma gratuita](https://azure.microsoft.com/free/).
 * [Interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -195,7 +195,7 @@ Si quiere limpiar y eliminar un recurso de Cognitive Services, puede eliminar el
 Para eliminar el grupo de recursos y sus recursos asociados, use el comando az group delete.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
 ## <a name="see-also"></a>Consulte también

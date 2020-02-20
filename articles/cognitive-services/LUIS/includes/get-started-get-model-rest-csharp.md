@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 7800edafca46a2210b9552299605d54c9db07f1f
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e4f995e888d261e1a1a7cb1e63d0d222c165060f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966935"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368400"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Azure Language Understanding: creación de una clave de 32 caracteres y de la dirección URL del punto de conexión de creación. Cree con [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o con la [CLI de Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importe la aplicación [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) desde el repositorio de GitHub cognitive-services-language-understanding.
@@ -29,8 +29,6 @@ ms.locfileid: "76966935"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>Cambio de modelo mediante programación
-
-Use C# para agregar una [API](https://aka.ms/luis-apim-v3-authoring) de entidad de aprendizaje automático a la aplicación.
 
 1. Cree una aplicación de consola con C# como lenguaje de destino, con `model-with-rest` como nombre del proyecto y de la carpeta.
 

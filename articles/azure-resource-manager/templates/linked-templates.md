@@ -3,12 +3,12 @@ title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 5d278ba05fd8230a3573983a631e4e347ff31e4f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c6a5dced0f8607e760422bebd114a08ca0a238e3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119836"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207611"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -776,5 +776,5 @@ En los ejemplos siguientes se muestran los usos más comunes de las plantillas v
 
 * Para seguir los pasos de un tutorial, consulte [Tutorial: creación de plantillas vinculadas de Azure Resource Manager](template-tutorial-create-linked-templates.md).
 * Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](define-resource-dependency.md).
-* Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](create-multiple-instances.md).
+* Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](copy-resources.md).
 * Para obtener información sobre cómo configurar una plantilla en una cuenta de almacenamiento y generar un token de SAS, consulte [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md) (Implementación de recursos con plantillas de Resource Manager y Azure PowerShell) o [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md) (Implementación de recursos con plantillas de Azure Manager y la CLI de Azure).

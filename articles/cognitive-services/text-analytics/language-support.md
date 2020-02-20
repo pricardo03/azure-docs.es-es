@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 3e7402be79f7b57a426543c35f08524e0da9d283
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024541"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206181"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Compatibilidad de idiomas y regiones para Text Analytics API
 
@@ -51,7 +51,7 @@ La compatibilidad de idiomas se introduce inicialmente en la versión preliminar
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Árabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Checo                 |     `cs`      |           |             |           ✔ \*           |                |                    |
-| Chino simplificado    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Chino simplificado    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                | También se acepta `zh`                   |
 | Chino (tradicional)   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Danés                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Neerlandés                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
@@ -64,7 +64,7 @@ La compatibilidad de idiomas se introduce inicialmente en la versión preliminar
 | Italiano               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Japonés              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Coreano                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
-| Noruego (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Noruego (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                | También se acepta `nb`                   |
 | Polaco                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Portugués (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | También se acepta `pt` |
 | Portugués (Brasil)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |

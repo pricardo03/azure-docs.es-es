@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: d28eb6c4ee4fadf8a090a17121f6910eb34135e3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935202"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201601"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
@@ -63,7 +63,7 @@ Las características principales de las instancias administradas se muestran en 
 | Número de archivos de datos (ROWS) por base de datos | Múltiple |
 | Número de archivos de registro (LOG) por base de datos | 1 |
 | Redes virtuales: implementación de Azure Resource Manager | Sí |
-| Redes virtuales: modelo de implementación clásica de Azure | No |
+| Redes virtuales: modelo de implementación clásica de Azure | Sin |
 | Soporte técnico del portal | Sí|
 | Integration Service (SSIS) integrado | No: SSIS es una parte de [PaaS de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Service (SSAS) integrado | No: SSAS es un servicio [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) independiente. |
@@ -80,9 +80,6 @@ En el modelo de núcleos virtuales, puede elegir entre distintas generaciones de
 - Las CPU lógicas **Gen5** se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake), SSD NVMe rápido, núcleo lógico con Hyper-Threading y tamaños de proceso de entre 4 y 80 núcleos.
 
 Encuentre más información sobre la diferencia entre las generaciones de hardware en el artículo sobre [límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
-
-> [!IMPORTANT]
-> Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil.
 
 ## <a name="managed-instance-service-tiers"></a>Niveles de servicio de Instancia administrada
 
@@ -190,14 +187,14 @@ En la tabla siguiente se resume la capacidad de cancelar operaciones de administ
 
 Category  |Operación  |Cancelable  |Duración de cancelación estimada  |
 |---------|---------|---------|---------|
-|Implementación |Creación de instancias |No |  |
-|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (De uso general) |No |  |
+|Implementación |Creación de instancias |Sin |  |
+|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (De uso general) |Sin |  |
 |Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (Crítico para la empresa) |Sí |El 90 % de las operaciones finaliza en 5 minutos |
 |Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (De uso general) |Sí |El 90 % de las operaciones finaliza en 5 minutos |
 |Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (Crítico para la empresa) |Sí |El 90 % de las operaciones finaliza en 5 minutos |
 |Actualizar |Cambio en el nivel de servicio de una instancia (De uso general a Crítico para la empresa y viceversa) |Sí |El 90 % de las operaciones finaliza en 5 minutos |
-|Eliminar |Eliminación de una instancia |No |  |
-|Eliminar |Eliminación de un clúster virtual (como operación iniciada por el usuario) |No |  |
+|Eliminar |Eliminación de una instancia |Sin |  |
+|Eliminar |Eliminación de un clúster virtual (como operación iniciada por el usuario) |Sin |  |
 
 Para cancelar la operación de administración, vaya a la hoja de información general y haga clic en el cuadro de notificación de la operación en curso. En el lado derecho, aparecerá una pantalla con una operación en curso y un botón para cancelar la operación. Después de hacer clic por primera vez, se le pedirá que haga clic de nuevo y confirme que quiere cancelar la operación.
 

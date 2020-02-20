@@ -6,20 +6,15 @@ ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 0f70523b5b27a4f3db86bacf39469e233e43f807
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 029b01f3aacc928ebdae0e8fe90871437afccea5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668825"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461528"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de JavaScript para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 ## <a name="overview"></a>Información general
 En esta guía descubrirá cómo realizar tareas comunes usando el último [SDK de JavaScript para Azure Mobile Apps]. Si no está familiarizado con Azure Mobile Apps, complete primero la [Creación de una aplicación de Apache Cordova] para crear un back-end y una tabla. En esta guía, nos centramos en usar el back-end móvil en aplicaciones web HTML/JavaScript.
@@ -55,14 +50,14 @@ También puede utilizar una versión previamente compilada del SDK descargándol
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Instrucciones: Autenticación de usuarios
+## <a name="auth"></a>Procedimientos: Autenticación de usuarios
 Azure App Service admite la autenticación y autorización de usuarios de la aplicación que usan diversos proveedores de identidades externos: Facebook, Google, cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación] .
 
 Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de cliente.  El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con funcionalidades específicas del dispositivo, como el inicio de sesión único, ya que se basa en SDK específicos del proveedor.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Instrucciones: Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
+### <a name="configure-external-redirect-urls"></a>Procedimientos: Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
 Varios tipos de aplicaciones de JavaScript utilizan funcionalidades de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth.  Estas son algunas de ellas:
 
 * Ejecución del servicio de manera local

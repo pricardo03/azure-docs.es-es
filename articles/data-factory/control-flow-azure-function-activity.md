@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 781c5a579fa0cd0383e95b79df1f81f74008111c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679958"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207032"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividad de las funciones de Azure en Azure Data Factory
 
@@ -28,24 +28,24 @@ Si desea una introducción y demostración de ocho minutos de esta característi
 
 ## <a name="azure-function-linked-service"></a>Servicio vinculado de la función de Azure
 
-El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JObject` válido. (Tenga en cuenta que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *no* es un `JObject`.) Los tipos de valor devuelto que no sean `JObject` producen un error y generan el error de usuario *El contenido de la respuesta no es un elemento JObject válido*.
+El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JObject` válido. (Tenga en cuenta que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)*no* es un `JObject`.) Los tipos de valor devuelto que no sean `JObject` producen un error y generan el error de usuario *El contenido de la respuesta no es un elemento JObject válido*.
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |
-| Tipo   | La propiedad type debe establecerse en: **AzureFunction** | Sí |
-| Dirección URL de Function App | Dirección URL de la instancia de Azure Function App. El formato es `https://<accountname>.azurewebsites.net`. Esta dirección URL es el valor que aparece en la sección **URL** al visualizar la instancia de Function App en Azure Portal.  | Sí |
-| Tecla de función | Tecla de acceso de la función de Azure. Haga clic en la sección **Administrar** de la función correspondiente y copie la **tecla de función** o la **tecla del host**. Obtenga más información aquí. [Enlaces y desencadenadores HTTP de Azure Functions](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | Sí |
+| type   | La propiedad type debe establecerse en: **AzureFunction** | sí |
+| Dirección URL de Function App | Dirección URL de la instancia de Azure Function App. El formato es `https://<accountname>.azurewebsites.net`. Esta dirección URL es el valor que aparece en la sección **URL** al visualizar la instancia de Function App en Azure Portal.  | sí |
+| Tecla de función | Tecla de acceso de la función de Azure. Haga clic en la sección **Administrar** de la función correspondiente y copie la **tecla de función** o la **tecla del host**. Obtenga más información aquí. [Enlaces y desencadenadores HTTP de Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | sí |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Actividad de función de Azure
 
 | **Propiedad**  | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | --- | --- | --- | --- |
-| Nombre  | Nombre de la actividad en la canalización  | Cadena | Sí |
-| Tipo  | El tipo de actividad es “AzureFunctionActivity” | Cadena | Sí |
-| Servicio vinculado | El servicio vinculado de la función de Azure para la instancia correspondiente de Azure Function App  | Referencia al servicio vinculado | Sí |
-| Nombre de la función  | Nombre de la función de la instancia de Azure Function App al que esta actividad llama | Cadena | Sí |
-| method  | Método de API de REST para llamar a la función | Tipos de cadenas admitidos: "GET", "POST", "PUT"   | Sí |
+| name  | Nombre de la actividad en la canalización  | String | sí |
+| type  | El tipo de actividad es “AzureFunctionActivity” | String | sí |
+| Servicio vinculado | El servicio vinculado de la función de Azure para la instancia correspondiente de Azure Function App  | Referencia al servicio vinculado | sí |
+| nombre de función  | Nombre de la función de la instancia de Azure Function App al que esta actividad llama | String | sí |
+| method  | Método de API de REST para llamar a la función | Tipos de cadenas admitidos: "GET", "POST", "PUT"   | sí |
 | encabezado  | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadena (o expresión con un valor resultType de cadena) | Sin |
 | body  | Cuerpo que se envía junto con la solicitud al método de API de la función  | Cadena (o expresión con un valor resultType de cadena) u objeto.   | Necesario para los métodos POST o PUT |
 |   |   |   | |

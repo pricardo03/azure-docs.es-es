@@ -10,12 +10,12 @@ ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: af4f069e9021a301a77ccefa300ad86afb955fcf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4545a75cc2082c21dcb87986eba819ebe39adf7b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927040"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208767"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -96,8 +96,8 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 >
 > 
 
-### <a name="properties"></a>properties (Propiedades)
-| Propiedad                     | DESCRIPCIÓN                              | Obligatorio |
+### <a name="properties"></a>Propiedades
+| Propiedad                     | Descripción                              | Obligatorio |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
 | clusterSize                  | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para detalles. | Sí      |
@@ -147,7 +147,7 @@ El servicio vinculado de HDInsight a petición requiere una autenticación de en
 
 Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
 
-| Propiedad                | DESCRIPCIÓN                              | Obligatorio |
+| Propiedad                | Descripción                              | Obligatorio |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | Sí      |
 | **servicePrincipalKey** | Especifique la clave de la aplicación.           | Sí      |
@@ -157,7 +157,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 
 También puede especificar las siguientes propiedades para la configuración granular del clúster de HDInsight a petición.
 
-| Propiedad               | DESCRIPCIÓN                              | Obligatorio |
+| Propiedad               | Descripción                              | Obligatorio |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Especifica los parámetros de configuración Core (como en core-site.xml) para crear el clúster de HDInsight. | Sin       |
 | hBaseConfiguration     | Especifica los parámetros de configuración HBase (como en hbase-site.xml) para el clúster de HDInsight. | Sin       |
@@ -225,7 +225,7 @@ También puede especificar las siguientes propiedades para la configuración gra
 ### <a name="node-sizes"></a>Tamaño de nodo
 Puede especificar los tamaños de los nodos principal, de datos y de zookeeper con las siguientes propiedades: 
 
-| Propiedad          | DESCRIPCIÓN                              | Obligatorio |
+| Propiedad          | Descripción                              | Obligatorio |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Especifica el tamaño del nodo principal. El valor predeterminado es: Standard_D3. Consulte la sección **Especificación de tamaños de nodos** para más información. | Sin       |
 | dataNodeSize      | Especifica el tamaño del nodo de datos. El valor predeterminado es: Standard_D3. | Sin       |
@@ -284,8 +284,8 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
   }
 ```
 
-### <a name="properties"></a>properties (Propiedades)
-| Propiedad          | DESCRIPCIÓN                                                  | Obligatorio |
+### <a name="properties"></a>Propiedades
+| Propiedad          | Descripción                                                  | Obligatorio |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | La propiedad type se debe establecer en **HDInsight**.            | Sí      |
 | clusterUri        | El URI del clúster de HDInsight.                            | Sí      |
@@ -344,8 +344,8 @@ Consulte los artículos siguientes si no está familiarizado con el servicio Azu
 ```
 
 
-### <a name="properties"></a>properties (Propiedades)
-| Propiedad          | DESCRIPCIÓN                              | Obligatorio |
+### <a name="properties"></a>Propiedades
+| Propiedad          | Descripción                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
 | accountName       | Nombre de la cuenta de Azure Batch.         | Sí      |
@@ -380,8 +380,8 @@ Un servicio vinculado de Azure Machine Learning Studio se crea para registrar un
 }
 ```
 
-### <a name="properties"></a>properties (Propiedades)
-| Propiedad               | DESCRIPCIÓN                              | Obligatorio                                 |
+### <a name="properties"></a>Propiedades
+| Propiedad               | Descripción                              | Obligatorio                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tipo                   | La propiedad type se debe establecer en: **AzureML**. | Sí                                      |
 | mlEndpoint             | La dirección URL de puntuación por lotes.                   | Sí                                      |
@@ -424,12 +424,12 @@ Un servicio vinculado de Azure Machine Learning se crea para conectar un área d
 }
 ```
 
-### <a name="properties"></a>properties (Propiedades)
-| Propiedad               | DESCRIPCIÓN                              | Obligatorio                                 |
+### <a name="properties"></a>Propiedades
+| Propiedad               | Descripción                              | Obligatorio                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tipo                   | La propiedad type se debe establecer en: **AzureMLService**. | Sí                                      |
 | subscriptionId         | Identificador de suscripción de Azure              | Sí                                      |
-| resourceGroupName      | Nombre | Sí                                      |
+| resourceGroupName      | name | Sí                                      |
 | mlWorkspaceName        | Nombre de las áreas de trabajo de Azure Machine Learning | Sí  |
 | servicePrincipalId     | Especifique el id. de cliente de la aplicación.     | Sin |
 | servicePrincipalKey    | Especifique la clave de la aplicación.           | Sin |
@@ -466,9 +466,9 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 }
 ```
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
-| Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
+| Propiedad             | Descripción                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
 | accountName          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
@@ -528,12 +528,12 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 
 ```
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
-| Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
+| Propiedad             | Descripción                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| Nombre                 | Nombre del servicio vinculado               | Sí   |
-| Tipo                 | La propiedad type se debe establecer en: **Azure Databricks**. | Sí                                      |
+| name                 | Nombre del servicio vinculado               | Sí   |
+| type                 | La propiedad type se debe establecer en: **Azure Databricks**. | Sí                                      |
 | dominio               | Especifica la región de Azure según corresponda en función de la región del área de trabajo de Databricks. Ejemplo: https://eastus.azuredatabricks.net | Sí                                 |
 | accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | Sí                                       |
 | existingClusterId    | Identificador de un clúster existente para ejecutar todos los trabajos en él. Debe tratarse de un clúster interactivo que ya se haya creado. Debe reiniciar manualmente el clúster si deja de responder. Databricks sugiere la ejecución de trabajos en clústeres nuevos para mayor confiabilidad. Encontrará el identificador del clúster interactivo en el área de trabajo de Databricks -> Clusters -> Interactive Cluster Name -> Configuration -> Tags (Clústeres -> Nombre del clúster interactivo -> Configuración -> Etiquetas). [Más detalles](https://docs.databricks.com/user-guide/clusters/tags.html) | Sin 
@@ -555,13 +555,13 @@ Cree un servicio vinculado de SQL Data Warehouse y úselo con la [actividad de p
 Cree un servicio vinculado de SQL Server y úselo con la [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para invocar un procedimiento almacenado desde una canalización de Data Factory. Consulte el artículo sobre el [conector de SQL Server](connector-sql-server.md#linked-service-properties) para más información acerca de este servicio vinculado.
 
 ## <a name="azure-function-linked-service"></a>Servicio vinculado de la función de Azure
-Puede crear un servicio vinculado de la función de Azure y usarlo con la [actividad de la función de Azure](control-flow-azure-function-activity.md) para ejecutar Azure Functions en una canalización de Data Factory. El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JObject` válido. (Tenga en cuenta que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *no* es un `JObject`.) Los tipos de valor devuelto que no sean `JObject` producen un error y generan el error de usuario *El contenido de la respuesta no es un elemento JObject válido*.
+Puede crear un servicio vinculado de la función de Azure y usarlo con la [actividad de la función de Azure](control-flow-azure-function-activity.md) para ejecutar Azure Functions en una canalización de Data Factory. El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JObject` válido. (Tenga en cuenta que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)*no* es un `JObject`.) Los tipos de valor devuelto que no sean `JObject` producen un error y generan el error de usuario *El contenido de la respuesta no es un elemento JObject válido*.
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |
-| Tipo   | La propiedad type debe establecerse en: **AzureFunction** | Sí |
-| Dirección URL de Function App | Dirección URL de la instancia de Azure Function App. El formato es `https://<accountname>.azurewebsites.net`. Esta dirección URL es el valor que aparece en la sección **URL** al visualizar la instancia de Function App en Azure Portal.  | Sí |
-| Tecla de función | Tecla de acceso de la función de Azure. Haga clic en la sección **Administrar** de la función correspondiente y copie la **tecla de función** o la **tecla del host**. Obtenga más información aquí. [Enlaces y desencadenadores HTTP de Azure Functions](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | Sí |
+| type   | La propiedad type debe establecerse en: **AzureFunction** | sí |
+| Dirección URL de Function App | Dirección URL de la instancia de Azure Function App. El formato es `https://<accountname>.azurewebsites.net`. Esta dirección URL es el valor que aparece en la sección **URL** al visualizar la instancia de Function App en Azure Portal.  | sí |
+| Tecla de función | Tecla de acceso de la función de Azure. Haga clic en la sección **Administrar** de la función correspondiente y copie la **tecla de función** o la **tecla del host**. Obtenga más información aquí. [Enlaces y desencadenadores HTTP de Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | sí |
 |   |   |   |
 
 ## <a name="next-steps"></a>Pasos siguientes

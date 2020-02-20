@@ -3,12 +3,12 @@ title: Modos de implementación
 description: Descripción de cómo especificar si desea usar un modo de implementación completa o incremental con Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: e53b8c58bf0919e64079e62c687b76ada1db7ff0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 9cc0e8eb20a0375a98906524d4d598ccb473d2a8
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261031"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207594"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
@@ -24,7 +24,7 @@ En el modo completo, Resource Manager **elimina** los recursos que existen en el
 
 Si la plantilla incluye un recurso que no se ha implementado porque la [condición](conditional-resource-deployment.md) se evalúa como false, el resultado depende de la versión de API REST que use para implementar la plantilla. Si usa una versión anterior a 2019-05-10, el recurso **no se elimina**. Con 2019-05-10 o posterior, el recurso **se elimina**. Las versiones más recientes de Azure PowerShell y la CLI de Azure eliminan el recurso.
 
-Tenga cuidado al usar el modo completo con [bucles de copia](create-multiple-instances.md). Se eliminan todos los recursos que no se especifican en la plantilla después de resolver el bucle de copia.
+Tenga cuidado al usar el modo completo con [bucles de copia](copy-resources.md). Se eliminan todos los recursos que no se especifican en la plantilla después de resolver el bucle de copia.
 
 Si implementa en [más de un grupo de recursos en una plantilla](cross-resource-group-deployment.md), se pueden eliminar los recursos del grupo de recursos especificado en la operación de implementación. Los recursos de los grupos de recursos secundarios no se eliminarán.
 

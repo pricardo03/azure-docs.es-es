@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 8a53f1cfbde2f518848e7ef1104bf41ba4996961
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936405"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200085"
 ---
 # <a name="how-to-use-batch-transcription"></a>Uso de la transcripción por lotes
 
@@ -34,7 +34,7 @@ Los trabajos de transcripción por lotes se programan de la mejor manera posible
 
 Además de esta intuitiva API, no es necesario implementar puntos de conexión personalizados y no tiene que cumplir ningún requisito de simultaneidad.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="subscription-key"></a>Clave de suscripción
 
@@ -129,8 +129,8 @@ Para el audio de entrada mono, se crea un archivo de resultado de transcripción
                                                              speakerId as a string if
                                                              diarization requested for
                                                              mono audio file'
-          "Offset": number                                  'time in milliseconds'
-          "Duration": number                                'time in milliseconds'
+          "Offset": number                                  'time in ticks (1 tick is 100 nanosec)'
+          "Duration": number                                'time in ticks (1 tick is 100 nanosec)'
           "OffsetInSeconds" : number                        'Real number. Two decimal places'
           "DurationInSeconds" : number                      'Real number. Two decimal places'
           "NBest": [
@@ -150,8 +150,8 @@ Para el audio de entrada mono, se crea un archivo de resultado de transcripción
               "Words": [
                 {
                   "Word": string
-                  "Offset": number                          'time in milliseconds'
-                  "Duration": number                        'time in milliseconds'
+                  "Offset": number                          'time in ticks (1 tick is 100 nanosec)'
+                  "Duration": number                        'time in ticks (1 tick is 100 nanosec)'
                   "OffsetInSeconds": number                 'Real number. Two decimal places'
                   "DurationInSeconds": number               'Real number. Two decimal places'
                   "Confidence": number                      'between 0 and 1'

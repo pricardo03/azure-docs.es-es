@@ -3,19 +3,14 @@ title: Autenticación y autorización
 description: Referencia conceptual e información general de la característica de autenticación o autorización para Azure App Service, en concreto para aplicaciones móviles.
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 2c3bc1f9563a5657d7574020fc908f23a711391c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 4a9ef62178b9a58fa8703413a09114a617d1d239
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668528"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459470"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticación y autorización en Azure App Service para aplicaciones móviles
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 En este artículo se describe cómo funcionan la autenticación y autorización al desarrollar aplicaciones móviles nativas con un back-end de App Service. App Service proporciona autenticación y autorización integradas, así las aplicaciones móviles pueden iniciar la sesión de los usuarios sin cambiar ningún código de dicho servicio. Ofrece una forma fácil de proteger su aplicación y trabajar con datos por usuario. 
 

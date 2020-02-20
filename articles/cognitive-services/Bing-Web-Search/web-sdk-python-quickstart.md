@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/11/2019
 ms.author: aahi
-ms.openlocfilehash: 64ef052478bed627c896cd0e0b5301961a8b6f21
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: a1407a35fbf645ad839fbf2fee046774fc303cb6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562874"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201210"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Inicio rápido: Uso del SDK de Bing Web Search para Python
 
@@ -23,7 +23,7 @@ El SDK de Bing Web Search facilita la integración de Bing Web Search en la apli
 
 ¿Desea ver el código ahora mismo? Hay [ejemplos del SDK de Bing Web Search para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) disponibles en GitHub.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 El SDK de Bing Web Search es compatible con Python 2.7, 3.3, 3.4, 3.5 y 3.6. Se recomienda usar un entorno virtual para esta guía de inicio rápido.
 
 * Python 2.7, 3.3, 3.4, 3.5 o 3.6
@@ -90,7 +90,7 @@ Si la respuesta contiene páginas web, imágenes, noticias o vídeos, se imprime
 
     ```python
     # Import required modules.
-    from azure.cognitiveservices.search.websearch import WebSearchAPI
+    from azure.cognitiveservices.search.websearch import WebSearchClient
     from azure.cognitiveservices.search.websearch.models import SafeSearch
     from msrest.authentication import CognitiveServicesCredentials
 
@@ -98,7 +98,7 @@ Si la respuesta contiene páginas web, imágenes, noticias o vídeos, se imprime
     subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
     # Instantiate the client and replace with your endpoint.
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key), base_url = "YOUR_ENDPOINT")
+    client = WebSearchClient(endpoint="YOUR_ENDPOINT", CognitiveServicesCredentials(subscription_key))
 
     # Make a request. Replace Yosemite if you'd like.
     web_data = client.web.search(query="Yosemite")

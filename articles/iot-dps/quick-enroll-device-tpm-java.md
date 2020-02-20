@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: cadee1b72c15ded7c29d1eea341c1ea21b346a37
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: df18e721a7400a1e45b7f1fcd74fdafdbfdf026c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976832"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462265"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inicio rápido: Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Java
 
@@ -56,7 +56,7 @@ Asegúrese de [configurar un servicio Azure IoT Hub Device Provisioning con Azur
 
 En esta sección se muestra cómo agregar los detalles de aprovisionamiento del dispositivo de TPM al código de ejemplo. 
 
-1. Abra el símbolo del sistema. Clone el repositorio de GitHub para código de ejemplo de inscripción de dispositivos mediante el SDK del servicio de Java:
+1. Abra un símbolo del sistema. Clone el repositorio de GitHub para código de ejemplo de inscripción de dispositivos mediante el SDK del servicio de Java:
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -124,7 +124,7 @@ En esta sección se muestra cómo agregar los detalles de aprovisionamiento del 
     mvn install -DskipTests
     ```
 
-   Este comando descarga el paquete de Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) a su máquina. El paquete incluye los archivos binarios para el SDK del servicio de Java que debe compilar el código de ejemplo. 
+   Este comando descarga el paquete de Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) a su máquina. El paquete incluye los archivos binarios para el SDK del servicio de Java que debe compilar el código de ejemplo. 
 
 3. Para ejecutar el ejemplo, use estos comandos en la ventana de comandos:
 
@@ -140,7 +140,7 @@ En esta sección se muestra cómo agregar los detalles de aprovisionamiento del 
     ![Comprobación de si la inscripción de TPM se realizó correctamente en el portal](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Si planea explorar el ejemplo del servicio de Java, no elimine los recursos que se han creado en este inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos que se hayan creado en este inicio rápido.
+Si planea explorar el ejemplo del servicio de Java, no elimine los recursos que se han creado en este inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos que se han creado en este inicio rápido.
 
 1. Cierre la ventana de salida de ejemplo de Java en su máquina.
 1. Cierre la ventana del simulador de TPM que haya creado para simular el dispositivo de TPM.

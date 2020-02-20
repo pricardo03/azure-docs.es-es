@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de extrusión de polígono a un mapa | Microsoft Azure Maps
 description: Cómo agregar una capa de extrusión de polígonos al SDK web de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f01e07ea2bbfd0f6b3b0cc19dd219d71984a0d45
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 38a7e6c5f4c139343e735ae82616c11a224ae7ca
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988573"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209688"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adición de una capa de extrusión de polígonos al mapa
 

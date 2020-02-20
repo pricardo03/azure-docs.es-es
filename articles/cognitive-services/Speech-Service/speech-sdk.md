@@ -3,19 +3,19 @@ title: 'Acerca del SDK de Voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: El kit de desarrollo de software (SDK) del servicio Voz proporciona a sus aplicaciones acceso nativo a las funciones del servicio Voz, lo que facilita el desarrollo de software. En este artículo se proporcionan detalles adicionales sobre el SDK para Windows, Linux y Android.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.author: wolfma
-ms.openlocfilehash: ea879cbfc3b9b1d1a627add52f26a473aca53cdf
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.date: 02/13/2020
+ms.author: dapine
+ms.openlocfilehash: 04546883e6742086fa05fc450920b1026702bd08
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759882"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212520"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
@@ -31,7 +31,7 @@ Puede encontrar información general sobre las funcionalidades y las plataformas
 
 ## <a name="get-the-sdk"></a>Obtención del SDK
 
-### <a name="windows"></a>Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
 > [!WARNING]
 > El SDK de voz admite Windows 10 o versiones posteriores. Las versiones anteriores de Windows **no se admiten**.
@@ -42,7 +42,7 @@ Para Windows, se admiten los siguientes lenguajes:
 
 * Java: Puede usar y hacer referencia a la versión más reciente de nuestro paquete de Maven del SDK de Voz, que solo admite Windows x64. En el proyecto de Maven, agregue `https://csspeechstorage.blob.core.windows.net/maven/` como un repositorio adicional y la referencia `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` como una dependencia.
 
-### <a name="linux"></a>Linux
+# <a name="linux"></a>[Linux](#tab/linux)
 
 > [!NOTE]
 > Actualmente, solo se admite Ubuntu 16.04, Ubuntu 18.04 y Debian 9 en las siguientes arquitecturas de destino:
@@ -86,7 +86,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
   Para crear una aplicación, copie o mueva los binarios (y bibliotecas) necesarios a su entorno de desarrollo. Inclúyalos según sea necesario en el proceso de compilación.
 
-### <a name="android"></a>Android
+# <a name="android"></a>[Android](#tab/android)
 
 El SDK de Java para Android está empaquetado como una [biblioteca de Android (AAR)](https://developer.android.com/studio/projects/android-library), que incluye las bibliotecas necesarias, así como los permisos necesarios de Android. Se hospeda en un repositorio de Maven en `https://csspeechstorage.blob.core.windows.net/maven/` como un paquete `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
 
@@ -105,6 +105,8 @@ Para consumir el paquete desde el proyecto de Android Studio, haga los siguiente
   ```
 
 El SDK de Java es parte del [SDK de dispositivos de voz](speech-devices-sdk.md).
+
+---
 
 [!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 

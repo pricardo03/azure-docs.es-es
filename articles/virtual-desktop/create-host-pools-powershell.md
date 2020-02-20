@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f510879e7df967944f5e7a3deac308a430d53d0c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f9baaf6c39f85f82b034bee42f01cf3c0dd2a610
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771315"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367456"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
 
@@ -20,7 +20,7 @@ Los grupos hosts son una colección de una o más máquinas virtuales idénticas
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Uso del cliente de PowerShell para crear un grupo hosts
 
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
+En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell.
 
 Ejecute el siguiente cmdlet para iniciar sesión en el entorno de Windows Virtual Desktop.
 
@@ -60,9 +60,9 @@ Ahora puede crear una máquina virtual de Azure que puede unirse al grupo de hos
 
 Puede crear una máquina virtual de varias maneras:
 
-- [Crear una máquina virtual desde una imagen de la galería de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
-- [Crear una máquina virtual desde una imagen administrada](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
-- [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Crear una máquina virtual desde una imagen de la galería de Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Crear una máquina virtual desde una imagen administrada](../virtual-machines/windows/create-vm-generalized-managed.md)
+- [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image.md)
 
 >[!NOTE]
 >Si va a implementar una máquina virtual en la que Windows 7 es el sistema operativo del host, el proceso de creación e implementación será un poco diferente. Para más información, consulte [Implementación de una máquina virtual Windows 7 en Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).
@@ -78,7 +78,7 @@ Deberá hacer lo siguiente para preparar las máquinas virtuales antes de poder 
 
 Para realizar correctamente una unión a un dominio, realice los siguientes pasos en cada máquina virtual:
 
-1. [Conéctese a la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
+1. [Conéctese a la máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
 2. En la máquina virtual, inicie el **Panel de control** y seleccione **Sistema**.
 3. Seleccione **Nombre del equipo**, seleccione **Cambiar configuración** y, luego, seleccione **Cambiar…** .
 4. Seleccione **Dominio** y, luego, escriba el dominio de Active Directory en la red virtual.
@@ -93,7 +93,7 @@ El registro de las máquinas virtuales en un grupo de hosts de Windows Virtual D
 
 Para registrar los agentes de Windows Virtual Desktop, realice los siguientes pasos en cada máquina virtual:
 
-1. [Conéctese a la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
+1. [Conéctese a la máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
 2. Descargue e instale el agente de Windows Virtual Desktop.
    - Descargue el [agente de Windows Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Haga clic con el botón derecho en el instalador descargado, seleccione **Propiedades**, seleccione **Desbloquear** y, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema confíe en el instalador.
@@ -104,7 +104,7 @@ Para registrar los agentes de Windows Virtual Desktop, realice los siguientes pa
    - Ejecute al programa de instalación.
 
 >[!IMPORTANT]
->Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](../security-center/security-center-just-in-time.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

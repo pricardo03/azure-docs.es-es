@@ -3,12 +3,12 @@ title: Establecimiento del orden de implementación para recursos
 description: Describe cómo establecer un recurso como dependiente de otro recurso durante la implementación para garantizar el orden de implementación correcto de los recursos.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 44cf793859d2817695a58bd1159e2f4465c1f9c2
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: ffd6d6c65a1cbe9578b5f9162d29f3238e27ea71
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121971"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207696"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definición del orden de implementación de recursos en plantillas de Azure Resource Manager
 
@@ -40,7 +40,7 @@ En el ejemplo siguiente se muestra un conjunto de escalado de máquinas virtuale
 }
 ```
 
-En el ejemplo anterior, se incluye una dependencia de los recursos que se crean a través de un bucle de copia denominado "**storageLoop**". Para ver un ejemplo, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md)
+En el ejemplo anterior, se incluye una dependencia de los recursos que se crean a través de un bucle de copia denominado "**storageLoop**". Para ver un ejemplo, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md)
 
 Al definir las dependencias, puede incluir el espacio de nombres de proveedor de recursos y el tipo de recurso para evitar la ambigüedad. Por ejemplo, para aclarar un equilibrador de carga y la red virtual que puede tener los mismos nombres que otros recursos, utilice el formato siguiente:
 

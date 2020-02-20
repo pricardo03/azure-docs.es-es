@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 2a7d10f41e343f21e16b10f4bf7c79670824ec2c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115908"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368835"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implementación de una herramienta de administración con PowerShell
 
@@ -36,7 +36,7 @@ Los siguientes exploradores son compatibles con la herramienta de administració
 Antes de implementar la herramienta de administración, necesitará que un usuario de Azure Active Directory (Azure AD) cree un registro de aplicaciones e implemente la interfaz de usuario de administración. Dicho usuario debe:
 
 - Tener los permisos para crear recursos en la suscripción de Azure.
-- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) para comprobar si el usuario tiene los permisos que necesita.
+- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) para comprobar si el usuario tiene los permisos que necesita.
 
 Para poder implementar y configurar correctamente la herramienta de administración, primero debe descargar los siguientes scripts de PowerShell desde el [repositorio RDS-templates de GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) y guardarlos en la misma carpeta de su equipo local.
 

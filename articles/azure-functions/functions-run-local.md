@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dd36895a34b36bbdf8e796cf629ab031613663cd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277976"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208891"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -50,7 +50,7 @@ La versión 2.x o 3.x de las herramientas usa el entorno en tiempo de ejecución
 > [!IMPORTANT]
 > Puede omitir el requisito de instalar el SDK de .NET Core con los [conjuntos de extensión].
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También puede usar [Chocolatey](https://chocolatey.org/). Para más información, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
@@ -76,7 +76,7 @@ Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También 
 
 1. Si no planea usar los [conjuntos de extensión], instale el [SDK de .NET Core 2.x para Windows](https://www.microsoft.com/net/download/windows).
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
 
@@ -100,7 +100,7 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core Tools en la distribución de Ubuntu/Debian Linux. Para otras distribuciones de Linux, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
@@ -373,7 +373,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->Cuando se ejecuta localmente, no se aplica la autorización para puntos de conexión HTTP. Esto significa que todas las solicitudes HTTP locales se tratan como `authLevel = "anonymous"`. Para obtener más información, consulte el artículo sobre [enlaces HTTP](functions-bindings-http-webhook.md#authorization-keys).
+>Cuando se ejecuta localmente, no se aplica la autorización para puntos de conexión HTTP. Esto significa que todas las solicitudes HTTP locales se tratan como `authLevel = "anonymous"`. Para obtener más información, consulte el artículo sobre [enlaces HTTP](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Paso de datos de prueba a una función
 

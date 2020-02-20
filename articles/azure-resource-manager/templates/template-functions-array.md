@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: matrices y objetos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con matrices y objetos.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 16b36d290a99da56dffe82c9e4c7265a89350391
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a38ab0fb2ddb15c3e853ae1b249df9a8364c6910
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476250"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207373"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager
 
@@ -122,7 +122,7 @@ Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las ma
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |int, string, array u object |El primer valor para comprobar si hay valores nulos. |
-| argumentos adicionales |No |int, string, array u object |Valores adicionales para probar si hay valores nulos. |
+| argumentos adicionales |Sin |int, string, array u object |Valores adicionales para probar si hay valores nulos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -209,7 +209,7 @@ Combina varias matrices y devuelve la matriz concatenada, o combina varios valor
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La primera matriz o cadena para la concatenación. |
-| argumentos adicionales |No |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
+| argumentos adicionales |Sin |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
 
 Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros. Sin embargo, no puede proporcionar ambas a la vez para los parámetros. Las matrices solo se concatenan con otras matrices.
 
@@ -416,7 +416,7 @@ Crea una matriz a partir de los parámetros.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |Cadena, entero, matriz u objeto |El primer valor en la matriz. |
-| argumentos adicionales |No |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
+| argumentos adicionales |Sin |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -637,7 +637,7 @@ Devuelve una única matriz u objeto con los elementos comunes de los parámetros
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
+| argumentos adicionales |Sin |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -937,7 +937,7 @@ Puede usar esta función con una matriz para especificar el número de iteracion
 }
 ```
 
-Para más información sobre cómo usar esta función con una matriz, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md).
+Para más información sobre cómo usar esta función con una matriz, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -1300,7 +1300,7 @@ Devuelve una única matriz u objeto con todos los elementos de los parámetros. 
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utiliza para unir elementos. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
+| argumentos adicionales |Sin |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1370,6 +1370,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](deploy-powershell.md).
 

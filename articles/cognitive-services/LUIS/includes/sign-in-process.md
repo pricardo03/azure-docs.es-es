@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
-ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 5e7feac35ddd607d36cb0ddd3bae10cf1b9bc7a7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 155c88ec4766391f70701b17038b915c399d8b0c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278594"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371908"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Inicio de sesión en el portal de LUIS
 
@@ -31,12 +31,12 @@ Un nuevo usuario de LUIS debe seguir este procedimiento:
 
     ![Creación de un recurso de creación](../media/migrate-authoring-key/choose-authoring-resource-form.png)
 
-    Al **crear un nuevo recurso de creación**, proporcione la información siguiente: 
+    Al **crear un nuevo recurso de creación**, proporcione la información siguiente:
 
     * **Nombre del recurso**: el nombre personalizado que elija, que se usa como parte de la dirección URL para las consultas de punto de conexión de creación y predicción.
-    * **Inquilino**: el inquilino con el que está asociada la suscripción de Azure. 
+    * **Inquilino**: el inquilino con el que está asociada la suscripción de Azure.
     * **Nombre de la suscripción**: la suscripción que se facturará por el recurso.
-    * **Grupo de recursos**: nombre del grupo de recursos personalizado que elija o cree. Los grupos de recursos le permiten agrupar los recursos de Azure para el acceso y la administración. 
+    * **Grupo de recursos**: nombre del grupo de recursos personalizado que elija o cree. Los grupos de recursos le permiten agrupar los recursos de Azure para el acceso y la administración.
     * **Ubicación**: la opción de ubicación se basa en la selección del **grupo de recursos**.
     * **Plan de tarifa**: el plan de tarifa determina el número máximo de transacciones por segundo y mes.
 
@@ -44,6 +44,6 @@ Un nuevo usuario de LUIS debe seguir este procedimiento:
 
     ![Creación de un recurso de creación](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. Para confirmar, seleccione **Continuar**. 
+1. Para confirmar, seleccione **Continuar**.
 
     ![Creación de un recurso de creación](../media/sign-in/sign-in-confirm-continue.png)

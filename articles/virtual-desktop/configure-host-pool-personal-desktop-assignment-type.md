@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0db1ffe46165d91148b6980abbf89d03340e646e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8065be841b18fa0f8706a3bea3739ee2cb013323
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477050"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367586"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configuración del tipo de asignación de grupo de host de escritorio personal
 
@@ -27,7 +27,7 @@ La asignación automática es el tipo de asignación predeterminado para los nue
 
 Para asignar usuarios de forma automática, asígnelos primero al grupo de host de escritorio personal para que puedan ver el escritorio en su fuente. Cuando un usuario asignado inicia el escritorio en su fuente, notificará un host de sesión disponible si todavía no se ha conectado al grupo de host, que completa el proceso de asignación.
 
-Antes de empezar, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), si todavía no lo ha hecho. 
+Antes de empezar, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/), si todavía no lo ha hecho. 
 
 > [!NOTE]
 > Asegúrese de haber instalado el módulo de PowerShell para Windows Virtual Desktop versión 1.0.1534.2001 o posterior antes de seguir estas instrucciones.

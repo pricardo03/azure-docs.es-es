@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fe46e968aa2dcebaa483cd38fd2e050ccfe43054
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d9f715a6ab43206d02107f6335e9b4c0bb4266e0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149905"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471013"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Instalación de certificados de producción en un dispositivo IoT Edge
 
@@ -68,24 +68,24 @@ Por ejemplo, si ha usado los scripts de ejemplo para [Crear certificados de demo
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-3. Establezca las propiedades de **certificado** del archivo config.yaml en el URI de archivo de los archivos de certificado y de clave del dispositivo IoT Edge. Elimine el carácter `#` antes de las propiedades de certificado para quitar la marca de comentario de las cuatro líneas. Asegúrese de que la línea **certificates:** no tiene ningún espacio en blanco delante y de que los elementos anidados muestran una sangría de dos espacios. Por ejemplo:
+3. Establezca las propiedades de **certificado** del archivo config.yaml en la ruta de acceso completa a los archivos de certificado y de clave del dispositivo IoT Edge. Elimine el carácter `#` antes de las propiedades de certificado para quitar la marca de comentario de las cuatro líneas. Asegúrese de que la línea **certificates:** no tiene ningún espacio en blanco delante y de que los elementos anidados muestran una sangría de dos espacios. Por ejemplo:
 
    * Windows:
 
       ```yaml
       certificates:
-        device_ca_cert: "file:///c:/path/device-ca.cert.pem"
-        device_ca_pk: "file:///c:/path/device-ca.key.pem"
-        trusted_ca_certs: "file:///c:/path/root-ca.root.ca.cert.pem"
+        device_ca_cert: "c:\\<path>\\device-ca.cert.pem"
+        device_ca_pk: "c:\\<path>\\device-ca.key.pem"
+        trusted_ca_certs: "c:\\<path>\\root-ca.root.ca.cert.pem"
       ```
 
    * Linux:
 
       ```yaml
       certificates:
-        device_ca_cert: "file:///path/device-ca.cert.pem"
-        device_ca_pk: "file:///path/device-ca.key.pem"
-        trusted_ca_certs: "file:///path/root-ca.root.ca.cert.pem"
+        device_ca_cert: "<path>/device-ca.cert.pem"
+        device_ca_pk: "<path>/device-ca.key.pem"
+        trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
       ```
 
 4. En los dispositivos Linux, asegúrese de que el usuario **iotedge** tiene permisos de lectura para el directorio que contiene los certificados.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fac6c29d5371c536c20eca58d90ee5d54d7e90d1
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991038"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462673"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
 
@@ -105,8 +105,7 @@ Hay una serie de diferentes paquetes de caché DNS disponibles, como dnsmasq. Aq
 
 > [!NOTE]
 > El paquete dnsmasq constituye solo una de las muchas memorias cachés DNS disponibles para Linux. Antes de usarlo, compruebe su idoneidad para sus necesidades concretas y que no esté instalada ninguna otra memoria caché.
->
->
+
     
 ### <a name="client-side-retries"></a>Reintentos del cliente
 
@@ -169,8 +168,7 @@ Si el reenvío de consultas a Azure no satisface sus necesidades, debería propo
 * Tener protección contra el acceso desde Internet para mitigar las amenazas que suponen los agentes externos.
 
 > [!NOTE]
-> Para obtener el mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, debe deshabilitarse IPv6. Debe asignarse una [dirección IP pública](virtual-network-public-ip-address.md) a cada máquina virtual del servidor DNS. Si desea realizar optimizaciones y análisis de rendimiento adicionales al utilizar Windows Server como servidor DNS, consulte [Name resolution performance of a recursive Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) (Rendimiento de resolución de nombres de un servidor Windows DNS Server 2012 R2 recursivo).
-> 
+> Para obtener el mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, debe deshabilitarse IPv6. Debe asignarse una [dirección IP pública](virtual-network-public-ip-address.md) a cada máquina virtual del servidor DNS. 
 > 
 
 ### <a name="web-apps"></a>Aplicaciones web

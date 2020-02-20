@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: numérico'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con números.
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: 1a611277bb473d605c76d131a18f9ccb550fab29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476206"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207266"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funciones numéricas para las plantillas de Azure Resource Manager
 
@@ -109,8 +109,8 @@ Devuelve el índice actual de un bucle de iteración.
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| loopName | No | string | El nombre del bucle para obtener la iteración. |
-| offset |No |int |El número que se agregará al valor de iteración basado en cero. |
+| loopName | Sin | string | El nombre del bucle para obtener la iteración. |
+| offset |Sin |int |El número que se agregará al valor de iteración basado en cero. |
 
 ### <a name="remarks"></a>Observaciones
 
@@ -118,7 +118,7 @@ Esta función siempre se usa con un objeto **copy** . Si no se proporciona ning�
 
 La propiedad **loopName** le permite especificar si copyIndex hace referencia a una iteración de recursos o una iteración de propiedades. Si no se proporciona ningún valor para **loopName**, se usa la iteración de tipo de recurso actual. Proporcione un valor para **loopName** al iterar en una propiedad. 
  
-Para ver una descripción completa de cómo usar **copyIndex**, consulte [Creación de varias instancias de recursos en Azure Resource Manager](create-multiple-instances.md).
+Para ver una descripción completa de cómo usar **copyIndex**, consulte [Creación de varias instancias de recursos en Azure Resource Manager](copy-resources.md).
 
 Para obtener un ejemplo del uso de **copyIndex** al definir una variable, vea [Variables](template-syntax.md#variables).
 
@@ -651,6 +651,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](deploy-powershell.md).
 

@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 44fcaa0a4292ac86c7371c27f29faf0e7246e9d5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894787"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251913"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acceso a la red para Azure SQL Database y Data Warehouse
 
@@ -113,7 +113,7 @@ Tenga en cuenta los siguientes términos de redes en Azure a medida que explora 
 
 **Subred:** una red virtual contiene **subredes**. Cualquier máquina virtual (VM) de Azure que tenga se asignará a las subredes. Una subred puede contener varias máquinas virtuales u otros nodos de proceso. Los nodos de proceso que se encuentran fuera de la red virtual no pueden tener acceso a su red virtual a menos que configure la seguridad para que permita el acceso.
 
-**Punto de conexión de servicio de red virtual:** un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database.
+**Punto de conexión de servicio de red virtual:** un [punto de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database.
 
 **Regla de red virtual:** una regla de red virtual para el servidor de SQL Database es una subred que se muestra en la lista de control de acceso (ACL) del servidor de SQL Database. Para estar en la ACL de su SQL Database, la subred debe contener el nombre de tipo **Microsoft.Sql**. Una regla de red virtual indica a su servidor de SQL Database que acepte las comunicaciones procedentes de todos los nodos que están en la subred.
 
@@ -122,7 +122,7 @@ Tenga en cuenta los siguientes términos de redes en Azure a medida que explora 
 
 El firewall de Azure SQL Server le permite especificar intervalos de direcciones IP desde los que se aceptan las comunicaciones en SQL Database. Este enfoque es preciso para las direcciones IP estables que están fuera de la red privada de Azure. Sin embargo, las máquinas virtuales de la red privada de Azure se configuran con direcciones IP *dinámicas*. Las direcciones IP dinámicas pueden cambiar cuando se reinicia la máquina virtual y, a su vez, invalidar la regla de firewall basada en IP. Sería una locura especificar una dirección IP dinámica en una regla de firewall, en un entorno de producción.
 
-Para superar esta limitación, puede obtener una dirección IP *estática* para la máquina virtual. Para más información, consulte [Configuración de direcciones IP privadas para una máquina virtual mediante Azure Portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]. Sin embargo, el enfoque de IP estática puede resultar difícil de administrar y es costoso cuando se hace a escala. 
+Para superar esta limitación, puede obtener una dirección IP *estática* para la máquina virtual. Para más información, consulte [Configuración de direcciones IP privadas para una máquina virtual mediante Azure Portal](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala. 
 
 Las reglas de red virtual son alternativas más fáciles de establecer y su acceso, de administrar desde una subred específica que contenga las máquinas virtuales.
 

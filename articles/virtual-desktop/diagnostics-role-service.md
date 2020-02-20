@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 0e04b075259ed1d003df4a03686d46b1adf694d3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c907052f10fa7d1cfd1ff79e981fdccef874ee5
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606858"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367342"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificación y diagnóstico de problemas
 
@@ -24,7 +24,7 @@ Windows Virtual Desktop ofrece una característica de diagnóstico que permite a
   
 Las conexiones que no lleguen a Windows Virtual Desktop no aparecerán en los resultados de diagnóstico, ya que el propio servicio de rol de diagnóstico forma parte de Windows Virtual Desktop. Se pueden producir problemas de conexión a Windows Virtual Desktop si el usuario final está experimentando problemas de conectividad de red.
 
-Para empezar, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell, si aún no lo ha hecho. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+Para empezar, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell, si aún no lo ha hecho. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

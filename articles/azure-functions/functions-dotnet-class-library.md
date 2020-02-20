@@ -3,12 +3,12 @@ title: Referencia para desarrolladores de C# de Azure Functions
 description: Cómo desarrollar funciones de Azure con C#.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 89b3ae927b14454ac3f58fb510626e315842240f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: cfa53fe2defca768196af595c1d088d41bc60f71
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921046"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198384"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -204,7 +204,7 @@ Core Tools se instala mediante npm, que no afecta a la versión de Core Tools qu
 
 ## <a name="supported-types-for-bindings"></a>Tipos compatibles para los enlaces
 
-Cada enlace tiene sus propios tipos compatibles; por ejemplo, un atributo desencadenador de blobs puede aplicarse a un parámetro de cadena, un parámetro POCO, un parámetro `CloudBlockBlob` o cualquiera de los demás tipos compatibles. En el [artículo de referencia sobre los enlaces de blobs](functions-bindings-storage-blob.md#trigger---usage) se enumeran todos los tipos de parámetros compatibles. Para obtener más información, vea el artículo sobre [desencadenadores y enlaces](functions-triggers-bindings.md) y los [documentos de referencia sobre enlaces para cada tipo de enlace](functions-triggers-bindings.md#next-steps).
+Cada enlace tiene sus propios tipos compatibles; por ejemplo, un atributo desencadenador de blobs puede aplicarse a un parámetro de cadena, un parámetro POCO, un parámetro `CloudBlockBlob` o cualquiera de los demás tipos compatibles. En el [artículo de referencia sobre los enlaces de blobs](functions-bindings-storage-blob-trigger.md#usage) se enumeran todos los tipos de parámetros compatibles. Para obtener más información, vea el artículo sobre [desencadenadores y enlaces](functions-triggers-bindings.md) y los [documentos de referencia sobre enlaces para cada tipo de enlace](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -353,7 +353,7 @@ Defina un enlace imperativo como se indica a continuación:
 
 ### <a name="single-attribute-example"></a>Ejemplo de un único atributo
 
-El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob.md#output) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
+El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob-output.md) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
 
 ```cs
 public static class IBinderExample

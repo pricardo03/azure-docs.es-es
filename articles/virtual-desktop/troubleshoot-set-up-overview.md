@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 02/07/2020
 ms.author: helohr
-ms.openlocfilehash: dc4e4e271ac7108f4c29c82646e9849b9a5cd929
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 730d12625b134f411096b4b49641b79efb1a0d26
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110790"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368747"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Información general sobre solución de problemas, comentarios y soporte técnico
 
@@ -24,7 +24,7 @@ Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.
 
 ## <a name="escalation-tracks"></a>Seguimiento del escalado
 
-Use la siguiente tabla para identificar y resolver los problemas que puedan surgir al configurar un entorno de inquilinos mediante el cliente de Escritorio remoto. Una vez que el inquilino esté configurado, puede usar el nuevo [servicio Diagnostics](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) para identificar los problemas en escenarios comunes.
+Use la siguiente tabla para identificar y resolver los problemas que puedan surgir al configurar un entorno de inquilinos mediante el cliente de Escritorio remoto. Una vez que el inquilino esté configurado, puede usar el nuevo [servicio Diagnostics](diagnostics-role-service.md) para identificar los problemas en escenarios comunes.
 
 >[!NOTE]
 > En el foro Tech Community puede comentar sus problemas con el equipo del producto y con los miembros activos de la comunidad. Visite el espacio de [Tech Community sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para iniciar una discusión.
@@ -38,7 +38,7 @@ Use la siguiente tabla para identificar y resolver los problemas que puedan surg
 | Creación de una máquina virtual en el grupo del host de sesión cuando las plantilla de Azure Resource Manager que se proporcionan con Windows Virtual Desktop no se usan | [Abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/) y, a continuación, seleccione el servicio **Máquina virtual que ejecuta Windows**. <br> <br> En caso de problemas con las plantillas de Azure Resource Manager que se proporcionan con Windows Virtual Desktop, consulte la sección Crear un inquilino de Windows Virtual Desktop de [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues.md). |
 | Administración del entorno del host de sesión de Windows Virtual Desktop desde Azure Portal    | [Abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Para problemas de administración cuando se usa PowerShell para Servicios de Escritorio remoto/Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md) o [abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/), seleccione el servicio **Windows Virtual Desktop**, el tipo de problema **Configuration and Management** (Configuración y administración) y, a continuación, el subtipo de problema **Issues configuring tenant using PowerShell** (Problemas al configurar el inquilino con PowerShell). |
 | Administración de la configuración de Windows Virtual Desktop asociada a los grupos de hosts y a los grupos de aplicaciones      | Consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md) o [abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/), seleccione el servicio **Windows Virtual Desktop** y, a continuación, el tipo de problema adecuado.|
-| Implementación y administración de contenedores de perfiles de FSLogix | Consulte la [guía de solución de problemas para productos de FSLogix](https://docs.microsoft.com/fslogix/fslogix-trouble-shooting-ht) y, si no logra solucionar el problema, [abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/), seleccione el servicio **Windows Virtual Desktop**, el tipo de problema **FSLogix** y, a continuación, el subtipo de problema adecuado. |
+| Implementación y administración de contenedores de perfiles de FSLogix | Consulte la [guía de solución de problemas para productos de FSLogix](/fslogix/fslogix-trouble-shooting-ht/) y, si no logra solucionar el problema, [abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/), seleccione el servicio **Windows Virtual Desktop**, el tipo de problema **FSLogix** y, a continuación, el subtipo de problema adecuado. |
 | Error de funcionamiento de los clientes de Escritorio remoto en el inicio                                                 | Consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md) y, si no logra resolver el problema, [abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/), seleccione el servicio **Windows Virtual Desktop** y, a continuación, el tipo de problema **Remote Desktop clients** (Clientes de Escritorio remoto).  <br> <br> Si es un problema de red, los usuarios deben ponerse en contacto con su administrador de red. |
 | Está conectado, pero no hay ninguna fuente                                                                 | Para solucionar el problema, consulte la sección [El usuario se conecta, pero no se muestra nada (ninguna fuente)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) de [Conexiones de servicios de Windows Virtual Desktop](troubleshoot-service-connection.md). <br> <br> Si sus usuarios se han asignado a un grupo de aplicaciones, [abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/), seleccione el servicio **Windows Virtual Desktop** y, a continuación, el tipo de problema **Remote Desktop clients** (Clientes de Escritorio remoto). |
 | Problemas de detección de fuentes debido a la red                                            | Los usuarios deben ponerse en contacto con su administrador de red. |

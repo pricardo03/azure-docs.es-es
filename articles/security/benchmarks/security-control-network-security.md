@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 7916bbb28602d64e0916fce7badf16a65c242227
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934323"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251879"
 ---
 # <a name="security-control-network-security"></a>Control de seguridad: Seguridad de redes
 
@@ -177,13 +177,13 @@ Defina e implemente configuraciones de seguridad estándar para los recursos de 
 
 También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones.
 
-Cómo configurar y administrar Azure Policy:
+Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Ejemplos de Azure Policy para redes:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 Cómo crear un plano técnico de Azure:
 
@@ -223,7 +223,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Ejemplos de Azure Policy para redes:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 ## <a name="next-steps"></a>Pasos siguientes
 

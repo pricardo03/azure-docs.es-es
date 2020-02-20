@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 321f985bd375e6fa4337e060bb15d318ea306ab4
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 29c91cf14413a11804de82eeaf08d628b125d76a
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116742"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471948"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,7 +111,7 @@ print(blob.location)
 Si `show_output=True`, se muestra la salida del proceso de compilación de Docker. Una vez finalizado el proceso, la imagen se ha creado en Azure Container Registry para su área de trabajo. Una vez creada la imagen, se muestra la ubicación en Azure Container Registry. La ubicación devuelta tiene el formato `<acrinstance>.azurecr.io/package@sha256:<hash>`.
 
 > [!NOTE]
-> Actualmente, el empaquetado para Functions admite desencadenadores HTTP, desencadenadores de blobs y desencadenadores de Service Bus. Para más información sobre los desencadenadores, vea [Enlaces de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob?tabs=csharp#trigger---blob-name-patterns).
+> Actualmente, el empaquetado para Functions admite desencadenadores HTTP, desencadenadores de blobs y desencadenadores de Service Bus. Para más información sobre los desencadenadores, vea [Enlaces de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
 
 > [!IMPORTANT]
 > Guarde la información de la ubicación, ya que se usa al implementar la imagen.

@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 750ccbfa885b4679dfa61240b49ea9ec86a46d51
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 01e07eaee705634b03cc4462c4058e290daa8bc2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120648"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198503"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guía del desarrollador de entidades duraderas en .NET
 
@@ -371,7 +371,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 A diferencia de las funciones normales, los métodos de clase de entidad no tienen acceso directo a enlaces de entrada y salida. En su lugar, los datos de enlace se deben capturar en la declaración de la función de punto de entrada y, a continuación, se deben pasar al método `DispatchAsync<T>`. Cualquier objeto pasado a `DispatchAsync<T>` se pasará automáticamente al constructor de clases de la entidad como un argumento.
 
-En el ejemplo siguiente se muestra cómo se puede poner a disposición de una entidad basada en clases una referencia a `CloudBlobContainer` desde el [enlace de entrada del blob](../functions-bindings-storage-blob.md#input).
+En el ejemplo siguiente se muestra cómo se puede poner a disposición de una entidad basada en clases una referencia a `CloudBlobContainer` desde el [enlace de entrada del blob](../functions-bindings-storage-blob-input.md).
 
 ```csharp
 public class BlobBackedEntity

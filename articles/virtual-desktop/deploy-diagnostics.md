@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452424"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368854"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -25,7 +25,7 @@ Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop pued
 - Enviar un mensaje a los usuarios activos en un host de sesión específico.
 - Cerrar la sesión de los usuarios de un host de sesión.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe crear un registro de aplicaciones de Azure Active Directory y un área de trabajo de Log Analytics antes de implementar la plantilla de Azure Resource Manager para la herramienta. El usuario o el administrador necesitan estos permisos para hacerlo:
 
@@ -36,8 +36,8 @@ Debe crear un registro de aplicaciones de Azure Active Directory y un área de 
 
 También debe instalar estos dos módulos de PowerShell antes de empezar:
 
-- [Módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Módulo de Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Módulo de Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 Asegúrese de que tiene el identificador de suscripción preparado para cuando inicie sesión.
 
@@ -253,7 +253,7 @@ También puede interactuar con usuarios en el host de sesión:
 
     - Umbral: Un valor superior al 80 % se marca como incorrecto.
 
-- [Retraso de entrada de usuario por sesión(\*)\\Retraso máximo de entrada](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Retraso de entrada de usuario por sesión(\*)\\Retraso máximo de entrada](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Umbral: Un valor superior a 2000 ms se marca como incorrecto.
 

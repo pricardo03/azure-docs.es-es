@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
-ms.openlocfilehash: d5a4e5ce40726ea36734a0dcf751b79225d5e153
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361120"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469772"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitación de diagnósticos de Azure en Azure Cloud Services
 Consulte [Introducción a Diagnósticos de Azure](../azure-diagnostics.md) para obtener información sobre Diagnósticos de Azure.
@@ -23,7 +23,7 @@ Consulte [Introducción a Diagnósticos de Azure](../azure-diagnostics.md) para 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Habilitación de Diagnósticos en un rol de trabajo
 En este tutorial se describe cómo implementar un rol de trabajo de Azure que emite datos de telemetría mediante la clase EventSource de .NET. Diagnósticos de Azure se usa para recopilar datos de telemetría y almacenarla en una cuenta de almacenamiento de Azure. Al crear un rol de trabajo, Visual Studio habilita automáticamente Diagnósticos 1.0 como parte de la solución en los SDK de Azure para .NET 2.4, y las versiones anteriores. En las instrucciones siguientes se describe el proceso para crear el rol de trabajo, deshabilitar Diagnósticos 1.0 de la solución e implementar Diagnósticos 1.2 o 1.3 en el rol de trabajo.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 En este artículo se supone que tiene una suscripción a Azure y usa Visual Studio con Azure SDK. Si no tiene una suscripción de Azure, puede registrarse para obtener una [prueba gratuita][Free Trial]. Asegúrese de [instalar y configurar Azure PowerShell versión 0.8.7 o posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Paso 1: crear roles de trabajo
@@ -193,7 +193,7 @@ El archivo de configuración de Diagnósticos define valores que se usan para in
 Si tiene problemas, consulte [Solución de problemas de Diagnósticos de Azure](../azure-diagnostics-troubleshooting.md) para obtener ayuda relacionada con problemas comunes.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Vea una lista de artículos relacionados con el diagnóstico de máquinas virtuales de Azure](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) para cambiar los datos que se recopilan, solucionar problemas u obtener más información acerca de los diagnósticos en general.
+[Vea una lista de artículos relacionados con el diagnóstico de máquinas virtuales de Azure](../azure-monitor/platform/diagnostics-extension-overview.md) para cambiar los datos que se recopilan, solucionar problemas u obtener más información acerca de los diagnósticos en general.
 
 [EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

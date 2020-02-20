@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1b4d878fdac473660999a965296a317441d6b00a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 53e6382cf8d046b2c9818b906890bc64642fd2ed
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170430"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77372087"
 ---
 La biblioteca cliente de creación de Language Understanding (LUIS) para .NET puede usarse con los siguientes fines:
 
@@ -26,7 +26,7 @@ La biblioteca cliente de creación de Language Understanding (LUIS) para .NET pu
 
 [Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Paquete de creación (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [Ejemplos de C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cuenta de portal de Language Understanding (LUIS): [cree una de forma gratuita](https://www.luis.ai).
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -47,7 +47,7 @@ Con la clave y la región de la clave, cree dos variables de entorno para la aut
 
 Siga las instrucciones adecuadas para su sistema operativo.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
@@ -56,7 +56,7 @@ setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
 
 Después de agregar la variable de entorno, reinicie la ventana de la consola.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
@@ -65,7 +65,7 @@ export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
 
 Después de agregar la variable de entorno, ejecute `source ~/.bashrc` desde la ventana de consola para que los cambios surtan efecto.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Edite `.bash_profile` y agregue la variable de entorno:
 

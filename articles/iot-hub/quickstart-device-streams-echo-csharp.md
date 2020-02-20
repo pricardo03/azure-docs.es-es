@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ee709919f550a8b9afaf56e5e071522a494348ac
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: cf182e55e172b308a288c741640538ab680e1103
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773823"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462095"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en C# mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -28,13 +28,13 @@ Azure IoT Hub admite actualmente flujos de dispositivos como una [característic
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La versión preliminar de los flujos de dispositivo solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
   * Centro de EE. UU.
   * EUAP del centro de EE. UU.
   * Norte de Europa
-  * Sudeste asiático
+  * Sudeste de Asia
 
 * Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben en C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en la máquina de desarrollo.
   * Descargue el [SDK de .NET Core para varias plataformas desde .NET](https://www.microsoft.com/net/download/all).
@@ -54,7 +54,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 

@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: comparación'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para comparar valores.
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 3f21066ae5882f51ef1e01343752eea725fece1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476238"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207319"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funciones de comparación para las plantillas de Azure Resource Manager
 
@@ -485,6 +485,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](deploy-powershell.md).
 

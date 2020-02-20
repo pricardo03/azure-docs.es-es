@@ -2,14 +2,14 @@
 title: Qué es la cadena de bloques Data Manager para Azure Blockchain Service
 description: La cadena de bloques Data Manager para capturar, transformar y entregar datos de Blockchain a Temas de Event Grid.
 ms.date: 11/04/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.reviewer: chroyal
-ms.openlocfilehash: 6583a99ef6efaefa732178d0228708cea82365b1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 78c93880007259267b26cf53e93de722be1c7323
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326213"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209450"
 ---
 # <a name="what-is-blockchain-data-manager-for-azure-blockchain-service"></a>¿Qué es Blockchain Data Manager para Azure Blockchain Service?
 
@@ -21,7 +21,7 @@ La cadena de bloques Data Manager realiza tres funciones principales: capturar, 
 
 ![Funciones de la cadena de bloques Data Manager](./media/data-manager/functions.png)
 
-## <a name="capture"></a>Capture
+## <a name="capture"></a>Capturar
 
 Cada instancia de Blockchain Data Manager se conecta a un nodo de transacción miembro de Azure Blockchain Service. Solo los usuarios con acceso al nodo de transacción pueden crear una conexión, lo que garantiza el control de acceso adecuado a los datos del cliente. Una instancia de la cadena de bloques Data Manager captura de forma confiable todos los datos de bloques sin procesar y de transacciones sin procesar del nodo de transacción y se puede escalar para admitir cargas de trabajo empresariales.
 

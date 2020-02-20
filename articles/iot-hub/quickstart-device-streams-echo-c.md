@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 1d475c8e1f8dd332b60aef04242d2829feba93c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e00df18fb0e62d79b3402437c4be12a9c5650a61
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429205"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461943"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -40,7 +40,7 @@ El código mostrará el proceso de inicio de un flujo de dispositivo y cómo usa
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los siguientes requisitos previos son necesarios:
 
@@ -58,8 +58,8 @@ La versión preliminar de los flujos de dispositivo solo se admite en este momen
 
   * Centro de EE. UU.
   * EUAP del centro de EE. UU.
-  * Europa del Norte
-  * Sudeste asiático
+  * Norte de Europa
+  * Sudeste de Asia
 
 ## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo
 
@@ -114,7 +114,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 896fd41cff0ab8257da7b91687aaae389a1c81ca
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 37fc089ab68bfb3cd26e1656ba84610fe8a47bc6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769666"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367270"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publicar aplicaciones integradas en Windows Virtual Desktop
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo publicar aplicaciones en el entorno de Window
 Para publicar una aplicación integrada:
 
 1. Conéctese a una de las máquinas virtuales del grupo de hosts.
-2. Para obtener el elemento **PackageFamilyName** de la aplicación que quiere publicar, siga las instrucciones de [este artículo](https://docs.microsoft.com/powershell/module/appx/get-appxpackage?view=win10-ps).
+2. Para obtener el elemento **PackageFamilyName** de la aplicación que quiere publicar, siga las instrucciones de [este artículo](/powershell/module/appx/get-appxpackage?view=win10-ps/).
 3. Por último, ejecute el siguiente cmdlet con `<PackageFamilyName>` reemplazado por el elemento **PackageFamilyName** que encontró en el paso anterior:
    
    ```powershell

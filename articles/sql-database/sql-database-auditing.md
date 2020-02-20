@@ -9,12 +9,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161960"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212900"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
@@ -90,7 +90,7 @@ Para configurar la escritura de registros de auditoría en una cuenta de almacen
 
    ![Cuenta de almacenamiento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-Para configurar una cuenta de almacenamiento en un firewall o una red virtual, necesitará que un [administrador de Active Directory](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) en el servidor habilite la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la cuenta de almacenamiento. Además, debe tener el permiso "Microsoft.Authorization/roleAssignments/write" en la cuenta de almacenamiento seleccionada.
+Para configurar una cuenta de almacenamiento en un firewall o una red virtual, necesitará que un [administrador de Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) en el servidor habilite la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la cuenta de almacenamiento. Además, debe tener el permiso "Microsoft.Authorization/roleAssignments/write" en la cuenta de almacenamiento seleccionada.
 
 Se recomienda que sea un [administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) para conceder a la identidad administrada el rol "colaborador de datos de Blob Storage". Para obtener más información sobre los permisos y el control de acceso basado en roles, consulte [¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?](../role-based-access-control/overview.md) y [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 

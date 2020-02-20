@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: 0921caa19ee86ddf2766642211d8204059550b02
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b9d935e72c67b78484337e39e0897d4962340636
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990698"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199048"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure
 
@@ -25,7 +25,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 CLI de Azure. Si no tiene instalada la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) los pasos que debe seguir.
 
@@ -48,7 +48,7 @@ CLI de Azure. Si no tiene instalada la CLI de Azure, consulte [Instalación de l
     |---|---|
     |`--workernode-count`| Número de nodos de trabajo del clúster. En este artículo se usa la variable `clusterSizeInNodes` como el valor que se pasa a `--workernode-count`. |
     |`--version`| versión del clúster de HDInsight. En este artículo se usa la variable `clusterVersion` como el valor que se pasa a `--version`. Consulte también: [Versiones compatibles de HDInsight](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Tipo de clúster de HDInsight, como hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  En este artículo se usa la variable `clusterType` como el valor que se pasa a `--type`. Consulte también: [Tipos y configuración de clústeres](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
+    |`--type`| Tipo de clúster de HDInsight, como hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  En este artículo se usa la variable `clusterType` como el valor que se pasa a `--type`. Consulte también: [Tipos y configuración de clústeres](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
     |`--component-version`|Las versiones de los distintos componentes de Hadoop, en versiones separadas por espacios con el formato "componente=versión". En este artículo se usa la variable `componentVersion` como el valor que se pasa a `--component-version`. Consulte también: [Componentes de Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
 
     Reemplace `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME` y `PASSWORD` por los valores adecuados. Cambie los valores de las demás variables según sea necesario. Después, escriba los comandos de la CLI.

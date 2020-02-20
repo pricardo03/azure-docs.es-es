@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75fe9c8587a15ed37366dceda05b5befb353ebb3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f9fe17c8657b183f9f5370b6096d678e12f7d629
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647516"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472509"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -199,7 +199,7 @@ ms.locfileid: "75647516"
 
 En este artículo se describe cómo instalar y configurar un sistema SAP de alta disponibilidad en Azure con el clúster de conmutación por error de Windows Server (WSFC) y el servidor de archivos de escalabilidad horizontal como opción para la agrupación en clústeres de instancias de SAP ASCS/SCS.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar la instalación, consulte los artículos siguientes:
 
@@ -268,7 +268,7 @@ New-Item -Path $SAPGlobalFOlder -ItemType Directory
 $UsrSAPFolder = "C:\ClusterStorage\SAP$SAPSID\usr\sap\"
 
 # Create a SAPMNT file share and set share security
-New-SmbShare -Name sapmnt -Path $UsrSAPFolder -FullAccess "BUILTIN\Administrators", $ASCSClusterObjectNode1, $ASCSClusterObjectNode2 -ContinuouslyAvailable $false -CachingMode None -Verbose
+New-SmbShare -Name sapmnt -Path $UsrSAPFolder -FullAccess "BUILTIN\Administrators", $ASCSClusterObjectNode1, $ASCSClusterObjectNode2 -ContinuouslyAvailable $true -CachingMode None -Verbose
 
 # Get SAPMNT file share security settings
 Get-SmbShareAccess sapmnt

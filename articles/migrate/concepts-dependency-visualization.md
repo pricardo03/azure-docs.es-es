@@ -1,17 +1,14 @@
 ---
 title: Visualización de dependencias en Azure Migrate
 description: En este artículo se brinda una introducción a los cálculos de evaluación del servicio Server Assessment en Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.author: hamusa
-ms.openlocfilehash: 75b2120b9fef904114d532e83d571c08e1a1034d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 02/17/2020
+ms.openlocfilehash: 65a99e230262ae05d34dc8c04e87252c15133fda
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772319"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425687"
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
@@ -60,7 +57,7 @@ Azure Migrate utiliza la solución [Service Map](../operations-management-suite/
 
 - Si quiere aprovechar la visualización de dependencias, necesita asociar un área de trabajo de Log Analytics (nueva o existente) con un proyecto de Azure Migrate.
 - El área de trabajo debe estar en la misma suscripción que en la que se crea el proyecto de Azure Migrate.
-- Azure Migrate admite áreas de trabajo que residen en las regiones Este de EE. UU., Sudeste Asiático y Oeste de Europa. Las áreas de trabajo de otras regiones no se pueden asociar a un proyecto. Además, tenga en cuenta que el área de trabajo debe estar en una región en la que [se admita Service Map](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+- Azure Migrate admite áreas de trabajo que residen en las regiones Este de EE. UU., Sudeste de Asia y Oeste de Europa. Las áreas de trabajo de otras regiones no se pueden asociar a un proyecto. Además, tenga en cuenta que el área de trabajo debe estar en una región en la que [se admita Service Map](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
 - El área de trabajo de un proyecto de Azure Migrate no se puede modificar una vez que se ha agregado.
 - En Log Analytics, el área de trabajo asociada con Azure Migrate se etiqueta con la clave del proyecto de migración y el nombre del proyecto.
 

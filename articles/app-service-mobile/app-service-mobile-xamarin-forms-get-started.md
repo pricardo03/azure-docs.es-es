@@ -6,28 +6,23 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: 69a9b3294bf080f7ae1516b0acbfc4be077518f4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 9ae97ccbcc358a150e914a6e950579a972fef0bc
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668662"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461341"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creación de una aplicación Xamarin.Forms con Azure
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 ## <a name="overview"></a>Información general
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación móvil Xamarin.Forms mediante la característica Mobile Apps de Azure App Service como back-end. Va a crear tanto un back-end de Mobile Apps nuevo como una aplicación Xamarin.Forms simple de la lista de tareas pendientes que almacene los datos de la aplicación en Azure.
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Apps para aplicaciones Xamarin.Forms.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -150,11 +145,11 @@ Esta acción envía una solicitud POST al nuevo back-end Mobile Apps hospedado e
 > Encontrará el código con el que se accede al back-end de Mobile Apps en el archivo de C# **TodoItemManager.cs** del proyecto de biblioteca de clases portable de la solución.
 >
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si tiene problemas para compilar la solución, ejecute el administrador de paquetes NuGet y actualice a la versión más reciente de `Xamarin.Forms` y, en el proyecto de Android, actualice los paquetes de compatibilidad de `Xamarin.Android`. Puede que los proyectos de inicio rápido no incluyan las versiones más recientes.
 
-Tenga en cuenta que todos los paquetes de soporte a los que se hace referencia en el proyecto Android deben tener la misma versión. El [paquete NuGet para Azure Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tiene una dependencia `Xamarin.Android.Support.CustomTabs` para la plataforma Android, por lo que si el proyecto usa paquetes de compatibilidad más recientes, debe instalar este paquete con la versión requerida directamente para evitar conflictos.
+Tenga en cuenta que todos los paquetes de soporte a los que se hace referencia en el proyecto Android deben tener la misma versión. El [paquete NuGet de Azure Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tiene la dependencia `Xamarin.Android.Support.CustomTabs` para la plataforma Android, por lo que si el proyecto usa paquetes de soporte más recientes, tiene que instalar este paquete con la versión necesaria directamente para evitar conflictos.
 
 <!-- Images. -->
 [10]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-ios.png

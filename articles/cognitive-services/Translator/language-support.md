@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118813"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206130"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -141,7 +141,7 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Serbio (latino) | `sr-Latn` | Latino `Latn` | --> | Cirílico `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
-| Tailandés | `th` | Tailandés `Thai` | <--> | Latino `Latn` |
+| Tailandés | `th` | Tailandés `Thai` | --> | Latino `Latn` |
 
 ## <a name="dictionary"></a>Diccionario
 

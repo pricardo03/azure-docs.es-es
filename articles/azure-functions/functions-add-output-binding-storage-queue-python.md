@@ -3,18 +3,18 @@ title: Adición de un enlace de cola de Azure Storage a la función de Python
 description: Integración de una cola de Azure Storage con una función de Python mediante un enlace de salida.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: 14a381d13da052fd67679ed17bbb6b6711f7a0e6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715371"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198486"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 
 En este artículo, integrará una cola de Azure Storage con la función y la cuenta de almacenamiento que creó en [Creación de una función de Python desencadenada por HTTP](functions-create-first-function-python.md). Para lograr esta integración se usa un *enlace de salida* que escribe los datos de una solicitud HTTP en un mensaje de la cola. Completar este artículo no supone ningún costo adicional sobre el pequeño importe del inicio rápido anterior.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Complete el inicio rápido, [Creación de una función de Python desencadenada mediante HTTP](functions-create-first-function-python.md). Si ya ha limpiado los recursos al final de ese artículo, siga los pasos de nuevo para volver a crear la aplicación Functions en Azure, pero deje los recursos en su lugar.
 
@@ -156,7 +156,7 @@ Observe que *no* necesita escribir código para la autenticación, para obtener 
 1. Cuando haya terminado, detenga el host con **Ctrl**+**C**.
 
 > [!TIP]
-> Durante el inicio, el host descarga e instala la [extensión de enlace de Storage](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) y otras extensiones de enlace de Microsoft. Esta instalación se produce porque las extensiones de enlace se habilitan de forma predeterminada en el archivo *host.json* con las siguientes propiedades:
+> Durante el inicio, el host descarga e instala la [extensión de enlace de Storage](functions-bindings-storage-blob.md#add-to-your-functions-app) y otras extensiones de enlace de Microsoft. Esta instalación se produce porque las extensiones de enlace se habilitan de forma predeterminada en el archivo *host.json* con las siguientes propiedades:
 >
 > ```json
 > {
@@ -176,19 +176,19 @@ Cuando una función genera una respuesta HTTP para el explorador web, también l
 
 1. Abra el archivo *local.setting.json* del proyecto de Functions y copie el valor de la cadena de conexión. En una ventana de terminal o de comandos, ejecute el siguiente comando para crear una variable de entorno denominada `AZURE_STORAGE_CONNECTION_STRING` y pegue la cadena de conexión concreta en lugar de `<connection_string>`. (Esta variable de entorno significa que no es necesario proporcionar la cadena de conexión a cada comando posterior mediante el argumento `--connection-string`).
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -198,19 +198,19 @@ Cuando una función genera una respuesta HTTP para el explorador web, también l
     
 1. (Opcional) Puede usar el comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para ver las colas de Storage de la cuenta. La salida de este comando debe incluir una cola denominada `outqueue`, la cual se creó cuando la función escribió su primer mensaje en esa cola.
     
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     az storage queue list --output tsv
@@ -221,19 +221,19 @@ Cuando una función genera una respuesta HTTP para el explorador web, también l
 
 1. Use el comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para ver los mensajes de esta cola, la cual debe ser el nombre que utilizó al probar la función anteriormente. El comando recupera el primer mensaje de la cola con [codificación Base64](functions-bindings-storage-queue.md#encoding), por lo que también deberá descodificar el mensaje para verlo como texto.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     Como debe desreferenciar la colección de mensajes y descodificar a partir de Base64, ejecute PowerShell y use el comando de PowerShell.
 
@@ -251,13 +251,13 @@ Ahora que ha probado la función en un entorno local y ha comprobado que ha escr
     
 1. Como en el inicio rápido anterior, use un explorador o CURL para probar la función que ha vuelto a implementar.
 
-    # <a name="browsertabbrowser"></a>[Browser](#tab/browser)
+    # <a name="browser"></a>[Browser](#tab/browser)
     
     Copie el valor completo de **Invoke URL** que se muestra en la salida del comando de publicación en una barra de direcciones del explorador, anexando el parámetro de consulta `&name=Azure`. El explorador debe mostrar una salida similar a cuando ejecutó la función localmente.
 
     ![La salida de la función ejecutada en Azure en un explorador](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
-    # <a name="curltabcurl"></a>[curl](#tab/curl)
+    # <a name="curl"></a>[curl](#tab/curl)
     
     Ejecute [curl](https://curl.haxx.se/) con la **dirección URL de invocación**  y anexe el parámetro `&name=Azure`. El resultado del comando debería ser el texto "Hello Azure".
     

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2019
-ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/17/2020
+ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842669"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426282"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creación y uso de la replicación geográfica activa
 
@@ -145,7 +145,7 @@ El cliente que realiza los cambios necesita acceso de red al servidor principal.
 1. Cree un usuario correspondiente y asígnele el rol dbmanager: 
 
    ```sql
-   create user geodrsetup for login gedrsetup
+   create user geodrsetup for login geodrsetup
    alter role geodrsetup dbmanager add member geodrsetup
    ```
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805283"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425551"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novedades de Azure Active Directory en Microsoft 365 Government
 
@@ -51,11 +51,10 @@ Antes, los clientes podían iniciar sesión en cualquier parte del mundo con el 
 
 En la siguiente tabla se muestran los puntos de conexión para todos los clientes:
 
-| NOMBRE | Detalles del punto de conexión |
+| Nombre | Detalles del punto de conexión |
 |------|------------------|
 | Portales |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 Government – GCC High: https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
 | Punto de conexión de Azure Active Directory Authority | https://login.microsoftonline.us |
-| Graph API de Azure Active Directory | https://graph.windows.net |
 | Microsoft Graph API para Microsoft 365 Government - GCC High | https://graph.microsoft.us |
 | Microsoft Graph API para Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
 | Puntos de conexión de servicio de Azure Government | Para obtener más información, vea [Guía para desarrolladores de Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
@@ -70,6 +69,6 @@ Para obtener más información, consulte estos artículos:
 
 - [Azure Government AAD Authority Endpoint Update](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/) (Actualización del punto de conexión de la entidad de AAD de Azure Government)
 
-- [Puntos de conexión de Microsoft Graph en la nube del gobierno de EE. UU.](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
+- [Puntos de conexión de Microsoft Graph en la nube del US Gov](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
 - [Office 365 US Government GCC High y DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

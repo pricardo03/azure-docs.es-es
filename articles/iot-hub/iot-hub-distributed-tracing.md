@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911889"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212480"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -30,12 +30,12 @@ La habilitación del seguimiento distribuido para IoT Hub le ofrece la capacidad
 
 En este artículo, se usa el [SDK de dispositivo de IoT de Azure para C](iot-hub-device-sdk-c-intro.md) con seguimiento distribuido. La compatibilidad con el seguimiento distribuido aún está en curso para lo demás SDK.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - La versión preliminar del seguimiento distribuido actualmente solo se admite para instancias de IoT hub creadas en las siguientes regiones:
 
-  - **Europa del Norte**
-  - **Sudeste Asiático**
+  - **Norte de Europa**
+  - **Sudeste de Asia**
   - **Oeste de EE. UU. 2**
 
 - En este artículo se da por supuesto que está familiarizado con el envío de mensajes de telemetría a IoT hub. Asegúrese de que ha completado el [Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)](quickstart-send-telemetry-c.md).
@@ -129,6 +129,9 @@ Estas instrucciones sirven para generar el muestreo en Windows. Para otros entor
     ```
 
 ### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>Edición del muestreo de telemetría de envío para habilitar el seguimiento distribuido
+
+> [!div class="button"]
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Obtener el ejemplo en GitHub</a>
 
 1. Utilice un editor para abrir el archivo de origen `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.
 

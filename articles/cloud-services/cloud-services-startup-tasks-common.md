@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5c6173971ac5272c2c2d769551fc9caf3dfa2573
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385803"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462248"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tareas de inicio comunes para los servicios en la nube
 Este artículo proporciona algunos ejemplos de tareas comunes de inicio que puede realizar en su servicio en la nube. Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo. 
@@ -90,7 +90,7 @@ REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. Th
 REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
-IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
+IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 
 REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
 IF %ERRORLEVEL% NEQ 0 (

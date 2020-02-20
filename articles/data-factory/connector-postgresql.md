@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/19/2020
 ms.author: jingwang
-ms.openlocfilehash: fa5835b287a2fd39671ea5ac0c3bc849378645c5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 38cab21fb38fe171992ec8ce6c48b07f2ea94e9a
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891932"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471149"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copia de datos desde PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -36,11 +36,11 @@ Puede copiar datos desde la base de datos PostgreSQL en cualquier almacén de da
 
 En concreto, este conector PostgreSQL es compatible con la **versión 7.4 y posterior** de PostgreSQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-Si tiene una versión de IR autohospedado anterior a 3.7, debe instalar el [proveedor de datos Ngpsql para PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716), con una versión entre 2.0.12 y 3.1.9 en la máquina de Integration Runtime.
+El entorno de Integration Runtime proporciona un controlador de PostgreSQL integrado a partir de la versión 3.7, por lo tanto, no es necesario que instale uno manualmente.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -56,14 +56,14 @@ Las siguientes propiedades son compatibles con el servicio vinculado PostgreSQL:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **PostgreSql** | Sí |
 | connectionString | Cadena de conexión de ODBC para conectarse a Azure Database for PostgreSQL. <br/>También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 Una cadena de conexión típica es `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Más propiedades que puede establecer para su caso:
 
 | Propiedad | Descripción | Opciones | Obligatorio |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod (EM)| Método que usa el controlador para cifrar los datos enviados entre el controlador y el servidor de bases de datos. Por ejemplo, `EncryptionMethod=<0/1/6>;`| 0 (sin cifrado) **(valor predeterminado)** / 1 (SSL) / 6 (RequestSSL) | No |
-| ValidateServerCertificate (VSC) | Determina si el controlador valida el certificado que envía el servidor de bases de datos cuando está habilitado el cifrado SSL (método de cifrado = 1). Por ejemplo, `ValidateServerCertificate=<0/1>;`| 0 (deshabilitado) **(valor predeterminado)** / 1 (habilitado) | No |
+| EncryptionMethod (EM)| Método que usa el controlador para cifrar los datos enviados entre el controlador y el servidor de bases de datos. Por ejemplo, `EncryptionMethod=<0/1/6>;`| 0 (sin cifrado) **(valor predeterminado)** / 1 (SSL) / 6 (RequestSSL) | Sin |
+| ValidateServerCertificate (VSC) | Determina si el controlador valida el certificado que envía el servidor de bases de datos cuando está habilitado el cifrado SSL (método de cifrado = 1). Por ejemplo, `ValidateServerCertificate=<0/1>;`| 0 (deshabilitado) **(valor predeterminado)** / 1 (habilitado) | Sin |
 
 **Ejemplo**:
 

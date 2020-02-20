@@ -3,12 +3,12 @@ title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager. Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b87f66f194b9e1daf8fa6a546c02aa4e86caabc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476298"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207492"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedimientos recomendados de plantillas de Azure Resource Manager
 
@@ -156,7 +156,7 @@ La siguiente información puede ser útil cuando se trabaja con [variables](temp
 
 * Incluya variables para los nombres de recursos que deben ser únicos.
 
-* Use un [bucle de copia en variables](create-multiple-instances.md#variable-iteration) para crear un patrón repetido de objetos JSON.
+* Use un [bucle de copia en variables](copy-variables.md) para crear un patrón repetido de objetos JSON.
 
 * Quite las variables no utilizadas.
 

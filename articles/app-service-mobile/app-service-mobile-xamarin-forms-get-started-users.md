@@ -6,28 +6,23 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 90d26d6469c5f3e238ac2410cdccb8ef5e0c160f
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 4788aa50074016a34d906353f5b37dbba85ef104
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668340"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458773"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Agregue autenticación a su aplicación de Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
-
 ## <a name="overview"></a>Información general
-En este tema se muestra cómo autenticar usuarios de una aplicación móvil de App Service desde la aplicación cliente. En este tutorial se agrega autenticación al proyecto de inicio rápido de Xamarin Forms mediante un proveedor de identidades compatible con App Service. Una vez que la aplicación móvil haya realizado la autenticación y la autorización correctamente, se mostrará el valor de identificador de usuario y podrá acceder a datos de tabla restringida.
+En este tema se muestra cómo autenticar usuarios de una Aplicación móvil de App Service desde la aplicación cliente. En este tutorial se agrega autenticación al proyecto de inicio rápido de Xamarin Forms mediante un proveedor de identidades compatible con App Service. Una vez que la aplicación móvil haya realizado la autenticación y la autorización correctamente, se mostrará el valor de identificador de usuario y podrá acceder a datos de tabla restringida.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para obtener el mejor resultado con este tutorial, se recomienda completar primero el tutorial [Creación de una aplicación Xamarin Forms][1]. Después de completar este tutorial, tendrá un proyecto de Xamarin Forms que es una aplicación TodoList multiplataforma.
 
-Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de autenticación al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps][2].
+Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de autenticación al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure][2].
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registro de la aplicación para la autenticación y configuración de App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -185,7 +180,7 @@ En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en e
     Este código garantiza que el autenticador se inicializa antes de que se cargue la aplicación.
 8. Vuelva a compilar la aplicación, ejecútela, inicie sesión con el proveedor de autenticación que elija y compruebe que pueda acceder a los datos como usuario autenticado.
 
-### <a name="troubleshooting"></a>solución de problemas
+### <a name="troubleshooting"></a>Solución de problemas
 
 **La aplicación se ha bloqueado con `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
@@ -343,7 +338,7 @@ Ahora que ha completado este tutorial de autenticación básica, considere la po
 * [Agregar notificaciones push a la aplicación](app-service-mobile-xamarin-forms-get-started-push.md)
 
   : aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar Azure Notification Hubs para enviar notificaciones push.
-* [Activación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-xamarin-forms-get-started-offline-data.md)
+* [Habilitación de la sincronización sin conexión para su aplicación](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
   Aprenda a agregar compatibilidad sin conexión a una aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no haya conexión de red.
 

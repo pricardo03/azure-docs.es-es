@@ -1,25 +1,25 @@
 ---
 title: Adición de una capa de símbolo a mapas de Android | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo representar datos de punto en un mapa agregando una capa de símbolo a este mediante Android SDK de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 877147bc0fd680278f999d2007040a92b0cbff38
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e323d99c11df7f482e6caf81e8d38bf64d160859
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911535"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209994"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adición de una capa de símbolo a un mapa mediante Android SDK de Azure Maps
 
 En este artículo se explica cómo representar datos de punto de un origen de datos como una capa de símbolos en un mapa mediante el Android SDK de Azure Maps.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir todos los pasos en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
 

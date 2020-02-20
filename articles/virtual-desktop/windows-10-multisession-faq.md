@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515112"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470579"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 
@@ -28,7 +28,7 @@ Cuántas sesiones interactivas que pueden estar activas al mismo tiempo dependen
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>¿Por qué mi aplicación indica la sesión múltiple de Windows 10 Enterprise como un sistema operativo Windows Server?
 
-La sesión múltiple de Windows 10 Enterprise es una edición virtual de Windows 10 Enterprise. Una de las diferencias es que este sistema operativo indica [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem) con un valor de 3, el mismo valor que Windows Server. Esta propiedad garantiza la compatibilidad del sistema operativo con las herramientas de administración de RDSH existentes, con aplicaciones de RDSH compatibles con sesión múltiple y con optimizaciones de rendimiento del sistema principalmente de bajo nivel para entornos de RDSH. Algunos instaladores de aplicaciones pueden bloquear la instalación en la sesión múltiple de Windows 10 en función de si detectan que ProductType está establecido en Client. Si la aplicación no se instala, póngase en contacto con el proveedor de la aplicación para obtener una versión actualizada. 
+La sesión múltiple de Windows 10 Enterprise es una edición virtual de Windows 10 Enterprise. Una de las diferencias es que este sistema operativo indica [ProductType](/windows/win32/cimwin32prov/win32-operatingsystem) con un valor de 3, el mismo valor que Windows Server. Esta propiedad garantiza la compatibilidad del sistema operativo con las herramientas de administración de RDSH existentes, con aplicaciones de RDSH compatibles con sesión múltiple y con optimizaciones de rendimiento del sistema principalmente de bajo nivel para entornos de RDSH. Algunos instaladores de aplicaciones pueden bloquear la instalación en la sesión múltiple de Windows 10 en función de si detectan que ProductType está establecido en Client. Si la aplicación no se instala, póngase en contacto con el proveedor de la aplicación para obtener una versión actualizada. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>¿Es posible ejecutar la sesión múltiple de Windows 10 Enterprise en un entorno local?
 
@@ -48,7 +48,7 @@ Puede usar cualquier herramienta de configuración compatible, pero se recomiend
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>¿Puede unirse la sesión múltiple de Windows 10 Enterprise a Azure Active Directory (AD)?
 
-Actualmente, se admite unir la sesión múltiple de Windows 10 Enterprise a Azure AD híbrido. Una vez unida la sesión múltiple de Windows 10 Enterprise a un dominio, use el objeto de directiva de grupo existente para habilitar el registro de Azure AD. Para más información, consulte [Planeamiento de la implementación de la unión a Azure Active Directory híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
+Actualmente, se admite unir la sesión múltiple de Windows 10 Enterprise a Azure AD híbrido. Una vez unida la sesión múltiple de Windows 10 Enterprise a un dominio, use el objeto de directiva de grupo existente para habilitar el registro de Azure AD. Para más información, consulte [Planeamiento de la implementación de la unión a Azure Active Directory híbrido](../active-directory/devices/hybrid-azuread-join-plan.md).
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>¿Dónde se puede encontrar la imagen de la sesión múltiple de Windows 10 Enterprise?
 

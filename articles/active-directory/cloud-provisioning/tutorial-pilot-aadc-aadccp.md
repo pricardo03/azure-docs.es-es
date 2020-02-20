@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f47f55252c6274360f200a4bce0ed0b739e3d8a3
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: e0bd53b72c334b35daea0864acf61cc432c272ae
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166568"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442129"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamiento piloto en la nube para un bosque de AD sincronizado existente 
 
@@ -99,7 +99,7 @@ Los mismos pasos deben seguirse para todos los tipos de objetos (usuario, grupo 
  2. En la página **Descripción**, especifique los siguientes elementos y haga clic en **Siguiente**:
 
     **Nombre:** asigne un nombre descriptivo a la regla.<br>
-    **Descripción:** agregue una descripción significativa.<br> 
+    **Descripción:** agregue una descripción significativa.<br>
     **Sistema conectado:** elija el conector de AAD para el que va a escribir la regla de sincronización personalizada<br>
     **Tipo de objeto de sistema conectado:** Usuario<br>
     **Tipo de objeto de metaverso:** Person<br>

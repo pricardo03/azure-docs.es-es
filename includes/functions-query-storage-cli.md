@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: ca576290ea511dc54b89ecebef72ca2a42e9169f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4fe159660421113e0f0ac0586ae7e4a22d5bcda7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329592"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474174"
 ---
 ### <a name="query-the-storage-queue"></a>Consulta de la cola de almacenamiento
 
@@ -30,4 +30,4 @@ echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{M
 La cadena devuelta debe ser la misma que el mensaje que envió para probar la función.
 
 > [!NOTE]  
-> En el ejemplo anterior se descodifica la cadena devuelta desde base64. Esto se debe a que los enlaces de Queue Storage escriben y leen en Azure Storage como [cadenas de base64](../articles/azure-functions/functions-bindings-storage-queue.md#encoding).
+> En el ejemplo anterior se descodifica la cadena devuelta desde base64. Esto se debe a que los enlaces de Queue Storage escriben y leen en Azure Storage como [cadenas de base64](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding).

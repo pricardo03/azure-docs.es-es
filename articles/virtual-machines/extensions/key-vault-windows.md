@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1d2606296ba55c0ef66d118091f6764f7a285137
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d0491a5178331c53248d9c764d9ff1c6a6970683
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806786"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425789"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -66,11 +66,11 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 
 ### <a name="property-values"></a>Valores de propiedad
 
-| NOMBRE | Valor / ejemplo | Tipo de datos |
+| Nombre | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
-| Tipo | KeyVaultForWindows | string |
+| type | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
@@ -169,7 +169,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
          az vm extension set -n "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
-         --vmss-name "<vmName>" `
+         --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
@@ -201,7 +201,7 @@ Los datos sobre el estado de las implementaciones de extensiones pueden recupera
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9c7e49fe522859f97f00f760822d5eef60db5f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b291d5babb0680f5f1a742efcf624a82c804de68
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228854"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460014"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>¿Qué es Apache Storm en Azure HDInsight?
 
@@ -42,7 +42,7 @@ Storm en HDInsight proporciona las siguientes características:
 
     Para obtener un ejemplo de solución que se integra con los servicios de Azure, consulte [Process events from Event Hubs with Apache Storm on Apache HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) (Procesamiento de eventos desde Event Hubs con Apache Storm en Apache HDInsight).
 
-Para obtener una lista de empresas que usan Apache Storm con sus soluciones de análisis en tiempo real, consulte las [compañías que usan Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
+Para obtener una lista de empresas que usan Apache Storm con sus soluciones de análisis en tiempo real, consulte las [compañías que usan Apache Storm](https://storm.apache.org/Powered-By.html).
 
 Para comenzar a usar Storm, consulte [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md) (Creación y supervisión de una topología de Apache Storm en Azure HDInsight).
 
@@ -176,5 +176,5 @@ Para ver una topología de ejemplo que muestre cómo configurar el registro, con
 
 Obtenga más información sobre las soluciones de análisis en tiempo real con Apache Storm en HDInsight:
 
-* [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md) (Creación y supervisión de una topología de Apache Storm en Azure HDInsight)
+* [Creación y supervisión de una topología de Apache Storm en Azure HDInsight](apache-storm-quickstart.md)
 * [Topologías de ejemplo para Apache Storm en HDInsight](apache-storm-example-topology.md)

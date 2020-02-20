@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92281fee92b0689fdf5f96c96320a7d9e2408ef5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b02ec00544ef11ca1048fd6d3bd9bdf3fccd8c8c
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931160"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471421"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lista de asignaciones de roles con RBAC de Azure y la CLI de Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "75931160"
 > [!NOTE]
 > Si su organización ha externalizado funciones de administración a un proveedor de servicios que usa la [administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md), las asignaciones de roles autorizadas por ese proveedor de servicios no se mostrarán aquí.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Bash en Azure Cloud Shell](/azure/cloud-shell/overview) o [CLI de Azure](/cli/azure)
 
@@ -104,7 +104,7 @@ az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --ou
 
 ## <a name="list-role-assignments-for-a-management-group"></a>Lista de asignaciones de rol para un grupo de administración
 
-Para enumerar todas las asignaciones de roles de un ámbito de grupo de administración, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). El identificador del grupo de administración lo puede encontrar en la hoja **Grupos de administración** de Azure Portal, o bien, puede usar [az account management-group list](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
+Para enumerar todas las asignaciones de roles de un ámbito de grupo de administración, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). El identificador del grupo de administración lo puede encontrar en la hoja **Grupos de administración** de Azure Portal, o bien, puede usar [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/<group_id>

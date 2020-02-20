@@ -6,18 +6,18 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2c6d9aa13c8c320dc46f6634f3a60e0c1730c710
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5083ec55ee0a57cd7defd466f5baf1704336320
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418723"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370655"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration (DSC) mediante recursos compuestos
 
 Cuando un recurso debe administrarse con más de una configuración de estado deseado (DSC), la mejor ruta es usar [recursos compuestos](/powershell/scripting/dsc/resources/authoringresourcecomposite). Un recurso compuesto es una configuración anidada y parametrizada que se usa como recurso de DSC dentro de otra configuración. Esto permite la creación de configuraciones complejas, al tiempo que permite administrar y compilar individualmente los recursos compuestos subyacentes (configuraciones parametrizadas).
 
-Azure Automation permite la [importación y compilación de recursos compuestos](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+Azure Automation permite la [importación y compilación de recursos compuestos](automation-dsc-compile.md).
 Una vez que se han importado los recursos compuestos de su cuenta de Automation, pueden usar la experiencia **Configuración de Compose** en la página **State Configuration (DSC)** (Configuración de estado [DSC]).
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Creación de una configuración a partir de recursos compuestos

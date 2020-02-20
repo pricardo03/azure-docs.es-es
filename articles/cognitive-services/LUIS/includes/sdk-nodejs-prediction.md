@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 0539f4a8080056f96319a7a75a355782ee80018d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772394"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371849"
 ---
 La biblioteca cliente de entorno de ejecución de Language Understanding (LUIS) para Node.js puede usarse con los siguientes fines:
 
@@ -24,7 +24,7 @@ La biblioteca cliente de entorno de ejecución de Language Understanding (LUIS) 
 
 [Documentación de referencia](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [Paquete de entorno de ejecución (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Recurso de entorno de ejecución de Language Understanding: [Crear uno en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)

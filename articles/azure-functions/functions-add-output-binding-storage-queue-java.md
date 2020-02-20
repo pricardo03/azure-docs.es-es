@@ -3,12 +3,12 @@ title: Conexión de la función de Java a Azure Storage
 description: Aprenda a conectar una función de Java desencadenada por HTTP a Azure Storage mediante un enlace de salida de Queue Storage.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 72e3aad15ea8ef922d89a67891e223b65473b909
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926897"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198554"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conexión de la función de Java a Azure Storage
 
@@ -18,7 +18,7 @@ En este artículo se muestra cómo integrar la función que creó en el [artícu
 
 La mayoría de los enlaces requieren una cadena de conexión almacenada que se usa en Functions para acceder al servicio enlazado. Para facilitar la conexión, usará la cuenta de almacenamiento que creó con la aplicación de funciones. La conexión a esta cuenta ya está almacenada en una configuración de aplicación llamada `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rápido de Java](functions-create-first-java-maven.md).
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
+> Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#add-to-your-functions-app) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
 
 Al igual que antes, desencadene la función desde la línea de comandos mediante cURL en una ventana de terminal nueva:
 

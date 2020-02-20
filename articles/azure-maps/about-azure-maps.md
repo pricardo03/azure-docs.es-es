@@ -1,20 +1,20 @@
 ---
 title: Introducción | Microsoft Azure Maps
 description: Aprenda sobre los servicios y las funcionalidades de Microsoft Azure Maps y cómo usarlos en las aplicaciones.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 02/11/2020
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e01bfec9edbe1e868a3e3244e3cb6d1e1a46561d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190350"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443756"
 ---
 # <a name="what-is-azure-maps"></a>¿Qué es Azure Maps?
 
@@ -45,13 +45,13 @@ En el siguiente vídeo se explica Azure Maps en profundidad:
 
 El SDK web de Azure Maps permite personalizar mapas interactivos con contenido propio e imágenes. Puede usar este mapa interactivo para las aplicaciones web o móviles. El control de mapa usa WebGL, que permite representar grandes conjuntos de datos con alto rendimiento. Desarrolle con el SDK mediante JavaScript o TypeScript.
 
-![Mapa de ejemplo de cambios en la población](media/about-azure-maps/Introduction_WebMapControl.png)
+![Mapa de ejemplo de cambios en la población](media/about-azure-maps/intro_web_map_control.png)
 
 ### <a name="android-sdk"></a>SDK de Android
 
 Use Android SDK de Azure Maps para crear aplicaciones de mapas móviles. 
 
-![Ejemplos de mapas en un dispositivo móvil](media/about-azure-maps/AndroidSDK.png)
+![Ejemplos de mapas en un dispositivo móvil](media/about-azure-maps/android_sdk.png)
 
 ## <a name="services-in-azure-maps"></a>Servicios de Azure Maps
 
@@ -73,7 +73,7 @@ Para más información sobre el servicio, consulte la [documentación de la API 
 
 El servicio Render ayuda a los desarrolladores a crear aplicaciones web y móviles con características de mapas. El servicio emplea imágenes de gráficos de trama de alta calidad, disponibles en 19 niveles de zoom, o imágenes de mapa en formato vectorial totalmente personalizables.
 
-![Ejemplo de un mapa de Render Service](media/about-azure-maps/Introduction_Map.png)
+![Ejemplo de un mapa de Render Service](media/about-azure-maps/intro_map.png)
 
 Render Service ahora ofrece varias API en versión preliminar que permiten a los desarrolladores trabajar con imágenes de satélite. Para más información, lea la [documentación de Render API](https://docs.microsoft.com/rest/api/maps/render).
 
@@ -81,7 +81,7 @@ Render Service ahora ofrece varias API en versión preliminar que permiten a los
 
 Contiene sólidos cálculos de geometría de infraestructuras del mundo real y direcciones para varios modos de transporte. El servicio permite a los desarrolladores calcular direcciones entre distintos modos de viaje, como automóvil, camión, bicicleta o a pie. El servicio también tiene en cuenta entradas como las condiciones del tráfico, las restricciones de peso o el transporte de materiales peligrosos.
 
-![Ejemplo de un mapa de Route Service](media/about-azure-maps/Introduction_Route.png)
+![Ejemplo de un mapa de Route Service](media/about-azure-maps/intro_route.png)
 
 El servicio de ruta ofrece una vista previa de características avanzadas, como: 
 
@@ -95,7 +95,7 @@ Para más información sobre las funcionalidades de ruta, lea la [documentación
 
 El servicio de búsqueda ayuda a los desarrolladores a buscar direcciones, lugares, listados de empresas por nombre o categoría y otra información geográfica. El servicio de búsqueda puede realizar la [codificación geográfica inversa](https://en.wikipedia.org/wiki/Reverse_geocoding) de direcciones y cruces de calles en función de la longitud y la latitud.
 
-![Ejemplo de una búsqueda en un mapa](media/about-azure-maps/Introduction_Search.png)
+![Ejemplo de una búsqueda en un mapa](media/about-azure-maps/intro_search.png)
 
 El servicio de búsqueda también proporciona características avanzadas, como:
 
@@ -149,7 +149,7 @@ El servicio Traffic es un conjunto de servicios web que los desarrolladores pued
 * Flujo de tráfico: velocidades observadas en tiempo real y duración del viaje de todas las principales carreteras de la red.
 * Incidentes de tráfico: una vista actualizada de atascos e incidentes de tráfico en torno a la red de carreteras.
 
-![Ejemplo de un mapa con información de tráfico](media/about-azure-maps/Introduction_Traffic.png)
+![Ejemplo de un mapa con información de tráfico](media/about-azure-maps/intro_traffic.png)
 
 Para más información, consulte la [documentación de la Traffic API](https://docs.microsoft.com/rest/api/maps/traffic).
 

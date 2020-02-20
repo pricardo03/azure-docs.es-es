@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122413"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210472"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Ejemplo: Creación de una aptitud personalizada con Python
 
@@ -52,7 +52,7 @@ La plantilla del proyecto de Azure Functions de Visual Studio Code crea un proye
 1. Seleccione la versión 3.7.5 de Python ya que es la que admite Azure Functions.
 1. Seleccione una plantilla para la primera función de su proyecto. Seleccione **Desencadenador HTTP** para crear una función desencadenada por HTTP en la nueva aplicación de funciones.
 1. Proporcione un nombre de función. En este caso, vamos a usar **Concatenator** 
-1. Seleccione **Función** como nivel de autorización. Esto significa que proporcionaremos una [clave de función](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) para llamar al punto de conexión HTTP de la función. 
+1. Seleccione **Función** como nivel de autorización. Esto significa que proporcionaremos una [clave de función](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) para llamar al punto de conexión HTTP de la función. 
 1. Seleccione cómo desea que se abra el proyecto. En este paso, seleccione **Add to workspace** (Agregar al área de trabajo) para crear la aplicación de funciones en el área de trabajo actual.
 
 Visual Studio Code crea el proyecto de la aplicación de función en una nueva área de trabajo. Este proyecto contiene los archivos de configuración [host.json](../azure-functions/functions-host-json.md) y [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), además de los archivos de proyecto específicos del lenguaje. 

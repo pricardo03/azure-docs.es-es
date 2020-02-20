@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: lógicas'
 description: Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 48c6a05c5a449626c66f9d75c8578b217906d8e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476210"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207220"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funciones lógicas para las plantillas de Azure Resource Manager
 
@@ -32,7 +32,7 @@ Comprueba si todos los valores de parámetros son verdaderos.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
-| argumentos adicionales |No |boolean |Argumentos adicionales para comprobar si son verdaderos. |
+| argumentos adicionales |Sin |boolean |Argumentos adicionales para comprobar si son verdaderos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -315,7 +315,7 @@ Comprueba si algún valor de parámetro es verdadero.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
-| argumentos adicionales |No |boolean |Argumentos adicionales para comprobar si son verdaderos. |
+| argumentos adicionales |Sin |boolean |Argumentos adicionales para comprobar si son verdaderos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -359,6 +359,6 @@ El resultado del ejemplo anterior es:
 
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).
 

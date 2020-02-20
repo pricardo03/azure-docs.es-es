@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0e612dbecb9f215a90f728afb0f06a65db09764b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 038e53251bd81552fd3379f2d7645570fbcda4ef
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162929"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471353"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -66,7 +66,7 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 |    FileStorage    | Oeste de Europa<br /> Este de EE. UU.    |    Solo Azure Files    |
 
 <sup>1</sup> El nivel de archivo no se admite actualmente en las cuentas de ZRS.<br />
-<sup>2</sup> Los discos de Azure para máquinas virtuales, incluidos los administrados y no administrados, solo admiten LRS. No son compatibles con ZRS o GZRS. Para obtener más información acerca de los discos administrados, consulte [Precios de Azure Managed Disks](/pricing/details/managed-disks/).
+<sup>2</sup> Los discos de Azure para máquinas virtuales, incluidos los administrados y no administrados, solo admiten LRS. No son compatibles con ZRS o GZRS. Para obtener más información acerca de los discos administrados, consulte [Precios de Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 Para obtener información sobre qué regiones admiten ZRS, consulte **Soporte técnico de servicios por región** en [¿Qué son las zonas de disponibilidad en Azure?](../../availability-zones/az-overview.md).
 
@@ -146,9 +146,9 @@ En la tabla siguiente se muestra el grado de permanencia y disponibilidad de los
 | Escenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (versión preliminar)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Un nodo de un centro de datos deja de estar disponible                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                  |
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | No                              | Sí                              | Sí                                  | Sí                                  |
-| Se produce un apagón en toda la región                                                                                     | No                              | No                               | Sí                                  | Sí                                  |
-| Acceso de lectura a los datos en la región secundaria si la región primaria deja de estar disponible | No                              | No                               | Sí (con RA-GRS)                                   | Sí (con RA-GZRS)                                 |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                              | Sí                              | Sí                                  | Sí                                  |
+| Se produce un apagón en toda la región                                                                                     | Sin                              | Sin                               | Sí                                  | Sí                                  |
+| Acceso de lectura a los datos en la región secundaria si la región primaria deja de estar disponible | Sin                              | Sin                               | Sí (con RA-GRS)                                   | Sí (con RA-GZRS)                                 |
 | Porcentaje de durabilidad de los objetos a lo largo de un año determinado<sup>1</sup>                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
 | Tipos de cuenta de almacenamiento admitidos<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
 | SLA de disponibilidad para las solicitudes de lectura<sup>1</sup>  | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GRS | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GZRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GZRS |

@@ -1,19 +1,19 @@
 ---
 title: Búsqueda eficaz mediante el servicio Search de Azure Maps | Microsoft Azure Maps
 description: Obtenga información sobre cómo aplicar los procedimientos recomendados al servicio Search de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e29b3d70c576955637424208aeb0f980669b67bb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82e0339e02fa2fb27e7b2ca24f65934e3ce4fe23
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899156"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209807"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedimientos recomendados del servicio Search de Azure Maps
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo aplicar buenas prácticas cuando se llama a d
 * Obtener información sobre las diferencias entre los tipos de resultados.
 * Leer la estructura de la respuesta a la búsqueda de direcciones.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para realizar llamadas a las API de servicio de Azure Maps, necesita una cuenta de Azure Maps y una clave. Para más información, consulte [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) y [Obtención de una clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 

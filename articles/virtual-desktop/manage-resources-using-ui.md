@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 032062dd200781b6d1f5abeb2391ae75c4c43e6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887366"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367297"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implementación de una herramienta de administración con una plantilla de Azure Resource Manager
 
@@ -36,7 +36,7 @@ Antes de implementar la herramienta de administración, necesitará que un usuar
 
 - Deshabilitar la autenticación multifactor (MFA) de Azure.
 - Tener los permisos para crear recursos en la suscripción de Azure.
-- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) para comprobar si el usuario tiene los permisos que necesita.
+- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) para comprobar si el usuario tiene los permisos que necesita.
 
 Después de implementar y configurar la herramienta de administración, se recomienda pedir a un usuario que inicie la interfaz de usuario de administración para asegurarse de que todo funciona correctamente. El usuario que inicie la interfaz de usuario de administración deberá tener una asignación de roles que le permita ver o editar el inquilino de Windows Virtual Desktop.
 
@@ -107,4 +107,4 @@ Si experimenta algún problema con la herramienta de administración o con cualq
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a implementar y conectarse a la herramienta de administración, puede obtener más información sobre cómo usar Azure Service Health para supervisar problemas de servicio y avisos de estado. Para obtener más información, consulte nuestro [tutorial Configuración de alertas de servicio](./set-up-service-alerts.md).
+Ahora que ha aprendido a implementar y conectarse a la herramienta de administración, puede obtener más información sobre cómo usar Azure Service Health para supervisar problemas de servicio y avisos de estado. Para más información, vea nuestro tutorial [Configuración de alertas de servicio](./set-up-service-alerts.md).

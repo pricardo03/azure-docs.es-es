@@ -3,12 +3,12 @@ title: 'Funciones de plantilla: implementación'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: f2939efc9481255233fbdda29f4fa30adcd24b7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476234"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207288"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funciones de implementación para las plantillas de Azure Resource Manager 
 
@@ -430,6 +430,6 @@ Para más información sobre el uso de las variables, consulte [Variables en pla
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).
 

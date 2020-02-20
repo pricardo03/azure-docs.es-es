@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 3fcdcd4565ed0512b3efcf9b23ca349a3bbf3a6c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d4ba3e8bbdad72f10c630a056f988ec83e9b1a68
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033476"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471625"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensión de Azure Diagnostics para máquinas virtuales de Windows
 
@@ -25,7 +25,7 @@ ms.locfileid: "74033476"
 
 La extensión de máquinas virtuales de Azure Diagnostics le permite recopilar datos de supervisión como, por ejemplo, contadores de rendimiento y registros de eventos, de la máquina virtual Windows. Puede especificar de forma granular qué datos desea recopilar y dónde desea que estos vayan como, por ejemplo, a una cuenta de Azure Storage o a una instancia de Azure Event Hubs. También puede usar estos datos para generar gráficos en Azure Portal o crear alertas de métricas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -37,7 +37,7 @@ La extensión de Azure Diagnostics requiere que la máquina virtual de destino e
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-[En este documento se describe el esquema y los valores de propiedad de la extensión de Azure Diagnostics.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[En este documento se describe el esquema y los valores de propiedad de la extensión de Azure Diagnostics.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
@@ -92,4 +92,4 @@ Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información acerca de la extensión de Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Revise las versiones y el esquema de la extensión](../../azure-monitor/platform/diagnostics-extension-schema.md)
+* [Revise las versiones y el esquema de la extensión](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)

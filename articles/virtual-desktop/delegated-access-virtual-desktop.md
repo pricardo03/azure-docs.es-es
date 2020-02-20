@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ad8dc610d15742844b8bec630d7bc3e08fb46973
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 849a3b1eb1a4648c2eaae7dd564f14b9c511fdcf
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606897"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367345"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acceso delegado en Windows Virtual Desktop
 
-Windows Virtual Desktop presenta un modelo de acceso delegado que permite definir la cantidad de acceso que puede tener un usuario determinado mediante la asignación de un rol. Una asignación de roles consta de tres componentes: entidad de seguridad, definición de rol y ámbito. El modelo de acceso delegado de Windows Virtual Desktop se basa en el modelo de Azure RBAC. Para más información sobre asignaciones de roles específicas y sus componentes, consulte la [información general sobre el control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Windows Virtual Desktop presenta un modelo de acceso delegado que permite definir la cantidad de acceso que puede tener un usuario determinado mediante la asignación de un rol. Una asignación de roles consta de tres componentes: entidad de seguridad, definición de rol y ámbito. El modelo de acceso delegado de Windows Virtual Desktop se basa en el modelo de Azure RBAC. Para más información sobre asignaciones de roles específicas y sus componentes, consulte la [información general sobre el control de acceso basado en roles de Azure](../role-based-access-control/built-in-roles.md).
 
 El acceso delegado de Windows Virtual Desktop admite los siguientes valores para cada elemento de la asignación de roles:
 

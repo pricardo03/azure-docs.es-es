@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5db60160540fc59465e13bd2e68680f49ee0aa2b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772557"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470894"
 ---
 # <a name="set-up-msix-app-attach"></a>Configuración de la asociación de aplicaciones en formato .MSIX
 
@@ -38,7 +38,7 @@ En primer ligar, debe obtener la imagen del sistema operativo que se va a usar p
 1. Abra el [portal de Windows Insider](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) e inicie sesión.
 
      >[!NOTE]
-     >Para acceder al portal de Windows Insider, debe ser miembro del programa Windows Insider. Para más información sobre el programa Windows Insider, revise la [documentación sobre Windows Insider](https://docs.microsoft.com/windows-insider/at-home/).
+     >Para acceder al portal de Windows Insider, debe ser miembro del programa Windows Insider. Para más información sobre el programa Windows Insider, revise la [documentación sobre Windows Insider](/windows-insider/at-home/).
 
 2. Desplácese hasta la sección **Seleccionar edición** y seleccione **Windows 10 Insider Preview Enterprise (FAST) – Build 19035** [Windows 10 Insider Preview Enterprise (FAST), compilación 19035] o posterior.
 
@@ -79,7 +79,7 @@ Una vez que haya cargado el disco duro virtual en Azure, siga las instrucciones 
 
 ## <a name="prepare-the-application-for-msix-app-attach"></a>Preparación de la aplicación para la asociación de aplicaciones en formato MSIX 
 
-Si ya tiene un paquete de MSIX, vaya directamente a [Configuración de la infraestructura de Windows Virtual Desktop](#configure-windows-virtual-desktop-infrastructure). Si quiere probar las aplicaciones heredadas, siga las instrucciones que aparecen en [Creación de un paquete de MSIX a partir de un instalador de escritorio en una máquina virtual](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) para convertir la aplicación heredada en un paquete de MSIX.
+Si ya tiene un paquete de MSIX, vaya directamente a [Configuración de la infraestructura de Windows Virtual Desktop](#configure-windows-virtual-desktop-infrastructure). Si quiere probar las aplicaciones heredadas, siga las instrucciones que aparecen en [Creación de un paquete de MSIX a partir de un instalador de escritorio en una máquina virtual](/windows/msix/packaging-tool/create-app-package-msi-vm/) para convertir la aplicación heredada en un paquete de MSIX.
 
 ## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Generación de un paquete VHD o VHDX para MSIX
 
@@ -390,7 +390,7 @@ rmdir $packageName -Force -Verbose
 
 ## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Configuración de scripts de simulación para el agente de asociación de aplicaciones en formato MSIX
 
-Después de crear los scripts, los usuarios pueden ejecutarlos manualmente o configurarlos para que se ejecuten de manera automática en como scripts de inicio, inicio de sesión, cierre de sesión y apagado. Para más información sobre estos tipos de scripts, consulte el artículo sobre cómo [usar los scripts de inicio, apagado, inicio de sesión y cierre de sesión en una directiva de grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
+Después de crear los scripts, los usuarios pueden ejecutarlos manualmente o configurarlos para que se ejecuten de manera automática en como scripts de inicio, inicio de sesión, cierre de sesión y apagado. Para más información sobre estos tipos de scripts, consulte el artículo sobre cómo [usar los scripts de inicio, apagado, inicio de sesión y cierre de sesión en una directiva de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
 
 Cada uno de estos scripts automáticos ejecuta una fase de los scripts de asociación de aplicaciones:
 
@@ -407,7 +407,7 @@ Para instalar los archivos de licencia, deberá usar un script de PowerShell que
 
 Aquí se muestra cómo configurar las licencias para usarlas sin conexión: 
 
-1. Descargue el paquete de la aplicación, las licencias y los marcos de trabajo requeridos de Microsoft Store para Empresas. Necesita los archivos de licencias codificados y sin codificar. [Aquí](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app) puede encontrar instrucciones detalladas sobre la descarga.
+1. Descargue el paquete de la aplicación, las licencias y los marcos de trabajo requeridos de Microsoft Store para Empresas. Necesita los archivos de licencias codificados y sin codificar. [Aquí](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app) puede encontrar instrucciones detalladas sobre la descarga.
 2. Actualice estas variables en el script del paso 3:
       1. `$contentID` es el valor ContentID del archivo de licencia no codificado (.xml). Puede abrir el archivo de licencia en el editor de texto que prefiera.
       2. `$licenseBlob` es la cadena entera para el blob de licencia en el archivo de licencia codificado (.bin). Puede abrir el archivo de licencia codificado en el editor de texto que prefiera. 

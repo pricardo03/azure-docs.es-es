@@ -6,18 +6,16 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 02/24/2019
-ms.openlocfilehash: 22ebfc53405149358b0a2a03cd256a78db5d1910
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899333"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467562"
 ---
 # <a name="what-is-azure-app-configuration"></a>¿Qué es Azure App Configuration?
 
 Azure App Configuration proporciona un servicio para administrar la configuración de la aplicación y las marcas de características de forma centralizada. Los programas actuales, especialmente los que se ejecutan en una nube, tienen por lo general muchos componentes que están distribuidos por naturaleza. La propagación de valores de configuración entre estos componentes puede conducir a errores difíciles de solucionar durante la implementación de una aplicación. Use App Configuration para almacenar toda la configuración de la aplicación y proteger sus accesos en un solo lugar.
-
-App Configuration se encuentra actualmente en versión preliminar pública. Es de uso gratuito durante el período de versión preliminar. Se puede registrar en él en [Azure Portal](https://portal.azure.com).
 
 ## <a name="why-use-app-configuration"></a>Razones para usar App Configuration
 

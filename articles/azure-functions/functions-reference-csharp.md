@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 13e16fef2ae66851909e03dddab293e9c7955acb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 76af1f51c83e9554a51e6c17266fac739e6bd6b1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978788"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198367"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions (.csx)
 
@@ -51,7 +51,7 @@ FunctionsProject
 
 Hay un archivo [host.json](functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.csx) y archivo de configuración de enlace (function.json).
 
-Las extensiones de enlace necesarias en la [versión 2.x y versiones posteriores](functions-versions.md) del entorno de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca reales de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
+Las extensiones de enlace necesarias en la [versión 2.x y posteriores](functions-versions.md) del entorno en tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca reales de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
 
 ## <a name="binding-to-arguments"></a>Enlace a argumentos
 
@@ -89,7 +89,7 @@ La instrucción `#r` se explica [más adelante en este artículo](#referencing-e
 
 ## <a name="supported-types-for-bindings"></a>Tipos compatibles para los enlaces
 
-Cada enlace tiene sus propios tipos compatibles; por ejemplo, se puede utilizar un desencadenador de blobs con un parámetro de cadena, un parámetro POCO, un parámetro `CloudBlockBlob` o cualquiera de los demás tipos compatibles. En el [artículo de referencia sobre los enlaces de blobs](functions-bindings-storage-blob.md#trigger---usage) se enumeran todos los tipos de parámetros compatibles para los desencadenadores de blobs. Para obtener más información, vea el artículo sobre [desencadenadores y enlaces](functions-triggers-bindings.md) y los [documentos de referencia sobre enlaces para cada tipo de enlace](functions-triggers-bindings.md#next-steps).
+Cada enlace tiene sus propios tipos compatibles; por ejemplo, se puede utilizar un desencadenador de blobs con un parámetro de cadena, un parámetro POCO, un parámetro `CloudBlockBlob` o cualquiera de los demás tipos compatibles. En el [artículo de referencia sobre los enlaces de blobs](functions-bindings-storage-blob-trigger.md#usage) se enumeran todos los tipos de parámetros compatibles para los desencadenadores de blobs. Para obtener más información, vea el artículo sobre [desencadenadores y enlaces](functions-triggers-bindings.md) y los [documentos de referencia sobre enlaces para cada tipo de enlace](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -463,7 +463,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 
 ### <a name="single-attribute-example"></a>Ejemplo de un único atributo
 
-El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob.md#output) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
+El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob-output.md) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;

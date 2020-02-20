@@ -3,12 +3,12 @@ title: Recursos secundarios en plantillas
 description: Describe cómo establecer el nombre y el tipo de los recursos secundarios en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 7d8a7a39bab3340b6f5c9e66d54b7398fa70ee3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122022"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207900"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Establecimiento del nombre y el tipo de los recursos secundarios
 
@@ -27,7 +27,7 @@ En una plantilla de Resource Manager, puede especificar el recurso secundario de
 ]
 ```
 
-En el ejemplo siguiente se muestra el recurso secundario fuera del recurso primario. Este enfoque puede usarse si el recurso primario no está implementado en la misma plantilla o si quiere usar [copy](create-multiple-instances.md) para crear más de un recurso secundario.
+En el ejemplo siguiente se muestra el recurso secundario fuera del recurso primario. Este enfoque puede usarse si el recurso primario no está implementado en la misma plantilla o si quiere usar [copy](copy-resources.md) para crear más de un recurso secundario.
 
 ```json
 "resources": [

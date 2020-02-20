@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 4be7dc3e93b61f036a4167347a45725eff185f04
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2787a0d5f372562f32c4d8adca3ed195d1befd5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969718"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461975"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning mediante Java
 
@@ -28,7 +28,7 @@ Aunque el SDK del servicio de Java funciona en máquinas Windows y Linux, este a
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Instale [Java SE Development Kit 8](https://aka.ms/azure-jdks).
 * Instale [Maven 3](https://maven.apache.org/download.cgi). Para comprobar su versión actual de Maven haga lo siguiente:
@@ -51,7 +51,7 @@ En esta sección se usa un certificado X.509 autofirmado, así que es importante
 
 Los siguientes pasos muestran cómo agregar los detalles de aprovisionamiento del dispositivo X.509 al código de ejemplo. 
 
-1. Abra el símbolo del sistema. Clone el repositorio de GitHub para código de ejemplo de inscripción de dispositivos mediante el SDK del servicio de Java:
+1. Abra un símbolo del sistema. Clone el repositorio de GitHub para código de ejemplo de inscripción de dispositivos mediante el SDK del servicio de Java:
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -149,7 +149,7 @@ Los siguientes pasos muestran cómo agregar los detalles de aprovisionamiento de
     mvn install -DskipTests
     ```
 
-   Este comando descarga el paquete de Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) a su máquina. El paquete incluye los archivos binarios para el SDK del servicio de Java que debe compilar el código de ejemplo. Si ejecutó la herramienta para _generar certificados X.509_ en la sección anterior, este paquete ya estará descargado en su máquina. 
+   Este comando descarga el paquete de Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) a su máquina. El paquete incluye los archivos binarios para el SDK del servicio de Java que debe compilar el código de ejemplo. Si ejecutó la herramienta para _generar certificados X.509_ en la sección anterior, este paquete ya estará descargado en su máquina. 
 
 3. Para ejecutar el ejemplo, use estos comandos en la ventana de comandos:
 
@@ -202,7 +202,7 @@ Para inscribir un único dispositivo X.509, modifique el código de ejemplo de l
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Si planea explorar el ejemplo del servicio de Java, no elimine los recursos que se han creado en este inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos que se hayan creado en este inicio rápido.
+Si planea explorar el ejemplo del servicio de Java, no elimine los recursos que se han creado en este inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos que se han creado en este inicio rápido.
 
 1. Cierre la ventana de salida de ejemplo de Java en su máquina.
 1. Cierre la ventana de la herramienta para _generar certificados X.509_ en su máquina.

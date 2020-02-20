@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: f7dcf342a1b9b2107138044dfc207d6dbcb42e9e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 525eba8a5a4e891526eb32a24287ea3887ee6743
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260874"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474286"
 ---
 Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a escala, suele ser deseable alguna forma de automatización. Existen muchas herramientas y soluciones que le permiten automatizar la implementación de toda la infraestructura de Azure y el ciclo de vida de administración. En este artículo se detallan algunas de las herramientas de automatización de la infraestructura que puede usar en Azure. Estas herramientas se adaptan normalmente a alguno de los siguientes enfoques:
 
@@ -29,9 +29,9 @@ Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a
 
 Obtenga información sobre cómo:
 
-- [Instalar y configurar Ansible en Linux para su uso con Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Crear una máquina virtual Linux](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Administrar una máquina virtual Linux](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
+- [Instalar y configurar Ansible en Linux para su uso con Azure](../articles/ansible/ansible-install-configure.md).
+- [Crear una máquina virtual Linux](../articles/ansible/ansible-create-vm.md).
+- [Administrar una máquina virtual Linux](../articles/ansible/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef
@@ -48,7 +48,7 @@ Obtenga información sobre cómo:
 
 Obtenga información sobre cómo:
 
-- [Implementar Puppet desde Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview).
+- [Implementar Puppet desde Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview).
 
 
 ## <a name="cloud-init"></a>Cloud-Init
@@ -62,7 +62,7 @@ Estamos trabajando activamente con nuestros asociados de distribuciones de Linux
 - [Consulte el tutorial sobre configuración automatizada de máquinas virtuales con cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
-## <a name="powershell-dsc"></a>PowerShell DSC
+## <a name="powershell-dsc"></a>DSC de PowerShell
 [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) es una plataforma de administración que se usa para definir la configuración de las máquinas de destino. DSC también se puede utilizar en Linux mediante el [servidor de infraestructura de administración abierta (OMI)](https://collaboration.opengroup.org/omi/).
 
 Las configuraciones de DSC definen lo que se debe instalar en una máquina y cómo configurar el host. Un motor de administración de configuración local (LCM) se ejecuta en cada nodo de destino que procesa las acciones requeridas en función de las configuraciones insertadas. Un servidor de extracción es un servicio web que se ejecuta en un host central para almacenar las configuraciones de DSC y los recursos asociados. El servidor de extracción se comunica con el motor de LCM en cada host de destino para proporcionar las configuraciones necesarias e informar sobre el cumplimiento.
@@ -99,8 +99,8 @@ Obtenga información sobre cómo:
 
 Obtenga información sobre cómo:
 
-- [Instalar y configurar Terraform con Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Crear una infraestructura de Azure con Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
+- [Instalar y configurar Terraform con Azure](../articles/terraform/terraform-install-configure.md).
+- [Crear una infraestructura de Azure con Terraform](../articles/terraform/terraform-create-complete-vm.md).
 
 
 ## <a name="azure-automation"></a>Azure Automation

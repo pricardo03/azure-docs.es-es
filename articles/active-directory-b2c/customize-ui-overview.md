@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2dcdc67f884d1f566c794ab9e996a74984ab61a4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908957"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373160"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Use [Azure Portal](tutorial-customize-ui.md) para configurar la personalización
 
 Si va a usar [directivas personalizadas](custom-policy-overview.md) para proporcionar en la aplicación las opciones de registro o inicio de sesión, de restablecimiento de contraseña o de edición de perfiles, use los [archivos de directiva para personalizar la interfaz de usuario](custom-policy-ui-customization.md).
 
-Si necesita proporcionar contenido dinámico en función de la decisión de un cliente, use [directivas personalizadas que puedan cambiar el contenido de la página](custom-policy-ui-customization-dynamic.md) según el parámetro que se envíe en una cadena de consulta. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil.
+Si necesita proporcionar contenido dinámico en función de la decisión de un cliente, use [directivas personalizadas que puedan cambiar el contenido de la página](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) según el parámetro que se envíe en una cadena de consulta. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil.
 
 ### <a name="javascript"></a>JavaScript
 

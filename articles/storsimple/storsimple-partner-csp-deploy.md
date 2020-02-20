@@ -1,5 +1,5 @@
 ---
-title: Introducción a Microsoft Azure StorSimple y el programa de proveedores de soluciones en la nube | Microsoft Docs
+title: Implementación de StorSimple Virtual Array para el programa de proveedores de soluciones en la nube
 description: Introducción a StorSimple y CSP para asociados de StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629987"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466916"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implementación de StorSimple Virtual Array para el programa de proveedores de soluciones en la nube
 
@@ -29,7 +29,7 @@ Los asociados del programa de proveedores de soluciones en la nube (CSP) pueden 
 
 En este artículo se describe cómo un asociado de CSP puede agregar un cliente o una suscripción nueva a un cliente existente y, luego, crear un servicio para implementar una instancia de StorSimple Virtual Array en CSP.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de lo siguiente:
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607477"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367241"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnóstico de problemas de rendimiento de gráficos en Escritorio remoto
 
@@ -69,7 +69,7 @@ Un valor alto de cualquiera de estos contadores implica que el problema está re
 
 Si el contador Fotogramas de salida/segundo coincide con el contador Fotogramas de entrada/segundo, pero aún experimenta retrasos o pausas inusuales, el problema puede ser del promedio de tiempo de codificación. La codificación es un proceso sincrónico que se produce en el servidor en un escenario de sesión única (vGPU) y en la máquina virtual en un escenario de sesión múltiple. El promedio de tiempo de codificación debe ser inferior a 33 ms. Si el promedio de tiempo de codificación es inferior a 33 ms pero aún tiene problemas de rendimiento, puede haber un problema con la aplicación o el sistema operativo que está usando.
 
-Para más información acerca de cómo diagnosticar problemas relacionados con la aplicación, consulte [Contadores de rendimiento de retraso de entrada del usuario](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+Para más información acerca de cómo diagnosticar problemas relacionados con la aplicación, consulte [Contadores de rendimiento de retraso de entrada del usuario](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
 Dado que RDP admite un promedio de tiempo de codificación de 33 ms, también admite una velocidad de fotogramas de entrada de hasta 30 fotogramas por segundo. Tenga en cuenta que 33 ms es la velocidad de fotogramas máxima permitida. En muchos casos, la velocidad de fotogramas experimentada por el usuario será menor, en función de la frecuencia con la que el origen proporciona un fotograma a RDP. Por ejemplo, tareas como ver un vídeo requieren una velocidad de fotogramas de entrada completa de 30 fotogramas/segundo, pero las tareas con un proceso menos intensivo, como la edición de un documento con poca frecuencia, dan como resultado un valor de fotogramas de entrada/segundo mucho menor sin degradar la calidad de la experiencia del usuario.
 
@@ -101,6 +101,6 @@ Si los recursos del cliente son la causa del cuello de botella, pruebe uno de lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para crear una máquina virtual de Azure optimizada para GPU, consulte [Configuración de la aceleración de la unidad de procesamiento de gráficos (GPU) para Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- Para obtener información general sobre cómo solucionar problemas y las pistas de escalación, consulte [Información general sobre solución de problemas, comentarios y soporte técnico](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Para crear una máquina virtual de Azure optimizada para GPU, consulte [Configuración de la aceleración de la unidad de procesamiento de gráficos (GPU) para Windows Virtual Desktop](configure-vm-gpu.md).
+- Para obtener información general sobre cómo solucionar problemas y las pistas de escalación, consulte [Información general sobre solución de problemas, comentarios y soporte técnico](troubleshoot-set-up-overview.md).
+- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](environment-setup.md).

@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: cadena'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 7a55a6108c9bf1e87dba0b3ccbba5d9b0bd217b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476222"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207068"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -254,7 +254,7 @@ Combina varios valores de cadena y devuelve la cadena concatenada, o combina var
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o matriz |La primera cadena o matriz para la concatenación. |
-| argumentos adicionales |No |cadena o matriz |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
+| argumentos adicionales |Sin |cadena o matriz |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
 
 Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros. Sin embargo, no puede proporcionar ambas a la vez para los parámetros. Las cadenas solo se concatenan con otras cadenas.
 
@@ -719,7 +719,7 @@ Crea una cadena con formato a partir de valores de entrada.
 |:--- |:--- |:--- |:--- |
 | formatString | Sí | string | La cadena de formato compuesta. |
 | arg1 | Sí | valor booleano, entero o cadena | El valor que se va a incluir en la cadena con formato. |
-| argumentos adicionales | No | valor booleano, entero o cadena | Valores adicionales que se van a incluir en la cadena con formato. |
+| argumentos adicionales | Sin | valor booleano, entero o cadena | Valores adicionales que se van a incluir en la cadena con formato. |
 
 ### <a name="remarks"></a>Observaciones
 
@@ -775,7 +775,7 @@ Crea un valor en el formato de un identificador único global en función de los
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |El valor utilizado en la función hash para crear el GUID. |
-| parámetros adicionales según sea necesario |No |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
+| parámetros adicionales según sea necesario |Sin |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
 
 ### <a name="remarks"></a>Observaciones
 
@@ -1194,7 +1194,7 @@ Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda ha
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sí |cadena o entero |Valor que se va a alinear a la derecha. |
 | totalLength |Sí |int |El número total de caracteres de la cadena devuelta. |
-| paddingCharacter |No |carácter individual |El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio. |
+| paddingCharacter |Sin |carácter individual |El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio. |
 
 Si la cadena original es mayor que el número de caracteres que se va a rellenar, no se agrega ningún carácter.
 
@@ -1560,8 +1560,8 @@ Devuelve una subcadena que empieza en la posición de carácter especificada y q
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sí |string |La cadena original desde la que se extrae la subcadena. |
-| startIndex |No |int |La posición de carácter inicial basado en cero de la subcadena. |
-| length |No |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. |
+| startIndex |Sin |int |La posición de carácter inicial basado en cero de la subcadena. |
+| length |Sin |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1837,7 +1837,7 @@ Crea una cadena de hash determinista basada en los valores proporcionados como p
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |Valor utilizado en la función hash para crear una cadena única. |
-| parámetros adicionales según sea necesario |No |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
+| parámetros adicionales según sea necesario |Sin |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
 
 ### <a name="remarks"></a>Observaciones
 
@@ -2104,7 +2104,7 @@ Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| format |No |string |El valor codificado por el identificador URI para convertir en una cadena. Use [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Sin |string |El valor codificado por el identificador URI para convertir en una cadena. Use [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observaciones
 
@@ -2206,6 +2206,6 @@ El ejemplo siguiente muestra cómo usar un valor de la función cuando se establ
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).
 

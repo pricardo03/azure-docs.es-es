@@ -7,16 +7,16 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: denzilribeiro
+ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 03150ef3a8799cd0f84fb1bc03f2fd712cddd541
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b22ec475c0281a54d65921bc450b35723aa23219
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889808"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471659"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Aceleración del análisis de macrodatos en tiempo real con el conector de Spark para Azure SQL Database y SQL Server
 
@@ -27,13 +27,13 @@ Para comenzar, descargue el conector de Spark a SQL DB del [repositorio azure-sq
 
 ## <a name="official-supported-versions"></a>Versiones oficiales compatibles
 
-| Componente                            |Versión                  |
-| :----------------------------------- | :---------------------- |
-| Spark de Apache                         |2.0.2 o posterior           |
-| Scala                                |2.10 o posterior            |
-| Microsoft JDBC Driver para SQL Server |6.2 o posterior             |
-| Microsoft SQL Server                 |SQL Server 2008 o posterior |
-| Azure SQL Database                   |Compatible                |
+| Componente                            | Versión                  |
+| :----------------------------------- | :----------------------- |
+| Spark de Apache                         | 2.0.2 o posterior           |
+| Scala                                | 2.10 o posterior            |
+| Microsoft JDBC Driver para SQL Server | 6.2 o posterior             |
+| Microsoft SQL Server                 | SQL Server 2008 o posterior |
+| Azure SQL Database                   | Compatible                |
 
 El conector de Spark para Azure SQL Database y SQL Server usa Microsoft JDBC Driver para SQL Server para mover datos entre los nodos de trabajo de Spark y las bases de datos SQL:
  
@@ -89,7 +89,7 @@ val config = Config(Map(
 ))
 
 //Read all data in table dbo.Clients
-val collection = sqlContext.read.sqlDb(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -118,7 +118,7 @@ import com.microsoft.azure.sqldb.spark.config.Config
 import com.microsoft.azure.sqldb.spark.query._
 val query = """
               |UPDATE Customers
-              |SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+              |SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
               |WHERE CustomerID = 1;
             """.stripMargin
 
@@ -134,7 +134,7 @@ sqlContext.sqlDBQuery(config)
 ```
 
 ## <a name="connect-spark-to-azure-sql-database-using-aad-authentication"></a>Conexión de Spark a Azure SQL Database mediante la autenticación de AAD
-Puede conectarse a Azure SQL Database mediante la autenticación de Azure Active Directory (AAD). Use la autenticación de AAD para administrar de forma centralizada las identidades de los usuarios de la base de datos y como una alternativa a la autenticación de SQL Server.
+Puede conectarse a Azure SQL Database mediante la autenticación de Azure Active Directory (AAD). Use la autenticación de AAD para administrar identidades de usuarios de base de datos de forma centralizada y como alternativa a la autenticación de SQL Server.
 ### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>Conexión con el modo de autenticación ActiveDirectoryPassword
 #### <a name="setup-requirement"></a>Requisito de configuración
 Si usa el modo de autenticación ActiveDirectoryPassword, necesitará descargar [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) y sus dependencias e incluirlos en la ruta de compilación Java.
@@ -146,13 +146,13 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "user"           -> "username ",
+  "user"           -> "username",
   "password"       -> "*********",
   "authentication" -> "ActiveDirectoryPassword",
   "encrypt"        -> "true"
 ))
 
-val collection = sqlContext.read.SqlDB(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -169,12 +169,12 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"                   -> "mysqlserver.database.windows.net",
   "databaseName"          -> "MyDatabase",
-  "accessToken"           -> "access_token ",
+  "accessToken"           -> "access_token",
   "hostNameInCertificate" -> "*.database.windows.net",
   "encrypt"               -> "true"
 ))
 
-val collection = sqlContext.read.SqlDB(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -214,7 +214,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 ## <a name="next-steps"></a>Pasos siguientes
 Si aún no lo ha hecho, descargue el conector de Spark a Azure SQL Database y SQL Server del [repositorio de GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) y explore los recursos adicionales del repositorio:
 
--   [Blocs de notas de ejemplo de Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
+- [Blocs de notas de ejemplo de Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Scripts de ejemplo (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
 Es posible que también quiera consultar [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) (Guía de Apache Spark SQL, DataFrames y conjuntos de datos) y la[documentación de Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).

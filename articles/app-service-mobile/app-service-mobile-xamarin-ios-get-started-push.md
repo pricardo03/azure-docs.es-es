@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 39e06587e48f30ce099eafaf7cfdb2fb2269d24f
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: f9c70491d06f61931ebabda859ff3a86ed035b44
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668637"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461358"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Incorporación de notificaciones push a la aplicación Xamarin.iOS
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 ## <a name="overview"></a>Información general
 
@@ -28,7 +23,7 @@ En este tutorial, agregará notificaciones de inserción al proyecto de [inicio 
 
 Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el paquete de extensión de la notificación de inserción. Vea [Trabajar con el SDK de servidor de back-end de .NET para Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obtener más información.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Complete el tutorial [Creación de una aplicación Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) .
 * Un dispositivo iOS físico. El simulador de iOS no admite notificaciones push.
@@ -137,7 +132,7 @@ Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el p
 
 Ahora su aplicación está actualizada para que sea compatible con las notificaciones push.
 
-## <a name="test"></a>Prueba de las notificaciones push en su aplicación
+## <a name="test"></a>Prueba de las notificaciones de inserción en su aplicación
 
 1. Presione el botón **Run** (Ejecutar) para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. A continuación, haga clic en **OK** (Aceptar) para aceptar las notificaciones push.
 
