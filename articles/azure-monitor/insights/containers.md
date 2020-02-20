@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/22/2019
-ms.openlocfilehash: b71818d5d840a0466b5ff6f271df117043341f7b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7dab80f901304a727b75c7861c5d865fee03bec3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899111"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483013"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solución de supervisión de contenedores en Azure Monitor
 
@@ -26,7 +26,7 @@ La solución muestra qué contenedores están en ejecución, qué imagen de cont
 
 - Docker Swarm
 - DC/OS
-- kubernetes
+- Kubernetes
 - Service Fabric
 - Red Hat OpenShift
 
@@ -48,7 +48,7 @@ En este artículo, los espacios de direcciones de red virtual de radio son 10.0.
 
 | | ACS | Linux | Windows | Contenedor<br>Inventario | Imagen<br>Inventario | Nodo<br>Inventario | Contenedor<br>Rendimiento | Contenedor<br>Evento | Evento<br>Log | Contenedor<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Servicio<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
@@ -188,7 +188,7 @@ Hay tres formas de agregar el agente de Log Analytics a Red Hat OpenShift para e
 
 * [Instalar el agente de Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) directamente en cada nodo de OpenShift  
 * [Habilitar la extensión de máquina virtual de Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) en cada nodo de OpenShift que reside en Azure  
-* Instalación del agente de Log Analytics como daemon-set de OpenShift  
+* Instalar el agente de Log Analytics como daemon-set de OpenShift  
 
 En esta sección, se describen los pasos necesarios para instalar al agente de Log Analytics como daemon-set de OpenShift.  
 
@@ -253,19 +253,18 @@ Siga este procedimiento si quiere usar secretos para proteger el identificador y
     y la salida debería ser similar a la siguiente:  
 
     ```
-    [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
-    Name:           oms  
-    Image(s):       microsoft/oms  
-    Selector:       name=omsagent  
-    Node-Selector:  zone=default  
-    Labels:         agentVersion=1.4.0-12  
-                    dockerProviderVersion=10.0.0-25  
-                    name=omsagent  
-    Desired Number of Nodes Scheduled: 3  
-    Current Number of Nodes Scheduled: 3  
-    Number of Nodes Misscheduled: 0  
-    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
-    No events.  
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+
+    Type:   Opaque  
+
+    Data  
+    ====  
+    KEY:    89 bytes  
+    WSID:   37 bytes  
     ```
 
 5. Para implementar el archivo yaml de daemon-set del agente de Log Analytics, ejecute lo siguiente:
@@ -279,18 +278,19 @@ Siga este procedimiento si quiere usar secretos para proteger el identificador y
     y la salida debería ser similar a la siguiente:
 
     ```
-    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
-    Name:           omsagent-secret  
-    Namespace:      omslogging  
-    Labels:         <none>  
-    Annotations:    <none>  
-
-    Type:   Opaque  
-
-     Data  
-     ====  
-     KEY:    89 bytes  
-     WSID:   37 bytes  
+    [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       microsoft/oms  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
     ```
 
 #### <a name="configure-a-log-analytics-linux-agent-for-kubernetes"></a>Configurar un agente de Log Analytics para Linux para Kubernetes

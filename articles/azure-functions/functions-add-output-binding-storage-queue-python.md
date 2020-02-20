@@ -3,12 +3,12 @@ title: Adición de un enlace de cola de Azure Storage a la función de Python
 description: Integración de una cola de Azure Storage con una función de Python mediante un enlace de salida.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6cea44dca666bbf002de6e2b7dd283f49ac7bd5a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198486"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485172"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 
@@ -100,7 +100,7 @@ Para escribir en una cola de Azure Storage desde esta función, agregue un enlac
 
 En este caso, `msg` se asigna a la función como argumento de salida. En el caso de un tipo `queue`, también debe especificar el nombre de la cola en `queueName` y proporcionar el *nombre* de la conexión Azure Storage (desde *local.settings.json*) en `connection`.
 
-Para más información sobre los enlaces, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md) y [configuración de la cola de salida](functions-bindings-storage-queue.md#output---configuration).
+Para más información sobre los enlaces, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md) y [configuración de la cola de salida](functions-bindings-storage-queue-output.md#configuration).
 
 ## <a name="add-code-to-use-the-output-binding"></a>Adición de código para usar el enlace de salida
 
@@ -219,7 +219,7 @@ Cuando una función genera una respuesta HTTP para el explorador web, también l
     ---
 
 
-1. Use el comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para ver los mensajes de esta cola, la cual debe ser el nombre que utilizó al probar la función anteriormente. El comando recupera el primer mensaje de la cola con [codificación Base64](functions-bindings-storage-queue.md#encoding), por lo que también deberá descodificar el mensaje para verlo como texto.
+1. Use el comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para ver los mensajes de esta cola, la cual debe ser el nombre que utilizó al probar la función anteriormente. El comando recupera el primer mensaje de la cola con [codificación Base64](functions-bindings-storage-queue-trigger.md#encoding), por lo que también deberá descodificar el mensaje para verlo como texto.
 
     # <a name="bash"></a>[bash](#tab/bash)
     

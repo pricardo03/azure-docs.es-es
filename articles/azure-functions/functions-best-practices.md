@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd52c4cc5cd9d4c01ddb355bdfb28d0952e65759
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210266"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486332"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -62,7 +62,7 @@ Dependiendo de lo complejo que sea el sistema, es posible que haya servicios de 
 
 Si ya se ha procesado un elemento de la cola, permita que la función sea no operativa.
 
-Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación de [desencadenadores y enlaces de cola de Azure Storage](functions-bindings-storage-queue.md#trigger---poison-messages). 
+Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación de [desencadenadores y enlaces de cola de Azure Storage](functions-bindings-storage-queue-trigger.md#poison-messages). 
 
 ## <a name="scalability-best-practices"></a>Procedimientos recomendados de escalabilidad
 

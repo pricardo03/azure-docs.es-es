@@ -2,17 +2,17 @@
 title: Esquema de eventos de Azure Maps con Azure Event Grid
 description: Describe las propiedades y los esquemas que se proporcionan para los eventos de Azure Maps con Azure Event Grid
 services: event-grid
-author: walsehgal
+author: femila
 ms.service: event-grid
 ms.topic: reference
 ms.date: 02/08/2019
-ms.author: v-musehg
-ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: femila
+ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861861"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486366"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de eventos de Azure Event Grid para Azure Maps
 
@@ -22,7 +22,7 @@ En este artículo se proporcionan las propiedades y los esquemas de los eventos 
 
 Una cuenta de Azure Maps emite los siguientes tipos de eventos:
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Se genera cuando se mueven las coordenadas recibidas desde fuera de una determinada geovalla a dentro |
 | Microsoft.Maps.GeofenceExited | Se genera cuando se mueven las coordenadas recibidas desde dentro de una determinada geovalla a fuera |
@@ -102,36 +102,36 @@ En el ejemplo siguiente, se muestra el esquema de un evento **GeofenceResult**
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | id | string | Identificador único para el evento |
-| data | object | Datos de eventos de geovalla. |
+| datos | object | Datos de eventos de geovalla. |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
 | metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | apiCategory | string | Categoría de API del evento. |
 | apiName | string | Nombre de API del evento. |
 | issues | object | Se enumeran los problemas que se encontraron durante el procesamiento. Si se devuelve algún problema, no se devolverán geometrías con la respuesta. |
-| responseCode | número | Código de respuesta HTTP |
+| responseCode | number | Código de respuesta HTTP |
 | geometries | object | Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |
 
 Se devuelve el objeto de error cuando se produce un error en la API de Maps. El objeto de error tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | error | ErrorDetails |Se devuelve este objeto cuando se produce un error en la API de Maps  |
 
 Se devuelve el objeto ErrorDetails cuando se produce un error en la API de Maps. El objeto ErrorDetails tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | código | string | El código de estado HTTP. |
 | message | string | Si está disponible, una descripción legible del error. |
@@ -139,24 +139,24 @@ Se devuelve el objeto ErrorDetails cuando se produce un error en la API de Maps.
 
 InnerError es un objeto que contiene información específica del servicio sobre el error. El objeto InnerError tiene las siguientes propiedades: 
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | código | string | El mensaje de error. |
 
 El objeto "geometries" muestra los identificadores de geometría de las geovallas que han expirado en relación con la hora que especificó el usuario en la solicitud. El objeto "geometries" tiene elementos de geometría con las siguientes propiedades: 
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 |:-------- |:---- |:----------- |
 | deviceid | string | Identificador del dispositivo. |
 | distancia | string | <p>Distancia entre la coordenada y el borde más cercano de la geovalla. Un número positivo significa que la coordenada está fuera de la geovalla. Si la coordenada está fuera de la geovalla, pero es superior al valor de la distancia de searchBuffer al borde más cercano de la geovalla, el valor es 999. Un número negativo significa que la coordenada está dentro de la geovalla. Si la coordenada está dentro del polígono, pero es superior al valor de la distancia de searchBuffer al borde más cercano de la geovalla, el valor es -999. Un valor de 999 significa que hay una gran confianza en que la coordenada está fuera de la geovalla. Un valor de 999 significa que hay una gran confianza en que la coordenada está dentro de la geovalla.<p> |
 | geometryid |string | El identificador único identifica la geometría de la geovalla. |
-| nearestlat | número | Latitud del punto más cercano de la geometría. |
-| nearestlon | número | Longitud del punto más cercano de la geometría. |
+| nearestlat | number | Latitud del punto más cercano de la geometría. |
+| nearestlon | number | Longitud del punto más cercano de la geometría. |
 | udId | string | El identificador único devuelto desde el servicio de carga del usuario al cargar una geovalla. No se incluirá en la API POST de geovalla. |
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | string[] | Muestra el identificador de geometría de la geovalla que ha expirado en relación con la hora que especificó el usuario en la solicitud. |
 | geometries | geometries[] |Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |

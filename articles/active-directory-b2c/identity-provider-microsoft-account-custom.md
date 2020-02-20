@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 02/19/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1489ce6bee2ce25ffb268ef20cc8fa587664619
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851075"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483285"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta Microsoft mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "76851075"
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta Microsoft mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 - Si aún no tiene una cuenta Microsoft, cree una en [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Adición de una aplicación
+## <a name="register-an-application"></a>Registro de una aplicación
 
 Para habilitar el inicio de sesión de los usuarios con una cuenta de Microsoft, deberá registrar una aplicación dentro del inquilino de Azure AD. El inquilino de Azure AD no es el mismo que el usuario de Azure AD B2C.
 
@@ -46,6 +46,19 @@ Para habilitar el inicio de sesión de los usuarios con una cuenta de Microsoft,
 1. Haga clic en **Nuevo secreto de cliente**.
 1. Escriba una **Descripción** del secreto, por ejemplo, *secreto de cliente de la aplicación de MSA* y, luego, haga clic en **Agregar**.
 1. Anote la contraseña de la aplicación que se muestra en la columna **Value**. Usará este valor en la sección siguiente.
+
+## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
+
+Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, puede configurar notificaciones opcionales para la aplicación en la interfaz de usuario de Azure Portal o el manifiesto de aplicación. Para obtener más información, consulte [Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione **Azure Active Directory**.
+1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
+1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
+1. En la sección **Administrar**, seleccione **Configuración del token (versión preliminar)** .
+1. Seleccione **Agregar notificación opcional**.
+1. Seleccione el tipo de token que desea configurar.
+1. Seleccione las notificaciones opcionales que va a agregar.
+1. Haga clic en **Agregar**.
 
 ## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 
@@ -94,10 +107,12 @@ Puede definir Azure AD como proveedor de notificaciones. Para ello, agregue el e
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: a093eea8b1961482722211017174018a649e2c4f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162861"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484849"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
 
@@ -28,10 +28,10 @@ En la tabla siguiente se describen las versiones y los tipos de clúster que son
 
 | Versión | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 4.0 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 4.0 con ESP | Sí | Sí | Sí | Sí* | No | No | No |
+| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | Sin | Sin | Sin |
+| HDInsight 4.0 sin ESP | Sí | Sí | Sí | Sí* | Sin | Sin | Sin |
+| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | Sin | Sin | Sin |
+| HDInsight 4.0 con ESP | Sí | Sí | Sí | Sí* | Sin | Sin | Sin |
 
 \* Los clústeres de HBase solo se pueden configurar para escalado basado en programación, no basado en cargas.
 
@@ -78,7 +78,7 @@ En función del número de contenedores de AM por nodo y de los requisitos actua
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creación de un clúster con Escalabilidad automática basada en carga
 
-Para usar la escalabilidad automática en un clúster, la opción **Habilitar escalabilidad automática** se debe habilitar al crear el clúster. Para habilitar la característica Escalabilidad automática con escalado basado en carga, complete estos pasos como parte del proceso de creación de clúster normal:
+Para habilitar la característica Escalabilidad automática con escalado basado en carga, complete estos pasos como parte del proceso de creación de clúster normal:
 
 1. En la pestaña **Configuración y precios**, marque la casilla **Habilitar escalabilidad automática**.
 1. Seleccione **Load-based** (Basada en carga) en **Tipo de escalabilidad automática**.

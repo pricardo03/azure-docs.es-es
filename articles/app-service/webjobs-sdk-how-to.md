@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549094"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486349"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -453,7 +453,7 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlace de Queue Storage](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings).
+Para más información, consulte el artículo [Enlace de Queue Storage](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties).
 
 #### <a name="version-2x"></a>Versión 2.*x*
 
@@ -524,7 +524,7 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlace de Service Bus](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
+Para más información, consulte el artículo [Enlace de Service Bus](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings).
 
 ### <a name="configuration-for-other-bindings"></a>Configuración de otros enlaces
 
@@ -680,11 +680,11 @@ Para obtener más información, consulte [Enlace en tiempo de ejecución](../azu
 
 En la documentación de Azure Functions se proporciona información de referencia sobre cada tipo de enlace. Encontrará la información siguiente en cada artículo de referencia de enlace. (Este ejemplo se basa en la cola de almacenamiento).
 
-* [Paquetes](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). El paquete que es necesario instalar con el fin de incluir compatibilidad con el enlace de un proyecto de SDK de WebJobs.
-* [Ejemplos](../azure-functions/functions-bindings-storage-queue.md#trigger). Ejemplos de código. La biblioteca de clases de C# se aplica al SDK de WebJobs. Omita simplemente el atributo `FunctionName`.
-* [Atributos](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). Los atributos que se usarán para el tipo de enlace.
-* [Configuración](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Explicaciones de las propiedades de atributo y de los parámetros del constructor.
-* [Uso](../azure-functions/functions-bindings-storage-queue.md#trigger---usage) Los tipos con los que puede enlazar e información sobre cómo funciona el enlace. Por ejemplo: sondear algoritmos o procesar colas dudosas.
+* [Paquetes](../azure-functions/functions-bindings-storage-queue.md). El paquete que es necesario instalar con el fin de incluir compatibilidad con el enlace de un proyecto de SDK de WebJobs.
+* [Ejemplos](../azure-functions/functions-bindings-storage-queue-trigger.md). Ejemplos de código. La biblioteca de clases de C# se aplica al SDK de WebJobs. Omita simplemente el atributo `FunctionName`.
+* [Atributos](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). Los atributos que se usarán para el tipo de enlace.
+* [Configuración](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Explicaciones de las propiedades de atributo y de los parámetros del constructor.
+* [Uso](../azure-functions/functions-bindings-storage-queue-trigger.md#usage) Los tipos con los que puede enlazar e información sobre cómo funciona el enlace. Por ejemplo: sondear algoritmos o procesar colas dudosas.
   
 Para obtener una lista de artículos de referencia de enlace, consulte la sección "Enlaces admitidos" del artículo [Enlaces y desencadenadores](../azure-functions/functions-triggers-bindings.md#supported-bindings) de Azure Functions. En esa lista, solo Azure Functions admite los enlaces de HTTP, Webhooks y Event Grid; el SDK de WebJobs no los admite.
 

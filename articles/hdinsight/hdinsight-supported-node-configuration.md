@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 278639b27d821e8d6440248a1add43bcd9de22c6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775232"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484793"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>¿Cuáles son las configuraciones de nodos predeterminadas y recomendadas para Azure HDInsight?
 
@@ -44,9 +44,9 @@ En la tabla siguiente se resumen las especificaciones de todos los tipos de máq
 
 Para más detalles sobre las especificaciones de cada tipo de máquina virtual, consulte los siguientes documentos:
 
-* [Tamaños de máquina virtual de uso general: serie Dv2 1-5](../virtual-machines/linux/sizes-general.md#dv2-series)
-* [Tamaños de máquina virtual optimizada para memoria: serie Dv2 11-15](../virtual-machines/linux/sizes-memory.md#dv2-series-11-15)
-* [Tamaños de máquina virtual de uso general: serie Av2 1-8](../virtual-machines/linux/sizes-general.md#av2-series)
+* [Tamaños de máquina virtual de uso general: serie Dv2 1-5](../virtual-machines/dv2-dsv2-series.md)
+* [Tamaños de máquina virtual optimizada para memoria: serie Dv2 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
+* [Tamaños de máquina virtual de uso general: serie Av2 1-8](../virtual-machines/av2-series.md)
 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Todas las regiones admitidas, excepto Sur de Brasil y Japón Occidental
 

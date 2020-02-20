@@ -154,3 +154,5 @@
       href: 'https://windowsvirtualdesktop.uservoice.com/forums/921118-general'
     - name: Plan de desarrollo de Microsoft 365
       href: 'https://aka.ms/wvdroadmap'
+    - name: Plantillas del Administrador de recursos de Azure
+      href: 'https://github.com/Azure/RDS-Templates/tree/master/wvd-templates'

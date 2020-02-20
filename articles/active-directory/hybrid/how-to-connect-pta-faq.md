@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932389"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484424"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -35,11 +35,11 @@ Consulte [esta guía](https://docs.microsoft.com/azure/security/fundamentals/cho
 
 La autenticación de paso a través es una característica gratuita. Por tanto, no se necesita ninguna versión de pago de Azure AD para usarla.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>¿Está disponible la autenticación de paso a través en la [nube Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) y en la [nube Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>¿Está disponible la autenticación de paso a través en la [nube Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) y en la [nube Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
 
 No. La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD.
 
-## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>¿Funciona el [acceso condicional](../active-directory-conditional-access-azure-portal.md) con la autenticación de paso a través?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>¿Funciona el [acceso condicional](../active-directory-conditional-access-azure-portal.md) con la autenticación de paso a través?
 
 Sí. Todas las capacidades de acceso condicional, incluida Azure Multi-Factor Authentication, funcionan con la autenticación de paso a través.
 
@@ -54,7 +54,7 @@ No. La autenticación de paso a través _no_ realiza una conmutación automátic
 
 Cuando se usa Azure AD Connect para cambiar el método de inicio de sesión de sincronización de hash de contraseña a la autenticación de paso a través, esta última se convierte en el método principal de inicio de sesión de los usuarios en dominios administrados. Tenga en cuenta que los hash de contraseña de todos los usuarios que anteriormente se han sincronizado mediante la sincronización de hash de contraseña siguen almacenados en Azure AD.
 
-## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../manage-apps/application-proxy.md) en el mismo servidor que un agente de autenticación de paso a través?
+## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../manage-apps/application-proxy.md) en el mismo servidor que un agente de autenticación de paso a través?
 
 Sí. Esta configuración es compatible con las nuevas versiones del agente de autenticación de paso a través (versiones 1.5.193.0 o posteriores).
 
@@ -107,7 +107,7 @@ No, solo se puede instalar un agente de autenticación de paso a través en un �
 
 ## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>¿Es necesario renovar manualmente los certificados usados por los agentes de autenticación de paso a través?
 
-La comunicación entre cada agente de autenticación de paso a través y Azure AD está protegida mediante la autenticación basada en certificados. [Azure AD renueva estos certificados automáticamente cada pocos meses](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). No hay ninguna necesidad de renovarlos manualmente. Puede eliminar los certificados expirados anteriores según sea necesario.
+La comunicación entre cada agente de autenticación de paso a través y Azure AD está protegida mediante la autenticación basada en certificados. [Azure AD renueva estos certificados automáticamente cada pocos meses](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). No hay ninguna necesidad de renovarlos manualmente. Puede eliminar los certificados expirados anteriores según sea necesario.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>¿Cómo quito un agente de autenticación de paso a través?
 

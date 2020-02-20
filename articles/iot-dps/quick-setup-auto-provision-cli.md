@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f5737dccca6baa2dc2c1d98233b80d871cf86007
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ea1cae1f5a30d4cd76df39fec43f3818178fc213
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974723"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484203"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Inicio rápido: Configuración del servicio Azure IoT Hub Device Provisioning con la CLI de Azure
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos llamado *my-sample-resource-group* en la ubicación *westus*.
 
@@ -47,7 +47,7 @@ az group create --name my-sample-resource-group --location westus
 
 Para crear un centro de IoT, use el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 
-En el ejemplo siguiente, se crea un centro de IoT llamado *my-sample-hub* en la ubicación *westus*. El nombre del centro de IoT debe ser único globalmente en Azure, por lo que es posible que desee agregar un prefijo o sufijo único al nombre del ejemplo, o bien elegir un nombre completamente nuevo. Asegúrese de que el nombre sigue las convenciones de nomenclatura de un centro de IoT: debe tener entre 3 y 50 caracteres, y solo puede contener caracteres alfanuméricos en mayúsculas y minúsculas o guiones ('-'). 
+En el ejemplo siguiente, se crea un centro de IoT llamado *my-sample-hub* en la ubicación *westus*. El nombre del centro de IoT debe ser único globalmente en Azure, por lo que es posible que desee agregar un prefijo o sufijo único al nombre del ejemplo, o bien elegir un nombre completamente nuevo. Asegúrese de que el nombre sigue las convenciones de nomenclatura de un centro de IoT: debe tener entre 3 y 50 caracteres, y solo puede contener caracteres alfanuméricos en mayúsculas y minúsculas o guiones ('-'). 
 
 ```azurecli-interactive 
 az iot hub create --name my-sample-hub --resource-group my-sample-resource-group --location westus
@@ -57,14 +57,14 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 Cree una instancia de Device Provisioning Service con el comando [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). 
 
-En el ejemplo siguiente, se crea un servicio de aprovisionamiento llamado *my-sample-dps* en la ubicación *westus*. También tendrá que elegir un nombre único global para su propio servicio de aprovisionamiento. Asegúrese de que sigue las convenciones de nomenclatura de IoT Hub Device Provisioning Service: debe tener entre 3 y 64 caracteres, y solo puede contener caracteres alfanuméricos en mayúsculas y minúsculas o guiones ('-').
+En el ejemplo siguiente, se crea un servicio de aprovisionamiento llamado *my-sample-dps* en la ubicación *westus*. También tendrá que elegir un nombre único global para su propio servicio de aprovisionamiento. Asegúrese de que sigue las convenciones de nomenclatura de IoT Hub Device Provisioning Service: debe tener entre 3 y 64 caracteres, y solo puede contener caracteres alfanuméricos en mayúsculas y minúsculas o guiones ('-').
 
 ```azurecli-interactive 
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
 ```
 
 > [!TIP]
-> El ejemplo crea el servicio de aprovisionamiento en la ubicación de oeste de EE. UU. Para ver una lista de las ubicaciones disponibles, ejecute el comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` o vaya a la página [Estado de Azure](https://azure.microsoft.com/status/) página y busque "Servicio Device Provisioning". En los comandos, las ubicaciones se pueden especificar en formato de una palabra o de varias; por ejemplo, westus, West US, WEST US, etc. El valor no distingue mayúsculas de minúsculas. Si utiliza el formato de varias palabras para especificar la ubicación, escriba el valor entre comillas; por ejemplo, `-- location "West US"`.
+> El ejemplo crea el servicio de aprovisionamiento en la ubicación de oeste de EE. UU. Para ver una lista de las ubicaciones disponibles, ejecute el comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` o vaya a la página [Estado de Azure](https://azure.microsoft.com/status/) página y busque "Servicio Device Provisioning". En los comandos, las ubicaciones se pueden especificar en formato de una palabra o de varias; por ejemplo, westus, West US, WEST US, etc. El valor no distingue mayúsculas de minúsculas. Si utiliza el formato de varias palabras para especificar la ubicación, escriba el valor entre comillas; por ejemplo, `--location "West US"`.
 >
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>Obtención de la cadena de conexión del centro de IoT

@@ -371,11 +371,23 @@
         - name: Notification Hubs
           href: functions-bindings-notification-hubs.md
         - name: Queue Storage
-          href: functions-bindings-storage-queue.md
+          items:
+            - name: Información general
+              href: functions-bindings-storage-queue.md
+            - name: Desencadenador
+              href: functions-bindings-storage-queue-trigger.md
+            - name: Output
+              href: functions-bindings-storage-queue-output.md
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Azure Service Bus
-          href: functions-bindings-service-bus.md
+          items:
+            - name: Información general
+              href: functions-bindings-service-bus.md
+            - name: Desencadenador
+              href: functions-bindings-service-bus-trigger.md
+            - name: Output
+              href: functions-bindings-service-bus-output.md
         - name: Servicio SignalR
           href: functions-bindings-signalr-service.md
         - name: Almacenamiento de tablas

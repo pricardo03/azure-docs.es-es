@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 82d64895f4bf2ef6eb1fdb248f470f981d1cb426
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c9b449b65a8f8def9dc28a668cd9ee3671124cb0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698176"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484509"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Descripción de las experiencias de consentimiento de la aplicación de Azure AD
 
@@ -29,7 +29,7 @@ Aprenda más acerca de la experiencia del usuario para el consentimiento de la a
 
 El consentimiento es el proceso por el cual un usuario concede autorización para que una aplicación acceda a recursos protegidos en su nombre. Se puede solicitar el consentimiento a un administrador o usuario para que permita el acceso a los datos de la organización o de personas.
 
-La experiencia real del usuario para otorgar el consentimiento variará en función de las directivas establecidas en el inquilino del usuario, el ámbito de autoridad del usuario (o su rol) y el tipo de [permisos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-permissions) que solicita la aplicación cliente. Esto significa que los desarrolladores de aplicaciones y los administradores de inquilinos tienen cierto control sobre la experiencia de consentimiento. Los administradores tienen la flexibilidad de configurar y deshabilitar las directivas en una aplicación o inquilino para controlar la experiencia de consentimiento en su inquilino. Los desarrolladores de aplicaciones pueden dictar qué tipos de permiso se solicitan y si quieren guiar a los usuarios a través del flujo de consentimiento del usuario o el flujo de consentimiento del administrador.
+La experiencia real del usuario para otorgar el consentimiento variará en función de las directivas establecidas en el inquilino del usuario, el ámbito de autoridad del usuario (o su rol) y el tipo de [permisos](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) que solicita la aplicación cliente. Esto significa que los desarrolladores de aplicaciones y los administradores de inquilinos tienen cierto control sobre la experiencia de consentimiento. Los administradores tienen la flexibilidad de configurar y deshabilitar las directivas en una aplicación o inquilino para controlar la experiencia de consentimiento en su inquilino. Los desarrolladores de aplicaciones pueden dictar qué tipos de permiso se solicitan y si quieren guiar a los usuarios a través del flujo de consentimiento del usuario o el flujo de consentimiento del administrador.
 
 - El **flujo de consentimiento del usuario** es cuando un desarrollador de aplicaciones dirige a los usuarios al punto de conexión de autorización con la intención de registrar el consentimiento solo para el usuario actual.
 - El **flujo de consentimiento del administrador** es cuando un desarrollador de aplicaciones dirige a los usuarios al punto de conexión de consentimiento del administrador con la intención de registrar el consentimiento para todo el inquilino. Para asegurarse de que el flujo de consentimiento del administrador funcione correctamente, los desarrolladores de aplicaciones deben enumerar todos los permisos en la propiedad `RequiredResourceAccess` en el manifiesto de aplicación. Para más información, consulte [Manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).

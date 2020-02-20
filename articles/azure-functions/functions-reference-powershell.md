@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974247"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485138"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -73,13 +73,13 @@ El parámetro `TriggerMetadata` se usa para proporcionar información adicional 
 $TriggerMetadata.sys
 ```
 
-| Propiedad   | DESCRIPCIÓN                                     | Tipo     |
+| Propiedad   | Descripción                                     | Tipo     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Cuándo se desencadenó la función (en formato UTC)        | DateTime |
 | MethodName | Nombre de la función desencadenada     | string   |
 | RandGuid   | GUID único para esta ejecución de la función | string   |
 
-Cada tipo de desencadenador tiene un conjunto diferente de metadatos. Por ejemplo, `$TriggerMetadata` para `QueueTrigger` contiene `InsertionTime`, `Id` y `DequeueCount`, entre otras cosas. Para más información sobre los metadatos del desencadenador de cola, vaya a la [documentación oficial de los desencadenadores de cola](functions-bindings-storage-queue.md#trigger---message-metadata). Consulte la documentación sobre los [desencadenadores](functions-triggers-bindings.md) con los que está trabajando para ver lo que está incluido en los metadatos de desencadenador.
+Cada tipo de desencadenador tiene un conjunto diferente de metadatos. Por ejemplo, `$TriggerMetadata` para `QueueTrigger` contiene `InsertionTime`, `Id` y `DequeueCount`, entre otras cosas. Para más información sobre los metadatos del desencadenador de cola, vaya a la [documentación oficial de los desencadenadores de cola](functions-bindings-storage-queue-trigger.md#message-metadata). Consulte la documentación sobre los [desencadenadores](functions-triggers-bindings.md) con los que está trabajando para ver lo que está incluido en los metadatos de desencadenador.
 
 ## <a name="bindings"></a>Enlaces
 
@@ -125,9 +125,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Los siguientes son parámetros válidos para llamar a `Push-OutputBinding`:
 
-| NOMBRE | Tipo | Posición | DESCRIPCIÓN |
+| Nombre | Tipo | Posición | Descripción |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadena | 1 | Nombre del enlace de salida que quiere establecer. |
+| **`-Name`** | String | 1 | Nombre del enlace de salida que quiere establecer. |
 | **`-Value`** | Object | 2 | Valor del enlace de salida que desea establecer, aceptado desde la canalización ByValue. |
 | **`-Clobber`** | SwitchParameter | con nombre | (Opcional) Cuando se especifica, se fuerza el establecimiento del valor para un enlace de salida especificado. | 
 
@@ -175,7 +175,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>Ejemplo de Push-OutputBinding: Enlace de salida de cola
 
-`Push-OutputBinding` se usa para enviar datos a los enlaces de salida como [enlace de salida de Azure Queue Storage](functions-bindings-storage-queue.md#output). En el siguiente ejemplo, el mensaje que se escribe en la cola tiene un valor de "output #1":
+`Push-OutputBinding` se usa para enviar datos a los enlaces de salida como [enlace de salida de Azure Queue Storage](functions-bindings-storage-queue-output.md). En el siguiente ejemplo, el mensaje que se escribe en la cola tiene un valor de "output #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -294,7 +294,7 @@ Los desencadenadores HTTP y de webhook trigger y los enlaces de salida HTTP usan
 
 El objeto de solicitud que se pasa al script es del tipo `HttpRequestContext`, con las siguientes propiedades:
 
-| Propiedad  | DESCRIPCIÓN                                                    | Tipo                      |
+| Propiedad  | Descripción                                                    | Tipo                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Objeto que contiene el cuerpo de la solicitud. `Body` se serializa al mejor tipo en función de los datos. Por ejemplo, si los datos son JSON, se pasa como tabla hash. Si los datos están una cadena, se pasan en forma de cadena. | object |
 | **`Headers`** | Diccionario que contiene los encabezados de la solicitud.                | Diccionario<cadena,cadena><sup>*</sup> |
@@ -309,7 +309,7 @@ El objeto de solicitud que se pasa al script es del tipo `HttpRequestContext`, c
 
 El objeto de respuesta que debe enviar de vuelta es de tipo `HttpResponseContext`, que tiene las siguientes propiedades:
 
-| Propiedad      | DESCRIPCIÓN                                                 | Tipo                      |
+| Propiedad      | Descripción                                                 | Tipo                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Objeto que contiene el cuerpo de la respuesta.           | object                    |
 | **`ContentType`** | Una mano corta para establecer el tipo de contenido para la respuesta. | string                    |
@@ -420,7 +420,7 @@ Al actualizar el archivo requirements.psd1, los módulos actualizados se instala
 
 La configuración de la aplicación siguiente se puede usar para cambiar cómo se descargar e instalan las dependencias administradas. La actualización de la aplicación se inicia dentro de `MDMaxBackgroundUpgradePeriod` y el proceso de actualización se completa aproximadamente dentro del período `MDNewSnapshotCheckPeriod`.
 
-| Configuración de la aplicación de funciones              | Valor predeterminado             | DESCRIPCIÓN                                         |
+| Configuración de la aplicación de funciones              | Valor predeterminado             | Descripción                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 días)     | Cada proceso de trabajo de PowerShell inicia la comprobación de las actualizaciones de módulo en la Galería de PowerShell en el inicio del proceso y, después, cada `MDMaxBackgroundUpgradePeriod`. Cuando hay disponible una nueva versión de módulo en la Galería de PowerShell, se instala en el sistema de archivos y se pone a disposición de los trabajadores de PowerShell. Si se reduce este valor, la aplicación de funciones obtiene versiones más recientes de los módulos, pero también aumenta el uso de recursos de la aplicación (E/S de red, CPU, almacenamiento). Al aumentar este valor, se reduce el uso de recursos de la aplicación, pero también se puede retrasar la entrega de nuevas versiones de módulos a la aplicación. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hora)       | Una vez instaladas las nuevas versiones del módulo en el sistema de archivos, se debe reiniciar cada proceso de trabajo de PowerShell. Reiniciar los trabajos de PowerShell afecta la disponibilidad de la aplicación, ya que puede interrumpir la ejecución de la función actual. Hasta que se reinicien todos los procesos de trabajo de PowerShell, las invocaciones de función pueden usar las versiones de módulos anteriores o nuevas. El reinicio de todos los trabajos de PowerShell se completa dentro del período `MDNewSnapshotCheckPeriod`. Si se aumenta este valor, se disminuye la frecuencia de las interrupciones, pero también puede aumentar el período de tiempo en que las invocaciones de función usen las versiones de módulos anteriores o nuevas de forma no determinista. |

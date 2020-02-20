@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo instalar y usar Istio para crear u
 author: paulbouwer
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 85ef34f8644d95f6cfd2c7262bfe4bbc0683547f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 15b73380269c568977b524a63ca709e352485433
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561745"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485223"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalación y uso de Istio en Azure Kubernetes Service (AKS)
 
@@ -99,7 +99,6 @@ El método de instalación de [Helm][helm] para Istio dejará de usarse en el fu
 
 > [!CAUTION]
 > Las características [SDS (servicio de detección de secretos)][istio-feature-sds] y [CNI][istio-feature-cni] de Istio se encuentran actualmente en fase [alfa][istio-feature-stages], por lo que debe considerarse su habilitación. Además, la función de Kubernetes [Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] (un requisito de SDS) no está habilitada en las versiones actuales de AKS.
-
 Cree un archivo llamado `istio.aks.yaml` con el siguiente contenido. Este archivo contendrá los detalles de [especificación de plano de control de Istio][istio-control-plane] para la configuración de Istio.
 
 ```yaml
