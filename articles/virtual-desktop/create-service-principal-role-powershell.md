@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 1141731697c9f649a4a8d4052cd550605049b52e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1e26af6c4bf86cfd412df7435379e610ffd69e85
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606948"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367420"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Crear una asignación de roles en Windows Virtual Desktop.
 > * Iniciar sesión en Windows Virtual Desktop con la entidad de servicio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder crear entidades de servicio y asignaciones de roles, necesita hacer tres cosas:
 
@@ -38,7 +38,7 @@ Para poder crear entidades de servicio y asignaciones de roles, necesita hacer t
     Install-Module AzureAD
     ```
 
-2. [Descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
+2. [Descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
 
 3. Seguir todas las instrucciones de este artículo en la misma sesión de PowerShell. Es posible que el proceso no funcione si interrumpe la sesión de PowerShell al cerrar la ventana y volver a abrirla más adelante.
 
@@ -80,7 +80,7 @@ Estas son las tres credenciales que debe anotar y los cmdlets que necesita para 
 
 A continuación debe crear una asignación de roles para que la entidad de servicio pueda iniciar sesión en Windows Virtual Desktop. Asegúrese de que iniciar sesión con una cuenta que tenga permisos para crear la asignación de roles.
 
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
+En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell.
 
 Ejecute los siguientes cmdlets de PowerShell para conectarse a Windows Virtual Desktop y mostrar los inquilinos.
 

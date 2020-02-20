@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-ms.openlocfilehash: b5fa5fc13c8ce0c98c04d2451f3a50e89b986c16
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8c062c1ce8e938ac426a10c41161eb7e28f3dcba
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676444"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368757"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configuración de alertas de servicio
 
@@ -25,11 +25,11 @@ En este tutorial, aprenderá a:
 
 Para más información sobre Azure Service Health, consulte la [documentación sobre el estado de Azure](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- [Tutorial: Creación de un inquilino en Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
-- [Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
-- [Tutorial: Creación de un grupo host con Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
+- [Tutorial: Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- [Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell](create-service-principal-role-powershell.md)
+- [Tutorial: Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 
 ## <a name="create-service-alerts"></a>Creación de alertas de servicio
 
@@ -48,7 +48,7 @@ Se recomienda crear alertas de servicio para los tipos de eventos de estado sigu
 
 Para configurar las alertas de servicio:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Service Health**.
 3. Use las instrucciones que aparecen en [Creación de alertas del registro de actividad en notificaciones del servicio](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) para configurar las alertas y las notificaciones.
 

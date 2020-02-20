@@ -2,22 +2,18 @@
 title: Cancelación de su suscripción de Azure | Microsoft Docs
 description: Describe cómo cancelar la suscripción de Azure, como la suscripción a la evaluación gratuita
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
-ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: e4ce97b69250d8af4c94e8eed8df9c9497e0bb46
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 738eb860857d15f920a7552629c7d83ae6e2c3f3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75985992"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199830"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelación de su suscripción de Azure
 

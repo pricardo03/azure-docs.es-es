@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de un conjunto de escalado de máquinas virtuales de
 description: Aprenda a usar Terraform para configurar y crear la versión de un conjunto de escalado de máquinas virtuales de Azure.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e445d5e6ae4b7fc4528c6d61ee2bc86870827b1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369480"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472237"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales de Azure mediante Terraform
 
@@ -26,11 +26,11 @@ En este tutorial, aprenderá a usar [Azure Cloud Shell](/azure/cloud-shell/overv
 > [!NOTE]
 > La última versión de los archivos de configuración de Terraform usados en este artículo se encuentran en el [repositorio de Awesome Terraform en GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
-- **Instalación de Terraform**: siga las instrucciones del artículo [Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- **Instalación de Terraform**: siga las instrucciones del artículo [Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure](terraform-install-configure.md).
 
 - **Creación de un par de claves SSH**: Para más información, consulte [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 

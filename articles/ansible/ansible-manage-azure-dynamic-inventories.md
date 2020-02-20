@@ -4,12 +4,12 @@ description: Más información acerca del uso de Ansible para administrar sus in
 keywords: ansible, azure, devops, bash, cloudshell, inventario dinámico
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d2ebf202cfc9f94b28fc7a512e1fea452401aec6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442785"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193606"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutorial: Configuración de inventarios dinámicos de los recursos de Azure con Ansible
 
@@ -24,7 +24,7 @@ Ansible puede utilizarse para extraer información de inventario de varios oríg
 > * Instalar Nginx en las máquinas virtuales etiquetadas.
 > * Configurar un inventario dinámico que incluya los recursos de Azure configurados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -47,7 +47,7 @@ Ansible puede utilizarse para extraer información de inventario de varios oríg
 
 1. Cree dos máquinas virtuales Linux en Azure mediante una de las técnicas siguientes:
 
-    - **Guión de procedimientos de Ansible**: el artículo [Creación de una máquina virtual básica en Azure con Ansible](/azure/virtual-machines/linux/ansible-create-vm) explica cómo crear una máquina virtual a partir de un guión de procedimientos de Ansible. Si usa un guión de procedimientos para definir una o las dos máquinas virtuales, asegúrese de que se utiliza la conexión SSH en lugar de una contraseña.
+    - **Guión de procedimientos de Ansible**: el artículo [Creación de una máquina virtual básica en Azure con Ansible](./ansible-create-vm.md) explica cómo crear una máquina virtual a partir de un guión de procedimientos de Ansible. Si usa un guión de procedimientos para definir una o las dos máquinas virtuales, asegúrese de que se utiliza la conexión SSH en lugar de una contraseña.
 
     - **CLI de Azure**: Use cada uno de los siguientes comandos en Cloud Shell para crear las dos máquinas virtuales:
 
@@ -316,4 +316,4 @@ En esta sección se muestra una técnica para probar que Nginx está instalado e
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"] 
-> [Inicio rápido: Configuración de máquinas virtuales Linux en Azure con Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Inicio rápido: Configuración de máquinas virtuales Linux en Azure con Ansible](./ansible-create-vm.md)

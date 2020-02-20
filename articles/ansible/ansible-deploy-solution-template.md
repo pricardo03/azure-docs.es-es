@@ -4,12 +4,12 @@ description: En este inicio rápido, aprenderá a implementar la plantilla de so
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: ebd01411ff27b0e95be21ef147098a90b6f62742
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: cc3a6c1f0ef36b51b62e6aa58f317aee13149589
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156332"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193793"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Inicio rápido: Implementación de la plantilla de solución de Ansible para Azure en CentOS
 
@@ -19,7 +19,7 @@ La plantilla de solución de Ansible para Azure está diseñada para configurar 
 - **Interfaz de la línea de comandos (CLI) de Azure 2.0**: la [CLI de Azure 2.0](/cli/azure/?view=azure-cli-latest) es una experiencia de línea de comandos multiplataforma de Microsoft para administrar los recursos de Azure. 
 - **Identidades administradas de recursos de Azure**: la característica [Identidades administradas de recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview) aborda la cuestión de mantener seguras las credenciales de las aplicaciones en la nube.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
@@ -85,4 +85,4 @@ La plantilla de solución de Ansible para Azure está diseñada para configurar 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"] 
-> [Inicio rápido: Configuración de una máquina virtual Linux en Azure con Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Inicio rápido: Configuración de una máquina virtual Linux en Azure con Ansible](./ansible-create-vm.md)

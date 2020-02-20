@@ -3,21 +3,18 @@ title: Visualización y descarga de la factura de Microsoft Azure
 description: Describe cómo ver y descargar su factura de Microsoft Azure.
 keywords: factura, facturación, descarga de factura, factura de Azure, uso de Azure
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 691d27acebf238e84265870e8c01976bfc2412b2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984376"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200272"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualización y descarga de la factura de Microsoft Azure
 
@@ -87,7 +84,7 @@ Puede optar por no recibir la factura por correo electrónico; para ello, siga l
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obtención de las facturas del contrato de cliente de Microsoft por correo electrónico
 
-Si tiene una cuenta de facturación del Contrato de cliente de Microsoft, puede optar por recibir la factura por correo electrónico. Todos los usuarios con un rol de propietario, colaborador, lector o administrador de facturas de un perfil de facturación recibirán su factura por correo electrónico. 
+Si tiene una cuenta de facturación del Contrato de cliente de Microsoft, puede optar por recibir la factura por correo electrónico. Todos los usuarios con un rol de propietario, colaborador, lector o administrador de facturas de un perfil de facturación recibirán su factura por correo electrónico.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -109,11 +106,11 @@ Si tiene una cuenta de facturación del Contrato de cliente de Microsoft, puede 
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Dejar de recibir las facturas del contrato de cliente de Microsoft por correo electrónico
 
-Puede optar por no recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **No participar**. Todos los usuarios con un rol de propietario, colaborador, lector o administrador de facturas dejarán de recibir la factura por correo electrónico. 
+Puede optar por no recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **No participar**. Todos los usuarios con un rol de propietario, colaborador, lector o administrador de facturas dejarán de recibir la factura por correo electrónico.
 
 ## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Concesión de acceso a otros usuarios a las facturas del Contrato de cliente de Microsoft
 
-Puede conceder acceso a otros usuarios para ver, descargar y pagar facturas si les asigna el rol de administrador de facturas para un perfil de facturación. Si ha optado por recibir la factura por correo electrónico, estos usuarios también recibirán las facturas en el correo electrónico. 
+Puede conceder acceso a otros usuarios para ver, descargar y pagar facturas si les asigna el rol de administrador de facturas para un perfil de facturación. Si ha optado por recibir la factura por correo electrónico, estos usuarios también recibirán las facturas en el correo electrónico.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 

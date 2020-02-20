@@ -2,21 +2,18 @@
 title: Descripción del uso y los cargos detallados | Microsoft Docs
 description: Aprenda a leer y comprender el uso y los cargos detallados
 author: bandersmsft
-manager: micflan
+ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/24/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e45ef26f3d0a4b968b601e70658c5f3680492682
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76290145"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199031"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -26,9 +23,9 @@ En la tabla siguiente se cubren los cargos que se incluyen para cada tipo de cue
 
 Tipo de cuenta | Uso de Azure | Uso de Marketplace | Compras | Reembolsos
 --- | --- | --- | --- | ---
-Contrato Enterprise (EA) | Sí | Sí | Sí | No
+Contrato Enterprise (EA) | Sí | Sí | Sí | Sin
 Contrato de cliente de Microsoft (MCA) | Sí | Sí | Sí | Sí
-Pay-as-you-go (PAYG) | Sí | Sí | No | No
+Pay-as-you-go (PAYG) | Sí | Sí | Sin | Sin
 
 Para más información sobre los pedidos de Marketplace (también conocidos como servicios externos), consulte [Descripción de los gastos de servicios externos de Azure](understand-azure-marketplace-charges.md).
 

@@ -1,24 +1,17 @@
 ---
 title: Consulta del uso de recursos de los servicios de Azure con la API REST | Microsoft Docs
 description: Aprenda a utilizar las API REST de Azure para consultar el uso de recursos por parte de los servicios de Azure.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: eb444f090c1b2047e3d71c1b2ec52699a61bd880
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f421ddc7cd509527053b099c7e4e538ab84b814e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984832"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200578"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Consulta del uso de recursos de Azure con la API REST
 
@@ -41,7 +34,7 @@ Authorization: Bearer
 
 El parámetro `{subscriptionGuid}` es obligatorio y debe contener un identificador de suscripción que pueda leerse con las credenciales proporcionadas en el token de la API. `{reportName}`
 
-Los siguientes encabezados son obligatorios: 
+Los siguientes encabezados son obligatorios:
 
 |Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
@@ -93,7 +86,7 @@ Tenga en cuenta que
 
 ## <a name="filtering-reports"></a>Filtrado de informes
 
-Cuando se crea un informe, la sección `filter` y `dimensions` del cuerpo de la solicitud permiten concentrarse en los costos de ciertos tipos de recursos. En el cuerpo de la solicitud anterior, se muestra cómo se puede filtrar por todos los recursos de una región. 
+Cuando se crea un informe, la sección `filter` y `dimensions` del cuerpo de la solicitud permiten concentrarse en los costos de ciertos tipos de recursos. En el cuerpo de la solicitud anterior, se muestra cómo se puede filtrar por todos los recursos de una región.
 
 ### <a name="get-all-compute-usage"></a>Consulta de toda la información sobre el uso de procesos
 
@@ -105,9 +98,9 @@ Utilice la dimensión `ResourceType` para crear informes sobre los costos de las
         "name": "ResourceType",
         "operator": "In",
         "values": [
-                "Microsoft.ClassicCompute/virtualMachines", 
+                "Microsoft.ClassicCompute/virtualMachines",
                 "Microsoft.Compute/virtualMachines"
-        ] 
+        ]
     }
 }
 ```
@@ -123,7 +116,7 @@ Utilice la dimensión `ResourceType` para crear informes sobre los costos de Azu
         "operator": "In",
         "values": [
                 "Microsoft.Sql/servers"
-        ] 
+        ]
     }
 }
 ```

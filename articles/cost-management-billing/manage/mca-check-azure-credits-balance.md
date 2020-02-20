@@ -2,21 +2,18 @@
 title: Seguimiento del saldo del crédito de Azure para el contrato de cliente de Microsoft
 description: Aprenda a comprobar el saldo del crédito de Azure para un contrato de cliente de Microsoft.
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2019
 ms.author: banders
-ms.openlocfilehash: c8ea083e216331904c9d5741b97f69b7f5a8249a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75985456"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199694"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Seguimiento del saldo del crédito de Azure para el contrato de cliente de Microsoft
 
@@ -28,7 +25,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
 ## <a name="check-your-credit-balance"></a>Comprobación del saldo del crédito
 
-### <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+### <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -99,7 +96,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
     ![Captura de pantalla de la lista de crédito para una cuenta de facturación](./media/mca-check-azure-credits-balance/mca-account-credit-list.png)
 
-### <a name="rest-apitabrest"></a>[REST API](#tab/rest)
+### <a name="rest-api"></a>[REST API](#tab/rest)
 
 Puede usar las API de [facturación de Azure](https://docs.microsoft.com/rest/api/billing/) y de [consumo](https://docs.microsoft.com/rest/api/consumption/) para obtener mediante programación el saldo del crédito de la cuenta de facturación.
 

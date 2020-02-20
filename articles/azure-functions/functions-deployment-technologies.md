@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
-ms.openlocfilehash: 7b95fae3c7b713a9f97c31578a3bb24a9062fa2e
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: bfb7d3ad6f918d91061fa226ae2dbfcd7f27852d
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029867"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210164"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -51,7 +51,7 @@ Algunos conceptos clave son fundamentales para comprender cómo funcionan las im
 Cuando se modifica cualquiera de los desencadenantes, la infraestructura de Funciones debe estar al tanto de los cambios. La sincronización se realiza automáticamente para muchas tecnologías de implementación. Aunque en algunos casos habrá que sincronizar manualmente los desencadenadores. Si al implementar las actualizaciones se hace referencia a una dirección URL del paquete externo, Git local, sincronización en la nube o FTP, hay que sincronizar manualmente los desencadenadores. Puede sincronizar los desencadenadores de una de estas tres maneras:
 
 * Reinicie la aplicación de funciones en Azure Portal.
-* Envíe una solicitud HTTP POST a `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` mediante la [clave maestra](functions-bindings-http-webhook.md#authorization-keys).
+* Envíe una solicitud HTTP POST a `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` mediante la [clave maestra](functions-bindings-http-webhook-trigger.md#authorization-keys).
 * Envíe la solicitud HTTP POST a `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Reemplace los marcadores de posición con el identificador de suscripción, el nombre del grupo de recursos y el nombre de la aplicación de funciones.
 
 ### <a name="remote-build"></a>Compilación remota

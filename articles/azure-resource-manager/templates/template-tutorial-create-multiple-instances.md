@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94a7218933935aa1a9d38a9fc420bb8d3f669492
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a37178f8dc8ecc3c61ca16f193e2e52c309d46
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471370"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209484"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager
 
@@ -27,7 +27,7 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -108,7 +108,7 @@ La plantilla completada tiene este aspecto:
 }
 ```
 
-Para más información sobre cómo crear varias instancias, consulte [Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager](./create-multiple-instances.md).
+Para más información sobre cómo crear varias instancias, consulte [Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager](./copy-resources.md).
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -118,14 +118,14 @@ Consulte la sección [Implementación de la plantilla](quickstart-create-templat
 
 Para mostrar las tres cuentas de almacenamiento, omita el parámetro --name:
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

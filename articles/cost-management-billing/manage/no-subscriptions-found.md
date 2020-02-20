@@ -1,27 +1,20 @@
 ---
 title: 'Error no se encontraron suscripciones: inicio de sesión de Azure Portal | Microsoft Docs'
 description: Proporciona la solución para un problema en el que se produce un error del tipo No se encontraron suscripciones al iniciar sesión en Azure Portal o en el Centro de cuentas de Azure.
-services: ''
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
+ms.reviewer: dcscontentpm
 tags: billing
-ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 1573a5d5d9b537b208b2f6d6aea29b9738ddad3e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5011f0a09e33221650cf050578db5ab1d6b0a033
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984464"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200629"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Error de inicio de sesión No se encontraron suscripciones en Azure Portal o en el Centro de cuentas de Azure
 
@@ -33,11 +26,11 @@ Cuando intenta iniciar sesión en [Azure Portal](https://portal.azure.com/) o en
 
 ## <a name="cause"></a>Causa
 
-Este problema se produce si seleccionó el directorio equivocado, o si la cuenta no tiene permisos suficientes. 
+Este problema se produce si seleccionó el directorio equivocado, o si la cuenta no tiene permisos suficientes.
 
 ## <a name="solution"></a>Solución
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Escenario 1: El mensaje de error se recibe en [Azure Portal](https://portal.azure.com)
+### <a name="scenario-1-error-message-is-received-in-the-azure-portal"></a>Escenario 1: El mensaje de error se recibe en [Azure Portal](https://portal.azure.com)
 
 Para corregir este problema:
 
@@ -46,7 +39,7 @@ Para corregir este problema:
   ![Selección del directorio en la parte superior derecha de Azure Portal](./media/no-subscriptions-found/directory-switch.png)
 * Si se ha seleccionado el directorio correcto de Azure pero sigue apareciendo el mensaje de error, [asigne el rol Propietario a la cuenta](../../role-based-access-control/role-assignments-portal.md).
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Escenario 2: El mensaje de error se recibe en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions)
+### <a name="scenario-2-error-message-is-received-in-the-azure-account-center"></a>Escenario 2: El mensaje de error se recibe en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions)
 
 Compruebe si la cuenta que ha usado es el administrador de cuentas. Para comprobar quién es el administrador de cuentas, siga estos pasos:
 

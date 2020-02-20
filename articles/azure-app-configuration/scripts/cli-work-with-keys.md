@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 366485c8c735af5689e1b2c2e63eb192218f5ce0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433575"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468191"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Uso de pares clave-valor en un almacén de Azure App Configuration
 
@@ -31,10 +31,6 @@ Este ejemplo de script crea un nuevo par clave-valor en un almacén de Azure App
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
-
-Para instalar la extensión de la CLI de Azure App Configuration primero debe ejecutar el comando siguiente:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -89,9 +85,9 @@ Este script usa los siguientes comandos para operar en pares clave-valor de un a
 
 | Get-Help | Notas |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Crea o actualiza un par clave-valor. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Enumera los pares clave-valor de un almacén de App Configuration. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Elimina un par clave-valor. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Crea o actualiza un par clave-valor. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Enumera los pares clave-valor de un almacén de App Configuration. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Elimina un par clave-valor. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

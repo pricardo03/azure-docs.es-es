@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de una plantilla base de Terraform en Azure mediante
 description: Obtenga información sobre cómo crear una plantilla base de Terraform en Azure mediante Yeoman.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: ba81d0ee797fd879fdadc3a6b25ca8f310383f61
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 82c3f5e640789547abb716b55959e1821a61e6d0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159166"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472152"
 ---
 # <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Tutorial: Creación de una plantilla base de Terraform en Azure mediante Yeoman
 
@@ -21,11 +21,11 @@ En este artículo, aprenderá a realizar las siguientes tareas:
 > * Probar el módulo de Terraform mediante un archivo de Docker.
 > * Ejecutar el módulo de Terraform de forma nativa en Azure Cloud Shell.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - **Visual Studio Code**: [descargue Visual Studio Code](https://code.visualstudio.com/download) para su plataforma.
-- **Terraform**: [Instale Terraform](/azure/virtual-machines/linux/terraform-install-configure ) para ejecutar el módulo creado por Yeoman.
+- **Terraform**: [Instale Terraform](terraform-install-configure.md) para ejecutar el módulo creado por Yeoman.
 - **Docker**: [Instale Docker](https://www.docker.com/get-started) para ejecutar el módulo creado por el generador de Yeoman.
 - **Lenguaje de programación Go**: [Instale Go](https://golang.org/) ya que los casos de prueba generados por Yeoman son código que usa el lenguaje Go.
 
@@ -204,7 +204,7 @@ Para confirmar que Docker se está ejecutando realmente, escriba `docker info`.
 
 1. Poco después, aparecerá el mensaje **PASS** (Sin errores).
 
-    ![PASS (Sin errores)](media/terraform-vscode-module-generator/ymg-pass.png)
+    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
 1. Escriba `exit` para finalizar la prueba y salir del entorno de Docker.
 

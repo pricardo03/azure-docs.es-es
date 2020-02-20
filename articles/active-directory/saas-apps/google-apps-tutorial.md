@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/14/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf148ec64ceed28577224741033258bad0e62372
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: d5ef5816759074073c57ef0f616ddea4a159956f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047969"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370351"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con G Suite
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a integrar G Suite con Azure Active Directory (Azu
 * Permitir que los usuarios inicien sesión automáticamente en G Suite con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -136,6 +136,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | `https://google.com` |
     | `https://google.com/a/<yourdomain.com>` |
 
+    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: 
+
+    | |
+    |--|
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
+
+
 1. En la sección **Configuración básica de SAML**, si desea configurar **Google Cloud Platform**, realice los pasos siguientes:
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`.
@@ -149,6 +157,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | `https://google.com` |
     | `https://google.com/a/<yourdomain.com>` |
     
+    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: 
+    
+    | |
+    |--|
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
+
     > [!NOTE]
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. G Suite no proporciona el valor de identificador de entidad/identificador en la configuración del inicio de sesión único, por lo que si desactiva la opción **domain specific issuer** (emisor de dominio específico), el valor del identificador será `google.com`. Si activa la opción **domain specific issuer** (emisor de dominio específico), la opción será `google.com/a/<yourdomainname.com>`. Para activar o desactivar la opción **domain specific issuer** (emisor de dominio específico) debe ir a la sección **Configuración del inicio de sesión único de G Suite** que se explica más adelante en el tutorial. Para más información, póngase en contacto con el [equipo de soporte de cliente de G Suite](https://www.google.com/contact/).
 
@@ -247,14 +262,18 @@ Al hacer clic en el icono de G Suite en el panel de acceso y debería iniciar s
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
 - [Configuración del aprovisionamiento de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+
 - [Prueba de G Suite con Azure AD](https://aad.portal.azure.com/)
+
 - [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Protección de G Suite con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png
