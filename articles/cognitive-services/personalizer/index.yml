@@ -12,12 +12,12 @@ metadata:
   title: Documentación de Personalizer
   titleSuffix: Azure Cognitive Services
   description: Azure Personalizer es un servicio de API basado en la nube que permite elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento en tiempo real.
-  ms.openlocfilehash: 964950c80ea0f3d4c014f5c98563193917bf4eef
-  ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+  ms.openlocfilehash: c703673ec85cadb57e2cc69d1ee1a0d023d53436
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/16/2020
-  ms.locfileid: "76122039"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77525030"
 landingContent:
 - title: Acerca de Personalizer
   linkLists:
@@ -66,7 +66,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Desarrollo de un bucle de Personalizer con Node.js
-      url: sdk-learning-loop.md?pivots=programming-language-nodejs
+      url: sdk-learning-loop.md?pivots=programming-language-javascript
     - text: Paquete de NPM
       url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
   - linkListType: get-started
