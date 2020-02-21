@@ -493,6 +493,8 @@
       href: /powershell/module/az.recoveryservices
     - name: AzureRM PowerShell
       href: /powershell/module/AzureRM.RecoveryServices
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.recoveryservices/allversions
     - name: REST
       href: /rest/api/site-recovery
 - name: Temas relacionados
@@ -508,7 +510,7 @@
     - name: Foro
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
     - name: Ruta de aprendizaje
-      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
+      href: /learn/azure/
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
     - name: Calculadora de precios

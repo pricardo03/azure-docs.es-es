@@ -431,53 +431,9 @@
           items:
             - name: Uso del espacio aislado de Apache Hadoop
               href: ./hadoop/apache-hadoop-emulator-get-started.md
+            - name: Uso de Apache Pig
+              href: use-pig.md
         - name: Desarrollar
-          items:
-            - name: Uso de MapReduce con Apache Hadoop
-              items:
-                - name: Introducción sobre MapReduce
-                  href: ./hadoop/hdinsight-use-mapreduce.md
-                - name: Uso de SSH
-                  href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
-                - name: Uso de cURL
-                  href: ./hadoop/apache-hadoop-use-mapreduce-curl.md
-                - name: Uso de Azure PowerShell
-                  href: ./hadoop/apache-hadoop-use-mapreduce-powershell.md
-                - name: Uso de SDK para .NET
-                  href: ./hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md
-                - name: Ejecución de los ejemplos de MapReduce
-                  href: ./hadoop/apache-hadoop-run-samples-linux.md
-                - name: Ejecución de programas personalizados de MapReduce en Apache Hadoop
-                  href: ./hadoop/apache-hadoop-run-custom-programs.md
-                - name: 'Desarrollo de programas de MapReduce de streaming en C#'
-                  href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
-                - name: Desarrollo de programas Java MapReduce
-                  href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
-            - name: 'Uso de Apache Hive como una herramienta de extracción, transformación y carga de datos (ETL)'
-              href: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
-            - name: 'Extracción, transformación y carga de datos a escala'
-              href: ./hadoop/apache-hadoop-etl-at-scale.md
-            - name: Crear aplicaciones .NET para HDInsight de autenticación no interactiva
-              href: ./hdinsight-create-non-interactive-authentication-dotnet-applications.md
-            - name: Análisis de macrodatos
-              items:
-                - name: Análisis del uso de Power Query
-                  href: ./hadoop/apache-hadoop-connect-excel-power-query.md
-                - name: Conexión de Power BI a Interactive Query
-                  href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
-                - name: Conexión de Power BI a Apache Hadoop
-                  href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
-                - name: Conexión de Excel a Apache Hadoop
-                  href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
-                - name: Conexión con el controlador JDBC de Apache Hive
-                  href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
-                - name: Análisis de tweets almacenados
-                  href: ./hdinsight-analyze-twitter-data-linux.md
-                - name: Generación de recomendaciones con Apache Mahout
-                  href: ./hadoop/apache-hadoop-mahout-linux-mac.md
-                - name: Análisis avanzado de HDInsight
-                  href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
-        - name: Administrar
           items:
             - name: Uso de nodos perimetrales vacíos
               href: ./hdinsight-apps-use-edge-node.md

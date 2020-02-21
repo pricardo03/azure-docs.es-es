@@ -130,10 +130,14 @@
       items:
         - name: Implementación sin contraseña
           href: howto-authentication-passwordless-deployment.md
-        - name: Claves de seguridad sin contraseñas
-          href: howto-authentication-passwordless-security-key.md
-        - name: Windows 10 sin contraseña
-          href: howto-authentication-passwordless-security-key-windows.md
+        - name: Claves de seguridad FIDO2 sin contraseñas
+          items:
+            - name: Habilitación de las claves de seguridad FIDO2 para un inquilino
+              href: howto-authentication-passwordless-security-key.md
+            - name: "Inicie sesión en dispositivos con Windows\_10"
+              href: howto-authentication-passwordless-security-key-windows.md
+            - name: Inicio de sesión único en recursos locales
+              href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Inicio de sesión telefónico sin contraseña
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello para empresas

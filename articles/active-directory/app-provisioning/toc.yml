@@ -77,7 +77,9 @@
       href: application-provisioning-configure-api.md
 - name: Referencia
   items:
-    - name: Elección de un método de aprovisionamiento
+    - name: "Compatibilidad del protocolo SCIM\_2.0"
+      href: application-provisioning-config-problem-scim-compatibility.md
+    - name: Elija un método de aprovisionamiento
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: "Aprovisionamiento de RR.\_HH. en la nube"
       items:
