@@ -1,22 +1,22 @@
 ### YamlMime:Hub
 title: Documentación de Azure Cognitive Services
 summary: Aprenda a compilar algoritmos inteligentes y compatibles en aplicaciones y sitios web, y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios.
+brand: azure
 metadata:
   title: Documentación de Azure Cognitive Services
   description: Aprenda a compilar algoritmos inteligentes y compatibles en aplicaciones y sitios web, y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios.
   ms.service: cognitive-services
   ms.topic: hub-page
-  brand: azure
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 11/04/2019
-  ms.openlocfilehash: e0fc6aaaedc5eff98017eb62187575ab9afbba59
-  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+  ms.date: 01/21/2020
+  ms.openlocfilehash: f39f2a6360363131eb346f613cf0f7a25910404a
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/14/2020
-  ms.locfileid: "75945193"
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77560769"
 highlightedContent:
   items:
   - title: ¿Qué es Cognitive Services?
@@ -71,7 +71,7 @@ conceptualContent:
     links:
     - url: ./immersive-reader/index.yml
       itemType: overview
-      text: Lector inmersivo
+      text: Lector inmersivo (versión preliminar)
     - url: ./luis/index.yml
       itemType: overview
       text: Language Understanding (LUIS)
@@ -87,7 +87,7 @@ conceptualContent:
   - title: Voz
     summary: Convierta voz en texto y texto en voz que suene natural. Traduzca de un idioma a otro y habilite el reconocimiento y la verificación del hablante.
     links:
-    - url: ./speech-service/index.md
+    - url: ./speech-service/index.yml
       itemType: overview
       text: Servicio de voz
     - url: ./speaker-recognition/home.md
