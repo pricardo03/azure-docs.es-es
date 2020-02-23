@@ -397,8 +397,6 @@
       items:
         - name: Reproducción de multimedia con los reproductores existentes
           href: media-services-playback-content-with-existing-players.md
-        - name: Reproducción multimedia con Media Player
-          href: media-services-develop-video-players.md
         - name: Otras opciones de reproducción
           items:
             - name: Aplicación Smooth Streaming de la Tienda Windows
