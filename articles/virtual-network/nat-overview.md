@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 98d77f43c990dd00dd5e5d616b2fdee44fb8a2f6
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431424"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485002"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>¿Qué es Virtual Network NAT (versión preliminar pública)?
 
@@ -199,7 +199,6 @@ Queremos saber cómo podemos mejorar el servicio. Comparta sus [comentarios sobr
 - Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.
 - No se admiten grupos de seguridad de red en la subred ni NIC para flujos de salida a puntos de conexión públicos mediante NAT.
 - El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
-- Cuando una red virtual tiene varias subredes, cada una de ellas puede tener una NAT diferente configurada.
 - NAT no puede abarcar varias redes virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
