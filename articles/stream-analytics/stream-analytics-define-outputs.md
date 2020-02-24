@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2010
-ms.openlocfilehash: 9fae39f8c03206a7a63338890101b820a585595b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/14/2020
+ms.openlocfilehash: cfd4c113391f2ead238f5288c255b599e91b7e3a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190619"
+ms.locfileid: "77201465"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -194,6 +194,8 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 
 Las [colas de Service Bus](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) ofrecen una entrega de mensajes según el modelo FIFO a uno o más consumidores simultáneos. Normalmente, los receptores reciben y procesan los mensajes en el orden temporal en el que se agregaron a la cola. Un único consumidor de mensajes recibe y procesa cada mensaje.
 
+En el [nivel de compatibilidad 1.2](stream-analytics-compatibility-level.md), Azure Stream Analytics usa el protocolo de mensajería [Advanced Message Queuing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) para escribir en colas y temas de Service Bus. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto.
+
 En la siguiente tabla se enumeran los nombres de propiedad y su descripción para crear una salida de cola.
 
 | Nombre de propiedad | Descripción |
@@ -326,7 +328,7 @@ En la tabla siguiente se resume la asistencia de la partición y el número de r
 | Azure SQL Database | Sí, debe habilitarse. | Se basa en la cláusula PARTITION BY de la consulta. | Cuando se habilita la opción para heredar particiones, se siguen las particiones de entrada para [las consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). Para obtener más información sobre cómo conseguir un mejor rendimiento de escritura al cargar datos en Azure SQL Database, consulte [Salida de Azure Stream Analytics a Azure SQL Database](stream-analytics-sql-output-perf.md). |
 | Azure Blob Storage | Sí | Use los tokens de {date} y {time} de los campos de evento del patrón de la ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA o MM-DD-AAAA. HH se usa para el formato de hora. La salida de los blobs puede particionarse con un solo atributo de evento personalizado {fieldname} o {datetime:\<especificador>}. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Sí | Sí | Varía según alineación de particiones.<br /> Cuando la clave de partición para la salida del centro de eventos está alineada equitativamente con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones en la salida del centro de eventos. Cada sistema de escritura usa la [clase EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos a la partición específica. <br /> Cuando la clave de partición para la salida del centro de eventos no está alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del paso anterior. Cada sistema de escritura usa [la clase SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) de **EventHubClient** para enviar eventos a todas las particiones de salida. |
-| Power BI | No | None | No aplicable. |
+| Power BI | Sin | None | No aplicable. |
 | Almacenamiento de tablas de Azure | Sí | Cualquier columna de resultados.  | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). |
 | Tema de Azure Service Bus | Sí | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en el tema de salida.  |
 | Cola de Azure Service Bus | Sí | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en la cola de salida. |

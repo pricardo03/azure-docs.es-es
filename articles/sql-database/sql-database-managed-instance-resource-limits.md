@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443823"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201737"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -38,8 +38,8 @@ Instancia administrada tiene características y límites de recursos que depende
 | Número máximo de almacenamiento reservado de instancia |  Uso general: 8 TB<br/>Crítico para la empresa: 1 TB | Uso general: 8 TB<br/> Crítico para la empresa: 1 TB, 2 TB o 4 TB, en función del número de núcleos |
 
 > [!IMPORTANT]
-> - El hardware de Gen4 está en proceso de eliminación gradual. Se recomienda implementar nuevas instancias administradas en el hardware de Gen5.
-> - El hardware de Gen4 en este momento solo sigue disponible en las siguientes regiones: Norte de Europa, Europa Occidental, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Centro de Canadá, India del Sur, Sudeste Asiático y Centro de Corea.
+> - El hardware de Gen4 está en proceso de eliminación gradual y ya no está disponible para las nuevas implementaciones. Todas las nuevas instancias administradas deben implementarse en el hardware de Gen5.
+> - Considere la posibilidad de [mover las instancias administradas al hardware de Gen5](sql-database-service-tiers-vcore.md) para experimentar una gama más amplia de escalabilidad de almacenamiento y núcleos virtuales, redes aceleradas, un mejor rendimiento de E/S y una latencia mínima.
 
 ### <a name="in-memory-oltp-available-space"></a>Espacio disponible de OLTP en memoria 
 
@@ -144,7 +144,7 @@ En la tabla siguiente se muestran los **límites regionales predeterminados** de
 
 \* En el planeamiento de las implementaciones, tenga en cuenta que el nivel de servicio Crítico para la empresa (BC) requiere cuatro (4) veces más capacidad de núcleo virtual que el nivel de servicio De uso general (GP). Por ejemplo: 1 núcleo virtual de GP = 1 unidad de núcleo virtual y 1 núcleo virtual de BC = 4 unidades de núcleo virtual. Para simplificar el análisis de consumo frente a los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementan instancias administradas y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
 
-\*\* En las regiones siguientes hay más límites de subred y núcleo virtual: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2.
+\*\* En las regiones siguientes hay más límites de subred y núcleo virtual: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtención de una cuota mayor para instancia administrada de SQL
 

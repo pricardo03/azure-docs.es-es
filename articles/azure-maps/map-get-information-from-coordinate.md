@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0b1ab7b2c233eb1e6e231b0ae7935b6c24363948
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1a6b3b4665e6141fb4c95508a8d8405268de6d19
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988539"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208529"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtención de información de una coordenada
 
 En este artículo se muestra cómo realizar una búsqueda de dirección inversa que muestre la dirección de una ubicación emergente donde ha hecho clic.
 
-Hay dos maneras de realizar una búsqueda de dirección inversa. Una es consultar la [Reverse Address Search API de Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) a través de un módulo de servicio. La otra forma es utilizar la [API de captura](https://fetch.spec.whatwg.org/) para realizar una solicitud a la [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para buscar una dirección. Ambas formas se describen a detalle a continuación.
+Hay dos maneras de realizar una búsqueda de dirección inversa. Una es consultar la [Reverse Address Search API de Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) a través de un módulo de servicio. La otra forma es utilizar la [API Fetch](https://fetch.spec.whatwg.org/) para realizar una solicitud a la [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para buscar una dirección. Ambas formas se describen a detalle a continuación.
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>Realización de una solicitud de búsqueda inversa a través del módulo de servicio
 
@@ -37,7 +37,7 @@ El cuarto bloque de código agrega un [agente de escucha de eventos](https://doc
 
 El quinto bloque de código configura el contenido emergente HTML para mostrar la dirección de respuesta para la posición de la coordenada donde se ha hecho clic.
 
-El cambio de cursor, un objeto Popup y el evento de clic se crean en el [agente de escucha de eventos de carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa para garantizar que el mapa se carga totalmente antes de que se recupere la información de las coordenadas.
+El cambio de cursor, el objeto emergente y el evento de hacer clic se crean en el [agente de escucha de eventos de carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa. Esta estructura de código garantiza que el mapa se cargue por completo antes de recuperar la información de coordenadas.
 
 ## <a name="make-a-reverse-search-request-via-fetch-api"></a>Realización de una solicitud de búsqueda inversa a través de la API de captura
 
@@ -52,7 +52,7 @@ El segundo bloque de código actualiza el estilo del cursor del mouse a un punte
 
 El tercer bloque de código agrega un agente de escucha de eventos para los clics del mouse. Una vez que se hace clic en el mouse, utiliza la [API de captura](https://fetch.spec.whatwg.org/) para consultar la [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para la dirección de coordenadas en la que se ha hecho clic. Para obtener una respuesta correcta, recopila la dirección de la ubicación en la que se hizo clic. Define el contenido y la posición del elemento emergente mediante la función [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la clase emergente.
 
-El cambio de cursor, un objeto emergente y el evento de clic se crean en el [agente de escucha de eventos de carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa para garantizar que el mapa se carga totalmente antes de que se recupere la información de las coordenadas.
+El cambio de cursor, el objeto emergente y el evento de hacer clic se crean en el [agente de escucha de eventos de carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa. Esta estructura de código garantiza que el mapa se cargue por completo antes de recuperar la información de coordenadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

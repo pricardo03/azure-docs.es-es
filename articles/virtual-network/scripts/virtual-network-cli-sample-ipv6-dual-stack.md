@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: configurar puntos de conexión de red virtual IPv6 (versión preliminar)'
+title: Ejemplo de script de configuración del front-end IPv6 con la CLI de Azure
 titlesuffix: Azure Virtual Network
 description: Habilitar puntos de conexión IPv6 mediante la CLI de Azure en Azure Virtual Network
 services: virtual-network
@@ -12,14 +12,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: 3df475ce89a3b1f5a1acfb20dc427fdb7a9b7d16
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0661c5231e2fce4d6a675c07be6b0ae914c99997
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248900"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201376"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar puntos de conexión IPv6 en el de script de red virtual de ejemplo (versión preliminar)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Ejemplo de script de configuración de puntos de conexión IPv6 en la red virtual (versión preliminar)
 
 En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
 
@@ -27,7 +27,7 @@ Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/bash)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para usar IPv6 para la característica Azure Virtual Network, debe configurar la suscripción solo una vez como se indica a continuación:
 
 ```azurecli

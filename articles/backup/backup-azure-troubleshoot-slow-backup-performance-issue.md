@@ -4,12 +4,12 @@ description: Le proporciona una guía para solucionar problemas que le ayudará 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 2b7b8903da0d8dd83591b260bacb496b0c253ae3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 01fff1d970a76d0d4d38c2536b41d58a4db301c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172577"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198630"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
 
@@ -25,6 +25,18 @@ Antes de empezar a solucionar problemas, se recomienda descargar e instalar el [
 También recomendamos encarecidamente que revise el artículo [P+F de servicio de Azure Backup](backup-azure-backup-faq.md) para asegurarse de que no experimenta alguno de los problemas habituales de la configuración.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Causa: Trabajo de copia de seguridad en ejecución en modo no optimizado
+
+* El agente de MARS puede ejecutar el trabajo de copia de seguridad en **modo optimizado** con el diario de cambios USN (número de secuencia actualizada) o **modo no optimizado** al comprobar los cambios en los directorios o archivos examinando todo el volumen.
+* El modo no optimizado es lento porque el agente tiene que examinar cada uno de los archivos del volumen y compararlos con los metadatos para establecer qué archivos se han modificado.
+* Para verificarlo, abra **Detalles del trabajo** desde la consola del agente de MARS y compruebe el estado para ver si indica **Transfiriendo datos (sin optimizar, puede tardar más tiempo)** como se muestra a continuación:
+
+    ![Ejecución en modo no optimizado](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+
+* Las siguientes condiciones pueden hacer que el trabajo de copia de seguridad se ejecute en modo no optimizado:
+  * La primera copia de seguridad (también conocida como "Replicación inicial") siempre se ejecutará en modo no optimizado.
+  * Si se produce un error en el trabajo de copia de seguridad anterior, el siguiente trabajo de copia de seguridad programado se ejecutará como no optimizado.
 
 <a id="cause1"></a>
 

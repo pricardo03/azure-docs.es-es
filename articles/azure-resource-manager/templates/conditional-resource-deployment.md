@@ -3,12 +3,12 @@ title: Implementación condicional con plantillas
 description: En este artículo se describe cómo realizar la implementación condicional de un recurso en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: b4ee733e81f3a923f268f33f5826387059923bcb
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122005"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207798"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Implementación condicional con plantillas de Resource Manager
 
@@ -88,4 +88,4 @@ Si implementa una plantilla con [modo completo](deployment-modes.md) y no se imp
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más recomendaciones sobre creación de platillas, consulte [Azure Resource Manager template best practices](template-best-practices.md) (Procedimientos recomendados para plantillas de Azure Resource Manager).
-* Para crear varias instancias de un recurso, consulte [Recurso, propiedad o iteración de variables en las plantillas de Azure Resource Manager](create-multiple-instances.md).
+* Para crear varias instancias de un recurso, consulte [Iteración de recursos en plantillas de Azure Resource Manager](copy-resources.md).

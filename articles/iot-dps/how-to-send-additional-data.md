@@ -1,26 +1,26 @@
 ---
-title: Transferencia de datos adicionales entre un dispositivo y Azure Device Provisioning Service
-description: En este documento se describe cómo transferir datos adicionales entre el dispositivo y Device Provisioning Service (DPS).
+title: Transferencia de la carga útil entre un dispositivo y el servicio Azure Device Provisioning
+description: En este documento se describe cómo transferir una carga útil entre el dispositivo y el servicio Device Provisioning (DPS).
 author: menchi
 ms.author: menchi
-ms.date: 10/29/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e9482f7069616d61efb98f66590ce33cfe3cf350
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3eec39e975b1e782eafe16205623c625f462a865
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974860"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209416"
 ---
-# <a name="how-to-transfer-additional-data-between-device-and-dps"></a>Transferencia de datos adicionales entre un dispositivo y DPS
+# <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Transferencia de una carga útil entre un dispositivo y DPS
 A veces, DPS necesita más datos de los dispositivos a fin de aprovisionarlos adecuadamente en la instancia correcta de IoT Hub, y el dispositivo necesita proporcionar los datos. A la inversa, DPS puede devolver datos al dispositivo para facilitar la lógica del cliente. 
 
 ## <a name="when-to-use-it"></a>Cuándo se debe usar
-Esta característica se puede usar como una mejora de la [asignación personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Por ejemplo, quiere asignar los dispositivos en función de su modelo sin la intervención de personas. En este caso, usará [asignación personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Puede configurar el dispositivo para que incluya la información del modelo como parte de la [llamada de registro del dispositivo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS pasará la información del dispositivo en el webhook de asignación personalizada. Y la función puede decidir a qué instancia de IoT Hub se dirigirá el dispositivo cuando reciba información del modelo de dispositivo. Asimismo, si el webhook quiere devolver algunos datos al dispositivo, pasará los datos como cadena en la respuesta del webhook.  
+Esta característica se puede usar como una mejora de la [asignación personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Por ejemplo, quiere asignar los dispositivos en función de su modelo sin la intervención de personas. En este caso, usará [asignación personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Puede configurar el dispositivo para que incluya la información del modelo como parte de la [llamada de registro del dispositivo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS pasará la carga útil del dispositivo en el webhook de asignación personalizada. Y la función puede decidir a qué instancia de IoT Hub se dirigirá el dispositivo cuando reciba información del modelo de dispositivo. Asimismo, si el webhook quiere devolver algunos datos al dispositivo, pasará los datos como cadena en la respuesta del webhook.  
 
-## <a name="device-sends-data-to-dps"></a>Envío de datos del dispositivo a DPS
+## <a name="device-sends-data-payload-to-dps"></a>El dispositivo envía la carga útil de datos a DPS
 Cuando su dispositivo envía una [llamada de dispositivo de registro](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) a DPS, la llamada de registro se puede mejorar para que incorpore otros campos en el cuerpo. El cuerpo será similar al siguiente: 
    ```
    { 
@@ -31,12 +31,12 @@ Cuando su dispositivo envía una [llamada de dispositivo de registro](https://do
            “storageRootKey”: “things” 
        }, 
        “interfaces”: “TODO: get how interfaces are reported by devices from PnP folks.”, 
-       “data”: “your additional data goes here. It can be nested JSON.” 
+       “payload”: “your additional data goes here. It can be nested JSON.” 
     } 
    ```
 
 ## <a name="dps-returns-data-to-the-device"></a>Devolución de datos de DPS al dispositivo
-Si el webhook de la directiva de asignación personalizada quiere devolver algunos datos al dispositivo, pasará los datos como cadena en la respuesta del webhook. El cambio está en la sección returnData siguiente. 
+Si el webhook de la directiva de asignación personalizada quiere devolver algunos datos al dispositivo, pasará los datos como cadena en la respuesta del webhook. El cambio está en la sección de carga útil más adelante. 
    ```
    { 
        "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
@@ -50,7 +50,7 @@ Si el webhook de la directiva de asignación personalizada quiere devolver algun
                     } 
                 } 
             }, 
-        "returnData": "whatever is returned by the webhook" 
+        "payload": "whatever is returned by the webhook" 
     } 
    ```
 

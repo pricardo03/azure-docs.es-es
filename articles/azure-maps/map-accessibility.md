@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e298aad6dc43f85f5b6c344eec56f5d8b37980d4
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933297"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209790"
 ---
 # <a name="building-an-accessible-application"></a>Creación de una aplicación accesible
 
@@ -61,7 +61,7 @@ Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa.
 - Con el mapa centrado, use la tecla Mayús y las teclas de dirección arriba o abajo. 
 - Use el control de inclinación con el mouse, la entrada táctil o las teclas de tabulación/ingreso del teclado.
 
-**Cambio del estilo de mapa** no todos los desarrolladores querrán que todos los estilos de mapa posibles estén disponibles en su aplicación. El desarrollador puede establecer y cambiar el estilo de mapa mediante programación según sea necesario. Si el desarrollador muestra el control selector de estilo de mapa, el usuario podrá cambiar el estilo de mapa mediante el mouse, la entrada táctil o el teclado mediante las teclas de tabulación/ingreso. El desarrollador puede especificar los estilos de mapa que quiere que estén disponibles en el control selector de estilo de mapa. 
+**Cambio del estilo de mapa** No todos los desarrolladores quieren que todos los estilos de mapa posibles estén disponibles en su aplicación. El desarrollador puede establecer y cambiar el estilo de mapa mediante programación. Si el desarrollador muestra el control selector de estilo del mapa, el usuario podrá cambiar el estilo del mapa mediante el mouse, la entrada táctil o el teclado mediante las teclas TAB/ENTRAR. El desarrollador puede especificar los estilos de mapa que quiere que estén disponibles en el control selector de estilo de mapa. 
 
 ## <a name="keyboard-shortcuts"></a>Accesos directos del teclado
 
@@ -94,7 +94,7 @@ Cualquier información adicional que se coloque en el mapa base debería tener l
 
 ## <a name="make-popups-keyboard-accessible"></a>Creación de elementos emergentes accesibles con el teclado
 
-A menudo se usa un marcador o un símbolo para representar una ubicación en el mapa. Normalmente, se muestra información adicional sobre la ubicación en un elemento emergente cuando el usuario interactúa con el marcador. En la mayoría de las aplicaciones, cuando un usuario hace clic o pulsa en un marcador, aparece un elemento emergente; sin embargo, esto requiere que el usuario use un mouse o una pantalla táctil. Una buena práctica es hacer que los elementos emergentes sean accesibles cuando se usa un teclado. Esta funcionalidad puede conseguirse creando un elemento emergente en cada punto de datos y agregándolo al mapa. 
+A menudo se usa un marcador o un símbolo para representar una ubicación en el mapa. Normalmente, se muestra información adicional sobre la ubicación en un elemento emergente cuando el usuario interactúa con el marcador. En la mayoría de las aplicaciones, los elementos emergentes aparecen cuando un usuario hace clic o pulsa en un marcador. Sin embargo, hacer clic y pulsar requieren que el usuario use un mouse y una pantalla táctil, respectivamente. Una buena práctica es hacer que los elementos emergentes sean accesibles cuando se usa un teclado. Esta funcionalidad puede conseguirse creando un elemento emergente en cada punto de datos y agregándolo al mapa. 
 
 En el ejemplo siguiente se cargan puntos de interés en el mapa mediante una capa de símbolos y se agrega un elemento emergente al mapa para cada punto de interés. En las propiedades de cada punto de datos se guarda una referencia de cada elemento emergente. También puede recuperarse en el caso de los marcadores; por ejemplo, al hacer clic en un marcador. Cuando está centrado en el mapa, al presionar la tecla de tabulación, el usuario podrá recorrer cada elemento emergente del mapa.
 
@@ -116,12 +116,12 @@ Estos son algunos otros consejos para que la aplicación de mapas web resulte m�
     - Limite las actualizaciones a una vez cada pocos segundos. 
     - Combine los mensajes de manera lógica. 
 - Evite usar el color como único medio para transmitir información. Use texto, iconos o patrones para complementar o reemplazar el color. Algunas consideraciones:
-    - Si usa una capa de burbujas para mostrar el valor relativo entre los puntos de datos, considere la posibilidad de escalar el radio de cada burbuja además de o como alternativa a colorearlos. 
+    - Si usa una capa de burbujas para mostrar el valor relativo entre los puntos de datos, considere la posibilidad de escalar el radio de cada burbuja, colorear la burbuja o ambas opciones. 
     - Considere la posibilidad de usar una capa de símbolos con diferentes iconos para distintas categorías de métricas, como triángulos, estrellas y cuadrados. La capa de símbolos también admite el escalado del tamaño del icono. También se puede mostrar una etiqueta de texto.
     - Si se muestran datos de línea, el ancho se puede usar para representar el peso o el tamaño. Se puede usar un patrón de matriz de guiones para representar diferentes categorías de líneas. Se puede utilizar una capa de símbolos en combinación con una línea para superponer iconos a lo largo de la línea. El uso de un icono de flecha resulta útil para mostrar el flujo o la dirección de la línea.
     - Si se muestran datos de polígono, se puede usar un patrón, por ejemplo, franjas, como alternativa al color. 
 - Algunas visualizaciones, como los mapas térmicos, las capas de iconos y las capas de imágenes, no son accesibles para los usuarios con discapacidades visuales. Algunas consideraciones:
-    - Haga que el lector de pantalla describa lo que la capa muestra cuando se agrega al mapa. Por ejemplo, si se muestra una capa de mosaico de radar meteorológico, haga que el lector de pantalla indique algo como "datos de radar meteorológico superpuestos en el mapa".
+    - Haga que el lector de pantalla describa lo que la capa muestra cuando se agrega al mapa. Por ejemplo, si se muestra una capa de mosaico de radar meteorológico, haga que el lector de pantalla indique "Datos de radar meteorológico superpuestos en el mapa".
 - Limite la cantidad de funciones que requiere un desplazamiento del mouse. Los usuarios que usen un teclado o un dispositivo táctil para interactuar con la aplicación no podrán acceder a estar funcionalidades. Tenga en cuenta que sigue siendo recomendable aplicar el mismo estilo que utiliza el mouse al situarse sobre contenido interactivo, como iconos, vínculos y botones en los que se puede hacer clic.
 - Intente navegar por la aplicación con el teclado. Asegúrese de que el orden de tabulación es lógico.
 - Si va a crear métodos abreviados de teclado, procure limitarlo a dos teclas o menos. 

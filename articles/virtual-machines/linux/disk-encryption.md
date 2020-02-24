@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 28c971993721744245a5d3d57f1f5b68df58b492
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1d203fd0c6777eee96311f45f4d5dfb8728ff431
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841189"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210608"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Cifrado del lado servidor de Azure Managed Disks
 
@@ -38,7 +38,7 @@ Puede optar por administrar el cifrado en el nivel de cada disco administrado, c
 
 En el siguiente diagrama se muestra cómo los discos administrados utilizan Azure Active Directory y Azure Key Vault para realizar solicitudes con la clave administrada por el cliente:
 
-![Flujo de trabajo de claves administradas por el cliente de discos administrados](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Flujo de trabajo de discos administrados y claves administradas por el cliente. Un administrador crea una instancia de Azure Key Vault, después crea un conjunto de cifrado de discos y configura el conjunto de cifrado de discos. El conjunto está asociado a una VM que permite que el disco haga uso de Azure AD para autenticarse.](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 En la lista siguiente se explica el diagrama más detalladamente:

@@ -1,18 +1,18 @@
 ---
 Description: Para comprender las consideraciones fiscales que debe tener en cuenta para la selección de precios, las implicaciones en el pago y la responsabilidad fiscal, consulte los países o regiones de distribución en las tablas siguientes.
 title: Información sobre impuestos | Azure Marketplace
-ms.date: 12/10/2019
+ms.date: 2/13/2020
 ms.topic: article
 author: MaggiePucciEvans
 manager: evansma
 ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: a5d11216b43a1361e4f8d108ce6d289e67e31e0a
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: cd580c43aa25dd4cc33ceb7138785a94a021b771
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933565"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210455"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Información sobre impuestos para los publicadores de Marketplace comercial
 
@@ -22,7 +22,7 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 > El ajuste de expansión del comercio puede tener implicaciones en el pago de un conjunto limitado de países o regiones. Para obtener más información sobre el ajuste de expansión del comercio y los mercados en los que se aplica, consulte el [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) y la lista de países o regiones afectados.
 
 > [!IMPORTANT]
-> La responsabilidad fiscal de los países y regiones del revendedor y las circunstancias (como se describe [a continuación](#reseller-countriesregions)) se tratan en el anexo C del [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560), sin prejuicio de la información de la tabla siguiente.
+> La responsabilidad fiscal de los países y regiones del revendedor y las circunstancias (como se describe [a continuación](#reseller-countriesregions)) se tratan en el anexo A del [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560), sin prejuicio de la información de la tabla siguiente.
 > Tenga en cuenta que la columna **Implicación en el pago** solo se aplica a los publicadores. Las tasas de impuestos que se indican en esta columna están sujetas a cambios en cualquier momento, y Microsoft no puede garantizar que las tasas de las tablas siguientes siempre sean precisas.
 
 

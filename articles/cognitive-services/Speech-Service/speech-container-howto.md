@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086999"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367757"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores del servicio de voz (versión preliminar)
 
@@ -261,7 +261,16 @@ Este comando:
 
 # <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
-El contenedor *Conversión de voz a texto personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-speech-train-model.md) con el [portal de Voz personalizada](https://speech.microsoft.com/customspeech). El **identificador de modelo** de voz personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Voz personalizada. En el portal de Voz personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
+El contenedor *Conversión de voz a texto personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-speech-train-model.md) con el [portal de Voz personalizada](https://speech.microsoft.com/customspeech).
+
+> [!IMPORTANT]
+> El modelo de Voz personalizada debe entrenarse desde una de las siguientes versiones del modelo:
+> * **20181201 (v3.3 unificada)**
+> * **20190520 (v4.14 unificada)**
+> * **20190701 (v4.17 unificada)**<br>
+> ![Modelo de contenedor de entrenamiento de Voz personalizada](media/custom-speech/custom-speech-train-model-container-scoped.png)
+
+El **identificador de modelo** de voz personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Voz personalizada. En el portal de Voz personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
 <br>
 
 ![Página de entrenamiento de Voz personalizada](media/custom-speech/custom-speech-model-training.png)

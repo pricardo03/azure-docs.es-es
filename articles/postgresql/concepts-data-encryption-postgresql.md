@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 125f92b64ee745a595d15ccacafb6a62414955a9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157540"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198707"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con la clave administrada por el cliente
 

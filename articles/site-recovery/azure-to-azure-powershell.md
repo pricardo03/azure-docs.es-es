@@ -7,16 +7,16 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 254f64c6405fb214bfbc61b3e45747d9e119565d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 583511194fb100add1d5fc4ea9c06a869cf652b5
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509332"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212282"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configuración de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell
 
-En este artículo, aprenderá a configurar y probar la recuperación ante desastres en máquinas virtuales de Azure con Azure PowerShell.
+En este artículo, aprenderá a configurar y probar la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell.
 
 Aprenderá a:
 
@@ -28,7 +28,7 @@ Aprenderá a:
 > - Cree cuentas de almacenamiento en las que replicar máquinas virtuales.
 > - Replicar máquinas virtuales de Azure en una región de recuperación para la recuperación ante desastres
 > - Realice una conmutación por error de prueba, una validación y conmutación por error de prueba de limpieza.
-> - Conmutar por error a la región de recuperación
+> - Realice la conmutación por error a la región de recuperación.
 
 > [!NOTE]
 > Puede que no todas las funcionalidades del escenario disponibles a través del portal podrían estén disponibles a través de Azure PowerShell. Algunas de las funcionalidades del escenario que no se admiten actualmente a través de Azure PowerShell son:
@@ -36,16 +36,16 @@ Aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar:
 - Asegúrese de entender la [arquitectura y los componentes del escenario](azure-to-azure-architecture.md).
 - Revise los [requisitos de compatibilidad](azure-to-azure-support-matrix.md) de todos los componentes.
 - Tiene el módulo `Az` de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga la guía [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="log-in-to-your-microsoft-azure-subscription"></a>Inicio de sesión en la suscripción de Microsoft Azure
+## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Inicio de sesión en la suscripción de Microsoft Azure
 
-Inicie sesión en la suscripción de Azure mediante el cmdlet `Connect-AzAccount`.
+Inicie sesión en su suscripción de Azure con el cmdlet `Connect-AzAccount`.
 
 ```azurepowershell
 Connect-AzAccount
@@ -57,9 +57,9 @@ Seleccione su suscripción a Azure. Use el cmdlet `Get-AzSubscription` para obte
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-## <a name="get-details-of-the-virtual-machines-to-be-replicated"></a>Obtención de los detalles de las máquinas virtuales que se van a replicar
+## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Obtención de los detalles de la máquina virtual que se va a replicar
 
-En el ejemplo de este artículo, una máquina virtual de la región Este de EE. UU. se replicará y recuperará en la región Oeste de EE. UU. 2. La máquina virtual que se replica es una máquina virtual con un disco del sistema operativo y un único disco de datos. El nombre de la máquina virtual usada en el ejemplo es `AzureDemoVM`.
+En este artículo, una máquina virtual de la región Este de EE. UU. se replicará y recuperará en la región Oeste de EE. UU. 2. La máquina virtual que se replica es un disco del sistema operativo y un único disco de datos. El nombre de la máquina virtual usada en el ejemplo es `AzureDemoVM`.
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -68,7 +68,7 @@ $VM = Get-AzVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 Write-Output $VM
 ```
 
-```
+```Output
 ResourceGroupName  : A2AdemoRG
 Id                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/A2AdemoRG/providers/Microsoft.Compute/virtualMachines/AzureDemoVM
 VmId               : 1b864902-c7ea-499a-ad0f-65da2930b81b
@@ -100,14 +100,14 @@ Cree el grupo de recursos en el que se creará el almacén de Recovery Services.
 > * El grupo de recursos del almacén de Recovery Services, y las máquinas virtuales que se van a proteger, deben estar en diferentes ubicaciones de Azure.
 > * El almacén de Recovery Services, y el grupo de recursos al que pertenece, pueden estar en la misma ubicación de Azure.
 
-En el ejemplo de este artículo, la máquina virtual que se protege se encuentra en la región Este de EE. UU. La región de recuperación seleccionada para la recuperación ante desastres es la región Oeste de EE. UU. 2. El almacén de Recovery Services, y el grupo de recursos del almacén, están en la región de recuperación (Oeste de EE. UU. 2).
+En el ejemplo de este artículo, la máquina virtual que se protege se encuentra en la región Este de EE. UU. La región de recuperación seleccionada para la recuperación ante desastres es la región Oeste de EE. UU. 2. El almacén de Recovery Services y el grupo de recursos del almacén están en la región de recuperación, Oeste de EE. UU. 2.
 
 ```azurepowershell
 #Create a resource group for the recovery services vault in the recovery Azure region
 New-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 ```
 
-```
+```Output
 ResourceGroupName : a2ademorecoveryrg
 Location          : westus2
 ProvisioningState : Succeeded
@@ -115,7 +115,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Cree un almacén de Recovery Services. En el ejemplo siguiente se crea un almacén de Recovery Services llamado `a2aDemoRecoveryVault` en la región Oeste de EE. UU. 2.
+Cree un almacén de Recovery Services. En este ejemplo, se crea un almacén de Recovery Services denominado `a2aDemoRecoveryVault` en la región Oeste de EE. UU. 2.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -124,7 +124,7 @@ $vault = New-AzRecoveryServicesVault -Name "a2aDemoRecoveryVault" -ResourceGroup
 Write-Output $vault
 ```
 
-```
+```Output
 Name              : a2aDemoRecoveryVault
 ID                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg/providers/Microsoft.RecoveryServices/vaults/a2aDemoRecoveryVault
 Type              : Microsoft.RecoveryServices/vaults
@@ -136,14 +136,14 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="set-the-vault-context"></a>Establecer el contexto de almacén
 
-Establezca el contexto de almacén que se usará en la sesión de PowerShell. Una vez establecido, las operaciones posteriores de Azure Site Recovery de la sesión de PowerShell se realizan en el contexto de almacén seleccionado.
+Establezca el contexto de almacén que se usará en la sesión de PowerShell. Después de que se establece el contexto del almacén, las operaciones de Azure Site Recovery en la sesión de PowerShell se realizan en el contexto de almacén seleccionado.
 
 ```azurepowershell
 #Setting the vault context.
 Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 ```
 
-```
+```Output
 ResourceName         ResourceGroupName ResourceNamespace          ResourceType
 ------------         ----------------- -----------------          -----------
 a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
@@ -170,7 +170,7 @@ El objeto de tejido en el almacén representa una región de Azure. El objeto de
 - Solamente se puede crear un objeto de tejido por región.
 - Si anteriormente ha habilitado la replicación de Site Recovery para una máquina virtual en Azure Portal, Site Recovery crea automáticamente un objeto de tejido. Si existe un objeto de tejido para una región, no puede crear uno nuevo.
 
-Antes de empezar, tenga en cuenta que las operaciones de Azure Site Recovery se ejecutan de manera asincrónica. Cuando se inicia una operación, se envía un trabajo de Azure Site Recovery y se devuelve un objeto de seguimiento de trabajo. Use el objeto de seguimiento de trabajos para obtener el estado más reciente del trabajo (`Get-AzRecoveryServicesAsrJob`) y para supervisar el estado de la operación.
+Antes de empezar, tenga claro que las operaciones de Azure Site Recovery se ejecutan de manera asincrónica. Cuando se inicia una operación, se envía un trabajo de Azure Site Recovery y se devuelve un objeto de seguimiento de trabajo. Use el objeto de seguimiento de trabajos para obtener el estado más reciente del trabajo (`Get-AzRecoveryServicesAsrJob`) y para supervisar el estado de la operación.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -193,7 +193,7 @@ Si las máquinas virtuales procedentes de varias regiones de Azure se van a prot
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Creación de un objeto de tejido de Site Recovery para representar la región de recuperación
 
-El objeto de tejido de recuperación representa la ubicación de Azure de recuperación. Las máquinas virtuales se replicarán y recuperarán (en caso de una conmutación por error) en la región de recuperación representada por el tejido de recuperación. La región de Azure de recuperación usada en este ejemplo es Oeste de EE. UU. 2
+El objeto de tejido de recuperación representa la ubicación de Azure de recuperación. Si se produce una conmutación por error, las máquinas virtuales se replicarán y recuperarán en la región de recuperación representada por el tejido de recuperación. La región de Azure de recuperación usada en este ejemplo es Oeste de EE. UU. 2
 
 ```azurepowershell
 #Create Recovery ASR fabric
@@ -289,10 +289,10 @@ $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -Protec
 
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Creación de una asignación de contenedor de protección para la conmutación por recuperación (replicación inversa después de una conmutación por error)
 
-Después de una conmutación por error, cuando esté listo para devolver la máquina virtual conmutada por error a la región de Azure original, realice la conmutación por recuperación. Para ello, la máquina virtual conmutada por error se replica a la inversa desde la región de conmutación por error a la región original. En la replicación inversa, los roles de la región original y la región de recuperación se intercambian. La región original se convierte ahora en la nueva región de recuperación y la que originalmente era la región de recuperación se convierte ahora en la región primaria. La asignación de contenedor de protección para la replicación inversa representa los roles intercambiados de las regiones original y de recuperación.
+Después de una conmutación por error, cuando esté listo para devolver la máquina virtual conmutada por error a la región de Azure original, realice una conmutación por recuperación. Para ello, la máquina virtual conmutada por error se replica a la inversa desde la región de conmutación por error a la región original. En la replicación inversa, los roles de la región original y la región de recuperación se intercambian. La región original se convierte ahora en la nueva región de recuperación y la que originalmente era la región de recuperación se convierte ahora en la región primaria. La asignación de contenedor de protección para la replicación inversa representa los roles intercambiados de las regiones original y de recuperación.
 
 ```azurepowershell
-#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy
+#Create Protection container mapping (for fail back) between the Recovery and Primary Protection Containers with the Replication policy
 $TempASRJob = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
 
 #Track Job status to check for completion
@@ -303,11 +303,13 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
+
+$WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $RecoveryProtContainer -Name "A2ARecoveryToPrimary"
 ```
 
-## <a name="create-cache-storage-accounts-and-target-storage-accounts"></a>Creación de cuentas de almacenamiento en caché y cuentas de almacenamiento de destino
+## <a name="create-cache-storage-account-and-target-storage-account"></a>Creación de una cuenta de almacenamiento en caché y una cuenta de almacenamiento de destino
 
-Una cuenta de almacenamiento en caché es una cuenta de almacenamiento estándar en la misma región de Azure que la máquina virtual que se replica. La cuenta de almacenamiento en caché se usa para almacenar temporalmente los cambios de replicación antes de que estos se muevan a la región de Azure de recuperación. Puede elegir (aunque no es necesario) especificar diferentes cuentas de almacenamiento en caché para los distintos discos de una máquina virtual.
+Una cuenta de almacenamiento en caché es una cuenta de almacenamiento estándar en la misma región de Azure que la máquina virtual que se replica. La cuenta de almacenamiento en caché se usa para almacenar temporalmente los cambios de replicación antes de que estos se muevan a la región de Azure de recuperación. Puede elegir, aunque no es necesario, especificar diferentes cuentas de almacenamiento en caché para los distintos discos de una máquina virtual.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -325,7 +327,7 @@ $WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -Res
 
 Una asignación de red asigna redes virtuales de la región primaria a las redes virtuales de la región de recuperación. La asignación de red especifica la red virtual de Azure en la región de recuperación a la que debe conmutar por error una máquina virtual de la red virtual principal. Una red virtual de Azure se puede asignar a una sola red virtual de Azure en una región de recuperación.
 
-- Cree una red virtual de Azure en la región de recuperación a la que se conmuta por error:
+- Cree una red virtual de Azure en la región de recuperación a la que se conmutará por error:
 
    ```azurepowershell
     #Create a Recovery Network in the recovery region
@@ -336,7 +338,7 @@ Una asignación de red asigna redes virtuales de la región primaria a las redes
     $WestUSRecoveryNetwork = $WestUSRecoveryVnet.Id
    ```
 
-- Recupere la red virtual principal (a la que está conectada la máquina virtual):
+- Recupere la red virtual principal. La red virtual a la que está conectada la máquina virtual:
 
    ```azurepowershell
     #Retrieve the virtual network that the virtual machine is connected to
@@ -379,7 +381,7 @@ Una asignación de red asigna redes virtuales de la región primaria a las redes
 - Cree la asignación de red para la dirección inversa (conmutación por recuperación):
 
     ```azurepowershell
-    #Create an ASR network mapping for failback between the recovery Azure virtual network and the primary Azure virtual network
+    #Create an ASR network mapping for fail back between the recovery Azure virtual network and the primary Azure virtual network
     $TempASRJob = New-AzRecoveryServicesAsrNetworkMapping -AzureToAzure -Name "A2AWusToEusNWMapping" -PrimaryFabric $RecoveryFabric -PrimaryAzureNetworkId $WestUSRecoveryNetwork -RecoveryFabric $PrimaryFabric -RecoveryAzureNetworkId $EastUSPrimaryNetwork
 
     #Track Job status to check for completion
@@ -463,7 +465,7 @@ Una vez que la operación de replicación inicial se realiza correctamente, se r
 
 El proceso de replicación comienza con la propagación inicial de una copia de los discos de replicación de la máquina virtual en la región de recuperación. Esta fase se conoce como fase de replicación inicial.
 
-Una vez completada la replicación inicial, la replicación pasa a la fase de sincronización diferencial. En este momento, la máquina virtual está protegida y puede realizarse en ella una operación de conmutación por error de prueba. El estado de replicación del elemento replicado que representa la máquina virtual pasa al estado **Protegido** una vez finalizada la replicación inicial.
+Después de completada la replicación inicial, la replicación pasa a la fase de sincronización diferencial. En este momento, la máquina virtual está protegida y puede realizarse en ella una operación de conmutación por error de prueba. El estado de replicación del elemento replicado que representa la máquina virtual pasa al estado **Protegido** una vez finalizada la replicación inicial.
 
 Para supervisar el estado y el mantenimiento de la replicación en la máquina virtual, puede obtener los detalles correspondientes al elemento protegido de la replicación.
 
@@ -477,9 +479,9 @@ FriendlyName ProtectionState ReplicationHealth
 AzureDemoVM  Protected       Normal
 ```
 
-## <a name="perform-a-test-failover-validate-and-cleanup-test-failover"></a>Realizar una conmutación por error de prueba, una validación y conmutación por error de prueba de limpieza
+## <a name="do-a-test-failover-validate-and-cleanup-test-failover"></a>Realización de una conmutación por error de prueba, una validación y conmutación por error de prueba de limpieza
 
-Una vez que la replicación de la máquina virtual ha alcanzado un estado protegido, se puede realizar una operación de conmutación por error de prueba en la máquina virtual (en el elemento protegido de replicación de la máquina virtual).
+Después de que la replicación de la máquina virtual ha alcanzado un estado protegido, se puede realizar una operación de conmutación por error de prueba en la máquina virtual (en el elemento protegido de replicación de la máquina virtual).
 
 ```azurepowershell
 #Create a separate network for test failover (not connected to my DR network)
@@ -490,7 +492,7 @@ Add-AzVirtualNetworkSubnetConfig -Name "default" -VirtualNetwork $TFOVnet -Addre
 $TFONetwork= $TFOVnet.Id
 ```
 
-Realice una conmutación por error de prueba.
+Ejecute una conmutación por error de prueba.
 
 ```azurepowershell
 $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -FriendlyName "AzureDemoVM" -ProtectionContainer $PrimaryProtContainer
@@ -504,7 +506,7 @@ Espere a que finalice la operación de conmutación por error de prueba.
 Get-AzRecoveryServicesAsrJob -Job $TFOJob
 ```
 
-```
+```Output
 Name             : 3dcb043e-3c6d-4e0e-a42e-8d4245668547
 ID               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg/providers/Microsoft.RecoveryServices/vaults/a2aDemoR
                    ecoveryVault/replicationJobs/3dcb043e-3c6d-4e0e-a42e-8d4245668547
@@ -524,7 +526,7 @@ Tasks            : {Prerequisites check for test failover, Create test virtual m
 Errors           : {}
 ```
 
-Una vez que el trabajo de conmutación por error de prueba se completa correctamente, puede conectarse a la máquina virtual conmutada por error de prueba y validar esta operación.
+Después de que el trabajo de conmutación por error de prueba se completa correctamente, puede conectarse a la máquina virtual conmutada por error de prueba y validar esta operación.
 
 Después de que la prueba ha finalizado en la máquina virtual conmutada por error de prueba, limpie la copia de prueba mediante una operación de conmutación por error de prueba de limpieza. Esta operación elimina la copia de prueba de la máquina virtual que se creó con la conmutación por error de prueba.
 
@@ -534,13 +536,13 @@ $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -Replication
 Get-AzRecoveryServicesAsrJob -Job $Job_TFOCleanup | Select State
 ```
 
-```
+```Output
 State
 -----
 Succeeded
 ```
 
-## <a name="failover-to-azure"></a>Conmutación por error a Azure
+## <a name="fail-over-to-azure"></a>Conmutación por error a Azure
 
 Conmute por error la máquina virtual a un punto de recuperación concreto.
 
@@ -551,12 +553,12 @@ $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedIt
 "{0} {1}" -f $RecoveryPoints[0].RecoveryPointType, $RecoveryPoints[-1].RecoveryPointTime
 ```
 
-```
+```Output
 CrashConsistent 4/24/2018 11:10:25 PM
 ```
 
 ```azurepowershell
-#Start the failover job
+#Start the fail over job
 $Job_Failover = Start-AzRecoveryServicesAsrUnplannedFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -Direction PrimaryToRecovery -RecoveryPoint $RecoveryPoints[-1]
 
 do {
@@ -567,11 +569,11 @@ do {
 $Job_Failover.State
 ```
 
-```
+```Output
 Succeeded
 ```
 
-Una vez conmutada por error correctamente, puede confirmar la operación de conmutación por error.
+Cuando se complete correctamente el trabajo de conmutación por error, puede confirmar la operación de conmutación por error.
 
 ```azurepowershell
 $CommitFailoverJOb = Start-AzRecoveryServicesAsrCommitFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem
@@ -579,7 +581,7 @@ $CommitFailoverJOb = Start-AzRecoveryServicesAsrCommitFailoverJob -ReplicationPr
 Get-AzRecoveryServicesAsrJob -Job $CommitFailoverJOb
 ```
 
-```
+```Output
 Name             : 58afc2b7-5cfe-4da9-83b2-6df358c6e4ff
 ID               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg/providers/Microsoft.RecoveryServices/vaults/a2aDemoR
                    ecoveryVault/replicationJobs/58afc2b7-5cfe-4da9-83b2-6df358c6e4ff
@@ -599,7 +601,7 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-## <a name="reprotect-and-failback-to-source-region"></a>Reprotección y conmutación por recuperación en una región de origen
+## <a name="reprotect-and-fail-back-to-the-source-region"></a>Reprotección y conmutación por recuperación en la región de origen
 
 Después de una conmutación por error, cuando esté listo para volver a la región original, inicie la replicación inversa del elemento protegido de replicación mediante el cmdlet `Update-AzRecoveryServicesAsrProtectionDirection`.
 
@@ -609,16 +611,16 @@ $WestUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestoragewestus" 
 ```
 
 ```azurepowershell
-#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+#Use the recovery protection container, new cache storage account in West US and the source region VM resource group
 Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
--ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+-ProtectionContainerMapping $WusToEusPCMapping -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.ResourceId
 ```
 
-Una vez que se complete la reprotección, puede iniciar la conmutación por error en dirección inversa (Oeste de EE. UU. a Este de EE. UU.) y la conmutación por recuperación en la región de origen.
+Después de que se complete la reprotección, puede conmutar por error en dirección inversa, de Oeste de EE. UU. a Este de EE. UU., y conmutar por recuperación en la región de origen.
 
 ## <a name="disable-replication"></a>Deshabilitar replicación
 
-Puede deshabilitar la replicación mediante el cmdlet `Remove-AzRecoveryServicesAsrReplicationProtectedItem`.
+Puede deshabilitar la replicación con el cmdlet `Remove-AzRecoveryServicesAsrReplicationProtectedItem`.
 
 ```azurepowershell
 Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
@@ -626,4 +628,4 @@ Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [referencia de PowerShell de Azure Site Recovery](/powershell/module/az.RecoveryServices) para obtener información sobre cómo realizar otras tareas, como la creación de planes de recuperación y la prueba de la conmutación por error de los planes de recuperación a través de PowerShell.
+Consulte la [referencia de PowerShell de Azure Site Recovery](/powershell/module/az.RecoveryServices) para obtener información sobre cómo realizar otras tareas, como la creación de planes de recuperación y la prueba de la conmutación por error de los planes de recuperación con PowerShell.

@@ -1,25 +1,25 @@
 ---
 title: Adición de una capa de mosaico a mapas de Android | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo representar una capa de mosaico en un mapa mediante Android SDK de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8e1a77ae83783b2841a2600654a9775e9ceb6ada
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911527"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209943"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Incorporación de una capa de mosaico a un mapa mediante Android SDK de Azure Maps
 
 En este artículo se muestra cómo representar una capa de mosaico en un mapa mediante Android SDK de Azure Maps. Las capas de mosaico permiten superponer imágenes encima de los mosaicos de mapa base de Azure Maps. Puede encontrar más información en el sistema de mosaico de Azure Maps en la documentación [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
 
-Una capa de mosaico carga los mosaicos desde un servidor. Estas imágenes pueden ser representadas previamente y almacenadas como cualquier otra imagen en un servidor mediante una convención de nomenclatura que entiende la capa de mosaico o un servicio dinámico que genera las imágenes sobre la marcha. Hay tres convenciones diferentes de nomenclatura de servicio de mosaico compatibles con la clase TileLayer de Azure Maps: 
+Una capa de mosaico carga los mosaicos desde un servidor. Estas imágenes pueden representarse previamente y almacenarse como cualquier otra imagen en un servidor, mediante una convención de nomenclatura que la capa de mosaico entienda. O bien, estas imágenes se pueden representar con un servicio dinámico que genere las imágenes casi en tiempo real. La clase TileLayer de Azure Maps admite tres convenciones de nomenclatura de servicio de mosaico diferentes:
 
 * X, Y notación de zoom: según el nivel de zoom, x es la columna e y es la posición de fila del mosaico en la cuadrícula de mosaico.
 * Notación Quadkey: combinación de la información de x, y y zoom en un solo valor de cadena que es un identificador único de un mosaico.
@@ -35,16 +35,16 @@ La dirección URL del mosaico pasada a una capa de mosaico debe ser una direcci�
 * `{z}`: nivel de zoom del mosaico. También necesita `{x}` y `{y}`.
 * `{quadkey}`: identificador quadkey de mosaico basado en la convención de nomenclatura del sistema de mosaico de Bing Maps.
 * `{bbox-epsg-3857}`: una cadena de un cuadro delimitador con el formato `{west},{south},{east},{north}` en el sistema de referencia espacial EPSG 3857.
-* `{subdomain}`: un marcador de posición donde se agregarán los valores de subdominio si se especifican.
+* `{subdomain}`: Marcador de posición para los valores del subdominio, si se especifica el valor de subdominio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar el proceso en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Incorporación de una capa de mosaico a un mapa
 
- En este ejemplo se muestra cómo crear una capa de mosaico que apunte a un conjunto de mosaicos que usan el sistema de mosaico de zoom, x e y. La fuente de esta capa de mosaico es una superposición de radar meteorológico de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ En este ejemplo se muestra cómo crear una capa de mosaico que señale a un conjunto de mosaicos. Estos mosaicos usan el sistema de mosaicos "x, y, zoom". La fuente de esta capa de mosaico es una superposición de radar meteorológico de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
 Puede agregar una capa de mosaico al mapa siguiendo los pasos que se indican a continuación.
 

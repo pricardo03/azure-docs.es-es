@@ -4,22 +4,21 @@ description: Aprenda a habilitar la autenticación basada en identidades a trav�
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 01/06/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 489cb9e652d571b5322a1bd92663ca089e28b8cd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 06ff14b23057755a643e5a57fbaf711798cca00e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980792"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210489"
 ---
-# <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services mediante SMB para Azure Files
+# <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services en Azure Files
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Para obtener información general sobre la autenticación de Azure AD a través de SMB para Azure Files, consulte [Introducción a la autenticación de Azure Active Directory a través de SMB para Azure Files](storage-files-active-directory-overview.md).
-
+Para obtener información general sobre la autenticación basada en identidad admitida en Azure Files, consulte [Introducción a la autenticación de Azure Active Directory a través de SMB para Azure Files](storage-files-active-directory-overview.md). Este artículo se centra en cómo habilitar la autenticación con Azure Active Directory Domain Services (Azure AD DS) en Azure Files. 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>Información general del flujo de trabajo
@@ -37,7 +36,7 @@ En el diagrama siguiente se ilustra el flujo de trabajo de un extremo a otro par
 
 ![Diagrama que muestra Azure AD a través de SMB para el flujo de trabajo de Azure Files](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de habilitar Azure AD a través de SMB para Azure Files, asegúrese de haber completado los requisitos previos siguientes:
 
@@ -71,7 +70,7 @@ Antes de habilitar Azure AD a través de SMB para Azure Files, asegúrese de hab
 
 ## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>Habilitación de la autenticación de Azure AD DS para la cuenta
 
-Para habilitar la autenticación de Azure AD DS a través de SMB para Azure Files, puede establecer una propiedad en las cuentas de almacenamiento creadas después del 24 de septiembre de 2018, mediante Azure Portal, Azure PowerShell o la CLI de Azure. Al establecer esta propiedad, la cuenta de almacenamiento se registra con la implementación de Azure AD DS asociada. La autenticación de Azure AD DS a través de SMB se habilita entonces para todos los recursos compartidos de archivos nuevos y existentes de la cuenta de almacenamiento.
+Para habilitar la autenticación de Azure AD DS a través de SMB para Azure Files, puede establecer una propiedad en las cuentas de almacenamiento mediante Azure Portal, Azure PowerShell o la CLI de Azure. Al establecer esta propiedad "une a un dominio" implícitamente la cuenta de almacenamiento con la implementación de Azure AD DS asociada. La autenticación de Azure AD DS a través de SMB se habilita entonces para todos los recursos compartidos de archivos nuevos y existentes de la cuenta de almacenamiento.
 
 Tenga en cuenta que solo puede habilitar la autenticación de Azure AD DS a través de SMB después de haber implementado correctamente Azure AD DS en el inquilino de Azure AD. Para más información, consulte la sección los [requisitos previos](#prerequisites).
 

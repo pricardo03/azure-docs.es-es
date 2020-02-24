@@ -1,5 +1,5 @@
 ---
-title: Uso de las características de accesibilidad del diseñador
+title: Uso de las características de accesibilidad del diseñador (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre los métodos abreviados de teclado y las características de accesibilidad del lector de pantalla disponibles en el diseñador.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314239"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366205"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Uso del diseñador de Azure Machine Learning mediante el teclado
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Uso del diseñador de Azure Machine Learning mediante el teclado (versión preliminar)
 
 Aprenda a usar el diseñador de Azure Machine Learning con un teclado y un lector de pantalla. Para obtener una lista de métodos abreviados de teclado que funcionen en cualquier lugar de Azure Portal, consulte [Métodos abreviados de teclado de Azure Portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
@@ -24,7 +24,7 @@ Este flujo de trabajo se ha probado con [Narrator](https://support.microsoft.com
 
 ## <a name="navigate-the-pipeline-graph"></a>Desplazamiento por el gráfico de canalización
 
-El gráfico de canalización se organiza como una lista de listas. La lista de módulos de nivel superior contiene todo el módulo de la canalización. Cada elemento de la lista de módulos contiene una lista de conexiones que describe todas sus conexiones. 
+El gráfico de canalización se organiza como lista anidada. La lista externa es una lista de módulos, que describe todos los módulos del gráfico de canalización. La lista interna es una lista de conexiones, que describe todas las conexiones de un módulo concreto.  
 
 1. En la lista de módulos, use la tecla de dirección para cambiar los módulos.
 1. Use la pestaña para abrir la lista de conexiones del módulo de destino.

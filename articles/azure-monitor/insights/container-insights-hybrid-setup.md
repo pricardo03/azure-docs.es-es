@@ -3,18 +3,18 @@ title: Configuración de los clústeres híbridos de Kubernetes con Azure Monito
 description: En este artículo se describe cómo puede configurar Azure Monitor para contenedores con el fin de supervisar clústeres de Kubernetes hospedados en Azure Stack u otro entorno.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 7796cc7300f34a7a412495754c083b112ba05041
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6d03716b988b1139e01d41120f48ea9a9bf34be1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759899"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198061"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configuración de los clústeres híbridos de Kubernetes con Azure Monitor para contenedores
 
-Azure Monitor para contenedores proporciona una experiencia de supervisión enriquecida para los clústeres de Azure Kubernetes Service (AKS) y Motor de AKS hospedados en Azure. En este artículo se describe cómo habilitar la supervisión de clústeres de Kubernetes hospedados fuera de Azure y lograr una experiencia de supervisión similar.
+Azure Monitor para contenedores proporciona una experiencia de supervisión enriquecida para Azure Kubernetes Service (AKS) y el [Motor de AKS en Azure](https://github.com/Azure/aks-engine), que es un clúster de Kubernetes autoadministrado, hospedados en Azure. En este artículo se describe cómo habilitar la supervisión de clústeres de Kubernetes hospedados fuera de Azure y lograr una experiencia de supervisión similar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
@@ -285,8 +285,8 @@ Si se produce un error al intentar habilitar la supervisión para el clúster h�
 
 * El área de trabajo de Log Analytics especificada es válida
 * El área de trabajo Log Analytics se configura con la solución Azure Monitor para contenedores. Si no es así, configure el área de trabajo.
-* Los pods de ReplicaSet de OmsAgent están en ejecución
-* Los pods de DaemonSet de OmsAgent están en ejecución
+* Los pods de replicaset de OmsAgent están en ejecución
+* Los pods de daemonset de OmsAgent están en ejecución
 * El servicio Health de OmsAgent está en ejecución
 * El identificador y la clave del área de trabajo Log Analytics configurados en el agente en contenedor coinciden con el área de trabajo con la que se configura la información.
 * Valide que todos los nodos de trabajo de Linux tienen la etiqueta `kubernetes.io/role=agent` para programar el pod de rs. Si no existe, agréguela.

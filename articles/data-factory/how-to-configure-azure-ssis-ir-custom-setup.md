@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/01/2020
-ms.openlocfilehash: c4502cc4a808b4a44f70c1f96fe38fd0ddeebdee
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/14/2020
+ms.openlocfilehash: 9c084564fec3faf59317fe9e05f3e850a38454d6
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187710"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251981"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalización de la instalación en una instancia de Azure-SSIS Integration Runtime
 
@@ -121,8 +121,12 @@ Para personalizar Azure-SSIS IR, necesita los siguientes elementos:
 
      * Si selecciona el componente **oh22's HEDDA.IO** (HEDDA.IO de oh22), puede instalar el componente de calidad y limpieza de datos [HEDDA.IO](https://hedda.io/ssis-component/) de oh22 en su Azure-SSIS IR después de adquirir su servicio. La versión integrada actual es la **1.0.13**.
 
-      * Si selecciona el componente **oh22's SQLPhonetics.NET** (SQLPhonetics.NET de oh22), puede instalar el componente de calidad y coincidencia de datos [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) desde oh22 en su instancia de Azure-SSIS IR mediante la especificación de la clave de licencia del producto que compró en el campo **Clave de licencia**. La versión integrada actual es la **1.0.43**.
-   
+     * Si selecciona el componente **oh22's SQLPhonetics.NET** (SQLPhonetics.NET de oh22), puede instalar el componente de calidad y coincidencia de datos [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) desde oh22 en su instancia de Azure-SSIS IR mediante la especificación de la clave de licencia del producto que compró en el campo **Clave de licencia**. La versión integrada actual es la **1.0.43**.
+
+     * Si selecciona el componente**SSIS Integration Toolkit de KingswaySoft**, puede instalar el conjunto de conectores de [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) para aplicaciones de CRM/ERP/marketing/colaboración, como Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc., desde KingswaySoft en su instancia de Azure-SSIS IR, escribiendo la clave de licencia del producto que compró en el cuadro **Clave de licencia**. La versión integrada actual es la **2019.2**.
+
+     * Si selecciona el componente **SSIS Productivity Pack de KingswaySoft**, puede instalar el conjunto de componentes de [SSIS Productivity Pack ](https://www.kingswaysoft.com/products/ssis-productivity-pack) desde KingswaySoft en su instancia de Azure-SSIS IR, escribiendo la clave de licencia del producto que compró en el campo **Clave de licencia**. La versión integrada actual es la **10.0**.
+
    Las instalaciones personalizadas rápidas agregadas aparecerán en la sección **Configuración avanzada**. Para quitarlas, active sus casillas y, luego, seleccione **Eliminar**.
 
    ![Configuración avanzada con instalaciones personalizadas](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)

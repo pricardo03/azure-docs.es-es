@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1c1995b4daf3b76abf7663d8d6c1f4cb7b1d6e2b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835010"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201686"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
@@ -82,21 +82,11 @@ Una opción es [exportar la base de datos a un archivo BACPAC](sql-database-expo
 
 Este enfoque es aconsejable si la base de datos tiene menos de 100 GB. La replicación transaccional se puede utilizar si todas las tablas de la base de datos tienen claves principales.
 
-## <a name="gen-4-vs-gen-5"></a>Gen 4 frente a Gen 5 
-
-**¿Cómo se elige entre las generaciones de hardware Gen 4 y Gen 5 para una instancia administrada?**
-
-Depende de la carga de trabajo, ya que una generación de hardware es mejor para ciertos tipos de cargas de trabajo que la otra. Aunque el asunto del rendimiento es bastante complejo para simplificarlo, las siguientes diferencias entre las generaciones de hardware afectan al rendimiento de las cargas de trabajo:
-- Gen 4 proporciona mejor compatibilidad de proceso, ya que se basa en procesadores físicos, frente a Gen 5, que se basa en los procesadores de núcleo virtual. Esta generación puede que sea más útil para cargas de trabajo en las que hay muchos procesos.
-- Gen 5 admite una red acelerada, lo que mejora el ancho de banda de E/S en el almacenamiento remoto. Esto puede suponer una ventaja para cargas de trabajo con mucha E/S de los niveles de servicio de uso general. Gen 5 utiliza discos locales SSD más rápidos que Gen 4. Esto puede suponer una ventaja en las cargas de trabajo con mucha E/S de los niveles de servicio críticos de la empresa.
-
-Se recomienda encarecidamente que pruebe el rendimiento de las cargas de trabajo reales destinadas a producción antes de activarlas para determinar qué generación de hardware funcionará mejor en su caso.
-
 ## <a name="switch-hardware-generation"></a>Cambio de generación de hardware 
 
 **¿Puedo cambiar la generación de hardware de mi instancia administrada entre Gen 4 y Gen 5 en línea?**
 
-La conmutación en línea automatizada entre dos generaciones de hardware es posible si ambas están disponibles en la misma región en la que está aprovisionada la instancia administrada. En este caso, puede utilizar el [script de la entrada de blog](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) que explica cómo pasar de una generación de hardware a otra.
+La conmutación en línea automatizada entre dos generaciones de hardware es posible si ambas están disponibles en la misma región en la que está aprovisionada la instancia administrada. En este caso, puede comprobar la [página Introducción al modelo de núcleos virtuales](sql-database-service-tiers-vcore.md), que explica cómo pasar de una generación de hardware a otra.
 
 Se trata de una operación de larga duración, ya que la nueva instancia administrada se aprovisionará en segundo plano y en las bases de datos transferidas automáticamente entre la instancia antigua y la nueva, con una conmutación por error rápida al final del proceso. 
 
@@ -108,8 +98,6 @@ Si las dos generaciones de hardware no se admiten en la misma región, es posibl
 **¿Cómo se optimiza el rendimiento de una instancia administrada?**
 
 Una instancia administrada de uso general usa el almacenamiento remoto debido a que el tamaño de los archivos de registro y datos es importante para el rendimiento. Para obtener más información, consulte [Impact of log file size on General Purpose Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e) (Impacto del tamaño del archivo de registro en el rendimiento de la Instancia administrada de uso general).
-
-En el caso de cargas de trabajo con un uso intensivo de E/S, considere la posibilidad de uso de hardware de Gen 5, mientras que se recomienda usar Gen 4 en las que haya un uso elevado de procesos. Para obtener más información, consulte [Cómo elegir entre Gen 4 y Gen 5](#gen-4-vs-gen-5).
 
 Si la carga de trabajo consta de muchas transacciones pequeñas, considere la posibilidad de cambiar el tipo de conexión de proxy a modo de redirección.
 

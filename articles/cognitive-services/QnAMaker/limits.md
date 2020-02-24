@@ -2,13 +2,13 @@
 title: 'Límites: QnA Maker'
 description: QnA Maker tiene meta-límites para partes de la base de conocimiento y el servicio. Es importante mantener la base de conocimiento dentro de esos límites para probar y publicar.
 ms.topic: article
-ms.date: 01/23/2020
-ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.date: 02/14/2020
+ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760239"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252015"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
@@ -54,6 +54,8 @@ El número máximo de archivos que se pueden extraer y tamaño máximo del archi
 El número máximo de vínculos profundos que se pueden rastrear para la extracción de QnA desde una páginas URL es **20**.
 
 ## <a name="metadata-limits"></a>Límites de metadatos
+
+Los metadatos se almacenan y se comparan en minúsculas.
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Por plan de tarifa de Azure Cognitive Search
 

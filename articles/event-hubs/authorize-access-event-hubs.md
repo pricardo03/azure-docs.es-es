@@ -6,19 +6,25 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: b5a037eaf310aa28c76d831dc9fe56eefaddbe56
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d4304abf0ca089fbbea86f12cd03dea836db612e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123467"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368357"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorización del acceso a Azure Event Hubs
 Cada vez que se publican o consumen eventos o datos de un centro de eventos, el cliente intenta obtener acceso a recursos de Event Hubs. Todas las solicitudes a un recurso seguro deben estar autorizadas para que el servicio pueda garantizar que el cliente tenga los permisos necesarios para publicar o consumir los datos. 
 
 Azure Event Hubs ofrece las siguientes opciones para autorizar el acceso a los recursos seguros:
+
+- Azure Active Directory
+- Firma de acceso compartido
+
+> [!NOTE]
+> Este artículo se aplica a los escenarios de Event Hubs y [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 La integración de Azure Active Directory (Azure AD) para recursos de Event Hubs proporciona control de acceso basado en rol (RBAC) para un control específico de acceso de los clientes a los recursos. Puede usar el control de acceso basado en rol (RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad para devolver un token de OAuth 2.0. El token se puede usar a fin de autorizar una solicitud para acceder a un recurso de Event Hubs.
@@ -39,7 +45,7 @@ Para más información sobre la autorización mediante SAS, consulte [Autorizaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Revise los [ejemplos de RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) publicados en nuestro repositorio de GitHub. 
-- Consulte los artículos siguientes:
+- Vea los artículos siguientes:
     - [Autenticación de solicitudes a Azure Event Hubs desde una aplicación mediante Azure Active Directory](authenticate-application.md)
     - [Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Event Hubs](authenticate-managed-identity.md)
     - [Autenticación de solicitudes para Azure Event Hubs mediante firmas de acceso compartido](authenticate-shared-access-signature.md)

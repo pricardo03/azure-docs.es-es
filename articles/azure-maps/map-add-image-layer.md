@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cfdf7dfd4c16f70065e338f8983d2124d3f6f0ef
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933213"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209722"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adición de una capa de imagen a un mapa
 
-En este artículo se explica cómo puede superponer una imagen a un conjunto fijo de coordenadas del mapa. Estos son algunos ejemplos del tipo de imágenes que suelen superponerse en los mapas:
+En este artículo se explica cómo superponer una imagen a un conjunto fijo de coordenadas. Estos son algunos ejemplos de diferentes tipos de imágenes que se pueden superponer en los mapas:
 
 * Imágenes capturadas por drones
 * Planos de edificios
@@ -62,9 +62,9 @@ A continuación se muestra el código de ejemplo de ejecución completo del cód
 
 ## <a name="import-a-kml-file-as-ground-overlay"></a>Importación de un archivo KML como una superposición de suelo
 
-En el siguiente ejemplo se muestra cómo superponer la información de superposición de suelo KML como capa de imagen en el mapa. Las superposiciones de suelo KML proporcionan las coordenadas de norte, sur, este y oeste y una rotación en sentido contrario a las agujas del reloj, mientras que la capa de imagen espera las coordenadas para cada esquina de la imagen. La superposición de suelo KML de este ejemplo se corresponde con la catedral de Chartres, cuya fuente es [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+En este ejemplo se muestra cómo agregar la información de superposición de suelo KML como una capa de imagen en el mapa. Las superposiciones de suelo KML proporcionan las coordenadas norte, sur, este y oeste, y una rotación en el sentido contrario al reloj. Pero la capa de imagen espera coordenadas para cada esquina de la imagen. La superposición de suelo KML de este ejemplo se corresponde con la catedral de Chartres, cuya fuente es [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-En el código siguiente se usa la función `getCoordinatesFromEdges` estática de la clase [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest). Este código calcula las cuatro esquinas de la imagen a partir de la información de norte, sur, este, oeste y rotación procedente de la superposición de suelo KML.
+En el código se usa la función `getCoordinatesFromEdges` estática de la clase [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest). Este calcula las cuatro esquinas de la imagen a partir de la información de norte, sur, este, oeste y rotación procedente de la superposición de suelo KML.
 
 <br/>
 

@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8107b16a3db76fb0e248f1681463b73cc4ee21cf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910892"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208427"
 ---
 # <a name="show-traffic-on-the-map"></a>Visualización del tráfico en el mapa
 
 Hay dos tipos de datos de tráfico disponibles en Azure Maps:
 
 - Datos de incidentes, que se componen de datos basados en puntos y líneas para aspectos como construcción, cierres de carreteras y accidentes.
-- Datos de flujo, que proporcionan métricas sobre el flujo de tráfico en las carreteras. Los datos de flujo de tráfico se suelen usar para colorear las carreteras en función de la cantidad de tráfico que ralentiza el flujo en relación con el límite de velocidad o alguna otra métrica. Los datos de flujo de tráfico en Azure Maps tienen tres métricas de medida diferentes:
+- Datos de flujo, que proporcionan métricas sobre el flujo de tráfico en las carreteras. A menudo, los datos de flujo de tráfico se utilizan para colorear las carreteras. Los colores se basan en la cantidad de tráfico que ralentiza el flujo en relación con el límite de velocidad u otra métrica. Los datos de flujo de tráfico en Azure Maps tienen tres métricas de medida diferentes:
     - `relative`: está relacionada con la velocidad de flujo libre de la carretera.
     - `absolute`: es la velocidad absoluta de todos los vehículos de la carretera.
     - `relative-delay`: muestra las áreas que son más lentas que el retraso promedio esperado.

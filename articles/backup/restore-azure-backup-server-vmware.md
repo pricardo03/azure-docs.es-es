@@ -3,12 +3,12 @@ title: Restauración de máquinas virtuales de VMware con Azure Backup Server
 description: Use Azure Backup Server (MABS) para restaurar máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: 7c93c3100d8756fd9faf8cf02152a870bd0c106c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171924"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212346"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restauración de máquinas virtuales de VMware
 
@@ -46,30 +46,34 @@ En este artículo se explica cómo usar Microsoft Azure Backup Server (MABS) pa
 
       ![Seleccionar tipo de recuperación](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
-8. En la pantalla**Resumen**, revise la configuración y haga clic en **Recuperar** para iniciar el proceso de recuperación. La pantalla **Estado de la recuperación** muestra el progreso de la operación de recuperación.
+8. En la pantalla **Resumen**, revise la configuración y haga clic en **Recuperar** para iniciar el proceso de recuperación. La pantalla **Estado de la recuperación** muestra el progreso de la operación de recuperación.
 
 ## <a name="restore-an-individual-file-from-a-vm"></a>Restauración de un archivo individual desde una máquina virtual
 
 Puede restaurar archivos individuales desde un punto de recuperación de una máquina virtual protegida. Esta característica solo está disponible en máquinas virtuales de Windows Server. La restauración de archivos individuales es similar a la restauración de toda la máquina virtual, excepto por el hecho de que se examina el VMDK y se buscan los archivos que se quieren antes de iniciar el proceso de recuperación en sí. Para recuperar un archivo individual o seleccionar archivos de una máquina virtual de Windows Server:
 
+>[!NOTE]
+>La restauración de un archivo individual desde una VM solo está disponible para los puntos de recuperación de discos y VM Windows.
+
 1. En la Consola de administrador de MABS, haga clic en vista **Recuperación**.
 
 2. Mediante el panel **Examinar**, busque o filtre para encontrar la máquina virtual que quiera recuperar. Una vez que seleccione una máquina virtual o una carpeta, el panel Puntos de recuperación para muestra los puntos de recuperación disponibles.
 
-    ![Puntos de recuperación disponibles](./media/restore-azure-backup-server-vmware/recovery-points.png)
+    ![Puntos de recuperación disponibles](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
 3. En el panel **Puntos de recuperación para:** , use el calendario para seleccionar la fecha que contenga los puntos de recuperación que quiera. En función de cómo esté configurada la directiva de copia de seguridad, es posible que las fechas tengan más de un punto de recuperación. Una vez que haya seleccionado el día en que se tomó el punto de recuperación, asegúrese de elegir la **Hora de recuperación** adecuada. Si la fecha seleccionada tiene varios puntos de recuperación, elija el punto de recuperación seleccionándolo en el menú desplegable Hora de recuperación. Una vez elegido el punto de recuperación, la lista de elementos recuperables aparecerá en el panel **Ruta de acceso:** .
 
 4. Para encontrar los archivos que quiere recuperar, en el panel **Ruta de acceso**, haga doble clic en el elemento en la columna **Elemento recuperable** para abrirlo. Seleccione el archivo, los archivos o las carpetas que quiera recuperar. Para seleccionar varios elementos, presione la tecla **Ctrl** mientras realiza la selección. Use el panel **Ruta de acceso** para buscar en la lista de archivos o carpetas que se muestra en la columna**Elemento recuperable**. La opción **Lista de búsqueda a continuación** no busca en las subcarpetas. Para buscar en las subcarpetas, haga doble clic en la carpeta. Use el botón **Subir** para pasar de una carpeta secundaria a la carpeta principal. Se pueden seleccionar varios elementos (archivos y carpetas), pero deben estar en la misma carpeta principal. No se pueden recuperar elementos de varias carpetas en el mismo trabajo de recuperación.
 
+    ![Revisar selección de recuperación](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
+
 5. Una vez seleccionados los elementos que se van a recuperar, en la cinta de opciones de la Consola de administrador, haga clic en **Recuperar** para abrir el **Asistente de recuperación**. En el Asistente de recuperación, la pantalla **Revisar selección de recuperación** muestra los elementos seleccionados que se van a recuperar.
-    ![Revisar selección de recuperación](./media/restore-azure-backup-server-vmware/review-recovery.png)
 
 6. En la pantalla **Especificar opciones recuperación**, haga clic en **Modificar** si desea habilitar el límite de ancho de banda de red. Para dejar el límite de red deshabilitado, haga clic en **Siguiente**. No hay más opciones disponibles en esta pantalla del asistente para las máquinas virtuales de VMware. Si decide modificar el límite de ancho de banda de red, seleccione **Habilitar el límite de uso del ancho de banda de la red** en el cuadro de diálogo Limitación para activarla. Una vez habilitada, configure las opciones **Configuración** y **Programación de trabajos**.
 7. En la pantalla **Seleccionar tipo de recuperación**, haga clic en **Siguiente**. Los archivos o las carpetas solo se pueden recuperar en una carpeta de red.
 8. En la pantalla **Especificar destino**, haga clic en **Examinar** para buscar una ubicación de red para los archivos o carpetas. MABS crea una carpeta donde se copian todos los elementos recuperados. El nombre de la carpeta tiene el prefijo MABS_día-mes-año. Al seleccionar una ubicación para los archivos o carpetas recuperados, se facilitan los detalles de esa ubicación (como el destino, la ruta de acceso del destino y el espacio disponible).
 
-       ![Specify location to recover files](./media/restore-azure-backup-server-vmware/specify-destination.png)
+    ![Especificar la ubicación donde recuperar archivos](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
 9. En la pantalla **Especificar opciones de recuperación**, elija la configuración de seguridad que quiera aplicar. Puede optar por modificar el límite de uso del ancho de banda de red, pero este límite está deshabilitado de forma predeterminada. Las opciones **Recuperación de SAN** y **Notificación** tampoco están habilitadas.
 10. En la pantalla **Resumen**, revise la configuración y haga clic en **Recuperar** para iniciar el proceso de recuperación. La pantalla **Estado de la recuperación** muestra el progreso de la operación de recuperación.

@@ -3,30 +3,27 @@ title: Detección avanzada de ataques de varias fases en Azure Sentinel
 description: Use la tecnología de fusión de Azure Sentinel para reducir el exceso de alertas y crear incidentes útiles basados en la detección avanzada de ataques de varias fases.
 services: sentinel
 documentationcenter: na
-author: cabailey
-manager: rkarlin
+author: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/24/2019
-ms.author: cabailey
-ms.openlocfilehash: e6ddb1b01b705d2a7857682bd84e9482e064a8db
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.date: 02/12/2020
+ms.author: rkarlin
+ms.openlocfilehash: ada2ad67bc3634d8e6a31d3c8a69fc0c8b08a93a
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241208"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77369693"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detección avanzada de ataques de varias fases en Azure Sentinel
 
 Mediante el uso de la tecnología de fusión basada en el aprendizaje automático, Azure Sentinel puede detectar automáticamente ataques de varias fases mediante la combinación de los comportamientos anómalos y las actividades sospechosas que se observan en varias fases de la cadena de eliminación. De esta forma, Azure Sentinel genera incidentes que, de otro modo, serían muy difíciles de detectar. Estos incidentes incluyen dos o más alertas o actividades. Por diseño, estos incidentes tienen poco volumen, alta fidelidad y alta gravedad.
 
 Cuando se personaliza para adaptarla a su entorno, esta detección no solo reduce las tasas de falsos positivos, sino que también puede detectar ataques con información limitada o que falta.
-
-Para más información sobre las alertas de los escenarios admitidos, consulte la sección [Escenarios admitidos en la detección de ataques de varias fases](#scenarios-supported-for-advanced-multistage-attack-detection) de esta página.
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>Configuración de la detección avanzada de ataques de varias fases
 
@@ -44,7 +41,17 @@ Esta detección está habilitada de forma predeterminada en Azure Sentinel. Para
 
 Las plantillas de reglas no son aplicables para la detección avanzada de ataques de varias fases.
 
-## <a name="scenarios-supported-for-advanced-multistage-attack-detection"></a>Escenarios admitidos en la detección avanzada de ataques de varias fases
+## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusión mediante Palo Alto Networks y ATP de Microsoft Defender
+
+- Solicitud de red al servicio de anonimización TOR, seguido por el tráfico anómalo marcado por el firewall de Palo Alto Networks
+
+- PowerShell estableció una conexión de red sospechosa, seguida por tráfico anómalo marcado por el firewall de Palo Alto Networks
+
+- Una conexión saliente a IP con un historial de intentos de acceso no autorizados, seguida por tráfico anómalo marcado por el firewall de Palo Alto Networks
+
+
+
+## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Fusión mediante Identity Protection y Microsoft Cloud App Security
 
 En la detección avanzada de ataques de varias fases, Azure Sentinel admite los siguientes escenarios que combinan eventos anómalos de Azure Active Directory Identity Protection y Microsoft Cloud App Security:
 
@@ -66,7 +73,7 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de viaje im
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un viaje imposible a \<*location*>, una ubicación inusual, seguido de una regla de reenvío sospechosa de la bandeja de entrada que se estableció en una bandeja de entrada del usuario.
     
-    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*account name*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*email address*>.
+    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*nombreDeCuenta*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*direcciónCorreoElectrónico*>.
 
 - **Viaje imposible a ubicaciones inusuales que conducen a una actividad de administración de aplicaciones en la nube sospechosa**
     
@@ -78,7 +85,7 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de viaje im
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> en \<*ubicación*>, una ubicación inusual. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> eliminó \<*número de*> archivos únicos en una sola sesión.
+    A continuación, la cuenta \<*nombreDeCuenta*> eliminó \<*númeroDe*> archivos únicos en una sola sesión.
 
 - **Viaje imposible a ubicaciones inusuales que conducen a una descarga de archivos masiva**
     
@@ -115,7 +122,7 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de activida
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde \<*ubicación*>, una ubicación desconocida, seguido de una regla de reenvío sospechosa de la bandeja de entrada que se estableció en una bandeja de entrada del usuario.
     
-    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*account name*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*email address*>. 
+    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*nombreDeCuenta*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*direcciónCorreoElectrónico*>. 
 
 - **Evento de inicio de sesión desde una ubicación desconocida que conduce a una actividad de administración de aplicaciones en la nube sospechosa**
     
@@ -163,7 +170,7 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de activida
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware, seguido de una regla de reenvío sospechosa de la bandeja de entrada que se estableció en una bandeja de entrada del usuario.
     
-    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*account name*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*email address*>. 
+    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*nombreDeCuenta*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*direcciónCorreoElectrónico*>. 
 
 - **Evento de inicio de sesión desde un dispositivo infectado que conduce a una actividad de administración de aplicaciones en la nube sospechosa**
     

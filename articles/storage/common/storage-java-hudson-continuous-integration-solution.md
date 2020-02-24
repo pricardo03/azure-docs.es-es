@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a89439f49dd53f09d5cd40be0bf2e4981e9235d4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970194"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201392"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Hudson
 ## <a name="overview"></a>Información general
@@ -35,14 +35,14 @@ Las ventajas de usar Blob service para hospedar los artefactos de compilación p
 * Rendimiento si los clientes y socios descargan los artefactos de compilación
 * Control sobre las directivas de acceso de usuarios, con una opción entre acceso anónimo, acceso compartido basado en expiración, acceso mediante firma, acceso privado, etc.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para usar Blob service con la solución de integración continua Hudson, necesitará lo siguiente:
 
 * Una solución de integración continua Hudson.
   
     Si no dispone actualmente de una solución de integración continua Hudson, puede ejecutarla mediante la siguiente técnica:
   
-  1. En una máquina habilitada para Java, descargue Hudson WAR de <http://hudson-ci.org/>.
+  1. En una máquina habilitada para Java, [descargue el archivo de Hudson WAR](https://www.eclipse.org/hudson/download.php).
   2. En un símbolo del sistema que se abre en la carpeta que contiene Hudson WAR, ejecute Hudson WAR. Por ejemplo, si ha descargado la versión 3.1.2:
      
       `java -jar hudson-3.1.2.war`

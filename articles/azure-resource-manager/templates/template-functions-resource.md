@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120526"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207015"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -41,7 +41,7 @@ Devuelve el identificador de recurso de un [recurso de extensión](../management
 | resourceId |Sí |string |El identificador de recurso para el recurso al que se aplica el recurso de extensión. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
-| resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
+| resourceName2 |Sin |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
 
@@ -120,11 +120,11 @@ La sintaxis de esta función varía según el nombre de las operaciones de la li
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sí |string |Identificador único para el recurso. |
 | apiVersion |Sí |string |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
-| functionValues |No |object | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. |
+| functionValues |Sin |object | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
-Las funciones de lista solo se puede utilizar en las propiedades de una definición de recursos y en la sección de salidas de una plantilla o implementación. Cuando se usa con la [iteración de la propiedad](create-multiple-instances.md#property-iteration), puede usar las funciones de lista para `input` porque la expresión se asigna a la propiedad de recurso. No se pueden utilizar con `count` porque debe determinarse el recuento antes de resolver la función de lista.
+Las funciones de lista solo se puede utilizar en las propiedades de una definición de recursos y en la sección de salidas de una plantilla o implementación. Cuando se usa con la [iteración de la propiedad](copy-properties.md), puede usar las funciones de lista para `input` porque la expresión se asigna a la propiedad de recurso. No se pueden utilizar con `count` porque debe determinarse el recuento antes de resolver la función de lista.
 
 ### <a name="implementations"></a>Implementaciones
 
@@ -367,7 +367,7 @@ Devuelve información acerca de un proveedor de recursos y sus tipos de recursos
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sí |string |Espacio de nombres del proveedor |
-| resourceType |No |string |El tipo de recurso en el espacio de nombres especificado. |
+| resourceType |Sin |string |El tipo de recurso en el espacio de nombres especificado. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -444,8 +444,8 @@ Devuelve un objeto que representa el estado de tiempo de ejecución de un recurs
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sí |string |Nombre o identificador único de un recurso. Al hacer referencia a un recurso en la plantilla actual, proporcione solo el nombre del recurso como parámetro. Al hacer referencia a un recurso implementado anteriormente o cuando el nombre del recurso sea ambiguo, proporcione el identificador del recurso. |
-| apiVersion |No |string |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. Para conocer las versiones válidas de la API para su recurso, consulte la [referencia de la plantilla](/azure/templates/). |
-| 'Full' |No |string |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
+| apiVersion |Sin |string |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. Para conocer las versiones válidas de la API para su recurso, consulte la [referencia de la plantilla](/azure/templates/). |
+| 'Full' |Sin |string |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -496,7 +496,7 @@ Utilice `'Full'` cuando necesite valores de recurso que no forman parte del esqu
 
 ### <a name="valid-uses"></a>Usos válidos
 
-La función de referencia solo se puede utilizar en las propiedades de una definición de recursos y en la sección de salidas de una plantilla o implementación. Cuando se usa con la [iteración de la propiedad](create-multiple-instances.md#property-iteration), puede usar la función reference para `input` porque la expresión se asigna a la propiedad de recurso. No se puede utilizar con `count` porque debe determinarse el recuento antes de resolver la función reference.
+La función de referencia solo se puede utilizar en las propiedades de una definición de recursos y en la sección de salidas de una plantilla o implementación. Cuando se usa con la [iteración de la propiedad](copy-properties.md), puede usar la función reference para `input` porque la expresión se asigna a la propiedad de recurso. No se puede utilizar con `count` porque debe determinarse el recuento antes de resolver la función reference.
 
 No se puede usar la función reference en las salidas de una [plantilla anidada](linked-templates.md#nested-template) para devolver un recurso que ha implementado en la plantilla anidada. En su lugar, use una [plantilla vinculada](linked-templates.md#linked-template).
 
@@ -758,11 +758,11 @@ Devuelve el identificador único de un recurso. Utilice esta función cuando el 
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
-| resourceGroupName |No |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. Proporcione solo este valor al realizar la implementación en el ámbito de un grupo de recursos. |
+| subscriptionId |Sin |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. Proporcione solo este valor al realizar la implementación en el ámbito de un grupo de recursos o suscripción. |
+| resourceGroupName |Sin |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. Proporcione solo este valor al realizar la implementación en el ámbito de un grupo de recursos. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
-| resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
+| resourceName2 |Sin |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
 
@@ -958,10 +958,10 @@ Devuelve el identificador único de un recurso implementado en el nivel de suscr
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
+| subscriptionId |Sin |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
-| resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
+| resourceName2 |Sin |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
 
@@ -1044,7 +1044,7 @@ Devuelve el identificador único de un recurso implementado en el nivel de inqui
 |:--- |:--- |:--- |:--- |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
-| resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
+| resourceName2 |Sin |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
 
@@ -1064,6 +1064,6 @@ Esta función se usa para obtener el identificador de recurso de un recurso que 
 
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](create-multiple-instances.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).
 

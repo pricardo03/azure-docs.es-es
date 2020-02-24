@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905720"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366221"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
@@ -40,11 +40,12 @@ Aprenda a [crear su primera canalización](how-to-create-your-first-pipeline.md)
 
 La nube de Azure proporciona otras canalizaciones, cada una con una finalidad diferente. En la tabla siguiente se enumeran las diferentes canalizaciones y para qué se usan:
 
-| Canalización | Qué hace | Canalización canónica |
-| ---- | ---- | ---- |
-| Canalizaciones de Azure Machine Learning | Define flujos de trabajo de aprendizaje automático reutilizables que pueden emplearse como plantilla para los escenarios de aprendizaje automático. | Datos -> modelo |
-| [Canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Agrupa las actividades de movimiento, transformación y control de datos necesarias para realizar una tarea.  | Datos -> datos |
-| [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Integración y entrega continuas de la aplicación en cualquier plataforma y en cualquier nube.  | Código -> aplicación/servicio |
+| Escenario | Rol principal | Oferta de Azure | Oferta de OSS | Canalización canónica | Puntos destacados | 
+| -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
+| Orquestación de modelo (aprendizaje automático) | Científico de datos | Canalizaciones de Azure Machine Learning | Canalizaciones de Kubeflow | Datos -> Modelo | Distribución, almacenamiento en caché, Code First, reutilización | 
+| Orquestación de datos (preparación de datos) | Ingeniero de datos | [Canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Airflow de Apache | Datos -> Datos | Movimiento fuertemente tipado. Actividades centradas en datos. |
+| Orquestación de códigos y aplicaciones (CI/CD) | Desarrollo/operaciones de aplicaciones | [Canalizaciones de Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + modelo-> Aplicación o servicio | Compatibilidad con la mayoría de las actividades abiertas y flexibles, colas de aprobación, fases con restricción de acceso | 
+
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>¿Qué pueden hacer las canalizaciones de Azure ML?
 
@@ -52,7 +53,7 @@ Una canalización de Azure Machine Learning es un flujo de trabajo ejecutable in
 
 + La preparación de datos, incluida la importación, validación y limpieza, manipulación y transformación, normalización y almacenamiento provisional.
 + La configuración del entrenamiento, incluida la parametrización de argumentos, rutas de archivos y configuraciones de registros o informes.
-+ Entrenamiento y validación de forma eficaz y repetida, que puede incluir la especificación de subconjuntos de datos específicos, los distintos recursos de proceso de hardware, el procesamiento distribuido y la supervisión del progreso
++ Entrenamiento y validación de forma eficaz y repetida. La eficiencia puede provenir de especificar subconjuntos de datos específicos, distintos recursos de proceso de hardware, el procesamiento distribuido y la supervisión del progreso
 + La implementación, incluido el control de versiones, escalado, aprovisionamiento y control de acceso. 
 
 Los pasos independientes permiten que varios científicos de datos trabajen en la misma canalización al mismo tiempo sin necesidad de sobrecargar los recursos de proceso. Los pasos independientes también facilitan el uso de distintos tamaños y tipos de proceso para cada paso.
@@ -69,7 +70,7 @@ En resumen, las canalizaciones pueden ayudar con todas las tareas complejas del 
 
 Una canalización de Azure ML realiza un flujo de trabajo lógico completo con una secuencia de pasos ordenada. Cada paso es una acción de procesamiento discreto. Las canalizaciones se ejecutan en el contexto de un [experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) de Azure Machine Learning.
 
-En las primeras fases de un proyecto de ML, está bien tener un solo cuaderno de Jupyter o un script de Python que realice todo el trabajo del área de trabajo de Azure y la configuración de recursos, la preparación de datos, la configuración de ejecución, el entrenamiento y la validación. Sin embargo, al igual que las funciones y las clases son la opción preferible a un único bloque de código imperativo, los flujos de trabajo de ML se vuelven la opción preferible a un script o cuaderno monolítico. 
+En las primeras fases de un proyecto de ML, está bien tener un solo cuaderno de Jupyter o script de Python que realice todo el trabajo del área de trabajo de Azure y la configuración de recursos, la preparación de datos, la configuración de ejecución, el entrenamiento y la validación. Sin embargo, al igual que las funciones y las clases son la opción preferible a un único bloque de código imperativo, los flujos de trabajo de ML se vuelven la opción preferible a un script o cuaderno monolítico. 
 
 Mediante la modularización de tareas de ML, las canalizaciones respaldan el imperativo de la informática que indica que un componente debe "hacer (solo) una cosa bien hecha". La modularidad es claramente fundamental para el éxito del proyecto cuando se programa en equipos, pero incluso cuando se trabaja por sí solo, incluso un proyecto de ML pequeño implica tareas independientes, donde cada una de las cuales tiene algo de complejidad. Entre las tareas se incluyen la configuración del área de trabajo y el acceso a datos, la preparación de datos, la definición y configuración del modelo y la implementación. Mientras que las salidas de una o varias tareas forman las entradas a otra, los detalles exactos de la implementación de una tarea son, en el mejor de los casos, distracciones irrelevantes en la siguiente. En el peor escenario, el estado de cálculo de una tarea puede generar un error en otra. 
 

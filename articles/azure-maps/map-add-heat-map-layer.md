@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d52d808813078c2aca7de59aa626e83f96221720
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986247"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208546"
 ---
 # <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
@@ -79,10 +79,10 @@ En el ejemplo anterior se personalizó el mapa térmico con la configuración de
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |   
 
 - `opacity`: especifica el grado de opacidad o transparencia de la capa de mapa térmico.
-- `intensity`: aplica un multiplicador al peso de cada punto de datos para aumentar la intensidad general del mapa térmico. Esto ayuda a hacer una diferencia en el peso de los puntos de datos, lo que facilita la visualización.
+- `intensity`: aplica un multiplicador al peso de cada punto de datos para aumentar la intensidad general del mapa térmico. Esto provoca una diferencia en el peso de los puntos de datos, lo que facilita la visualización.
 - `weight`: de forma predeterminada, todos los puntos de datos tienen un peso de 1 y, por tanto, todos los puntos tienen la misma ponderación. La opción de ponderación actúa como un multiplicador y puede establecerse como un número o una expresión. Si se establece un número como el peso, es la equivalencia de colocar dos veces cada punto de datos en el mapa. Por ejemplo, si el peso es 2, la densidad se duplica. Establecer la opción de peso en un número representa el mapa térmico de forma similar a la opción de intensidad. 
 
-  Sin embargo, si se usa una expresión, la ponderación de cada punto de datos puede basarse en las propiedades de dicho punto de datos. Por ejemplo, supongamos que cada punto de datos representa un terremoto. Las métricas importantes que tenga cada punto de datos se han considerado valores de magnitud. Los terremotos se producen a menudo, pero la mayoría tienen una magnitud baja y no se observan. Si usamos el valor de magnitud de una expresión para asignar la ponderación a cada punto de datos, conseguiremos que los terremotos más importantes se representen mejor en el mapa térmico.
+  Sin embargo, si se usa una expresión, la ponderación de cada punto de datos puede basarse en las propiedades de dicho punto de datos. Por ejemplo, supongamos que cada punto de datos representa un terremoto. El valor de magnitud ha sido una métrica importante para cada punto de datos de un terremoto. Los terremotos se producen a menudo, pero la mayoría tienen una magnitud baja y no se observan. Use el valor de magnitud en una expresión para asignar el peso a cada punto de datos. Al usar el valor de magnitud para asignar el peso, conseguirá una mejor representación de la importancia de los terremotos en el mapa térmico.
 - `source` y `source-layer`: permiten actualizar el origen de datos.
 
 Esta herramienta permite probar las diferentes opciones de la capa de mapa térmico.

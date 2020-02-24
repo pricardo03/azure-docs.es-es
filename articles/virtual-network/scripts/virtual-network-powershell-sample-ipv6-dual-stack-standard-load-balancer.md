@@ -1,25 +1,24 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: configuración de puntos de conexión de red virtual IPv6 con Standard Load Balancer (versión preliminar)'
+title: 'Ejemplo de script de Azure PowerShell: configuración de un front-end IPv6 con Standard Load Balancer (versión preliminar)'
 titlesuffix: Azure Virtual Network
 description: Habilitación de puntos de conexión IPv6 mediante PowerShell en Azure Virtual Network
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: fc5bc23ffec0956cb53e62f0cd14d7135d5fbcca
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 24d25813a5cafc98f04d3daef2803aa44acc7f69
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269605"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201329"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configuración de puntos de conexión IPv6 en el de script de red virtual de ejemplo con Standard Load Balancer (versión preliminar)
+# <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configuración de un front-end IPv6 en el de script de red virtual de ejemplo con Standard Load Balancer (versión preliminar)
 
 En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
 
@@ -27,7 +26,7 @@ Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/power
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de implementar una aplicación de pila doble en Azure, debe configurar una sola vez la suscripción para esta característica en versión preliminar mediante el siguiente comando de Azure PowerShell:
 
 Regístrese del modo siguiente:
@@ -35,7 +34,7 @@ Regístrese del modo siguiente:
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro ejecutando los siguientes comandos de Azure PowerShell: Hágalo del modo siguiente:
+Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro mediante la ejecución del siguiente comando de Azure PowerShell: Compruebe en el registro del modo siguiente:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network

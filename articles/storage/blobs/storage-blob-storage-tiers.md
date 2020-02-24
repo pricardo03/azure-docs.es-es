@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: c402d47f40a351d70f688aa93c5e1501c93b39dd
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779893"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368705"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -26,7 +26,7 @@ Azure Storage ofrece distintos niveles de acceso que le permiten almacenar datos
 Las siguientes consideraciones se aplican a los distintos niveles de acceso:
 
 - Solo los niveles de acceso frecuente y esporádico se pueden establecer en el nivel de cuenta. El nivel de acceso de archivo no está disponible en el nivel de cuenta.
-- Los niveles frecuente, esporádico y de archivo se pueden establecer en el nivel de blob.
+- Los niveles frecuente, esporádico y de archivo se pueden establecer en el nivel de blob durante la carga o después de esta.
 - Los datos del nivel de acceso esporádico pueden tolerar una disponibilidad ligeramente inferior, pero aun así requieren una gran durabilidad, una latencia de recuperación y unas características de rendimiento similares a las de los datos de acceso frecuente. En el caso de los datos de acceso esporádico, un contrato de nivel de servicio (SLA) con una disponibilidad ligeramente inferior y unos costos de acceso mayores, en comparación con los datos de acceso frecuente, es aceptable a cambio de unos costos de almacenamiento menores.
 - El almacenamiento de archivo almacena datos sin conexión y ofrece los menores costos de almacenamiento, pero los mayores costos de acceso y rehidratación de datos.
 
@@ -77,7 +77,7 @@ El cambio del nivel de acceso de cuenta se aplica a todos los objetos _access ti
 
 ## <a name="blob-level-tiering"></a>Almacenamiento por niveles de blob
 
-El almacenamiento por niveles de blob permite cambiar el nivel de los datos en el nivel de objeto mediante una única operación denominada [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (establecimiento de nivel de blob). Puede cambiar fácilmente el nivel de acceso de un blob entre el nivel de archivo, esporádico o frecuente a medida que cambien los patrones de uso, sin tener que mover los datos entre las cuentas. Todas las solicitudes de cambio de nivel se producen inmediatamente y los cambios entre el nivel de acceso frecuente y esporádico son instantáneos. Sin embargo, al rehidratar un blob de un nivel de acceso de archivo puede tardar varias horas.
+El almacenamiento por niveles de blob permite cargar datos en el nivel de acceso de su elección mediante las operaciones [Put Blob](/rest/api/storageservices/put-blob) o [Put Block List](/rest/api/storageservices/put-block-list), y cambiar el nivel de los datos en el nivel de objeto mediante la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier) o la característica de [administración del ciclo de vida](#blob-lifecycle-management). Puede cargar datos a su nivel de acceso necesario y, a continuación, cambiar el nivel de acceso de un blob entre los niveles de acceso frecuente, esporádico y de archivo, a medida que cambien los patrones de uso, sin tener que mover los datos entre las cuentas. Todas las solicitudes de cambio de nivel se producen inmediatamente y los cambios entre el nivel de acceso frecuente y esporádico son instantáneos. Sin embargo, al rehidratar un blob de un nivel de acceso de archivo puede tardar varias horas.
 
 La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. Al sobrescribir un blob en el nivel de acceso frecuente o esporádico, el blob recién creado hereda el nivel del blob que se ha sobrescrito a menos que el nuevo nivel de acceso del blob se establezca explícitamente en la creación. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por tanto, la carga del mismo blob no se permite en este escenario. 
 
@@ -95,9 +95,11 @@ La administración del ciclo de vida de Blob Storage ofrece una directiva enriqu
 
 ### <a name="blob-level-tiering-billing"></a>Facturación del almacenamiento por niveles de blob
 
+Cuando un blob se carga o se mueve al nivel de acceso frecuente, esporádico o de archivo, se cobra a la tarifa correspondiente inmediatamente después del cambio de nivel.
+
 Cuando un blob se mueve a un nivel de almacenamiento de acceso más esporádico (frecuente -> esporádico, frecuente -> archivo o esporádico -> archivo), la operación se factura como una operación de escritura del nivel de destino, donde se aplican los cargos de la operación de escritura (por 10 000) y de la escritura de datos (por GB) del nivel de destino.
 
-Cuando un blob se mueve a un nivel más frecuente (archivo->esporádico, archivo->frecuente, o esporádico->frecuente), la operación se factura como una lectura desde el nivel de origen, donde se aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen. También podrían aplicarse cargos por la eliminación temprana de algún blob que se haya trasladado desde el nivel de acceso esporádico o de archivo. La tabla siguiente resume cómo se facturan los cambios de nivel:
+Cuando un blob se mueve a un nivel más frecuente (archivo->esporádico, archivo->frecuente, o esporádico->frecuente), la operación se factura como una lectura desde el nivel de origen, donde se aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen. También podrían aplicarse cargos por la eliminación temprana de algún blob que se haya trasladado desde el nivel de acceso esporádico o de archivo. [La rehidratación de datos desde el archivo](storage-blob-rehydration.md) lleva tiempo, y los datos se cobran a los precios de archivo hasta que los datos se restauren en línea y el nivel de blob cambie a acceso frecuente o esporádico. En la tabla siguiente se resume cómo se facturan los cambios de nivel:
 
 | | **Cargos de escritura (operación + acceso)** | **Cargos de lectura (operación + acceso)**
 | ---- | ----- | ----- |
@@ -138,7 +140,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal y P
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Cambio del nivel de acceso predeterminado en una cuenta de GPv2 o de Blob Storage
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En Azure Portal, busque y seleccione **Todos los recursos**.
@@ -153,7 +155,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal y P
 
 ![Cambio del nivel de cuenta de almacenamiento](media/storage-tiers/account-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 El siguiente script de PowerShell puede utilizarse para cambiar el nivel de cuenta. La variable `$rgName` se debe inicializar con el nombre del grupo de recursos. La variable `$accountName` se debe inicializar con el nombre de la cuenta de almacenamiento. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -166,7 +168,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ---
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Cambiar el nivel de un blob en una cuenta de GPv2 o de Blob Storage
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En Azure Portal, busque y seleccione **Todos los recursos**.
@@ -183,7 +185,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![Cambio del nivel de cuenta de almacenamiento](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 El siguiente script de PowerShell puede utilizarse para cambiar el nivel de blob. La variable `$rgName` se debe inicializar con el nombre del grupo de recursos. La variable `$accountName` se debe inicializar con el nombre de la cuenta de almacenamiento. La variable `$containerName` se debe inicializar con el nombre del contenedor. La variable `$blobName` se debe inicializar con el nombre del blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

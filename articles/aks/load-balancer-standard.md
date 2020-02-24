@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 03daafd383810a5e6cf086ca8e546981b06fa6eb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b15c60d5436feada8558c83cb14efd7e21a22493
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025714"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212425"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
 
@@ -57,7 +57,10 @@ Las siguientes limitaciones se aplican al crear y administrar clústeres de AKS 
 
 ## <a name="use-the-standard-sku-load-balancer"></a>Uso del equilibrador de carga de la SKU *estándar*
 
-Cuando se crea un clúster de AKS, de forma predeterminada, se usa el equilibrador de carga de la SKU *estándar* para ejecutar servicios en ese clúster. Por ejemplo, [la guía de inicio rápido con el CLI de Azure][aks-quickstart-cli] implementa una aplicación de ejemplo que usa el equilibrador de carga de la SKU *estándar*. 
+Cuando se crea un clúster de AKS, de forma predeterminada, se usa el equilibrador de carga de la SKU *estándar* para ejecutar servicios en ese clúster. Por ejemplo, [la guía de inicio rápido con el CLI de Azure][aks-quickstart-cli] implementa una aplicación de ejemplo que usa el equilibrador de carga de la SKU *estándar*.
+
+> [!IMPORTANT]
+> Las direcciones IP públicas se pueden evitar al personalizar una ruta definida por el usuario (UDR). Si especifica el tipo de salida de un clúster de AKS como UDR, puede omitir el aprovisionamiento de IP y la configuración del grupo de back-end para el equilibrador de carga de Azure creado por AKS. Consulte [establecer `outboundType` de un clúster en "userDefinedRouting"](egress-outboundtype.md).
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Configuración del equilibrador de carga para que sea interno
 

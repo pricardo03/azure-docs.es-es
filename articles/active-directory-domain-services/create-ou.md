@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: e202eed8e3694245b5b4527578c02cfb518723f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705343"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367146"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Creación de una unidad organizativa en un dominio administrado de Azure AD Domain Services
 
@@ -54,7 +54,7 @@ Al crear unidades organizativas personalizadas en un dominio administrado de Azu
 * Se crea una unidad organizativa predeterminada para los *usuarios de AADDC* que contiene todas las cuentas de usuario sincronizadas del inquilino de Azure AD.
     * No podrá mover usuarios o grupos de la unidad organizativa *AADDC Users* a las unidades organizativas personalizadas que cree. Solo las cuentas de usuario o los recursos creados en el dominio administrado de Azure AD DS se pueden mover a unidades organizativas personalizadas.
 * Las cuentas de usuario, los grupos, las cuentas de servicio y los objetos de equipo que se creen en unidades organizativas personalizadas no estarán disponibles en el inquilino de Azure AD.
-    * Estos objetos no se muestran mediante Graph API de Azure AD ni aparecerán en la interfaz de usuario de Azure AD; solo están disponibles en el dominio administrado de Azure AD DS.
+    * Estos objetos no se muestran mediante Microsoft Graph API ni aparecerán en la interfaz de usuario de Azure AD; solo están disponibles en el dominio administrado de Azure AD DS.
 
 ## <a name="create-a-custom-ou"></a>Creación de una unidad organizativa personalizada
 

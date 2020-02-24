@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422090"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211711"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Guía de implementación de aplicaciones web mediante plantillas de Azure Resource Manager
 
@@ -90,7 +90,7 @@ Si la plantilla de Resource Manager usa MSDeploy, los mensajes de error de imple
 
 1. Vaya a la [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) del sitio.
 2. Vaya a la capeta en D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Busque los archivos appManagerStatus.xml y appManagerLog.xml. El primer archivo registra el estado. El segundo, información sobre el error. Si el error no está claro, puede incluirlo al pedir ayuda en el foro.
+3. Busque los archivos appManagerStatus.xml y appManagerLog.xml. El primer archivo registra el estado. El segundo, información sobre el error. Si el error no está claro, puede incluirlo al pedir ayuda en el [foro](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 ## <a name="choose-a-unique-web-app-name"></a>Elija un nombre único para la aplicación web.
 

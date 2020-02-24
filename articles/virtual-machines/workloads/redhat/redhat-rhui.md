@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: e4213e67d9d752f3fc6450236b41e8bbf61f9957
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc4762cbda5ad2877d2d69953d2514dea17c8b46
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169305"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368905"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -27,6 +27,10 @@ Hay disponible información adicional sobre las imágenes de RHEL de Azure, incl
 
 Puede encontrar información sobre las directivas de soporte técnico de Red Hat para todas las versiones de RHEL en la página [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo de vida de Red Hat Enterprise Linux).
 
+> [!IMPORTANT]
+> RHUI está pensado únicamente para imágenes de pago por uso (PAYG). En el caso de las imágenes personalizadas y maestras, también conocidas como "traiga su propia suscripción" (BYOS), el sistema debe estar conectado a RHSM o Satellite para recibir actualizaciones. Consulte el [artículo de Red Hat](https://access.redhat.com/solutions/253273) para más información.
+
+
 ## <a name="important-information-about-azure-rhui"></a>Información importante sobre RHUI de Azure
 
 * RHUI de Azure es la infraestructura de actualización que admite todas las máquinas virtuales RHEL de pago por uso creadas en Azure. Esto no impide que registre sus máquinas virtuales RHEL de pago por uso con el Administrador de suscripciones o Satellite, o cualquier otro origen de actualizaciones, pero si lo hace con una máquina virtual de pago por uso provocará una facturación doble indirecta. Para más información, consulte el punto siguiente.
@@ -35,6 +39,7 @@ Puede encontrar información sobre las directivas de soporte técnico de Red Hat
 * Las imágenes de PAYG de RHEL en Azure (RHEL for SAP, RHEL for SAP HANA y RHEL for SAP Business Applications) están conectadas a canales de RHUI dedicados que permanecen en la versión menor específica de RHEL, tal como se requiere para la certificación de SAP.
 
 * El acceso a la RHUI hospedada en Azure se limita a las máquinas virtuales dentro de los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Si remite todo el tráfico de máquina virtual a través de un proxy mediante la infraestructura de red local, es posible que tenga que configurar rutas definidas por el usuario para que las máquinas virtuales de PAYG de RHEL accedan a RHUI de Azure. En ese caso, será necesario agregar las rutas definidas por el usuario para _todas_ las direcciones IP de RHUI.
+
 
 ## <a name="image-update-behavior"></a>Comportamiento de actualización de imágenes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: configuración de puntos de conexión de red virtual IPv6 (versión preliminar)'
+title: 'Ejemplo de script de Azure PowerShell: configuración de puntos de conexión IPv6'
 titlesuffix: Azure Virtual Network
 description: Habilitación de puntos de conexión IPv6 mediante PowerShell en Azure Virtual Network
 services: virtual-network
@@ -12,22 +12,22 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 4f07aae0e8baae44ade152cf3fe20facc7fe6770
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248806"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201400"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Ejemplo de script de configuración de puntos de conexión IPv6 en la red virtual (versión preliminar)
 
-En este artículo se muestra cómo implementar una aplicación de pila doble (IPv4 + IPv6) en Azure que contiene una red virtual de pila doble con una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), máquinas virtuales con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual y direcciones IP públicas duales.
+En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
 
 Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/powershell) o desde una instalación de PowerShell local. Si usa PowerShell de forma local, este script requiere la versión 1.0.0 o posterior del módulo Az de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para ver cuál es la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de implementar una aplicación de pila doble en Azure, debe configurar una sola vez la suscripción para esta característica en versión preliminar mediante el siguiente comando de Azure PowerShell:
 
 Regístrese del modo siguiente:

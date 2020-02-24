@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: jgao
-ms.openlocfilehash: f18c9c6efb17f84446b9fee3d2df2c0977bed0c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a67f360aa08f306d6462342d96f59e06a4d3b501
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757310"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251862"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Uso de scripts de implementación en plantillas (versión preliminar)
 
@@ -30,7 +30,7 @@ Ventajas del script de implementación:
 
 - Fácil de programar, usar y depurar. Puede desarrollar scripts de implementación en sus entornos de desarrollo favoritos. Los scripts se pueden insertar en plantillas o en archivos de script externos.
 - Puede especificar el lenguaje y la plataforma del script. Actualmente, solo se admiten scripts de implementación de Azure PowerShell en el entorno de Linux.
-- Permite especificar las identidades que se usan para ejecutar los scripts. Actualmente, solo se admiten [identidades asignadas por el usuario de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+- Permite especificar las identidades que se usan para ejecutar los scripts. Actualmente, solo se admiten [identidades asignadas por el usuario de Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 - Permite pasar cuatro argumentos de la línea de comandos al script.
 - Puede especificar salidas de script y pasarlas de nuevo a la implementación.
 
@@ -40,7 +40,7 @@ Ventajas del script de implementación:
 > [!IMPORTANT]
 > En el mismo grupo de recursos que se usa para la ejecución de scripts y la solución de problemas, se crean dos recursos de script de implementación, una cuenta de almacenamiento y una instancia de contenedor. Estos recursos los suele eliminar el servicio de scripts cuando la ejecución del script de implementación llega a un estado terminal. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción**. Esta identidad se usa para ejecutar scripts de implementación. Para crear una, consulte [Creación de una identidad administrada asignada por el usuario mediante Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) o [la CLI de Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) o [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Necesitará el identificador de identidad al implementar la plantilla. El formato de la identidad es:
 
@@ -59,7 +59,7 @@ Ventajas del script de implementación:
 
 - **Azure PowerShell versión 2.7.0, 2.8.0 o 3.0.0**. No necesita estas versiones para implementar plantillas. Pero estas versiones son necesarias para probar los scripts de implementación de forma local. Consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Puede usar una imagen de Docker preconfigurada.  Consulte [Configuración del entorno de desarrollo](#configure-development-environment).
 
-## <a name="resource-schema"></a>Esquema de recursos
+## <a name="sample-template"></a>Plantilla de ejemplo
 
 El código JSON siguiente es un ejemplo.  [Aquí](/azure/templates/microsoft.resources/deploymentscripts) puede encontrar el esquema de plantilla más reciente.
 
@@ -87,7 +87,7 @@ El código JSON siguiente es un ejemplo.  [Aquí](/azure/templates/microsoft.res
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
     ",
-    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json",
+    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
     "cleanupPreference": "OnSuccess",
@@ -122,7 +122,7 @@ La plantilla siguiente tiene un recurso definido con el tipo `Microsoft.Resource
 > [!NOTE]
 > Dado que los scripts de implementación en línea se incluyen entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples. El carácter de escape de PowerShell es **&#92;** . También puede plantearse la posibilidad de usar la sustitución de cadenas tal y como se muestra en el ejemplo anterior de JSON. Consulte el valor predeterminado del nombre de parámetro.
 
-El script toma un parámetro y genera el valor del parámetro. **DeploymentScriptOutputs** se usa para almacenar las salidas.  En la sección de salidas, la línea **value** muestra cómo acceder a los valores almacenados. `Write-Output` se utiliza con fines de depuración. Para obtener información sobre cómo acceder al archivo de salida, vea [Depuración de scripts de implementación](#debug-deployment-scripts).  Para ver las descripciones de propiedades, consulte [Esquema de recursos](#resource-schema).
+El script toma un parámetro y genera el valor del parámetro. **DeploymentScriptOutputs** se usa para almacenar las salidas.  En la sección de salidas, la línea **value** muestra cómo acceder a los valores almacenados. `Write-Output` se utiliza con fines de depuración. Para obtener información sobre cómo acceder al archivo de salida, vea [Depuración de scripts de implementación](#debug-deployment-scripts).  Para ver las descripciones de las propiedades, consulte [Esquema de recursos](#sample-template).
 
 Para ejecutar el script, seleccione **Pruébelo** para abrir Cloud Shell y luego pegue el código siguiente en el panel de Shell.
 

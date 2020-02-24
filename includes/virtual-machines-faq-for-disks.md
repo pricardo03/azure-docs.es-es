@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2bfdf1046c67ed1651f792191923bf4c533d0299
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76961396"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205677"
 ---
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
@@ -160,6 +160,44 @@ La reserva de discos de Azure se compra para una región específica y una SKU (
 
 **¿Qué ocurre cuando expira la reserva de discos Azure?**    
 Recibirá notificaciones por correo electrónico 30 días antes de la expiración y también en la fecha de expiración. Una vez que expire la reserva, los discos implementadas seguirán ejecutándose y se facturarán mediante una [cuota de pago por uso](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+### <a name="azure-shared-disks"></a>Discos compartidos de Azure
+
+**¿Se admite la característica de discos compartidos para discos no administrados o blobs en páginas?**
+
+No, solo se admite en discos SSD administrados Premium.
+
+**¿En qué regiones se admiten los discos compartidos?**
+
+Actualmente solo es Centro-oeste de EE. UU.
+
+**¿Se pueden usar discos compartidos como disco del sistema operativo?**
+
+No, los discos compartidos solo se admiten para discos de datos.
+
+**¿Qué tamaños de disco admiten los discos compartidos?**
+
+Solo los discos SSD Premium P15 o superior admiten discos compartidos.
+
+**Si tengo un disco SSD Premium existente, ¿puedo habilitar discos compartidos en él?**
+
+Todos los discos administrados creados con la versión de API 2019-07-01 o posterior pueden habilitar discos compartidos. Para ello, debe desmontar el disco de todas las VM a las que esté conectado. A continuación, edite la propiedad `maxShares` en el disco.
+
+**Si ya no deseo usar un disco en modo compartido, ¿cómo puedo deshabilitarlo?**
+
+Desmonta el disco de todas las VM a las que esté conectado. Después, edite la propiedad maxShare en el disco y defínala en 1.
+
+**¿Se puede cambiar el tamaño de un disco compartido?**
+
+Sí.
+
+**¿Se puede habilitar el acelerador de escritura en un disco que también tiene habilitados los discos compartidos?**
+
+No.
+
+**¿Puedo habilitar el almacenamiento en caché en un disco que tiene habilitados los discos compartidos?**
+
+La única opción de almacenamiento en caché de host admitida es "None".
 
 ## <a name="ultra-disks"></a>Discos Ultra
 

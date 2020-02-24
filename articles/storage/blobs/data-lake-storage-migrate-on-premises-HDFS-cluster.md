@@ -3,17 +3,17 @@ title: Migración de un almacén HDFS local a Azure Storage con Azure Data Bo
 description: Migración de datos de un almacén HDFS local a Azure Storage
 author: normesta
 ms.service: storage
-ms.date: 11/19/2019
+ms.date: 02/14/2019
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: e82c325ad5ad91e6b4503949e6534b054023f1f2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 990b4afa6bdb63e626be0272553aea408afb864f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990970"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368677"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migración de un almacén HDFS local a Azure Storage con Azure Data Box
 
@@ -25,19 +25,19 @@ En este artículo le ayudamos a completar estas tareas:
 > * Prepararse para migrar los datos.
 > * Copiar los datos en un dispositivo Data Box o Data Box Heavy.
 > * Devolver el dispositivo a Microsoft.
-> * Mover los datos a Data Lake Storage Gen2.
+> * Aplicar permisos de acceso a archivos y directorios (solo Data Lake Storage Gen2)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita lo siguiente para completar la migración.
 
-* Dos cuentas de almacenamiento, una de ellas con un espacio de nombres jerárquico habilitado y la otra no.
+* Una cuenta de Azure Storage.
 
 * Un clúster de Hadoop local que contenga los datos de origen.
 
 * Un [dispositivo Azure Data Box](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Solicite su instancia de Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) o [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). Al realizar el pedido del dispositivo, recuerde que debe elegir una cuenta de almacenamiento que **no** tenga espacios de nombres jerárquicos habilitados. Esto se debe a que los dispositivos Data Box aún no admiten la ingesta directa en Azure Data Lake Storage Gen2. Deberá realizar una copia en una cuenta de almacenamiento y, después, realizar una segunda copia en la cuenta de ADLS Gen2. Encontrará las instrucciones necesarias en los pasos siguientes.
+  * [Solicite su instancia de Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) o [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). 
 
   * Cablee y conecte su instancia de [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) o [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) a una red local.
 
@@ -173,36 +173,14 @@ Siga estos pasos para preparar y enviar el dispositivo Data Box a Microsoft.
 
     * Para los dispositivos Data Box Heavy, vea [Devolución de Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
 
-5. Cuando Microsoft reciba el dispositivo, se conectará a la red del centro de datos y los datos se cargarán a la cuenta de almacenamiento (con los espacios de nombres jerárquicos deshabilitados) que especificó al realizar el pedido de dispositivo. Compruebe con los archivos BOM que todos los datos se han cargado en Azure. Ahora puede pasar estos datos a una cuenta de almacenamiento de Data Lake Storage Gen2.
+5. Cuando Microsoft reciba el dispositivo, se conectará a la red del centro de datos, y los datos se cargarán a la cuenta de almacenamiento que especificó al realizar el pedido de dispositivo. Compruebe con los archivos BOM que todos los datos se han cargado en Azure. 
 
-## <a name="move-the-data-into-azure-data-lake-storage-gen2"></a>Traslado de los datos a Azure Data Lake Storage Gen2
+## <a name="apply-access-permissions-to-files-and-directories-data-lake-storage-gen2-only"></a>Aplicación de permisos de acceso a archivos y directorios (solo Data Lake Storage Gen2)
 
-Ya tiene los datos en su cuenta de Azure Storage. Ahora los copiará en su cuenta de almacenamiento de Azure Data Lake y aplicará permisos de acceso a los archivos y los directorios.
+Ya tiene los datos en su cuenta de Azure Storage. Ahora aplicará los permisos de acceso a archivos y directorios.
 
 > [!NOTE]
-> Este paso es necesario si usa Azure Data Lake Storage Gen2 como almacén de datos. Si solo usa una cuenta de Blob Storage sin espacio de nombres jerárquico como almacén de datos, puede omitir esta sección.
-
-### <a name="copy-data-to-the-azure-data-lake-storage-gen-2-account"></a>Copia de los datos en la cuenta de Azure Data Lake Storage Gen2
-
-Puede copiar los datos con Azure Data Factory o mediante el clúster de Hadoop basado en Azure.
-
-* Para usar Azure Data Factory, consulte [Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Asegúrese de especificar **Azure Blob Storage** como origen.
-
-* Para usar el clúster de Hadoop basado en Azure, ejecute este comando DistCp:
-
-    ```bash
-    hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
-    ```
-
-    * Reemplace los marcadores de posición `<source_account>` y `<dest_account>` por los nombres de las cuentas de almacenamiento de origen y de destino.
-
-    * Reemplace los marcadores de posición `<source_container>` y `<dest_container>` por los nombres de los contenedores de origen y de destino.
-
-    * Reemplace los marcadores de posición `<source_path>` y `<dest_path>` por las rutas de acceso del directorio de origen y de destino.
-
-    * Reemplace el marcador de posición `<source_account_key>` por la clave de acceso de la cuenta de almacenamiento que contiene los datos.
-
-    Este comando copia los datos y los metadatos de la cuenta de almacenamiento en su cuenta de almacenamiento de Data Lake Storage Gen2.
+> Este paso solo es necesario si usa Azure Data Lake Storage Gen2 como almacén de datos. Si solo usa una cuenta de Blob Storage sin espacio de nombres jerárquico como almacén de datos, puede omitir esta sección.
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Creación de una entidad de servicio para la cuenta de Azure Data Lake Storage Gen2
 
