@@ -8,31 +8,32 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 0b106e0412de972801fa8782de08269e13042191
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517919"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365309"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en Hyper-V
 
 ## <a name="overview"></a>Información general
 
-En este tutorial se describe cómo aprovisionar un dispositivo Data Box Gateway en un sistema host que ejecuta Hyper-V en Windows Server 2016 R2, Windows Server 2012 R2 o Windows Server 2012. 
+En este tutorial se describe cómo aprovisionar un dispositivo Data Box Gateway en un sistema host que ejecuta Hyper-V en Windows Server 2016 R2, Windows Server 2012 R2 o Windows Server 2012.
 
 Para aprovisionar y configurar un dispositivo virtual se necesitan privilegios de administrador. El aprovisionamiento y la instalación inicial pueden tardar unos 10 minutos en completarse.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Asegurarse de que el host cumple los requisitos mínimos del dispositivo
 > * Aprovisionar un dispositivo virtual en el hipervisor
 > * Iniciar el dispositivo virtual y obtener la dirección IP
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Aquí encontrará los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que ejecuta Hyper-V en Windows Server 2016 o Windows Server 2012 R2.
 
@@ -45,7 +46,7 @@ Antes de comenzar, asegúrese de que:
 
   > [!IMPORTANT]
   > El software que se ejecuta en Data Box Gateway solo puede usarse con el recurso Data Box Gateway.
- 
+
 ### <a name="for-the-data-box-gateway-virtual-device"></a>Para el dispositivo virtual de Data Box Gateway
 
 Antes de implementar un dispositivo, asegúrese de que:
@@ -54,7 +55,7 @@ Antes de implementar un dispositivo, asegúrese de que:
 * El sistema host es capaz de utilizar los recursos siguientes para aprovisionar el dispositivo virtual:
 
   * Un mínimo de 4 núcleos.
-  * Al menos 8 GB de RAM. 
+  * Al menos 8 GB de RAM.
   * Una interfaz de red.
   * Un disco de sistema operativo de 250 GB.
   * Un disco virtual de 2 GB para datos.
@@ -65,7 +66,6 @@ Antes de empezar:
 
 - Revise los requisitos de red para implementar Data Box Gateway y configure la red del centro de datos según dichos requisitos. Para más información, consulte [Requisitos de red de Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Asegúrese de que el ancho de banda mínimo de Internet es de 20 Mbps para que el dispositivo funcione de forma óptima.
-
 
 ## <a name="check-the-host-system"></a>Comprobación del sistema host
 
@@ -127,18 +127,17 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 14. En la página **Unidad de disco duro**, seleccione la opción **Disco duro virtual** y haga clic en **Nuevo**. Se inicia el **Asistente para crear discos rígidos virtuales**.
 
     ![Asistente para crear discos rígidos virtuales](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
-1. En la página **Antes de comenzar** del Asistente para crear nuevo disco virtual, haga clic en **Siguiente**.
-2. En la página **Elegir formato de disco**, acepte la opción predeterminada de formato **VHDX**. Haga clic en **Next**.
-   
-17. En la página **Elegir tipo de disco**, establezca el tipo de disco duro virtual como **Expansión dinámica** (recomendado). Un disco de **tamaño fijo** funcionaría, pero puede que necesite esperar mucho tiempo. Se recomienda que no utilice la opción **Diferenciación** . Haga clic en **Next**. 
+15. En la página **Antes de comenzar** del Asistente para crear nuevo disco virtual, haga clic en **Siguiente**.
+16. En la página **Elegir formato de disco**, acepte la opción predeterminada de formato **VHDX**. Haga clic en **Next**.
+17. En la página **Elegir tipo de disco**, establezca el tipo de disco duro virtual como **Expansión dinámica** (recomendado). Un disco de **tamaño fijo** funcionaría, pero puede que necesite esperar mucho tiempo. Se recomienda que no utilice la opción **Diferenciación** . Haga clic en **Next**.
 
     ![Página Elegir tipo de disco](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
 18. En la página **Especificar nombre y ubicación**, proporcione un **nombre**, así como una **ubicación** (puede dirigirse a una) para el disco de datos. Haga clic en **Next**.
 
     ![Página Especificar nombre y ubicación](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. En la página **Configurar disco**, seleccione la opción **Crear un nuevo disco duro virtual en blanco** y especifique el tamaño como **2 TB** (o más). 
+19. En la página **Configurar disco**, seleccione la opción **Crear un nuevo disco duro virtual en blanco** y especifique el tamaño como **2 TB** (o más).
     
-    Aunque el requisito mínimo son 2 TB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que una vez que el disco se aprovisiona su tamaño no se puede reducir. Si intenta hacer esto, se perderán todos los datos locales del dispositivo. Sin embargo, puede expandir el disco mediante la adición de un disco de datos. Haga clic en **Next**.
+    Aunque el requisito mínimo son 2 TB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que una vez que el disco se aprovisiona su tamaño no se puede reducir. Si intenta hacer esto, se perderán todos los datos locales del dispositivo. No se admite la expansión del disco de datos. Haga clic en **Next**.
 
     ![Página Configurar disco](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. En la página **Resumen**, revise los detalles del disco de datos virtual y, si está satisfecho, haga clic en **Finalizar** para crear el disco. El asistente se cierra y se agrega un disco duro virtual al equipo.
@@ -165,7 +164,7 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
     
 7. Para configurar la red, utilice el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en el dispositivo virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `Ethernet`.
 
-8. Utilice el cmdlet `Set-HcsIpAddress` para configurar la red. Consulte el ejemplo siguiente:
+8. Utilice el cmdlet `Set-HcsIpAddress` para configurar la red. Vea el ejemplo siguiente:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
     
@@ -194,5 +193,3 @@ Pase al siguiente tutorial para aprender a conectar, configurar y activar dispos
 
 > [!div class="nextstepaction"]
 > [Conexión y configuración de Data Box Gateway](./data-box-gateway-deploy-connect-setup-activate.md)
-
-

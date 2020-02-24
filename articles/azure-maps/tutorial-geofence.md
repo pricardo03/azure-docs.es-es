@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa | Microsoft Azure Maps'
 description: Aprenderá a configurar una geovalla y a realizar un seguimiento de los dispositivos en relación con la geovalla mediante el servicio espacial de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899218"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370190"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -32,7 +32,7 @@ En este tutorial se explica cómo:
 > *   Usar las API del servicio de geovalla de Azure Maps para realizar un seguimiento de si un recurso de construcción está dentro del sitio de construcción o no.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps 
 
@@ -176,7 +176,7 @@ En esta sección, crearemos un controlador de eventos que recibe notificaciones.
 
 Se crearán dos servicios de [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) para controlar los eventos de entrada y salida. Cuando se desencadenen los eventos de Logic Apps, se desencadenarán más eventos en secuencia. La idea es enviar alertas, en este caso mensajes de correo electrónico, al responsable de operaciones. La siguiente ilustración muestra la creación de una aplicación lógica para el evento de entrada de la geovalla. De forma similar, puede crear otro para el evento de salida. Para más información, puede ver todos los [controladores de eventos admitidos](https://docs.microsoft.com/azure/event-grid/event-handlers).
 
-1. Creación de una aplicación lógica en Azure Portal
+1. Cree una aplicación lógica en Azure Portal, selecciónela en Azure Marketplace y, después, seleccione el botón **Crear**.
 
    ![Creación de aplicaciones lógicas de Azure para controlar eventos de geovalla](./media/tutorial-geofence/logic-app.png)
 

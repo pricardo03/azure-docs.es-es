@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 04f9a067e0b7df1f90d181d42bc4dd562aca56b0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8020abf3f8ab153d0143ff50d837ebcfbf5bdfba
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026338"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423759"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
@@ -30,7 +30,7 @@ Además de permitir que los dispositivos de nivel inferior se comuniquen con la 
 * Responder a las actualizaciones de propiedades grabables que realiza un operador. Por ejemplo, un operador podría cambiar el intervalo de envío de datos de telemetría.
 * Responder a comandos como, por ejemplo, el reinicio del dispositivo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará [crear una aplicación de Azure IoT Central](./quick-deploy-iot-central.md).
 
@@ -40,7 +40,7 @@ En este tutorial se usan plantillas de dispositivo para un dispositivo con **sen
 
 Para crear una plantilla para un dispositivo con **sensor S1**:
 
-1. Seleccione **Plantillas de dispositivo** en el panel de navegación izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
+1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
 
 1. Desplácese hacia abajo hasta que pueda ver el icono del dispositivo con **sensor S1**. Seleccione el icono y, a continuación, seleccione **Siguiente: Customize** (Personalizar)
 
@@ -48,7 +48,7 @@ Para crear una plantilla para un dispositivo con **sensor S1**:
 
 Para crear una plantilla para un dispositivo con **sensor de ocupación RS40**:
 
-1. Seleccione **Plantillas de dispositivo** en el panel de navegación izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
+1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
 
 1. Desplácese hacia abajo hasta que vea el icono del dispositivo con el ***sensor de ocupación RS40**. Seleccione el icono y, a continuación, seleccione **Siguiente: Customize** (Personalizar)
 
@@ -65,7 +65,7 @@ En este tutorial se va a crear una plantilla para un dispositivo de puerta de en
 
 Para agregar una nueva plantilla de dispositivo de puerta de enlace a la aplicación:
 
-1. Seleccione **Plantillas de dispositivo** en el panel de navegación izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
+1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
 
 1. En la página **Seleccionar tipo de plantilla**, seleccione el icono **Dispositivo IoT** y, después, seleccione **Siguiente: Customize** (Personalizar)
 

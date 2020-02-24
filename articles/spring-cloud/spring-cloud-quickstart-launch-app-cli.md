@@ -4,14 +4,14 @@ description: En este inicio rápido se implementa una aplicación de ejemplo en 
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: adb5b64456de743142ffb464ebb2c5e9f8dc8f86
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1e30da0844efa48f64a5e2501c79d2167ca4be92
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190770"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431269"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Inicio rápido: Inicio de una aplicación Java Spring mediante la CLI de Azure
 
@@ -143,28 +143,34 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 ## <a name="assign-public-endpoint-to-gateway"></a>Asignación de un punto de conexión público a una puerta de enlace
 
-Necesitamos una forma de acceder a la aplicación mediante un explorador web. Nuestra aplicación de puerta de enlace necesita un punto de conexión público, que se puede asignar mediante el siguiente comando:
+Necesitamos una forma de acceder a la aplicación mediante un explorador web. La aplicación de puerta de enlace necesita un punto de conexión que esté de cara al público.
+
+1. Use el siguiente comando para asignar el punto de conexión:
 
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
 ```
+2. Consulte la aplicación de **puerta de enlace** para ver su dirección IP pública, con el fin de que pueda comprobar que la aplicación se está ejecutando:
 
-Finalmente, consulte la aplicación de **puerta de enlace** para ver su dirección IP pública para que pueda comprobar que la aplicación se está ejecutando:
-
+Linux:
 ```azurecli
 az spring-cloud app show --name gateway | grep url
 ```
-
-Vaya hasta la dirección URL proporcionada por el comando anterior para ejecutar la aplicación PiggyMetrics.
+Windows:
+```azurecli
+az spring-cloud app show --name gateway | findstr url
+```
+3. Vaya hasta la dirección URL proporcionada por el comando anterior para ejecutar la aplicación PiggyMetrics.
     ![Captura de pantalla de PiggyMetrics en ejecución](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 También puede navegar por el Azure Portal para buscar la dirección URL. 
 1. Vaya al servicio.
-1. Seleccione **Aplicaciones**.
-1. Seleccione **gateway**.
+2. Seleccione **Aplicaciones**.
+3. Seleccione **gateway**.
 
     ![Captura de pantalla de PiggyMetrics en ejecución](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. Busque la dirección URL en la página **Información general de gateway**![Captura de pantalla de PiggyMetrics en ejecución](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+    
+4. Busque la dirección URL en la página **Información general de gateway**![Captura de pantalla de PiggyMetrics en ejecución](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

@@ -1,5 +1,6 @@
 ---
-title: Tutorial sobre cómo copiar datos en el dispositivo Microsoft Azure Data Box mediante el servicio de copia de datos | Microsoft Docs
+title: 'Tutorial: Uso del servicio de copia de datos para realizar copias en el dispositivo'
+titleSuffix: Azure Data Box
 description: En este tutorial aprenderá a copiar datos en el dispositivo Azure Data Box mediante el servicio de copia de datos
 services: databox
 author: alkohli
@@ -8,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 579c1984ee1906519980bbed154921a20ed40b79
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206060"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466984"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Uso del servicio de copia de datos para copiar datos en Azure Data Box (versión preliminar)
 
@@ -29,7 +30,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Copia de datos a un dispositivo Data Box
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que:
 
@@ -55,7 +56,7 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
 
 3. En el cuadro de diálogo **Configurar trabajo e iniciar**, rellene los siguientes campos:
     
-    |Campo                          |Valor    |
+    |Campo                          |Value    |
     |-------------------------------|---------|
     |**Nombre del trabajo**                       |Un nombre exclusivo de menos de 230 caracteres para el trabajo. En el nombre del trabajo no se permiten los siguientes caracteres: \<, \>, \|, \?, \*, \\, \:, \/ y \\\.         |
     |**Ubicación de origen**                |Proporcione la ruta de acceso SMB para el origen de datos en el formato: `\\<ServerIPAddress>\<ShareName>` o `\\<ServerName>\<ShareName>`.        |
@@ -67,7 +68,7 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
     |**Copiar los archivos que coincidan con el patrón**    | Puede escribir el patrón de coincidencia de nombre de archivo de las siguientes dos maneras:<ul><li>**Uso de expresiones de caracteres comodín:** En las expresiones de caracteres comodín solo se admiten `*` y `?`. Por ejemplo, la expresión `*.vhd` coincide con todos los archivos que tienen la extensión `.vhd`. De forma similar, `*.dl?` coincide con todos los archivos con la extensión `.dl` o que empiezan por `.dl`, como `.dll`. Del mismo modo, `*foo` coincide con todos los archivos cuyos nombres terminan por `foo`.<br>Puede especificar directamente la expresión de caracteres comodín en el campo. De forma predeterminada, el valor especificado en el campo se trata como expresión comodín.</li><li>**Uso de expresiones regulares:** se admiten expresiones regulares basadas en POSIX. Por ejemplo, una expresión regular `.*\.vhd` coincidirá con todos los archivos que tienen la extensión `.vhd`. Para la expresión regular, proporcione el `<pattern>` directamente como `regex(<pattern>)`. Para más información sobre las expresiones regulares, vaya a [Lenguaje de expresiones regulares - Referencia rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Optimización de archivos**              |Cuando esta característica está habilitada, se empaquetan los archivos inferiores a 1 MB durante la ingesta. Esto acelera la copia de datos para archivos pequeños. También ahorra un tiempo importante cuando el número de archivos supera el número de directorios.        |
  
-4. Seleccione **Iniciar**. Se validan las entradas y, si la validación es correcta, se inicia el trabajo. El trabajo puede tardar unos minutos en iniciarse.
+4. Seleccione **Inicio**. Se validan las entradas y, si la validación es correcta, se inicia el trabajo. El trabajo puede tardar unos minutos en iniciarse.
 
     ![Inicio de un trabajo desde el cuadro de diálogo "Configurar trabajo e iniciar"](media/data-box-deploy-copy-data-via-copy-service/configure-and-start.png)
 

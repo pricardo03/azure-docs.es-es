@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be39449c1c11acdbdc99bd96f917c51eebda44ae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195788"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371336"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -102,7 +102,7 @@ Ahora cree las máquinas virtuales de salto y de cargas de trabajo, y colóquela
 2. Haga clic en **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
 3. Especifique estos valores para la máquina virtual:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
    |Nombre de la máquina virtual     |**Srv-Jump**|
@@ -123,7 +123,7 @@ Ahora cree las máquinas virtuales de salto y de cargas de trabajo, y colóquela
 
 Use la información de la tabla siguiente para configurar otra máquina virtual llamada **Srv-Work**. El resto de la configuración es la misma que la de la máquina virtual Srv-Jump.
 
-|Configuración  |Valor  |
+|Configuración  |Value  |
 |---------|---------|
 |Subnet|**Workload-SN**|
 |Dirección IP pública|**None**|
@@ -138,14 +138,14 @@ Implemente el firewall en la red virtual.
 3. Seleccione **Firewall** y después **Crear**.
 4. En la página **Creación de un firewall**, utilice la tabla siguiente para configurar el firewall:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
    |Subscription     |\<su suscripción\>|
    |Resource group     |**Test-FW-RG** |
-   |NOMBRE     |**Test-FW01**|
+   |Nombre     |**Test-FW01**|
    |Location     |Seleccione la misma ubicación que usó anteriormente.|
    |Elegir una red virtual     |**Usar existente**: **Test-FW-VN**|
-   |Dirección IP pública     |**Cree uno nuevo**. La dirección IP pública tiene que ser del tipo de SKU estándar.|
+   |Dirección IP pública     |**Agregar nueva**. La dirección IP pública tiene que ser del tipo de SKU estándar.|
 
 5. Seleccione **Revisar + crear**.
 6. Revise el resumen y seleccione **Crear** para crear el firewall.

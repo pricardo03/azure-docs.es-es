@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Creación de una aplicación de localizador de comercios mediante Azure Maps | Microsoft Azure Maps'
 description: En este tutorial aprenderá a crear una aplicación web de localizador de comercios mediante el SDK web de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 063f085de875272a7b1ba4f52aeceb8f36114cca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5621ed8f9e5d7990ca7b522d6388f855db81618e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987012"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209569"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Creación de un localizador de almacén mediante Azure Maps
 
@@ -33,7 +33,7 @@ Este tutorial le guía por el proceso de creación de un localizador de almacén
 
 Avance al [ejemplo de localizador de almacén activo](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) o al [código fuente](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para realizar los pasos de este tutorial, primero debe crear una cuenta de Azure Maps y obtener la clave principal (clave de suscripción). Siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
@@ -381,7 +381,7 @@ Ejecute la aplicación ahora y verá el encabezado, el cuadro de búsqueda y el 
 
 Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, es necesario agregar el código JavaScript para cargar y analizar los datos y, luego, representar los datos en el mapa. Para empezar, abra *index.js* y agréguele código, como se describe en los pasos siguientes.
 
-1. Agregue opciones globales para facilitar la actualización de la configuración. Defina las variables para el mapa, una ventana emergente, un origen de datos, una capa de iconos, un marcador HTML que muestre el centro de una zona de búsqueda y una instancia de cliente del servicio de búsqueda de Azure Maps.
+1. Agregue opciones globales para facilitar la actualización de la configuración. Defina las variables para el mapa, la ventana emergente, el origen de datos, la capa de iconos y el marcador HTML. Establezca el marcador HTML para indicar el centro de un área de búsqueda. Defina también una instancia de cliente del servicio de búsqueda de Azure Maps.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -397,9 +397,9 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
 
 1. Agregue código a *index.js*. El código siguiente inicializa el mapa. Hemos agregado un [cliente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para esperar hasta que la página termine de cargarse. A continuación, se realiza una conexión de los eventos para supervisar la carga del mapa y se proporciona la funcionalidad para el botón Buscar y el botón Mi ubicación.
 
-   Cuando el usuario selecciona el botón de búsqueda, o cuando el usuario presiona Entrar después de escribir una ubicación en el cuadro de búsqueda, se inicia una búsqueda aproximada con la consulta del usuario. Pase una matriz de valores de país ISO 2 a la opción `countrySet` para limitar los resultados de la búsqueda a esos países y regiones. Limitar los países y regiones de búsqueda ayuda a aumentar la precisión de los resultados que se devuelven. 
+   Cuando el usuario selecciona el botón de búsqueda o escribe una ubicación en el cuadro de búsqueda y presiona Entrar, se inicia una búsqueda aproximada con la consulta del usuario. Pase una matriz de valores de país ISO 2 a la opción `countrySet` para limitar los resultados de la búsqueda a esos países y regiones. Limitar los países y regiones de búsqueda ayuda a aumentar la precisión de los resultados que se devuelven. 
   
-   Cuando haya finalizado la búsqueda, tome el primer resultado y establezca la cámara del mapa sobre esa zona. Cuando el usuario seleccione el botón My Location (Mi ubicación), use la API de geolocalización HTML5 que está integrada en el explorador para recuperar la ubicación del usuario y centrar el mapa sobre esta.  
+   Una vez finalizada la búsqueda, tome el primer resultado y establezca la cámara del mapa sobre esa zona. Cuando el usuario seleccione el botón My Location (Mi ubicación), recuperará su ubicación mediante HTML5 Geolocation API. Esta API está integrada en el explorador. A continuación, centre el mapa en su ubicación.  
 
    > [!Tip]
    > Cuando se usen ventanas emergentes, es mejor crear una única instancia de `Popup` y reutilizarla mediante la actualización de su contenido y posición. Para cada instancia de `Popup` que agrega al código, se agregan varios elementos DOM a la página. Cuantos más elementos DOM haya en una página, de más cosas tiene que realizar el explorador un seguimiento. Si hay demasiados elementos, el explorador podría ralentizarse.
@@ -527,7 +527,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
     map.markers.add(centerMarker);
     ```
 
-1. En el agente de escucha de eventos `ready` del mapa, agregue un origen de datos. A continuación, realice una llamada para cargar y analizar el conjunto de datos. Habilite la agrupación en clústeres en el origen de datos. La agrupación en clústeres en el origen de datos agrupa los puntos superpuestos en un clúster. El clúster se separa en puntos individuales cuando el usuario acerca el mapa. Como resultado, la experiencia del usuario es más fluida y se mejora el rendimiento.
+1. En el agente de escucha de eventos `ready` del mapa, agregue un origen de datos. A continuación, realice una llamada para cargar y analizar el conjunto de datos. Habilite la agrupación en clústeres en el origen de datos. La agrupación en clústeres en el origen de datos agrupa los puntos superpuestos en un clúster. El clúster se separa en puntos individuales cuando el usuario acerca el mapa. Este comportamiento proporciona una mejor experiencia de usuario y mejora el rendimiento.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.

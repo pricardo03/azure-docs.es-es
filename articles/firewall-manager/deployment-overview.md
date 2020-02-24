@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/25/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: df87e652d2969d4ae12e97a2b455648cf39382c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488261"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443132"
 ---
 # <a name="azure-firewall-manager-preview-deployment-overview"></a>Información general sobre la implementación de Azure Firewall Manager (versión preliminar)
 
@@ -20,23 +20,32 @@ ms.locfileid: "73488261"
 
 Hay más de una forma de implementar la versión preliminar de Azure Firewall Manager, pero se recomienda el siguiente proceso general.
 
-## <a name="prerequisites"></a>Requisitos previos
-
-> [!IMPORTANT]
-> La versión preliminar de Azure Firewall Manager se debe habilitar explícitamente mediante el comando `Register-AzProviderFeature` de PowerShell.
->Desde el símbolo del sistema de PowerShell, ejecute los siguientes comandos:
->
->```azure-powershell
->connect-azaccount
->Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
->```
->El registro de la característica tarda en completarse un máximo de 30 minutos. Ejecute el siguiente comando para comprobar el estado del registro:
->
->`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
-
-
-
 ## <a name="general-deployment-process"></a>Proceso de implementación general
+
+### <a name="hub-virtual-networks"></a>Redes virtuales del centro de conectividad
+
+1.  Cree una directiva de firewall
+
+    - Creación de una nueva directiva
+<br>*or*<br>
+    - Derive una directiva base y personalización de una directiva local
+<br>*or*<br>
+    - Importe reglas de una instancia de Azure Firewall existente. Asegúrese de quitar las reglas NAT de las directivas que deben aplicarse en varios firewalls.
+1. Creación de una arquitectura de concentrador y radio
+   - Cree una red virtual de centro de conectividad mediante Azure Firewall Manager y empareje redes virtuales radiales con ella mediante el emparejamiento de redes virtuales
+<br>*or*<br>
+    - Cree una red virtual, agregue conexiones de red virtual y empareje redes virtuales radiales con ella mediante el emparejamiento de redes virtuales
+
+3. Seleccione los proveedores de seguridad y asocie la directiva de firewall. Actualmente, Azure Firewall es el único proveedor admitido.
+
+   - Esto se hace al crear una red virtual del centro de conectividad
+<br>*or*<br>
+    - Convierta una red virtual existente en una red virtual del centro de conectividad. También es posible convertir varias redes virtuales.
+
+4. Configure rutas definidas por el usuario para enrutar el tráfico al firewall de la red virtual del centro de conectividad.
+
+
+### <a name="secured-virtual-hubs"></a>Centros virtuales protegidos
 
 1. Creación de una arquitectura de concentrador y radio
 

@@ -4,14 +4,14 @@ description: En este inicio rápido, se implementa una aplicación de Spring Clo
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 67ad112021c2fadb5ea93ffefcf5e58e9404e92a
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: a215fe2305b320fe27ef9d868d060f3e9cb14c1c
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137751"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431389"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal
 
@@ -54,17 +54,42 @@ az extension add --name spring-cloud
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Aprovisionamiento de una instancia de servicio en Azure Portal
 
-1. En un explorador web, abra [este vínculo a Azure Spring Cloud en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
+1. Abra [Azure Portal](https://ms.portal.azure.com/) en una pestaña ventana. 
 
-1. Rellene el formulario en la página **Crear** de Azure Spring Cloud.  Tenga en cuenta las directrices siguientes:
-    - Nombre del servicio: especifique el nombre de la instancia de servicio.  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
-    - Suscripción: seleccione la suscripción a la que desea que se facture este recurso.  Asegúrese de que esta suscripción se ha agregado a nuestra lista de permitidos para Azure Spring Cloud.
-    - Grupo de recursos: se recomienda crear grupos de recursos para los nuevos recursos.
-    - Ubicación: seleccione la ubicación de la instancia de servicio. Las ubicaciones admitidas actualmente son Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste de Asia.
+2. En el cuadro de búsqueda superior, busque **Azure Spring Cloud**.
 
-1. Haga clic en **Revisar y crear**.
+3. Seleccione **Azure Spring Cloud** en los resultados.
 
-1. Verifique sus especificaciones y haga clic en **Crear**.
+ ![Icono de ASC](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+
+4. En la página Azure Spring Cloud, haga clic en **+ Add** (+ Agregar).
+
+ ![Icono de ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+
+5. Rellene el formulario en la página **Crear** de Azure Spring Cloud.  Tenga en cuenta las directrices siguientes:
+    - **Suscripción**: seleccione la suscripción a la que desea que se facture este recurso.  Asegúrese de que esta suscripción se ha agregado a nuestra lista de permitidos para Azure Spring Cloud.
+    - **Grupo de recursos**: se recomienda crear grupos de recursos para los nuevos recursos.
+    - **Detalles o nombre del servicio**: especifique el nombre de la instancia de servicio.  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
+    - **Ubicación**: seleccione la ubicación de la instancia de servicio. Las ubicaciones admitidas actualmente son Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste de Asia.
+
+    ![Inicio del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+
+6. Haga clic en la pestaña **Diagnostic Setting** (Configuración de diagnóstico) para abrir el siguiente cuadro de diálogo.
+
+7. En **Enable logs** (Habilitar registros), seleccione *yes* (sí) o *no*, en función de sus requisitos.
+
+    ![Habilitamiento de registros](media/spring-cloud-quickstart-launch-app-portal/diagnostic-setting.png)
+
+8. Haga clic en la pestaña **Tracing** (Seguimiento).
+
+9. En **Enable tracing** (Habilitar seguimiento), seleccione *yes* (sí) o *no*, en función de sus requisitos.  Si en **Enable tracing** (Habilitar seguimiento) selecciona yes (sí), seleccione también una información de aplicación existente o cree una. Sin la especificación de**Application Insights**, se producirá un error de validación.
+
+
+    ![Seguimiento](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
+
+10. Haga clic en **Revisar y crear**.
+
+11. Verifique sus especificaciones y haga clic en **Crear**.
 
 El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implementado, aparecerá la página **Información general** de la instancia de servicio.
 
@@ -76,11 +101,9 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
 
 1. Vaya a la página **Información general** del servicio y seleccione **Config Server**.
 
-1. En la sección **Repositorio predeterminado**, establezca **URI** en "https\://github.com/Azure-Samples/piggymetrics".
+2. En la sección **Default repository** (Repositorio predeterminado), en **URI** seleccione "https://github.com/Azure-Samples/piggymetrics-config".
 
-1. En **ETIQUETA**, seleccione "config".
-
-1. Seleccione **Aplicar** para guardar los cambios.
+3. Seleccione **Aplicar** para guardar los cambios.
 
     ![Captura de pantalla del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
@@ -97,27 +120,27 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
     git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
-1. Cree el paquete clonado.
+2. Cree el paquete clonado.
 
     ```azurecli
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-1. Asigne nombres a su grupo de recursos y a su servicio. Asegúrese de sustituir los marcadores de posición siguientes por el nombre del grupo de recursos y el nombre del servicio que aprovisionó anteriormente en este tutorial.
+3. Asigne nombres a su grupo de recursos y a su servicio. Asegúrese de sustituir los marcadores de posición siguientes por el nombre del grupo de recursos y el nombre del servicio que aprovisionó anteriormente en este tutorial.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Cree la aplicación `gateway` e implemente el archivo JAR.
+4. Cree la aplicación `gateway` e implemente el archivo JAR.
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-1. Siguiendo el mismo patrón, cree las aplicaciones `account-service` y `auth-service`, e implemente sus archivos JAR.
+5. Siguiendo el mismo patrón, cree las aplicaciones `account-service` y `auth-service`, e implemente sus archivos JAR.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -126,7 +149,7 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-1. La implementación de las aplicaciones tarda unos minutos en completarse. Para confirmar que se han implementado, vaya a la hoja **Aplicaciones** de Azure Portal. Debería ver una línea de cada una de las tres aplicaciones.
+6. La implementación de las aplicaciones tarda unos minutos en completarse. Para confirmar que se han implementado, vaya a la hoja **Aplicaciones** de Azure Portal. Debería ver una línea de cada una de las tres aplicaciones.
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
@@ -135,13 +158,13 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
 
 1. Abra la pestaña **Aplicaciones** en el menú de la izquierda.
 
-1. Seleccione la aplicación `gateway` para mostrar la página **Información general**.
+2. Seleccione la aplicación `gateway` para mostrar la página **Información general**.
 
-1. Seleccione **Asignar dominio** para asignar un punto de conexión público a la puerta de enlace. Esta operación puede tardar unos minutos.
+3. Seleccione **Assign Endpoint** (Asignar punto de conexión) para asignar un punto de conexión público a la puerta de enlace. Esta operación puede tardar unos minutos.
 
     ![Captura de pantalla del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
-1. Escriba el punto de conexión público asignado (con la etiqueta **URL**) en el explorador para ver la aplicación en ejecución.
+4. Escriba el punto de conexión público asignado (con la etiqueta **URL**) en el explorador para ver la aplicación en ejecución.
 
     ![Captura de pantalla del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 

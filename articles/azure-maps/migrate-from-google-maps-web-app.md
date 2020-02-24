@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 67f9168d2b18a98850588554f77c4a5859f365df
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: b954c812bea6c2abf4376c2cee38a3789461ad01
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086421"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208750"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migración de una aplicación web desde Google Maps
 
 La mayoría de las aplicaciones web que usan Google Maps usan el SDK de Google Maps para JavaScript V3. El SDK web para Azure Maps es el SDK adecuado basado en Azure al que se debe migrar. El SDK web de Azure Maps permite personalizar mapas interactivos con contenido propio e imágenes. Puede ejecutar la aplicación en aplicaciones web o móviles. Este control usa WebGL, lo que permite representar grandes conjuntos de datos con alto rendimiento. Desarrolle con este SDK mediante JavaScript o TypeScript.
 
-Si migra una aplicación web existente, compruebe si usa una biblioteca de control de mapa de código abierto. Ejemplos de bibliotecas de control de mapa de código abierto: Cesium, Leaflet y OpenLayers. Puede realizar la migración aunque la aplicación use una biblioteca de control de mapas de código abierto y no desee usar el SDK web de Azure Maps. En este caso, conecte la aplicación a los servicios de mosaico de Azure Maps ([mosaicos de carreteras](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [mosaicos satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Los puntos siguientes detallan cómo usar Azure Maps en algunas bibliotecas de control de mapa de código abierto usadas habitualmente.
+Si migra una aplicación web existente, compruebe si usa una biblioteca de control de mapa de código abierto. Ejemplos de bibliotecas de control de mapa de código abierto: Cesium, Leaflet y OpenLayers. Puede realizar la migración aunque la aplicación use una biblioteca de control de mapas de código abierto y no desee usar el SDK web de Azure Maps. En este caso, conecte la aplicación a los servicios de mosaico de Azure Maps ([mosaicos de carreteras](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [mosaicos de satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Los puntos siguientes detallan cómo usar Azure Maps en algunas bibliotecas de control de mapa de código abierto usadas habitualmente.
 
 - Cesium: un control de mapa 3D para la Web. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentación](https://cesiumjs.org/)
 - Leaflet: control de mapa 2D ligero para la Web. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentación](https://leafletjs.com/)
@@ -62,7 +62,7 @@ Las siguientes son algunas de las diferencias principales entre los SDK web de G
 
 ## <a name="web-sdk-side-by-side-examples"></a>Ejemplos en paralelo del SDK web
 
-Esta colección tiene ejemplos de código para cada plataforma, y cada ejemplo trata un caso de uso común. Está diseñada para ayudarle a migrar la aplicación web desde el SDK de JavaScript de Google Maps V3 al SDK web de Azure Maps. Los ejemplos de código relacionados con aplicaciones web se proporcionan en JavaScript. Sin embargo, Azure Maps también proporciona definiciones de TypeScript como opción adicional mediante un [módulo de NPM](how-to-use-map-control.md).
+Esta colección tiene ejemplos de código para cada plataforma y cada ejemplo trata un caso de uso común. Está diseñada para ayudarle a migrar la aplicación web desde el SDK de JavaScript de Google Maps V3 al SDK web de Azure Maps. Los ejemplos de código relacionados con aplicaciones web se proporcionan en JavaScript. Sin embargo, Azure Maps también proporciona definiciones de TypeScript como opción adicional mediante un [módulo de NPM](how-to-use-map-control.md).
 
 ### <a name="load-a-map"></a>Carga de un mapa
 
@@ -80,7 +80,7 @@ Ambos SDK siguen los mismos pasos para cargar un mapa:
 - Al hacer referencia al elemento `div` en el que se va a representar el mapa, la clase `Map` de Azure Maps solo requiere el valor `id`, mientras que Google Maps requiere un objeto `HTMLElement`.
 - Las coordenadas en Azure Maps se definen como objetos Position, que se pueden especificar como una matriz de números simple con el formato `[longitude, latitude]`.
 - El nivel de zoom en Azure Maps es un nivel inferior al nivel de zoom en Google Maps. Esta discrepancia se debe a la diferencia de tamaños en el sistema de mosaicos de las dos plataformas.
-- Azure Maps no agrega ningún control de navegación al lienzo del mapa. Por lo tanto, de forma predeterminada, un mapa no tiene botones de zoom ni botones de estilo del mapa. Sin embargo, hay controles para agregar un selector de estilo de mapa, botones de zoom, brújula o control de rotación, y un control de paso.
+- Azure Maps no agrega ningún control de navegación al lienzo del mapa. Por lo tanto, de forma predeterminada, un mapa no tiene botones de zoom ni botones de estilo del mapa. Sin embargo, hay opciones de control para agregar un selector de estilo de mapa, botones de zoom, brújula o control de rotación y un control de paso.
 - Se agrega un controlador de eventos en Azure Maps para supervisar el evento `ready` de la instancia de mapa. Este evento se activará cuando el mapa haya terminado de cargar el contexto WebGL y todos los recursos necesarios. Agregue a este controlador de eventos el código que desee ejecutar después de que se complete la carga del mapa.
 
 En los siguientes ejemplos básicos se usa Google Maps para cargar un mapa centrado en Nueva York en las coordenadas: longitud: -73.985, latitud: 40.747, y nivel de zoom del mapa de 12.
@@ -212,7 +212,7 @@ Este es un ejemplo de Google Maps con el idioma establecido en "fr-FR".
 
 **Después: Azure Maps**
 
-Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción es agregar esta información al espacio de nombres *atlas* global, lo que provocará que estos valores sean los predeterminados en todas las instancias del control de mapa de la aplicación. El código siguiente establece el idioma en francés ("fr-FR") y la vista regional en "auto":
+Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción es agregar esta información al espacio de nombres de *atlas* global. Como resultado, todas las instancias de control de mapa de la aplicación tendrán como valor predeterminado esta configuración. El código siguiente establece el idioma en francés ("fr-FR") y la vista regional en "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -246,7 +246,7 @@ Este es un ejemplo de Azure Maps con el idioma establecido en "fr" y la región 
 
 ### <a name="setting-the-map-view"></a>Establecimiento de la vista del mapa
 
-En Azure Maps y Google Maps, las asignaciones dinámicas se pueden pasar mediante programación a nuevas ubicaciones geográficas. Para ello, llame a las funciones adecuadas en JavaScript. En el ejemplo se muestra cómo hacer que el mapa muestre las imágenes aéreas de satélite, se centre sobre una ubicación y cambie el nivel de zoom a 15 en Google Maps. Se usan las siguientes coordenadas de ubicación: longitud: -111,0225 y latitud: 35,0272.
+En Azure Maps y Google Maps, las asignaciones dinámicas se pueden pasar mediante programación a nuevas ubicaciones geográficas. Para ello, llame a las funciones adecuadas en JavaScript. En el ejemplo se muestra cómo hacer que el mapa muestre las imágenes aéreas de satélite, se centre sobre una ubicación y cambie el nivel de zoom. Se usan las siguientes coordenadas de ubicación: longitud: -111,0225 y latitud: 35,0272.
 
 > [!NOTE]
 > En Google Maps se usan mosaicos de 256 píxeles de tamaño mientras que en Azure Maps se usan mosaicos de 512 píxeles. Por lo tanto, Azure Maps requiere menos número de solicitudes de red para cargar el mismo área de mapa que Google Maps. Debido a la forma en que las pirámides de mosaicos funcionan en los controles de mapa, debe restar uno del nivel de zoom usado en Google Maps cuando se usa Azure Maps. Esta operación aritmética garantiza que los mosaicos mayores de Azure Maps representen el mismo área de mapa que en Google Maps.
@@ -856,7 +856,7 @@ Especifique una única función de devolución de llamada en el método `map.dat
 
 **Después: Azure Maps**
 
-GeoJSON es el tipo de datos base de Azure Maps. Impórtelo en un origen de datos con el método `datasource.importFromUrl`. Use una capa de burbujas, que proporciona funcionalidad para representar círculos a escala en función de las propiedades de las características de un origen de datos. En lugar de tener una función de devolución de llamada, la lógica de negocios se convierte en una expresión y se pasa a las opciones de estilo. Las expresiones definen cómo funciona la lógica de negocios. Las expresiones se pueden pasar a otro subproceso y evaluarse con los datos de la característica. Se pueden agregar varios orígenes de datos y capas a Azure Maps, cada uno con una lógica de negocios diferente. Esta característica permite representar varios conjuntos de datos en el mapa de maneras diferentes.
+GeoJSON es el tipo de datos base de Azure Maps. Impórtelo en un origen de datos con el método `datasource.importFromUrl`. Use una capa de burbujas. La capa de burbujas proporciona funcionalidad para representar círculos a escala en función de las propiedades de las características de un origen de datos. En lugar de tener una función de devolución de llamada, la lógica de negocios se convierte en una expresión y se pasa a las opciones de estilo. Las expresiones definen cómo funciona la lógica de negocios. Las expresiones se pueden pasar a otro subproceso y evaluarse con los datos de la característica. Se pueden agregar varios orígenes de datos y capas a Azure Maps, cada uno con una lógica de negocios diferente. Esta característica permite representar varios conjuntos de datos en el mapa de maneras diferentes.
 
 ```html
 <!DOCTYPE html>
@@ -953,7 +953,7 @@ En los siguientes ejemplos, el código carga una fuente GeoJSON de datos de terr
 
 **Antes: Google Maps**
 
-Use la biblioteca MarkerCluster para los marcadores de clúster. Los iconos de clúster se limitan a imágenes que tienen los números del uno al cinco como nombre, y se hospedan en el mismo directorio.
+Use la biblioteca MarkerCluster para los marcadores de clúster. Los iconos de clúster se limitan a imágenes que tienen los números del uno al cinco como nombre y se hospedan en el mismo directorio.
 
 ```html
 <!DOCTYPE html>

@@ -1,5 +1,6 @@
 ---
-title: Tutorial sobre cómo copiar datos de discos duros virtuales en discos administrados con Azure Data Box | Microsoft Docs
+title: 'Tutorial: Copia de discos duros virtuales a discos administrados'
+titleSuffix: Azure Data Box
 description: Obtenga información sobre cómo copiar datos desde discos duros virtuales desde cargas de trabajo de máquinas virtuales locales en una instancia de Azure Data Box
 services: databox
 author: alkohli
@@ -8,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4b7182d1fa70a146da1c01273ffe1032f2982546
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240458"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471234"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Uso de Data Box para importar datos como discos administrados en Azure
 
@@ -27,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Copia de datos a un dispositivo Data Box
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que:
 

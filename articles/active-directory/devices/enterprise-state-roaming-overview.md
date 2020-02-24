@@ -1,22 +1,22 @@
 ---
-title: ¿Qué es Enterprise State Roaming en Azure Active Directory? | Microsoft Docs
-description: Enterprise State Roaming proporciona a los usuarios una experiencia unificada a través de sus dispositivos de Windows y reduce el tiempo necesario para configurar un nuevo dispositivo.
+title: ¿Qué es Enterprise State Roaming en Azure Active Directory?
+description: Enterprise State Roaming proporciona a los usuarios una experiencia unificada a través de sus dispositivos de Windows.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5b60970592180a2353860369e637d4b9a9bb8f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481907"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194286"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>¿Qué es Enterprise State Roaming?
 
@@ -28,13 +28,13 @@ Con Windows 10, los usuarios de [Azure Active Directory (Azure AD)](../fundament
 
 Enterprise State Roaming está disponible en varias regiones de Azure. En la página [Regiones de Azure](https://azure.microsoft.com/regions/#services) de Azure Active Directory encontrará la lista actualizada de las regiones disponibles.
 
-| Artículo | DESCRIPCIÓN |
+| Artículo | Descripción |
 | --- | --- |
-| [Habilitación de Enterprise State Roaming en Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming está disponible para cualquier organización con una suscripción Premium de Azure Active Directory (Azure AD). Para obtener más información acerca de cómo obtener una suscripción de Azure AD, consulte la página de [productos de Azure AD](https://azure.microsoft.com/services/active-directory) . |
-| [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.md) |Este tema responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración. |
+| [Habilitación de Enterprise State Roaming en Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming está disponible para cualquier organización con una suscripción Premium de Azure Active Directory (Azure AD). Para más información acerca de cómo obtener una suscripción de Azure AD, consulte la [página de producto de Azure AD](https://azure.microsoft.com/services/active-directory). |
+| [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.md) |Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración. |
 | [Configuración de MDM y directivas de grupo](enterprise-state-roaming-group-policy-settings.md) |Windows 10 proporciona configuración de la directiva de directiva de grupo y de administración de dispositivos móviles (MDM) para limitar la sincronización de configuración. |
-| [Referencia de la configuración de movilidad de Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Lo siguiente es una lista completa de todas las opciones que se movilizan o se copian en Windows 10. |
-| [Solución de problemas](enterprise-state-roaming-troubleshooting.md) |En este tema se llevan a cabo algunos pasos básicos de solución de problemas y en él se incluye una lista de problemas conocidos. |
+| [Referencia de la configuración de movilidad de Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Una lista de opciones de configuración que se movilizan o de las que se realiza una copia de seguridad en Windows 10. |
+| [Solución de problemas](enterprise-state-roaming-troubleshooting.md) |En este artículo se llevan a cabo algunos pasos básicos de solución de problemas y en él se incluye una lista de problemas conocidos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

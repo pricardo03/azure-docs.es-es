@@ -64,6 +64,8 @@
   items:
     - name: Actualizar la versión Basic del equilibrador de carga público a la versión Estándar
       href: upgrade-basic-standard.md
+    - name: Actualización de la versión Básica del equilibrador de carga interno a la versión Estándar
+      href: upgrade-basicInternal-standard.md
     - name: Configuración de reglas de salida
       items:
         - name: Azure CLI

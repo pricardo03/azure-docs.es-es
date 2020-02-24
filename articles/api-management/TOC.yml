@@ -123,6 +123,8 @@
       items:
         - name: Protección de una API con Azure AD
           href: api-management-howto-protect-backend-with-aad.md
+        - name: "Proteja SPA Backend API con Azure\_AD B2C"
+          href: howto-protect-backend-frontend-azure-ad-b2c.md
         - name: Conexión a una red virtual
           href: api-management-using-with-vnet.md
         - name: Conexión a una red virtual interna

@@ -1,41 +1,38 @@
 ---
-title: 'Tutorial: Uso de la versión preliminar de Azure Firewall Manager para proteger la red en la nube mediante Azure Portal'
-description: En este tutorial aprenderá a proteger la red en la nube con Azure Firewall Manager en Azure Portal.
+title: 'Tutorial: Protección de una red WAN virtual mediante la versión preliminar de Azure Firewall Manager'
+description: En este tutorial aprenderá a proteger una red WAN virtual con Azure Firewall Manager mediante Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: d2ebfd6003c0bc2b47636be1e38f47e554cc6988
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510039"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443064"
 ---
-# <a name="tutorial-secure-your-cloud-network-with-azure-firewall-manager-preview-using-the-azure-portal"></a>Tutorial: Protección de la red en la nube con la versión preliminar de Azure Firewall Manager en Azure Portal
+# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutorial: Protección de una red WAN virtual mediante la versión preliminar de Azure Firewall Manager 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Mediante la versión preliminar de Azure Firewall Manager puede crear centros protegidos y así proteger el tráfico de la red en la nube destinado a direcciones IP privadas, PaaS de Azure e Internet. El enrutamiento del tráfico al firewall es automático, por lo que no es necesario crear rutas definidas por el usuario (UDR).
+Mediante la versión preliminar de Azure Firewall Manager puede crear centros virtuales protegidos y así proteger el tráfico en la nube destinado a direcciones IP privadas, PaaS de Azure e Internet. El enrutamiento del tráfico al firewall es automático, por lo que no es necesario crear rutas definidas por el usuario (UDR).
 
 ![protección de la red en la nube](media/secure-cloud-network/secure-cloud-network.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+Firewall Manager también admite una arquitectura de red virtual de centro. Para ver una comparación entre los tipos de arquitectura de red virtual de centro y centro virtual protegido, consulte [¿Cuáles son las opciones de arquitectura de Azure Firewall Manager?](vhubs-and-vnets.md)
 
-> [!IMPORTANT]
-> La versión preliminar de Azure Firewall Manager se debe habilitar explícitamente con el comando `Register-AzProviderFeature` de PowerShell.
+En este tutorial, aprenderá a:
 
-Desde el símbolo del sistema de PowerShell, ejecute los siguientes comandos:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-El registro de la característica tarda un máximo de 30 minutos en completarse. Ejecute el siguiente comando para comprobar el estado del registro:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * Crear la red virtual de tipo hub-and-spoke
+> * Crear un centro virtual protegido
+> * Conexión de las redes virtuales en estrella tipo hub-and-spoke
+> * Creación de una directiva de firewall y protección del centro
+> * Enrutamiento del tráfico al centro
+> * Probar el firewall
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Creación de una arquitectura en estrella tipo hub-and-spoke
 
@@ -77,8 +74,8 @@ Cree el centro virtual protegido con Firewall Manager.
 8. Como nombre de la nueva WAN virtual, escriba **vwan-01**.
 9. Deje desactivada la casilla **Incluir VPN Gateway para habilitar asociados de seguridad de confianza**.
 10. Seleccione **Siguiente: Azure Firewall**.
-11. Acepte el valor predeterminado **Azure Firewall** **Habilitado** y, a continuación, seleccione **Siguiente: Asociados de seguridad de confianza**.
-12. Acepte el valor predeterminado **Asociados de seguridad de confianza** **Deshabilitado** y seleccione **Siguiente: Review + create** (Revisar y crear).
+11. Acepte el valor predeterminado **Azure Firewall** **Habilitado** y seleccione **Siguiente: Asociados de seguridad de confianza**.
+12. Acepte el valor predeterminado **Asociado de seguridad de confianza** **Deshabilitado** y seleccione **Siguiente: Review + create** (Revisar y crear).
 13. Seleccione **Crear**. La implementación tardará unos 30 minutos.
 
 ### <a name="connect-the-hub-and-spoke-vnets"></a>Conexión de las redes virtuales en estrella tipo hub-and-spoke
@@ -145,13 +142,13 @@ Para probar las reglas de firewall, debe implementar un par de servidores. Imple
 2. Seleccione **Windows Server 2016 Datacenter** en la lista **Popular**.
 3. Especifique estos valores para la máquina virtual:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
    |Resource group     |**FW-Manager**|
    |Nombre de la máquina virtual     |**Jump-Srv**|
    |Region     |**(EE. UU.) Este de EE. UU.**|
    |Nombre de usuario del administrador     |**azureuser**|
-   |Contraseña     |**Azure123456!**|
+   |Contraseña     |escriba la contraseña|
 
 4. En **Reglas de puerto de entrada**, en **Puertos de entrada públicos**, seleccione **Permitir los puertos seleccionados**.
 5. En **Seleccionar puertos de entrada**, seleccione **RDP (3389)** .
@@ -166,7 +163,7 @@ Para probar las reglas de firewall, debe implementar un par de servidores. Imple
 
 Use la información de la tabla siguiente para configurar otra máquina virtual llamada **Workload-Srv**. El resto de la configuración es la misma que la de la máquina virtual Srv-Jump.
 
-|Configuración  |Valor  |
+|Configuración  |Value  |
 |---------|---------|
 |Subnet|**Workload-SN**|
 |Dirección IP pública|**None**|

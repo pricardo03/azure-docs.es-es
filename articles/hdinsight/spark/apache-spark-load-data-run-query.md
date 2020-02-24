@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,mvc
+ms.date: 02/12/2020
+ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494500"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198895"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight
 
@@ -24,7 +24,7 @@ En este tutorial, aprenderá a:
 > * Creación de una trama de datos a partir de un archivo csv
 > * Ejecución de consultas en la trama de datos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Un clúster de Apache Spark en HDInsight. Vea [Creación de un clúster de Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -60,7 +60,9 @@ Las aplicaciones pueden crear tramas de datos directamente desde archivos o carp
 
     ![Estado de una consulta Spark SQL interactiva](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Estado de una consulta Spark SQL interactiva")
 
-2. Ejecute el código siguiente para crear una trama de datos y una tabla temporal (**hvac**).
+1. Anote el identificador de sesión devuelto. En la imagen anterior, el identificador de sesión es 0. Si lo desea, puede recuperar los detalles de la sesión. Para ello, vaya a `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements`, donde CLUSTERNAME es el nombre del clúster de Spark y el identificador es el número de identificación de la sesión.
+
+1. Ejecute el código siguiente para crear una trama de datos y una tabla temporal (**hvac**).
 
     ```python
     # Create a dataframe and table from sample data

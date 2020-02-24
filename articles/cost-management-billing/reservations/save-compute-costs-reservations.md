@@ -2,17 +2,17 @@
 title: ¿Qué es Azure Reservations?
 description: Obtenga información sobre Azure Reservations y precios para ahorrar en máquinas virtuales, SQL Database, Azure Cosmos DB y otros costos de recursos.
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c6a8547235c302f52aacd0e6ae4a8fbf08b538b8
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76841887"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443642"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -37,11 +37,19 @@ Planes de servicio:
 - **Núcleo virtual reservado de SQL Database**: solo se incluyen con una reserva los costos de proceso. La licencia se factura por separado.
 - **SQL Data Warehouse**: una reserva cubre el uso de cDWU. No cubre los cargos de almacenamiento o de red asociados con el uso de SQL Data Warehouse.
 - **Impuesto sobre el timbre de App Service**: una reserva cubre el uso del timbre. No se aplica a los trabajos, por lo que los demás recursos asociados con el timbre se cobran por separado.
-- Azure Database for MySQL
-- Azure Database for PostgreSQL
-- Azure Database for MariaDB
-- Explorador de datos de Azure
+- **Azure Databricks**: una reserva solo cubre el uso de DBU. Otros cargos, tales como proceso, almacenamiento y redes, se aplican por separado.
+- **Azure Database for MySQL**: solo se incluyen con una reserva los costos de proceso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de MySQL.
+- **Azure Database for PostgreSQL**: solo se incluyen con una reserva los costos de proceso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de PostgreSQL.
+- **Azure Database for MariaDB**: solo se incluyen con una reserva los costos de proceso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de MariaDB.
+- **Azure Data Explorer**: una reserva cubre los cargos de margen de beneficio. Una reserva no cubre los cargos de proceso, de red o de almacenamiento asociados con los clústeres.
+- **Discos administrados SSD Premium**: se realiza una reserva para una SKU de disco especificada. 
 
+Planes de software:
+
+- **SUSE Linux**: una reserva cubre los costos de los planes de software. Los descuentos solo se aplican a los medidores SUSE y no en al uso de la máquina virtual.
+- **Planes de Red Hat**: una reserva cubre los costos del plan de software. Los descuentos solo se aplican a los medidores RedHat, y no al uso de la máquina virtual.
+- **Azure VMware Solution by CloudSimple**: una reserva cubre los nodos de CloudSimple de VMWare. Es posible que todavía se apliquen costos de software adicionales.
+- **Red Hat OpenShift en Azure**: una reserva se aplica a los costos de OpenShift, no a los costos de infraestructura de Azure.
 
 Para las máquinas virtuales de Windows y SQL Database, puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

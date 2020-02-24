@@ -3,14 +3,15 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 02/14/2020
 ms.author: mathoma
-ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.reviewer: vanto
+ms.openlocfilehash: 3e2c8a424c9a3744bfb91d03632965c15613a424
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496160"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252170"
 ---
 En este paso, creará una base de datos única de Azure SQL Database. 
 
@@ -19,7 +20,7 @@ En este paso, creará una base de datos única de Azure SQL Database.
 >
 > Para más información, consulte [Creación de una regla de firewall a nivel de base de datos](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) o, para determinar la dirección IP que usa la regla de firewall a nivel de base de datos para el equipo, consulte [Creación de un firewall a nivel de servidor](../sql-database-server-level-firewall-rule.md).  
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Cree el grupo de recursos y la base de datos única mediante Azure Portal.
 
@@ -29,14 +30,14 @@ Cree el grupo de recursos y la base de datos única mediante Azure Portal.
 
    ![Creación de una base de datos única](../media/sql-database-get-started-portal/create-single-database.png)
 
-3. En la pestaña **Conceptos básicos**, en la sección **Detalles del proyecto**, escriba o seleccione los siguientes valores:
+4. En la pestaña **Conceptos básicos**, en la sección **Detalles del proyecto**, escriba o seleccione los siguientes valores:
 
    - **Suscripción**: Abra la lista desplegable y seleccione la suscripción correcta, en caso de que no aparezca.
    - **Grupo de recursos**: Seleccione **Crear nuevo**, escriba `myResourceGroup` y seleccione **Aceptar**.
 
      ![Nueva base de datos SQL (pestaña básica)](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-4. En la sección **Detalles de la base de datos**, escriba o seleccione los siguientes valores:
+5. En la sección **Detalles de la base de datos**, escriba o seleccione los siguientes valores:
 
    - **Nombre de base de datos**: Escriba `mySampleDatabase`.
    - **Servidor**: En la página **Crear nuevo**, escriba los valores siguientes y elija **Seleccionar**.
@@ -63,20 +64,24 @@ Cree el grupo de recursos y la base de datos única mediante Azure Portal.
      - Opcionalmente, también puede seleccionar **Cambiar configuración** para cambiar la generación del hardware.
    - Seleccione **Aplicar**.
 
-5. Seleccione la pestaña **Configuración adicional**. 
-6. En la sección **Origen de datos**, en **Usar datos existentes**, seleccione `Sample`.
+6. Seleccione la pestaña **Redes** y decida si desea [**Permitir que los servicios y recursos de Azure accedan a este servidor**](../sql-database-networkaccess-overview.md) o agregar un [punto de conexión privado](../../private-link/private-endpoint-overview.md).
+
+   ![Pestaña Redes](../media/sql-database-get-started-portal/create-database-networking.png)
+
+7. Seleccione la pestaña **Configuración adicional**. 
+8. En la sección **Origen de datos**, en **Usar datos existentes**, seleccione `Sample`.
 
    ![Configuración adicional de la base de datos SQL](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Asegúrese de seleccionar los datos de **Sample (AdventureWorksLT)** para poder seguir fácilmente este y otros inicios rápidos de Azure SQL Database que usan estos datos.
 
-7. Deje el resto de los valores como predeterminados y seleccione **Revisar y crear** en la parte inferior del formulario.
-8. Revise la configuración final y seleccione **Crear**.
+9. Deje el resto de los valores como predeterminados y seleccione **Revisar y crear** en la parte inferior del formulario.
+10. Revise la configuración final y seleccione **Crear**.
 
-9. En el formulario **SQL Database**, seleccione **Crear** para implementar y aprovisionar el grupo de recursos, el servidor y la base de datos.
+11. En el formulario **SQL Database**, seleccione **Crear** para implementar y aprovisionar el grupo de recursos, el servidor y la base de datos.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -151,7 +156,7 @@ En esta parte del artículo se usan los siguientes cmdlets de PowerShell:
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regla de firewall para un servidor lógico. | 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea una nueva base de datos única de Azure SQL Database | 
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Cree el grupo de recursos y la base de datos única mediante la CLI de AZ.
 

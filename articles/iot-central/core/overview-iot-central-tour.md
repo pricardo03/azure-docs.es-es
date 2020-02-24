@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 4e699b0fdbc22594a181d83c9650d569b35c52f3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024167"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426191"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Un paseo por la interfaz de usuario de Azure IoT Central
 
@@ -59,10 +59,10 @@ Para iniciar la aplicación de IoT Central, vaya a la dirección URL que usted o
 
 ## <a name="navigate-your-application"></a>Navegue por su aplicación
 
-Una vez que esté dentro de la aplicación de IoT, use el panel izquierdo para acceder a las distintas áreas. Para expandir o contraer la barra de navegación, seleccione el icono de tres líneas situado en la parte superior de la barra de navegación:
+Una vez que esté dentro de la aplicación de IoT, use el panel izquierdo para acceder a las distintas áreas. Para expandir o contraer el panel izquierdo, seleccione el icono de tres líneas situado en la parte superior del panel:
 
 > [!NOTE]
-> Los elementos que se ven en la barra de navegación dependerán de su función de usuario. Más información sobre [administración de usuarios y roles](howto-manage-users-roles.md). 
+> Los elementos que se ven en el panel izquierdo dependen del rol de usuario. Más información sobre [administración de usuarios y roles](howto-manage-users-roles.md). 
 
 :::row:::
   :::column span="":::

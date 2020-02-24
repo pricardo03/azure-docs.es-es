@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016500"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426367"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Creación de una aplicación de administración de residuos conectada en IoT Central
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Trabajos de configuración
 > * Realizar la personalización de marca de la aplicación mediante etiquetado.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 -  Se recomienda una suscripción de Azure. Opcionalmente, puede usar una evaluación gratuita de 7 días. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
@@ -129,7 +129,7 @@ La aplicación **Administración de residuos conectada** incluye una plantilla d
 
 Para ver la plantilla de dispositivo, siga estos pasos:
 
-1. Haga clic en **Device templates** (Plantillas de dispositivo) en el panel de navegación izquierdo de la aplicación de IoT Central. 
+1. Haga clic en **Device templates** (Plantillas de dispositivo) en el panel izquierdo de la aplicación de IoT Central. 
 
     ![Plantilla de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
@@ -231,13 +231,13 @@ Recibirá un correo electrónico cuando se cumpla la **condición** configurada.
 > La aplicación enviará un correo electrónico cada vez que se cumpla una condición. **Deshabilite** la regla para dejar de recibir correo electrónico de la regla automatizada. 
   
 Para crear una regla, siga estos pasos: 
-1. En el panel de navegación izquierdo, seleccione **+New** (+ Nueva) en **Rules** (Reglas).
+1. Seleccione **+ Nueva** en la pestaña **Reglas** del panel izquierdo.
 
 ## <a name="configure-jobs"></a>Configuración de trabajos
 
 En IoT Central, los trabajos permiten desencadenar actualizaciones de propiedades de la nube o del dispositivo en varios dispositivos. Además de las propiedades, los trabajos se pueden usar también para desencadenar comandos de dispositivo en varios dispositivos. IoT Central automatizará el flujo de trabajo. 
 
-1. En el panel de navegación izquierdo, vaya a **Jobs** (Trabajos). 
+1. Vaya a **Jobs** (Trabajos) en el panel izquierdo. 
 2. Haga clic en **+New** (+ Nuevo) y configure uno o varios trabajos. 
 
 

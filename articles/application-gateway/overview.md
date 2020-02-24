@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a72e98341ecafcda98cc2fde34cf1f9d4eaff94c
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1e80fa23519104c3c62f6a0bf5d65cbbe0848ae2
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658277"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443829"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -61,7 +61,7 @@ Para más información, consulte [¿Qué es el firewall de aplicaciones web?](..
 ## <a name="ingress-controller-for-aks"></a>Controlador de entrada para AKS
 El controlador de entrada de Application Gateway (AGIC) le permite utilizar Application Gateway como entrada para un clúster de [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/). 
 
-El controlador de entrada se ejecuta como un pod en el clúster de AKS y consume [recursos de entrada de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) y los convierte en una configuración de Application Gateway que permite a la puerta de enlace equilibrar la carga de tráfico en los pods de Kubernetes. El controlador de entrada solo admite la SKU de Application Gateway V2. 
+El controlador de entrada se ejecuta como un pod en el clúster de AKS y consume [recursos de entrada de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) y los convierte en una configuración de Application Gateway que permite a la puerta de enlace equilibrar la carga de tráfico en los pods de Kubernetes. El controlador de entrada solo admite las SKU de Application Gateway Standard_v2 y WAF_v2. 
 
 Para más información, consulte [Application Gateway Ingress Controller](ingress-controller-overview.md) (Controlador de entrada de Azure Application Gateway).
 

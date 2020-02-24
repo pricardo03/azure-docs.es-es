@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Implementación del análisis espacial de IoT | Microsoft Azure Maps'
 description: Integre IoT Hub con las API del servicio Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 24295e27a3b94f6960777a8704fdf448697da4e1
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 48d148256fe69bbdfd188f1d8472c2de80b0fa64
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987322"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208376"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
-El seguimiento y la captura de eventos pertinentes que se producen en el espacio y en el tiempo es un escenario común de IoT. Los escenarios de ejemplo incluyen aplicaciones de administración de flotas, seguimiento de activos, movilidad y ciudad inteligente. Este tutorial le guía en un patrón de solución para usar las API de Azure Maps. IoT Hub captura los eventos correspondientes, utilizando el modelo de suscripción de eventos proporcionado por Event Grid.
+En un escenario de IoT, son típicos el seguimiento y la captura de los eventos pertinentes que se producen en el espacio y en el tiempo. Los escenarios de ejemplo incluyen aplicaciones de administración de flotas, seguimiento de activos, movilidad y ciudad inteligente. Este tutorial le guía por un patrón de soluciones para usar las API de Azure Maps. IoT Hub captura los eventos correspondientes utilizando el modelo de suscripción de eventos proporcionado por Event Grid.
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -34,9 +34,9 @@ En este tutorial, aprenderá lo siguiente:
 
 ## <a name="use-case"></a>Caso de uso
 
-Esta solución muestra un escenario en el que una empresa de alquiler de automóviles planea supervisar y registrar los eventos de los automóviles que alquila. A menudo, las empresas de alquiler de automóviles los alquilan para una región geográfica concreta y necesitan realizar un seguimiento del lugar en que se encuentra cada vehículo mientras está alquilado. Es necesario registrar las instancias de un automóvil que abandona la región geográfica elegida. Los datos de registro garantizan que las directivas, las cuotas y otros aspectos empresariales se gestionan correctamente.
+Esta solución muestra un escenario en el que una empresa de alquiler de automóviles planea supervisar y registrar los eventos de los automóviles que alquila. Las compañías de alquiler de vehículos suelen operar en una región geográfica específica. Necesitan realizar el seguimiento de la ubicación de los vehículos cuando están alquilados. Se deben registrar las instancias de un vehículo que abandona la región geográfica elegida. Los datos de registro garantizan que las directivas, las cuotas y otros aspectos empresariales se gestionan correctamente.
 
-En nuestro caso, los vehículos de alquiler están equipados con dispositivos IoT que envían datos de telemetría a Azure IoT Hub de forma periódica. Los datos de telemetría incluyen la ubicación actual e indican si el motor del vehículo está en funcionamiento. El esquema de ubicación del dispositivo cumple el [esquema IoT Plug and Play para datos geoespaciales](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). El esquema de los datos de telemetría del dispositivo del vehículo de alquiler es como este:
+En nuestro caso, los vehículos de alquiler están equipados con dispositivos de IoT que envían datos de telemetría a Azure IoT Hub de forma periódica. Los datos de telemetría incluyen la ubicación actual e indican si el motor del vehículo está en funcionamiento. El esquema de ubicación del dispositivo cumple el [esquema IoT Plug and Play para datos geoespaciales](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). El esquema de los datos de telemetría del dispositivo del vehículo de alquiler es como este:
 
 ```JSON
 {
@@ -63,9 +63,13 @@ En nuestro caso, los vehículos de alquiler están equipados con dispositivos Io
 }
 ```
 
-Vamos a usar los datos de telemetría del dispositivo del vehículo para lograr nuestro objetivo. Queremos ejecutar reglas de geovalla y responder cada vez que recibamos un evento que indica que el automóvil se ha movido. Para ello, nos suscribiremos a los eventos de telemetría del dispositivo desde IoT Hub mediante Event Grid. Hay varias maneras de suscribirse a Event Grid y en este tutorial usaremos Azure Functions. Azure Functions reacciona a los eventos publicados en Event Grid. También implementa la lógica de negocios de alquiler de automóviles, que se basa en el análisis espacial de Azure Maps. El código de la función de Azure comprueba si el vehículo ha abandonado la geovalla. Si el vehículo ha abandonado la geovalla, la función de Azure recopila información adicional, como la dirección asociada a la ubicación actual. La función también implementa la lógica para almacenar los datos significativos del evento en un almacenamiento de blobs de datos que ayudan a proporcionar una descripción de las circunstancias del evento. Las circunstancias de los eventos pueden ser útiles para la empresa de alquiler de automóviles y el cliente de alquiler.
+Vamos a usar los datos de telemetría del dispositivo del vehículo para lograr nuestro objetivo. Queremos ejecutar reglas de geovalla y responder cada vez que recibamos un evento que indique que el vehículo se ha movido. Para ello, nos suscribiremos a los eventos de telemetría del dispositivo desde IoT Hub mediante Event Grid. 
 
-En el siguiente diagrama se proporciona información general del sistema.
+Hay varias maneras de suscribirse a Event Grid y en este tutorial usaremos Azure Functions. Azure Functions reacciona a los eventos publicados en Event Grid. También implementa la lógica de negocios de alquiler de automóviles, que se basa en el análisis espacial de Azure Maps. 
+
+El código de la función de Azure comprueba si el vehículo ha abandonado la geovalla. Si el vehículo ha abandonado la geovalla, la función de Azure recopila información adicional, como la dirección asociada a la ubicación actual. La función también implementa la lógica para almacenar los datos significativos del evento en un almacenamiento de blobs de datos que ayudan a proporcionar una descripción de las circunstancias del evento. 
+
+Las circunstancias de los eventos pueden ser útiles para la empresa de alquiler de automóviles y el cliente de alquiler. En el siguiente diagrama se proporciona información general del sistema.
 
  
   <center>
@@ -74,16 +78,16 @@ En el siguiente diagrama se proporciona información general del sistema.
   
   </center>
 
-La siguiente ilustración representa el área de la geovalla resaltada en azul y la ruta del vehículo de alquiler en forma de línea verde.
+La siguiente ilustración representa el área de geovalla resaltada en azul. La ruta del vehículo del alquiler se indica mediante una línea verde.
 
   ![Ruta de geovalla](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para completar los pasos de este tutorial, antes es preciso crear un grupo de recursos en Azure Portal. Para crear un grupo de recursos, haga lo siguiente:
+Para completar los pasos de este tutorial, antes es preciso crear un grupo de recursos en Azure Portal. Para crear un grupo de recursos, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -106,13 +110,13 @@ Para completar los pasos de este tutorial, antes es preciso crear un grupo de re
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps 
 
-Para implementar la lógica de negocios basada en el análisis espacial de Azure Maps, es preciso crear una cuenta de Azure Maps en el grupo de recursos que hemos creado. Siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
+Para implementar la lógica de negocios basada en el análisis espacial de Azure Maps, es preciso crear una cuenta de Azure Maps en el grupo de recursos que hemos creado. Siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps en el plan de tarifa S1. Siga los pasos descritos en la sección de [obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Para registrar datos de eventos, se creará una cuenta **v2storage** de uso general en el grupo de recursos "ContosoRental" para almacenar los datos como blobs. Para crear una cuenta de almacenamiento, siga las instrucciones del artículo [Creación de una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Después, es preciso crear un contenedor para almacenar los blobs. Para ello, siga estos pasos:
+Para registrar datos de eventos, crearemos una cuenta **v2storage** de uso general en el grupo de recursos "ContosoRental" para almacenar los datos como blobs. Para crear una cuenta de almacenamiento, siga las instrucciones del artículo [Creación de una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Después, crearemos un contenedor para almacenar los blobs. Para ello, siga estos pasos:
 
 1. En la cuenta de almacenamiento, vaya a Contenedores.
 
@@ -127,11 +131,11 @@ Para registrar datos de eventos, se creará una cuenta **v2storage** de uso gene
     ![access-keys](./media/tutorial-iot-hub-maps/access-keys.png)
 
 
-Ahora tenemos una cuenta de almacenamiento y un contenedor para registrar los datos de los eventos. A continuación, crearemos un centro de IoT.
+Ahora tenemos una cuenta de almacenamiento y un contenedor para registrar los datos de los eventos. Después, crearemos un centro de IoT.
 
 ### <a name="create-an-iot-hub"></a>Creación de un IoT Hub
 
-IoT Hub es un servicio administrado en la nube que actúa como centro de mensajes para las comunicaciones bidireccionales entre una aplicación de IoT y los dispositivos que administra. Para enrutar los mensajes de telemetría del dispositivo a una instancia de Event Grid, cree un centro de IoT en el grupo de recursos "ContosoRental". Configure una integración de ruta de mensajes en la que se filtrarán los mensajes según el estado del motor del automóvil. También enviaremos mensajes de telemetría del dispositivo a Event Grid cada vez que se mueva el automóvil.
+IoT Hub es un servicio administrado en la nube. IoT Hub actúa como centro de mensajes común para la comunicación bidireccional entre la aplicación de IoT y los dispositivos que administra. Para enrutar los mensajes de telemetría del dispositivo a una instancia de Event Grid, cree un centro de IoT en el grupo de recursos "ContosoRental". Configure una integración de ruta de mensajes en la que se filtrarán los mensajes según el estado del motor del automóvil. También enviaremos mensajes de telemetría del dispositivo a Event Grid cada vez que se mueva el automóvil.
 
 > [!Note] 
 > La funcionalidad de IoT Hub para publicar eventos de telemetría de dispositivos en Event Grid está en versión preliminar pública. Las características en versión preliminar pública están disponibles en todas las regiones, excepto en **Este de EE. UU., Oeste de EE. UU., Oeste de Europa, Azure Government, Azure China 21Vianet** y **Azure Alemania**. 
@@ -154,7 +158,7 @@ Para conectarse al centro de IoT, el dispositivo debe estar registrado. Para reg
 
 ## <a name="upload-geofence"></a>Carga de geovalla
 
-Usaremos la [aplicación Postman](https://www.getpostman.com) para [cargar la geovalla](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) en el servicio de Azure Maps mediante Data Upload API de Azure Maps. Cuando el automóvil esté fuera de esta geovalla se registrarán todos los eventos.
+Usaremos la [aplicación Postman](https://www.getpostman.com) para [cargar la geovalla](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) en el servicio Azure Maps mediante Data Upload API de Azure Maps. Cuando el automóvil esté fuera de esta geovalla se registrarán todos los eventos.
 
 Abra la aplicación Postman y siga estos pasos para cargar la geovalla mediante Data Upload API de Azure Maps.  
 
@@ -199,12 +203,16 @@ Abra la aplicación Postman y siga estos pasos para cargar la geovalla mediante 
    ```
 
 
-A continuación, crearemos una función de Azure en el grupo de recursos "ContosoRental" y, después, configuraremos una ruta de mensaje en IoT Hub para filtrar los mensajes de telemetría del dispositivo.
+A continuación, crearemos una función de Azure en el grupo de recursos "ContosoRental" y configuraremos una ruta de mensajería en IoT Hub para filtrar los mensajes de telemetría del dispositivo.
 
 
 ## <a name="create-an-azure-function-and-add-an-event-grid-subscription"></a>Creación de una función de Azure y adición de una suscripción a Event Grid
 
-Azure Functions es un servicio de proceso sin servidor que permite ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura de proceso. Para más información acerca de Azure Functions, consulte la documentación de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). La lógica que implementamos en la función usa los datos de ubicación procedentes de los datos de telemetría del dispositivo del vehículo para evaluar el estado de la geovalla. Si un vehículo dado se sale de la geovalla, la función recopilará más información como la dirección de la ubicación a través de [Get Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), que convierte una coordenada de ubicación determinada en una dirección postal que puede entender cualquier persona. Toda la información pertinente de los eventos se guarda en el almacén de blobs. En el paso 5 siguiente se apunta al código ejecutable que implementa dicha lógica. Siga los pasos que se indican a continuación para crear una función de Azure que envíe registros de datos al contenedor de blobs de la cuenta de almacenamiento y agréguele una suscripción a Event Grid.
+Azure Functions es un servicio de proceso sin servidor que permite ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura de proceso. Para más información acerca de Azure Functions, consulte la documentación de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). 
+
+La lógica que implementamos en la función usa los datos de ubicación procedentes de los datos de telemetría del dispositivo del vehículo para evaluar el estado de la geovalla. En caso de que un vehículo determinado salga de la geovalla, la función recopilará más información, como la dirección de su ubicación, mediante [Get Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse). Esta API convierte las coordenadas de una ubicación determinada en una dirección postal inteligible. 
+
+Toda la información pertinente de los eventos se guarda en el almacén de blobs. En el paso 5 siguiente se apunta al código ejecutable que implementa dicha lógica. Siga los pasos que se indican a continuación para crear una función de Azure que envíe registros de datos al contenedor de blobs de la cuenta de almacenamiento de blobs y agréguele una suscripción a Event Grid.
 
 1. En el panel de Azure Portal, seleccione Crear un recurso. Seleccione **Proceso** en la lista de tipos de recursos disponibles y, después, seleccione **Function App**.
 
@@ -216,7 +224,7 @@ Azure Functions es un servicio de proceso sin servidor que permite ejecutar cód
 
 2. Revise los detalles de la aplicación de funciones y seleccione "Crear".
 
-3. Una vez creada la aplicación, es preciso agregarle una función. Vaya a la aplicación de funciones y haga clic en **Nueva función**  para agregar una función. Elija **En el portal** como entorno de desarrollo y, a continuación, seleccione **Continuar**.
+3. Una vez creada la aplicación, es preciso agregarle una función. Vaya a la aplicación de función. Haga clic en **Nueva función** para agregar una función. Elija **En el portal** como entorno de desarrollo. Después, seleccione **Continuar**.
 
     ![create-function](./media/tutorial-iot-hub-maps/function.png)
 
@@ -237,18 +245,18 @@ Azure Functions es un servicio de proceso sin servidor que permite ejecutar cód
     
     ![add-event-grid](./media/tutorial-iot-hub-maps/add-egs.png)
 
-11. Rellene los detalles de la suscripción. En **EVENT SUBSCRIPTION DETAILS**, asigne un nombre a la suscripción y, en Esquema de eventos, elija "Esquema de Event Grid". En **Detalles del tema**, seleccione "Cuentas de Azure IoT Hub" como tipo de tema. Elija la misma suscripción que usó para crear el grupo de recursos, seleccione "ContosoRental" como el "Grupo de recursos" y, en "Recurso", elija el centro de IoT que creó. Seleccione **Device Telemetry** (Telemetría del dispositivo) en Tipo de evento. Después de elegir estas opciones, verá que "Tipo de tema" cambia automáticamente a "IoT Hub".
+11. Rellene los detalles de la suscripción. En **EVENT SUBSCRIPTION DETAILS**, asigne un nombre a la suscripción y, en Esquema de eventos, elija "Esquema de Event Grid". En **Detalles del tema**, seleccione "Cuentas de Azure IoT Hub" como tipo de tema. Elija la misma suscripción que usó para crear el grupo de recursos, seleccione "ContosoRental" como "Grupo de recursos" y, en "Recurso", elija la instancia de IoT Hub que creó. Seleccione **Device Telemetry** (Telemetría del dispositivo) en Tipo de evento. Después de elegir estas opciones, verá que "Tipo de tema" cambia automáticamente a "IoT Hub".
 
     ![event-grid-subscription](./media/tutorial-iot-hub-maps/af-egs.png)
  
 
 ## <a name="filter-events-using-iot-hub-message-routing"></a>Filtrado de eventos mediante el enrutamiento de mensajes de IoT Hub
 
-Después de agregar una suscripción a Event Grid a la función de Azure, podrá ver una ruta de mensajes predeterminada a Event Grid en la hoja **Enrutamiento de mensajes** de IoT Hub. El enrutamiento de mensajes le permite enrutar diferentes tipos de datos como mensajes de telemetría de dispositivos, eventos de ciclo de vida de dispositivos y eventos de cambio de dispositivos gemelos a varios puntos de conexión. Para más información acerca del enrutamiento de mensajes en IoT Hub, consulte [Uso del enrutamiento de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
+Después de agregar una suscripción a Event Grid a la función de Azure, verá una ruta de mensajería predeterminada a Event Grid en la hoja **Message Routing** (Enrutamiento de mensajes) de IoT Hub. El enrutamiento de mensajes le permite enrutar distintos tipos de datos a varios puntos de conexión. Por ejemplo, puede enrutar los mensajes de telemetría del dispositivo, los eventos del ciclo de vida del dispositivo y los eventos de cambio de dispositivo gemelo. Para más información acerca del enrutamiento de mensajes en IoT Hub, consulte [Uso del enrutamiento de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
 
 ![hub-EG-route](./media/tutorial-iot-hub-maps/hub-route.png)
 
-En el escenario de ejemplo, queremos filtrar todos los mensajes en los que el vehículo de alquiler se mueve. Para publicar dichos eventos de telemetría del dispositivo en Event Grid, se usará la consulta de enrutamiento para filtrar los eventos en los que la propiedad `Engine` sea **"ON"** . Hay varias maneras de consultar los mensajes del dispositivo IoT a la nube. Para más información acerca de la sintaxis de enrutamiento de mensajes, consulte el artículo acerca del [enrutamiento de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). Para crear una consulta de enrutamiento, haga clic en la ruta **RouteToEventGrid**, reemplace la **consulta de enrutamiento** por **"Engine='ON'"** y haga clic en **Guardar**. Ahora, IoT Hub solo publicará los datos de telemetría del dispositivo cuando el valor de Engine sea ON.
+En el escenario de ejemplo, queremos filtrar todos los mensajes en los que el vehículo de alquiler se mueve. Para publicar estos eventos de telemetría del dispositivo en Event Grid, usaremos la consulta de enrutamiento para filtrar los eventos en los que la propiedad `Engine` se encuentre en **"ON"** . Hay varias maneras de consultar los mensajes del dispositivo IoT a la nube. Para más información acerca de la sintaxis de enrutamiento de mensajes, consulte el artículo acerca del [enrutamiento de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). Para crear una consulta de enrutamiento, haga clic en la ruta **RouteToEventGrid**, reemplace la **consulta de enrutamiento** por **"Engine='ON'"** y haga clic en **Guardar**. Ahora, IoT Hub solo publicará los datos de telemetría del dispositivo cuando el valor de Engine sea ON.
 
 ![hub-EG-filter](./media/tutorial-iot-hub-maps/hub-filter.png)
 

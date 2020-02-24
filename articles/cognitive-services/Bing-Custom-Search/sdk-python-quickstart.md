@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.author: aahi
-ms.openlocfilehash: d67075fad719b1780682c705f0e17f15c5801559
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 4f4b6bad38992a9e0146d6324bc3a3fc7632ded2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136148"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201261"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para Python 
 
@@ -47,17 +47,17 @@ from msrest.authentication import CognitiveServicesCredentials
 
 ## <a name="create-a-search-client-and-send-a-request"></a>Creación de un cliente de búsqueda y envío de una solicitud
 
-1. Cree una variable para la clave de suscripción.
+1. Cree una variable para la clave y el punto de conexión de la suscripción.
 
     ```python
     subscription_key = 'your-subscription-key'
-    endpoint = 'your-custom-endpoint'
+    endpoint = 'your-endpoint'
     ```
 
 2. Cree una instancia de `CustomSearchClient` con un objeto `CognitiveServicesCredentials` mediante la clave de suscripción. 
 
     ```python
-    client = CustomSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 3. Envíe una solicitud de búsqueda con `client.custom_instance.search()`. Anexe el término de búsqueda al parámetro `query` y establezca `custom_config` en el identificador de configuración personalizada para usar la instancia de búsqueda. Puede obtener el identificador en el [portal de Bing Custom Search](https://www.customsearch.ai/), donde debe hacer clic en la pestaña **Producción**.

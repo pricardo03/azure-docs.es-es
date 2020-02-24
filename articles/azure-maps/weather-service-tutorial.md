@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Combinación de datos de sensores con datos de previsión meteorológica mediante Azure Notebooks (Python) | Microsoft Azure Maps'
 description: En este tutorial se muestra cómo combinar datos de sensores con datos de previsión meteorológica del servicio meteorológico de Microsoft Azure Maps mediante Azure Notebooks (Python).
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6d49a305a9b2e02d9e9d743ff8f076f453a08fcb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d6b82ec0662745fd9c9a05db28595ff84f57f330
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989627"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208036"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Combinación de datos de sensores con datos de previsión meteorológica mediante Azure Notebooks (Python)
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Trazar datos de previsión en gráficos.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, primero debe:
 
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Solicitud de los datos de previsión diarios
 
-En nuestro escenario, nos gustaría solicitar la previsión diaria de cada ubicación de sensores. El siguiente script llama a la [API de previsión diaria ](https://aka.ms/AzureMapsWeatherDailyForecast) del servicio meteorológico de Azure Maps para obtener la previsión meteorológica diaria de cada turbina eólica para los próximos 15 días a partir de la fecha actual.
+En nuestro escenario, nos gustaría solicitar la previsión diaria de cada ubicación de sensores. El siguiente script llama a [Daily Forecast API](https://aka.ms/AzureMapsWeatherDailyForecast) del servicio de climatología de Azure Maps. Esta API devuelve el pronóstico meteorológico de cada molino de viento para los próximos 15 días a partir de la fecha actual.
 
 
 ```python
@@ -129,7 +129,7 @@ display(Image(poi_range_map))
 ![Ubicaciones de las turbinas](./media/weather-service-tutorial/location-map.png)
 
 
-Vamos a agrupar los datos de previsión con los datos de demostración en función del identificador de la estación del centro de datos meteorológicos. Esta agrupación aumenta los datos de demostración con los datos de previsión. 
+Vamos a agrupar los datos de previsión con los de demostración en función del identificador de la estación. El identificador de la estación es para el centro de datos meteorológicos. Esta agrupación aumenta los datos de demostración con los datos de previsión.
 
 ```python
 # Group forecasted data for all locations

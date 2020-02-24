@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843878"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470197"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Load Balancer para equilibrar la carga de máquinas virtuales mediante Azure Portal
 
@@ -46,10 +46,14 @@ En esta sección, va a crear una instancia de Load Balancer que ayuda a equilibr
     | Nombre                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
     | Tipo          | Seleccione **Público**.                                        |
-    | SKU           | Seleccione **Standard** o **Básico**. Microsoft recomienda la versión Standard para cargas de trabajo de producción.  |
+    | SKU           | Seleccione **Standard** o **Básico**. Microsoft recomienda la versión Standard para cargas de trabajo de producción. |
     | Dirección IP pública | Seleccione **Crear nuevo**. Si tiene una dirección IP pública que le gustaría usar, seleccione **Utilizar existente**. |
-    | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
+    | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   Utilice ```-SKU Basic``` para crear una dirección IP pública básica. Las direcciones IP públicas básicas no son compatibles con el **equilibrador de carga estándar**. Microsoft recomienda el uso del **estándar** para cargas de trabajo de producción.|
     | Zona de disponibilidad | Escriba *Con redundancia de zona* para crear una instancia de Load Balancer resistente. Para crear una instancia de Load Balancer de zonas, seleccione una zona específica de 1, 2 o 3. |
+
+> [!IMPORTANT]
+> En el resto de esta guía de inicio rápido se supone que se elige la SKU **estándar** durante el proceso de selección de la SKU anterior.
+
 
 3. En la pestaña **Revisar + crear**, seleccione **Crear**.   
 

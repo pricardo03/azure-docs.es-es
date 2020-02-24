@@ -42,6 +42,8 @@
           href: deploy-windows-7-virtual-machine.md
         - name: Implementación de un host de sesión basado en GPU
           href: configure-vm-gpu.md
+        - name: Expansión de un grupo de hosts existente
+          href: expand-existing-host-pool.md
     - name: Creación de un contenedor de perfiles
       items:
         - name: Uso de un recurso compartido de archivos basado en máquina virtual

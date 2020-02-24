@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 02/14/2020
 ms.author: diberry
-ms.openlocfilehash: 2d7615d810e96beb61c3fe0b182a88158dc77c07
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4dca8ef9381096d83cd63a9f9a4449d9c8750933
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844843"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368339"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novedades de QnA Maker
 
@@ -24,6 +24,10 @@ Conozca las novedades del servicio. Estos elementos pueden ser notas de la versi
 ## <a name="release-notes"></a>Notas de la versión
 
 Conozca las novedades de QnA Maker.
+
+### <a name="february-2020"></a>Febrero de 2020
+
+* [Paquete NPM](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) con GenerateAnswer API
 
 ### <a name="november-2019"></a>Noviembre de 2019
 

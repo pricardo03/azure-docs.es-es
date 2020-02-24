@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 01/27/2020
-ms.openlocfilehash: 3f5f51c944cab84c00e29b2f72433a726ed70d33
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0eaff1685cea88d352f1a22f382b7af2ed0ed6cb
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024354"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252219"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de grupos de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure 
 
@@ -786,7 +786,7 @@ Vamos a seguir la guía para [crear los recursos del grupo de disponibilidad en 
 
 ### <a name="create-the-ag-cluster-resource"></a>Creación de un recurso de clúster del grupo de disponibilidad
 
-1. Use el siguiente comando para crear el recurso `ag_cluster` en el grupo `ag1` disponible.
+1. Use el siguiente comando para crear el recurso `ag_cluster` en el grupo de disponibilidad `ag1`.
 
     ```bash
     sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true

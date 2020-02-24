@@ -43,7 +43,7 @@
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Cifrado de Azure Storage
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Autenticación de Azure AD sobre SMB
+        - name: Autenticación y autorización basadas en identidad
           href: storage-files-active-directory-overview.md
         - name: Uso de puntos de conexión privados de Azure
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -173,7 +173,9 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Requerir transferencia segura
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Habilitación de la autenticación de Azure AD sobre SMB
+        - name: "Habilitación de autenticación y autorización en\_AD"
+          href: storage-files-active-directory-domain-services-enable.md
+        - name: "Habilitación de autenticación y autorización en Azure\_AD\_DS"
           href: storage-files-active-directory-enable.md
         - name: Habilitación de la conexión TLS segura para el cliente de Azure Storage
           href: ../common/storage-security-tls.md

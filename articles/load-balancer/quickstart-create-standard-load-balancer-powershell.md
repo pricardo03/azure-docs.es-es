@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 50a7854688164383bff08bfe55d356fe32239812
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0cd2bb54bb436beaa933195b88bc6f13a1b23e6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846518"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470452"
 ---
 # <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Inicio rápido: Creación de una instancia de Load Balancer con Azure PowerShell
 
@@ -68,7 +68,10 @@ $publicIp = New-AzPublicIpAddress `
  -zone 1
 ```
 
-Use ```-SKU Basic``` para crear una dirección IP pública básica. Microsoft recomienda el uso de Standard Load Balancer para cargas de trabajo de producción.
+Utilice ```-SKU Basic``` para crear una dirección IP pública básica. Las direcciones IP públicas básicas no son compatibles con el **equilibrador de carga estándar**. Microsoft recomienda el uso del **estándar** para cargas de trabajo de producción.
+
+> [!IMPORTANT]
+> En el resto de esta guía de inicio rápido se supone que se elige la SKU **estándar** durante el proceso de selección de la SKU anterior.
 
 ## <a name="create-load-balancer"></a>Cree un equilibrador de carga
 
@@ -161,6 +164,9 @@ $lb = New-AzLoadBalancer `
 ```
 
 Utilice ```-SKU Basic``` para crear una instancia de Load Balancer Básico. Microsoft recomienda el uso de Standard Load Balancer para cargas de trabajo de producción.
+
+> [!IMPORTANT]
+> En el resto de esta guía de inicio rápido se supone que se elige la SKU **estándar** durante el proceso de selección de la SKU anterior.
 
 ## <a name="create-network-resources"></a>Crear recursos de red
 Para poder implementar algunas máquinas virtuales y probar el equilibrador, debe crear unos recursos de red que lo permitan: una red virtual y varias NIC virtuales. 

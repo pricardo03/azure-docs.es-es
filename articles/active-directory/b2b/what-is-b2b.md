@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/23/2020
+ms.date: 02/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fc1129b4ca6d0618e6b818a103e2a5513f69f3d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c5ccfb4719d14d0ce73caf093c5fe63631eda2a7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758228"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195222"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?
 
@@ -30,23 +30,29 @@ El vídeo siguiente proporciona una introducción práctica.
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Colaboración con cualquier asociado mediante sus identidades
-Con Azure AD B2B, el asociado utiliza su propia solución de administración de identidades, así que no hay ninguna sobrecarga administrativa externa para su organización. 
-- El socio utiliza sus propias identidades y credenciales; Azure AD no es necesario. 
-- No es necesario administrar las cuentas externas o las contraseñas. 
+
+Con Azure AD B2B, el asociado utiliza su propia solución de administración de identidades, así que no hay ninguna sobrecarga administrativa externa para su organización.
+
+- El socio utiliza sus propias identidades y credenciales; Azure AD no es necesario.
+- No es necesario administrar las cuentas externas o las contraseñas.
 - No es necesario sincronizar las cuentas o administrar los ciclos de vida de las cuentas.  
 
 ![Captura de pantalla que muestra la página Agregar miembros](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Invitación a usuarios con un proceso de canje e invitación sencillo
+
 Los usuarios invitados inician sesión en las aplicaciones y los servicios con sus propias identidades profesionales, educativas o sociales. Si el usuario invitado no tiene una cuenta de Microsoft o de Azure AD, se crea una en su nombre al canjear la invitación. 
+
 - Invite a usuarios invitados mediante la identidad de correo electrónico de su elección.
-- Envíe un vínculo directo a una aplicación o envíe una invitación al panel de acceso propio del usuario invitado. 
+- Envíe un vínculo directo a una aplicación o envíe una invitación al panel de acceso propio del usuario invitado.
 - Los usuarios invitados siguen unos pasos de canje sencillos para iniciar sesión.
 
 ![Captura de pantalla que muestra la página Revisar permisos](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Uso de directivas para compartir de forma segura sus aplicaciones y servicios
+
 Puede usar las directivas de autorización para proteger el contenido corporativo. Las directivas de acceso condicional, como la autenticación multifactor, se pueden aplicar:
+
 - En el nivel de inquilino.
 - En el nivel de aplicación.
 - A usuarios invitados específicos para proteger los datos y las aplicaciones empresariales.
@@ -57,6 +63,7 @@ Puede usar las directivas de autorización para proteger el contenido corporativ
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Incorporación sencilla de usuarios invitados en el portal de Azure AD
 
 Como administrador, puede agregar fácilmente usuarios invitados a su organización en Azure Portal.
+
 - Cree un usuario invitado en Azure AD, similar a cómo se agrega un nuevo usuario.
 - El usuario invitado recibe inmediatamente una invitación personalizable que le permite iniciar sesión en su panel de acceso.
 - Los usuarios invitados del directorio pueden asignarse a grupos o aplicaciones.  
@@ -65,19 +72,19 @@ Como administrador, puede agregar fácilmente usuarios invitados a su organizaci
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Permitir que los propietarios de aplicaciones y grupos administren sus propios usuarios invitados
 
-Puede delegar la administración de usuarios invitados a los propietarios de aplicaciones para que puedan agregar usuarios invitados directamente a cualquier aplicación que deseen compartir, ya sea una aplicación de Microsoft o no. 
- - Los administradores configuran la administración de aplicaciones y grupos de autoservicio.
- - Los usuarios no administradores usan su [panel de acceso](https://myapps.microsoft.com) para agregar usuarios invitados a aplicaciones o grupos.
+Puede delegar la administración de usuarios invitados a los propietarios de aplicaciones para que puedan agregar usuarios invitados directamente a cualquier aplicación que deseen compartir, ya sea una aplicación de Microsoft o no.
+
+- Los administradores configuran la administración de aplicaciones y grupos de autoservicio.
+- Los usuarios no administradores usan su [panel de acceso](https://myapps.microsoft.com) para agregar usuarios invitados a aplicaciones o grupos.
 
 ![Captura de pantalla que muestra el Panel de acceso de los usuarios invitados](media/what-is-b2b/access-panel-manage-app.png)
 
-## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Uso de API y el código de ejemplo para crear fácilmente aplicaciones para realizar una incorporación
+## <a name="customize-the-onboarding-experience-for-b2b-guest-users"></a>Personalización de la experiencia de incorporación de usuarios invitados de B2B
 
 Incorpore a los asociados externos de manera personalizada según las necesidades de su organización.
-- Use las [API de invitación de colaboración B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar sus experiencias de incorporación, incluida la creación de portales de suscripción de autoservicio. 
-- Use el código de ejemplo que se proporciona para un portal de autoservicio [en GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-![Captura de pantalla que muestra el portal de registro de ejemplo](media/what-is-b2b/sign-up-portal.png)
+- Use la [administración de derechos de Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) para configurar directivas que [administren el acceso para los usuarios externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
+- Use la [API de invitación de colaboración B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar las experiencias de incorporación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

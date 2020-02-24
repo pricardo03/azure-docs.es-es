@@ -1,35 +1,31 @@
 ---
 title: Roles de administrador para Enterprise en Azure | Microsoft Docs
 description: Conozca los roles de administrador de empresa en Azure.
-services: billing
-documentationcenter: ''
-author: adpick
-manager: adpick
-editor: ''
+author: bandersmsft
+ms.reviewer: adwise
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2020
+ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: ee918f0f49acf85486999fe9314758286bb57126
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9fab4d8ba0cf2e6f684a1b9de177084f8ce31604
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023334"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462197"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Roles administrativos del Contrato Enterprise de Azure en Azure
 
 Para ayudar a administrar el uso y el gasto de su organización, los clientes de Azure con un Contrato Enterprise (EA) pueden asignar cinco roles de administrador diferentes:
 
 - Administrador de empresa
-- Administrador de empresa (solo lectura)
+- Administrador de empresa (solo lectura)<sup>1</sup>
 - Administrador de departamentos
 - Administrador de departamento (solo lectura)
 - Propietario de cuenta
- 
+
+<sup>1</sup> El contacto de facturación del Contrato Enterprise estará bajo este rol.
+
 Estos roles son específicos de la administración de Contratos Enterprise de Azure y son adicionales a los roles integrados que tiene Azure para controlar el acceso a los recursos. Para más información, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
 
 En las secciones siguientes se describen las limitaciones y funcionalidades de cada rol.
@@ -42,9 +38,9 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 |Administrador de empresa (solo lectura)|Sin límite|
 |Administrador de departamentos|Sin límite|
 |Administrador de departamento (solo lectura)|Sin límite|
-|Propietario de cuenta|1 por cuenta<sup>1</sup>|
+|Propietario de cuenta|Uno por cuenta<sup>2</sup>|
 
-<sup>1</sup> Cada cuenta requiere una única cuenta Microsoft o una cuenta profesional o educativa.
+<sup>2</sup> Cada cuenta requiere una única cuenta de Microsoft o una cuenta profesional o educativa.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Estructura de organización y permisos por rol
 
@@ -52,17 +48,17 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 |---|---|---|---|---|---|
 |Ver administradores de empresa|✔|✔|✘|✘|✘|
 |Agregar o quitar administradores de empresa|✔|✘|✘|✘|✘|
-|Ver contactos de notificación<sup>2</sup> |✔|✔|✘|✘|✘|
-|Agregar o eliminar contactos de notificación<sup>2</sup> |✔|✘|✘|✘|✘|
+|Ver contactos de notificación<sup>3</sup> |✔|✔|✘|✘|✘|
+|Agregar o quitar contactos de notificación<sup>3</sup> |✔|✘|✘|✘|✘|
 |Crear y administrar departamentos |✔|✘|✘|✘|✘|
 |Ver administradores de departamento|✔|✔|✔|✔|✘|
 |Agregar o quitar administradores de departamento|✔|✘|✔|✘|✘|
-|Ver cuentas en la inscripción |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
-|Agregar cuentas a la inscripción y cambiar el propietario de la cuenta|✔|✘|✔<sup>3</sup>|✘|✘|
+|Ver cuentas en la inscripción |✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✘|
+|Agregar cuentas a la inscripción y cambiar el propietario de la cuenta|✔|✘|✔<sup>4</sup>|✘|✘|
 |Crear y administrar suscripciones y permisos de suscripción|✘|✘|✘|✘|✔|
 
-- <sup>2</sup> A los contactos de notificación se les envían comunicaciones por correo electrónico sobre el Contrato Enterprise de Azure.
-- <sup>3</sup> La tarea se limita a las cuentas de su departamento.
+- <sup>3</sup>A los contactos de notificación se les envían comunicaciones por correo electrónico sobre el Contrato Enterprise de Azure.
+- <sup>4</sup> La tarea se limita a las cuentas de su departamento.
 
 
 ## <a name="usage-and-costs-access-by-role"></a>Acceso de uso y costos por rol
@@ -73,11 +69,11 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 |Ver cuotas de gastos de departamento|✔|✔|✘|✘|✘|
 |Establecer cuotas de gasto de departamento|✔|✘|✘|✘|✘|
 |Ver la hoja de precios de EA de la organización|✔|✔|✘|✘|✘|
-|Ver los detalles de uso y costo|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
+|Ver los detalles de uso y costo|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✔<sup>6</sup>|
 |Administrar recursos en Azure Portal|✘|✘|✘|✘|✔|
 
-- <sup>4</sup> Requiere que el administrador de empresa habilite la directiva de **visualización de cargos del AD** en Enterprise Portal. El administrador de departamento puede entonces ver los detalles de costo del departamento.
-- <sup>5</sup> Requiere que el administrador de empresa habilite la directiva de **visualización de cargos del PC** en Enterprise Portal. El propietario de la cuenta puede ver entonces los detalles del costo de la cuenta.
+- <sup>5</sup> Requiere que el administrador de empresa habilite la directiva de **visualización de cargos del administrador de departamento** en Enterprise Portal. El administrador de departamento puede entonces ver los detalles de costo del departamento.
+- <sup>6</sup> Requiere que el administrador de empresa habilite la directiva de **visualización de cargos del propietario de la cuenta** en Enterprise Portal. El propietario de la cuenta puede ver entonces los detalles del costo de la cuenta.
 
 
 ## <a name="pricing-in-azure-portal"></a>Precios en Azure Portal

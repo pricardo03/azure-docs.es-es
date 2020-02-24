@@ -9,49 +9,28 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 538e04d7ae4f6528c26762a8efac06d02b4f86bc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3bc5dc754509260591acf7c5d5809d5e85794d9b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083729"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471931"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT Hub actualmente admite flujos de dispositivos como [Característica en vista previa (GB)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+En este inicio rápido, se ejecuta una aplicación del lado del servicio y se configura la comunicación entre un dispositivo y un servicio mediante flujos de dispositivo. Los flujos de dispositivo de Azure IoT Hub permiten que las aplicaciones tanto de los servicios como de los dispositivos se comuniquen de forma segura y apta para el firewall. Durante la versión preliminar pública, el SDK para Node.js solo admite flujos de dispositivo en el lado del servicio. Por consiguiente, este artículo de inicio rápido solo abarca las instrucciones para ejecutar la aplicación del lado del servicio.
 
-[Los flujos de dispositivo de IoT Hub](./iot-hub-device-streams-overview.md) permiten que las aplicaciones de servicio y de dispositivo se comuniquen de forma segura y apta para el firewall. Durante la versión preliminar pública, el SDK para Node.js solo admite flujos de dispositivo en el lado del servicio. Por consiguiente, este artículo de inicio rápido solo abarca las instrucciones para ejecutar la aplicación del lado del servicio. Hay que ejecutar una aplicación complementaria del lado del dispositivo, disponible en los inicios rápidos siguientes:
+## <a name="prerequisites"></a>Prerrequisitos
 
-* [Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-c.md)
+* Haber completado [Comunicación con aplicaciones de dispositivo en C mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-c.md) o [Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-csharp.md).
 
-* [Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-csharp.md)
+* Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-La aplicación Node.js del lado del servidor de este inicio rápido tiene las siguientes funcionalidades:
+* [Node.js 10+](https://nodejs.org).
 
-* Crea un flujo de dispositivo a un dispositivo de IoT.
-
-* Lee la entrada de línea de comandos y la envía a la aplicación del dispositivo, que la devuelve.
-
-El código mostrará el proceso de inicio de un flujo de dispositivos y cómo usarlo para enviar y recibir datos.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-## <a name="prerequisites"></a>Requisitos previos
-
-La versión preliminar de los flujos de dispositivos solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
-
-  * Centro de EE. UU.
-  * EUAP del centro de EE. UU.
-  * Europa del Norte
-  * Sudeste asiático
-
-Para ejecutar la aplicación del servicio en este inicio rápido, es preciso que la máquina de desarrollo tenga la versión 10.x.x de Node.js, o cualquier versión posterior.
-
-Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
+* [Un proyecto de Node.js de ejemplo](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 Puede verificar la versión actual de Node.js en el equipo de desarrollo con el comando siguiente:
 
@@ -59,19 +38,31 @@ Puede verificar la versión actual de Node.js en el equipo de desarrollo con el 
 node --version
 ```
 
-Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
+Microsoft Azure IoT Hub actualmente admite flujos de dispositivos como una [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!IMPORTANT]
+> La versión preliminar de los flujos de dispositivos solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
+>
+> * Centro de EE. UU.
+> * EUAP del centro de EE. UU.
+> * Norte de Europa
+> * Sudeste de Asia
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Adición de la extensión IoT de Azure
+
+Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IoT agrega comandos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-Si aún no lo ha hecho, descargue el proyecto de Node.js de muestra desde https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip y extraiga el archivo ZIP.
-
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
 Si ha completado la anterior [Guía de inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md) puede omitir este paso.
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
@@ -109,13 +100,20 @@ En esta sección, ejecuta la aplicación del lado del dispositivo y la aplicaci�
 
 Como ya se ha mencionado, el SDK de IoT Hub para Node.js solo admite flujos de dispositivo en el lado del servicio. Para la aplicación del dispositivo, use los programas de dispositivo complementarios disponibles en estos inicios rápidos:
 
-   * [Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-c.md)
+* [Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-c.md)
 
-   * [Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-csharp.md)
+* [Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-csharp.md)
 
 Asegúrese de que la aplicación del lado del dispositivo se está ejecutando antes de continuar con el paso siguiente.
 
 ### <a name="run-the-service-side-application"></a>Ejecución de la aplicación del lado del servicio
+
+La aplicación Node.js del lado del servidor de este inicio rápido tiene las siguientes funcionalidades:
+
+* Crea un flujo de dispositivo a un dispositivo de IoT.
+* Lee la entrada de línea de comandos y la envía a la aplicación del dispositivo, que la devuelve.
+
+El código mostrará el proceso de inicio de un flujo de dispositivos y cómo usarlo para enviar y recibir datos.
 
 Si se da por hecho que la aplicación del dispositivo está en ejecución, realice los siguientes pasos en una ventana de terminal local para ejecutar la aplicación del servicio escrita en Node.js:
 

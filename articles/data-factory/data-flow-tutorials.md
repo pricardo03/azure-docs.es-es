@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/06/2020
-ms.openlocfilehash: 00b51c14a24b525d98e9634a4f416177364228cb
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069598"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460542"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriales en vídeo del flujo de datos de asignación
 
@@ -68,6 +68,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Transformación División condicional](http://youtu.be/W1lQHojhKZw?hd=1)
 
 [Transformación Exists](http://youtu.be/GS8JVgNBMfs?hd=1) (Existe)
+
+[Combinaciones dinámicas y búsquedas dinámicas](https://youtu.be/CMOPPie9bXM)
 
 ## <a name="source-and-sink"></a>Origen y receptor
 
@@ -136,3 +138,5 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 ## <a name="data-flow-expressions"></a>Expresiones del flujo de datos
 
 [Expresiones de fecha y hora](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+
+[División de matrices y la instrucción Case](https://www.youtube.com/watch?v=DHNH8ZO7YjI)

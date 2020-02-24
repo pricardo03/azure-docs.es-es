@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Microsoft Azure Maps y Azure Notebooks.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844758"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208172"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
-Azure Maps es una cartera de API de servicios geoespaciales que se integran de forma nativa en Azure. Con estas API, los desarrolladores, las empresas y los ISV pueden crear aplicaciones con reconocimiento de ubicación y soluciones de seguimiento de recursos, IoT, movilidad y logística. 
+Azure Maps es una cartera de API de servicios geoespaciales que se integran de forma nativa en Azure. Estas API permiten a los desarrolladores, las empresas y los ISV pueden desarrollar aplicaciones con reconocimiento de ubicación y soluciones de seguimiento de recursos, IoT, movilidad y logística. 
 
 Se puede llamar a las API REST de Azure Maps desde lenguajes como Python y R para habilitar el análisis de datos geoespaciales y los escenarios de aprendizaje automático. Azure Maps ofrece un sólido conjunto de [API de enrutamiento](https://docs.microsoft.com/rest/api/maps/route) que permiten a los usuarios calcular rutas entre varios puntos de datos. Los cálculos se basan en diversas condiciones, como el tipo de vehículo o el área de alcance. 
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Búsqueda y visualización de la ruta a la estación de carga de vehículos eléctricos más cercana en función del tiempo de conducción.
 
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 Para realizar este tutorial, primero debe crear una cuenta de Azure Maps y obtener la clave principal (clave de suscripción). 
 
@@ -74,7 +74,7 @@ Para seguir este tutorial, tendrá que crear un proyecto de Azure Notebooks y de
 
 1. Una vez finalizada la carga correctamente, el archivo se muestra en la página del proyecto. Haga doble clic en el archivo para abrirlo como un cuaderno de Jupyter.
 
-Para comprender mejor la funcionalidad implementada en el archivo del cuaderno, ejecute el código del cuaderno celda por celda. Para ejecutar el código de cada celda, seleccione el botón **Run** (Ejecutar) situado en la parte superior de la aplicación del cuaderno.
+Intente comprender la funcionalidad que se implementa en el archivo del cuaderno. Ejecute el código en el archivo del cuaderno de celda en celda. Para ejecutar el código de cada celda, seleccione el botón **Run** (Ejecutar) situado en la parte superior de la aplicación del cuaderno.
 
   ![Botón Run (Ejecutar)](./media/tutorial-ev-routing/run.png)
 
@@ -156,7 +156,7 @@ boundsData = {
 
 Una vez que haya determinado el intervalo de alcance (isócrono) del vehículo eléctrico, puede buscar las estaciones de carga en ese intervalo. 
 
-El siguiente script llama a [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) de Azure Maps. Esta busca estaciones de carga de vehículos eléctricos en los límites del intervalo máximo de alcance del coche y, a continuación, analiza la respuesta en una matriz de ubicaciones dentro del alcance.
+El siguiente script llama a [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) de Azure Maps. Busca estaciones de carga para el vehículo eléctrico, dentro de los límites del intervalo máximo accesible del vehículo. A continuación, el script analiza la respuesta en una matriz de ubicaciones cubiertas.
 
 Ejecute el siguiente script para buscar estaciones de carga de vehículos eléctricos dentro del intervalo de alcance:
 

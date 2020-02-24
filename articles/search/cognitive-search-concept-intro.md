@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: e6ee75f4a7e00e8c21079e1336756db20221750f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838010"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472441"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introducción a la inteligencia artificial en Azure Cognitive Search
 
@@ -131,7 +131,7 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 + [Tutorial (solicitudes HTTP)](cognitive-search-tutorial-blob.md)
 + [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial (C#)](cognitive-search-create-custom-skill-example.md)
 
-Para fines de aprendizaje se recomienda usar el servicio Gratis; sin embargo, el número de transacciones gratuitas se limita a 20 documentos al día. Para ejecutar tanto el inicio rápido como el tutorial en un solo día, use un conjunto de archivos más pequeño (10 documentos) para que pueda adaptarlo a ambos ejercicios, o bien elimine el indexador que usó en el inicio rápido o tutorial para devolver el contador a cero.
+Para fines de aprendizaje se recomienda usar el servicio Gratis; sin embargo, el número de transacciones gratuitas se limita a 20 documentos al día. Para ejecutar las lecciones varias veces. elimine y vuelva a crear el indexador para restablecer el contador a cero.
 
 **Paso 3: Revise la API**
 

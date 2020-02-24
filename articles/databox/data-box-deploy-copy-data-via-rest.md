@@ -1,5 +1,6 @@
 ---
-title: Tutorial para copiar datos a Azure Data Box Blob Storage mediante API REST | Microsoft Docs
+title: 'Tutorial: Uso de las API REST para realizar copias en Blob Storage'
+titleSuffix: Azure Data Box
 description: Vea cómo copiar datos a Azure Data Box Blob Storage mediante API REST
 services: databox
 author: alkohli
@@ -8,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: fcd6fc95adc892885fd8471e622ce3b04258d8b5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800533"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471846"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copia de datos a Azure Data Box Blob Storage mediante API REST  
 
@@ -22,11 +23,11 @@ En este tutorial se describen los procedimientos para conectarse a Azure Data Bo
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Requisitos previos
+> * Prerrequisitos
 > * Conexión a Data Box Blob Storage mediante *http* o *https*
 > * Copia de datos a un dispositivo Data Box
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que:
 
@@ -96,7 +97,7 @@ En esta sección se menciona información específica para algunas aplicaciones.
 
 Siga estos pasos para importar el archivo `.cer` en el almacén raíz de un cliente de Windows o Linux. En un sistema Windows, puede usar Windows PowerShell o la interfaz de usuario de Windows Server para importar e instalar el certificado en el sistema.
 
-#### <a name="use-windows-powershell"></a>Uso de Windows PowerShell
+#### <a name="use-windows-powershell"></a>Use Windows PowerShell
 
 1. Iniciar una sesión de Windows PowerShell como administrador.
 2. En el símbolo del sistema, escriba:
@@ -188,7 +189,7 @@ Use AzCopy para cargar todos los archivos en una carpeta en Blob Storage en Wind
         --dest-key <key> \
         --recursive
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
@@ -213,7 +214,7 @@ Si solo desea copiar los recursos de origen que no existen en el destino, especi
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
@@ -226,7 +227,7 @@ El siguiente paso consiste en preparar el dispositivo para el envío.
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box, como:
 
 > [!div class="checklist"]
-> * Requisitos previos
+> * Prerrequisitos
 > * Conexión a Data Box Blob Storage mediante *http* o *https*
 > * Copia de datos a un dispositivo Data Box
 

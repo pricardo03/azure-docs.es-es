@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8bf4039ac968883628a72974b64d90faf707c9af
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700301"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194507"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Introducción a la Plataforma de identidad de Microsoft (versión 2.0)
 
@@ -42,7 +42,11 @@ Con la Plataforma de identidad de Microsoft, puede escribir código una vez y ll
 
 ## <a name="getting-started"></a>Introducción
 
-Trabajar con la identidad no tiene porqué ser complicado. Elija un [escenario](authentication-flows-app-scenarios.md) que se aplique a su trabajo: cada ruta de acceso de escenario tiene un inicio rápido y una página de información general para ayudarle a ponerse en marcha en cuestión de minutos:
+Trabajar con la identidad no tiene porqué ser complicado. 
+
+Vea un [vídeo de la plataforma de identidades de Microsoft](identity-videos.md) para conocer los aspectos básicos. 
+
+Elija un [escenario](authentication-flows-app-scenarios.md) que se aplique a su trabajo: cada ruta de acceso de escenario tiene un inicio rápido y una página de información general para ayudarle a ponerse en marcha en cuestión de minutos:
 
 - [Compilación de una aplicación de una sola página](scenario-spa-overview.md)
 - [Compilación de una aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2f605d5adda913fa465b43a85bd027458959c122
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 63c531cc0e600d82df74154adb212be76ba9b4de
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928093"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368547"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial: Implementación de HSM en una red virtual existente con PowerShell
 
@@ -38,7 +38,7 @@ Este tutorial se centra en dos HSM y en la puerta de enlace de ExpressRoute nece
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Azure Dedicated HSM no está disponible actualmente en Azure Portal y, por tanto, toda interacción con el servicio se realizará a través de la línea de comandos o mediante PowerShell. En este tutorial se utilizará PowerShell en Azure Cloud Shell. Si no está familiarizado con PowerShell, siga las instrucciones de inicio que se encuentran aquí: [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -245,17 +245,18 @@ Hasta este momento ha asignado todos los recursos necesarios para una implementa
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminación y limpieza de los recursos
 
-Si ya ha terminado con el dispositivo HSM, puede eliminarlo como un recurso y devolverlo al grupo disponible. La preocupación más obvia a la hora de hacer esto es la información confidencial del cliente que se encuentra en el dispositivo. Para eliminar la información confidencial del cliente, se debe restablecer el dispositivo a sus valores de fábrica mediante el cliente de Gemalto. Consulte la guía para administradores de Gemalto para el dispositivo SafeNet Network Luna 7 y tenga en cuenta los siguientes comandos por orden.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `my file clear -f`
-4. `my public-key clear -f`
-5. `syslog rotate`
-
+Si ya ha terminado con el dispositivo HSM, puede eliminarlo como un recurso y devolverlo al grupo disponible. La preocupación más obvia a la hora de hacer esto es la información confidencial del cliente que se encuentra en el dispositivo. La mejor manera de "poner a cero" un dispositivo es escribir la contraseña de administrador de HSM equivocada 3 veces (nota: no el administrador de la aplicación, el administrador de HSM real). Como medida de seguridad para proteger el material clave, el dispositivo no se puede eliminar como recurso de Azure hasta que se encuentre en estado "a cero".
 
 > [!NOTE]
 > Si tiene algún problema con la configuración de cualquier dispositivo de Gemalto, debe ponerse en contacto con el departamento de [asistencia al cliente de Gemalto](https://safenet.gemalto.com/technical-support/).
+
+Si desea quitar solo el recurso HSM de Azure, puede usar el siguiente comando y reemplazar las variables "$" por sus parámetros únicos:
+
+```powershel
+
+Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+
+```
 
 Si ya ha terminado con los recursos de este grupo de recursos, puede quitarlos todos con el siguiente comando:
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: e26ae4d384b1718b1cdb12abbda82aad22afde4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c18c39ced40505a87af8907a65aa16aae978838
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462579"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471880"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks y Spark
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá lo siguiente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cree una cuenta de Azure Data Lake Storage Gen2
 
@@ -129,7 +129,7 @@ Use AzCopy para copiar datos del archivo *.csv* en su cuenta de Data Lake Storag
 
    * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
-   * Reemplace el marcador de posición `<container-name>` por el nombre que desee asignar al contenedor.
+   * Reemplace el marcador de posición `<container-name>` por el nombre de un contenedor de la cuenta de almacenamiento.
 
 ## <a name="create-a-container-and-mount-it"></a>Creación y montaje de un contenedor
 
@@ -161,20 +161,7 @@ En esta sección, va a crear un contenedor y una carpeta en la cuenta de almacen
     extra_configs = configs)
     ```
 
-18. En este bloque de código, reemplace los valores de marcador de posición `appId`, `password`, `tenant` y `storage-account-name` por los valores que recopiló al completar los requisitos previos de este tutorial. Reemplace el valor de marcador de posición `container-name` por el nombre que asignó al contenedor en el paso anterior.
-
-Utilice estos valores para reemplazar los marcadores de posición mencionados.
-
-   * `appId` y `password` proceden de la aplicación que registró con Active Directory como parte de la creación de una entidad de servicio.
-
-   * `tenant-id` procede de su suscripción.
-
-   * `storage-account-name` es el nombre de la cuenta de almacenamiento de Azure Data Lake Storage Gen2.
-
-   * Reemplace el marcador de posición `container-name` por el nombre que desee asignar al contenedor.
-
-   > [!NOTE]
-   > En un entorno de producción, considere la posibilidad de almacenar su contraseña en Azure Databricks. A continuación, agregue una clave de búsqueda a su bloque de código en lugar de la contraseña. Una vez completado este inicio rápido, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio Web de Azure Databricks para ver ejemplos de este enfoque.
+18. En este bloque de código, reemplace los valores de marcador de posición `appId`, `password`, `tenant` y `storage-account-name` por los valores que recopiló al completar los requisitos previos de este tutorial. Reemplace el valor de marcador de posición `container-name` por el nombre del contenedor.
 
 19. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
 

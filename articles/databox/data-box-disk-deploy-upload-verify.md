@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
-ms.openlocfilehash: e2851f7087151b09b5f859b7142aa28e5b18a4e5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514092"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200136"
 ---
 ::: zone target="docs"
 
@@ -26,7 +26,7 @@ Este es el último tutorial de la serie: Implementación de Azure Data Box Disk.
 > * Comprobación de la carga de datos en Azure
 > * Eliminación de los datos de Data Box Disk
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que ha completado [Tutorial: Devolución de Azure Data Box Disk](data-box-disk-deploy-picked-up.md).
 
@@ -56,7 +56,7 @@ Compruebe que los datos estén en las cuentas de almacenamiento antes de elimina
   - Para los blobs en bloques y los blobs en páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Para Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
-    Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e ir desde allí.
+    Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e desplazarse desde allí.
 
 - Sus grupos de recursos de disco administrados. Al crear discos administrados, los discos duros virtuales se cargan como blobs en páginas y se convierten en discos administrados. Los discos administrados se conectan a los grupos de recursos especificados en el momento de creación del pedido.
 
@@ -100,7 +100,7 @@ Para comprobar que los datos se han cargado en Azure, realice los pasos siguient
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Eliminación de los datos de Data Box Disk
 
-Una vez que se ha completado la copia y ha comprobado que los datos están en la cuenta de almacenamiento de Azure, los discos se borran de forma segura según el estándar NIST.
+Cuando se completa la carga en Azure, Data Box borra los datos de los discos según el estándar [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone target="docs"
 
