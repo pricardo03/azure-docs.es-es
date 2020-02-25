@@ -6,17 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/18/2020
+ms.date: 02/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 6a045a55772d1d9266663571fc2ecc6911aa5125
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2d931ed61cc3880a6158fd82f015e663ddb669c3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442895"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485291"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
+
+![Certificación ICSA](media/overview/icsa-cert-firewall-small.png)
 
 Azure Firewall es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad a la nube sin restricciones.
 
@@ -92,9 +94,9 @@ Esto admite los siguientes escenarios:
 
 Todos los eventos se integran en Azure Monitor, lo que permite archivar registros en una cuenta de almacenamiento, transmitir eventos al centro de eventos o enviarlos a los registros de Azure Monitor.
 
-## <a name="compliance-certifications"></a>Certificaciones de cumplimiento
+## <a name="certifications"></a>Certificaciones
 
-Azure Firewall es compatible con la industria de tarjetas de pago (PCI), los controles de organización de servicio (SOC) y la Organización internacional de normalización (ISO). Para más información, consulte [Certificaciones de cumplimiento de Azure Firewall](compliance-certifications.md).
+Azure Firewall es compatible con la industria de tarjetas de pago (PCI), los controles de organización de servicio (SOC), la Organización internacional de normalización (ISO) y con ICSA Labs. Para más información, consulte [Certificaciones de cumplimiento de Azure Firewall](compliance-certifications.md).
 
 
 ## <a name="known-issues"></a>Problemas conocidos
@@ -114,8 +116,8 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |Availability Zones solo se puede configurar durante la implementación.|Availability Zones solo se puede configurar durante la implementación. No se puede configurar una vez implementado un firewall.|es así por diseño.|
 |SNAT en conexiones entrantes|Además de DNAT, en las conexiones mediante la dirección IP pública del firewall (entrante) se aplica SNAT en una de las direcciones IP privadas del firewall. Este requisito hoy en día (también para aplicaciones virtuales de red activa/activa) es para garantizar el enrutamiento simétrico.|Para conservar el código fuente original para HTTP/S, considere el uso de encabezados [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Por ejemplo, use un servicio como [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) o [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) delante del firewall. También puede agregar WAF como parte de Azure Front Door Service y la cadena al firewall.
 |El filtrado por nombre de dominio completo de SQL se admite solo en modo de proxy (puerto 1433)|Para Azure SQL Database, Azure SQL Data Warehouse e Instancia administrada de SQL Database:<br><br>Durante la versión preliminar, el filtrado por nombre de dominio completo de SQL se admite solo en modo de proxy (puerto 1433).<br><br>Para IaaS de Azure SQL:<br><br>Si va a usar puertos que no son los estándar, puede especificar esos puertos en las reglas de la aplicación.|Para SQL en modo de redirección, que es el valor predeterminado si se conecta desde dentro de Azure, puede filtrar en su lugar el acceso mediante la etiqueta de servicio de SQL como parte de las reglas de red de Azure Firewall.
-|No se permite tráfico de salida en el puerto TCP 25.| Las conexiones SMTP salientes que usan el puerto TCP 25 se bloquearon. El puerto 25 se usa principalmente para la entrega de correo electrónico sin autenticación. Éste es el comportamiento predeterminado de la plataforma para las máquinas virtuales. Para más información, consulte [Solución de problemas de conectividad SMTP saliente en Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Sin embargo, a diferencia de las máquinas virtuales, actualmente no es posible habilitar esta funcionalidad en Azure Firewall.|Siga el método recomendado para enviar correo electrónico como se documenta en el artículo de solución de problemas de SMTP. Como alternativa, excluya la máquina virtual que necesita acceso SMTP saliente desde la ruta predeterminada al firewall y, en su lugar, configure el acceso saliente directamente a Internet.
-|No se admite el FTP activo.|El FTP activo está deshabilitado en Azure Firewall para protegerse frente a ataques de devolución FTP mediante el comando PORT de FTP.|En su lugar, puede usar el FTP pasivo. Todavía debe abrir explícitamente los puertos TCP 20 y 21 en el firewall.
+|No se permite tráfico de salida en el puerto TCP 25.| Las conexiones SMTP salientes que usan el puerto TCP 25 se bloquearon. El puerto 25 se usa principalmente para la entrega de correo electrónico sin autenticación. Éste es el comportamiento predeterminado de la plataforma para las máquinas virtuales. Para más información, consulte [Solución de problemas de conectividad SMTP saliente en Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Sin embargo, a diferencia de las máquinas virtuales, actualmente no es posible habilitar esta funcionalidad en Azure Firewall.|Siga el método recomendado para enviar correo electrónico como se documenta en el artículo de solución de problemas de SMTP. También, puede excluir la máquina virtual que necesita acceso SMTP saliente desde la ruta predeterminada al firewall y, en su lugar, configurar el acceso saliente directamente a Internet.
+|No se admite el FTP activo|El FTP activo está deshabilitado en Azure Firewall para protegerse frente a ataques de devolución FTP mediante el comando PORT de FTP.|En su lugar, puede usar el FTP pasivo. Todavía debe abrir explícitamente los puertos TCP 20 y 21 en el firewall.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

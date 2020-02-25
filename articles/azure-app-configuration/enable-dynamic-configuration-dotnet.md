@@ -1,24 +1,19 @@
 ---
-title: Tutorial sobre el uso de la configuración dinámica de Azure App Configuration en una aplicación de .NET Framework | Microsoft Docs
-description: En este tutorial aprenderá a actualizar dinámicamente los datos de configuración de aplicaciones de .NET Framework
+title: 'Tutorial de .NET Framework: Configuración dinámica de Azure App Configuration'
+description: En este tutorial aprenderá a actualizar dinámicamente los datos de configuración de aplicaciones de .NET Framework mediante Azure App Configuration.
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ba3eae4ea5557b4bb1b1be4e2c79eab8f6e7988
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185247"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484883"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de .NET Framework
 
@@ -33,7 +28,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Configurar la aplicación de .NET Framework para actualizar su configuración en respuesta a los cambios en un almacén de App Configuration.
 > * Insertar la configuración más reciente en la aplicación.
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -45,7 +40,7 @@ En este tutorial, aprenderá a:
 
 6. Seleccione **Explorador de configuración** >  **+ Crear** para agregar los siguientes pares clave-valor:
 
-    | Clave | Valor |
+    | Clave | Value |
     |---|---|
     | TestApp:Settings:Message | Datos de Azure App Configuration |
 
@@ -57,7 +52,7 @@ En este tutorial, aprenderá a:
 
 1. En **Crear un proyecto**, filtre por el tipo de proyecto **Consola** y haga clic en **Aplicación de consola (.NET Framework)** . Haga clic en **Next**.
 
-1. En **Configurar el nuevo proyecto**, asígnele al proyecto un nombre. En **Marco**, seleccione **.NET Framework 4.7.1** o una versión posterior. Haga clic en **Create**(Crear).
+1. En **Configurar el nuevo proyecto**, asígnele al proyecto un nombre. En **Marco**, seleccione **.NET Framework 4.7.1** o una versión posterior. Haga clic en **Crear**.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarga de datos de App Configuration
 1. Haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**. En la pestaña **Examinar**, busque y agregue el paquete NuGet *Microsoft.Extensions.Configuration.AzureAppConfiguration* al proyecto. Si no lo encuentra, seleccione la casilla **Incluir versión preliminar**.
@@ -134,11 +129,11 @@ En este tutorial, aprenderá a:
 
     ![Inicio local de la aplicación](./media/dotnet-app-run.png)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
 1. Seleccione **Explorador de configuración** y actualice los valores de las claves siguientes:
 
-    | Clave | Valor |
+    | Clave | Value |
     |---|---|
     | TestApp:Settings:Message | Datos de Azure App Configuration, actualizados |
 

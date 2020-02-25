@@ -8,12 +8,12 @@ ms.date: 1/23/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a36427616691b0a0d400dadb4e35c2f7fbf23b22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 572441fe13dfeff550e2e541c3d775bd4c3d433e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722307"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482911"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configuración de un entorno de aprendizaje automático en IoT Edge
 
@@ -26,7 +26,7 @@ Este artículo le ayuda a preparar un entorno para el desarrollo y la implementa
 
 Normalmente, este paso está a cargo de un desarrollador de nube. Algunos de los ejemplos de software también pueden resultar útiles para un científico de datos.
 
-Hemos creado un script de PowerShell que crea una máquina virtual de Azure con muchos de los requisitos previos ya configurados. La máquina virtual que se cree debe ser capaz de hacer frente a la [virtualización anidada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), motivo por el que elegimos el tamaño de máquina [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1).
+Hemos creado un script de PowerShell que crea una máquina virtual de Azure con muchos de los requisitos previos ya configurados. La máquina virtual que se cree debe ser capaz de hacer frente a la [virtualización anidada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), motivo por el que elegimos el tamaño de máquina [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md).
 
 La máquina virtual de desarrollo se configurará con:
 
@@ -35,7 +35,7 @@ La máquina virtual de desarrollo se configurará con:
 * [Docker Desktop para Windows](https://www.docker.com/products/docker-desktop)
 * [Git para Windows](https://gitforwindows.org/)
 * [Administrador de credenciales de Git para Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [SDK de .Net Core](https://dotnet.microsoft.com/)
+* [SDK de .NET Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)

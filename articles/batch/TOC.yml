@@ -41,6 +41,10 @@
       href: cli-samples.md
 - name: Conceptos
   items:
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Características del desarrollador
       href: batch-api-basics.md
     - name: API y herramientas
