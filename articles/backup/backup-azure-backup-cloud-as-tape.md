@@ -3,12 +3,12 @@ title: Cómo reemplazar la infraestructura de cintas
 description: Aprenda la forma en que Azure Backup proporciona una semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4659a4d6fcc7213f8323e23d59411680276fcb28
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173312"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425109"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
 
@@ -43,9 +43,9 @@ El número total de "puntos de retención" especificado en esta directiva es de 
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Directiva de retención diaria**: Lasas copias de seguridad realizadas diariamente se almacenan durante siete días.
-2. **Directiva de retención semanal**: Las copias de seguridad realizadas todos los días a medianoche y el sábado a las 6 p. m se conservan durante 4 semanas.
-3. **Directiva de retención mensual**: Las copias de seguridad realizadas a medianoche y a las 6 p. m. del último sábado de cada mes se conservan durante 12 meses.
-4. **Directiva de retención anual**: Las copias de seguridad realizadas del último sábado de cada mes de marzo se conservan durante 10 años.
+2. **Directiva de retención semanal**: Las copias de seguridad realizadas a medianoche y el sábado a las 18:00 h se conservan durante cuatro semanas.
+3. **Directiva de retención mensual**: Las copias de seguridad realizadas a medianoche y a las 18:00 h del último sábado de cada mes se conservan durante 12 meses.
+4. **Directiva de retención anual**: Las copias de seguridad realizadas a medianoche el último sábado de cada mes de marzo se conservan durante 10 años.
 
 El número total de "puntos de retención" (desde los que un cliente puede restaurar datos) en el diagrama anterior se calcula de la forma siguiente:
 

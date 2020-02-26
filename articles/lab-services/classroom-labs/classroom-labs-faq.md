@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 551167cda28a2bb6007e66c1b4b458a0a7b2e396
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718015"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443506"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratorios de clase en Azure Lab Services: preguntas frecuentes
 Obtenga respuestas a algunas de las preguntas más habituales sobre los laboratorios de clase en Azure Lab Services. 
@@ -27,6 +27,9 @@ Obtenga respuestas a algunas de las preguntas más habituales sobre los laborato
 
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>¿La cuota es por usuario, por semana o por toda la duración del laboratorio? 
 La cuota que establezca para un laboratorio es para cada alumno por toda la duración del laboratorio. Además, la [hora de ejecución programada de las máquinas virtuales](how-to-create-schedules.md) no cuenta en la cuota asignada a un usuario. La cuota es el tiempo fuera del horario programado que un alumno pasa en las máquinas virtuales.  Para más información sobre las cuotas, vea [Establecimiento de cuotas para los usuarios](how-to-configure-student-usage.md#set-quotas-for-users).
+
+### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>¿Si un profesor enciende la VM de un alumno, afecta a la cuota del estudiante? 
+No. No la afecta. Cuando el profesor enciende la VM del alumno, no afecta a la cuota asignada al estudiante. 
 
 ## <a name="schedules"></a>Programaciones
 
@@ -42,10 +45,18 @@ Por ejemplo, si tiene un bloque de /19 - 10.0.0.0/19, este intervalo de direccio
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>¿Qué intervalos de puertos debo abrir en la configuración del firewall de mi organización para conectarme a las máquinas virtuales de laboratorio a través de RDP/SSH?
 
-Los puertos son: 49152–65535. Los laboratorios de clase se encuentran detrás de un equilibrador de carga, por lo que todas las máquinas virtuales de un laboratorio tienen una dirección IP única y cada máquina virtual del laboratorio tiene un puerto único. Los números de puerto y la dirección IP pública pueden cambiar cada vez que se vuelve a publicar el laboratorio.
+Los puertos son: 49152–65535. Los laboratorios de clase se encuentran detrás de un equilibrador de carga. Cada laboratorio tiene una sola dirección IP pública y cada máquina virtual del laboratorio tiene un puerto único. 
+
+También puede ver la dirección IP privada de cada máquina virtual en la pestaña **Grupo de máquinas virtuales** de la página principal del laboratorio en Azure Portal. Si vuelve a publicar un laboratorio, la dirección IP pública del laboratorio no cambiará, pero la dirección IP privada y el número de puerto de cada máquina virtual del laboratorio pueden cambiar. Puede obtener más información en el artículo: [Configuración del firewall para Azure Lab Services](how-to-configure-firewall-settings.md).
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>¿Qué intervalos de direcciones IP públicas debo abrir en la configuración del firewall de mi organización para conectarme a las máquinas virtuales de laboratorio a través de RDP/SSH?
 Consulte [Intervalos IP de Azure y etiquetas de servicio: nube pública](https://www.microsoft.com/download/details.aspx?id=56519), que proporciona el intervalo de direcciones IP públicas para centros de datos en Azure. Puede abrir las direcciones IP de las regiones en las que se encuentran las cuentas de laboratorio.
+
+## <a name="virtual-machine-images"></a>Imágenes de máquinas virtuales
+
+### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Como creador de laboratorios, ¿por qué no se pueden habilitar opciones de imagen adicionales en la lista desplegable de imágenes de máquina virtual al crear un nuevo laboratorio?
+
+Cuando un administrador le agrega como creador de laboratorios a una cuenta de laboratorio, se le conceden los permisos para crear laboratorios. Sin embargo, no tiene permisos para editar ninguna configuración dentro de la cuenta de laboratorio, incluyendo la lista de imágenes de máquina virtual habilitadas. Para habilitar imágenes adicionales, póngase en contacto con el administrador de la cuenta de laboratorio para que lo haga, o pida al administrador que le agregue con el rol Colaborador a la cuenta de laboratorio. El rol Colaborador le proporcionará los permisos para editar la lista de imágenes de máquina virtual en la cuenta de laboratorio.
 
 ## <a name="users"></a>Usuarios
 

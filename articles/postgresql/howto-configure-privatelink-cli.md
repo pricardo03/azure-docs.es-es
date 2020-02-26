@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 19dd0051985231a0274baf550755cc61782ce740
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: d982771d5c7ebc864991026e399e9648d333cc8f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281315"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425534"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único (versión preliminar) con CLI
 
@@ -20,7 +20,7 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL admita los planes de tarifa de uso general y optimizados para memoria.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir esta guía, necesitará:
 
@@ -131,7 +131,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
 
-1. Abra el archivo downloaded.rdp*.
+1. Abra el archivo *downloaded.rdp*.
 
     1. Cuando se le pida, seleccione **Conectar**.
 
@@ -159,30 +159,31 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
     Non-authoritative answer:
     Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Pruebe la conexión de vínculo privado para el servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se ha usado [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para realizar la operación.
 
-4. In **New connection**, enter or select this information:
+4. En **Nueva conexión**, escriba o seleccione esta información:
 
-    | Setting | Value |
+    | Configuración | Value |
     | ------- | ----- |
-    | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
-    |Password |Enter a password provided during the PostgreSQL server creation. |
-    |SSL|Select **Required**.|
+    | Tipo de servidor| Seleccione **PostgreSQL**.|
+    | Nombre de servidor| Seleccione *mydemopostgresserver.privatelink.postgres.database.azure.com* |
+    | Nombre de usuario | Escriba el nombre de usuario como username@servername, que se proporciona durante la creación del servidor PostgreSQL. |
+    |Contraseña |Escriba una contraseña proporcionada durante la creación del servidor PostgreSQL. |
+    |SSL|Seleccione **Requerido**.|
     ||
 
-5. Select Connect.
+5. Seleccione Conectar.
 
-6. Browse databases from left menu.
+6. Examine las bases de datos en el menú izquierdo.
 
-7. (Optionally) Create or query information from the postgreSQL server.
+7. (Opcionalmente) Cree o consulte la información del servidor PostgreSQL.
 
-8. Close the remote desktop connection to myVm.
+8. Cierre la conexión de escritorio remoto a myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Limpieza de recursos 
+Cuando ya no se necesite, puede utilizar az group delete para quitar el grupo de recursos y todos los recursos que contiene: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

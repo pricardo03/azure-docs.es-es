@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 846819c3a05baf4ef1174d4e086f09893e834b2a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdc7d9fce3ebce4603369262f164ba72b1e39499
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850727"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484322"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flujos de usuario en Azure Active Directory B2C
 
@@ -81,10 +81,8 @@ Es posible que se necesite una dirección de correo electrónico como parte de u
 
 No se garantiza que la dirección de correo electrónico pueda comprobarse en cualquiera de estos casos. Un administrador de inquilinos puede deshabilitar la comprobación de correo electrónico en las directivas básicas para las cuentas locales. Incluso si la comprobación de la dirección de correo electrónico está habilitada, las direcciones no se comprueban si provienen de un proveedor de identidades de redes sociales y aún no se cambian.
 
-Solo las propiedades **otherMails** y **signInNames** se exponen a través de Graph API de Active Directory. La dirección de correo electrónico en la propiedad de detalles de autenticación sólida no está disponible.
+Solo las propiedades **otherMails** y **signInNames** se exponen a través de Microsoft Graph API. La dirección de correo electrónico en la propiedad de detalles de autenticación sólida no está disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para crear los flujos de usuario recomendados, siga las instrucciones en el [Tutorial: Creación de un flujo de usuario](tutorial-create-user-flows.md).
-
-

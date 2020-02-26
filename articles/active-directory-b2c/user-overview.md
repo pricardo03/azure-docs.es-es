@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f9573f4d226df4eb6068af679f2eb45dc87c7e40
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f34fe324f22be41d8cdff0df67777bc254bbc290
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840067"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484271"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Están disponibles los siguientes tipos de cuentas:
 - **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
 - **Cuenta de consumidor**: cuenta que utiliza un usuario de las aplicaciones que se han registrado con Azure AD B2C. Las cuentas de consumidor pueden ser creadas por:
   - El usuario que pasa por un flujo de usuario de registro en una aplicación de Azure AD B2C
-  - Con Graph API de Azure AD
+  - Uso de Microsoft Graph API
   - Uso de Azure Portal
 
 ## <a name="work-account"></a>Cuenta profesional
@@ -76,12 +76,12 @@ También puede usar [Microsoft Graph API](https://docs.microsoft.com/graph/api/i
 
 ## <a name="consumer-user"></a>Usuario consumidor
 
-El usuario consumidor puede iniciar sesión en aplicaciones protegidas por Azure AD B2C, pero no puede acceder a recursos de Azure como Azure Portal. El usuario consumidor puede utilizar una cuenta local o cuentas federadas, como Facebook o Twitter. Una cuenta de consumidor se crea mediante un [flujo de usuario de inicio de sesión o de registro](user-flow-overview.md), con la Graph API de Azure AD o mediante Azure Portal.
+El usuario consumidor puede iniciar sesión en aplicaciones protegidas por Azure AD B2C, pero no puede acceder a recursos de Azure como Azure Portal. El usuario consumidor puede utilizar una cuenta local o cuentas federadas, como Facebook o Twitter. Una cuenta de consumidor se crea mediante un [flujo de usuario de inicio de sesión o de registro](user-flow-overview.md), con Microsoft Graph API o mediante Azure Portal.
 
 Puede especificar los datos que se recopilan cuando se crea una cuenta de usuario consumidor mediante el uso de atributos personalizados de usuario. Para obtener más información, vea [Definición de atributos personalizados en Azure Active Directory B2C](user-flow-custom-attributes.md).
 
-Puede usar la información de la sección **Creación de cuentas de usuario consumidor** de [Uso de Graph API de Azure AD](manage-user-accounts-graph-api.md) para crear una cuenta de consumidor de Azure AD B2C. También puede usar la información de la sección **Actualización de cuentas de usuario consumidor** en el mismo artículo para administrar las propiedades de la cuenta.
+Para más información sobre la administración de cuentas de consumidor, consulte [Administrar cuentas de usuario de Azure AD B2C con Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrar cuentas de usuario consumidor
 
-En este artículo se explica cómo migrar las cuentas de usuario consumidor existentes desde cualquier proveedor de identidades a Azure AD B2C. Para obtener más información, consulte [Migración de usuarios](user-migration.md) o [Migración de usuarios con identidades de redes sociales](migrate-social-identities.md).
+En este artículo se explica cómo migrar las cuentas de usuario consumidor existentes desde cualquier proveedor de identidades a Azure AD B2C. Para más información, consulte [Migrar usuarios a Azure AD B2C](user-migration.md).

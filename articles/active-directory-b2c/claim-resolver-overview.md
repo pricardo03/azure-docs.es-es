@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836055"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425653"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -104,13 +104,47 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | El token de acceso. | N/D |
 
-## <a name="how-to-use-claim-resolvers"></a>Uso de los solucionadores de notificaciones
+
+### <a name="saml"></a>SAML
+
+| Notificación | Descripción | Ejemplo |
+| ----- | ----------- | --------|
+| {SAML:AuthnContextClassReferences} | Valor del elemento `AuthnContextClassRef` de la solicitud SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
+| {SAML:NameIdPolicyFormat} | Atributo `Format` del elemento `NameIDPolicy` de la solicitud SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML:Issuer} |  Valor del elemento `Issuer` SAML de la solicitud SAML.| https://contoso.com |
+| {SAML: AllowCreate} | Valor del atributo `AllowCreate` del elemento `NameIDPolicy` de la solicitud SAML. | True |
+| {SAML:ForceAuthn} | Valor del atributo `ForceAuthN` del elemento `AuthnRequest` de la solicitud SAML. | True |
+| {SAML:ProviderName} | Valor del atributo `ProviderName` del elemento `AuthnRequest` de la solicitud SAML.| Contoso.com |
+
+## <a name="using-claim-resolvers"></a>Uso de solucionadores de notificaciones 
+
+Puede usar solucionadores de notificaciones con los siguientes elementos: 
+
+| Elemento | Elemento | Configuración |
+| ----- | ----------------------- | --------|
+|Perfil técnico de Application Insights |`InputClaim` | |
+|Perfil técnico de [Azure Active Directory](active-directory-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico de [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico de [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico de [transformación de notificaciones](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico de un [proveedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|Perfil técnico [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Perfil técnico [autoafirmado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
+|[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
+|Perfil técnico de [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
+
+Configuración: 
+1. Los metadatos de `IncludeClaimResolvingInClaimsHandling` se deben establecer en `true`.
+1. El atributo de notificaciones de entrada o salida `AlwaysUseDefaultValue` se debe establecer en `true`.
+
+## <a name="claim-resolvers-samples"></a>Ejemplos de solucionadores de notificaciones
 
 ### <a name="restful-technical-profile"></a>Perfil técnico de RESTful
 
 En un perfil técnico de [RESTful](restful-technical-profile.md), es posible que desee enviar el idioma del usuario, el nombre de la directiva, el ámbito y el identificador de cliente. Según estas notificaciones, la API REST puede ejecutar la lógica de negocios personalizada y, si es necesario, generar un mensaje de error localizado.
 
-En el ejemplo siguiente se muestra un perfil técnico de RESTful:
+En el ejemplo siguiente se muestra un perfil técnico de RESTful con este escenario:
 
 ```XML
 <TechnicalProfile Id="REST">
@@ -120,12 +154,13 @@ En el ejemplo siguiente se muestra un perfil técnico de RESTful:
     <Item Key="ServiceUrl">https://your-app.azurewebsites.net/api/identity</Item>
     <Item Key="AuthenticationType">None</Item>
     <Item Key="SendClaimsIn">Body</Item>
+    <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
   </Metadata>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" />
-    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" />
-    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" />
+    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
@@ -137,7 +172,7 @@ Al usar solucionadores de notificaciones, puede rellenar previamente el nombre d
 
 ### <a name="dynamic-ui-customization"></a>Personalización de la interfaz de usuario dinámica
 
-Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de conexión de la definición de contenido HTML, lo que permite representar dinámicamente el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro personalizado que se pasa desde la aplicación web o dispositivo móvil. Para más información, consulte [Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas](custom-policy-ui-customization-dynamic.md). También puede localizar la página HTML basándose en un parámetro de idioma, o bien puede cambiar el contenido basándose en el identificador de cliente.
+Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de conexión de la definición de contenido HTML para representar dinámicamente el contenido de la página. Por ejemplo, esto permite cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro personalizado que se pasa desde la aplicación web o dispositivo móvil. Para más información, consulte [Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas](custom-policy-ui-customization.md). También puede localizar la página HTML basándose en un parámetro de idioma, o bien puede cambiar el contenido basándose en el identificador de cliente.
 
 El ejemplo siguiente pasa en la cadena de consulta un parámetro denominado **campaignId** con un valor de `hawaii`, un código de **idioma** de `en-US` y una **aplicación** que representa el identificador de cliente:
 
@@ -151,10 +186,21 @@ El ejemplo siguiente pasa en la cadena de consulta un parámetro denominado **ca
 </UserJourneyBehaviors>
 ```
 
-Como resultado, Azure AD B2C envía los parámetros anteriores a la página de contenido HTML:
+Como resultado, Azure AD B2C envía los parámetros anteriores a la página de contenido HTML:
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
+```
+
+### <a name="content-definition"></a>Definición de contenido
+
+En el parámetro `LoadUri` de [ContentDefinition](contentdefinitions.md), puede enviar resoluciones de notificaciones para extraer contenido de distintos lugares, en función de los parámetros utilizados. 
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
+  ...
+</ContentDefinition>
 ```
 
 ### <a name="application-insights-technical-profile"></a>Perfil técnico de Application Insights
@@ -173,4 +219,29 @@ Con Azure Application Insights y los solucionadores de notificaciones, puede obt
     <InputClaim ClaimTypeReferenceId="AppId" PartnerClaimType="{property:App}" DefaultValue="{OIDC:ClientId}" />
   </InputClaims>
 </TechnicalProfile>
+```
+
+### <a name="relying-party-policy"></a>Directiva del usuario de confianza
+
+En un perfil técnico de directiva de [Usuario de confianza](relyingparty.md), es posible que quiera enviar el identificador de inquilino o el identificador de correlación a la aplicación de usuario de confianza en el JWT. 
+
+```XML
+<RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+        <OutputClaim ClaimTypeReferenceId="correlationId" AlwaysUseDefaultValue="true" DefaultValue="{Context:CorrelationId}" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
 ```

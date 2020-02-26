@@ -18,7 +18,7 @@
     - name: 2. Configuración
       items:
         - name: Escalado con Azure Container Instances
-          href: /azure/container-instances/container-instances-jenkins
+          href: container-instances-jenkins.md
           maintainContext: true
         - name: Escalado con agentes de máquina virtual de Azure
           href: jenkins-azure-vm-agents.md

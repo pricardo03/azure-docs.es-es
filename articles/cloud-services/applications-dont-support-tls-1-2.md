@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: c4cbe2a99de97b2938d494e80d410a44c4143629
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026436"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425041"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Solucionar problemas de aplicaciones que no admiten TLS 1.2
 En este artículo se describe cómo habilitar los protocolos de TLS más antiguos (TLS 1.0 y 1.1), además de cómo aplicar los conjuntos de cifrado heredados para admitir los protocolos adicionales en los roles de trabajo y web del servicio en la nube de Windows Server 2019. 
@@ -27,7 +27,7 @@ En este artículo se describe cómo habilitar los protocolos de TLS más antiguo
 Somos conscientes de que, aunque estamos llevando a cabo pasos para dejar de usar TLS 1.0 y TLS 1.1, es posible que nuestros clientes tengan que admitir los protocolos y los conjuntos de cifrado más antiguos hasta que puedan planear su desuso.  Si bien no se recomienda volver a habilitar estos valores heredados, ofrecemos esto como orientación para ayudar a los clientes. Animamos a los clientes a evaluar el riesgo de regresión antes de implementar los cambios descritos en este artículo. 
 
 > [!NOTE]
-> Los lanzamientos de la familia 6 del SO invitado aplican TLS 1.2 al deshabilitar los cifrados de 1.0/1.0. 
+> Los lanzamientos de la familia 6 del SO invitado aplican TLS 1.2 al deshabilitar los cifrados de 1.0/1.1. 
 
   
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Eliminación de la compatibilidad con TLS 1.0, TLS 1.1 y los conjuntos de cifrado anteriores 

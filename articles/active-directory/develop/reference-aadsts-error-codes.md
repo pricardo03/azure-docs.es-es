@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7798cb86606c206f027a1014802770a74aba909a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160384"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483931"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -133,7 +133,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS50180 | WindowsIntegratedAuthMissing: es obligatoria la autenticación de Windows integrada. Habilite el inquilino para un inicio de sesión único de conexión directa. |
 | AADSTS50187 | DeviceInformationNotProvided: el servicio no pudo realizar la autenticación de dispositivos. |
 | AADSTS50196 | LoopDetected: se ha detectado un bucle de cliente. Compruebe la lógica de la aplicación para asegurarse de que el almacenamiento en caché de tokens está implementado y de que las condiciones de error se controlan correctamente.  La aplicación ha realizado demasiadas veces la misma solicitud en un período demasiado corto, lo que indica que se encuentra en un estado defectuoso o que solicita tokens de forma abusiva. |
-| AADSTS50199 | CmsiInterrupt: la interacción del usuario es necesaria para esta autenticación.  Dado que se trata de un error "interaction_required", el cliente debe realizar la autenticación interactiva.  Esto se debe a que se ha usado una vista web del sistema para solicitar un token para una aplicación nativa. Se debe pedir al usuario que pregunte si realmente se trata de la aplicación en la que pretendía iniciar sesión.|
+| AADSTS50199 | CmsiInterrupt: por razones de seguridad, se requiere la confirmación del usuario para esta solicitud.  Dado que se trata de un error "interaction_required", el cliente debe realizar la autenticación interactiva.  Esto se debe a que se ha usado una vista web del sistema para solicitar un token para una aplicación nativa. Se debe pedir al usuario que pregunte si realmente se trata de la aplicación en la que pretendía iniciar sesión.|
 | AADSTS51000 | RequiredFeatureNotEnabled: la característica está deshabilitada. |
 | AADSTS51001 | DomainHintMustbePresent: la sugerencia de dominio debe estar presente con el identificador de seguridad local o UPN local. |
 | AADSTS51004 | UserAccountNotInDirectory: la cuenta de usuario no existe en el directorio. |

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046310"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485189"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -66,7 +66,7 @@ Por ejemplo, si hay un pico en la tendencia de *Tiempo de respuesta del primer b
 
 Si observa un pico en *Tiempo de respuesta del último byte de back-end*, pero el *Tiempo de respuesta del primer byte de back-end* es estable, se puede deducir que el pico se debe a que se está solicitando un archivo más grande.
 
-Del mismo modo, si el *Tiempo total de Application Gateway* tiene un pico, pero el *Tiempo de respuesta del último byte de back-end* es estable, puede ser la señal de un cuello de botella de rendimiento en Application Gateway o de un cuello de botella en la red entre el cliente y Application Gateway. Además, si el *Cliente RTT* también tiene un pico correspondiente, esto indica que la degradación se debe a la red entre el cliente y Application Gateway.
+Del mismo modo, si el *Tiempo total de Application Gateway* tiene un pico, pero el *Tiempo de respuesta del último byte de back-end* es estable, puede ser la señal de un cuello de botella de rendimiento en Application Gateway o de un cuello de botella en la red entre el cliente y Application Gateway. Además, si el *cliente RTT* también tiene un pico correspondiente, indica que la degradación se debe a la red entre el cliente y Application Gateway.
 
 ### <a name="application-gateway-metrics"></a>Métricas de Application Gateway
 
@@ -86,7 +86,7 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 - **Unidades de capacidad actuales**
 
-   Recuento de unidades de capacidad consumidas. Las unidades de capacidad miden el costo basado en el consumo, que se suma al costo fijo. Hay tres determinantes para la unidad de capacidad: unidad de proceso, conexiones persistentes y rendimiento. Cada unidad de capacidad se compone a lo sumo de: 1 unidad de proceso, o 2500 conexiones persistentes, o rendimiento de 2,22 Mbps.
+   Recuento de unidades de capacidad consumidas para equilibrar la carga del tráfico. Hay tres determinantes para la unidad de capacidad: unidad de proceso, conexiones persistentes y rendimiento. Cada unidad de capacidad se compone a lo sumo de: 1 unidad de proceso, o 2500 conexiones persistentes, o rendimiento de 2,22 Mbps.
 
 - **Unidades de proceso actuales**
 
@@ -95,10 +95,22 @@ Para Application Gateway, están disponibles las métricas siguientes:
 - **Conexiones actuales**
 
    El número total de conexiones simultáneas activas de los clientes a Application Gateway.
+   
+- **Unidades de capacidad facturadas estimadas**
+
+  Con el SKU de la versión 2, el modelo de precios está determinado por el consumo. Las unidades de capacidad miden el costo basado en el consumo, que se suma al costo fijo. Las *unidades de capacidad facturadas estimadas* indica el número de unidades de capacidad que se usa para estimar la facturación. Se calcula como el valor mayor entre las *unidades de capacidad actuales* (unidades de capacidad necesarias para equilibrar la carga del tráfico) y las *unidades de capacidad facturables fijas* (unidades de capacidad mínimas mantenidas).
 
 - **Solicitudes con error**
 
-   Recuento de solicitudes con error que ha servido Application Gateway. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
+  Recuento de solicitudes con error que ha servido Application Gateway. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
+   
+- **Unidades de capacidad facturables fijas**
+
+  El número mínimo de unidades de capacidad que se mantienen aprovisionadas según la configuración de *Unidades de escalado mínimas* (una instancia se traduce en 10 unidades de capacidad) en la configuración de Application Gateway.
+   
+ - **Nuevas conexiones por segundo**
+
+   Número promedio de conexiones TCP nuevas por segundo establecidas desde los clientes con Application Gateway y desde Application Gateway con los miembros de back-end.
 
 
 - **Estado de respuesta**
@@ -133,7 +145,9 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
   El número de back-ends que el sondeo de Estado ha determinado que son incorrectos. También puede filtrar en función de grupos de back-end para mostrar el número de hosts en estado incorrecto en un grupo de back-end específico.
   
-- **Requests per minute per Healthy Host** (Solicitudes por minuto y host con estado correcto) Promedio de solicitudes recibidas por cada miembro correcto en un grupo de servidores de back-end en un minuto. Debe especificar el grupo de servidores de back-end mediante la dimensión *BackendPool Httpsettings*.  
+- **Solicitudes por minuto y host con estado correcto**
+
+  Número promedio de solicitudes recibidas por cada miembro correcto en un grupo de servidores de back-end en un minuto. Debe especificar el grupo de servidores de back-end mediante la dimensión *BackendPool Httpsettings*.  
   
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas compatibles con la SKU de Application Gateway V1

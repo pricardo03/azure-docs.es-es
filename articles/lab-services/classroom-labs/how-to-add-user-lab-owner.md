@@ -1,6 +1,6 @@
 ---
-title: Cómo agregar un usuario como propietario de un laboratorio en Azure Lab Services
-description: En este artículo se muestra cómo un administrador puede agregar un usuario como propietario de un laboratorio.
+title: Cómo agregar otros propietarios a un laboratorio en Azure Lab Services
+description: En este artículo se muestra cómo un administrador puede agregar un usuario como propietario de un laboratorio en Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,19 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e007ee6c95843b7e8ef9d7a701237034811489e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9302cadf0b900c9faac382bad86b51cea7d828fb
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475254"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443523"
 ---
-# <a name="how-to-add-a-user-as-an-owner-of-a-classroom-lab-in-azure-lab-services"></a>Cómo agregar un usuario como propietario de un laboratorio de clase en Azure Lab Services
-En este artículo se muestra cómo agregar un usuario como propietario de un laboratorio en Azure Lab Services.
+# <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Cómo agregar otros propietarios a un laboratorio existente en Azure Lab Services
+En este artículo se muestra cómo, como administrador, puede agregar otros propietarios a un laboratorio existente.
 
 ## <a name="add-user-to-the-reader-role-for-the-lab-account"></a>Adición de un usuario al rol de lector de la cuenta de laboratorio
+Para agregar un usuario como propietario adicional a un laboratorio existente, primero debe conceder al usuario permisos de **lectura** en la cuenta de laboratorio.
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú de la izquierda. Busque **Lab Services** y selecciónelo.
 3. Seleccione la **cuenta de laboratorio** en la lista. 

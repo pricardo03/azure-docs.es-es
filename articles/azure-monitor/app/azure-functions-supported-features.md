@@ -8,22 +8,25 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5688bd92e63016e195726488bd9ff9ed039c5795
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 807dde08d6ae88054524cb9e397d36db41324482
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928417"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484577"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Características compatibles de Application Insights para Azure Functions
 
 Azure Functions ofrece [integración incorporada](../../azure-functions/functions-monitoring.md) con Application Insights, que está disponible a través de la interfaz de ILogger. A continuación se muestra una lista de las características que se admiten actualmente. Para [empezar](../../azure-functions/functions-monitoring.md#enable-application-insights-integration), consulte la guía de Azure Functions.
 
-## <a name="supported-features"></a>Características compatibles
+Para más información sobre las versiones de runtime de Functions, vaya [aquí](../../azure-functions/functions-versions.md).
 
-| Azure Functions                       | V1                | V2 (Ignite 2018)  | 
+Para obtener más información sobre las versiones compatibles de Application Insights, vea [Dependencias](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
+
+## <a name="supported-features"></a>Características admitidas
+
+| Azure Functions                       | V1                | v2 y v3   | 
 |-----------------------------------    |---------------    |------------------ |
-| **SDK de .NET de Application Insights**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Recopilación automática de**        |                 |                   |               
 | &bull;Solicitudes                     | Sí             | Sí               | 

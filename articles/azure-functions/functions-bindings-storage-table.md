@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 1be6420598e7983ef9014f617da1f87f5550fa6a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dbc2e08ab131c591d8857e1cf88b5c9f91db9610
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705367"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425245"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -36,11 +36,11 @@ Los enlaces de almacenamiento de Table se proporcionan en el paquete NuGet [Micr
 
 Use el enlace de entrada de Azure Table Storage para leer una tabla de una cuenta de Azure Storage.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="one-entity"></a>Una entidad
 
-En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que lee una única fila de la tabla. 
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que lee una única fila de la tabla. Para cada registro insertado en la tabla, se desencadenará la función.
 
 El valor "{queueTrigger}" de clave de fila indica que la clave de fila procede de la cadena del mensaje en la cola.
 
@@ -143,7 +143,7 @@ Para más información sobre cómo usar CloudTable, Consulte [Introducción a Az
 
 Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 ### <a name="one-entity"></a>Una entidad
 
@@ -310,7 +310,7 @@ Para más información sobre cómo usar CloudTable, Consulte [Introducción a Az
 Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de entrada de la tabla en un archivo *function.json* y el código de [JavaScript](functions-reference-node.md) que usa el enlace. La función usa un desencadenador de cola para leer una fila de tabla única. 
 
@@ -352,7 +352,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Única fila de tabla 
 
@@ -401,7 +401,7 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En el ejemplo siguiente se muestra una función desencadenada por HTTP que devuelve el recuento total de elementos de una partición especificada en el almacenamiento de la tabla.
 
@@ -423,7 +423,7 @@ public int run(
 
 ## <a name="input---attributes-and-annotations"></a>Entrada: atributos y anotaciones
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
  Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice los siguientes atributos para configurar un enlace de entrada de la tabla:
 
@@ -481,19 +481,19 @@ La cuenta de almacenamiento que se debe usar se determina en el orden siguiente:
 * El atributo `StorageAccount` aplicado a la clase.
 * La cuenta de almacenamiento predeterminada de la aplicación de función (configuración de aplicación "AzureWebJobsStorage").
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@TableInput` en los parámetros cuyo valor provendría del almacenamiento de la tabla.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`.
 
@@ -519,7 +519,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="input---usage"></a>Uso de entradas
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 * **Leer una fila en**
 
@@ -532,7 +532,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
   > [!NOTE]
   > `IQueryable` no es compatible con el [entorno de tiempo de ejecución de Functions v2](functions-versions.md). Una alternativa consiste en [usar un parámetro del método CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para leer la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 * **Leer una fila en**
 
@@ -545,15 +545,15 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
   > [!NOTE]
   > `IQueryable` no es compatible con el [entorno de tiempo de ejecución de Functions v2](functions-versions.md). Una alternativa consiste en [usar un parámetro del método CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para leer la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Establezca las propiedades `filter` y `take`. No establezca `partitionKey` o `rowKey`. Obtenga acceso a la entidad (o entidades) de la tabla de entradas mediante `context.bindings.<BINDING_NAME>`. Los objetos deserializados tienen las propiedades `RowKey` y `PartitionKey`.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Los datos de la tabla se pasan a la función como una cadena JSON. Anule la serialización del mensaje mediante una llamada a `json.loads` como se muestra en el ejemplo de [entrada](#input).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 El atributo [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) da acceso a la fila de tabla que desencadenó la función.
 
@@ -566,7 +566,7 @@ Use un enlace de salida de Azure Table Storage para escribir entidades en una ta
 > [!NOTE]
 > Este enlace de salida no permite actualizar las entidades existentes. Use la operación `TableOperation.Replace`[del SDK de Azure Storage](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) para actualizar una entidad existente.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que usa un desencadenador HTTP para escribir una única fila de la tabla. 
 
@@ -590,7 +590,7 @@ public class TableStorage
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de salida de la tabla en un archivo *function.json* y código de [script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe varias entidades de tabla.
 
@@ -645,7 +645,7 @@ public class Person
 
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de salida de la tabla en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe varias entidades de tabla.
 
@@ -692,7 +692,7 @@ module.exports = function (context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo de código siguiente se muestra cómo utilizar el enlace de la salida de Table Storage. El enlace de `table` se configura en *function.json* asignando valores a `name`, `tableName`, `partitionKey`y `connection`:
 
@@ -751,7 +751,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En el ejemplo siguiente se muestra una función de Java que usa un desencadenador HTTP para escribir una única fila de la tabla.
 
@@ -831,7 +831,7 @@ public class AddPersons {
 
 ## <a name="output---attributes-and-annotations"></a>Salida: atributos y anotaciones
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
@@ -865,19 +865,19 @@ Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output).
 
 Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte [Entrada: atributos](#input---attributes-and-annotations).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En la [biblioteca del entorno de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) en los parámetros para escribir valores en Table Storage.
 
@@ -903,23 +903,23 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="output---usage"></a>Uso de salidas
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Acceda a la entidad de tabla de salida con un parámetro de método `ICollector<T> paramName` o `IAsyncCollector<T> paramName` donde `T` incluye las propiedades `PartitionKey` y `RowKey`. Estas propiedades suelen ir acompañadas de la implementación de `ITableEntity` o la herencia de `TableEntity`.
 
 Una alternativa consiste en usar un parámetro del método `CloudTable` para escribir en la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 Acceda a la entidad de tabla de salida con un parámetro de método `ICollector<T> paramName` o `IAsyncCollector<T> paramName` donde `T` incluye las propiedades `PartitionKey` y `RowKey`. Estas propiedades suelen ir acompañadas de la implementación de `ITableEntity` o la herencia de `TableEntity`. El valor `paramName` se especific en la propiedad `name` de *function.json*.
 
 Una alternativa consiste en usar un parámetro del método `CloudTable` para escribir en la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Acceda al evento de salida mediante `context.bindings.<name>`, donde `<name>` es el valor especificado en la propiedad `name` de *function.json*.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Hay dos opciones para la generación de un mensaje de fila de Table Storage desde una función:
 
@@ -927,7 +927,7 @@ Hay dos opciones para la generación de un mensaje de fila de Table Storage desd
 
 - **Imperativa**: Pase un valor al método [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como mensaje del centro de eventos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Hay dos opciones para la generación de una fila de Table Storage desde una función mediante la anotación [TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet):
 

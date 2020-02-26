@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: d2ef446e10620895fff77e8160adc4a566929650
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045370"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484373"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -122,7 +122,7 @@ Use esta transformación de notificaciones para cambiar cualquier ClaimType de c
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
-Crea una notificación de cadena a partir del parámetro de entrada proporcionado en la directiva.
+Crea una notificación de cadena a partir del parámetro de entrada proporcionado en la transformación.
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 |----- | ----------------------- | --------- | ----- |
@@ -523,9 +523,9 @@ Limpiar el valor de una notificación determinada.
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | La notificación cambia su valor a null. |
+| OutputClaim | claim_to_null | string | El valor de la notificación está establecido en NULL. |
 
-Use esta transformación de notificaciones para quitar datos innecesarios de la bolsa de propiedades de notificaciones. De este modo, la cookie de sesión será menor. En el ejemplo siguiente se quita el valor del tipo de notificación `TermsOfService`.
+Use esta transformación de notificaciones para quitar datos innecesarios de la bolsa de propiedades de notificaciones, para que la cookie de la sesión sea menor. En el ejemplo siguiente se quita el valor del tipo de notificación `TermsOfService`.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">

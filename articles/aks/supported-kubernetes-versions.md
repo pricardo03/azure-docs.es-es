@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 625b44ae3f8a1d5d474d980693d92840b1317f09
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026122"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425772"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -99,7 +99,7 @@ New Supported Version List
   * Los clientes tienen **30 días** desde la fecha de notificación pública para actualizar a una versión secundaria compatible.
 * Para nuevas versiones de **revisión** de Kubernetes
   * Se notifica a todos los usuarios la publicación de la nueva versión de revisión y la necesidad de actualizar a la versión de revisión más reciente.
-  * Los usuarios tienen **30 días** para actualizar a una versión de revisión más reciente que sea compatible. Los usuarios tienen **30 días** para actualizar a una versión de revisión compatible antes de quite la más antigua.
+  * Los usuarios tienen **30 días** para actualizar a una versión de revisión más reciente compatible antes de se quite la más antigua.
 
 AKS define una "versión publicada" como aquellas disponibles con carácter general, habilitadas en todas las mediciones de calidad de servicio/SLO y disponible en todas las regiones. AKS también puede admitir versiones preliminares que se etiquetan explícitamente y están sujetas a los términos y condiciones de la versión preliminar.
 
@@ -142,7 +142,7 @@ az aks get-versions --location eastus --output table
 Si la suya es la versión *n-3*, se encuentra fuera de soporte técnico y se le pedirá que actualice. Si su actualización de la versión n-3 a n-2 se completa correctamente, estará dentro de nuestras directivas de soporte técnico. Por ejemplo:
 
 - Si la versión de AKS admitida más antigua es la*1.13.a* y la suya es la *1.12.b* o anterior, no es compatible.
-- Si la actualización desde *1.12.b* a *1.13.a* se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico.
+- Si la actualización des *1.12.b* a *1.13.a* se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico.
 
 No se admiten las actualizaciones de versiones anteriores a la ventana admitida de *N-2*. En esos casos, se recomienda a los clientes que creen clústeres de AKS y vuelvan a implementar sus cargas de trabajo con versiones en la ventana admitida.
 

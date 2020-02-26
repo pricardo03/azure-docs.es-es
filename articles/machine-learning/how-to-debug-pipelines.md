@@ -1,7 +1,7 @@
 ---
 title: Depuración y solución de problemas de canalizaciones de aprendizaje automático
 titleSuffix: Azure Machine Learning
-description: Depure y resuelva los problemas de las canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python. Obtenga información sobre los errores comunes en el desarrollo de las canalizaciones y sugerencias que le ayudarán a depurar los scripts antes y durante la ejecución remota.
+description: Depure y resuelva los problemas de las canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python. Obtenga información sobre los errores comunes en el desarrollo de las canalizaciones y sugerencias que le ayudarán a depurar los scripts antes y durante la ejecución remota. Obtenga información sobre cómo usar Visual Studio Code para depurar interactivamente las canalizaciones de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,22 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 5ba26584f08e705b24749a76d6f607aa84b48fab
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769126"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485376"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo aprenderá a depurar y resolver los problemas de las [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) y el [diseñador de Azure Machine Learning (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
+En este artículo aprenderá a depurar y resolver los problemas de las [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) y el [diseñador de Azure Machine Learning (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Se proporciona información sobre cómo:
+
+* Depurar con el SDK de Azure Machine Learning
+* Depurar con Azure Machine Learning Designer
+* Depurar con Application Insights
+* Depurar interactivamente con Visual Studio Code (VS Code) y Herramientas de Python para Visual Studio (PTVSD)
 
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Depuración y solución de problemas en el SDK de Azure Machine Learning
 En la siguientes secciones se da una información general sobre los errores comunes durante la creación de canalizaciones, y sobre las diferentes estrategias para depurar el código que se ejecuta en una canalización. Cuando aparezcan problemas y una canalización no se ejecute según lo esperado, utilice las sugerencias que se ofrecen a continuación.
@@ -148,6 +153,239 @@ También puede buscar los archivos de registro de ejecuciones específicas en la
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuración y solución de problemas en Application Insights
 Para obtener más información sobre el uso de la biblioteca de Python para OpenCensus de esta manera, consulte esta guía: [Depuración y solución de problemas de canalizaciones de aprendizaje automático en Application Insights](how-to-debug-pipelines-application-insights.md)
+
+## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Depurar y solucionar problemas en Visual Studio Code
+
+En algunos casos, es posible que tenga que depurar interactivamente el código de Python usado en la canalización de ML. Mediante el uso de Visual Studio Code(VS Code) y Herramientas de Python para Visual Studio (PTVSD), se puede conectar al código que se ejecuta en el entorno de aprendizaje.
+
+### <a name="prerequisites"></a>Prerrequisitos
+
+* Un __área de trabajo de Azure Machine Learning__ configurada para usar __Azure Virtual Network__.
+* Una __canalización de Azure Machine Learning__ que use scripts de Python como parte de los pasos de la canalización. Por ejemplo, PythonScriptStep.
+* Un clúster de Proceso de Azure Machine Learning, que se encuentre __en la red virtual__ y lo __use la canalización para el aprendizaje__.
+* Un __entorno de desarrollo__ que se encuentre __en la red virtual__. El entorno de desarrollo puede ser uno de los siguientes:
+
+    * Una máquina virtual de Azure en la red virtual
+    * Una instancia de proceso de VM de cuadernos en la red virtual
+    * Un equipo cliente conectado a la red virtual mediante una red privada virtual (VPN).
+
+Para más información sobre el uso de Azure Virtual Network con Azure Machine Learning, consulte [Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network](how-to-enable-virtual-network.md).
+
+### <a name="how-it-works"></a>Funcionamiento
+
+Los pasos de la canalización de ML ejecutan scripts de Python. Estos scripts se modifican para realizar las siguientes acciones:
+    
+1. Registrar la dirección IP del host en el que se ejecutan. Se usa la dirección IP para conectar el depurador al script.
+
+2. Iniciar el componente de depuración PTVSD y esperar a que se conecte un depurador.
+
+3. En el entorno de desarrollo, se supervisan los registros creados por el proceso de aprendizaje para encontrar la dirección IP en la que se ejecuta el script.
+
+4. Se indica a VS Code la dirección IP a la que se debe conectar el depurador mediante un archivo `launch.json`.
+
+5. Se conecta el depurador y se recorre el script de forma interactiva.
+
+### <a name="configure-python-scripts"></a>Configuración de scripts de Python
+
+Para habilitar la depuración, realice los cambios siguientes en los scripts de Python que se usan en los pasos de la canalización de ML:
+
+1. Agregue las siguientes instrucciones import:
+
+    ```python
+    import ptvsd
+    import socket
+    from azureml.core import Run
+    ```
+
+1. Agregue los siguientes argumentos. Estos argumentos permiten habilitar el depurador según sea necesario y establecer el tiempo de espera para la conexión del depurador:
+
+    ```python
+    parser.add_argument('--remote_debug', action='store_true')
+    parser.add_argument('--remote_debug_connection_timeout', type=int,
+                    default=300,
+                    help=f'Defines how much time the Azure ML compute target '
+                    f'will await a connection from a debugger client (VSCODE).')
+    ```
+
+1. Agregue las siguientes instrucciones. Estas instrucciones cargan el contexto de ejecución actual para que pueda registrar la dirección IP del nodo en el que se está ejecutando el código:
+
+    ```python
+    global run
+    run = Run.get_context()
+    ```
+
+1. Agregue una instrucción `if` que inicie PTVSD y espere a que se conecte un depurador. Si no se conecta ningún depurador antes de que finalice el tiempo de espera, el script continúa de la forma habitual.
+
+    ```python
+    if args.remote_debug:
+        print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
+        # Log the IP and port
+        ip = socket.gethostbyname(socket.gethostname())
+        print(f'ip_address: {ip}')
+        ptvsd.enable_attach(address=('0.0.0.0', 5678),
+                            redirect_output=True)
+        # Wait for the timeout for debugger to attach
+        ptvsd.wait_for_attach(timeout=args.remote_debug_connection_timeout)
+        print(f'Debugger attached = {ptvsd.is_attached()}')
+    ```
+
+En el siguiente ejemplo de Python se muestra un archivo `train.py` básico que habilita la depuración:
+
+```python
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license.
+
+import argparse
+import os
+import ptvsd
+import socket
+from azureml.core import Run
+
+print("In train.py")
+print("As a data scientist, this is where I use my training code.")
+
+parser = argparse.ArgumentParser("train")
+
+parser.add_argument("--input_data", type=str, help="input data")
+parser.add_argument("--output_train", type=str, help="output_train directory")
+
+# Argument check for remote debugging
+parser.add_argument('--remote_debug', action='store_true')
+parser.add_argument('--remote_debug_connection_timeout', type=int,
+                    default=300,
+                    help=f'Defines how much time the AML compute target '
+                    f'will await a connection from a debugger client (VSCODE).')
+# Get run object, so we can find and log the IP of the host instance
+global run
+run = Run.get_context()
+
+args = parser.parse_args()
+
+# Start debugger if remote_debug is enabled
+if args.remote_debug:
+    print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
+    # Log the IP and port
+    ip = socket.gethostbyname(socket.gethostname())
+    print(f'ip_address: {ip}')
+    ptvsd.enable_attach(address=('0.0.0.0', 5678),
+                        redirect_output=True)
+    # Wait for the timeout for debugger to attach
+    ptvsd.wait_for_attach(timeout=args.remote_debug_connection_timeout)
+    print(f'Debugger attached = {ptvsd.is_attached()}')
+
+print("Argument 1: %s" % args.input_data)
+print("Argument 2: %s" % args.output_train)
+
+if not (args.output_train is None):
+    os.makedirs(args.output_train, exist_ok=True)
+    print("%s created" % args.output_train)
+```
+
+### <a name="configure-ml-pipeline"></a>Configuración de la canalización de ML
+
+Para proporcionar los paquetes de Python necesarios para iniciar PTVSD y obtener el contexto de ejecución, cree un [entorno]() y establezca `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Cambie la versión del SDK para que coincida con la que está usando. El fragmento de código siguiente muestra cómo crear un entorno:
+
+```python
+# Use a RunConfiguration to specify some additional requirements for this step.
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+
+# create a new runconfig object
+run_config = RunConfiguration()
+
+# enable Docker 
+run_config.environment.docker.enabled = True
+
+# set Docker base image to the default CPU-based image
+run_config.environment.docker.base_image = DEFAULT_CPU_IMAGE
+
+# use conda_dependencies.yml to create a conda environment in the Docker image for execution
+run_config.environment.python.user_managed_dependencies = False
+
+# specify CondaDependencies obj
+run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'],
+                                                                           pip_packages=['ptvsd', 'azureml-sdk==1.0.83'])
+```
+
+En la sección [Configuración de scripts de Python](#configure-python-scripts), se agregaron dos nuevos argumentos a los scripts usados por los pasos de la canalización de ML. En el fragmento de código siguiente se muestra cómo usar estos argumentos para habilitar la depuración del componente y establecer un tiempo de espera. También se muestra cómo usar el entorno creado anteriormente estableciendo `runconfig=run_config`:
+
+```python
+# Use RunConfig from a pipeline step
+step1 = PythonScriptStep(name="train_step",
+                         script_name="train.py",
+                         arguments=['--remote_debug', '--remote_debug_connection_timeout', 300],
+                         compute_target=aml_compute, 
+                         source_directory=source_directory,
+                         runconfig=run_config,
+                         allow_reuse=False)
+```
+
+Cuando se ejecuta la canalización, cada paso crea una ejecución secundaria. Si está habilitada la depuración, el script modificado registra información similar al siguiente texto en `70_driver_log.txt` para la ejecución secundaria:
+
+```text
+Timeout for debug connection: 300
+ip_address: 10.3.0.5
+```
+
+Guarde el valor de `ip_address`. Se usa en la siguiente sección.
+
+> [!TIP]
+> También puede encontrar la dirección IP en los registros de la ejecución secundaria para este paso de canalización. Para obtener más información sobre cómo ver esta información, vea [Supervisión de métricas y ejecuciones de experimentos de Azure ML](how-to-track-experiments.md).
+
+### <a name="configure-development-environment"></a>Configuración del entorno de desarrollo
+
+1. Para instalar Herramientas de Python para Visual Studio (PTVSD) en el entorno de desarrollo de VS Code, use el comando siguiente:
+
+    ```
+    python -m pip install --upgrade ptvsd
+    ```
+
+    Para más información sobre cómo usar PTVSD con VS Code, consulte [Depuración remota](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+
+1. Para configurar VS Code para comunicarse con el proceso de Azure Machine Learning que ejecuta el depurador, cree una nueva configuración de depuración:
+
+    1. En VS Code, seleccione el menú __Depurar__ y, luego, seleccione __Abrir configuraciones__. Se abre un archivo denominado __launch.json__.
+
+    1. En el archivo __launch.json__, busque la línea que contiene `"configurations": [` e inserte el texto siguiente después de ella. Cambie la entrada `"host": "10.3.0.5"` a la dirección IP devuelta en los registros de la sección anterior. Cambie la entrada `"localRoot": "${workspaceFolder}/code/step"` a un directorio local que contenga una copia del script que se está depurando:
+
+        ```json
+        {
+            "name": "Azure Machine Learning Compute: remote debug",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "10.3.0.5",
+            "redirectOutput": true,
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}/code/step1",
+                    "remoteRoot": "."
+                }
+            ]
+        }
+        ```
+
+        > [!IMPORTANT]
+        > Si ya hay otras entradas en la sección de configuraciones, agregue una coma (,) después del código que insertó.
+
+        > [!TIP]
+        > El procedimiento recomendado es mantener los recursos para los scripts en directorios independientes, es por lo que el valor del ejemplo `localRoot` hace referencia a `/code/step1`.
+        >
+        > Si va a depurar varios scripts en directorios diferentes, cree una sección de configuración independiente para cada script.
+
+    1. Guarde el archivo __launch.json__.
+
+### <a name="connect-the-debugger"></a>Conexión del depurador
+
+1. Abra VS Code y abra una copia local del script.
+2. Establezca puntos de interrupción donde desee que se detenga el script una vez que se haya conectado.
+3. Mientras el proceso secundario ejecuta el script y se muestra `Timeout for debug connection` en los registros, use la tecla F5 o seleccione __Depurar__. Cuando se le solicite, seleccione la configuración __Azure Machine Learning Compute: remote debug__ (Proceso de Azure Machine Learning: depuración remota). También puede seleccionar el icono de depuración en la barra lateral, la entrada __Azure Machine Learning: remote debug__ (Azure Machine Learning: depuración remota) en el menú desplegable Depurar y, a continuación, usar la flecha verde para conectar el depurador.
+
+    En este punto, VS Code se conecta a PTVSD en el nodo de ejecución y se detiene en el punto de interrupción que se estableció anteriormente. Ahora puede recorrer el código a medida que se ejecuta, ver variables, etc.
+
+    > [!NOTE]
+    > Si el registro muestra una entrada que indica `Debugger attached = False`, el tiempo de espera ha expirado y el script ha continuado sin el depurador. Vuelva a enviar la canalización y conecte el depurador después del mensaje de `Timeout for debug connection` y antes de que expire el tiempo de espera.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

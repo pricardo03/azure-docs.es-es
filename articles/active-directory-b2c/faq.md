@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d8bdae5a860eb19741aa321606feb3f0825740a9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6451c5d32fffc0290592a2489c9cdc99be1b7b7c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850575"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483302"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -86,15 +86,17 @@ En estos momentos no se puede cambiar el valor del campo De del correo electrón
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>¿Cómo puedo migrar mis nombres de usuario, contraseñas y perfiles existentes desde la base de datos a Azure AD B2C?
 
-Puede usar Graph API de Azure AD para escribir la herramienta de migración. Consulte la [guía de migración para el usuario](user-migration.md) para detalles.
+Puede usar Microsoft Graph API para escribir la herramienta de migración. Consulte la [guía de migración para el usuario](user-migration.md) para detalles.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>¿Qué flujo de usuario de contraseñas se usa para las cuentas locales en Azure AD B2C?
 
-El flujo de usuario de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Los flujos de usuario de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C usan la seguridad de la contraseña "segura" y las contraseñas no caducan. Lea [Directiva de contraseñas en Azure AD](/previous-versions/azure/jj943764(v=azure.100)) para obtener más información. Para información sobre los bloqueos de cuentas y las contraseñas, consulte [Administración de amenazas para recursos y datos de Azure Active Directory B2C](threat-management.md).
+El flujo de usuario de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Los flujos de usuario de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C usan la seguridad de la contraseña "segura" y las contraseñas no caducan. Para más detalles, consulte [Restricciones y directivas de contraseñas en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+
+Para información sobre los bloqueos de cuentas y las contraseñas, consulte [Administración de amenazas para recursos y datos de Azure Active Directory B2C](threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>¿Puedo usar Azure AD Connect para migrar identidades de consumidores almacenadas en mi entorno Active Directory local a Azure AD B2C?
 
-No, Azure AD Connect no está diseñado para funcionar con Azure AD B2C. Considere la posibilidad de usar [Graph API de Azure AD](manage-user-accounts-graph-api.md) para la migración de usuarios. Consulte la [guía de migración para el usuario](user-migration.md) para detalles.
+No, Azure AD Connect no está diseñado para funcionar con Azure AD B2C. Considere la posibilidad de usar [Microsoft Graph API](manage-user-accounts-graph-api.md) para la migración de usuarios. Consulte la [guía de migración para el usuario](user-migration.md) para detalles.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>¿Mi aplicación puede abrir páginas de Azure AD B2C dentro de un iFrame?
 
@@ -134,7 +136,7 @@ Siga estos pasos para eliminar el inquilino de Azure AD B2C.
 
 Puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como *administrador de la suscripción*. Use la misma cuenta profesional o educativa o la misma cuenta de Microsoft que ha usado para registrarse en Azure.
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
@@ -155,7 +157,7 @@ Puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Regis
 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
 1. En la página **Información general**, seleccione **Eliminar directorio**. Siga las instrucciones que aparecen en pantalla para completar el proceso.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como *administrador de la suscripción*. Use la misma cuenta profesional o educativa o la misma cuenta de Microsoft que ha usado para registrarse en Azure.
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.

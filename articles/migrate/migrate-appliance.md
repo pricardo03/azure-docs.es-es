@@ -2,13 +2,13 @@
 title: Dispositivo con Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/17/2020
+ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031670"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425466"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -55,7 +55,7 @@ Máquina física |  Azure Migrate: Server Assessment |  Detectar servidores fís
 **Valor del código hash** | MD5: 29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256: 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Host de Hyper-V** | Debe ejecutar Windows Server 2012 R2 o una versión posterior.
 **Proyecto de Azure Migrate** | Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
-**Detección** | Un dispositivo puede detectar hasta 5000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo puede conectarse hasta a 300 hosts de Hyper-V.
+**Detección** | Un dispositivo puede detectar hasta 5000 VM de Hyper-V.<br/> Un dispositivo puede conectarse hasta a 300 hosts de Hyper-V.
 **Componentes del dispositivo** | Aplicación de administración: aplicación web del dispositivo para la entrada del usuario durante la implementación.<br/> Agente de detección: reúne los datos de configuración de la máquina.<br/> Agente de evaluación: recopila datos de rendimiento.<br/>  Servicio de actualización automática: actualiza componentes (se ejecuta cada 24 horas).
 
 

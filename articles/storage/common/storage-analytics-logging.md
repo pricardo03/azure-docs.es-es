@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 25c047dc9b2ce08ca39e69c6f106e41c5d9bd0dc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882634"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484900"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
@@ -88,7 +88,7 @@ Para obtener información sobre cómo mostrar los blobs mediante programación, 
 
  En la siguiente tabla se describe cada atributo del nombre del registro:
 
-|Atributo|DESCRIPCIÓN|
+|Atributo|Descripción|
 |---------------|-----------------|
 |`<service-name>`|El nombre del servicio de almacenamiento. Por ejemplo: `blob`, `table` o `queue`|
 |`YYYY`|El año de cuatro dígitos del registro. Por ejemplo: `2011`|
@@ -112,7 +112,7 @@ Para obtener información sobre cómo mostrar los blobs mediante programación, 
 
  Todos los blobs del registro se almacenan con metadatos que se pueden utilizar para identificar los datos de registro que contiene el blob. En la siguiente tabla se describe cada atributo de metadatos:
 
-|Atributo|DESCRIPCIÓN|
+|Atributo|Descripción|
 |---------------|-----------------|
 |`LogType`|Describe si el registro contiene información relacionada con las operaciones de lectura, escritura o eliminación. Este valor puede incluir un tipo o una combinación de los tres, separados por comas.<br /><br /> Ejemplo 1: `write`<br /><br /> Ejemplo 2: `read,write`<br /><br /> Ejemplo 3: `read,write,delete`|
 |`StartTime`|La primera hora de una entrada en el registro, en formato `YYYY-MM-DDThh:mm:ssZ`. Por ejemplo: `2011-07-31T18:21:46Z`|
@@ -180,6 +180,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ## <a name="download-storage-logging-log-data"></a>Descargar datos de registro del registro de almacenamiento
 
  Para ver y analizar los datos de registro, conviene descargar en un equipo local los blobs que contengan los datos de registro de su interés. Muchas herramientas de exploración del almacenamiento permiten descargar blobs de la cuenta de almacenamiento; también puede usar la herramienta de la línea de comandos para copiar de Azure [AzCopy](storage-use-azcopy-v10.md), suministrada por el equipo de Azure Storage, para descargar los datos de registro.  
+ 
+>[!NOTE]
+> El contenedor `$logs` no está integrado con Event Grid, por lo que no recibirá notificaciones cuando se escriban en los archivos de registro. 
 
  Para estar seguro de que descarga los datos de registro de su interés y no descarga los mismos datos de registro más de una vez:  
 

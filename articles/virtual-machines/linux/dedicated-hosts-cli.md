@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834934"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483489"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementación de máquinas virtuales en hosts dedicados mediante la CLI de Azure
  
@@ -27,7 +27,7 @@ Asegúrese de tener instalada la CLI de Azure, versión 2.0.70 o posterior, y de
 ## <a name="limitations"></a>Limitaciones
 
 - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
-- La versión inicial admite las siguientes series de máquinas virtuales: DSv3 y ESv3. 
+- La versión inicial admite las siguientes series de máquinas virtuales: DSv3, ESv3, FSv2, LSv2 y MSv2. 
  
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos 

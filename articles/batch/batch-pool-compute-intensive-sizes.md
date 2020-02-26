@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: 17cd9db1e86a66630d3b93c8295915933abb1ec2
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 22ee4aad6d2aabcc26dd97e50a2c716cb14be67a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023606"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483591"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -44,7 +44,7 @@ Las funcionalidades RDMA y GPU de los tamaños de proceso intensivos solo se adm
 
 | Size | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8 y A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basado en CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Controladores RDMA en Linux | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
+| [H16r, H16mr, A8 y A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basado en CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Controladores RDMA en Linux | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
 | [Series NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varía por serie) | Ubuntu 16.04 LTS o<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Controladores de NVIDIA CUDA o de CUDA Toolkit | N/D | 
 | [Series NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS o<br/>CentOS 7.3<br/>(Azure Marketplace) | Controladores de NVIDIA GRID | N/D |
 
@@ -54,7 +54,7 @@ Las funcionalidades RDMA y GPU de los tamaños de proceso intensivos solo se adm
 
 | Size | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o posterior, o<br/> Intel MPI 5<br/><br/>Controladores RDMA en Windows | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
+| [H16r, H16mr, A8 y A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o posterior, o<br/> Intel MPI 5<br/><br/>Controladores RDMA en Windows | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
 | [Series NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varía por serie) | Windows Server 2016 o <br/>2012 R2 (Azure Marketplace) | Controladores de NVIDIA CUDA o de CUDA Toolkit| N/D | 
 | [Series NV, NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 o<br/>2012 R2 (Azure Marketplace) | Controladores de NVIDIA GRID | N/D |
 
@@ -68,7 +68,7 @@ Las funcionalidades RDMA y GPU de los tamaños de proceso intensivos solo se adm
 
 | Size | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (familia de sistemas operativos invitados) | Microsoft MPI 2012 R2 o posterior, o<br/>Intel MPI 5<br/><br/>Controladores RDMA en Windows | Habilitar la comunicación entre nodos y<br/> deshabilitar la ejecución de tareas simultáneas |
+| [H16r, H16mr, A8 y A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (familia de sistemas operativos invitados) | Microsoft MPI 2012 R2 o posterior, o<br/>Intel MPI 5<br/><br/>Controladores RDMA en Windows | Habilitar la comunicación entre nodos y<br/> deshabilitar la ejecución de tareas simultáneas |
 
 ## <a name="pool-configuration-options"></a>Opciones de configuración de grupos
 
@@ -103,7 +103,7 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Windows, debe instalar l
 
 1. Descargue un paquete de instalación para los controladores de GPU en Windows Server 2016 desde el [sitio web de NVIDIA](https://www.nvidia.com/Download/index.aspx): por ejemplo, la [versión 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Guarde el archivo localmente con un nombre corto como *GPUDriverSetup.exe*.
 2. Cree un archivo ZIP del paquete.
-3. Cargue el paquete en su cuenta de Batch. Para conocer los pasos, consulte las instrucciones de los [paquetes de aplicación](batch-application-packages.md). Especifique un identificador de aplicación, como *GPUDriver* y una versión, como *411.82*.
+3. Cargue el paquete en su cuenta de Batch. Para conocer los pasos, consulte las instrucciones de los [paquetes de aplicación](batch-application-packages.md). Especifique un id. de aplicación, como *GPUDriver* y una versión, como *411.82*.
 1. Mediante las API de Batch o Azure Portal, cree un grupo en la configuración de máquina virtual con el número de nodos y la escala deseados. En la tabla siguiente se muestra la configuración de ejemplo para instalar los controladores de GPU de NVIDIA en modo silencioso mediante una tarea de inicio:
 
 | Configuración | Value |
@@ -139,8 +139,7 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Linux, debe instalar los
 Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virtuales H16r de Azure, debe configurar la extensión HpcVmDrivers e instalar [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Estos son los pasos de ejemplo para implementar una imagen personalizada de Windows Server 2016 con los controladores y el software necesarios:
 
 1. Implemente una máquina virtual H16r de Azure que ejecute Windows Server 2016. Por ejemplo, puede crear la máquina virtual en la región Oeste de EE. UU. 
-2. Agregue la extensión HpcVmDrivers a la máquina virtual mediante la [ejecución de un comando de Azure PowerShell](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances
-) desde un equipo cliente que se conecte a la suscripción de Azure o mediante Azure Cloud Shell. 
+2. Agregue la extensión HpcVmDrivers a la máquina virtual mediante la [ejecución de un comando de Azure PowerShell](../virtual-machines/sizes-hpc.md) desde un equipo cliente que se conecte a la suscripción de Azure o mediante Azure Cloud Shell. 
 1. Abra una conexión de Escritorio remoto a la máquina virtual.
 1. Descargue el [paquete de instalación](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) correspondiente a la versión más reciente de Microsoft MPI e instale Microsoft MPI.
 1. Siga los pasos para crear una [imagen de Shared Image Gallery](batch-sig-images.md) para Batch.

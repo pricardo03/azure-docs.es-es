@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: ac06521df38bdc91ca717d888c73cd541576014d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905450"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484594"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Análisis de datos JSON y AVRO en Azure Stream Analytics
 
@@ -167,6 +167,38 @@ WITH Stage0 AS
 
 SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0 WHERE PropertyName = 'Temperature'
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
+```
+
+### <a name="parse-json-record-in-sql-reference-data"></a>Análisis de registros JSON en datos de referencia de SQL
+Cuando se usa Azure SQL Database como datos de referencia en el trabajo, se puede tener una columna con datos en formato JSON. A continuación se muestra un ejemplo.
+
+|DeviceID|data|
+|-|-|
+|12345|{"clave" : "valor1"}|
+|54321|{"clave" : "valor2"}|
+
+Puede analizar el registro JSON en la columna *Datos* escribiendo una sencilla función de JavaScript definida por el usuario.
+
+```javascript
+function parseJson(string) {
+return JSON.parse(string);
+}
+```
+
+Después, puede crear un paso en la consulta de Stream Analytics, como se muestra a continuación, para tener acceso a los campos de los registros JSON.
+
+ ```SQL
+ WITH parseJson as
+ (
+ SELECT DeviceID, udf.parseJson(sqlRefInput.Data) as metadata,
+ FROM sqlRefInput
+ )
+ 
+ SELECT metadata.key
+ INTO output
+ FROM streamInput
+ JOIN parseJson 
+ ON streamInput.DeviceID = parseJson.DeviceID
 ```
 
 ## <a name="array-data-types"></a>Tipos de datos de matriz

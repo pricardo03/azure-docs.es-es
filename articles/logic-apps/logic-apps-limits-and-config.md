@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: 348c393a623f0059eec011faf823f9b5131508f3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 02/20/2020
+ms.openlocfilehash: 059894d441897bd89be525abcc7e1c7ab6ba23e7
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122132"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485053"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -89,7 +89,7 @@ Estos son los límites de ejecución de una única aplicación lógica:
 | Elementos de matriz de foreach | 100 000 | Este límite describe el número más alto de elementos de matriz que puede procesar un bucle "for each". <p><p>Para filtrar matrices más grandes, puede usar la [acción de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
 | Simultaneidad de foreach | El límite predeterminado es 20 cuando el control de simultaneidad está desactivado. Puede cambiar el valor predeterminado por otro entre 1 y 50, ambos incluidos. | Este límite es el número más alto de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en el límite de la simultaneidad de los bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | Elementos SplitOn | - 100 000 sin simultaneidad de desencadenadores <p><p>- 100 con simultaneidad de desencadenadores | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que use la propiedad "SplitOn", la cual [divide o desagrupa los elementos de matriz en varias instancias de flujo de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para su procesamiento, en lugar de usar un bucle "foreach". Esta expresión hace referencia a la matriz que se usará para crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz. <p><p>**Nota**: Cuando se activa la simultaneidad, el límite SplitOn se reduce a 100 elementos. |
-| Iteraciones Until | 5\.000 | |
+| Iteraciones Until | - Predeterminadas: 60 <p><p>- Máximas: 5.000 | |
 ||||
 
 <a name="throughput-limits"></a>
@@ -155,7 +155,7 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 |------|--------------------|---------------------------------------|-------|
 | Tamaño del mensaje | 100 MB | 200 MB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. |
 | Tamaño del mensaje con fragmentación | 1 GB | 5 GB | Este límite se aplica a las acciones que admiten la fragmentación de forma nativa o que le permiten habilitar la opción de fragmentación en la configuración del entorno de ejecución. <p>En el entorno del servicio de integración, el motor de Logic Apps admite este límite, pero los conectores tienen sus propios límites de fragmentación hasta el límite del motor; por ejemplo, consulte la [referencia de API del conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/). Para más información sobre la fragmentación, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). |
-|||||   
+|||||
 
 #### <a name="character-limits"></a>Límites de caracteres
 
@@ -248,12 +248,16 @@ Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://az
 | Schema | 8 MB | Para cargar archivos de más de 2 MB, use una [cuenta de almacenamiento y un contenedor de blobs de Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
-| Punto de conexión en tiempo de ejecución | Límite | Notas |
-|------------------|-------|-------|
-| Llamadas de lectura cada 5 minutos | 60 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
-| Invocación de llamadas cada 5 minutos | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
-| Seguimiento de llamadas cada 5 minutos | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
-| Bloqueo de llamadas simultáneas | ~1000 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. |
+<a name="integration-account-throughput-limits"></a>
+
+### <a name="throughput-limits"></a>Límites de rendimiento
+
+| Punto de conexión en tiempo de ejecución | Gratuito | Básica | Estándar | Notas |
+|------------------|------|-------|----------|-------|
+| Llamadas de lectura cada 5 minutos | 3000 | 30,000 | 60 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
+| Invocación de llamadas cada 5 minutos | 3000 | 30,000 | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
+| Seguimiento de llamadas cada 5 minutos | 3000 | 30,000 | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
+| Bloqueo de llamadas simultáneas | ~1000 | ~1000 | ~1000 | Lo mismo para todas las SKU. Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. |
 ||||
 
 <a name="b2b-protocol-limits"></a>

@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: a87d778bff5a52f4251d83e401028c9949713e33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988080"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425024"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -88,14 +88,14 @@ Los sistemas operativos deben ser de 64 bits y ejecutar los Service Pack y actu
 
 **Sistema operativo** | **Archivos/carpetas** | **Estado del sistema** | **Requisitos de software o módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Sí | No |  Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 8.1 (Enterprise, Pro)| Sí |No | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 8 (Enterprise, Pro) | Sí | No | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sí | No | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 10 (Enterprise, Pro, Home) | Sí | Sin |  Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 8.1 (Enterprise, Pro)| Sí |Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 8 (Enterprise, Pro) | Sí | Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sí | Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sí | Sí |- .NET 4.5 <br> -Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sí | No | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sí | Sin | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 
 Para obtener más información, consulte el artículo sobre los [Sistemas operativos de MABS y DPM compatibles](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
@@ -132,6 +132,7 @@ Cifrados y dispersos |No compatible. Se omite.
 Flujo comprimido| No compatible. Se omite.
 Flujo disperso| No compatible. Se omite.
 OneDrive (los archivos sincronizados son flujos dispersos).| No compatible.
+Carpetas con la replicación DFS habilitada | No compatible.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades o volúmenes compatibles con la copia de seguridad
 

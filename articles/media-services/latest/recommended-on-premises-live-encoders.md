@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c8cf8883c80dad7988793a898dcaf01dd8f860c3
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: aa9cd3f642e3d8047e8b64afb023fffb7bd2c4f6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152642"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484917"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de streaming en vivo recomendados
 
@@ -33,7 +33,7 @@ Para obtener información detallada sobre la codificación en vivo con Media Ser
 
 ## <a name="encoder-requirements"></a>Requisitos del codificador
 
-Los codificadores deben admitir TLS 1.2 al usar protocolos HTTPS o RTMP.
+Los codificadores deben admitir TLS 1.2 al usar protocolos HTTPS o RTMPS.
 
 ## <a name="live-encoders-that-output-rtmp"></a>Codificadores en directo que generan una salida RTMP
 
@@ -53,6 +53,7 @@ Al hacer el streaming mediante RTMPS, compruebe la configuración del firewall o
 - OBS Studio
 - Switcher Studio (iOS)
 - Telestream Wirecast (versión 13.0.2 o posterior debido al requisito de TLS 1.2)
+- Telestream Wirecast S (solo se admite RTMP)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4

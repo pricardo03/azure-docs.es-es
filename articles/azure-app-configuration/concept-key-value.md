@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: fbb30b0a290011a5edfb05c1de9b5d4717a5f733
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1cd13369f443f91782eef1024003e07435a44a45
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898708"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425228"
 ---
 # <a name="keys-and-values"></a>Claves y valores
 
@@ -25,7 +25,7 @@ El uso de datos de configuración dentro de los marcos de trabajo de las aplicac
 
 Las claves almacenadas en App Configuration distinguen entre mayúsculas y minúsculas y son cadenas basadas en Unicode. Las claves *app1* y *App1* se consideran diferentes en un almacén de App Configuration. Téngalo en cuenta al utilizar las opciones de configuración en una aplicación ya que algunos marcos de trabajo administran las claves de configuración sin hacer distinción entre mayúsculas y minúsculas. Por ejemplo, el sistema de configuración de ASP.NET Core trata las claves como cadenas sin distinción de mayúsculas y minúsculas. Para evitar comportamientos impredecibles al realizar consultas en App Configuration dentro de una aplicación de ASP.NET Core, no utilizan claves que solo se distingan por el uso de mayúsculas o minúsculas.
 
-Puede usar cualquier carácter unicode en los nombres de clave que se especifican en App Configuration, excepto `*`, `,` y `\`. Estos caracteres están reservados. Si tiene que incluir un carácter reservado, deberá especificar un carácter de escape con `\{Reserved Character}`. Hay un límite de tamaño combinado de diez mil caracteres en un par clave-valor. Este límite incluye todos los caracteres de la clave, su valor y todos los atributos opcionales asociados. Dentro de este límite, puede tener múltiples niveles jerárquicos para las claves.
+Puede usar cualquier carácter unicode en los nombres de clave que se especifican en App Configuration, excepto `*`, `,` y `\`. Estos caracteres están reservados. Si tiene que incluir un carácter reservado, deberá especificar un carácter de escape con `\{Reserved Character}`. Hay un límite de tamaño combinado de 10 KB en un par clave-valor. Este límite incluye todos los caracteres de la clave, su valor y todos los atributos opcionales asociados. Dentro de este límite, puede tener múltiples niveles jerárquicos para las claves.
 
 ### <a name="design-key-namespaces"></a>Diseño de espacios de nombres de clave
 
@@ -51,7 +51,7 @@ Estos son algunos ejemplos de cómo se pueden estructurar los nombres de claves 
 
 ### <a name="label-keys"></a>Claves de etiqueta
 
-Los valores de clave de App Configuration pueden tener un atributo de etiqueta. Las etiquetas se utilizan para diferenciar los valores de clave con la misma clave. Una clave *app1* con las etiquetas *A* y *B* forma dos claves independientes en un almacén de App Configuration. De forma predeterminada, la etiqueta de un valor de clave está vacía o es `null`.
+Los valores de clave de App Configuration pueden tener un atributo de etiqueta. Las etiquetas se utilizan para diferenciar los valores de clave con la misma clave. Una clave *app1* con las etiquetas *A* y *B* forma dos claves independientes en un almacén de App Configuration. De forma predeterminada, un valor de clave no tiene etiqueta. Para hacer referencia de forma explícita a un valor de clave sin una etiqueta, use `\0` (URL codificada como `%00`).
 
 Las etiquetas proporcionan una manera cómoda de crear variantes de una clave. Un uso habitual de las etiquetas consiste en especificar varios entornos para la misma clave:
 
@@ -74,8 +74,6 @@ Cada valor de clave se identifica por su clave más una etiqueta que puede ser `
 | se omite `key` o `key=*` | Coincide con todas las claves |
 | `key=abc` | Coincide con el nombre de clave **abc** exactamente |
 | `key=abc*` | Coincide con los nombres de clave que empiezan por **abc** |
-| `key=*abc` | Coincide con los nombres de clave que terminan en **abc** |
-| `key=*abc*` | Coincide con los nombres de clave que contienen **abc** |
 | `key=abc,xyz` | Coincide con los nombres de clave **abc** o **xyz**, limitado a cinco CSV |
 
 También puede incluir los siguientes patrones de etiqueta:
@@ -86,8 +84,6 @@ También puede incluir los siguientes patrones de etiqueta:
 | `label=%00` | Coincide con la etiqueta `null` |
 | `label=1.0.0` | Coincide exactamente con la etiqueta **1.0.0** |
 | `label=1.0.*` | Coincide con las etiquetas que empiezan por **1.0.** |
-| `label=*.0.0` | Coincide con las etiquetas que terminan en **.0.0** |
-| `label=*.0.*` | Coincide con las etiquetas que contienen **.0.** |
 | `label=%00,1.0.0` | Coincide con las etiquetas `null` o **1.0.0**, limitado a cinco CSV |
 
 ## <a name="values"></a>Valores
