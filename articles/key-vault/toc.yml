@@ -72,12 +72,12 @@
       items:
         - name: Introducción a la seguridad
           href: overview-security.md
+        - name: Línea de base de seguridad
+          href: security-baseline.md
         - name: Espacios de seguridad
           href: key-vault-ovw-security-worlds.md
         - name: Protección de un almacén de claves
           href: key-vault-secure-your-key-vault.md
-        - name: Controles de seguridad integrados
-          href: key-vault-security-controls.md
     - name: Eliminación temporal
       href: key-vault-ovw-soft-delete.md
     - name: Supervisión de eventos de Key Vault

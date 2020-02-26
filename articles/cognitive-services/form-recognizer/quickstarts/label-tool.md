@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118371"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485359"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -28,10 +28,14 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
 - Un conjunto de al menos seis formularios del mismo tipo. Usará estos datos para entrenar el modelo y probar un formulario. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
 
+## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-the-sample-labeling-tool"></a>Configuración de la herramienta de etiquetado de ejemplo
 
 Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo. Siga estos pasos para configurar el contenedor de Docker. Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).
-1. En primer lugar, instale Docker en un equipo host. El equipo host puede ser el equipo local ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/)o [Linux](https://docs.docker.com/install/)). O bien, puede usar un servicio de hospedaje de Docker en Azure, como [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) o un clúster de Kubernetes [implementado en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). El equipo host debe cumplir los siguientes requisitos de hardware:
+1. En primer lugar, instale Docker en un equipo host. El equipo host puede ser el equipo local ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/) o [Linux](https://docs.docker.com/install/)). O bien, puede usar un servicio de hospedaje de Docker en Azure, como [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) o un clúster de Kubernetes [implementado en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). El equipo host debe cumplir los siguientes requisitos de hardware:
 
     | Contenedor | Mínima | Recomendado|
     |:--|:--|:--|
@@ -70,7 +74,7 @@ Habilite CORS en la cuenta de almacenamiento. Seleccione la cuenta de almacenami
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Conexión a la herramienta de etiquetado de ejemplo
 
-La herramienta de etiquetado de ejemplo se conecta a un origen (en el que se encuentran los formularios originales) y a un destino (la ubicación a la que se exportan las etiquetas creadas y los datos de salida).
+La herramienta de etiquetado de ejemplo se conecta a un origen (en el que se encuentran los formularios originales) y a un destino (donde exporta las etiquetas creadas y los datos de salida).
 
 Las conexiones se pueden configurar y compartir entre proyectos. Usan un modelo extensible de proveedores, por lo que puede agregar fácilmente nuevos proveedores de origen y destino.
 
@@ -89,7 +93,7 @@ Rellene los campos con los siguientes valores:
 En la herramienta de etiquetado de ejemplo, los proyectos almacenan las configuraciones y los valores. Cree un nuevo proyecto y rellene los campos con los siguientes valores:
 
 * **Nombre para mostrar**: el nombre para mostrar del proyecto
-* **Token de seguridad**: algunos valores de configuración del proyecto pueden incluir valores confidenciales, como claves de API u otros secretos compartidos. Cada proyecto generará un token de seguridad que se puede usar para cifrar o descifrar los valores de configuración confidenciales del proyecto. Los tokens de seguridad se encuentran en Configuración de la aplicación. Para acceder a ella, haga clic en el icono de engranaje situado en la esquina inferior de la barra de navegación izquierda.
+* **Token de seguridad**: algunos valores de configuración del proyecto pueden incluir valores confidenciales, como claves de API u otros secretos compartidos. Cada proyecto generará un token de seguridad que se puede usar para cifrar o descifrar los valores de configuración confidenciales del proyecto. Puede buscar los tokens de seguridad en la configuración de la aplicación. Para acceder a ella, haga clic en el icono de engranaje situado en la esquina inferior de la barra de navegación izquierda.
 * **Conexión de origen**: la conexión de Azure Blob Storage que creó en el paso anterior que le gustaría usar para este proyecto.
 * **Ruta de acceso a la carpeta** (opcional): si los formularios de origen se encuentran en una carpeta en el contenedor de blobs, especifique aquí el nombre de la carpeta.
 * **URI de servicio del servicio Form Recognizer**: la dirección URL del punto de conexión de Form Recognizer.
@@ -155,7 +159,7 @@ Haga clic en el icono Predecir (rectángulos) de la izquierda para probar el mod
 
 Según la precisión notificada, puede que desee realizar un entrenamiento adicional para mejorar el modelo. Después de haber realizado una predicción, examine los valores de confianza de cada una de las etiquetas aplicadas. Si el valor de precisión media del entrenamiento es alto, pero las puntuaciones de confianza son bajas (o los resultados son inexactos), debe agregar el archivo que se utilizó para la predicción al conjunto de entrenamiento, etiquetarlo y realizar el entrenamiento de nuevo.
 
-La precisión media notificada, las puntuaciones de confianza y la precisión real pueden ser incoherentes si los documentos que se analizan son diferentes de los usados en el entrenamiento. Tenga en cuenta que algunos documentos tienen un aspecto similar cuando los ven los usuarios, pero pueden parecer distintos para el modelo de IA. Por ejemplo, puede realizar el entrenamiento con un tipo de formulario que tiene dos variantes, en el que el conjunto de entrenamiento consta de un 20 % perteneciente a la variante A y un 80 % a la variante B. Durante la predicción, es probable que las puntuaciones de confianza de los documentos de la variante A sean menores.
+La precisión media notificada, las puntuaciones de confianza y la precisión real pueden ser incoherentes cuando los documentos que se analizan son diferentes de los usados en el entrenamiento. Tenga en cuenta que algunos documentos tienen un aspecto similar cuando los ven los usuarios, pero pueden parecer distintos para el modelo de IA. Por ejemplo, puede realizar el entrenamiento con un tipo de formulario que tiene dos variantes, en el que el conjunto de entrenamiento consta de un 20 % perteneciente a la variante A y un 80 % a la variante B. Durante la predicción, es probable que las puntuaciones de confianza de los documentos de la variante A sean menores.
 
 ## <a name="save-a-project-and-resume-later"></a>Guardar un proyecto y reanudarlo más tarde
 
@@ -165,7 +169,7 @@ Para reanudar el proyecto en otro momento o en otro explorador, debe guardar el 
 Vaya a la página de configuración del proyecto (icono de control deslizante) y anote el nombre del token de seguridad. A continuación, vaya a la configuración de la aplicación (icono de engranaje), que muestra todos los tokens de seguridad de la instancia actual del explorador. Busque el token de seguridad del proyecto y copie su nombre y valor de clave en una ubicación segura.
 
 ### <a name="restore-project-credentials"></a>Restauración de las credenciales del proyecto
-Si desea reanudar el proyecto, primero debe crear una conexión al mismo contenedor de almacenamiento de blobs. Para ello, siga los pasos anteriores. A continuación, vaya a la página de configuración de la aplicación (icono de engranaje) y compruebe si el token de seguridad del proyecto está allí. Si no es así, agregue un nuevo token de seguridad y copie el nombre y la clave del token del paso anterior. Después, haga clic en Guardar configuración. 
+Si desea reanudar el proyecto, primero debe crear una conexión al mismo contenedor de almacenamiento de blobs. Para ello, repita los pasos anteriores. A continuación, vaya a la página de configuración de la aplicación (icono de engranaje) y compruebe si el token de seguridad del proyecto está allí. Si no es así, agregue un nuevo token de seguridad y copie el nombre y la clave del token del paso anterior. Después, haga clic en Guardar configuración. 
 
 ### <a name="resume-a-project"></a>Reanudación de un proyecto
 Por último, vaya a la página principal (icono de casa) y haga clic en Open Cloud Project (Abrir proyecto en la nube). Después, seleccione la conexión a Blob Storage y seleccione el archivo *.vott* del proyecto. La aplicación cargará todos los valores del proyecto ya que tiene el token de seguridad.
