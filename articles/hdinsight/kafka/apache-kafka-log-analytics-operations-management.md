@@ -7,19 +7,31 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 02/17/2020
+ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894272"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471187"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Análisis de registros para Apache Kafka en HDInsight
 
 Aprenda a usar registros de Azure Monitor para analizar registros generados por Apache Kafka en HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="logs-location"></a>Ubicación de los registros
+
+Los registros de Apache Kafka del clúster se encuentran en `/var/log/kafka`. Los registros de Kafka no se guardan ni se conservan entre ciclos de vida del clúster, con independencia de si se usan discos administrados. En la siguiente tabla se muestran los registros disponibles.
+
+|Log |Descripción |
+|---|---|
+|kafka.out|stdout y stderr del proceso de Kafka. Encontrará los registros de inicio y cierre de Kafka en este archivo.|
+|server.log|El registro principal del servidor de Kafka. Todos los registros del agente de Kafka terminan aquí.|
+|controller.log|Registros de controlador si el agente actúa como controlador.|
+|statechange.log|Todos los eventos de cambio de estado en los agentes se registran en este archivo.|
+|kafka-gc.log|Estadísticas de recolección de elementos no utilizados de Kafka.|
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Habilitar registros de Azure Monitor para Apache Kafka
 
@@ -82,7 +94,7 @@ Los pasos para habilitar registros de Azure Monitor para HDInsight son los mismo
 
     También puede escribir `*` para buscar todos los tipos registrados. Actualmente están disponibles los registros siguientes para las consultas:
 
-    | Tipo de registro | DESCRIPCIÓN |
+    | Tipo de registro | Descripción |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |

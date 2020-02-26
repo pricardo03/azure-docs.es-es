@@ -5,24 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad897ea73f32327b894558c5c04449c667663dad
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: e81039328aa9382a19412c961e28bc3275c08ec8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379759"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194473"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solución de problemas de la configuración de Enterprise State Roaming en Azure Active Directory
 
 En este tema se proporciona información sobre cómo diagnosticar y solucionar problemas Enterprise State Roaming, y proporciona una lista de problemas conocidos.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Este artículo se aplica al explorador basado en HTML heredado de Microsoft Edge que se publicó con Windows 10 en julio de 2015. No se aplica al nuevo explorador Microsoft Edge basado en Chromium, publicado el 15 de enero de 2020. Para más información sobre el comportamiento de sincronización del nuevo Microsoft Edge, consulte el artículo [Sincronización de Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>Pasos preliminares para solucionar problemas 
 
@@ -31,7 +34,7 @@ Antes de comenzar la solución de problemas, compruebe que el usuario y el dispo
 1. Windows 10, con las actualizaciones más recientes, y la versión 1511 como mínimo (compilación del sistema operativo 10586 o posterior) está instalado en el dispositivo. 
 1. El dispositivo está unido a Azure AD o es un dispositivo híbrido unido a Azure AD. Para más información, consulte [cómo poner un dispositivo bajo el control de Azure AD](overview.md).
 1. Asegúrese de que **Enterprise State Roaming** está habilitado para el inquilino de Azure AD, como se describe en [Habilitación de Enterprise State Roaming](enterprise-state-roaming-enable.md). Puede habilitar la movilidad para todos los usuarios o solo un grupo seleccionado de usuarios.
-1. El usuario ya debe tener asignada una licencia de Azure Active Directory Premium.  
+1. El usuario tiene asignada una licencia de Azure Active Directory Premium.  
 1. Debe reiniciarse el dispositivo y el usuario debe iniciar sesión de nuevo para tener acceso a características de Enterprise State Roaming.
 
 ## <a name="information-to-include-when-you-need-help"></a>Información para incluir si necesita ayuda
@@ -46,6 +49,7 @@ Si no puede resolver el problema con las instrucciones siguientes, póngase en c
 Incluir esta información nos ayudará a solucionar su problema lo antes posible.
 
 ## <a name="troubleshooting-and-diagnosing-issues"></a>Solución de problemas y diagnóstico de problemas
+
 En esta sección se ofrecen sugerencias sobre cómo solucionar y diagnosticar problemas relacionados con Enterprise State Roaming.
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Comprobación de la sincronización y la página de configuración de "Sincronizar la configuración" 
@@ -66,9 +70,9 @@ Enterprise State Roaming requiere que el dispositivo esté registrado con Azure 
 1. Una vez abierto el símbolo del sistema, escriba "*dsregcmd.exe /status*".
 1. Para la salida esperada, el valor del campo **AzureAdJoined** debe ser "YES", el valor del campo de **WamDefaultSet** debe ser "YES" y el valor del campo **WamDefaultGUID** debe ser un GUID con "(AzureAd)" al final.
 
-**Problema potencial**: **WamDefaultSet** y **AzureAdJoined** tienen "NO" en el valor del campo, el dispositivo está unido a un dominio y registrado con Azure AD y no se sincroniza. Si se muestra esto, el dispositivo puede que tenga que esperar la aplicación de la directiva o se producirá un error de autenticación cuando el dispositivo se conecte a Azure AD. El usuario puede tener que esperar unas pocas horas para la directiva se aplique. Otros pasos de solución de problemas pueden incluir volver a intentar el registro automático mediante el cierre y el inicio de sesión, o el mediante el inicio de la tarea en el Programador de tareas. En algunos casos, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
+**Problema potencial**: **WamDefaultSet** y **AzureAdJoined** tienen "NO" en el valor del campo, el dispositivo está unido a un dominio y registrado con Azure AD y no se sincroniza. Si se muestra esto, el dispositivo puede que tenga que esperar la aplicación de la directiva o se producirá un error de autenticación cuando el dispositivo se conecte a Azure AD. El usuario puede tener que esperar unas pocas horas para la directiva se aplique. Otros pasos de solución de problemas pueden incluir volver a intentar el registro automático cerrando y volviendo a iniciar la sesión, o mediante el inicio de la tarea en el Programador de tareas. En algunos casos, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
 
-**Problema potencial**: el campo de **SettingsUrl** está vacío y el dispositivo no se sincroniza. El usuario puede haber iniciado sesión en el dispositivo antes de habilitar Enterprise State Roaming en el portal de Azure Active Directory. Reinicie el dispositivo pida al usuario que inicie sesión. Si lo desea, en el portal, pruebe que los administradores vayan a **Azure Active Directory** > **Dispositivos** > **Enterprise State Roaming** y deshabilite y vuelva a habilitar **Los usuarios pueden sincronizar la configuración y los datos de aplicaciones en distintos dispositivos**. Cuando se haya vuelto a habilitar, reinicie el dispositivo pida al usuario que inicie sesión. Si el problema no se soluciona, puede que **SettingsUrl** esté vacío en el caso de un certificado de dispositivo defectuoso. En este caso, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
+**Problema potencial**: el campo de **SettingsUrl** está vacío y el dispositivo no se sincroniza. El usuario puede haber iniciado sesión en el dispositivo antes de habilitar Enterprise State Roaming en el portal de Azure Active Directory. Reinicie el dispositivo pida al usuario que inicie sesión. Si lo desea, en el portal, pruebe que los administradores vayan a **Azure Active Directory** > **Dispositivos** > **Enterprise State Roaming** y deshabilite y vuelva a habilitar **Los usuarios pueden sincronizar la configuración y los datos de aplicaciones en distintos dispositivos**. Cuando se haya vuelto a habilitar, reinicie el dispositivo pida al usuario que inicie sesión. Si el problema no se soluciona, puede que **SettingsUrl** esté vacío si hay un certificado de dispositivo defectuoso. En este caso, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming y Multi-Factor Authentication 
 
@@ -149,7 +153,7 @@ Conecte el dispositivo a una red corporativa, para que pueda reanudarse la sincr
 
 ### <a name="azure-ad-joined-device-is-not-syncing-and-the-user-has-a-mixed-case-user-principal-name"></a>El dispositivo unido a Azure AD no se está sincronizando y el usuario tiene un nombre principal de usuario con mayúsculas y minúsculas.
 
-Si el usuario se escribe con mayúsculas y minúsculas (por ejemplo, Nombre de Usuario en lugar de nombre de usuario) y el usuario se encuentra en un dispositivo unido a Azure AD que se ha actualizado de Windows 10 Build 10586 a 14393, se puede producir un error en el dispositivo del usuario al realizar la sincronización. 
+Si el usuario tiene un UPN con una mezcla de mayúsculas y minúsculas (por ejemplo, NombreDeUsuario en lugar de nombre de usuario) y se encuentra en un dispositivo unido a Azure AD que se ha actualizado de Windows 10 Build 10586 a 14393, se puede producir un error en el dispositivo del usuario al realizar la sincronización. 
 
 **Acción recomendada**  
 El usuario deberá separar y volver a unir el dispositivo a la nube. Para ello, inicie sesión como usuario de administrador local y separe el dispositivo en **Configuración** > **Sistema** > **Acerca de** y seleccione "Administrar o desconectar del trabajo o de la escuela". Limpie los archivos siguientes y, después, una de nuevo el dispositivo con Azure AD en **Configuración** > **Sistema** > **Acerca de** y seleccionando "Conectarse a la red del trabajo o colegio". Continúe uniendo el dispositivo con Azure Active Directory y complete el flujo.

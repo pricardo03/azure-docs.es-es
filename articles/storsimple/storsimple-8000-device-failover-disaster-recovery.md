@@ -1,5 +1,5 @@
 ---
-title: Conmutación por error y recuperación ante desastres de StorSimple para dispositivos de la serie 8000| Microsoft Docs
+title: Conmutación por error y recuperación ante desastres para dispositivos StorSimple serie 8000
 description: Obtenga información sobre cómo conmutar por error el dispositivo de StorSimple a sí mismo, a otro dispositivo físico o a una aplicación de nube.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576379"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468599"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Conmutación por error y recuperación ante desastres para dispositivos de StorSimple de la serie 8000
 
@@ -106,19 +106,19 @@ Si piensa probar la conmutación por error o la conmutación por recuperación, 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-P: **¿Qué ocurre si se produce un error de la recuperación ante desastres o se completa correctamente solo de forma parcial?**
+Q. **¿Qué ocurre si se produce un error de la recuperación ante desastres o se completa correctamente solo de forma parcial?**
 
 A. Si se produce un error en la recuperación ante desastres, se recomienda volver a intentarlo. El trabajo de conmutación por error del segundo dispositivo es compatible con el progreso del primer trabajo y se inicia desde ese punto en adelante.
 
-P: **¿Puedo eliminar un dispositivo mientras se realiza la conmutación por error del dispositivo?**
+Q. **¿Puedo eliminar un dispositivo mientras se realiza la conmutación por error del dispositivo?**
 
-a. No se puede eliminar un dispositivo mientras se realiza una recuperación ante desastres. Solo puede eliminar el dispositivo una vez completada la recuperación ante desastres. Puede supervisar el progreso del trabajo de conmutación por error de dispositivo en la hoja **Trabajos**.
+A. No se puede eliminar un dispositivo mientras se realiza una recuperación ante desastres. Solo puede eliminar el dispositivo una vez completada la recuperación ante desastres. Puede supervisar el progreso del trabajo de conmutación por error de dispositivo en la hoja **Trabajos**.
 
-P: **¿Cuándo se inicia la recolección de elementos no utilizados en el dispositivo de origen para que se eliminen los datos locales en el dispositivo de origen?**
+Q. **¿Cuándo se inicia la recolección de elementos no utilizados en el dispositivo de origen para que se eliminen los datos locales en el dispositivo de origen?**
 
 A. La recolección de elementos no utilizados solo se habilita en el dispositivo de origen después de que el dispositivo se limpie completamente. La limpieza incluye limpiar los objetos que se han conmutado por error desde dispositivo de origen, como volúmenes, objetos de copia de seguridad (no datos), contenedores de volúmenes y directivas.
 
-P: **¿Qué ocurre si se produce un error en el trabajo de eliminación asociado con los contenedores de volúmenes del dispositivo de origen?**
+Q. **¿Qué ocurre si se produce un error en el trabajo de eliminación asociado con los contenedores de volúmenes del dispositivo de origen?**
 
 A.  Si se produce un error en el trabajo de eliminación, puede eliminar manualmente los contenedores de volúmenes. En la hoja **Dispositivos**, seleccione el dispositivo de origen y haga clic en **Contenedores de volúmenes**. Seleccione los contenedores de volúmenes que se conmutaron por error y, en la parte inferior de la hoja, haga clic en **Eliminar**. Una vez que haya eliminado todos los contenedores de volúmenes conmutados por error en el dispositivo de origen, puede iniciar la conmutación por recuperación. Para más información, vaya a [Eliminar un contenedor de volúmenes](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
 

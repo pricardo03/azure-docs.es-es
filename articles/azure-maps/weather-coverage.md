@@ -1,23 +1,23 @@
 ---
 title: Cobertura de meteorología | Microsoft Azure Maps
 description: En este artículo, obtendrá información acerca de la cobertura de meteorología en Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 77b95806c2040e7950e1133fcc4c7bc5e0e2ab53
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fdae00a07b364252ae6d297a6df5eb242beac262
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989610"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207951"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura de meteorología de Azure Maps
 
-En este artículo se proporciona información sobre la cobertura de Azure Maps [Weather Services](https://aka.ms/AzureMapsWeatherService). Los servicios de datos meteorológicos de Azure Maps pueden devolver detalles como, por ejemplo, mosaicos de radar, condiciones meteorológicas actuales, previsiones meteorológicas y el tiempo durante una ruta.
+En este artículo se proporciona información sobre la cobertura de Azure Maps [Weather Services](https://aka.ms/AzureMapsWeatherService). Los servicios de datos meteorológicos de Azure Maps devuelven detalles como mosaicos de radar, condiciones meteorológicas actuales, previsiones meteorológicas y el tiempo a lo largo de una ruta.
 
 Azure Maps no tiene el mismo nivel de información y precisión en todos los países y regiones.
 

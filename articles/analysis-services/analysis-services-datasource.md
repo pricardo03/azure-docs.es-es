@@ -4,15 +4,15 @@ description: Describe los orígenes de datos y los conectores admitidos para los
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922285"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461664"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -23,14 +23,14 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 |Origen de datos  |En memoria  |DirectQuery  |Notas |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Sí      |    Sí      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse      |   Sí      |   Sí       |<sup>[2](#azprovider)</sup>|
-|Azure Blob Storage      |   Sí       |    No      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   Sí       |    No      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Sí        |  No        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Sí       |    No      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Sí       |    No      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Sí     |   No       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Sí       |   No       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
+|Azure Synapse Analytics (SQL Data Warehouse)      |   Sí      |   Sí       |<sup>[2](#azprovider)</sup>|
+|Azure Blob Storage      |   Sí       |    Sin      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   Sí       |    Sin      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Sí        |  Sin        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Sí       |    Sin      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Sí       |    Sin      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Sí     |   Sin       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Sí       |   Sin       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
 ||||
 
 **Notas:**    
@@ -44,35 +44,35 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 
 |Origen de datos | En memoria | DirectQuery |Notas   |
 |  --- | --- | --- | --- |
-|Base de datos de Access     |  Sí | No |  |
-|Active Directory     |  Sí | No | <sup>[6](#tab1400b)</sup>  |
-|Analysis Services     |  Sí | No |  |
-|Sistema de la plataforma de análisis     |  Sí | No |  |
-|Archivo CSV  |Sí | No |  |
-|Dynamics 365     |  Sí | No | <sup>[6](#tab1400b)</sup> |
-|Libro de Excel     |  Sí | No |  |
-|Exchange      |  Sí | No | <sup>[6](#tab1400b)</sup> |
-|Carpeta      |Sí | No | <sup>[6](#tab1400b)</sup> |
-|IBM Informix  |Sí | No |  |
-|Documento JSON      |  Sí | No | <sup>[6](#tab1400b)</sup> |
-|Líneas de archivo binario      | Sí | No | <sup>[6](#tab1400b)</sup> |
-|Base de datos de MySQL     | Sí | No |  |
-|Fuente OData      |  Sí | No | <sup>[6](#tab1400b)</sup> |
-|Consulta ODBC     | Sí | No |  |
-|OLE DB     |   Sí | No |  |
+|Base de datos de Access     |  Sí | Sin |  |
+|Active Directory     |  Sí | Sin | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  Sí | Sin |  |
+|Sistema de la plataforma de análisis     |  Sí | Sin |  |
+|Archivo CSV  |Sí | Sin |  |
+|Dynamics 365     |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Libro de Excel     |  Sí | Sin |  |
+|Exchange      |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Carpeta      |Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |Sí | Sin |  |
+|Documento JSON      |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Líneas de archivo binario      | Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Base de datos de MySQL     | Sí | Sin |  |
+|Fuente OData      |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Consulta ODBC     | Sí | Sin |  |
+|OLE DB     |   Sí | Sin |  |
 |Oracle  | Sí  |Sí  | <sup>[9](#oracle)</sup> |
-|Base de datos de PostgreSQL   | Sí | No | <sup>[6](#tab1400b)</sup> |
-|Objetos de Salesforce|  Sí | No | <sup>[6](#tab1400b)</sup> |
-|Informes de Salesforce |Sí | No | <sup>[6](#tab1400b)</sup> |
-|SAP HANA     |  Sí | No |  |
-|SAP Business Warehouse    |  Sí | No | <sup>[6](#tab1400b)</sup> |
-|Lista de SharePoint      |   Sí | No | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
+|Base de datos de PostgreSQL   | Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Objetos de Salesforce|  Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Informes de Salesforce |Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  Sí | Sin |  |
+|SAP Business Warehouse    |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Lista de SharePoint      |   Sí | Sin | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
 |SQL Server |Sí   | Sí  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> | 
 |SQL Server Data Warehouse |Sí   | Sí  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
-|Base de datos de Sybase     |  Sí | No |  |
+|Base de datos de Sybase     |  Sí | Sin |  |
 |Teradata | Sí  | Sí  | <sup>[10](#teradata)</sup> |
-|Archivo TXT  |Sí | No |  |
-|Tabla XML    |  Sí | No | <sup>[6](#tab1400b)</sup> |
+|Archivo TXT  |Sí | Sin |  |
+|Tabla XML    |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **Notas:**    
@@ -120,7 +120,7 @@ Para orígenes de datos en la nube:
 
 ## <a name="oauth-credentials"></a>Credenciales de OAuth
 
-En el caso de los modelos tabulares con el nivel de compatibilidad 1400 y superior con el modo en memoria, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 y la lista de SharePoint admiten las credenciales de OAuth. Azure Analysis Services administra la actualización de tokens para los orígenes de datos de OAuth para evitar los tiempos de espera con las operaciones de actualización de ejecución prolongadas. Para generar tokens válidos, establezca las credenciales mediante SSMS.
+En el caso de los modelos tabulares con el nivel de compatibilidad 1400 y superior que emplean el modo en memoria, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365 y la lista de SharePoint admiten las credenciales de OAuth. Azure Analysis Services administra la actualización de tokens para los orígenes de datos de OAuth para evitar los tiempos de espera con las operaciones de actualización de ejecución prolongadas. Para generar tokens válidos, establezca las credenciales mediante SSMS.
 
 El modo de consulta directa no es compatible con las credenciales de OAuth.
 

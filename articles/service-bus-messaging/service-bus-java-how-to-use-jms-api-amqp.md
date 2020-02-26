@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c0c7e8b6066626966e2a72d474306bae4ead14c2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027217"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371256"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Uso de Java Message Service (JMS) con Service Bus y AMQP 1.0
 En este artículo se explica cómo utilizar las características de mensajería de Azure Service Bus (colas y temas de publicación y suscripción) desde aplicaciones de Java mediante el popular estándar de API Java Message Service (JMS). Hay un [artículo complementario](service-bus-amqp-dotnet.md) en el que se explica cómo hacer lo mismo mediante la API de Azure Service Bus para .NET. Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
@@ -29,7 +29,7 @@ Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel
 La compatibilidad con AMQP 1.0 de Azure Service Bus implica que puede utilizar las funciones de colas y publicación/suscripción de mensajería asincrónica desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
 
 ## <a name="get-started-with-service-bus"></a>Introducción a Service Bus
-En esta guía se asume que ya dispone de un espacio de nombres de Service Bus con una cola denominada **basicqueue**. Si no es así, puede [crear el espacio de nombres y la cola](service-bus-create-namespace-portal.md) con ayuda de [Azure Portal](https://portal.azure.com). Para obtener más información sobre cómo crear espacios de nombres y colas de Service Bus, vea [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md).
+En esta guía se da por hecho que ya dispone de un espacio de nombres de Service Bus con una cola denominada `basicqueue`. Si no es así, puede [crear el espacio de nombres y la cola](service-bus-create-namespace-portal.md) con [Azure Portal](https://portal.azure.com). Para obtener más información sobre cómo crear espacios de nombres y colas de Service Bus, vea [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Los temas y colas con particiones también admiten AMQP. Para más información, consulte [Temas y colas con particiones](service-bus-partitioning.md) y [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -49,7 +49,7 @@ Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de 
 
 ## <a name="coding-java-applications"></a>Codificación de las aplicaciones Java
 ### <a name="java-naming-and-directory-interface-jndi"></a>Interfaz de denominación y directorio Java (JNDI)
-JMS usa la interfaz de denominación y directorio Java (JNDI) para crear una separación entre los nombres lógicos y los físicos. Se resuelven dos tipos de objeto JMS mediante JNDI: ConnectionFactory y Destination. JNDI usa un modelo de proveedor al que se pueden acoplar diferentes servicios de directorio para controlar labores de resolución de nombres. La biblioteca Apache Qpid JMS AMQP 1.0 se presenta con un proveedor JNDI basado en archivo de propiedades sencillas que se configura usando un archivo de propiedades cuyo formato es el siguiente:
+JMS usa la interfaz de denominación y directorio Java (JNDI) para crear una separación entre los nombres lógicos y los físicos. Se resuelven dos tipos de objeto JMS mediante JNDI: ConnectionFactory y Destination. JNDI usa un modelo de proveedor al que se pueden acoplar diferentes servicios de directorio para controlar labores de resolución de nombres. La biblioteca Apache Qpid JMS AMQP 1.0 se presenta con un proveedor JNDI basado en archivo de propiedades sencillo que se configura mediante un archivo de propiedades cuyo formato es el siguiente:
 
 ```TEXT
 # servicebus.properties - sample JNDI configuration
@@ -136,7 +136,7 @@ Context context = new InitialContext(hashtable);
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Aplicación JMS sencilla que usa una cola de Service Bus
 El programa de ejemplo siguiente envía JMS TextMessages a una cola de Service Bus con el nombre lógico JNDI de QUEUE y recibe los mensajes de vuelta.
 
-Puede acceder a todo el código fuente y la información de configuración de la [guía de inicio rápido de colas de JMS de ejemplo de Azure Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart)
+Puede acceder a todo el código fuente y la información de configuración desde la [guía de inicio rápido de colas de JMS de ejemplo de Azure Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart).
 
 ```java
 // Copyright (c) Microsoft. All rights reserved.
@@ -348,7 +348,7 @@ Los temas de Azure Service Bus enrutan mensajes en suscripciones con nombre, com
 
 Recibir mensajes de suscripciones es igual que recibir mensajes de colas. Cada suscripción tiene una cola de mensajes fallidos asociada, así como la capacidad de reenviar mensajes automáticamente a otra cola o temas. 
 
-Los temas de JMS permiten a los clientes crear de forma dinámica suscriptores duraderos y no duraderos que permiten opcionalmente filtrar mensajes con selectores de mensajes. Estas entidades no compartidas no son compatibles con Service Bus. Sin embargo, la sintaxis de regla de filtro SQL para Service Bus es muy similar a la sintaxis del selector de mensajes compatible con JMS. 
+Los temas de JMS permiten a los clientes crear de forma dinámica suscriptores duraderos y no duraderos que permiten opcionalmente filtrar mensajes con selectores de mensajes. Estas entidades no compartidas no son compatibles con Service Bus. Pero la sintaxis de regla de filtro SQL para Service Bus es muy similar a la sintaxis del selector de mensajes compatible con JMS. 
 
 El lado del publicador de los temas de JMS es compatible con Service Bus, como se muestra en este ejemplo, pero los suscriptores dinámicos no lo son. Las siguientes API de JMS relacionadas con la topología no son compatibles con Service Bus. 
 
@@ -358,7 +358,7 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con Service Bus,
 * Solo se permite un elemento **MessageProducer** o **MessageConsumer** por cada **sesión**. Si tiene que crear varios elementos **MessageProducers** o **MessageConsumers** en una aplicación, cree una **sesión** dedicada para cada uno de ellos.
 * Actualmente no se admiten las suscripciones a tema volátiles.
 * Por el momento no se admiten **MessageSelectors**.
-* No se admiten las sesiones de transacción ni las transacciones distribuidas.
+* No se admiten las transacciones distribuidas (pero sí las sesiones de transacción).
 
 Además, Azure Service Bus divide el plano de control del plano de datos y, por tanto, no admite varias funciones de topología dinámica de JMS:
 
@@ -386,5 +386,5 @@ También puede utilizar AMQP 1.0 de Service Bus desde otros lenguajes, como .NET
 * [Uso de AMQP 1.0 con la API .NET de Service Bus](service-bus-dotnet-advanced-message-queuing.md)
 * [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Centro de desarrolladores de Java](https://azure.microsoft.com/develop/java/)
+* [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/)
 

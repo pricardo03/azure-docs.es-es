@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 86e966cc3bf98e63edbe90d7649242dcb1ccdf42
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: cfd92546def21972e37781bd8a4b0bfefda9111f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964386"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444220"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Creación de una conexión de datos de IoT Hub para Azure Data Explorer con Python (versión preliminar)
 
@@ -22,15 +22,21 @@ ms.locfileid: "76964386"
 > * [Python](data-connection-iot-hub-python.md)
 > * [Plantilla de Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer permite ingerir (cargar) datos procedentes de Event Hubs, IoT Hubs y blobs escritos en contenedores de blobs. En este artículo, va a crear una conexión de datos de IoT Hub para Azure Data Explorer con Python.
+En este artículo, va a crear una conexión de datos de IoT Hub para Azure Data Explorer con Python. El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer permite ingerir (cargar) datos procedentes de Event Hubs, IoT Hubs y blobs escritos en contenedores de blobs.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* Cree [un clúster y una base de datos](create-cluster-database-python.md).
-* Cree [una tabla y una asignación de columnas](python-ingest-data.md#create-a-table-on-your-cluster).
-* Establezca [la base de datos y las directivas de tabla](database-table-policies-python.md) (opcional).
-* Cree una instancia de [IoT Hub con una directiva de acceso compartido configurada](ingest-data-iot-hub.md#create-an-iot-hub).
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [Un clúster y una base de datos](/create-cluster-database-python.md).
+
+* [Asignación de tablas y columnas](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+
+* [Directivas de bases de datos y tablas](database-table-policies-python.md) (opcional).
+
+* [IoT Hub con una directiva de acceso compartido configurada](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 

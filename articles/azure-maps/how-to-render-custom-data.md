@@ -1,31 +1,31 @@
 ---
 title: Representación de datos personalizados en un mapa de trama | Microsoft Azure Maps
 description: En este artículo, aprenderá a representar datos personalizados en un mapa de trama mediante el servicio de imagen estática de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 78068a8deda68434daaeb18cc994099d74d9ccdf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766019"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209960"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
-En este artículo se explica cómo usar el [servicio de imagen estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage) con la funcionalidad de composición de imágenes para admitir las superposiciones encima de un mapa de trama. La composición de imágenes incluye la capacidad de obtener un icono de mapa de trama con datos adicionales, como marcadores, etiquetas y superposiciones geométricas personalizadas.
+En este artículo se explica cómo usar el [servicio de imagen estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage) con la funcionalidad de composición de imágenes para permitir las superposiciones encima de un mapa de trama. La composición de imágenes incluye la capacidad de obtener un icono de mapa de trama con datos adicionales, como marcadores, etiquetas y superposiciones geométricas personalizadas.
 
 Para representar marcadores, etiquetas y superposiciones geométricas personalizadas, se puede usar la aplicación Postman. Puede usar las [API de Data Service](https://docs.microsoft.com/rest/api/maps/data) de Azure Maps para almacenar y representar superposiciones.
 
 > [!Tip]
 > A menudo es mucho más rentable usar el SDK web de Azure Maps para mostrar un mapa sencillo en una página web que usar el servicio de imágenes estáticas. El SDK web usa mosaicos de mapa y, a menos que el usuario desplace lateralmente el mapa y lo acerque, con frecuencia solo se generará una fracción de una transacción por carga del mapa. Observe que el SDK web de Azure Maps tiene opciones para deshabilitar las funciones de desplazar lateralmente y acercar. Además, ofrece un conjunto mucho más rico de opciones de visualización de datos que las de un servicio web de mapas estáticos.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
@@ -43,7 +43,7 @@ Para representar los marcadores con etiquetas y una imagen personalizada, siga e
 
 1. Cree una colección en la que vaya a almacenar las solicitudes. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección). Asigne un nombre a la colección y seleccione el botón **Create** (Crear). 
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para los marcadores. Seleccione la colección que creó en el paso anterior como la ubicación en la que se va a guardar la solicitud y, a continuación, seleccione **Save** (Guardar).
+2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para los marcadores. Seleccione la colección que creó en el paso anterior como ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar**.
     
     ![Creación de una solicitud en Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -148,7 +148,7 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Para obtener el UDID, abra una nueva pestaña en la aplicación Postman, seleccione el método GET HTTP en la pestaña del generador y realice una solicitud GET en el URI de estado. Si la carga de datos se realizó correctamente, recibirá un UDID en el cuerpo de la respuesta. Copie el UDID.
+6. Para obtener el UDID, abra una nueva pestaña en la aplicación de Postman. Seleccione el método GET HTTP en la pestaña del generador. Realice una solicitud GET en el identificador URI de estado. Si la carga de datos se realizó correctamente, recibirá un UDID en el cuerpo de respuesta. Copie el UDID.
 
    ```JSON
    {

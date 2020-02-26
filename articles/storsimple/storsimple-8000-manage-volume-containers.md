@@ -1,5 +1,5 @@
 ---
-title: Administración de los contenedores de volúmenes de StorSimple en el dispositivo de la serie StorSimple 8000 | Microsoft Docs
+title: Administración de contenedores de volúmenes para dispositivos StorSimple serie 8000
 description: Explica cómo se puede usar la página de contenedores de volúmenes del servicio Administrador de dispositivos de StorSimple para agregar, modificar o eliminar contenedores de volúmenes.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e1a5ac2c2b734c77fc3dbe788206f8c75044953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbdad3c68848ce552811ee658bb29df74a6fad19
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60724794"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467035"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Uso del servicio Administrador de dispositivos de StorSimple para administrar contenedores de volúmenes de StorSimple
 

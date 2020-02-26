@@ -1,22 +1,14 @@
 ---
 title: 'Procedimientos recomendados: QnA Maker'
-titleSuffix: Azure Cognitive Services
 description: Siga estos procedimientos recomendados para mejorar la base de conocimiento y ofrecer mejores resultados a los usuarios finales del bot de chat o de la aplicación.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 2fd85e43fb2aa53299b4e37eca5163b7da8fc6ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/15/2020
+ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843810"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370100"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 
@@ -31,8 +23,6 @@ En general, las páginas de preguntas más frecuentes deben ser independientes y
 ### <a name="configuring-multi-turn"></a>Configuración de varios turnos
 
 [Cree su base de conocimiento](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) tras habilitar la extracción multiturno. Si la base de conocimiento admite o debería admitir la jerarquía de preguntas, esta jerarquía se puede extraer del documento o crear después de extraer el documento.
-
-<!--is this a global setting that can only be configured at kb creation time? -->
 
 ## <a name="creating-good-questions-and-answers"></a>Creación de buenas preguntas y respuestas
 
@@ -104,7 +94,7 @@ Asegúrese de aprovechar al máximo las características de clasificación que Q
 
 ### <a name="choosing-a-threshold"></a>Selección de un umbral
 
-La [puntuación de confianza](confidence-score.md) predeterminada que se usa como umbral es de 50, pero puede [cambiar el umbral](confidence-score.md#set-threshold) para su base de conocimiento según sus necesidades. Dado que cada base de conocimiento es diferente, conviene probar y elegir el umbral que mejor se adapte a cada caso.
+La [puntuación de confianza](confidence-score.md) predeterminada que se usa como umbral es 0, pero puede [cambiar el umbral](confidence-score.md#set-threshold) de la base de conocimiento según sus necesidades. Dado que cada base de conocimiento es diferente, conviene probar y elegir el umbral que mejor se adapte a cada caso.
 
 ### <a name="choosing-ranker-type"></a>Selección del tipo de clasificador
 De manera predeterminada, QnA Maker busca a través de preguntas y respuestas. Si quiere buscar solo en las preguntas, para generar una respuesta, utilice el objeto `RankerType=QuestionOnly` del cuerpo de POST de la solicitud GenerateAnswer.

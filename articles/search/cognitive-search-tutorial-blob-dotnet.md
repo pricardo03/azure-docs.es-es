@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: beea911c9bb938458d8bd12e091e6c908ebb1566
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: efd4a9333b5fb02c18b2f6a6d0f8ce58bfb8f220
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185689"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472390"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Tutorial: Creación de una canalización de enriquecimiento de inteligencia artificial mediante C# y el SDK de .NET
 
@@ -30,16 +30,16 @@ En este tutorial, usará el SDK de .NET para realizar las tareas siguientes:
 
 La salida es un índice que permite búsquedas de texto completo en Azure Cognitive Search. Puede mejorar el índice con otras funciones estándares, como [sinónimos](search-synonyms.md), [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analizadores](search-analyzers.md) y [filtros](search-filters.md).
 
-Este tutorial se ejecuta en el servicio Gratis, pero el número de transacciones gratuitas está limitado a 20 documentos por día. Si desea ejecutar este tutorial más de una vez en el mismo día, use un conjunto de archivos más pequeño para que pueda realizar más ejecuciones.
+Este tutorial se ejecuta en el servicio Gratis, pero el número de transacciones gratuitas está limitado a 20 documentos por día. Si quiere ejecutar este tutorial más de una vez en el mismo día, elimine el indexador para restablecer el contador.
 
 > [!NOTE]
-> A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra a los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra a los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial se usan los siguientes servicios, herramientas y datos. 
 
@@ -49,7 +49,7 @@ En este tutorial se usan los siguientes servicios, herramientas y datos.
 
 + [Instale Visual Studio](https://visualstudio.microsoft.com/) para usarlo como IDE.
 
-+ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
@@ -85,7 +85,7 @@ La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los 
 
 Hay otras maneras de especificar la cadena de conexión, como proporcionar una firma de acceso compartido. Para obtener más información acerca de las credenciales del origen de datos, consulte [Indexación de Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).
 
-## <a name="set-up-your-environment"></a>Configuración del entorno
+## <a name="set-up-your-environment"></a>Configurar el entorno
 
 Para comenzar, abra Visual Studio y cree un nuevo proyecto de Aplicación de consola que pueda ejecutarse en .NET Core.
 
@@ -99,7 +99,7 @@ Instale el paquete NuGet `Microsoft.Azure.Search` con la consola del Administrad
 
 Para instalar el paquete NuGet `Microsoft.Extensions.Configuration.Json` en Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Administrar paquetes NuGet para la solución...** . Seleccione Examinar y busque el paquete NuGet `Microsoft.Extensions.Configuration.Json`. Una vez que lo encuentre, seleccione el paquete, seleccione el proyecto, confirme que la versión sea la versión estable más reciente y, luego, seleccione Instalar.
 
-## <a name="add-azure-cognitive-search-service-information"></a>Agregar información del servicio Azure Cognitive Search
+## <a name="add-azure-cognitive-search-service-information"></a>Incorporación de información del servicio Azure Cognitive Search
 
 Para poder conectarse al servicio Azure Cognitive Search, deberá agregar la información del servicio de búsqueda a su proyecto. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Agregar** > **Nuevo elemento...** Asigne el nombre `appsettings.json` al archivo y seleccione **Agregar**. 
 
@@ -415,7 +415,7 @@ En esta sección, se define el esquema de índice. Para ello, se especifican los
 
 En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
-| field-names: | `id`       | contenido   | languageCode | keyPhrases         | organizations     |
+| field-names: | `id`       | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -677,7 +677,7 @@ En este tutorial se encargó de comprobar los indexadores e índices existentes 
 
 También puede usar el portal para eliminar los índices, indexadores y conjuntos de aptitudes.
 
-A medida que el código evoluciona, puede refinar una estrategia de regeneración. Para más información, consulte [Volver a generar un índice](search-howto-reindex.md).
+A medida que el código evoluciona, puede refinar una estrategia de regeneración. Para más información, consulte el artículo sobre cómo [recompilar un índice](search-howto-reindex.md).
 
 ## <a name="takeaways"></a>Puntos clave
 

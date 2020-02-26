@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967345"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251217"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -27,9 +27,9 @@ Cuando se crea una instancia del servicio Azure API Management, Azure le asigna 
 > API Management solo acepta solicitudes con valores de [encabezado de host](https://tools.ietf.org/html/rfc2616#section-14.23) que coinciden con el nombre de dominio predeterminado o con cualquiera de los nombres de dominio personalizados configurados.
 
 > [!WARNING]
-> Los clientes que deseen usar la asignación de certificados para mejorar la seguridad de sus aplicaciones deben usar un nombre de dominio personalizado > y el certificado que administran, no el certificado predeterminado. Los clientes que asignen el certificado predeterminado en su lugar tendrán una gran dependencia de las propiedades del certificado que no controlen, lo que no es un procedimiento recomendado.
+> Los clientes que quieran usar la asignación de certificados para mejorar la seguridad de sus aplicaciones deben usar un nombre de dominio personalizado y el certificado que administran, no el predeterminado. Los clientes que asignen el certificado predeterminado en su lugar tendrán una gran dependencia de las propiedades del certificado que no controlen, lo que no es un procedimiento recomendado.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -73,7 +73,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
     > Se recomienda usar Azure Key Vault para administrar certificados y configurarlos para la rotación automática.
     > Si usa Azure Key Vault para administrar el certificado SSL de dominio personalizado, asegúrese de que el certificado se inserta en Key Vault [como un _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), no como un _secreto_.
     >
-    > Para obtener un certificado SSL, API Management debe tener la lista de permisos y obtener los permisos de secretos en la instancia de Key Vault que contiene el certificado. Cuando se usa Azure Portal, todos los pasos de configuración necesarios se realizarán automáticamente. Cuando se usan las herramientas de línea de comandos o API Management, estos permisos se deben conceder manualmente. Para ello, debe realizar dos pasos. En primer lugar, use la página de identidades administradas de la instancia de API Management para asegurarse de que está habilitada la identidad administrada, y anote el identificador de la entidad que se muestra en esa página. En segundo lugar, proporcione la lista de permisos y obtenga los permisos de secretos de este identificador de entidad en la instancia de Azure Key Vault que contiene el certificado.
+    > Para capturar un certificado SSL, API Management debe tener la lista y obtener los permisos de secretos en la instancia de Azure Key Vault que contiene el certificado. Cuando se usa Azure Portal, todos los pasos de configuración necesarios se realizarán automáticamente. Cuando se usan las herramientas de línea de comandos o API Management, estos permisos se deben conceder manualmente. Para ello, debe realizar dos pasos. En primer lugar, use la página de identidades administradas de la instancia de API Management para asegurarse de que está habilitada la identidad administrada, y anote el identificador de la entidad que se muestra en esa página. En segundo lugar, proporcione la lista de permisos y obtenga los permisos de secretos de este identificador de entidad en la instancia de Azure Key Vault que contiene el certificado.
     >
     > Si el certificado está establecido para rotar automáticamente, API Management seleccionará automáticamente la versión más reciente sin tiempo de inactividad para el servicio (si el plan de API Management tiene SLA en todos los planes, excepto el plan de desarrollador).
 

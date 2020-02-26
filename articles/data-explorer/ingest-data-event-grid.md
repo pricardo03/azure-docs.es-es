@@ -1,18 +1,18 @@
 ---
 title: Ingesta de blobs de Azure en Azure Data Explorer
 description: En este artículo, aprenderá a enviar datos de la cuenta de almacenamiento a Azure Data Explorer mediante una suscripción de Event Grid.
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da701dc91781ef72c29e6454e79523073810dbe4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667478"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424990"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingesta de blobs en Azure Data Explorer mediante la suscripción a las notificaciones de Event Grid
 
@@ -26,9 +26,9 @@ Azure Data Explorer es un servicio de exploración de datos escalable y rápido 
 
 En este artículo, obtendrá información sobre cómo configurar una suscripción a [Azure Event Grid](/azure/event-grid/overview) para enrutar eventos a Azure Data Explorer mediante un centro de eventos. Para empezar, debe tener una cuenta de almacenamiento con una suscripción de Event Grid que envíe notificaciones a Azure Event Hubs. Después, podrá crear una conexión de datos de Event Grid y ver el flujo de datos por el sistema.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Cree una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Cree una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 * [Un clúster y una base de datos](create-cluster-database-portal.md).
 * [Una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 * [Un centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
@@ -44,7 +44,7 @@ En este artículo, obtendrá información sobre cómo configurar una suscripció
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | NOMBRE | *test-grid-connection* | Nombre de la instancia de Event Grid que desea crear.|
+    | Nombre | *test-grid-connection* | Nombre de la instancia de Event Grid que desea crear.|
     | Esquema de eventos | *Esquema de Event Grid* | Esquema que se debe usar para la instancia de Event Grid. |
     | Tipo de tema | *Cuenta de almacenamiento* | Tipo de tema de la cuadrícula de eventos. |
     | Recurso de tema | *gridteststorage* | El nombre de la cuenta de almacenamiento. |
@@ -157,6 +157,11 @@ Guarde los datos en un archivo y cárguelo con este script:
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Azure Data Explorer no eliminará los blobs con posterioridad a la ingesta.
+> Conserve los blobs de tres a cinco días.
+> Use [Administración del ciclo de vida de Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) para administrar la eliminación de blobs. 
 
 ## <a name="review-the-data-flow"></a>Revisión del flujo de datos
 

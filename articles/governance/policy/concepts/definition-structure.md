@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169765"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462009"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -111,6 +111,12 @@ Un parámetro tiene las siguientes propiedades que se usan en la definición de 
 - `metadata`: Define las subpropiedades que usa principalmente Azure Portal para mostrar información intuitiva:
   - `description`: La explicación de para qué se usa el parámetro. Puede utilizarse para proporcionar ejemplos de valores aceptables.
   - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
+  - `version`: (opcional) realiza el seguimiento de los detalles sobre la versión del contenido de una definición de directiva.
+
+    > [!NOTE]
+    > El servicio Azure Policy usa las propiedades `version`, `preview` y `deprecated` para transmitir el nivel de cambio a una definición o iniciativa de directiva integradas y el estado. El formato de `version` es: `{Major}.{Minor}.{Patch}`. Determinados estados, como _en desuso_ o _versión preliminar_, están anexados a la propiedad `version` o están en otra propiedad como **booleano**.
+
+  - `category`: (opcional) determina en qué categoría de Azure Portal se muestra la definición de directiva.
   - `strongType`: (Opcional) Se usa al asignar la definición de directiva mediante el portal. Proporciona una lista que tiene en cuenta el contexto. Para más información, consulte [strongType](#strongtype).
   - `assignPermissions`: (Opcional) Establecer como _true_ para que Azure Portal cree asignaciones de roles durante la asignación de directivas. Esta propiedad es útil en caso de que desee asignar permisos fuera del ámbito de asignación. Hay una asignación de roles por cada definición de roles de la directiva (o por cada definición de roles de todas las directivas de la iniciativa). El valor del parámetro debe ser un recurso o un ámbito válidos.
 - `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor.

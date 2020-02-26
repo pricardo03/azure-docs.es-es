@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: b0b5147faf82fedb6dc3c2eea54dcff1b9343f7a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77088936"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370683"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configuración de PureCloud by Genesis para el aprovisionamiento automático de usuarios
 
@@ -90,7 +90,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba la dirección URL de la API de PureCloud by Genesys y el token de OAuth en los campos **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a PureCloud by Genesys. Si la conexión no se establece, asegúrese de que la cuenta de PureCloud by Genesys tiene permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba la dirección URL de la API de PureCloud by Genesys y el token de OAuth en los campos **URL de inquilino** y **Token secreto** respectivamente. La dirección URL de la API se estructurará como `{{API Url}}/api/v2/scim/v2`, mediante la dirección URL de la API de la región PureCloud del [Centro para desarrolladores de PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a PureCloud by Genesys. Si la conexión no se establece, asegúrese de que la cuenta de PureCloud by Genesys tiene permisos de administrador y pruebe otra vez.
 
     ![Aprovisionamiento](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 

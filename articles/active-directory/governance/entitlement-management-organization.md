@@ -16,12 +16,12 @@ ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1ecf3a8819518c674a3d8bd7af55d1a3c6393c42
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548907"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483863"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -96,6 +96,23 @@ Siga estos pasos para agregar un directorio o dominio externo de Azure AD como o
 1. En la pestaña **Revisar + crear**, revise la configuración de la organización y luego haga clic en **Crear**.
 
     ![Paquete de acceso: directiva: agregar organización conectada: pestaña Revisar + crear](./media/entitlement-management-organization/organization-review-create.png)
+
+## <a name="update-a-connected-organization"></a>Actualización de una organización conectada 
+
+Si la organización conectada cambia a un dominio diferente (si tiene un nombre nuevo para esa organización) o desea cambiar los patrocinadores, puede actualizarla.
+
+**Rol necesario:** Administrador global, administrador de usuarios o invitador de usuarios invitados
+
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
+
+1. En el menú de la izquierda, haga clic en **Organizaciones conectadas**, luego haga clic en una organización conectada para abrirla.
+
+1. En la página Información general, haga clic en **Editar** para cambiar el nombre o la descripción de la organización.  
+
+1. En la página Directorio y dominio, haga clic en **Actualizar directorio y dominio** para cambiar a un dominio o directorio diferentes.
+
+1. En la página Patrocinadores, haga clic en **Agregar patrocinadores internos** o **Agregar patrocinadores externos** para agregar un usuario como patrocinador.  Para quitar un patrocinador, haga clic en el patrocinador y, en el menú de la derecha, haga clic en **Eliminar**.
+
 
 ## <a name="delete-a-connected-organization"></a>Eliminar una organización conectada
 

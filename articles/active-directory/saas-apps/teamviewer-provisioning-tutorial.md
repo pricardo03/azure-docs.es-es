@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0602757fad0eb4424e10fb0c1cf0272826ed0024
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: dc33cf9249a5b804ef46e75ff1822eaa5c6f9d6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150704"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366437"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: Configuración de TeamViewer para el aprovisionamiento automático de usuarios
 
@@ -101,7 +101,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba las credenciales de administrador y el nombre de usuario de TeamViewer. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a TeamViewer. Si la conexión no se establece, asegúrese de que la cuenta de TeamViewer tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `ttps://webapi.teamviewer.com/scim/v2` en el campo **Tentant URL** (URL de inquilino) y especifique el token de script creado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a TeamViewer. Si la conexión no se establece, asegúrese de que la cuenta de TeamViewer tiene permisos de administrador y pruebe de nuevo.
 
     ![Aprovisionamiento](./media/teamViewer-provisioning-tutorial/provisioning.png)
 

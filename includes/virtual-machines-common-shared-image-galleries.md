@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a028a0b5d79b2c79f1da336f033d3e8cac21a2e2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021202"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474244"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
 
@@ -93,16 +93,16 @@ Las regiones de origen se muestran en la tabla siguiente. Todas las regiones pú
 
 | Regiones de origen        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
-| Centro de Australia     | Este de China        | Sur de la India        | Europa occidental        |
-| Centro de Australia 2   | Este de China 2      | Sudeste asiático     | Sur de Reino Unido 2           |
-| Este de Australia        | Norte de China       | Este de Japón         | Oeste de Reino Unido            |
-| Sudeste de Australia   | Norte de China 2     | Oeste de Japón         | Departamento de Defensa de EE. UU. Centro     |
-| Sur de Brasil          | Asia oriental         | Corea Central      | Departamento de Defensa de EE. UU. Este        |
-| Centro de Canadá        | East US           | Corea del Sur        | Gobierno de EE. UU.: Arizona     |
-| Este de Canadá           | Este de EE. UU. 2         | Centro-Norte de EE. UU   | Gobierno de EE. UU.: Texas       |
-| India Central         | EUAP de Este de EE. UU. 2    | Europa del Norte       | Gobierno de EE. UU. - Virginia    |
-| Centro de EE. UU.            | Centro de Francia    | Centro-Sur de EE. UU   | Oeste de la India         |
-| EUAP del centro de EE. UU.       | Sur de Francia      | Centro occidental de EE.UU.    | Oeste de EE. UU.            |
+| Centro de Australia     | Este de China        | Sur de la India        | Oeste de Europa        |
+| Centro de Australia 2   | Este de China 2      | Sudeste de Asia     | Sur de Reino Unido 2           |
+| Este de Australia        | Norte de China       | Japón Oriental         | Oeste de Reino Unido            |
+| Sudeste de Australia   | Norte de China 2     | Japón Occidental         | US DoD (centro)     |
+| Sur de Brasil          | Este de Asia         | Centro de Corea del Sur      | US DoD (este)        |
+| Centro de Canadá        | Este de EE. UU.           | Corea del Sur        | US Gov: Arizona     |
+| Este de Canadá           | Este de EE. UU. 2         | Centro-Norte de EE. UU   | US Gov Texas       |
+| Centro de la India         | EUAP de Este de EE. UU. 2    | Norte de Europa       | US Gov - Virginia    |
+| Centro de EE. UU.            | Centro de Francia    | Centro-sur de EE. UU.   | Oeste de la India         |
+| EUAP del centro de EE. UU.       | Sur de Francia      | Centro-Oeste de EE. UU.    | Oeste de EE. UU.            |
 |                       |                   |                    | Oeste de EE. UU. 2          |
 
 
@@ -151,7 +151,7 @@ Dado que la galería de imágenes compartidas, la definición de la imagen y la 
 | Compartido con el usuario     | Galería de imágenes compartidas | Definición de imágenes | Versión de la imagen |
 |----------------------|----------------------|--------------|----------------------|
 | Galería de imágenes compartidas | Sí                  | Sí          | Sí                  |
-| Definición de imágenes     | No                   | Sí          | Sí                  |
+| Definición de imágenes     | Sin                   | Sí          | Sí                  |
 
 Se recomienda el uso compartido en el nivel de la galería para una mejor experiencia. No se recomienda compartir las versiones individuales de la imagen. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -159,7 +159,7 @@ Las imágenes también se pueden compartir, a escala, incluso entre inquilinos m
 
 ## <a name="billing"></a>Facturación
 No hay ningún cargo adicional por usar el servicio de la galería de imágenes compartidas. Se le cobrará por los siguientes recursos:
-- Costos de almacenamiento de las versiones de imágenes compartidas. El costo depende del número de réplicas de la versión de la imagen y del número de regiones en las que se replique la versión. Por ejemplo, si tiene dos imágenes y ambas se replican en tres regiones, entonces se le cambiará por seis discos administrados según su tamaño. Para más información, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Costos de almacenamiento de las versiones de imágenes compartidas. El costo depende del número de réplicas de la versión de la imagen y del número de regiones en las que se replique la versión. Por ejemplo, si tiene dos imágenes y ambas se replican en tres regiones, se le cobrará entonces por seis discos administrados según su tamaño. Para más información, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Cargos de salida de red para la replicación de la primera versión de la imagen desde la región de origen a las regiones replicadas. Las réplicas subsiguientes se tratan dentro de la región, por lo que no habrá ningún cargo adicional. 
 
 ## <a name="updating-resources"></a>Actualización de recursos

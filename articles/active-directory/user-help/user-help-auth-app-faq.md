@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 02/18/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3df7e772ea88a7a58780f08ff20f44d50f01c336
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f15e92f5e98c047fc5ed481968674370cf222a16
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063890"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443625"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -52,6 +52,7 @@ La aplicación Microsoft Authenticator reemplaza la aplicación Azure Authentica
 | ¿Por qué recibo notificaciones acerca de la actividad de mi cuenta? | Para mantenerle informado de lo que sucede en su cuenta Microsoft personal, enviamos notificaciones de actividad a la aplicación Microsoft Authenticator. Dichas notificaciones aparecen inmediatamente después de cualquier cambio, lo que ayuda a que disfrute de mayor seguridad. Anteriormente estas notificaciones se enviaban a través de correo electrónico y SMS, pero ahora se incluye también la aplicación. Para más información acerca de estas notificaciones de actividad, consulte [¿Qué sucede si se produce un inicio de sesión inusual en tu cuenta?](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Para cambiar la ubicación donde recibe las notificaciones, inicie sesión en la página [¿Dónde podemos enviarle alertas no críticas de la cuenta?](https://account.live.com/SecurityNotifications/Update) de la cuenta. |
 | Al iniciar sesión en mi cuenta profesional o educativa con la aplicación predeterminada de correo electrónico que viene con iOS, la aplicación Microsoft Authenticator solicita la información de comprobación de seguridad. Después de escribir esa información y volver a la aplicación de correo, aparece un error. ¿Qué puedo hacer? | Esto suele ocurrir porque el inicio de sesión y la aplicación de correo se producen en dos aplicaciones diferentes, lo que hace que el proceso de inicio de sesión en segundo plano inicial deje de funcionar y se produzca un error. Para intentar solucionar este error, se recomienda seleccionar el icono **Safari** en la parte inferior derecha de la pantalla mientras se inicia sesión en la aplicación de correo. Al pasar a Safari, todo el proceso de inicio de sesión se produce en una sola aplicación, lo que le permite iniciar sesión correctamente en la aplicación. |
 | Los códigos de contraseña de un solo uso (OTP) no funcionan. ¿Cuál debo hacer? | Asegúrese de que la fecha y la hora del dispositivo sean correctas y se estén sincronizando automáticamente. Si la fecha y la hora son incorrectas o no están sincronizadas, el código no funcionará. |
+| El sistema operativo Windows 10 Mobile quedó en desuso en diciembre de 2019. ¿Quedará en desuso también Microsoft Authenticator en sistemas operativos Windows Mobile? | La aplicación Microsoft Authenticator dejará de admitirse en todos los sistemas operativos Windows Mobile después del 28 de febrero de 2020. Los usuarios no podrán recibir nuevas actualizaciones de la aplicación después de la fecha mencionada. Después del 28 de febrero de 2020, los servicios de Microsoft que actualmente admiten autenticaciones con Microsoft Authenticator en todos los sistemas operativos Windows Mobile comenzarán a retirar su soporte técnico. Para autenticarse en los servicios de Microsoft, se recomienda firmemente a todos los usuarios que cambien a un mecanismo de autenticación alternativo antes de esta fecha. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

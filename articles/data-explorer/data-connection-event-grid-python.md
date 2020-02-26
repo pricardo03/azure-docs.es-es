@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 9cf65edc3bdd5f675ba1972501139b9ecebcfafd
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1439383598517f57bc77e718d4ded7f53941d3bb
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964403"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444203"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>Creación de una conexión de datos de Event Grid para Azure Data Explorer con Python
 
@@ -22,15 +22,21 @@ ms.locfileid: "76964403"
 > * [Python](data-connection-event-grid-python.md)
 > * [Plantilla de Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer permite ingerir (cargar) datos procedentes de Event Hubs, IoT Hubs y blobs escritos en contenedores de blobs. En este artículo, va a crear una conexión de datos de Event Grid para Azure Data Explorer con Python.
+En este artículo, va a crear una conexión de datos de Event Grid para Azure Data Explorer con Python. El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer permite ingerir (cargar) datos procedentes de Event Hubs, IoT Hubs y blobs escritos en contenedores de blobs.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* Cree [un clúster y una base de datos](create-cluster-database-python.md).
-* Cree [una tabla y una asignación de columnas](python-ingest-data.md#create-a-table-on-your-cluster).
-* Establezca [la base de datos y las directivas de tabla](database-table-policies-python.md) (opcional).
-* Cree una [cuenta de almacenamiento con una suscripción de Event Grid](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
+* Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [Un clúster y una base de datos](create-cluster-database-python.md).
+
+* [Asignación de tablas y columnas](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+
+* [Directivas de bases de datos y tablas](database-table-policies-csharp.md) (opcional).
+
+* [Una cuenta de almacenamiento con una suscripción de Event Grid](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 

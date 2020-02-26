@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/29/2020
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: 8b55f31f12ab1057ac2e0f625a0285b6518cc44a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845775"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460474"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -125,11 +125,13 @@ Sí. Sin embargo, es necesario prestar una atención especial al configurar las 
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>¿Azure Firewall aplica SNAT de salida entre redes privadas?
 
-Azure Firewall no aplica SNAT cuando la dirección IP de destino es un intervalo de direcciones IP privadas por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Si su organización usa un intervalo de direcciones IP públicas para las redes privadas, Azure Firewall aplicará SNAT al tráfico para una de las direcciones IP privadas de firewall en AzureFirewallSubnet.
+Azure Firewall no aplica SNAT cuando la dirección IP de destino es un intervalo de direcciones IP privadas por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Si su organización usa un intervalo de direcciones IP públicas para las redes privadas, Azure Firewall aplicará SNAT al tráfico para una de las direcciones IP privadas de firewall en AzureFirewallSubnet. Puede configurar Azure Firewall de modo que **no** aplique SNAT al intervalo de direcciones IP públicas. Para obtener más información, vea [Aplicación de SNAT por parte de Azure Firewall a intervalos de direcciones IP privadas](snat-private-range.md).
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>¿Se admite la tunelización o encadenamiento forzados a una aplicación virtual de red?
 
-La tunelización forzada no se admite actualmente. Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet.
+La tunelización forzada no se admite. Para obtener más información, vea [Tunelización forzada de Azure Firewall (versión preliminar)](forced-tunneling.md). 
+
+Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet.
 
 Si la configuración requiere tunelización forzada a una red local y puede determinar los prefijos de las direcciones IP de destino de los destinos de Internet, puede configurar estos intervalos con la red local como el próximo salto mediante una ruta definida por el usuario en AzureFirewallSubnet. O bien, puede usar BGP para definir estas rutas.
 
@@ -166,7 +168,7 @@ No. Azure Firewall no necesita una subred mayor que /26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>¿Cómo puedo aumentar el rendimiento del firewall?
 
-La capacidad de rendimiento inicial de Azure Firewall es de 2,5-3 Gbps. Actualmente, la escalabilidad horizontal se basa solo en el uso de la CPU. En algunos casos, un firewall con reglas de red no se escala verticalmente para aumentar el rendimiento, ya que las reglas de red no afectan significativamente al uso de la CPU. Si necesita un mayor rendimiento para el firewall, póngase en contacto con el soporte técnico para aumentar la capacidad de rendimiento inicial del firewall.
+La capacidad de rendimiento inicial de Azure Firewall es de 2,5-3 Gbps. Actualmente, la escalabilidad horizontal se basa en el uso de CPU y en el rendimiento. En algunos casos, un firewall con reglas de red no se escala verticalmente para aumentar el rendimiento, ya que las reglas de red no afectan significativamente al uso de la CPU. Si necesita un mayor rendimiento para el firewall, póngase en contacto con el soporte técnico para aumentar la capacidad de rendimiento inicial del firewall.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>¿Cuánto tiempo tarda Azure Firewall en escalar horizontalmente?
 

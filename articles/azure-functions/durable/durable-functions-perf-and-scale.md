@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 15302eb4f89c854210d4fc1aba292c57d4757278
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231346"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486267"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -152,7 +152,7 @@ Azure Functions admite la ejecución de varias funciones simultáneamente dentro
 
 Los límites de simultaneidad de las funciones de actividad, orquestador y entidad se pueden configurar en el archivo **host.json**. La configuración relevante es `durableTask/maxConcurrentActivityFunctions` para las funciones de actividad y `durableTask/maxConcurrentOrchestratorFunctions` para las funciones de orquestador y de entidad.
 
-### <a name="functions-20"></a>Functions 2.0
+### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {
@@ -246,12 +246,12 @@ Si prevé utilizar Durable Functions para una aplicación de producción, es imp
 * **Ejecución de actividad en paralelo**: este escenario describe una función de orquestador que ejecuta numerosas funciones de actividad en paralelo mediante el patrón de [distribución ramificada de entrada/salida](durable-functions-cloud-backup.md).
 * **Procesamiento de respuestas en paralelo**: este escenario es la segunda mitad del patrón de [distribución ramificada de entrada/salida](durable-functions-cloud-backup.md). Se centra en el rendimiento de la distribución ramificada de entrada. Es importante tener en cuenta que, a diferencia de la distribución ramificada de salida, la distribución ramificada de entrada se realiza mediante una única instancia de la función de orquestador y, por lo tanto, solo se puede ejecutar en una sola máquina virtual.
 * **Procesamiento de eventos externos**: este escenario representa una única instancia de la función de orquestador que espera en [eventos externos](durable-functions-external-events.md), uno a uno.
-* **Procesamiento de operaciones de entidad**: En este escenario se prueba la rapidez con la que una _sola_ [entidad Contador](durable-functions-entities.md) puede procesar un flujo constante de operaciones.
+* **Procesamiento de operaciones de entidad**: En este escenario se prueba la rapidez con la que una _sola_[entidad Contador](durable-functions-entities.md) puede procesar un flujo constante de operaciones.
 
 > [!TIP]
 > A diferencia de la distribución ramificada de salida, las operaciones de la distribución ramificada de entrada están limitadas a una sola máquina virtual. Si la aplicación utiliza el patrón de distribución ramificada de entrada/salida, y le preocupa el rendimiento de la distribución ramificada de entrada, considere la posibilidad de subdividir la distribución ramificada de salida de la función de actividad entre varias [suborquestaciones](durable-functions-sub-orchestrations.md).
 
-En la tabla siguiente se muestran las cifras previstas del rendimiento *máximo* para los escenarios descritos anteriormente. "Instancia" hace referencia a una sola instancia de una función de orquestador que se ejecuta en una única y pequeña máquina virtual ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) de Azure App Service. En todos los casos, se supone que las [sesiones extendidas](#orchestrator-function-replay) están habilitadas. Los resultados reales pueden variar según el trabajo de CPU o de E/S realizado por el código de la función.
+En la tabla siguiente se muestran las cifras previstas del rendimiento *máximo* para los escenarios descritos anteriormente. "Instancia" hace referencia a una sola instancia de una función de orquestador que se ejecuta en una única y pequeña máquina virtual ([A1](../../virtual-machines/sizes-previous-gen.md)) de Azure App Service. En todos los casos, se supone que las [sesiones extendidas](#orchestrator-function-replay) están habilitadas. Los resultados reales pueden variar según el trabajo de CPU o de E/S realizado por el código de la función.
 
 | Escenario | Rendimiento máximo |
 |-|-|
