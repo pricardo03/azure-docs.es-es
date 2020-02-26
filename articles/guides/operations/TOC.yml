@@ -21,7 +21,7 @@
         - name: Azure Stack
           items:
             - name: Introducción a la implementación de Azure Stack
-              href: ../../azure-stack/azure-stack-deploy-overview.md
+              href: /azure-stack/asdk/asdk-download
         - name: Azure Backup
           items:
             - name: Copia de seguridad de una máquina virtual en Azure Portal
@@ -39,7 +39,7 @@
             - name: Creación y administración de máquinas virtuales Linux
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Canalizaciones de integración y entrega continuas de Jenkins
-              href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Equilibrio de carga de máquinas virtuales
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Creación de plantillas del Administrador de recursos de Azure
